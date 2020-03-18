@@ -83,7 +83,16 @@ public class RSMineshaftStructure extends Structure<RSMineshaftConfig>
 
 			structuremineshaftpiecesua$room.buildComponent(structuremineshaftpiecesua$room, this.components, this.rand);
 			this.recalculateStructureSize();
-            this.func_214628_a(generator.getSeaLevel(), this.rand, 10);
+            
+			if(this.type == Type.END)
+			{
+				this.func_214626_a(this.rand, 30, 40);
+			}
+			else
+			{
+				this.func_214628_a(generator.getSeaLevel(), this.rand, 10);
+			}
+            
 		}
 	}
 
