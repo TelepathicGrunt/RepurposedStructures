@@ -814,9 +814,6 @@ public class RSStrongholdPieces
 
 	public static class PortalRoom extends RSStrongholdPieces.Stronghold
 	{
-		private boolean hasSpawner;
-
-
 		public PortalRoom(int p_i50131_1_, MutableBoundingBox p_i50131_2_, Direction p_i50131_3_)
 		{
 			super(StructurePieces.SHPRRS, p_i50131_1_);
@@ -828,7 +825,6 @@ public class RSStrongholdPieces
 		public PortalRoom(TemplateManager p_i50132_1_, CompoundNBT p_i50132_2_)
 		{
 			super(StructurePieces.SHPRRS, p_i50132_2_);
-			this.hasSpawner = p_i50132_2_.getBoolean("Mob");
 		}
 
 
@@ -839,7 +835,6 @@ public class RSStrongholdPieces
 		protected void readAdditional(CompoundNBT tagCompound)
 		{
 			super.readAdditional(tagCompound);
-			tagCompound.putBoolean("Mob", this.hasSpawner);
 		}
 
 
@@ -940,21 +935,17 @@ public class RSStrongholdPieces
 				this.setBlockState(world, iblockstate5, 6, 3, 11, structureBoundingBoxIn);
 			}
 
-			if (!this.hasSpawner)
+			i = this.getYWithOffset(3);
+			BlockPos blockpos = new BlockPos(this.getXWithOffset(5, 6), i, this.getZWithOffset(5, 6));
+
+			if (structureBoundingBoxIn.isVecInside(blockpos))
 			{
-				i = this.getYWithOffset(3);
-				BlockPos blockpos = new BlockPos(this.getXWithOffset(5, 6), i, this.getZWithOffset(5, 6));
+				world.setBlockState(blockpos, Blocks.SPAWNER.getDefaultState(), 2);
+				TileEntity tileentity = world.getTileEntity(blockpos);
 
-				if (structureBoundingBoxIn.isVecInside(blockpos))
+				if (tileentity instanceof MobSpawnerTileEntity)
 				{
-					this.hasSpawner = true;
-					world.setBlockState(blockpos, Blocks.SPAWNER.getDefaultState(), 2);
-					TileEntity tileentity = world.getTileEntity(blockpos);
-
-					if (tileentity instanceof MobSpawnerTileEntity)
-					{
-						((MobSpawnerTileEntity) tileentity).getSpawnerBaseLogic().setEntityType(EntityType.SILVERFISH);
-					}
+					((MobSpawnerTileEntity) tileentity).getSpawnerBaseLogic().setEntityType(EntityType.SILVERFISH);
 				}
 			}
 
@@ -1081,7 +1072,6 @@ public class RSStrongholdPieces
 	public static class RoomCrossing extends RSStrongholdPieces.Stronghold
 	{
 		protected int roomType;
-		private boolean hasSpawner = false;
 
 
 		public RoomCrossing(int p_i45575_1_, Random p_i45575_2_, MutableBoundingBox p_i45575_3_, Direction p_i45575_4_)
@@ -1136,33 +1126,30 @@ public class RSStrongholdPieces
 			this.fillWithBlocks(world, structureBoundingBoxIn, 4, 1, 10, 6, 3, 10, Blocks.AIR.getDefaultState(), Blocks.AIR.getDefaultState(), false);
 			this.fillWithBlocks(world, structureBoundingBoxIn, 0, 1, 4, 0, 3, 6, Blocks.AIR.getDefaultState(), Blocks.AIR.getDefaultState(), false);
 			this.fillWithBlocks(world, structureBoundingBoxIn, 10, 1, 4, 10, 3, 6, Blocks.AIR.getDefaultState(), Blocks.AIR.getDefaultState(), false);
-
+			BlockPos blockpos;
+			
 			switch (this.roomType)
 			{
 				case 0:
 
-					if (!this.hasSpawner)
+					blockpos = new BlockPos(this.getXWithOffset(5, 5), this.getYWithOffset(1), this.getZWithOffset(5, 5));
+
+					if (structureBoundingBoxIn.isVecInside(blockpos))
 					{
-						BlockPos blockpos = new BlockPos(this.getXWithOffset(5, 5), this.getYWithOffset(1), this.getZWithOffset(5, 5));
 
-						if (structureBoundingBoxIn.isVecInside(blockpos))
+						if (RSConfig.allowExtraSilverfishSpawnerSH)
 						{
-							this.hasSpawner = true;
+							world.setBlockState(blockpos, Blocks.SPAWNER.getDefaultState(), 2);
+							TileEntity tileentity = world.getTileEntity(blockpos);
 
-							if (RSConfig.allowExtraSilverfishSpawnerSH)
+							if (tileentity instanceof MobSpawnerTileEntity)
 							{
-								world.setBlockState(blockpos, Blocks.SPAWNER.getDefaultState(), 2);
-								TileEntity tileentity = world.getTileEntity(blockpos);
-
-								if (tileentity instanceof MobSpawnerTileEntity)
-								{
-									((MobSpawnerTileEntity) tileentity).getSpawnerBaseLogic().setEntityType(EntityType.SILVERFISH);
-								}
+								((MobSpawnerTileEntity) tileentity).getSpawnerBaseLogic().setEntityType(EntityType.SILVERFISH);
 							}
-							else
-							{
-								world.setBlockState(blockpos, Blocks.STONE_BRICKS.getDefaultState(), 2);
-							}
+						}
+						else
+						{
+							world.setBlockState(blockpos, Blocks.STONE_BRICKS.getDefaultState(), 2);
 						}
 					}
 
@@ -1194,33 +1181,24 @@ public class RSStrongholdPieces
 					this.setBlockState(world, Blocks.STONE_BRICKS.getDefaultState(), 5, 2, 5, structureBoundingBoxIn);
 					this.setBlockState(world, Blocks.STONE_BRICKS.getDefaultState(), 5, 3, 5, structureBoundingBoxIn);
 
-					if (!this.hasSpawner)
+					blockpos = new BlockPos(this.getXWithOffset(5, 5), this.getYWithOffset(1), this.getZWithOffset(5, 5));
+
+					if (structureBoundingBoxIn.isVecInside(blockpos))
 					{
-						BlockPos blockpos = new BlockPos(this.getXWithOffset(5, 5), this.getYWithOffset(1), this.getZWithOffset(5, 5));
-
-						if (structureBoundingBoxIn.isVecInside(blockpos))
+						if (RSConfig.allowExtraSilverfishSpawnerSH)
 						{
-							this.hasSpawner = true;
+							world.setBlockState(blockpos, Blocks.SPAWNER.getDefaultState(), 2);
+							TileEntity tileentity = world.getTileEntity(blockpos);
 
-							if (RSConfig.allowExtraSilverfishSpawnerSH)
+							if (tileentity instanceof MobSpawnerTileEntity)
 							{
-								world.setBlockState(blockpos, Blocks.SPAWNER.getDefaultState(), 2);
-								TileEntity tileentity = world.getTileEntity(blockpos);
-
-								if (tileentity instanceof MobSpawnerTileEntity)
-								{
-									((MobSpawnerTileEntity) tileentity).getSpawnerBaseLogic().setEntityType(EntityType.SILVERFISH);
-								}
-							}
-							else
-							{
-								world.setBlockState(blockpos, Blocks.STONE_BRICKS.getDefaultState(), 2);
+								((MobSpawnerTileEntity) tileentity).getSpawnerBaseLogic().setEntityType(EntityType.SILVERFISH);
 							}
 						}
-					}
-					else
-					{
-						this.setBlockState(world, Blocks.STONE_BRICKS.getDefaultState(), 5, 1, 5, structureBoundingBoxIn);
+						else
+						{
+							world.setBlockState(blockpos, Blocks.STONE_BRICKS.getDefaultState(), 2);
+						}
 					}
 
 					this.setBlockState(world, Blocks.WATER.getDefaultState(), 5, 4, 5, structureBoundingBoxIn);
@@ -1258,28 +1236,24 @@ public class RSStrongholdPieces
 						this.setBlockState(world, Blocks.COBBLESTONE.getDefaultState(), 6, k, 6, structureBoundingBoxIn);
 					}
 
-					if (!this.hasSpawner)
+					blockpos = new BlockPos(this.getXWithOffset(5, 5), this.getYWithOffset(1), this.getZWithOffset(5, 5));
+
+					if (structureBoundingBoxIn.isVecInside(blockpos))
 					{
-						BlockPos blockpos = new BlockPos(this.getXWithOffset(5, 5), this.getYWithOffset(1), this.getZWithOffset(5, 5));
 
-						if (structureBoundingBoxIn.isVecInside(blockpos))
+						if (RSConfig.allowExtraSilverfishSpawnerSH)
 						{
-							this.hasSpawner = true;
+							world.setBlockState(blockpos, Blocks.SPAWNER.getDefaultState(), 2);
+							TileEntity tileentity = world.getTileEntity(blockpos);
 
-							if (RSConfig.allowExtraSilverfishSpawnerSH)
+							if (tileentity instanceof MobSpawnerTileEntity)
 							{
-								world.setBlockState(blockpos, Blocks.SPAWNER.getDefaultState(), 2);
-								TileEntity tileentity = world.getTileEntity(blockpos);
-
-								if (tileentity instanceof MobSpawnerTileEntity)
-								{
-									((MobSpawnerTileEntity) tileentity).getSpawnerBaseLogic().setEntityType(EntityType.SILVERFISH);
-								}
+								((MobSpawnerTileEntity) tileentity).getSpawnerBaseLogic().setEntityType(EntityType.SILVERFISH);
 							}
-							else
-							{
-								world.setBlockState(blockpos, Blocks.AIR.getDefaultState(), 2);
-							}
+						}
+						else
+						{
+							world.setBlockState(blockpos, Blocks.AIR.getDefaultState(), 2);
 						}
 					}
 

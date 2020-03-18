@@ -92,7 +92,7 @@ public class DungeonSwamp extends Feature<NoFeatureConfig>
 
 						if(y == 4)
 						{
-							if (rand.nextInt(4) != 0)
+							if (rand.nextInt(8) != 0)
 							{
 								world.setBlockState(blockpos$Mutable, Blocks.MOSSY_STONE_BRICKS.getDefaultState(), 2);
 							}

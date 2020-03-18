@@ -342,7 +342,7 @@ public class RSMineshaftPieces
 			else
 			{
 				int i1 = this.sectionCount * 5 - 1;
-				BlockState iblockstate = this.getPlanksBlock();
+				BlockState iblockstate = this.getFloorBlock();
 				this.fillWithBlocks(world, MutableBoundingBoxIn, 0, 0, 0, 2, 1, i1, CAVE_AIR, CAVE_AIR, false);
 				this.generateMaybeBox(world, MutableBoundingBoxIn, random, 0.8F, 0, 2, 0, 2, 2, i1, CAVE_AIR, CAVE_AIR, false, false);
 
@@ -436,10 +436,10 @@ public class RSMineshaftPieces
 		private void placeSupport(IWorld world, MutableBoundingBox boundingBox, int x, int y2, int z, int y, int x2, Random random)
 		{
 
-			BlockState iblockstate = this.getArchBlock();
+			BlockState iblockstate = this.getArchTopBlock();
 			BlockState iblockstate2 = CAVE_AIR;
-			this.fillWithBlocks(world, boundingBox, x, y2, z, x, y - 1, z, this.getFenceBlock(random), iblockstate2, false);
-			this.fillWithBlocks(world, boundingBox, x2, y2, z, x2, y - 1, z, this.getFenceBlock(random), iblockstate2, false);
+			this.fillWithBlocks(world, boundingBox, x, y2, z, x, y - 1, z, this.getArchSupportBlock(random), iblockstate2, false);
+			this.fillWithBlocks(world, boundingBox, x2, y2, z, x2, y - 1, z, this.getArchSupportBlock(random), iblockstate2, false);
 			this.fillWithBlocks(world, boundingBox, x, y, z, x2, y, z, iblockstate, iblockstate2, false);
 
 			if (this.mineShaftType == Type.END)
@@ -640,7 +640,7 @@ public class RSMineshaftPieces
 			}
 			else
 			{
-				BlockState iblockstate = this.getPlanksBlock();
+				BlockState iblockstate = this.getFloorBlock();
 
 				if (this.isMultipleFloors)
 				{
@@ -681,7 +681,7 @@ public class RSMineshaftPieces
 		{
 			if (this.getBlockStateFromPos(p_189923_1_, p_189923_3_, p_189923_6_ + 1, p_189923_5_, p_189923_2_).getMaterial() != Material.AIR)
 			{
-				this.fillWithBlocks(p_189923_1_, p_189923_2_, p_189923_3_, p_189923_4_, p_189923_5_, p_189923_3_, p_189923_6_, p_189923_5_, this.getPlanksBlock() == Blocks.GRASS_BLOCK.getDefaultState() ? Blocks.MOSSY_STONE_BRICKS.getDefaultState() : this.getPlanksBlock(), CAVE_AIR, false);
+				this.fillWithBlocks(p_189923_1_, p_189923_2_, p_189923_3_, p_189923_4_, p_189923_5_, p_189923_3_, p_189923_6_, p_189923_5_, this.getFloorBlock() == Blocks.GRASS_BLOCK.getDefaultState() ? Blocks.MOSSY_STONE_BRICKS.getDefaultState() : this.getFloorBlock(), CAVE_AIR, false);
 			}
 		}
 	}
@@ -715,7 +715,7 @@ public class RSMineshaftPieces
 		}
 
 
-		protected BlockState getArchBlock()
+		protected BlockState getArchTopBlock()
 		{
 			switch (this.mineShaftType)
 			{
@@ -759,13 +759,12 @@ public class RSMineshaftPieces
 		// cannot be a rotatable block
 		// The crossing part has a null rotation and will try to force it on the
 		// rotatable block which will cause a crash
-		protected BlockState getPlanksBlock()
+		protected BlockState getFloorBlock()
 		{
 			switch (this.mineShaftType)
 			{
 				case ICEY:
 					return Blocks.ICE.getDefaultState();
-
 
 				case JUNGLE:
 					return Blocks.JUNGLE_PLANKS.getDefaultState();
@@ -801,7 +800,7 @@ public class RSMineshaftPieces
 		}
 
 
-		protected BlockState getFenceBlock(Random random)
+		protected BlockState getArchSupportBlock(Random random)
 		{
 			switch (this.mineShaftType)
 			{
@@ -978,9 +977,17 @@ public class RSMineshaftPieces
 			{
 				flooring = Blocks.SOUL_SAND.getDefaultState();
 			}
+			else if(this.mineShaftType == RSMineshaftStructure.Type.END)
+			{
+				flooring = Blocks.END_STONE_BRICKS.getDefaultState();
+			}
+			else if(this.mineShaftType == RSMineshaftStructure.Type.OCEAN)
+			{
+				flooring = Blocks.CLAY.getDefaultState();
+			}
 			else
 			{
-				flooring = Blocks.COARSE_DIRT.getDefaultState();
+				flooring = getFloorBlock().getMaterial() == Material.WOOD ? Blocks.COARSE_DIRT.getDefaultState() : getFloorBlock();
 			}
 
 			if (this.boundingBox.getYSize() > 100)
