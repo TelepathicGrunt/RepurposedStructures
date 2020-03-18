@@ -48,24 +48,24 @@ public class RSConfig
 	public static boolean lootChestsMS = true;
 	public static int mineshaftSpawnrate = 40;
 	public static boolean addMineshaftsToModdedBiomes = false;
-	public static boolean birchMineshafts;
-	public static boolean jungleMineshafts;
-	public static boolean desertMineshafts;
-	public static boolean stoneMineshafts;
-	public static boolean savannaMineshafts;
-	public static boolean icyMineshafts;
-	public static boolean oceanMineshafts;
-	public static boolean taigaMineshafts;
-	public static boolean swampAndDarkForestMineshafts;
-	public static boolean endMineshafts;
-	public static boolean netherMineshafts;
+	public static boolean birchMineshafts = true;
+	public static boolean jungleMineshafts = true;
+	public static boolean desertMineshafts = true;
+	public static boolean stoneMineshafts = true;
+	public static boolean savannaMineshafts = true;
+	public static boolean icyMineshafts = true;
+	public static boolean oceanMineshafts = true;
+	public static boolean taigaMineshafts = true;
+	public static boolean swampAndDarkForestMineshafts = true;
+	public static boolean endMineshafts = true;
+	public static boolean netherMineshafts = true;
 	
 	public static int strongholdSpawnrate = 62;
 	public static double silverfishSpawnrateSH = 0.8D;
 	public static boolean allowExtraSilverfishSpawnerSH = true;
 	public static boolean lootChestsSH = true;
 	
-	public static int jungleFortressSpawnrate = 14;
+	public static int jungleFortressSpawnrate = 16;
 	public static double silverfishSpawnrateJF = 0.5D;
 	public static boolean allowSilverfishSpawnerJF = true;
 	public static boolean lootChestsJF = true;
@@ -125,7 +125,7 @@ public class RSConfig
 					addDungeonsToModdedBiomes = builder
 							.comment("\r\n Add the custom dungeons to modded biomes of the same categories/type.")
 						.translation("repurposedstructures.config.feature.dungeons.adddungeonstomoddedbiomes")
-						.define("addDungeonsToModdedBiomes", true);
+						.define("addDungeonsToModdedBiomes", false);
 				
 					badlandsDungeons = builder
 							.comment("\r\n Replace vanilla dungeon in Badlands biomes with Badlands themed dungeon.")
@@ -179,7 +179,7 @@ public class RSConfig
 					addMiscToModdedBiomes = builder
 							.comment("\r\n Add the custom features to modded biomes of the same categories/type.")
 						.translation("repurposedstructures.config.feature.dungeons.addmisctomoddedbiomes")
-						.define("addMiscToModdedBiomes", true);
+						.define("addMiscToModdedBiomes", false);
 
 					boulderTiny = builder
 							.comment("\r\n Adds tiny boulders to Taiga Mountains and Snowy Taiga Mountains biomes "
@@ -222,7 +222,7 @@ public class RSConfig
 					addMineshaftsToModdedBiomes = builder
 							.comment("\r\n Add the custom Mineshafts to modded biomes of the same categories/type.")
 						.translation("repurposedstructures.config.feature.dungeons.addmineshaftstomoddedbiomes")
-						.define("addMineshaftsToModdedBiomes", true);
+						.define("addMineshaftsToModdedBiomes", false);
 					
 					birchMineshafts = builder
 							.comment("\r\n Replace Mineshafts in Birch biomes with a Birch themed Mineshaft.")
@@ -318,9 +318,9 @@ public class RSConfig
 					jungleFortressSpawnrate = builder
 							.comment("\r\n How rare are Jungle Fortresses." 
 									+ "\n "
-									+ "1 for spawning in most chunks and 101 for no spawn.")
+									+ "1 for spawning in most chunks and 1001 for no spawn.")
 							.translation("repurposedstructures.config.structure.junglefortress.junglefortressspawnrate")
-							.defineInRange("jungleFortressSpawnrate", 14, 1, 1001);
+							.defineInRange("jungleFortressSpawnrate", 16, 1, 1001);
 
 					silverfishSpawnrateJF = builder
 							.comment("\r\n How often Silverfish Blocks will generate in Jungle Fortress as a percentage."
@@ -331,7 +331,8 @@ public class RSConfig
 							.defineInRange("silverfishSpawnrateJF", 0.5D, 0, 100);
 					
 					allowSilverfishSpawnerJF = builder
-							.comment("\r\n Can Silverfish Mob Spawners generate in Stone Fortresses?")
+							.comment("\r\n Silverfish Mob Spawners generate in Stone Fortresses."
+									+"\r\n If turned off, the spawners will become Skeleton spawners.")
 							.translation("repurposedstructures.config.structure.junglefortress.allowsilverfishspawnerjf")
 							.define("allowSilverfishSpawnerJF", true);
 
@@ -343,7 +344,7 @@ public class RSConfig
 					addJungleFortressToModdedBiomes = builder
 							.comment("\r\n Add Jungle Fortress to modded jungle biomes.")
 						.translation("repurposedstructures.config.feature.dungeons.addjunglefortresstomoddedbiomes")
-						.define("addJungleFortressToModdedBiomes", true);
+						.define("addJungleFortressToModdedBiomes", false);
 					
 				builder.pop();
 			builder.pop();
