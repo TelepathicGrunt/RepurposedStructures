@@ -105,12 +105,13 @@ public class RSStrongholdStructure extends Structure<NoFeatureConfig>
 			RSStrongholdPieces.EntranceStairs strongholdpieces$entrancestairs = new RSStrongholdPieces.EntranceStairs(this.rand, (chunkX << 4) + 2, (chunkZ << 4) + 2);
 			this.components.add(strongholdpieces$entrancestairs);
 			strongholdpieces$entrancestairs.buildComponent(strongholdpieces$entrancestairs, this.components, this.rand);
-			List<StructurePiece> list = strongholdpieces$entrancestairs.pendingChildren;
 
 			if (!this.components.isEmpty() && strongholdpieces$entrancestairs.strongholdPortalRoom == null)
 			{
-				list.add(new RSStrongholdPieces.PortalRoom(0, list.get(list.size()-1).getBoundingBox(), Direction.NORTH));
+				strongholdpieces$entrancestairs.pendingChildren.add(new RSStrongholdPieces.PortalRoom(0, strongholdpieces$entrancestairs.pendingChildren.get(strongholdpieces$entrancestairs.pendingChildren.size()-1).getBoundingBox(), Direction.NORTH));
 			}
+
+			List<StructurePiece> list = strongholdpieces$entrancestairs.pendingChildren;
 			
 			while (!list.isEmpty())
 			{
