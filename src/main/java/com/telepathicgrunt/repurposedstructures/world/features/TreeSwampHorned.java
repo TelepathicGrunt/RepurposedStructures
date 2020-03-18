@@ -235,6 +235,8 @@ public class TreeSwampHorned extends AbstractTreeFeature<TreeFeatureConfig>
 
 	private void genTrunk(IWorld world, BlockPos position, int height)
 	{
+		this.setBlockState(world, position.down(), Blocks.DIRT.getDefaultState());
+		
 		for (int currentHeight = 0; currentHeight < height; ++currentHeight)
 		{
 			BlockPos upN = position.up(currentHeight);

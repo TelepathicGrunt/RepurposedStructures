@@ -220,14 +220,9 @@ public class DungeonBadlands extends Feature<NoFeatureConfig>
 				return EntityType.HUSK;
 			}
 		}
-		else if (roll == 98)
-		{
-			//1% chance
-			return EntityType.CREEPER;
-		}
 		else
 		{
-			//1% chance
+			//2% chance
 			return EntityType.ILLUSIONER;
 		}
 	}

@@ -208,22 +208,9 @@ public class DungeonDesert extends Feature<NoFeatureConfig>
 			//48% chance
 			return EntityType.HUSK;
 		}
-		else if (roll < 73)
-		{
-			//25% chance
-			EntityType<?> et = RSFeatures.pickRandomDungeonMob(rand);
-			if (et != EntityType.ZOMBIE)
-			{
-				return et;
-			}
-			else
-			{
-				return EntityType.HUSK;
-			}
-		}
 		else if (roll < 98)
 		{
-			//25% chance
+			//50% chance
 			EntityType<?> et = RSFeatures.pickRandomDungeonMob(rand);
 			if (et != EntityType.ZOMBIE)
 			{

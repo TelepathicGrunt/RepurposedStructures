@@ -193,30 +193,20 @@ public class DungeonSwamp extends Feature<NoFeatureConfig>
 	{
 		int roll = rand.nextInt(100);
 
-		if (roll < 48)
+		if (roll < 74)
 		{
-			//48% chance
+			//74% chance
 			return RSFeatures.pickRandomDungeonMob(rand);
 		}
-		else if (roll < 73)
+		else if (roll < 99)
 		{
 			//25% chance
 			return EntityType.VEX;
 		}
-		else if (roll < 98)
-		{
-			//25% chance
-			return RSFeatures.pickRandomDungeonMob(rand);
-		}
-		else if (roll == 98)
-		{
-			//1% chance
-			return EntityType.SLIME;
-		}
 		else
 		{
 			//1% chance
-			return EntityType.PIG;
+			return EntityType.SLIME;
 		}
 	}
 }

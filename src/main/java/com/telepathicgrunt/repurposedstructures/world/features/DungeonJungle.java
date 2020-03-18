@@ -243,14 +243,9 @@ public class DungeonJungle extends Feature<NoFeatureConfig>
 			//25% chance
 			return RSFeatures.pickRandomDungeonMob(rand);
 		}
-		else if (roll == 98)
-		{
-			//1% chance
-			return EntityType.CREEPER;
-		}
 		else
 		{
-			//1% chance
+			//2% chance
 			return EntityType.CHICKEN;
 		}
 	}

@@ -183,25 +183,20 @@ public class DungeonNether extends Feature<NoFeatureConfig>
 	{
 		int roll = rand.nextInt(100);
 
-		if (roll < 48)
+		if (roll < 49)
 		{
-			//48% chance
+			//49% chance
 			return EntityType.ZOMBIE_PIGMAN;
 		}
-		else if (roll < 73)
+		else if (roll < 74)
 		{
 			//25% chance
 			return EntityType.BLAZE;
 		}
-		else if (roll < 98)
+		else if (roll < 99)
 		{
 			//25% chance
 			return EntityType.MAGMA_CUBE;
-		}
-		else if (roll == 98)
-		{
-			//1% chance
-			return EntityType.WITHER_SKELETON;
 		}
 		else
 		{

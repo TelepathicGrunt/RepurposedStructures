@@ -191,9 +191,9 @@ public class DungeonSnow extends Feature<NoFeatureConfig>
 	{
 		int roll = rand.nextInt(100);
 
-		if (roll < 47)
+		if (roll < 48)
 		{
-			//47% chance
+			//48% chance
 			EntityType<?> et = RSFeatures.pickRandomDungeonMob(rand);
 			if (et != EntityType.ZOMBIE)
 			{
@@ -204,29 +204,19 @@ public class DungeonSnow extends Feature<NoFeatureConfig>
 				return EntityType.STRAY;
 			}
 		}
-		else if (roll < 72)
+		else if (roll < 73)
 		{
 			//25% chance
 			return EntityType.STRAY;
 		}
-		else if (roll < 97)
+		else if (roll < 98)
 		{
 			//25% chance
 			return EntityType.CAVE_SPIDER;
 		}
-		else if (roll < 98)
-		{
-			//25% chance
-			return EntityType.POLAR_BEAR;
-		}
-		else if (roll == 98)
-		{
-			//1% chance
-			return EntityType.CREEPER;
-		}
 		else
 		{
-			//1% chance
+			//2% chance
 			return EntityType.SNOW_GOLEM;
 		}
 	}

@@ -233,30 +233,19 @@ public class DungeonDarkForest extends Feature<NoFeatureConfig>
 	{
 		int roll = rand.nextInt(100);
 
-		if (roll < 48)
+		if (roll < 73)
 		{
-			//48% chance
+			//73% chance
 			return RSFeatures.pickRandomDungeonMob(rand);
-		}
-		else if (roll < 73)
-		{
-			//25% chance
-			return EntityType.VEX;
-
 		}
 		else if (roll < 98)
 		{
 			//25% chance
-			return RSFeatures.pickRandomDungeonMob(rand);
-		}
-		else if (roll == 98)
-		{
-			//1% chance
-			return EntityType.CREEPER;
+			return EntityType.VEX;
 		}
 		else
 		{
-			//1% chance
+			//2% chance
 			return EntityType.ILLUSIONER;
 		}
 	}
