@@ -7,6 +7,7 @@ import java.util.function.Function;
 import com.mojang.datafixers.Dynamic;
 import com.telepathicgrunt.repurposedstructures.RSConfig;
 
+import net.minecraft.util.Direction;
 import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MutableBoundingBox;
@@ -101,20 +102,26 @@ public class RSStrongholdStructure extends Structure<NoFeatureConfig>
 		public void init(ChunkGenerator<?> generator, TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn)
 		{
 			RSStrongholdPieces.prepareStructurePieces();
-			RSStrongholdPieces.Stairs2 strongholdpieces$stairs2 = new RSStrongholdPieces.Stairs2(this.rand, (chunkX << 4) + 2, (chunkZ << 4) + 2);
-			this.components.add(strongholdpieces$stairs2);
-			strongholdpieces$stairs2.buildComponent(strongholdpieces$stairs2, this.components, this.rand);
-			List<StructurePiece> list = strongholdpieces$stairs2.pendingChildren;
+			RSStrongholdPieces.EntranceStairs strongholdpieces$entrancestairs = new RSStrongholdPieces.EntranceStairs(this.rand, (chunkX << 4) + 2, (chunkZ << 4) + 2);
+			this.components.add(strongholdpieces$entrancestairs);
+			strongholdpieces$entrancestairs.buildComponent(strongholdpieces$entrancestairs, this.components, this.rand);
+			List<StructurePiece> list = strongholdpieces$entrancestairs.pendingChildren;
 
+			if (!this.components.isEmpty() && strongholdpieces$entrancestairs.strongholdPortalRoom != null)
+			{
+				list.add(new RSStrongholdPieces.PortalRoom(0, list.get(list.size()-1).getBoundingBox(), Direction.NORTH));
+			}
+			
 			while (!list.isEmpty())
 			{
 				int i = this.rand.nextInt(list.size());
 				StructurePiece structurepiece = list.remove(i);
-				structurepiece.buildComponent(strongholdpieces$stairs2, this.components, this.rand);
+				structurepiece.buildComponent(strongholdpieces$entrancestairs, this.components, this.rand);
 			}
 
 			this.recalculateStructureSize();
-            this.func_214628_a(generator.getSeaLevel(), this.rand, 10);
+			this.func_214628_a(generator.getSeaLevel(), this.rand, 10);
+
 		}
 	}
 }

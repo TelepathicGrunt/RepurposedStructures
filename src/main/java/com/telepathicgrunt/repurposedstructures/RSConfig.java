@@ -63,6 +63,7 @@ public class RSConfig
 	public static int strongholdSpawnrate = 62;
 	public static double silverfishSpawnrateSH = 0.8D;
 	public static boolean allowExtraSilverfishSpawnerSH = true;
+	public static double strongholdSizeSH = 100D;
 	public static boolean lootChestsSH = true;
 	
 	public static int jungleFortressSpawnrate = 16;
@@ -107,6 +108,7 @@ public class RSConfig
 		public final IntValue strongholdSpawnrate;
 		public final DoubleValue silverfishSpawnrateSH;
 		public final BooleanValue allowExtraSilverfishSpawnerSH;
+		public final DoubleValue strongholdSizeSH;
 		public final BooleanValue lootChestsSH;
 		
 		public final IntValue jungleFortressSpawnrate;
@@ -305,6 +307,15 @@ public class RSConfig
 									+" Note: Silverfish spawner in Portal Room will always remain.")
 							.translation("repurposedstructures.config.structure.stronghold.allowextrasilverfishspawnersh")
 							.define("allowExtraSilverfishSpawnerSH", true);
+		
+					strongholdSizeSH = builder
+							.comment("\r\n How large the Stronghold is on average as a percentage." 
+									+ "\r\n Note: The Stonghold is massive by default. To get something "
+									+ "\r\n closer to vanilla stronghold size, use 70 or 60."
+									+ "\n "
+									+ "10 for tiny Strongholds and 1000 for supermassive Strongholds.")
+							.translation("repurposedstructures.config.structure.stronghold.strongholdsizesh")
+							.defineInRange("strongholdSizeSH", 100D, 10, 1000);
 					
 					lootChestsSH = builder
 							.comment("\r\n Controls whether loot chests spawn or not in the Stronghold.")
@@ -388,6 +399,7 @@ public class RSConfig
 		strongholdSpawnrate = SERVER.strongholdSpawnrate.get();
 		silverfishSpawnrateSH = SERVER.silverfishSpawnrateSH.get();
 		allowExtraSilverfishSpawnerSH = SERVER.allowExtraSilverfishSpawnerSH.get();
+		strongholdSizeSH = SERVER.strongholdSizeSH.get();
 		lootChestsSH = SERVER.lootChestsSH.get();
 		
 		jungleFortressSpawnrate = SERVER.jungleFortressSpawnrate.get();

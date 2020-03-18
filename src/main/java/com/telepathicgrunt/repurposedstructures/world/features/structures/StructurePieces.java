@@ -36,7 +36,7 @@ public class StructurePieces
 	public static IStructurePieceType	SHRTRS			= RSStrongholdPieces.RightTurn::new;
 	public static IStructurePieceType	SHRCRS			= RSStrongholdPieces.RoomCrossing::new;
 	public static IStructurePieceType	SHSDRS			= RSStrongholdPieces.Stairs::new;
-	public static IStructurePieceType	SHSTARTRS		= RSStrongholdPieces.Stairs2::new;
+	public static IStructurePieceType	SHSTARTRS		= RSStrongholdPieces.EntranceStairs::new;
 	public static IStructurePieceType	SHSRS			= RSStrongholdPieces.Straight::new;
 	public static IStructurePieceType	SHSSDRS			= RSStrongholdPieces.StairsStraight::new;
 

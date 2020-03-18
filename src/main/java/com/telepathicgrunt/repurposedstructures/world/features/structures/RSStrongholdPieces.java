@@ -86,9 +86,14 @@ public class RSStrongholdPieces
 
 		for (RSStrongholdPieces.PieceWeight structurestrongholdpieces$pieceweight : structurePieceList)
 		{
-			if (structurestrongholdpieces$pieceweight.instancesLimit > 0 && structurestrongholdpieces$pieceweight.instancesSpawned < structurestrongholdpieces$pieceweight.instancesLimit)
+			if (structurestrongholdpieces$pieceweight.instancesLimit > 0)
 			{
-				flag = true;
+				int maxLimit = (int)(structurestrongholdpieces$pieceweight.instancesLimit * RSConfig.strongholdSizeSH);
+				if(maxLimit == 0) 
+					maxLimit = 1;
+				
+				if (structurestrongholdpieces$pieceweight.instancesSpawned < maxLimit)
+					flag = true;
 			}
 
 			totalWeight += structurestrongholdpieces$pieceweight.pieceWeight;
@@ -151,7 +156,7 @@ public class RSStrongholdPieces
 	}
 
 
-	private static RSStrongholdPieces.Stronghold generatePieceFromSmallDoor(RSStrongholdPieces.Stairs2 p_175955_0_, List<StructurePiece> p_175955_1_, Random p_175955_2_, int p_175955_3_, int p_175955_4_, int p_175955_5_, Direction p_175955_6_, int p_175955_7_)
+	private static RSStrongholdPieces.Stronghold generatePieceFromSmallDoor(RSStrongholdPieces.EntranceStairs p_175955_0_, List<StructurePiece> p_175955_1_, Random p_175955_2_, int p_175955_3_, int p_175955_4_, int p_175955_5_, Direction p_175955_6_, int p_175955_7_)
 	{
 		if (!canAddStructurePieces())
 		{
@@ -220,7 +225,7 @@ public class RSStrongholdPieces
 	}
 
 
-	private static StructurePiece generateAndAddPiece(RSStrongholdPieces.Stairs2 p_175953_0_, List<StructurePiece> p_175953_1_, Random p_175953_2_, int p_175953_3_, int p_175953_4_, int p_175953_5_, @Nullable Direction p_175953_6_, int p_175953_7_)
+	private static StructurePiece generateAndAddPiece(RSStrongholdPieces.EntranceStairs p_175953_0_, List<StructurePiece> p_175953_1_, Random p_175953_2_, int p_175953_3_, int p_175953_4_, int p_175953_5_, @Nullable Direction p_175953_6_, int p_175953_7_)
 	{
 		if (p_175953_7_ > 50)
 		{
@@ -279,7 +284,7 @@ public class RSStrongholdPieces
 		@Override
 		public void buildComponent(StructurePiece componentIn, List<StructurePiece> listIn, Random rand)
 		{
-			this.getNextComponentNormal((RSStrongholdPieces.Stairs2) componentIn, listIn, rand, 1, 1);
+			this.getNextComponentNormal((RSStrongholdPieces.EntranceStairs) componentIn, listIn, rand, 1, 1);
 		}
 
 
@@ -471,26 +476,26 @@ public class RSStrongholdPieces
 				j = 8 - j;
 			}
 
-			this.getNextComponentNormal((RSStrongholdPieces.Stairs2) componentIn, listIn, rand, 5, 1);
+			this.getNextComponentNormal((RSStrongholdPieces.EntranceStairs) componentIn, listIn, rand, 5, 1);
 
 			if (this.leftLow)
 			{
-				this.getNextComponentX((RSStrongholdPieces.Stairs2) componentIn, listIn, rand, i, 1);
+				this.getNextComponentX((RSStrongholdPieces.EntranceStairs) componentIn, listIn, rand, i, 1);
 			}
 
 			if (this.leftHigh)
 			{
-				this.getNextComponentX((RSStrongholdPieces.Stairs2) componentIn, listIn, rand, j, 7);
+				this.getNextComponentX((RSStrongholdPieces.EntranceStairs) componentIn, listIn, rand, j, 7);
 			}
 
 			if (this.rightLow)
 			{
-				this.getNextComponentZ((RSStrongholdPieces.Stairs2) componentIn, listIn, rand, i, 1);
+				this.getNextComponentZ((RSStrongholdPieces.EntranceStairs) componentIn, listIn, rand, i, 1);
 			}
 
 			if (this.rightHigh)
 			{
-				this.getNextComponentZ((RSStrongholdPieces.Stairs2) componentIn, listIn, rand, j, 7);
+				this.getNextComponentZ((RSStrongholdPieces.EntranceStairs) componentIn, listIn, rand, j, 7);
 			}
 		}
 
@@ -571,11 +576,11 @@ public class RSStrongholdPieces
 
 			if (enumfacing != Direction.NORTH && enumfacing != Direction.EAST)
 			{
-				this.getNextComponentZ((RSStrongholdPieces.Stairs2) componentIn, listIn, rand, 1, 1);
+				this.getNextComponentZ((RSStrongholdPieces.EntranceStairs) componentIn, listIn, rand, 1, 1);
 			}
 			else
 			{
-				this.getNextComponentX((RSStrongholdPieces.Stairs2) componentIn, listIn, rand, 1, 1);
+				this.getNextComponentX((RSStrongholdPieces.EntranceStairs) componentIn, listIn, rand, 1, 1);
 			}
 		}
 
@@ -843,7 +848,7 @@ public class RSStrongholdPieces
 		{
 			if (componentIn != null)
 			{
-				((RSStrongholdPieces.Stairs2) componentIn).strongholdPortalRoom = this;
+				((RSStrongholdPieces.EntranceStairs) componentIn).strongholdPortalRoom = this;
 			}
 		}
 
@@ -973,7 +978,7 @@ public class RSStrongholdPieces
 		@Override
 		public void buildComponent(StructurePiece componentIn, List<StructurePiece> listIn, Random rand)
 		{
-			this.getNextComponentNormal((RSStrongholdPieces.Stairs2) componentIn, listIn, rand, 1, 1);
+			this.getNextComponentNormal((RSStrongholdPieces.EntranceStairs) componentIn, listIn, rand, 1, 1);
 		}
 
 
@@ -1032,11 +1037,11 @@ public class RSStrongholdPieces
 
 			if (enumfacing != Direction.NORTH && enumfacing != Direction.EAST)
 			{
-				this.getNextComponentX((RSStrongholdPieces.Stairs2) componentIn, listIn, rand, 1, 1);
+				this.getNextComponentX((RSStrongholdPieces.EntranceStairs) componentIn, listIn, rand, 1, 1);
 			}
 			else
 			{
-				this.getNextComponentZ((RSStrongholdPieces.Stairs2) componentIn, listIn, rand, 1, 1);
+				this.getNextComponentZ((RSStrongholdPieces.EntranceStairs) componentIn, listIn, rand, 1, 1);
 			}
 
 		}
@@ -1105,9 +1110,9 @@ public class RSStrongholdPieces
 		@Override
 		public void buildComponent(StructurePiece componentIn, List<StructurePiece> listIn, Random rand)
 		{
-			this.getNextComponentNormal((RSStrongholdPieces.Stairs2) componentIn, listIn, rand, 4, 1);
-			this.getNextComponentX((RSStrongholdPieces.Stairs2) componentIn, listIn, rand, 1, 4);
-			this.getNextComponentZ((RSStrongholdPieces.Stairs2) componentIn, listIn, rand, 1, 4);
+			this.getNextComponentNormal((RSStrongholdPieces.EntranceStairs) componentIn, listIn, rand, 4, 1);
+			this.getNextComponentX((RSStrongholdPieces.EntranceStairs) componentIn, listIn, rand, 1, 4);
+			this.getNextComponentZ((RSStrongholdPieces.EntranceStairs) componentIn, listIn, rand, 1, 4);
 		}
 
 
@@ -1357,7 +1362,7 @@ public class RSStrongholdPieces
 				RSStrongholdPieces.strongComponentType = RSStrongholdPieces.Crossing.class;
 			}
 
-			this.getNextComponentNormal((RSStrongholdPieces.Stairs2) componentIn, listIn, rand, 1, 1);
+			this.getNextComponentNormal((RSStrongholdPieces.EntranceStairs) componentIn, listIn, rand, 1, 1);
 		}
 
 
@@ -1395,7 +1400,7 @@ public class RSStrongholdPieces
 		}
 	}
 
-	public static class Stairs2 extends RSStrongholdPieces.Stairs
+	public static class EntranceStairs extends RSStrongholdPieces.Stairs
 	{
 		public RSStrongholdPieces.PieceWeight strongholdPieceWeight;
 		@Nullable
@@ -1403,13 +1408,13 @@ public class RSStrongholdPieces
 		public List<StructurePiece> pendingChildren = Lists.<StructurePiece>newArrayList();
 
 
-		public Stairs2(Random p_i50117_1_, int p_i50117_2_, int p_i50117_3_)
+		public EntranceStairs(Random p_i50117_1_, int p_i50117_2_, int p_i50117_3_)
 		{
 			super(StructurePieces.SHSTARTRS, 0, p_i50117_1_, p_i50117_2_, p_i50117_3_);
 		}
 
 
-		public Stairs2(TemplateManager p_i50118_1_, CompoundNBT p_i50118_2_)
+		public EntranceStairs(TemplateManager p_i50118_1_, CompoundNBT p_i50118_2_)
 		{
 			super(StructurePieces.SHSTARTRS, p_i50118_2_);
 		}
@@ -1435,7 +1440,7 @@ public class RSStrongholdPieces
 		@Override
 		public void buildComponent(StructurePiece componentIn, List<StructurePiece> listIn, Random rand)
 		{
-			this.getNextComponentNormal((RSStrongholdPieces.Stairs2) componentIn, listIn, rand, 1, 1);
+			this.getNextComponentNormal((RSStrongholdPieces.EntranceStairs) componentIn, listIn, rand, 1, 1);
 		}
 
 
@@ -1565,16 +1570,16 @@ public class RSStrongholdPieces
 		@Override
 		public void buildComponent(StructurePiece componentIn, List<StructurePiece> listIn, Random rand)
 		{
-			this.getNextComponentNormal((RSStrongholdPieces.Stairs2) componentIn, listIn, rand, 1, 1);
+			this.getNextComponentNormal((RSStrongholdPieces.EntranceStairs) componentIn, listIn, rand, 1, 1);
 
 			if (this.expandsX)
 			{
-				this.getNextComponentX((RSStrongholdPieces.Stairs2) componentIn, listIn, rand, 1, 2);
+				this.getNextComponentX((RSStrongholdPieces.EntranceStairs) componentIn, listIn, rand, 1, 2);
 			}
 
 			if (this.expandsZ)
 			{
-				this.getNextComponentZ((RSStrongholdPieces.Stairs2) componentIn, listIn, rand, 1, 2);
+				this.getNextComponentZ((RSStrongholdPieces.EntranceStairs) componentIn, listIn, rand, 1, 2);
 			}
 		}
 
@@ -1713,7 +1718,7 @@ public class RSStrongholdPieces
 
 
 		@Nullable
-		protected StructurePiece getNextComponentNormal(RSStrongholdPieces.Stairs2 p_74986_1_, List<StructurePiece> p_74986_2_, Random p_74986_3_, int p_74986_4_, int p_74986_5_)
+		protected StructurePiece getNextComponentNormal(RSStrongholdPieces.EntranceStairs p_74986_1_, List<StructurePiece> p_74986_2_, Random p_74986_3_, int p_74986_4_, int p_74986_5_)
 		{
 			Direction enumfacing = this.getCoordBaseMode();
 
@@ -1743,7 +1748,7 @@ public class RSStrongholdPieces
 
 
 		@Nullable
-		protected StructurePiece getNextComponentX(RSStrongholdPieces.Stairs2 p_74989_1_, List<StructurePiece> p_74989_2_, Random p_74989_3_, int p_74989_4_, int p_74989_5_)
+		protected StructurePiece getNextComponentX(RSStrongholdPieces.EntranceStairs p_74989_1_, List<StructurePiece> p_74989_2_, Random p_74989_3_, int p_74989_4_, int p_74989_5_)
 		{
 			Direction enumfacing = this.getCoordBaseMode();
 
@@ -1773,7 +1778,7 @@ public class RSStrongholdPieces
 
 
 		@Nullable
-		protected StructurePiece getNextComponentZ(RSStrongholdPieces.Stairs2 p_74987_1_, List<StructurePiece> p_74987_2_, Random p_74987_3_, int p_74987_4_, int p_74987_5_)
+		protected StructurePiece getNextComponentZ(RSStrongholdPieces.EntranceStairs p_74987_1_, List<StructurePiece> p_74987_2_, Random p_74987_3_, int p_74987_4_, int p_74987_5_)
 		{
 			Direction enumfacing = this.getCoordBaseMode();
 
