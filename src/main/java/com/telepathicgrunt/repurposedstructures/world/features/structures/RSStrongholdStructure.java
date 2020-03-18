@@ -107,7 +107,7 @@ public class RSStrongholdStructure extends Structure<NoFeatureConfig>
 			strongholdpieces$entrancestairs.buildComponent(strongholdpieces$entrancestairs, this.components, this.rand);
 			List<StructurePiece> list = strongholdpieces$entrancestairs.pendingChildren;
 
-			if (!this.components.isEmpty() && strongholdpieces$entrancestairs.strongholdPortalRoom != null)
+			if (!this.components.isEmpty() && strongholdpieces$entrancestairs.strongholdPortalRoom == null)
 			{
 				list.add(new RSStrongholdPieces.PortalRoom(0, list.get(list.size()-1).getBoundingBox(), Direction.NORTH));
 			}

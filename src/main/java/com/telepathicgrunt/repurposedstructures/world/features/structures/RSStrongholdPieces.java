@@ -88,7 +88,7 @@ public class RSStrongholdPieces
 		{
 			if (structurestrongholdpieces$pieceweight.instancesLimit > 0)
 			{
-				int maxLimit = (int)(structurestrongholdpieces$pieceweight.instancesLimit * RSConfig.strongholdSizeSH);
+				int maxLimit = (int)(structurestrongholdpieces$pieceweight.instancesLimit * (RSConfig.strongholdSizeSH*0.01D));
 				if(maxLimit == 0) 
 					maxLimit = 1;
 				
@@ -96,7 +96,10 @@ public class RSStrongholdPieces
 					flag = true;
 			}
 
-			totalWeight += structurestrongholdpieces$pieceweight.pieceWeight;
+			int pieceWeight = (int)(structurestrongholdpieces$pieceweight.pieceWeight * (RSConfig.strongholdSizeSH*0.01D));
+			if(pieceWeight == 0) 
+				pieceWeight = 1;
+			totalWeight += pieceWeight;
 		}
 
 		return flag;
