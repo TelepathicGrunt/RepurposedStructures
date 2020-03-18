@@ -1,10 +1,15 @@
 package com.telepathicgrunt.repurposedstructures;
 
+import java.util.Map;
+
+import com.mojang.datafixers.Dynamic;
 import com.telepathicgrunt.repurposedstructures.world.features.RSFeatures;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftStructure;
 
 import net.minecraft.block.Blocks;
+import net.minecraft.nbt.INBT;
+import net.minecraft.nbt.NBTDynamicOps;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.biome.Biomes;
@@ -12,6 +17,7 @@ import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.BlockBlobConfig;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraft.world.gen.feature.DecoratedFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
@@ -150,49 +156,48 @@ public class RSAddFeatures
 		}
 	}
 	
-	private static final ConfiguredFeature<?,?> VANILLA_DUNGEON = Feature.MONSTER_ROOM.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.DUNGEONS.configure(new ChanceConfig(8)));
 	public static void addDungeons(Biome biome, String biomeNamespace, String biomePath)
 	{
 		if(RSConfig.jungleDungeons && biome.getCategory() == Category.JUNGLE && biomeNamespace.equals("minecraft"))
 		{
 			//replace vanilla dungeon with our own
-			biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).remove(VANILLA_DUNGEON);
+			biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && ((DecoratedFeatureConfig)configuredFeature.config).feature.feature == Feature.MONSTER_ROOM);
 			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.JUNGLE_DUNGEONS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.DUNGEONS.configure(new ChanceConfig(8))));
 		}
 		else if(RSConfig.badlandsDungeons && biome.getCategory() == Category.MESA && biomeNamespace.equals("minecraft"))
 		{
 			//replace vanilla dungeon with our own
-			biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).remove(VANILLA_DUNGEON);
+			biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && ((DecoratedFeatureConfig)configuredFeature.config).feature.feature == Feature.MONSTER_ROOM);
 			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.BADLANDS_DUNGEONS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.DUNGEONS.configure(new ChanceConfig(8))));
 		}
 		else if(RSConfig.darkForestDungeons && biomePath.contains("dark_forest") && biomeNamespace.equals("minecraft"))
 		{
 			//replace vanilla dungeon with our own
-			biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).remove(VANILLA_DUNGEON);
+			biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && ((DecoratedFeatureConfig)configuredFeature.config).feature.feature == Feature.MONSTER_ROOM);
 			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.DARK_FOREST_DUNGEONS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.DUNGEONS.configure(new ChanceConfig(8))));
 		}
 		else if(RSConfig.desertDungeons && biome.getCategory() == Category.DESERT && biomeNamespace.equals("minecraft"))
 		{
 			//replace vanilla dungeon with our own
-			biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).remove(VANILLA_DUNGEON);
+			biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && ((DecoratedFeatureConfig)configuredFeature.config).feature.feature == Feature.MONSTER_ROOM);
 			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.DESERT_DUNGEONS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.DUNGEONS.configure(new ChanceConfig(8))));
 		}
 		else if(RSConfig.mushroomDungeons && biome.getCategory() == Category.MUSHROOM && biomeNamespace.equals("minecraft"))
 		{
 			//replace vanilla dungeon with our own
-			biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).remove(VANILLA_DUNGEON);
+			biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && ((DecoratedFeatureConfig)configuredFeature.config).feature.feature == Feature.MONSTER_ROOM);
 			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.MUSHROOM_DUNGEONS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.DUNGEONS.configure(new ChanceConfig(8))));
 		}
 		else if(RSConfig.swampDungeons && biome.getCategory() == Category.SWAMP && biomeNamespace.equals("minecraft"))
 		{
 			//replace vanilla dungeon with our own
-			biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).remove(VANILLA_DUNGEON);
+			biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && ((DecoratedFeatureConfig)configuredFeature.config).feature.feature == Feature.MONSTER_ROOM);
 			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.SWAMP_DUNGEONS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.DUNGEONS.configure(new ChanceConfig(8))));
 		}
 		else if(RSConfig.snowDungeons && biome.getCategory() == Category.ICY && biomeNamespace.equals("minecraft"))
 		{
 			//replace vanilla dungeon with our own
-			biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).remove(VANILLA_DUNGEON);
+			biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && ((DecoratedFeatureConfig)configuredFeature.config).feature.feature == Feature.MONSTER_ROOM);
 			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.SNOW_DUNGEONS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.DUNGEONS.configure(new ChanceConfig(8))));
 		}
 		else if(RSConfig.netherDungeons && biome.getCategory() == Category.NETHER && biomeNamespace.equals("minecraft"))
@@ -205,6 +210,8 @@ public class RSAddFeatures
 		}
 	}
 	
+	private static final ConfiguredFeature<?,?> VANILLA_SWAMP_TREE = Feature.NORMAL_TREE.withConfiguration(DefaultBiomeFeatures.SWAMP_TREE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(2, 0.1F, 1)));
+	private static final ConfiguredFeature<?,?> VANILLA_BOULDER = Feature.FOREST_ROCK.withConfiguration(new BlockBlobConfig(Blocks.MOSSY_COBBLESTONE.getDefaultState(), 0)).withPlacement(Placement.FOREST_ROCK.configure(new FrequencyConfig(3)));
 	public static void addMiscFeatures(Biome biome, String biomeNamespace, String biomePath)
 	{
 		if(RSConfig.hornedSwampTree && biome == Biomes.SWAMP && biomeNamespace.equals("minecraft"))
@@ -214,7 +221,7 @@ public class RSAddFeatures
 		else if(RSConfig.hornedSwampTree && biome == Biomes.SWAMP_HILLS && biomeNamespace.equals("minecraft"))
 		{
 			//replace the swamp tree with our own
-			biome.getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).remove(Feature.NORMAL_TREE.withConfiguration(DefaultBiomeFeatures.SWAMP_TREE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(2, 0.1F, 1))));
+			biome.getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && serializeAndCompareFeature(configuredFeature, VANILLA_SWAMP_TREE));
 			biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, RSFeatures.HORNED_SWAMP_TREE.withConfiguration(DefaultBiomeFeatures.SWAMP_TREE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(2, 0.8F, 1))));
 		}
 		else if(RSConfig.boulderTiny && (biome == Biomes.TAIGA_MOUNTAINS || biome == Biomes.SNOWY_TAIGA_MOUNTAINS) && biomeNamespace.equals("minecraft"))
@@ -224,15 +231,59 @@ public class RSAddFeatures
 		else if(RSConfig.boulderGiant && (biome == Biomes.GIANT_SPRUCE_TAIGA_HILLS || biome == Biomes.GIANT_TREE_TAIGA_HILLS) && biomeNamespace.equals("minecraft"))
 		{
 			//replace the boulders with our own
-			biome.getFeatures(GenerationStage.Decoration.LOCAL_MODIFICATIONS).remove(Feature.FOREST_ROCK.withConfiguration(new BlockBlobConfig(Blocks.MOSSY_COBBLESTONE.getDefaultState(), 0)).withPlacement(Placement.FOREST_ROCK.configure(new FrequencyConfig(3))));
-			biome.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, RSFeatures.BOULDER_TINY.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.FOREST_ROCK.configure(new FrequencyConfig(2))));
+			biome.getFeatures(GenerationStage.Decoration.LOCAL_MODIFICATIONS).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && serializeAndCompareFeature(configuredFeature, VANILLA_BOULDER));
+			biome.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, RSFeatures.BOULDER_GIANT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.FOREST_ROCK.configure(new FrequencyConfig(2))));
 		}
 	}
 	
 	
-	public static void removeStronghold(Biome biome, String biomeNamespace, String biomePath)
+	public static void addStronghold(Biome biome, String biomeNamespace, String biomePath)
 	{
-		//remove stronghold as config states it will not spawn now
+		//remove vanilla stronghold
 		biome.structures.remove(Feature.STRONGHOLD);
+		biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && serializeAndCompareFeature(configuredFeature, Feature.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)));
+		
+		biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+
+		if(RSConfig.strongholdSpawnrate == 1001)
+		{
+			return;
+		}
+		
+		biome.addStructure(RSFeatures.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+	}
+	
+
+	
+	
+	/**
+	 * Will serialize (if possible) both features and check if they are the same feature.
+	 * If cannot serialize, compare the feature itself to see if it is the same
+	 */
+	private static boolean serializeAndCompareFeature(ConfiguredFeature<?, ?> feature1, ConfiguredFeature<?, ?> feature2)
+	{
+		try
+		{
+			Map<Dynamic<INBT>, Dynamic<INBT>> feature1Map = feature1.serialize(NBTDynamicOps.INSTANCE).getMapValues().get();
+			Map<Dynamic<INBT>, Dynamic<INBT>> feature2Map = feature2.serialize(NBTDynamicOps.INSTANCE).getMapValues().get();
+
+			if (feature1Map != null && feature2Map != null)
+			{
+				return feature1Map.equals(feature2Map);
+			}
+		}
+		catch (Exception e)
+		{
+			//One of the features cannot be serialized which can only happen with custom modded features
+			//Check if the features are the same feature even though the placement or config for the feature might be different. 
+			//This is the best way we can remove duplicate modded features as best as we can. (I think)
+			if ((feature1.config instanceof DecoratedFeatureConfig && feature2.config instanceof DecoratedFeatureConfig) && 
+				((DecoratedFeatureConfig) feature1.config).feature.feature == ((DecoratedFeatureConfig) feature2.config).feature.feature)
+			{
+				return true;
+			}
+		}
+
+		return false;
 	}
 }

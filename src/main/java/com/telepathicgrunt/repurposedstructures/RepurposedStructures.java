@@ -51,10 +51,7 @@ public class RepurposedStructures
 			RSAddFeatures.addJungleFortress(biome, biomeNamespace, biomePath);
 			RSAddFeatures.addDungeons(biome, biomeNamespace, biomePath);
 			RSAddFeatures.addMiscFeatures(biome, biomeNamespace, biomePath);
-			
-			//disabled stronghold spawning
-			if(RSConfig.strongholdSpawnrate == 1001) 
-				RSAddFeatures.removeStronghold(biome, biomeNamespace, biomePath);
+			RSAddFeatures.addStronghold(biome, biomeNamespace, biomePath);
 		}
 
 	}

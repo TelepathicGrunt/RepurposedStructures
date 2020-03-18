@@ -80,7 +80,7 @@ public class RSStrongholdStructure extends Structure<NoFeatureConfig>
 	@Override
 	public String getStructureName()
 	{
-		return RepurposedStructures.MODID + ":stronghold";
+		return "Stronghold";
 	}
 
 
@@ -115,7 +115,7 @@ public class RSStrongholdStructure extends Structure<NoFeatureConfig>
 			}
 
 			this.recalculateStructureSize();
-			this.func_214626_a(this.rand, 150, 200);
+            this.func_214628_a(generator.getSeaLevel(), this.rand, 10);
 		}
 	}
 }

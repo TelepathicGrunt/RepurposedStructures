@@ -5,7 +5,6 @@ import java.util.function.Function;
 
 import com.mojang.datafixers.Dynamic;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.material.Material;
@@ -25,13 +24,13 @@ public class BoulderGiant extends Feature<NoFeatureConfig>
 		super(configFactory);
 	}
 
-	private final static Block mossyCobblestone = Blocks.MOSSY_COBBLESTONE;
-	private final static Block cobblestone = Blocks.COBBLESTONE;
-	private final static Block andesite = Blocks.ANDESITE;
-	private final static Block coalOre = Blocks.COAL_ORE;
-	private final static Block ironOre = Blocks.IRON_ORE;
-	private final static Block diamondOre = Blocks.DIAMOND_ORE;
-	private final static int startRadius = 4;
+	private final static BlockState MOSSY_COBBLESTONE = Blocks.MOSSY_COBBLESTONE.getDefaultState();
+	private final static BlockState COBBLESTONE = Blocks.COBBLESTONE.getDefaultState();
+	private final static BlockState ANDESITE = Blocks.ANDESITE.getDefaultState();
+	private final static BlockState COAL_ORE = Blocks.COAL_ORE.getDefaultState();
+	private final static BlockState IRON_ORE = Blocks.IRON_ORE.getDefaultState();
+	private final static BlockState DIAMOND_ORE = Blocks.DIAMOND_ORE.getDefaultState();
+	private final static int START_RADIUS = 4;
 
 
 	@Override
@@ -63,11 +62,11 @@ public class BoulderGiant extends Feature<NoFeatureConfig>
 		}
 
 		//we are at a valid spot to generate a boulder now. Begin generation.
-		for (int currentCount = 0; startRadius >= 0 && currentCount < 3; ++currentCount)
+		for (int currentCount = 0; START_RADIUS >= 0 && currentCount < 3; ++currentCount)
 		{
-			int x = startRadius + random.nextInt(2);
-			int y = startRadius + random.nextInt(2);
-			int z = startRadius + random.nextInt(2);
+			int x = START_RADIUS + random.nextInt(2);
+			int y = START_RADIUS + random.nextInt(2);
+			int z = START_RADIUS + random.nextInt(2);
 			float calculatedDistance = (x + y + z) * 0.333F + 0.5F;
 
 			for (BlockPos blockpos : BlockPos.getAllInBoxMutable(blockpos$Mutable.add(-x, -y, -z), blockpos$Mutable.add(x, y, z)))
@@ -76,46 +75,46 @@ public class BoulderGiant extends Feature<NoFeatureConfig>
 				{
 					//adds the blocks for generation in this boulder
 					//note, if user turns off an ore, that ore's chance is dumped into the below ore for generation
-					int randomChance = random.nextInt(2000);
+					int randomChance = random.nextInt(3000);
 
-					// 1/2000th chance for diamond ore
+					// 1/3000th chance for diamond ore
 					if (randomChance == 0)
 					{
-						world.setBlockState(blockpos, diamondOre.getDefaultState(), 4);
+						world.setBlockState(blockpos, DIAMOND_ORE, 4);
 					}
 
-					// 71/2000th chance for iron ore
-					else if (randomChance <= 72)
+					// 75/3000th chance for iron ore
+					else if (randomChance <= 75)
 					{
-						world.setBlockState(blockpos, ironOre.getDefaultState(), 4);
+						world.setBlockState(blockpos, IRON_ORE, 4);
 					}
 
-					// 107/2000th chance for coal ore
-					else if (randomChance <= 179)
+					// 180/3000th chance for coal ore
+					else if (randomChance <= 255)
 					{
-						world.setBlockState(blockpos, coalOre.getDefaultState(), 4);
+						world.setBlockState(blockpos, COAL_ORE, 4);
 					}
 
-					// 518/2000th chance for andesite
-					else if (randomChance <= 697)
+					// 770/3000th chance for andesite
+					else if (randomChance <= 1025)
 					{
-						world.setBlockState(blockpos, andesite.getDefaultState(), 4);
+						world.setBlockState(blockpos, ANDESITE, 4);
 					}
 
-					// 458/2000th chance for cobblestone
-					else if (randomChance <= 1155)
+					// 700/3000th chance for cobblestone
+					else if (randomChance <= 1725)
 					{
-						world.setBlockState(blockpos, cobblestone.getDefaultState(), 4);
+						world.setBlockState(blockpos, COBBLESTONE, 4);
 					}
 
-					// 845/2000th chance for mossyCobblestone
+					// 1275/3000th chance for mossyCobblestone
 					else
 					{
-						world.setBlockState(blockpos, mossyCobblestone.getDefaultState(), 4);
+						world.setBlockState(blockpos, MOSSY_COBBLESTONE, 4);
 					}
 				}
 			}
-			blockpos$Mutable.move(-(startRadius + 1) + random.nextInt(2 + startRadius * 2), 0 - random.nextInt(2), -(startRadius + 1) + random.nextInt(2 + startRadius * 2));
+			blockpos$Mutable.move(-(START_RADIUS + 1) + random.nextInt(2 + START_RADIUS * 2), 0 - random.nextInt(2), -(START_RADIUS + 1) + random.nextInt(2 + START_RADIUS * 2));
 
 		}
 		//finished generating the boulder

@@ -90,7 +90,18 @@ public class DungeonSwamp extends Feature<NoFeatureConfig>
 					{
 						blockpos$Mutable.setPos(position).move(x, y, z);
 
-						if (x != xMin && y != -1 && z != zMin && x != xMax && y != 4 && z != zMax)
+						if(y == 4)
+						{
+							if (rand.nextInt(4) != 0)
+							{
+								world.setBlockState(blockpos$Mutable, Blocks.MOSSY_STONE_BRICKS.getDefaultState(), 2);
+							}
+							else
+							{
+								world.setBlockState(blockpos$Mutable, Blocks.MOSSY_COBBLESTONE.getDefaultState(), 2);
+							}
+						}
+						else if (x != xMin && y != -1 && z != zMin && x != xMax && y != 4 && z != zMax)
 						{
 							if (world.getBlockState(blockpos$Mutable).getBlock() != Blocks.CHEST && world.getBlockState(blockpos$Mutable).getBlock() != Blocks.SPAWNER)
 							{
