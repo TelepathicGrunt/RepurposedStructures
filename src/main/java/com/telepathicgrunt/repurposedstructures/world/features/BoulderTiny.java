@@ -57,33 +57,33 @@ public class BoulderTiny extends Feature<NoFeatureConfig>
 				{
 					//adds the blocks for generation in this boulder
 					//note, if user turns off an ore, that ore's chance is dumped into the below ore for generation
-					int randomChance = random.nextInt(1400);
+					int randomChance = random.nextInt(1000);
 
-					// 40/1400th chance for iron ore
-					if (randomChance <= 40)
+					// 35/1000th chance for iron ore
+					if (randomChance <= 35)
 					{
 						world.setBlockState(blockpos.up(), IRON_ORE, 4);
 					}
 
-					// 60/1400th chance for coal ore
+					// 65/1000th chance for coal ore
 					else if (randomChance <= 100)
 					{
 						world.setBlockState(blockpos.up(), COAL_ORE, 4);
 					}
 
-					// 300/1400th chance for andesite
-					else if (randomChance <= 400)
+					// 250/1000th chance for andesite
+					else if (randomChance <= 350)
 					{
 						world.setBlockState(blockpos.up(), ANDESITE, 4);
 					}
 
-					// 300/1400th chance for cobblestone
-					else if (randomChance <= 700)
+					// 250/1000th chance for cobblestone
+					else if (randomChance <= 600)
 					{
 						world.setBlockState(blockpos.up(), COBBLESTONE, 4);
 					}
 
-					// 700/1400th chance for mossyCobblestone
+					// 400/1000th chance for mossyCobblestone
 					else
 					{
 						world.setBlockState(blockpos.up(), MOSSY_COBBLESTONE, 4);

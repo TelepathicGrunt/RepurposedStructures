@@ -51,6 +51,7 @@ public class BoulderGiant extends Feature<NoFeatureConfig>
 			}
 			else
 			{
+				blockpos$Mutable.move(Direction.UP, 2);
 				break; //We hit a valid spot to generate a boulder, time to exit loop
 			}
 		}
