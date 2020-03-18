@@ -120,7 +120,7 @@ public class JungleFortressStructure extends Structure<NoFeatureConfig>
 			}
 
 			this.recalculateStructureSize();
-			this.func_214626_a(this.rand, 55, 65);
+			this.func_214626_a(this.rand, 55, 60);
 		}
 	}
 }

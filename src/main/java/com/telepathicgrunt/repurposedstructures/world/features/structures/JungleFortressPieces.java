@@ -1757,7 +1757,7 @@ public class JungleFortressPieces
 		{
 			for(int z = structureBoundingBoxIn.minZ; z <= structureBoundingBoxIn.maxZ; z++)
 			{
-				for(int y = 62; y <= 85; y++)
+				for(int y = 62; y <= 90; y++)
 				{
 					if(random.nextInt(150) == 0)
 					{
