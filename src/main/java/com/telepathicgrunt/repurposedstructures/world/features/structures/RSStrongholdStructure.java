@@ -6,7 +6,6 @@ import java.util.function.Function;
 
 import com.mojang.datafixers.Dynamic;
 import com.telepathicgrunt.repurposedstructures.RSConfig;
-import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 
 import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.ChunkPos;

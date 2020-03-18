@@ -28,7 +28,8 @@ public class RSConfig
 		SERVER_SPEC = specPair.getRight();
 		SERVER = specPair.getLeft();
 	}
-	
+
+	public static boolean addDungeonsToModdedBiomes = false;
 	public static boolean badlandsDungeons = true;
 	public static boolean darkForestDungeons = true;
 	public static boolean desertDungeons = true;
@@ -39,12 +40,25 @@ public class RSConfig
 	public static boolean endDungeons = true;
 	public static boolean netherDungeons = true;
 
+	public static boolean addMiscToModdedBiomes = false;
 	public static boolean boulderTiny = true;
 	public static boolean boulderGiant = true;
 	public static boolean hornedSwampTree = true;
 
 	public static boolean lootChestsMS = true;
 	public static int mineshaftSpawnrate = 40;
+	public static boolean addMineshaftsToModdedBiomes = false;
+	public static boolean birchMineshafts;
+	public static boolean jungleMineshafts;
+	public static boolean desertMineshafts;
+	public static boolean stoneMineshafts;
+	public static boolean savannaMineshafts;
+	public static boolean icyMineshafts;
+	public static boolean oceanMineshafts;
+	public static boolean taigaMineshafts;
+	public static boolean swampAndDarkForestMineshafts;
+	public static boolean endMineshafts;
+	public static boolean netherMineshafts;
 	
 	public static int strongholdSpawnrate = 62;
 	public static double silverfishSpawnrateSH = 0.8D;
@@ -55,9 +69,11 @@ public class RSConfig
 	public static double silverfishSpawnrateJF = 0.5D;
 	public static boolean allowSilverfishSpawnerJF = true;
 	public static boolean lootChestsJF = true;
+	public static boolean addJungleFortressToModdedBiomes = false;
 
 	public static class ServerConfig
 	{
+		public final BooleanValue addDungeonsToModdedBiomes;
 		public final BooleanValue badlandsDungeons;
 		public final BooleanValue darkForestDungeons;
 		public final BooleanValue desertDungeons;
@@ -68,12 +84,25 @@ public class RSConfig
 		public final BooleanValue endDungeons;
 		public final BooleanValue netherDungeons;
 
+		public final BooleanValue addMiscToModdedBiomes;
 		public final BooleanValue boulderTiny;
 		public final BooleanValue boulderGiant;
 		public final BooleanValue hornedSwampTree;
 		
 		public final BooleanValue lootChestsMS;
 		public final IntValue mineshaftSpawnrate;
+		public final BooleanValue addMineshaftsToModdedBiomes;
+		public final BooleanValue birchMineshafts;
+		public final BooleanValue jungleMineshafts;
+		public final BooleanValue desertMineshafts;
+		public final BooleanValue stoneMineshafts;
+		public final BooleanValue savannaMineshafts;
+		public final BooleanValue icyMineshafts;
+		public final BooleanValue oceanMineshafts;
+		public final BooleanValue taigaMineshafts;
+		public final BooleanValue swampAndDarkForestMineshafts;
+		public final BooleanValue endMineshafts;
+		public final BooleanValue netherMineshafts;
 		
 		public final IntValue strongholdSpawnrate;
 		public final DoubleValue silverfishSpawnrateSH;
@@ -84,6 +113,7 @@ public class RSConfig
 		public final DoubleValue silverfishSpawnrateJF;
 		public final BooleanValue allowSilverfishSpawnerJF;
 		public final BooleanValue lootChestsJF;
+		public final BooleanValue addJungleFortressToModdedBiomes;
 
 
 		ServerConfig(ForgeConfigSpec.Builder builder)
@@ -91,6 +121,11 @@ public class RSConfig
 			builder.push("Feature Options");
 
 				builder.push("Dungeons");
+				
+					addDungeonsToModdedBiomes = builder
+							.comment("\r\n Add the custom dungeons to modded biomes of the same categories/type.")
+						.translation("repurposedstructures.config.feature.dungeons.adddungeonstomoddedbiomes")
+						.define("addDungeonsToModdedBiomes", true);
 				
 					badlandsDungeons = builder
 							.comment("\r\n Replace vanilla dungeon in Badlands biomes with Badlands themed dungeon.")
@@ -140,6 +175,11 @@ public class RSConfig
 				builder.pop();
 				
 				builder.push("Misc");
+				
+					addMiscToModdedBiomes = builder
+							.comment("\r\n Add the custom features to modded biomes of the same categories/type.")
+						.translation("repurposedstructures.config.feature.dungeons.addmisctomoddedbiomes")
+						.define("addMiscToModdedBiomes", true);
 
 					boulderTiny = builder
 							.comment("\r\n Adds tiny boulders to Taiga Mountains and Snowy Taiga Mountains biomes "
@@ -178,7 +218,69 @@ public class RSConfig
 							.comment("\r\n Controls whether loot chests spawn or not in modded Mineshafts.")
 						.translation("repurposedstructures.config.structure.mineshaft.lootchestsms")
 						.define("lootChestsMS", true);
-						
+
+					addMineshaftsToModdedBiomes = builder
+							.comment("\r\n Add the custom Mineshafts to modded biomes of the same categories/type.")
+						.translation("repurposedstructures.config.feature.dungeons.addmineshaftstomoddedbiomes")
+						.define("addMineshaftsToModdedBiomes", true);
+					
+					birchMineshafts = builder
+							.comment("\r\n Replace Mineshafts in Birch biomes with a Birch themed Mineshaft.")
+						.translation("repurposedstructures.config.feature.mineshaft.birchmineshafts")
+						.define("birchMineshafts", true);
+
+					jungleMineshafts = builder
+							.comment("\r\n Replace Mineshafts in Jungle biomes with a Jungle themed Mineshaft.")
+						.translation("repurposedstructures.config.feature.mineshaft.junglemineshafts")
+						.define("jungleMineshafts", true);
+
+					desertMineshafts = builder
+							.comment("\r\n Replace Mineshafts in Desert biomes with a Desert themed Mineshaft.")
+						.translation("repurposedstructures.config.feature.mineshaft.desertmineshafts")
+						.define("desertMineshafts", true);
+
+					stoneMineshafts = builder
+							.comment("\r\n Replace Mineshafts in Mountain (Extreme Hills) biomes with a Stone themed Mineshaft.")
+						.translation("repurposedstructures.config.feature.mineshaft.stonemineshafts")
+						.define("stoneMineshafts", true);
+
+					savannaMineshafts = builder
+							.comment("\r\n Replace Mineshafts in Savanna biomes with a Savanna themed Mineshaft.")
+						.translation("repurposedstructures.config.feature.mineshaft.savannamineshafts")
+						.define("savannaMineshafts", true);
+
+					icyMineshafts = builder
+							.comment("\r\n Replace Mineshafts in Snowy/Icy biomes with an Ice themed Mineshaft."
+									+"\r\n Note: Snowy Taiga Biomes will get Ice Mineshaft instead of Taiga theme.")
+						.translation("repurposedstructures.config.feature.mineshaft.icymineshafts")
+						.define("icyMineshafts", true);
+
+					oceanMineshafts = builder
+							.comment("\r\n Replace Mineshafts in Ocean biomes with an Ocean themed Mineshaft.")
+						.translation("repurposedstructures.config.feature.mineshaft.oceanmineshafts")
+						.define("oceanMineshafts", true);
+
+					taigaMineshafts = builder
+							.comment("\r\n Replace Mineshafts in Taiga biomes with a Taiga themed Mineshaft.")
+						.translation("repurposedstructures.config.feature.mineshaft.taigamineshafts")
+						.define("taigaMineshafts", true);
+					
+					swampAndDarkForestMineshafts = builder
+							.comment("\r\n Replace Mineshafts in Swamps and Dark Forests with a"
+									+"\r\n swampy/dark oak themed Mineshaft.")
+						.translation("repurposedstructures.config.feature.mineshaft.swampanddarkforestmineshafts")
+						.define("swampAndDarkForestMineshafts", true);
+					
+					endMineshafts = builder
+							.comment("\r\n Add End themed Mineshafts to End biomes outside the Enderdragon island.")
+						.translation("repurposedstructures.config.feature.mineshaft.endmineshafts")
+						.define("endMineshafts", true);
+					
+					netherMineshafts = builder
+							.comment("\r\n Add Nether themed Mineshafts to Nether biomes.")
+						.translation("repurposedstructures.config.feature.mineshaft.nethermineshafts")
+						.define("netherMineshafts", true);
+					
 				builder.pop();
 
 				builder.push("Stronghold");
@@ -237,7 +339,12 @@ public class RSConfig
 							.comment("\r\n Controls whether loot chests spawn or not in Jungle Fortresses.")
 						.translation("repurposedstructures.config.structure.junglefortress.lootchestsjf")
 						.define("lootChestsJF", true);
-		
+
+					addJungleFortressToModdedBiomes = builder
+							.comment("\r\n Add Jungle Fortress to modded jungle biomes.")
+						.translation("repurposedstructures.config.feature.dungeons.addjunglefortresstomoddedbiomes")
+						.define("addJungleFortressToModdedBiomes", true);
+					
 				builder.pop();
 			builder.pop();
 		}
@@ -246,6 +353,7 @@ public class RSConfig
 
 	public static void refreshServer()
 	{
+		addDungeonsToModdedBiomes = SERVER.addDungeonsToModdedBiomes.get();
 		badlandsDungeons = SERVER.badlandsDungeons.get();
 		darkForestDungeons = SERVER.darkForestDungeons.get();
 		desertDungeons = SERVER.desertDungeons.get();
@@ -256,12 +364,25 @@ public class RSConfig
 		endDungeons = SERVER.endDungeons.get();
 		netherDungeons = SERVER.netherDungeons.get();
 
+		addMiscToModdedBiomes = SERVER.addMiscToModdedBiomes.get();
 		boulderTiny = SERVER.boulderTiny.get();
 		boulderGiant = SERVER.boulderGiant.get();
 		hornedSwampTree = SERVER.hornedSwampTree.get();
 		
 		lootChestsMS = SERVER.lootChestsMS.get();
 		mineshaftSpawnrate = SERVER.mineshaftSpawnrate.get();
+		addMineshaftsToModdedBiomes = SERVER.addMineshaftsToModdedBiomes.get();
+		birchMineshafts = SERVER.birchMineshafts.get();
+		jungleMineshafts = SERVER.jungleMineshafts.get();
+		desertMineshafts = SERVER.desertMineshafts.get();
+		stoneMineshafts = SERVER.stoneMineshafts.get();
+		savannaMineshafts = SERVER.savannaMineshafts.get();
+		icyMineshafts = SERVER.icyMineshafts.get();
+		oceanMineshafts = SERVER.oceanMineshafts.get();
+		taigaMineshafts = SERVER.taigaMineshafts.get();
+		swampAndDarkForestMineshafts = SERVER.swampAndDarkForestMineshafts.get();
+		endMineshafts = SERVER.endMineshafts.get();
+		netherMineshafts = SERVER.netherMineshafts.get();
 		
 		strongholdSpawnrate = SERVER.strongholdSpawnrate.get();
 		silverfishSpawnrateSH = SERVER.silverfishSpawnrateSH.get();
@@ -272,5 +393,6 @@ public class RSConfig
 		silverfishSpawnrateJF = SERVER.silverfishSpawnrateJF.get();
 		allowSilverfishSpawnerJF = SERVER.allowSilverfishSpawnerJF.get();
 		lootChestsJF = SERVER.lootChestsJF.get();
+		addJungleFortressToModdedBiomes = SERVER.addJungleFortressToModdedBiomes.get();
 	}
 }

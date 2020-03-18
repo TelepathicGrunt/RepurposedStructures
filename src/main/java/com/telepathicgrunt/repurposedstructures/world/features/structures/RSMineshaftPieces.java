@@ -437,10 +437,9 @@ public class RSMineshaftPieces
 		{
 
 			BlockState iblockstate = this.getArchBlock();
-			BlockState iblockstate1 = this.getFenceBlock();
 			BlockState iblockstate2 = CAVE_AIR;
-			this.fillWithBlocks(world, boundingBox, x, y2, z, x, y - 1, z, iblockstate1, iblockstate2, false);
-			this.fillWithBlocks(world, boundingBox, x2, y2, z, x2, y - 1, z, iblockstate1, iblockstate2, false);
+			this.fillWithBlocks(world, boundingBox, x, y2, z, x, y - 1, z, this.getFenceBlock(random), iblockstate2, false);
+			this.fillWithBlocks(world, boundingBox, x2, y2, z, x2, y - 1, z, this.getFenceBlock(random), iblockstate2, false);
 			this.fillWithBlocks(world, boundingBox, x, y, z, x2, y, z, iblockstate, iblockstate2, false);
 
 			if (this.mineShaftType == Type.END)
@@ -682,7 +681,7 @@ public class RSMineshaftPieces
 		{
 			if (this.getBlockStateFromPos(p_189923_1_, p_189923_3_, p_189923_6_ + 1, p_189923_5_, p_189923_2_).getMaterial() != Material.AIR)
 			{
-				this.fillWithBlocks(p_189923_1_, p_189923_2_, p_189923_3_, p_189923_4_, p_189923_5_, p_189923_3_, p_189923_6_, p_189923_5_, this.getPlanksBlock(), CAVE_AIR, false);
+				this.fillWithBlocks(p_189923_1_, p_189923_2_, p_189923_3_, p_189923_4_, p_189923_5_, p_189923_3_, p_189923_6_, p_189923_5_, this.getPlanksBlock() == Blocks.GRASS_BLOCK.getDefaultState() ? Blocks.MOSSY_STONE_BRICKS.getDefaultState() : this.getPlanksBlock(), CAVE_AIR, false);
 			}
 		}
 	}
@@ -802,7 +801,7 @@ public class RSMineshaftPieces
 		}
 
 
-		protected BlockState getFenceBlock()
+		protected BlockState getFenceBlock(Random random)
 		{
 			switch (this.mineShaftType)
 			{
@@ -828,7 +827,7 @@ public class RSMineshaftPieces
 					return Blocks.PRISMARINE.getDefaultState();
 
 				case STONE:
-					return Blocks.COBBLESTONE_WALL.getDefaultState();
+					return random.nextInt(10) < 3 ? Blocks.MOSSY_COBBLESTONE_WALL.getDefaultState() : Blocks.COBBLESTONE_WALL.getDefaultState();
 
 				case SAVANNA:
 					return Blocks.ACACIA_FENCE.getDefaultState();
