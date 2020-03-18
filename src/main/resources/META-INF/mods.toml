@@ -1,0 +1,12 @@
+modLoader="javafml" #mandatory
+loaderVersion="[30,)" #mandatory (28 is current forge version)
+issueTrackerURL="http://my.issue.tracker/" #optional
+[[mods]] #mandatory
+modId="repurposed_structures" #mandatory
+version="${version}" #mandatory
+displayName="Repurposed Structures" #mandatory
+credits="" #optional
+authors="TelepathicGrunt" #optional
+description='''
+Taking existing vanilla structures and changing them up for extra variety!
+'''
