@@ -40,20 +40,36 @@ import net.minecraft.world.storage.loot.LootTables;
 
 public class RSStrongholdPieces
 {
-	private static final RSStrongholdPieces.PieceWeight[] PIECE_WEIGHTS = new RSStrongholdPieces.PieceWeight[] { new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.Straight.class, 40, 0), new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.Prison.class, 5, 8), new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.LeftTurn.class, 20, 0), new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.RightTurn.class, 20, 0),
-			new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.RoomCrossing.class, 10, 9), new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.StairsStraight.class, 5, 7), new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.Stairs.class, 5, 7), new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.Crossing.class, 5, 7), new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.ChestCorridor.class, 5, 16), new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.Library.class, 10, 6)
+	private static final RSStrongholdPieces.PieceWeight[] PIECE_WEIGHTS = new RSStrongholdPieces.PieceWeight[] { 
+			new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.Straight.class, 40, 0), 
+			new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.Prison.class, 5, 8), 
+			new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.LeftTurn.class, 20, 0), 
+			new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.RightTurn.class, 20, 0),
+			new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.RoomCrossing.class, 10, 9), 
+			new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.StairsStraight.class, 5, 7), 
+			new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.Stairs.class, 5, 7), 
+			new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.Crossing.class, 5, 7), 
+			new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.ChestCorridor.class, 5, 16), 
+			new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.Library.class, 10, 6)
 			{
 				@Override
-				public boolean canSpawnMoreStructuresOfType(int type)
+				public boolean canSpawnMoreStructures(int distanceFromStart)
 				{
-					return super.canSpawnMoreStructuresOfType(type) && type > 4;
+					return super.canSpawnMoreStructures(distanceFromStart) && distanceFromStart > 4;
 				}
-			}, new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.PortalRoom.class, 20, 1)
+			}, 
+			new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.PortalRoom.class, 20, 1)
 			{
 				@Override
-				public boolean canSpawnMoreStructuresOfType(int type)
+				public boolean canSpawnMoreStructures(int distanceFromStart)
 				{
-					return super.canSpawnMoreStructuresOfType(type) && type > 5;
+					return this.instancesSpawned < 1 && distanceFromStart > 5;
+				}
+				
+				@Override
+				public boolean canSpawnMoreStructures()
+				{
+					return this.instancesSpawned < 1;
 				}
 			} };
 	private static List<RSStrongholdPieces.PieceWeight> structurePieceList;
@@ -88,18 +104,22 @@ public class RSStrongholdPieces
 		{
 			if (structurestrongholdpieces$pieceweight.instancesLimit > 0)
 			{
-				int maxLimit = (int)(structurestrongholdpieces$pieceweight.instancesLimit * (RSConfig.strongholdSizeSH*0.01D));
-				if(maxLimit == 0) 
-					maxLimit = 1;
-				
-				if (structurestrongholdpieces$pieceweight.instancesSpawned < maxLimit)
-					flag = true;
+				String name = structurestrongholdpieces$pieceweight.pieceClass.getSimpleName();
+				if(name.equals("PortalRoom"))
+				{
+					if (structurestrongholdpieces$pieceweight.instancesSpawned < 1)
+						flag = true;
+				}
+				else
+				{
+					int maxLimit = (int)(structurestrongholdpieces$pieceweight.instancesLimit * (RSConfig.strongholdSizeSH * 0.01D));
+					
+					if (structurestrongholdpieces$pieceweight.instancesSpawned <= maxLimit)
+						flag = true;
+				}
 			}
 
-			int pieceWeight = (int)(structurestrongholdpieces$pieceweight.pieceWeight * (RSConfig.strongholdSizeSH*0.01D));
-			if(pieceWeight == 0) 
-				pieceWeight = 1;
-			totalWeight += pieceWeight;
+			totalWeight += structurestrongholdpieces$pieceweight.pieceWeight;
 		}
 
 		return flag;
@@ -159,7 +179,7 @@ public class RSStrongholdPieces
 	}
 
 
-	private static RSStrongholdPieces.Stronghold generatePieceFromSmallDoor(RSStrongholdPieces.EntranceStairs p_175955_0_, List<StructurePiece> p_175955_1_, Random p_175955_2_, int p_175955_3_, int p_175955_4_, int p_175955_5_, Direction p_175955_6_, int p_175955_7_)
+	private static RSStrongholdPieces.Stronghold generatePieceFromSmallDoor(RSStrongholdPieces.EntranceStairs p_175955_0_, List<StructurePiece> p_175955_1_, Random random, int p_175955_3_, int p_175955_4_, int p_175955_5_, Direction p_175955_6_, int p_175955_7_)
 	{
 		if (!canAddStructurePieces())
 		{
@@ -169,7 +189,7 @@ public class RSStrongholdPieces
 		{
 			if (strongComponentType != null)
 			{
-				RSStrongholdPieces.Stronghold structurestrongholdpieces$stronghold = findAndCreatePieceFactory(strongComponentType, p_175955_1_, p_175955_2_, p_175955_3_, p_175955_4_, p_175955_5_, p_175955_6_, p_175955_7_);
+				RSStrongholdPieces.Stronghold structurestrongholdpieces$stronghold = findAndCreatePieceFactory(strongComponentType, p_175955_1_, random, p_175955_3_, p_175955_4_, p_175955_5_, p_175955_6_, p_175955_7_);
 				strongComponentType = null;
 
 				if (structurestrongholdpieces$stronghold != null)
@@ -183,20 +203,20 @@ public class RSStrongholdPieces
 			while (j < 5)
 			{
 				++j;
-				int i = p_175955_2_.nextInt(totalWeight);
+				int randomWeight = random.nextInt(totalWeight);
 
 				for (RSStrongholdPieces.PieceWeight structurestrongholdpieces$pieceweight : structurePieceList)
 				{
-					i -= structurestrongholdpieces$pieceweight.pieceWeight;
+					randomWeight -= structurestrongholdpieces$pieceweight.pieceWeight;
 
-					if (i < 0)
+					if (randomWeight < 0)
 					{
-						if (!structurestrongholdpieces$pieceweight.canSpawnMoreStructuresOfType(p_175955_7_) || structurestrongholdpieces$pieceweight == p_175955_0_.strongholdPieceWeight)
+						if (!structurestrongholdpieces$pieceweight.canSpawnMoreStructures(p_175955_7_) || structurestrongholdpieces$pieceweight == p_175955_0_.strongholdPieceWeight)
 						{
 							break;
 						}
 
-						RSStrongholdPieces.Stronghold structurestrongholdpieces$stronghold1 = findAndCreatePieceFactory(structurestrongholdpieces$pieceweight.pieceClass, p_175955_1_, p_175955_2_, p_175955_3_, p_175955_4_, p_175955_5_, p_175955_6_, p_175955_7_);
+						RSStrongholdPieces.Stronghold structurestrongholdpieces$stronghold1 = findAndCreatePieceFactory(structurestrongholdpieces$pieceweight.pieceClass, p_175955_1_, random, p_175955_3_, p_175955_4_, p_175955_5_, p_175955_6_, p_175955_7_);
 
 						if (structurestrongholdpieces$stronghold1 != null)
 						{
@@ -214,7 +234,7 @@ public class RSStrongholdPieces
 				}
 			}
 
-			MutableBoundingBox mutableboundingbox = RSStrongholdPieces.Corridor.findPieceBox(p_175955_1_, p_175955_2_, p_175955_3_, p_175955_4_, p_175955_5_, p_175955_6_);
+			MutableBoundingBox mutableboundingbox = RSStrongholdPieces.Corridor.findPieceBox(p_175955_1_, random, p_175955_3_, p_175955_4_, p_175955_5_, p_175955_6_);
 
 			if (mutableboundingbox != null && mutableboundingbox.minY > 1)
 			{
@@ -228,15 +248,16 @@ public class RSStrongholdPieces
 	}
 
 
-	private static StructurePiece generateAndAddPiece(RSStrongholdPieces.EntranceStairs p_175953_0_, List<StructurePiece> p_175953_1_, Random p_175953_2_, int p_175953_3_, int p_175953_4_, int p_175953_5_, @Nullable Direction p_175953_6_, int p_175953_7_)
+	private static StructurePiece generateAndAddPiece(RSStrongholdPieces.EntranceStairs p_175953_0_, List<StructurePiece> p_175953_1_, Random p_175953_2_, int p_175953_3_, int p_175953_4_, int p_175953_5_, @Nullable Direction p_175953_6_, int distanceFromStart)
 	{
-		if (p_175953_7_ > 50)
+		int maxComponents = (int)(50 * (RSConfig.strongholdSizeSH * 0.01D));
+		if (distanceFromStart > maxComponents)
 		{
 			return null;
 		}
 		else if (Math.abs(p_175953_3_ - p_175953_0_.getBoundingBox().minX) <= 112 && Math.abs(p_175953_5_ - p_175953_0_.getBoundingBox().minZ) <= 112)
 		{
-			StructurePiece StructurePiece = generatePieceFromSmallDoor(p_175953_0_, p_175953_1_, p_175953_2_, p_175953_3_, p_175953_4_, p_175953_5_, p_175953_6_, p_175953_7_ + 1);
+			StructurePiece StructurePiece = generatePieceFromSmallDoor(p_175953_0_, p_175953_1_, p_175953_2_, p_175953_3_, p_175953_4_, p_175953_5_, p_175953_6_, distanceFromStart + 1);
 
 			if (StructurePiece != null)
 			{
@@ -254,9 +275,6 @@ public class RSStrongholdPieces
 
 	public static class ChestCorridor extends RSStrongholdPieces.Stronghold
 	{
-		private boolean hasMadeChest;
-
-
 		public ChestCorridor(int p_i45582_1_, Random p_i45582_2_, MutableBoundingBox p_i45582_3_, Direction p_i45582_4_)
 		{
 			super(StructurePieces.SHCCRS, p_i45582_1_);
@@ -269,7 +287,6 @@ public class RSStrongholdPieces
 		public ChestCorridor(TemplateManager p_i50140_1_, CompoundNBT p_i50140_2_)
 		{
 			super(StructurePieces.SHCCRS, p_i50140_2_);
-			this.hasMadeChest = p_i50140_2_.getBoolean("Chest");
 		}
 
 
@@ -280,7 +297,6 @@ public class RSStrongholdPieces
 		protected void readAdditional(CompoundNBT tagCompound)
 		{
 			super.readAdditional(tagCompound);
-			tagCompound.putBoolean("Chest", this.hasMadeChest);
 		}
 
 
@@ -315,9 +331,8 @@ public class RSStrongholdPieces
 				this.setBlockState(world, Blocks.STONE_BRICK_SLAB.getDefaultState(), 2, 1, i, structureBoundingBoxIn);
 			}
 
-			if (!this.hasMadeChest && structureBoundingBoxIn.isVecInside(new BlockPos(this.getXWithOffset(3, 3), this.getYWithOffset(2), this.getZWithOffset(3, 3))))
+			if (structureBoundingBoxIn.isVecInside(new BlockPos(this.getXWithOffset(3, 3), this.getYWithOffset(2), this.getZWithOffset(3, 3))))
 			{
-				this.hasMadeChest = true;
 				if (RSConfig.lootChestsSH)
 				{
 					this.generateChest(world, structureBoundingBoxIn, random, 3, 2, 3, LootTables.CHESTS_STRONGHOLD_CORRIDOR);
@@ -808,15 +823,19 @@ public class RSStrongholdPieces
 		}
 
 
-		public boolean canSpawnMoreStructuresOfType(int p_75189_1_)
+		public boolean canSpawnMoreStructures(int distanceFromStart)
 		{
-			return this.instancesLimit == 0 || this.instancesSpawned < this.instancesLimit;
+			int maxLimit = (int)(this.instancesLimit * (RSConfig.strongholdSizeSH * 0.01D));
+			
+			return this.instancesLimit == 0 || this.instancesSpawned < maxLimit;
 		}
 
 
 		public boolean canSpawnMoreStructures()
 		{
-			return this.instancesLimit == 0 || this.instancesSpawned < this.instancesLimit;
+			int maxLimit = (int)(this.instancesLimit * (RSConfig.strongholdSizeSH * 0.01D));
+			
+			return this.instancesLimit == 0 || this.instancesSpawned < maxLimit;
 		}
 	}
 
@@ -860,6 +879,12 @@ public class RSStrongholdPieces
 		{
 			MutableBoundingBox mutableboundingbox = MutableBoundingBox.getComponentToAddBoundingBox(p_175865_2_, p_175865_3_, p_175865_4_, -4, -1, 0, 11, 8, 16, p_175865_5_);
 			return canStrongholdGoDeeper(mutableboundingbox) && StructurePiece.findIntersecting(p_175865_0_, mutableboundingbox) == null ? new RSStrongholdPieces.PortalRoom(p_175865_6_, mutableboundingbox, p_175865_5_) : null;
+		}
+		
+		public static RSStrongholdPieces.PortalRoom createPiece(List<StructurePiece> p_175865_0_, Random p_175865_1_, int p_175865_2_, int p_175865_3_, int p_175865_4_, Direction p_175865_5_)
+		{
+			MutableBoundingBox mutableboundingbox = MutableBoundingBox.getComponentToAddBoundingBox(p_175865_2_, p_175865_3_, p_175865_4_, -4, -1, 0, 11, 8, 16, p_175865_5_);
+			return new RSStrongholdPieces.PortalRoom(1, mutableboundingbox, p_175865_5_);
 		}
 
 

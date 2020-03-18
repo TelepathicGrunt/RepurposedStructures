@@ -105,12 +105,6 @@ public class RSStrongholdStructure extends Structure<NoFeatureConfig>
 			RSStrongholdPieces.EntranceStairs strongholdpieces$entrancestairs = new RSStrongholdPieces.EntranceStairs(this.rand, (chunkX << 4) + 2, (chunkZ << 4) + 2);
 			this.components.add(strongholdpieces$entrancestairs);
 			strongholdpieces$entrancestairs.buildComponent(strongholdpieces$entrancestairs, this.components, this.rand);
-
-			if (!this.components.isEmpty() && strongholdpieces$entrancestairs.strongholdPortalRoom == null)
-			{
-				strongholdpieces$entrancestairs.pendingChildren.add(new RSStrongholdPieces.PortalRoom(0, strongholdpieces$entrancestairs.pendingChildren.get(strongholdpieces$entrancestairs.pendingChildren.size()-1).getBoundingBox(), Direction.NORTH));
-			}
-
 			List<StructurePiece> list = strongholdpieces$entrancestairs.pendingChildren;
 			
 			while (!list.isEmpty())
@@ -119,10 +113,29 @@ public class RSStrongholdStructure extends Structure<NoFeatureConfig>
 				StructurePiece structurepiece = list.remove(i);
 				structurepiece.buildComponent(strongholdpieces$entrancestairs, this.components, this.rand);
 			}
+			
+
+			if (strongholdpieces$entrancestairs.strongholdPortalRoom == null)
+			{
+				MutableBoundingBox box = this.components.get(this.components.size()-1).getBoundingBox();
+				RSStrongholdPieces.Stronghold portalRoom = RSStrongholdPieces.PortalRoom.createPiece(this.components, this.rand, box.minX, box.minY+1, box.minZ, Direction.NORTH);
+				this.components.add(portalRoom);
+				strongholdpieces$entrancestairs.pendingChildren.add(portalRoom);
+				list = strongholdpieces$entrancestairs.pendingChildren;
+				
+				while (!list.isEmpty())
+				{
+					int i = this.rand.nextInt(list.size());
+					StructurePiece structurepiece = list.remove(i);
+					structurepiece.buildComponent(strongholdpieces$entrancestairs, this.components, this.rand);
+				}
+			}
+			
 
 			this.recalculateStructureSize();
 			this.func_214628_a(generator.getSeaLevel(), this.rand, 10);
 
+			
 		}
 	}
 }
