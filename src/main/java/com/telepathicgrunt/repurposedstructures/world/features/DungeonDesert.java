@@ -37,10 +37,10 @@ public class DungeonDesert extends Feature<NoFeatureConfig>
 
 	private static final Logger LOGGER = LogManager.getLogger();
 	private static final BlockState CAVE_AIR = Blocks.CAVE_AIR.getDefaultState();
-	private static final BlockState SandStone = Blocks.SMOOTH_SANDSTONE.getDefaultState();
-	private static final BlockState CreeperSandStone = Blocks.CHISELED_SANDSTONE.getDefaultState();
-	private static final BlockState SlabBottom = Blocks.SANDSTONE_SLAB.getDefaultState();
-	private static final BlockState SlabTop = Blocks.SANDSTONE_SLAB.getDefaultState().with(SlabBlock.TYPE, SlabType.TOP);
+	private static final BlockState SMOOTH_SANDSTONE = Blocks.SMOOTH_SANDSTONE.getDefaultState();
+	private static final BlockState CREEPER_SANDSTONE = Blocks.CHISELED_SANDSTONE.getDefaultState();
+	private static final BlockState SLAB_BOTTOM = Blocks.SANDSTONE_SLAB.getDefaultState();
+	private static final BlockState SLAB_TOP = Blocks.SANDSTONE_SLAB.getDefaultState().with(SlabBlock.TYPE, SlabType.TOP);
 
 
 	//only the mob spawner chance and what blocks the wall cannot replace was changed. Everything else is just the normal dungeon code.
@@ -103,11 +103,11 @@ public class DungeonDesert extends Feature<NoFeatureConfig>
 								//ceiling
 								if (rand.nextInt(4) == 0)
 								{
-									world.setBlockState(blockpos$Mutable, SandStone, 2);
+									world.setBlockState(blockpos$Mutable, SMOOTH_SANDSTONE, 2);
 								}
 								else
 								{
-									world.setBlockState(blockpos$Mutable, SlabTop, 2);
+									world.setBlockState(blockpos$Mutable, SLAB_TOP, 2);
 								}
 							}
 							else if (world.getBlockState(blockpos$Mutable).getBlock() != Blocks.CHEST && world.getBlockState(blockpos$Mutable).getBlock() != Blocks.SPAWNER)
@@ -125,15 +125,15 @@ public class DungeonDesert extends Feature<NoFeatureConfig>
 						{
 							if (x != xMin && z != zMin && x != xMax && z != zMax && y == -1 && rand.nextInt(4) != 0)
 							{
-								world.setBlockState(blockpos$Mutable, SlabBottom, 2);
+								world.setBlockState(blockpos$Mutable, SLAB_BOTTOM, 2);
 							}
 							else if (rand.nextInt(10) == 0)
 							{
-								world.setBlockState(blockpos$Mutable, CreeperSandStone, 2);
+								world.setBlockState(blockpos$Mutable, CREEPER_SANDSTONE, 2);
 							}
 							else
 							{
-								world.setBlockState(blockpos$Mutable, SandStone, 2);
+								world.setBlockState(blockpos$Mutable, SMOOTH_SANDSTONE, 2);
 							}
 						}
 					}
@@ -165,7 +165,7 @@ public class DungeonDesert extends Feature<NoFeatureConfig>
 						{
 							world.setBlockState(blockpos$Mutable, StructurePiece.func_197528_a(world, blockpos$Mutable, Blocks.CHEST.getDefaultState()), 2);
 							LockableLootTileEntity.setLootTable(world, rand, blockpos$Mutable, LootTables.CHESTS_SIMPLE_DUNGEON);
-							world.setBlockState(blockpos$Mutable.down(), SandStone, 2);
+							world.setBlockState(blockpos$Mutable.down(), SMOOTH_SANDSTONE, 2);
 
 							break;
 						}
@@ -175,11 +175,11 @@ public class DungeonDesert extends Feature<NoFeatureConfig>
 
 			world.setBlockState(position, Blocks.SPAWNER.getDefaultState(), 2);
 			TileEntity tileentity = world.getTileEntity(position);
-			world.setBlockState(position.down(), SandStone, 2);
+			world.setBlockState(position.down(), SMOOTH_SANDSTONE, 2);
 
 			if (tileentity instanceof MobSpawnerTileEntity)
 			{
-				((MobSpawnerTileEntity) tileentity).getSpawnerBaseLogic().setEntityType(this.pickMobSpawner(world, rand, position));
+				((MobSpawnerTileEntity) tileentity).getSpawnerBaseLogic().setEntityType(this.pickMobSpawner(world, rand));
 			}
 			else
 			{
@@ -198,7 +198,7 @@ public class DungeonDesert extends Feature<NoFeatureConfig>
 	/**
 	 * Randomly decides which spawner to use in a dungeon
 	 */
-	private EntityType<?> pickMobSpawner(IWorld world, Random rand, BlockPos position)
+	private EntityType<?> pickMobSpawner(IWorld world, Random rand)
 	{
 
 		int roll = rand.nextInt(100);

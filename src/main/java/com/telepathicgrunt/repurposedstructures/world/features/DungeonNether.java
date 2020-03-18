@@ -201,7 +201,14 @@ public class DungeonNether extends Feature<NoFeatureConfig>
 		else
 		{
 			//1% chance
-			return EntityType.WITHER_SKELETON;
+			if(position.getY() < 30) 
+			{
+				return EntityType.WITHER_SKELETON;
+			}
+			else
+			{
+				return EntityType.MAGMA_CUBE;
+			}
 		}
 	}
 }

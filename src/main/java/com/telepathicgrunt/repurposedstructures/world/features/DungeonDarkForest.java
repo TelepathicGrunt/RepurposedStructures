@@ -210,7 +210,7 @@ public class DungeonDarkForest extends Feature<NoFeatureConfig>
 
 			if (tileentity instanceof MobSpawnerTileEntity)
 			{
-				((MobSpawnerTileEntity) tileentity).getSpawnerBaseLogic().setEntityType(this.pickMobSpawner(world, rand, position));
+				((MobSpawnerTileEntity) tileentity).getSpawnerBaseLogic().setEntityType(this.pickMobSpawner(world, rand));
 			}
 			else
 			{
@@ -229,7 +229,7 @@ public class DungeonDarkForest extends Feature<NoFeatureConfig>
 	/**
 	 * Randomly decides which spawner to use in a dungeon
 	 */
-	private EntityType<?> pickMobSpawner(IWorld world, Random rand, BlockPos position)
+	private EntityType<?> pickMobSpawner(IWorld world, Random rand)
 	{
 		int roll = rand.nextInt(100);
 

@@ -21,6 +21,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.GenerationSettings;
+import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.storage.loot.LootTables;
@@ -50,7 +51,8 @@ public class DungeonEnd extends Feature<NoFeatureConfig>
 		int zMax = randZRange + 1;
 		int validOpeneings = 0;
 		int ceilingOpenings = 0;
-		BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable(position);
+		BlockPos newPosition = new BlockPos(position.getX(), rand.nextInt(world.getHeight(Heightmap.Type.WORLD_SURFACE, position.getX(), position.getZ())+5), position.getZ());
+		BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable(newPosition);
 
 		for (int x = xMin; x <= xMax; ++x)
 		{
@@ -58,7 +60,8 @@ public class DungeonEnd extends Feature<NoFeatureConfig>
 			{
 				for (int z = zMin; z <= zMax; ++z)
 				{
-					blockpos$Mutable.setPos(position).move(x, y, z);
+					blockpos$Mutable.setPos(newPosition).move(x, y, z);
+					BlockState blockState = world.getBlockState(blockpos$Mutable);
 					Material material = world.getBlockState(blockpos$Mutable).getMaterial();
 					boolean flag = material.isSolid();
 
@@ -88,7 +91,7 @@ public class DungeonEnd extends Feature<NoFeatureConfig>
 				{
 					for (int z = zMin; z <= zMax; ++z)
 					{
-						blockpos$Mutable.setPos(position).move(x, y, z);
+						blockpos$Mutable.setPos(newPosition).move(x, y, z);
 
 						if (x != xMin && y != -1 && z != zMin && x != xMax && y != 4 && z != zMax)
 						{
@@ -115,9 +118,9 @@ public class DungeonEnd extends Feature<NoFeatureConfig>
 			{
 				for (int j4 = 0; j4 < 3; ++j4)
 				{
-					int x = position.getX() + rand.nextInt(randXRange * 2 + 1) - randXRange;
-					int y = position.getY();
-					int z = position.getZ() + rand.nextInt(randZRange * 2 + 1) - randZRange;
+					int x = newPosition.getX() + rand.nextInt(randXRange * 2 + 1) - randXRange;
+					int y = newPosition.getY();
+					int z = newPosition.getZ() + rand.nextInt(randZRange * 2 + 1) - randZRange;
 					blockpos$Mutable.setPos(x, y, z);
 
 					if (world.isAirBlock(blockpos$Mutable))
@@ -143,17 +146,17 @@ public class DungeonEnd extends Feature<NoFeatureConfig>
 				}
 			}
 
-			world.setBlockState(position, Blocks.END_PORTAL_FRAME.getDefaultState().with(BlockStateProperties.EYE, true), 2);
-			world.setBlockState(position.down(), Blocks.SPAWNER.getDefaultState(), 2);
-			TileEntity tileentity = world.getTileEntity(position.down());
+			world.setBlockState(newPosition, Blocks.END_PORTAL_FRAME.getDefaultState().with(BlockStateProperties.EYE, true), 2);
+			world.setBlockState(newPosition.down(), Blocks.SPAWNER.getDefaultState(), 2);
+			TileEntity tileentity = world.getTileEntity(newPosition.down());
 
 			if (tileentity instanceof MobSpawnerTileEntity)
 			{
-				((MobSpawnerTileEntity) tileentity).getSpawnerBaseLogic().setEntityType(this.pickMobSpawner(world, rand, position.down()));
+				((MobSpawnerTileEntity) tileentity).getSpawnerBaseLogic().setEntityType(this.pickMobSpawner(world, rand));
 			}
 			else
 			{
-				LOGGER.error("Failed to fetch mob spawner entity at ({}, {}, {})", new Object[] { Integer.valueOf(position.getX()), Integer.valueOf(position.down().getY()), Integer.valueOf(position.getZ()) });
+				LOGGER.error("Failed to fetch mob spawner entity at ({}, {}, {})", new Object[] { Integer.valueOf(newPosition.getX()), Integer.valueOf(newPosition.down().getY()), Integer.valueOf(newPosition.getZ()) });
 			}
 
 			return true;
@@ -168,7 +171,7 @@ public class DungeonEnd extends Feature<NoFeatureConfig>
 	/**
 	 * Randomly decides which spawner to use in a dungeon
 	 */
-	private EntityType<?> pickMobSpawner(IWorld world, Random rand, BlockPos position)
+	private EntityType<?> pickMobSpawner(IWorld world, Random rand)
 	{
 		int roll = rand.nextInt(100);
 
