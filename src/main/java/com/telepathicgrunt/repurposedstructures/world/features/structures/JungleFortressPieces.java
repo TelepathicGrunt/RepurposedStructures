@@ -23,6 +23,7 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.MobSpawnerTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Direction;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MutableBoundingBox;
@@ -164,7 +165,7 @@ public class JungleFortressPieces
 
 			if (RSConfig.lootChestsJF && random.nextInt(9) == 0 && structureBoundingBoxIn.isVecInside(new BlockPos(this.getXWithOffset(3, 3), this.getYWithOffset(2), this.getZWithOffset(3, 3))))
 			{
-				this.generateChest(world, structureBoundingBoxIn, random, 3, 2, 3, (random.nextBoolean() ? LootTables.CHESTS_VILLAGE_VILLAGE_WEAPONSMITH : LootTables.CHESTS_VILLAGE_VILLAGE_ARMORER));
+				this.generateChest(world, structureBoundingBoxIn, random, 3, 2, 3, pickRandomLoot(random));
 			}
 
 			this.fillWithRandomBlocks(world, structureBoundingBoxIn, 0, 6, 0, 4, 6, 4, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
@@ -240,7 +241,7 @@ public class JungleFortressPieces
 
 			if (RSConfig.lootChestsJF && random.nextInt(9) == 0 && structureBoundingBoxIn.isVecInside(new BlockPos(this.getXWithOffset(1, 3), this.getYWithOffset(2), this.getZWithOffset(1, 3))))
 			{
-				this.generateChest(world, structureBoundingBoxIn, random, 1, 2, 3, (random.nextBoolean() ? LootTables.CHESTS_VILLAGE_VILLAGE_WEAPONSMITH : LootTables.CHESTS_VILLAGE_VILLAGE_ARMORER));
+				this.generateChest(world, structureBoundingBoxIn, random, 1, 2, 3, pickRandomLoot(random));
 			}
 
 			this.fillWithRandomBlocks(world, structureBoundingBoxIn, 0, 6, 0, 4, 6, 4, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
@@ -879,7 +880,7 @@ public class JungleFortressPieces
 
 			if (RSConfig.lootChestsJF)
 			{
-				this.generateChest(world, structureBoundingBoxIn, random, 6, 5, 8, (random.nextBoolean() ? LootTables.CHESTS_VILLAGE_VILLAGE_WEAPONSMITH : LootTables.CHESTS_VILLAGE_VILLAGE_ARMORER));
+				this.generateChest(world, structureBoundingBoxIn, random, 6, 5, 8, pickRandomLoot(random));
 			}
 
 			if (structureBoundingBoxIn.isVecInside(blockpos))
@@ -1726,6 +1727,28 @@ public class JungleFortressPieces
 		}
 	}
 
+	private static ResourceLocation pickRandomLoot(Random random)
+	{
+		ResourceLocation lootTable = null;
+		
+		float chance = random.nextFloat();
+		if(chance < 0.38f)
+		{
+			lootTable = LootTables.CHESTS_VILLAGE_VILLAGE_WEAPONSMITH;
+		}
+		else if(chance < 0.76f)
+		{
+			lootTable = LootTables.CHESTS_VILLAGE_VILLAGE_ARMORER;
+		}
+		else
+		{
+			lootTable = LootTables.CHESTS_JUNGLE_TEMPLE;
+		}
+		
+		
+		return lootTable;
+	}
+	
 	
 	private static void attemptToAddVines(IWorld world, ChunkGenerator<?> chunkGenerator, Random random, MutableBoundingBox structureBoundingBoxIn)
 	{
@@ -1736,7 +1759,7 @@ public class JungleFortressPieces
 			{
 				for(int y = 62; y <= 85; y++)
 				{
-					if(random.nextInt(125) == 0)
+					if(random.nextInt(150) == 0)
 					{
 						RSFeatures.SHORT_VINES.place(world, chunkGenerator, random, mutablePos.setPos(x, y, z), NoFeatureConfig.NO_FEATURE_CONFIG);
 					}

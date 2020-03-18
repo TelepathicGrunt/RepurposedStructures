@@ -84,7 +84,7 @@ public class DungeonSwamp extends Feature<NoFeatureConfig>
 		{
 			for (int x = xMin; x <= xMax; ++x)
 			{
-				for (int y = 3; y >= -1; --y)
+				for (int y = 4; y >= -1; --y)
 				{
 					for (int z = zMin; z <= zMax; ++z)
 					{

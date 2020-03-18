@@ -1218,6 +1218,10 @@ public class RSStrongholdPieces
 							}
 						}
 					}
+					else
+					{
+						this.setBlockState(world, Blocks.STONE_BRICKS.getDefaultState(), 5, 1, 5, structureBoundingBoxIn);
+					}
 
 					this.setBlockState(world, Blocks.WATER.getDefaultState(), 5, 4, 5, structureBoundingBoxIn);
 					break;
