@@ -310,12 +310,12 @@ public class RSConfig
 		
 					strongholdSizeSH = builder
 							.comment("\r\n How large the Stronghold is on average as a percentage." 
-									+ "\r\n Note: The Stonghold is massive by default. To get something "
-									+ "\r\n closer to vanilla stronghold size, use 70 or 60."
+									+ "\r\n Note: The Stonghold is larger by default. To get something "
+									+ "\r\n closer to vanilla stronghold size, use the value of 60."
 									+ "\n "
-									+ "10 for tiny Strongholds and 1000 for supermassive Strongholds.")
+									+ "10 for supertiny Strongholds and 2000 for supermassive Strongholds.")
 							.translation("repurposedstructures.config.structure.stronghold.strongholdsizesh")
-							.defineInRange("strongholdSizeSH", 100D, 10, 1000);
+							.defineInRange("strongholdSizeSH", 100D, 10, 2000);
 					
 					lootChestsSH = builder
 							.comment("\r\n Controls whether loot chests spawn or not in the Stronghold.")
