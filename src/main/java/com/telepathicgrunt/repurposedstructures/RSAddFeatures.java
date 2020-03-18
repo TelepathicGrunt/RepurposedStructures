@@ -28,7 +28,6 @@ import net.minecraft.world.gen.placement.Placement;
 
 public class RSAddFeatures
 {
-
 	public static void addMineshafts(Biome biome, String biomeNamespace, String biomePath)
 	{
 		biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.MINESHAFT.withConfiguration(new RSMineshaftConfig(RSMineshaftStructure.Type.BIRCH)).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
@@ -151,24 +150,14 @@ public class RSAddFeatures
 				(biome.getCategory() == Category.THEEND && biome != Biomes.THE_END && biome != Biomes.SMALL_END_ISLANDS) && 
 				(biomeNamespace.equals("minecraft") || RSConfig.addMineshaftsToModdedBiomes))
 		{
-			if(biome.hasStructure(Feature.MINESHAFT))
-			{
-				//replace vanilla mineshaft with our own
-				biome.structures.remove(Feature.MINESHAFT);
-				biome.addStructure(RSFeatures.MINESHAFT.withConfiguration(new RSMineshaftConfig(RSMineshaftStructure.Type.END)));
-			}
+			biome.addStructure(RSFeatures.MINESHAFT.withConfiguration(new RSMineshaftConfig(RSMineshaftStructure.Type.END)));
 		}
 		
 		else if(RSConfig.netherMineshafts && 
 				biome.getCategory() == Category.NETHER && 
 				(biomeNamespace.equals("minecraft") || RSConfig.addMineshaftsToModdedBiomes))
 		{
-			if(biome.hasStructure(Feature.MINESHAFT))
-			{
-				//replace vanilla mineshaft with our own
-				biome.structures.remove(Feature.MINESHAFT);
-				biome.addStructure(RSFeatures.MINESHAFT.withConfiguration(new RSMineshaftConfig(RSMineshaftStructure.Type.HELL)));
-			}
+			biome.addStructure(RSFeatures.MINESHAFT.withConfiguration(new RSMineshaftConfig(RSMineshaftStructure.Type.HELL)));
 		}
 	}
 	
@@ -308,17 +297,18 @@ public class RSAddFeatures
 	public static void addStronghold(Biome biome, String biomeNamespace, String biomePath)
 	{
 		//remove vanilla stronghold
-		biome.structures.remove(Feature.STRONGHOLD);
-		biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && serializeAndCompareFeature(configuredFeature, Feature.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)));
-		
-		biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
-
-		if(RSConfig.strongholdSpawnrate == 1001)
+		if(biome.structures.containsKey(Feature.STRONGHOLD))
 		{
-			return;
+			biome.structures.remove(Feature.STRONGHOLD);
+			biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && serializeAndCompareFeature(configuredFeature, Feature.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)));
+			
+			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+
+			if(RSConfig.strongholdSpawnrate != 1001)
+			{
+				biome.addStructure(RSFeatures.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+			}
 		}
-		
-		biome.addStructure(RSFeatures.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 	}
 	
 
