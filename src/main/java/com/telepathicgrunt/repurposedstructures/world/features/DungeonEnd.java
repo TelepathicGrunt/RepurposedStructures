@@ -171,30 +171,20 @@ public class DungeonEnd extends Feature<NoFeatureConfig>
 	{
 		int roll = rand.nextInt(100);
 
-		if (roll < 48)
+		if (roll < 86)
 		{
-			//48% chance
-			return EntityType.ENDERMITE;
-		}
-		else if (roll < 73)
-		{
-			//25% chance
+			//86% chance
 			return EntityType.ENDERMITE;
 		}
 		else if (roll < 98)
 		{
-			//25% chance
-			return EntityType.PHANTOM;
-		}
-		else if (roll == 98)
-		{
-			//1% chance
+			//12% chance
 			return EntityType.ENDERMAN;
 		}
 		else
 		{
-			//1% chance
-			return EntityType.ENDERMAN;
+			//2% chance
+			return EntityType.PHANTOM;
 		}
 	}
 }
