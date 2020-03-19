@@ -61,7 +61,6 @@ public class DungeonEnd extends Feature<NoFeatureConfig>
 				for (int z = zMin; z <= zMax; ++z)
 				{
 					blockpos$Mutable.setPos(newPosition).move(x, y, z);
-					BlockState blockState = world.getBlockState(blockpos$Mutable);
 					Material material = world.getBlockState(blockpos$Mutable).getMaterial();
 					boolean flag = material.isSolid();
 
@@ -114,34 +113,31 @@ public class DungeonEnd extends Feature<NoFeatureConfig>
 				}
 			}
 
-			for (int l3 = rand.nextInt(7); l3 < 1; ++l3)
+			for (int j4 = 0; j4 < rand.nextInt(4); ++j4)
 			{
-				for (int j4 = 0; j4 < 3; ++j4)
+				int x = newPosition.getX() + rand.nextInt(randXRange * 2 + 1) - randXRange;
+				int y = newPosition.getY();
+				int z = newPosition.getZ() + rand.nextInt(randZRange * 2 + 1) - randZRange;
+				blockpos$Mutable.setPos(x, y, z);
+
+				if (world.isAirBlock(blockpos$Mutable))
 				{
-					int x = newPosition.getX() + rand.nextInt(randXRange * 2 + 1) - randXRange;
-					int y = newPosition.getY();
-					int z = newPosition.getZ() + rand.nextInt(randZRange * 2 + 1) - randZRange;
-					blockpos$Mutable.setPos(x, y, z);
+					int j3 = 0;
 
-					if (world.isAirBlock(blockpos$Mutable))
+					for (Direction Direction : Direction.Plane.HORIZONTAL)
 					{
-						int j3 = 0;
-
-						for (Direction Direction : Direction.Plane.HORIZONTAL)
+						if (world.getBlockState(blockpos$Mutable.offset(Direction)).getMaterial().isSolid())
 						{
-							if (world.getBlockState(blockpos$Mutable.offset(Direction)).getMaterial().isSolid())
-							{
-								++j3;
-							}
+							++j3;
 						}
+					}
 
-						if (j3 == 1)
-						{
-							world.setBlockState(blockpos$Mutable, Blocks.SHULKER_BOX.getDefaultState(), 2);
-							LockableLootTileEntity.setLootTable(world, rand, blockpos$Mutable, LootTables.CHESTS_SIMPLE_DUNGEON);
+					if (j3 == 1)
+					{
+						world.setBlockState(blockpos$Mutable, Blocks.SHULKER_BOX.getDefaultState(), 2);
+						LockableLootTileEntity.setLootTable(world, rand, blockpos$Mutable, LootTables.CHESTS_SIMPLE_DUNGEON);
 
-							break;
-						}
+						break;
 					}
 				}
 			}
