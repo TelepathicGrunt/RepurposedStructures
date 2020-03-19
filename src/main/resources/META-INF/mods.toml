@@ -1,13 +1,14 @@
 modLoader="javafml" #mandatory
-loaderVersion="[30,)" #mandatory (28 is current forge version)
-issueTrackerURL="http://my.issue.tracker/" #optional
+loaderVersion="[30,)" #mandatory 
+issueTrackerURL="https://github.com/TelepathicGrunt/RepurposedStructures/issues" #optional
+
 [[mods]] #mandatory
 modId="repurposed_structures" #mandatory
 logoFile="RepurposedStructuresLogo.png"
-version="${version}" #mandatory
+version="1.15.2-1.0.0" #mandatory
 displayName="Repurposed Structures" #mandatory
-credits="" #optional
-authors="TelepathicGrunt" #optional
+displayURL="https://www.curseforge.com/minecraft/mc-mods/repurposed-structures"
+authors="TelepathicGrunt"
 description='''
 Taking existing vanilla structures and changing them up for extra variety!
 '''

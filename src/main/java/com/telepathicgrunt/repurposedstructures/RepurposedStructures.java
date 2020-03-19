@@ -33,7 +33,7 @@ public class RepurposedStructures
 		modEventBus.addListener(this::setup);
 		modEventBus.addListener(this::modConfig);
 
-		modLoadingContext.registerConfig(ModConfig.Type.SERVER, RSConfig.SERVER_SPEC);
+		modLoadingContext.registerConfig(ModConfig.Type.COMMON, RSConfig.SERVER_SPEC);
 	}
 
 
@@ -53,7 +53,6 @@ public class RepurposedStructures
 			RSAddFeatures.addMiscFeatures(biome, biomeNamespace, biomePath);
 			RSAddFeatures.addStronghold(biome, biomeNamespace, biomePath);
 		}
-
 	}
 	
 	

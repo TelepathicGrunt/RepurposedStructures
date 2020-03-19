@@ -42,7 +42,7 @@ public class RSAddFeatures
 				biomePath.contains("birch") && 
 				(biomeNamespace.equals("minecraft") || RSConfig.addMineshaftsToModdedBiomes))
 		{
-			if(biome.hasStructure(Feature.MINESHAFT))
+			if(biome.hasStructure(Feature.MINESHAFT) || RSConfig.addMineshaftsToModdedBiomes)
 			{
 				//replace vanilla mineshaft with our own
 				biome.structures.remove(Feature.MINESHAFT);
@@ -54,7 +54,7 @@ public class RSAddFeatures
 				biome.getCategory() == Category.JUNGLE && 
 				(biomeNamespace.equals("minecraft") || RSConfig.addMineshaftsToModdedBiomes))
 		{
-			if(biome.hasStructure(Feature.MINESHAFT))
+			if(biome.hasStructure(Feature.MINESHAFT) || RSConfig.addMineshaftsToModdedBiomes)
 			{
 				//replace vanilla mineshaft with our own
 				biome.structures.remove(Feature.MINESHAFT);
@@ -66,7 +66,7 @@ public class RSAddFeatures
 				biome.getCategory() == Category.DESERT && 
 				(biomeNamespace.equals("minecraft") || RSConfig.addMineshaftsToModdedBiomes))
 		{
-			if(biome.hasStructure(Feature.MINESHAFT))
+			if(biome.hasStructure(Feature.MINESHAFT) || RSConfig.addMineshaftsToModdedBiomes)
 			{
 				//replace vanilla mineshaft with our own
 				biome.structures.remove(Feature.MINESHAFT);
@@ -78,7 +78,7 @@ public class RSAddFeatures
 				biome.getCategory() == Category.EXTREME_HILLS && 
 				(biomeNamespace.equals("minecraft") || RSConfig.addMineshaftsToModdedBiomes))
 		{
-			if(biome.hasStructure(Feature.MINESHAFT))
+			if(biome.hasStructure(Feature.MINESHAFT) || RSConfig.addMineshaftsToModdedBiomes)
 			{
 				//replace vanilla mineshaft with our own
 				biome.structures.remove(Feature.MINESHAFT);
@@ -90,7 +90,7 @@ public class RSAddFeatures
 				biome.getCategory() == Category.SAVANNA && 
 				(biomeNamespace.equals("minecraft") || RSConfig.addMineshaftsToModdedBiomes))
 		{
-			if(biome.hasStructure(Feature.MINESHAFT))
+			if(biome.hasStructure(Feature.MINESHAFT) || RSConfig.addMineshaftsToModdedBiomes)
 			{
 				//replace vanilla mineshaft with our own
 				biome.structures.remove(Feature.MINESHAFT);
@@ -102,7 +102,7 @@ public class RSAddFeatures
 				(biome.getCategory() == Category.ICY || biomePath.contains("snowy")) && 
 				(biomeNamespace.equals("minecraft") || RSConfig.addMineshaftsToModdedBiomes))
 		{
-			if(biome.hasStructure(Feature.MINESHAFT))
+			if(biome.hasStructure(Feature.MINESHAFT) || RSConfig.addMineshaftsToModdedBiomes)
 			{
 				//replace vanilla mineshaft with our own
 				biome.structures.remove(Feature.MINESHAFT);
@@ -114,7 +114,7 @@ public class RSAddFeatures
 				biome.getCategory() == Category.OCEAN && 
 				(biomeNamespace.equals("minecraft") || RSConfig.addMineshaftsToModdedBiomes))
 		{
-			if(biome.hasStructure(Feature.MINESHAFT))
+			if(biome.hasStructure(Feature.MINESHAFT) || RSConfig.addMineshaftsToModdedBiomes)
 			{
 				//replace vanilla mineshaft with our own
 				biome.structures.remove(Feature.MINESHAFT);
@@ -126,7 +126,7 @@ public class RSAddFeatures
 				biome.getCategory() == Category.TAIGA && 
 				(biomeNamespace.equals("minecraft") || RSConfig.addMineshaftsToModdedBiomes))
 		{
-			if(biome.hasStructure(Feature.MINESHAFT))
+			if(biome.hasStructure(Feature.MINESHAFT) || RSConfig.addMineshaftsToModdedBiomes)
 			{
 				//replace vanilla mineshaft with our own
 				biome.structures.remove(Feature.MINESHAFT);
@@ -135,10 +135,10 @@ public class RSAddFeatures
 		}
 		
 		else if(RSConfig.swampAndDarkForestMineshafts && 
-				(biome.getCategory() == Category.SWAMP || biomePath.contains("dark_forest")) && 
+				(biome.getCategory() == Category.SWAMP || biomePath.contains("dark_forest") || biomePath.contains("dark_oak")) && 
 				(biomeNamespace.equals("minecraft") || RSConfig.addMineshaftsToModdedBiomes))
 		{
-			if(biome.hasStructure(Feature.MINESHAFT))
+			if(biome.hasStructure(Feature.MINESHAFT) || RSConfig.addMineshaftsToModdedBiomes)
 			{
 				//replace vanilla mineshaft with our own
 				biome.structures.remove(Feature.MINESHAFT);
@@ -262,14 +262,16 @@ public class RSAddFeatures
 	private static final ConfiguredFeature<?,?> VANILLA_BOULDER = Feature.FOREST_ROCK.withConfiguration(new BlockBlobConfig(Blocks.MOSSY_COBBLESTONE.getDefaultState(), 0)).withPlacement(Placement.FOREST_ROCK.configure(new FrequencyConfig(3)));
 	public static void addMiscFeatures(Biome biome, String biomeNamespace, String biomePath)
 	{
-		if(RSConfig.hornedSwampTree && biome == Biomes.SWAMP && 
-				(biomeNamespace.equals("minecraft") || RSConfig.addMiscToModdedBiomes))
+		//only exists in vanilla biomes
+		if(RSConfig.hornedSwampTree && biome == Biomes.SWAMP && biomeNamespace.equals("minecraft"))
 		{
 			biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, RSFeatures.HORNED_SWAMP_TREE.withConfiguration(DefaultBiomeFeatures.SWAMP_TREE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(0, 0.7F, 1))));
 		}
 		
-		else if(RSConfig.hornedSwampTree && biome == Biomes.SWAMP_HILLS && 
-				(biomeNamespace.equals("minecraft") || RSConfig.addMiscToModdedBiomes))
+		//can exist in modded biomes too
+		else if(RSConfig.hornedSwampTree && 
+				((biome == Biomes.SWAMP_HILLS && biomeNamespace.equals("minecraft")) ||
+				(RSConfig.addMiscToModdedBiomes && !biomeNamespace.equals("minecraft") && biomePath.contains("swamp") && biome != Biomes.SWAMP)))
 		{
 			//replace the swamp tree with our own
 			biome.getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && serializeAndCompareFeature(configuredFeature, VANILLA_SWAMP_TREE));
@@ -277,15 +279,15 @@ public class RSAddFeatures
 		}
 		
 		else if(RSConfig.boulderTiny && 
-				(biome == Biomes.TAIGA_MOUNTAINS || biome == Biomes.SNOWY_TAIGA_MOUNTAINS) && 
-				(biomeNamespace.equals("minecraft") || RSConfig.addMiscToModdedBiomes))
+				(((biome == Biomes.TAIGA_MOUNTAINS || biome == Biomes.SNOWY_TAIGA_MOUNTAINS) && biomeNamespace.equals("minecraft")) ||
+				(RSConfig.addMiscToModdedBiomes && !biomeNamespace.equals("minecraft") && biomePath.contains("taiga"))))
 		{
 			biome.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, RSFeatures.BOULDER_TINY.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.FOREST_ROCK.configure(new FrequencyConfig(2))));
 		}
 		
 		else if(RSConfig.boulderGiant && 
-				(biome == Biomes.GIANT_SPRUCE_TAIGA_HILLS || biome == Biomes.GIANT_TREE_TAIGA_HILLS) && 
-				(biomeNamespace.equals("minecraft") || RSConfig.addMiscToModdedBiomes))
+				(((biome == Biomes.GIANT_SPRUCE_TAIGA_HILLS || biome == Biomes.GIANT_TREE_TAIGA_HILLS) && biomeNamespace.equals("minecraft")) ||
+				(RSConfig.addMiscToModdedBiomes && !biomeNamespace.equals("minecraft") && ((biomePath.contains("giant") && biomePath.contains("taiga")) || biomePath.contains("redwood")))))
 		{
 			//replace the boulders with our own
 			biome.getFeatures(GenerationStage.Decoration.LOCAL_MODIFICATIONS).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && serializeAndCompareFeature(configuredFeature, VANILLA_BOULDER));
