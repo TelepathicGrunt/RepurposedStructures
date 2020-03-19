@@ -30,6 +30,7 @@ public class RSConfig
 	}
 
 	public static boolean addDungeonsToModdedBiomes = false;
+	public static int dungeonSpawnrate = 8;
 	public static boolean badlandsDungeons = true;
 	public static boolean darkForestDungeons = true;
 	public static boolean desertDungeons = true;
@@ -75,6 +76,7 @@ public class RSConfig
 	public static class ServerConfig
 	{
 		public final BooleanValue addDungeonsToModdedBiomes;
+		public final IntValue dungeonSpawnrate;
 		public final BooleanValue badlandsDungeons;
 		public final BooleanValue darkForestDungeons;
 		public final BooleanValue desertDungeons;
@@ -128,6 +130,12 @@ public class RSConfig
 							.comment("\r\n Add the custom dungeons to modded biomes of the same categories/type.")
 						.translation("repurposedstructures.config.feature.dungeons.adddungeonstomoddedbiomes")
 						.define("addDungeonsToModdedBiomes", false);
+					
+					dungeonSpawnrate = builder
+							.comment( "\r\n How often dungeons will attempt to spawn per chunk.\r\n " 
+									+ "1 for extremely rare Dungeons and 1000 for max Dungeon spawnrate.")
+							.translation("repurposedstructures.config.structure.dungeons.dungeonspawnrate")
+							.defineInRange("dungeonSpawnrate", 8, 1, 1000);
 				
 					badlandsDungeons = builder
 							.comment("\r\n Replace vanilla dungeon in Badlands biomes with Badlands themed dungeon.")
@@ -366,6 +374,7 @@ public class RSConfig
 	public static void refreshServer()
 	{
 		addDungeonsToModdedBiomes = SERVER.addDungeonsToModdedBiomes.get();
+		dungeonSpawnrate = SERVER.dungeonSpawnrate.get();
 		badlandsDungeons = SERVER.badlandsDungeons.get();
 		darkForestDungeons = SERVER.darkForestDungeons.get();
 		desertDungeons = SERVER.desertDungeons.get();
