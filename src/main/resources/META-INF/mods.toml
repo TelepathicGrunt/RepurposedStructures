@@ -3,6 +3,7 @@ loaderVersion="[30,)" #mandatory (28 is current forge version)
 issueTrackerURL="http://my.issue.tracker/" #optional
 [[mods]] #mandatory
 modId="repurposed_structures" #mandatory
+logoFile="RepurposedStructuresLogo.png"
 version="${version}" #mandatory
 displayName="Repurposed Structures" #mandatory
 credits="" #optional
