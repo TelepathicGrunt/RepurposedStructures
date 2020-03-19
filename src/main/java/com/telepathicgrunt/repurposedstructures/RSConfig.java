@@ -60,13 +60,13 @@ public class RSConfig
 	public static boolean endMineshafts = true;
 	public static boolean netherMineshafts = true;
 	
-	public static int strongholdSpawnrate = 62;
+	public static int strongholdSpawnrate = 85;
 	public static double silverfishSpawnrateSH = 0.8D;
 	public static boolean allowExtraSilverfishSpawnerSH = true;
 	public static double strongholdSizeSH = 100D;
 	public static boolean lootChestsSH = true;
 	
-	public static int jungleFortressSpawnrate = 16;
+	public static int jungleFortressSpawnrate = 32;
 	public static double silverfishSpawnrateJF = 0.5D;
 	public static boolean allowSilverfishSpawnerJF = true;
 	public static boolean lootChestsJF = true;
@@ -292,7 +292,7 @@ public class RSConfig
 									+ "\n " 
 									+ "1 for spawning in most chunks and 1001 for no spawn.")
 							.translation("repurposedstructures.config.structure.stronghold.strongholdspawnrate")
-							.defineInRange("strongholdSpawnrate", 62, 1, 1001);
+							.defineInRange("strongholdSpawnrate", 85, 1, 1001);
 		
 					silverfishSpawnrateSH = builder
 							.comment("\r\n How often Silverfish Blocks will generate in Strongholds as a percentage." 
@@ -310,7 +310,7 @@ public class RSConfig
 		
 					strongholdSizeSH = builder
 							.comment("\r\n How large the Stronghold is on average as a percentage." 
-									+ "\r\n Note: The Stonghold is larger by default. To get something "
+									+ "\r\n Note: The Stonghold is much larger by default. To get something "
 									+ "\r\n closer to vanilla stronghold size, use the value of 60."
 									+ "\n "
 									+ "10 for supertiny Strongholds and 2000 for supermassive Strongholds.")
@@ -331,7 +331,7 @@ public class RSConfig
 									+ "\n "
 									+ "1 for spawning in most chunks and 1001 for no spawn.")
 							.translation("repurposedstructures.config.structure.junglefortress.junglefortressspawnrate")
-							.defineInRange("jungleFortressSpawnrate", 16, 1, 1001);
+							.defineInRange("jungleFortressSpawnrate", 32, 1, 1001);
 
 					silverfishSpawnrateJF = builder
 							.comment("\r\n How often Silverfish Blocks will generate in Jungle Fortress as a percentage."

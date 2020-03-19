@@ -1692,7 +1692,7 @@ public class JungleFortressPieces
 
 					//mob spawner
 					world.setBlockState(blockpos.down(2), Blocks.SPAWNER.getDefaultState(), 2);
-					TileEntity tileentity2 = world.getTileEntity(blockpos.down());
+					TileEntity tileentity2 = world.getTileEntity(blockpos.down(2));
 
 					if (tileentity2 instanceof MobSpawnerTileEntity)
 					{

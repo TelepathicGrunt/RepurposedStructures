@@ -33,10 +33,10 @@ public class RSStrongholdStructure extends Structure<NoFeatureConfig>
 	protected ChunkPos getStartPositionForPosition(ChunkGenerator<?> chunkGenerator, Random random, int x, int z, int spacingOffsetsX, int spacingOffsetsZ)
 	{
 		int maxDistance = RSConfig.strongholdSpawnrate;
-		int minDistance = maxDistance - 10;
-		if (maxDistance < 12)
+		int minDistance = (int) (maxDistance * 0.75f);
+		if (minDistance == 0)
 		{
-			minDistance = maxDistance - 1;
+			minDistance = 1;
 		}
 		int k = x + maxDistance * spacingOffsetsX;
 		int l = z + maxDistance * spacingOffsetsZ;
