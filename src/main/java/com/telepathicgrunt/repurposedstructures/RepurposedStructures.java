@@ -51,7 +51,9 @@ public class RepurposedStructures
 			RSAddFeatures.addJungleFortress(biome, biomeNamespace, biomePath);
 			RSAddFeatures.addDungeons(biome, biomeNamespace, biomePath);
 			RSAddFeatures.addMiscFeatures(biome, biomeNamespace, biomePath);
-			RSAddFeatures.addStronghold(biome, biomeNamespace, biomePath);
+			
+			if(!RSConfig.useVanillaStronghold) 
+				RSAddFeatures.addStronghold(biome, biomeNamespace, biomePath);
 		}
 	}
 	

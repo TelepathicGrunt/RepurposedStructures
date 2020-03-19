@@ -60,7 +60,8 @@ public class RSConfig
 	public static boolean swampAndDarkForestMineshafts = true;
 	public static boolean endMineshafts = true;
 	public static boolean netherMineshafts = true;
-	
+
+	public static boolean useVanillaStronghold = false;
 	public static int strongholdSpawnrate = 85;
 	public static double silverfishSpawnrateSH = 0.8D;
 	public static boolean allowExtraSilverfishSpawnerSH = true;
@@ -106,7 +107,8 @@ public class RSConfig
 		public final BooleanValue swampAndDarkForestMineshafts;
 		public final BooleanValue endMineshafts;
 		public final BooleanValue netherMineshafts;
-		
+
+		public final BooleanValue useVanillaStronghold;
 		public final IntValue strongholdSpawnrate;
 		public final DoubleValue silverfishSpawnrateSH;
 		public final BooleanValue allowExtraSilverfishSpawnerSH;
@@ -294,7 +296,13 @@ public class RSConfig
 				builder.pop();
 
 				builder.push("Stronghold");
-	
+
+					useVanillaStronghold = builder
+						.comment("\r\n Use vanilla Stronghold instead of using this mod's modded version.\r\n"
+								+" Note: The other Stronghold configs below will have no effect on vanilla Strongholds.")
+						.translation("repurposedstructures.config.structure.stronghold.usevanillastronghold")
+						.define("useVanillaStronghold", true);
+				
 					strongholdSpawnrate = builder
 							.comment("\r\n How rare are Strongholds." 
 									+ "\n " 
@@ -311,7 +319,7 @@ public class RSConfig
 							.defineInRange("silverfishSpawnrateSH", 0.8D, 0, 100);
 		
 					allowExtraSilverfishSpawnerSH = builder
-							.comment("\r\n Can additional Silverfish Mob Spawners generate in Stronghold?\r\n"
+							.comment("\r\n Can additional Silverfish Mob Spawners generate in Stronghold.\r\n"
 									+" Note: Silverfish spawner in Portal Room will always remain.")
 							.translation("repurposedstructures.config.structure.stronghold.allowextrasilverfishspawnersh")
 							.define("allowExtraSilverfishSpawnerSH", true);
@@ -405,6 +413,7 @@ public class RSConfig
 		endMineshafts = SERVER.endMineshafts.get();
 		netherMineshafts = SERVER.netherMineshafts.get();
 		
+		useVanillaStronghold = SERVER.useVanillaStronghold.get();
 		strongholdSpawnrate = SERVER.strongholdSpawnrate.get();
 		silverfishSpawnrateSH = SERVER.silverfishSpawnrateSH.get();
 		allowExtraSilverfishSpawnerSH = SERVER.allowExtraSilverfishSpawnerSH.get();

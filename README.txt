@@ -5,7 +5,13 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ------------------------------------------------
        | Repurposed Structures changelog |
+            
+            
+    (V.1.0.1 Changes) (1.15.2 Minecraft)
            
+    Config: 
+·Added a config option to allow the option to turn off replacing Vanilla Stronghold with this mod's Stronghold. 
+ 
            
     (V.1.0.0 Changes) (1.15.2 Minecraft)
            
