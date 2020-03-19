@@ -227,21 +227,16 @@ public class DungeonJungle extends Feature<NoFeatureConfig>
 	{
 		int roll = rand.nextInt(100);
 
-		if (roll < 48)
+		if (roll < 73)
 		{
-			//48% chance
+			//73% chance
 			return RSFeatures.pickRandomDungeonMob(rand);
-		}
-		else if (roll < 73)
-		{
-			//25% chance
-			return EntityType.PARROT;
-
 		}
 		else if (roll < 98)
 		{
 			//25% chance
-			return RSFeatures.pickRandomDungeonMob(rand);
+			return EntityType.PARROT;
+
 		}
 		else
 		{

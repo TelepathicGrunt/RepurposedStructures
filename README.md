@@ -1,3 +1,0 @@
-Simple Volcano
-
-Testing something...
