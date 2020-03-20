@@ -142,30 +142,33 @@ public class DungeonDarkForest extends Feature<NoFeatureConfig>
 					}
 				}
 			}
+
 			
+			blockpos$Mutable.setPos(position);
 			for (int x = xMin+1; x <= xMax-1; ++x)
 			{
 				for (int z = zMin+1; z <= zMax-1; ++z)
 				{
 					if (x == xMin+1 || z == zMin+1 || x == xMax-1 || z == zMax-1)
 					{
-						Direction face = null;
-						for(Direction facing : Direction.Plane.HORIZONTAL)
-						{
-							if(world.getBlockState(blockpos$Mutable.offset(facing)).getMaterial() != Material.AIR)
+						for (int y = 3; y > 0; --y)
+						{	
+							Direction face = null;
+							for(Direction facing : Direction.Plane.HORIZONTAL)
 							{
-								face = facing;
+								Material wallMaterial = world.getBlockState(blockpos$Mutable.add(x, y, z).offset(facing)).getMaterial();
+								if(wallMaterial == Material.LEAVES || wallMaterial == Material.WOOD)
+								{
+									face = facing;
+									break;
+								}
 							}
-						}
-						
-						if(face != null)
-						{
-							for (int y = 3; y >= 0; --y)
-							{	
+							
+							if(face != null)
+							{
 								if(rand.nextInt(6) == 0)
 								{
-									blockpos$Mutable.setPos(position).move(x, y, z);
-									world.setBlockState(blockpos$Mutable, Blocks.VINE.getDefaultState().with(VineBlock.FACING_TO_PROPERTY_MAP.get(face), true), 2);
+									world.setBlockState(blockpos$Mutable.add(x, y, z), Blocks.VINE.getDefaultState().with(VineBlock.FACING_TO_PROPERTY_MAP.get(face), true), 2);
 								}
 							}
 						}
