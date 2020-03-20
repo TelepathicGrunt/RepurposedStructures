@@ -11,6 +11,16 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
   
   
+## (V.1.2.0 Changes) (1.15.2 Minecraft)
+
+
+
+##### Structures: 
+
+-Mossy Stone Wells now are properly waterlogged when underwater.
+
+  
+  
 ## (V.1.1.0 Changes) (1.15.2 Minecraft)
 
 

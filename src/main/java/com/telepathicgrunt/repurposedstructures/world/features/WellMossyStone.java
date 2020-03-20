@@ -8,6 +8,7 @@ import com.mojang.datafixers.Dynamic;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.SlabBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
@@ -49,10 +50,12 @@ public class WellMossyStone extends Feature<NoFeatureConfig>
 			;
 		}
 		BlockPos.Mutable mutable = new BlockPos.Mutable(position);
-
+		boolean isWater = false;
+		BlockState state1 = null;
+		BlockState state2 = null;
+		
 		Block block = world.getBlockState(mutable).getBlock();
-		Boolean inShallowWater = block == Blocks.WATER && world.getBlockState(mutable.down()).getMaterial() == Material.WATER;
-		if (Tags.Blocks.SAND.contains(block) || block == Blocks.CLAY || Tags.Blocks.DIRT.contains(block) || inShallowWater)
+		if (Tags.Blocks.SAND.contains(block) || block == Blocks.CLAY || Tags.Blocks.DIRT.contains(block))
 		{
 			for (int x = -2; x <= 2; ++x)
 			{
@@ -76,7 +79,8 @@ public class WellMossyStone extends Feature<NoFeatureConfig>
 				}
 			}
 
-			world.setBlockState(mutable.up(), inShallowWater ? WATER : AIR, 2);
+			isWater = world.getBlockState(mutable.up()).getMaterial() == Material.WATER;
+			world.setBlockState(mutable.up(), isWater ? WATER : AIR, 2);
 			world.setBlockState(mutable, WATER, 2);
 			if (random.nextFloat() < EMERALD_CHANCE)
 			{
@@ -90,7 +94,8 @@ public class WellMossyStone extends Feature<NoFeatureConfig>
 			for (Direction direction : Direction.Plane.HORIZONTAL)
 			{
 				mutable.setPos(position).move(direction);
-				world.setBlockState(mutable.up(), inShallowWater ? WATER : AIR, 2);
+				isWater = world.getBlockState(mutable.up()).getMaterial() == Material.WATER;
+				world.setBlockState(mutable.up(), isWater ? WATER : AIR, 2);
 				world.setBlockState(mutable, WATER, 2);
 
 				mutable.move(Direction.DOWN);
@@ -116,10 +121,25 @@ public class WellMossyStone extends Feature<NoFeatureConfig>
 				}
 			}
 
-			world.setBlockState(mutable.add(2, 1, 0), inShallowWater ? pickRandomBlock(MOSSY_STONE_BRICKS, STONE_BRICKS, random, 0.6f) : pickRandomBlock(MOSSY_STONE_BRICK_SLAB, STONE_BRICK_SLAB, random, 0.6f), 2);
-			world.setBlockState(mutable.add(-2, 1, 0), inShallowWater ? pickRandomBlock(MOSSY_STONE_BRICKS, STONE_BRICKS, random, 0.6f) : pickRandomBlock(MOSSY_STONE_BRICK_SLAB, STONE_BRICK_SLAB, random, 0.6f), 2);
-			world.setBlockState(mutable.add(0, 1, 2), inShallowWater ? pickRandomBlock(MOSSY_STONE_BRICKS, STONE_BRICKS, random, 0.6f) : pickRandomBlock(MOSSY_STONE_BRICK_SLAB, STONE_BRICK_SLAB, random, 0.6f), 2);
-			world.setBlockState(mutable.add(0, 1, -2), inShallowWater ? pickRandomBlock(MOSSY_STONE_BRICKS, STONE_BRICKS, random, 0.6f) : pickRandomBlock(MOSSY_STONE_BRICK_SLAB, STONE_BRICK_SLAB, random, 0.6f), 2);
+			isWater = world.getBlockState(mutable.add(2, 1, 0)).getMaterial() == Material.WATER;
+			state1 = isWater ?  MOSSY_STONE_BRICK_SLAB.with(SlabBlock.WATERLOGGED, true) : MOSSY_STONE_BRICK_SLAB;
+			state2 = isWater ?  STONE_BRICK_SLAB.with(SlabBlock.WATERLOGGED, true) : STONE_BRICK_SLAB;
+			world.setBlockState(mutable.add(2, 1, 0), pickRandomBlock(state1, state2, random, 0.6f), 2);
+
+			isWater = world.getBlockState(mutable.add(-2, 1, 0)).getMaterial() == Material.WATER;
+			state1 = isWater ?  MOSSY_STONE_BRICK_SLAB.with(SlabBlock.WATERLOGGED, true) : MOSSY_STONE_BRICK_SLAB;
+			state2 = isWater ?  STONE_BRICK_SLAB.with(SlabBlock.WATERLOGGED, true) : STONE_BRICK_SLAB;
+			world.setBlockState(mutable.add(-2, 1, 0), pickRandomBlock(state1, state2, random, 0.6f), 2);
+
+			isWater = world.getBlockState(mutable.add(0, 1, 2)).getMaterial() == Material.WATER;
+			state1 = isWater ?  MOSSY_STONE_BRICK_SLAB.with(SlabBlock.WATERLOGGED, true) : MOSSY_STONE_BRICK_SLAB;
+			state2 = isWater ?  STONE_BRICK_SLAB.with(SlabBlock.WATERLOGGED, true) : STONE_BRICK_SLAB;
+			world.setBlockState(mutable.add(0, 1, 2), pickRandomBlock(state1, state2, random, 0.6f), 2);
+
+			isWater = world.getBlockState(mutable.add(0, 1, -2)).getMaterial() == Material.WATER;
+			state1 = isWater ?  MOSSY_STONE_BRICK_SLAB.with(SlabBlock.WATERLOGGED, true) : MOSSY_STONE_BRICK_SLAB;
+			state2 = isWater ?  STONE_BRICK_SLAB.with(SlabBlock.WATERLOGGED, true) : STONE_BRICK_SLAB;
+			world.setBlockState(mutable.add(0, 1, -2), pickRandomBlock(state1, state2, random, 0.6f), 2);
 
 			for (int x = -1; x <= 1; ++x)
 			{
@@ -134,25 +154,35 @@ public class WellMossyStone extends Feature<NoFeatureConfig>
 					}
 					else
 					{
-						world.setBlockState(mutable.add(x, 4, z), pickRandomBlock(MOSSY_STONE_BRICK_SLAB, STONE_BRICK_SLAB, random, 0.6f), 2);
+						isWater = world.getBlockState(mutable.add(x, 4, z)).getMaterial() == Material.WATER;
+						state1 = isWater ?  MOSSY_STONE_BRICK_SLAB.with(SlabBlock.WATERLOGGED, true) : MOSSY_STONE_BRICK_SLAB;
+						state2 = isWater ?  STONE_BRICK_SLAB.with(SlabBlock.WATERLOGGED, true) : STONE_BRICK_SLAB;
+						world.setBlockState(mutable.add(x, 4, z), pickRandomBlock(state1, state2, random, 0.6f), 2);
 					}
 				}
 			}
 
 			for (int y = 1; y <= 3; ++y)
 			{
-				world.setBlockState(mutable.add(-1, y, -1), pickRandomBlock(MOSSY_STONE_BRICK_WALL, STONE_BRICK_WALL, random, 0.6f), 2);
+				isWater = world.getBlockState(mutable.add(-1, y, -1)).getMaterial() == Material.WATER;
+				state1 = isWater ?  MOSSY_STONE_BRICK_SLAB.with(SlabBlock.WATERLOGGED, true) : MOSSY_STONE_BRICK_SLAB;
+				state2 = isWater ?  STONE_BRICK_SLAB.with(SlabBlock.WATERLOGGED, true) : STONE_BRICK_SLAB;
+				world.setBlockState(mutable.add(-1, y, -1), pickRandomBlock(state1, state2, random, 0.6f), 2);
+
+				isWater = world.getBlockState(mutable.add(-1, y, 1)).getMaterial() == Material.WATER;
+				state1 = isWater ?  MOSSY_STONE_BRICK_SLAB.with(SlabBlock.WATERLOGGED, true) : MOSSY_STONE_BRICK_SLAB;
+				state2 = isWater ?  STONE_BRICK_SLAB.with(SlabBlock.WATERLOGGED, true) : STONE_BRICK_SLAB;
 				world.setBlockState(mutable.add(-1, y, 1), pickRandomBlock(MOSSY_STONE_BRICK_WALL, STONE_BRICK_WALL, random, 0.6f), 2);
+
+				isWater = world.getBlockState(mutable.add(1, y, -1)).getMaterial() == Material.WATER;
+				state1 = isWater ?  MOSSY_STONE_BRICK_SLAB.with(SlabBlock.WATERLOGGED, true) : MOSSY_STONE_BRICK_SLAB;
+				state2 = isWater ?  STONE_BRICK_SLAB.with(SlabBlock.WATERLOGGED, true) : STONE_BRICK_SLAB;
 				world.setBlockState(mutable.add(1, y, -1), pickRandomBlock(MOSSY_STONE_BRICK_WALL, STONE_BRICK_WALL, random, 0.6f), 2);
+
+				isWater = world.getBlockState(mutable.add(1, y, 1)).getMaterial() == Material.WATER;
+				state1 = isWater ?  MOSSY_STONE_BRICK_SLAB.with(SlabBlock.WATERLOGGED, true) : MOSSY_STONE_BRICK_SLAB;
+				state2 = isWater ?  STONE_BRICK_SLAB.with(SlabBlock.WATERLOGGED, true) : STONE_BRICK_SLAB;
 				world.setBlockState(mutable.add(1, y, 1), pickRandomBlock(MOSSY_STONE_BRICK_WALL, STONE_BRICK_WALL, random, 0.6f), 2);
-			}
-			
-			if(inShallowWater)
-			{
-				world.setBlockState(mutable.add(-1, 1, -1), pickRandomBlock(MOSSY_STONE_BRICKS, STONE_BRICKS, random, 0.6f), 2);
-				world.setBlockState(mutable.add(-1, 1, 1), pickRandomBlock(MOSSY_STONE_BRICKS, STONE_BRICKS, random, 0.6f), 2);
-				world.setBlockState(mutable.add(1, 1, -1), pickRandomBlock(MOSSY_STONE_BRICKS, STONE_BRICKS, random, 0.6f), 2);
-				world.setBlockState(mutable.add(1, 1, 1), pickRandomBlock(MOSSY_STONE_BRICKS, STONE_BRICKS, random, 0.6f), 2);
 			}
 
 			return true;
