@@ -5,7 +5,7 @@ issueTrackerURL="https://github.com/TelepathicGrunt/RepurposedStructures/issues"
 [[mods]] #mandatory
 modId="repurposed_structures" #mandatory
 logoFile="RepurposedStructuresLogo.png"
-version="1.15.2-1.0.0" #mandatory
+version="${version}" #mandatory
 displayName="Repurposed Structures" #mandatory
 displayURL="https://www.curseforge.com/minecraft/mc-mods/repurposed-structures"
 authors="TelepathicGrunt"
