@@ -67,13 +67,22 @@ public class WellForest extends Feature<NoFeatureConfig>
 				{
 					for (int z = -3; z <= 3; ++z)
 					{
-						if(y == 0)
+						if(x*x+z*z <= 17 + y*3)
 						{
-							world.setBlockState(mutable.add(x, y, z), GRASS_BLOCK, 2);
-						}
-						else if(x*x+z*z <= 14 - y*3)
-						{
-							world.setBlockState(mutable.add(x, y, z), DIRT, 2);
+							if(y == 0 && x*x + z*z > 8)
+							{
+								world.setBlockState(mutable.add(x, y, z), GRASS_BLOCK, 2);
+							}
+							else
+							{
+								world.setBlockState(mutable.add(x, y, z), DIRT, 2);
+								
+								Block belowBlock = world.getBlockState(mutable.add(x, y-1, z)).getBlock();
+								if(belowBlock == Blocks.GRASS_BLOCK || belowBlock == Blocks.PODZOL || belowBlock == Blocks.MYCELIUM)
+								{
+									world.setBlockState(mutable.add(x, y-1, z), DIRT, 2);
+								}
+							}
 						}
 					}
 				}
