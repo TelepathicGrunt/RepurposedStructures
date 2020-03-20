@@ -165,24 +165,24 @@ public class WellMossyStone extends Feature<NoFeatureConfig>
 			for (int y = 1; y <= 3; ++y)
 			{
 				isWater = world.getBlockState(mutable.add(-1, y, -1)).getMaterial() == Material.WATER;
-				state1 = isWater ?  MOSSY_STONE_BRICK_SLAB.with(SlabBlock.WATERLOGGED, true) : MOSSY_STONE_BRICK_SLAB;
-				state2 = isWater ?  STONE_BRICK_SLAB.with(SlabBlock.WATERLOGGED, true) : STONE_BRICK_SLAB;
+				state1 = isWater ?  MOSSY_STONE_BRICK_WALL.with(SlabBlock.WATERLOGGED, true) : MOSSY_STONE_BRICK_WALL;
+				state2 = isWater ?  STONE_BRICK_WALL.with(SlabBlock.WATERLOGGED, true) : STONE_BRICK_WALL;
 				world.setBlockState(mutable.add(-1, y, -1), pickRandomBlock(state1, state2, random, 0.6f), 2);
 
 				isWater = world.getBlockState(mutable.add(-1, y, 1)).getMaterial() == Material.WATER;
-				state1 = isWater ?  MOSSY_STONE_BRICK_SLAB.with(SlabBlock.WATERLOGGED, true) : MOSSY_STONE_BRICK_SLAB;
-				state2 = isWater ?  STONE_BRICK_SLAB.with(SlabBlock.WATERLOGGED, true) : STONE_BRICK_SLAB;
-				world.setBlockState(mutable.add(-1, y, 1), pickRandomBlock(MOSSY_STONE_BRICK_WALL, STONE_BRICK_WALL, random, 0.6f), 2);
+				state1 = isWater ?  MOSSY_STONE_BRICK_WALL.with(SlabBlock.WATERLOGGED, true) : MOSSY_STONE_BRICK_WALL;
+				state2 = isWater ?  STONE_BRICK_WALL.with(SlabBlock.WATERLOGGED, true) : STONE_BRICK_WALL;
+				world.setBlockState(mutable.add(-1, y, 1), pickRandomBlock(state1, state2, random, 0.6f), 2);
 
 				isWater = world.getBlockState(mutable.add(1, y, -1)).getMaterial() == Material.WATER;
-				state1 = isWater ?  MOSSY_STONE_BRICK_SLAB.with(SlabBlock.WATERLOGGED, true) : MOSSY_STONE_BRICK_SLAB;
-				state2 = isWater ?  STONE_BRICK_SLAB.with(SlabBlock.WATERLOGGED, true) : STONE_BRICK_SLAB;
-				world.setBlockState(mutable.add(1, y, -1), pickRandomBlock(MOSSY_STONE_BRICK_WALL, STONE_BRICK_WALL, random, 0.6f), 2);
+				state1 = isWater ?  MOSSY_STONE_BRICK_WALL.with(SlabBlock.WATERLOGGED, true) : MOSSY_STONE_BRICK_WALL;
+				state2 = isWater ?  STONE_BRICK_WALL.with(SlabBlock.WATERLOGGED, true) : STONE_BRICK_WALL;
+				world.setBlockState(mutable.add(1, y, -1), pickRandomBlock(state1, state2, random, 0.6f), 2);
 
 				isWater = world.getBlockState(mutable.add(1, y, 1)).getMaterial() == Material.WATER;
-				state1 = isWater ?  MOSSY_STONE_BRICK_SLAB.with(SlabBlock.WATERLOGGED, true) : MOSSY_STONE_BRICK_SLAB;
-				state2 = isWater ?  STONE_BRICK_SLAB.with(SlabBlock.WATERLOGGED, true) : STONE_BRICK_SLAB;
-				world.setBlockState(mutable.add(1, y, 1), pickRandomBlock(MOSSY_STONE_BRICK_WALL, STONE_BRICK_WALL, random, 0.6f), 2);
+				state1 = isWater ?  MOSSY_STONE_BRICK_WALL.with(SlabBlock.WATERLOGGED, true) : MOSSY_STONE_BRICK_WALL;
+				state2 = isWater ?  STONE_BRICK_WALL.with(SlabBlock.WATERLOGGED, true) : STONE_BRICK_WALL;
+				world.setBlockState(mutable.add(1, y, 1), pickRandomBlock(state1, state2, random, 0.6f), 2);
 			}
 
 			return true;
