@@ -47,6 +47,7 @@ public class RSConfig
 	public static boolean netherWells = true;
 	public static boolean snowWells = true;
 	public static boolean mossyStoneWells = true;
+	public static boolean forestWells = true;
 
 	public static boolean addMiscToModdedBiomes = false;
 	public static boolean boulderTiny = true;
@@ -101,6 +102,7 @@ public class RSConfig
 		public final BooleanValue netherWells;
 		public final BooleanValue snowWells;
 		public final BooleanValue mossyStoneWells;
+		public final BooleanValue forestWells;
 
 		public final BooleanValue addMiscToModdedBiomes;
 		public final BooleanValue boulderTiny;
@@ -233,6 +235,11 @@ public class RSConfig
 							.comment("\r\n Add mossy stone themed wells to Jungles, Dark Oak, and Swamp biomes.")
 						.translation("repurposedstructures.config.feature.small_wells.mossystonewells")
 						.define("mossyStoneWells", true);
+
+					forestWells = builder
+							.comment("\r\n Add a wood themed wells to Forest and Birch Forest biomes.")
+						.translation("repurposedstructures.config.feature.small_wells.forestwells")
+						.define("forestWells", true);
 					
 				builder.pop();
 				
@@ -449,6 +456,7 @@ public class RSConfig
 		netherWells = SERVER.netherWells.get();
 		snowWells = SERVER.snowWells.get();
 		mossyStoneWells = SERVER.mossyStoneWells.get();
+		forestWells = SERVER.forestWells.get();
 		
 		addMiscToModdedBiomes = SERVER.addMiscToModdedBiomes.get();
 		boulderTiny = SERVER.boulderTiny.get();

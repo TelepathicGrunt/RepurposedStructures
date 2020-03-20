@@ -38,6 +38,7 @@ public class RSFeatures
 	public static Feature<NoFeatureConfig>					NETHER_WELL				= new WellNether(NoFeatureConfig::deserialize);
 	public static Feature<NoFeatureConfig>					SNOW_WELL				= new WellSnow(NoFeatureConfig::deserialize);
 	public static Feature<NoFeatureConfig>					MOSSY_STONE_WELL		= new WellMossyStone(NoFeatureConfig::deserialize);
+	public static Feature<NoFeatureConfig>					FOREST_WELL				= new WellForest(NoFeatureConfig::deserialize);
 
 	public static Feature<NoFeatureConfig>					BOULDER_GIANT			= new BoulderGiant(NoFeatureConfig::deserialize);
 	public static Feature<NoFeatureConfig>					BOULDER_TINY			= new BoulderTiny(NoFeatureConfig::deserialize);
@@ -66,6 +67,7 @@ public class RSFeatures
 		RegUtil.register(registry, NETHER_WELL, "well_nether");
 		RegUtil.register(registry, SNOW_WELL, "well_snow");
 		RegUtil.register(registry, MOSSY_STONE_WELL, "well_mossy_stone");
+		RegUtil.register(registry, FOREST_WELL, "well_forest");
 		
 		RegUtil.register(registry, BOULDER_GIANT, "boulder_giant");
 		RegUtil.register(registry, BOULDER_TINY, "boulder_tiny");

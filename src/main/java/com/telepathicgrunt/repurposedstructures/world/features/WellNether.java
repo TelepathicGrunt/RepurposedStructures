@@ -22,10 +22,13 @@ public class WellNether extends Feature<NoFeatureConfig>
 {
 	private static final BlockState	NETHER_BRICK_SLAB	= Blocks.NETHER_BRICK_SLAB.getDefaultState();
 	private static final BlockState	NETHER_BRICKS		= Blocks.NETHER_BRICKS.getDefaultState();
+	private static final BlockState	NETHER_BRICK_FENCE	= Blocks.NETHER_BRICK_FENCE.getDefaultState();
 	private static final BlockState	GLOWSTONE			= Blocks.GLOWSTONE.getDefaultState();
+	private static final BlockState	AIR					= Blocks.AIR.getDefaultState();
+	private static final BlockState	LAVA				= Blocks.LAVA.getDefaultState();
+	private static final BlockState	BELL				= Blocks.BELL.getDefaultState();
 	private static final BlockState	QUARTZ_ORE			= Blocks.NETHER_QUARTZ_ORE.getDefaultState();
 	private static final BlockState	QUARTZ_BLOCK		= Blocks.CHISELED_QUARTZ_BLOCK.getDefaultState();
-	private static final BlockState	LAVA				= Blocks.LAVA.getDefaultState();
 	private static final float		QUARTZ_ORE_CHANCE	= 0.5f;
 	private static final float		QUARTZ_BLOCK_CHANCE	= 0.08f;
 
@@ -78,6 +81,7 @@ public class WellNether extends Feature<NoFeatureConfig>
 				}
 			}
 
+			world.setBlockState(mutable.up(), AIR, 2);
 			world.setBlockState(mutable, LAVA, 2);
 			float chance = random.nextFloat();
 			if (chance < QUARTZ_BLOCK_CHANCE)
@@ -92,6 +96,7 @@ public class WellNether extends Feature<NoFeatureConfig>
 			for (Direction direction : Direction.Plane.HORIZONTAL)
 			{
 				mutable.setPos(position).move(direction);
+				world.setBlockState(mutable.up(), AIR, 2);
 				world.setBlockState(mutable, LAVA, 2);
 
 				mutable.move(Direction.DOWN);
@@ -130,6 +135,9 @@ public class WellNether extends Feature<NoFeatureConfig>
 					{
 						world.setBlockState(mutable.add(x, 4, z), GLOWSTONE, 2);
 						world.setBlockState(mutable.add(x, 5, z), NETHER_BRICK_SLAB, 2);
+						
+						if(random.nextInt(100) == 0) 
+							world.setBlockState(mutable.add(x, 3, z), BELL, 2);
 					}
 					else if (x == 0 || z == 0)
 					{
@@ -144,10 +152,10 @@ public class WellNether extends Feature<NoFeatureConfig>
 
 			for (int y = 1; y <= 3; ++y)
 			{
-				world.setBlockState(mutable.add(-1, y, -1), NETHER_BRICKS, 2);
-				world.setBlockState(mutable.add(-1, y, 1), NETHER_BRICKS, 2);
-				world.setBlockState(mutable.add(1, y, -1), NETHER_BRICKS, 2);
-				world.setBlockState(mutable.add(1, y, 1), NETHER_BRICKS, 2);
+				world.setBlockState(mutable.add(-1, y, -1), NETHER_BRICK_FENCE, 2);
+				world.setBlockState(mutable.add(-1, y, 1), NETHER_BRICK_FENCE, 2);
+				world.setBlockState(mutable.add(1, y, -1), NETHER_BRICK_FENCE, 2);
+				world.setBlockState(mutable.add(1, y, 1), NETHER_BRICK_FENCE, 2);
 			}
 
 			return true;

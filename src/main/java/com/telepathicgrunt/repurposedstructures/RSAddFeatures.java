@@ -284,7 +284,7 @@ public class RSAddFeatures
 		{
 			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.NETHER_WELL.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.CHANCE_RANGE.configure(new ChanceRangeConfig(1F/RSConfig.wellSpawnrate, 30, 0, 98))));
 		}
-		else if(RSConfig.netherWells && 
+		else if(RSConfig.snowWells && 
 				(biome.getCategory() == Category.ICY || biomePath.contains("snow")) && 
 				wellAllowedByNamespaceAndConfig(biomeNamespace))
 		{
@@ -295,6 +295,12 @@ public class RSAddFeatures
 				wellAllowedByNamespaceAndConfig(biomeNamespace))
 		{
 			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.MOSSY_STONE_WELL.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.CHANCE_HEIGHTMAP.configure(new ChanceConfig(RSConfig.wellSpawnrate))));
+		}
+		else if(RSConfig.forestWells && 
+				(biome.getCategory() == Category.FOREST && !(biomePath.contains("dark_forest") || biomePath.contains("dark_oak"))) && 
+				wellAllowedByNamespaceAndConfig(biomeNamespace))
+		{
+			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.FOREST_WELL.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.CHANCE_HEIGHTMAP.configure(new ChanceConfig(RSConfig.wellSpawnrate))));
 		}
 	}
 	

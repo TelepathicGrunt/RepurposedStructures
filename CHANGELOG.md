@@ -11,7 +11,7 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
   
   
-## (V.1.0.1 Changes) (1.15.2 Minecraft)
+## (V.1.1.0 Changes) (1.15.2 Minecraft)
 
 
 
@@ -29,13 +29,15 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 -Fixed vines not generating correctly or at all in Dark Forest Dungeons.
 
--Added Badlands Wells to Badlands biomes with a small chance of Gold Ores inside the water like it is coins tossed into a well!
+-Added Badlands Wells to Badlands biomes with a small chance of Gold Ores inside the water like it is coins tossed into a well! 1% chance of having a Bell too.
 
--Added Snow Wells to snowy and icy biomes with a chance of having Lapis Ores under its ice.
+-Added Snow Wells to snowy and icy biomes with a chance of having Lapis Ores under its ice. 1% chance of having a Bell too.
 
--Added Nether Wells to Nether biomes. Has 1 glowstone block and sometimes has Quartz Ore or Chiseled Quartz block under the lava.
+-Added Nether Wells to Nether biomes. Has 1 glowstone block and sometimes has Quartz Ore or Chiseled Quartz block under the lava. 1% chance of having a Bell too.
 
--Added Mossy Stone Wells to Jungles, Dark Oak, and Swamp biomes with a chance of having Emerald Ores under the water in it.
+-Added Mossy Stone Wells to Jungles, Dark Oak, and Swamp biomes with a chance of having Emerald Ores under the water in it. 1% chance of having a Bell too.
+
+-Added Forest Wells to Forests, Flower Forests, and Birch Forests biomes with a chance of having Iron Ores inside. 1% chance of having a Bell too.
 
 
 

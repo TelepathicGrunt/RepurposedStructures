@@ -18,20 +18,22 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraftforge.common.Tags;
 
 
-public class WellBadlands extends Feature<NoFeatureConfig>
+public class WellForest extends Feature<NoFeatureConfig>
 {
-	private static final BlockState	RED_SANDSTONE_SLAB	= Blocks.RED_SANDSTONE_SLAB.getDefaultState();
-	private static final BlockState	RED_SANDSTONE		= Blocks.RED_SANDSTONE.getDefaultState();
-	private static final BlockState	RED_SANDSTONE_WALL	= Blocks.RED_SANDSTONE_WALL.getDefaultState();
+	private static final BlockState	OAK_SLAB			= Blocks.OAK_SLAB.getDefaultState();
+	private static final BlockState	STRIPPED_OAK_WOOD	= Blocks.STRIPPED_OAK_WOOD.getDefaultState();
+	private static final BlockState	OAK_FENCE			= Blocks.OAK_FENCE.getDefaultState();
+	private static final BlockState	DIRT				= Blocks.DIRT.getDefaultState();
+	private static final BlockState	GRASS_BLOCK			= Blocks.GRASS_BLOCK.getDefaultState();
 	private static final BlockState	STONE				= Blocks.STONE.getDefaultState();
 	private static final BlockState	WATER				= Blocks.WATER.getDefaultState();
 	private static final BlockState	AIR					= Blocks.AIR.getDefaultState();
 	private static final BlockState	BELL				= Blocks.BELL.getDefaultState();
-	private static final BlockState	GOLD_ORE			= Blocks.GOLD_ORE.getDefaultState();
-	private static final float		GOLD_CHANCE			= 0.15f;
+	private static final BlockState	IRON_ORE			= Blocks.IRON_ORE.getDefaultState();
+	private static final float		IRON_CHANCE			= 0.3f;
 
 
-	public WellBadlands(Function<Dynamic<?>, ? extends NoFeatureConfig> config)
+	public WellForest(Function<Dynamic<?>, ? extends NoFeatureConfig> config)
 	{
 		super(config);
 	}
@@ -46,7 +48,7 @@ public class WellBadlands extends Feature<NoFeatureConfig>
 		BlockPos.Mutable mutable = new BlockPos.Mutable(position);
 
 		Block block = world.getBlockState(mutable).getBlock();
-		if (Tags.Blocks.SAND.contains(block) || Tags.Blocks.DIRT.contains(block))
+		if (Tags.Blocks.DIRT.contains(block))
 		{
 			for (int x = -2; x <= 2; ++x)
 			{
@@ -59,22 +61,30 @@ public class WellBadlands extends Feature<NoFeatureConfig>
 				}
 			}
 
-			for (int y = -1; y <= 0; ++y)
+			for (int y = 0; y >= -4; --y)
 			{
-				for (int x = -2; x <= 2; ++x)
+				for (int x = -3; x <= 3; ++x)
 				{
-					for (int z = -2; z <= 2; ++z)
+					for (int z = -3; z <= 3; ++z)
 					{
-						world.setBlockState(mutable.add(x, y, z), RED_SANDSTONE, 2);
+						if(y == 0)
+						{
+							world.setBlockState(mutable.add(x, y, z), GRASS_BLOCK, 2);
+						}
+						else if(x*x+z*z <= 14 - y*3)
+						{
+							world.setBlockState(mutable.add(x, y, z), DIRT, 2);
+						}
 					}
 				}
 			}
+			
 
 			world.setBlockState(mutable.up(), AIR, 2);
 			world.setBlockState(mutable, WATER, 2);
-			if (random.nextFloat() < GOLD_CHANCE)
+			if (random.nextFloat() < IRON_CHANCE)
 			{
-				world.setBlockState(mutable.down(), GOLD_ORE, 2);
+				world.setBlockState(mutable.down(), IRON_ORE, 2);
 			}
 			else
 			{
@@ -88,9 +98,9 @@ public class WellBadlands extends Feature<NoFeatureConfig>
 				world.setBlockState(mutable, WATER, 2);
 
 				mutable.move(Direction.DOWN);
-				if (random.nextFloat() < GOLD_CHANCE)
+				if (random.nextFloat() < IRON_CHANCE)
 				{
-					world.setBlockState(mutable, GOLD_ORE, 2);
+					world.setBlockState(mutable, IRON_ORE, 2);
 				}
 				else
 				{
@@ -105,15 +115,15 @@ public class WellBadlands extends Feature<NoFeatureConfig>
 				{
 					if (x == -2 || x == 2 || z == -2 || z == 2)
 					{
-						world.setBlockState(mutable.add(x, 1, z), RED_SANDSTONE, 2);
+						world.setBlockState(mutable.add(x, 1, z), STRIPPED_OAK_WOOD, 2);
 					}
 				}
 			}
 
-			world.setBlockState(mutable.add(2, 1, 0), RED_SANDSTONE_SLAB, 2);
-			world.setBlockState(mutable.add(-2, 1, 0), RED_SANDSTONE_SLAB, 2);
-			world.setBlockState(mutable.add(0, 1, 2), RED_SANDSTONE_SLAB, 2);
-			world.setBlockState(mutable.add(0, 1, -2), RED_SANDSTONE_SLAB, 2);
+			world.setBlockState(mutable.add(2, 1, 0), OAK_SLAB, 2);
+			world.setBlockState(mutable.add(-2, 1, 0), OAK_SLAB, 2);
+			world.setBlockState(mutable.add(0, 1, 2), OAK_SLAB, 2);
+			world.setBlockState(mutable.add(0, 1, -2), OAK_SLAB, 2);
 
 			for (int x = -1; x <= 1; ++x)
 			{
@@ -121,24 +131,24 @@ public class WellBadlands extends Feature<NoFeatureConfig>
 				{
 					if (x == 0 && z == 0)
 					{
-						world.setBlockState(mutable.add(x, 4, z), RED_SANDSTONE, 2);
+						world.setBlockState(mutable.add(x, 4, z), STRIPPED_OAK_WOOD, 2);
 						
 						if(random.nextInt(100) == 0) 
 							world.setBlockState(mutable.add(x, 3, z), BELL, 2);
 					}
 					else
 					{
-						world.setBlockState(mutable.add(x, 4, z), RED_SANDSTONE_SLAB, 2);
+						world.setBlockState(mutable.add(x, 4, z), OAK_SLAB, 2);
 					}
 				}
 			}
 
 			for (int y = 1; y <= 3; ++y)
 			{
-				world.setBlockState(mutable.add(-1, y, -1), RED_SANDSTONE_WALL, 2);
-				world.setBlockState(mutable.add(-1, y, 1), RED_SANDSTONE_WALL, 2);
-				world.setBlockState(mutable.add(1, y, -1), RED_SANDSTONE_WALL, 2);
-				world.setBlockState(mutable.add(1, y, 1), RED_SANDSTONE_WALL, 2);
+				world.setBlockState(mutable.add(-1, y, -1), OAK_FENCE, 2);
+				world.setBlockState(mutable.add(-1, y, 1), OAK_FENCE, 2);
+				world.setBlockState(mutable.add(1, y, -1), OAK_FENCE, 2);
+				world.setBlockState(mutable.add(1, y, 1), OAK_FENCE, 2);
 			}
 
 			return true;

@@ -24,8 +24,10 @@ public class WellSnow extends Feature<NoFeatureConfig>
 	private static final BlockState	SNOW				= Blocks.SNOW.getDefaultState().with(SnowBlock.LAYERS, 5);
 	private static final BlockState	SNOW_BLOCK			= Blocks.SNOW_BLOCK.getDefaultState();
 	private static final BlockState	STONE				= Blocks.STONE.getDefaultState();
-	private static final BlockState	LAPIS_ORE			= Blocks.LAPIS_ORE.getDefaultState();
 	private static final BlockState	ICE					= Blocks.ICE.getDefaultState();
+	private static final BlockState	AIR					= Blocks.AIR.getDefaultState();
+	private static final BlockState	BELL				= Blocks.BELL.getDefaultState();
+	private static final BlockState	LAPIS_ORE			= Blocks.LAPIS_ORE.getDefaultState();
 	private static final float		LAPIS_CHANCE		= 0.3f;
 
 
@@ -70,6 +72,7 @@ public class WellSnow extends Feature<NoFeatureConfig>
 				}
 			}
 
+			world.setBlockState(mutable.up(), AIR, 2);
 			world.setBlockState(mutable, ICE, 2);
 			if (random.nextFloat() < LAPIS_CHANCE)
 			{
@@ -83,6 +86,7 @@ public class WellSnow extends Feature<NoFeatureConfig>
 			for (Direction direction : Direction.Plane.HORIZONTAL)
 			{
 				mutable.setPos(position).move(direction);
+				world.setBlockState(mutable.up(), AIR, 2);
 				world.setBlockState(mutable, ICE, 2);
 
 				mutable.move(Direction.DOWN);
@@ -121,6 +125,9 @@ public class WellSnow extends Feature<NoFeatureConfig>
 					{
 						world.setBlockState(mutable.add(x, 4, z), SNOW_BLOCK, 2);
 						world.setBlockState(mutable.add(x, 5, z), SNOW, 2);
+						
+						if(random.nextInt(100) == 0) 
+							world.setBlockState(mutable.add(x, 3, z), BELL, 2);
 					}
 					else if (x == 0 || z == 0)
 					{
