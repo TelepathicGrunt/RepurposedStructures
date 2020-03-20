@@ -8,6 +8,7 @@ import com.mojang.datafixers.Dynamic;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.SnowBlock;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
@@ -18,17 +19,17 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraftforge.common.Tags;
 
 
-public class WellBadlands extends Feature<NoFeatureConfig>
+public class WellSnow extends Feature<NoFeatureConfig>
 {
-	private static final BlockState	RED_SANDSTONE_SLAB	= Blocks.RED_SANDSTONE_SLAB.getDefaultState();
-	private static final BlockState	RED_SANDSTONE		= Blocks.RED_SANDSTONE.getDefaultState();
+	private static final BlockState	SNOW				= Blocks.SNOW.getDefaultState().with(SnowBlock.LAYERS, 5);
+	private static final BlockState	SNOW_BLOCK			= Blocks.SNOW_BLOCK.getDefaultState();
 	private static final BlockState	STONE				= Blocks.STONE.getDefaultState();
-	private static final BlockState	GOLD_ORE			= Blocks.GOLD_ORE.getDefaultState();
-	private static final BlockState	WATER				= Blocks.WATER.getDefaultState();
-	private static final float		GOLD_CHANCE			= 0.15f;
+	private static final BlockState	LAPIS_ORE			= Blocks.LAPIS_ORE.getDefaultState();
+	private static final BlockState	ICE					= Blocks.ICE.getDefaultState();
+	private static final float		LAPIS_CHANCE		= 0.3f;
 
 
-	public WellBadlands(Function<Dynamic<?>, ? extends NoFeatureConfig> config)
+	public WellSnow(Function<Dynamic<?>, ? extends NoFeatureConfig> config)
 	{
 		super(config);
 	}
@@ -37,13 +38,15 @@ public class WellBadlands extends Feature<NoFeatureConfig>
 	public boolean place(IWorld world, ChunkGenerator<? extends GenerationSettings> chunkGenerator, Random random, BlockPos position, NoFeatureConfig config)
 	{
 		//move to top land block below position
-		for (position = position.up(); world.isAirBlock(position) && position.getY() > 2; position = position.down()){
+		for (position = position.up(); (world.isAirBlock(position) || world.getBlockState(position).getBlock() == Blocks.SNOW) && position.getY() > 2; position = position.down()){
 			;
 		}
 		BlockPos.Mutable mutable = new BlockPos.Mutable(position);
 
 		Block block = world.getBlockState(mutable).getBlock();
-		if (Tags.Blocks.SAND.contains(block) || Tags.Blocks.DIRT.contains(block))
+		if (block == Blocks.SNOW_BLOCK || 
+			Tags.Blocks.DIRT.contains(block) || 
+			block == world.getBiome(mutable).getSurfaceBuilderConfig().getTop().getBlock())
 		{
 			for (int x = -2; x <= 2; ++x)
 			{
@@ -62,15 +65,15 @@ public class WellBadlands extends Feature<NoFeatureConfig>
 				{
 					for (int z = -2; z <= 2; ++z)
 					{
-						world.setBlockState(mutable.add(x, y, z), RED_SANDSTONE, 2);
+						world.setBlockState(mutable.add(x, y, z), SNOW_BLOCK, 2);
 					}
 				}
 			}
 
-			world.setBlockState(mutable, WATER, 2);
-			if (random.nextFloat() < GOLD_CHANCE)
+			world.setBlockState(mutable, ICE, 2);
+			if (random.nextFloat() < LAPIS_CHANCE)
 			{
-				world.setBlockState(mutable.down(), GOLD_ORE, 2);
+				world.setBlockState(mutable.down(), LAPIS_ORE, 2);
 			}
 			else
 			{
@@ -80,12 +83,12 @@ public class WellBadlands extends Feature<NoFeatureConfig>
 			for (Direction direction : Direction.Plane.HORIZONTAL)
 			{
 				mutable.setPos(position).move(direction);
-				world.setBlockState(mutable, WATER, 2);
+				world.setBlockState(mutable, ICE, 2);
 
 				mutable.move(Direction.DOWN);
-				if (random.nextFloat() < GOLD_CHANCE)
+				if (random.nextFloat() < LAPIS_CHANCE)
 				{
-					world.setBlockState(mutable, GOLD_ORE, 2);
+					world.setBlockState(mutable, LAPIS_ORE, 2);
 				}
 				else
 				{
@@ -100,15 +103,15 @@ public class WellBadlands extends Feature<NoFeatureConfig>
 				{
 					if (x == -2 || x == 2 || z == -2 || z == 2)
 					{
-						world.setBlockState(mutable.add(x, 1, z), RED_SANDSTONE, 2);
+						world.setBlockState(mutable.add(x, 1, z), SNOW_BLOCK, 2);
 					}
 				}
 			}
 
-			world.setBlockState(mutable.add(2, 1, 0), RED_SANDSTONE_SLAB, 2);
-			world.setBlockState(mutable.add(-2, 1, 0), RED_SANDSTONE_SLAB, 2);
-			world.setBlockState(mutable.add(0, 1, 2), RED_SANDSTONE_SLAB, 2);
-			world.setBlockState(mutable.add(0, 1, -2), RED_SANDSTONE_SLAB, 2);
+			world.setBlockState(mutable.add(2, 1, 0), SNOW, 2);
+			world.setBlockState(mutable.add(-2, 1, 0), SNOW, 2);
+			world.setBlockState(mutable.add(0, 1, 2), SNOW, 2);
+			world.setBlockState(mutable.add(0, 1, -2), SNOW, 2);
 
 			for (int x = -1; x <= 1; ++x)
 			{
@@ -116,21 +119,26 @@ public class WellBadlands extends Feature<NoFeatureConfig>
 				{
 					if (x == 0 && z == 0)
 					{
-						world.setBlockState(mutable.add(x, 4, z), RED_SANDSTONE, 2);
+						world.setBlockState(mutable.add(x, 4, z), SNOW_BLOCK, 2);
+						world.setBlockState(mutable.add(x, 5, z), SNOW, 2);
+					}
+					else if (x == 0 || z == 0)
+					{
+						world.setBlockState(mutable.add(x, 4, z), SNOW_BLOCK, 2);
 					}
 					else
 					{
-						world.setBlockState(mutable.add(x, 4, z), RED_SANDSTONE_SLAB, 2);
+						world.setBlockState(mutable.add(x, 4, z), SNOW, 2);
 					}
 				}
 			}
 
 			for (int y = 1; y <= 3; ++y)
 			{
-				world.setBlockState(mutable.add(-1, y, -1), RED_SANDSTONE, 2);
-				world.setBlockState(mutable.add(-1, y, 1), RED_SANDSTONE, 2);
-				world.setBlockState(mutable.add(1, y, -1), RED_SANDSTONE, 2);
-				world.setBlockState(mutable.add(1, y, 1), RED_SANDSTONE, 2);
+				world.setBlockState(mutable.add(-1, y, -1), SNOW_BLOCK, 2);
+				world.setBlockState(mutable.add(-1, y, 1), SNOW_BLOCK, 2);
+				world.setBlockState(mutable.add(1, y, -1), SNOW_BLOCK, 2);
+				world.setBlockState(mutable.add(1, y, 1), SNOW_BLOCK, 2);
 			}
 
 			return true;

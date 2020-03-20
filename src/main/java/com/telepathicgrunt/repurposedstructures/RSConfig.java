@@ -42,8 +42,11 @@ public class RSConfig
 	public static boolean netherDungeons = true;
 
 	public static boolean addWellsToModdedBiomes = false;
-	public static int wellSpawnrate = 100;
+	public static int wellSpawnrate = 800;
 	public static boolean badlandsWells = true;
+	public static boolean netherWells = true;
+	public static boolean snowWells = true;
+	public static boolean mossyStoneWells = true;
 
 	public static boolean addMiscToModdedBiomes = false;
 	public static boolean boulderTiny = true;
@@ -95,6 +98,9 @@ public class RSConfig
 		public final BooleanValue addWellsToModdedBiomes;
 		public final IntValue wellSpawnrate;
 		public final BooleanValue badlandsWells;
+		public final BooleanValue netherWells;
+		public final BooleanValue snowWells;
+		public final BooleanValue mossyStoneWells;
 
 		public final BooleanValue addMiscToModdedBiomes;
 		public final BooleanValue boulderTiny;
@@ -206,12 +212,27 @@ public class RSConfig
 									+ "\r\n The chance of a well generating at a chunk is 1/spawnrate."
 									+ "\r\n 1 for wells spawning in every chunk and 10000 for extremely rare wells.")
 							.translation("repurposedstructures.config.structure.dungeons.dungeonspawnrate")
-							.defineInRange("dungeonSpawnrate", 100, 1, 10000);
+							.defineInRange("dungeonSpawnrate", 800, 1, 10000);
 					
 					badlandsWells = builder
 							.comment("\r\n Add Badlands themed wells to Badlands biomes.")
 						.translation("repurposedstructures.config.feature.small_wells.badlandswells")
 						.define("badlandsWells", true);
+					
+					netherWells = builder
+							.comment("\r\n Add Nether themed wells to Nether biomes.")
+						.translation("repurposedstructures.config.feature.small_wells.netherwells")
+						.define("netherWells", true);
+					
+					snowWells = builder
+							.comment("\r\n Add Snow themed wells to snowy and icy biomes.")
+						.translation("repurposedstructures.config.feature.small_wells.snowwells")
+						.define("snowWells", true);
+					
+					mossyStoneWells = builder
+							.comment("\r\n Add mossy stone themed wells to Jungles, Dark Oak, and Swamp biomes.")
+						.translation("repurposedstructures.config.feature.small_wells.mossystonewells")
+						.define("mossyStoneWells", true);
 					
 				builder.pop();
 				
@@ -425,6 +446,9 @@ public class RSConfig
 		addWellsToModdedBiomes = SERVER.addWellsToModdedBiomes.get();
 		wellSpawnrate = SERVER.wellSpawnrate.get();
 		badlandsWells = SERVER.badlandsWells.get();
+		netherWells = SERVER.netherWells.get();
+		snowWells = SERVER.snowWells.get();
+		mossyStoneWells = SERVER.mossyStoneWells.get();
 		
 		addMiscToModdedBiomes = SERVER.addMiscToModdedBiomes.get();
 		boulderTiny = SERVER.boulderTiny.get();

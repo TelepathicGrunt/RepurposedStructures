@@ -29,7 +29,13 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 -Fixed vines not generating correctly or at all in Dark Forest Dungeons.
 
--Added Badlands Wells to Badlands biomes with a small chance of Gold Ores inside like it is coins tossed into a well!
+-Added Badlands Wells to Badlands biomes with a small chance of Gold Ores inside the water like it is coins tossed into a well!
+
+-Added Snow Wells to snowy and icy biomes with a chance of having Lapis Ores under its ice.
+
+-Added Nether Wells to Nether biomes. Has 1 glowstone block and sometimes has Quartz Ore or Chiseled Quartz block under the lava.
+
+-Added Mossy Stone Wells to Jungles, Dark Oak, and Swamp biomes with a chance of having Emerald Ores under the water in it.
 
 
 

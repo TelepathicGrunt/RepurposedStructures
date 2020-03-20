@@ -22,6 +22,7 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
 import net.minecraft.world.gen.placement.ChanceConfig;
+import net.minecraft.world.gen.placement.ChanceRangeConfig;
 import net.minecraft.world.gen.placement.FrequencyConfig;
 import net.minecraft.world.gen.placement.IPlacementConfig;
 import net.minecraft.world.gen.placement.Placement;
@@ -276,6 +277,24 @@ public class RSAddFeatures
 			wellAllowedByNamespaceAndConfig(biomeNamespace))
 		{
 			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.BADLANDS_WELL.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.CHANCE_HEIGHTMAP.configure(new ChanceConfig(RSConfig.wellSpawnrate))));
+		}
+		else if(RSConfig.netherWells && 
+				biome.getCategory() == Category.NETHER && 
+				wellAllowedByNamespaceAndConfig(biomeNamespace))
+		{
+			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.NETHER_WELL.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.CHANCE_RANGE.configure(new ChanceRangeConfig(1F/RSConfig.wellSpawnrate, 30, 0, 98))));
+		}
+		else if(RSConfig.netherWells && 
+				(biome.getCategory() == Category.ICY || biomePath.contains("snow")) && 
+				wellAllowedByNamespaceAndConfig(biomeNamespace))
+		{
+			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.SNOW_WELL.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.CHANCE_HEIGHTMAP.configure(new ChanceConfig(RSConfig.wellSpawnrate))));
+		}
+		else if(RSConfig.mossyStoneWells && 
+				(biome.getCategory() == Category.JUNGLE || biome.getCategory() == Category.SWAMP || biomePath.contains("dark_forest") || biomePath.contains("dark_oak")) && 
+				wellAllowedByNamespaceAndConfig(biomeNamespace))
+		{
+			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.MOSSY_STONE_WELL.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.CHANCE_HEIGHTMAP.configure(new ChanceConfig(RSConfig.wellSpawnrate))));
 		}
 	}
 	
