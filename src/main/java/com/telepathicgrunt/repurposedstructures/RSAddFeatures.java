@@ -269,6 +269,26 @@ public class RSAddFeatures
 		return false;
 	}
 	
+	public static void addWells(Biome biome, String biomeNamespace, String biomePath)
+	{
+		if(RSConfig.badlandsWells && 
+			biome.getCategory() == Category.MESA && 
+			wellAllowedByNamespaceAndConfig(biomeNamespace))
+		{
+			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.BADLANDS_WELL.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.CHANCE_HEIGHTMAP.configure(new ChanceConfig(RSConfig.wellSpawnrate))));
+		}
+	}
+	
+	private static boolean wellAllowedByNamespaceAndConfig(String biomeNamespace)
+	{
+		if(biomeNamespace.equals("minecraft") || RSConfig.addWellsToModdedBiomes)
+		{
+			return true;
+		}
+		
+		return false;
+	}
+	
 	private static final ConfiguredFeature<?,?> VANILLA_SWAMP_TREE = Feature.NORMAL_TREE.withConfiguration(DefaultBiomeFeatures.SWAMP_TREE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(2, 0.1F, 1)));
 	private static final ConfiguredFeature<?,?> VANILLA_BOULDER = Feature.FOREST_ROCK.withConfiguration(new BlockBlobConfig(Blocks.MOSSY_COBBLESTONE.getDefaultState(), 0)).withPlacement(Placement.FOREST_ROCK.configure(new FrequencyConfig(3)));
 	public static void addMiscFeatures(Biome biome, String biomeNamespace, String biomePath)

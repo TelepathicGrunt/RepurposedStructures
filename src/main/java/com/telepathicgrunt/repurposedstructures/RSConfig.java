@@ -41,6 +41,10 @@ public class RSConfig
 	public static boolean endDungeons = true;
 	public static boolean netherDungeons = true;
 
+	public static boolean addWellsToModdedBiomes = false;
+	public static int wellSpawnrate = 100;
+	public static boolean badlandsWells = true;
+
 	public static boolean addMiscToModdedBiomes = false;
 	public static boolean boulderTiny = true;
 	public static boolean boulderGiant = true;
@@ -87,6 +91,10 @@ public class RSConfig
 		public final BooleanValue swampDungeons;
 		public final BooleanValue endDungeons;
 		public final BooleanValue netherDungeons;
+
+		public final BooleanValue addWellsToModdedBiomes;
+		public final IntValue wellSpawnrate;
+		public final BooleanValue badlandsWells;
 
 		public final BooleanValue addMiscToModdedBiomes;
 		public final BooleanValue boulderTiny;
@@ -183,6 +191,27 @@ public class RSConfig
 							.comment("\r\n Add Nether themed dungeon to Nether biomes.")
 						.translation("repurposedstructures.config.feature.dungeons.netherdungeons")
 						.define("netherDungeons", true);
+					
+				builder.pop();
+
+				builder.push("Small Wells");
+				
+					addWellsToModdedBiomes = builder
+							.comment("\r\n Add the custom wells to modded biomes of the same categories/type.")
+						.translation("repurposedstructures.config.feature.small_wells.addwellstomoddedbiomes")
+						.define("addWellsToModdedBiomes", false);
+
+					wellSpawnrate = builder
+							.comment( "\r\n How often wells will attempt to spawn per chunk." 
+									+ "\r\n The chance of a well generating at a chunk is 1/spawnrate."
+									+ "\r\n 1 for wells spawning in every chunk and 10000 for extremely rare wells.")
+							.translation("repurposedstructures.config.structure.dungeons.dungeonspawnrate")
+							.defineInRange("dungeonSpawnrate", 100, 1, 10000);
+					
+					badlandsWells = builder
+							.comment("\r\n Add Badlands themed wells to Badlands biomes.")
+						.translation("repurposedstructures.config.feature.small_wells.badlandswells")
+						.define("badlandsWells", true);
 					
 				builder.pop();
 				
@@ -393,6 +422,10 @@ public class RSConfig
 		endDungeons = SERVER.endDungeons.get();
 		netherDungeons = SERVER.netherDungeons.get();
 
+		addWellsToModdedBiomes = SERVER.addWellsToModdedBiomes.get();
+		wellSpawnrate = SERVER.wellSpawnrate.get();
+		badlandsWells = SERVER.badlandsWells.get();
+		
 		addMiscToModdedBiomes = SERVER.addMiscToModdedBiomes.get();
 		boulderTiny = SERVER.boulderTiny.get();
 		boulderGiant = SERVER.boulderGiant.get();

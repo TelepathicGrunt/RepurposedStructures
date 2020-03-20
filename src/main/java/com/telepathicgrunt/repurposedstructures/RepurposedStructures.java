@@ -57,6 +57,7 @@ public class RepurposedStructures
 			RSAddFeatures.addMineshafts(biome, biomeNamespace, biomePath);
 			RSAddFeatures.addJungleFortress(biome, biomeNamespace, biomePath);
 			RSAddFeatures.addDungeons(biome, biomeNamespace, biomePath);
+			RSAddFeatures.addWells(biome, biomeNamespace, biomePath);
 			RSAddFeatures.addMiscFeatures(biome, biomeNamespace, biomePath);
 			
 			if(!RSConfig.useVanillaStronghold) 

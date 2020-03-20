@@ -15,19 +15,21 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 
 
-### Config: 
+##### Config: 
 
 -Added a config option to allow the option to turn off replacing Vanilla Stronghold with this mod's Stronghold. 
 
 
 
-### Structures/Features: 
+##### Structures/Features: 
 
 -Fixed Crash when loading this mod with another mod that affects the biome's list of features. 
 
 -Fixed bug where Dungeons fused together will sometimes fail to set their spawner's mob and so, they will end up with a Pig Spawner by default instead of the correct mob spawner.
 
 -Fixed vines not generating correctly or at all in Dark Forest Dungeons.
+
+-Added Badlands Wells to Badlands biomes with a small chance of Gold Ores inside like it is coins tossed into a well!
 
 
 
@@ -36,7 +38,7 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 
 
-### Major: 
+##### Major: 
 
 -First release of this mod!!!!! PARTY TIME!! 
 
