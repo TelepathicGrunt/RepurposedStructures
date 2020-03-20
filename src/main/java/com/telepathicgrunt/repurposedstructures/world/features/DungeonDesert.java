@@ -8,7 +8,6 @@ import org.apache.logging.log4j.Logger;
 
 import com.mojang.datafixers.Dynamic;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SlabBlock;
@@ -175,17 +174,17 @@ public class DungeonDesert extends Feature<NoFeatureConfig>
 			}
 
 			world.setBlockState(position.down(), SMOOTH_SANDSTONE, 2);
+			world.setBlockState(position, Blocks.AIR.getDefaultState(), 2);
 			world.setBlockState(position, Blocks.SPAWNER.getDefaultState(), 2);
 			TileEntity tileentity = world.getTileEntity(position);
-			Block block = world.getBlockState(position).getBlock();
 
 			if (tileentity instanceof MobSpawnerTileEntity)
 			{
-				((MobSpawnerTileEntity) tileentity).getSpawnerBaseLogic().setEntityType(this.pickMobSpawner(world, rand));
+				((MobSpawnerTileEntity) tileentity).getSpawnerBaseLogic().setEntityType(pickMobSpawner(world, rand));
 			}
 			else
 			{
-				LOGGER.error("Failed to fetch mob spawner entity at ({}, {}, {}). Tile is " + tileentity.getClass().getName() + ". Block is " + block.getRegistryName(), new Object[] { Integer.valueOf(position.getX()), Integer.valueOf(position.getY()), Integer.valueOf(position.getZ()) });
+				LOGGER.error("Failed to fetch mob spawner entity at ({}, {}, {}).", new Object[] { Integer.valueOf(position.getX()), Integer.valueOf(position.getY()), Integer.valueOf(position.getZ()) });
 	    	}
 
 			return true;
@@ -200,7 +199,7 @@ public class DungeonDesert extends Feature<NoFeatureConfig>
 	/**
 	 * Randomly decides which spawner to use in a dungeon
 	 */
-	private EntityType<?> pickMobSpawner(IWorld world, Random rand)
+	private static EntityType<?> pickMobSpawner(IWorld world, Random rand)
 	{
 
 		int roll = rand.nextInt(100);

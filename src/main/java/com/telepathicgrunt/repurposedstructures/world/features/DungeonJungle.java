@@ -199,12 +199,13 @@ public class DungeonJungle extends Feature<NoFeatureConfig>
 				}
 			}
 
+			world.setBlockState(position, Blocks.AIR.getDefaultState(), 2);
 			world.setBlockState(position, Blocks.SPAWNER.getDefaultState(), 2);
 			TileEntity tileentity = world.getTileEntity(position);
 
 			if (tileentity instanceof MobSpawnerTileEntity)
 			{
-				((MobSpawnerTileEntity) tileentity).getSpawnerBaseLogic().setEntityType(this.pickMobSpawner(world, rand));
+				((MobSpawnerTileEntity) tileentity).getSpawnerBaseLogic().setEntityType(pickMobSpawner(world, rand));
 			}
 			else
 			{
@@ -223,7 +224,7 @@ public class DungeonJungle extends Feature<NoFeatureConfig>
 	/**
 	 * Randomly decides which spawner to use in a dungeon
 	 */
-	private EntityType<?> pickMobSpawner(IWorld world, Random rand)
+	private static EntityType<?> pickMobSpawner(IWorld world, Random rand)
 	{
 		int roll = rand.nextInt(100);
 

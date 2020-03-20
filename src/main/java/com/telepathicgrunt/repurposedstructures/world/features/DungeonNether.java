@@ -154,13 +154,14 @@ public class DungeonNether extends Feature<NoFeatureConfig>
 				}
 			}
 
+			world.setBlockState(position, Blocks.AIR.getDefaultState(), 2);
 			world.setBlockState(position, Blocks.SPAWNER.getDefaultState(), 2);
 			world.setBlockState(position.down(), Blocks.NETHER_BRICKS.getDefaultState(), 2);
 			TileEntity tileentity = world.getTileEntity(position);
 
 			if (tileentity instanceof MobSpawnerTileEntity)
 			{
-				((MobSpawnerTileEntity) tileentity).getSpawnerBaseLogic().setEntityType(this.pickMobSpawner(world, rand, position));
+				((MobSpawnerTileEntity) tileentity).getSpawnerBaseLogic().setEntityType(pickMobSpawner(world, rand, position));
 			}
 			else
 			{
@@ -179,7 +180,7 @@ public class DungeonNether extends Feature<NoFeatureConfig>
 	/**
 	 * Randomly decides which spawner to use in a dungeon
 	 */
-	private EntityType<?> pickMobSpawner(IWorld world, Random rand, BlockPos position)
+	private static EntityType<?> pickMobSpawner(IWorld world, Random rand, BlockPos position)
 	{
 		int roll = rand.nextInt(100);
 
