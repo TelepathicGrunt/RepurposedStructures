@@ -23,6 +23,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ### Structures/Features: 
 
+-Fixed Crash when loading this mod with another mod that affects the biome's list of features. 
+
 -Fixed vines not generating correctly or at all in Dark Forest Dungeons.
 
 

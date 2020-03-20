@@ -10,6 +10,7 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -18,6 +19,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
 
 
+@SuppressWarnings("deprecation")
 @Mod(RepurposedStructures.MODID)
 public class RepurposedStructures
 {
@@ -42,6 +44,11 @@ public class RepurposedStructures
 	 */
 	public void setup(final FMLCommonSetupEvent event)
 	{
+		DeferredWorkQueue.runLater(RepurposedStructures::addFeaturesAndStructuresToBiomes);
+	}
+	
+	private static void addFeaturesAndStructuresToBiomes()
+	{
 		for (Biome biome : ForgeRegistries.BIOMES)
 		{
 			String biomeNamespace = biome.getRegistryName().getNamespace();
@@ -56,7 +63,6 @@ public class RepurposedStructures
 				RSAddFeatures.addStronghold(biome, biomeNamespace, biomePath);
 		}
 	}
-	
 	
 	public void modConfig(final ModConfig.ModConfigEvent event)
 	{

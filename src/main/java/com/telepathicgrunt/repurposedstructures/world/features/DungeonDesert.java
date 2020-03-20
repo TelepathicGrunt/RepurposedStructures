@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.mojang.datafixers.Dynamic;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SlabBlock;
@@ -173,9 +174,10 @@ public class DungeonDesert extends Feature<NoFeatureConfig>
 				}
 			}
 
+			world.setBlockState(position.down(), SMOOTH_SANDSTONE, 2);
 			world.setBlockState(position, Blocks.SPAWNER.getDefaultState(), 2);
 			TileEntity tileentity = world.getTileEntity(position);
-			world.setBlockState(position.down(), SMOOTH_SANDSTONE, 2);
+			Block block = world.getBlockState(position).getBlock();
 
 			if (tileentity instanceof MobSpawnerTileEntity)
 			{
@@ -183,8 +185,8 @@ public class DungeonDesert extends Feature<NoFeatureConfig>
 			}
 			else
 			{
-				LOGGER.error("Failed to fetch mob spawner entity at ({}, {}, {})", new Object[] { Integer.valueOf(position.getX()), Integer.valueOf(position.getY()), Integer.valueOf(position.getZ()) });
-			}
+				LOGGER.error("Failed to fetch mob spawner entity at ({}, {}, {}). Tile is " + tileentity.getClass().getName() + ". Block is " + block.getRegistryName(), new Object[] { Integer.valueOf(position.getX()), Integer.valueOf(position.getY()), Integer.valueOf(position.getZ()) });
+	    	}
 
 			return true;
 		}

@@ -151,7 +151,7 @@ public class DungeonDarkForest extends Feature<NoFeatureConfig>
 				{
 					if (x == xMin+1 || z == zMin+1 || x == xMax-1 || z == zMax-1)
 					{
-						for (int y = 3; y > 0; --y)
+						for (int y = 3; y >= 0; --y)
 						{	
 							Direction face = null;
 							for(Direction facing : Direction.Plane.HORIZONTAL)
