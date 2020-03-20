@@ -2,6 +2,10 @@
 <h2 style="text-align: center;"><strong><span style="font-size: 36px; color: #009611;">CURRENTLY FOR 1.15.2 MC</span></strong></h2>
 <p>&nbsp;</p>
 <p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;Fixed crashing issue. Sorry about that!</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>Also added 5 new Desert Well variants to several biomes!</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>They can have ores inside and an extremely rare chance for a Bell!</strong></b></span></em></p>
+<p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;"><span style="font-size: 18px;"><strong>______________________________________________________________________________</strong></span></p>
 <p style="text-align: center;">&nbsp;</p>
@@ -9,7 +13,7 @@
 <p style="text-align: center;"><span style="font-size: 14px;">&nbsp;</span></p>
 <p style="text-align: left;"><span style="font-size: 14px;">&nbsp;<strong> &nbsp; Repurposed Structures is a mod about taking existing vanilla features and structures and creating new variants or modifications to them! Originally, most of the structures and features in this mod was actually made for my Ultra Amplified Dimension mod. but then I realized these features and structures would look great in the Overworld as well so I decided to take those structures and features and split them into their own mod. This mod! </strong></span></p>
 <p style="text-align: left;">&nbsp;</p>
-<p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; Currently, this mod creates a Nether Fortresses using Stonebrick blocks and spawns it in Jungles, Dungeons and Mineshafts now has more variants to match whatever biome they are in, Strongholds has a configurable size and has more Silverfish spawners, Giant Tree/Spruce Taiga Hills biomes has giant ore filled boulders that could have Diamond ore if you are extremely lucky, Taiga Mountain biomes now has tiny boulders, and Swamps now has a new 2x2 swamp-like tree!</strong></span></p>
+<p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; Currently, this mod creates a Nether Fortresses using Stonebrick blocks and spawns it in Jungles, Dungeons and Mineshafts now has more variants to match whatever biome they are in, Strongholds has a configurable size and has more Silverfish spawners, Giant Tree/Spruce Taiga Hills biomes has giant ore filled boulders that could have Diamond ore if you are extremely lucky, Taiga Mountain biomes now has tiny boulders, Swamps now has a new 2x2 swamp-like tree, and several new Desert Well variations were made for other biomes!</strong></span></p>
 <p style="text-align: left;"><span style="font-size: 14px;">&nbsp;</span></p>
 <p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; You can use this mod in a modpack or download and modify the source code. It is all under MIT License so you can do whatever you want! Also, be sure to check out the images page for several screenshots of what the world looks like!&nbsp;And also, the section below this one talks about how to configure everything as I want players to have the ability to change things to their preferences.</strong></span></p>
 <p style="text-align: left;"><span style="font-size: 14px;">&nbsp;</span></p>
@@ -130,6 +134,37 @@
 <p><strong>rest is a mix of Mossy Cobblestone, Cobblestone, and Andesite with Andesite sometime replaced by vanilla's blobs of dirt, various stones, or ores.</strong></p>
 </div>
 <p><strong>&nbsp;</strong></p>
+<p>&nbsp;</p>
+<p><b>Badlands Well</b></p>
+<div class="spoiler">
+<p><b>1% chance of having a Bell</b></p>
+<p><b>Each of the 5 blocks inside has a 15% chance of being a Gold Ore</b></p>
+</div>
+<p>&nbsp;</p>
+<p><b>Forest Well</b></p>
+<div class="spoiler">
+<p><b>1% chance of having a Bell</b></p>
+<p><b>Each of the 5 blocks inside has a 30% chance of being an Iron Ore</b></p>
+</div>
+<p>&nbsp;</p>
+<p><b>Mossy Stone Well</b></p>
+<div class="spoiler">
+<p><b>1% chance of having a Bell</b></p>
+<p><b>Each of the 5 blocks inside has a 12% chance of being an Emerald Ore</b></p>
+</div>
+<p>&nbsp;</p>
+<p><b>Snow Well</b></p>
+<div class="spoiler">
+<p><b>1% chance of having a Bell</b></p>
+<p><b>Each of the 5 blocks inside has a 30% chance of being a Lapis Ore</b></p>
+</div>
+<p>&nbsp;</p>
+<p><b>Nether Well</b></p>
+<div class="spoiler">
+<p><b>1% chance of having a Bell</b></p>
+<p><b>Each of the 5 blocks inside has a 8% chance of being a Chiseled Quartz block and a 50% chance of being a Quartz Ore</b></p>
+</div>
+<p>&nbsp;</p>
 <p><span style="font-size: 18px;"><strong>______________________________________________________________________________</strong></span></p>
 <p><span style="font-size: 18px;">&nbsp;</span></p>
 <h2><strong><span style="font-size: 24px; color: #009611;">HOW CAN I CONFIGURE THIS MOD?</span></strong></h2>
@@ -138,7 +173,7 @@
 <p>&nbsp;</p>
 <p><strong>&nbsp; &nbsp; Right now, there are lots of config options. The big ones that you may be interested in are the <span style="font-size: 14px;">add____ToModdedBiomes</span> config entries. Turning this on will make the config add the features or structures to any modded biomes with the correct category. For example, if you turn on <span style="font-size: 14px;">addMineshaftsToModdedBiomes</span> and you have a mod that adds a new kind of Desert biome in any dimension, then that biome will now spawn Desert themed Mineshafts in it!</strong></p>
 <p>&nbsp;</p>
-<p><strong>&nbsp; &nbsp; For both Dungeons and Mineshafts, you can turn on and off each specific biome variant or change their overall spawnrates as well. For Mineshafts, you can turn on or off the spawning of chests too if you want to stop chests from spawning for whatever reason.</strong></p>
+<p><strong>&nbsp; &nbsp; For Dungeons, Wells, and Mineshafts, you can turn on and off each specific biome variant or change their overall spawnrates as well. For Mineshafts, you can turn on or off the spawning of chests too if you want to stop chests from spawning for whatever reason.</strong></p>
 <p>&nbsp;</p>
 <p><strong>&nbsp; &nbsp; The config for Jungle Fortresses is fairly straightforward. You can change their spawnrate, how much Stonebrick blocks are infested with SIlverfish, turn on or off the creation of Silverfish spawners, or disable the creation of loot chests. Not much else to it!</strong></p>
 <p>&nbsp;</p>
