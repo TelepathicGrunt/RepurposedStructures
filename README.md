@@ -2,9 +2,8 @@
 <h2 style="text-align: center;"><strong><span style="font-size: 36px; color: #009611;">CURRENTLY FOR 1.15.2 MC</span></strong></h2>
 <p>&nbsp;</p>
 <p style="text-align: center;">&nbsp;</p>
-<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;Fixed crashing issue. Sorry about that!</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>Also added 5 new Desert Well variants to several biomes!</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>They can have ores inside and an extremely rare chance for a Bell!</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;Added Nether styled Stronghold and Nether Jungle Temple!</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>Plus some bug fixed as well. Checkout changelog for more details.</strong></b></span></em></p>
 <p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;"><span style="font-size: 18px;"><strong>______________________________________________________________________________</strong></span></p>
@@ -110,12 +109,46 @@
 </div>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
+<p><strong>Nether Temple loot</strong></p>
+<div class="spoiler">
+<p><strong>Dispensers loot</strong></p>
+<p><strong>5 to 14 Arrows of Harming II</strong></p>
+<p>&nbsp;</p>
+<p><strong>Chests loot</strong></p>
+<p><strong><b>Can contain the following in order from most common to least common:</b></strong></p>
+<p><strong><b>&nbsp;- Redstone</b></strong></p>
+<p><strong><b>&nbsp;- Lvl 30 Enchanted Stone Swords</b></strong></p>
+<p><strong><b>&nbsp;- Quartz</b></strong></p>
+<p><strong>&nbsp;- Gold ingot</strong></p>
+<p><strong><b>&nbsp;- Rotten Flesh</b></strong></p>
+<p><strong><b>&nbsp;- Golden Nugget</b></strong></p>
+<p><strong><b>&nbsp;- Lvl 20 to 30 Enchanted Golden Swords</b></strong></p>
+<p><strong><b>&nbsp;- Nether Wart</b></strong></p>
+<p><strong><b>&nbsp;- Golden Horse Armor</b></strong></p>
+<p><strong><b>&nbsp;- Quartz Block</b></strong></p>
+<p><strong><b>&nbsp;- Gold Blocks</b></strong></p>
+<p><strong><b>&nbsp;- Lvl 30 Enchanted Book&nbsp;</b></strong></p>
+<p>&nbsp;</p>
+<p><strong>Has one Pigmen spawner too</strong></p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 <p><strong>Stronghold Chest rates and Silverfish Spawner locations</strong></p>
 <div class="spoiler">
 <p><span style="font-size: 1.2rem;"><strong>Chest loot is not changed.</strong></span></p>
 <p><span style="font-size: 1.2rem;"><strong>Corridor Chests has a 33% chance of spawning.</strong></span></p>
 <p><span style="font-size: 1.2rem;"><strong>Storage rooms has 4 chests instead of 1 due to them not having much loot naturally.</strong></span></p>
 <p><span style="font-size: 1.2rem;"><strong>Silverfish spawners are added to storage room, the room with the pillar that holds 4 Torches and fountain room.</strong></span></p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>Nether Stronghold Chest rates and Blaze Spawner locations</strong></p>
+<div class="spoiler">
+<p><strong>Non-Library chest loot uses the Nether Fortress's chest loot table.</strong></p>
+<p><strong>Corridor Chests has a 33% chance of spawning.</strong></p>
+<p><strong>Storage rooms has 4 chests instead of 1 due to them not having much loot naturally.</strong></p>
+<p><strong>Blaze spawners are added to storage room, the room with the pillar that holds 4 Torches and fountain room.</strong></p>
+<p><strong>The Silverfish spawner at the Portal Room is now a Blaze spawner.</strong></p>
 </div>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
@@ -135,36 +168,36 @@
 </div>
 <p><strong>&nbsp;</strong></p>
 <p>&nbsp;</p>
-<p><b>Badlands Well</b></p>
+<p><b><strong>Badlands Well</strong></b></p>
 <div class="spoiler">
-<p><b>1% chance of having a Bell</b></p>
-<p><b>Each of the 5 blocks inside has a 15% chance of being a Gold Ore</b></p>
+<p><strong><b>1% chance of having a Bell</b></strong></p>
+<p><strong><b>Each of the 5 blocks inside has a 15% chance of being a Gold Ore</b></strong></p>
 </div>
-<p>&nbsp;</p>
-<p><b>Forest Well</b></p>
+<p><strong>&nbsp;</strong></p>
+<p><strong><b>Forest Well</b></strong></p>
 <div class="spoiler">
-<p><b>1% chance of having a Bell</b></p>
-<p><b>Each of the 5 blocks inside has a 30% chance of being an Iron Ore</b></p>
+<p><strong><b>1% chance of having a Bell</b></strong></p>
+<p><strong><b>Each of the 5 blocks inside has a 30% chance of being an Iron Ore</b></strong></p>
 </div>
-<p>&nbsp;</p>
-<p><b>Mossy Stone Well</b></p>
+<p><strong>&nbsp;</strong></p>
+<p><strong><b>Mossy Stone Well</b></strong></p>
 <div class="spoiler">
-<p><b>1% chance of having a Bell</b></p>
-<p><b>Each of the 5 blocks inside has a 12% chance of being an Emerald Ore</b></p>
+<p><strong><b>1% chance of having a Bell</b></strong></p>
+<p><strong><b>Each of the 5 blocks inside has a 12% chance of being an Emerald Ore</b></strong></p>
 </div>
-<p>&nbsp;</p>
-<p><b>Snow Well</b></p>
+<p><strong>&nbsp;</strong></p>
+<p><strong><b>Snow Well</b></strong></p>
 <div class="spoiler">
-<p><b>1% chance of having a Bell</b></p>
-<p><b>Each of the 5 blocks inside has a 30% chance of being a Lapis Ore</b></p>
+<p><strong><b>1% chance of having a Bell</b></strong></p>
+<p><strong><b>Each of the 5 blocks inside has a 30% chance of being a Lapis Ore</b></strong></p>
 </div>
-<p>&nbsp;</p>
-<p><b>Nether Well</b></p>
+<p><strong>&nbsp;</strong></p>
+<p><strong><b>Nether Well</b></strong></p>
 <div class="spoiler">
-<p><b>1% chance of having a Bell</b></p>
-<p><b>Each of the 5 blocks inside has a 8% chance of being a Chiseled Quartz block and a 50% chance of being a Quartz Ore</b></p>
+<p><strong><b>1% chance of having a Bell</b></strong></p>
+<p><strong><b>Each of the 5 blocks inside has a 8% chance of being a Chiseled Quartz block and a 50% chance of being a Quartz Ore</b></strong></p>
 </div>
-<p>&nbsp;</p>
+<p><strong>&nbsp;</strong></p>
 <p><span style="font-size: 18px;"><strong>______________________________________________________________________________</strong></span></p>
 <p><span style="font-size: 18px;">&nbsp;</span></p>
 <h2><strong><span style="font-size: 24px; color: #009611;">HOW CAN I CONFIGURE THIS MOD?</span></strong></h2>
