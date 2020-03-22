@@ -1,30 +1,27 @@
 package com.telepathicgrunt.repurposedstructures.world.features.structures;
 
-import java.util.List;
 import java.util.Random;
 import java.util.function.Function;
 
 import com.mojang.datafixers.Dynamic;
 import com.telepathicgrunt.repurposedstructures.RSConfig;
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 
-import net.minecraft.util.Direction;
 import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeManager;
-import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.Structure;
-import net.minecraft.world.gen.feature.structure.StructurePiece;
 import net.minecraft.world.gen.feature.structure.StructureStart;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
 
-public class RSStrongholdStructure extends Structure<NoFeatureConfig>
+public class NetherTempleStructure extends Structure<NoFeatureConfig>
 {
-	public RSStrongholdStructure(Function<Dynamic<?>, ? extends NoFeatureConfig> config)
+	public NetherTempleStructure(Function<Dynamic<?>, ? extends NoFeatureConfig> config)
 	{
 		super(config);
 	}
@@ -74,14 +71,14 @@ public class RSStrongholdStructure extends Structure<NoFeatureConfig>
 	@Override
 	public Structure.IStartFactory getStartFactory()
 	{
-		return RSStrongholdStructure.Start::new;
+		return NetherTempleStructure.Start::new;
 	}
 
 
 	@Override
 	public String getStructureName()
 	{
-		return "Stronghold";
+		return RepurposedStructures.MODID+":nether_temple";
 	}
 
 
@@ -102,52 +99,10 @@ public class RSStrongholdStructure extends Structure<NoFeatureConfig>
 		@Override
 		public void init(ChunkGenerator<?> generator, TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn)
 		{
-			RSStrongholdPieces.prepareStructurePieces();
-			RSStrongholdStructure.Type type = biomeIn.getCategory() == Category.NETHER && RSConfig.allowNetherStronghold ? RSStrongholdStructure.Type.NETHER : RSStrongholdStructure.Type.NORMAL;
-			RSStrongholdPieces.EntranceStairs strongholdpieces$entrancestairs = new RSStrongholdPieces.EntranceStairs(this.rand, (chunkX << 4) + 2, (chunkZ << 4) + 2, type);
-			this.components.add(strongholdpieces$entrancestairs);
-			strongholdpieces$entrancestairs.buildComponent(strongholdpieces$entrancestairs, this.components, this.rand);
-			List<StructurePiece> list = strongholdpieces$entrancestairs.pendingChildren;
-			
-			while (!list.isEmpty())
-			{
-				int i = this.rand.nextInt(list.size());
-				StructurePiece structurepiece = list.remove(i);
-				structurepiece.buildComponent(strongholdpieces$entrancestairs, this.components, this.rand);
-			}
-			
-
-			if (strongholdpieces$entrancestairs.strongholdPortalRoom == null)
-			{
-				MutableBoundingBox box = this.components.get(this.components.size()-1).getBoundingBox();
-				RSStrongholdPieces.Stronghold portalRoom = RSStrongholdPieces.PortalRoom.createPiece(this.components, this.rand, box.minX, box.minY+1, box.minZ, Direction.NORTH, type);
-				this.components.add(portalRoom);
-				strongholdpieces$entrancestairs.pendingChildren.add(portalRoom);
-				list = strongholdpieces$entrancestairs.pendingChildren;
-				
-				while (!list.isEmpty())
-				{
-					int i = this.rand.nextInt(list.size());
-					StructurePiece structurepiece = list.remove(i);
-					structurepiece.buildComponent(strongholdpieces$entrancestairs, this.components, this.rand);
-				}
-			}
-			
-
+			NetherTemplePiece junglepyramidpiece = new NetherTemplePiece(this.rand, chunkX * 16, chunkZ * 16);
+			this.components.add(junglepyramidpiece);
 			this.recalculateStructureSize();
-			this.func_214628_a(generator.getSeaLevel(), this.rand, 10);
-
-			
-		}
-	}
-
-	public static enum Type
-	{
-		NORMAL, NETHER;
-
-		public static RSStrongholdStructure.Type byId(int id)
-		{
-			return id >= 0 && id < values().length ? values()[id] : NORMAL;
+			this.func_214626_a(this.rand, 55, 60);
 		}
 	}
 }

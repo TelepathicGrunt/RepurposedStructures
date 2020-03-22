@@ -354,22 +354,47 @@ public class RSAddFeatures
 	
 	public static void addStronghold(Biome biome, String biomeNamespace, String biomePath)
 	{
-		//remove vanilla stronghold
-		if(biome.structures.containsKey(Feature.STRONGHOLD))
+		biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+		
+		if(biome.getCategory() == Category.NETHER && RSConfig.allowNetherStronghold)
 		{
-			biome.structures.remove(Feature.STRONGHOLD);
-			biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && serializeAndCompareFeature(configuredFeature, Feature.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)));
-			
-			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
-
 			if(RSConfig.strongholdSpawnrate != 1001)
 			{
 				biome.addStructure(RSFeatures.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 			}
 		}
+		else
+		{
+			//remove vanilla stronghold
+			if(biome.structures.containsKey(Feature.STRONGHOLD))
+			{
+				biome.structures.remove(Feature.STRONGHOLD);
+				biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && serializeAndCompareFeature(configuredFeature, Feature.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)));
+				
+				if(RSConfig.strongholdSpawnrate != 1001)
+				{
+					biome.addStructure(RSFeatures.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+				}
+			}
+		}
 	}
 	
 
+	public static void addNetherFortress(Biome biome, String biomeNamespace, String biomePath)
+	{
+		//biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.JUNGLE_FORTRESS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+		
+		if(RSConfig.netherTempleSpawnrate == 1001)
+		{
+			return;
+		}
+		
+		if(biome.getCategory() == Category.NETHER && 
+				(biomeNamespace.equals("minecraft") || RSConfig.addNetherTempleToModdedBiomes))
+		{
+			//biome.addStructure(RSFeatures.JUNGLE_FORTRESS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+		}
+	}
 	
 	
 	/**

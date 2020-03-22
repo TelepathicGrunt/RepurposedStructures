@@ -70,6 +70,8 @@ public class RSConfig
 	public static boolean netherMineshafts = true;
 
 	public static boolean useVanillaStronghold = false;
+	public static boolean allowStonebrickStronghold = true;
+	public static boolean allowNetherStronghold = true;
 	public static int strongholdSpawnrate = 85;
 	public static double silverfishSpawnrateSH = 0.8D;
 	public static boolean allowExtraSilverfishSpawnerSH = true;
@@ -82,6 +84,10 @@ public class RSConfig
 	public static boolean lootChestsJF = true;
 	public static boolean addJungleFortressToModdedBiomes = false;
 
+	public static int netherTempleSpawnrate = 32;
+	public static boolean lootChestsNT = true;
+	public static boolean addNetherTempleToModdedBiomes = false;
+	
 	public static class ServerConfig
 	{
 		public final BooleanValue addDungeonsToModdedBiomes;
@@ -125,6 +131,8 @@ public class RSConfig
 		public final BooleanValue netherMineshafts;
 
 		public final BooleanValue useVanillaStronghold;
+		public final BooleanValue allowStonebrickStronghold;
+		public final BooleanValue allowNetherStronghold;
 		public final IntValue strongholdSpawnrate;
 		public final DoubleValue silverfishSpawnrateSH;
 		public final BooleanValue allowExtraSilverfishSpawnerSH;
@@ -136,6 +144,10 @@ public class RSConfig
 		public final BooleanValue allowSilverfishSpawnerJF;
 		public final BooleanValue lootChestsJF;
 		public final BooleanValue addJungleFortressToModdedBiomes;
+		
+		public final IntValue netherTempleSpawnrate;
+		public final BooleanValue lootChestsNT;
+		public final BooleanValue addNetherTempleToModdedBiomes;
 
 
 		ServerConfig(ForgeConfigSpec.Builder builder)
@@ -359,6 +371,16 @@ public class RSConfig
 								+" Note: The other Stronghold configs below will have no effect on vanilla Strongholds.")
 						.translation("repurposedstructures.config.structure.stronghold.usevanillastronghold")
 						.define("useVanillaStronghold", true);
+
+					allowStonebrickStronghold = builder
+						.comment("\r\n Allow Stonebrick styled Stronghold to generate in non-Nether biomes.\r\n")
+						.translation("repurposedstructures.config.structure.stronghold.allowstonebrickstronghold")
+						.define("allowStonebrickStronghold", true);
+
+					allowNetherStronghold = builder
+						.comment("\r\n Allow Nether-styled Strongholds to spawn in Nether category biomes.\r\n")
+						.translation("repurposedstructures.config.structure.stronghold.allownetherstronghold")
+						.define("allowNetherStronghold", true);
 				
 					strongholdSpawnrate = builder
 							.comment("\r\n How rare are Strongholds." 
@@ -427,8 +449,29 @@ public class RSConfig
 
 					addJungleFortressToModdedBiomes = builder
 							.comment("\r\n Add Jungle Fortress to modded jungle biomes.")
-						.translation("repurposedstructures.config.feature.dungeons.addjunglefortresstomoddedbiomes")
+						.translation("repurposedstructures.config.structure.junglefortress.addjunglefortresstomoddedbiomes")
 						.define("addJungleFortressToModdedBiomes", false);
+					
+				builder.pop();
+				
+				builder.push("Nether Temple");
+	
+					netherTempleSpawnrate = builder
+							.comment("\r\n How rare are Nether Temples in Nether." 
+									+ "\n "
+									+ "1 for spawning in most chunks and 1001 for no spawn.")
+							.translation("repurposedstructures.config.structure.nethertemple.nethertemplespawnrate")
+							.defineInRange("netherTempleSpawnrate", 20, 1, 1001);
+
+					lootChestsNT = builder
+							.comment("\r\n Controls whether loot chests spawn or not in Nether Temples.")
+						.translation("repurposedstructures.config.structure.nethertemple.lootchestsnt")
+						.define("lootChestsNT", true);
+
+					addNetherTempleToModdedBiomes = builder
+							.comment("\r\n Add Jungle Fortress to modded jungle biomes.")
+						.translation("repurposedstructures.config.structure.nethertemple.addnethertempletomoddedbiomes")
+						.define("addNetherTempleToModdedBiomes", false);
 					
 				builder.pop();
 			builder.pop();
@@ -477,8 +520,10 @@ public class RSConfig
 		swampAndDarkForestMineshafts = SERVER.swampAndDarkForestMineshafts.get();
 		endMineshafts = SERVER.endMineshafts.get();
 		netherMineshafts = SERVER.netherMineshafts.get();
-		
+
 		useVanillaStronghold = SERVER.useVanillaStronghold.get();
+		allowStonebrickStronghold = SERVER.allowStonebrickStronghold.get();
+		allowNetherStronghold = SERVER.allowNetherStronghold.get();
 		strongholdSpawnrate = SERVER.strongholdSpawnrate.get();
 		silverfishSpawnrateSH = SERVER.silverfishSpawnrateSH.get();
 		allowExtraSilverfishSpawnerSH = SERVER.allowExtraSilverfishSpawnerSH.get();
@@ -490,5 +535,9 @@ public class RSConfig
 		allowSilverfishSpawnerJF = SERVER.allowSilverfishSpawnerJF.get();
 		lootChestsJF = SERVER.lootChestsJF.get();
 		addJungleFortressToModdedBiomes = SERVER.addJungleFortressToModdedBiomes.get();
+		
+		netherTempleSpawnrate = SERVER.netherTempleSpawnrate.get();
+		lootChestsNT = SERVER.lootChestsNT.get();
+		addNetherTempleToModdedBiomes = SERVER.addNetherTempleToModdedBiomes.get();
 	}
 }

@@ -43,7 +43,7 @@ import net.minecraft.world.storage.loot.LootTables;
 public class RSMineshaftPieces
 {
 
-	private static RSMineshaftPieces.Piece createRandomShaftPiece(List<StructurePiece> p_189940_0_, Random p_189940_1_, int p_189940_2_, int p_189940_3_, int p_189940_4_, @Nullable Direction p_189940_5_, int p_189940_6_, RSMineshaftStructure.Type p_189940_7_)
+	private static RSMineshaftPieces.Piece createRandomShaftPiece(List<StructurePiece> p_189940_0_, Random p_189940_1_, int p_189940_2_, int p_189940_3_, int p_189940_4_, @Nullable Direction p_189940_5_, int p_189940_6_, RSMineshaftStructure.Type type)
 	{
 		int i = p_189940_1_.nextInt(100);
 
@@ -53,7 +53,7 @@ public class RSMineshaftPieces
 
 			if (MutableBoundingBox != null)
 			{
-				return new RSMineshaftPieces.Cross(p_189940_6_, MutableBoundingBox, p_189940_5_, p_189940_7_);
+				return new RSMineshaftPieces.Cross(p_189940_6_, MutableBoundingBox, p_189940_5_, type);
 			}
 		}
 		else if (i >= 70)
@@ -62,7 +62,7 @@ public class RSMineshaftPieces
 
 			if (MutableBoundingBox1 != null)
 			{
-				return new RSMineshaftPieces.Stairs(p_189940_6_, MutableBoundingBox1, p_189940_5_, p_189940_7_);
+				return new RSMineshaftPieces.Stairs(p_189940_6_, MutableBoundingBox1, p_189940_5_, type);
 			}
 		}
 		else
@@ -71,7 +71,7 @@ public class RSMineshaftPieces
 
 			if (MutableBoundingBox2 != null)
 			{
-				return new RSMineshaftPieces.Corridor(p_189940_6_, p_189940_1_, MutableBoundingBox2, p_189940_5_, p_189940_7_);
+				return new RSMineshaftPieces.Corridor(p_189940_6_, p_189940_1_, MutableBoundingBox2, p_189940_5_, type);
 			}
 		}
 
