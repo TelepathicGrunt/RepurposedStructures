@@ -1834,7 +1834,6 @@ public class RSStrongholdPieces
 				return newBlockstate;
 			}
 
-			RepurposedStructures.LOGGER.warn(blockstate.getBlock().getRegistryName());
 			return blockstate;
 		}
 		

@@ -292,7 +292,7 @@ public class RSConfig
 						.comment("\r\n Use vanilla Stronghold instead of using this mod's modded version.\r\n"
 								+" Note: The other Stronghold configs below will have no effect on vanilla Strongholds.")
 						.translation("repurposedstructures.config.structure.stronghold.usevanillastronghold")
-						.define("useVanillaStronghold", true));
+						.define("useVanillaStronghold", false));
 
 					allowStonebrickStronghold = subscriber.subscribe(builder
 						.comment("\r\n Allow Stonebrick styled Stronghold to generate in non-Nether biomes.\r\n")

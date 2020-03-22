@@ -21,13 +21,20 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 -Fixed bug where setting useVanillaStronghold config to true made using Eye of Ender and /locate command fail when trying to find a Vanilla Stronghold.
 
+-Changed useVanillaStronghold config value to be false by default.
+
 
 ##### Structures: 
 
+-Added Nether styled Strongholds to Nether biomes! They use a mix of Nether Bricks, Red Nether bricks, Magma, and Black Terracotta for the majority of the structure. Silverfish Spawners are replaced with Blaze Spawners and all non-library chests contains Nether Fortress loot.
+
+-Added Nether styled Jungle Temples to Nether biomes! They use a mix of Nether Bricks, Red Nether bricks, Magma, and Black Terracotta for the majority of the structure. They also contain a Pigmen spawner, unique chest loot, and the traps uses Harming tipped arrows.
+
+-Fixed bug where Nether Well's 5 blocks under lava are always the same blocks picked instead of being a mix of Nether Bricks, Quartz Ore, and Chiseled Quartz Block.
+  
+-Nether Wells now has less of a chance of spawning buried in nether terrain.
+  
 -Mossy Stone Wells now are properly waterlogged when underwater.
-
--Added Nether styled Strongholds to Nether biomes! They use a mix of Nether Bricks, Magma, and Black Terracotta for the majority of the structure. Silverfish Spawners are replaced with Blaze Spawners and all non-library chests contains Nether Fortress loot.
-
   
   
 ## (V.1.1.0 Changes) (1.15.2 Minecraft)

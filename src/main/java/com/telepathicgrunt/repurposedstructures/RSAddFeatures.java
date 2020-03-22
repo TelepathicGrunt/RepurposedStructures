@@ -386,9 +386,9 @@ public class RSAddFeatures
 	}
 	
 
-	public static void addNetherFortress(Biome biome, String biomeNamespace, String biomePath)
+	public static void addNetherTemple(Biome biome, String biomeNamespace, String biomePath)
 	{
-		//biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.JUNGLE_FORTRESS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+		biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.NETHER_TEMPLE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
 		
 		if(RepurposedStructures.RSConfig.netherTempleSpawnrate.get() == 1001)
 		{
@@ -398,7 +398,7 @@ public class RSAddFeatures
 		if(biome.getCategory() == Category.NETHER && 
 				(biomeNamespace.equals("minecraft") || RepurposedStructures.RSConfig.addNetherTempleToModdedBiomes.get()))
 		{
-			//biome.addStructure(RSFeatures.JUNGLE_FORTRESS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+			biome.addStructure(RSFeatures.NETHER_TEMPLE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 		}
 	}
 	

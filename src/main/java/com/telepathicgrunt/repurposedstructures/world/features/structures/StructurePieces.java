@@ -39,6 +39,7 @@ public class StructurePieces
 	public static IStructurePieceType	SHSTARTRS		= RSStrongholdPieces.EntranceStairs::new;
 	public static IStructurePieceType	SHSRS			= RSStrongholdPieces.Straight::new;
 	public static IStructurePieceType	SHSSDRS			= RSStrongholdPieces.StairsStraight::new;
+	public static IStructurePieceType 	NTP				= NetherTemplePiece::new;
 
 
 	public static void registerStructurePieces()
@@ -75,6 +76,7 @@ public class StructurePieces
 		RegUtil.register(SHSTARTRS, 	"SHStartRS");
 		RegUtil.register(SHSRS, 		"SHSRS");
 		RegUtil.register(SHSSDRS, 		"SHSSDRS");
+		RegUtil.register(NTP, 			"NTP");
 	}
 
 }

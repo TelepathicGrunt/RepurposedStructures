@@ -29,7 +29,7 @@ public class NetherTempleStructure extends Structure<NoFeatureConfig>
 	@Override
 	protected ChunkPos getStartPositionForPosition(ChunkGenerator<?> chunkGenerator, Random random, int x, int z, int spacingOffsetsX, int spacingOffsetsZ)
 	{
-		int maxDistance = RepurposedStructures.RSConfig.strongholdSpawnrate.get();
+		int maxDistance = RepurposedStructures.RSConfig.netherTempleSpawnrate.get();
 		int minDistance = (int) (maxDistance * 0.75f);
 		if (minDistance == 0)
 		{
@@ -98,8 +98,8 @@ public class NetherTempleStructure extends Structure<NoFeatureConfig>
 		@Override
 		public void init(ChunkGenerator<?> generator, TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn)
 		{
-			NetherTemplePiece junglepyramidpiece = new NetherTemplePiece(this.rand, chunkX * 16, chunkZ * 16);
-			this.components.add(junglepyramidpiece);
+			NetherTemplePiece netherTemplePiece = new NetherTemplePiece(this.rand, chunkX * 16, chunkZ * 16);
+			this.components.add(netherTemplePiece);
 			this.recalculateStructureSize();
 			this.func_214626_a(this.rand, 55, 60);
 		}

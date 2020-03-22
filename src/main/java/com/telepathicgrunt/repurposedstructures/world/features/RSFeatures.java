@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.telepathicgrunt.repurposedstructures.utils.RegUtil;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.JungleFortressStructure;
+import com.telepathicgrunt.repurposedstructures.world.features.structures.NetherTempleStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.RSStrongholdStructure;
@@ -47,6 +48,7 @@ public class RSFeatures
 	public static Structure<RSMineshaftConfig>				MINESHAFT				= new RSMineshaftStructure(RSMineshaftConfig::deserialize);
 	public static Structure<NoFeatureConfig>				STRONGHOLD				= new RSStrongholdStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				JUNGLE_FORTRESS			= new JungleFortressStructure(NoFeatureConfig::deserialize);
+	public static Structure<NoFeatureConfig>				NETHER_TEMPLE			= new NetherTempleStructure(NoFeatureConfig::deserialize);
 
 
 	public static void registerFeatures(Register<Feature<?>> event)
@@ -75,6 +77,7 @@ public class RSFeatures
 		
 		RegUtil.register(registry, MINESHAFT, "mineshaft");
 		RegUtil.register(registry, JUNGLE_FORTRESS, "jungle_fortress");
+		RegUtil.register(registry, NETHER_TEMPLE, "nether_temple");
 
 		STRONGHOLD.setRegistryName(new ResourceLocation("minecraft:stronghold"));
 		registry.register(STRONGHOLD);

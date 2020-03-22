@@ -46,6 +46,15 @@ public class WellNether extends Feature<NoFeatureConfig>
 		if (!world.isAirBlock(position.up())){
 			return false;
 		}
+		for (int x = -1; x < 2; x++){
+			for (int z = -1; z < 2; z++){
+				for (int up = 2; up < 4; up++){
+					if (!world.isAirBlock(position.add(x, up, z))){
+						return false;
+					}
+				}
+			}
+		}
 
 		//move to top land block below position
 		for (position = position.up(); world.isAirBlock(position) && position.getY() > 2; position = position.down()){
@@ -95,6 +104,7 @@ public class WellNether extends Feature<NoFeatureConfig>
 
 			for (Direction direction : Direction.Plane.HORIZONTAL)
 			{
+				chance = random.nextFloat();
 				mutable.setPos(position).move(direction);
 				world.setBlockState(mutable.up(), AIR, 2);
 				world.setBlockState(mutable, LAVA, 2);
