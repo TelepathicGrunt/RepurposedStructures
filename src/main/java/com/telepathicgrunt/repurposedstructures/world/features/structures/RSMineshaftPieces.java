@@ -6,7 +6,7 @@ import java.util.Random;
 import javax.annotation.Nullable;
 
 import com.google.common.collect.Lists;
-import com.telepathicgrunt.repurposedstructures.RSConfig;
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftStructure.Type;
 
 import net.minecraft.block.BlockState;
@@ -364,7 +364,7 @@ public class RSMineshaftPieces
 					this.placeCobWeb(world, MutableBoundingBoxIn, random, 0.05F, 0, 2, k1 + 2);
 					this.placeCobWeb(world, MutableBoundingBoxIn, random, 0.05F, 2, 2, k1 + 2);
 
-					if (RSConfig.lootChestsMS)
+					if (RepurposedStructures.RSConfig.lootChestsMS.get())
 					{
 						if (random.nextInt(50) == 0)
 						{

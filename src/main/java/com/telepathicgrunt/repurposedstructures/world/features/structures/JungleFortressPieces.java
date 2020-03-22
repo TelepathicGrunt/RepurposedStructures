@@ -8,7 +8,7 @@ import java.util.Random;
 import javax.annotation.Nullable;
 
 import com.google.common.collect.Lists;
-import com.telepathicgrunt.repurposedstructures.RSConfig;
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.features.RSFeatures;
 
 import net.minecraft.block.Block;
@@ -163,7 +163,7 @@ public class JungleFortressPieces
 			this.fillWithRandomBlocks(world, structureBoundingBoxIn, 1, 3, 4, 1, 4, 4, iblockstate, iblockstate, false, random);
 			this.fillWithRandomBlocks(world, structureBoundingBoxIn, 3, 3, 4, 3, 4, 4, iblockstate, iblockstate, false, random);
 
-			if (RSConfig.lootChestsJF && random.nextInt(9) == 0 && structureBoundingBoxIn.isVecInside(new BlockPos(this.getXWithOffset(3, 3), this.getYWithOffset(2), this.getZWithOffset(3, 3))))
+			if (RepurposedStructures.RSConfig.lootChestsJF.get() && random.nextInt(9) == 0 && structureBoundingBoxIn.isVecInside(new BlockPos(this.getXWithOffset(3, 3), this.getYWithOffset(2), this.getZWithOffset(3, 3))))
 			{
 				this.generateChest(world, structureBoundingBoxIn, random, 3, 2, 3, pickRandomLoot(random));
 			}
@@ -239,7 +239,7 @@ public class JungleFortressPieces
 			this.fillWithRandomBlocks(world, structureBoundingBoxIn, 1, 3, 4, 1, 4, 4, iblockstate, iblockstate, false, random);
 			this.fillWithRandomBlocks(world, structureBoundingBoxIn, 3, 3, 4, 3, 4, 4, iblockstate, iblockstate, false, random);
 
-			if (RSConfig.lootChestsJF && random.nextInt(9) == 0 && structureBoundingBoxIn.isVecInside(new BlockPos(this.getXWithOffset(1, 3), this.getYWithOffset(2), this.getZWithOffset(1, 3))))
+			if (RepurposedStructures.RSConfig.lootChestsJF.get() && random.nextInt(9) == 0 && structureBoundingBoxIn.isVecInside(new BlockPos(this.getXWithOffset(1, 3), this.getYWithOffset(2), this.getZWithOffset(1, 3))))
 			{
 				this.generateChest(world, structureBoundingBoxIn, random, 1, 2, 3, pickRandomLoot(random));
 			}
@@ -878,7 +878,7 @@ public class JungleFortressPieces
 			this.setBlockState(world, getStoneVariantBlockState(Blocks.LAVA.getDefaultState(), random), 6, 5, 6, structureBoundingBoxIn);
 			BlockPos blockpos = new BlockPos(this.getXWithOffset(6, 6), this.getYWithOffset(5), this.getZWithOffset(6, 6));
 
-			if (RSConfig.lootChestsJF)
+			if (RepurposedStructures.RSConfig.lootChestsJF.get())
 			{
 				this.generateChest(world, structureBoundingBoxIn, random, 6, 5, 8, pickRandomLoot(random));
 			}
@@ -1295,7 +1295,7 @@ public class JungleFortressPieces
 				
 
 				chance = rand.nextFloat();
-				float silverfishThreshold = (float) (RSConfig.silverfishSpawnrateJF / 100);
+				float silverfishThreshold = (float) (RepurposedStructures.RSConfig.silverfishSpawnrateJF.get() / 100);
 				if(chance < silverfishThreshold)
 				{
 					newBlockState = INFESTED_STONE_LOOKUP.get(newBlockState);
@@ -1697,7 +1697,7 @@ public class JungleFortressPieces
 					if (tileentity2 instanceof MobSpawnerTileEntity)
 					{
 						//silverfish mob spawner
-						if (RSConfig.allowSilverfishSpawnerJF)
+						if (RepurposedStructures.RSConfig.allowSilverfishSpawnerJF.get())
 						{
 							((MobSpawnerTileEntity) tileentity2).getSpawnerBaseLogic().setEntityType(EntityType.SILVERFISH);
 						}
@@ -1717,7 +1717,7 @@ public class JungleFortressPieces
 				}
 			}
 
-			if (RSConfig.lootChestsJF)
+			if (RepurposedStructures.RSConfig.lootChestsJF.get())
 			{
 				this.generateChest(world, structureBoundingBoxIn, random, 3, 5, 7, LootTables.CHESTS_END_CITY_TREASURE);
 			}

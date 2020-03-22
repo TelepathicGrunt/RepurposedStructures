@@ -5,7 +5,7 @@ import java.util.Random;
 import java.util.function.Function;
 
 import com.mojang.datafixers.Dynamic;
-import com.telepathicgrunt.repurposedstructures.RSConfig;
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 
 import net.minecraft.util.Direction;
 import net.minecraft.util.SharedSeedRandom;
@@ -37,7 +37,7 @@ public class RSStrongholdStructure extends Structure<NoFeatureConfig>
 	@Override
 	protected ChunkPos getStartPositionForPosition(ChunkGenerator<?> chunkGenerator, Random random, int x, int z, int spacingOffsetsX, int spacingOffsetsZ)
 	{
-		int maxDistance = RSConfig.strongholdSpawnrate;
+		int maxDistance = RepurposedStructures.RSConfig.strongholdSpawnrate.get();
 		int minDistance = (int) (maxDistance * 0.75f);
 		if (minDistance == 0)
 		{
@@ -62,7 +62,7 @@ public class RSStrongholdStructure extends Structure<NoFeatureConfig>
 	public boolean func_225558_a_(BiomeManager biomeManager, ChunkGenerator<?> chunkGenerator, Random random, int chunkPosX, int chunkPosZ, Biome biome)
 	{
 
-		if (RSConfig.useVanillaStronghold)
+		if (RepurposedStructures.RSConfig.useVanillaStronghold.get())
 		{
 			return Feature.STRONGHOLD.func_225558_a_(biomeManager, chunkGenerator, random, chunkPosX, chunkPosZ, biome);
 		}
@@ -85,7 +85,7 @@ public class RSStrongholdStructure extends Structure<NoFeatureConfig>
 	@Override
 	public BlockPos findNearest(World worldIn, ChunkGenerator<? extends GenerationSettings> chunkGenerator, BlockPos pos, int radius, boolean skipExistingChunks)
 	{
-		if (RSConfig.useVanillaStronghold)
+		if (RepurposedStructures.RSConfig.useVanillaStronghold.get())
 		{
 			return Feature.STRONGHOLD.findNearest(worldIn, chunkGenerator, pos, radius, skipExistingChunks);
 		}
@@ -99,7 +99,7 @@ public class RSStrongholdStructure extends Structure<NoFeatureConfig>
 	@Override
 	public Structure.IStartFactory getStartFactory()
 	{
-		if (RSConfig.useVanillaStronghold)
+		if (RepurposedStructures.RSConfig.useVanillaStronghold.get())
 		{
 			return Feature.STRONGHOLD.getStartFactory();
 		}
@@ -135,7 +135,7 @@ public class RSStrongholdStructure extends Structure<NoFeatureConfig>
 		public void init(ChunkGenerator<?> generator, TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn)
 		{
 			RSStrongholdPieces.prepareStructurePieces();
-			RSStrongholdStructure.Type type = biomeIn.getCategory() == Category.NETHER && RSConfig.allowNetherStronghold ? RSStrongholdStructure.Type.NETHER : RSStrongholdStructure.Type.NORMAL;
+			RSStrongholdStructure.Type type = biomeIn.getCategory() == Category.NETHER && RepurposedStructures.RSConfig.allowNetherStronghold.get() ? RSStrongholdStructure.Type.NETHER : RSStrongholdStructure.Type.NORMAL;
 			RSStrongholdPieces.EntranceStairs strongholdpieces$entrancestairs = new RSStrongholdPieces.EntranceStairs(this.rand, (chunkX << 4) + 2, (chunkZ << 4) + 2, type);
 			this.components.add(strongholdpieces$entrancestairs);
 			strongholdpieces$entrancestairs.buildComponent(strongholdpieces$entrancestairs, this.components, this.rand);

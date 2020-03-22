@@ -5,7 +5,6 @@ import java.util.Random;
 import java.util.function.Function;
 
 import com.mojang.datafixers.Dynamic;
-import com.telepathicgrunt.repurposedstructures.RSConfig;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 
 import net.minecraft.util.SharedSeedRandom;
@@ -33,7 +32,7 @@ public class JungleFortressStructure extends Structure<NoFeatureConfig>
 	@Override
 	protected ChunkPos getStartPositionForPosition(ChunkGenerator<?> chunkGenerator, Random random, int x, int z, int spacingOffsetsX, int spacingOffsetsZ)
 	{
-		int maxDistance = RSConfig.jungleFortressSpawnrate;
+		int maxDistance = RepurposedStructures.RSConfig.jungleFortressSpawnrate.get();
 		int minDistance = (int) (maxDistance * 0.75f);
 		if (minDistance == 0)
 		{

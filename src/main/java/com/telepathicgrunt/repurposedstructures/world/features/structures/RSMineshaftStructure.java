@@ -4,7 +4,6 @@ import java.util.Random;
 import java.util.function.Function;
 
 import com.mojang.datafixers.Dynamic;
-import com.telepathicgrunt.repurposedstructures.RSConfig;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.features.RSFeatures;
 
@@ -33,7 +32,7 @@ public class RSMineshaftStructure extends Structure<RSMineshaftConfig>
 
 		if (chunkGenerator.hasStructure(biome, this))
 		{
-			return random.nextDouble() < (RSConfig.mineshaftSpawnrate) / 10000D;
+			return random.nextDouble() < (RepurposedStructures.RSConfig.mineshaftSpawnrate.get()) / 10000D;
 		}
 		else
 		{

@@ -3,6 +3,8 @@ package com.telepathicgrunt.repurposedstructures;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.telepathicgrunt.repurposedstructures.RSConfig.RSConfigValues;
+import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
 import com.telepathicgrunt.repurposedstructures.world.features.RSFeatures;
 
 import net.minecraft.world.biome.Biome;
@@ -11,7 +13,6 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DeferredWorkQueue;
-import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -25,17 +26,16 @@ public class RepurposedStructures
 {
 	public static final Logger LOGGER = LogManager.getLogger();
 	public static final String MODID = "repurposed_structures";
+	public static RSConfigValues RSConfig = null;
 
 
 	public RepurposedStructures()
 	{
 		// Register the setup method for modloading
-		ModLoadingContext modLoadingContext = ModLoadingContext.get();
 		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 		modEventBus.addListener(this::setup);
-		modEventBus.addListener(this::modConfig);
-
-		modLoadingContext.registerConfig(ModConfig.Type.COMMON, RSConfig.SERVER_SPEC);
+		
+		RSConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSConfig.RSConfigValues::new);
 	}
 
 
@@ -61,13 +61,6 @@ public class RepurposedStructures
 			RSAddFeatures.addMiscFeatures(biome, biomeNamespace, biomePath);
 			RSAddFeatures.addStronghold(biome, biomeNamespace, biomePath);
 		}
-	}
-	
-	public void modConfig(final ModConfig.ModConfigEvent event)
-	{
-		ModConfig config = event.getConfig();
-		if (config.getSpec() == RSConfig.SERVER_SPEC)
-			RSConfig.refreshServer();
 	}
 	
 	
