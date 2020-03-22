@@ -26,6 +26,7 @@ public class RSConfig
 
 		public ConfigValueListener<Boolean> addWellsToModdedBiomes;
 		public ConfigValueListener<Integer> wellSpawnrate;
+		public ConfigValueListener<Boolean> canHaveBells;
 		public ConfigValueListener<Boolean> badlandsWells;
 		public ConfigValueListener<Boolean> netherWells;
 		public ConfigValueListener<Boolean> snowWells;
@@ -148,7 +149,12 @@ public class RSConfig
 									+ "\r\n The chance of a well generating at a chunk is 1/spawnrate."
 									+ "\r\n 1 for wells spawning in every chunk and 10000 for extremely rare wells.")
 							.translation("repurposedstructures.config.structure.dungeons.dungeonspawnrate")
-							.defineInRange("dungeonSpawnrate", 800, 1, 10000));
+							.defineInRange("dungeonSpawnrate", 600, 1, 10000));
+
+					canHaveBells = subscriber.subscribe(builder
+							.comment("\r\n Determines if Wells can have a chance of spawning a Bell.")
+						.translation("repurposedstructures.config.feature.smallwells.canhavebells")
+						.define("canHaveBells", true));
 					
 					badlandsWells = subscriber.subscribe(builder
 							.comment("\r\n Add Badlands themed wells to Badlands biomes.")

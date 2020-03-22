@@ -4,6 +4,7 @@ import java.util.Random;
 import java.util.function.Function;
 
 import com.mojang.datafixers.Dynamic;
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -123,7 +124,7 @@ public class WellBadlands extends Feature<NoFeatureConfig>
 					{
 						world.setBlockState(mutable.add(x, 4, z), RED_SANDSTONE, 2);
 						
-						if(random.nextInt(100) == 0) 
+						if(RepurposedStructures.RSConfig.canHaveBells.get() && random.nextInt(100) == 0) 
 							world.setBlockState(mutable.add(x, 3, z), BELL, 2);
 					}
 					else

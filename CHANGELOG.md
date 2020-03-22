@@ -22,6 +22,10 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 -Fixed bug where setting useVanillaStronghold config to true made using Eye of Ender and /locate command fail when trying to find a Vanilla Stronghold.
 
 -Changed useVanillaStronghold config value to be false by default.
+  
+-Changed default value for Well spawnrate from 800 to 600.
+  
+-Added config value to allow disabling Bells from spawning in Wells.
 
 
 ##### Structures: 

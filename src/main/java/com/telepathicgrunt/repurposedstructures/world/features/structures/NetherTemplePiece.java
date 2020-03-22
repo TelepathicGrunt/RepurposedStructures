@@ -30,15 +30,10 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.structure.ScatteredStructurePiece;
 import net.minecraft.world.gen.feature.structure.StructurePiece;
 import net.minecraft.world.gen.feature.template.TemplateManager;
-import net.minecraft.world.storage.loot.LootTables;
 
 
 public class NetherTemplePiece extends ScatteredStructurePiece
 {
-	private boolean	placedMainChest;
-	private boolean	placedHiddenChest;
-	private boolean	placedTrap1;
-	private boolean	placedTrap2;
 	private static final NetherTemplePiece.Selector	NETHER_BLOCK_SELECTOR	= new NetherTemplePiece.Selector();
 	public static final ResourceLocation CHESTS_NETHER_TEMPLE 				= new ResourceLocation("repurposed_structures:chests/nether_temple_chest");
 	public static final ResourceLocation DISPENSER_NETHER_TEMPLE			= new ResourceLocation("repurposed_structures:chests/nether_temple_dispenser");
@@ -53,10 +48,6 @@ public class NetherTemplePiece extends ScatteredStructurePiece
 	public NetherTemplePiece(TemplateManager templateManager, CompoundNBT data)
 	{
 		super(StructurePieces.NTP, data);
-		this.placedMainChest = data.getBoolean("placedMainChest");
-		this.placedHiddenChest = data.getBoolean("placedHiddenChest");
-		this.placedTrap1 = data.getBoolean("placedTrap1");
-		this.placedTrap2 = data.getBoolean("placedTrap2");
 	}
 
 
@@ -66,10 +57,6 @@ public class NetherTemplePiece extends ScatteredStructurePiece
 	protected void readAdditional(CompoundNBT tagCompound)
 	{
 		super.readAdditional(tagCompound);
-		tagCompound.putBoolean("placedMainChest", this.placedMainChest);
-		tagCompound.putBoolean("placedHiddenChest", this.placedHiddenChest);
-		tagCompound.putBoolean("placedTrap1", this.placedTrap1);
-		tagCompound.putBoolean("placedTrap2", this.placedTrap2);
 	}
 
 
@@ -224,10 +211,8 @@ public class NetherTemplePiece extends ScatteredStructurePiece
 		this.setBlockState(world, Blocks.REDSTONE_WIRE.getDefaultState().with(RedstoneWireBlock.NORTH, RedstoneSide.SIDE).with(RedstoneWireBlock.WEST, RedstoneSide.SIDE), 5, -3, 1, box);
 		this.setBlockState(world, Blocks.REDSTONE_WIRE.getDefaultState().with(RedstoneWireBlock.EAST, RedstoneSide.SIDE), 4, -3, 1, box);
 		this.setBlockState(world, Blocks.MAGMA_BLOCK.getDefaultState(), 3, -3, 1, box);
-		if (!this.placedTrap1)
-		{
-			this.placedTrap1 = this.createDispenser(world, box, random, 3, -2, 1, Direction.NORTH, DISPENSER_NETHER_TEMPLE);
-		}
+		this.createDispenser(world, box, random, 3, -2, 1, Direction.NORTH, DISPENSER_NETHER_TEMPLE);
+		
 
 		this.setBlockState(world, Blocks.LADDER.getDefaultState().with(LadderBlock.FACING, Direction.NORTH), 3, -2, 2, box);
 		this.setBlockState(world, Blocks.TRIPWIRE_HOOK.getDefaultState().with(TripWireHookBlock.FACING, Direction.NORTH).with(TripWireHookBlock.ATTACHED, Boolean.valueOf(true)), 7, -3, 1, box);
@@ -240,17 +225,13 @@ public class NetherTemplePiece extends ScatteredStructurePiece
 		this.setBlockState(world, Blocks.REDSTONE_WIRE.getDefaultState().with(RedstoneWireBlock.NORTH, RedstoneSide.SIDE).with(RedstoneWireBlock.SOUTH, RedstoneSide.UP), 9, -3, 5, box);
 		this.setBlockState(world, Blocks.MAGMA_BLOCK.getDefaultState(), 9, -3, 4, box);
 		this.setBlockState(world, Blocks.REDSTONE_WIRE.getDefaultState().with(RedstoneWireBlock.NORTH, RedstoneSide.SIDE), 9, -2, 4, box);
-		if (!this.placedTrap2)
-		{
-			this.placedTrap2 = this.createDispenser(world, box, random, 9, -2, 3, Direction.WEST, DISPENSER_NETHER_TEMPLE);
-		}
+		this.createDispenser(world, box, random, 9, -2, 3, Direction.WEST, DISPENSER_NETHER_TEMPLE);
+		
 
 		this.setBlockState(world, Blocks.LADDER.getDefaultState().with(LadderBlock.FACING, Direction.WEST), 8, -1, 3, box);
 		this.setBlockState(world, Blocks.LADDER.getDefaultState().with(LadderBlock.FACING, Direction.WEST), 8, -2, 3, box);
-		if (!this.placedMainChest)
-		{
-			this.placedMainChest = this.generateChest(world, box, random, 8, -3, 3, CHESTS_NETHER_TEMPLE);
-		}
+		this.generateChest(world, box, random, 8, -3, 3, CHESTS_NETHER_TEMPLE);
+		
 
 		this.setBlockState(world, Blocks.BLACK_TERRACOTTA.getDefaultState(), 9, -3, 2, box);
 		this.setBlockState(world, Blocks.BLACK_TERRACOTTA.getDefaultState(), 8, -3, 1, box);
@@ -273,6 +254,8 @@ public class NetherTemplePiece extends ScatteredStructurePiece
 		this.fillWithRandomizedBlocks(world, box, 8, -3, 8, 8, -3, 10, false, random, NETHER_BLOCK_SELECTOR);
 		this.fillWithRandomizedBlocks(world, box, 10, -3, 8, 10, -3, 10, false, random, NETHER_BLOCK_SELECTOR);
 		this.setBlockState(world, Blocks.NETHER_BRICKS.getDefaultState(), 10, -2, 9, box);
+		this.setBlockState(world, Blocks.NETHER_BRICKS.getDefaultState(), 9, -1, 8, box);
+		this.setBlockState(world, Blocks.NETHER_BRICKS.getDefaultState(), 9, -1, 9, box);
 		this.setBlockState(world, Blocks.REDSTONE_WIRE.getDefaultState().with(RedstoneWireBlock.NORTH, RedstoneSide.SIDE), 8, -2, 9, box);
 		this.setBlockState(world, Blocks.REDSTONE_WIRE.getDefaultState().with(RedstoneWireBlock.SOUTH, RedstoneSide.SIDE), 8, -2, 10, box);
 		this.setBlockState(world, Blocks.REDSTONE_WIRE.getDefaultState(), 10, -1, 9, box);
@@ -280,13 +263,16 @@ public class NetherTemplePiece extends ScatteredStructurePiece
 		this.setBlockState(world, Blocks.STICKY_PISTON.getDefaultState().with(PistonBlock.FACING, Direction.WEST), 10, -2, 8, box);
 		this.setBlockState(world, Blocks.STICKY_PISTON.getDefaultState().with(PistonBlock.FACING, Direction.WEST), 10, -1, 8, box);
 		this.setBlockState(world, Blocks.REPEATER.getDefaultState().with(RepeaterBlock.HORIZONTAL_FACING, Direction.NORTH), 10, -2, 10, box);
-		if (!this.placedHiddenChest)
+		
+		if(RepurposedStructures.RSConfig.lootChestsNT.get())
 		{
-			if(RepurposedStructures.RSConfig.lootChestsNT.get())
-			{
-				this.placedHiddenChest = this.generateChest(world, box, random, 9, -3, 10, CHESTS_NETHER_TEMPLE);
-				this.placedHiddenChest = this.generateChest(world, box, random, 9, -3, 8, CHESTS_NETHER_TEMPLE);
-			}
+			this.generateChest(world, box, random, 9, -3, 10, CHESTS_NETHER_TEMPLE);
+			this.generateChest(world, box, random, 9, -3, 8, CHESTS_NETHER_TEMPLE);
+		}
+		else 
+		{
+			this.setBlockState(world, Blocks.BLACK_TERRACOTTA.getDefaultState(), 9, -3, 10, box);
+			this.setBlockState(world, Blocks.BLACK_TERRACOTTA.getDefaultState(), 9, -3, 8, box);
 		}
 
 		BlockPos blockpos = new BlockPos(this.getXWithOffset(9, 9), this.getYWithOffset(-3), this.getZWithOffset(9, 9));

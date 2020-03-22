@@ -37,7 +37,7 @@
               "treasure": true
             }
           ],
-          "name": "minecraft:gold_sword"
+          "name": "minecraft:golden_sword"
         },
         {
           "type": "minecraft:item",
@@ -83,7 +83,7 @@
               }
             }
           ],
-          "name": "minecraft:netherwart"
+          "name": "minecraft:nether_wart"
         },
         {
           "type": "minecraft:item",
