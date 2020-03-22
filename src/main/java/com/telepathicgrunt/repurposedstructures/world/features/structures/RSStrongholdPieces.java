@@ -1198,7 +1198,7 @@ public class RSStrongholdPieces
 					if (structureBoundingBoxIn.isVecInside(blockpos))
 					{
 
-						if (RSConfig.allowExtraSilverfishSpawnerSH)
+						if (RSConfig.allowExtraSpawnersSH)
 						{
 							world.setBlockState(blockpos, Blocks.SPAWNER.getDefaultState(), 2);
 							TileEntity tileentity = world.getTileEntity(blockpos);
@@ -1246,7 +1246,7 @@ public class RSStrongholdPieces
 
 					if (structureBoundingBoxIn.isVecInside(blockpos))
 					{
-						if (RSConfig.allowExtraSilverfishSpawnerSH)
+						if (RSConfig.allowExtraSpawnersSH)
 						{
 							world.setBlockState(blockpos, Blocks.SPAWNER.getDefaultState(), 2);
 							TileEntity tileentity = world.getTileEntity(blockpos);
@@ -1302,7 +1302,7 @@ public class RSStrongholdPieces
 					if (structureBoundingBoxIn.isVecInside(blockpos))
 					{
 
-						if (RSConfig.allowExtraSilverfishSpawnerSH)
+						if (RSConfig.allowExtraSpawnersSH)
 						{
 							world.setBlockState(blockpos, Blocks.SPAWNER.getDefaultState(), 2);
 							TileEntity tileentity = world.getTileEntity(blockpos);

@@ -2,7 +2,6 @@ package com.telepathicgrunt.repurposedstructures.world.features;
 
 import java.util.Random;
 
-import com.telepathicgrunt.repurposedstructures.RSConfig;
 import com.telepathicgrunt.repurposedstructures.utils.RegUtil;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.JungleFortressStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftConfig;
@@ -77,12 +76,8 @@ public class RSFeatures
 		RegUtil.register(registry, MINESHAFT, "mineshaft");
 		RegUtil.register(registry, JUNGLE_FORTRESS, "jungle_fortress");
 
-		
-		if(!RSConfig.useVanillaStronghold)
-		{
-			STRONGHOLD.setRegistryName(new ResourceLocation("minecraft:stronghold"));
-			registry.register(STRONGHOLD);
-		}
+		STRONGHOLD.setRegistryName(new ResourceLocation("minecraft:stronghold"));
+		registry.register(STRONGHOLD);
 		
 		//registers the structure pieces.
 		StructurePieces.registerStructurePieces();

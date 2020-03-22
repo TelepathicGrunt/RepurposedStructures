@@ -9,12 +9,16 @@ import com.telepathicgrunt.repurposedstructures.RSConfig;
 
 import net.minecraft.util.Direction;
 import net.minecraft.util.SharedSeedRandom;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MutableBoundingBox;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeManager;
 import net.minecraft.world.biome.Biome.Category;
+import net.minecraft.world.biome.BiomeManager;
 import net.minecraft.world.gen.ChunkGenerator;
+import net.minecraft.world.gen.GenerationSettings;
+import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.StructurePiece;
@@ -58,12 +62,19 @@ public class RSStrongholdStructure extends Structure<NoFeatureConfig>
 	public boolean func_225558_a_(BiomeManager biomeManager, ChunkGenerator<?> chunkGenerator, Random random, int chunkPosX, int chunkPosZ, Biome biome)
 	{
 
-		ChunkPos chunkpos = this.getStartPositionForPosition(chunkGenerator, random, chunkPosX, chunkPosZ, 0, 0);
-		if (chunkPosX == chunkpos.x && chunkPosZ == chunkpos.z)
+		if (RSConfig.useVanillaStronghold)
 		{
-			if (chunkGenerator.hasStructure(biome, this))
+			return Feature.STRONGHOLD.func_225558_a_(biomeManager, chunkGenerator, random, chunkPosX, chunkPosZ, biome);
+		}
+		else
+		{
+			ChunkPos chunkpos = this.getStartPositionForPosition(chunkGenerator, random, chunkPosX, chunkPosZ, 0, 0);
+			if (chunkPosX == chunkpos.x && chunkPosZ == chunkpos.z)
 			{
-				return true;
+				if (chunkGenerator.hasStructure(biome, this))
+				{
+					return true;
+				}
 			}
 		}
 
@@ -72,9 +83,30 @@ public class RSStrongholdStructure extends Structure<NoFeatureConfig>
 
 
 	@Override
+	public BlockPos findNearest(World worldIn, ChunkGenerator<? extends GenerationSettings> chunkGenerator, BlockPos pos, int radius, boolean skipExistingChunks)
+	{
+		if (RSConfig.useVanillaStronghold)
+		{
+			return Feature.STRONGHOLD.findNearest(worldIn, chunkGenerator, pos, radius, skipExistingChunks);
+		}
+		else
+		{
+			return super.findNearest(worldIn, chunkGenerator, pos, radius, skipExistingChunks);
+		}
+	}
+
+
+	@Override
 	public Structure.IStartFactory getStartFactory()
 	{
-		return RSStrongholdStructure.Start::new;
+		if (RSConfig.useVanillaStronghold)
+		{
+			return Feature.STRONGHOLD.getStartFactory();
+		}
+		else
+		{
+			return RSStrongholdStructure.Start::new;
+		}
 	}
 
 
@@ -108,23 +140,22 @@ public class RSStrongholdStructure extends Structure<NoFeatureConfig>
 			this.components.add(strongholdpieces$entrancestairs);
 			strongholdpieces$entrancestairs.buildComponent(strongholdpieces$entrancestairs, this.components, this.rand);
 			List<StructurePiece> list = strongholdpieces$entrancestairs.pendingChildren;
-			
+
 			while (!list.isEmpty())
 			{
 				int i = this.rand.nextInt(list.size());
 				StructurePiece structurepiece = list.remove(i);
 				structurepiece.buildComponent(strongholdpieces$entrancestairs, this.components, this.rand);
 			}
-			
 
 			if (strongholdpieces$entrancestairs.strongholdPortalRoom == null)
 			{
-				MutableBoundingBox box = this.components.get(this.components.size()-1).getBoundingBox();
-				RSStrongholdPieces.Stronghold portalRoom = RSStrongholdPieces.PortalRoom.createPiece(this.components, this.rand, box.minX, box.minY+1, box.minZ, Direction.NORTH, type);
+				MutableBoundingBox box = this.components.get(this.components.size() - 1).getBoundingBox();
+				RSStrongholdPieces.Stronghold portalRoom = RSStrongholdPieces.PortalRoom.createPiece(this.components, this.rand, box.minX, box.minY + 1, box.minZ, Direction.NORTH, type);
 				this.components.add(portalRoom);
 				strongholdpieces$entrancestairs.pendingChildren.add(portalRoom);
 				list = strongholdpieces$entrancestairs.pendingChildren;
-				
+
 				while (!list.isEmpty())
 				{
 					int i = this.rand.nextInt(list.size());
@@ -132,12 +163,10 @@ public class RSStrongholdStructure extends Structure<NoFeatureConfig>
 					structurepiece.buildComponent(strongholdpieces$entrancestairs, this.components, this.rand);
 				}
 			}
-			
 
 			this.recalculateStructureSize();
 			this.func_214628_a(generator.getSeaLevel(), this.rand, 10);
 
-			
 		}
 	}
 

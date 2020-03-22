@@ -74,7 +74,7 @@ public class RSConfig
 	public static boolean allowNetherStronghold = true;
 	public static int strongholdSpawnrate = 85;
 	public static double silverfishSpawnrateSH = 0.8D;
-	public static boolean allowExtraSilverfishSpawnerSH = true;
+	public static boolean allowExtraSpawnersSH = true;
 	public static double strongholdSizeSH = 100D;
 	public static boolean lootChestsSH = true;
 	
@@ -135,7 +135,7 @@ public class RSConfig
 		public final BooleanValue allowNetherStronghold;
 		public final IntValue strongholdSpawnrate;
 		public final DoubleValue silverfishSpawnrateSH;
-		public final BooleanValue allowExtraSilverfishSpawnerSH;
+		public final BooleanValue allowExtraSpawnersSH;
 		public final DoubleValue strongholdSizeSH;
 		public final BooleanValue lootChestsSH;
 		
@@ -397,11 +397,11 @@ public class RSConfig
 							.translation("repurposedstructures.config.structure.stronghold.silverfishspawnratesh")
 							.defineInRange("silverfishSpawnrateSH", 0.8D, 0, 100);
 		
-					allowExtraSilverfishSpawnerSH = builder
-							.comment("\r\n Can additional Silverfish Mob Spawners generate in Stronghold.\r\n"
-									+" Note: Silverfish spawner in Portal Room will always remain.")
-							.translation("repurposedstructures.config.structure.stronghold.allowextrasilverfishspawnersh")
-							.define("allowExtraSilverfishSpawnerSH", true);
+					allowExtraSpawnersSH = builder
+							.comment("\r\n Make Mob Spawners generate in rooms other than the Portal Room in Strongholds.\r\n"
+									+" Note: Spawners in Portal Room will always remain.")
+							.translation("repurposedstructures.config.structure.stronghold.allowextraspawnerssh")
+							.define("allowExtraSpawnersSH", true);
 		
 					strongholdSizeSH = builder
 							.comment("\r\n How large the Stronghold is on average as a percentage." 
@@ -526,7 +526,7 @@ public class RSConfig
 		allowNetherStronghold = SERVER.allowNetherStronghold.get();
 		strongholdSpawnrate = SERVER.strongholdSpawnrate.get();
 		silverfishSpawnrateSH = SERVER.silverfishSpawnrateSH.get();
-		allowExtraSilverfishSpawnerSH = SERVER.allowExtraSilverfishSpawnerSH.get();
+		allowExtraSpawnersSH = SERVER.allowExtraSpawnersSH.get();
 		strongholdSizeSH = SERVER.strongholdSizeSH.get();
 		lootChestsSH = SERVER.lootChestsSH.get();
 		

@@ -15,9 +15,18 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 
 
+##### Config: 
+
+-Rename allowExtraSilverfishSpawnerSH config entry to allowExtraSpawnersSH as it will apply to Nether Strongholds too which sues Blaze Spawners instead of Silverfish spawners.
+
+-Fixed bug where setting useVanillaStronghold config to true made using Eye of Ender and /locate command fail when trying to find a Vanilla Stronghold.
+
+
 ##### Structures: 
 
 -Mossy Stone Wells now are properly waterlogged when underwater.
+
+-Added Nether styled Strongholds to Nether biomes! They use a mix of Nether Bricks, Magma, and Black Terracotta for the majority of the structure. Silverfish Spawners are replaced with Blaze Spawners and all non-library chests contains Nether Fortress loot.
 
   
   

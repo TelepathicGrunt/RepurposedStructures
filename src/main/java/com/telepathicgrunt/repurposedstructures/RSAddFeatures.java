@@ -356,7 +356,7 @@ public class RSAddFeatures
 	{
 		biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
 		
-		if(biome.getCategory() == Category.NETHER && RSConfig.allowNetherStronghold)
+		if(!RSConfig.useVanillaStronghold && biome.getCategory() == Category.NETHER && RSConfig.allowNetherStronghold)
 		{
 			if(RSConfig.strongholdSpawnrate != 1001)
 			{
@@ -368,7 +368,13 @@ public class RSAddFeatures
 			//remove vanilla stronghold
 			if(biome.structures.containsKey(Feature.STRONGHOLD))
 			{
-				biome.structures.remove(Feature.STRONGHOLD);
+				//only remove from structures list if we are using strictly our own stronghold. 
+				//If we are using vanilla, vanilla's needs to be in the structure list or else 
+				//vanilla's stronghold's methods for generation will fail as biome doesnt contain vanilla stronghold.
+				if(!RSConfig.useVanillaStronghold)
+					biome.structures.remove(Feature.STRONGHOLD);
+			
+				
 				biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && serializeAndCompareFeature(configuredFeature, Feature.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)));
 				
 				if(RSConfig.strongholdSpawnrate != 1001)
