@@ -68,22 +68,9 @@ public class NetherTemplePiece extends ScatteredStructurePiece
 			mutable.move(Direction.UP);
 		}
 		
-		if(mutable.getY() >= world.getMaxHeight() || mutable.getY() <= 31)
+		if(mutable.getY() >= world.getMaxHeight() || mutable.getY() <= 32)
 		{
-            this.boundingBox.offset(0, this.hPos - this.boundingBox.minY + 35, 0);
-            for(int x = -9; x <= 9; x++)
-            {
-            	for(int z = -9; z <= 9; z++)
-                {
-            		for(int y = -5; y > -10; y--)
-                    {
-                    	if(y > 1 && x*x + z*z <= 150 - y*y) 
-                    	{
-                    		this.setBlockState(world, Blocks.NETHERRACK.getDefaultState(), x, y, z, box);
-                    	}
-                    }
-                }
-            }
+            this.boundingBox.offset(0, this.hPos - this.boundingBox.minY + 32, 0);
 		}
 		else
 		{
@@ -228,7 +215,6 @@ public class NetherTemplePiece extends ScatteredStructurePiece
 		this.createDispenser(world, box, random, 9, -2, 3, Direction.WEST, DISPENSER_NETHER_TEMPLE);
 		
 
-		this.setBlockState(world, Blocks.LADDER.getDefaultState().with(LadderBlock.FACING, Direction.WEST), 8, -1, 3, box);
 		this.setBlockState(world, Blocks.LADDER.getDefaultState().with(LadderBlock.FACING, Direction.WEST), 8, -2, 3, box);
 		this.generateChest(world, box, random, 8, -3, 3, CHESTS_NETHER_TEMPLE);
 		

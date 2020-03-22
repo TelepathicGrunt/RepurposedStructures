@@ -1310,14 +1310,14 @@ public class RSStrongholdPieces
 							{
 								((MobSpawnerTileEntity) tileentity).getSpawnerBaseLogic().setEntityType(getSpawnerEntity());
 							}
+							this.setBlockState(world, this.getBlockOfCorrectType(Blocks.TORCH.getDefaultState()), 5, 2, 5, structureBoundingBoxIn);
 						}
 						else
 						{
-							world.setBlockState(blockpos, Blocks.AIR.getDefaultState(), 2);
+							this.setBlockState(world, this.getBlockOfCorrectType(Blocks.TORCH.getDefaultState()), 5, 1, 5, structureBoundingBoxIn);
 						}
 					}
 
-					this.setBlockState(world, this.getBlockOfCorrectType(Blocks.TORCH.getDefaultState()), 5, 3, 5, structureBoundingBoxIn);
 
 					for (int l = 2; l <= 8; ++l)
 					{

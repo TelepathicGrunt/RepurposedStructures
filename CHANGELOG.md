@@ -9,7 +9,15 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 # | Repurposed Structures changelog |
 
 
+   
+## (V.1.2.2 Changes) (1.15.2 Minecraft)
   
+##### Structures: 
+
+-Removed extra and useless Ladder from above a Dispenser.
+
+-Moved Torch down one so it rests on the Mob Spawner in the Storage Room instead of disappearing and becoming a lit air space.
+ 
   
 ## (V.1.2.1 Changes) (1.15.2 Minecraft)
   
