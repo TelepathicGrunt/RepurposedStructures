@@ -11,6 +11,14 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
   
   
+## (V.1.2.1 Changes) (1.15.2 Minecraft)
+  
+##### Config: 
+
+-Fixed config entry name for well spawnrates. It now says wellSpawnrate instead of dungeonSpawnrate.
+
+
+  
 ## (V.1.2.0 Changes) (1.15.2 Minecraft)
 
 
@@ -23,7 +31,7 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 -Changed useVanillaStronghold config value to be false by default.
   
--Changed default value for Well spawnrate from 800 to 600.
+-Changed default value for Well spawnrate config from 800 to 350.
   
 -Added config value to allow disabling Bells from spawning in Wells.
 

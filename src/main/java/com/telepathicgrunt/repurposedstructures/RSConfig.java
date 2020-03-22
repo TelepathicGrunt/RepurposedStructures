@@ -148,8 +148,8 @@ public class RSConfig
 							.comment( "\r\n How often wells will attempt to spawn per chunk." 
 									+ "\r\n The chance of a well generating at a chunk is 1/spawnrate."
 									+ "\r\n 1 for wells spawning in every chunk and 10000 for extremely rare wells.")
-							.translation("repurposedstructures.config.structure.dungeons.dungeonspawnrate")
-							.defineInRange("dungeonSpawnrate", 600, 1, 10000));
+							.translation("repurposedstructures.config.feature.smallwells.wellSpawnrate")
+							.defineInRange("wellSpawnrate", 350, 1, 10000));
 
 					canHaveBells = subscriber.subscribe(builder
 							.comment("\r\n Determines if Wells can have a chance of spawning a Bell.")
