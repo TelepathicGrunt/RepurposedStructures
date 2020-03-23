@@ -282,15 +282,15 @@ public class NetherTemplePiece extends ScatteredStructurePiece
 		public void selectBlocks(Random rand, int x, int y, int z, boolean wall)
 		{
 			float chance = rand.nextFloat();
-			if (chance < 0.05F)
+			if (chance < 0.015F)
 			{
 				this.blockstate = Blocks.MAGMA_BLOCK.getDefaultState();
 			}
-			else if(chance < 0.15f)
+			else if(chance < 0.12f)
 			{
 				this.blockstate = Blocks.BLACK_TERRACOTTA.getDefaultState();
 			}
-			else if(chance < 0.2f)
+			else if(chance < 0.175f)
 			{
 				this.blockstate = Blocks.RED_NETHER_BRICKS.getDefaultState();
 			}

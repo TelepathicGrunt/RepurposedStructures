@@ -14,9 +14,11 @@ Welcome to the Github! If you are looking for the most recent stable version, th
   
 ##### Structures: 
 
--Removed extra and useless Ladder from above a Dispenser.
+-Removed extra and useless Ladder from above a Dispenser in Nether Temple.
 
--Moved Torch down one so it rests on the Mob Spawner in the Storage Room instead of disappearing and becoming a lit air space.
+-Greatly reduced amount of Magma Blocks in Nether Temple.
+
+-In Stronghold's Storage Room, the Torch is now moved down one block so it rests on the Mob Spawner instead of disappearing and becoming a lit air space.
  
   
 ## (V.1.2.1 Changes) (1.15.2 Minecraft)
@@ -33,7 +35,7 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ##### Config: 
 
--Rename allowExtraSilverfishSpawnerSH config entry to allowExtraSpawnersSH as it will apply to Nether Strongholds too which sues Blaze Spawners instead of Silverfish spawners.
+-Rename allowExtraSilverfishSpawnerSH config entry to allowExtraSpawnersSH as it will apply to Nether Strongholds too which uses Blaze Spawners instead of Silverfish spawners.
 
 -Fixed bug where setting useVanillaStronghold config to true made using Eye of Ender and /locate command fail when trying to find a Vanilla Stronghold.
 
