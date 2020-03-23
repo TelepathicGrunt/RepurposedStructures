@@ -16,17 +16,18 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.biome.BiomeManager;
+import net.minecraft.world.chunk.ChunkStatus;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.GenerationSettings;
-import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.structure.StrongholdStructure;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.StructurePiece;
 import net.minecraft.world.gen.feature.structure.StructureStart;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
 
-public class RSStrongholdStructure extends Structure<NoFeatureConfig>
+public class RSStrongholdStructure extends StrongholdStructure
 {
 	public RSStrongholdStructure(Function<Dynamic<?>, ? extends NoFeatureConfig> config)
 	{
@@ -64,7 +65,7 @@ public class RSStrongholdStructure extends Structure<NoFeatureConfig>
 
 		if (RepurposedStructures.RSConfig.useVanillaStronghold.get())
 		{
-			return Feature.STRONGHOLD.func_225558_a_(biomeManager, chunkGenerator, random, chunkPosX, chunkPosZ, biome);
+			return super.func_225558_a_(biomeManager, chunkGenerator, random, chunkPosX, chunkPosZ, biome);
 		}
 		else
 		{
@@ -83,15 +84,67 @@ public class RSStrongholdStructure extends Structure<NoFeatureConfig>
 
 
 	@Override
-	public BlockPos findNearest(World worldIn, ChunkGenerator<? extends GenerationSettings> chunkGenerator, BlockPos pos, int radius, boolean skipExistingChunks)
+	public BlockPos findNearest(World world, ChunkGenerator<? extends GenerationSettings> chunkGenerator, BlockPos position, int radius, boolean skipExistingChunks)
 	{
 		if (RepurposedStructures.RSConfig.useVanillaStronghold.get())
 		{
-			return Feature.STRONGHOLD.findNearest(worldIn, chunkGenerator, pos, radius, skipExistingChunks);
+			return super.findNearest(world, chunkGenerator, position, radius, skipExistingChunks);
 		}
 		else
 		{
-			return super.findNearest(worldIn, chunkGenerator, pos, radius, skipExistingChunks);
+			if (!chunkGenerator.getBiomeProvider().hasStructure(this))
+			{
+				return null;
+			}
+			else
+			{
+				int chunkX = position.getX() >> 4;
+				int chunkZ = position.getZ() >> 4;
+				int currentRadius = 0;
+
+				for (SharedSeedRandom sharedseedrandom = new SharedSeedRandom(); currentRadius <= radius; ++currentRadius)
+				{
+					for (int x = -currentRadius; x <= currentRadius; ++x)
+					{
+						boolean validXPos = x == -currentRadius || x == currentRadius;
+
+						for (int z = -currentRadius; z <= currentRadius; ++z)
+						{
+							boolean validZPos = z == -currentRadius || z == currentRadius;
+							if (validXPos || validZPos)
+							{
+								ChunkPos chunkpos = this.getStartPositionForPosition(chunkGenerator, sharedseedrandom, chunkX, chunkZ, x, z);
+								StructureStart structurestart = world.getChunk(chunkpos.x, chunkpos.z, ChunkStatus.STRUCTURE_STARTS).getStructureStart(this.getStructureName());
+								if (structurestart != null && structurestart.isValid())
+								{
+									if (skipExistingChunks && structurestart.isRefCountBelowMax())
+									{
+										structurestart.incrementRefCount();
+										return structurestart.getPos();
+									}
+
+									if (!skipExistingChunks)
+									{
+										return structurestart.getPos();
+									}
+								}
+
+								if (currentRadius == 0)
+								{
+									break;
+								}
+							}
+						}
+
+						if (currentRadius == 0)
+						{
+							break;
+						}
+					}
+				}
+
+				return null;
+			}
 		}
 	}
 
@@ -101,7 +154,7 @@ public class RSStrongholdStructure extends Structure<NoFeatureConfig>
 	{
 		if (RepurposedStructures.RSConfig.useVanillaStronghold.get())
 		{
-			return Feature.STRONGHOLD.getStartFactory();
+			return super.getStartFactory();
 		}
 		else
 		{

@@ -14,12 +14,15 @@ Welcome to the Github! If you are looking for the most recent stable version, th
   
 ##### Structures: 
 
+-Fixed crash with generating modded Strongholds when the world already has a partially made Vanilla Stronghold.
+
+-In Stronghold's Storage Room, the Torch is now moved down one block so it rests on the Mob Spawner instead of disappearing and becoming a lit air space.
+ 
 -Removed extra and useless Ladder from above a Dispenser in Nether Temple.
 
 -Greatly reduced amount of Magma Blocks in Nether Temple.
 
--In Stronghold's Storage Room, the Torch is now moved down one block so it rests on the Mob Spawner instead of disappearing and becoming a lit air space.
- 
+
   
 ## (V.1.2.1 Changes) (1.15.2 Minecraft)
   

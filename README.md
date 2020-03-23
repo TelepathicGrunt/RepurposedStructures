@@ -2,8 +2,12 @@
 <h2 style="text-align: center;"><strong><span style="font-size: 36px; color: #009611;">CURRENTLY FOR 1.15.2 MC</span></strong></h2>
 <p>&nbsp;</p>
 <p style="text-align: center;">&nbsp;</p>
-<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;Added Nether styled Stronghold and Nether Jungle Temple!</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;Another day, another bug fix for a crash lol. </strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>Sorry about that but keep reporting these bugs so I can fix them! :)</strong></b></span></em></p>
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Previous News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;Added Nether styled Stronghold and Nether Jungle Temple!</strong></b></span></em></p>
 <p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>Plus some bug fixed as well. Checkout changelog for more details.</strong></b></span></em></p>
+<p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;"><span style="font-size: 18px;"><strong>______________________________________________________________________________</strong></span></p>
@@ -108,7 +112,6 @@
 <p><strong>24% : Jungle Temple loot</strong></p>
 </div>
 <p>&nbsp;</p>
-<p>&nbsp;</p>
 <p><strong>Nether Temple loot</strong></p>
 <div class="spoiler">
 <p><strong>Dispensers loot</strong></p>
@@ -119,19 +122,18 @@
 <p><strong><b>&nbsp;- Redstone</b></strong></p>
 <p><strong><b>&nbsp;- Lvl 30 Enchanted Stone Swords</b></strong></p>
 <p><strong><b>&nbsp;- Quartz</b></strong></p>
-<p><strong>&nbsp;- Gold ingot</strong></p>
+<p><strong>&nbsp;- Gold ingots</strong></p>
 <p><strong><b>&nbsp;- Rotten Flesh</b></strong></p>
-<p><strong><b>&nbsp;- Golden Nugget</b></strong></p>
+<p><strong><b>&nbsp;- Golden Nuggets</b></strong></p>
 <p><strong><b>&nbsp;- Lvl 20 to 30 Enchanted Golden Swords</b></strong></p>
-<p><strong><b>&nbsp;- Nether Wart</b></strong></p>
+<p><strong><b>&nbsp;- Nether Warts</b></strong></p>
 <p><strong><b>&nbsp;- Golden Horse Armor</b></strong></p>
-<p><strong><b>&nbsp;- Quartz Block</b></strong></p>
+<p><strong><b>&nbsp;- Quartz Blocks</b></strong></p>
 <p><strong><b>&nbsp;- Gold Blocks</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 30 Enchanted Book&nbsp;</b></strong></p>
+<p><strong><b>&nbsp;- Lvl 30 Enchanted Books</b></strong></p>
 <p>&nbsp;</p>
 <p><strong>Has one Pigmen spawner too</strong></p>
 </div>
-<p>&nbsp;</p>
 <p>&nbsp;</p>
 <p><strong>Stronghold Chest rates and Silverfish Spawner locations</strong></p>
 <div class="spoiler">
@@ -140,7 +142,6 @@
 <p><span style="font-size: 1.2rem;"><strong>Storage rooms has 4 chests instead of 1 due to them not having much loot naturally.</strong></span></p>
 <p><span style="font-size: 1.2rem;"><strong>Silverfish spawners are added to storage room, the room with the pillar that holds 4 Torches and fountain room.</strong></span></p>
 </div>
-<p>&nbsp;</p>
 <p>&nbsp;</p>
 <p><strong>Nether Stronghold Chest rates and Blaze Spawner locations</strong></p>
 <div class="spoiler">
