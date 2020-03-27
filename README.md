@@ -100,6 +100,42 @@
 <p><strong>1% : Slime</strong></p>
 </div>
 <p>&nbsp;</p>
+<p><strong>Ocean Dungeons spawner's mob and loot rates</strong></p>
+<div class="spoiler">
+<p><strong>Chest loot</strong></p>
+<p><strong>45% : Normal Dungeon loot</strong></p>
+<p><strong>33% : Shipwreck Supplies loot</strong></p>
+<p><strong>13% : Small Ruins loot</strong></p>
+<p><strong>8% : Big Ruins loot</strong></p>
+<p><strong>1% : Buried Treasure loot</strong></p>
+<p>&nbsp;</p>
+<p><strong>Mob Spawner in Frozen Ocean biomes</strong></p>
+<p><strong>96% : Husk</strong></p>
+<p><strong>3% : Squid</strong></p>
+<p><strong>1% : Turtle</strong></p>
+<p>&nbsp;</p>
+<p><strong>Mob Spawner in Cold Ocean biomes</strong></p>
+<p><strong>96% : Husk</strong></p>
+<p><strong>3% : Salmon</strong></p>
+<p><strong>1% : Turtle</strong></p>
+<p>&nbsp;</p>
+<p><strong>Mob Spawner in neutral Ocean biomes</strong></p>
+<p><strong>96% : Husk</strong></p>
+<p><strong>3% : Cod</strong></p>
+<p><strong>1% : Turtle</strong></p>
+<p>&nbsp;</p>
+<p><strong>Mob Spawner in Lukewarm Ocean biomes</strong></p>
+<p><strong>96% : Husk</strong></p>
+<p><strong>3% : Pufferfish</strong></p>
+<p><strong>1% : Turtle</strong></p>
+<p>&nbsp;</p>
+<p><strong>Mob Spawner in Warm Ocean biomes</strong></p>
+<p><strong>96% : Husk</strong></p>
+<p><strong>3% : Tropical Fish</strong></p>
+<p><strong>1% : Turtle</strong></p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 <p>&nbsp;</p>
 <p><strong>Jungle Fortress loot</strong></p>
 <div class="spoiler">
@@ -132,7 +168,15 @@
 <p><strong><b>&nbsp;- Gold Blocks</b></strong></p>
 <p><strong><b>&nbsp;- Lvl 30 Enchanted Books</b></strong></p>
 <p>&nbsp;</p>
-<p><strong>Has one Pigmen spawner too</strong></p>
+<p><strong>Has one hidden Pigmen spawner</strong></p>
+</div>
+<p>&nbsp;</p>
+<p><strong>Badlands Temple loot</strong></p>
+<div class="spoiler">
+<p><strong>Chests loot</strong></p>
+<p><strong>Uses normal Desert Temple loot</strong></p>
+<p>&nbsp;</p>
+<p><strong>Has two hidden Husk spawner&nbsp;</strong></p>
 </div>
 <p>&nbsp;</p>
 <p><strong>Stronghold Chest rates and Silverfish Spawner locations</strong></p>
