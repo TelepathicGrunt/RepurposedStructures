@@ -41,13 +41,13 @@ public class NetherTemplePiece extends ScatteredStructurePiece
 
 	public NetherTemplePiece(Random random, int x, int z)
 	{
-		super(StructurePieces.NTHRTMP, random, x, 64, z, 12, 10, 15);
+		super(StructurePieces.NETHER_TEMPLE_PIECE, random, x, 64, z, 12, 10, 15);
 	}
 
 
 	public NetherTemplePiece(TemplateManager templateManager, CompoundNBT data)
 	{
-		super(StructurePieces.NTHRTMP, data);
+		super(StructurePieces.NETHER_TEMPLE_PIECE, data);
 	}
 
 

@@ -296,7 +296,7 @@ public class RSStrongholdPieces
 	{
 		public ChestCorridor(int componentType, Random p_i45582_2_, MutableBoundingBox p_i45582_3_, Direction p_i45582_4_, RSStrongholdStructure.Type strongholdType)
 		{
-			super(StructurePieces.SHCCRS, componentType, strongholdType);
+			super(StructurePieces.STRONGHOLD_CHEST_CORRIDOR, componentType, strongholdType);
 			this.setCoordBaseMode(p_i45582_4_);
 			this.entryDoor = this.getRandomDoor(p_i45582_2_);
 			this.boundingBox = p_i45582_3_;
@@ -305,7 +305,7 @@ public class RSStrongholdPieces
 
 		public ChestCorridor(TemplateManager p_i50140_1_, CompoundNBT p_i50140_2_)
 		{
-			super(StructurePieces.SHCCRS, p_i50140_2_);
+			super(StructurePieces.STRONGHOLD_CHEST_CORRIDOR, p_i50140_2_);
 		}
 
 
@@ -370,7 +370,7 @@ public class RSStrongholdPieces
 
 		public Corridor(int componentType, MutableBoundingBox p_i50137_2_, Direction p_i50137_3_, RSStrongholdStructure.Type strongholdType)
 		{
-			super(StructurePieces.SHFCRS, componentType, strongholdType);
+			super(StructurePieces.STRONGHOLD_CORRIDOR, componentType, strongholdType);
 			this.setCoordBaseMode(p_i50137_3_);
 			this.boundingBox = p_i50137_2_;
 			this.steps = p_i50137_3_ != Direction.NORTH && p_i50137_3_ != Direction.SOUTH ? p_i50137_2_.getXSize() : p_i50137_2_.getZSize();
@@ -379,7 +379,7 @@ public class RSStrongholdPieces
 
 		public Corridor(TemplateManager p_i50138_1_, CompoundNBT p_i50138_2_)
 		{
-			super(StructurePieces.SHFCRS, p_i50138_2_);
+			super(StructurePieces.STRONGHOLD_CORRIDOR, p_i50138_2_);
 			this.steps = p_i50138_2_.getInt("Steps");
 		}
 
@@ -466,7 +466,7 @@ public class RSStrongholdPieces
 
 		public Crossing(int componentType, Random p_i45580_2_, MutableBoundingBox p_i45580_3_, Direction p_i45580_4_, RSStrongholdStructure.Type strongholdType)
 		{
-			super(StructurePieces.SH5CRS, componentType, strongholdType);
+			super(StructurePieces.STRONGHOLD_CROSSING, componentType, strongholdType);
 			this.setCoordBaseMode(p_i45580_4_);
 			this.entryDoor = this.getRandomDoor(p_i45580_2_);
 			this.boundingBox = p_i45580_3_;
@@ -479,7 +479,7 @@ public class RSStrongholdPieces
 
 		public Crossing(TemplateManager p_i50136_1_, CompoundNBT p_i50136_2_)
 		{
-			super(StructurePieces.SH5CRS, p_i50136_2_);
+			super(StructurePieces.STRONGHOLD_CROSSING, p_i50136_2_);
 			this.leftLow = p_i50136_2_.getBoolean("leftLow");
 			this.leftHigh = p_i50136_2_.getBoolean("leftHigh");
 			this.rightLow = p_i50136_2_.getBoolean("rightLow");
@@ -595,7 +595,7 @@ public class RSStrongholdPieces
 	{
 		public LeftTurn(int componentType, Random p_i45579_2_, MutableBoundingBox p_i45579_3_, Direction p_i45579_4_, RSStrongholdStructure.Type strongholdType)
 		{
-			super(StructurePieces.SHLTRS, componentType, strongholdType);
+			super(StructurePieces.STRONGHOLD_LEFT_TURN, componentType, strongholdType);
 			this.setCoordBaseMode(p_i45579_4_);
 			this.entryDoor = this.getRandomDoor(p_i45579_2_);
 			this.boundingBox = p_i45579_3_;
@@ -604,7 +604,7 @@ public class RSStrongholdPieces
 
 		public LeftTurn(TemplateManager p_i50134_1_, CompoundNBT p_i50134_2_)
 		{
-			super(StructurePieces.SHLTRS, p_i50134_2_);
+			super(StructurePieces.STRONGHOLD_LEFT_TURN, p_i50134_2_);
 		}
 
 
@@ -659,7 +659,7 @@ public class RSStrongholdPieces
 
 		public Library(int componentType, Random p_i45578_2_, MutableBoundingBox p_i45578_3_, Direction p_i45578_4_, RSStrongholdStructure.Type strongholdType)
 		{
-			super(StructurePieces.SHLIRS, componentType, strongholdType);
+			super(StructurePieces.STRONGHOLD_LIBRARY, componentType, strongholdType);
 			this.setCoordBaseMode(p_i45578_4_);
 			this.entryDoor = this.getRandomDoor(p_i45578_2_);
 			this.boundingBox = p_i45578_3_;
@@ -669,7 +669,7 @@ public class RSStrongholdPieces
 
 		public Library(TemplateManager p_i50133_1_, CompoundNBT p_i50133_2_)
 		{
-			super(StructurePieces.SHLIRS, p_i50133_2_);
+			super(StructurePieces.STRONGHOLD_LIBRARY, p_i50133_2_);
 			this.isLargeRoom = p_i50133_2_.getBoolean("Tall");
 		}
 
@@ -866,7 +866,7 @@ public class RSStrongholdPieces
 	{
 		public PortalRoom(int componentType, MutableBoundingBox p_i50131_2_, Direction p_i50131_3_, RSStrongholdStructure.Type strongholdType)
 		{
-			super(StructurePieces.SHPRRS, componentType, strongholdType);
+			super(StructurePieces.STRONGHOLD_PORTAL_ROOM, componentType, strongholdType);
 			this.setCoordBaseMode(p_i50131_3_);
 			this.boundingBox = p_i50131_2_;
 		}
@@ -874,7 +874,7 @@ public class RSStrongholdPieces
 
 		public PortalRoom(TemplateManager p_i50132_1_, CompoundNBT p_i50132_2_)
 		{
-			super(StructurePieces.SHPRRS, p_i50132_2_);
+			super(StructurePieces.STRONGHOLD_PORTAL_ROOM, p_i50132_2_);
 		}
 
 
@@ -1014,7 +1014,7 @@ public class RSStrongholdPieces
 	{
 		public Prison(int componentType, Random p_i45576_2_, MutableBoundingBox p_i45576_3_, Direction p_i45576_4_, RSStrongholdStructure.Type strongholdType)
 		{
-			super(StructurePieces.SHPHRS, componentType, strongholdType);
+			super(StructurePieces.STRONGHOLD_PRISON, componentType, strongholdType);
 			this.setCoordBaseMode(p_i45576_4_);
 			this.entryDoor = this.getRandomDoor(p_i45576_2_);
 			this.boundingBox = p_i45576_3_;
@@ -1023,7 +1023,7 @@ public class RSStrongholdPieces
 
 		public Prison(TemplateManager p_i50130_1_, CompoundNBT p_i50130_2_)
 		{
-			super(StructurePieces.SHPHRS, p_i50130_2_);
+			super(StructurePieces.STRONGHOLD_PRISON, p_i50130_2_);
 		}
 
 
@@ -1070,7 +1070,7 @@ public class RSStrongholdPieces
 	{
 		public RightTurn(int componentType, Random p_i50127_2_, MutableBoundingBox p_i50127_3_, Direction p_i50127_4_, RSStrongholdStructure.Type strongholdType)
 		{
-			super(StructurePieces.SHRTRS, componentType, strongholdType);
+			super(StructurePieces.STRONGHOLD_RIGHT_TURN, componentType, strongholdType);
 			this.setCoordBaseMode(p_i50127_4_);
 			this.entryDoor = this.getRandomDoor(p_i50127_2_);
 			this.boundingBox = p_i50127_3_;
@@ -1079,7 +1079,7 @@ public class RSStrongholdPieces
 
 		public RightTurn(TemplateManager p_i50128_1_, CompoundNBT p_i50128_2_)
 		{
-			super(StructurePieces.SHRTRS, p_i50128_2_);
+			super(StructurePieces.STRONGHOLD_RIGHT_TURN, p_i50128_2_);
 		}
 
 
@@ -1135,7 +1135,7 @@ public class RSStrongholdPieces
 
 		public RoomCrossing(int componentType, Random p_i45575_2_, MutableBoundingBox p_i45575_3_, Direction p_i45575_4_, RSStrongholdStructure.Type strongholdType)
 		{
-			super(StructurePieces.SHRCRS, componentType, strongholdType);
+			super(StructurePieces.STRONGHOLD_ROOM_CROSSING, componentType, strongholdType);
 			this.setCoordBaseMode(p_i45575_4_);
 			this.entryDoor = this.getRandomDoor(p_i45575_2_);
 			this.boundingBox = p_i45575_3_;
@@ -1145,7 +1145,7 @@ public class RSStrongholdPieces
 
 		public RoomCrossing(TemplateManager p_i50125_1_, CompoundNBT p_i50125_2_)
 		{
-			super(StructurePieces.SHRCRS, p_i50125_2_);
+			super(StructurePieces.STRONGHOLD_ROOM_CROSSING, p_i50125_2_);
 			this.roomType = p_i50125_2_.getInt("Type");
 		}
 
@@ -1377,7 +1377,7 @@ public class RSStrongholdPieces
 
 		public Stairs(int componentType, Random p_i45574_2_, MutableBoundingBox p_i45574_3_, Direction p_i45574_4_, RSStrongholdStructure.Type strongholdType)
 		{
-			super(StructurePieces.SHSDRS, componentType, strongholdType);
+			super(StructurePieces.STRONGHOLD_STAIRS, componentType, strongholdType);
 			this.source = false;
 			this.setCoordBaseMode(p_i45574_4_);
 			this.entryDoor = this.getRandomDoor(p_i45574_2_);
@@ -1394,7 +1394,7 @@ public class RSStrongholdPieces
 
 		public Stairs(TemplateManager templateManager, CompoundNBT data)
 		{
-			this(StructurePieces.SHSDRS, data);
+			this(StructurePieces.STRONGHOLD_STAIRS, data);
 		}
 
 
@@ -1466,13 +1466,13 @@ public class RSStrongholdPieces
 
 		public EntranceStairs(Random p_i50117_1_, int x, int z, RSStrongholdStructure.Type strongholdType)
 		{
-			super(StructurePieces.SHSTARTRS, 0, p_i50117_1_, x, z, strongholdType);
+			super(StructurePieces.STRONGHOLD_ENTRANCE_STAIRS, 0, p_i50117_1_, x, z, strongholdType);
 		}
 
 
 		public EntranceStairs(TemplateManager p_i50118_1_, CompoundNBT p_i50118_2_)
 		{
-			super(StructurePieces.SHSTARTRS, p_i50118_2_);
+			super(StructurePieces.STRONGHOLD_ENTRANCE_STAIRS, p_i50118_2_);
 		}
 	}
 
@@ -1480,7 +1480,7 @@ public class RSStrongholdPieces
 	{
 		public StairsStraight(int componentType, Random random, MutableBoundingBox box, Direction direction, RSStrongholdStructure.Type strongholdType)
 		{
-			super(StructurePieces.SHSSDRS, componentType, strongholdType);
+			super(StructurePieces.STRONGHOLD_STAIRS_STRAIGHT, componentType, strongholdType);
 			this.setCoordBaseMode(direction);
 			this.entryDoor = this.getRandomDoor(random);
 			this.boundingBox = box;
@@ -1489,7 +1489,7 @@ public class RSStrongholdPieces
 
 		public StairsStraight(TemplateManager tmeplateManager, CompoundNBT data)
 		{
-			super(StructurePieces.SHSSDRS, data);
+			super(StructurePieces.STRONGHOLD_STAIRS_STRAIGHT, data);
 		}
 
 
@@ -1621,7 +1621,7 @@ public class RSStrongholdPieces
 
 		public Straight(int conponentType_, Random random, MutableBoundingBox box, Direction direction, RSStrongholdStructure.Type strongholdType)
 		{
-			super(StructurePieces.SHSRS, conponentType_, strongholdType);
+			super(StructurePieces.STRONGHOLD_STRAIGHT, conponentType_, strongholdType);
 			this.setCoordBaseMode(direction);
 			this.entryDoor = this.getRandomDoor(random);
 			this.boundingBox = box;
@@ -1632,7 +1632,7 @@ public class RSStrongholdPieces
 
 		public Straight(TemplateManager template, CompoundNBT data)
 		{
-			super(StructurePieces.SHSRS, data);
+			super(StructurePieces.STRONGHOLD_STRAIGHT, data);
 			this.expandsX = data.getBoolean("Left");
 			this.expandsZ = data.getBoolean("Right");
 		}

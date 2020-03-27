@@ -26,13 +26,13 @@ public class BadlandsTemplePiece extends ScatteredStructurePiece
 {
 	public BadlandsTemplePiece(Random random, int x, int z)
 	{
-		super(StructurePieces.BLTMP, random, x, 64, z, 21, 15, 21);
+		super(StructurePieces.BADLANDS_TEMPLE_PIECE, random, x, 64, z, 21, 15, 21);
 	}
 
 
 	public BadlandsTemplePiece(TemplateManager templateManager, CompoundNBT data)
 	{
-		super(StructurePieces.BLTMP, data);
+		super(StructurePieces.BADLANDS_TEMPLE_PIECE, data);
 	}
 
 

@@ -22,6 +22,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 -Wells now generates in the Surface Structures generation stage instead of Underground Structures generation stage. Players most likely will not see a change but it's better that it is in the correct category in backend.
 
+-Improved registry names of custom structure pieces in backend.
+
    
 ## (V.1.2.2 Changes) (1.15.2 Minecraft)
   
