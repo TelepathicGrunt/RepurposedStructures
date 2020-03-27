@@ -10,6 +10,13 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 
    
+## (V.1.2.3 Changes) (1.15.2 Minecraft)
+  
+##### Structures: 
+
+-Moved a Nether Brick block that was placed wrong and basically broke the Nether Temple's puzzle mechanism.
+
+   
 ## (V.1.2.2 Changes) (1.15.2 Minecraft)
   
 ##### Structures: 

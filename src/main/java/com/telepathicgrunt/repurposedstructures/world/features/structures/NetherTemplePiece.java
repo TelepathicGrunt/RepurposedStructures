@@ -240,7 +240,7 @@ public class NetherTemplePiece extends ScatteredStructurePiece
 		this.fillWithRandomizedBlocks(world, box, 8, -3, 8, 8, -3, 10, false, random, NETHER_BLOCK_SELECTOR);
 		this.fillWithRandomizedBlocks(world, box, 10, -3, 8, 10, -3, 10, false, random, NETHER_BLOCK_SELECTOR);
 		this.setBlockState(world, Blocks.NETHER_BRICKS.getDefaultState(), 10, -2, 9, box);
-		this.setBlockState(world, Blocks.NETHER_BRICKS.getDefaultState(), 9, -1, 8, box);
+		this.setBlockState(world, Blocks.NETHER_BRICKS.getDefaultState(), 9, -1, 10, box);
 		this.setBlockState(world, Blocks.NETHER_BRICKS.getDefaultState(), 9, -1, 9, box);
 		this.setBlockState(world, Blocks.REDSTONE_WIRE.getDefaultState().with(RedstoneWireBlock.NORTH, RedstoneSide.SIDE), 8, -2, 9, box);
 		this.setBlockState(world, Blocks.REDSTONE_WIRE.getDefaultState().with(RedstoneWireBlock.SOUTH, RedstoneSide.SIDE), 8, -2, 10, box);

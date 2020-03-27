@@ -296,7 +296,8 @@ public class RSConfig
 
 					useVanillaStronghold = subscriber.subscribe(builder
 						.comment("\r\n Use vanilla Stronghold instead of using this mod's modded version.\r\n"
-								+" Note: The other Stronghold configs below will have no effect on vanilla Strongholds.")
+								+" Note: The other Stronghold configs here will have no effect on vanilla Strongholds."
+								+" WARNING: Nether Strongholds will be turned off too when this option is on.")
 						.translation("repurposedstructures.config.structure.stronghold.usevanillastronghold")
 						.define("useVanillaStronghold", false));
 
