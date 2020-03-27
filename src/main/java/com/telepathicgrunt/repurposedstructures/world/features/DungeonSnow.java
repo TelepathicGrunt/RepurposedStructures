@@ -196,7 +196,7 @@ public class DungeonSnow extends Feature<NoFeatureConfig>
 		{
 			//48% chance
 			EntityType<?> et = RSFeatures.pickRandomDungeonMob(rand);
-			if (et != EntityType.ZOMBIE)
+			if (et != EntityType.SKELETON)
 			{
 				return et;
 			}

@@ -18,7 +18,7 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 -Added Ocean Dungeons that can appear underground in oceans or on the ocean floor!
 
--Ocean Mineshafts are now filled with water by default and uses Prismarine Walls for the arch support now. They will now also appear through water in Ocean floors, water filled ravines, and water filled waves but will cut off before entering any air space.
+-Ocean Mineshafts are now filled with water by default and uses Prismarine Walls for the arch support now. They will now also generate through water in Ocean floors, water filled ravines, and water filled waves but will cut off before entering any air space.
 
 -Ocean Mineshafts has Drowned Spawners with Seagrass around, Hell Mineshafts has Blaze Spawner with Fire around, Icey Mineshafts has Stray Spawner with Ice around, End Mineshafts has Endermite Spawner with Chorus Fruits around that will grow and block pathways!
 
@@ -29,6 +29,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 -Moved a Nether Brick block that was placed wrong and basically broke the Nether Temple's puzzle mechanism.
 
 -Wells now generates in the Surface Structures generation stage instead of Underground Structures generation stage. Players most likely will not see a change but it's better that it is in the correct category in backend.
+
+-Fixed bug where Snow Dungeons were replacing Zombie spawners with Stray spawners instead of replacing Skeleton spawners.
 
 -Improved registry names of custom structure pieces in backend.
 
