@@ -14,7 +14,11 @@ Welcome to the Github! If you are looking for the most recent stable version, th
   
 ##### Structures: 
 
+-Fixed bug where setting the useVanillaStronghold config to true will spawn Vanilla Strongholds that are missing Hallway Chests and Silverfish Spawner in Portal Room. These two blocks will now generate correctly.
+
 -Moved a Nether Brick block that was placed wrong and basically broke the Nether Temple's puzzle mechanism.
+
+-Wells now generates in the Surface Structures generation stage instead of Underground Structures generation stage. Players most likely will not see a change but it's better that it is in the correct category in backend.
 
    
 ## (V.1.2.2 Changes) (1.15.2 Minecraft)

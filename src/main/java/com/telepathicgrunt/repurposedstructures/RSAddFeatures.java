@@ -1,5 +1,6 @@
 package com.telepathicgrunt.repurposedstructures;
 
+import java.util.List;
 import java.util.Map;
 
 import com.mojang.datafixers.Dynamic;
@@ -276,31 +277,31 @@ public class RSAddFeatures
 			biome.getCategory() == Category.MESA && 
 			wellAllowedByNamespaceAndConfig(biomeNamespace))
 		{
-			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.BADLANDS_WELL.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.CHANCE_HEIGHTMAP.configure(new ChanceConfig(RepurposedStructures.RSConfig.wellSpawnrate.get()))));
+			biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.BADLANDS_WELL.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.CHANCE_HEIGHTMAP.configure(new ChanceConfig(RepurposedStructures.RSConfig.wellSpawnrate.get()))));
 		}
 		else if(RepurposedStructures.RSConfig.netherWells.get() && 
 				biome.getCategory() == Category.NETHER && 
 				wellAllowedByNamespaceAndConfig(biomeNamespace))
 		{
-			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.NETHER_WELL.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.CHANCE_RANGE.configure(new ChanceRangeConfig(1F/RepurposedStructures.RSConfig.wellSpawnrate.get(), 30, 0, 98))));
+			biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.NETHER_WELL.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.CHANCE_RANGE.configure(new ChanceRangeConfig(1F/RepurposedStructures.RSConfig.wellSpawnrate.get(), 30, 0, 98))));
 		}
 		else if(RepurposedStructures.RSConfig.snowWells.get() && 
 				(biome.getCategory() == Category.ICY || biomePath.contains("snow")) && 
 				wellAllowedByNamespaceAndConfig(biomeNamespace))
 		{
-			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.SNOW_WELL.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.CHANCE_HEIGHTMAP.configure(new ChanceConfig(RepurposedStructures.RSConfig.wellSpawnrate.get()))));
+			biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.SNOW_WELL.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.CHANCE_HEIGHTMAP.configure(new ChanceConfig(RepurposedStructures.RSConfig.wellSpawnrate.get()))));
 		}
 		else if(RepurposedStructures.RSConfig.mossyStoneWells.get() && 
 				(biome.getCategory() == Category.JUNGLE || biome.getCategory() == Category.SWAMP || biomePath.contains("dark_forest") || biomePath.contains("dark_oak")) && 
 				wellAllowedByNamespaceAndConfig(biomeNamespace))
 		{
-			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.MOSSY_STONE_WELL.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.CHANCE_HEIGHTMAP.configure(new ChanceConfig(RepurposedStructures.RSConfig.wellSpawnrate.get()))));
+			biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.MOSSY_STONE_WELL.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.CHANCE_HEIGHTMAP.configure(new ChanceConfig(RepurposedStructures.RSConfig.wellSpawnrate.get()))));
 		}
 		else if(RepurposedStructures.RSConfig.forestWells.get() && 
 				(biome.getCategory() == Category.FOREST && !(biomePath.contains("dark_forest") || biomePath.contains("dark_oak"))) && 
 				wellAllowedByNamespaceAndConfig(biomeNamespace))
 		{
-			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.FOREST_WELL.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.CHANCE_HEIGHTMAP.configure(new ChanceConfig(RepurposedStructures.RSConfig.wellSpawnrate.get()))));
+			biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.FOREST_WELL.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.CHANCE_HEIGHTMAP.configure(new ChanceConfig(RepurposedStructures.RSConfig.wellSpawnrate.get()))));
 		}
 	}
 	
@@ -354,7 +355,6 @@ public class RSAddFeatures
 	
 	public static void addStronghold(Biome biome, String biomeNamespace, String biomePath)
 	{
-		biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
 		
 		if(!RepurposedStructures.RSConfig.useVanillaStronghold.get() && biome.getCategory() == Category.NETHER && RepurposedStructures.RSConfig.allowNetherStronghold.get())
 		{
@@ -375,7 +375,13 @@ public class RSAddFeatures
 					biome.structures.remove(Feature.STRONGHOLD);
 			
 				
-				biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && serializeAndCompareFeature(configuredFeature, Feature.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)));
+				biome.features.get(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).removeIf(
+						configuredFeature -> 
+							configuredFeature.config instanceof DecoratedFeatureConfig && 
+							serializeAndCompareFeature(configuredFeature, 
+									Feature.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
+														.withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG))));
+				
 				
 				if(RepurposedStructures.RSConfig.strongholdSpawnrate.get() != 1001)
 				{
@@ -383,6 +389,8 @@ public class RSAddFeatures
 				}
 			}
 		}
+		
+		biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
 	}
 	
 
