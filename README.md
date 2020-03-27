@@ -2,10 +2,10 @@
 <h2 style="text-align: center;"><strong><span style="font-size: 36px; color: #009611;">CURRENTLY FOR 1.15.2 MC</span></strong></h2>
 <p>&nbsp;</p>
 <p style="text-align: center;">&nbsp;</p>
-<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;Another day, another bug fix for a crash lol. </strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>Sorry about that but keep reporting these bugs so I can fix them! :)</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;Added Badlands Temple, Ocean Dungeons, </strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>i</strong></b></span></em><em><span style="font-size: 14px;"><b><strong>mproved several Mineshafts (especially Ocean Mineshafts) and more!</strong></b></span></em></p>
 <p style="text-align: center;">&nbsp;</p>
-<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Previous News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;Added Nether styled Stronghold and Nether Jungle Temple!</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Old News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;Added Nether styled Stronghold and Nether Jungle Temple!</strong></b></span></em></p>
 <p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>Plus some bug fixed as well. Checkout changelog for more details.</strong></b></span></em></p>
 <p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;">&nbsp;</p>
