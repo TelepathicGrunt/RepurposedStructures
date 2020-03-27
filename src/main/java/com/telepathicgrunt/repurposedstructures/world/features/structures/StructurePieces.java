@@ -39,46 +39,45 @@ public class StructurePieces
 	public static IStructurePieceType	STRONGHOLD_STAIRS				= RSStrongholdPieces.Stairs::new;
 	public static IStructurePieceType	STRONGHOLD_STAIRS_STRAIGHT		= RSStrongholdPieces.StairsStraight::new;
 	public static IStructurePieceType	STRONGHOLD_ENTRANCE_STAIRS		= RSStrongholdPieces.EntranceStairs::new;
-	public static IStructurePieceType 	NETHER_TEMPLE_PIECE				= NetherTemplePiece::new;
-	public static IStructurePieceType 	BADLANDS_TEMPLE_PIECE			= BadlandsTemplePiece::new;
-
+	public static IStructurePieceType	NETHER_TEMPLE_PIECE				= NetherTemplePiece::new;
+	public static IStructurePieceType	BADLANDS_TEMPLE_PIECE			= BadlandsTemplePiece::new;
 
 	public static void registerStructurePieces()
 	{
-		RegUtil.register(MINESHAFT_ROOM_RS,				"MINESHAFT_ROOM_RS");
-		RegUtil.register(MINESHAFT_CORRIDOR_RS,			"MINESHAFT_CORRIDOR_RS");
-		RegUtil.register(MINESHAFT_CROSSING_RS,			"MINESHAFT_CROSSING_RS");
-		RegUtil.register(MINESHAFT_STAIRS_RS,			"MINESHAFT_STAIRS_RS");
-		RegUtil.register(JUNGLE_FORTRESS_START,			"JUNGLE_FORTRESS_START");
-		RegUtil.register(JUNGLE_FORTRESS_ENTRANCE, 		"JUNGLE_FORTRESS_ENTRANCE");
-		RegUtil.register(JUNGLE_FORTRESS_END,			"JUNGLE_FORTRESS_END");
-		RegUtil.register(JUNGLE_FORTRESS_STRAIGHT,		"JUNGLE_FORTRESS_STRAIGHT");
-		RegUtil.register(JUNGLE_FORTRESS_CORRIDOR_5,	"JUNGLE_FORTRESS_CORRIDOR_5");
-		RegUtil.register(JUNGLE_FORTRESS_CORRIDOR_4, 	"JUNGLE_FORTRESS_CORRIDOR_4");
-		RegUtil.register(JUNGLE_FORTRESS_CORRIDOR_3, 	"JUNGLE_FORTRESS_CORRIDOR_3");
-		RegUtil.register(JUNGLE_FORTRESS_CORRIDOR_2, 	"JUNGLE_FORTRESS_CORRIDOR_2");
-		RegUtil.register(JUNGLE_FORTRESS_CORRIDOR_1, 	"JUNGLE_FORTRESS_CORRIDOR_1");
-		RegUtil.register(JUNGLE_FORTRESS_CROSSING_3,	"JUNGLE_FORTRESS_CROSSING_3");
-		RegUtil.register(JUNGLE_FORTRESS_CROSSING_2, 	"JUNGLE_FORTRESS_CROSSING_2");
-		RegUtil.register(JUNGLE_FORTRESS_CROSSING_1,	"JUNGLE_FORTRESS_CROSSING_1");
-		RegUtil.register(JUNGLE_FORTRESS_MUSHROOM_ROOM,	"JUNGLE_FORTRESS_MUSHROOM_ROOM");
-		RegUtil.register(JUNGLE_FORTRESS_THRONE,		"JUNGLE_FORTRESS_THRONE");
-		RegUtil.register(JUNGLE_FORTRESS_STAIRS,		"JUNGLE_FORTRESS_STAIRS");
-		RegUtil.register(STRONGHOLD_CHEST_CORRIDOR,		"STRONGHOLD_CHEST_CORRIDOR");
-		RegUtil.register(STRONGHOLD_CORRIDOR,			"STRONGHOLD_CORRIDOR");
-		RegUtil.register(STRONGHOLD_PORTAL_ROOM,		"STRONGHOLD_PORTAL_ROOM");
-		RegUtil.register(STRONGHOLD_LIBRARY,			"STRONGHOLD_LIBRARY");
-		RegUtil.register(STRONGHOLD_PRISON,				"STRONGHOLD_PRISON");
-		RegUtil.register(STRONGHOLD_ROOM_CROSSING,		"STRONGHOLD_ROOM_CROSSING");
-		RegUtil.register(STRONGHOLD_CROSSING,			"STRONGHOLD_CROSSING");
-		RegUtil.register(STRONGHOLD_RIGHT_TURN,			"STRONGHOLD_RIGHT_TURN");
-		RegUtil.register(STRONGHOLD_LEFT_TURN,			"STRONGHOLD_LEFT_TURN");
-		RegUtil.register(STRONGHOLD_STRAIGHT,			"STRONGHOLD_STRAIGHT");
-		RegUtil.register(STRONGHOLD_STAIRS,				"STRONGHOLD_STAIRS");
-		RegUtil.register(STRONGHOLD_STAIRS_STRAIGHT,	"STRONGHOLD_STAIRS_STRAIGHT");
-		RegUtil.register(STRONGHOLD_ENTRANCE_STAIRS,	"STRONGHOLD_ENTRANCE_STAIRS");
-		RegUtil.register(NETHER_TEMPLE_PIECE,			"NETHER_TEMPLE_PIECE");
-		RegUtil.register(BADLANDS_TEMPLE_PIECE,			"BADLANDS_TEMPLE_PIECE");
+		RegUtil.register(MINESHAFT_ROOM_RS, "mineshaft_room_rs");
+		RegUtil.register(MINESHAFT_CORRIDOR_RS, "mineshaft_corridor_rs");
+		RegUtil.register(MINESHAFT_CROSSING_RS, "mineshaft_crossing_rs");
+		RegUtil.register(MINESHAFT_STAIRS_RS, "mineshaft_stairs_rs");
+		RegUtil.register(JUNGLE_FORTRESS_START, "jungle_fortress_start");
+		RegUtil.register(JUNGLE_FORTRESS_ENTRANCE, "jungle_fortress_entrance");
+		RegUtil.register(JUNGLE_FORTRESS_END, "jungle_fortress_end");
+		RegUtil.register(JUNGLE_FORTRESS_STRAIGHT, "jungle_fortress_straight");
+		RegUtil.register(JUNGLE_FORTRESS_CORRIDOR_5, "jungle_fortress_corridor_5");
+		RegUtil.register(JUNGLE_FORTRESS_CORRIDOR_4, "jungle_fortress_corridor_4");
+		RegUtil.register(JUNGLE_FORTRESS_CORRIDOR_3, "jungle_fortress_corridor_3");
+		RegUtil.register(JUNGLE_FORTRESS_CORRIDOR_2, "jungle_fortress_corridor_2");
+		RegUtil.register(JUNGLE_FORTRESS_CORRIDOR_1, "jungle_fortress_corridor_1");
+		RegUtil.register(JUNGLE_FORTRESS_CROSSING_3, "jungle_fortress_crossing_3");
+		RegUtil.register(JUNGLE_FORTRESS_CROSSING_2, "jungle_fortress_crossing_2");
+		RegUtil.register(JUNGLE_FORTRESS_CROSSING_1, "jungle_fortress_crossing_1");
+		RegUtil.register(JUNGLE_FORTRESS_MUSHROOM_ROOM, "jungle_fortress_mushroom_room");
+		RegUtil.register(JUNGLE_FORTRESS_THRONE, "jungle_fortress_throne");
+		RegUtil.register(JUNGLE_FORTRESS_STAIRS, "jungle_fortress_stairs");
+		RegUtil.register(STRONGHOLD_CHEST_CORRIDOR, "stronghold_chest_corridor");
+		RegUtil.register(STRONGHOLD_CORRIDOR, "stronghold_corridor");
+		RegUtil.register(STRONGHOLD_PORTAL_ROOM, "stronghold_portal_room");
+		RegUtil.register(STRONGHOLD_LIBRARY, "stronghold_library");
+		RegUtil.register(STRONGHOLD_PRISON, "stronghold_prison");
+		RegUtil.register(STRONGHOLD_ROOM_CROSSING, "stronghold_room_crossing");
+		RegUtil.register(STRONGHOLD_CROSSING, "stronghold_crossing");
+		RegUtil.register(STRONGHOLD_RIGHT_TURN, "stronghold_right_turn");
+		RegUtil.register(STRONGHOLD_LEFT_TURN, "stronghold_left_turn");
+		RegUtil.register(STRONGHOLD_STRAIGHT, "stronghold_straight");
+		RegUtil.register(STRONGHOLD_STAIRS, "stronghold_stairs");
+		RegUtil.register(STRONGHOLD_STAIRS_STRAIGHT, "stronghold_stairs_straight");
+		RegUtil.register(STRONGHOLD_ENTRANCE_STAIRS, "stronghold_entrance_stairs");
+		RegUtil.register(NETHER_TEMPLE_PIECE, "nether_temple_piece");
+		RegUtil.register(BADLANDS_TEMPLE_PIECE, "badlands_temple_piece");
 	}
 
 }

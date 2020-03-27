@@ -29,6 +29,9 @@ import net.minecraft.world.gen.placement.Placement;
 
 public class RSAddFeatures
 {
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// MINESHAFTS //
+	
 	public static void addMineshafts(Biome biome, String biomeNamespace, String biomePath)
 	{
 		biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.MINESHAFT.withConfiguration(new RSMineshaftConfig(RSMineshaftStructure.Type.BIRCH)).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
@@ -37,8 +40,7 @@ public class RSAddFeatures
 		{
 			return;
 		}
-		
-		
+
 		if(RepurposedStructures.RSConfig.birchMineshafts.get() && 
 				biomePath.contains("birch") && 
 				(biomeNamespace.equals("minecraft") || RepurposedStructures.RSConfig.addMineshaftsToModdedBiomes.get()))
@@ -161,7 +163,9 @@ public class RSAddFeatures
 			biome.addStructure(RSFeatures.MINESHAFT.withConfiguration(new RSMineshaftConfig(RSMineshaftStructure.Type.HELL)));
 		}
 	}
-	
+
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// JUNGLE FORTRESS //
 
 	public static void addJungleFortress(Biome biome, String biomeNamespace, String biomePath)
 	{
@@ -179,11 +183,14 @@ public class RSAddFeatures
 		}
 	}
 	
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// DUNGEONS //
+	
 	public static void addDungeons(Biome biome, String biomeNamespace, String biomePath)
 	{
 		if(RepurposedStructures.RSConfig.jungleDungeons.get() && 
 				biome.getCategory() == Category.JUNGLE && 
-				dungeonAllowedByNamespaceAndConfig(biomeNamespace))
+				dungeonAllowedByNamespaceAndConfigUA(biomeNamespace))
 		{
 			//replace vanilla dungeon with our own
 			biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && ((DecoratedFeatureConfig)configuredFeature.config).feature.feature == Feature.MONSTER_ROOM);
@@ -192,7 +199,7 @@ public class RSAddFeatures
 		
 		else if(RepurposedStructures.RSConfig.badlandsDungeons.get() && 
 				biome.getCategory() == Category.MESA && 
-				dungeonAllowedByNamespaceAndConfig(biomeNamespace))
+				dungeonAllowedByNamespaceAndConfigUA(biomeNamespace))
 		{
 			//replace vanilla dungeon with our own
 			biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && ((DecoratedFeatureConfig)configuredFeature.config).feature.feature == Feature.MONSTER_ROOM);
@@ -201,7 +208,7 @@ public class RSAddFeatures
 		
 		else if(RepurposedStructures.RSConfig.darkForestDungeons.get() && 
 				biomePath.contains("dark_forest") && 
-				dungeonAllowedByNamespaceAndConfig(biomeNamespace))
+				dungeonAllowedByNamespaceAndConfigUA(biomeNamespace))
 		{
 			//replace vanilla dungeon with our own
 			biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && ((DecoratedFeatureConfig)configuredFeature.config).feature.feature == Feature.MONSTER_ROOM);
@@ -210,7 +217,7 @@ public class RSAddFeatures
 		
 		else if(RepurposedStructures.RSConfig.desertDungeons.get() && 
 				biome.getCategory() == Category.DESERT && 
-				dungeonAllowedByNamespaceAndConfig(biomeNamespace))
+				dungeonAllowedByNamespaceAndConfigUA(biomeNamespace))
 		{
 			//replace vanilla dungeon with our own
 			biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && ((DecoratedFeatureConfig)configuredFeature.config).feature.feature == Feature.MONSTER_ROOM);
@@ -219,7 +226,7 @@ public class RSAddFeatures
 		
 		else if(RepurposedStructures.RSConfig.mushroomDungeons.get() && 
 				biome.getCategory() == Category.MUSHROOM && 
-				dungeonAllowedByNamespaceAndConfig(biomeNamespace))
+				dungeonAllowedByNamespaceAndConfigUA(biomeNamespace))
 		{
 			//replace vanilla dungeon with our own
 			biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && ((DecoratedFeatureConfig)configuredFeature.config).feature.feature == Feature.MONSTER_ROOM);
@@ -228,7 +235,7 @@ public class RSAddFeatures
 		
 		else if(RepurposedStructures.RSConfig.swampDungeons.get() && 
 				biome.getCategory() == Category.SWAMP && 
-				dungeonAllowedByNamespaceAndConfig(biomeNamespace))
+				dungeonAllowedByNamespaceAndConfigUA(biomeNamespace))
 		{
 			//replace vanilla dungeon with our own
 			biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && ((DecoratedFeatureConfig)configuredFeature.config).feature.feature == Feature.MONSTER_ROOM);
@@ -237,7 +244,7 @@ public class RSAddFeatures
 		
 		else if(RepurposedStructures.RSConfig.snowDungeons.get() && 
 				biome.getCategory() == Category.ICY && 
-				dungeonAllowedByNamespaceAndConfig(biomeNamespace))
+				dungeonAllowedByNamespaceAndConfigUA(biomeNamespace))
 		{
 			//replace vanilla dungeon with our own
 			biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && ((DecoratedFeatureConfig)configuredFeature.config).feature.feature == Feature.MONSTER_ROOM);
@@ -246,29 +253,57 @@ public class RSAddFeatures
 		
 		else if(RepurposedStructures.RSConfig.netherDungeons.get() && 
 				biome.getCategory() == Category.NETHER && 
-				dungeonAllowedByNamespaceAndConfig(biomeNamespace))
+				dungeonAllowedByNamespaceAndConfigUA(biomeNamespace))
 		{
 			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.NETHER_DUNGEONS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.DUNGEONS.configure(new ChanceConfig(RepurposedStructures.RSConfig.dungeonSpawnrate.get()))));
 		}
 		
 		else if(RepurposedStructures.RSConfig.endDungeons.get() && 
 				(biome.getCategory() == Category.THEEND && biome != Biomes.THE_END && biome != Biomes.SMALL_END_ISLANDS) && 
-				dungeonAllowedByNamespaceAndConfig(biomeNamespace))
+				dungeonAllowedByNamespaceAndConfigUA(biomeNamespace))
 		{
 			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.END_DUNGEONS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.DUNGEONS.configure(new ChanceConfig(RepurposedStructures.RSConfig.dungeonSpawnrate.get()))));
 		}
+		
+		else if(RepurposedStructures.RSConfig.oceanDungeons.get() && 
+				biome.getCategory() == Category.OCEAN && 
+				dungeonAllowedByNamespaceAndConfig(biomeNamespace))
+		{
+			//replace vanilla dungeon with our own
+			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.OCEAN_DUNGEONS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.DUNGEONS.configure(new ChanceConfig(RepurposedStructures.RSConfig.dungeonSpawnrate.get()))));
+		}
 	}
 	
+	/**
+	 * Will not return true for Ultra Amplified Dimension's biomes as that mod already has the dungeon type.
+	 * 
+	 * And will check if the dungeon is allowed in modded biomes based on config but will always return true for vanilla biomes.
+	 */
+	private static boolean dungeonAllowedByNamespaceAndConfigUA(String biomeNamespace)
+	{
+		if(!biomeNamespace.equals("ultra_amplified_dimension"))
+		{
+			return dungeonAllowedByNamespaceAndConfig(biomeNamespace);
+		}
+		
+		return false;
+	}
+	
+	/**
+	 * Will check if the dungeon is allowed in modded biomes based on config but will always return true for vanilla biomes.
+	 */
 	private static boolean dungeonAllowedByNamespaceAndConfig(String biomeNamespace)
 	{
-		if(!biomeNamespace.equals("ultra_amplified_dimension") && 
-		  (biomeNamespace.equals("minecraft") || RepurposedStructures.RSConfig.addDungeonsToModdedBiomes.get()))
+		if(biomeNamespace.equals("minecraft") || RepurposedStructures.RSConfig.addDungeonsToModdedBiomes.get())
 		{
 			return true;
 		}
 		
 		return false;
 	}
+	
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// WELLS //
 	
 	public static void addWells(Biome biome, String biomeNamespace, String biomePath)
 	{
@@ -313,6 +348,10 @@ public class RSAddFeatures
 		
 		return false;
 	}
+
+	
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// MISC FEATURES //
 	
 	private static final ConfiguredFeature<?,?> VANILLA_SWAMP_TREE = Feature.NORMAL_TREE.withConfiguration(DefaultBiomeFeatures.SWAMP_TREE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(2, 0.1F, 1)));
 	private static final ConfiguredFeature<?,?> VANILLA_BOULDER = Feature.FOREST_ROCK.withConfiguration(new BlockBlobConfig(Blocks.MOSSY_COBBLESTONE.getDefaultState(), 0)).withPlacement(Placement.FOREST_ROCK.configure(new FrequencyConfig(3)));
@@ -350,7 +389,9 @@ public class RSAddFeatures
 			biome.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, RSFeatures.BOULDER_GIANT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.FOREST_ROCK.configure(new FrequencyConfig(2))));
 		}
 	}
-	
+
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// STRONGHOLDS //
 	
 	public static void addStronghold(Biome biome, String biomeNamespace, String biomePath)
 	{
@@ -390,6 +431,9 @@ public class RSAddFeatures
 	}
 	
 
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// NETHER TEMPLE //
+	
 	public static void addNetherTemple(Biome biome, String biomeNamespace, String biomePath)
 	{
 		biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.NETHER_TEMPLE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
@@ -406,6 +450,8 @@ public class RSAddFeatures
 		}
 	}
 
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// BADLANDS TEMPLE //
 
 	public static void addBadlandsTemple(Biome biome, String biomeNamespace, String biomePath)
 	{
@@ -422,6 +468,10 @@ public class RSAddFeatures
 			biome.addStructure(RSFeatures.BADLANDS_TEMPLE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 		}
 	}
+	
+	
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// GENERAL UTILITIES //
 	
 	
 	/**

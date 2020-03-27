@@ -23,6 +23,7 @@ public class RSConfig
 		public ConfigValueListener<Boolean> swampDungeons;
 		public ConfigValueListener<Boolean> endDungeons;
 		public ConfigValueListener<Boolean> netherDungeons;
+		public ConfigValueListener<Boolean> oceanDungeons;
 
 		public ConfigValueListener<Boolean> addWellsToModdedBiomes;
 		public ConfigValueListener<Integer> wellSpawnrate;
@@ -138,6 +139,16 @@ public class RSConfig
 							.comment("\r\n Add Nether themed dungeon to Nether biomes.")
 						.translation("repurposedstructures.config.feature.dungeons.netherdungeons")
 						.define("netherDungeons", true));
+
+					oceanDungeons = subscriber.subscribe(builder
+							.comment("\r\n Add ocean themed dungeon to ocean biomes. These will spawn on"
+									+"\r\n the ocean's floor and inside water filled caves and ravines."
+									+"\r\n"
+									+"\r\n Note: Vanilla Dungeons will still generate if biome has them"
+									+"\r\n which is unlike the other modded dungeons from this mod which"
+									+"\r\n replace the Vanilla Dungeons.")
+						.translation("repurposedstructures.config.feature.dungeons.oceandungeons")
+						.define("oceanDungeons", true));
 					
 				builder.pop();
 

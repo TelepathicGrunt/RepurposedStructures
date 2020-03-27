@@ -41,7 +41,7 @@ public class BadlandsTempleStructure extends Structure<NoFeatureConfig>
 		int j1 = l < 0 ? l - maxDistance + 1 : l;
 		int targetChunkX = i1 / maxDistance;
 		int targetChunkZ = j1 / maxDistance;
-		((SharedSeedRandom) random).setLargeFeatureSeedWithSalt(chunkGenerator.getSeed(), targetChunkX, targetChunkZ, 148523564);
+		((SharedSeedRandom) random).setLargeFeatureSeedWithSalt(chunkGenerator.getSeed(), targetChunkX, targetChunkZ, 399117345);
 		targetChunkX = targetChunkX * maxDistance;
 		targetChunkZ = targetChunkZ * maxDistance;
 		targetChunkX = targetChunkX + random.nextInt(maxDistance - minDistance);
@@ -53,7 +53,6 @@ public class BadlandsTempleStructure extends Structure<NoFeatureConfig>
 	@Override
 	public boolean func_225558_a_(BiomeManager biomeManager, ChunkGenerator<?> chunkGenerator, Random random, int chunkPosX, int chunkPosZ, Biome biome)
 	{
-
 		ChunkPos chunkpos = this.getStartPositionForPosition(chunkGenerator, random, chunkPosX, chunkPosZ, 0, 0);
 		if (chunkPosX == chunkpos.x && chunkPosZ == chunkpos.z)
 		{

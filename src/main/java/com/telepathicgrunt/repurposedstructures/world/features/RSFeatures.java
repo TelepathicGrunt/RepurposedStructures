@@ -34,6 +34,7 @@ public class RSFeatures
 	public static Feature<NoFeatureConfig>					SWAMP_DUNGEONS			= new DungeonSwamp(NoFeatureConfig::deserialize);
 	public static Feature<NoFeatureConfig>					MUSHROOM_DUNGEONS		= new DungeonMushroom(NoFeatureConfig::deserialize);
 	public static Feature<NoFeatureConfig>					JUNGLE_DUNGEONS			= new DungeonJungle(NoFeatureConfig::deserialize);
+	public static Feature<NoFeatureConfig>					OCEAN_DUNGEONS			= new DungeonOcean(NoFeatureConfig::deserialize);
 
 	public static Feature<NoFeatureConfig>					BADLANDS_WELL			= new WellBadlands(NoFeatureConfig::deserialize);
 	public static Feature<NoFeatureConfig>					NETHER_WELL				= new WellNether(NoFeatureConfig::deserialize);
@@ -65,6 +66,7 @@ public class RSFeatures
 		RegUtil.register(registry, SWAMP_DUNGEONS, "dungeons_swamp");
 		RegUtil.register(registry, MUSHROOM_DUNGEONS, "dungeons_mushroom");
 		RegUtil.register(registry, JUNGLE_DUNGEONS, "dungeons_jungle");
+		RegUtil.register(registry, OCEAN_DUNGEONS, "dungeons_ocean");
 
 		RegUtil.register(registry, BADLANDS_WELL, "well_badlands");
 		RegUtil.register(registry, NETHER_WELL, "well_nether");
