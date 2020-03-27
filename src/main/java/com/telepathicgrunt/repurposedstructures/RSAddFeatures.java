@@ -1,6 +1,5 @@
 package com.telepathicgrunt.repurposedstructures;
 
-import java.util.List;
 import java.util.Map;
 
 import com.mojang.datafixers.Dynamic;
@@ -376,11 +375,8 @@ public class RSAddFeatures
 			
 				
 				biome.features.get(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).removeIf(
-						configuredFeature -> 
-							configuredFeature.config instanceof DecoratedFeatureConfig && 
-							serializeAndCompareFeature(configuredFeature, 
-									Feature.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-														.withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG))));
+												configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && 
+												serializeAndCompareFeature(configuredFeature, Feature.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG))));
 				
 				
 				if(RepurposedStructures.RSConfig.strongholdSpawnrate.get() != 1001)
@@ -407,6 +403,23 @@ public class RSAddFeatures
 				(biomeNamespace.equals("minecraft") || RepurposedStructures.RSConfig.addNetherTempleToModdedBiomes.get()))
 		{
 			biome.addStructure(RSFeatures.NETHER_TEMPLE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+		}
+	}
+
+
+	public static void addBadlandsTemple(Biome biome, String biomeNamespace, String biomePath)
+	{
+		biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.BADLANDS_TEMPLE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+		
+		if(RepurposedStructures.RSConfig.badlandsTempleSpawnrate.get() == 1001)
+		{
+			return;
+		}
+		
+		if(biome.getCategory() == Category.MESA && 
+				(biomeNamespace.equals("minecraft") || RepurposedStructures.RSConfig.addBadlandsTempleToModdedBiomes.get()))
+		{
+			biome.addStructure(RSFeatures.BADLANDS_TEMPLE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 		}
 	}
 	

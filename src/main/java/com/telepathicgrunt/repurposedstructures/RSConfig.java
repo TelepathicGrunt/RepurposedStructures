@@ -71,6 +71,10 @@ public class RSConfig
 		public ConfigValueListener<Integer> netherTempleSpawnrate;
 		public ConfigValueListener<Boolean> lootChestsNT;
 		public ConfigValueListener<Boolean> addNetherTempleToModdedBiomes;
+		
+		public ConfigValueListener<Integer> badlandsTempleSpawnrate;
+		public ConfigValueListener<Boolean> lootChestsBT;
+		public ConfigValueListener<Boolean> addBadlandsTempleToModdedBiomes;
 
 
 		RSConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
@@ -307,7 +311,8 @@ public class RSConfig
 						.define("allowStonebrickStronghold", true));
 
 					allowNetherStronghold = subscriber.subscribe(builder
-						.comment("\r\n Allow Nether-styled Strongholds to spawn in Nether category biomes.")
+						.comment("\r\n Allow Nether-styled Strongholds to spawn in Nether category biomes."
+								+ "\r\n Note: Eyes of Ender will work and show the closest Nether Stronghold too.")
 						.translation("repurposedstructures.config.structure.stronghold.allownetherstronghold")
 						.define("allowNetherStronghold", true));
 				
@@ -403,6 +408,27 @@ public class RSConfig
 						.define("addNetherTempleToModdedBiomes", false));
 					
 				builder.pop();
+				
+				builder.push("Badlands Temple");
+				
+				badlandsTempleSpawnrate = subscriber.subscribe(builder
+						.comment("\r\n How rare are Nether Temples in Nether." 
+								+ "\n "
+								+ "1 for spawning in most chunks and 1001 for no spawn.")
+						.translation("repurposedstructures.config.structure.badlandstemple.badlandstemplespawnrate")
+						.defineInRange("badlandsTempleSpawnrate", 20, 1, 1001));
+
+				lootChestsBT = subscriber.subscribe(builder
+						.comment("\r\n Controls whether loot chests spawn or not in Badlands Temples.")
+					.translation("repurposedstructures.config.structure.badlandstemple.lootchestsbt")
+					.define("lootChestsBT", true));
+
+				addBadlandsTempleToModdedBiomes = subscriber.subscribe(builder
+						.comment("\r\n Add Jungle Fortress to modded jungle biomes.")
+					.translation("repurposedstructures.config.structure.badlandstemple.addbadlandstempletomoddedbiomes")
+					.define("addBadlandsTempleToModdedBiomes", false));
+				
+			builder.pop();
 			builder.pop();
 		}
 	}

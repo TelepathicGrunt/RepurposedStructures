@@ -59,8 +59,9 @@ public class RepurposedStructures
 			RSAddFeatures.addDungeons(biome, biomeNamespace, biomePath);
 			RSAddFeatures.addWells(biome, biomeNamespace, biomePath);
 			RSAddFeatures.addMiscFeatures(biome, biomeNamespace, biomePath);
-			RSAddFeatures.addStronghold(biome, biomeNamespace, biomePath);;
+			RSAddFeatures.addStronghold(biome, biomeNamespace, biomePath);
 			RSAddFeatures.addNetherTemple(biome, biomeNamespace, biomePath);
+			RSAddFeatures.addBadlandsTemple(biome, biomeNamespace, biomePath);
 		}
 	}
 	

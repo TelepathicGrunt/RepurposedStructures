@@ -41,13 +41,13 @@ public class NetherTemplePiece extends ScatteredStructurePiece
 
 	public NetherTemplePiece(Random random, int x, int z)
 	{
-		super(StructurePieces.NTP, random, x, 64, z, 12, 10, 15);
+		super(StructurePieces.NTHRTMP, random, x, 64, z, 12, 10, 15);
 	}
 
 
 	public NetherTemplePiece(TemplateManager templateManager, CompoundNBT data)
 	{
-		super(StructurePieces.NTP, data);
+		super(StructurePieces.NTHRTMP, data);
 	}
 
 
@@ -242,6 +242,8 @@ public class NetherTemplePiece extends ScatteredStructurePiece
 		this.setBlockState(world, Blocks.NETHER_BRICKS.getDefaultState(), 10, -2, 9, box);
 		this.setBlockState(world, Blocks.NETHER_BRICKS.getDefaultState(), 9, -1, 10, box);
 		this.setBlockState(world, Blocks.NETHER_BRICKS.getDefaultState(), 9, -1, 9, box);
+		this.setBlockState(world, Blocks.NETHER_BRICKS.getDefaultState(), 8, -1, 10, box);
+		this.setBlockState(world, Blocks.NETHER_BRICKS.getDefaultState(), 8, -1, 9, box);
 		this.setBlockState(world, Blocks.REDSTONE_WIRE.getDefaultState().with(RedstoneWireBlock.NORTH, RedstoneSide.SIDE), 8, -2, 9, box);
 		this.setBlockState(world, Blocks.REDSTONE_WIRE.getDefaultState().with(RedstoneWireBlock.SOUTH, RedstoneSide.SIDE), 8, -2, 10, box);
 		this.setBlockState(world, Blocks.REDSTONE_WIRE.getDefaultState(), 10, -1, 9, box);

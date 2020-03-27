@@ -10,9 +10,11 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 
    
-## (V.1.2.3 Changes) (1.15.2 Minecraft)
+## (V.1.3.0 Changes) (1.15.2 Minecraft)
   
 ##### Structures: 
+
+-Added Badlands Temple! They look similar to Desert Temples but are slightly more dangerous...
 
 -Fixed bug where setting the useVanillaStronghold config to true will spawn Vanilla Strongholds that are missing Hallway Chests and Silverfish Spawner in Portal Room. These two blocks will now generate correctly.
 
