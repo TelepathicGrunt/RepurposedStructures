@@ -59,7 +59,7 @@ public class JungleFortressStructure extends Structure<NoFeatureConfig>
 		ChunkPos chunkpos = this.getStartPositionForPosition(chunkGenerator, random, chunkPosX, chunkPosZ, 0, 0);
 		if (chunkPosX == chunkpos.x && chunkPosZ == chunkpos.z)
 		{
-			for (Biome nearbyBiome : chunkGenerator.getBiomeProvider().func_225530_a_(chunkPosX * 16 + 9, chunkGenerator.getSeaLevel(), chunkPosZ * 16 + 9, 32))
+			for (Biome nearbyBiome : chunkGenerator.getBiomeProvider().getBiomes(chunkPosX * 16 + 9, chunkGenerator.getSeaLevel(), chunkPosZ * 16 + 9, 32))
 			{
 				if (!chunkGenerator.hasStructure(nearbyBiome, this))
 				{
