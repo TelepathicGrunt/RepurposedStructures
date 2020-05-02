@@ -2,11 +2,8 @@
 <h2 style="text-align: center;"><strong><span style="font-size: 36px; color: #009611;">CURRENTLY FOR 1.15.2 MC</span></strong></h2>
 <p>&nbsp;</p>
 <p style="text-align: center;">&nbsp;</p>
-<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;Added Badlands Temple, Ocean Dungeons, </strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>i</strong></b></span></em><em><span style="font-size: 14px;"><b><strong>mproved several Mineshafts (especially Ocean Mineshafts) and more!</strong></b></span></em></p>
-<p style="text-align: center;">&nbsp;</p>
-<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Old News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;Added Nether styled Stronghold and Nether Jungle Temple!</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>Plus some bug fixed as well. Checkout changelog for more details.</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;Added Grassy Igloo and </strong></b></span></em><em><span style="font-size: 14px;"><b><strong>Stone Igloo!&nbsp;</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>Mineshafts in Jungles, Swamps, </strong></b></span></em><em><span style="font-size: 14px;"><b><strong>and </strong></b></span></em><em><span style="font-size: 14px;"><b><strong>Dark Forest now has vines inside!</strong></b></span></em></p>
 <p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;">&nbsp;</p>
@@ -16,7 +13,7 @@
 <p style="text-align: center;"><span style="font-size: 14px;">&nbsp;</span></p>
 <p style="text-align: left;"><span style="font-size: 14px;">&nbsp;<strong> &nbsp; Repurposed Structures is a mod about taking existing vanilla features and structures and creating new variants or modifications to them! Originally, most of the structures and features in this mod was actually made for my Ultra Amplified Dimension mod. but then I realized these features and structures would look great in the Overworld as well so I decided to take those structures and features and split them into their own mod. This mod! </strong></span></p>
 <p style="text-align: left;">&nbsp;</p>
-<p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; Currently, this mod creates a Nether Fortresses using Stonebrick blocks and spawns it in Jungles, Dungeons and Mineshafts now has more variants to match whatever biome they are in, Strongholds has a configurable size and has more Silverfish spawners, Giant Tree/Spruce Taiga Hills biomes has giant ore filled boulders that could have Diamond ore if you are extremely lucky, Taiga Mountain biomes now has tiny boulders, Swamps now has a new 2x2 swamp-like tree, and several new Desert Well variations were made for other biomes!</strong></span></p>
+<p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; Currently, this mod creates a Nether Fortresses using Stonebrick blocks and spawns it in Jungles, Dungeons and Mineshafts now has more variants to match whatever biome they are in, two new biome variants of Igloos, Strongholds has a configurable size and has more Silverfish spawners, Giant Tree/Spruce Taiga Hills biomes has giant ore filled boulders that could have Diamond ore if you are extremely lucky, Taiga Mountain biomes now has tiny boulders, Swamps now has a new 2x2 swamp-like tree, and several new Desert Well variations were made for other biomes!</strong></span></p>
 <p style="text-align: left;"><span style="font-size: 14px;">&nbsp;</span></p>
 <p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; You can use this mod in a modpack or download and modify the source code. It is all under MIT License so you can do whatever you want! Also, be sure to check out the images page for several screenshots of what the world looks like!&nbsp;And also, the section below this one talks about how to configure everything as I want players to have the ability to change things to their preferences.</strong></span></p>
 <p style="text-align: left;"><span style="font-size: 14px;">&nbsp;</span></p>
@@ -194,6 +191,15 @@
 <p><strong>Storage rooms has 4 chests instead of 1 due to them not having much loot naturally.</strong></p>
 <p><strong>Blaze spawners are added to storage room, the room with the pillar that holds 4 Torches and fountain room.</strong></p>
 <p><strong>The Silverfish spawner at the Portal Room is now a Blaze spawner.</strong></p>
+</div>
+<p>&nbsp;</p>
+<p><strong>Grassy Igloo and Stone Igloo loot</strong></p>
+<div class="spoiler">
+<p><strong><b>The basement's chest and Brewing Stand uses the normal Igloo's.</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>Grassy Igloo has a Bed, Crafting Table, Furnace, and a Lantern.</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>Stone Igloo has a Blast Furnace, Campfire, 1 Iron Ore, a Lantern, a Bed, and a Stone Pickaxe of Crafting Table.&nbsp;</b></strong></p>
 </div>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
