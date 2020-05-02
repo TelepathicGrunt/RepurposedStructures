@@ -12,7 +12,7 @@ import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMine
 import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftDesertStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftEndStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftHellStructure;
-import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftIceyStructure;
+import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftIcyStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftJungleStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftOceanStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftSavannaStructure;
@@ -62,7 +62,7 @@ public class RSFeatures
 	public static Structure<NoFeatureConfig>				DESERT_MINESHAFT		= new RSMineshaftDesertStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				END_MINESHAFT			= new RSMineshaftEndStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				HELL_MINESHAFT			= new RSMineshaftHellStructure(NoFeatureConfig::deserialize);
-	public static Structure<NoFeatureConfig>				ICEY_MINESHAFT			= new RSMineshaftIceyStructure(NoFeatureConfig::deserialize);
+	public static Structure<NoFeatureConfig>				ICY_MINESHAFT			= new RSMineshaftIcyStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				JUNGLE_MINESHAFT		= new RSMineshaftJungleStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				OCEAN_MINESHAFT			= new RSMineshaftOceanStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				SAVANNA_MINESHAFT		= new RSMineshaftSavannaStructure(NoFeatureConfig::deserialize);
@@ -106,7 +106,7 @@ public class RSFeatures
 		RegUtil.register(registry, DESERT_MINESHAFT, "desert_mineshaft");
 		RegUtil.register(registry, END_MINESHAFT, "end_mineshaft");
 		RegUtil.register(registry, HELL_MINESHAFT, "hell_mineshaft");
-		RegUtil.register(registry, ICEY_MINESHAFT, "icey_mineshaft");
+		RegUtil.register(registry, ICY_MINESHAFT, "icy_mineshaft");
 		RegUtil.register(registry, JUNGLE_MINESHAFT, "jungle_mineshaft");
 		RegUtil.register(registry, OCEAN_MINESHAFT, "ocean_mineshaft");
 		RegUtil.register(registry, SAVANNA_MINESHAFT, "savanna_mineshaft");

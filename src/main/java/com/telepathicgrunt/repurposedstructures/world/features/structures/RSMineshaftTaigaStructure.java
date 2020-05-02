@@ -64,7 +64,7 @@ public class RSMineshaftTaigaStructure extends Structure<NoFeatureConfig>
 	@Override
 	public String getStructureName()
 	{
-		return RepurposedStructures.MODID + ":taiga_mineshaft";
+		return RepurposedStructures.MODID + ":mineshaft_taiga";
 	}
 
 

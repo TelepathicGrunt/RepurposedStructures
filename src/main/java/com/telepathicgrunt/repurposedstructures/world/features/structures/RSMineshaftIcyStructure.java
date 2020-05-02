@@ -18,9 +18,9 @@ import net.minecraft.world.gen.feature.structure.StructureStart;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
 
-public class RSMineshaftIceyStructure extends Structure<NoFeatureConfig>
+public class RSMineshaftIcyStructure extends Structure<NoFeatureConfig>
 {
-	public RSMineshaftIceyStructure(Function<Dynamic<?>, ? extends NoFeatureConfig> config)
+	public RSMineshaftIcyStructure(Function<Dynamic<?>, ? extends NoFeatureConfig> config)
 	{
 		super(config);
 	}
@@ -58,14 +58,14 @@ public class RSMineshaftIceyStructure extends Structure<NoFeatureConfig>
 	@Override
 	public Structure.IStartFactory getStartFactory()
 	{
-		return RSMineshaftIceyStructure.Start::new;
+		return RSMineshaftIcyStructure.Start::new;
 	}
 
 
 	@Override
 	public String getStructureName()
 	{
-		return RepurposedStructures.MODID + ":icey_mineshaft";
+		return RepurposedStructures.MODID + ":mineshaft_icy";
 	}
 
 

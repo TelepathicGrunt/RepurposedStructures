@@ -64,7 +64,7 @@ public class RSMineshaftHellStructure extends Structure<NoFeatureConfig>
 	@Override
 	public String getStructureName()
 	{
-		return RepurposedStructures.MODID + ":nether_mineshaft";
+		return RepurposedStructures.MODID + ":mineshaft_nether";
 	}
 
 

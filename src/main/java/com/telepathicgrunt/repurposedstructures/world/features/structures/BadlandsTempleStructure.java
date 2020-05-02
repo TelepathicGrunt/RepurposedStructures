@@ -76,7 +76,7 @@ public class BadlandsTempleStructure extends Structure<NoFeatureConfig>
 	@Override
 	public String getStructureName()
 	{
-		return RepurposedStructures.MODID + ":badlands_temple";
+		return RepurposedStructures.MODID + ":temple_badlands";
 	}
 
 

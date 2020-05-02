@@ -77,7 +77,7 @@ public class NetherTempleStructure extends Structure<NoFeatureConfig>
 	@Override
 	public String getStructureName()
 	{
-		return RepurposedStructures.MODID+":nether_temple";
+		return RepurposedStructures.MODID+":temple_nether";
 	}
 
 

@@ -84,7 +84,7 @@ public class JungleFortressStructure extends Structure<NoFeatureConfig>
 	@Override
 	public String getStructureName()
 	{
-		return RepurposedStructures.MODID + ":jungle_fortress";
+		return RepurposedStructures.MODID + ":fortress_jungle";
 	}
 
 

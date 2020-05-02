@@ -82,7 +82,7 @@ public class IglooGrassyStructure extends Structure<NoFeatureConfig>
 	@Override
 	public String getStructureName()
 	{
-		return RepurposedStructures.MODID + ":grassy_igloo";
+		return RepurposedStructures.MODID + ":igloo_grassy";
 	}
 
 
@@ -109,7 +109,7 @@ public class IglooGrassyStructure extends Structure<NoFeatureConfig>
 			int z = chunkZ * 16;
 			BlockPos blockpos = new BlockPos(x, 90, z);
 			Rotation rotation = Rotation.values()[this.rand.nextInt(Rotation.values().length)];
-			RSIglooPieces.func_207617_a(templateManagerIn, TOP_PIECE_RL, Blocks.GRASS_BLOCK, blockpos, rotation, this.components, this.rand, IFeatureConfig.NO_FEATURE_CONFIG);
+			RSIglooPieces.func_207617_a(templateManagerIn, TOP_PIECE_RL, Blocks.PODZOL, blockpos, rotation, this.components, this.rand, IFeatureConfig.NO_FEATURE_CONFIG);
 			this.recalculateStructureSize();
 		}
 	}

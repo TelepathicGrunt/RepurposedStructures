@@ -65,7 +65,7 @@ public class RSMineshaftSwampOrDarkForestStructure extends Structure<NoFeatureCo
 	@Override
 	public String getStructureName()
 	{
-		return RepurposedStructures.MODID + ":swamp_or_dark_forest_mineshaft";
+		return RepurposedStructures.MODID + ":mineshaft_swamp_or_dark_forest";
 	}
 
 

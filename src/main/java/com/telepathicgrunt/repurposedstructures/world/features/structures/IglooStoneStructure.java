@@ -82,7 +82,7 @@ public class IglooStoneStructure extends Structure<NoFeatureConfig>
 	@Override
 	public String getStructureName()
 	{
-		return RepurposedStructures.MODID + ":stone_igloo";
+		return RepurposedStructures.MODID + ":igloo_stone";
 	}
 
 

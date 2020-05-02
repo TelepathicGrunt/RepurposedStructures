@@ -64,7 +64,7 @@ public class RSMineshaftOceanStructure extends Structure<NoFeatureConfig>
 	@Override
 	public String getStructureName()
 	{
-		return RepurposedStructures.MODID + ":ocean_mineshaft";
+		return RepurposedStructures.MODID + ":mineshaft_ocean";
 	}
 
 

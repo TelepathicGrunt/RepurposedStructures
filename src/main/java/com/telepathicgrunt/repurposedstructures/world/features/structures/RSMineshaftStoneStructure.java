@@ -65,7 +65,7 @@ public class RSMineshaftStoneStructure extends Structure<NoFeatureConfig>
 	@Override
 	public String getStructureName()
 	{
-		return RepurposedStructures.MODID + ":stone_mineshaft";
+		return RepurposedStructures.MODID + ":mineshaft_stone";
 	}
 
 
