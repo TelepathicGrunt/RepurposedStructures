@@ -6,8 +6,17 @@ import com.telepathicgrunt.repurposedstructures.utils.RegUtil;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.BadlandsTempleStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.JungleFortressStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.NetherTempleStructure;
-import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftConfig;
-import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftStructure;
+import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftBirchStructure;
+import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftDesertStructure;
+import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftEndStructure;
+import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftHellStructure;
+import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftIceyStructure;
+import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftJungleStructure;
+import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftOceanStructure;
+import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftSavannaStructure;
+import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftStoneStructure;
+import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftSwampOrDarkForestStructure;
+import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftTaigaStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.RSStrongholdStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.StructurePieces;
 
@@ -47,7 +56,17 @@ public class RSFeatures
 	public static AbstractTreeFeature<TreeFeatureConfig>	HORNED_SWAMP_TREE		= new TreeSwampHorned(TreeFeatureConfig::func_227338_a_);
 	public static Feature<NoFeatureConfig>					SHORT_VINES				= new VinesShort(NoFeatureConfig::deserialize);
 
-	public static Structure<RSMineshaftConfig>				MINESHAFT				= new RSMineshaftStructure(RSMineshaftConfig::deserialize);
+	public static Structure<NoFeatureConfig>				BIRCH_MINESHAFT			= new RSMineshaftBirchStructure(NoFeatureConfig::deserialize);
+	public static Structure<NoFeatureConfig>				DESERT_MINESHAFT		= new RSMineshaftDesertStructure(NoFeatureConfig::deserialize);
+	public static Structure<NoFeatureConfig>				END_MINESHAFT			= new RSMineshaftEndStructure(NoFeatureConfig::deserialize);
+	public static Structure<NoFeatureConfig>				HELL_MINESHAFT			= new RSMineshaftHellStructure(NoFeatureConfig::deserialize);
+	public static Structure<NoFeatureConfig>				ICEY_MINESHAFT			= new RSMineshaftIceyStructure(NoFeatureConfig::deserialize);
+	public static Structure<NoFeatureConfig>				JUNGLE_MINESHAFT		= new RSMineshaftJungleStructure(NoFeatureConfig::deserialize);
+	public static Structure<NoFeatureConfig>				OCEAN_MINESHAFT			= new RSMineshaftOceanStructure(NoFeatureConfig::deserialize);
+	public static Structure<NoFeatureConfig>				SAVANNA_MINESHAFT		= new RSMineshaftSavannaStructure(NoFeatureConfig::deserialize);
+	public static Structure<NoFeatureConfig>				STONE_MINESHAFT			= new RSMineshaftStoneStructure(NoFeatureConfig::deserialize);
+	public static Structure<NoFeatureConfig>				SWAMP_OR_DARK_FOREST_MINESHAFT	= new RSMineshaftSwampOrDarkForestStructure(NoFeatureConfig::deserialize);
+	public static Structure<NoFeatureConfig>				TAIGA_MINESHAFT			= new RSMineshaftTaigaStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				STRONGHOLD				= new RSStrongholdStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				JUNGLE_FORTRESS			= new JungleFortressStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				NETHER_TEMPLE			= new NetherTempleStructure(NoFeatureConfig::deserialize);
@@ -78,8 +97,18 @@ public class RSFeatures
 		RegUtil.register(registry, BOULDER_TINY, "boulder_tiny");
 		RegUtil.register(registry, HORNED_SWAMP_TREE, "horned_swamp_tree");
 		RegUtil.register(registry, SHORT_VINES, "short_vines");
-		
-		RegUtil.register(registry, MINESHAFT, "mineshaft");
+
+		RegUtil.register(registry, BIRCH_MINESHAFT, "birch_mineshaft");
+		RegUtil.register(registry, DESERT_MINESHAFT, "desert_mineshaft");
+		RegUtil.register(registry, END_MINESHAFT, "end_mineshaft");
+		RegUtil.register(registry, HELL_MINESHAFT, "hell_mineshaft");
+		RegUtil.register(registry, ICEY_MINESHAFT, "icey_mineshaft");
+		RegUtil.register(registry, JUNGLE_MINESHAFT, "jungle_mineshaft");
+		RegUtil.register(registry, OCEAN_MINESHAFT, "ocean_mineshaft");
+		RegUtil.register(registry, SAVANNA_MINESHAFT, "savanna_mineshaft");
+		RegUtil.register(registry, STONE_MINESHAFT, "stone_mineshaft");
+		RegUtil.register(registry, SWAMP_OR_DARK_FOREST_MINESHAFT, "swamp_or_dark_forest_mineshaft");
+		RegUtil.register(registry, TAIGA_MINESHAFT, "taiga_mineshaft");
 		RegUtil.register(registry, JUNGLE_FORTRESS, "jungle_fortress");
 		RegUtil.register(registry, NETHER_TEMPLE, "nether_temple");
 		RegUtil.register(registry, BADLANDS_TEMPLE, "badlands_temple");
@@ -90,7 +119,7 @@ public class RSFeatures
 		//registers the structure pieces.
 		StructurePieces.registerStructurePieces();
 	}
-
+	
 
 	/**
 	 * Helper method that will return a random dungeon mob that other mods can influence.

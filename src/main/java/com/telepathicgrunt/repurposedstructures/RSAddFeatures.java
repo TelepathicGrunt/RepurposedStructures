@@ -4,8 +4,6 @@ import java.util.Map;
 
 import com.mojang.datafixers.Dynamic;
 import com.telepathicgrunt.repurposedstructures.world.features.RSFeatures;
-import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftConfig;
-import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftStructure;
 
 import net.minecraft.block.Blocks;
 import net.minecraft.nbt.INBT;
@@ -34,7 +32,7 @@ public class RSAddFeatures
 	
 	public static void addMineshafts(Biome biome, String biomeNamespace, String biomePath)
 	{
-		biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.MINESHAFT.withConfiguration(new RSMineshaftConfig(RSMineshaftStructure.Type.BIRCH)).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+		addRSMineshafts(biome);
 		
 		if(RepurposedStructures.RSConfig.mineshaftSpawnrate.get() == 0)
 		{
@@ -49,7 +47,7 @@ public class RSAddFeatures
 			{
 				//replace vanilla mineshaft with our own
 				biome.structures.remove(Feature.MINESHAFT);
-				biome.addStructure(RSFeatures.MINESHAFT.withConfiguration(new RSMineshaftConfig(RSMineshaftStructure.Type.BIRCH)));
+				biome.addStructure(RSFeatures.BIRCH_MINESHAFT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 			}
 		}
 		
@@ -61,7 +59,7 @@ public class RSAddFeatures
 			{
 				//replace vanilla mineshaft with our own
 				biome.structures.remove(Feature.MINESHAFT);
-				biome.addStructure(RSFeatures.MINESHAFT.withConfiguration(new RSMineshaftConfig(RSMineshaftStructure.Type.JUNGLE)));
+				biome.addStructure(RSFeatures.JUNGLE_MINESHAFT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 			}
 		}
 		
@@ -73,7 +71,7 @@ public class RSAddFeatures
 			{
 				//replace vanilla mineshaft with our own
 				biome.structures.remove(Feature.MINESHAFT);
-				biome.addStructure(RSFeatures.MINESHAFT.withConfiguration(new RSMineshaftConfig(RSMineshaftStructure.Type.DESERT)));
+				biome.addStructure(RSFeatures.DESERT_MINESHAFT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 			}
 		}
 		
@@ -85,7 +83,7 @@ public class RSAddFeatures
 			{
 				//replace vanilla mineshaft with our own
 				biome.structures.remove(Feature.MINESHAFT);
-				biome.addStructure(RSFeatures.MINESHAFT.withConfiguration(new RSMineshaftConfig(RSMineshaftStructure.Type.STONE)));
+				biome.addStructure(RSFeatures.STONE_MINESHAFT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 			}
 		}
 		
@@ -97,7 +95,7 @@ public class RSAddFeatures
 			{
 				//replace vanilla mineshaft with our own
 				biome.structures.remove(Feature.MINESHAFT);
-				biome.addStructure(RSFeatures.MINESHAFT.withConfiguration(new RSMineshaftConfig(RSMineshaftStructure.Type.SAVANNA)));
+				biome.addStructure(RSFeatures.SAVANNA_MINESHAFT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 			}
 		}
 		
@@ -109,7 +107,7 @@ public class RSAddFeatures
 			{
 				//replace vanilla mineshaft with our own
 				biome.structures.remove(Feature.MINESHAFT);
-				biome.addStructure(RSFeatures.MINESHAFT.withConfiguration(new RSMineshaftConfig(RSMineshaftStructure.Type.ICEY)));
+				biome.addStructure(RSFeatures.ICEY_MINESHAFT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 			}
 		}
 		
@@ -121,7 +119,7 @@ public class RSAddFeatures
 			{
 				//replace vanilla mineshaft with our own
 				biome.structures.remove(Feature.MINESHAFT);
-				biome.addStructure(RSFeatures.MINESHAFT.withConfiguration(new RSMineshaftConfig(RSMineshaftStructure.Type.OCEAN)));
+				biome.addStructure(RSFeatures.OCEAN_MINESHAFT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 			}
 		}
 		
@@ -133,7 +131,7 @@ public class RSAddFeatures
 			{
 				//replace vanilla mineshaft with our own
 				biome.structures.remove(Feature.MINESHAFT);
-				biome.addStructure(RSFeatures.MINESHAFT.withConfiguration(new RSMineshaftConfig(RSMineshaftStructure.Type.TAIGA)));
+				biome.addStructure(RSFeatures.TAIGA_MINESHAFT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 			}
 		}
 		
@@ -145,7 +143,7 @@ public class RSAddFeatures
 			{
 				//replace vanilla mineshaft with our own
 				biome.structures.remove(Feature.MINESHAFT);
-				biome.addStructure(RSFeatures.MINESHAFT.withConfiguration(new RSMineshaftConfig(RSMineshaftStructure.Type.SWAMPORDARKFOREST)));
+				biome.addStructure(RSFeatures.SWAMP_OR_DARK_FOREST_MINESHAFT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 			}
 		}
 		
@@ -153,16 +151,32 @@ public class RSAddFeatures
 				(biome.getCategory() == Category.THEEND && biome != Biomes.THE_END && biome != Biomes.SMALL_END_ISLANDS) && 
 				(biomeNamespace.equals("minecraft") || RepurposedStructures.RSConfig.addMineshaftsToModdedBiomes.get()))
 		{
-			biome.addStructure(RSFeatures.MINESHAFT.withConfiguration(new RSMineshaftConfig(RSMineshaftStructure.Type.END)));
+			biome.addStructure(RSFeatures.END_MINESHAFT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 		}
 		
 		else if(RepurposedStructures.RSConfig.netherMineshafts.get() && 
 				biome.getCategory() == Category.NETHER && 
 				(biomeNamespace.equals("minecraft") || RepurposedStructures.RSConfig.addMineshaftsToModdedBiomes.get()))
 		{
-			biome.addStructure(RSFeatures.MINESHAFT.withConfiguration(new RSMineshaftConfig(RSMineshaftStructure.Type.HELL)));
+			biome.addStructure(RSFeatures.HELL_MINESHAFT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 		}
 	}
+	
+	public static void addRSMineshafts(Biome biome)
+	{
+		biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.BIRCH_MINESHAFT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+		biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.DESERT_MINESHAFT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+		biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.END_MINESHAFT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+		biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.HELL_MINESHAFT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+		biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.ICEY_MINESHAFT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+		biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.JUNGLE_MINESHAFT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+		biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.OCEAN_MINESHAFT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+		biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.SAVANNA_MINESHAFT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+		biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.STONE_MINESHAFT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+		biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.SWAMP_OR_DARK_FOREST_MINESHAFT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+		biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.TAIGA_MINESHAFT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+	}
+	
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// JUNGLE FORTRESS //

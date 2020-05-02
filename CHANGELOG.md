@@ -10,7 +10,11 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 
    
-## (V.1.3.1 Changes) (1.15.2 Minecraft)
+## (V.1.4.0 Changes) (1.15.2 Minecraft)
+  
+##### Structures: 
+  
+-Split up all Mineshafts into separate distinct structures in backend so now the /locate command can find specific types of Repurposed Structures Mineshafts that are within 1600 blocks of you! (the command cannot search further than that due to a hardcoded search radius in MC's code) Though this locate command won't find old Mineshafts in worlds made with previous versions of Repurposed Structures.
   
 ##### Misc:
 

@@ -5,53 +5,66 @@ import java.util.function.Function;
 
 import com.mojang.datafixers.Dynamic;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.world.features.RSFeatures;
 
 import net.minecraft.util.SharedSeedRandom;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeManager;
 import net.minecraft.world.gen.ChunkGenerator;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.StructureStart;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
 
-public class RSMineshaftStructure extends Structure<RSMineshaftConfig>
+public class RSMineshaftHellStructure extends Structure<NoFeatureConfig>
 {
-	public RSMineshaftStructure(Function<Dynamic<?>, ? extends RSMineshaftConfig> p_i51427_1_)
+	public RSMineshaftHellStructure(Function<Dynamic<?>, ? extends NoFeatureConfig> config)
 	{
-		super(p_i51427_1_);
+		super(config);
 	}
 
+	@Override
+	protected ChunkPos getStartPositionForPosition(ChunkGenerator<?> chunkGenerator, Random random, int x, int z, int spacingOffsetsX, int spacingOffsetsZ)
+	{
+		int xChunk = x + spacingOffsetsX;
+		int zChunk = z + spacingOffsetsZ;
+		((SharedSeedRandom) random).setLargeFeatureSeed(chunkGenerator.getSeed() + 4, xChunk, zChunk);
+		if(random.nextDouble() < (RepurposedStructures.RSConfig.mineshaftSpawnrate.get()/10000D)) {
+			return new ChunkPos(xChunk, zChunk);
+		}
+		
+		return new ChunkPos(Integer.MAX_VALUE, Integer.MAX_VALUE); //always will fail
+	}
 
 	@Override
 	public boolean func_225558_a_(BiomeManager biomeManager, ChunkGenerator<?> chunkGenerator, Random random, int chunkPosX, int chunkPosZ, Biome biome)
 	{
-		((SharedSeedRandom) random).setLargeFeatureSeed(chunkGenerator.getSeed(), chunkPosX, chunkPosZ);
-
-		if (chunkGenerator.hasStructure(biome, this))
+		ChunkPos chunkpos = this.getStartPositionForPosition(chunkGenerator, random, chunkPosX, chunkPosZ, 0, 0);
+		if (chunkPosX == chunkpos.x && chunkPosZ == chunkpos.z)
 		{
-			return random.nextDouble() < (RepurposedStructures.RSConfig.mineshaftSpawnrate.get()) / 10000D;
+			if (chunkGenerator.hasStructure(biome, this))
+			{
+				return true;
+			}
 		}
-		else
-		{
-			return false;
-		}
+		
+		return false;
 	}
 
 
 	@Override
 	public Structure.IStartFactory getStartFactory()
 	{
-		return RSMineshaftStructure.Start::new;
+		return RSMineshaftHellStructure.Start::new;
 	}
 
 
 	@Override
 	public String getStructureName()
 	{
-		return RepurposedStructures.MODID + ":mineshaft";
+		return RepurposedStructures.MODID + ":nether_mineshaft";
 	}
 
 
@@ -63,9 +76,6 @@ public class RSMineshaftStructure extends Structure<RSMineshaftConfig>
 
 	public static class Start extends StructureStart
 	{
-		private RSMineshaftStructure.Type type;
-
-
 		public Start(Structure<?> structureIn, int chunkX, int chunkZ, MutableBoundingBox mutableBoundingBox, int referenceIn, long seedIn)
 		{
 			super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
@@ -75,33 +85,13 @@ public class RSMineshaftStructure extends Structure<RSMineshaftConfig>
 		@Override
 		public void init(ChunkGenerator<?> generator, TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn)
 		{
-			RSMineshaftConfig mineshaftconfig = generator.getStructureConfig(biomeIn, RSFeatures.MINESHAFT);
-			this.type = mineshaftconfig.type;
-			RSMineshaftPieces.Room structuremineshaftpiecesua$room = new RSMineshaftPieces.Room(0, this.rand, (chunkX << 4) + 2, (chunkZ << 4) + 2, this.type);
+			RSMineshaftPieces.Room structuremineshaftpiecesua$room = new RSMineshaftPieces.Room(0, this.rand, (chunkX << 4) + 2, (chunkZ << 4) + 2, RSMineshaftPieces.Type.HELL);
 			this.components.add(structuremineshaftpiecesua$room);
 
 			structuremineshaftpiecesua$room.buildComponent(structuremineshaftpiecesua$room, this.components, this.rand);
 			this.recalculateStructureSize();
-            
-			if(this.type == Type.END)
-			{
-				this.func_214626_a(this.rand, 30, 40);
-			}
-			else
-			{
-				this.func_214628_a(generator.getSeaLevel(), this.rand, 10);
-			}
-            
+            this.func_214628_a(generator.getSeaLevel(), this.rand, 10);
 		}
 	}
 
-	public static enum Type
-	{
-		ICEY, BIRCH, JUNGLE, TAIGA, DESERT, STONE, SAVANNA, SWAMPORDARKFOREST, END, HELL, OCEAN;
-
-		public static RSMineshaftStructure.Type byId(int id)
-		{
-			return id >= 0 && id < values().length ? values()[id] : BIRCH;
-		}
-	}
 }

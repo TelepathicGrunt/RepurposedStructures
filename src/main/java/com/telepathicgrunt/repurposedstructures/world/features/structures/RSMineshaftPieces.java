@@ -7,7 +7,6 @@ import javax.annotation.Nullable;
 
 import com.google.common.collect.Lists;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftStructure.Type;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -46,7 +45,17 @@ import net.minecraft.world.storage.loot.LootTables;
 public class RSMineshaftPieces
 {
 
-	private static RSMineshaftPieces.Piece createRandomShaftPiece(List<StructurePiece> p_189940_0_, Random p_189940_1_, int p_189940_2_, int p_189940_3_, int p_189940_4_, @Nullable Direction p_189940_5_, int p_189940_6_, RSMineshaftStructure.Type type)
+	public static enum Type
+	{
+		ICEY, BIRCH, JUNGLE, TAIGA, DESERT, STONE, SAVANNA, SWAMPORDARKFOREST, END, HELL, OCEAN;
+
+		public static RSMineshaftPieces.Type byId(int id)
+		{
+			return id >= 0 && id < values().length ? values()[id] : BIRCH;
+		}
+	}
+	
+	private static RSMineshaftPieces.Piece createRandomShaftPiece(List<StructurePiece> p_189940_0_, Random p_189940_1_, int p_189940_2_, int p_189940_3_, int p_189940_4_, @Nullable Direction p_189940_5_, int p_189940_6_, RSMineshaftPieces.Type type)
 	{
 		int i = p_189940_1_.nextInt(100);
 
@@ -90,7 +99,7 @@ public class RSMineshaftPieces
 		}
 		else if (Math.abs(p_189938_3_ - p_189938_0_.getBoundingBox().minX) <= 80 && Math.abs(p_189938_5_ - p_189938_0_.getBoundingBox().minZ) <= 80)
 		{
-			RSMineshaftStructure.Type mapgenmineshaft$type = ((RSMineshaftPieces.Piece) p_189938_0_).mineShaftType;
+			RSMineshaftPieces.Type mapgenmineshaft$type = ((RSMineshaftPieces.Piece) p_189938_0_).mineShaftType;
 			RSMineshaftPieces.Piece structuremineshaftpieces$peice = createRandomShaftPiece(p_189938_1_, p_189938_2_, p_189938_3_, p_189938_4_, p_189938_5_, p_189938_6_, p_189938_7_ + 1, mapgenmineshaft$type);
 
 			if (structuremineshaftpieces$peice != null)
@@ -138,7 +147,7 @@ public class RSMineshaftPieces
 		}
 
 
-		public Corridor(int p_i47140_1_, Random p_i47140_2_, MutableBoundingBox p_i47140_3_, Direction p_i47140_4_, RSMineshaftStructure.Type p_i47140_5_)
+		public Corridor(int p_i47140_1_, Random p_i47140_2_, MutableBoundingBox p_i47140_3_, Direction p_i47140_4_, RSMineshaftPieces.Type p_i47140_5_)
 		{
 			super(StructurePieces.MINESHAFT_CORRIDOR_RS, p_i47140_1_, p_i47140_5_);
 			this.setCoordBaseMode(p_i47140_4_);
@@ -347,7 +356,7 @@ public class RSMineshaftPieces
 		@Override
 		public boolean func_225577_a_(IWorld world, ChunkGenerator<?> p_225577_2_, Random random, MutableBoundingBox box, ChunkPos p_74875_4_)
 		{
-			Boolean isOceanType = this.mineShaftType == RSMineshaftStructure.Type.OCEAN;
+			Boolean isOceanType = this.mineShaftType == RSMineshaftPieces.Type.OCEAN;
 			if (isOceanType ? this.isAirInStructureBoundingBox(world, box) : this.isLiquidInStructureBoundingBox(world, box))
 			{
 				return false;
@@ -361,7 +370,7 @@ public class RSMineshaftPieces
 
 				if (this.attemptSpawnerCreation)
 				{
-					if (isOceanType || this.mineShaftType == RSMineshaftStructure.Type.HELL || this.mineShaftType == RSMineshaftStructure.Type.END)
+					if (isOceanType || this.mineShaftType == RSMineshaftPieces.Type.HELL || this.mineShaftType == RSMineshaftPieces.Type.END)
 					{
 						this.generateMaybeBox(world, box, random, 0.6F, 0, 0, 0, 2, 0, offsetInSection, getDecorativeBlock(random), getDecorativeBlock(random), false, true);
 
@@ -568,7 +577,7 @@ public class RSMineshaftPieces
 		}
 
 
-		public Cross(int p_i50455_1_, MutableBoundingBox p_i50455_2_, @Nullable Direction p_i50455_3_, RSMineshaftStructure.Type p_i50455_4_)
+		public Cross(int p_i50455_1_, MutableBoundingBox p_i50455_2_, @Nullable Direction p_i50455_3_, RSMineshaftPieces.Type p_i50455_4_)
 		{
 			super(StructurePieces.MINESHAFT_CROSSING_RS, p_i50455_1_, p_i50455_4_);
 			this.corridorDirection = p_i50455_3_;
@@ -677,7 +686,7 @@ public class RSMineshaftPieces
 		@Override
 		public boolean func_225577_a_(IWorld world, ChunkGenerator<?> p_225577_2_, Random random, MutableBoundingBox MutableBoundingBoxIn, ChunkPos p_74875_4_)
 		{
-			Boolean isOceanType = this.mineShaftType == RSMineshaftStructure.Type.OCEAN;
+			Boolean isOceanType = this.mineShaftType == RSMineshaftPieces.Type.OCEAN;
 			if (isOceanType ? this.isAirInStructureBoundingBox(world, MutableBoundingBoxIn) : this.isLiquidInStructureBoundingBox(world, MutableBoundingBoxIn))
 			{
 				return false;
@@ -734,7 +743,7 @@ public class RSMineshaftPieces
 	{
 		private final List<MutableBoundingBox> roomsLinkedToTheRoom = Lists.<MutableBoundingBox>newLinkedList();
 
-		public Room(int p_i47137_1_, Random p_i47137_2_, int p_i47137_3_, int p_i47137_4_, RSMineshaftStructure.Type p_i47137_5_)
+		public Room(int p_i47137_1_, Random p_i47137_2_, int p_i47137_3_, int p_i47137_4_, RSMineshaftPieces.Type p_i47137_5_)
 		{
 			super(StructurePieces.MINESHAFT_ROOM_RS, p_i47137_1_, p_i47137_5_);
 			this.mineShaftType = p_i47137_5_;
@@ -861,15 +870,15 @@ public class RSMineshaftPieces
 		{
 			BlockState flooring;
 
-			if (this.mineShaftType == RSMineshaftStructure.Type.HELL)
+			if (this.mineShaftType == RSMineshaftPieces.Type.HELL)
 			{
 				flooring = Blocks.SOUL_SAND.getDefaultState();
 			}
-			else if (this.mineShaftType == RSMineshaftStructure.Type.END)
+			else if (this.mineShaftType == RSMineshaftPieces.Type.END)
 			{
 				flooring = Blocks.END_STONE_BRICKS.getDefaultState();
 			}
-			else if (this.mineShaftType == RSMineshaftStructure.Type.OCEAN)
+			else if (this.mineShaftType == RSMineshaftPieces.Type.OCEAN)
 			{
 				flooring = Blocks.CLAY.getDefaultState();
 			}
@@ -965,7 +974,7 @@ public class RSMineshaftPieces
 
 	public static class Stairs extends RSMineshaftPieces.Piece
 	{
-		public Stairs(int p_i50449_1_, MutableBoundingBox p_i50449_2_, Direction p_i50449_3_, RSMineshaftStructure.Type p_i50449_4_)
+		public Stairs(int p_i50449_1_, MutableBoundingBox p_i50449_2_, Direction p_i50449_3_, RSMineshaftPieces.Type p_i50449_4_)
 		{
 			super(StructurePieces.MINESHAFT_STAIRS_RS, p_i50449_1_, p_i50449_4_);
 			this.setCoordBaseMode(p_i50449_3_);
@@ -1043,7 +1052,7 @@ public class RSMineshaftPieces
 		@Override
 		public boolean func_225577_a_(IWorld world, ChunkGenerator<?> p_225577_2_, Random random, MutableBoundingBox MutableBoundingBoxIn, ChunkPos p_74875_4_)
 		{
-			Boolean isOceanType = this.mineShaftType == RSMineshaftStructure.Type.OCEAN;
+			Boolean isOceanType = this.mineShaftType == RSMineshaftPieces.Type.OCEAN;
 			if (isOceanType ? this.isAirInStructureBoundingBox(world, MutableBoundingBoxIn) : this.isLiquidInStructureBoundingBox(world, MutableBoundingBoxIn))
 			{
 				return false;
@@ -1065,9 +1074,9 @@ public class RSMineshaftPieces
 
 	abstract static class Piece extends StructurePiece
 	{
-		protected RSMineshaftStructure.Type mineShaftType;
+		protected RSMineshaftPieces.Type mineShaftType;
 
-		public Piece(IStructurePieceType piece, int componentType, RSMineshaftStructure.Type mineshaftType)
+		public Piece(IStructurePieceType piece, int componentType, RSMineshaftPieces.Type mineshaftType)
 		{
 			super(piece, componentType);
 			this.mineShaftType = mineshaftType;
@@ -1077,7 +1086,7 @@ public class RSMineshaftPieces
 		public Piece(IStructurePieceType piece, CompoundNBT data)
 		{
 			super(piece, data);
-			this.mineShaftType = RSMineshaftStructure.Type.byId(data.getInt("MST"));
+			this.mineShaftType = RSMineshaftPieces.Type.byId(data.getInt("MST"));
 		}
 
 
