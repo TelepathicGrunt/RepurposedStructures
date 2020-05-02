@@ -15,6 +15,7 @@ import net.minecraft.block.RailBlock;
 import net.minecraft.block.RedstoneLampBlock;
 import net.minecraft.block.RedstoneWireBlock;
 import net.minecraft.block.RotatedPillarBlock;
+import net.minecraft.block.VineBlock;
 import net.minecraft.block.WallTorchBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityType;
@@ -54,7 +55,7 @@ public class RSMineshaftPieces
 			return id >= 0 && id < values().length ? values()[id] : BIRCH;
 		}
 	}
-	
+
 	private static RSMineshaftPieces.Piece createRandomShaftPiece(List<StructurePiece> p_189940_0_, Random p_189940_1_, int p_189940_2_, int p_189940_3_, int p_189940_4_, @Nullable Direction p_189940_5_, int p_189940_6_, RSMineshaftPieces.Type type)
 	{
 		int i = p_189940_1_.nextInt(100);
@@ -470,6 +471,15 @@ public class RSMineshaftPieces
 					}
 				}
 
+				if (this.mineShaftType == RSMineshaftPieces.Type.JUNGLE)
+				{
+					fillWithVines(world, random, box, 5, 0, 0, 0, 2, 2, offsetInSection);
+				}
+				else if (this.mineShaftType == RSMineshaftPieces.Type.SWAMPORDARKFOREST)
+				{
+					fillWithVines(world, random, box, 2, 0, 0, 0, 2, 2, offsetInSection);
+				}
+				
 				return true;
 			}
 		}
@@ -725,6 +735,15 @@ public class RSMineshaftPieces
 					}
 				}
 
+				if (this.mineShaftType == RSMineshaftPieces.Type.JUNGLE)
+				{
+					fillWithVines(world, random, MutableBoundingBoxIn, 5, this.boundingBox.minX, this.boundingBox.minY, this.boundingBox.minZ, this.boundingBox.maxX, this.boundingBox.maxY, this.boundingBox.maxZ);
+				}
+				else if (this.mineShaftType == RSMineshaftPieces.Type.SWAMPORDARKFOREST)
+				{
+					fillWithVines(world, random, MutableBoundingBoxIn, 2, this.boundingBox.minX, this.boundingBox.minY, this.boundingBox.minZ, this.boundingBox.maxX, this.boundingBox.maxY, this.boundingBox.maxZ);
+				}
+				
 				return true;
 			}
 		}
@@ -887,35 +906,26 @@ public class RSMineshaftPieces
 				flooring = getFloorBlock().getMaterial() == Material.WOOD ? Blocks.COARSE_DIRT.getDefaultState() : getFloorBlock();
 			}
 
-			if (this.boundingBox.getYSize() > 100)
+			this.fillWithBlocks(world, box, this.boundingBox.minX, this.boundingBox.minY, this.boundingBox.minZ, this.boundingBox.maxX, this.boundingBox.minY, this.boundingBox.maxZ, flooring, getFillingBlock(), false);
+			this.fillWithBlocks(world, box, this.boundingBox.minX, this.boundingBox.minY + 1, this.boundingBox.minZ, this.boundingBox.maxX, Math.min(this.boundingBox.minY + 3, this.boundingBox.maxY), this.boundingBox.maxZ, getFillingBlock(), getFillingBlock(), false);
+
+			for (MutableBoundingBox MutableBoundingBox : this.roomsLinkedToTheRoom)
 			{
-				// floor
-				this.fillWithBlocks(world, box, this.boundingBox.minX - 10, this.boundingBox.minY, this.boundingBox.minZ - 10, this.boundingBox.maxX + 8, this.boundingBox.minY, this.boundingBox.maxZ + 10, flooring, getFillingBlock(), false);
-				this.fillWithBlocks(world, box, this.boundingBox.minX - 3, this.boundingBox.minY + 1, this.boundingBox.minZ - 3, this.boundingBox.maxX + 1, Math.min(this.boundingBox.minY + 3, this.boundingBox.maxY), this.boundingBox.maxZ + 3, getFillingBlock(), getFillingBlock(), false);
-
-				for (MutableBoundingBox MutableBoundingBox : this.roomsLinkedToTheRoom)
-				{
-					this.fillWithBlocks(world, box, MutableBoundingBox.minX, MutableBoundingBox.maxY - 2, MutableBoundingBox.minZ, MutableBoundingBox.maxX, MutableBoundingBox.maxY, MutableBoundingBox.maxZ, getFillingBlock(), getFillingBlock(), false);
-				}
-
-				// wall
-				this.randomlyRareFillWithBlocks(world, box, this.boundingBox.minX - 1, this.boundingBox.minY + 4, this.boundingBox.minZ - 1, this.boundingBox.maxX, this.boundingBox.maxY, this.boundingBox.maxZ + 1, getFillingBlock(), false);
-				this.updateLiquidBlocks(world, box, this.boundingBox.minX - 5, this.boundingBox.minY + 4, this.boundingBox.minZ - 5, this.boundingBox.maxX + 5, this.boundingBox.maxY + 4, this.boundingBox.maxZ + 7);
-				return true;
+				this.fillWithBlocks(world, box, MutableBoundingBox.minX, MutableBoundingBox.maxY - 2, MutableBoundingBox.minZ, MutableBoundingBox.maxX, MutableBoundingBox.maxY, MutableBoundingBox.maxZ, getFillingBlock(), getFillingBlock(), false);
 			}
-			else
+
+			this.randomlyRareFillWithBlocks(world, box, this.boundingBox.minX, this.boundingBox.minY + 4, this.boundingBox.minZ, this.boundingBox.maxX, this.boundingBox.maxY, this.boundingBox.maxZ, getFillingBlock(), false);
+
+			if (this.mineShaftType == RSMineshaftPieces.Type.JUNGLE)
 			{
-				this.fillWithBlocks(world, box, this.boundingBox.minX, this.boundingBox.minY, this.boundingBox.minZ, this.boundingBox.maxX, this.boundingBox.minY, this.boundingBox.maxZ, flooring, getFillingBlock(), false);
-				this.fillWithBlocks(world, box, this.boundingBox.minX, this.boundingBox.minY + 1, this.boundingBox.minZ, this.boundingBox.maxX, Math.min(this.boundingBox.minY + 3, this.boundingBox.maxY), this.boundingBox.maxZ, getFillingBlock(), getFillingBlock(), false);
-
-				for (MutableBoundingBox MutableBoundingBox : this.roomsLinkedToTheRoom)
-				{
-					this.fillWithBlocks(world, box, MutableBoundingBox.minX, MutableBoundingBox.maxY - 2, MutableBoundingBox.minZ, MutableBoundingBox.maxX, MutableBoundingBox.maxY, MutableBoundingBox.maxZ, getFillingBlock(), getFillingBlock(), false);
-				}
-
-				this.randomlyRareFillWithBlocks(world, box, this.boundingBox.minX, this.boundingBox.minY + 4, this.boundingBox.minZ, this.boundingBox.maxX, this.boundingBox.maxY, this.boundingBox.maxZ, getFillingBlock(), false);
-				return true;
+				fillWithVines(world, random, box, 5, this.boundingBox.minX, this.boundingBox.minY, this.boundingBox.minZ, this.boundingBox.maxX, this.boundingBox.maxY+4, this.boundingBox.maxZ);
 			}
+			else if (this.mineShaftType == RSMineshaftPieces.Type.SWAMPORDARKFOREST)
+			{
+				fillWithVines(world, random, box, 2, this.boundingBox.minX, this.boundingBox.minY, this.boundingBox.minZ, this.boundingBox.maxX, this.boundingBox.maxY+4, this.boundingBox.maxZ);
+			}
+
+			return true;
 		}
 
 
@@ -1067,6 +1077,15 @@ public class RSMineshaftPieces
 					this.fillWithBlocks(world, MutableBoundingBoxIn, 0, 5 - i - (i < 4 ? 1 : 0), 2 + i, 2, 7 - i, 2 + i, getFillingBlock(), getFillingBlock(), false);
 				}
 
+				if (this.mineShaftType == RSMineshaftPieces.Type.JUNGLE)
+				{
+					fillWithVines(world, random, MutableBoundingBoxIn, 5, 0, 0, 0, 2, 7, 8);
+				}
+				else if (this.mineShaftType == RSMineshaftPieces.Type.SWAMPORDARKFOREST)
+				{
+					fillWithVines(world, random, MutableBoundingBoxIn, 2, 0, 0, 0, 2, 7, 8);
+				}
+				
 				return true;
 			}
 		}
@@ -1165,6 +1184,56 @@ public class RSMineshaftPieces
 		}
 
 
+		@SuppressWarnings("deprecation")
+		protected void fillWithVines(IWorld world, Random random, MutableBoundingBox boundingbox, int rarity, int xMin, int yMin, int zMin, int xMax, int yMax, int zMax)
+		{
+			BlockState vineBlock = Blocks.VINE.getDefaultState();
+			int vineLength = 0;
+			
+			for (int x = xMin; x <= xMax; ++x)
+			{
+				for (int z = zMin; z <= zMax; ++z)
+				{
+					if(random.nextInt(rarity) == 0) {
+						break;
+					}
+					
+					vineBlock = Blocks.VINE.getDefaultState().with(VineBlock.FACING_TO_PROPERTY_MAP.get(Direction.Plane.HORIZONTAL.random(random)), true);
+					vineLength = 0;
+					
+					for (int y = yMax; y >= yMin; --y)
+					{
+						BlockState aboveBlockState = this.getBlockStateFromPos(world, x, y + 1, z, boundingbox);
+						if (this.getBlockStateFromPos(world, x, y, z, boundingbox).isAir())
+						{
+							if((aboveBlockState.isSolid() || aboveBlockState.getBlock() == Blocks.VINE)) {
+								vineLength++;
+								this.setVineBlockState(world, vineBlock, x, y, z, boundingbox);
+							}
+							else if(Blocks.VINE.isValidPosition(vineBlock, world, new BlockPos(this.getXWithOffset(x, z), this.getYWithOffset(y), this.getZWithOffset(x, z)))) {
+								this.setVineBlockState(world, vineBlock, x, y, z, boundingbox);
+							}
+						}
+						
+						if(random.nextInt(3) == 0 || vineLength == 4) {
+							break;
+						}
+					}
+				}
+			}
+
+		}
+
+		protected void setVineBlockState(IWorld worldIn, BlockState blockstateIn, int x, int y, int z, MutableBoundingBox boundingboxIn)
+		{
+			BlockPos blockpos = new BlockPos(this.getXWithOffset(x, z), this.getYWithOffset(y), this.getZWithOffset(x, z));
+			if (boundingboxIn.isVecInside(blockpos))
+			{
+				worldIn.setBlockState(blockpos, blockstateIn, 2);
+			}
+		}
+
+		
 		protected BlockState getArchTopBlock()
 		{
 			switch (this.mineShaftType)
