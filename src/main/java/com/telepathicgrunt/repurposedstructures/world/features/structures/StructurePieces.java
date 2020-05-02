@@ -41,6 +41,7 @@ public class StructurePieces
 	public static IStructurePieceType	STRONGHOLD_ENTRANCE_STAIRS		= RSStrongholdPieces.EntranceStairs::new;
 	public static IStructurePieceType	NETHER_TEMPLE_PIECE				= NetherTemplePiece::new;
 	public static IStructurePieceType	BADLANDS_TEMPLE_PIECE			= BadlandsTemplePiece::new;
+	public static IStructurePieceType	RS_IGLOO_PIECE					= RSIglooPieces.Piece::new;
 
 	public static void registerStructurePieces()
 	{
@@ -78,6 +79,7 @@ public class StructurePieces
 		RegUtil.register(STRONGHOLD_ENTRANCE_STAIRS, "stronghold_entrance_stairs");
 		RegUtil.register(NETHER_TEMPLE_PIECE, "nether_temple_piece");
 		RegUtil.register(BADLANDS_TEMPLE_PIECE, "badlands_temple_piece");
+		RegUtil.register(RS_IGLOO_PIECE, "rs_igloo_piece");
 	}
 
 }

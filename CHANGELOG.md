@@ -14,6 +14,10 @@ Welcome to the Github! If you are looking for the most recent stable version, th
   
 ##### Structures: 
   
+-Added Grassy Igloos to Plains, Flower Forest, Forest, Birch Forest, and Dark Oak Forest! They can be hard to spot as they look like tiny hills.
+
+-Added Stone Igloos to Giant Tree Taiga biomes! 
+  
 -Split up all Mineshafts into separate distinct structures in backend so now the /locate command can find specific types of Repurposed Structures Mineshafts that are within 1600 blocks of you! (the command cannot search further than that due to a hardcoded search radius in MC's code) Though this locate command won't find old Mineshafts in worlds made with previous versions of Repurposed Structures.
   
 -Jungle Mineshafts and Swamp/Dark Forest Mineshafts now has Vines scattered inside!

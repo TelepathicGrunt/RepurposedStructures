@@ -62,6 +62,7 @@ public class RepurposedStructures
 			RSAddFeatures.addStronghold(biome, biomeNamespace, biomePath);
 			RSAddFeatures.addNetherTemple(biome, biomeNamespace, biomePath);
 			RSAddFeatures.addBadlandsTemple(biome, biomeNamespace, biomePath);
+			RSAddFeatures.addIgloos(biome, biomeNamespace, biomePath);
 		}
 	}
 	

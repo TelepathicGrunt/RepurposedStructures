@@ -4,6 +4,8 @@ import java.util.Random;
 
 import com.telepathicgrunt.repurposedstructures.utils.RegUtil;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.BadlandsTempleStructure;
+import com.telepathicgrunt.repurposedstructures.world.features.structures.IglooGrassyStructure;
+import com.telepathicgrunt.repurposedstructures.world.features.structures.IglooStoneStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.JungleFortressStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.NetherTempleStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftBirchStructure;
@@ -71,6 +73,8 @@ public class RSFeatures
 	public static Structure<NoFeatureConfig>				JUNGLE_FORTRESS			= new JungleFortressStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				NETHER_TEMPLE			= new NetherTempleStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				BADLANDS_TEMPLE			= new BadlandsTempleStructure(NoFeatureConfig::deserialize);
+	public static Structure<NoFeatureConfig>				GRASSY_IGLOO			= new IglooGrassyStructure(NoFeatureConfig::deserialize);
+	public static Structure<NoFeatureConfig>				STONE_IGLOO				= new IglooStoneStructure(NoFeatureConfig::deserialize);
 
 
 	public static void registerFeatures(Register<Feature<?>> event)
@@ -112,6 +116,8 @@ public class RSFeatures
 		RegUtil.register(registry, JUNGLE_FORTRESS, "jungle_fortress");
 		RegUtil.register(registry, NETHER_TEMPLE, "nether_temple");
 		RegUtil.register(registry, BADLANDS_TEMPLE, "badlands_temple");
+		RegUtil.register(registry, GRASSY_IGLOO, "grassy_igloo");
+		RegUtil.register(registry, STONE_IGLOO, "stone_igloo");
 
 		STRONGHOLD.setRegistryName(new ResourceLocation("minecraft:stronghold"));
 		registry.register(STRONGHOLD);

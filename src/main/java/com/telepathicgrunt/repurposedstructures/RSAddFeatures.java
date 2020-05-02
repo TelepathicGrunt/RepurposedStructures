@@ -482,6 +482,35 @@ public class RSAddFeatures
 			biome.addStructure(RSFeatures.BADLANDS_TEMPLE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 		}
 	}
+
+
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// IGLOOS //
+
+	public static void addIgloos(Biome biome, String biomeNamespace, String biomePath)
+	{
+		biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.GRASSY_IGLOO.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+		biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.STONE_IGLOO.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+		
+		if(RepurposedStructures.RSConfig.grassyIglooSpawnrate.get() != 1001)
+		{
+			if((biome.getCategory() == Category.PLAINS || biome.getCategory() == Category.FOREST) && 
+					(biomeNamespace.equals("minecraft") || RepurposedStructures.RSConfig.addGrassyIglooToModdedBiomes.get()))
+			{
+				biome.addStructure(RSFeatures.GRASSY_IGLOO.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+			}
+		}
+		
+		if(RepurposedStructures.RSConfig.stoneIglooSpawnrate.get() != 1001)
+		{
+			String BiomeName = biome.getRegistryName().getPath().toString();
+			if((biome.getCategory() == Category.TAIGA && BiomeName.contains("giant")) && 
+					(biomeNamespace.equals("minecraft") || RepurposedStructures.RSConfig.addStoneIglooToModdedBiomes.get()))
+			{
+				biome.addStructure(RSFeatures.STONE_IGLOO.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+			}
+		}
+	}
 	
 	
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -77,6 +77,10 @@ public class RSConfig
 		public ConfigValueListener<Boolean> lootChestsBT;
 		public ConfigValueListener<Boolean> addBadlandsTempleToModdedBiomes;
 
+		public ConfigValueListener<Integer> grassyIglooSpawnrate;
+		public ConfigValueListener<Boolean> addGrassyIglooToModdedBiomes;
+		public ConfigValueListener<Integer> stoneIglooSpawnrate;
+		public ConfigValueListener<Boolean> addStoneIglooToModdedBiomes;
 
 		RSConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
 		{
@@ -422,24 +426,53 @@ public class RSConfig
 				
 				builder.push("Badlands Temple");
 				
-				badlandsTempleSpawnrate = subscriber.subscribe(builder
-						.comment("\r\n How rare are Nether Temples in Nether." 
+					badlandsTempleSpawnrate = subscriber.subscribe(builder
+							.comment("\r\n How rare are Nether Temples in Nether." 
+									+ "\n "
+									+ "1 for spawning in most chunks and 1001 for no spawn.")
+							.translation("repurposedstructures.config.structure.badlandstemple.badlandstemplespawnrate")
+							.defineInRange("badlandsTempleSpawnrate", 20, 1, 1001));
+	
+					lootChestsBT = subscriber.subscribe(builder
+							.comment("\r\n Controls whether loot chests spawn or not in Badlands Temples.")
+						.translation("repurposedstructures.config.structure.badlandstemple.lootchestsbt")
+						.define("lootChestsBT", true));
+	
+					addBadlandsTempleToModdedBiomes = subscriber.subscribe(builder
+							.comment("\r\n Add Jungle Fortress to modded jungle biomes.")
+						.translation("repurposedstructures.config.structure.badlandstemple.addbadlandstempletomoddedbiomes")
+						.define("addBadlandsTempleToModdedBiomes", false));
+				
+				builder.pop();
+				
+				builder.push("Igloos");
+				
+					grassyIglooSpawnrate = subscriber.subscribe(builder
+						.comment("\r\n How rare are Grassy Igloos in Plains and Forests." 
 								+ "\n "
 								+ "1 for spawning in most chunks and 1001 for no spawn.")
-						.translation("repurposedstructures.config.structure.badlandstemple.badlandstemplespawnrate")
-						.defineInRange("badlandsTempleSpawnrate", 20, 1, 1001));
+						.translation("repurposedstructures.config.structure.igloo.grassyigloospawnrate")
+						.defineInRange("grassyIglooSpawnrate", 20, 1, 1001));
+	
+					addGrassyIglooToModdedBiomes = subscriber.subscribe(builder
+							.comment("\r\n Add Grassy Igloos to modded biomes that are\r\n"
+									+" most likely grassy fields or temperate forests.")
+						.translation("repurposedstructures.config.structure.igloo.addgrassyiglootomoddedbiomes")
+						.define("addGrassyIglooToModdedBiomes", false));
 
-				lootChestsBT = subscriber.subscribe(builder
-						.comment("\r\n Controls whether loot chests spawn or not in Badlands Temples.")
-					.translation("repurposedstructures.config.structure.badlandstemple.lootchestsbt")
-					.define("lootChestsBT", true));
-
-				addBadlandsTempleToModdedBiomes = subscriber.subscribe(builder
-						.comment("\r\n Add Jungle Fortress to modded jungle biomes.")
-					.translation("repurposedstructures.config.structure.badlandstemple.addbadlandstempletomoddedbiomes")
-					.define("addBadlandsTempleToModdedBiomes", false));
-				
-			builder.pop();
+					stoneIglooSpawnrate = subscriber.subscribe(builder
+						.comment("\r\n How rare are Stone Igloos in Giant Tree Taiga biomes." 
+								+ "\n "
+								+ "1 for spawning in most chunks and 1001 for no spawn.")
+						.translation("repurposedstructures.config.structure.igloo.stoneigloospawnrate")
+						.defineInRange("stoneIglooSpawnrate", 20, 1, 1001));
+	
+					addStoneIglooToModdedBiomes = subscriber.subscribe(builder
+							.comment("\r\n Add Stone Igloos to modded biomes that are\r\n"
+									+" most likely Giant Tree Taiga variants.")
+						.translation("repurposedstructures.config.structure.igloo.addstoneiglootomoddedbiomes")
+						.define("addStoneIglooToModdedBiomes", false));
+				builder.pop();
 			builder.pop();
 		}
 	}
