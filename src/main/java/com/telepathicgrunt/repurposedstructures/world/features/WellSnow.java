@@ -1,5 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
+import java.util.Collection;
 import java.util.Random;
 import java.util.function.Function;
 
@@ -10,7 +11,10 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SnowBlock;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.Tag;
 import net.minecraft.util.Direction;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
@@ -28,8 +32,8 @@ public class WellSnow extends Feature<NoFeatureConfig>
 	private static final BlockState	ICE					= Blocks.ICE.getDefaultState();
 	private static final BlockState	AIR					= Blocks.AIR.getDefaultState();
 	private static final BlockState	BELL				= Blocks.BELL.getDefaultState();
-	private static final BlockState	LAPIS_ORE			= Blocks.LAPIS_ORE.getDefaultState();
-	private static final float		LAPIS_CHANCE		= 0.3f;
+	private static final float		ORE_CHANCE		= 0.3f;
+	private static final ResourceLocation SNOW_WELL_ORE_RL = new ResourceLocation("repurposed_structures:snow_well_ores");
 
 
 	public WellSnow(Function<Dynamic<?>, ? extends NoFeatureConfig> config)
@@ -72,12 +76,14 @@ public class WellSnow extends Feature<NoFeatureConfig>
 					}
 				}
 			}
+			Tag<Block> ORE_TAG = BlockTags.getCollection().getOrCreate(SNOW_WELL_ORE_RL);
+			Collection<Block> allOreBlocks = ORE_TAG.getAllElements();
 
 			world.setBlockState(mutable.up(), AIR, 2);
 			world.setBlockState(mutable, ICE, 2);
-			if (random.nextFloat() < LAPIS_CHANCE)
+			if (!allOreBlocks.isEmpty() && random.nextFloat() < ORE_CHANCE)
 			{
-				world.setBlockState(mutable.down(), LAPIS_ORE, 2);
+				world.setBlockState(mutable.down(), ((Block)allOreBlocks.toArray()[random.nextInt(allOreBlocks.size())]).getDefaultState(), 2);
 			}
 			else
 			{
@@ -91,9 +97,9 @@ public class WellSnow extends Feature<NoFeatureConfig>
 				world.setBlockState(mutable, ICE, 2);
 
 				mutable.move(Direction.DOWN);
-				if (random.nextFloat() < LAPIS_CHANCE)
+				if (!allOreBlocks.isEmpty() && random.nextFloat() < ORE_CHANCE)
 				{
-					world.setBlockState(mutable, LAPIS_ORE, 2);
+					world.setBlockState(mutable, ((Block)allOreBlocks.toArray()[random.nextInt(allOreBlocks.size())]).getDefaultState(), 2);
 				}
 				else
 				{

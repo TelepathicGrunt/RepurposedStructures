@@ -4,6 +4,9 @@
 <p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;Added Grassy Igloo and </strong></b></span></em><em><span style="font-size: 14px;"><b><strong>Stone Igloo!&nbsp;</strong></b></span></em></p>
 <p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>Mineshafts in Jungles, Swamps, </strong></b></span></em><em><span style="font-size: 14px;"><b><strong>and </strong></b></span></em><em><span style="font-size: 14px;"><b><strong>Dark Forest now has vines inside!</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>And now you can use tags to change the ores in wells,</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>the plants in Jungle Fortress's staircase room,&nbsp;</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>and change bookshelves in Nether Strongholds!</strong></b></span></em></p>
 <p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;">&nbsp;</p>
@@ -16,7 +19,10 @@
 <p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; Currently, this mod creates a Nether Fortresses using Stonebrick blocks and spawns it in Jungles, Dungeons and Mineshafts now has more variants to match whatever biome they are in, two new biome variants of Igloos, Strongholds has a configurable size and has more Silverfish spawners, Giant Tree/Spruce Taiga Hills biomes has giant ore filled boulders that could have Diamond ore if you are extremely lucky, Taiga Mountain biomes now has tiny boulders, Swamps now has a new 2x2 swamp-like tree, and several new Desert Well variations were made for other biomes!</strong></span></p>
 <p style="text-align: left;"><span style="font-size: 14px;">&nbsp;</span></p>
 <p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; You can use this mod in a modpack or download and modify the source code. It is all under MIT License so you can do whatever you want! Also, be sure to check out the images page for several screenshots of what the world looks like!&nbsp;And also, the section below this one talks about how to configure everything as I want players to have the ability to change things to their preferences.</strong></span></p>
+<p style="text-align: left;">&nbsp;</p>
+<p style="text-align: left;"><span style="font-size: 12px;">Note: /locate command can only find the Mineshaft if it is within 1600 blocks of you due to a hardcoded search radius in vanilla MC's code.</span></p>
 <p style="text-align: left;"><span style="font-size: 14px;">&nbsp;</span></p>
+<p style="text-align: left;">&nbsp;</p>
 <p style="text-align: left;"><span style="text-decoration: underline; font-size: 18px;"><strong>Extra Details about everything in this mod!</strong></span></p>
 <p><strong>Badlands Dungeons spawner's mob rates</strong></p>
 <div class="spoiler">
@@ -257,13 +263,36 @@
 <p>&nbsp;</p>
 <p><strong>&nbsp; &nbsp; Right now, there are lots of config options. The big ones that you may be interested in are the <span style="font-size: 14px;">add____ToModdedBiomes</span> config entries. Turning this on will make the config add the features or structures to any modded biomes with the correct category. For example, if you turn on <span style="font-size: 14px;">addMineshaftsToModdedBiomes</span> and you have a mod that adds a new kind of Desert biome in any dimension, then that biome will now spawn Desert themed Mineshafts in it!</strong></p>
 <p>&nbsp;</p>
-<p><strong>&nbsp; &nbsp; For Dungeons, Wells, and Mineshafts, you can turn on and off each specific biome variant or change their overall spawnrates as well. For Mineshafts, you can turn on or off the spawning of chests too if you want to stop chests from spawning for whatever reason.</strong></p>
+<p><strong>&nbsp; &nbsp; For Dungeons, Wells, Igloos, and Mineshafts, you can turn on and off each specific biome variant or change their overall spawnrates as well. For Mineshafts, you can turn on or off the spawning of chests too if you want to stop chests from spawning for whatever reason.</strong></p>
 <p>&nbsp;</p>
 <p><strong>&nbsp; &nbsp; The config for Jungle Fortresses is fairly straightforward. You can change their spawnrate, how much Stonebrick blocks are infested with SIlverfish, turn on or off the creation of Silverfish spawners, or disable the creation of loot chests. Not much else to it!</strong></p>
 <p>&nbsp;</p>
 <p><strong>&nbsp; &nbsp; &nbsp;For Strongholds, the config lets you change the size of the Stronghold, their spawnrates, how many Stonebrick blocks are infested with Silverfish, turn on or off the additional Silverfish spawners, or disable the creation of loot chests.</strong></p>
 <p>&nbsp;</p>
 <p><strong>&nbsp; &nbsp; &nbsp;And lastly, the rest of the features (2x2 swamp tree and boulders) can be enabled/disabled individually.&nbsp;&nbsp;</strong></p>
+<p>&nbsp;</p>
+<p>----</p>
+<p>&nbsp;</p>
+<p><strong>This mod also uses tags so you can make datapack to customize this mod further!&nbsp;All the tags are under data.repurposed_structures.tags.blocks and you can specify more than one block. The json files you can override are the following:</strong></p>
+<p>&nbsp;</p>
+<div class="spoiler">
+<p><strong><span style="font-size: 14px;">badlands_well_ores.json</span> - will randomly pick blocks when generating a rare block in the well.</strong></p>
+<p>&nbsp;</p>
+<p><strong><span style="font-size: 14px;">forest_well_ores.json</span> - will randomly pick blocks when generating a rare block in the well.</strong></p>
+<p>&nbsp;</p>
+<p><strong><span style="font-size: 14px;">mossy_well_ores.json</span> - will randomly pick blocks when generating a rare block in the well.</strong></p>
+<p>&nbsp;</p>
+<p><strong><span style="font-size: 14px;">nether_well_ores.json&nbsp;</span>- will randomly pick blocks when generating a rare block in the well.</strong></p>
+<p>&nbsp;</p>
+<p><strong><span style="font-size: 14px;">snow_well_ores.json</span>&nbsp;- will randomly pick blocks when generating a rare block in the well.</strong></p>
+<p>&nbsp;</p>
+<p><strong><span style="font-size: 14px;">jungle_fortress_staircase_plants.json</span> - will randomly pick blocks for the staircase room and if it has an age property, a random age will be given to the block.&nbsp;</strong></p>
+<p>&nbsp;</p>
+<p><strong><span style="font-size: 14px;">jungle_fortress_staircase_soils.json</span> - will randomly pick blocks for the staircase room to go under the plants.</strong></p>
+<p>&nbsp;</p>
+<p><strong><span style="font-size: 14px;">nether_stronghold_bookshelves.json</span> - will randomly pick blocks to use for the bookshelves in Nether strongholds.</strong></p>
+</div>
+<p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p><span style="font-size: 14px;"><strong>Let me know if you think of a new config option that you would need and I will try and add it! :)&nbsp;</strong></span></p>

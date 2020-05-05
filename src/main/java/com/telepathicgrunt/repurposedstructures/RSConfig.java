@@ -400,7 +400,7 @@ public class RSConfig
 							.comment("\r\n Add Jungle Fortress to modded jungle biomes.")
 						.translation("repurposedstructures.config.structure.junglefortress.addjunglefortresstomoddedbiomes")
 						.define("addJungleFortressToModdedBiomes", false));
-					
+
 				builder.pop();
 				
 				builder.push("Nether Temple");

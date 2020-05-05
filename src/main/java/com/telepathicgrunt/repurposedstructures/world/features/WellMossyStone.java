@@ -1,5 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
+import java.util.Collection;
 import java.util.Random;
 import java.util.function.Function;
 
@@ -11,7 +12,10 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.block.material.Material;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.Tag;
 import net.minecraft.util.Direction;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
@@ -34,8 +38,8 @@ public class WellMossyStone extends Feature<NoFeatureConfig>
 	private static final BlockState	AIR						= Blocks.AIR.getDefaultState();
 	private static final BlockState	WATER					= Blocks.WATER.getDefaultState();
 	private static final BlockState	BELL					= Blocks.BELL.getDefaultState();
-	private static final BlockState	EMERALD_ORE				= Blocks.EMERALD_ORE.getDefaultState();
-	private static final float		EMERALD_CHANCE			= 0.12f;
+	private static final float		ORE_CHANCE			= 0.12f;
+	private static final ResourceLocation MOSSY_WELL_ORE_RL = new ResourceLocation("repurposed_structures:mossy_well_ores");
 
 
 	public WellMossyStone(Function<Dynamic<?>, ? extends NoFeatureConfig> config)
@@ -80,14 +84,16 @@ public class WellMossyStone extends Feature<NoFeatureConfig>
 					}
 				}
 			}
+			Tag<Block> ORE_TAG = BlockTags.getCollection().getOrCreate(MOSSY_WELL_ORE_RL);
+			Collection<Block> allOreBlocks = ORE_TAG.getAllElements();
 
 			isWithinWaterArea = world.getBlockState(mutable.up()).getMaterial() == Material.WATER;
 			isBelowSealevel = isWithinWaterArea && mutable.up().getY() < world.getSeaLevel();
 			world.setBlockState(mutable.up(), isBelowSealevel ? WATER : AIR, 2);
 			world.setBlockState(mutable, WATER, 2);
-			if (random.nextFloat() < EMERALD_CHANCE)
+			if (!allOreBlocks.isEmpty() && random.nextFloat() < ORE_CHANCE)
 			{
-				world.setBlockState(mutable.down(), EMERALD_ORE, 2);
+				world.setBlockState(mutable.down(), ((Block)allOreBlocks.toArray()[random.nextInt(allOreBlocks.size())]).getDefaultState(), 2);
 			}
 			else
 			{
@@ -101,9 +107,9 @@ public class WellMossyStone extends Feature<NoFeatureConfig>
 				world.setBlockState(mutable, WATER, 2);
 
 				mutable.move(Direction.DOWN);
-				if (random.nextFloat() < EMERALD_CHANCE)
+				if (!allOreBlocks.isEmpty() && random.nextFloat() < ORE_CHANCE)
 				{
-					world.setBlockState(mutable, EMERALD_ORE, 2);
+					world.setBlockState(mutable, ((Block)allOreBlocks.toArray()[random.nextInt(allOreBlocks.size())]).getDefaultState(), 2);
 				}
 				else
 				{

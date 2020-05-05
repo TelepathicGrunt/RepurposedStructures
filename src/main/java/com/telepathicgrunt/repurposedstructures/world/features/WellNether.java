@@ -1,5 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
+import java.util.Collection;
 import java.util.Random;
 import java.util.function.Function;
 
@@ -9,7 +10,10 @@ import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.Tag;
 import net.minecraft.util.Direction;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
@@ -28,10 +32,9 @@ public class WellNether extends Feature<NoFeatureConfig>
 	private static final BlockState	AIR					= Blocks.AIR.getDefaultState();
 	private static final BlockState	LAVA				= Blocks.LAVA.getDefaultState();
 	private static final BlockState	BELL				= Blocks.BELL.getDefaultState();
-	private static final BlockState	QUARTZ_ORE			= Blocks.NETHER_QUARTZ_ORE.getDefaultState();
-	private static final BlockState	QUARTZ_BLOCK		= Blocks.CHISELED_QUARTZ_BLOCK.getDefaultState();
-	private static final float		QUARTZ_ORE_CHANCE	= 0.5f;
-	private static final float		QUARTZ_BLOCK_CHANCE	= 0.08f;
+	private static final float		COMMON_ORE_CHANCE	= 0.5f;
+	private static final float		RARE_ORE_CHANCE	= 0.08f;
+	private static final ResourceLocation NETHER_WELL_ORE_RL = new ResourceLocation("repurposed_structures:nether_well_ores");
 
 
 	public WellNether(Function<Dynamic<?>, ? extends NoFeatureConfig> config)
@@ -90,17 +93,19 @@ public class WellNether extends Feature<NoFeatureConfig>
 					}
 				}
 			}
+			Tag<Block> ORE_TAG = BlockTags.getCollection().getOrCreate(NETHER_WELL_ORE_RL);
+			Collection<Block> allOreBlocks = ORE_TAG.getAllElements();
 
 			world.setBlockState(mutable.up(), AIR, 2);
 			world.setBlockState(mutable, LAVA, 2);
 			float chance = random.nextFloat();
-			if (chance < QUARTZ_BLOCK_CHANCE)
+			if (!allOreBlocks.isEmpty() && chance < RARE_ORE_CHANCE)
 			{
-				world.setBlockState(mutable.down(), QUARTZ_BLOCK, 2);
+				world.setBlockState(mutable.down(), ((Block)allOreBlocks.toArray()[0]).getDefaultState(), 2);
 			}
-			else if (chance - QUARTZ_BLOCK_CHANCE < QUARTZ_ORE_CHANCE)
+			else if (allOreBlocks.size() > 1 && chance - RARE_ORE_CHANCE < COMMON_ORE_CHANCE)
 			{
-				world.setBlockState(mutable.down(), QUARTZ_ORE, 2);
+				world.setBlockState(mutable.down(), ((Block)allOreBlocks.toArray()[random.nextInt(allOreBlocks.size()-1)+1]).getDefaultState(), 2);
 			}
 
 			for (Direction direction : Direction.Plane.HORIZONTAL)
@@ -111,13 +116,13 @@ public class WellNether extends Feature<NoFeatureConfig>
 				world.setBlockState(mutable, LAVA, 2);
 
 				mutable.move(Direction.DOWN);
-				if (chance < QUARTZ_BLOCK_CHANCE)
+				if (!allOreBlocks.isEmpty() && chance < RARE_ORE_CHANCE)
 				{
-					world.setBlockState(mutable, QUARTZ_BLOCK, 2);
+					world.setBlockState(mutable, ((Block)allOreBlocks.toArray()[0]).getDefaultState(), 2);
 				}
-				else if (chance - QUARTZ_BLOCK_CHANCE < QUARTZ_ORE_CHANCE)
+				else if (allOreBlocks.size() > 1  && chance - RARE_ORE_CHANCE < COMMON_ORE_CHANCE)
 				{
-					world.setBlockState(mutable, QUARTZ_ORE, 2);
+					world.setBlockState(mutable, ((Block)allOreBlocks.toArray()[random.nextInt(allOreBlocks.size()-1)+1]).getDefaultState(), 2);
 				}
 			}
 			mutable.setPos(position);

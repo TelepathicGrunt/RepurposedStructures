@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:chiseled_quartz_block",
+    "minecraft:nether_quartz_ore"
+  ]
+}

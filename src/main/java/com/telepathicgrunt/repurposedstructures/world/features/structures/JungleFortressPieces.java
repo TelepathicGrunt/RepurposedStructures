@@ -1,5 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.features.structures;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,6 +21,9 @@ import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityType;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.Tag;
 import net.minecraft.tileentity.MobSpawnerTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Direction;
@@ -38,6 +42,9 @@ import net.minecraft.world.storage.loot.LootTables;
 
 public class JungleFortressPieces
 {
+	private static final ResourceLocation JF_PLANT_TAG_RL = new ResourceLocation("repurposed_structures:jungle_fortress_staircase_plants");
+	private static final ResourceLocation JF_SOIL_TAG_RL = new ResourceLocation("repurposed_structures:jungle_fortress_staircase_soils");
+	
 	private static final Map<BlockState, BlockState> INFESTED_STONE_LOOKUP;
 	static {
 		INFESTED_STONE_LOOKUP = new HashMap<BlockState, BlockState>();
@@ -1020,6 +1027,7 @@ public class JungleFortressPieces
 			this.setBlockState(world, iblockstate5, 8, 5, 3, structureBoundingBoxIn);
 			this.setBlockState(world, iblockstate5, 8, 5, 9, structureBoundingBoxIn);
 			this.setBlockState(world, iblockstate5, 8, 5, 10, structureBoundingBoxIn);
+			
 			this.fillWithRandomBlocks(world, structureBoundingBoxIn, 3, 4, 4, 4, 4, 8, Blocks.SOUL_SAND.getDefaultState(), Blocks.SOUL_SAND.getDefaultState(), false, random);
 			this.fillWithRandomBlocks(world, structureBoundingBoxIn, 8, 4, 4, 9, 4, 8, Blocks.SOUL_SAND.getDefaultState(), Blocks.SOUL_SAND.getDefaultState(), false, random);
 			this.fillWithRandomBlocks(world, structureBoundingBoxIn, 3, 5, 4, 4, 5, 8, Blocks.NETHER_WART.getDefaultState(), Blocks.NETHER_WART.getDefaultState(), false, random);
@@ -1325,22 +1333,44 @@ public class JungleFortressPieces
 			}
 			else if (block == Blocks.SOUL_SAND)
 			{
-				return Blocks.COARSE_DIRT.getDefaultState();
+				Tag<Block> ORE_TAG = BlockTags.getCollection().getOrCreate(JF_SOIL_TAG_RL);
+				Collection<Block> allSoilBlocks = ORE_TAG.getAllElements();
+				BlockState soilBlock = null;
+				
+				if(!allSoilBlocks.isEmpty())
+					soilBlock = ((Block)allSoilBlocks.toArray()[rand.nextInt(allSoilBlocks.size())]).getDefaultState();
+				
+				if(soilBlock.has(BlockStateProperties.MOISTURE_0_7))
+					soilBlock = soilBlock.with(BlockStateProperties.MOISTURE_0_7, rand.nextInt(8));
+
+				return soilBlock != null ? soilBlock : Blocks.COARSE_DIRT.getDefaultState();
 			}
 			else if (block == Blocks.NETHER_WART)
 			{
-
+				Tag<Block> ORE_TAG = BlockTags.getCollection().getOrCreate(JF_PLANT_TAG_RL);
+				Collection<Block> allPlantBlocks = ORE_TAG.getAllElements();
 				float chance = rand.nextFloat();
-
-				if (chance < 0.25f)
+				
+				if (!allPlantBlocks.isEmpty() && chance < 0.4f)
 				{
-					// 25%
-					return Blocks.RED_MUSHROOM.getDefaultState();
-				}
-				else if (chance < 0.4f)
-				{
-					// 15%
-					return Blocks.BROWN_MUSHROOM.getDefaultState();
+					BlockState plantBlock = ((Block)allPlantBlocks.toArray()[rand.nextInt(allPlantBlocks.size())]).getDefaultState();
+					
+					if(plantBlock.has(BlockStateProperties.AGE_0_25))
+						plantBlock = plantBlock.with(BlockStateProperties.AGE_0_25, rand.nextInt(26));
+					else if(plantBlock.has(BlockStateProperties.AGE_0_15))
+						plantBlock = plantBlock.with(BlockStateProperties.AGE_0_15, rand.nextInt(16));
+					else if(plantBlock.has(BlockStateProperties.AGE_0_7))
+						plantBlock = plantBlock.with(BlockStateProperties.AGE_0_7, rand.nextInt(8));
+					else if(plantBlock.has(BlockStateProperties.AGE_0_5))
+						plantBlock = plantBlock.with(BlockStateProperties.AGE_0_5, rand.nextInt(6));
+					else if(plantBlock.has(BlockStateProperties.AGE_0_3))
+						plantBlock = plantBlock.with(BlockStateProperties.AGE_0_3, rand.nextInt(4));
+					else if(plantBlock.has(BlockStateProperties.AGE_0_2))
+						plantBlock = plantBlock.with(BlockStateProperties.AGE_0_2, rand.nextInt(3));
+					else if(plantBlock.has(BlockStateProperties.AGE_0_1))
+						plantBlock = plantBlock.with(BlockStateProperties.AGE_0_1, rand.nextInt(2));
+					
+					return plantBlock;
 				}
 				else
 				{

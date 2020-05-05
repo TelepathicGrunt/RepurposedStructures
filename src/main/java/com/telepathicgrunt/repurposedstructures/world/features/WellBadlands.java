@@ -1,5 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
+import java.util.Collection;
 import java.util.Random;
 import java.util.function.Function;
 
@@ -9,7 +10,10 @@ import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.Tag;
 import net.minecraft.util.Direction;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
@@ -28,8 +32,8 @@ public class WellBadlands extends Feature<NoFeatureConfig>
 	private static final BlockState	WATER				= Blocks.WATER.getDefaultState();
 	private static final BlockState	AIR					= Blocks.AIR.getDefaultState();
 	private static final BlockState	BELL				= Blocks.BELL.getDefaultState();
-	private static final BlockState	GOLD_ORE			= Blocks.GOLD_ORE.getDefaultState();
-	private static final float		GOLD_CHANCE			= 0.15f;
+	private static final float		ORE_CHANCE			= 0.15f;
+	private static final ResourceLocation BADLANDS_WELL_ORE_RL = new ResourceLocation("repurposed_structures:badlands_well_ores");
 
 
 	public WellBadlands(Function<Dynamic<?>, ? extends NoFeatureConfig> config)
@@ -70,12 +74,14 @@ public class WellBadlands extends Feature<NoFeatureConfig>
 					}
 				}
 			}
+			Tag<Block> ORE_TAG = BlockTags.getCollection().getOrCreate(BADLANDS_WELL_ORE_RL);
+			Collection<Block> allOreBlocks = ORE_TAG.getAllElements();
 
 			world.setBlockState(mutable.up(), AIR, 2);
 			world.setBlockState(mutable, WATER, 2);
-			if (random.nextFloat() < GOLD_CHANCE)
+			if (!allOreBlocks.isEmpty() && random.nextFloat() < ORE_CHANCE)
 			{
-				world.setBlockState(mutable.down(), GOLD_ORE, 2);
+				world.setBlockState(mutable.down(), ((Block)allOreBlocks.toArray()[random.nextInt(allOreBlocks.size())]).getDefaultState(), 2);
 			}
 			else
 			{
@@ -89,9 +95,9 @@ public class WellBadlands extends Feature<NoFeatureConfig>
 				world.setBlockState(mutable, WATER, 2);
 
 				mutable.move(Direction.DOWN);
-				if (random.nextFloat() < GOLD_CHANCE)
+				if (!allOreBlocks.isEmpty() && random.nextFloat() < ORE_CHANCE)
 				{
-					world.setBlockState(mutable, GOLD_ORE, 2);
+					world.setBlockState(mutable, ((Block)allOreBlocks.toArray()[random.nextInt(allOreBlocks.size())]).getDefaultState(), 2);
 				}
 				else
 				{

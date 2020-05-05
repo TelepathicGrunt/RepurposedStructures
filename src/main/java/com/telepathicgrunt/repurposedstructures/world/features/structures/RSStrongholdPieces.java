@@ -1,5 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.features.structures;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,6 +27,8 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.state.properties.DoubleBlockHalf;
 import net.minecraft.state.properties.SlabType;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.Tag;
 import net.minecraft.tileentity.MobSpawnerTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Direction;
@@ -43,6 +46,8 @@ import net.minecraft.world.storage.loot.LootTables;
 
 public class RSStrongholdPieces
 {
+	private static final ResourceLocation NETHER_STRONGHOLD_BOOKSHELF_RL = new ResourceLocation("repurposed_structures:nether_stronghold_bookshelves");
+
 	private static final RSStrongholdPieces.PieceWeight[] PIECE_WEIGHTS = new RSStrongholdPieces.PieceWeight[] { 
 			new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.Straight.class, 40, 0), 
 			new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.Prison.class, 5, 8), 
@@ -702,6 +707,20 @@ public class RSStrongholdPieces
 			return new RSStrongholdPieces.Library(componentType, p_175864_1_, mutableboundingbox, p_175864_5_, strongholdType);
 		}
 
+		private BlockState pickBookshelfBlock(Random random) {
+			BlockState bookshelfBlock = Blocks.BOOKSHELF.getDefaultState();
+			
+			if(this.strongholdType == RSStrongholdStructure.Type.NETHER)
+			{
+				Tag<Block> BOOKSHELF_TAG = BlockTags.getCollection().getOrCreate(NETHER_STRONGHOLD_BOOKSHELF_RL);
+				Collection<Block> allBookshelfBlocks = BOOKSHELF_TAG.getAllElements();
+				
+				if(!allBookshelfBlocks.isEmpty())
+					bookshelfBlock = ((Block)allBookshelfBlocks.toArray()[random.nextInt(allBookshelfBlocks.size())]).getDefaultState();
+			}
+			
+			return bookshelfBlock;
+		}
 
 		@Override
 		public boolean func_225577_a_(IWorld world, ChunkGenerator<?> chunkGenerator, Random random, MutableBoundingBox structureBoundingBoxIn, ChunkPos chunkPos)
@@ -718,6 +737,8 @@ public class RSStrongholdPieces
 			this.placeDoor(world, random, structureBoundingBoxIn, this.entryDoor, 4, 1, 0);
 			this.generateMaybeBox(world, structureBoundingBoxIn, random, 0.07F, 2, 1, 1, 11, 4, 13, Blocks.COBWEB.getDefaultState(), Blocks.COBWEB.getDefaultState(), false, false);
 
+		
+			
 			for (int l = 1; l <= 13; ++l)
 			{
 				if ((l - 1) % 4 == 0)
@@ -734,21 +755,21 @@ public class RSStrongholdPieces
 				}
 				else
 				{
-					this.fillWithBlocks(world, structureBoundingBoxIn, 1, 1, l, 1, 4, l, Blocks.BOOKSHELF.getDefaultState(), Blocks.BOOKSHELF.getDefaultState(), false);
-					this.fillWithBlocks(world, structureBoundingBoxIn, 12, 1, l, 12, 4, l, Blocks.BOOKSHELF.getDefaultState(), Blocks.BOOKSHELF.getDefaultState(), false);
+					this.fillWithBlocks(world, structureBoundingBoxIn, 1, 1, l, 1, 4, l, pickBookshelfBlock(random), pickBookshelfBlock(random), false);
+					this.fillWithBlocks(world, structureBoundingBoxIn, 12, 1, l, 12, 4, l, pickBookshelfBlock(random), pickBookshelfBlock(random), false);
 					if (this.isLargeRoom)
 					{
-						this.fillWithBlocks(world, structureBoundingBoxIn, 1, 6, l, 1, 9, l, Blocks.BOOKSHELF.getDefaultState(), Blocks.BOOKSHELF.getDefaultState(), false);
-						this.fillWithBlocks(world, structureBoundingBoxIn, 12, 6, l, 12, 9, l, Blocks.BOOKSHELF.getDefaultState(), Blocks.BOOKSHELF.getDefaultState(), false);
+						this.fillWithBlocks(world, structureBoundingBoxIn, 1, 6, l, 1, 9, l, pickBookshelfBlock(random), pickBookshelfBlock(random), false);
+						this.fillWithBlocks(world, structureBoundingBoxIn, 12, 6, l, 12, 9, l, pickBookshelfBlock(random), pickBookshelfBlock(random), false);
 					}
 				}
 			}
 
 			for (int l1 = 3; l1 < 12; l1 += 2)
 			{
-				this.fillWithBlocks(world, structureBoundingBoxIn, 3, 1, l1, 4, 3, l1, Blocks.BOOKSHELF.getDefaultState(), Blocks.BOOKSHELF.getDefaultState(), false);
-				this.fillWithBlocks(world, structureBoundingBoxIn, 6, 1, l1, 7, 3, l1, Blocks.BOOKSHELF.getDefaultState(), Blocks.BOOKSHELF.getDefaultState(), false);
-				this.fillWithBlocks(world, structureBoundingBoxIn, 9, 1, l1, 10, 3, l1, Blocks.BOOKSHELF.getDefaultState(), Blocks.BOOKSHELF.getDefaultState(), false);
+				this.fillWithBlocks(world, structureBoundingBoxIn, 3, 1, l1, 4, 3, l1, pickBookshelfBlock(random), pickBookshelfBlock(random), false);
+				this.fillWithBlocks(world, structureBoundingBoxIn, 6, 1, l1, 7, 3, l1, pickBookshelfBlock(random), pickBookshelfBlock(random), false);
+				this.fillWithBlocks(world, structureBoundingBoxIn, 9, 1, l1, 10, 3, l1, pickBookshelfBlock(random), pickBookshelfBlock(random), false);
 			}
 
 			if (this.isLargeRoom)
