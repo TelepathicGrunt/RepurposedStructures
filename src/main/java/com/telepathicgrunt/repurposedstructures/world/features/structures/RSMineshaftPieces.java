@@ -45,7 +45,22 @@ import net.minecraft.world.storage.loot.LootTables;
 
 public class RSMineshaftPieces
 {
-
+    /**
+     * --------------------------------------------------------------------------
+     * |									|
+     * |	HELLO READERS! IF YOU'RE HERE, YOU'RE PROBABLY			|
+     * |	LOOKING FOR A TUTORIAL ON HOW TO DO STRUCTURES			|
+     * |									|
+     * -------------------------------------------------------------------------
+     * 
+     * Don't worry, I actually have a structure tutorial
+     * mod already setup for you to check out! It's full
+     * of comments on what does what and how to make structures.
+     * 
+     * Here's the link! https://github.com/TelepathicGrunt/StructureTutorialMod
+     * 
+     * Good luck and have fun modding!
+     */
 	public static enum Type
 	{
 		ICEY, BIRCH, JUNGLE, TAIGA, DESERT, STONE, SAVANNA, SWAMPORDARKFOREST, END, HELL, OCEAN;

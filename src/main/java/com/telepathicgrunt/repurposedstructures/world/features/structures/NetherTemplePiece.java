@@ -34,9 +34,25 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
 
 public class NetherTemplePiece extends ScatteredStructurePiece
 {
-	private static final NetherTemplePiece.Selector	NETHER_BLOCK_SELECTOR	= new NetherTemplePiece.Selector();
-	public static final ResourceLocation CHESTS_NETHER_TEMPLE 				= new ResourceLocation("repurposed_structures:chests/nether_temple_chest");
-	public static final ResourceLocation DISPENSER_NETHER_TEMPLE			= new ResourceLocation("repurposed_structures:chests/nether_temple_dispenser");
+    /**
+     * --------------------------------------------------------------------------
+     * |									|
+     * |	HELLO READERS! IF YOU'RE HERE, YOU'RE PROBABLY			|
+     * |	LOOKING FOR A TUTORIAL ON HOW TO DO STRUCTURES			|
+     * |									|
+     * -------------------------------------------------------------------------
+     * 
+     * Don't worry, I actually have a structure tutorial
+     * mod already setup for you to check out! It's full
+     * of comments on what does what and how to make structures.
+     * 
+     * Here's the link! https://github.com/TelepathicGrunt/StructureTutorialMod
+     * 
+     * Good luck and have fun modding!
+     */
+	private static final NetherTemplePiece.Selector	NETHER_BLOCK_SELECTOR = new NetherTemplePiece.Selector();
+	public static final ResourceLocation CHESTS_NETHER_TEMPLE = new ResourceLocation("repurposed_structures:chests/nether_temple_chest");
+	public static final ResourceLocation DISPENSER_NETHER_TEMPLE = new ResourceLocation("repurposed_structures:chests/nether_temple_dispenser");
 
 
 	public NetherTemplePiece(Random random, int x, int z)

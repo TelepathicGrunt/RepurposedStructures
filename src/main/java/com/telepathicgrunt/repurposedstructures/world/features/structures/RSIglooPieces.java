@@ -35,10 +35,26 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class RSIglooPieces
 {
-	private static final ResourceLocation					IGLOO_MIDDLE_RL	= new ResourceLocation("igloo/middle");
-	private static final ResourceLocation					IGLOO_BOTTOM_RL	= new ResourceLocation("igloo/bottom");
-	private static final Map<ResourceLocation, BlockPos>	OFFSET_1	= ImmutableMap.of(new ResourceLocation(RepurposedStructures.MODID+":stone_igloo/top"), new BlockPos(3, 4, 5), new ResourceLocation(RepurposedStructures.MODID+":grassy_igloo/top"), new BlockPos(3, 4, 5), IGLOO_MIDDLE_RL, new BlockPos(1, 3, 1), IGLOO_BOTTOM_RL, new BlockPos(3, 6, 7));
-	private static final Map<ResourceLocation, BlockPos>	OFFSET_2	= ImmutableMap.of(new ResourceLocation(RepurposedStructures.MODID+":stone_igloo/top"), new BlockPos(0, -1, 0), new ResourceLocation(RepurposedStructures.MODID+":grassy_igloo/top"), new BlockPos(0, -1, 0), IGLOO_MIDDLE_RL, new BlockPos(2, -3, 4), IGLOO_BOTTOM_RL, new BlockPos(0, -3, -2));
+    /**
+     * --------------------------------------------------------------------------
+     * |									|
+     * |	HELLO READERS! IF YOU'RE HERE, YOU'RE PROBABLY			|
+     * |	LOOKING FOR A TUTORIAL ON HOW TO DO STRUCTURES			|
+     * |									|
+     * -------------------------------------------------------------------------
+     * 
+     * Don't worry, I actually have a structure tutorial
+     * mod already setup for you to check out! It's full
+     * of comments on what does what and how to make structures.
+     * 
+     * Here's the link! https://github.com/TelepathicGrunt/StructureTutorialMod
+     * 
+     * Good luck and have fun modding!
+     */
+	private static final ResourceLocation IGLOO_MIDDLE_RL	= new ResourceLocation("igloo/middle");
+	private static final ResourceLocation IGLOO_BOTTOM_RL	= new ResourceLocation("igloo/bottom");
+	private static final Map<ResourceLocation, BlockPos> OFFSET_1 = ImmutableMap.of(new ResourceLocation(RepurposedStructures.MODID+":stone_igloo/top"), new BlockPos(3, 4, 5), new ResourceLocation(RepurposedStructures.MODID+":grassy_igloo/top"), new BlockPos(3, 4, 5), IGLOO_MIDDLE_RL, new BlockPos(1, 3, 1), IGLOO_BOTTOM_RL, new BlockPos(3, 6, 7));
+	private static final Map<ResourceLocation, BlockPos> OFFSET_2 = ImmutableMap.of(new ResourceLocation(RepurposedStructures.MODID+":stone_igloo/top"), new BlockPos(0, -1, 0), new ResourceLocation(RepurposedStructures.MODID+":grassy_igloo/top"), new BlockPos(0, -1, 0), IGLOO_MIDDLE_RL, new BlockPos(2, -3, 4), IGLOO_BOTTOM_RL, new BlockPos(0, -3, -2));
 
 	public static void func_207617_a(TemplateManager templateManager, ResourceLocation topPieceRL, Block floorBlock, BlockPos position, Rotation rotationIn, List<StructurePiece> p_207617_3_, Random random, NoFeatureConfig p_207617_5_)
 	{
