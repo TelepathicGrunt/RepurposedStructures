@@ -26,13 +26,13 @@ import net.minecraftforge.common.Tags;
 
 public class WellSnow extends Feature<NoFeatureConfig>
 {
-	private static final BlockState	SNOW				= Blocks.SNOW.getDefaultState().with(SnowBlock.LAYERS, 5);
-	private static final BlockState	SNOW_BLOCK			= Blocks.SNOW_BLOCK.getDefaultState();
-	private static final BlockState	STONE				= Blocks.STONE.getDefaultState();
-	private static final BlockState	ICE					= Blocks.ICE.getDefaultState();
-	private static final BlockState	AIR					= Blocks.AIR.getDefaultState();
-	private static final BlockState	BELL				= Blocks.BELL.getDefaultState();
-	private static final float		ORE_CHANCE		= 0.3f;
+	private static final BlockState	SNOW			= Blocks.SNOW.getDefaultState().with(SnowBlock.LAYERS, 5);
+	private static final BlockState	SNOW_BLOCK		= Blocks.SNOW_BLOCK.getDefaultState();
+	private static final BlockState	STONE			= Blocks.STONE.getDefaultState();
+	private static final BlockState	ICE			= Blocks.ICE.getDefaultState();
+	private static final BlockState	AIR			= Blocks.AIR.getDefaultState();
+	private static final BlockState	BELL			= Blocks.BELL.getDefaultState();
+	private static final float ORE_CHANCE			= 0.3f;
 	private static final ResourceLocation SNOW_WELL_ORE_RL = new ResourceLocation("repurposed_structures:snow_well_ores");
 
 

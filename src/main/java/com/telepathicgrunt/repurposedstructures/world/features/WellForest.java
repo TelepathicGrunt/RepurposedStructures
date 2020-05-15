@@ -25,16 +25,16 @@ import net.minecraftforge.common.Tags;
 
 public class WellForest extends Feature<NoFeatureConfig>
 {
-	private static final BlockState	OAK_SLAB			= Blocks.OAK_SLAB.getDefaultState();
+	private static final BlockState	OAK_SLAB		= Blocks.OAK_SLAB.getDefaultState();
 	private static final BlockState	STRIPPED_OAK_WOOD	= Blocks.STRIPPED_OAK_WOOD.getDefaultState();
-	private static final BlockState	OAK_FENCE			= Blocks.OAK_FENCE.getDefaultState();
-	private static final BlockState	DIRT				= Blocks.DIRT.getDefaultState();
-	private static final BlockState	GRASS_BLOCK			= Blocks.GRASS_BLOCK.getDefaultState();
-	private static final BlockState	STONE				= Blocks.STONE.getDefaultState();
-	private static final BlockState	WATER				= Blocks.WATER.getDefaultState();
-	private static final BlockState	AIR					= Blocks.AIR.getDefaultState();
-	private static final BlockState	BELL				= Blocks.BELL.getDefaultState();
-	private static final float		ORE_CHANCE			= 0.3f;
+	private static final BlockState	OAK_FENCE		= Blocks.OAK_FENCE.getDefaultState();
+	private static final BlockState	DIRT			= Blocks.DIRT.getDefaultState();
+	private static final BlockState	GRASS_BLOCK		= Blocks.GRASS_BLOCK.getDefaultState();
+	private static final BlockState	STONE			= Blocks.STONE.getDefaultState();
+	private static final BlockState	WATER			= Blocks.WATER.getDefaultState();
+	private static final BlockState	AIR			= Blocks.AIR.getDefaultState();
+	private static final BlockState	BELL			= Blocks.BELL.getDefaultState();
+	private static final float ORE_CHANCE			= 0.3f;
 	private static final ResourceLocation FOREST_WELL_ORE_RL = new ResourceLocation("repurposed_structures:forest_well_ores");
 
 	public WellForest(Function<Dynamic<?>, ? extends NoFeatureConfig> config)

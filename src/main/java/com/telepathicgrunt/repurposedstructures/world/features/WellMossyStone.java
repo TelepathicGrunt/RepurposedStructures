@@ -28,17 +28,17 @@ import net.minecraftforge.common.Tags;
 public class WellMossyStone extends Feature<NoFeatureConfig>
 {
 	private static final BlockState	MOSSY_STONE_BRICK_SLAB	= Blocks.MOSSY_STONE_BRICK_SLAB.getDefaultState();
-	private static final BlockState	STONE_BRICK_SLAB		= Blocks.STONE_BRICK_SLAB.getDefaultState();
-	private static final BlockState	MOSSY_STONE_BRICKS		= Blocks.MOSSY_STONE_BRICKS.getDefaultState();
-	private static final BlockState	STONE_BRICKS			= Blocks.STONE_BRICKS.getDefaultState();
+	private static final BlockState	STONE_BRICK_SLAB	= Blocks.STONE_BRICK_SLAB.getDefaultState();
+	private static final BlockState	MOSSY_STONE_BRICKS	= Blocks.MOSSY_STONE_BRICKS.getDefaultState();
+	private static final BlockState	STONE_BRICKS		= Blocks.STONE_BRICKS.getDefaultState();
 	private static final BlockState	MOSSY_STONE_BRICK_WALL	= Blocks.MOSSY_STONE_BRICK_WALL.getDefaultState();
-	private static final BlockState	STONE_BRICK_WALL		= Blocks.STONE_BRICK_WALL.getDefaultState();
-	private static final BlockState	MOSSY_COBBLESTONE		= Blocks.MOSSY_COBBLESTONE.getDefaultState();
-	private static final BlockState	COBBLESTONE				= Blocks.COBBLESTONE.getDefaultState();
-	private static final BlockState	AIR						= Blocks.AIR.getDefaultState();
-	private static final BlockState	WATER					= Blocks.WATER.getDefaultState();
-	private static final BlockState	BELL					= Blocks.BELL.getDefaultState();
-	private static final float		ORE_CHANCE			= 0.12f;
+	private static final BlockState	STONE_BRICK_WALL	= Blocks.STONE_BRICK_WALL.getDefaultState();
+	private static final BlockState	MOSSY_COBBLESTONE	= Blocks.MOSSY_COBBLESTONE.getDefaultState();
+	private static final BlockState	COBBLESTONE		= Blocks.COBBLESTONE.getDefaultState();
+	private static final BlockState	AIR			= Blocks.AIR.getDefaultState();
+	private static final BlockState	WATER			= Blocks.WATER.getDefaultState();
+	private static final BlockState	BELL			= Blocks.BELL.getDefaultState();
+	private static final float ORE_CHANCE			= 0.12f;
 	private static final ResourceLocation MOSSY_WELL_ORE_RL = new ResourceLocation("repurposed_structures:mossy_well_ores");
 
 

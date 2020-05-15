@@ -28,11 +28,11 @@ public class WellBadlands extends Feature<NoFeatureConfig>
 	private static final BlockState	RED_SANDSTONE_SLAB	= Blocks.RED_SANDSTONE_SLAB.getDefaultState();
 	private static final BlockState	RED_SANDSTONE		= Blocks.RED_SANDSTONE.getDefaultState();
 	private static final BlockState	RED_SANDSTONE_WALL	= Blocks.RED_SANDSTONE_WALL.getDefaultState();
-	private static final BlockState	STONE				= Blocks.STONE.getDefaultState();
-	private static final BlockState	WATER				= Blocks.WATER.getDefaultState();
-	private static final BlockState	AIR					= Blocks.AIR.getDefaultState();
-	private static final BlockState	BELL				= Blocks.BELL.getDefaultState();
-	private static final float		ORE_CHANCE			= 0.15f;
+	private static final BlockState	STONE			= Blocks.STONE.getDefaultState();
+	private static final BlockState	WATER			= Blocks.WATER.getDefaultState();
+	private static final BlockState	AIR			= Blocks.AIR.getDefaultState();
+	private static final BlockState	BELL			= Blocks.BELL.getDefaultState();
+	private static final float ORE_CHANCE			= 0.15f;
 	private static final ResourceLocation BADLANDS_WELL_ORE_RL = new ResourceLocation("repurposed_structures:badlands_well_ores");
 
 

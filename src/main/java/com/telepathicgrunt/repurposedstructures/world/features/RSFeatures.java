@@ -37,7 +37,7 @@ public class RSFeatures
 {
 	//Static instance of our structure so we can reference it and add it to biomes easily.
 	public static Feature<NoFeatureConfig>					BADLANDS_DUNGEONS		= new DungeonBadlands(NoFeatureConfig::deserialize);
-	public static Feature<NoFeatureConfig>					DARK_FOREST_DUNGEONS	= new DungeonDarkForest(NoFeatureConfig::deserialize);
+	public static Feature<NoFeatureConfig>					DARK_FOREST_DUNGEONS		= new DungeonDarkForest(NoFeatureConfig::deserialize);
 	public static Feature<NoFeatureConfig>					DESERT_DUNGEONS			= new DungeonDesert(NoFeatureConfig::deserialize);
 	public static Feature<NoFeatureConfig>					END_DUNGEONS			= new DungeonEnd(NoFeatureConfig::deserialize);
 	public static Feature<NoFeatureConfig>					NETHER_DUNGEONS			= new DungeonNether(NoFeatureConfig::deserialize);
@@ -48,15 +48,15 @@ public class RSFeatures
 	public static Feature<NoFeatureConfig>					OCEAN_DUNGEONS			= new DungeonOcean(NoFeatureConfig::deserialize);
 
 	public static Feature<NoFeatureConfig>					BADLANDS_WELL			= new WellBadlands(NoFeatureConfig::deserialize);
-	public static Feature<NoFeatureConfig>					NETHER_WELL				= new WellNether(NoFeatureConfig::deserialize);
-	public static Feature<NoFeatureConfig>					SNOW_WELL				= new WellSnow(NoFeatureConfig::deserialize);
+	public static Feature<NoFeatureConfig>					NETHER_WELL			= new WellNether(NoFeatureConfig::deserialize);
+	public static Feature<NoFeatureConfig>					SNOW_WELL			= new WellSnow(NoFeatureConfig::deserialize);
 	public static Feature<NoFeatureConfig>					MOSSY_STONE_WELL		= new WellMossyStone(NoFeatureConfig::deserialize);
-	public static Feature<NoFeatureConfig>					FOREST_WELL				= new WellForest(NoFeatureConfig::deserialize);
+	public static Feature<NoFeatureConfig>					FOREST_WELL			= new WellForest(NoFeatureConfig::deserialize);
 
 	public static Feature<NoFeatureConfig>					BOULDER_GIANT			= new BoulderGiant(NoFeatureConfig::deserialize);
 	public static Feature<NoFeatureConfig>					BOULDER_TINY			= new BoulderTiny(NoFeatureConfig::deserialize);
-	public static AbstractTreeFeature<TreeFeatureConfig>	HORNED_SWAMP_TREE		= new TreeSwampHorned(TreeFeatureConfig::func_227338_a_);
-	public static Feature<NoFeatureConfig>					SHORT_VINES				= new VinesShort(NoFeatureConfig::deserialize);
+	public static AbstractTreeFeature<TreeFeatureConfig>			HORNED_SWAMP_TREE		= new TreeSwampHorned(TreeFeatureConfig::func_227338_a_);
+	public static Feature<NoFeatureConfig>					SHORT_VINES			= new VinesShort(NoFeatureConfig::deserialize);
 
 	public static Structure<NoFeatureConfig>				BIRCH_MINESHAFT			= new RSMineshaftBirchStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				DESERT_MINESHAFT		= new RSMineshaftDesertStructure(NoFeatureConfig::deserialize);
@@ -69,12 +69,12 @@ public class RSFeatures
 	public static Structure<NoFeatureConfig>				STONE_MINESHAFT			= new RSMineshaftStoneStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				SWAMP_OR_DARK_FOREST_MINESHAFT	= new RSMineshaftSwampOrDarkForestStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				TAIGA_MINESHAFT			= new RSMineshaftTaigaStructure(NoFeatureConfig::deserialize);
-	public static Structure<NoFeatureConfig>				STRONGHOLD				= new RSStrongholdStructure(NoFeatureConfig::deserialize);
+	public static Structure<NoFeatureConfig>				STRONGHOLD			= new RSStrongholdStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				JUNGLE_FORTRESS			= new JungleFortressStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				NETHER_TEMPLE			= new NetherTempleStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				BADLANDS_TEMPLE			= new BadlandsTempleStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				GRASSY_IGLOO			= new IglooGrassyStructure(NoFeatureConfig::deserialize);
-	public static Structure<NoFeatureConfig>				STONE_IGLOO				= new IglooStoneStructure(NoFeatureConfig::deserialize);
+	public static Structure<NoFeatureConfig>				STONE_IGLOO			= new IglooStoneStructure(NoFeatureConfig::deserialize);
 
 
 	public static void registerFeatures(Register<Feature<?>> event)

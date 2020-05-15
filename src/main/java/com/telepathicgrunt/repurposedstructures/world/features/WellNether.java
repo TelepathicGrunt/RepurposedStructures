@@ -28,12 +28,12 @@ public class WellNether extends Feature<NoFeatureConfig>
 	private static final BlockState	NETHER_BRICK_SLAB	= Blocks.NETHER_BRICK_SLAB.getDefaultState();
 	private static final BlockState	NETHER_BRICKS		= Blocks.NETHER_BRICKS.getDefaultState();
 	private static final BlockState	NETHER_BRICK_FENCE	= Blocks.NETHER_BRICK_FENCE.getDefaultState();
-	private static final BlockState	GLOWSTONE			= Blocks.GLOWSTONE.getDefaultState();
-	private static final BlockState	AIR					= Blocks.AIR.getDefaultState();
-	private static final BlockState	LAVA				= Blocks.LAVA.getDefaultState();
-	private static final BlockState	BELL				= Blocks.BELL.getDefaultState();
-	private static final float		COMMON_ORE_CHANCE	= 0.5f;
-	private static final float		RARE_ORE_CHANCE	= 0.08f;
+	private static final BlockState	GLOWSTONE		= Blocks.GLOWSTONE.getDefaultState();
+	private static final BlockState	AIR			= Blocks.AIR.getDefaultState();
+	private static final BlockState	LAVA			= Blocks.LAVA.getDefaultState();
+	private static final BlockState	BELL			= Blocks.BELL.getDefaultState();
+	private static final float COMMON_ORE_CHANCE		= 0.5f;
+	private static final float RARE_ORE_CHANCE		= 0.08f;
 	private static final ResourceLocation NETHER_WELL_ORE_RL = new ResourceLocation("repurposed_structures:nether_well_ores");
 
 
