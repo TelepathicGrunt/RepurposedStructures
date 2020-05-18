@@ -10,6 +10,12 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 
    
+## (V.1.4.2 Changes) (1.15.2 Minecraft)
+  
+##### Structures:
+
+-Fixed Ocean Dungeons creating a ring of water slightly above sealevel if it generates in shallow water.
+   
 ## (V.1.4.1 Changes) (1.15.2 Minecraft)
   
 ##### Config: 

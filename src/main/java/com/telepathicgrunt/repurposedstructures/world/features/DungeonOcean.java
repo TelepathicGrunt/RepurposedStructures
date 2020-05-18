@@ -145,13 +145,15 @@ public class DungeonOcean extends Feature<NoFeatureConfig>
 								if (currentBlock.getBlock() != Blocks.CHEST && 
 									currentBlock.getBlock() != Blocks.SPAWNER &&
 									currentBlock.getBlock() != Blocks.DARK_PRISMARINE && 
-									currentBlock.getBlock() != Blocks.DARK_PRISMARINE_STAIRS)
+									currentBlock.getBlock() != Blocks.DARK_PRISMARINE_STAIRS &&
+									blockpos$Mutable.getY() < world.getSeaLevel())
 								{
 									world.setBlockState(blockpos$Mutable, WATER, 2);
 								}
 
 								currentBlock = world.getBlockState(blockpos$Mutable.up());
-								if(currentBlock.getMaterial() == Material.OCEAN_PLANT)
+								if(currentBlock.getMaterial() == Material.OCEAN_PLANT &&
+								   blockpos$Mutable.getY() + 1 < world.getSeaLevel())
 								{
 									world.setBlockState(blockpos$Mutable.up(), WATER, 3);
 								}
@@ -162,7 +164,8 @@ public class DungeonOcean extends Feature<NoFeatureConfig>
 							if (currentBlock.getBlock() != Blocks.CHEST && 
 								currentBlock.getBlock() != Blocks.SPAWNER && 
 								currentBlock.getBlock() != Blocks.DARK_PRISMARINE && 
-								currentBlock.getBlock() != Blocks.DARK_PRISMARINE_STAIRS)
+								currentBlock.getBlock() != Blocks.DARK_PRISMARINE_STAIRS &&
+								blockpos$Mutable.getY() < world.getSeaLevel())
 							{
 								world.setBlockState(blockpos$Mutable, WATER, 2);
 							}
@@ -200,7 +203,7 @@ public class DungeonOcean extends Feature<NoFeatureConfig>
 								else
 								{
 									currentBlock = world.getBlockState(blockpos$Mutable);
-									world.setBlockState(blockpos$Mutable, PRISMARINE_WALL.with(BlockStateProperties.WATERLOGGED, true), 3);
+									world.setBlockState(blockpos$Mutable, PRISMARINE_WALL.with(BlockStateProperties.WATERLOGGED, blockpos$Mutable.getY() < world.getSeaLevel()), 3);
 								}
 							}
 						}
@@ -235,7 +238,7 @@ public class DungeonOcean extends Feature<NoFeatureConfig>
 
 						if (j3 == 1)
 						{
-							world.setBlockState(blockpos$Mutable, StructurePiece.func_197528_a(world, blockpos$Mutable, Blocks.CHEST.getDefaultState().with(BlockStateProperties.WATERLOGGED, true)), 3);
+							world.setBlockState(blockpos$Mutable, StructurePiece.func_197528_a(world, blockpos$Mutable, Blocks.CHEST.getDefaultState().with(BlockStateProperties.WATERLOGGED, blockpos$Mutable.getY() < world.getSeaLevel())), 3);
 							
 							float chance = random.nextFloat();
 							if(chance < 0.01f)
@@ -288,7 +291,10 @@ public class DungeonOcean extends Feature<NoFeatureConfig>
 			}
 
 			blockpos$Mutable.setPos(position).move(Direction.DOWN);
-			world.setBlockState(blockpos$Mutable, WATER, 2);
+			
+			if(blockpos$Mutable.getY() < world.getSeaLevel())
+			    world.setBlockState(blockpos$Mutable, WATER, 2);
+			
 			world.setBlockState(blockpos$Mutable, Blocks.SPAWNER.getDefaultState(), 2);
 			TileEntity tileentity = world.getTileEntity(blockpos$Mutable);
 
@@ -306,14 +312,14 @@ public class DungeonOcean extends Feature<NoFeatureConfig>
 			if(currentBlock.getBlock() != Blocks.CHEST && 
 				currentBlock.getBlock() != Blocks.SPAWNER)
 			{
-				world.setBlockState(blockpos$Mutable, PRISMARINE_WALL.with(BlockStateProperties.WATERLOGGED, true), 2);
+				world.setBlockState(blockpos$Mutable, PRISMARINE_WALL.with(BlockStateProperties.WATERLOGGED, blockpos$Mutable.getY() < world.getSeaLevel()), 2);
 			}
 			
 			currentBlock = world.getBlockState(blockpos$Mutable.move(Direction.UP));
 			if(currentBlock.getBlock() != Blocks.CHEST && 
 				currentBlock.getBlock() != Blocks.SPAWNER)
 			{
-				world.setBlockState(blockpos$Mutable, PRISMARINE_WALL.with(BlockStateProperties.WATERLOGGED, true), 2);
+				world.setBlockState(blockpos$Mutable, PRISMARINE_WALL.with(BlockStateProperties.WATERLOGGED, blockpos$Mutable.getY() < world.getSeaLevel()), 2);
 			}
 			
 			for (Direction direction : Direction.Plane.HORIZONTAL)
@@ -323,7 +329,7 @@ public class DungeonOcean extends Feature<NoFeatureConfig>
 				if(currentBlock.getBlock() != Blocks.CHEST && 
 					currentBlock.getBlock() != Blocks.SPAWNER)
 				{
-					world.setBlockState(blockpos$Mutable, DARK_PRISMARINE_STAIRS.with(BlockStateProperties.WATERLOGGED, true).with(StairsBlock.FACING, direction.getOpposite()), 2);
+					world.setBlockState(blockpos$Mutable, DARK_PRISMARINE_STAIRS.with(BlockStateProperties.WATERLOGGED, blockpos$Mutable.getY() < world.getSeaLevel()).with(StairsBlock.FACING, direction.getOpposite()), 2);
 				}
 			}
 			
