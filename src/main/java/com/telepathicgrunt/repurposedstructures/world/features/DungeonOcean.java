@@ -238,7 +238,7 @@ public class DungeonOcean extends Feature<NoFeatureConfig>
 
 						if (j3 == 1)
 						{
-							world.setBlockState(blockpos$Mutable, StructurePiece.func_197528_a(world, blockpos$Mutable, Blocks.CHEST.getDefaultState().with(BlockStateProperties.WATERLOGGED, blockpos$Mutable.getY() < world.getSeaLevel())), 3);
+							world.setBlockState(blockpos$Mutable, StructurePiece.correctFacing(world, blockpos$Mutable, Blocks.CHEST.getDefaultState().with(BlockStateProperties.WATERLOGGED, blockpos$Mutable.getY() < world.getSeaLevel())), 3);
 							
 							float chance = random.nextFloat();
 							if(chance < 0.01f)

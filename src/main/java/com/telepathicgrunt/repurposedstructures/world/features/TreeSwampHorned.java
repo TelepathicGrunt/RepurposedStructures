@@ -29,15 +29,15 @@ public class TreeSwampHorned extends AbstractTreeFeature<TreeFeatureConfig>
 	private static final BlockState LEAF = Blocks.OAK_LEAVES.getDefaultState().with(LeavesBlock.DISTANCE, Integer.valueOf(1));
 
 
-	public TreeSwampHorned(Function<Dynamic<?>, ? extends TreeFeatureConfig> p_i225808_1_)
+	public TreeSwampHorned(Function<Dynamic<?>, ? extends TreeFeatureConfig> config)
 	{
-		super(p_i225808_1_);
+		super(config);
 	}
 
 
 	//generate the spooky horned swamp m trees
 	@Override
-	public boolean func_225557_a_(IWorldGenerationReader worldReader, Random rand, BlockPos position, Set<BlockPos> p_225557_4_, Set<BlockPos> p_225557_5_, MutableBoundingBox boundingBox, TreeFeatureConfig p_225557_7_)
+	public boolean place(IWorldGenerationReader worldReader, Random rand, BlockPos position, Set<BlockPos> leaveSet, Set<BlockPos> trunkSet, MutableBoundingBox boundingBox, TreeFeatureConfig config)
 	{
 		int height = rand.nextInt(4) + 6;
 		IWorld world = (IWorld) worldReader;
@@ -60,23 +60,23 @@ public class TreeSwampHorned extends AbstractTreeFeature<TreeFeatureConfig>
 		{
 			for (int y = position.getY(); y <= position.getY() + 1 + height; ++y)
 			{
-				int k = 1;
+				int radius = 1;
 
 				if (y == position.getY())
 				{
-					k = 0;
+					radius = 0;
 				}
 
 				if (y >= position.getY() + 1 + height - 2)
 				{
-					k = 3;
+					radius = 3;
 				}
 
 				BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable();
 
-				for (int x = position.getX() - k; x <= position.getX() + k && flag; ++x)
+				for (int x = position.getX() - radius; x <= position.getX() + radius && flag; ++x)
 				{
-					for (int z = position.getZ() - k; z <= position.getZ() + k && flag; ++z)
+					for (int z = position.getZ() - radius; z <= position.getZ() + radius && flag; ++z)
 					{
 						if (y >= 0 && y < 256)
 						{
@@ -105,7 +105,7 @@ public class TreeSwampHorned extends AbstractTreeFeature<TreeFeatureConfig>
 			{
 				return false;
 			}
-			else if (isSoil(world, position.down(), p_225557_7_.getSapling()) && position.getY() < world.getMaxHeight() - height - 1)
+			else if (isSoil(world, position.down(), config.getSapling()) && position.getY() < world.getMaxHeight() - height - 1)
 			{
 				this.setDirtAt(world, position.down(), position);
 
@@ -257,34 +257,34 @@ public class TreeSwampHorned extends AbstractTreeFeature<TreeFeatureConfig>
 
 	private boolean isSpaceAt(IWorldGenerationBaseReader world, BlockPos leavesPos, int height)
 	{
-		boolean flag = true;
+		boolean spaceFound = true;
 		if (leavesPos.getY() >= 1 && leavesPos.getY() + height + 1 <= world.getMaxHeight())
 		{
-			for (int i = 0; i <= 1 + height; ++i)
+			for (int y = 0; y <= 1 + height; ++y)
 			{
-				int j = 2;
-				if (i == 0)
+				int radius = 2;
+				if (y == 0)
 				{
-					j = 1;
+					radius = 1;
 				}
-				else if (i >= 1 + height - 2)
+				else if (y >= 1 + height - 2)
 				{
-					j = 2;
+					radius = 2;
 				}
 
-				for (int k = -j; k <= j && flag; ++k)
+				for (int x = -radius; x <= radius && spaceFound; ++x)
 				{
-					for (int l = -j; l <= j && flag; ++l)
+					for (int z = -radius; z <= radius && spaceFound; ++z)
 					{
-						if (leavesPos.getY() + i < 0 || leavesPos.getY() + i >= world.getMaxHeight() || !func_214587_a(world, leavesPos.add(k, i, l)))
+						if (leavesPos.getY() + y < 0 || leavesPos.getY() + y >= world.getMaxHeight() || !canBeReplacedByLogs(world, leavesPos.add(x, y, z)))
 						{
-							flag = false;
+							spaceFound = false;
 						}
 					}
 				}
 			}
 
-			return flag;
+			return spaceFound;
 		}
 		else
 		{

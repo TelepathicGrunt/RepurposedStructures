@@ -135,7 +135,7 @@ public class RSIglooPieces
 		}
 
 
-		public boolean func_225577_a_(IWorld world, ChunkGenerator<?> chunkgenerator, Random random, MutableBoundingBox box, ChunkPos chunkPos)
+		public boolean create(IWorld world, ChunkGenerator<?> chunkgenerator, Random random, MutableBoundingBox box, ChunkPos chunkPos)
 		{
 			PlacementSettings placementsettings = (new PlacementSettings()).setRotation(this.rotation).setMirror(Mirror.NONE).setCenterOffset(OFFSET_1.get(this.pieceRL)).addProcessor(BlockIgnoreStructureProcessor.STRUCTURE_BLOCK);
 			BlockPos blockpos = OFFSET_2.get(this.pieceRL);
@@ -143,7 +143,7 @@ public class RSIglooPieces
 			int terrainSurfaceY = world.getHeight(Heightmap.Type.WORLD_SURFACE_WG, blockpos1.getX(), blockpos1.getZ());
 			BlockPos blockpos2 = this.templatePosition;
 			this.templatePosition = this.templatePosition.add(0, terrainSurfaceY - 90 - 1, 0);
-			boolean flag = super.func_225577_a_(world, chunkgenerator, random, box, chunkPos);
+			boolean flag = super.create(world, chunkgenerator, random, box, chunkPos);
 			if (floorBlock != null)
 			{
 				BlockPos blockpos3 = this.templatePosition.add(Template.transformedBlockPos(placementsettings, new BlockPos(3, 0, 5)));

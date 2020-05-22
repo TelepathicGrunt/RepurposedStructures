@@ -76,12 +76,12 @@ public class RSStrongholdStructure extends StrongholdStructure
 
 
 	@Override
-	public boolean func_225558_a_(BiomeManager biomeManager, ChunkGenerator<?> chunkGenerator, Random random, int chunkPosX, int chunkPosZ, Biome biome)
+	public boolean canBeGenerated(BiomeManager biomeManager, ChunkGenerator<?> chunkGenerator, Random random, int chunkPosX, int chunkPosZ, Biome biome)
 	{
 
 		if (RepurposedStructures.RSConfig.useVanillaStronghold.get())
 		{
-			return super.func_225558_a_(biomeManager, chunkGenerator, random, chunkPosX, chunkPosZ, biome);
+			return super.canBeGenerated(biomeManager, chunkGenerator, random, chunkPosX, chunkPosZ, biome);
 		}
 		else
 		{

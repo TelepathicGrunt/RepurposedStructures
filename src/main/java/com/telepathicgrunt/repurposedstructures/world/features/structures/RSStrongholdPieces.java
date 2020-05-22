@@ -355,7 +355,7 @@ public class RSStrongholdPieces
 
 
 		@Override
-		public boolean func_225577_a_(IWorld world, ChunkGenerator<?> chunkGenerator, Random random, MutableBoundingBox structureBoundingBoxIn, ChunkPos chunkPos)
+		public boolean create(IWorld world, ChunkGenerator<?> chunkGenerator, Random random, MutableBoundingBox structureBoundingBoxIn, ChunkPos chunkPos)
 		{
 			RSStrongholdPieces.Stones randomStrongholdBlocks = new RSStrongholdPieces.Stones(this.strongholdType);
 			this.fillWithRandomizedBlocks(world, structureBoundingBoxIn, 0, 0, 0, 4, 4, 6, false, random, randomStrongholdBlocks);
@@ -446,7 +446,7 @@ public class RSStrongholdPieces
 
 
 		@Override
-		public boolean func_225577_a_(IWorld world, ChunkGenerator<?> chunkGenerator, Random random, MutableBoundingBox structureBoundingBoxIn, ChunkPos chunkPos)
+		public boolean create(IWorld world, ChunkGenerator<?> chunkGenerator, Random random, MutableBoundingBox structureBoundingBoxIn, ChunkPos chunkPos)
 		{
 			for (int i = 0; i < this.steps; ++i)
 			{
@@ -567,7 +567,7 @@ public class RSStrongholdPieces
 
 
 		@Override
-		public boolean func_225577_a_(IWorld world, ChunkGenerator<?> chunkGenerator, Random random, MutableBoundingBox structureBoundingBoxIn, ChunkPos chunkPos)
+		public boolean create(IWorld world, ChunkGenerator<?> chunkGenerator, Random random, MutableBoundingBox structureBoundingBoxIn, ChunkPos chunkPos)
 		{
 			RSStrongholdPieces.Stones randomStrongholdBlocks = new RSStrongholdPieces.Stones(this.strongholdType);
 			this.fillWithRandomizedBlocks(world, structureBoundingBoxIn, 0, 0, 0, 9, 8, 10, false, random, randomStrongholdBlocks);
@@ -653,7 +653,7 @@ public class RSStrongholdPieces
 
 
 		@Override
-		public boolean func_225577_a_(IWorld world, ChunkGenerator<?> chunkGenerator, Random random, MutableBoundingBox structureBoundingBoxIn, ChunkPos chunkPos)
+		public boolean create(IWorld world, ChunkGenerator<?> chunkGenerator, Random random, MutableBoundingBox structureBoundingBoxIn, ChunkPos chunkPos)
 		{
 			RSStrongholdPieces.Stones randomStrongholdBlocks = new RSStrongholdPieces.Stones(this.strongholdType);
 			this.fillWithRandomizedBlocks(world, structureBoundingBoxIn, 0, 0, 0, 4, 4, 4, false, random, randomStrongholdBlocks);
@@ -739,7 +739,7 @@ public class RSStrongholdPieces
 		}
 
 		@Override
-		public boolean func_225577_a_(IWorld world, ChunkGenerator<?> chunkGenerator, Random random, MutableBoundingBox structureBoundingBoxIn, ChunkPos chunkPos)
+		public boolean create(IWorld world, ChunkGenerator<?> chunkGenerator, Random random, MutableBoundingBox structureBoundingBoxIn, ChunkPos chunkPos)
 		{
 			int i = 11;
 
@@ -949,7 +949,7 @@ public class RSStrongholdPieces
 
 
 		@Override
-		public boolean func_225577_a_(IWorld world, ChunkGenerator<?> chunkGenerator, Random random, MutableBoundingBox structureBoundingBoxIn, ChunkPos chunkPos)
+		public boolean create(IWorld world, ChunkGenerator<?> chunkGenerator, Random random, MutableBoundingBox structureBoundingBoxIn, ChunkPos chunkPos)
 		{
 			RSStrongholdPieces.Stones randomStrongholdBlocks = new RSStrongholdPieces.Stones(this.strongholdType);
 			this.fillWithRandomizedBlocks(world, structureBoundingBoxIn, 0, 0, 0, 10, 7, 15, false, random, randomStrongholdBlocks);
@@ -1079,7 +1079,7 @@ public class RSStrongholdPieces
 
 
 		@Override
-		public boolean func_225577_a_(IWorld world, ChunkGenerator<?> chunkGenerator, Random random, MutableBoundingBox structureBoundingBoxIn, ChunkPos chunkPos)
+		public boolean create(IWorld world, ChunkGenerator<?> chunkGenerator, Random random, MutableBoundingBox structureBoundingBoxIn, ChunkPos chunkPos)
 		{
 			RSStrongholdPieces.Stones randomStrongholdBlocks = new RSStrongholdPieces.Stones(this.strongholdType);
 			this.fillWithRandomizedBlocks(world, structureBoundingBoxIn, 0, 0, 0, 8, 4, 10, false, random, randomStrongholdBlocks);
@@ -1138,7 +1138,7 @@ public class RSStrongholdPieces
 
 
 		@Override
-		public boolean func_225577_a_(IWorld world, ChunkGenerator<?> chunkGenerator, Random random, MutableBoundingBox structureBoundingBoxIn, ChunkPos chunkPos)
+		public boolean create(IWorld world, ChunkGenerator<?> chunkGenerator, Random random, MutableBoundingBox structureBoundingBoxIn, ChunkPos chunkPos)
 		{
 			RSStrongholdPieces.Stones randomStrongholdBlocks = new RSStrongholdPieces.Stones(this.strongholdType);
 			this.fillWithRandomizedBlocks(world, structureBoundingBoxIn, 0, 0, 0, 4, 4, 4, false, random, randomStrongholdBlocks);
@@ -1215,7 +1215,7 @@ public class RSStrongholdPieces
 
 
 		@Override
-		public boolean func_225577_a_(IWorld world, ChunkGenerator<?> chunkGenerator, Random random, MutableBoundingBox structureBoundingBoxIn, ChunkPos chunkPos)
+		public boolean create(IWorld world, ChunkGenerator<?> chunkGenerator, Random random, MutableBoundingBox structureBoundingBoxIn, ChunkPos chunkPos)
 		{
 			RSStrongholdPieces.Stones randomStrongholdBlocks = new RSStrongholdPieces.Stones(this.strongholdType);
 			this.fillWithRandomizedBlocks(world, structureBoundingBoxIn, 0, 0, 0, 10, 6, 10, false, random, randomStrongholdBlocks);
@@ -1466,7 +1466,7 @@ public class RSStrongholdPieces
 
 
 		@Override
-		public boolean func_225577_a_(IWorld world, ChunkGenerator<?> chunkGenerator, Random random, MutableBoundingBox structureBoundingBoxIn, ChunkPos chunkPos)
+		public boolean create(IWorld world, ChunkGenerator<?> chunkGenerator, Random random, MutableBoundingBox structureBoundingBoxIn, ChunkPos chunkPos)
 		{
 			RSStrongholdPieces.Stones randomStrongholdBlocks = new RSStrongholdPieces.Stones(this.strongholdType);
 			this.fillWithRandomizedBlocks(world, structureBoundingBoxIn, 0, 0, 0, 4, 10, 4, false, random, randomStrongholdBlocks);
@@ -1545,7 +1545,7 @@ public class RSStrongholdPieces
 
 
 		@Override
-		public boolean func_225577_a_(IWorld world, ChunkGenerator<?> chunkGenerator, Random random, MutableBoundingBox structureBoundingBoxIn, ChunkPos chunkPos)
+		public boolean create(IWorld world, ChunkGenerator<?> chunkGenerator, Random random, MutableBoundingBox structureBoundingBoxIn, ChunkPos chunkPos)
 		{
 			RSStrongholdPieces.Stones randomStrongholdBlocks = new RSStrongholdPieces.Stones(this.strongholdType);
 			this.fillWithRandomizedBlocks(world, structureBoundingBoxIn, 0, 0, 0, 4, 10, 7, false, random, randomStrongholdBlocks);
@@ -1712,7 +1712,7 @@ public class RSStrongholdPieces
 
 
 		@Override
-		public boolean func_225577_a_(IWorld world, ChunkGenerator<?> chunkGenerator, Random random, MutableBoundingBox structureBoundingBoxIn, ChunkPos chunkPos)
+		public boolean create(IWorld world, ChunkGenerator<?> chunkGenerator, Random random, MutableBoundingBox structureBoundingBoxIn, ChunkPos chunkPos)
 		{
 			RSStrongholdPieces.Stones randomStrongholdBlocks = new RSStrongholdPieces.Stones(this.strongholdType);
 			this.fillWithRandomizedBlocks(world, structureBoundingBoxIn, 0, 0, 0, 4, 4, 6, false, random, randomStrongholdBlocks);

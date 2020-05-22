@@ -370,7 +370,7 @@ public class RSMineshaftPieces
 
 
 		@Override
-		public boolean func_225577_a_(IWorld world, ChunkGenerator<?> p_225577_2_, Random random, MutableBoundingBox box, ChunkPos p_74875_4_)
+		public boolean create(IWorld world, ChunkGenerator<?> p_225577_2_, Random random, MutableBoundingBox box, ChunkPos p_74875_4_)
 		{
 			Boolean isOceanType = this.mineShaftType == RSMineshaftPieces.Type.OCEAN;
 			if (isOceanType ? this.isAirInStructureBoundingBox(world, box) : this.isLiquidInStructureBoundingBox(world, box))
@@ -709,7 +709,7 @@ public class RSMineshaftPieces
 
 
 		@Override
-		public boolean func_225577_a_(IWorld world, ChunkGenerator<?> p_225577_2_, Random random, MutableBoundingBox MutableBoundingBoxIn, ChunkPos p_74875_4_)
+		public boolean create(IWorld world, ChunkGenerator<?> p_225577_2_, Random random, MutableBoundingBox MutableBoundingBoxIn, ChunkPos p_74875_4_)
 		{
 			Boolean isOceanType = this.mineShaftType == RSMineshaftPieces.Type.OCEAN;
 			if (isOceanType ? this.isAirInStructureBoundingBox(world, MutableBoundingBoxIn) : this.isLiquidInStructureBoundingBox(world, MutableBoundingBoxIn))
@@ -900,7 +900,7 @@ public class RSMineshaftPieces
 
 
 		@Override
-		public boolean func_225577_a_(IWorld world, ChunkGenerator<?> generator, Random random, MutableBoundingBox box, ChunkPos chunkPos)
+		public boolean create(IWorld world, ChunkGenerator<?> generator, Random random, MutableBoundingBox box, ChunkPos chunkPos)
 		{
 			BlockState flooring;
 
@@ -1075,7 +1075,7 @@ public class RSMineshaftPieces
 
 
 		@Override
-		public boolean func_225577_a_(IWorld world, ChunkGenerator<?> p_225577_2_, Random random, MutableBoundingBox MutableBoundingBoxIn, ChunkPos p_74875_4_)
+		public boolean create(IWorld world, ChunkGenerator<?> p_225577_2_, Random random, MutableBoundingBox MutableBoundingBoxIn, ChunkPos p_74875_4_)
 		{
 			Boolean isOceanType = this.mineShaftType == RSMineshaftPieces.Type.OCEAN;
 			if (isOceanType ? this.isAirInStructureBoundingBox(world, MutableBoundingBoxIn) : this.isLiquidInStructureBoundingBox(world, MutableBoundingBoxIn))

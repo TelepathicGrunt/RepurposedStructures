@@ -76,7 +76,7 @@ public class NetherTemplePiece extends ScatteredStructurePiece
 	}
 
 
-	public boolean func_225577_a_(IWorld world, ChunkGenerator<?> chunKGenerator, Random random, MutableBoundingBox box, ChunkPos chunkPos)
+	public boolean create(IWorld world, ChunkGenerator<?> chunKGenerator, Random random, MutableBoundingBox box, ChunkPos chunkPos)
 	{
 		BlockPos.Mutable mutable = new BlockPos.Mutable((box.maxX-box.minX)/2+box.minX, 30, (box.maxZ-box.minZ)/2+box.minZ);
 		while(!world.isAirBlock(mutable))

@@ -61,7 +61,7 @@ public class BadlandsTemplePiece extends ScatteredStructurePiece
 	}
 
 
-	public boolean func_225577_a_(IWorld world, ChunkGenerator<?> generator, Random random, MutableBoundingBox mutable, ChunkPos chunkPos)
+	public boolean create(IWorld world, ChunkGenerator<?> generator, Random random, MutableBoundingBox mutable, ChunkPos chunkPos)
 	{
 		int minY = 225;
 		for(int x = 0; x < this.width; x++)
@@ -72,7 +72,7 @@ public class BadlandsTemplePiece extends ScatteredStructurePiece
 			}
 		}
 
-        this.boundingBox.offset(0, this.hPos - this.boundingBox.minY + minY + 1, 0);
+		this.boundingBox.offset(0, this.hPos - this.boundingBox.minY + minY + 1, 0);
 		
 		
 		this.fillWithBlocks(world, mutable, 0, -4, 0, this.width - 1, 0, this.depth - 1, Blocks.RED_SANDSTONE.getDefaultState(), Blocks.RED_SANDSTONE.getDefaultState(), false);
@@ -290,7 +290,7 @@ public class BadlandsTemplePiece extends ScatteredStructurePiece
 			int x = 10 + direction.getXOffset() * 2;
 			int z = 10 + direction.getZOffset() * 2;
 			blockpos = new BlockPos(this.getXWithOffset(x, z), this.getYWithOffset(-11), this.getZWithOffset(x, z));
-			BlockState chest = func_197528_a(world, blockpos, Blocks.TRAPPED_CHEST.getDefaultState());
+			BlockState chest = correctFacing(world, blockpos, Blocks.TRAPPED_CHEST.getDefaultState());
 
 			world.setBlockState(blockpos, chest, 2);
 			tileentity = world.getTileEntity(blockpos);
