@@ -10,6 +10,12 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 
    
+## (V.1.4.3 Changes) (1.15.2 Minecraft)
+  
+##### Structures:
+
+-Fix crash when updating this mod from pre-1.4.0 to 1.4.x for an old world. Sorry about that!
+   
 ## (V.1.4.2 Changes) (1.15.2 Minecraft)
   
 ##### Structures:

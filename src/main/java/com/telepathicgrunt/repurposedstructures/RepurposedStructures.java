@@ -8,7 +8,11 @@ import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
 import com.telepathicgrunt.repurposedstructures.world.features.RSFeatures;
 
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.IFeatureConfig;
+import net.minecraft.world.gen.placement.IPlacementConfig;
+import net.minecraft.world.gen.placement.Placement;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -63,6 +67,9 @@ public class RepurposedStructures
 			RSAddFeatures.addNetherTemple(biome, biomeNamespace, biomePath);
 			RSAddFeatures.addBadlandsTemple(biome, biomeNamespace, biomePath);
 			RSAddFeatures.addIgloos(biome, biomeNamespace, biomePath);
+			
+			biome.addStructure(RSFeatures.DUMMY_MINESHAFT_STRUCTURE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.DUMMY_MINESHAFT_STRUCTURE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
 		}
 	}
 	

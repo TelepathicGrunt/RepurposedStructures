@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.telepathicgrunt.repurposedstructures.utils.RegUtil;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.BadlandsTempleStructure;
+import com.telepathicgrunt.repurposedstructures.world.features.structures.DummyMineshaftStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.IglooGrassyStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.IglooStoneStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.JungleFortressStructure;
@@ -75,6 +76,7 @@ public class RSFeatures
 	public static Structure<NoFeatureConfig>				BADLANDS_TEMPLE			= new BadlandsTempleStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				GRASSY_IGLOO			= new IglooGrassyStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				STONE_IGLOO			= new IglooStoneStructure(NoFeatureConfig::deserialize);
+	public static Structure<NoFeatureConfig>				DUMMY_MINESHAFT_STRUCTURE			= new DummyMineshaftStructure(NoFeatureConfig::deserialize);
 
 
 	public static void registerFeatures(Register<Feature<?>> event)
@@ -124,6 +126,9 @@ public class RSFeatures
 		
 		//registers the structure pieces.
 		StructurePieces.registerStructurePieces();
+		
+		//Legacy structure to replace with dummy structure 
+		RegUtil.register(registry, DUMMY_MINESHAFT_STRUCTURE, "mineshaft");
 	}
 	
 

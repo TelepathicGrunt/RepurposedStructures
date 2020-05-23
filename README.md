@@ -1,8 +1,13 @@
 <p><img src="https://i.imgur.com/lD8Pa6U.png" alt="Picture that shows the title of this mod with a Stonebrick Fortress during sunset behind the text" width="1519" height="516" /></p>
 <h2 style="text-align: center;"><strong><span style="font-size: 36px; color: #009611;">CURRENTLY FOR 1.15.2 MC</span></strong></h2>
 <p>&nbsp;</p>
+<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;If your world was crashing when</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>updating this mod from v1.3.x to v1.4.x, please try</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>v1.4.3 as that should fix the crash due to me splitting up</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>the Mineshafts. To do this fix, I had to use a dummy Mineshaft.</strong></b></span></em></p>
 <p style="text-align: center;">&nbsp;</p>
-<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;Added Grassy Igloo and </strong></b></span></em><em><span style="font-size: 14px;"><b><strong>Stone Igloo!&nbsp;</strong></b></span></em></p>
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Past News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;Added Grassy Igloo and </strong></b></span></em><em><span style="font-size: 14px;"><b><strong>Stone Igloo!&nbsp;</strong></b></span></em></p>
 <p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>Mineshafts in Jungles, Swamps, </strong></b></span></em><em><span style="font-size: 14px;"><b><strong>and </strong></b></span></em><em><span style="font-size: 14px;"><b><strong>Dark Forest now has vines inside!</strong></b></span></em></p>
 <p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>And now you can use tags to change the ores in wells,</strong></b></span></em></p>
 <p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>the plants in Jungle Fortress's staircase room,&nbsp;</strong></b></span></em></p>
