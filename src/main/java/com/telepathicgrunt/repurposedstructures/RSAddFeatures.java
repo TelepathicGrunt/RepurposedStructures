@@ -316,35 +316,35 @@ public class RSAddFeatures
 	
 	public static void addWells(Biome biome, String biomeNamespace, String biomePath)
 	{
-		if(RepurposedStructures.RSConfig.badlandsWells.get() && 
+		if(RepurposedStructures.RSConfig.badlandsWellSpawnrate.get() != 10000 && 
 			biome.getCategory() == Category.MESA && 
 			wellAllowedByNamespaceAndConfig(biomeNamespace))
 		{
-			biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.BADLANDS_WELL.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.CHANCE_HEIGHTMAP.configure(new ChanceConfig(RepurposedStructures.RSConfig.wellSpawnrate.get()))));
+			biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.BADLANDS_WELL.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.CHANCE_HEIGHTMAP.configure(new ChanceConfig(RepurposedStructures.RSConfig.badlandsWellSpawnrate.get()))));
 		}
-		else if(RepurposedStructures.RSConfig.netherWells.get() && 
+		else if(RepurposedStructures.RSConfig.netherWellSpawnrate.get() != 10000 && 
 				biome.getCategory() == Category.NETHER && 
 				wellAllowedByNamespaceAndConfig(biomeNamespace))
 		{
-			biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.NETHER_WELL.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.CHANCE_RANGE.configure(new ChanceRangeConfig(1F/RepurposedStructures.RSConfig.wellSpawnrate.get(), 30, 0, 98))));
+			biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.NETHER_WELL.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.CHANCE_RANGE.configure(new ChanceRangeConfig(1F/RepurposedStructures.RSConfig.netherWellSpawnrate.get(), 30, 0, 98))));
 		}
-		else if(RepurposedStructures.RSConfig.snowWells.get() && 
+		else if(RepurposedStructures.RSConfig.snowWellSpawnrate.get() != 10000 && 
 				(biome.getCategory() == Category.ICY || biomePath.contains("snow")) && 
 				wellAllowedByNamespaceAndConfig(biomeNamespace))
 		{
-			biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.SNOW_WELL.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.CHANCE_HEIGHTMAP.configure(new ChanceConfig(RepurposedStructures.RSConfig.wellSpawnrate.get()))));
+			biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.SNOW_WELL.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.CHANCE_HEIGHTMAP.configure(new ChanceConfig(RepurposedStructures.RSConfig.snowWellSpawnrate.get()))));
 		}
-		else if(RepurposedStructures.RSConfig.mossyStoneWells.get() && 
+		else if(RepurposedStructures.RSConfig.mossyStoneWellSpawnrate.get() != 10000 && 
 				(biome.getCategory() == Category.JUNGLE || biome.getCategory() == Category.SWAMP || biomePath.contains("dark_forest") || biomePath.contains("dark_oak")) && 
 				wellAllowedByNamespaceAndConfig(biomeNamespace))
 		{
-			biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.MOSSY_STONE_WELL.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.CHANCE_HEIGHTMAP.configure(new ChanceConfig(RepurposedStructures.RSConfig.wellSpawnrate.get()))));
+			biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.MOSSY_STONE_WELL.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.CHANCE_HEIGHTMAP.configure(new ChanceConfig(RepurposedStructures.RSConfig.mossyStoneWellSpawnrate.get()))));
 		}
-		else if(RepurposedStructures.RSConfig.forestWells.get() && 
+		else if(RepurposedStructures.RSConfig.forestWellSpawnrate.get() != 10000 && 
 				(biome.getCategory() == Category.FOREST && !(biomePath.contains("dark_forest") || biomePath.contains("dark_oak"))) && 
 				wellAllowedByNamespaceAndConfig(biomeNamespace))
 		{
-			biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.FOREST_WELL.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.CHANCE_HEIGHTMAP.configure(new ChanceConfig(RepurposedStructures.RSConfig.wellSpawnrate.get()))));
+			biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.FOREST_WELL.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.CHANCE_HEIGHTMAP.configure(new ChanceConfig(RepurposedStructures.RSConfig.forestWellSpawnrate.get()))));
 		}
 	}
 	

@@ -4,7 +4,8 @@
 <p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;If your world was crashing when</strong></b></span></em></p>
 <p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>updating this mod from v1.3.x to v1.4.x, please try</strong></b></span></em></p>
 <p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>v1.4.3 as that should fix the crash due to me splitting up</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>the Mineshafts. To do this fix, I had to use a dummy Mineshaft.</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>the Mineshafts. To do this fix, I had to use a dummy Mineshaft.<br />Also, configs are upgrades to let you control spawnrates&nbsp;</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>by type of dungeon, well, and mineshaft individually!</strong></b></span></em></p>
 <p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Past News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;Added Grassy Igloo and </strong></b></span></em><em><span style="font-size: 14px;"><b><strong>Stone Igloo!&nbsp;</strong></b></span></em></p>
@@ -22,6 +23,8 @@
 <p style="text-align: left;"><span style="font-size: 14px;">&nbsp;<strong> &nbsp; Repurposed Structures is a mod about taking existing vanilla features and structures and creating new variants or modifications to them! Originally, most of the structures and features in this mod was actually made for my Ultra Amplified Dimension mod. but then I realized these features and structures would look great in the Overworld as well so I decided to take those structures and features and split them into their own mod. This mod! </strong></span></p>
 <p style="text-align: left;">&nbsp;</p>
 <p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; Currently, this mod creates a Nether Fortresses using Stonebrick blocks and spawns it in Jungles, Dungeons and Mineshafts now has more variants to match whatever biome they are in, two new biome variants of Igloos, Strongholds has a configurable size and has more Silverfish spawners, Giant Tree/Spruce Taiga Hills biomes has giant ore filled boulders that could have Diamond ore if you are extremely lucky, Taiga Mountain biomes now has tiny boulders, Swamps now has a new 2x2 swamp-like tree, and several new Desert Well variations were made for other biomes!</strong></span></p>
+<p style="text-align: left;">&nbsp;</p>
+<p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; If you have trouble finding one of these structures, just start typing `<em>/locate repu</em>` into the chat and you should see my structures pop up! For example, typing `<em>/locate repurposed_structures:fortress_jungle</em>` will find the closest Jungle Fortress to your location. :) However, do note that due to a Vanilla limitation, the locate command can only find the themed Mineshafts if they are within 1600 blocks of you. All other structures can be found easily from anywhere!</strong></span></p>
 <p style="text-align: left;"><span style="font-size: 14px;">&nbsp;</span></p>
 <p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; You can use this mod in a modpack or download and modify the source code. It is all under MIT License so you can do whatever you want! Also, be sure to check out the images page for several screenshots of what the world looks like!&nbsp;And also, the section below this one talks about how to configure everything as I want players to have the ability to change things to their preferences.</strong></span></p>
 <p style="text-align: left;">&nbsp;</p>
@@ -118,27 +121,27 @@
 <p><strong>1% : Buried Treasure loot</strong></p>
 <p>&nbsp;</p>
 <p><strong>Mob Spawner in Frozen Ocean biomes</strong></p>
-<p><strong>96% : Husk</strong></p>
+<p><strong>96% : Drowned</strong></p>
 <p><strong>3% : Squid</strong></p>
 <p><strong>1% : Turtle</strong></p>
 <p>&nbsp;</p>
 <p><strong>Mob Spawner in Cold Ocean biomes</strong></p>
-<p><strong>96% : Husk</strong></p>
+<p><strong>96% : Drowned</strong></p>
 <p><strong>3% : Salmon</strong></p>
 <p><strong>1% : Turtle</strong></p>
 <p>&nbsp;</p>
 <p><strong>Mob Spawner in neutral Ocean biomes</strong></p>
-<p><strong>96% : Husk</strong></p>
+<p><strong>96% : Drowned</strong></p>
 <p><strong>3% : Cod</strong></p>
 <p><strong>1% : Turtle</strong></p>
 <p>&nbsp;</p>
 <p><strong>Mob Spawner in Lukewarm Ocean biomes</strong></p>
-<p><strong>96% : Husk</strong></p>
+<p><strong>96% : Drowned</strong></p>
 <p><strong>3% : Pufferfish</strong></p>
 <p><strong>1% : Turtle</strong></p>
 <p>&nbsp;</p>
 <p><strong>Mob Spawner in Warm Ocean biomes</strong></p>
-<p><strong>96% : Husk</strong></p>
+<p><strong>96% : Drowned</strong></p>
 <p><strong>3% : Tropical Fish</strong></p>
 <p><strong>1% : Turtle</strong></p>
 </div>
