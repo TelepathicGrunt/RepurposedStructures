@@ -15,6 +15,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Structures:
 
 -Changed config for dungeons to let users change the spawnrate of each type of dungeon separately.
+
+-Changed config for mineshafts to let users change the spawnrate of each type of mineshaft separately.
    
 ## (V.1.4.3 Changes) (1.15.2 Minecraft)
   

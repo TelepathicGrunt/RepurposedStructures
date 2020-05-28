@@ -46,7 +46,7 @@ public class RSMineshaftSwampOrDarkForestStructure extends Structure<NoFeatureCo
 	int xChunk = x + spacingOffsetsX;
 	int zChunk = z + spacingOffsetsZ;
 	((SharedSeedRandom) random).setLargeFeatureSeed(chunkGenerator.getSeed() + 10, xChunk, zChunk);
-	if (random.nextDouble() < (RepurposedStructures.RSConfig.mineshaftSpawnrate.get() / 10000D)) {
+	if (random.nextDouble() < (RepurposedStructures.RSConfig.swampAndDarkForestMineshaftSpawnrate.get() / 10000D)) {
 	    return new ChunkPos(xChunk, zChunk);
 	}
 

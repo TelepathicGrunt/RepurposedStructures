@@ -18,7 +18,7 @@ import net.minecraft.world.gen.feature.structure.StructureStart;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
 
-public class RSMineshaftHellStructure extends Structure<NoFeatureConfig>
+public class RSMineshaftNetherStructure extends Structure<NoFeatureConfig>
 {
     /**
      * --------------------------------------------------------------------------
@@ -36,7 +36,7 @@ public class RSMineshaftHellStructure extends Structure<NoFeatureConfig>
      * 
      * Good luck and have fun modding!
      */
-    public RSMineshaftHellStructure(Function<Dynamic<?>, ? extends NoFeatureConfig> config) {
+    public RSMineshaftNetherStructure(Function<Dynamic<?>, ? extends NoFeatureConfig> config) {
 	super(config);
     }
 
@@ -46,7 +46,7 @@ public class RSMineshaftHellStructure extends Structure<NoFeatureConfig>
 	int xChunk = x + spacingOffsetsX;
 	int zChunk = z + spacingOffsetsZ;
 	((SharedSeedRandom) random).setLargeFeatureSeed(chunkGenerator.getSeed() + 4, xChunk, zChunk);
-	if (random.nextDouble() < (RepurposedStructures.RSConfig.mineshaftSpawnrate.get() / 10000D)) {
+	if (random.nextDouble() < (RepurposedStructures.RSConfig.netherMineshaftSpawnrate.get() / 10000D)) {
 	    return new ChunkPos(xChunk, zChunk);
 	}
 
@@ -69,7 +69,7 @@ public class RSMineshaftHellStructure extends Structure<NoFeatureConfig>
 
     @Override
     public Structure.IStartFactory getStartFactory() {
-	return RSMineshaftHellStructure.Start::new;
+	return RSMineshaftNetherStructure.Start::new;
     }
 
 

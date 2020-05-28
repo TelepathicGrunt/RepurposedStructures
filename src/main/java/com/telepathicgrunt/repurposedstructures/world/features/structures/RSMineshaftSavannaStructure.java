@@ -46,7 +46,7 @@ public class RSMineshaftSavannaStructure extends Structure<NoFeatureConfig>
 	int xChunk = x + spacingOffsetsX;
 	int zChunk = z + spacingOffsetsZ;
 	((SharedSeedRandom) random).setLargeFeatureSeed(chunkGenerator.getSeed() + 8, xChunk, zChunk);
-	if (random.nextDouble() < (RepurposedStructures.RSConfig.mineshaftSpawnrate.get() / 10000D)) {
+	if (random.nextDouble() < (RepurposedStructures.RSConfig.savannaMineshaftSpawnrate.get() / 10000D)) {
 	    return new ChunkPos(xChunk, zChunk);
 	}
 

@@ -46,7 +46,7 @@ public class RSMineshaftStoneStructure extends Structure<NoFeatureConfig>
 	int xChunk = x + spacingOffsetsX;
 	int zChunk = z + spacingOffsetsZ;
 	((SharedSeedRandom) random).setLargeFeatureSeed(chunkGenerator.getSeed() + 9, xChunk, zChunk);
-	if (random.nextDouble() < (RepurposedStructures.RSConfig.mineshaftSpawnrate.get() / 10000D)) {
+	if (random.nextDouble() < (RepurposedStructures.RSConfig.stoneMineshaftSpawnrate.get() / 10000D)) {
 	    return new ChunkPos(xChunk, zChunk);
 	}
 

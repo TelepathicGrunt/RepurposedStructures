@@ -12,7 +12,7 @@ import com.telepathicgrunt.repurposedstructures.world.features.structures.Nether
 import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftBirchStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftDesertStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftEndStructure;
-import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftHellStructure;
+import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftNetherStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftIcyStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftJungleStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftOceanStructure;
@@ -62,7 +62,7 @@ public class RSFeatures
 	public static Structure<NoFeatureConfig>				BIRCH_MINESHAFT			= new RSMineshaftBirchStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				DESERT_MINESHAFT		= new RSMineshaftDesertStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				END_MINESHAFT			= new RSMineshaftEndStructure(NoFeatureConfig::deserialize);
-	public static Structure<NoFeatureConfig>				HELL_MINESHAFT			= new RSMineshaftHellStructure(NoFeatureConfig::deserialize);
+	public static Structure<NoFeatureConfig>				HELL_MINESHAFT			= new RSMineshaftNetherStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				ICY_MINESHAFT			= new RSMineshaftIcyStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				JUNGLE_MINESHAFT		= new RSMineshaftJungleStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				OCEAN_MINESHAFT			= new RSMineshaftOceanStructure(NoFeatureConfig::deserialize);

@@ -39,19 +39,18 @@ public class RSConfig
 		public ConfigValueListener<Boolean> hornedSwampTree;
 		
 		public ConfigValueListener<Boolean> lootChestsMS;
-		public ConfigValueListener<Integer> mineshaftSpawnrate;
 		public ConfigValueListener<Boolean> addMineshaftsToModdedBiomes;
-		public ConfigValueListener<Boolean> birchMineshafts;
-		public ConfigValueListener<Boolean> jungleMineshafts;
-		public ConfigValueListener<Boolean> desertMineshafts;
-		public ConfigValueListener<Boolean> stoneMineshafts;
-		public ConfigValueListener<Boolean> savannaMineshafts;
-		public ConfigValueListener<Boolean> icyMineshafts;
-		public ConfigValueListener<Boolean> oceanMineshafts;
-		public ConfigValueListener<Boolean> taigaMineshafts;
-		public ConfigValueListener<Boolean> swampAndDarkForestMineshafts;
-		public ConfigValueListener<Boolean> endMineshafts;
-		public ConfigValueListener<Boolean> netherMineshafts;
+		public ConfigValueListener<Integer> birchMineshaftSpawnrate;
+		public ConfigValueListener<Integer> jungleMineshaftSpawnrate;
+		public ConfigValueListener<Integer> desertMineshaftSpawnrate;
+		public ConfigValueListener<Integer> stoneMineshaftSpawnrate;
+		public ConfigValueListener<Integer> savannaMineshaftSpawnrate;
+		public ConfigValueListener<Integer> icyMineshaftSpawnrate;
+		public ConfigValueListener<Integer> oceanMineshaftSpawnrate;
+		public ConfigValueListener<Integer> taigaMineshaftSpawnrate;;
+		public ConfigValueListener<Integer> swampAndDarkForestMineshaftSpawnrate;
+		public ConfigValueListener<Integer> endMineshaftSpawnrate;
+		public ConfigValueListener<Integer> netherMineshaftSpawnrate;
 
 		public ConfigValueListener<Boolean> useVanillaStronghold;
 		public ConfigValueListener<Boolean> allowStonebrickStronghold;
@@ -95,49 +94,56 @@ public class RSConfig
 					badlandsDungeonSpawnrate = subscriber.subscribe(builder
 							.comment("\r\n Replace vanilla dungeon in Badlands biomes with Badlands themed dungeon.\r\n"
 								+" How often dungeons will attempt to spawn per chunk.\r\n " 
-								+" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.")
+								+" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.\r\n"
+								+" Note: Vanilla Dungeons will spawn again when this is set to 0.")
 						.translation("repurposedstructures.config.feature.dungeons.badlandsDungeonSpawnrate")
 						.defineInRange("badlandsDungeonSpawnrate", 8, 0, 1000));
 				
 					darkForestDungeonSpawnrate = subscriber.subscribe(builder
 							.comment("\r\n Replace vanilla dungeon in Dark Forest biomes with Dark Forest themed dungeon.\r\n"
 								+" How often dungeons will attempt to spawn per chunk.\r\n " 
-								+" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.")
+								+" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.\r\n"
+								+" Note: Vanilla Dungeons will spawn again when this is set to 0.")
 						.translation("repurposedstructures.config.feature.dungeons.darkforestDungeonSpawnrate")
 						.defineInRange("darkForestDungeonSpawnrate", 8, 0, 1000));
 				
 					desertDungeonSpawnrate = subscriber.subscribe(builder
 							.comment("\r\n Replace vanilla dungeon in Desert biomes with Desert themed dungeon.\r\n"
 								+" How often dungeons will attempt to spawn per chunk.\r\n " 
-								+" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.")
+								+" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.\r\n"
+								+" Note: Vanilla Dungeons will spawn again when this is set to 0.")
 						.translation("repurposedstructures.config.feature.dungeons.desertDungeonSpawnrate")
 						.defineInRange("desertDungeonSpawnrate", 8, 0, 1000));
 				
 					jungleDungeonSpawnrate = subscriber.subscribe(builder
 							.comment("\r\n Replace vanilla dungeon in Jungle biomes with Jungle themed dungeon.\r\n"
 								+" How often dungeons will attempt to spawn per chunk.\r\n " 
-								+" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.")
+								+" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.\r\n"
+								+" Note: Vanilla Dungeons will spawn again when this is set to 0.")
 						.translation("repurposedstructures.config.feature.dungeons.jungleDungeonSpawnrate")
 						.defineInRange("jungleDungeonSpawnrate", 8, 0, 1000));
 				
 					mushroomDungeonSpawnrate = subscriber.subscribe(builder
 							.comment("\r\n Replace vanilla dungeon in Mushroom biomes with Mushroom themed dungeon.\r\n"
 								+" How often dungeons will attempt to spawn per chunk.\r\n " 
-								+" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.")
+								+" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.\r\n"
+								+" Note: Vanilla Dungeons will spawn again when this is set to 0.")
 						.translation("repurposedstructures.config.feature.dungeons.mushroomDungeonSpawnrate")
 						.defineInRange("mushroomDungeonSpawnrate", 8, 0, 1000));
 				
 					snowDungeonSpawnrate = subscriber.subscribe(builder
 							.comment("\r\n Replace vanilla dungeon in icy/snow biomes with icy/snow themed dungeon.\r\n"
 								+" How often dungeons will attempt to spawn per chunk.\r\n " 
-								+" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.")
+								+" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.\r\n"
+								+" Note: Vanilla Dungeons will spawn again when this is set to 0.")
 						.translation("repurposedstructures.config.feature.dungeons.snowDungeonSpawnrate")
 						.defineInRange("snowDungeonSpawnrate", 8, 0, 1000));
 				
 					swampDungeonSpawnrate = subscriber.subscribe(builder
 							.comment("\r\n Replace vanilla dungeon in Swamp biomes with Swamp themed dungeon.\r\n"
 								+" How often dungeons will attempt to spawn per chunk.\r\n " 
-								+" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.")
+								+" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.\r\n"
+								+" Note: Vanilla Dungeons will spawn again when this is set to 0.")
 						.translation("repurposedstructures.config.feature.dungeons.swampDungeonSpawnrate")
 						.defineInRange("swampDungeonSpawnrate", 8, 0, 1000));
 				
@@ -249,12 +255,6 @@ public class RSConfig
 			builder.push("Structure Options");
 
 				builder.push("Mineshaft");
-				
-					mineshaftSpawnrate = subscriber.subscribe(builder
-							.comment( "\r\n How often Mineshafts will spawn.\r\n " 
-									+ "0 for no Mineshafts and 1000 for max spawnrate.")
-							.translation("repurposedstructures.config.structure.mineshaft.mineshaftspawnrate")
-							.defineInRange("mineshaftSpawnrate", 40, 0, 1000));
 
 					lootChestsMS = subscriber.subscribe(builder
 							.comment("\r\n Controls whether loot chests spawn or not in modded Mineshafts.")
@@ -266,62 +266,93 @@ public class RSConfig
 						.translation("repurposedstructures.config.feature.dungeons.addmineshaftstomoddedbiomes")
 						.define("addMineshaftsToModdedBiomes", false));
 					
-					birchMineshafts = subscriber.subscribe(builder
-							.comment("\r\n Replace Mineshafts in Birch biomes with a Birch themed Mineshaft.")
-						.translation("repurposedstructures.config.feature.mineshaft.birchmineshafts")
-						.define("birchMineshafts", true));
+					birchMineshaftSpawnrate = subscriber.subscribe(builder
+							.comment("\r\n Replace Mineshafts in Birch biomes with a Birch themed Mineshaft."
+								+"\r\n How often Mineshafts will spawn.\r\n " 
+								+ "0 for no Mineshafts and 1000 for max spawnrate."
+								+"\r\n Note: Vanilla Mineshafts will spawn again when this is set to 0 and game is restarted.")
+						.translation("repurposedstructures.config.feature.mineshaft.birchmineshaftspawnrate")
+						.defineInRange("birchMineshaftSpawnrate", 40, 0, 1000));
 
-					jungleMineshafts = subscriber.subscribe(builder
-							.comment("\r\n Replace Mineshafts in Jungle biomes with a Jungle themed Mineshaft.")
-						.translation("repurposedstructures.config.feature.mineshaft.junglemineshafts")
-						.define("jungleMineshafts", true));
+					jungleMineshaftSpawnrate = subscriber.subscribe(builder
+							.comment("\r\n Replace Mineshafts in Jungle biomes with a Jungle themed Mineshaft."
+								+"\r\n How often Mineshafts will spawn.\r\n " 
+								+ "0 for no Mineshafts and 1000 for max spawnrate."
+								+"\r\n Note: Vanilla Mineshafts will spawn again when this is set to 0 and game is restarted.")
+						.translation("repurposedstructures.config.feature.mineshaft.junglemineshaftspawnrate")
+						.defineInRange("jungleMineshaftSpawnrate", 40, 0, 1000));
 
-					desertMineshafts = subscriber.subscribe(builder
-							.comment("\r\n Replace Mineshafts in Desert biomes with a Desert themed Mineshaft.")
-						.translation("repurposedstructures.config.feature.mineshaft.desertmineshafts")
-						.define("desertMineshafts", true));
+					desertMineshaftSpawnrate = subscriber.subscribe(builder
+							.comment("\r\n Replace Mineshafts in Desert biomes with a Desert themed Mineshaft."
+								+"\r\n How often Mineshafts will spawn.\r\n " 
+								+ "0 for no Mineshafts and 1000 for max spawnrate."
+								+"\r\n Note: Vanilla Mineshafts will spawn again when this is set to 0 and game is restarted.")
+						.translation("repurposedstructures.config.feature.mineshaft.desertmineshaftspawnrate")
+						.defineInRange("desertMineshaftSpawnrate", 40, 0, 1000));
 
-					stoneMineshafts = subscriber.subscribe(builder
-							.comment("\r\n Replace Mineshafts in Mountain (Extreme Hills) biomes with a Stone themed Mineshaft.")
-						.translation("repurposedstructures.config.feature.mineshaft.stonemineshafts")
-						.define("stoneMineshafts", true));
+					stoneMineshaftSpawnrate = subscriber.subscribe(builder
+							.comment("\r\n Replace Mineshafts in Mountain (Extreme Hills) biomes with a Stone themed Mineshaft."
+								+"\r\n How often Mineshafts will spawn.\r\n " 
+								+ "0 for no Mineshafts and 1000 for max spawnrate."
+								+"\r\n Note: Vanilla Mineshafts will spawn again when this is set to 0 and game is restarted.")
+						.translation("repurposedstructures.config.feature.mineshaft.stonemineshaftspawnrate")
+						.defineInRange("stoneMineshaftSpawnrate", 40, 0, 1000));
 
-					savannaMineshafts = subscriber.subscribe(builder
-							.comment("\r\n Replace Mineshafts in Savanna biomes with a Savanna themed Mineshaft.")
-						.translation("repurposedstructures.config.feature.mineshaft.savannamineshafts")
-						.define("savannaMineshafts", true));
+					savannaMineshaftSpawnrate = subscriber.subscribe(builder
+							.comment("\r\n Replace Mineshafts in Savanna biomes with a Savanna themed Mineshaft."
+								+"\r\n How often Mineshafts will spawn.\r\n " 
+								+ "0 for no Mineshafts and 1000 for max spawnrate."
+								+"\r\n Note: Vanilla Mineshafts will spawn again when this is set to 0 and game is restarted.")
+						.translation("repurposedstructures.config.feature.mineshaft.savannamineshaftspawnrate")
+						.defineInRange("savannaMineshaftSpawnrate", 40, 0, 1000));
 
-					icyMineshafts = subscriber.subscribe(builder
+					icyMineshaftSpawnrate = subscriber.subscribe(builder
 							.comment("\r\n Replace Mineshafts in Snowy/Icy biomes with an Ice themed Mineshaft."
-									+"\r\n Note: Snowy Taiga Biomes will get Ice Mineshaft instead of Taiga theme.")
-						.translation("repurposedstructures.config.feature.mineshaft.icymineshafts")
-						.define("icyMineshafts", true));
+									+"\r\n Note: Snowy Taiga Biomes will get Ice Mineshaft instead of Taiga theme."
+									+"\r\n How often Mineshafts will spawn.\r\n " 
+									+ "0 for no Mineshafts and 1000 for max spawnrate."
+									+"\r\n Note: Vanilla Mineshafts will spawn again when this is set to 0 and game is restarted.")
+						.translation("repurposedstructures.config.feature.mineshaft.icymineshaftspawnrate")
+						.defineInRange("icyMineshaftSpawnrate", 40, 0, 1000));
 
-					oceanMineshafts = subscriber.subscribe(builder
-							.comment("\r\n Replace Mineshafts in Ocean biomes with an Ocean themed Mineshaft.")
-						.translation("repurposedstructures.config.feature.mineshaft.oceanmineshafts")
-						.define("oceanMineshafts", true));
+					oceanMineshaftSpawnrate = subscriber.subscribe(builder
+							.comment("\r\n Replace Mineshafts in Ocean biomes with an Ocean themed Mineshaft."
+								+"\r\n How often Mineshafts will spawn.\r\n " 
+								+ "0 for no Mineshafts and 1000 for max spawnrate."
+								+"\r\n Note: Vanilla Mineshafts will spawn again when this is set to 0 and game is restarted.")
+						.translation("repurposedstructures.config.feature.mineshaft.oceanmineshaftspawnrate")
+						.defineInRange("oceanMineshaftSpawnrate", 40, 0, 1000));
 
-					taigaMineshafts = subscriber.subscribe(builder
-							.comment("\r\n Replace Mineshafts in Taiga biomes with a Taiga themed Mineshaft.")
-						.translation("repurposedstructures.config.feature.mineshaft.taigamineshafts")
-						.define("taigaMineshafts", true));
+					taigaMineshaftSpawnrate = subscriber.subscribe(builder
+							.comment("\r\n Replace Mineshafts in Taiga biomes with a Taiga themed Mineshaft."
+								+"\r\n How often Mineshafts will spawn.\r\n " 
+								+ "0 for no Mineshafts and 1000 for max spawnrate."
+								+" Note: Vanilla Mineshafts will spawn again when this is set to 0 and game is restarted.")
+						.translation("repurposedstructures.config.feature.mineshaft.taigamineshaftspawnrate")
+						.defineInRange("taigaMineshaftSpawnrate", 40, 0, 1000));
 					
-					swampAndDarkForestMineshafts = subscriber.subscribe(builder
+					swampAndDarkForestMineshaftSpawnrate = subscriber.subscribe(builder
 							.comment("\r\n Replace Mineshafts in Swamps and Dark Forests with a"
-									+"\r\n swampy/dark oak themed Mineshaft.")
-						.translation("repurposedstructures.config.feature.mineshaft.swampanddarkforestmineshafts")
-						.define("swampAndDarkForestMineshafts", true));
+								+"\r\n swampy/dark oak themed Mineshaft."
+								+"\r\n Note: Vanilla Mineshafts will spawn again when this is set to 0 and game is restarted.")
+						.translation("repurposedstructures.config.feature.mineshaft.swampanddarkforestmineshaftspawnrate"
+							+"\r\n How often Mineshafts will spawn.\r\n " 
+							+ "0 for no Mineshafts and 1000 for max spawnrate.")
+						.defineInRange("swampAndDarkForestMineshaftSpawnrate", 40, 0, 1000));
 					
-					endMineshafts = subscriber.subscribe(builder
-							.comment("\r\n Add End themed Mineshafts to End biomes outside the Enderdragon island.")
-						.translation("repurposedstructures.config.feature.mineshaft.endmineshafts")
-						.define("endMineshafts", true));
+					endMineshaftSpawnrate = subscriber.subscribe(builder
+							.comment("\r\n Add End themed Mineshafts to End biomes outside the Enderdragon island."
+								+"\r\n How often Mineshafts will spawn.\r\n " 
+								+ "0 for no Mineshafts and 1000 for max spawnrate.")
+						.translation("repurposedstructures.config.feature.mineshaft.endmineshaftspawnrate")
+						.defineInRange("endMineshaftSpawnrate", 40, 0, 1000));
 					
-					netherMineshafts = subscriber.subscribe(builder
-							.comment("\r\n Add Nether themed Mineshafts to Nether biomes.")
-						.translation("repurposedstructures.config.feature.mineshaft.nethermineshafts")
-						.define("netherMineshafts", true));
+					netherMineshaftSpawnrate = subscriber.subscribe(builder
+							.comment("\r\n Add Nether themed Mineshafts to Nether biomes."
+								+"\r\n How often Mineshafts will spawn.\r\n " 
+								+ "0 for no Mineshafts and 1000 for max spawnrate.")
+						.translation("repurposedstructures.config.feature.mineshaft.nethermineshaftspawnrate")
+						.defineInRange("netherMineshaftSpawnrate", 40, 0, 1000));
 					
 				builder.pop();
 
