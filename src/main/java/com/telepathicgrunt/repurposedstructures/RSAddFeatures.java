@@ -202,89 +202,89 @@ public class RSAddFeatures
 	
 	public static void addDungeons(Biome biome, String biomeNamespace, String biomePath)
 	{
-		if(RepurposedStructures.RSConfig.jungleDungeons.get() && 
+		if(RepurposedStructures.RSConfig.jungleDungeonSpawnrate.get() != 0 && 
 				biome.getCategory() == Category.JUNGLE && 
 				dungeonAllowedByNamespaceAndConfigUA(biomeNamespace))
 		{
 			//replace vanilla dungeon with our own
 			biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && ((DecoratedFeatureConfig)configuredFeature.config).feature.feature == Feature.MONSTER_ROOM);
-			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.JUNGLE_DUNGEONS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.DUNGEONS.configure(new ChanceConfig(RepurposedStructures.RSConfig.dungeonSpawnrate.get()))));
+			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.JUNGLE_DUNGEONS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.DUNGEONS.configure(new ChanceConfig(RepurposedStructures.RSConfig.jungleDungeonSpawnrate.get()))));
 		}
 		
-		else if(RepurposedStructures.RSConfig.badlandsDungeons.get() && 
+		else if(RepurposedStructures.RSConfig.badlandsDungeonSpawnrate.get() != 0 && 
 				biome.getCategory() == Category.MESA && 
 				dungeonAllowedByNamespaceAndConfigUA(biomeNamespace))
 		{
 			//replace vanilla dungeon with our own
 			biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && ((DecoratedFeatureConfig)configuredFeature.config).feature.feature == Feature.MONSTER_ROOM);
-			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.BADLANDS_DUNGEONS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.DUNGEONS.configure(new ChanceConfig(RepurposedStructures.RSConfig.dungeonSpawnrate.get()))));
+			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.BADLANDS_DUNGEONS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.DUNGEONS.configure(new ChanceConfig(RepurposedStructures.RSConfig.badlandsDungeonSpawnrate.get()))));
 		}
 		
-		else if(RepurposedStructures.RSConfig.darkForestDungeons.get() && 
+		else if(RepurposedStructures.RSConfig.darkForestDungeonSpawnrate.get() != 0 && 
 				biomePath.contains("dark_forest") && 
 				dungeonAllowedByNamespaceAndConfigUA(biomeNamespace))
 		{
 			//replace vanilla dungeon with our own
 			biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && ((DecoratedFeatureConfig)configuredFeature.config).feature.feature == Feature.MONSTER_ROOM);
-			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.DARK_FOREST_DUNGEONS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.DUNGEONS.configure(new ChanceConfig(RepurposedStructures.RSConfig.dungeonSpawnrate.get()))));
+			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.DARK_FOREST_DUNGEONS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.DUNGEONS.configure(new ChanceConfig(RepurposedStructures.RSConfig.darkForestDungeonSpawnrate.get()))));
 		}
 		
-		else if(RepurposedStructures.RSConfig.desertDungeons.get() && 
+		else if(RepurposedStructures.RSConfig.desertDungeonSpawnrate.get() != 0 && 
 				biome.getCategory() == Category.DESERT && 
 				dungeonAllowedByNamespaceAndConfigUA(biomeNamespace))
 		{
 			//replace vanilla dungeon with our own
 			biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && ((DecoratedFeatureConfig)configuredFeature.config).feature.feature == Feature.MONSTER_ROOM);
-			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.DESERT_DUNGEONS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.DUNGEONS.configure(new ChanceConfig(RepurposedStructures.RSConfig.dungeonSpawnrate.get()))));
+			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.DESERT_DUNGEONS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.DUNGEONS.configure(new ChanceConfig(RepurposedStructures.RSConfig.desertDungeonSpawnrate.get()))));
 		}
 		
-		else if(RepurposedStructures.RSConfig.mushroomDungeons.get() && 
+		else if(RepurposedStructures.RSConfig.mushroomDungeonSpawnrate.get() != 0 && 
 				biome.getCategory() == Category.MUSHROOM && 
 				dungeonAllowedByNamespaceAndConfigUA(biomeNamespace))
 		{
 			//replace vanilla dungeon with our own
 			biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && ((DecoratedFeatureConfig)configuredFeature.config).feature.feature == Feature.MONSTER_ROOM);
-			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.MUSHROOM_DUNGEONS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.DUNGEONS.configure(new ChanceConfig(RepurposedStructures.RSConfig.dungeonSpawnrate.get()))));
+			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.MUSHROOM_DUNGEONS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.DUNGEONS.configure(new ChanceConfig(RepurposedStructures.RSConfig.mushroomDungeonSpawnrate.get()))));
 		}
 		
-		else if(RepurposedStructures.RSConfig.swampDungeons.get() && 
+		else if(RepurposedStructures.RSConfig.swampDungeonSpawnrate.get() != 0 && 
 				biome.getCategory() == Category.SWAMP && 
 				dungeonAllowedByNamespaceAndConfigUA(biomeNamespace))
 		{
 			//replace vanilla dungeon with our own
 			biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && ((DecoratedFeatureConfig)configuredFeature.config).feature.feature == Feature.MONSTER_ROOM);
-			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.SWAMP_DUNGEONS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.DUNGEONS.configure(new ChanceConfig(RepurposedStructures.RSConfig.dungeonSpawnrate.get()))));
+			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.SWAMP_DUNGEONS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.DUNGEONS.configure(new ChanceConfig(RepurposedStructures.RSConfig.swampDungeonSpawnrate.get()))));
 		}
 		
-		else if(RepurposedStructures.RSConfig.snowDungeons.get() && 
+		else if(RepurposedStructures.RSConfig.snowDungeonSpawnrate.get() != 0 && 
 				biome.getCategory() == Category.ICY && 
 				dungeonAllowedByNamespaceAndConfigUA(biomeNamespace))
 		{
 			//replace vanilla dungeon with our own
 			biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && ((DecoratedFeatureConfig)configuredFeature.config).feature.feature == Feature.MONSTER_ROOM);
-			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.SNOW_DUNGEONS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.DUNGEONS.configure(new ChanceConfig(RepurposedStructures.RSConfig.dungeonSpawnrate.get()))));
+			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.SNOW_DUNGEONS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.DUNGEONS.configure(new ChanceConfig(RepurposedStructures.RSConfig.snowDungeonSpawnrate.get()))));
 		}
 		
-		else if(RepurposedStructures.RSConfig.netherDungeons.get() && 
+		else if(RepurposedStructures.RSConfig.netherDungeonSpawnrate.get() != 0 && 
 				biome.getCategory() == Category.NETHER && 
 				dungeonAllowedByNamespaceAndConfigUA(biomeNamespace))
 		{
-			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.NETHER_DUNGEONS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.DUNGEONS.configure(new ChanceConfig(RepurposedStructures.RSConfig.dungeonSpawnrate.get()))));
+			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.NETHER_DUNGEONS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.DUNGEONS.configure(new ChanceConfig(RepurposedStructures.RSConfig.netherDungeonSpawnrate.get()))));
 		}
 		
-		else if(RepurposedStructures.RSConfig.endDungeons.get() && 
+		else if(RepurposedStructures.RSConfig.endDungeonSpawnrate.get() != 0 && 
 				(biome.getCategory() == Category.THEEND && biome != Biomes.THE_END && biome != Biomes.SMALL_END_ISLANDS) && 
 				dungeonAllowedByNamespaceAndConfigUA(biomeNamespace))
 		{
-			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.END_DUNGEONS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.DUNGEONS.configure(new ChanceConfig(RepurposedStructures.RSConfig.dungeonSpawnrate.get()))));
+			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.END_DUNGEONS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.DUNGEONS.configure(new ChanceConfig(RepurposedStructures.RSConfig.endDungeonSpawnrate.get()))));
 		}
 		
-		else if(RepurposedStructures.RSConfig.oceanDungeons.get() && 
+		else if(RepurposedStructures.RSConfig.oceanDungeonSpawnrate.get() != 0 && 
 				biome.getCategory() == Category.OCEAN && 
 				dungeonAllowedByNamespaceAndConfig(biomeNamespace))
 		{
 			//replace vanilla dungeon with our own
-			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.OCEAN_DUNGEONS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.DUNGEONS.configure(new ChanceConfig(RepurposedStructures.RSConfig.dungeonSpawnrate.get()))));
+			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.OCEAN_DUNGEONS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.DUNGEONS.configure(new ChanceConfig(RepurposedStructures.RSConfig.oceanDungeonSpawnrate.get()))));
 		}
 	}
 	

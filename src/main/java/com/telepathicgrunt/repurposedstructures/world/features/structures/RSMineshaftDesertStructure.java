@@ -36,79 +36,70 @@ public class RSMineshaftDesertStructure extends Structure<NoFeatureConfig>
      * 
      * Good luck and have fun modding!
      */
-	public RSMineshaftDesertStructure(Function<Dynamic<?>, ? extends NoFeatureConfig> config)
-	{
-		super(config);
+    public RSMineshaftDesertStructure(Function<Dynamic<?>, ? extends NoFeatureConfig> config) {
+	super(config);
+    }
+
+
+    @Override
+    protected ChunkPos getStartPositionForPosition(ChunkGenerator<?> chunkGenerator, Random random, int x, int z, int spacingOffsetsX, int spacingOffsetsZ) {
+	int xChunk = x + spacingOffsetsX;
+	int zChunk = z + spacingOffsetsZ;
+	((SharedSeedRandom) random).setLargeFeatureSeed(chunkGenerator.getSeed() + 2, xChunk, zChunk);
+	if (random.nextDouble() < (RepurposedStructures.RSConfig.mineshaftSpawnrate.get() / 10000D)) {
+	    return new ChunkPos(xChunk, zChunk);
+	}
+
+	return new ChunkPos(Integer.MAX_VALUE, Integer.MAX_VALUE); // always will fail
+    }
+
+
+    @Override
+    public boolean canBeGenerated(BiomeManager biomeManager, ChunkGenerator<?> chunkGenerator, Random random, int chunkPosX, int chunkPosZ, Biome biome) {
+	ChunkPos chunkpos = this.getStartPositionForPosition(chunkGenerator, random, chunkPosX, chunkPosZ, 0, 0);
+	if (chunkPosX == chunkpos.x && chunkPosZ == chunkpos.z) {
+	    if (chunkGenerator.hasStructure(biome, this)) {
+		return true;
+	    }
+	}
+
+	return false;
+    }
+
+
+    @Override
+    public Structure.IStartFactory getStartFactory() {
+	return RSMineshaftDesertStructure.Start::new;
+    }
+
+
+    @Override
+    public String getStructureName() {
+	return RepurposedStructures.MODID + ":mineshaft_desert";
+    }
+
+
+    @Override
+    public int getSize() {
+	return 8;
+    }
+
+    public static class Start extends StructureStart
+    {
+	public Start(Structure<?> structureIn, int chunkX, int chunkZ, MutableBoundingBox mutableBoundingBox, int referenceIn, long seedIn) {
+	    super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
 	}
 
 
 	@Override
-	protected ChunkPos getStartPositionForPosition(ChunkGenerator<?> chunkGenerator, Random random, int x, int z, int spacingOffsetsX, int spacingOffsetsZ)
-	{
-		int xChunk = x + spacingOffsetsX;
-		int zChunk = z + spacingOffsetsZ;
-		((SharedSeedRandom) random).setLargeFeatureSeed(chunkGenerator.getSeed() + 2, xChunk, zChunk);
-		if(random.nextDouble() < (RepurposedStructures.RSConfig.mineshaftSpawnrate.get()/10000D)) {
-			return new ChunkPos(xChunk, zChunk);
-		}
-		
-		return new ChunkPos(Integer.MAX_VALUE, Integer.MAX_VALUE); //always will fail
+	public void init(ChunkGenerator<?> generator, TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn) {
+	    RSMineshaftPieces.Room structuremineshaftpiecesua$room = new RSMineshaftPieces.Room(0, this.rand, (chunkX << 4) + 2, (chunkZ << 4) + 2, RSMineshaftPieces.Type.DESERT);
+	    this.components.add(structuremineshaftpiecesua$room);
+
+	    structuremineshaftpiecesua$room.buildComponent(structuremineshaftpiecesua$room, this.components, this.rand);
+	    this.recalculateStructureSize();
+	    this.func_214628_a(generator.getSeaLevel(), this.rand, 10);
 	}
-
-	@Override
-	public boolean canBeGenerated(BiomeManager biomeManager, ChunkGenerator<?> chunkGenerator, Random random, int chunkPosX, int chunkPosZ, Biome biome)
-	{
-		ChunkPos chunkpos = this.getStartPositionForPosition(chunkGenerator, random, chunkPosX, chunkPosZ, 0, 0);
-		if (chunkPosX == chunkpos.x && chunkPosZ == chunkpos.z)
-		{
-			if (chunkGenerator.hasStructure(biome, this))
-			{
-				return true;
-			}
-		}
-		
-		return false;
-	}
-
-
-	@Override
-	public Structure.IStartFactory getStartFactory()
-	{
-		return RSMineshaftDesertStructure.Start::new;
-	}
-
-
-	@Override
-	public String getStructureName()
-	{
-		return RepurposedStructures.MODID + ":mineshaft_desert";
-	}
-
-
-	@Override
-	public int getSize()
-	{
-		return 8;
-	}
-
-	public static class Start extends StructureStart
-	{
-		public Start(Structure<?> structureIn, int chunkX, int chunkZ, MutableBoundingBox mutableBoundingBox, int referenceIn, long seedIn)
-		{
-			super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
-		}
-
-
-		@Override
-		public void init(ChunkGenerator<?> generator, TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn)
-		{
-			RSMineshaftPieces.Room structuremineshaftpiecesua$room = new RSMineshaftPieces.Room(0, this.rand, (chunkX << 4) + 2, (chunkZ << 4) + 2, RSMineshaftPieces.Type.DESERT);
-			this.components.add(structuremineshaftpiecesua$room);
-
-			structuremineshaftpiecesua$room.buildComponent(structuremineshaftpiecesua$room, this.components, this.rand);
-			this.recalculateStructureSize();
-            this.func_214628_a(generator.getSeaLevel(), this.rand, 10);
-		}
-	}
+    }
 
 }

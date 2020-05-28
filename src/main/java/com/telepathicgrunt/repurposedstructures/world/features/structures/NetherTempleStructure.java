@@ -36,88 +36,77 @@ public class NetherTempleStructure extends Structure<NoFeatureConfig>
      * 
      * Good luck and have fun modding!
      */
-	public NetherTempleStructure(Function<Dynamic<?>, ? extends NoFeatureConfig> config)
-	{
-		super(config);
+    public NetherTempleStructure(Function<Dynamic<?>, ? extends NoFeatureConfig> config) {
+	super(config);
+    }
+
+
+    @Override
+    protected ChunkPos getStartPositionForPosition(ChunkGenerator<?> chunkGenerator, Random random, int x, int z, int spacingOffsetsX, int spacingOffsetsZ) {
+	int maxDistance = RepurposedStructures.RSConfig.netherTempleSpawnrate.get();
+	int minDistance = (int) (maxDistance * 0.75f);
+	if (minDistance == 0) {
+	    minDistance = 1;
+	}
+	int k = x + maxDistance * spacingOffsetsX;
+	int l = z + maxDistance * spacingOffsetsZ;
+	int i1 = k < 0 ? k - maxDistance + 1 : k;
+	int j1 = l < 0 ? l - maxDistance + 1 : l;
+	int targetChunkX = i1 / maxDistance;
+	int targetChunkZ = j1 / maxDistance;
+	((SharedSeedRandom) random).setLargeFeatureSeedWithSalt(chunkGenerator.getSeed(), targetChunkX, targetChunkZ, 148523564);
+	targetChunkX = targetChunkX * maxDistance;
+	targetChunkZ = targetChunkZ * maxDistance;
+	targetChunkX = targetChunkX + random.nextInt(maxDistance - minDistance);
+	targetChunkZ = targetChunkZ + random.nextInt(maxDistance - minDistance);
+	return new ChunkPos(targetChunkX, targetChunkZ);
+    }
+
+
+    @Override
+    public boolean canBeGenerated(BiomeManager biomeManager, ChunkGenerator<?> chunkGenerator, Random random, int chunkPosX, int chunkPosZ, Biome biome) {
+
+	ChunkPos chunkpos = this.getStartPositionForPosition(chunkGenerator, random, chunkPosX, chunkPosZ, 0, 0);
+	if (chunkPosX == chunkpos.x && chunkPosZ == chunkpos.z) {
+	    if (chunkGenerator.hasStructure(biome, this)) {
+		return true;
+	    }
+	}
+
+	return false;
+    }
+
+
+    @Override
+    public Structure.IStartFactory getStartFactory() {
+	return NetherTempleStructure.Start::new;
+    }
+
+
+    @Override
+    public String getStructureName() {
+	return RepurposedStructures.MODID + ":temple_nether";
+    }
+
+
+    @Override
+    public int getSize() {
+	return 8;
+    }
+
+    public static class Start extends StructureStart
+    {
+	public Start(Structure<?> structureIn, int chunkX, int chunkZ, MutableBoundingBox mutableBoundingBox, int referenceIn, long seedIn) {
+	    super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
 	}
 
 
 	@Override
-	protected ChunkPos getStartPositionForPosition(ChunkGenerator<?> chunkGenerator, Random random, int x, int z, int spacingOffsetsX, int spacingOffsetsZ)
-	{
-		int maxDistance = RepurposedStructures.RSConfig.netherTempleSpawnrate.get();
-		int minDistance = (int) (maxDistance * 0.75f);
-		if (minDistance == 0)
-		{
-			minDistance = 1;
-		}
-		int k = x + maxDistance * spacingOffsetsX;
-		int l = z + maxDistance * spacingOffsetsZ;
-		int i1 = k < 0 ? k - maxDistance + 1 : k;
-		int j1 = l < 0 ? l - maxDistance + 1 : l;
-		int targetChunkX = i1 / maxDistance;
-		int targetChunkZ = j1 / maxDistance;
-		((SharedSeedRandom) random).setLargeFeatureSeedWithSalt(chunkGenerator.getSeed(), targetChunkX, targetChunkZ, 148523564);
-		targetChunkX = targetChunkX * maxDistance;
-		targetChunkZ = targetChunkZ * maxDistance;
-		targetChunkX = targetChunkX + random.nextInt(maxDistance - minDistance);
-		targetChunkZ = targetChunkZ + random.nextInt(maxDistance - minDistance);
-		return new ChunkPos(targetChunkX, targetChunkZ);
+	public void init(ChunkGenerator<?> generator, TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn) {
+	    NetherTemplePiece netherTemplePiece = new NetherTemplePiece(this.rand, chunkX * 16, chunkZ * 16);
+	    this.components.add(netherTemplePiece);
+	    this.recalculateStructureSize();
+	    this.func_214626_a(this.rand, 55, 60);
 	}
-
-
-	@Override
-	public boolean canBeGenerated(BiomeManager biomeManager, ChunkGenerator<?> chunkGenerator, Random random, int chunkPosX, int chunkPosZ, Biome biome)
-	{
-
-		ChunkPos chunkpos = this.getStartPositionForPosition(chunkGenerator, random, chunkPosX, chunkPosZ, 0, 0);
-		if (chunkPosX == chunkpos.x && chunkPosZ == chunkpos.z)
-		{
-			if (chunkGenerator.hasStructure(biome, this))
-			{
-				return true;
-			}
-		}
-
-		return false;
-	}
-
-
-	@Override
-	public Structure.IStartFactory getStartFactory()
-	{
-		return NetherTempleStructure.Start::new;
-	}
-
-
-	@Override
-	public String getStructureName()
-	{
-		return RepurposedStructures.MODID+":temple_nether";
-	}
-
-
-	@Override
-	public int getSize()
-	{
-		return 8;
-	}
-
-	public static class Start extends StructureStart
-	{
-		public Start(Structure<?> structureIn, int chunkX, int chunkZ, MutableBoundingBox mutableBoundingBox, int referenceIn, long seedIn)
-		{
-			super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
-		}
-
-
-		@Override
-		public void init(ChunkGenerator<?> generator, TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn)
-		{
-			NetherTemplePiece netherTemplePiece = new NetherTemplePiece(this.rand, chunkX * 16, chunkZ * 16);
-			this.components.add(netherTemplePiece);
-			this.recalculateStructureSize();
-			this.func_214626_a(this.rand, 55, 60);
-		}
-	}
+    }
 }

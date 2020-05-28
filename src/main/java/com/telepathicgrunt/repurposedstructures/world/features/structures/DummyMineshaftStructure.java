@@ -20,6 +20,7 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
  * Used for taking the place of old structure registry names so using
  * old worlds on new version won't corrupt the world.
  */
+//TODO: Remove dummy structure in 1.16
 public class DummyMineshaftStructure extends Structure<NoFeatureConfig>
 {
     /**
@@ -38,57 +39,49 @@ public class DummyMineshaftStructure extends Structure<NoFeatureConfig>
      * 
      * Good luck and have fun modding!
      */
-	public DummyMineshaftStructure(Function<Dynamic<?>, ? extends NoFeatureConfig> config)
-	{
-		super(config);
+    public DummyMineshaftStructure(Function<Dynamic<?>, ? extends NoFeatureConfig> config) {
+	super(config);
+    }
+
+
+    @Override
+    protected ChunkPos getStartPositionForPosition(ChunkGenerator<?> chunkGenerator, Random random, int x, int z, int spacingOffsetsX, int spacingOffsetsZ) {
+	return new ChunkPos(0, 0);
+    }
+
+
+    @Override
+    public boolean canBeGenerated(BiomeManager biomeManager, ChunkGenerator<?> chunkGenerator, Random random, int chunkPosX, int chunkPosZ, Biome biome) {
+	return false;
+    }
+
+
+    @Override
+    public Structure.IStartFactory getStartFactory() {
+	return DummyMineshaftStructure.Start::new;
+    }
+
+
+    @Override
+    public String getStructureName() {
+	return RepurposedStructures.MODID + ":mineshaft";
+    }
+
+
+    @Override
+    public int getSize() {
+	return 0;
+    }
+
+    public static class Start extends StructureStart
+    {
+	public Start(Structure<?> structure, int chunkX, int chunkZ, MutableBoundingBox mutableBoundingBox, int referenceIn, long seed) {
+	    super(structure, chunkX, chunkZ, mutableBoundingBox, referenceIn, seed);
 	}
 
 
 	@Override
-	protected ChunkPos getStartPositionForPosition(ChunkGenerator<?> chunkGenerator, Random random, int x, int z, int spacingOffsetsX, int spacingOffsetsZ)
-	{
-		return new ChunkPos(0, 0);
+	public void init(ChunkGenerator<?> generator, TemplateManager templateManager, int chunkX, int chunkZ, Biome biome) {
 	}
-
-
-	@Override
-	public boolean canBeGenerated(BiomeManager biomeManager, ChunkGenerator<?> chunkGenerator, Random random, int chunkPosX, int chunkPosZ, Biome biome)
-	{
-		return false;
-	}
-
-
-	@Override
-	public Structure.IStartFactory getStartFactory()
-	{
-		return DummyMineshaftStructure.Start::new;
-	}
-
-
-	@Override
-	public String getStructureName()
-	{
-		return RepurposedStructures.MODID + ":mineshaft";
-	}
-
-
-	@Override
-	public int getSize()
-	{
-		return 0;
-	}
-
-	public static class Start extends StructureStart
-	{
-		public Start(Structure<?> structure, int chunkX, int chunkZ, MutableBoundingBox mutableBoundingBox, int referenceIn, long seed)
-		{
-			super(structure, chunkX, chunkZ, mutableBoundingBox, referenceIn, seed);
-		}
-
-
-		@Override
-		public void init(ChunkGenerator<?> generator, TemplateManager templateManager, int chunkX, int chunkZ, Biome biome)
-		{
-		}
-	}
+    }
 }
