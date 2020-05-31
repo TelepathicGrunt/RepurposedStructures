@@ -239,10 +239,15 @@ public class DungeonJungle extends Feature<NoFeatureConfig>
 			return EntityType.PARROT;
 
 		}
+		else if (roll < 99)
+		{
+			//1% chance
+			return EntityType.CHICKEN;
+		}
 		else
 		{
-			//2% chance
-			return EntityType.CHICKEN;
+			//1% chance
+			return EntityType.CREEPER;
 		}
 	}
 }

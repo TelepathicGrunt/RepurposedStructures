@@ -9,6 +9,11 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 # | Repurposed Structures changelog |
 
 
+## (V.1.4.5 Changes) (1.15.2 Minecraft)
+  
+##### Structures:
+
+-Added a 1% chance of Creeper Spawner to Jungle/Dark Forest Dungeons
    
 ## (V.1.4.4 Changes) (1.15.2 Minecraft)
   
