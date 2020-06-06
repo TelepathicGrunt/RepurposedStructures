@@ -17,7 +17,7 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 -Fixed bug where dungeons has a rare chance of breaking through bedrock at y = 1
 
--Added configs to change the minimum and maximum height that Mineshafts and Dungeons can spawn at
+-Added configs to change the minimum and maximum height that Strongholds, Mineshafts, and Dungeons can spawn at
    
 ## (V.1.4.4 Changes) (1.15.2 Minecraft)
   

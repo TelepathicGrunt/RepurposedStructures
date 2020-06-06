@@ -202,8 +202,31 @@ public class RSStrongholdStructure extends StrongholdStructure
 	    }
 
 	    this.recalculateStructureSize();
-	    this.func_214628_a(generator.getSeaLevel(), this.rand, 10);
 
+	    int lowestBounds = this.bounds.minY - 2;
+	    
+	    int minimum = RepurposedStructures.RSConfig.strongholdMinHeight.get();
+	    int maximum = Math.max(RepurposedStructures.RSConfig.strongholdMaxHeight.get(), minimum)+1;
+	    
+	    // Sets stronghold's bottom most y to a random range between min and max y config.
+	    int offset = this.rand.nextInt(maximum-minimum) + minimum;
+	    int offset2 = 0;
+	    
+	    //apply first offset to be able to do some calculations in next few lines
+	    this.bounds.offset(0, offset - lowestBounds, 0);
+	    
+	    // If the stronghold's max y is over the config's max y, lower the stronghold as
+	    // much as possible without hitting bedrock.
+	    if(this.bounds.maxY > RepurposedStructures.RSConfig.strongholdMaxHeight.get()) {
+		int heightDiff = RepurposedStructures.RSConfig.strongholdMaxHeight.get() - this.bounds.maxY;
+		offset2 = Math.max(heightDiff, -this.bounds.minY);
+	    }
+
+	    // Apply the final offsets 
+	    this.bounds.offset(0, offset2, 0);
+	    for (StructurePiece structurepiece : this.components) {
+		structurepiece.offset(0, offset + offset2 - lowestBounds, 0);
+	    }
 	}
     }
 

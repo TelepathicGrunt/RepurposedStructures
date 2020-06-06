@@ -106,6 +106,8 @@ public class RSConfig
 		public ConfigValueListener<Boolean> allowExtraSpawnersSH;
 		public ConfigValueListener<Double> strongholdSizeSH;
 		public ConfigValueListener<Boolean> lootChestsSH;
+		public ConfigValueListener<Integer> strongholdMinHeight;
+		public ConfigValueListener<Integer> strongholdMaxHeight;
 		
 		public ConfigValueListener<Integer> jungleFortressSpawnrate;
 		public ConfigValueListener<Double> silverfishSpawnrateJF;
@@ -774,6 +776,19 @@ public class RSConfig
 									+ "10 for supertiny Strongholds and 2000 for supermassive Strongholds.")
 							.translation("repurposedstructures.config.structure.stronghold.strongholdsizesh")
 							.defineInRange("strongholdSizeSH", 100D, 10, 2000));
+
+					strongholdMinHeight = subscriber.subscribe(builder
+						.comment("\r\n Minimum Y height that strongholds can spawn at. Default is 0.\r\n"
+							+" Note: Strongholds will spawn between min and max y height set in config.\r\n")
+						.translation("repurposedstructures.config.feature.mineshaft.strongholdminheight")
+						.defineInRange("strongholdMinHeight", 50, 0, 255));
+					
+					strongholdMaxHeight = subscriber.subscribe(builder
+						.comment("\r\n Minimum Y height that strongholds can spawn at. Default is 50.\r\n"
+							+" Note: Strongholds will spawn between min and max y height set in config.\r\n"
+							+" Setting this to below min height config will make strongholds spawn only at min height.")
+						.translation("repurposedstructures.config.feature.mineshaft.strongholdmaxheight")
+						.defineInRange("strongholdMaxHeight", 50, 0, 255));
 					
 					lootChestsSH = subscriber.subscribe(builder
 							.comment("\r\n Controls whether loot chests spawn or not in the Stronghold.")
