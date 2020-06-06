@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import com.telepathicgrunt.repurposedstructures.RSConfig.RSConfigValues;
 import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
 import com.telepathicgrunt.repurposedstructures.world.features.RSFeatures;
+import com.telepathicgrunt.repurposedstructures.world.placements.RSPlacements;
 
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;
@@ -85,6 +86,12 @@ public class RepurposedStructures
 		public static void onRegisterFeatures(final RegistryEvent.Register<Feature<?>> event)
 		{
 			RSFeatures.registerFeatures(event);
+		}
+		
+		@SubscribeEvent
+		public static void onRegisterPlacements(final RegistryEvent.Register<Placement<?>> event)
+		{
+			RSPlacements.registerPlacements(event);
 		}
 	}
 }
