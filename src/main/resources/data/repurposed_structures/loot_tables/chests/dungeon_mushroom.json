@@ -25,13 +25,8 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 15,
-          "name": "minecraft:music_disc_13"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 15,
-          "name": "minecraft:music_disc_cat"
+          "weight": 25,
+          "name": "minecraft:music_disc_mellohi"
         },
         {
           "type": "minecraft:item",
@@ -41,17 +36,17 @@
         {
           "type": "minecraft:item",
           "weight": 10,
-          "name": "minecraft:golden_horse_armor"
+          "name": "minecraft:compass"
         },
         {
           "type": "minecraft:item",
           "weight": 15,
-          "name": "minecraft:iron_horse_armor"
+          "name": "minecraft:clock"
         },
         {
           "type": "minecraft:item",
           "weight": 5,
-          "name": "minecraft:diamond_horse_armor"
+          "name": "minecraft:oak_boat"
         },
         {
           "type": "minecraft:item",
@@ -89,38 +84,18 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 5,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1.0,
-                "max": 4.0,
-                "type": "minecraft:uniform"
-              }
-            }
-          ],
-          "name": "minecraft:gold_ingot"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 20,
-          "name": "minecraft:bread"
-        },
-        {
-          "type": "minecraft:item",
           "weight": 20,
           "functions": [
             {
               "function": "minecraft:set_count",
               "count": {
                 "min": 1.0,
-                "max": 4.0,
+                "max": 2.0,
                 "type": "minecraft:uniform"
               }
             }
           ],
-          "name": "minecraft:wheat"
+          "name": "minecraft:mycelium"
         },
         {
           "type": "minecraft:item",
@@ -170,11 +145,11 @@
               }
             }
           ],
-          "name": "minecraft:melon_seeds"
+          "name": "minecraft:torch"
         },
         {
           "type": "minecraft:item",
-          "weight": 10,
+          "weight": 7,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -185,11 +160,11 @@
               }
             }
           ],
-          "name": "minecraft:pumpkin_seeds"
+          "name": "minecraft:red_dye"
         },
         {
           "type": "minecraft:item",
-          "weight": 10,
+          "weight": 7,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -200,7 +175,52 @@
               }
             }
           ],
-          "name": "minecraft:beetroot_seeds"
+          "name": "minecraft:purple_dye"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 7,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2.0,
+                "max": 4.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:brown_dye"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 20,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 2.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:bowl"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 20,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 2.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:mushroom_stew"
         }
       ]
     },
@@ -220,7 +240,22 @@
               }
             }
           ],
-          "name": "minecraft:bone"
+          "name": "minecraft:red_mushroom"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 8.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:brown_mushroom"
         },
         {
           "type": "minecraft:item",
@@ -236,21 +271,6 @@
             }
           ],
           "name": "minecraft:gunpowder"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 10,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1.0,
-                "max": 8.0,
-                "type": "minecraft:uniform"
-              }
-            }
-          ],
-          "name": "minecraft:rotten_flesh"
         },
         {
           "type": "minecraft:item",

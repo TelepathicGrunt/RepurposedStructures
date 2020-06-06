@@ -19,6 +19,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 -Added configs to change the minimum and maximum height that Strongholds, Mineshafts, and Dungeons can spawn at.
    
+-Added custom loottables for dungeons. (Each type now has more tailored loot to fit their theme!)
+   
 ## (V.1.4.4 Changes) (1.15.2 Minecraft)
   
 ##### Structures:

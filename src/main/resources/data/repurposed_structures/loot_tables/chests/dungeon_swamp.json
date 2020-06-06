@@ -15,8 +15,8 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 15,
-          "name": "minecraft:golden_apple"
+          "weight": 10,
+          "name": "minecraft:golden_carrot"
         },
         {
           "type": "minecraft:item",
@@ -26,12 +26,12 @@
         {
           "type": "minecraft:item",
           "weight": 15,
-          "name": "minecraft:music_disc_13"
+          "name": "minecraft:music_disc_cat"
         },
         {
           "type": "minecraft:item",
           "weight": 15,
-          "name": "minecraft:music_disc_cat"
+          "name": "minecraft:music_disc_ward"
         },
         {
           "type": "minecraft:item",
@@ -41,17 +41,28 @@
         {
           "type": "minecraft:item",
           "weight": 10,
-          "name": "minecraft:golden_horse_armor"
+          "name": "minecraft:slime_block"
         },
         {
           "type": "minecraft:item",
           "weight": 15,
-          "name": "minecraft:iron_horse_armor"
+          "name": "minecraft:dark_oak_boat"
         },
         {
           "type": "minecraft:item",
-          "weight": 5,
-          "name": "minecraft:diamond_horse_armor"
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "min": 1.0,
+                "max": 15.0,
+                "type": "minecraft:uniform"
+              },
+              "treasure": true
+            }
+          ],
+          "name": "minecraft:bow"
         },
         {
           "type": "minecraft:item",
@@ -95,32 +106,71 @@
               "function": "minecraft:set_count",
               "count": {
                 "min": 1.0,
-                "max": 4.0,
+                "max": 2.0,
                 "type": "minecraft:uniform"
               }
             }
           ],
-          "name": "minecraft:gold_ingot"
+          "name": "minecraft:emerald"
         },
         {
           "type": "minecraft:item",
           "weight": 20,
-          "name": "minecraft:bread"
+          "name": "minecraft:mushroom_stew"
         },
         {
           "type": "minecraft:item",
-          "weight": 20,
+          "weight": 10,
           "functions": [
             {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1.0,
-                "max": 4.0,
-                "type": "minecraft:uniform"
-              }
+              "function": "minecraft:set_stew_effect",
+              "effects": [
+                {
+                  "type": "minecraft:blindness",
+                  "duration": {
+                    "min": 5.0,
+                    "max": 7.0
+                  }
+                },
+                {
+                  "type": "minecraft:poison",
+                  "duration": {
+                    "min": 10.0,
+                    "max": 20.0
+                  }
+                },
+                {
+                  "type": "minecraft:weakness",
+                  "duration": {
+                    "min": 6.0,
+                    "max": 8.0
+                  }
+                },
+                {
+                  "type": "minecraft:jump_boost",
+                  "duration": {
+                    "min": 7.0,
+                    "max": 10.0
+                  }
+                },
+                {
+                  "type": "minecraft:night_vision",
+                  "duration": {
+                    "min": 7.0,
+                    "max": 10.0
+                  }
+                },
+                {
+                  "type": "minecraft:saturation",
+                  "duration": {
+                    "min": 7.0,
+                    "max": 10.0
+                  }
+                }
+              ]
             }
           ],
-          "name": "minecraft:wheat"
+          "name": "minecraft:suspicious_stew"
         },
         {
           "type": "minecraft:item",
@@ -170,7 +220,7 @@
               }
             }
           ],
-          "name": "minecraft:melon_seeds"
+          "name": "minecraft:slime_ball"
         },
         {
           "type": "minecraft:item",
@@ -189,6 +239,36 @@
         },
         {
           "type": "minecraft:item",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2.0,
+                "max": 4.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:pumpkin"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2.0,
+                "max": 4.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:carved_pumpkin"
+        },
+        {
+          "type": "minecraft:item",
           "weight": 10,
           "functions": [
             {
@@ -200,7 +280,26 @@
               }
             }
           ],
-          "name": "minecraft:beetroot_seeds"
+          "name": "minecraft:carrot"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 7,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 3.0,
+                "type": "minecraft:uniform"
+              }
+            },
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{Potion:\"minecraft:long_poison\"}"
+            }
+          ],
+          "name": "minecraft:tipped_arrow"
         }
       ]
     },

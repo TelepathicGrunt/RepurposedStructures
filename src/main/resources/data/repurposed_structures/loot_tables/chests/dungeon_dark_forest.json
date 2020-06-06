@@ -26,12 +26,12 @@
         {
           "type": "minecraft:item",
           "weight": 15,
-          "name": "minecraft:music_disc_13"
+          "name": "minecraft:music_disc_ward"
         },
         {
           "type": "minecraft:item",
           "weight": 15,
-          "name": "minecraft:music_disc_cat"
+          "name": "minecraft:music_disc_stal"
         },
         {
           "type": "minecraft:item",
@@ -53,9 +53,24 @@
           "weight": 5,
           "name": "minecraft:diamond_horse_armor"
         },
+		{
+			"type": "minecraft:item",
+			"weight": 5,
+			"name": "minecraft:iron_axe"
+		},
+		{
+			"type": "minecraft:item",
+			"weight": 1,
+			"name": "minecraft:diamond_axe"
+		},
         {
           "type": "minecraft:item",
-          "weight": 10,
+          "weight": 1,
+          "name": "minecraft:totem_of_undying"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 12,
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
@@ -95,12 +110,12 @@
               "function": "minecraft:set_count",
               "count": {
                 "min": 1.0,
-                "max": 4.0,
+                "max": 3.0,
                 "type": "minecraft:uniform"
               }
             }
           ],
-          "name": "minecraft:gold_ingot"
+          "name": "minecraft:emerald"
         },
         {
           "type": "minecraft:item",
@@ -109,7 +124,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 20,
+          "weight": 10,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -120,7 +135,7 @@
               }
             }
           ],
-          "name": "minecraft:wheat"
+          "name": "minecraft:green_dye"
         },
         {
           "type": "minecraft:item",
@@ -170,22 +185,37 @@
               }
             }
           ],
-          "name": "minecraft:melon_seeds"
+          "name": "minecraft:beetroot"
         },
         {
           "type": "minecraft:item",
-          "weight": 10,
+          "weight": 7,
           "functions": [
             {
               "function": "minecraft:set_count",
               "count": {
                 "min": 2.0,
-                "max": 4.0,
+                "max": 6.0,
                 "type": "minecraft:uniform"
               }
             }
           ],
-          "name": "minecraft:pumpkin_seeds"
+          "name": "minecraft:poisonous_potato"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 7,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2.0,
+                "max": 6.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:potato"
         },
         {
           "type": "minecraft:item",
@@ -201,6 +231,60 @@
             }
           ],
           "name": "minecraft:beetroot_seeds"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:set_stew_effect",
+              "effects": [
+                {
+                  "type": "minecraft:blindness",
+                  "duration": {
+                    "min": 5.0,
+                    "max": 7.0
+                  }
+                },
+                {
+                  "type": "minecraft:poison",
+                  "duration": {
+                    "min": 10.0,
+                    "max": 20.0
+                  }
+                },
+                {
+                  "type": "minecraft:weakness",
+                  "duration": {
+                    "min": 6.0,
+                    "max": 8.0
+                  }
+                },
+                {
+                  "type": "minecraft:jump_boost",
+                  "duration": {
+                    "min": 7.0,
+                    "max": 10.0
+                  }
+                },
+                {
+                  "type": "minecraft:night_vision",
+                  "duration": {
+                    "min": 7.0,
+                    "max": 10.0
+                  }
+                },
+                {
+                  "type": "minecraft:saturation",
+                  "duration": {
+                    "min": 7.0,
+                    "max": 10.0
+                  }
+                }
+              ]
+            }
+          ],
+          "name": "minecraft:suspicious_stew"
         }
       ]
     },
@@ -266,6 +350,61 @@
             }
           ],
           "name": "minecraft:string"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 2.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:cobweb"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:enchant_randomly"
+            }
+          ],
+          "name": "minecraft:leather_helmet"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:enchant_randomly"
+            }
+          ],
+          "name": "minecraft:leather_chestplate"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:enchant_randomly"
+            }
+          ],
+          "name": "minecraft:leather_leggings"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:enchant_randomly"
+            }
+          ],
+          "name": "minecraft:leather_boots"
         }
       ]
     }

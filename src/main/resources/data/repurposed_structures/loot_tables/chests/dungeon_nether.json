@@ -299,22 +299,17 @@
         {
           "type": "minecraft:item",
           "weight": 15,
-          "name": "minecraft:golden_apple"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:enchanted_golden_apple"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 15,
           "name": "minecraft:music_disc_13"
         },
         {
           "type": "minecraft:item",
           "weight": 15,
-          "name": "minecraft:music_disc_cat"
+          "name": "minecraft:music_disc_blocks"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 15,
+          "name": "minecraft:music_disc_chirp"
         },
         {
           "type": "minecraft:item",

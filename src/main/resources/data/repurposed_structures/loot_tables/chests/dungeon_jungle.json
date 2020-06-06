@@ -15,8 +15,8 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 15,
-          "name": "minecraft:golden_apple"
+          "weight": 10,
+          "name": "minecraft:glistering_melon_slice"
         },
         {
           "type": "minecraft:item",
@@ -26,7 +26,7 @@
         {
           "type": "minecraft:item",
           "weight": 15,
-          "name": "minecraft:music_disc_13"
+          "name": "minecraft:music_disc_far"
         },
         {
           "type": "minecraft:item",
@@ -41,21 +41,53 @@
         {
           "type": "minecraft:item",
           "weight": 10,
-          "name": "minecraft:golden_horse_armor"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 15,
-          "name": "minecraft:iron_horse_armor"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 5,
-          "name": "minecraft:diamond_horse_armor"
+          "name": "minecraft:compass"
         },
         {
           "type": "minecraft:item",
           "weight": 10,
+          "name": "minecraft:fishing_rod"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 10,
+          "name": "minecraft:shear"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "min": 1.0,
+                "max": 30.0,
+                "type": "minecraft:uniform"
+              },
+              "treasure": true
+            }
+          ],
+          "name": "minecraft:iron_hoe"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "min": 1.0,
+                "max": 30.0,
+                "type": "minecraft:uniform"
+              },
+              "treasure": true
+            }
+          ],
+          "name": "minecraft:diamond_hoe"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 15,
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
@@ -95,12 +127,12 @@
               "function": "minecraft:set_count",
               "count": {
                 "min": 1.0,
-                "max": 4.0,
+                "max": 2.0,
                 "type": "minecraft:uniform"
               }
             }
           ],
-          "name": "minecraft:gold_ingot"
+          "name": "minecraft:emerald"
         },
         {
           "type": "minecraft:item",
@@ -149,13 +181,13 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 1.0,
-                "max": 4.0,
+                "min": 2.0,
+                "max": 8.0,
                 "type": "minecraft:uniform"
               }
             }
           ],
-          "name": "minecraft:coal"
+          "name": "minecraft:torch"
         },
         {
           "type": "minecraft:item",
@@ -164,8 +196,8 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 2.0,
-                "max": 4.0,
+                "min": 4.0,
+                "max": 8.0,
                 "type": "minecraft:uniform"
               }
             }
@@ -179,13 +211,28 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 2.0,
-                "max": 4.0,
+                "min": 1.0,
+                "max": 3.0,
                 "type": "minecraft:uniform"
               }
             }
           ],
-          "name": "minecraft:pumpkin_seeds"
+          "name": "minecraft:melon"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 3.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:potato"
         },
         {
           "type": "minecraft:item",
@@ -200,7 +247,7 @@
               }
             }
           ],
-          "name": "minecraft:beetroot_seeds"
+          "name": "minecraft:cocoa_beans"
         }
       ]
     },
@@ -230,12 +277,27 @@
               "function": "minecraft:set_count",
               "count": {
                 "min": 1.0,
-                "max": 8.0,
+                "max": 4.0,
                 "type": "minecraft:uniform"
               }
             }
           ],
           "name": "minecraft:gunpowder"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 8.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:bamboo"
         },
         {
           "type": "minecraft:item",
@@ -265,7 +327,7 @@
               }
             }
           ],
-          "name": "minecraft:string"
+          "name": "minecraft:poisonous_potato"
         }
       ]
     }

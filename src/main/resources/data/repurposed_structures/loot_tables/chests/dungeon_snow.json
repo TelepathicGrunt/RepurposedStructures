@@ -26,12 +26,12 @@
         {
           "type": "minecraft:item",
           "weight": 15,
-          "name": "minecraft:music_disc_13"
+          "name": "minecraft:music_disc_strad"
         },
         {
           "type": "minecraft:item",
           "weight": 15,
-          "name": "minecraft:music_disc_cat"
+          "name": "minecraft:music_disc_wait"
         },
         {
           "type": "minecraft:item",
@@ -52,6 +52,22 @@
           "type": "minecraft:item",
           "weight": 5,
           "name": "minecraft:diamond_horse_armor"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "min": 1.0,
+                "max": 15.0,
+                "type": "minecraft:uniform"
+              },
+              "treasure": true
+            }
+          ],
+          "name": "minecraft:bow"
         },
         {
           "type": "minecraft:item",
@@ -100,12 +116,12 @@
               }
             }
           ],
-          "name": "minecraft:gold_ingot"
+          "name": "minecraft:lapis_lazuli"
         },
         {
           "type": "minecraft:item",
           "weight": 20,
-          "name": "minecraft:bread"
+          "name": "minecraft:cookie"
         },
         {
           "type": "minecraft:item",
@@ -120,7 +136,7 @@
               }
             }
           ],
-          "name": "minecraft:wheat"
+          "name": "minecraft:sweet_berries"
         },
         {
           "type": "minecraft:item",
@@ -129,33 +145,41 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 15,
+          "weight": 7,
           "functions": [
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 1.0,
+                "min": 2.0,
                 "max": 4.0,
                 "type": "minecraft:uniform"
               }
+            },
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{Potion:\"minecraft:long_slowness\"}"
             }
           ],
-          "name": "minecraft:redstone"
+          "name": "minecraft:tipped_arrow"
         },
         {
           "type": "minecraft:item",
-          "weight": 15,
+          "weight": 7,
           "functions": [
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 1.0,
+                "min": 2.0,
                 "max": 4.0,
                 "type": "minecraft:uniform"
               }
+            },
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{Potion:\"minecraft:strong_slowness\"}"
             }
           ],
-          "name": "minecraft:coal"
+          "name": "minecraft:tipped_arrow"
         },
         {
           "type": "minecraft:item",
@@ -170,7 +194,7 @@
               }
             }
           ],
-          "name": "minecraft:melon_seeds"
+          "name": "minecraft:white_dye"
         },
         {
           "type": "minecraft:item",
@@ -185,7 +209,7 @@
               }
             }
           ],
-          "name": "minecraft:pumpkin_seeds"
+          "name": "minecraft:light_blue_dye"
         },
         {
           "type": "minecraft:item",
@@ -200,7 +224,7 @@
               }
             }
           ],
-          "name": "minecraft:beetroot_seeds"
+          "name": "minecraft:light_gray_dye"
         }
       ]
     },
@@ -230,7 +254,7 @@
               "function": "minecraft:set_count",
               "count": {
                 "min": 1.0,
-                "max": 8.0,
+                "max": 4.0,
                 "type": "minecraft:uniform"
               }
             }
@@ -245,12 +269,42 @@
               "function": "minecraft:set_count",
               "count": {
                 "min": 1.0,
-                "max": 8.0,
+                "max": 4.0,
                 "type": "minecraft:uniform"
               }
             }
           ],
-          "name": "minecraft:rotten_flesh"
+          "name": "minecraft:ice"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 3.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:packed_ice"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 2.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:blue_ice"
         },
         {
           "type": "minecraft:item",
@@ -266,6 +320,21 @@
             }
           ],
           "name": "minecraft:string"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 3.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:cobweb"
         }
       ]
     }

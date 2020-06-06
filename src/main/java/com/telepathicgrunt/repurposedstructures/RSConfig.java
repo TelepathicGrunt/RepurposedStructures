@@ -780,30 +780,34 @@ public class RSConfig
 							.defineInRange("strongholdSizeSH", 100D, 10, 2000));
 
 					normalStrongholdMinHeight = subscriber.subscribe(builder
-						.comment("\r\n Minimum Y height that normal strongholds can spawn at. Default is 0.\r\n"
+						.comment("\r\n Minimum Y height that normal stronghold's starting point can spawn at. \r\n"
+							+ "Default is 0.\r\n"
 							+" Note: Strongholds will spawn between min and max y height set in config.\r\n")
 						.translation("repurposedstructures.config.feature.stronghold.normalstrongholdminheight")
 						.defineInRange("normalStrongholdMinHeight", 0, 0, 255));
 					
 					normalStrongholdMaxHeight = subscriber.subscribe(builder
-						.comment("\r\n Minimum Y height that normal strongholds can spawn at. Default is 50.\r\n"
+						.comment("\r\n Minimum Y height that normal stronghold's starting point can spawn at.\r\n"
+							+ " Default is 50.\r\n"
 							+" Note: Strongholds will spawn between min and max y height set in config.\r\n"
 							+" Setting this to below min height config will make strongholds spawn only at min height.")
 						.translation("repurposedstructures.config.feature.stronghold.normalstrongholdmaxheight")
 						.defineInRange("normalStrongholdMaxHeight", 50, 0, 255));
 
 					netherStrongholdMinHeight = subscriber.subscribe(builder
-						.comment("\r\n Minimum Y height that Nether strongholds can spawn at. Default is 0.\r\n"
+						.comment("\r\n Minimum Y height that Nether stronghold's starting point can spawn at. \r\n"
+							+ "Default is 35.\r\n"
 							+" Note: Strongholds will spawn between min and max y height set in config.\r\n")
 						.translation("repurposedstructures.config.feature.stronghold.netherstrongholdminheight")
-						.defineInRange("netherStrongholdMinHeight", 0, 0, 255));
+						.defineInRange("netherStrongholdMinHeight", 35, 0, 255));
 					
 					netherStrongholdMaxHeight = subscriber.subscribe(builder
-						.comment("\r\n Minimum Y height that Nether strongholds can spawn at. Default is 35.\r\n"
+						.comment("\r\n Minimum Y height that Nether stronghold's starting point can spawn at. \r\n"
+							+ "Default is 40.\r\n"
 							+" Note: Strongholds will spawn between min and max y height set in config.\r\n"
 							+" Setting this to below min height config will make strongholds spawn only at min height.")
 						.translation("repurposedstructures.config.feature.stronghold.netherstrongholdmaxheight")
-						.defineInRange("netherStrongholdMaxHeight", 35, 0, 255));
+						.defineInRange("netherStrongholdMaxHeight", 40, 0, 255));
 					
 					lootChestsSH = subscriber.subscribe(builder
 							.comment("\r\n Controls whether loot chests spawn or not in the Stronghold.")

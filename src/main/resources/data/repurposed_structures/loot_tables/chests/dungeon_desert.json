@@ -40,18 +40,18 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 10,
-          "name": "minecraft:golden_horse_armor"
+          "weight": 20,
+          "name": "minecraft:lead"
         },
         {
           "type": "minecraft:item",
-          "weight": 15,
-          "name": "minecraft:iron_horse_armor"
+          "weight": 10,
+          "name": "minecraft:iron_shovel"
         },
         {
           "type": "minecraft:item",
           "weight": 5,
-          "name": "minecraft:diamond_horse_armor"
+          "name": "minecraft:golden_shovel"
         },
         {
           "type": "minecraft:item",
@@ -94,8 +94,8 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 1.0,
-                "max": 4.0,
+                "min": 2.0,
+                "max": 5.0,
                 "type": "minecraft:uniform"
               }
             }
@@ -105,11 +105,11 @@
         {
           "type": "minecraft:item",
           "weight": 20,
-          "name": "minecraft:bread"
+          "name": "minecraft:leather"
         },
         {
           "type": "minecraft:item",
-          "weight": 20,
+          "weight": 10,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -120,7 +120,7 @@
               }
             }
           ],
-          "name": "minecraft:wheat"
+          "name": "minecraft:yellow_dye"
         },
         {
           "type": "minecraft:item",
@@ -149,8 +149,8 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 1.0,
-                "max": 4.0,
+                "min": 3.0,
+                "max": 9.0,
                 "type": "minecraft:uniform"
               }
             }
@@ -170,7 +170,7 @@
               }
             }
           ],
-          "name": "minecraft:melon_seeds"
+          "name": "minecraft:rabbit_hide"
         },
         {
           "type": "minecraft:item",
@@ -194,13 +194,13 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 2.0,
-                "max": 4.0,
+                "min": 4.0,
+                "max": 8.0,
                 "type": "minecraft:uniform"
               }
             }
           ],
-          "name": "minecraft:beetroot_seeds"
+          "name": "minecraft:dead_bush"
         }
       ]
     },
@@ -214,8 +214,8 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 1.0,
-                "max": 8.0,
+                "min": 3.0,
+                "max": 10.0,
                 "type": "minecraft:uniform"
               }
             }
@@ -229,8 +229,8 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 1.0,
-                "max": 8.0,
+                "min": 3.0,
+                "max": 10.0,
                 "type": "minecraft:uniform"
               }
             }
@@ -244,13 +244,28 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 1.0,
-                "max": 8.0,
+                "min": 3.0,
+                "max": 12.0,
                 "type": "minecraft:uniform"
               }
             }
           ],
           "name": "minecraft:rotten_flesh"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 4.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:sticks"
         },
         {
           "type": "minecraft:item",
@@ -266,6 +281,36 @@
             }
           ],
           "name": "minecraft:string"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 8.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:sand"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 3.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:cobweb"
         }
       ]
     }
