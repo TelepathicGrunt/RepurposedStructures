@@ -7,6 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.mojang.datafixers.Dynamic;
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -18,6 +19,7 @@ import net.minecraft.tileentity.LockableLootTileEntity;
 import net.minecraft.tileentity.MobSpawnerTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Direction;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.biome.Biome;
@@ -28,7 +30,6 @@ import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.StructurePiece;
-import net.minecraft.world.storage.loot.LootTables;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 
@@ -48,6 +49,7 @@ public class DungeonOcean extends Feature<NoFeatureConfig>
 	private static final BlockState DARK_PRISMARINE_STAIRS = Blocks.DARK_PRISMARINE_STAIRS.getDefaultState();
 	private static final BlockState DARK_PRISMARINE = Blocks.DARK_PRISMARINE.getDefaultState();
 	private static final BlockState MAGMA_BLOCK = Blocks.MAGMA_BLOCK.getDefaultState();
+	private static final ResourceLocation CHEST_LOOT = new ResourceLocation(RepurposedStructures.MODID+":chests/dungeon_ocean");
 
 
 
@@ -239,29 +241,7 @@ public class DungeonOcean extends Feature<NoFeatureConfig>
 						if (j3 == 1)
 						{
 							world.setBlockState(blockpos$Mutable, StructurePiece.correctFacing(world, blockpos$Mutable, Blocks.CHEST.getDefaultState().with(BlockStateProperties.WATERLOGGED, blockpos$Mutable.getY() < world.getSeaLevel())), 3);
-							
-							float chance = random.nextFloat();
-							if(chance < 0.01f)
-							{
-								LockableLootTileEntity.setLootTable(world, random, blockpos$Mutable, LootTables.CHESTS_BURIED_TREASURE);
-							}
-							else if(chance < 0.09f)
-							{
-								LockableLootTileEntity.setLootTable(world, random, blockpos$Mutable, LootTables.CHESTS_UNDERWATER_RUIN_BIG);
-							}
-							else if(chance < 0.22f)
-							{
-								LockableLootTileEntity.setLootTable(world, random, blockpos$Mutable, LootTables.CHESTS_UNDERWATER_RUIN_SMALL);
-							}
-							else if(chance < 0.55f)
-							{
-								LockableLootTileEntity.setLootTable(world, random, blockpos$Mutable, LootTables.CHESTS_SHIPWRECK_SUPPLY);
-							}
-							else
-							{
-								LockableLootTileEntity.setLootTable(world, random, blockpos$Mutable, LootTables.CHESTS_SIMPLE_DUNGEON);
-							}
-
+							LockableLootTileEntity.setLootTable(world, random, blockpos$Mutable, CHEST_LOOT);
 							break;
 						}
 					}
@@ -294,7 +274,8 @@ public class DungeonOcean extends Feature<NoFeatureConfig>
 			
 			if(blockpos$Mutable.getY() < world.getSeaLevel())
 			    world.setBlockState(blockpos$Mutable, WATER, 2);
-			
+
+			world.setBlockState(blockpos$Mutable, Blocks.AIR.getDefaultState(), 2);
 			world.setBlockState(blockpos$Mutable, Blocks.SPAWNER.getDefaultState(), 2);
 			TileEntity tileentity = world.getTileEntity(blockpos$Mutable);
 

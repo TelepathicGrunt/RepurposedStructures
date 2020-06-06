@@ -7,6 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.mojang.datafixers.Dynamic;
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -17,6 +18,7 @@ import net.minecraft.tileentity.LockableLootTileEntity;
 import net.minecraft.tileentity.MobSpawnerTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Direction;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
@@ -24,7 +26,6 @@ import net.minecraft.world.gen.GenerationSettings;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.storage.loot.LootTables;
 
 
 public class DungeonEnd extends Feature<NoFeatureConfig>
@@ -36,6 +37,7 @@ public class DungeonEnd extends Feature<NoFeatureConfig>
 
 	private static final Logger LOGGER = LogManager.getLogger();
 	private static final BlockState CAVE_AIR = Blocks.CAVE_AIR.getDefaultState();
+	private static final ResourceLocation CHEST_LOOT = new ResourceLocation(RepurposedStructures.MODID+":chests/dungeon_end");
 
 
 	//only the mob spawner chance and what blocks the wall cannot replace was changed. Everything else is just the normal dungeon code.
@@ -135,7 +137,7 @@ public class DungeonEnd extends Feature<NoFeatureConfig>
 					if (j3 == 1)
 					{
 						world.setBlockState(blockpos$Mutable, Blocks.SHULKER_BOX.getDefaultState(), 2);
-						LockableLootTileEntity.setLootTable(world, rand, blockpos$Mutable, LootTables.CHESTS_SIMPLE_DUNGEON);
+						LockableLootTileEntity.setLootTable(world, rand, blockpos$Mutable, CHEST_LOOT);
 
 						break;
 					}

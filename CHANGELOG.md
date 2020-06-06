@@ -9,15 +9,15 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 # | Repurposed Structures changelog |
 
 
-## (V.1.4.5 Changes) (1.15.2 Minecraft)
+## (V.1.5.0 Changes) (1.15.2 Minecraft)
   
 ##### Structures:
 
--Added a 1% chance of Creeper Spawner to Jungle/Dark Forest Dungeons
+-Added a 1% chance of Creeper Spawner to Jungle/Dark Forest Dungeons.
 
--Fixed bug where dungeons has a rare chance of breaking through bedrock at y = 1
+-Fixed bug where dungeons has a rare chance of breaking through bedrock at y = 1.
 
--Added configs to change the minimum and maximum height that Strongholds, Mineshafts, and Dungeons can spawn at
+-Added configs to change the minimum and maximum height that Strongholds, Mineshafts, and Dungeons can spawn at.
    
 ## (V.1.4.4 Changes) (1.15.2 Minecraft)
   

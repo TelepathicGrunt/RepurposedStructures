@@ -202,11 +202,22 @@ public class RSStrongholdStructure extends StrongholdStructure
 	    }
 
 	    this.recalculateStructureSize();
-
 	    int lowestBounds = this.bounds.minY - 2;
+	    int maxYConfig = 0;
+	    int minYConfig = 0;
 	    
-	    int minimum = RepurposedStructures.RSConfig.strongholdMinHeight.get();
-	    int maximum = Math.max(RepurposedStructures.RSConfig.strongholdMaxHeight.get(), minimum)+1;
+	    if(type == RSStrongholdStructure.Type.NORMAL) {
+		maxYConfig = RepurposedStructures.RSConfig.normalStrongholdMaxHeight.get();
+		minYConfig = RepurposedStructures.RSConfig.normalStrongholdMinHeight.get();
+	    }
+	    else if(type == RSStrongholdStructure.Type.NETHER) {
+		maxYConfig = RepurposedStructures.RSConfig.netherStrongholdMaxHeight.get();
+		minYConfig = RepurposedStructures.RSConfig.netherStrongholdMinHeight.get();
+	    }
+	    
+	    
+	    int minimum = minYConfig;
+	    int maximum = Math.max(maxYConfig, minimum)+1;
 	    
 	    // Sets stronghold's bottom most y to a random range between min and max y config.
 	    int offset = this.rand.nextInt(maximum-minimum) + minimum;
@@ -217,8 +228,8 @@ public class RSStrongholdStructure extends StrongholdStructure
 	    
 	    // If the stronghold's max y is over the config's max y, lower the stronghold as
 	    // much as possible without hitting bedrock.
-	    if(this.bounds.maxY > RepurposedStructures.RSConfig.strongholdMaxHeight.get()) {
-		int heightDiff = RepurposedStructures.RSConfig.strongholdMaxHeight.get() - this.bounds.maxY;
+	    if(this.bounds.maxY > maxYConfig) {
+		int heightDiff = maxYConfig - this.bounds.maxY;
 		offset2 = Math.max(heightDiff, -this.bounds.minY);
 	    }
 

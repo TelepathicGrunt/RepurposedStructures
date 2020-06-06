@@ -106,8 +106,10 @@ public class RSConfig
 		public ConfigValueListener<Boolean> allowExtraSpawnersSH;
 		public ConfigValueListener<Double> strongholdSizeSH;
 		public ConfigValueListener<Boolean> lootChestsSH;
-		public ConfigValueListener<Integer> strongholdMinHeight;
-		public ConfigValueListener<Integer> strongholdMaxHeight;
+		public ConfigValueListener<Integer> normalStrongholdMinHeight;
+		public ConfigValueListener<Integer> normalStrongholdMaxHeight;
+		public ConfigValueListener<Integer> netherStrongholdMinHeight;
+		public ConfigValueListener<Integer> netherStrongholdMaxHeight;
 		
 		public ConfigValueListener<Integer> jungleFortressSpawnrate;
 		public ConfigValueListener<Double> silverfishSpawnrateJF;
@@ -688,11 +690,11 @@ public class RSConfig
 
         					
         					oceanMineshaftMaxHeight = subscriber.subscribe(builder
-							.comment("\r\n Minimum Y height that this mineshaft can spawn at. Default is 50.\r\n"
+							.comment("\r\n Minimum Y height that this mineshaft can spawn at. Default is 25.\r\n"
 								+" Note: The mineshaft will spawn between min and max y height set in config.\r\n"
 								+" Setting this to below min height config will make mineshaft spawn only at min height.")
         						.translation("repurposedstructures.config.feature.mineshaft.oceanmineshaftmaxheight")
-        						.defineInRange("oceanMineshaftMaxHeight", 50, 0, 255));
+        						.defineInRange("oceanMineshaftMaxHeight", 25, 0, 255));
 
         					
         					taigaMineshaftMaxHeight = subscriber.subscribe(builder
@@ -777,18 +779,31 @@ public class RSConfig
 							.translation("repurposedstructures.config.structure.stronghold.strongholdsizesh")
 							.defineInRange("strongholdSizeSH", 100D, 10, 2000));
 
-					strongholdMinHeight = subscriber.subscribe(builder
-						.comment("\r\n Minimum Y height that strongholds can spawn at. Default is 0.\r\n"
+					normalStrongholdMinHeight = subscriber.subscribe(builder
+						.comment("\r\n Minimum Y height that normal strongholds can spawn at. Default is 0.\r\n"
 							+" Note: Strongholds will spawn between min and max y height set in config.\r\n")
-						.translation("repurposedstructures.config.feature.mineshaft.strongholdminheight")
-						.defineInRange("strongholdMinHeight", 50, 0, 255));
+						.translation("repurposedstructures.config.feature.stronghold.normalstrongholdminheight")
+						.defineInRange("normalStrongholdMinHeight", 0, 0, 255));
 					
-					strongholdMaxHeight = subscriber.subscribe(builder
-						.comment("\r\n Minimum Y height that strongholds can spawn at. Default is 50.\r\n"
+					normalStrongholdMaxHeight = subscriber.subscribe(builder
+						.comment("\r\n Minimum Y height that normal strongholds can spawn at. Default is 50.\r\n"
 							+" Note: Strongholds will spawn between min and max y height set in config.\r\n"
 							+" Setting this to below min height config will make strongholds spawn only at min height.")
-						.translation("repurposedstructures.config.feature.mineshaft.strongholdmaxheight")
-						.defineInRange("strongholdMaxHeight", 50, 0, 255));
+						.translation("repurposedstructures.config.feature.stronghold.normalstrongholdmaxheight")
+						.defineInRange("normalStrongholdMaxHeight", 50, 0, 255));
+
+					netherStrongholdMinHeight = subscriber.subscribe(builder
+						.comment("\r\n Minimum Y height that Nether strongholds can spawn at. Default is 0.\r\n"
+							+" Note: Strongholds will spawn between min and max y height set in config.\r\n")
+						.translation("repurposedstructures.config.feature.stronghold.netherstrongholdminheight")
+						.defineInRange("netherStrongholdMinHeight", 0, 0, 255));
+					
+					netherStrongholdMaxHeight = subscriber.subscribe(builder
+						.comment("\r\n Minimum Y height that Nether strongholds can spawn at. Default is 35.\r\n"
+							+" Note: Strongholds will spawn between min and max y height set in config.\r\n"
+							+" Setting this to below min height config will make strongholds spawn only at min height.")
+						.translation("repurposedstructures.config.feature.stronghold.netherstrongholdmaxheight")
+						.defineInRange("netherStrongholdMaxHeight", 35, 0, 255));
 					
 					lootChestsSH = subscriber.subscribe(builder
 							.comment("\r\n Controls whether loot chests spawn or not in the Stronghold.")
