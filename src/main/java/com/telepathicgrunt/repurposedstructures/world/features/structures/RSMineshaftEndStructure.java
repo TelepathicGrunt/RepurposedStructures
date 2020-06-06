@@ -14,6 +14,7 @@ import net.minecraft.world.biome.BiomeManager;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.Structure;
+import net.minecraft.world.gen.feature.structure.StructurePiece;
 import net.minecraft.world.gen.feature.structure.StructureStart;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
@@ -98,7 +99,16 @@ public class RSMineshaftEndStructure extends Structure<NoFeatureConfig>
 
 	    structuremineshaftpiecesua$room.buildComponent(structuremineshaftpiecesua$room, this.components, this.rand);
 	    this.recalculateStructureSize();
-	    this.func_214626_a(this.rand, 30, 40);
+	    
+	    int minimum = RepurposedStructures.RSConfig.endMineshaftMinHeight.get();
+	    int maximum = Math.max(RepurposedStructures.RSConfig.endMineshaftMaxHeight.get(), minimum)+1;
+
+	    int offset = this.rand.nextInt(maximum-minimum)+minimum;
+	    this.bounds.offset(0, offset-50, 0);
+	    
+	    for (StructurePiece structurepiece : this.components) {
+		structurepiece.offset(0, offset-50, 0);
+	    }
 	}
     }
 
