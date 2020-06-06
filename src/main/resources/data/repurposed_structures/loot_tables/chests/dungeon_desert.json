@@ -31,7 +31,7 @@
         {
           "type": "minecraft:item",
           "weight": 15,
-          "name": "minecraft:music_disc_cat"
+          "name": "minecraft:music_disc_strad"
         },
         {
           "type": "minecraft:item",
@@ -265,7 +265,7 @@
               }
             }
           ],
-          "name": "minecraft:sticks"
+          "name": "minecraft:stick"
         },
         {
           "type": "minecraft:item",

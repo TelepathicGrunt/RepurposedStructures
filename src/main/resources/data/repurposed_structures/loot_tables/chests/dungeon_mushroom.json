@@ -35,12 +35,12 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 10,
+          "weight": 5,
           "name": "minecraft:compass"
         },
         {
           "type": "minecraft:item",
-          "weight": 15,
+          "weight": 5,
           "name": "minecraft:clock"
         },
         {
@@ -50,7 +50,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 10,
+          "weight": 20,
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
@@ -84,13 +84,13 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 20,
+          "weight": 15,
           "functions": [
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 1.0,
-                "max": 2.0,
+                "min": 2.0,
+                "max": 4.0,
                 "type": "minecraft:uniform"
               }
             }
@@ -119,7 +119,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 15,
+          "weight": 10,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -194,7 +194,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 20,
+          "weight": 15,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -214,8 +214,8 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 1.0,
-                "max": 2.0,
+                "min": 2.0,
+                "max": 4.0,
                 "type": "minecraft:uniform"
               }
             }

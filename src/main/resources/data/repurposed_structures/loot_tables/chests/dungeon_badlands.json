@@ -90,7 +90,7 @@
               }
             }
           ],
-          "name": "minecraft:nugget"
+          "name": "minecraft:gold_nugget"
         },
         {
           "type": "minecraft:item",
@@ -186,71 +186,6 @@
             }
           ],
           "name": "minecraft:stick"
-        }
-      ]
-    },
-    {
-      "rolls": 3,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "weight": 10,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1.0,
-                "max": 8.0,
-                "type": "minecraft:uniform"
-              }
-            }
-          ],
-          "name": "minecraft:bone"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 10,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1.0,
-                "max": 8.0,
-                "type": "minecraft:uniform"
-              }
-            }
-          ],
-          "name": "minecraft:gunpowder"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 10,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1.0,
-                "max": 8.0,
-                "type": "minecraft:uniform"
-              }
-            }
-          ],
-          "name": "minecraft:rotten_flesh"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 10,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1.0,
-                "max": 8.0,
-                "type": "minecraft:uniform"
-              }
-            }
-          ],
-          "name": "minecraft:string"
         }
       ]
     },

@@ -51,7 +51,7 @@
         {
           "type": "minecraft:item",
           "weight": 10,
-          "name": "minecraft:shear"
+          "name": "minecraft:shears"
         },
         {
           "type": "minecraft:item",
@@ -60,8 +60,8 @@
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
-                "min": 1.0,
-                "max": 30.0,
+                "min": -10.0,
+                "max": 5.0,
                 "type": "minecraft:uniform"
               },
               "treasure": true
@@ -76,8 +76,8 @@
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
-                "min": 1.0,
-                "max": 30.0,
+                "min": -10.0,
+                "max": 5.0,
                 "type": "minecraft:uniform"
               },
               "treasure": true
@@ -316,13 +316,13 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 10,
+          "weight": 5,
           "functions": [
             {
               "function": "minecraft:set_count",
               "count": {
                 "min": 1.0,
-                "max": 8.0,
+                "max": 3.0,
                 "type": "minecraft:uniform"
               }
             }
