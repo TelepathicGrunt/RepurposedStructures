@@ -40,7 +40,6 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.structure.IStructurePieceType;
 import net.minecraft.world.gen.feature.structure.StructurePiece;
 import net.minecraft.world.gen.feature.template.TemplateManager;
-import net.minecraft.world.storage.loot.LootTables;
 
 
 public class RSMineshaftPieces
@@ -62,7 +61,7 @@ public class RSMineshaftPieces
      * Good luck and have fun modding!
      */
     public static enum Type {
-	ICEY, BIRCH, JUNGLE, TAIGA, DESERT, STONE, SAVANNA, SWAMPORDARKFOREST, END, HELL, OCEAN;
+	ICY, BIRCH, JUNGLE, TAIGA, DESERT, STONE, SAVANNA, SWAMPORDARKFOREST, END, NETHER, OCEAN;
 
 	public static RSMineshaftPieces.Type byId(int id) {
 	    return id >= 0 && id < values().length ? values()[id] : BIRCH;
@@ -330,7 +329,7 @@ public class RSMineshaftPieces
 		this.generateMaybeBox(world, box, random, 0.8F, 0, 2, 0, 2, 2, offsetInSection, getFillingBlock(), getFillingBlock(), false, false);
 
 		if (this.attemptSpawnerCreation) {
-		    if (isOceanType || this.mineShaftType == RSMineshaftPieces.Type.HELL || this.mineShaftType == RSMineshaftPieces.Type.END) {
+		    if (isOceanType || this.mineShaftType == RSMineshaftPieces.Type.NETHER || this.mineShaftType == RSMineshaftPieces.Type.END) {
 			this.generateMaybeBox(world, box, random, 0.6F, 0, 0, 0, 2, 0, offsetInSection, getDecorativeBlock(random), getDecorativeBlock(random), false, true);
 
 			// can only place chorus fruit on end stone
@@ -362,11 +361,11 @@ public class RSMineshaftPieces
 
 		    if (RepurposedStructures.RSConfig.lootChestsMS.get()) {
 			if (random.nextInt(50) == 0) {
-			    this.generateChest(world, box, random, 2, 0, k1 - 1, LootTables.CHESTS_ABANDONED_MINESHAFT);
+			    this.generateChest(world, box, random, 2, 0, k1 - 1, getChestLoot());
 			}
 
 			if (random.nextInt(50) == 0) {
-			    this.generateChest(world, box, random, 0, 0, k1 + 1, LootTables.CHESTS_ABANDONED_MINESHAFT);
+			    this.generateChest(world, box, random, 0, 0, k1 + 1, getChestLoot());
 			}
 		    }
 
@@ -443,7 +442,7 @@ public class RSMineshaftPieces
 		    this.randomlyPlaceBlock(world, boundingBox, random, 1F, x + 2, y, z + 1, Blocks.END_ROD.getDefaultState().with(DirectionalBlock.FACING, Direction.NORTH));
 		}
 	    }
-	    else if (this.mineShaftType == Type.HELL) {
+	    else if (this.mineShaftType == Type.NETHER) {
 		if (random.nextFloat() < 0.1f) {
 		    this.setBlockState(world, Blocks.REDSTONE_LAMP.getDefaultState().with(RedstoneLampBlock.LIT, Boolean.valueOf(true)), x + 1, y, z, boundingBox);
 		    this.setBlockState(world, Blocks.REDSTONE_TORCH.getDefaultState(), x, y + 1, z, boundingBox);
@@ -458,7 +457,7 @@ public class RSMineshaftPieces
 	    else if (this.mineShaftType == Type.OCEAN) {
 		this.randomlyPlaceBlock(world, boundingBox, random, 0.2F, x + 1, y, z, Blocks.SEA_LANTERN.getDefaultState());
 	    }
-	    else if (this.mineShaftType == Type.ICEY) {
+	    else if (this.mineShaftType == Type.ICY) {
 		this.randomlyPlaceBlock(world, boundingBox, random, 0.08F, x + 1, y, z - 1, Blocks.REDSTONE_WALL_TORCH.getDefaultState().with(WallTorchBlock.HORIZONTAL_FACING, Direction.SOUTH));
 		this.randomlyPlaceBlock(world, boundingBox, random, 0.08F, x + 1, y, z + 1, Blocks.REDSTONE_WALL_TORCH.getDefaultState().with(WallTorchBlock.HORIZONTAL_FACING, Direction.NORTH));
 	    }
@@ -769,7 +768,7 @@ public class RSMineshaftPieces
 	public boolean create(IWorld world, ChunkGenerator<?> generator, Random random, MutableBoundingBox box, ChunkPos chunkPos) {
 	    BlockState flooring;
 
-	    if (this.mineShaftType == RSMineshaftPieces.Type.HELL) {
+	    if (this.mineShaftType == RSMineshaftPieces.Type.NETHER) {
 		flooring = Blocks.SOUL_SAND.getDefaultState();
 	    }
 	    else if (this.mineShaftType == RSMineshaftPieces.Type.END) {
@@ -1065,7 +1064,7 @@ public class RSMineshaftPieces
 
 	protected BlockState getArchTopBlock() {
 	    switch (this.mineShaftType) {
-		case ICEY:
+		case ICY:
 		    return Blocks.PACKED_ICE.getDefaultState();
 
 		case JUNGLE:
@@ -1080,7 +1079,7 @@ public class RSMineshaftPieces
 		case END:
 		    return Blocks.PURPUR_PILLAR.getDefaultState().with(RotatedPillarBlock.AXIS, Direction.Axis.Z);
 
-		case HELL:
+		case NETHER:
 		    return Blocks.NETHER_BRICKS.getDefaultState();
 
 		case OCEAN:
@@ -1102,12 +1101,50 @@ public class RSMineshaftPieces
 	}
 
 
+	protected ResourceLocation getChestLoot() {
+	    switch (this.mineShaftType) {
+		case ICY:
+		    return new ResourceLocation(RepurposedStructures.MODID + ":chests/mineshaft_icy");
+
+		case JUNGLE:
+		    return new ResourceLocation(RepurposedStructures.MODID + ":chests/mineshaft_jungle");
+
+		case TAIGA:
+		    return new ResourceLocation(RepurposedStructures.MODID + ":chests/mineshaft_taiga");
+
+		case DESERT:
+		    return new ResourceLocation(RepurposedStructures.MODID + ":chests/mineshaft_desert");
+
+		case END:
+		    return new ResourceLocation(RepurposedStructures.MODID + ":chests/mineshaft_end");
+
+		case NETHER:
+		    return new ResourceLocation(RepurposedStructures.MODID + ":chests/mineshaft_nether");
+
+		case OCEAN:
+		    return new ResourceLocation(RepurposedStructures.MODID + ":chests/mineshaft_ocean");
+
+		case STONE:
+		    return new ResourceLocation(RepurposedStructures.MODID + ":chests/mineshaft_stone");
+
+		case SAVANNA:
+		    return new ResourceLocation(RepurposedStructures.MODID + ":chests/mineshaft_savanna");
+
+		case SWAMPORDARKFOREST:
+		    return new ResourceLocation(RepurposedStructures.MODID + ":chests/mineshaft_swamp_dark_forest");
+
+		case BIRCH:
+		default:
+		    return new ResourceLocation(RepurposedStructures.MODID + ":chests/mineshaft_birch");
+	    }
+	}
+
 	// cannot be a rotatable block
 	// The crossing part has a null rotation and will try to force it on the
 	// rotatable block which will cause a crash
 	protected BlockState getFloorBlock() {
 	    switch (this.mineShaftType) {
-		case ICEY:
+		case ICY:
 		    return Blocks.ICE.getDefaultState();
 
 		case JUNGLE:
@@ -1122,7 +1159,7 @@ public class RSMineshaftPieces
 		case END:
 		    return Blocks.PURPUR_BLOCK.getDefaultState();
 
-		case HELL:
+		case NETHER:
 		    return Blocks.NETHER_BRICKS.getDefaultState();
 
 		case OCEAN:
@@ -1146,7 +1183,7 @@ public class RSMineshaftPieces
 
 	protected BlockState getArchSupportBlock(Random random) {
 	    switch (this.mineShaftType) {
-		case ICEY:
+		case ICY:
 		    return Blocks.ICE.getDefaultState();
 
 		case JUNGLE:
@@ -1161,7 +1198,7 @@ public class RSMineshaftPieces
 		case END:
 		    return Blocks.PURPUR_PILLAR.getDefaultState().with(RotatedPillarBlock.AXIS, Direction.Axis.Y);
 
-		case HELL:
+		case NETHER:
 		    return Blocks.NETHER_BRICK_WALL.getDefaultState();
 
 		case OCEAN:
@@ -1210,10 +1247,10 @@ public class RSMineshaftPieces
 		case OCEAN:
 		    return EntityType.DROWNED;
 
-		case ICEY:
+		case ICY:
 		    return EntityType.STRAY;
 
-		case HELL:
+		case NETHER:
 		    return EntityType.BLAZE;
 
 		case END:
@@ -1230,10 +1267,10 @@ public class RSMineshaftPieces
 		case OCEAN:
 		    return random.nextBoolean() ? Blocks.SEAGRASS.getDefaultState() : Blocks.TALL_SEAGRASS.getDefaultState();
 
-		case ICEY:
+		case ICY:
 		    return Blocks.ICE.getDefaultState();
 
-		case HELL:
+		case NETHER:
 		    return Blocks.FIRE.getDefaultState();
 
 		case END:
