@@ -1654,7 +1654,7 @@ public class RSStrongholdPieces
 
 	protected ResourceLocation getHallwayChestLoot() {
 	    if (this.strongholdType == RSStrongholdStructure.Type.NETHER) {
-		return LootTables.CHESTS_NETHER_BRIDGE;
+		return new ResourceLocation(RepurposedStructures.MODID+":chests/stronghold_nether_hallway");
 	    }
 	    else {
 		return LootTables.CHESTS_STRONGHOLD_CORRIDOR;
@@ -1664,7 +1664,7 @@ public class RSStrongholdPieces
 
 	protected ResourceLocation getStorageChestLoot() {
 	    if (this.strongholdType == RSStrongholdStructure.Type.NETHER) {
-		return LootTables.CHESTS_NETHER_BRIDGE;
+		return new ResourceLocation(RepurposedStructures.MODID+":chests/stronghold_nether_storage_room");
 	    }
 	    else {
 		return LootTables.CHESTS_STRONGHOLD_CROSSING;
