@@ -11,6 +11,7 @@ import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.DirectionalBlock;
+import net.minecraft.block.NetherWartBlock;
 import net.minecraft.block.RailBlock;
 import net.minecraft.block.RedstoneLampBlock;
 import net.minecraft.block.RedstoneWireBlock;
@@ -784,12 +785,18 @@ public class RSMineshaftPieces
 	    this.fillWithBlocks(world, box, this.boundingBox.minX, this.boundingBox.minY, this.boundingBox.minZ, this.boundingBox.maxX, this.boundingBox.minY, this.boundingBox.maxZ, flooring, getFillingBlock(), false);
 	    this.fillWithBlocks(world, box, this.boundingBox.minX, this.boundingBox.minY + 1, this.boundingBox.minZ, this.boundingBox.maxX, Math.min(this.boundingBox.minY + 3, this.boundingBox.maxY), this.boundingBox.maxZ, getFillingBlock(), getFillingBlock(), false);
 
+	    //nether_wart floor
+	    if (this.mineShaftType == RSMineshaftPieces.Type.NETHER) {
+		this.generateMaybeBox(world, box, world.getRandom(), 0.3f, this.boundingBox.minX, this.boundingBox.minY+1, this.boundingBox.minZ, this.boundingBox.maxX, this.boundingBox.minY+1, this.boundingBox.maxZ, Blocks.NETHER_WART.getDefaultState().with(NetherWartBlock.AGE, 2), Blocks.NETHER_WART.getDefaultState().with(NetherWartBlock.AGE, 2), false, false);
+	    }
+	    
 	    for (MutableBoundingBox MutableBoundingBox : this.roomsLinkedToTheRoom) {
 		this.fillWithBlocks(world, box, MutableBoundingBox.minX, MutableBoundingBox.maxY - 2, MutableBoundingBox.minZ, MutableBoundingBox.maxX, MutableBoundingBox.maxY, MutableBoundingBox.maxZ, getFillingBlock(), getFillingBlock(), false);
 	    }
 
 	    this.randomlyRareFillWithBlocks(world, box, this.boundingBox.minX, this.boundingBox.minY + 4, this.boundingBox.minZ, this.boundingBox.maxX, this.boundingBox.maxY, this.boundingBox.maxZ, getFillingBlock(), false);
 
+	    //vines
 	    if (this.mineShaftType == RSMineshaftPieces.Type.JUNGLE) {
 		fillWithVines(world, random, box, 5, this.boundingBox.minX, this.boundingBox.minY, this.boundingBox.minZ, this.boundingBox.maxX, this.boundingBox.maxY + 4, this.boundingBox.maxZ);
 	    }
