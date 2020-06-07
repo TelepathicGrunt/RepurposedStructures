@@ -11,21 +11,29 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ## (V.1.5.0 Changes) (1.15.2 Minecraft)
   
+##### Configs/Loot Table:
+
+-Added configs to change the minimum and maximum height that Strongholds, Mineshafts, and Dungeons can spawn at.
+   
+-Added custom loottables for dungeons, mineshafts, and nether stronghold. (Each type now has more tailored loot to fit their theme and players can change the loot with datapacks!)
+   
 ##### Structures:
 
 -Added a 1% chance of Creeper Spawner to Jungle/Dark Forest Dungeons.
 
 -Fixed bug where dungeons has a rare chance of breaking through bedrock at y = 1.
 
--Added configs to change the minimum and maximum height that Strongholds, Mineshafts, and Dungeons can spawn at.
-   
--Added custom loottables for dungeons, mineshafts, and nether stronghold. (Each type now has more tailored loot to fit their theme and players can change the loot with datapacks!)
-
 -Fixed Jungle Dungeon vines breaking often.
 
 -Added Netherwart to Nether Mineshaft's Soul Sand room.
 
 -Nether Dungeons will now make lava flow into it instead of making floating walls of lava if it generates into lava.
+
+-Made Chorus Plants in End Mineshafts be more grown right off the bat.
+
+-End Mineshafts will now have walls of Purple Stained Glass Panes scattered through the Mineshaft.
+
+-Significantly increased the amount of Endermite Spawner in End Mineshaft to balance out the better loot in the mineshaft. 
    
 ## (V.1.4.4 Changes) (1.15.2 Minecraft)
   

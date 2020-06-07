@@ -10,12 +10,15 @@ import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.ChorusFlowerBlock;
 import net.minecraft.block.DirectionalBlock;
 import net.minecraft.block.NetherWartBlock;
+import net.minecraft.block.PaneBlock;
 import net.minecraft.block.RailBlock;
 import net.minecraft.block.RedstoneLampBlock;
 import net.minecraft.block.RedstoneWireBlock;
 import net.minecraft.block.RotatedPillarBlock;
+import net.minecraft.block.SixWayBlock;
 import net.minecraft.block.VineBlock;
 import net.minecraft.block.WallTorchBlock;
 import net.minecraft.block.material.Material;
@@ -152,7 +155,12 @@ public class RSMineshaftPieces
 	    this.setCoordBaseMode(p_i47140_4_);
 	    this.boundingBox = p_i47140_3_;
 	    this.hasRails = p_i47140_2_.nextInt(3) == 0;
-	    this.attemptSpawnerCreation = !this.hasRails && p_i47140_2_.nextInt(20) == 0;
+	    if(this.mineShaftType == RSMineshaftPieces.Type.END) {
+		this.attemptSpawnerCreation = !this.hasRails && p_i47140_2_.nextInt(5) == 0;
+	    }
+	    else {
+		this.attemptSpawnerCreation = !this.hasRails && p_i47140_2_.nextInt(20) == 0;
+	    }
 	    if (this.getCoordBaseMode().getAxis() == Direction.Axis.Z) {
 		this.sectionCount = p_i47140_3_.getZSize() / 5;
 	    }
@@ -370,7 +378,7 @@ public class RSMineshaftPieces
 			}
 		    }
 
-		    if (this.attemptSpawnerCreation && !this.spawnerPlaced) {
+		    if (this.attemptSpawnerCreation && (!this.spawnerPlaced || (this.mineShaftType == RSMineshaftPieces.Type.END && random.nextBoolean()))) {
 			int l1 = this.getYWithOffset(0);
 			int i2 = k1 - 1 + random.nextInt(3);
 			int j2 = this.getXWithOffset(1, i2);
@@ -386,6 +394,11 @@ public class RSMineshaftPieces
 				((MobSpawnerTileEntity) tileentity).getSpawnerBaseLogic().setEntityType(getSpawnerMob());
 			    }
 			}
+		    }
+		    
+		    //wall of glass
+		    if(this.mineShaftType == RSMineshaftPieces.Type.END && random.nextFloat() < 0.3f) {
+			this.fillWithBlocks(world, box, 0, 0, 0, 2, 2, 0, Blocks.PURPLE_STAINED_GLASS_PANE.getDefaultState().with(PaneBlock.EAST, true).with(PaneBlock.WEST, true), Blocks.PURPLE_STAINED_GLASS_PANE.getDefaultState().with(PaneBlock.NORTH, true).with(PaneBlock.SOUTH, true), false);
 		    }
 		}
 
@@ -470,6 +483,7 @@ public class RSMineshaftPieces
 	}
 
 
+	@SuppressWarnings("deprecation")
 	private void placeDecoration(IWorld world, MutableBoundingBox box, Random random, float probability, int x, int y, int z) {
 	    if (world.getDimension().getType() != DimensionType.OVERWORLD || this.getSkyBrightness(world, x, y, z, box)) {
 		BlockState decorativeBlock = getDecorativeBlock(random);
@@ -479,8 +493,26 @@ public class RSMineshaftPieces
 		this.randomlyPlaceBlock(world, box, random, probability, x, y, z, decorativeBlock);
 
 		// can only place chorus fruit on end stone
+		//Also places it in a grown state
 		if (this.getBlockStateFromPos(world, x, y, z, box).getBlock() == Blocks.CHORUS_FLOWER) {
 		    this.setBlockState(world, Blocks.END_STONE.getDefaultState(), x, -1, z, box);
+		    this.setBlockState(world, Blocks.CHORUS_PLANT.getDefaultState().with(SixWayBlock.UP, true).with(SixWayBlock.DOWN, true), x, 0, z, box);
+		    this.setBlockState(world, Blocks.CHORUS_PLANT.getDefaultState().with(SixWayBlock.SOUTH, true).with(SixWayBlock.NORTH, true).with(SixWayBlock.EAST, true).with(SixWayBlock.WEST, true).with(SixWayBlock.DOWN, true), x, 1, z, box);
+		    
+		    if(random.nextBoolean()) {
+			if(this.getBlockStateFromPos(world, x-1, 1, z, box).isAir()) {
+			    this.setBlockState(world, Blocks.CHORUS_FLOWER.getDefaultState().with(ChorusFlowerBlock.AGE, 5), x-1, 1, z, box);
+			}else {
+			    this.setBlockState(world, Blocks.CHORUS_FLOWER.getDefaultState().with(ChorusFlowerBlock.AGE, 5), x, 1, z, box);
+			}
+		    }
+		    else {
+			if(this.getBlockStateFromPos(world, x+1, 1, z, box).isAir()) {
+			    this.setBlockState(world, Blocks.CHORUS_FLOWER.getDefaultState().with(ChorusFlowerBlock.AGE, 5), x+1, 1, z, box);
+			}else {
+			    this.setBlockState(world, Blocks.CHORUS_FLOWER.getDefaultState().with(ChorusFlowerBlock.AGE, 5), x, 1, z, box);
+			}
+		    }
 		}
 	    }
 	}
@@ -1281,7 +1313,7 @@ public class RSMineshaftPieces
 		    return Blocks.FIRE.getDefaultState();
 
 		case END:
-		    return Blocks.CHORUS_FLOWER.getDefaultState();
+		    return Blocks.CHORUS_FLOWER.getDefaultState().with(ChorusFlowerBlock.AGE, 5);
 
 		default:
 		    return Blocks.COBWEB.getDefaultState();
