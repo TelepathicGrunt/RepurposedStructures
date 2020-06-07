@@ -1,18 +1,17 @@
 <p><img src="https://i.imgur.com/lD8Pa6U.png" alt="Picture that shows the title of this mod with a Stonebrick Fortress during sunset behind the text" width="1519" height="516" /></p>
 <h2 style="text-align: center;"><strong><span style="font-size: 36px; color: #009611;">CURRENTLY FOR 1.15.2 MC</span></strong></h2>
 <p>&nbsp;</p>
-<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;If your world was crashing when</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;All dungeons variants and</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>mineshafts variants now uses their own</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>loot tables! You can override these with a</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>datapack but the loot should be already</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>themed to the dungeon/mineshaft variant!&nbsp;</strong></b></span></em></p>
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Past News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;If your world was crashing when</strong></b></span></em></p>
 <p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>updating this mod from v1.3.x to v1.4.x, please try</strong></b></span></em></p>
 <p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>v1.4.3 as that should fix the crash due to me splitting up</strong></b></span></em></p>
 <p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>the Mineshafts. To do this fix, I had to use a dummy Mineshaft.<br />Also, configs are upgrades to let you control spawnrates&nbsp;</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>by type of dungeon, well, and mineshaft individually!</strong></b></span></em></p>
-<p style="text-align: center;">&nbsp;</p>
-<p style="text-align: center;">&nbsp;</p>
-<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Past News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;Added Grassy Igloo and </strong></b></span></em><em><span style="font-size: 14px;"><b><strong>Stone Igloo!&nbsp;</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>Mineshafts in Jungles, Swamps, </strong></b></span></em><em><span style="font-size: 14px;"><b><strong>and </strong></b></span></em><em><span style="font-size: 14px;"><b><strong>Dark Forest now has vines inside!</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>And now you can use tags to change the ores in wells,</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>the plants in Jungle Fortress's staircase room,&nbsp;</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>and change bookshelves in Nether Strongholds!</strong></b></span></em></p>
 <p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;">&nbsp;</p>
@@ -22,7 +21,7 @@
 <p style="text-align: center;"><span style="font-size: 14px;">&nbsp;</span></p>
 <p style="text-align: left;"><span style="font-size: 14px;">&nbsp;<strong> &nbsp; Repurposed Structures is a mod about taking existing vanilla features and structures and creating new variants or modifications to them! Originally, most of the structures and features in this mod was actually made for my Ultra Amplified Dimension mod. but then I realized these features and structures would look great in the Overworld as well so I decided to take those structures and features and split them into their own mod. This mod! </strong></span></p>
 <p style="text-align: left;">&nbsp;</p>
-<p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; Currently, this mod creates a Nether Fortresses using Stonebrick blocks and spawns it in Jungles, Dungeons and Mineshafts now has more variants to match whatever biome they are in, two new biome variants of Igloos, Strongholds has a configurable size and has more Silverfish spawners, Giant Tree/Spruce Taiga Hills biomes has giant ore filled boulders that could have Diamond ore if you are extremely lucky, Taiga Mountain biomes now has tiny boulders, Swamps now has a new 2x2 swamp-like tree, and several new Desert Well variations were made for other biomes!</strong></span></p>
+<p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; Currently, this mod creates a Nether Fortresses using Stonebrick blocks and spawns it in Jungles, Dungeons and Mineshafts now has more variants to match whatever biome they are in, two new biome variants of Igloos, Strongholds has a configurable size and has more Silverfish spawners, Giant Tree/Spruce Taiga Hills biomes has giant ore filled boulders that could have Diamond ore if you are extremely lucky, Taiga Mountain biomes now has tiny boulders, Swamps now has a new 2x2 swamp-like tree, and several new Desert Well variations were made for other biomes (Also, loot for Dungeons and Mineshafts are tailored to their variant as well so start exploring!)</strong></span></p>
 <p style="text-align: left;">&nbsp;</p>
 <p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; If you have trouble finding one of these structures, just start typing `<em>/locate repu</em>` into the chat and you should see my structures pop up! For example, typing `<em>/locate repurposed_structures:fortress_jungle</em>` will find the closest Jungle Fortress to your location. :) However, do note that due to a Vanilla limitation, the locate command can only find the themed Mineshafts if they are within 1600 blocks of you. All other structures can be found easily from anywhere!</strong></span></p>
 <p style="text-align: left;"><span style="font-size: 14px;">&nbsp;</span></p>
@@ -119,6 +118,7 @@
 <p><strong>13% : Small Ruins loot</strong></p>
 <p><strong>8% : Big Ruins loot</strong></p>
 <p><strong>1% : Buried Treasure loot</strong></p>
+<p><strong>plus a few various other ocean-themed loot</strong></p>
 <p>&nbsp;</p>
 <p><strong>Mob Spawner in Frozen Ocean biomes</strong></p>
 <p><strong>96% : Drowned</strong></p>
@@ -300,7 +300,40 @@
 <p>&nbsp;</p>
 <p><strong><span style="font-size: 14px;">nether_stronghold_bookshelves.json</span> - will randomly pick blocks to use for the bookshelves in Nether strongholds.</strong></p>
 </div>
+<p><strong>&nbsp;</strong></p>
 <p>&nbsp;</p>
+<p><strong>Furthermore, if you want to change the loot tables that the structures in this mod uses, you can override my loot tables with a data pack! Here are all the names of the loot table files and what their paths are so you can override them easily. All loot tables are under data.repurposed_structures.loot_tables.chests btw.</strong></p>
+<p>&nbsp;</p>
+<div class="spoiler">
+<p><span style="font-size: 14px;"><strong>dungeon_badlands.json</strong></span></p>
+<p><span style="font-size: 14px;"><strong>dungeon_dark_forest.json</strong></span></p>
+<p><span style="font-size: 14px;"><strong>dungeon_desert.json</strong></span></p>
+<p><span style="font-size: 14px;"><strong>dungeon_end.json</strong></span></p>
+<p><span style="font-size: 14px;"><strong>dungeon_jungle.json</strong></span></p>
+<p><span style="font-size: 14px;"><strong>dungeon_mushroom.json</strong></span></p>
+<p><span style="font-size: 14px;"><strong>dungeon_nether.json</strong></span></p>
+<p><span style="font-size: 14px;"><strong>dungeon_ocean.json</strong></span></p>
+<p><span style="font-size: 14px;"><strong>dungeon_snow.json</strong></span></p>
+<p><span style="font-size: 14px;"><strong>dungeon_swamp.json</strong></span></p>
+<p><span style="font-size: 14px;">&nbsp;</span></p>
+<p><span style="font-size: 14px;"><strong>mineshaft_birch.json</strong></span></p>
+<p><span style="font-size: 14px;"><strong>mineshaft_desert.json</strong></span></p>
+<p><span style="font-size: 14px;"><strong>mineshaft_end.json</strong></span></p>
+<p><span style="font-size: 14px;"><strong>mineshaft_icy.json</strong></span></p>
+<p><span style="font-size: 14px;"><strong>mineshaft_jungle.json</strong></span></p>
+<p><span style="font-size: 14px;"><strong>mineshaft_nether.json</strong></span></p>
+<p><span style="font-size: 14px;"><strong>mineshaft_ocean.json</strong></span></p>
+<p><span style="font-size: 14px;"><strong>mineshaft_savanna.json</strong></span></p>
+<p><span style="font-size: 14px;"><strong>mineshaft_stone.json</strong></span></p>
+<p><span style="font-size: 14px;"><strong>mineshaft_swamp_dark_forest.json</strong></span></p>
+<p><span style="font-size: 14px;"><strong>mineshaft_taiga.json</strong></span></p>
+<p><span style="font-size: 14px;">&nbsp;</span></p>
+<p><span style="font-size: 14px;"><strong>nether_temple_chest.json</strong></span></p>
+<p><span style="font-size: 14px;"><strong>nether_temple_dispenser.json</strong></span></p>
+<p><span style="font-size: 14px;">&nbsp;</span></p>
+<p><span style="font-size: 14px;"><strong>stronghold_nether_hallway.json</strong></span></p>
+<p><span style="font-size: 14px;"><strong>stronghold_nether_storage_room.json</strong></span></p>
+</div>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p><span style="font-size: 14px;"><strong>Let me know if you think of a new config option that you would need and I will try and add it! :)&nbsp;</strong></span></p>
