@@ -148,7 +148,7 @@ public class WellForest extends Feature<NoFeatureConfig>
 					{
 						world.setBlockState(mutable.add(x, 4, z), STRIPPED_OAK_WOOD, 2);
 						
-						if(RepurposedStructures.RSConfig.canHaveBells.get() && random.nextInt(100) == 0) 
+						if(RepurposedStructures.RSWellsConfig.canHaveBells.get() && random.nextInt(100) == 0) 
 							world.setBlockState(mutable.add(x, 3, z), BELL, 2);
 					}
 					else

@@ -255,7 +255,7 @@ public class NetherTemplePiece extends ScatteredStructurePiece
 	this.setBlockState(world, Blocks.STICKY_PISTON.getDefaultState().with(PistonBlock.FACING, Direction.WEST), 10, -1, 8, box);
 	this.setBlockState(world, Blocks.REPEATER.getDefaultState().with(RepeaterBlock.HORIZONTAL_FACING, Direction.NORTH), 10, -2, 10, box);
 
-	if (RepurposedStructures.RSConfig.lootChestsNT.get()) {
+	if (RepurposedStructures.RSMainConfig.lootChestsNT.get()) {
 	    this.generateChest(world, box, random, 9, -3, 10, CHESTS_NETHER_TEMPLE);
 	    this.generateChest(world, box, random, 9, -3, 8, CHESTS_NETHER_TEMPLE);
 	}

@@ -42,9 +42,10 @@ public class ConfigHelper
 	/** as with the other register method, but the contexts are assumed **/
 	public static <T> T register(
 		final ModConfig.Type configType,
-		final BiFunction<ForgeConfigSpec.Builder, Subscriber, T> configBuilder)
+		final BiFunction<ForgeConfigSpec.Builder, Subscriber, T> configBuilder,
+		final String registerConfig)
 	{
-		return register(ModLoadingContext.get(), FMLJavaModLoadingContext.get(), configType, configBuilder);
+		return register(ModLoadingContext.get(), FMLJavaModLoadingContext.get(), configType, configBuilder, registerConfig);
 	}
 	
 	/** call this in either your @Mod class constructor or in FMLCommonSetupEvent or in FMLClientSetupEvent **/
@@ -52,14 +53,15 @@ public class ConfigHelper
 		final ModLoadingContext modContext,
 		final FMLJavaModLoadingContext fmlContext,
 		final ModConfig.Type configType,
-		final BiFunction<ForgeConfigSpec.Builder, Subscriber, T> configBuilder)
+		final BiFunction<ForgeConfigSpec.Builder, Subscriber, T> configBuilder,
+		final String registerConfig)
 	{
 		final List<ConfigValueListener<?>> subscriptionList = new ArrayList<>();
 		final Pair<T, ForgeConfigSpec> entry = new ForgeConfigSpec.Builder().configure(builder -> configBuilder.apply(builder, getSubscriber(subscriptionList)));
 		final T config = entry.getLeft();
 		final ForgeConfigSpec spec = entry.getRight();
 		
-		modContext.registerConfig(configType, spec);
+		modContext.registerConfig(configType, spec, registerConfig);
 		
 		final Consumer<ModConfigEvent> configUpdate = event ->
 		{

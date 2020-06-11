@@ -9,6 +9,12 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 # | Repurposed Structures changelog |
 
 
+## (V.1.5.1 Changes) (1.15.2 Minecraft)
+  
+##### Configs/Loot Table:
+
+-Split Wells, Strongholds, Mineshafts, and Dungeons configs into their own config file.
+
 ## (V.1.5.0 Changes) (1.15.2 Minecraft)
   
 ##### Configs/Loot Table:

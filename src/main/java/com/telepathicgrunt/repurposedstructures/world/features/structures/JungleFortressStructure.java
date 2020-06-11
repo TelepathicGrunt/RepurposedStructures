@@ -45,7 +45,7 @@ public class JungleFortressStructure extends Structure<NoFeatureConfig>
 
     @Override
     protected ChunkPos getStartPositionForPosition(ChunkGenerator<?> chunkGenerator, Random random, int x, int z, int spacingOffsetsX, int spacingOffsetsZ) {
-	int maxDistance = RepurposedStructures.RSConfig.jungleFortressSpawnrate.get();
+	int maxDistance = RepurposedStructures.RSMainConfig.jungleFortressSpawnrate.get();
 	int minDistance = (int) (maxDistance * 0.75f);
 	if (minDistance == 0) {
 	    minDistance = 1;

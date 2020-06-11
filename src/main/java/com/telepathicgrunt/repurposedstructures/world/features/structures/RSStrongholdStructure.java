@@ -52,7 +52,7 @@ public class RSStrongholdStructure extends StrongholdStructure
 
     @Override
     protected ChunkPos getStartPositionForPosition(ChunkGenerator<?> chunkGenerator, Random random, int x, int z, int spacingOffsetsX, int spacingOffsetsZ) {
-	int maxDistance = RepurposedStructures.RSConfig.strongholdSpawnrate.get();
+	int maxDistance = RepurposedStructures.RSStrongholdsConfig.strongholdSpawnrate.get();
 	int minDistance = (int) (maxDistance * 0.75f);
 	if (minDistance == 0) {
 	    minDistance = 1;
@@ -75,7 +75,7 @@ public class RSStrongholdStructure extends StrongholdStructure
     @Override
     public boolean canBeGenerated(BiomeManager biomeManager, ChunkGenerator<?> chunkGenerator, Random random, int chunkPosX, int chunkPosZ, Biome biome) {
 
-	if (RepurposedStructures.RSConfig.useVanillaStronghold.get()) {
+	if (RepurposedStructures.RSStrongholdsConfig.useVanillaStronghold.get()) {
 	    return super.canBeGenerated(biomeManager, chunkGenerator, random, chunkPosX, chunkPosZ, biome);
 	}
 	else {
@@ -93,7 +93,7 @@ public class RSStrongholdStructure extends StrongholdStructure
 
     @Override
     public BlockPos findNearest(World world, ChunkGenerator<? extends GenerationSettings> chunkGenerator, BlockPos position, int radius, boolean skipExistingChunks) {
-	if (RepurposedStructures.RSConfig.useVanillaStronghold.get()) {
+	if (RepurposedStructures.RSStrongholdsConfig.useVanillaStronghold.get()) {
 	    return super.findNearest(world, chunkGenerator, position, radius, skipExistingChunks);
 	}
 	else {
@@ -145,7 +145,7 @@ public class RSStrongholdStructure extends StrongholdStructure
 
     @Override
     public Structure.IStartFactory getStartFactory() {
-	if (RepurposedStructures.RSConfig.useVanillaStronghold.get()) {
+	if (RepurposedStructures.RSStrongholdsConfig.useVanillaStronghold.get()) {
 	    return super.getStartFactory();
 	}
 	else {
@@ -175,7 +175,7 @@ public class RSStrongholdStructure extends StrongholdStructure
 	@Override
 	public void init(ChunkGenerator<?> generator, TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn) {
 	    RSStrongholdPieces.prepareStructurePieces();
-	    RSStrongholdStructure.Type type = biomeIn.getCategory() == Category.NETHER && RepurposedStructures.RSConfig.allowNetherStronghold.get() ? RSStrongholdStructure.Type.NETHER : RSStrongholdStructure.Type.NORMAL;
+	    RSStrongholdStructure.Type type = biomeIn.getCategory() == Category.NETHER && RepurposedStructures.RSStrongholdsConfig.allowNetherStronghold.get() ? RSStrongholdStructure.Type.NETHER : RSStrongholdStructure.Type.NORMAL;
 	    RSStrongholdPieces.EntranceStairs strongholdpieces$entrancestairs = new RSStrongholdPieces.EntranceStairs(this.rand, (chunkX << 4) + 2, (chunkZ << 4) + 2, type);
 	    this.components.add(strongholdpieces$entrancestairs);
 	    strongholdpieces$entrancestairs.buildComponent(strongholdpieces$entrancestairs, this.components, this.rand);
@@ -207,12 +207,12 @@ public class RSStrongholdStructure extends StrongholdStructure
 	    int minYConfig = 0;
 	    
 	    if(type == RSStrongholdStructure.Type.NORMAL) {
-		maxYConfig = RepurposedStructures.RSConfig.normalStrongholdMaxHeight.get();
-		minYConfig = RepurposedStructures.RSConfig.normalStrongholdMinHeight.get();
+		maxYConfig = RepurposedStructures.RSStrongholdsConfig.normalStrongholdMaxHeight.get();
+		minYConfig = RepurposedStructures.RSStrongholdsConfig.normalStrongholdMinHeight.get();
 	    }
 	    else if(type == RSStrongholdStructure.Type.NETHER) {
-		maxYConfig = RepurposedStructures.RSConfig.netherStrongholdMaxHeight.get();
-		minYConfig = RepurposedStructures.RSConfig.netherStrongholdMinHeight.get();
+		maxYConfig = RepurposedStructures.RSStrongholdsConfig.netherStrongholdMaxHeight.get();
+		minYConfig = RepurposedStructures.RSStrongholdsConfig.netherStrongholdMinHeight.get();
 	    }
 	    
 	    

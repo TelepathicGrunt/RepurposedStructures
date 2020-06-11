@@ -47,7 +47,7 @@ public class RSMineshaftDesertStructure extends Structure<NoFeatureConfig>
 	int xChunk = x + spacingOffsetsX;
 	int zChunk = z + spacingOffsetsZ;
 	((SharedSeedRandom) random).setLargeFeatureSeed(chunkGenerator.getSeed() + 2, xChunk, zChunk);
-	if (random.nextDouble() < (RepurposedStructures.RSConfig.desertMineshaftSpawnrate.get() / 10000D)) {
+	if (random.nextDouble() < (RepurposedStructures.RSMineshaftsConfig.desertMineshaftSpawnrate.get() / 10000D)) {
 	    return new ChunkPos(xChunk, zChunk);
 	}
 
@@ -100,8 +100,8 @@ public class RSMineshaftDesertStructure extends Structure<NoFeatureConfig>
 	    structuremineshaftpiecesua$room.buildComponent(structuremineshaftpiecesua$room, this.components, this.rand);
 	    this.recalculateStructureSize();
 	    
-	    int minimum = RepurposedStructures.RSConfig.desertMineshaftMinHeight.get();
-	    int maximum = Math.max(RepurposedStructures.RSConfig.desertMineshaftMaxHeight.get(), minimum)+1;
+	    int minimum = RepurposedStructures.RSMineshaftsConfig.desertMineshaftMinHeight.get();
+	    int maximum = Math.max(RepurposedStructures.RSMineshaftsConfig.desertMineshaftMaxHeight.get(), minimum)+1;
 
 	    int offset = this.rand.nextInt(maximum-minimum)+minimum;
 	    this.bounds.offset(0, offset-50, 0);

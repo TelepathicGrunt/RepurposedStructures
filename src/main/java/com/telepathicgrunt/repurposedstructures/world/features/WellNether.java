@@ -152,7 +152,7 @@ public class WellNether extends Feature<NoFeatureConfig>
 						world.setBlockState(mutable.add(x, 4, z), GLOWSTONE, 2);
 						world.setBlockState(mutable.add(x, 5, z), NETHER_BRICK_SLAB, 2);
 						
-						if(RepurposedStructures.RSConfig.canHaveBells.get() && random.nextInt(100) == 0) 
+						if(RepurposedStructures.RSWellsConfig.canHaveBells.get() && random.nextInt(100) == 0) 
 							world.setBlockState(mutable.add(x, 3, z), BELL, 2);
 					}
 					else if (x == 0 || z == 0)

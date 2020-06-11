@@ -129,7 +129,7 @@ public class RSStrongholdPieces
 		    if (structurestrongholdpieces$pieceweight.instancesSpawned < 1) flag = true;
 		}
 		else {
-		    int maxLimit = (int) (structurestrongholdpieces$pieceweight.instancesLimit * (RepurposedStructures.RSConfig.strongholdSizeSH.get() * 0.01D));
+		    int maxLimit = (int) (structurestrongholdpieces$pieceweight.instancesLimit * (RepurposedStructures.RSStrongholdsConfig.strongholdSizeSH.get() * 0.01D));
 
 		    if (structurestrongholdpieces$pieceweight.instancesSpawned <= maxLimit) flag = true;
 		}
@@ -241,7 +241,7 @@ public class RSStrongholdPieces
 
 
     private static StructurePiece generateAndAddPiece(RSStrongholdPieces.EntranceStairs p_175953_0_, List<StructurePiece> p_175953_1_, Random p_175953_2_, int p_175953_3_, int p_175953_4_, int p_175953_5_, @Nullable Direction p_175953_6_, int distanceFromStart) {
-	int maxComponents = (int) (50 * (RepurposedStructures.RSConfig.strongholdSizeSH.get() * 0.01D));
+	int maxComponents = (int) (50 * (RepurposedStructures.RSStrongholdsConfig.strongholdSizeSH.get() * 0.01D));
 	if (distanceFromStart > maxComponents) {
 	    return null;
 	}
@@ -313,7 +313,7 @@ public class RSStrongholdPieces
 	    }
 
 	    if (structureBoundingBoxIn.isVecInside(new BlockPos(this.getXWithOffset(3, 3), this.getYWithOffset(2), this.getZWithOffset(3, 3)))) {
-		if (RepurposedStructures.RSConfig.lootChestsSH.get() && random.nextInt(3) == 0) {
+		if (RepurposedStructures.RSStrongholdsConfig.lootChestsSH.get() && random.nextInt(3) == 0) {
 		    this.generateChest(world, structureBoundingBoxIn, random, 3, 2, 3, getHallwayChestLoot());
 		}
 	    }
@@ -732,14 +732,14 @@ public class RSStrongholdPieces
 		this.setBlockState(world, iblockstate4, 7, 8, 8, structureBoundingBoxIn);
 	    }
 
-	    if (RepurposedStructures.RSConfig.lootChestsSH.get()) {
+	    if (RepurposedStructures.RSStrongholdsConfig.lootChestsSH.get()) {
 		this.generateChest(world, structureBoundingBoxIn, random, 3, 3, 5, LootTables.CHESTS_STRONGHOLD_LIBRARY);
 	    }
 
 	    if (this.isLargeRoom) {
 		this.setBlockState(world, Blocks.AIR.getDefaultState(), 12, 9, 1, structureBoundingBoxIn);
 
-		if (RepurposedStructures.RSConfig.lootChestsSH.get()) {
+		if (RepurposedStructures.RSStrongholdsConfig.lootChestsSH.get()) {
 		    this.generateChest(world, structureBoundingBoxIn, random, 12, 8, 1, LootTables.CHESTS_STRONGHOLD_LIBRARY);
 		}
 	    }
@@ -764,14 +764,14 @@ public class RSStrongholdPieces
 
 
 	public boolean canSpawnMoreStructures(int distanceFromStart) {
-	    int maxLimit = (int) (this.instancesLimit * (RepurposedStructures.RSConfig.strongholdSizeSH.get() * 0.01D));
+	    int maxLimit = (int) (this.instancesLimit * (RepurposedStructures.RSStrongholdsConfig.strongholdSizeSH.get() * 0.01D));
 
 	    return this.instancesLimit == 0 || this.instancesSpawned < maxLimit;
 	}
 
 
 	public boolean canSpawnMoreStructures() {
-	    int maxLimit = (int) (this.instancesLimit * (RepurposedStructures.RSConfig.strongholdSizeSH.get() * 0.01D));
+	    int maxLimit = (int) (this.instancesLimit * (RepurposedStructures.RSStrongholdsConfig.strongholdSizeSH.get() * 0.01D));
 
 	    return this.instancesLimit == 0 || this.instancesSpawned < maxLimit;
 	}
@@ -1076,7 +1076,7 @@ public class RSStrongholdPieces
 
 		    if (structureBoundingBoxIn.isVecInside(blockpos)) {
 
-			if (RepurposedStructures.RSConfig.allowExtraSpawnersSH.get()) {
+			if (RepurposedStructures.RSStrongholdsConfig.allowExtraSpawnersSH.get()) {
 			    world.setBlockState(blockpos, Blocks.SPAWNER.getDefaultState(), 2);
 			    TileEntity tileentity = world.getTileEntity(blockpos);
 
@@ -1119,7 +1119,7 @@ public class RSStrongholdPieces
 		    blockpos = new BlockPos(this.getXWithOffset(5, 5), this.getYWithOffset(1), this.getZWithOffset(5, 5));
 
 		    if (structureBoundingBoxIn.isVecInside(blockpos)) {
-			if (RepurposedStructures.RSConfig.allowExtraSpawnersSH.get()) {
+			if (RepurposedStructures.RSStrongholdsConfig.allowExtraSpawnersSH.get()) {
 			    world.setBlockState(blockpos, Blocks.SPAWNER.getDefaultState(), 2);
 			    TileEntity tileentity = world.getTileEntity(blockpos);
 
@@ -1168,7 +1168,7 @@ public class RSStrongholdPieces
 
 		    if (structureBoundingBoxIn.isVecInside(blockpos)) {
 
-			if (RepurposedStructures.RSConfig.allowExtraSpawnersSH.get()) {
+			if (RepurposedStructures.RSStrongholdsConfig.allowExtraSpawnersSH.get()) {
 			    world.setBlockState(blockpos, Blocks.SPAWNER.getDefaultState(), 2);
 			    TileEntity tileentity = world.getTileEntity(blockpos);
 
@@ -1201,7 +1201,7 @@ public class RSStrongholdPieces
 		    this.setBlockState(world, iblockstate, 9, 2, 3, structureBoundingBoxIn);
 		    this.setBlockState(world, iblockstate, 9, 3, 3, structureBoundingBoxIn);
 
-		    if (RepurposedStructures.RSConfig.lootChestsSH.get()) {
+		    if (RepurposedStructures.RSStrongholdsConfig.lootChestsSH.get()) {
 			this.generateChest(world, structureBoundingBoxIn, random, 3, 4, 8, getStorageChestLoot());
 			this.generateChest(world, structureBoundingBoxIn, random, 5, 4, 2, getStorageChestLoot());
 			this.generateChest(world, structureBoundingBoxIn, random, 6, 4, 8, getStorageChestLoot());
@@ -1428,7 +1428,7 @@ public class RSStrongholdPieces
 
 
 		    chance = rand.nextFloat();
-		    float silverfishThreshold = (float) (RepurposedStructures.RSConfig.silverfishSpawnrateSH.get() / 100);
+		    float silverfishThreshold = (float) (RepurposedStructures.RSStrongholdsConfig.silverfishSpawnrateSH.get() / 100);
 		    if (chance < silverfishThreshold) {
 			this.blockstate = INFESTED_STONE_LOOKUP.get(this.blockstate);
 		    }

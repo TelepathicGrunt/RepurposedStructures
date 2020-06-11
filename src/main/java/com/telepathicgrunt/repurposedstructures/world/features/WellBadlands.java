@@ -130,7 +130,7 @@ public class WellBadlands extends Feature<NoFeatureConfig>
 					{
 						world.setBlockState(mutable.add(x, 4, z), RED_SANDSTONE, 2);
 						
-						if(RepurposedStructures.RSConfig.canHaveBells.get() && random.nextInt(100) == 0) 
+						if(RepurposedStructures.RSWellsConfig.canHaveBells.get() && random.nextInt(100) == 0) 
 							world.setBlockState(mutable.add(x, 3, z), BELL, 2);
 					}
 					else
