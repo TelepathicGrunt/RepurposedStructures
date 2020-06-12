@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures;
+package com.telepathicgrunt.repurposedstructures.configs;
 
 import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
 import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper.ConfigValueListener;
@@ -47,7 +47,7 @@ public class RSDungeonsConfig
 		public ConfigValueListener<Integer> netherDungeonMaxHeight;
 		public ConfigValueListener<Integer> oceanDungeonMaxHeight;
 
-		RSDungeonsConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
+		public RSDungeonsConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
 		{
 			builder.push("Dungeons");
 				

@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures;
+package com.telepathicgrunt.repurposedstructures.configs;
 
 import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
 import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper.ConfigValueListener;
@@ -51,7 +51,7 @@ public class RSMineshaftsConfig
 		public ConfigValueListener<Integer> endMineshaftMaxHeight;
 		public ConfigValueListener<Integer> netherMineshaftMaxHeight;
 
-	    	RSMineshaftsConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
+		public RSMineshaftsConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
 		{
 
 			builder.push("Mineshaft");

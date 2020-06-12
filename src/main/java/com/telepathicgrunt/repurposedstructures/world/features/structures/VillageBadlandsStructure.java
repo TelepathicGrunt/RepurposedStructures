@@ -1,0 +1,105 @@
+package com.telepathicgrunt.repurposedstructures.world.features.structures;
+
+import java.util.Random;
+import java.util.function.Function;
+
+import com.mojang.datafixers.Dynamic;
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+
+import net.minecraft.util.SharedSeedRandom;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
+import net.minecraft.util.math.MutableBoundingBox;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeManager;
+import net.minecraft.world.gen.ChunkGenerator;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.structure.MarginedStructureStart;
+import net.minecraft.world.gen.feature.structure.Structure;
+import net.minecraft.world.gen.feature.structure.VillageConfig;
+import net.minecraft.world.gen.feature.structure.VillagePieces;
+import net.minecraft.world.gen.feature.structure.VillageStructure;
+import net.minecraft.world.gen.feature.template.TemplateManager;
+
+public class VillageBadlandsStructure extends Structure<NoFeatureConfig>
+{
+    /**
+     * --------------------------------------------------------------------------
+     * |									|
+     * |	HELLO READERS! IF YOU'RE HERE, YOU'RE PROBABLY			|
+     * |	LOOKING FOR A TUTORIAL ON HOW TO DO STRUCTURES			|
+     * |									|
+     * -------------------------------------------------------------------------
+     * 
+     * Don't worry, I actually have a structure tutorial
+     * mod already setup for you to check out! It's full
+     * of comments on what does what and how to make structures.
+     * 
+     * Here's the link! https://github.com/TelepathicGrunt/StructureTutorialMod
+     * 
+     * Good luck and have fun modding!
+     */
+    VillageBadlandsStructure(Function<Dynamic<?>, ? extends NoFeatureConfig> config) {
+	super(config);
+    }
+
+
+    @Override
+    protected ChunkPos getStartPositionForPosition(ChunkGenerator<?> chunkGenerator, Random random, int x, int z, int spacingOffsetsX, int spacingOffsetsZ) {
+	int maxDistance = RepurposedStructures.RSMainConfig.jungleFortressSpawnrate.get();
+	int minDistance = (int) (maxDistance * 0.75f);
+	if (minDistance == 0) {
+	    minDistance = 1;
+	}
+	int k = x + maxDistance * spacingOffsetsX;
+	int l = z + maxDistance * spacingOffsetsZ;
+	int i1 = k < 0 ? k - maxDistance + 1 : k;
+	int j1 = l < 0 ? l - maxDistance + 1 : l;
+	int targetChunkX = i1 / maxDistance;
+	int targetChunkZ = j1 / maxDistance;
+	((SharedSeedRandom) random).setLargeFeatureSeedWithSalt(chunkGenerator.getSeed(), targetChunkX, targetChunkZ, 143525587);
+	targetChunkX = targetChunkX * maxDistance;
+	targetChunkZ = targetChunkZ * maxDistance;
+	targetChunkX = targetChunkX + random.nextInt(maxDistance - minDistance);
+	targetChunkZ = targetChunkZ + random.nextInt(maxDistance - minDistance);
+	return new ChunkPos(targetChunkX, targetChunkZ);
+    }
+
+
+    @Override
+    public boolean canBeGenerated(BiomeManager biomeManager, ChunkGenerator<?> chunkGenerator, Random random, int chunkPosX, int chunkPosZ, Biome biome) {
+	ChunkPos chunkpos = this.getStartPositionForPosition(chunkGenerator, random, chunkPosX, chunkPosZ, 0, 0);
+	if (chunkPosX == chunkpos.x && chunkPosZ == chunkpos.z) {
+	    return true;
+	}
+	return false;
+    }
+
+    public Structure.IStartFactory getStartFactory() {
+	return VillageStructure.Start::new;
+    }
+
+
+    public String getStructureName() {
+	return RepurposedStructures.MODID + ":village_badlands";
+    }
+
+
+    public int getSize() {
+	return 8;
+    }
+
+    public static class Start extends MarginedStructureStart
+    {
+	public Start(Structure<?> structureIn, int chunkX, int chunkZ, MutableBoundingBox mutableBoundingBox, int referenceIn, long seedIn) {
+	    super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
+	}
+
+
+	public void init(ChunkGenerator<?> generator, TemplateManager templateManager, int chunkX, int chunkZ, Biome biomeIn) {
+	    BlockPos blockpos = new BlockPos(chunkX * 16, 0, chunkZ * 16);
+	    VillagePieces.addPieces(generator, templateManager, blockpos, this.components, this.rand, new VillageConfig(RepurposedStructures.MODID + ":village/badlands/town_centers", 6));
+	    this.recalculateStructureSize();
+	}
+    }
+}

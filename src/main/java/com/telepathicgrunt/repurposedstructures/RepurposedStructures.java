@@ -3,11 +3,12 @@ package com.telepathicgrunt.repurposedstructures;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.telepathicgrunt.repurposedstructures.RSDungeonsConfig.RSDungeonsConfigValues;
-import com.telepathicgrunt.repurposedstructures.RSMainConfig.RSConfigValues;
-import com.telepathicgrunt.repurposedstructures.RSMineshaftsConfig.RSMineshaftsConfigValues;
-import com.telepathicgrunt.repurposedstructures.RSStrongholdsConfig.RSStrongholdsConfigValues;
-import com.telepathicgrunt.repurposedstructures.RSWellsConfig.RSWellsConfigValues;
+import com.telepathicgrunt.repurposedstructures.configs.RSMainConfig;
+import com.telepathicgrunt.repurposedstructures.configs.RSMainConfig.RSConfigValues;
+import com.telepathicgrunt.repurposedstructures.configs.RSDungeonsConfig.RSDungeonsConfigValues;
+import com.telepathicgrunt.repurposedstructures.configs.RSMineshaftsConfig.RSMineshaftsConfigValues;
+import com.telepathicgrunt.repurposedstructures.configs.RSStrongholdsConfig.RSStrongholdsConfigValues;
+import com.telepathicgrunt.repurposedstructures.configs.RSWellsConfig.RSWellsConfigValues;
 import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
 import com.telepathicgrunt.repurposedstructures.world.features.RSFeatures;
 import com.telepathicgrunt.repurposedstructures.world.placements.RSPlacements;
@@ -35,7 +36,7 @@ public class RepurposedStructures
 {
 	public static final Logger LOGGER = LogManager.getLogger();
 	public static final String MODID = "repurposed_structures";
-	public static RSConfigValues RSMainConfig = null;
+	public static RSMainConfig.RSConfigValues RSMainConfig = null;
 	public static RSDungeonsConfigValues RSDungeonsConfig = null;
 	public static RSMineshaftsConfigValues RSMineshaftsConfig = null;
 	public static RSStrongholdsConfigValues RSStrongholdsConfig = null;

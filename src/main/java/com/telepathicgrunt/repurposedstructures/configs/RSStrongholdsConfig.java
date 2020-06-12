@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures;
+package com.telepathicgrunt.repurposedstructures.configs;
 
 import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
 import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper.ConfigValueListener;
@@ -25,7 +25,7 @@ public class RSStrongholdsConfig
 		public ConfigValueListener<Integer> netherStrongholdMinHeight;
 		public ConfigValueListener<Integer> netherStrongholdMaxHeight;
 		
-		RSStrongholdsConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
+		public RSStrongholdsConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
 		{
 
 			builder.push("Stronghold");

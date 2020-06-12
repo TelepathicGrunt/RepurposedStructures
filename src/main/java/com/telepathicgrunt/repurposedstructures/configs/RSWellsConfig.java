@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures;
+package com.telepathicgrunt.repurposedstructures.configs;
 
 import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
 import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper.ConfigValueListener;
@@ -21,7 +21,7 @@ public class RSWellsConfig
 		public ConfigValueListener<Integer> mossyStoneWellSpawnrate;
 		public ConfigValueListener<Integer> forestWellSpawnrate;
 
-	    	RSWellsConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
+		public RSWellsConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
 		{
 
         	    	builder.push("Small Wells");

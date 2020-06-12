@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures;
+package com.telepathicgrunt.repurposedstructures.configs;
 
 import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
 import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper.ConfigValueListener;
@@ -12,7 +12,6 @@ public class RSMainConfig
 {
 	public static class RSConfigValues
 	{
-		
 		public ConfigValueListener<Boolean> addMiscToModdedBiomes;
 		public ConfigValueListener<Boolean> boulderTiny;
 		public ConfigValueListener<Boolean> boulderGiant;
@@ -37,7 +36,7 @@ public class RSMainConfig
 		public ConfigValueListener<Integer> stoneIglooSpawnrate;
 		public ConfigValueListener<Boolean> addStoneIglooToModdedBiomes;
 
-		RSConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
+		public RSConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
 		{
 			builder.push("Feature Options");
 			
