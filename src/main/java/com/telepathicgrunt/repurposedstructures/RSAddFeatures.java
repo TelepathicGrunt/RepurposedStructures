@@ -397,6 +397,22 @@ public class RSAddFeatures
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // VILLAGES //
+
+
+    public static void addVillages(Biome biome, String biomeNamespace, String biomePath) {
+	biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.BADLANDS_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+	
+	if (RepurposedStructures.RSVillagesConfig.badlandsVillageSpawnrate.get() != 1001) {
+	    String BiomeName = biome.getRegistryName().getPath().toString();
+	    if ((biome.getCategory() == Category.MESA && !BiomeName.contains("plateau")) && (biomeNamespace.equals("minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
+		biome.addStructure(RSFeatures.BADLANDS_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+	    }
+	}
+    }
+
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // GENERAL UTILITIES //
 
 

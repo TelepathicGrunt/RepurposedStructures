@@ -49,20 +49,20 @@ public class RSMainConfig
 
 					boulderTiny = subscriber.subscribe(builder
 							.comment("\r\n Adds tiny boulders to Taiga Mountains and Snowy Taiga Mountains biomes "
-									+"\r\n that can contain small amounts of Coal and Iron ores.")
+								+"\r\n that can contain small amounts of Coal and Iron ores.")
 						.translation("repurposedstructures.config.feature.misc.bouldertiny")
 						.define("boulderTiny", true));
 					
 					boulderGiant = subscriber.subscribe(builder
 							.comment("\r\n Replaces boulders in Giant Tree Taiga Hills and Giant Spruce Taiga Hills"
-									+"\r\n biomes with a larger boulder that can contain Coal, Iron, and extremely"
-									+"\r\n rarely, can also have Diamond Ores.")
+								+"\r\n biomes with a larger boulder that can contain Coal, Iron, and extremely"
+								+"\r\n rarely, can also have Diamond Ores.")
 						.translation("repurposedstructures.config.feature.misc.netherdungeons")
 						.define("boulderGiant", true));
 					
 					hornedSwampTree = subscriber.subscribe(builder
 							.comment("\r\n Adds a large tree somewhat uncommonly to Swamp biome and replaces"
-									+"\r\n all vanilla trees in Swamp Hills biome with the larger tree.")
+								+"\r\n all vanilla trees in Swamp Hills biome with the larger tree.")
 						.translation("repurposedstructures.config.feature.misc.hornedSwampTree")
 						.define("hornedSwampTree", true));
 					
@@ -76,22 +76,22 @@ public class RSMainConfig
 	
 					jungleFortressSpawnrate = subscriber.subscribe(builder
 							.comment("\r\n How rare are Jungle Fortresses." 
-									+ "\n "
-									+ "1 for spawning in most chunks and 1001 for no spawn.")
+								+"\r\n "
+								+"\r\n 1 for spawning in most chunks and 1001 for no spawn.")
 							.translation("repurposedstructures.config.structure.junglefortress.junglefortressspawnrate")
 							.defineInRange("jungleFortressSpawnrate", 32, 1, 1001));
 
 					silverfishSpawnrateJF = subscriber.subscribe(builder
 							.comment("\r\n How often Silverfish Blocks will generate in Jungle Fortress as a percentage."
-									+ "\r\n Note: Mossy Stone Bricks block cannot be infected by Silverfish"
-									+ "\n "
-									+ "0 for no Silverfish Blocks and 100 for max spawnrate.")
+								+ "\r\n Note: Mossy Stone Bricks block cannot be infected by Silverfish"
+								+ "\n "
+								+ "\r\n 0 for no Silverfish Blocks and 100 for max spawnrate.")
 							.translation("repurposedstructures.config.structure.junglefortress.silverfishspawnratejf")
 							.defineInRange("silverfishSpawnrateJF", 0.5D, 0, 100));
 					
 					allowSilverfishSpawnerJF = subscriber.subscribe(builder
 							.comment("\r\n Silverfish Mob Spawners generate in Stone Fortresses."
-									+"\r\n If turned off, the spawners will become Skeleton spawners.")
+								+"\r\n If turned off, the spawners will become Skeleton spawners.")
 							.translation("repurposedstructures.config.structure.junglefortress.allowsilverfishspawnerjf")
 							.define("allowSilverfishSpawnerJF", true));
 
@@ -111,8 +111,8 @@ public class RSMainConfig
 	
 					netherTempleSpawnrate = subscriber.subscribe(builder
 							.comment("\r\n How rare are Nether Temples in Nether." 
-									+ "\n "
-									+ "1 for spawning in most chunks and 1001 for no spawn.")
+								+ "\n "
+								+ "\r\n 1 for spawning in most chunks and 1001 for no spawn.")
 							.translation("repurposedstructures.config.structure.nethertemple.nethertemplespawnrate")
 							.defineInRange("netherTempleSpawnrate", 20, 1, 1001));
 
@@ -132,8 +132,8 @@ public class RSMainConfig
 				
 					badlandsTempleSpawnrate = subscriber.subscribe(builder
 							.comment("\r\n How rare are Nether Temples in Nether." 
-									+ "\n "
-									+ "1 for spawning in most chunks and 1001 for no spawn.")
+								+ "\n "
+								+ "\r\n 1 for spawning in most chunks and 1001 for no spawn.")
 							.translation("repurposedstructures.config.structure.badlandstemple.badlandstemplespawnrate")
 							.defineInRange("badlandsTempleSpawnrate", 20, 1, 1001));
 	
@@ -153,27 +153,27 @@ public class RSMainConfig
 				
 					grassyIglooSpawnrate = subscriber.subscribe(builder
 						.comment("\r\n How rare are Grassy Igloos in Plains and Forests." 
-								+ "\n "
-								+ "1 for spawning in most chunks and 1001 for no spawn.")
+							+ "\n "
+							+ "\r\n 1 for spawning in most chunks and 1001 for no spawn.")
 						.translation("repurposedstructures.config.structure.igloo.grassyigloospawnrate")
 						.defineInRange("grassyIglooSpawnrate", 20, 1, 1001));
 	
 					addGrassyIglooToModdedBiomes = subscriber.subscribe(builder
-							.comment("\r\n Add Grassy Igloos to modded biomes that are\r\n"
-									+" most likely grassy fields or temperate forests.")
+							.comment("\r\n Add Grassy Igloos to modded biomes that are"
+								+"\r\n most likely grassy fields or temperate forests.")
 						.translation("repurposedstructures.config.structure.igloo.addgrassyiglootomoddedbiomes")
 						.define("addGrassyIglooToModdedBiomes", false));
 
 					stoneIglooSpawnrate = subscriber.subscribe(builder
 						.comment("\r\n How rare are Stone Igloos in Giant Tree Taiga biomes." 
-								+ "\n "
-								+ "1 for spawning in most chunks and 1001 for no spawn.")
+							+ "\n "
+							+ "\r\n 1 for spawning in most chunks and 1001 for no spawn.")
 						.translation("repurposedstructures.config.structure.igloo.stoneigloospawnrate")
 						.defineInRange("stoneIglooSpawnrate", 20, 1, 1001));
 	
 					addStoneIglooToModdedBiomes = subscriber.subscribe(builder
-							.comment("\r\n Add Stone Igloos to modded biomes that are\r\n"
-									+" most likely Giant Tree Taiga variants.")
+							.comment("\r\n Add Stone Igloos to modded biomes that are"
+								+"\r\n most likely Giant Tree Taiga variants.")
 						.translation("repurposedstructures.config.structure.igloo.addstoneiglootomoddedbiomes")
 						.define("addStoneIglooToModdedBiomes", false));
 					

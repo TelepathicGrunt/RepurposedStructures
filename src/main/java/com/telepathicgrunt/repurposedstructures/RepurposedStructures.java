@@ -3,14 +3,16 @@ package com.telepathicgrunt.repurposedstructures;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.telepathicgrunt.repurposedstructures.configs.RSDungeonsConfig.RSDungeonsConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSMainConfig;
 import com.telepathicgrunt.repurposedstructures.configs.RSMainConfig.RSConfigValues;
-import com.telepathicgrunt.repurposedstructures.configs.RSDungeonsConfig.RSDungeonsConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSMineshaftsConfig.RSMineshaftsConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSStrongholdsConfig.RSStrongholdsConfigValues;
+import com.telepathicgrunt.repurposedstructures.configs.RSVillagesConfig.RSVillagesConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSWellsConfig.RSWellsConfigValues;
 import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
 import com.telepathicgrunt.repurposedstructures.world.features.RSFeatures;
+import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageBadlandsPools;
 import com.telepathicgrunt.repurposedstructures.world.placements.RSPlacements;
 
 import net.minecraft.world.biome.Biome;
@@ -41,6 +43,7 @@ public class RepurposedStructures
 	public static RSMineshaftsConfigValues RSMineshaftsConfig = null;
 	public static RSStrongholdsConfigValues RSStrongholdsConfig = null;
 	public static RSWellsConfigValues RSWellsConfig = null;
+	public static RSVillagesConfigValues RSVillagesConfig = null;
 
 
 	public RepurposedStructures()
@@ -54,6 +57,7 @@ public class RepurposedStructures
 		RSMineshaftsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSMineshaftsConfigValues::new, "repurposed_structures-mineshafts.toml");
 		RSStrongholdsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSStrongholdsConfigValues::new, "repurposed_structures-strongholds.toml");
 		RSWellsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSWellsConfigValues::new, "repurposed_structures-wells.toml");
+		RSVillagesConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSVillagesConfigValues::new, "repurposed_structures-villages.toml");
 	}
 
 
@@ -67,6 +71,8 @@ public class RepurposedStructures
 	
 	private static void addFeaturesAndStructuresToBiomes()
 	{
+		VillageBadlandsPools.init();
+	    
 		for (Biome biome : ForgeRegistries.BIOMES)
 		{
 			String biomeNamespace = biome.getRegistryName().getNamespace();
@@ -81,6 +87,7 @@ public class RepurposedStructures
 			RSAddFeatures.addNetherTemple(biome, biomeNamespace, biomePath);
 			RSAddFeatures.addBadlandsTemple(biome, biomeNamespace, biomePath);
 			RSAddFeatures.addIgloos(biome, biomeNamespace, biomePath);
+			RSAddFeatures.addVillages(biome, biomeNamespace, biomePath);
 			
 			biome.addStructure(RSFeatures.DUMMY_MINESHAFT_STRUCTURE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.DUMMY_MINESHAFT_STRUCTURE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));

@@ -22,6 +22,7 @@ import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMine
 import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftTaigaStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.RSStrongholdStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.StructurePieces;
+import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageBadlandsStructure;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.ResourceLocation;
@@ -76,7 +77,8 @@ public class RSFeatures
 	public static Structure<NoFeatureConfig>				BADLANDS_TEMPLE			= new BadlandsTempleStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				GRASSY_IGLOO			= new IglooGrassyStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				STONE_IGLOO			= new IglooStoneStructure(NoFeatureConfig::deserialize);
-	public static Structure<NoFeatureConfig>				DUMMY_MINESHAFT_STRUCTURE			= new DummyMineshaftStructure(NoFeatureConfig::deserialize);
+	public static Structure<NoFeatureConfig>				BADLANDS_VILLAGE		= new VillageBadlandsStructure(NoFeatureConfig::deserialize);
+	public static Structure<NoFeatureConfig>				DUMMY_MINESHAFT_STRUCTURE	= new DummyMineshaftStructure(NoFeatureConfig::deserialize);
 
 
 	public static void registerFeatures(Register<Feature<?>> event)
@@ -119,6 +121,8 @@ public class RSFeatures
 		RegUtil.register(registry, NETHER_TEMPLE, "nether_temple");
 		RegUtil.register(registry, BADLANDS_TEMPLE, "badlands_temple");
 		RegUtil.register(registry, GRASSY_IGLOO, "grassy_igloo");
+		RegUtil.register(registry, BADLANDS_VILLAGE, "badlands_village");
+		
 		RegUtil.register(registry, STONE_IGLOO, "stone_igloo");
 
 		STRONGHOLD.setRegistryName(new ResourceLocation("minecraft:stronghold"));

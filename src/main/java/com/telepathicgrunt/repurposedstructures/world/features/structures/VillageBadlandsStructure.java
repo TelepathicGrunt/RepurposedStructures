@@ -18,7 +18,6 @@ import net.minecraft.world.gen.feature.structure.MarginedStructureStart;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.VillageConfig;
 import net.minecraft.world.gen.feature.structure.VillagePieces;
-import net.minecraft.world.gen.feature.structure.VillageStructure;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
 public class VillageBadlandsStructure extends Structure<NoFeatureConfig>
@@ -39,14 +38,14 @@ public class VillageBadlandsStructure extends Structure<NoFeatureConfig>
      * 
      * Good luck and have fun modding!
      */
-    VillageBadlandsStructure(Function<Dynamic<?>, ? extends NoFeatureConfig> config) {
+    public VillageBadlandsStructure(Function<Dynamic<?>, ? extends NoFeatureConfig> config) {
 	super(config);
     }
 
 
     @Override
     protected ChunkPos getStartPositionForPosition(ChunkGenerator<?> chunkGenerator, Random random, int x, int z, int spacingOffsetsX, int spacingOffsetsZ) {
-	int maxDistance = RepurposedStructures.RSMainConfig.jungleFortressSpawnrate.get();
+	int maxDistance = RepurposedStructures.RSVillagesConfig.badlandsVillageSpawnrate.get();
 	int minDistance = (int) (maxDistance * 0.75f);
 	if (minDistance == 0) {
 	    minDistance = 1;
@@ -57,7 +56,7 @@ public class VillageBadlandsStructure extends Structure<NoFeatureConfig>
 	int j1 = l < 0 ? l - maxDistance + 1 : l;
 	int targetChunkX = i1 / maxDistance;
 	int targetChunkZ = j1 / maxDistance;
-	((SharedSeedRandom) random).setLargeFeatureSeedWithSalt(chunkGenerator.getSeed(), targetChunkX, targetChunkZ, 143525587);
+	((SharedSeedRandom) random).setLargeFeatureSeedWithSalt(chunkGenerator.getSeed(), targetChunkX, targetChunkZ, 14983233);
 	targetChunkX = targetChunkX * maxDistance;
 	targetChunkZ = targetChunkZ * maxDistance;
 	targetChunkX = targetChunkX + random.nextInt(maxDistance - minDistance);
@@ -69,14 +68,25 @@ public class VillageBadlandsStructure extends Structure<NoFeatureConfig>
     @Override
     public boolean canBeGenerated(BiomeManager biomeManager, ChunkGenerator<?> chunkGenerator, Random random, int chunkPosX, int chunkPosZ, Biome biome) {
 	ChunkPos chunkpos = this.getStartPositionForPosition(chunkGenerator, random, chunkPosX, chunkPosZ, 0, 0);
-	if (chunkPosX == chunkpos.x && chunkPosZ == chunkpos.z) {
+	if (chunkPosX == chunkpos.x && chunkPosZ == chunkpos.z && chunkGenerator.hasStructure(biome, this)) {
+
+	    for (int x = -1; x <= 1; x++) {
+		for (int z = -1; z <= 1; z++) {
+		    
+		    if (!chunkGenerator.hasStructure(biomeManager.getBiome(new BlockPos((chunkPosX + x) * 16, 60, (chunkPosZ + z) * 16)), this)) 
+		    {
+			return false;
+		    }
+		}
+	    }
+
 	    return true;
 	}
 	return false;
     }
 
     public Structure.IStartFactory getStartFactory() {
-	return VillageStructure.Start::new;
+	return VillageBadlandsStructure.Start::new;
     }
 
 
@@ -98,7 +108,7 @@ public class VillageBadlandsStructure extends Structure<NoFeatureConfig>
 
 	public void init(ChunkGenerator<?> generator, TemplateManager templateManager, int chunkX, int chunkZ, Biome biomeIn) {
 	    BlockPos blockpos = new BlockPos(chunkX * 16, 0, chunkZ * 16);
-	    VillagePieces.addPieces(generator, templateManager, blockpos, this.components, this.rand, new VillageConfig(RepurposedStructures.MODID + ":village/badlands/town_centers", 6));
+	    VillagePieces.addPieces(generator, templateManager, blockpos, this.components, this.rand, new VillageConfig(RepurposedStructures.MODID + ":village/badlands/town_centers", 8));
 	    this.recalculateStructureSize();
 	}
     }
