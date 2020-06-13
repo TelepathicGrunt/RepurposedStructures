@@ -1,17 +1,15 @@
 <p><img src="https://i.imgur.com/lD8Pa6U.png" alt="Picture that shows the title of this mod with a Stonebrick Fortress during sunset behind the text" width="1519" height="516" /></p>
 <h2 style="text-align: center;"><strong><span style="font-size: 36px; color: #009611;">CURRENTLY FOR 1.15.2 MC</span></strong></h2>
 <p>&nbsp;</p>
-<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;All dungeons variants and</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;Added Badlands Village variant!</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>Config is now split up into multiple files for ease!</strong></b></span></em></p>
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Past News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;All dungeons variants and</strong></b></span></em></p>
 <p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>mineshafts variants now uses their own</strong></b></span></em></p>
 <p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>loot tables! You can override these with a</strong></b></span></em></p>
 <p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>datapack but the loot should be already</strong></b></span></em></p>
 <p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>themed to the dungeon/mineshaft variant!&nbsp;</strong></b></span></em></p>
-<p style="text-align: center;">&nbsp;</p>
-<p style="text-align: center;">&nbsp;</p>
-<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Past News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;If your world was crashing when</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>updating this mod from v1.3.x to v1.4.x, please try</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>v1.4.3 as that should fix the crash due to me splitting up</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>the Mineshafts. To do this fix, I had to use a dummy Mineshaft.<br />Also, configs are upgrades to let you control spawnrates&nbsp;</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>See changelog for more details.</strong></b></span></em></p>
 <p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;">&nbsp;</p>
@@ -21,7 +19,7 @@
 <p style="text-align: center;"><span style="font-size: 14px;">&nbsp;</span></p>
 <p style="text-align: left;"><span style="font-size: 14px;">&nbsp;<strong> &nbsp; Repurposed Structures is a mod about taking existing vanilla features and structures and creating new variants or modifications to them! Originally, most of the structures and features in this mod was actually made for my Ultra Amplified Dimension mod. but then I realized these features and structures would look great in the Overworld as well so I decided to take those structures and features and split them into their own mod. This mod! </strong></span></p>
 <p style="text-align: left;">&nbsp;</p>
-<p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; Currently, this mod creates a Nether Fortresses using Stonebrick blocks and spawns it in Jungles, Dungeons and Mineshafts now has more variants to match whatever biome they are in, two new biome variants of Igloos, Strongholds has a configurable size and has more Silverfish spawners, Giant Tree/Spruce Taiga Hills biomes has giant ore filled boulders that could have Diamond ore if you are extremely lucky, Taiga Mountain biomes now has tiny boulders, Swamps now has a new 2x2 swamp-like tree, and several new Desert Well variations were made for other biomes (Also, loot for Dungeons and Mineshafts are tailored to their variant as well so start exploring!)</strong></span></p>
+<p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; Currently, this mod creates a Nether Fortresses using Stonebrick blocks and spawns it in Jungles, Dungeons and Mineshafts now has more variants to match whatever biome they are in, Badlands Village, two new biome variants of Igloos, Strongholds has a configurable size and has more Silverfish spawners, Giant Tree/Spruce Taiga Hills biomes has giant ore filled boulders that could have Diamond ore if you are extremely lucky, Taiga Mountain biomes now has tiny boulders, Swamps now has a new 2x2 swamp-like tree, and several new Desert Well variations were made for other biomes (Also, loot for Dungeons and Mineshafts are tailored to their variant as well so start exploring!)</strong></span></p>
 <p style="text-align: left;">&nbsp;</p>
 <p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; If you have trouble finding one of these structures, just start typing `<em>/locate repu</em>` into the chat and you should see my structures pop up! For example, typing `<em>/locate repurposed_structures:fortress_jungle</em>` will find the closest Jungle Fortress to your location. :) However, do note that due to a Vanilla limitation, the locate command can only find the themed Mineshafts if they are within 1600 blocks of you. All other structures can be found easily from anywhere!</strong></span></p>
 <p style="text-align: left;"><span style="font-size: 14px;">&nbsp;</span></p>
@@ -42,8 +40,9 @@
 <p><strong>Dark Forest Dungeons spawner's mob rates</strong></p>
 <div class="spoiler">
 <p><strong>73% : randomly picking a default or modded dungeon mob</strong></p>
-<p><strong style="font-size: 1.2rem;">25% : Vex</strong></p>
+<p><strong style="font-size: 1.2rem;">24% : Vex</strong></p>
 <p><strong>2% : Illusioner&nbsp;</strong></p>
+<p><strong>1% : Creeper</strong></p>
 </div>
 <p>&nbsp;</p>
 <p><strong>Desert Dungeons spawner's mob rates</strong></p>
@@ -67,7 +66,8 @@
 <div class="spoiler">
 <p><strong>73% : randomly picking a default or modded dungeon mob but if Zombie is picked, will use Husk instead for spawner</strong></p>
 <p><strong style="font-size: 1.2rem;">25% : Parrot</strong></p>
-<p><strong>2% : Chicken</strong></p>
+<p><strong>1% : Chicken</strong></p>
+<p><strong>1% : Creeper</strong></p>
 </div>
 <p>&nbsp;</p>
 <p><strong>Mushroom Dungeons spawner's mob rates</strong></p>
@@ -267,15 +267,15 @@
 <p><span style="font-size: 18px;">&nbsp;</span></p>
 <h2><strong><span style="font-size: 24px; color: #009611;">HOW CAN I CONFIGURE THIS MOD?</span></strong></h2>
 <p><span style="font-size: 14px;">&nbsp;</span></p>
-<p><span style="font-size: 14px;">&nbsp;&nbsp;<strong> &nbsp;To reach this mod's config file, go into the config folder that is above the mods folder and edit the repurposed_structures-common.toml file to change the config. Then exit/restart Minecraft for all changes to take effect. Do note that the config will affect this mod for all worlds so keep that in mind.</strong></span></p>
+<p><span style="font-size: 14px;">&nbsp;&nbsp;<strong> &nbsp;To reach this mod's config file, go into the config folder that is above the mods folder and edit the repurposed_structures-common.toml file to change the config. Then exit/restart Minecraft for all changes to take effect. Do note that the config will affect this mod for all worlds so keep that in mind. Also, since the config file is now super big due to all the entries, use ctrl+f and search for the structure to find their config entries quickly. I will try and split up this config file in the future when I can.</strong></span></p>
 <p>&nbsp;</p>
 <p><strong>&nbsp; &nbsp; Right now, there are lots of config options. The big ones that you may be interested in are the <span style="font-size: 14px;">add____ToModdedBiomes</span> config entries. Turning this on will make the config add the features or structures to any modded biomes with the correct category. For example, if you turn on <span style="font-size: 14px;">addMineshaftsToModdedBiomes</span> and you have a mod that adds a new kind of Desert biome in any dimension, then that biome will now spawn Desert themed Mineshafts in it!</strong></p>
 <p>&nbsp;</p>
-<p><strong>&nbsp; &nbsp; For Dungeons, Wells, Igloos, and Mineshafts, you can turn on and off each specific biome variant or change their overall spawnrates as well. For Mineshafts, you can turn on or off the spawning of chests too if you want to stop chests from spawning for whatever reason.</strong></p>
+<p><strong>&nbsp; &nbsp; For Dungeons, Villages Wells, Igloos, and Mineshafts, you can turn on and off each specific biome variant or change their overall spawnrates as well. For Mineshafts, you can turn on or off the spawning of chests too if you want to stop chests from spawning for whatever reason. Also, you can change the maximum and minimum y value that dungeons and mineshafts can start their generation at!</strong></p>
 <p>&nbsp;</p>
 <p><strong>&nbsp; &nbsp; The config for Jungle Fortresses is fairly straightforward. You can change their spawnrate, how much Stonebrick blocks are infested with SIlverfish, turn on or off the creation of Silverfish spawners, or disable the creation of loot chests. Not much else to it!</strong></p>
 <p>&nbsp;</p>
-<p><strong>&nbsp; &nbsp; &nbsp;For Strongholds, the config lets you change the size of the Stronghold, their spawnrates, how many Stonebrick blocks are infested with Silverfish, turn on or off the additional Silverfish spawners, or disable the creation of loot chests.</strong></p>
+<p><strong>&nbsp; &nbsp; &nbsp;For Strongholds, the config lets you change the size of the Stronghold, their spawnrates, how many Stonebrick blocks are infested with Silverfish, turn on or off the additional Silverfish spawners, or disable the creation of loot chests. And you can change the maximum and minimum y value that both normal and nether strongholds can start their generation at.&nbsp;</strong></p>
 <p>&nbsp;</p>
 <p><strong>&nbsp; &nbsp; &nbsp;And lastly, the rest of the features (2x2 swamp tree and boulders) can be enabled/disabled individually.&nbsp;&nbsp;</strong></p>
 <p>&nbsp;</p>
@@ -302,39 +302,7 @@
 </div>
 <p><strong>&nbsp;</strong></p>
 <p>&nbsp;</p>
-<p><strong>Furthermore, if you want to change the loot tables that the structures in this mod uses, you can override my loot tables with a data pack! Here are all the names of the loot table files and what their paths are so you can override them easily. All loot tables are under data.repurposed_structures.loot_tables.chests btw.</strong></p>
-<p>&nbsp;</p>
-<div class="spoiler">
-<p><span style="font-size: 14px;"><strong>dungeon_badlands.json</strong></span></p>
-<p><span style="font-size: 14px;"><strong>dungeon_dark_forest.json</strong></span></p>
-<p><span style="font-size: 14px;"><strong>dungeon_desert.json</strong></span></p>
-<p><span style="font-size: 14px;"><strong>dungeon_end.json</strong></span></p>
-<p><span style="font-size: 14px;"><strong>dungeon_jungle.json</strong></span></p>
-<p><span style="font-size: 14px;"><strong>dungeon_mushroom.json</strong></span></p>
-<p><span style="font-size: 14px;"><strong>dungeon_nether.json</strong></span></p>
-<p><span style="font-size: 14px;"><strong>dungeon_ocean.json</strong></span></p>
-<p><span style="font-size: 14px;"><strong>dungeon_snow.json</strong></span></p>
-<p><span style="font-size: 14px;"><strong>dungeon_swamp.json</strong></span></p>
-<p><span style="font-size: 14px;">&nbsp;</span></p>
-<p><span style="font-size: 14px;"><strong>mineshaft_birch.json</strong></span></p>
-<p><span style="font-size: 14px;"><strong>mineshaft_desert.json</strong></span></p>
-<p><span style="font-size: 14px;"><strong>mineshaft_end.json</strong></span></p>
-<p><span style="font-size: 14px;"><strong>mineshaft_icy.json</strong></span></p>
-<p><span style="font-size: 14px;"><strong>mineshaft_jungle.json</strong></span></p>
-<p><span style="font-size: 14px;"><strong>mineshaft_nether.json</strong></span></p>
-<p><span style="font-size: 14px;"><strong>mineshaft_ocean.json</strong></span></p>
-<p><span style="font-size: 14px;"><strong>mineshaft_savanna.json</strong></span></p>
-<p><span style="font-size: 14px;"><strong>mineshaft_stone.json</strong></span></p>
-<p><span style="font-size: 14px;"><strong>mineshaft_swamp_dark_forest.json</strong></span></p>
-<p><span style="font-size: 14px;"><strong>mineshaft_taiga.json</strong></span></p>
-<p><span style="font-size: 14px;">&nbsp;</span></p>
-<p><span style="font-size: 14px;"><strong>nether_temple_chest.json</strong></span></p>
-<p><span style="font-size: 14px;"><strong>nether_temple_dispenser.json</strong></span></p>
-<p><span style="font-size: 14px;">&nbsp;</span></p>
-<p><span style="font-size: 14px;"><strong>stronghold_nether_hallway.json</strong></span></p>
-<p><span style="font-size: 14px;"><strong>stronghold_nether_storage_room.json</strong></span></p>
-</div>
-<p>&nbsp;</p>
+<p><strong>Furthermore, if you want to change the loot tables that the structures in this mod uses, you can override my loot tables with a data pack! All loot tables are under data.repurposed_structures.loot_tables.chests path and you can find the file names here in order to override them:&nbsp;<a href="https://github.com/TelepathicGrunt/RepurposedStructures/tree/master/src/main/resources/data/repurposed_structures/loot_tables/chests">https://github.com/TelepathicGrunt/RepurposedStructures/tree/master/src/main/resources/data/repurposed_structures/loot_tables/chests</a></strong></p>
 <p>&nbsp;</p>
 <p><span style="font-size: 14px;"><strong>Let me know if you think of a new config option that you would need and I will try and add it! :)&nbsp;</strong></span></p>
 <p><span style="font-size: 18px;"><strong>______________________________________________________________________________</strong></span></p>
