@@ -31,7 +31,7 @@ public class RSVillagesConfig
 							+"\n "
 							+" 1 for spawning in most chunks and 1001 for no spawn.")
         					.translation("repurposedstructures.config.villages.badlandsVillageSpawnrate")
-        					.defineInRange("badlandsVillageSpawnrate", 15, 1, 1001));
+        					.defineInRange("badlandsVillageSpawnrate", 17, 1, 1001));
 				builder.pop();
 					
 			builder.pop();

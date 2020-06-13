@@ -108,7 +108,7 @@ public class VillageBadlandsStructure extends Structure<NoFeatureConfig>
 
 	public void init(ChunkGenerator<?> generator, TemplateManager templateManager, int chunkX, int chunkZ, Biome biomeIn) {
 	    BlockPos blockpos = new BlockPos(chunkX * 16, 0, chunkZ * 16);
-	    VillagePieces.addPieces(generator, templateManager, blockpos, this.components, this.rand, new VillageConfig(RepurposedStructures.MODID + ":village/badlands/town_centers", 8));
+	    VillagePieces.addPieces(generator, templateManager, blockpos, this.components, this.rand, new VillageConfig(RepurposedStructures.MODID + ":village/badlands/town_centers", 10));
 	    this.recalculateStructureSize();
 	}
     }

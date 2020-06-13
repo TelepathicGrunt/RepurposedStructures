@@ -17,7 +17,7 @@ Welcome to the Github! If you are looking for the most recent stable version, th
  
 ##### Structures:
 
--Added Badlands Village that spawns in Badlands biomes but won't be near any biome with plateau in the name.
+-Added Badlands Village that spawns in Badlands biomes.
 
 ## (V.1.5.0 Changes) (1.15.2 Minecraft)
   
