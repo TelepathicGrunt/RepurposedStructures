@@ -24,6 +24,7 @@ import com.telepathicgrunt.repurposedstructures.world.features.structures.RSStro
 import com.telepathicgrunt.repurposedstructures.world.features.structures.StructurePieces;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageBadlandsStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageBirchStructure;
+import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageDarkForestStructure;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.ResourceLocation;
@@ -80,6 +81,7 @@ public class RSFeatures
 	public static Structure<NoFeatureConfig>				STONE_IGLOO			= new IglooStoneStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				BADLANDS_VILLAGE		= new VillageBadlandsStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				BIRCH_VILLAGE			= new VillageBirchStructure(NoFeatureConfig::deserialize);
+	public static Structure<NoFeatureConfig>				DARK_FOREST_VILLAGE		= new VillageDarkForestStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				DUMMY_MINESHAFT_STRUCTURE	= new DummyMineshaftStructure(NoFeatureConfig::deserialize);
 
 
@@ -123,8 +125,10 @@ public class RSFeatures
 		RegUtil.register(registry, NETHER_TEMPLE, "nether_temple");
 		RegUtil.register(registry, BADLANDS_TEMPLE, "badlands_temple");
 		RegUtil.register(registry, GRASSY_IGLOO, "grassy_igloo");
+		
 		RegUtil.register(registry, BADLANDS_VILLAGE, "badlands_village");
 		RegUtil.register(registry, BIRCH_VILLAGE, "birch_village");
+		RegUtil.register(registry, DARK_FOREST_VILLAGE, "dark_oak_village");
 		
 		RegUtil.register(registry, STONE_IGLOO, "stone_igloo");
 

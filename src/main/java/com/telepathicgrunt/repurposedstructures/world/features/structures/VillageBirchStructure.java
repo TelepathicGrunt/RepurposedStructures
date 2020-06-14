@@ -56,7 +56,7 @@ public class VillageBirchStructure extends Structure<NoFeatureConfig>
 	int j1 = l < 0 ? l - maxDistance + 1 : l;
 	int targetChunkX = i1 / maxDistance;
 	int targetChunkZ = j1 / maxDistance;
-	((SharedSeedRandom) random).setLargeFeatureSeedWithSalt(chunkGenerator.getSeed(), targetChunkX, targetChunkZ, 14983233);
+	((SharedSeedRandom) random).setLargeFeatureSeedWithSalt(chunkGenerator.getSeed(), targetChunkX, targetChunkZ, 14983234);
 	targetChunkX = targetChunkX * maxDistance;
 	targetChunkZ = targetChunkZ * maxDistance;
 	targetChunkX = targetChunkX + random.nextInt(maxDistance - minDistance);

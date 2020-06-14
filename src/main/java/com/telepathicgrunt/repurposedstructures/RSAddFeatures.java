@@ -402,16 +402,23 @@ public class RSAddFeatures
     public static void addVillages(Biome biome, String biomeNamespace, String biomePath) {
 	biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.BADLANDS_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
 	biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.BIRCH_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+	biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.DARK_FOREST_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
 	
 	if (RepurposedStructures.RSVillagesConfig.badlandsVillageSpawnrate.get() != 1001) {
 	    if ((biome.getCategory() == Category.MESA && !biomePath.contains("plateau")) && (biomeNamespace.equals("minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
 		biome.addStructure(RSFeatures.BADLANDS_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 	    }
 	}
-	
+
 	if (RepurposedStructures.RSVillagesConfig.birchVillageSpawnrate.get() != 1001) {
 	    if (biomePath.contains("birch") && (biomeNamespace.equals("minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
 		biome.addStructure(RSFeatures.BIRCH_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+	    }
+	}
+	
+	if (RepurposedStructures.RSVillagesConfig.darkForestVillageSpawnrate.get() != 1001) {
+	    if (biomePath.contains("dark_forest") && (biomeNamespace.equals("minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
+		biome.addStructure(RSFeatures.DARK_FOREST_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 	    }
 	}
     }
