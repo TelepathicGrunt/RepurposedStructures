@@ -59,7 +59,7 @@ public class RSAddFeatures
 	    }
 	}
 
-	else if (RepurposedStructures.RSMineshaftsConfig.birchMineshaftSpawnrate.get() != 0 && biome.getCategory() == Category.EXTREME_HILLS && (biomeNamespace.equals("minecraft") || RepurposedStructures.RSMineshaftsConfig.addMineshaftsToModdedBiomes.get())) {
+	else if (RepurposedStructures.RSMineshaftsConfig.stoneMineshaftSpawnrate.get() != 0 && biome.getCategory() == Category.EXTREME_HILLS && (biomeNamespace.equals("minecraft") || RepurposedStructures.RSMineshaftsConfig.addMineshaftsToModdedBiomes.get())) {
 	    if (biome.hasStructure(Feature.MINESHAFT) || RepurposedStructures.RSMineshaftsConfig.addMineshaftsToModdedBiomes.get()) {
 		// replace vanilla mineshaft with our own
 		biome.structures.remove(Feature.MINESHAFT);
@@ -388,8 +388,7 @@ public class RSAddFeatures
 	}
 
 	if (RepurposedStructures.RSMainConfig.stoneIglooSpawnrate.get() != 1001) {
-	    String BiomeName = biome.getRegistryName().getPath().toString();
-	    if ((biome.getCategory() == Category.TAIGA && BiomeName.contains("giant")) && (biomeNamespace.equals("minecraft") || RepurposedStructures.RSMainConfig.addStoneIglooToModdedBiomes.get())) {
+	    if ((biome.getCategory() == Category.TAIGA && biomePath.contains("giant")) && (biomeNamespace.equals("minecraft") || RepurposedStructures.RSMainConfig.addStoneIglooToModdedBiomes.get())) {
 		biome.addStructure(RSFeatures.STONE_IGLOO.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 	    }
 	}
@@ -402,11 +401,17 @@ public class RSAddFeatures
 
     public static void addVillages(Biome biome, String biomeNamespace, String biomePath) {
 	biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.BADLANDS_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+	biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.BIRCH_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
 	
 	if (RepurposedStructures.RSVillagesConfig.badlandsVillageSpawnrate.get() != 1001) {
-	    String BiomeName = biome.getRegistryName().getPath().toString();
-	    if ((biome.getCategory() == Category.MESA && !BiomeName.contains("plateau")) && (biomeNamespace.equals("minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
+	    if ((biome.getCategory() == Category.MESA && !biomePath.contains("plateau")) && (biomeNamespace.equals("minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
 		biome.addStructure(RSFeatures.BADLANDS_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+	    }
+	}
+	
+	if (RepurposedStructures.RSVillagesConfig.birchVillageSpawnrate.get() != 1001) {
+	    if (biomePath.contains("birch") && (biomeNamespace.equals("minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
+		biome.addStructure(RSFeatures.BIRCH_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 	    }
 	}
     }

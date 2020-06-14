@@ -9,6 +9,18 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 # | Repurposed Structures changelog |
 
 
+## (V.1.7.0 Changes) (1.15.2 Minecraft)
+    
+##### Configs/Loot Table:
+
+-Fixed Stone Mineshaft turning off when you turn off Birch Mineshaft's spawnrate.
+ 
+##### Structures:
+
+-Increased cactus spawnrate in Badlands Village.
+
+-
+
 ## (V.1.6.0 Changes) (1.15.2 Minecraft)
   
 ##### Configs/Loot Table:

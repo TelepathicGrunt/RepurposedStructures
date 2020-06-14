@@ -13,6 +13,7 @@ import com.telepathicgrunt.repurposedstructures.configs.RSWellsConfig.RSWellsCon
 import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
 import com.telepathicgrunt.repurposedstructures.world.features.RSFeatures;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageBadlandsPools;
+import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageBirchPools;
 import com.telepathicgrunt.repurposedstructures.world.placements.RSPlacements;
 
 import net.minecraft.world.biome.Biome;
@@ -72,6 +73,7 @@ public class RepurposedStructures
 	private static void addFeaturesAndStructuresToBiomes()
 	{
 		VillageBadlandsPools.init();
+		VillageBirchPools.init();
 	    
 		for (Biome biome : ForgeRegistries.BIOMES)
 		{

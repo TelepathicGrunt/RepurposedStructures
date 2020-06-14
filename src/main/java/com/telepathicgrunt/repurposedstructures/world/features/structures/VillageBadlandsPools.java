@@ -103,8 +103,8 @@ public class VillageBadlandsPools
         		new Pair<>(new SingleJigsawPiece(RepurposedStructures.MODID + ":village/badlands/decor/lamp_1"), 10),
         		new Pair<>(new SingleJigsawPiece(RepurposedStructures.MODID + ":village/badlands/decor/lamp_2"), 10),
         		new Pair<>(new SingleJigsawPiece(RepurposedStructures.MODID + ":village/badlands/decor/lamp_3"), 10),
-        		new Pair<>(new FeatureJigsawPiece(Feature.RANDOM_PATCH.withConfiguration(DefaultBiomeFeatures.CACTUS_CONFIG)), 5),
-        		new Pair<>(new FeatureJigsawPiece(Feature.RANDOM_PATCH.withConfiguration(DefaultBiomeFeatures.DEAD_BUSH_CONFIG)), 10),
+        		new Pair<>(new FeatureJigsawPiece(Feature.RANDOM_PATCH.withConfiguration(DefaultBiomeFeatures.CACTUS_CONFIG)), 12),
+        		new Pair<>(new FeatureJigsawPiece(Feature.RANDOM_PATCH.withConfiguration(DefaultBiomeFeatures.DEAD_BUSH_CONFIG)), 3),
         		new Pair<>(new FeatureJigsawPiece(Feature.BLOCK_PILE.withConfiguration(DefaultBiomeFeatures.HAY_PILE_CONFIG)), 1),
         		Pair.of(EmptyJigsawPiece.INSTANCE, 10)), 
         	JigsawPattern.PlacementBehaviour.RIGID));
