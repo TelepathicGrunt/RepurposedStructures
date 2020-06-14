@@ -33,7 +33,7 @@ public class RSAddFeatures
     // MINESHAFTS //
 
     public static void addMineshafts(Biome biome, String biomeNamespace, String biomePath) {
-	addRSMineshafts(biome);
+	addMineshaftFeatures(biome);
 
 	if (RepurposedStructures.RSMineshaftsConfig.birchMineshaftSpawnrate.get() != 0 && biomePath.contains("birch") && (biomeNamespace.equals("minecraft") || RepurposedStructures.RSMineshaftsConfig.addMineshaftsToModdedBiomes.get())) {
 	    if (biome.hasStructure(Feature.MINESHAFT) || RepurposedStructures.RSMineshaftsConfig.addMineshaftsToModdedBiomes.get()) {
@@ -117,7 +117,7 @@ public class RSAddFeatures
     }
 
 
-    public static void addRSMineshafts(Biome biome) {
+    public static void addMineshaftFeatures(Biome biome) {
 	biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.BIRCH_MINESHAFT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
 	biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.DESERT_MINESHAFT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
 	biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.END_MINESHAFT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
@@ -400,9 +400,7 @@ public class RSAddFeatures
 
 
     public static void addVillages(Biome biome, String biomeNamespace, String biomePath) {
-	biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.BADLANDS_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
-	biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.BIRCH_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
-	biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.DARK_FOREST_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+	addVillageFeatures(biome);
 	
 	if (RepurposedStructures.RSVillagesConfig.badlandsVillageSpawnrate.get() != 1001) {
 	    if ((biome.getCategory() == Category.MESA && !biomePath.contains("plateau")) && (biomeNamespace.equals("minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
@@ -427,6 +425,13 @@ public class RSAddFeatures
 		biome.addStructure(RSFeatures.JUNGLE_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 	    }
 	}
+    }
+    
+    public static void addVillageFeatures(Biome biome) {
+	biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.BADLANDS_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+	biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.BIRCH_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+	biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.DARK_FOREST_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+	biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.JUNGLE_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
     }
 
 
