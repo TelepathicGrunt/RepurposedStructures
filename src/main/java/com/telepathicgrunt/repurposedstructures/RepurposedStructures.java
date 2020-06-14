@@ -15,6 +15,7 @@ import com.telepathicgrunt.repurposedstructures.world.features.RSFeatures;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageBadlandsPools;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageBirchPools;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageDarkForestPools;
+import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageJunglePools;
 import com.telepathicgrunt.repurposedstructures.world.placements.RSPlacements;
 
 import net.minecraft.world.biome.Biome;
@@ -76,6 +77,7 @@ public class RepurposedStructures
 		VillageBadlandsPools.init();
 		VillageBirchPools.init();
 		VillageDarkForestPools.init();
+		VillageJunglePools.init();
 	    
 		for (Biome biome : ForgeRegistries.BIOMES)
 		{

@@ -223,6 +223,14 @@ public class VillageBirchPools
 		       new Pair<>(new SingleJigsawPiece(RepurposedStructures.MODID+":village/birch/terminators/terminator_03", path_randomizer), 1), 
 		       new Pair<>(new SingleJigsawPiece(RepurposedStructures.MODID+":village/birch/terminators/terminator_04", path_randomizer), 1)), 
 	       JigsawPattern.PlacementBehaviour.TERRAIN_MATCHING));
+
+       JigsawManager.REGISTRY.register(new JigsawPattern(new ResourceLocation(RepurposedStructures.MODID+":village/birch/zombie/terminators"), new ResourceLocation("empty"), 
+	       ImmutableList.of(
+		       new Pair<>(new SingleJigsawPiece(RepurposedStructures.MODID+":village/birch/zombie/terminators/terminator_01", path_randomizer), 1), 
+		       new Pair<>(new SingleJigsawPiece(RepurposedStructures.MODID+":village/birch/zombie/terminators/terminator_02", path_randomizer), 1), 
+		       new Pair<>(new SingleJigsawPiece(RepurposedStructures.MODID+":village/birch/zombie/terminators/terminator_03", path_randomizer), 1), 
+		       new Pair<>(new SingleJigsawPiece(RepurposedStructures.MODID+":village/birch/zombie/terminators/terminator_04", path_randomizer), 1)), 
+	       JigsawPattern.PlacementBehaviour.TERRAIN_MATCHING));
        
        JigsawManager.REGISTRY.register(new JigsawPattern(new ResourceLocation(RepurposedStructures.MODID+":village/birch/trees"), new ResourceLocation("empty"), 
 	       ImmutableList.of(

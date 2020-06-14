@@ -223,6 +223,14 @@ public class VillageDarkForestPools
 		       new Pair<>(new SingleJigsawPiece(RepurposedStructures.MODID+":village/dark_forest/terminators/terminator_03", path_randomizer), 1), 
 		       new Pair<>(new SingleJigsawPiece(RepurposedStructures.MODID+":village/dark_forest/terminators/terminator_04", path_randomizer), 1)), 
 	       JigsawPattern.PlacementBehaviour.TERRAIN_MATCHING));
+
+       JigsawManager.REGISTRY.register(new JigsawPattern(new ResourceLocation(RepurposedStructures.MODID+":village/dark_forest/zombie/terminators"), new ResourceLocation("empty"), 
+	       ImmutableList.of(
+		       new Pair<>(new SingleJigsawPiece(RepurposedStructures.MODID+":village/dark_forest/zombie/terminators/terminator_01", path_randomizer), 1), 
+		       new Pair<>(new SingleJigsawPiece(RepurposedStructures.MODID+":village/dark_forest/zombie/terminators/terminator_02", path_randomizer), 1), 
+		       new Pair<>(new SingleJigsawPiece(RepurposedStructures.MODID+":village/dark_forest/zombie/terminators/terminator_03", path_randomizer), 1), 
+		       new Pair<>(new SingleJigsawPiece(RepurposedStructures.MODID+":village/dark_forest/zombie/terminators/terminator_04", path_randomizer), 1)), 
+	       JigsawPattern.PlacementBehaviour.TERRAIN_MATCHING));
        
        JigsawManager.REGISTRY.register(new JigsawPattern(new ResourceLocation(RepurposedStructures.MODID+":village/dark_forest/trees"), new ResourceLocation("empty"), 
 	       ImmutableList.of(
@@ -230,10 +238,11 @@ public class VillageDarkForestPools
 	       JigsawPattern.PlacementBehaviour.RIGID));
        
        JigsawManager.REGISTRY.register(new JigsawPattern(new ResourceLocation(RepurposedStructures.MODID+":village/dark_forest/decor"), new ResourceLocation("empty"), 
-	       ImmutableList.of(new Pair<>(new SingleJigsawPiece(RepurposedStructures.MODID+":village/dark_forest/decor/lamp_1"), 2), 
+	       ImmutableList.of(new Pair<>(new SingleJigsawPiece(RepurposedStructures.MODID+":village/dark_forest/decor/lamp_1"), 5), 
 		       new Pair<>(new FeatureJigsawPiece(Feature.DARK_OAK_TREE.withConfiguration(DefaultBiomeFeatures.DARK_OAK_TREE_CONFIG)), 1), 
-		       new Pair<>(new FeatureJigsawPiece(Feature.FLOWER.withConfiguration(DefaultBiomeFeatures.LILY_OF_THE_VALLEY_CONFIG)), 1), 
-		       new Pair<>(new FeatureJigsawPiece(Feature.BLOCK_PILE.withConfiguration(DefaultBiomeFeatures.HAY_PILE_CONFIG)), 1), 
+		       new Pair<>(new FeatureJigsawPiece(Feature.FLOWER.withConfiguration(DefaultBiomeFeatures.RED_MUSHROOM_CONFIG)), 1), 
+		       new Pair<>(new FeatureJigsawPiece(Feature.FLOWER.withConfiguration(DefaultBiomeFeatures.BROWN_MUSHROOM_CONFIG)), 1), 
+		       new Pair<>(new FeatureJigsawPiece(Feature.BLOCK_PILE.withConfiguration(DefaultBiomeFeatures.PUMPKIN_PILE_CONFIG)), 1), 
 		       Pair.of(EmptyJigsawPiece.INSTANCE, 2)), 
 	       JigsawPattern.PlacementBehaviour.RIGID));
       

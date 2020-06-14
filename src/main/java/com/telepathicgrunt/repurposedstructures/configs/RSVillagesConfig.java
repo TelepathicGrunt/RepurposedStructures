@@ -16,6 +16,7 @@ public class RSVillagesConfig
 		public ConfigValueListener<Integer> badlandsVillageSpawnrate;
 		public ConfigValueListener<Integer> birchVillageSpawnrate;
 		public ConfigValueListener<Integer> darkForestVillageSpawnrate;
+		public ConfigValueListener<Integer> jungleVillageSpawnrate;
 
 		public RSVillagesConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
 		{
@@ -48,6 +49,13 @@ public class RSVillagesConfig
 							+" 1 for spawning in most chunks and 1001 for no spawn.")
         					.translation("repurposedstructures.config.villages.darkforestvillagespawnrate")
         					.defineInRange("darkForestVillageSpawnrate", 24, 1, 1001));
+					
+					jungleVillageSpawnrate = subscriber.subscribe(builder
+						.comment("\r\n How rare are Jungle Villages in Jungle biomes.\r\n"
+							+"\n "
+							+" 1 for spawning in most chunks and 1001 for no spawn.")
+        					.translation("repurposedstructures.config.villages.junglevillagespawnrate")
+        					.defineInRange("jungleVillageSpawnrate", 26, 1, 1001));
 				builder.pop();
 					
 			builder.pop();

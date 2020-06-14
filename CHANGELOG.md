@@ -19,6 +19,10 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 -Increased cactus spawnrate in Badlands Village.
 
+-Added Birch Villages to Birch biomes.
+
+-Added Dark Forest Village to Dark Forest biomes.
+
 -
 
 ## (V.1.6.0 Changes) (1.15.2 Minecraft)

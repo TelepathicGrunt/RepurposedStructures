@@ -421,6 +421,12 @@ public class RSAddFeatures
 		biome.addStructure(RSFeatures.DARK_FOREST_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 	    }
 	}
+	
+	if (RepurposedStructures.RSVillagesConfig.jungleVillageSpawnrate.get() != 1001) {
+	    if (biome.getCategory() == Category.JUNGLE && (biomeNamespace.equals("minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
+		biome.addStructure(RSFeatures.JUNGLE_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+	    }
+	}
     }
 
 
