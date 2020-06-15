@@ -10,10 +10,12 @@
       "entries": [
         {
           "type": "minecraft:item",
+          "weight": 2,
           "name": "minecraft:clay_ball"
         },
         {
           "type": "minecraft:item",
+          "weight": 2,
           "name": "minecraft:green_dye"
         },
         {
@@ -94,6 +96,21 @@
             }
           ],
           "name": "minecraft:dead_bush"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 4.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:gold_nugget"
         },
         {
           "type": "minecraft:item",

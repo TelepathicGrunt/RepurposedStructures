@@ -27,6 +27,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 -Added custom loot table to Badlands and other villages for their Villager houses that doesn't have any job workstation.
 
+-Added chests to more houses in Badlands Village.
+
 ## (V.1.6.0 Changes) (1.15.2 Minecraft)
   
 ##### Configs/Loot Table:

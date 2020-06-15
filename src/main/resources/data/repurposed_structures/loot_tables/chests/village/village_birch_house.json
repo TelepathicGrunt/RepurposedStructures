@@ -24,11 +24,12 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 2,
+          "weight": 4,
           "name": "minecraft:oxeye_daisy"
         },
         {
           "type": "minecraft:item",
+          "weight": 4,
           "name": "minecraft:lily_of_the_valley"
         },
         {
@@ -39,7 +40,7 @@
               "function": "minecraft:set_count",
               "count": {
                 "min": 1.0,
-                "max": 7.0,
+                "max": 5.0,
                 "type": "minecraft:uniform"
               }
             }
@@ -69,7 +70,7 @@
               "function": "minecraft:set_count",
               "count": {
                 "min": 1.0,
-                "max": 5.0,
+                "max": 4.0,
                 "type": "minecraft:uniform"
               }
             }
