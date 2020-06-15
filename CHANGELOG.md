@@ -23,7 +23,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 -Added Dark Forest Village to Dark Forest biomes.
 
--
+-Added Jungle Village to Jungle biomes.
+
+-Added custom loot table to Badlands and other villages for their Villager houses that doesn't have any job workstation.
 
 ## (V.1.6.0 Changes) (1.15.2 Minecraft)
   

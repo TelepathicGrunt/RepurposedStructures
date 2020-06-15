@@ -28,9 +28,6 @@ minecraft {
         client {
             workingDirectory project.file('run')
 
-            // Recommended logging level for the console
-            property 'forge.logging.console.level', 'debug'
-
             mods {
                 examplemod {
                     source sourceSets.main
@@ -40,9 +37,6 @@ minecraft {
 
         server {
             workingDirectory project.file('run')
-
-            // Recommended logging level for the console
-            property 'forge.logging.console.level', 'debug'
 
             mods {
                 examplemod {
