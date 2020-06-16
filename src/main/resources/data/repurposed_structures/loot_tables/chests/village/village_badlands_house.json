@@ -26,7 +26,7 @@
               "function": "minecraft:set_count",
               "count": {
                 "min": 1.0,
-                "max": 4.0,
+                "max": 3.0,
                 "type": "minecraft:uniform"
               }
             }
@@ -35,7 +35,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 10,
+          "weight": 5,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -46,7 +46,7 @@
               }
             }
           ],
-          "name": "minecraft:cactus"
+          "name": "minecraft:red_terracotta"
         },
         {
           "type": "minecraft:item",
@@ -81,6 +81,21 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:book"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 4.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:stick"
         },
         {
           "type": "minecraft:item",
