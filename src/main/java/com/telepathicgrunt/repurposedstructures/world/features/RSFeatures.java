@@ -12,9 +12,9 @@ import com.telepathicgrunt.repurposedstructures.world.features.structures.Nether
 import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftBirchStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftDesertStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftEndStructure;
-import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftNetherStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftIcyStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftJungleStructure;
+import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftNetherStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftOceanStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftSavannaStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftStoneStructure;
@@ -26,6 +26,7 @@ import com.telepathicgrunt.repurposedstructures.world.features.structures.Villag
 import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageBirchStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageDarkForestStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageJungleStructure;
+import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageSwampStructure;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.ResourceLocation;
@@ -84,6 +85,7 @@ public class RSFeatures
 	public static Structure<NoFeatureConfig>				BIRCH_VILLAGE			= new VillageBirchStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				DARK_FOREST_VILLAGE		= new VillageDarkForestStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				JUNGLE_VILLAGE			= new VillageJungleStructure(NoFeatureConfig::deserialize);
+	public static Structure<NoFeatureConfig>				SWAMP_VILLAGE			= new VillageSwampStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				DUMMY_MINESHAFT_STRUCTURE	= new DummyMineshaftStructure(NoFeatureConfig::deserialize);
 
 
@@ -132,6 +134,7 @@ public class RSFeatures
 		RegUtil.register(registry, BIRCH_VILLAGE, "birch_village");
 		RegUtil.register(registry, DARK_FOREST_VILLAGE, "dark_oak_village");
 		RegUtil.register(registry, JUNGLE_VILLAGE, "jungle_village");
+		RegUtil.register(registry, SWAMP_VILLAGE, "swamp_village");
 		
 		RegUtil.register(registry, STONE_IGLOO, "stone_igloo");
 
