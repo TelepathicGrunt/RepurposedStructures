@@ -2,10 +2,9 @@ package com.telepathicgrunt.repurposedstructures.world.features.structures;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Iterables;
 import com.mojang.datafixers.util.Pair;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.features.RSFeatures;
@@ -87,7 +86,7 @@ public class VillageMountainsPools
             		new RuleEntry(new RandomBlockMatchRuleTest(Blocks.DIRT, 0.1F), AlwaysTrueRuleTest.INSTANCE, Blocks.MOSSY_COBBLESTONE.getDefaultState()), 
             		new RuleEntry(new BlockMatchRuleTest(Blocks.DIRT), new BlockMatchRuleTest(Blocks.WATER), Blocks.WATER.getDefaultState()))));
 	
-	ImmutableList<StructureProcessor> path_randomizer_and_mossify = ImmutableList.copyOf(Stream.concat(mossify.stream(), path_randomizer.stream()).collect(Collectors.toList()));
+	ImmutableList<StructureProcessor> path_randomizer_and_mossify = ImmutableList.copyOf(Iterables.concat(mossify, path_randomizer));
 	
 	ImmutableList<StructureProcessor> crop_randomizer = ImmutableList.of(new RuleStructureProcessor(
 		ImmutableList.of(

@@ -17,7 +17,7 @@ Welcome to the Github! If you are looking for the most recent stable version, th
  
 ##### Structures:
 
--Increased cactus spawnrate in Badlands Village.
+-Improved Badlands Village looks! (changed Acacia blocks/Spruce Doors to Dark Oak blocks to match Badlands Mineshafts and randomized some  blocks)
 
 -Added Birch Villages to Birch biomes.
 
