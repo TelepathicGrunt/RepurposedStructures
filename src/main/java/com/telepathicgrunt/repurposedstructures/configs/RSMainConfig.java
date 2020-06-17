@@ -12,7 +12,9 @@ public class RSMainConfig
 {
 	public static class RSConfigValues
 	{
-		public ConfigValueListener<Boolean> addMiscToModdedBiomes;
+		public ConfigValueListener<Boolean> addLargeSwampTreeModdedBiomes;
+		public ConfigValueListener<Boolean> addGiantBouldersModdedBiomes;
+		public ConfigValueListener<Boolean> addTinyBouldersModdedBiomes;
 		public ConfigValueListener<Boolean> boulderTiny;
 		public ConfigValueListener<Boolean> boulderGiant;
 		public ConfigValueListener<Boolean> hornedSwampTree;
@@ -41,11 +43,21 @@ public class RSMainConfig
 			builder.push("Feature Options");
 			
 				builder.push("Misc");
-				
-					addMiscToModdedBiomes = subscriber.subscribe(builder
-							.comment("\r\n Add the custom features to modded biomes of the same categories/type.")
-						.translation("repurposedstructures.config.feature.misc.addmisctomoddedbiomes")
-						.define("addMiscToModdedBiomes", false));
+
+					addLargeSwampTreeModdedBiomes = subscriber.subscribe(builder
+							.comment("\r\n Add 2x2 Swamp Trees to modded swamp biomes.")
+						.translation("repurposedstructures.config.feature.misc.addlargeswamptreemoddedbiomes")
+						.define("addLargeSwampTreeModdedBiomes", false));
+					
+					addGiantBouldersModdedBiomes = subscriber.subscribe(builder
+						.comment("\r\n Adds giant boulders to modded Giant Tree Taiga (or Redwood) biomes.")
+					.translation("repurposedstructures.config.feature.misc.addGiantBouldersModdedBiomes")
+					.define("addGiantBouldersModdedBiomes", false));
+
+					addTinyBouldersModdedBiomes = subscriber.subscribe(builder
+						.comment("\r\n Adds tiny boulders to modded Taiga biomes.")
+					.translation("repurposedstructures.config.feature.misc.addTinyBouldersModdedBiomes")
+					.define("addTinyBouldersModdedBiomes", false));
 
 					boulderTiny = subscriber.subscribe(builder
 							.comment("\r\n Adds tiny boulders to Taiga Mountains and Snowy Taiga Mountains biomes "

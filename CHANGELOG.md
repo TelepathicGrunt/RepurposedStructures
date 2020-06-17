@@ -14,6 +14,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Configs/Loot Table:
 
 -Fixed Stone Mineshaft turning off when you turn off Birch Mineshaft's spawnrate.
+
+-Split the add-to-modded-biomes config for misc features into separate config entries for each feature. (giant boulders, 2x2 swamp trees) 
  
 ##### Structures:
 
