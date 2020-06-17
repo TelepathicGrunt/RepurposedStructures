@@ -238,9 +238,9 @@ public class VillageSwampPools
 	       JigsawPattern.PlacementBehaviour.RIGID));
        
        JigsawManager.REGISTRY.register(new JigsawPattern(new ResourceLocation(RepurposedStructures.MODID+":village/swamp/decor"), new ResourceLocation("empty"), 
-	       ImmutableList.of(new Pair<>(new SingleJigsawPiece(RepurposedStructures.MODID+":village/swamp/decor/lamp_post_1"), 1), 
-		       new Pair<>(new SingleJigsawPiece(RepurposedStructures.MODID+":village/swamp/decor/lamp_post_2"), 1), 
-		       new Pair<>(new SingleJigsawPiece(RepurposedStructures.MODID+":village/swamp/decor/lamp_post_3"), 1), 
+	       ImmutableList.of(new Pair<>(new SingleJigsawPiece(RepurposedStructures.MODID+":village/swamp/decor/lamp_post_01"), 1), 
+		       new Pair<>(new SingleJigsawPiece(RepurposedStructures.MODID+":village/swamp/decor/lamp_post_02"), 1), 
+		       new Pair<>(new SingleJigsawPiece(RepurposedStructures.MODID+":village/swamp/decor/lamp_post_03"), 1), 
 		       new Pair<>(new FeatureJigsawPiece(Feature.NORMAL_TREE.withConfiguration(DefaultBiomeFeatures.SWAMP_TREE_CONFIG)), 1), 
 		       new Pair<>(new FeatureJigsawPiece(Feature.FLOWER.withConfiguration(DefaultBiomeFeatures.BLUE_ORCHID_CONFIG)), 1), 
 		       new Pair<>(new FeatureJigsawPiece(Feature.BLOCK_PILE.withConfiguration(DefaultBiomeFeatures.PUMPKIN_PILE_CONFIG)), 1), 
@@ -249,9 +249,9 @@ public class VillageSwampPools
       
        JigsawManager.REGISTRY.register(new JigsawPattern(new ResourceLocation(RepurposedStructures.MODID+":village/swamp/zombie/decor"), new ResourceLocation("empty"), 
 	       ImmutableList.of(
-		       new Pair<>(new SingleJigsawPiece(RepurposedStructures.MODID+":village/swamp/decor/lamp_post_1", zombiefy), 1), 
-		       new Pair<>(new SingleJigsawPiece(RepurposedStructures.MODID+":village/swamp/decor/lamp_post_2"), 1), 
-		       new Pair<>(new SingleJigsawPiece(RepurposedStructures.MODID+":village/swamp/decor/lamp_post_3"), 1), 
+		       new Pair<>(new SingleJigsawPiece(RepurposedStructures.MODID+":village/swamp/decor/lamp_post_01", zombiefy), 1), 
+		       new Pair<>(new SingleJigsawPiece(RepurposedStructures.MODID+":village/swamp/decor/lamp_post_02"), 1), 
+		       new Pair<>(new SingleJigsawPiece(RepurposedStructures.MODID+":village/swamp/decor/lamp_post_03"), 1), 
 		       new Pair<>(new FeatureJigsawPiece(Feature.NORMAL_TREE.withConfiguration(DefaultBiomeFeatures.SWAMP_TREE_CONFIG)), 2), 
 		       new Pair<>(new FeatureJigsawPiece(Feature.FLOWER.withConfiguration(DefaultBiomeFeatures.BLUE_ORCHID_CONFIG)), 2), 
 		       new Pair<>(new FeatureJigsawPiece(Feature.BLOCK_PILE.withConfiguration(DefaultBiomeFeatures.PUMPKIN_PILE_CONFIG)), 2), 
