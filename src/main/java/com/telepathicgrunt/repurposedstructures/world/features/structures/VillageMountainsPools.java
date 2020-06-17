@@ -14,8 +14,6 @@ import net.minecraft.block.PaneBlock;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
-import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
-import net.minecraft.world.gen.feature.BlockStateProvidingFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.jigsaw.EmptyJigsawPiece;
 import net.minecraft.world.gen.feature.jigsaw.FeatureJigsawPiece;
@@ -76,11 +74,25 @@ public class VillageMountainsPools
 
 	ImmutableList<StructureProcessor> path_randomizer = ImmutableList.of(new RuleStructureProcessor(
 		ImmutableList.of(
-            		new RuleEntry(new RandomBlockMatchRuleTest(Blocks.GRASS_PATH, 0.1F), new BlockMatchRuleTest(Blocks.WATER), Blocks.MOSSY_STONE_BRICKS.getDefaultState()), 
+            		new RuleEntry(new RandomBlockMatchRuleTest(Blocks.GRASS_PATH, 0.1F), new BlockMatchRuleTest(Blocks.STONE), Blocks.STONE.getDefaultState()),
+            		new RuleEntry(new RandomBlockMatchRuleTest(Blocks.GRASS_PATH, 0.02F), new BlockMatchRuleTest(Blocks.STONE), Blocks.MOSSY_COBBLESTONE.getDefaultState()),
+            		new RuleEntry(new RandomBlockMatchRuleTest(Blocks.GRASS_PATH, 0.1F), new BlockMatchRuleTest(Blocks.STONE), Blocks.MOSSY_STONE_BRICKS.getDefaultState()),
+            		new RuleEntry(new RandomBlockMatchRuleTest(Blocks.GRASS_PATH, 0.3F), new BlockMatchRuleTest(Blocks.STONE), Blocks.CRACKED_STONE_BRICKS.getDefaultState()),
+            		new RuleEntry(new RandomBlockMatchRuleTest(Blocks.GRASS_PATH, 0.55F), new BlockMatchRuleTest(Blocks.STONE), Blocks.STONE_BRICKS.getDefaultState()),
+            		new RuleEntry(new RandomBlockMatchRuleTest(Blocks.GRASS_PATH, 0.15F), new BlockMatchRuleTest(Blocks.STONE), Blocks.COBBLESTONE.getDefaultState()),
+            		new RuleEntry(new RandomBlockMatchRuleTest(Blocks.GRASS_PATH, 0.1F), new BlockMatchRuleTest(Blocks.WATER), Blocks.MOSSY_STONE_BRICKS.getDefaultState()),
+            		new RuleEntry(new RandomBlockMatchRuleTest(Blocks.GRASS_PATH, 0.05F), new BlockMatchRuleTest(Blocks.WATER), Blocks.MOSSY_STONE_BRICKS.getDefaultState()),  
+            		new RuleEntry(new RandomBlockMatchRuleTest(Blocks.GRASS_PATH, 0.1F), new BlockMatchRuleTest(Blocks.WATER), Blocks.CRACKED_STONE_BRICKS.getDefaultState()), 
+            		new RuleEntry(new RandomBlockMatchRuleTest(Blocks.GRASS_PATH, 0.1F), AlwaysTrueRuleTest.INSTANCE, Blocks.GRASS_BLOCK.getDefaultState()),
+            		new RuleEntry(new RandomBlockMatchRuleTest(Blocks.GRASS_PATH, 0.05F), AlwaysTrueRuleTest.INSTANCE, Blocks.MOSSY_COBBLESTONE.getDefaultState()),
+            		new RuleEntry(new RandomBlockMatchRuleTest(Blocks.GRASS_PATH, 0.4F), AlwaysTrueRuleTest.INSTANCE, Blocks.MOSSY_STONE_BRICKS.getDefaultState()),
+            		new RuleEntry(new RandomBlockMatchRuleTest(Blocks.GRASS_PATH, 0.2F), AlwaysTrueRuleTest.INSTANCE, Blocks.CRACKED_STONE_BRICKS.getDefaultState()),
+            		new RuleEntry(new RandomBlockMatchRuleTest(Blocks.GRASS_PATH, 0.3F), AlwaysTrueRuleTest.INSTANCE, Blocks.STONE_BRICKS.getDefaultState()),
+            		new RuleEntry(new RandomBlockMatchRuleTest(Blocks.GRASS_PATH, 0.02F), AlwaysTrueRuleTest.INSTANCE, Blocks.COBBLESTONE.getDefaultState()), 
             		new RuleEntry(new BlockMatchRuleTest(Blocks.GRASS_PATH), new BlockMatchRuleTest(Blocks.WATER), Blocks.STONE_BRICKS.getDefaultState()), 
             		new RuleEntry(new RandomBlockMatchRuleTest(Blocks.GRASS_PATH, 0.1F), AlwaysTrueRuleTest.INSTANCE, Blocks.GRASS_BLOCK.getDefaultState()), 
             		new RuleEntry(new BlockMatchRuleTest(Blocks.GRASS_BLOCK), new BlockMatchRuleTest(Blocks.WATER), Blocks.WATER.getDefaultState()), 
-            		new RuleEntry(new RandomBlockMatchRuleTest(Blocks.DIRT, 0.1F), AlwaysTrueRuleTest.INSTANCE, Blocks.COBBLESTONE.getDefaultState()), 
+            		new RuleEntry(new RandomBlockMatchRuleTest(Blocks.DIRT, 0.2F), AlwaysTrueRuleTest.INSTANCE, Blocks.COBBLESTONE.getDefaultState()), 
             		new RuleEntry(new RandomBlockMatchRuleTest(Blocks.DIRT, 0.1F), AlwaysTrueRuleTest.INSTANCE, Blocks.MOSSY_COBBLESTONE.getDefaultState()), 
             		new RuleEntry(new BlockMatchRuleTest(Blocks.DIRT), new BlockMatchRuleTest(Blocks.WATER), Blocks.WATER.getDefaultState()))));
 	

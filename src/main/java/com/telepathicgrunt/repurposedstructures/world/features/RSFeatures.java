@@ -55,7 +55,6 @@ public class RSFeatures
 {
     	public static final BlockStateProvidingFeatureConfig COBBLESTONE_PILE_CONFIG = new BlockStateProvidingFeatureConfig(new SimpleBlockStateProvider(Blocks.COBBLESTONE.getDefaultState()));
 	
-    	
 	//Static instance of our structure so we can reference it and add it to biomes easily.
 	public static Feature<NoFeatureConfig>					BADLANDS_DUNGEONS		= new DungeonBadlands(NoFeatureConfig::deserialize);
 	public static Feature<NoFeatureConfig>					DARK_FOREST_DUNGEONS		= new DungeonDarkForest(NoFeatureConfig::deserialize);
