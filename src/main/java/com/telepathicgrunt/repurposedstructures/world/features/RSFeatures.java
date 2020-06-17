@@ -28,6 +28,8 @@ import com.telepathicgrunt.repurposedstructures.world.features.structures.Villag
 import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageBirchStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageDarkForestPools;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageDarkForestStructure;
+import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageGiantTaigaPools;
+import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageGiantTaigaStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageJunglePools;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageJungleStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageMountainsPools;
@@ -35,9 +37,12 @@ import com.telepathicgrunt.repurposedstructures.world.features.structures.Villag
 import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageSwampPools;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageSwampStructure;
 
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.AbstractTreeFeature;
+import net.minecraft.world.gen.feature.BlockStateProvidingFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.TreeFeatureConfig;
@@ -48,6 +53,9 @@ import net.minecraftforge.registries.IForgeRegistry;
 
 public class RSFeatures
 {
+    	public static final BlockStateProvidingFeatureConfig COBBLESTONE_PILE_CONFIG = new BlockStateProvidingFeatureConfig(new SimpleBlockStateProvider(Blocks.COBBLESTONE.getDefaultState()));
+	
+    	
 	//Static instance of our structure so we can reference it and add it to biomes easily.
 	public static Feature<NoFeatureConfig>					BADLANDS_DUNGEONS		= new DungeonBadlands(NoFeatureConfig::deserialize);
 	public static Feature<NoFeatureConfig>					DARK_FOREST_DUNGEONS		= new DungeonDarkForest(NoFeatureConfig::deserialize);
@@ -94,6 +102,7 @@ public class RSFeatures
 	public static Structure<NoFeatureConfig>				JUNGLE_VILLAGE			= new VillageJungleStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				SWAMP_VILLAGE			= new VillageSwampStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				MOUNTAINS_VILLAGE		= new VillageMountainsStructure(NoFeatureConfig::deserialize);
+	public static Structure<NoFeatureConfig>				GIANT_TAIGA_VILLAGE		= new VillageGiantTaigaStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				DUMMY_MINESHAFT_STRUCTURE	= new DummyMineshaftStructure(NoFeatureConfig::deserialize);
 
 
@@ -151,6 +160,7 @@ public class RSFeatures
 		RegUtil.register(registry, JUNGLE_VILLAGE, "jungle_village");
 		RegUtil.register(registry, SWAMP_VILLAGE, "swamp_village");
 		RegUtil.register(registry, MOUNTAINS_VILLAGE, "mountains_village");
+		RegUtil.register(registry, GIANT_TAIGA_VILLAGE, "giant_taiga_village");
 		registerVillagePools();
 		
 		
@@ -172,6 +182,7 @@ public class RSFeatures
 		VillageJunglePools.init();
 		VillageSwampPools.init();
 		VillageMountainsPools.init();
+		VillageGiantTaigaPools.init();
 	}
 
 	/**

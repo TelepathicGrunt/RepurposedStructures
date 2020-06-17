@@ -41,8 +41,6 @@ public class VillageMountainsPools
 	Feature.ILLAGER_STRUCTURES = ImmutableList.copyOf(tempList);
     }
     
-    public static final BlockStateProvidingFeatureConfig COBBLESTONE_PILE_CONFIG = new BlockStateProvidingFeatureConfig(new SimpleBlockStateProvider(Blocks.COBBLESTONE.getDefaultState()));
-	
     static {
 	   
 	ImmutableList<StructureProcessor> zombiefy = ImmutableList.of(new RuleStructureProcessor(
@@ -230,7 +228,7 @@ public class VillageMountainsPools
 		       new Pair<>(new SingleJigsawPiece(RepurposedStructures.MODID+":village/mountains/decor/decoration_6"), 1), 
 		       new Pair<>(new FeatureJigsawPiece(Feature.NORMAL_TREE.withConfiguration(DefaultBiomeFeatures.SPRUCE_TREE_CONFIG)), 1), 
 		       new Pair<>(new FeatureJigsawPiece(Feature.FLOWER.withConfiguration(DefaultBiomeFeatures.DEFAULT_FLOWER_CONFIG)), 1), 
-		       new Pair<>(new FeatureJigsawPiece(Feature.BLOCK_PILE.withConfiguration(COBBLESTONE_PILE_CONFIG)), 1), 
+		       new Pair<>(new FeatureJigsawPiece(Feature.BLOCK_PILE.withConfiguration(RSFeatures.COBBLESTONE_PILE_CONFIG)), 1), 
 		       Pair.of(EmptyJigsawPiece.INSTANCE, 2)), 
 	       JigsawPattern.PlacementBehaviour.RIGID));
       
@@ -245,7 +243,7 @@ public class VillageMountainsPools
 		       new Pair<>(new SingleJigsawPiece(RepurposedStructures.MODID+":village/mountains/decor/decoration_6"), 1), 
 		       new Pair<>(new FeatureJigsawPiece(Feature.NORMAL_TREE.withConfiguration(DefaultBiomeFeatures.SPRUCE_TREE_CONFIG)), 2), 
 		       new Pair<>(new FeatureJigsawPiece(Feature.FLOWER.withConfiguration(DefaultBiomeFeatures.DEFAULT_FLOWER_CONFIG)), 2), 
-		       new Pair<>(new FeatureJigsawPiece(Feature.BLOCK_PILE.withConfiguration(COBBLESTONE_PILE_CONFIG)), 2), 
+		       new Pair<>(new FeatureJigsawPiece(Feature.BLOCK_PILE.withConfiguration(RSFeatures.COBBLESTONE_PILE_CONFIG)), 2), 
 		       Pair.of(EmptyJigsawPiece.INSTANCE, 2)), 
 	       JigsawPattern.PlacementBehaviour.RIGID));
     }

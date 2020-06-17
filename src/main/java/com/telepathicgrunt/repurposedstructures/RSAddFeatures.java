@@ -139,12 +139,10 @@ public class RSAddFeatures
     public static void addJungleFortress(Biome biome, String biomeNamespace, String biomePath) {
 	biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.JUNGLE_FORTRESS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
 
-	if (RepurposedStructures.RSMainConfig.jungleFortressSpawnrate.get() == 1001) {
-	    return;
-	}
-
-	if (biome.getCategory() == Category.JUNGLE && (biomeNamespace.equals("minecraft") || RepurposedStructures.RSMainConfig.addJungleFortressToModdedBiomes.get())) {
-	    biome.addStructure(RSFeatures.JUNGLE_FORTRESS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+	if (RepurposedStructures.RSMainConfig.jungleFortressSpawnrate.get() != 1001) {
+	    if (biome.getCategory() == Category.JUNGLE && (biomeNamespace.equals("minecraft") || RepurposedStructures.RSMainConfig.addJungleFortressToModdedBiomes.get())) {
+		biome.addStructure(RSFeatures.JUNGLE_FORTRESS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+	    }
 	}
     }
 
@@ -296,14 +294,14 @@ public class RSAddFeatures
 	    biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, RSFeatures.HORNED_SWAMP_TREE.withConfiguration(DefaultBiomeFeatures.SWAMP_TREE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(2, 0.8F, 1))));
 	}
 
-	else if (RepurposedStructures.RSMainConfig.boulderTiny.get() && !biomeNamespace.equals("ultra_amplified_dimension") && (((biome == Biomes.TAIGA_MOUNTAINS || biome == Biomes.SNOWY_TAIGA_MOUNTAINS) && biomeNamespace.equals("minecraft")) || (RepurposedStructures.RSMainConfig.addTinyBouldersModdedBiomes.get() && !biomeNamespace.equals("minecraft") && biomePath.contains("taiga")))) {
-	    biome.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, RSFeatures.BOULDER_TINY.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.FOREST_ROCK.configure(new FrequencyConfig(2))));
-	}
-
-	else if (RepurposedStructures.RSMainConfig.boulderGiant.get() && !biomeNamespace.equals("ultra_amplified_dimension") && (((biome == Biomes.GIANT_SPRUCE_TAIGA_HILLS || biome == Biomes.GIANT_TREE_TAIGA_HILLS) && biomeNamespace.equals("minecraft")) || (RepurposedStructures.RSMainConfig.addGiantBouldersModdedBiomes.get() && !biomeNamespace.equals("minecraft") && ((biomePath.contains("giant") && biomePath.contains("taiga")) || biomePath.contains("redwood"))))) {
+	if (RepurposedStructures.RSMainConfig.boulderGiant.get() && !biomeNamespace.equals("ultra_amplified_dimension") && (((biome == Biomes.GIANT_SPRUCE_TAIGA_HILLS || biome == Biomes.GIANT_TREE_TAIGA_HILLS) && biomeNamespace.equals("minecraft")) || (RepurposedStructures.RSMainConfig.addGiantBouldersModdedBiomes.get() && !biomeNamespace.equals("minecraft") && ((biomePath.contains("giant") && biomePath.contains("taiga")) || biomePath.contains("redwood"))))) {
 	    // replace the boulders with our own
 	    biome.getFeatures(GenerationStage.Decoration.LOCAL_MODIFICATIONS).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && serializeAndCompareFeature(configuredFeature, VANILLA_BOULDER));
 	    biome.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, RSFeatures.BOULDER_GIANT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.FOREST_ROCK.configure(new FrequencyConfig(2))));
+	}
+	
+	else if (RepurposedStructures.RSMainConfig.boulderTiny.get() && !biomeNamespace.equals("ultra_amplified_dimension") && (((biome == Biomes.TAIGA_MOUNTAINS || biome == Biomes.SNOWY_TAIGA_MOUNTAINS) && biomeNamespace.equals("minecraft")) || (RepurposedStructures.RSMainConfig.addTinyBouldersModdedBiomes.get() && !biomeNamespace.equals("minecraft") && biomePath.contains("taiga")))) {
+	    biome.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, RSFeatures.BOULDER_TINY.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.FOREST_ROCK.configure(new FrequencyConfig(2))));
 	}
     }
 
@@ -402,39 +400,45 @@ public class RSAddFeatures
     public static void addVillages(Biome biome, String biomeNamespace, String biomePath) {
 	addVillageFeatures(biome);
 	
-	if (RepurposedStructures.RSVillagesConfig.badlandsVillageSpawnrate.get() != 1001) {
-	    if ((biome.getCategory() == Category.MESA && !biomePath.contains("plateau")) && (biomeNamespace.equals("minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
+	if ((biome.getCategory() == Category.MESA && !biomePath.contains("plateau")) && (biomeNamespace.equals("minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
+	    if (RepurposedStructures.RSVillagesConfig.badlandsVillageSpawnrate.get() != 1001) {
 		biome.addStructure(RSFeatures.BADLANDS_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 	    }
 	}
 
-	if (RepurposedStructures.RSVillagesConfig.birchVillageSpawnrate.get() != 1001) {
-	    if (biomePath.contains("birch") && (biomeNamespace.equals("minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
+	else if (biomePath.contains("birch") && (biomeNamespace.equals("minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
+	    if (RepurposedStructures.RSVillagesConfig.birchVillageSpawnrate.get() != 1001) {
 		biome.addStructure(RSFeatures.BIRCH_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 	    }
 	}
 	
-	if (RepurposedStructures.RSVillagesConfig.darkForestVillageSpawnrate.get() != 1001) {
-	    if (biomePath.contains("dark_forest") && (biomeNamespace.equals("minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
+	else if (biomePath.contains("dark_forest") && (biomeNamespace.equals("minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
+	    if (RepurposedStructures.RSVillagesConfig.darkForestVillageSpawnrate.get() != 1001) {
 		biome.addStructure(RSFeatures.DARK_FOREST_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 	    }
 	}
 	
-	if (RepurposedStructures.RSVillagesConfig.jungleVillageSpawnrate.get() != 1001) {
-	    if (biome.getCategory() == Category.JUNGLE && (biomeNamespace.equals("minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
+	else if (biome.getCategory() == Category.JUNGLE && (biomeNamespace.equals("minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
+	    if (RepurposedStructures.RSVillagesConfig.jungleVillageSpawnrate.get() != 1001) {
 		biome.addStructure(RSFeatures.JUNGLE_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 	    }
 	}
 	
-	if (RepurposedStructures.RSVillagesConfig.swampVillageSpawnrate.get() != 1001) {
-	    if (biome.getCategory() == Category.SWAMP && (biomeNamespace.equals("minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
+	else if (biome.getCategory() == Category.SWAMP && (biomeNamespace.equals("minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
+	    if (RepurposedStructures.RSVillagesConfig.swampVillageSpawnrate.get() != 1001) {
 		biome.addStructure(RSFeatures.SWAMP_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 	    }
 	}
 	
-	if (RepurposedStructures.RSVillagesConfig.mountainsVillageSpawnrate.get() != 1001) {
-	    if (biome.getCategory() == Category.EXTREME_HILLS && (biomeNamespace.equals("minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
+	else if (biome.getCategory() == Category.EXTREME_HILLS && (biomeNamespace.equals("minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
+	    if (RepurposedStructures.RSVillagesConfig.mountainsVillageSpawnrate.get() != 1001) {
 		biome.addStructure(RSFeatures.MOUNTAINS_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+	    }
+	}
+	
+	else if (((biome == Biomes.GIANT_SPRUCE_TAIGA || biome == Biomes.GIANT_TREE_TAIGA) && biomeNamespace.equals("minecraft")) || (RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get() && ((biomePath.contains("giant") && biomePath.contains("taiga")) || biomePath.contains("redwood")))) {
+	    if (RepurposedStructures.RSVillagesConfig.giantTaigaVillageSpawnrate.get() != 1001) {
+		biome.addStructure(RSFeatures.GIANT_TAIGA_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 	    }
 	}
     }
@@ -446,6 +450,7 @@ public class RSAddFeatures
 	biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.JUNGLE_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
 	biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.SWAMP_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
 	biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.MOUNTAINS_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+	biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.GIANT_TAIGA_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
     }
 
 
