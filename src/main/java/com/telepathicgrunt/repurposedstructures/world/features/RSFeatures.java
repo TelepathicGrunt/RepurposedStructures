@@ -22,10 +22,17 @@ import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMine
 import com.telepathicgrunt.repurposedstructures.world.features.structures.RSMineshaftTaigaStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.RSStrongholdStructure;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.StructurePieces;
+import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageBadlandsPools;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageBadlandsStructure;
+import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageBirchPools;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageBirchStructure;
+import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageDarkForestPools;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageDarkForestStructure;
+import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageJunglePools;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageJungleStructure;
+import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageMountainsPools;
+import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageMountainsStructure;
+import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageSwampPools;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageSwampStructure;
 
 import net.minecraft.entity.EntityType;
@@ -86,12 +93,19 @@ public class RSFeatures
 	public static Structure<NoFeatureConfig>				DARK_FOREST_VILLAGE		= new VillageDarkForestStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				JUNGLE_VILLAGE			= new VillageJungleStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				SWAMP_VILLAGE			= new VillageSwampStructure(NoFeatureConfig::deserialize);
+	public static Structure<NoFeatureConfig>				MOUNTAINS_VILLAGE		= new VillageMountainsStructure(NoFeatureConfig::deserialize);
 	public static Structure<NoFeatureConfig>				DUMMY_MINESHAFT_STRUCTURE	= new DummyMineshaftStructure(NoFeatureConfig::deserialize);
 
 
 	public static void registerFeatures(Register<Feature<?>> event)
 	{
 		IForgeRegistry<Feature<?>> registry = event.getRegistry();
+		
+		//Currently registering replacing stronghold. I hate this lol
+		//TODO: replace with mixins when Forge finally gets built-in mixin support
+		STRONGHOLD.setRegistryName(new ResourceLocation("minecraft:stronghold"));
+		registry.register(STRONGHOLD);
+		
 		RegUtil.register(registry, BADLANDS_DUNGEONS, "dungeons_badlands");
 		RegUtil.register(registry, DARK_FOREST_DUNGEONS, "dungeons_dark_forest");
 		RegUtil.register(registry, DESERT_DUNGEONS, "dungeons_desert");
@@ -129,25 +143,36 @@ public class RSFeatures
 		RegUtil.register(registry, NETHER_TEMPLE, "nether_temple");
 		RegUtil.register(registry, BADLANDS_TEMPLE, "badlands_temple");
 		RegUtil.register(registry, GRASSY_IGLOO, "grassy_igloo");
+		RegUtil.register(registry, STONE_IGLOO, "stone_igloo");
 		
 		RegUtil.register(registry, BADLANDS_VILLAGE, "badlands_village");
 		RegUtil.register(registry, BIRCH_VILLAGE, "birch_village");
 		RegUtil.register(registry, DARK_FOREST_VILLAGE, "dark_oak_village");
 		RegUtil.register(registry, JUNGLE_VILLAGE, "jungle_village");
 		RegUtil.register(registry, SWAMP_VILLAGE, "swamp_village");
+		RegUtil.register(registry, MOUNTAINS_VILLAGE, "mountains_village");
+		registerVillagePools();
 		
-		RegUtil.register(registry, STONE_IGLOO, "stone_igloo");
-
-		STRONGHOLD.setRegistryName(new ResourceLocation("minecraft:stronghold"));
-		registry.register(STRONGHOLD);
+		
 		
 		//registers the structure pieces.
 		StructurePieces.registerStructurePieces();
 		
+		
 		//Legacy structure to replace with dummy structure 
+		//TODO: remove in 1.16
 		RegUtil.register(registry, DUMMY_MINESHAFT_STRUCTURE, "mineshaft");
 	}
 	
+	
+	private static void registerVillagePools() {
+		VillageBadlandsPools.init();
+		VillageBirchPools.init();
+		VillageDarkForestPools.init();
+		VillageJunglePools.init();
+		VillageSwampPools.init();
+		VillageMountainsPools.init();
+	}
 
 	/**
 	 * Helper method that will return a random dungeon mob that other mods can influence.

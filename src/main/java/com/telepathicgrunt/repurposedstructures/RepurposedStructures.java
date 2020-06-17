@@ -12,11 +12,6 @@ import com.telepathicgrunt.repurposedstructures.configs.RSVillagesConfig.RSVilla
 import com.telepathicgrunt.repurposedstructures.configs.RSWellsConfig.RSWellsConfigValues;
 import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
 import com.telepathicgrunt.repurposedstructures.world.features.RSFeatures;
-import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageBadlandsPools;
-import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageBirchPools;
-import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageDarkForestPools;
-import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageJunglePools;
-import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageSwampPools;
 import com.telepathicgrunt.repurposedstructures.world.placements.RSPlacements;
 
 import net.minecraft.world.biome.Biome;
@@ -75,12 +70,6 @@ public class RepurposedStructures
 	
 	private static void addFeaturesAndStructuresToBiomes()
 	{
-		VillageBadlandsPools.init();
-		VillageBirchPools.init();
-		VillageDarkForestPools.init();
-		VillageJunglePools.init();
-		VillageSwampPools.init();
-	    
 		for (Biome biome : ForgeRegistries.BIOMES)
 		{
 			String biomeNamespace = biome.getRegistryName().getNamespace();

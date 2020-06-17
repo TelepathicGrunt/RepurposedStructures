@@ -21,9 +21,13 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 -Added Birch Villages to Birch biomes.
 
--Added Dark Forest Village to Dark Forest biomes.
+-Added Dark Forest Villages to Dark Forest biomes.
 
--Added Jungle Village to Jungle biomes.
+-Added Jungle Villages to Jungle biomes.
+
+-Added Swamp Villages to Swamp biomes.
+
+-Added Mountains Villages to Mountains biomes.
 
 -Added custom loot table to Badlands and other villages for their Villager houses that doesn't have any job workstation.
 

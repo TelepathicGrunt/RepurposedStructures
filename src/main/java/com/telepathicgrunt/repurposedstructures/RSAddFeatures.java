@@ -431,6 +431,12 @@ public class RSAddFeatures
 		biome.addStructure(RSFeatures.SWAMP_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 	    }
 	}
+	
+	if (RepurposedStructures.RSVillagesConfig.mountainsVillageSpawnrate.get() != 1001) {
+	    if (biome.getCategory() == Category.EXTREME_HILLS && (biomeNamespace.equals("minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
+		biome.addStructure(RSFeatures.MOUNTAINS_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+	    }
+	}
     }
     
     public static void addVillageFeatures(Biome biome) {
@@ -439,6 +445,7 @@ public class RSAddFeatures
 	biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.DARK_FOREST_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
 	biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.JUNGLE_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
 	biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.SWAMP_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+	biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, RSFeatures.MOUNTAINS_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
     }
 
 
