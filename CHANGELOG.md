@@ -31,9 +31,13 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 -Added Mountains Villages to Mountains biomes.
 
+-Added Giant Taiga Village to Giant Taiga biomes.
+
 -Added custom loot table to Badlands and other villages for their Villager houses that doesn't have any job workstation.
 
 -Added chests to more houses in Badlands Village.
+
+-Fixed bug where Ocean Dungeons will not replace terrain inside them with air if they spawn above sea level.
 
 ## (V.1.6.0 Changes) (1.15.2 Minecraft)
   
