@@ -45,7 +45,7 @@ public class RSWellsConfig
                         					+ "\r\n The chance of a well generating at a chunk is 1/spawnrate."
                         					+ "\r\n 1 for wells spawning in every chunk and 10000 for no wells.")
                         			.translation("repurposedstructures.config.feature.smallwells.badlandswellspawnrate")
-                        			.defineInRange("badlandsWellSpawnrate", 350, 1, 10000));
+                        			.defineInRange("badlandsWellSpawnrate", 250, 1, 10000));
                         		
                         		netherWellSpawnrate = subscriber.subscribe(builder
                         				.comment("\r\n Adds Nether themed wells to Nether biomes."
@@ -53,7 +53,7 @@ public class RSWellsConfig
                         					+ "\r\n The chance of a well generating at a chunk is 1/spawnrate."
                         					+ "\r\n 1 for wells spawning in every chunk and 10000 for no wells.")
                         			.translation("repurposedstructures.config.feature.smallwells.netherwellspawnrate")
-                        			.defineInRange("netherWellSpawnrate", 350, 1, 10000));
+                        			.defineInRange("netherWellSpawnrate", 200, 1, 10000));
                         		
                         		snowWellSpawnrate = subscriber.subscribe(builder
                         				.comment("\r\n Adds Snow themed wells to snowy and icy biomes."

@@ -101,7 +101,7 @@ public class IglooStoneStructure extends Structure<NoFeatureConfig>
 
     public static class Start extends StructureStart
     {
-	private static ResourceLocation TOP_PIECE_RL = new ResourceLocation(RepurposedStructures.MODID + ":stone_igloo/top");
+	public static ResourceLocation TOP_PIECE_RL = new ResourceLocation(RepurposedStructures.MODID + ":igloos/stone_top");
 
 	public Start(Structure<?> structureIn, int chunkX, int chunkZ, MutableBoundingBox mutableBoundingBox, int referenceIn, long seedIn) {
 	    super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);

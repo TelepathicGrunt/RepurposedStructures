@@ -17,6 +17,12 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 -Split the add-to-modded-biomes config for misc features into separate config entries for each feature. (giant boulders, 2x2 swamp trees) 
  
+-Cleaned up some comments on Mineshaft configs.
+
+-Changed default spawnrate for Badlands Well from 350 to 250.
+
+-Changed default spawnrate for Nether Well from 350 to 200.
+
 ##### Structures:
 
 -Improved Badlands Village looks! (changed Acacia blocks/Spruce Doors to Dark Oak blocks to match Badlands Mineshafts and randomized some  blocks)
@@ -38,6 +44,14 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 -Added chests to more houses in Badlands Village.
 
 -Fixed bug where Ocean Dungeons will not replace terrain inside them with air if they spawn above sea level.
+
+##### NBT files:
+
+-Changed repurposed_structures:grassy_igloo/top.nbt to repurposed_structures:igloos/grassy_top.nbt
+
+-Changed repurposed_structures:stone_igloo/top.nbt to repurposed_structures:igloos/stone_top.nbt
+
+-Turned all wells into nbt files and put under repurposed_structures:wells/
 
 ## (V.1.6.0 Changes) (1.15.2 Minecraft)
   

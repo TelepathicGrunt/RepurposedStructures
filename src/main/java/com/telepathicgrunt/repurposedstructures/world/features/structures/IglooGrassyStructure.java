@@ -101,7 +101,7 @@ public class IglooGrassyStructure extends Structure<NoFeatureConfig>
 
     public static class Start extends StructureStart
     {
-	private static ResourceLocation TOP_PIECE_RL = new ResourceLocation(RepurposedStructures.MODID + ":grassy_igloo/top");
+	public static ResourceLocation TOP_PIECE_RL = new ResourceLocation(RepurposedStructures.MODID + ":igloos/grassy_top");
 
 	public Start(Structure<?> structureIn, int chunkX, int chunkZ, MutableBoundingBox mutableBoundingBox, int referenceIn, long seedIn) {
 	    super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
