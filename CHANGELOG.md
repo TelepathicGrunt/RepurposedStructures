@@ -9,6 +9,15 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 # | Repurposed Structures changelog |
 
 
+## (V.1.7.1 Changes) (1.15.2 Minecraft)
+  
+##### Structures:
+
+-Fixed issue where Giant Taiga Village's animal pen piece and zombify version will be full of Pressure Plates instead of having it broken up and replaced with air/buttons.
+
+-Fixed Dark Forest Village's Blacksmith from burning itself down. Whoops!
+
+
 ## (V.1.7.0 Changes) (1.15.2 Minecraft)
     
 ##### Configs/Loot Table:
