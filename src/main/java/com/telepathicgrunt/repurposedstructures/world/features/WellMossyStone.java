@@ -44,7 +44,7 @@ public class WellMossyStone extends WellAbstract
 	if ((Tags.Blocks.SAND.contains(block) || block == Blocks.CLAY || Tags.Blocks.DIRT.contains(block))
 		&& (!world.isAirBlock(mutable.down()) || !world.isAirBlock(mutable.down(2)))) {
 	    // Creates the well centered on our spot
-	    mutable.move(Direction.DOWN,2);
+	    mutable.move(Direction.DOWN);
 	    Template template = this.generateTemplate(MOSSY_WELL_RL, world, random, mutable);
 	    this.handleDataBlocks(MOSSY_WELL_ORE_RL, template, world, random, mutable, Blocks.COBBLESTONE, ORE_CHANCE);
 

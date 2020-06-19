@@ -71,6 +71,7 @@ public abstract class WellAbstract extends Feature<NoFeatureConfig>
 		if (structuremode == StructureMode.DATA) {
 		    addBells(template$blockinfo.nbt.getString("metadata"), template$blockinfo.pos, world, random, allOreBlocks);
 		    addOres(template$blockinfo.nbt.getString("metadata"), template$blockinfo.pos, world, random, allOreBlocks, defaultBlock, oreChance);
+		    addSpace(template$blockinfo.nbt.getString("metadata"), template$blockinfo.pos, world);
 		}
 	    }
 	}
