@@ -51,7 +51,7 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 -Changed repurposed_structures:stone_igloo/top.nbt to repurposed_structures:igloos/stone_top.nbt
 
--Turned all wells into nbt files and put under repurposed_structures:wells/
+-Turned all wells into nbt files and put under repurposed_structures:wells/ so anyone can override them with datapacks.
 
 ## (V.1.6.0 Changes) (1.15.2 Minecraft)
   

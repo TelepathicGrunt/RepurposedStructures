@@ -1,6 +1,5 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
-import java.util.Collection;
 import java.util.Random;
 import java.util.function.Function;
 
@@ -10,191 +9,80 @@ import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.SlabBlock;
-import net.minecraft.block.material.Material;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.Tag;
+import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.GenerationSettings;
-import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.template.Template;
 import net.minecraftforge.common.Tags;
 
 
-public class WellMossyStone extends Feature<NoFeatureConfig>
+public class WellMossyStone extends WellAbstract
 {
-	private static final BlockState	MOSSY_STONE_BRICK_SLAB	= Blocks.MOSSY_STONE_BRICK_SLAB.getDefaultState();
-	private static final BlockState	STONE_BRICK_SLAB	= Blocks.STONE_BRICK_SLAB.getDefaultState();
-	private static final BlockState	MOSSY_STONE_BRICKS	= Blocks.MOSSY_STONE_BRICKS.getDefaultState();
-	private static final BlockState	STONE_BRICKS		= Blocks.STONE_BRICKS.getDefaultState();
-	private static final BlockState	MOSSY_STONE_BRICK_WALL	= Blocks.MOSSY_STONE_BRICK_WALL.getDefaultState();
-	private static final BlockState	STONE_BRICK_WALL	= Blocks.STONE_BRICK_WALL.getDefaultState();
-	private static final BlockState	MOSSY_COBBLESTONE	= Blocks.MOSSY_COBBLESTONE.getDefaultState();
-	private static final BlockState	COBBLESTONE		= Blocks.COBBLESTONE.getDefaultState();
-	private static final BlockState	AIR			= Blocks.AIR.getDefaultState();
-	private static final BlockState	WATER			= Blocks.WATER.getDefaultState();
-	private static final BlockState	BELL			= Blocks.BELL.getDefaultState();
-	private static final float ORE_CHANCE			= 0.12f;
-	private static final ResourceLocation MOSSY_WELL_ORE_RL = new ResourceLocation("repurposed_structures:mossy_well_ores");
+    private static final float ORE_CHANCE = 0.12f;
+    private static final ResourceLocation MOSSY_WELL_ORE_RL = new ResourceLocation("repurposed_structures:mossy_well_ores");
+    private static final ResourceLocation MOSSY_WELL_RL = new ResourceLocation(RepurposedStructures.MODID + ":wells/mossy");
+
+    public WellMossyStone(Function<Dynamic<?>, ? extends NoFeatureConfig> config) {
+	super(config);
+    }
 
 
-	public WellMossyStone(Function<Dynamic<?>, ? extends NoFeatureConfig> config)
-	{
-		super(config);
+    public boolean place(IWorld world, ChunkGenerator<? extends GenerationSettings> chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
+	// move to top land block below position
+	BlockPos.Mutable mutable = new BlockPos.Mutable(position);
+	for (mutable.move(Direction.UP); (world.isAirBlock(mutable) || !world.getFluidState(mutable).isEmpty()) && mutable.getY() > 2;) {
+	    mutable.move(Direction.DOWN);
 	}
 
+	// check to make sure spot is valid and not a single block ledge
+	Block block = world.getBlockState(mutable).getBlock();
+	if ((Tags.Blocks.SAND.contains(block) || block == Blocks.CLAY || Tags.Blocks.DIRT.contains(block))
+		&& (!world.isAirBlock(mutable.down()) || !world.isAirBlock(mutable.down(2)))) {
+	    // Creates the well centered on our spot
+	    mutable.move(Direction.DOWN,2);
+	    Template template = this.generateTemplate(MOSSY_WELL_RL, world, random, mutable);
+	    this.handleDataBlocks(MOSSY_WELL_ORE_RL, template, world, random, mutable, Blocks.COBBLESTONE, ORE_CHANCE);
 
-	public boolean place(IWorld world, ChunkGenerator<? extends GenerationSettings> chunkGenerator, Random random, BlockPos position, NoFeatureConfig config)
-	{
-		//move to top land block below position
-		for (position = position.up(); (world.isAirBlock(position) || world.getBlockState(position).getMaterial() == Material.WATER) && position.getY() > 2; position = position.down()){
-			;
-		}
-		BlockPos.Mutable mutable = new BlockPos.Mutable(position);
-		boolean isWithinWaterArea = false;
-		boolean isBelowSealevel = false;
-		BlockState state1 = null;
-		BlockState state2 = null;
-		
-		Block block = world.getBlockState(mutable).getBlock();
-		if (Tags.Blocks.SAND.contains(block) || block == Blocks.CLAY || Tags.Blocks.DIRT.contains(block))
-		{
-			for (int x = -2; x <= 2; ++x)
-			{
-				for (int z = -2; z <= 2; ++z)
-				{
-					if (world.isAirBlock(mutable.down()) && world.isAirBlock(mutable.down(2)))
-					{
-						return false;
-					}
-				}
-			}
-
-			for (int y = -1; y <= 0; ++y)
-			{
-				for (int x = -2; x <= 2; ++x)
-				{
-					for (int z = -2; z <= 2; ++z)
-					{
-						world.setBlockState(mutable.add(x, y, z), pickRandomBlock(MOSSY_STONE_BRICKS, STONE_BRICKS, random, 0.6f), 2);
-					}
-				}
-			}
-			Tag<Block> ORE_TAG = BlockTags.getCollection().getOrCreate(MOSSY_WELL_ORE_RL);
-			Collection<Block> allOreBlocks = ORE_TAG.getAllElements();
-
-			isWithinWaterArea = world.getBlockState(mutable.up()).getMaterial() == Material.WATER;
-			isBelowSealevel = isWithinWaterArea && mutable.up().getY() < world.getSeaLevel();
-			world.setBlockState(mutable.up(), isBelowSealevel ? WATER : AIR, 2);
-			world.setBlockState(mutable, WATER, 2);
-			if (!allOreBlocks.isEmpty() && random.nextFloat() < ORE_CHANCE)
-			{
-				world.setBlockState(mutable.down(), ((Block)allOreBlocks.toArray()[random.nextInt(allOreBlocks.size())]).getDefaultState(), 2);
-			}
-			else
-			{
-				world.setBlockState(mutable.down(), pickRandomBlock(MOSSY_COBBLESTONE, COBBLESTONE, random, 0.5f), 2);
-			}
-
-			for (Direction direction : Direction.Plane.HORIZONTAL)
-			{
-				mutable.setPos(position).move(direction);
-				world.setBlockState(mutable.up(), isBelowSealevel ? WATER : AIR, 2);
-				world.setBlockState(mutable, WATER, 2);
-
-				mutable.move(Direction.DOWN);
-				if (!allOreBlocks.isEmpty() && random.nextFloat() < ORE_CHANCE)
-				{
-					world.setBlockState(mutable, ((Block)allOreBlocks.toArray()[random.nextInt(allOreBlocks.size())]).getDefaultState(), 2);
-				}
-				else
-				{
-					world.setBlockState(mutable, pickRandomBlock(MOSSY_COBBLESTONE, COBBLESTONE, random, 0.5f), 2);
-				}
-			}
-			mutable.setPos(position);
-
-			for (int x = -2; x <= 2; ++x)
-			{
-				for (int z = -2; z <= 2; ++z)
-				{
-					if ((x == -2 || x == 2 || z == -2 || z == 2) && (x != 0 && z != 0))
-					{
-						world.setBlockState(mutable.add(x, 1, z), pickRandomBlock(MOSSY_STONE_BRICKS, STONE_BRICKS, random, 0.6f), 2);
-					}
-				}
-			}
-
-
-			state1 = isBelowSealevel ?  MOSSY_STONE_BRICK_SLAB.with(SlabBlock.WATERLOGGED, true) : MOSSY_STONE_BRICK_SLAB;
-			state2 = isBelowSealevel ?  STONE_BRICK_SLAB.with(SlabBlock.WATERLOGGED, true) : STONE_BRICK_SLAB;
-			world.setBlockState(mutable.add(2, 1, 0), pickRandomBlock(state1, state2, random, 0.6f), 2);
-
-			state1 = isBelowSealevel ?  MOSSY_STONE_BRICK_SLAB.with(SlabBlock.WATERLOGGED, true) : MOSSY_STONE_BRICK_SLAB;
-			state2 = isBelowSealevel ?  STONE_BRICK_SLAB.with(SlabBlock.WATERLOGGED, true) : STONE_BRICK_SLAB;
-			world.setBlockState(mutable.add(-2, 1, 0), pickRandomBlock(state1, state2, random, 0.6f), 2);
-
-			state1 = isBelowSealevel ?  MOSSY_STONE_BRICK_SLAB.with(SlabBlock.WATERLOGGED, true) : MOSSY_STONE_BRICK_SLAB;
-			state2 = isBelowSealevel ?  STONE_BRICK_SLAB.with(SlabBlock.WATERLOGGED, true) : STONE_BRICK_SLAB;
-			world.setBlockState(mutable.add(0, 1, 2), pickRandomBlock(state1, state2, random, 0.6f), 2);
-
-			state1 = isBelowSealevel ?  MOSSY_STONE_BRICK_SLAB.with(SlabBlock.WATERLOGGED, true) : MOSSY_STONE_BRICK_SLAB;
-			state2 = isBelowSealevel ?  STONE_BRICK_SLAB.with(SlabBlock.WATERLOGGED, true) : STONE_BRICK_SLAB;
-			world.setBlockState(mutable.add(0, 1, -2), pickRandomBlock(state1, state2, random, 0.6f), 2);
-
-			for (int x = -1; x <= 1; ++x)
-			{
-				for (int z = -1; z <= 1; ++z)
-				{
-					if (x == 0 && z == 0)
-					{
-						world.setBlockState(mutable.add(x, 4, z), pickRandomBlock(MOSSY_STONE_BRICKS, STONE_BRICKS, random, 0.6f), 2);
-						
-						if(RepurposedStructures.RSWellsConfig.canHaveBells.get() && random.nextInt(100) == 0) 
-							world.setBlockState(mutable.add(x, 3, z), BELL, 2);
-					}
-					else
-					{
-						isBelowSealevel = isWithinWaterArea && mutable.up(4).getY() < world.getSeaLevel();
-						state1 = isBelowSealevel ?  MOSSY_STONE_BRICK_SLAB.with(SlabBlock.WATERLOGGED, true) : MOSSY_STONE_BRICK_SLAB;
-						state2 = isBelowSealevel ?  STONE_BRICK_SLAB.with(SlabBlock.WATERLOGGED, true) : STONE_BRICK_SLAB;
-						world.setBlockState(mutable.add(x, 4, z), pickRandomBlock(state1, state2, random, 0.6f), 2);
-					}
-				}
-			}
-
-			for (int y = 1; y <= 3; ++y)
-			{
-				isBelowSealevel = isWithinWaterArea && mutable.up(y).getY() < world.getSeaLevel();
-				state1 = isBelowSealevel ?  MOSSY_STONE_BRICK_WALL.with(SlabBlock.WATERLOGGED, true) : MOSSY_STONE_BRICK_WALL;
-				state2 = isBelowSealevel ?  STONE_BRICK_WALL.with(SlabBlock.WATERLOGGED, true) : STONE_BRICK_WALL;
-				world.setBlockState(mutable.add(-1, y, -1), pickRandomBlock(state1, state2, random, 0.6f), 2);
-
-				state1 = isBelowSealevel ?  MOSSY_STONE_BRICK_WALL.with(SlabBlock.WATERLOGGED, true) : MOSSY_STONE_BRICK_WALL;
-				state2 = isBelowSealevel ?  STONE_BRICK_WALL.with(SlabBlock.WATERLOGGED, true) : STONE_BRICK_WALL;
-				world.setBlockState(mutable.add(-1, y, 1), pickRandomBlock(state1, state2, random, 0.6f), 2);
-
-				state1 = isBelowSealevel ?  MOSSY_STONE_BRICK_WALL.with(SlabBlock.WATERLOGGED, true) : MOSSY_STONE_BRICK_WALL;
-				state2 = isBelowSealevel ?  STONE_BRICK_WALL.with(SlabBlock.WATERLOGGED, true) : STONE_BRICK_WALL;
-				world.setBlockState(mutable.add(1, y, -1), pickRandomBlock(state1, state2, random, 0.6f), 2);
-
-				state1 = isBelowSealevel ?  MOSSY_STONE_BRICK_WALL.with(SlabBlock.WATERLOGGED, true) : MOSSY_STONE_BRICK_WALL;
-				state2 = isBelowSealevel ?  STONE_BRICK_WALL.with(SlabBlock.WATERLOGGED, true) : STONE_BRICK_WALL;
-				world.setBlockState(mutable.add(1, y, 1), pickRandomBlock(state1, state2, random, 0.6f), 2);
-			}
-
-			return true;
-		}
-
-		return false;
+	    // turns some of the stony blocks into mossy versions and waterlogs blocks below sealevel
+	    BlockPos offset = new BlockPos(-template.getSize().getX() / 2, 0, -template.getSize().getZ() / 2);
+	    BlockPos.getAllInBox(template
+		    .getMutableBoundingBox(this.placementsettings, mutable.add(offset)))
+	    		.forEach(pos -> mossifyBlocks(world, random, pos));
+	    BlockPos.getAllInBox(template
+		    .getMutableBoundingBox(this.placementsettings, mutable.add(offset)))
+			.forEach(pos -> waterlogBlocks(world, pos));
+	    
+	    return true;
 	}
-	
-	private static BlockState pickRandomBlock(BlockState block1, BlockState block2, Random random, float firstBlockChance)
-	{
-		return random.nextFloat() < firstBlockChance ? block1 : block2;
+
+	return false;
+    }
+    
+    private static void mossifyBlocks(IWorld world, Random random, BlockPos position) {
+	Block block = world.getBlockState(position).getBlock();
+	if(block == Blocks.STONE_BRICKS && random.nextFloat() < 0.6f) {
+	    world.setBlockState(position, Blocks.MOSSY_STONE_BRICKS.getDefaultState(), 2);
 	}
+	else if(block == Blocks.STONE_BRICK_WALL && random.nextFloat() < 0.6f) {
+	    world.setBlockState(position, Blocks.MOSSY_STONE_BRICK_WALL.getDefaultState(), 2);
+	}
+	else if(block == Blocks.STONE_BRICK_SLAB && random.nextFloat() < 0.6f) {
+	    world.setBlockState(position, Blocks.MOSSY_STONE_BRICK_SLAB.getDefaultState(), 2);
+	}
+	else if(block == Blocks.COBBLESTONE && random.nextFloat() < 0.5f) {
+	    world.setBlockState(position, Blocks.MOSSY_COBBLESTONE.getDefaultState(), 2);
+	}
+    }
+    
+    private static void waterlogBlocks(IWorld world, BlockPos position) {
+	BlockState blockstate = world.getBlockState(position);
+	if(position.getY() < world.getSeaLevel() && blockstate.has(BlockStateProperties.WATERLOGGED)) {
+	    world.setBlockState(position, blockstate.with(BlockStateProperties.WATERLOGGED, true), 2);
+	}
+    }
 }
