@@ -160,8 +160,6 @@ public class RSFeatures
 		RegUtil.register(registry, SWAMP_VILLAGE, "swamp_village");
 		RegUtil.register(registry, MOUNTAINS_VILLAGE, "mountains_village");
 		RegUtil.register(registry, GIANT_TAIGA_VILLAGE, "giant_taiga_village");
-		registerVillagePools();
-		
 		
 		
 		//registers the structure pieces.
@@ -174,7 +172,7 @@ public class RSFeatures
 	}
 	
 	
-	private static void registerVillagePools() {
+	public static void registerVillagePools() {
 		VillageBadlandsPools.init();
 		VillageBirchPools.init();
 		VillageDarkForestPools.init();

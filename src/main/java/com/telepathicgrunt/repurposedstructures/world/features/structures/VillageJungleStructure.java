@@ -105,11 +105,11 @@ public class VillageJungleStructure extends Structure<NoFeatureConfig>
 	    super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
 	}
 
-
 	public void init(ChunkGenerator<?> generator, TemplateManager templateManager, int chunkX, int chunkZ, Biome biomeIn) {
 	    BlockPos blockpos = new BlockPos(chunkX * 16, 0, chunkZ * 16);
 	    VillagePieces.addPieces(generator, templateManager, blockpos, this.components, this.rand, new VillageConfig(RepurposedStructures.MODID + ":village/jungle/town_centers", 8));
 	    this.recalculateStructureSize();
+	    
 	}
     }
 }

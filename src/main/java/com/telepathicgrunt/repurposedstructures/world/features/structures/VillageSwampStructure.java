@@ -1,21 +1,25 @@
 package com.telepathicgrunt.repurposedstructures.world.features.structures;
 
+import java.util.Iterator;
 import java.util.Random;
 import java.util.function.Function;
 
 import com.mojang.datafixers.Dynamic;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.world.features.RSFeatures;
 
 import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MutableBoundingBox;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeManager;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.MarginedStructureStart;
 import net.minecraft.world.gen.feature.structure.Structure;
+import net.minecraft.world.gen.feature.structure.StructurePiece;
 import net.minecraft.world.gen.feature.structure.VillageConfig;
 import net.minecraft.world.gen.feature.structure.VillagePieces;
 import net.minecraft.world.gen.feature.template.TemplateManager;
@@ -110,6 +114,31 @@ public class VillageSwampStructure extends Structure<NoFeatureConfig>
 	    BlockPos blockpos = new BlockPos(chunkX * 16, 0, chunkZ * 16);
 	    VillagePieces.addPieces(generator, templateManager, blockpos, this.components, this.rand, new VillageConfig(RepurposedStructures.MODID + ":village/swamp/town_centers", 6));
 	    this.recalculateStructureSize();
+	}
+
+	@Override
+	public void generateStructure(IWorld world, ChunkGenerator<?> generator, Random random, MutableBoundingBox box, ChunkPos chunkPos) {
+	    synchronized (this.components) {
+		Iterator<StructurePiece> iterator = this.components.iterator();
+
+		while (iterator.hasNext()) {
+		    StructurePiece structurepiece = iterator.next();
+		    if (structurepiece.getBoundingBox().intersectsWith(box) && !structurepiece.create(world, generator, random, box, chunkPos)) {
+			iterator.remove();
+		    }
+		}
+
+		this.recalculateStructureSize();
+		
+		//adds vines
+		BlockPos.getAllInBox(box).forEach(pos -> placeVines(world, generator, random, pos));
+	    }
+	}
+
+
+	private static void placeVines(IWorld world, ChunkGenerator<?> generator, Random random, BlockPos position) {
+	    if(random.nextFloat() < 0.00025f)
+		RSFeatures.SHORT_VINES.place(world, generator, random, position, NoFeatureConfig.NO_FEATURE_CONFIG);
 	}
     }
 }

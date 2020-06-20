@@ -9,6 +9,20 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 # | Repurposed Structures changelog |
 
 
+## (V.1.7.2 Changes) (1.15.2 Minecraft)
+     
+##### Datapack/Loot Table:
+
+-Fixed Village and Wells not being overridden properly by datapacks in the world's folder.
+
+##### Structures:
+
+-Fixed Nether Well not replacing it's Data Structure Block with air.
+
+-Replaced Oak Fence and Oak Stairs in Swamp Villages with Spruce Fence and Spruce Stairs.
+
+-Extra vines will now be placed over Swamp Villages' area.
+
 ## (V.1.7.1 Changes) (1.15.2 Minecraft)
   
 ##### Structures:

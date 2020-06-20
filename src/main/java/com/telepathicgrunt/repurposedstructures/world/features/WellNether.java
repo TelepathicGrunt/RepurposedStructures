@@ -8,6 +8,7 @@ import com.mojang.datafixers.Dynamic;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.state.properties.StructureMode;
 import net.minecraft.tags.BlockTags;
@@ -74,6 +75,7 @@ public class WellNether extends WellAbstract
 		if (structuremode == StructureMode.DATA) {
 		    addBells(template$blockinfo.nbt.getString("metadata"), template$blockinfo.pos, world, random, allOreBlocks);
 		    addOres(template$blockinfo.nbt.getString("metadata"), template$blockinfo.pos, world, random, allOreBlocks, defaultBlock, oreChance);
+		    addSpace(template$blockinfo.nbt.getString("metadata"), template$blockinfo.pos, world);
 		}
 	    }
 	}
@@ -94,6 +96,34 @@ public class WellNether extends WellAbstract
 	    }
 	    else {
 		world.setBlockState(position, defaultBlock.getDefaultState(), 2);
+	    }
+	}
+    }
+    
+    /**
+     * sets 'space' data blocks to air or lava based on sea level so terrain blocks wont be placed weirdly inside well The space will be done in a + shape centered on the data block
+     */
+    protected static void addSpace(String function, BlockPos position, IWorld world) {
+	if (function.equals("space")) {
+	    BlockState blockstate;
+	    if (position.getY() < world.getSeaLevel()) {
+		blockstate = Blocks.LAVA.getDefaultState();
+	    }
+	    else {
+		blockstate = Blocks.AIR.getDefaultState();
+	    }
+	    
+	    for (int x = -1; x <= 1; x++) {
+		for (int z = -1; z <= 1; z++) {
+		    if (x * z == 0) {
+			if (position.getY() < world.getSeaLevel()) {
+			    world.setBlockState(position.add(x, 0, z), blockstate, 2);
+			}
+			else {
+			    world.setBlockState(position.add(x, 0, z), blockstate, 2);
+			}
+		    }
+		}
 	    }
 	}
     }

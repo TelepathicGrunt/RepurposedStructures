@@ -20,7 +20,9 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.placement.IPlacementConfig;
 import net.minecraft.world.gen.placement.Placement;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DeferredWorkQueue;
@@ -49,7 +51,9 @@ public class RepurposedStructures
 	{
 		// Register the setup method for modloading
 		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+		IEventBus forgeBus = MinecraftForge.EVENT_BUS;
 		modEventBus.addListener(this::setup);
+		forgeBus.addListener(this::reloadPool);
 
 		RSMainConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSConfigValues::new, "repurposed_structures-common.toml");
 		RSDungeonsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSDungeonsConfigValues::new, "repurposed_structures-dungeons.toml");
@@ -67,6 +71,13 @@ public class RepurposedStructures
 	{
 		DeferredWorkQueue.runLater(RepurposedStructures::addFeaturesAndStructuresToBiomes);
 	}
+	
+	
+	public void reloadPool(final WorldEvent.Load event)
+	{
+		RSFeatures.registerVillagePools();
+	}
+	
 	
 	private static void addFeaturesAndStructuresToBiomes()
 	{
@@ -89,6 +100,8 @@ public class RepurposedStructures
 			biome.addStructure(RSFeatures.DUMMY_MINESHAFT_STRUCTURE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, RSFeatures.DUMMY_MINESHAFT_STRUCTURE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
 		}
+		
+		RSFeatures.registerVillagePools();
 	}
 	
 	
@@ -110,5 +123,7 @@ public class RepurposedStructures
 		{
 			RSPlacements.registerPlacements(event);
 		}
+
 	}
+
 }
