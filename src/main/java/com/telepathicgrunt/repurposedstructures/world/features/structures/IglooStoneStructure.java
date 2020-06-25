@@ -48,7 +48,7 @@ public class IglooStoneStructure extends Structure<NoFeatureConfig>
 
     @Override
     protected ChunkPos getStartPositionForPosition(ChunkGenerator<?> chunkGenerator, Random random, int x, int z, int spacingOffsetsX, int spacingOffsetsZ) {
-	int maxDistance = RepurposedStructures.RSMainConfig.grassyIglooSpawnrate.get();
+	int maxDistance = RepurposedStructures.RSMainConfig.stoneIglooSpawnrate.get();
 	int minDistance = (int) (maxDistance * 0.75f);
 	if (minDistance == 0) {
 	    minDistance = 1;

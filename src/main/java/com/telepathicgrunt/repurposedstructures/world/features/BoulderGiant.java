@@ -115,9 +115,12 @@ public class BoulderGiant extends Feature<NoFeatureConfig>
 					}
 				}
 			}
-			blockpos$Mutable.move(-(START_RADIUS + 1) + random.nextInt(2 + START_RADIUS * 2), 0 - random.nextInt(2), -(START_RADIUS + 1) + random.nextInt(2 + START_RADIUS * 2));
-
+			blockpos$Mutable.move(
+				-(START_RADIUS + 1) + random.nextInt(2 + START_RADIUS * 2), 
+                                -random.nextInt(2), 
+                                -(START_RADIUS + 1) + random.nextInt(2 + START_RADIUS * 2));
 		}
+		
 		//finished generating the boulder
 		return true;
 	}

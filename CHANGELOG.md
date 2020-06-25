@@ -8,6 +8,13 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.1.7.3 Changes) (1.15.2 Minecraft)
+
+##### Structures:
+
+-Stone Igloos now reads from their Stone Igloo spawnrate config instead of Grassy Igloo's config.
+
+-Cleaned up code that adds structures/features to biomes. 2x2 Swamp Trees will be added to all modded biomes in the swamp category regardless if they have "swamp" in the biome name or not (when the add addLargeSwampTreeModdedBiomes is turned on).
 
 ## (V.1.7.2 Changes) (1.15.2 Minecraft)
      
