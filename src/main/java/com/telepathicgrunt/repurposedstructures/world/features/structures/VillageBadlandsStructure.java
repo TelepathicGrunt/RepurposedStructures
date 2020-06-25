@@ -26,7 +26,7 @@ public class VillageBadlandsStructure extends StructureFeature<DefaultFeatureCon
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long l, ChunkRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig defaultFeatureConfig) {
          for (int curChunkX = chunkX - 1; curChunkX <= chunkX + 1; curChunkX++) {
             for (int curChunkZ = chunkZ - 1; curChunkZ <= chunkZ + 1; curChunkZ++) {
-                if (!biomeSource.getBiomeForNoiseGen(curChunkX * 16, 60, curChunkZ * 16).hasStructureFeature(RSFeatures.BADLANDS_VILLAGE)) {
+                if (!biomeSource.getBiomeForNoiseGen(curChunkX << 2, 60, curChunkZ << 2).hasStructureFeature(RSFeatures.BADLANDS_VILLAGE)) {
                     return false;
                 }
             }

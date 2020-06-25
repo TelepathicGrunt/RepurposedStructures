@@ -27,7 +27,7 @@ public class VillageBirchStructure extends StructureFeature<DefaultFeatureConfig
 
         for (int curChunkX = chunkX - 1; curChunkX <= chunkX + 1; curChunkX++) {
             for (int curChunkZ = chunkZ - 1; curChunkZ <= chunkZ + 1; curChunkZ++) {
-                if (!biomeSource.getBiomeForNoiseGen(curChunkX * 16, 60, curChunkZ * 16).hasStructureFeature(RSFeatures.BIRCH_VILLAGE)) {
+                if (!biomeSource.getBiomeForNoiseGen(curChunkX << 2, 60, curChunkZ << 2).hasStructureFeature(RSFeatures.BIRCH_VILLAGE)) {
                     return false;
                 }
             }

@@ -434,7 +434,7 @@ public class RSAddFeatures {
             if (RepurposedStructures.RSVillagesConfig.mountainsVillageSpawnrate != 1001) {
                 biome.addStructureFeature(RSFeatures.MOUNTAINS_VILLAGE.configure(FeatureConfig.DEFAULT));
             }
-        } 
+        }
 
         else if ((biome == Biomes.GIANT_SPRUCE_TAIGA || biome == Biomes.GIANT_TREE_TAIGA) ||
                 (RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes &&
