@@ -1,13 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
-import java.util.Random;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
@@ -24,12 +18,15 @@ import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.util.Random;
 
 
-public class DungeonNether extends Feature<DefaultFeatureConfig>
-{
-    public DungeonNether(Codec<DefaultFeatureConfig>configFactory) {
-	super(configFactory);
+public class DungeonNether extends Feature<DefaultFeatureConfig> {
+    public DungeonNether(Codec<DefaultFeatureConfig> configFactory) {
+        super(configFactory);
     }
 
     private static final Logger LOGGER = LogManager.getLogger();
@@ -41,132 +38,128 @@ public class DungeonNether extends Feature<DefaultFeatureConfig>
 
     @Override
     public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
-	int randXRange = random.nextInt(2) + 2;
-	int xMin = -randXRange - 1;
-	int xMax = randXRange + 1;
-	int randZRange = random.nextInt(2) + 2;
-	int zMin = -randZRange - 1;
-	int zMax = randZRange + 1;
-	int validOpenings = 0;
-	int ceilingOpenings = 0;
-	BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().set(position);
-	BlockState blockstate;
+        int randXRange = random.nextInt(2) + 2;
+        int xMin = -randXRange - 1;
+        int xMax = randXRange + 1;
+        int randZRange = random.nextInt(2) + 2;
+        int zMin = -randZRange - 1;
+        int zMax = randZRange + 1;
+        int validOpenings = 0;
+        int ceilingOpenings = 0;
+        BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().set(position);
+        BlockState blockstate;
 
-	for (int x = xMin; x <= xMax; ++x) {
-	    for (int y = -1; y <= 4; ++y) {
-		for (int z = zMin; z <= zMax; ++z) {
-		    blockpos$Mutable.set(position).move(x, y, z);
-		    Material material = world.getBlockState(blockpos$Mutable).getMaterial();
-		    boolean flag = material.isSolid();
+        for (int x = xMin; x <= xMax; ++x) {
+            for (int y = -1; y <= 4; ++y) {
+                for (int z = zMin; z <= zMax; ++z) {
+                    blockpos$Mutable.set(position).move(x, y, z);
+                    Material material = world.getBlockState(blockpos$Mutable).getMaterial();
+                    boolean flag = material.isSolid();
 
-		    if (y == -1 && !flag) {
-			return false;
-		    }
+                    if (y == -1 && !flag) {
+                        return false;
+                    }
 
-		    if (y == 4 && !flag) {
-			ceilingOpenings++;
-		    }
+                    if (y == 4 && !flag) {
+                        ceilingOpenings++;
+                    }
 
-		    if ((x == xMin || x == xMax || z == zMin || z == zMax) && y == 0) {
+                    if ((x == xMin || x == xMax || z == zMin || z == zMax) && y == 0) {
 
-			blockstate = world.getBlockState(blockpos$Mutable);
-			if ((world.isAir(blockpos$Mutable) || blockstate.getMaterial() == Material.LAVA) && (world.isAir(blockpos$Mutable.up()) || world.getBlockState(blockpos$Mutable.up()).getMaterial() == Material.LAVA)) {
-			    ++validOpenings;
-			}
-		    }
-		}
-	    }
-	}
+                        blockstate = world.getBlockState(blockpos$Mutable);
+                        if ((world.isAir(blockpos$Mutable) || blockstate.getMaterial() == Material.LAVA) && (world.isAir(blockpos$Mutable.up()) || world.getBlockState(blockpos$Mutable.up()).getMaterial() == Material.LAVA)) {
+                            ++validOpenings;
+                        }
+                    }
+                }
+            }
+        }
 
-	if (validOpenings >= 1 && validOpenings <= 14 && ceilingOpenings < 14) {
-	    for (int x = xMin; x <= xMax; ++x) {
-		for (int y = 3; y >= -1; --y) {
-		    for (int z = zMin; z <= zMax; ++z) {
-			blockpos$Mutable.set(position).move(x, y, z);
+        if (validOpenings >= 1 && validOpenings <= 14 && ceilingOpenings < 14) {
+            for (int x = xMin; x <= xMax; ++x) {
+                for (int y = 3; y >= -1; --y) {
+                    for (int z = zMin; z <= zMax; ++z) {
+                        blockpos$Mutable.set(position).move(x, y, z);
 
-			if (x != xMin && y != -1 && z != zMin && x != xMax && y != 4 && z != zMax) {
-			    if (world.getBlockState(blockpos$Mutable).getBlock() != Blocks.CHEST && world.getBlockState(blockpos$Mutable).getBlock() != Blocks.SPAWNER) {
-				world.setBlockState(blockpos$Mutable, CAVE_AIR, 2);
-			    }
-			}
-			else if (blockpos$Mutable.getY() >= 0 && !world.getBlockState(blockpos$Mutable.down()).getMaterial().isSolid()) {
-			    world.setBlockState(blockpos$Mutable, CAVE_AIR, 2);
-			}
+                        if (x != xMin && y != -1 && z != zMin && x != xMax && y != 4 && z != zMax) {
+                            if (world.getBlockState(blockpos$Mutable).getBlock() != Blocks.CHEST && world.getBlockState(blockpos$Mutable).getBlock() != Blocks.SPAWNER) {
+                                world.setBlockState(blockpos$Mutable, CAVE_AIR, 2);
+                            }
+                        } else if (blockpos$Mutable.getY() >= 0 && !world.getBlockState(blockpos$Mutable.down()).getMaterial().isSolid()) {
+                            world.setBlockState(blockpos$Mutable, CAVE_AIR, 2);
+                        }
 
-			// made sure the dungeon wall cannot replace other dungeon's mob spawner now.
-			else if (x != xMin && z != zMin && x != xMax && y != 4 && world.getBlockState(blockpos$Mutable).getMaterial().isSolid() && world.getBlockState(blockpos$Mutable).getBlock() != Blocks.CHEST && world.getBlockState(blockpos$Mutable).getBlock() != Blocks.SPAWNER) {
-			    if (y == -1 && random.nextInt(4) != 0) {
-				world.setBlockState(blockpos$Mutable, Blocks.NETHER_BRICK_SLAB.getDefaultState(), 2);
-			    }
-			    else {
-				world.setBlockState(blockpos$Mutable, Blocks.NETHER_BRICKS.getDefaultState(), 2);
-			    }
-			}
-		    }
-		}
-	    }
+                        // made sure the dungeon wall cannot replace other dungeon's mob spawner now.
+                        else if (x != xMin && z != zMin && x != xMax && y != 4 && world.getBlockState(blockpos$Mutable).getMaterial().isSolid() && world.getBlockState(blockpos$Mutable).getBlock() != Blocks.CHEST && world.getBlockState(blockpos$Mutable).getBlock() != Blocks.SPAWNER) {
+                            if (y == -1 && random.nextInt(4) != 0) {
+                                world.setBlockState(blockpos$Mutable, Blocks.NETHER_BRICK_SLAB.getDefaultState(), 2);
+                            } else {
+                                world.setBlockState(blockpos$Mutable, Blocks.NETHER_BRICKS.getDefaultState(), 2);
+                            }
+                        }
+                    }
+                }
+            }
 
-	    for (int l3 = random.nextInt(3); l3 < 3; ++l3) {
-		for (int j4 = 0; j4 < 3; ++j4) {
-		    int x = position.getX() + random.nextInt(randXRange * 2 + 1) - randXRange;
-		    int y = position.getY();
-		    int z = position.getZ() + random.nextInt(randZRange * 2 + 1) - randZRange;
-		    blockpos$Mutable.set(x, y, z);
+            for (int l3 = random.nextInt(3); l3 < 3; ++l3) {
+                for (int j4 = 0; j4 < 3; ++j4) {
+                    int x = position.getX() + random.nextInt(randXRange * 2 + 1) - randXRange;
+                    int y = position.getY();
+                    int z = position.getZ() + random.nextInt(randZRange * 2 + 1) - randZRange;
+                    blockpos$Mutable.set(x, y, z);
 
-		    if (world.isAir(blockpos$Mutable)) {
-			int j3 = 0;
+                    if (world.isAir(blockpos$Mutable)) {
+                        int j3 = 0;
 
-			for (Direction Direction : Direction.Type.HORIZONTAL) {
-			    if (world.getBlockState(blockpos$Mutable.offset(Direction)).getMaterial().isSolid()) {
-				++j3;
-			    }
-			}
+                        for (Direction Direction : Direction.Type.HORIZONTAL) {
+                            if (world.getBlockState(blockpos$Mutable.offset(Direction)).getMaterial().isSolid()) {
+                                ++j3;
+                            }
+                        }
 
-			if (j3 == 1) {
-			    world.setBlockState(blockpos$Mutable, StructurePiece.method_14916(world, blockpos$Mutable, Blocks.CHEST.getDefaultState()), 2);
-			    LootableContainerBlockEntity.setLootTable(world, random, blockpos$Mutable, CHEST_LOOT);
-			    world.setBlockState(blockpos$Mutable.down(), Blocks.NETHER_BRICKS.getDefaultState(), 2);
+                        if (j3 == 1) {
+                            world.setBlockState(blockpos$Mutable, StructurePiece.method_14916(world, blockpos$Mutable, Blocks.CHEST.getDefaultState()), 2);
+                            LootableContainerBlockEntity.setLootTable(world, random, blockpos$Mutable, CHEST_LOOT);
+                            world.setBlockState(blockpos$Mutable.down(), Blocks.NETHER_BRICKS.getDefaultState(), 2);
 
-			    break;
-			}
-		    }
-		}
-	    }
+                            break;
+                        }
+                    }
+                }
+            }
 
-	    world.setBlockState(position, Blocks.AIR.getDefaultState(), 2);
-	    world.setBlockState(position, Blocks.SPAWNER.getDefaultState(), 2);
-	    world.setBlockState(position.down(), Blocks.NETHER_BRICKS.getDefaultState(), 2);
-	    BlockEntity tileentity = world.getBlockEntity(position);
+            world.setBlockState(position, Blocks.AIR.getDefaultState(), 2);
+            world.setBlockState(position, Blocks.SPAWNER.getDefaultState(), 2);
+            world.setBlockState(position.down(), Blocks.NETHER_BRICKS.getDefaultState(), 2);
+            BlockEntity tileentity = world.getBlockEntity(position);
 
-	    if (tileentity instanceof MobSpawnerBlockEntity) {
-		((MobSpawnerBlockEntity) tileentity).getLogic().setEntityId(pickMobSpawner(world, random, position));
-	    }
-	    else {
-		LOGGER.error("Failed to fetch mob spawner entity at ({}, {}, {})", new Object[] { Integer.valueOf(position.getX()), Integer.valueOf(position.getY()), Integer.valueOf(position.getZ()) });
-	    }
+            if (tileentity instanceof MobSpawnerBlockEntity) {
+                ((MobSpawnerBlockEntity) tileentity).getLogic().setEntityId(pickMobSpawner(world, random, position));
+            } else {
+                LOGGER.error("Failed to fetch mob spawner entity at ({}, {}, {})", new Object[]{Integer.valueOf(position.getX()), Integer.valueOf(position.getY()), Integer.valueOf(position.getZ())});
+            }
 
 
-	    // make any fluid tick so they dont float forever
-	    for (int x = xMin-1; x <= xMax+1; ++x) {
-		for (int y = 0; y <= 4; ++y) {
-		    for (int z = zMin - 1; z <= zMax + 1; ++z) {
-			if (x <= xMin || x >= xMax || z <= zMin || z >= zMax || y == 0 || y == 4) {
-			    blockpos$Mutable.set(position).move(x, y, z);
-			    
-			    blockstate = world.getBlockState(blockpos$Mutable);
-			    if (!blockstate.getFluidState().isEmpty()) {
-				world.getFluidTickScheduler().schedule(blockpos$Mutable, blockstate.getFluidState().getFluid(), 0);
-			    }
-			}
-		    }
-		}
-	    }
+            // make any fluid tick so they dont float forever
+            for (int x = xMin - 1; x <= xMax + 1; ++x) {
+                for (int y = 0; y <= 4; ++y) {
+                    for (int z = zMin - 1; z <= zMax + 1; ++z) {
+                        if (x <= xMin || x >= xMax || z <= zMin || z >= zMax || y == 0 || y == 4) {
+                            blockpos$Mutable.set(position).move(x, y, z);
 
-	    return true;
-	}
-	else {
-	    return false;
-	}
+                            blockstate = world.getBlockState(blockpos$Mutable);
+                            if (!blockstate.getFluidState().isEmpty()) {
+                                world.getFluidTickScheduler().schedule(blockpos$Mutable, blockstate.getFluidState().getFluid(), 0);
+                            }
+                        }
+                    }
+                }
+            }
+
+            return true;
+        } else {
+            return false;
+        }
     }
 
 
@@ -174,28 +167,24 @@ public class DungeonNether extends Feature<DefaultFeatureConfig>
      * Randomly decides which spawner to use in a dungeon
      */
     private static EntityType<?> pickMobSpawner(ServerWorldAccess world, Random random, BlockPos position) {
-	int roll = random.nextInt(100);
+        int roll = random.nextInt(100);
 
-	if (roll < 49) {
-	    // 49% chance
-	    return EntityType.ZOMBIFIED_PIGLIN;
-	}
-	else if (roll < 74) {
-	    // 25% chance
-	    return EntityType.BLAZE;
-	}
-	else if (roll < 99) {
-	    // 25% chance
-	    return EntityType.MAGMA_CUBE;
-	}
-	else {
-	    // 1% chance
-	    if (position.getY() < 30) {
-		return EntityType.WITHER_SKELETON;
-	    }
-	    else {
-		return EntityType.MAGMA_CUBE;
-	    }
-	}
+        if (roll < 49) {
+            // 49% chance
+            return EntityType.ZOMBIFIED_PIGLIN;
+        } else if (roll < 74) {
+            // 25% chance
+            return EntityType.BLAZE;
+        } else if (roll < 99) {
+            // 25% chance
+            return EntityType.MAGMA_CUBE;
+        } else {
+            // 1% chance
+            if (position.getY() < 30) {
+                return EntityType.WITHER_SKELETON;
+            } else {
+                return EntityType.MAGMA_CUBE;
+            }
+        }
     }
 }

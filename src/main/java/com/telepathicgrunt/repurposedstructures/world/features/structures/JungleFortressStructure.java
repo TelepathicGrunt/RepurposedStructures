@@ -7,13 +7,11 @@ import net.minecraft.structure.StructureManager;
 import net.minecraft.structure.StructurePiece;
 import net.minecraft.structure.StructureStart;
 import net.minecraft.util.math.BlockBox;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.source.BiomeSource;
 import net.minecraft.world.gen.ChunkRandom;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.chunk.StructureConfig;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
@@ -29,10 +27,9 @@ public class JungleFortressStructure extends StructureFeature<DefaultFeatureConf
         int x = chunkX >> 4;
         int z = chunkZ >> 4;
 
-        for(int curChunkX = chunkX - 2; curChunkX <= chunkX +2; curChunkX+=2){
-            for(int curChunkZ = chunkZ - 2; curChunkZ <= chunkZ +2; curChunkZ+=2){
-                if (biomeSource.getBiomeForNoiseGen(curChunkX*16, 60, curChunkZ*16).hasStructureFeature(RSFeatures.JUNGLE_FORTRESS))
-                {
+        for (int curChunkX = chunkX - 2; curChunkX <= chunkX + 2; curChunkX += 2) {
+            for (int curChunkZ = chunkZ - 2; curChunkZ <= chunkZ + 2; curChunkZ += 2) {
+                if (biomeSource.getBiomeForNoiseGen(curChunkX * 16, 60, curChunkZ * 16).hasStructureFeature(RSFeatures.JUNGLE_FORTRESS)) {
                     return false;
                 }
             }

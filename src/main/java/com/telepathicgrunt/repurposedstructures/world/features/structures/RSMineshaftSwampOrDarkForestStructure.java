@@ -17,7 +17,7 @@ public class RSMineshaftSwampOrDarkForestStructure extends AbstractMineshaftStru
         super(config);
     }
 
-    public double mineshaftProbability(){
+    public double mineshaftProbability() {
         return RepurposedStructures.RSMineshaftsConfig.spawnrate.swampAndDarkForestMineshaftSpawnrate;
     }
 

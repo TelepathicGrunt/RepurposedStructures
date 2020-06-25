@@ -291,8 +291,8 @@ public class RSMineshaftPieces {
 
 
         @Override
-        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox box, ChunkPos chunkPos, BlockPos blockPos) { 
-           Boolean isOceanType = this.mineShaftType == RSMineshaftPieces.Type.OCEAN;
+        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox box, ChunkPos chunkPos, BlockPos blockPos) {
+            Boolean isOceanType = this.mineShaftType == RSMineshaftPieces.Type.OCEAN;
             if (isOceanType ? this.isAirInStructureBoundingBox(world, box) : this.method_14937(world, box)) {
                 return false;
             } else {
@@ -749,7 +749,7 @@ public class RSMineshaftPieces {
 
 
         @Override
-        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox box, ChunkPos chunkPos, BlockPos blockPos) { 
+        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox box, ChunkPos chunkPos, BlockPos blockPos) {
             BlockState flooring;
 
             if (this.mineShaftType == RSMineshaftPieces.Type.NETHER) {
@@ -1019,10 +1019,9 @@ public class RSMineshaftPieces {
                         if (this.getBlockAt(world, x, y, z, boundingbox).isAir()) {
                             if ((aboveBlockState.isOpaque() || aboveBlockState.getBlock() == Blocks.VINE)) {
                                 vineLength++;
-                                if(aboveBlockState.isOpaque()){
+                                if (aboveBlockState.isOpaque()) {
                                     this.setVineBlockState(world, vineBlock.with(VineBlock.UP, true), x, y, z, boundingbox);
-                                }
-                                else{
+                                } else {
                                     this.setVineBlockState(world, vineBlock, x, y, z, boundingbox);
                                 }
                             } else if (Blocks.VINE.canPlaceAt(vineBlock, world, new BlockPos(this.applyXTransform(x, z), this.applyYTransform(y), this.applyZTransform(x, z)))) {

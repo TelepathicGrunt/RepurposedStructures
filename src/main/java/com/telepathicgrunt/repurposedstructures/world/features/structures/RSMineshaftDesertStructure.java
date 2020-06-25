@@ -21,7 +21,7 @@ public class RSMineshaftDesertStructure extends AbstractMineshaftStructure {
         super(config);
     }
 
-    public double mineshaftProbability(){
+    public double mineshaftProbability() {
         return RepurposedStructures.RSMineshaftsConfig.spawnrate.desertMineshaftSpawnrate;
     }
 

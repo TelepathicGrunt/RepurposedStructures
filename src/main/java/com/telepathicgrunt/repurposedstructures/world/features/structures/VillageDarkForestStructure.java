@@ -18,15 +18,15 @@ import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 
-public class VillageBadlandsStructure extends StructureFeature<DefaultFeatureConfig> {
-    public VillageBadlandsStructure(Codec<DefaultFeatureConfig> config) {
+public class VillageDarkForestStructure extends StructureFeature<DefaultFeatureConfig> {
+    public VillageDarkForestStructure(Codec<DefaultFeatureConfig> config) {
         super(config);
     }
 
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long l, ChunkRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig defaultFeatureConfig) {
-         for (int curChunkX = chunkX - 1; curChunkX <= chunkX + 1; curChunkX++) {
+        for (int curChunkX = chunkX - 1; curChunkX <= chunkX + 1; curChunkX++) {
             for (int curChunkZ = chunkZ - 1; curChunkZ <= chunkZ + 1; curChunkZ++) {
-                if (!biomeSource.getBiomeForNoiseGen(curChunkX * 16, 60, curChunkZ * 16).hasStructureFeature(RSFeatures.BADLANDS_VILLAGE)) {
+                if (!biomeSource.getBiomeForNoiseGen(curChunkX * 16, 60, curChunkZ * 16).hasStructureFeature(RSFeatures.DARK_FOREST_VILLAGE)) {
                     return false;
                 }
             }
@@ -35,12 +35,14 @@ public class VillageBadlandsStructure extends StructureFeature<DefaultFeatureCon
         return true;
     }
 
+
     public StructureFeature.StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
-        return VillageBadlandsStructure.Start::new;
+        return VillageDarkForestStructure.Start::new;
     }
 
+
     public String getName() {
-        return RepurposedStructures.MODID + ":village_badlands";
+        return RepurposedStructures.MODID + ":village_dark_forest";
     }
 
     public static class Start extends VillageStructureStart<DefaultFeatureConfig> {
@@ -51,7 +53,7 @@ public class VillageBadlandsStructure extends StructureFeature<DefaultFeatureCon
 
         public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
             BlockPos blockpos = new BlockPos(chunkX * 16, 0, chunkZ * 16);
-            VillageGenerator.addPieces(chunkGenerator, structureManager, blockpos, this.children, this.random, new StructurePoolFeatureConfig(new Identifier(RepurposedStructures.MODID + ":village/badlands/town_centers"), 10));
+            VillageGenerator.addPieces(chunkGenerator, structureManager, blockpos, this.children, this.random, new StructurePoolFeatureConfig(new Identifier(RepurposedStructures.MODID + ":village/dark_forest/town_centers"), 6));
             this.setBoundingBoxFromChildren();
         }
     }

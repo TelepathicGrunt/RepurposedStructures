@@ -18,7 +18,7 @@ public class RSMineshaftSavannaStructure extends AbstractMineshaftStructure {
     }
 
 
-    public double mineshaftProbability(){
+    public double mineshaftProbability() {
         return RepurposedStructures.RSMineshaftsConfig.spawnrate.savannaMineshaftSpawnrate;
     }
 

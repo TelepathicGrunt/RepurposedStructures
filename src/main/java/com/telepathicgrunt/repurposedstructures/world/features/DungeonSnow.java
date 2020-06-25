@@ -1,13 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
-import java.util.Random;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
@@ -24,202 +18,158 @@ import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.util.Random;
 
 
-public class DungeonSnow extends Feature<DefaultFeatureConfig>
-{
-	public DungeonSnow(Codec<DefaultFeatureConfig>configFactory)
-	{
-		super(configFactory);
-	}
+public class DungeonSnow extends Feature<DefaultFeatureConfig> {
+    public DungeonSnow(Codec<DefaultFeatureConfig> configFactory) {
+        super(configFactory);
+    }
 
-	private static final Logger LOGGER = LogManager.getLogger();
-	private static final BlockState CAVE_AIR = Blocks.CAVE_AIR.getDefaultState();
-	private static final Identifier CHEST_LOOT = new Identifier(RepurposedStructures.MODID+":chests/dungeon_snow");
+    private static final Logger LOGGER = LogManager.getLogger();
+    private static final BlockState CAVE_AIR = Blocks.CAVE_AIR.getDefaultState();
+    private static final Identifier CHEST_LOOT = new Identifier(RepurposedStructures.MODID + ":chests/dungeon_snow");
 
 
-	//only the mob spawner chance and what blocks the wall cannot replace was changed. Everything else is just the normal dungeon code.
+    //only the mob spawner chance and what blocks the wall cannot replace was changed. Everything else is just the normal dungeon code.
 
-	@Override
-	public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config)
-	{
-		int randXRange = random.nextInt(2) + 2;
-		int xMin = -randXRange - 1;
-		int xMax = randXRange + 1;
-		int randZRange = random.nextInt(2) + 2;
-		int zMin = -randZRange - 1;
-		int zMax = randZRange + 1;
-		int validOpenings = 0;
-		int ceilingOpenings = 0;
-		BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().set(position);
+    @Override
+    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
+        int randXRange = random.nextInt(2) + 2;
+        int xMin = -randXRange - 1;
+        int xMax = randXRange + 1;
+        int randZRange = random.nextInt(2) + 2;
+        int zMin = -randZRange - 1;
+        int zMax = randZRange + 1;
+        int validOpenings = 0;
+        int ceilingOpenings = 0;
+        BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().set(position);
 
-		for (int x = xMin; x <= xMax; ++x)
-		{
-			for (int y = -1; y <= 4; ++y)
-			{
-				for (int z = zMin; z <= zMax; ++z)
-				{
-					blockpos$Mutable.set(position).move(x, y, z);
-					Material material = world.getBlockState(blockpos$Mutable).getMaterial();
-					boolean flag = material.isSolid();
+        for (int x = xMin; x <= xMax; ++x) {
+            for (int y = -1; y <= 4; ++y) {
+                for (int z = zMin; z <= zMax; ++z) {
+                    blockpos$Mutable.set(position).move(x, y, z);
+                    Material material = world.getBlockState(blockpos$Mutable).getMaterial();
+                    boolean flag = material.isSolid();
 
-					if (y == -1 && !flag)
-					{
-						return false;
-					}
+                    if (y == -1 && !flag) {
+                        return false;
+                    }
 
-					if (y == 4 && !flag)
-					{
-						ceilingOpenings++;
-					}
+                    if (y == 4 && !flag) {
+                        ceilingOpenings++;
+                    }
 
-					if ((x == xMin || x == xMax || z == zMin || z == zMax) && y == 0 && world.isAir(blockpos$Mutable) && world.isAir(blockpos$Mutable.up()))
-					{
-						++validOpenings;
-					}
-				}
-			}
-		}
+                    if ((x == xMin || x == xMax || z == zMin || z == zMax) && y == 0 && world.isAir(blockpos$Mutable) && world.isAir(blockpos$Mutable.up())) {
+                        ++validOpenings;
+                    }
+                }
+            }
+        }
 
-		if (validOpenings >= 1 && validOpenings <= 14 && ceilingOpenings < 14)
-		{
-			for (int x = xMin; x <= xMax; ++x)
-			{
-				for (int y = 3; y >= -1; --y)
-				{
-					for (int z = zMin; z <= zMax; ++z)
-					{
-						blockpos$Mutable.set(position).move(x, y, z);
+        if (validOpenings >= 1 && validOpenings <= 14 && ceilingOpenings < 14) {
+            for (int x = xMin; x <= xMax; ++x) {
+                for (int y = 3; y >= -1; --y) {
+                    for (int z = zMin; z <= zMax; ++z) {
+                        blockpos$Mutable.set(position).move(x, y, z);
 
-						if (x != xMin && y != -1 && z != zMin && x != xMax && y != 4 && z != zMax)
-						{
-							if (world.getBlockState(blockpos$Mutable).getBlock() != Blocks.CHEST && world.getBlockState(blockpos$Mutable).getBlock() != Blocks.SPAWNER)
-							{
-								//icicles
-								if ((y >= 2 && z % 3 == 0 && x % 2 == 0) || (y == 3 && z % 2 == 0 && x % 2 == 0))
-								{
-									world.setBlockState(blockpos$Mutable, Blocks.ICE.getDefaultState(), 2);
-								}
-								else
-								{
-									world.setBlockState(blockpos$Mutable, CAVE_AIR, 2);
-								}
-							}
-						}
-						else if (blockpos$Mutable.getY() >= 0 && !world.getBlockState(blockpos$Mutable.down()).getMaterial().isSolid())
-						{
-							world.setBlockState(blockpos$Mutable, CAVE_AIR, 2);
-						}
+                        if (x != xMin && y != -1 && z != zMin && x != xMax && y != 4 && z != zMax) {
+                            if (world.getBlockState(blockpos$Mutable).getBlock() != Blocks.CHEST && world.getBlockState(blockpos$Mutable).getBlock() != Blocks.SPAWNER) {
+                                //icicles
+                                if ((y >= 2 && z % 3 == 0 && x % 2 == 0) || (y == 3 && z % 2 == 0 && x % 2 == 0)) {
+                                    world.setBlockState(blockpos$Mutable, Blocks.ICE.getDefaultState(), 2);
+                                } else {
+                                    world.setBlockState(blockpos$Mutable, CAVE_AIR, 2);
+                                }
+                            }
+                        } else if (blockpos$Mutable.getY() >= 0 && !world.getBlockState(blockpos$Mutable.down()).getMaterial().isSolid()) {
+                            world.setBlockState(blockpos$Mutable, CAVE_AIR, 2);
+                        }
 
-						//made sure the dungeon wall cannot replace other dungeon's mob spawner now.
-						else if (world.getBlockState(blockpos$Mutable).getMaterial().isSolid() && world.getBlockState(blockpos$Mutable).getBlock() != Blocks.CHEST && world.getBlockState(blockpos$Mutable).getBlock() != Blocks.SPAWNER)
-						{
-							if (y == -1 && random.nextInt(6) == 0)
-							{
-								world.setBlockState(blockpos$Mutable, Blocks.BLUE_ICE.getDefaultState(), 2);
-							}
-							else if (random.nextInt(4) == 0)
-							{
-								world.setBlockState(blockpos$Mutable, Blocks.SNOW_BLOCK.getDefaultState(), 2);
-							}
-							else
-							{
-								world.setBlockState(blockpos$Mutable, Blocks.ICE.getDefaultState(), 2);
-							}
+                        //made sure the dungeon wall cannot replace other dungeon's mob spawner now.
+                        else if (world.getBlockState(blockpos$Mutable).getMaterial().isSolid() && world.getBlockState(blockpos$Mutable).getBlock() != Blocks.CHEST && world.getBlockState(blockpos$Mutable).getBlock() != Blocks.SPAWNER) {
+                            if (y == -1 && random.nextInt(6) == 0) {
+                                world.setBlockState(blockpos$Mutable, Blocks.BLUE_ICE.getDefaultState(), 2);
+                            } else if (random.nextInt(4) == 0) {
+                                world.setBlockState(blockpos$Mutable, Blocks.SNOW_BLOCK.getDefaultState(), 2);
+                            } else {
+                                world.setBlockState(blockpos$Mutable, Blocks.ICE.getDefaultState(), 2);
+                            }
 
-						}
-					}
-				}
-			}
+                        }
+                    }
+                }
+            }
 
-			for (int l3 = random.nextInt(3); l3 < 2; ++l3)
-			{
-				for (int j4 = 0; j4 < 3; ++j4)
-				{
-					int x = position.getX() + random.nextInt(randXRange * 2 + 1) - randXRange;
-					int y = position.getY();
-					int z = position.getZ() + random.nextInt(randZRange * 2 + 1) - randZRange;
-					blockpos$Mutable.set(x, y, z);
+            for (int l3 = random.nextInt(3); l3 < 2; ++l3) {
+                for (int j4 = 0; j4 < 3; ++j4) {
+                    int x = position.getX() + random.nextInt(randXRange * 2 + 1) - randXRange;
+                    int y = position.getY();
+                    int z = position.getZ() + random.nextInt(randZRange * 2 + 1) - randZRange;
+                    blockpos$Mutable.set(x, y, z);
 
-					if (world.isAir(blockpos$Mutable))
-					{
-						int j3 = 0;
+                    if (world.isAir(blockpos$Mutable)) {
+                        int j3 = 0;
 
-						for (Direction Direction : Direction.Type.HORIZONTAL)
-						{
-							if (world.getBlockState(blockpos$Mutable.offset(Direction)).getMaterial().isSolid())
-							{
-								++j3;
-							}
-						}
+                        for (Direction Direction : Direction.Type.HORIZONTAL) {
+                            if (world.getBlockState(blockpos$Mutable.offset(Direction)).getMaterial().isSolid()) {
+                                ++j3;
+                            }
+                        }
 
-						if (j3 == 1)
-						{
-							world.setBlockState(blockpos$Mutable, StructurePiece.method_14916(world, blockpos$Mutable, Blocks.CHEST.getDefaultState()), 2);
-							LootableContainerBlockEntity.setLootTable(world, random, blockpos$Mutable, CHEST_LOOT);
+                        if (j3 == 1) {
+                            world.setBlockState(blockpos$Mutable, StructurePiece.method_14916(world, blockpos$Mutable, Blocks.CHEST.getDefaultState()), 2);
+                            LootableContainerBlockEntity.setLootTable(world, random, blockpos$Mutable, CHEST_LOOT);
 
-							break;
-						}
-					}
-				}
-			}
+                            break;
+                        }
+                    }
+                }
+            }
 
-			world.setBlockState(position, Blocks.AIR.getDefaultState(), 2);
-			world.setBlockState(position, Blocks.SPAWNER.getDefaultState(), 2);
-			BlockEntity tileentity = world.getBlockEntity(position);
+            world.setBlockState(position, Blocks.AIR.getDefaultState(), 2);
+            world.setBlockState(position, Blocks.SPAWNER.getDefaultState(), 2);
+            BlockEntity tileentity = world.getBlockEntity(position);
 
-			if (tileentity instanceof MobSpawnerBlockEntity)
-			{
-				((MobSpawnerBlockEntity) tileentity).getLogic().setEntityId(pickMobSpawner(world, random));
-			}
-			else
-			{
-				LOGGER.error("Failed to fetch mob spawner entity at ({}, {}, {})", new Object[] { Integer.valueOf(position.getX()), Integer.valueOf(position.getY()), Integer.valueOf(position.getZ()) });
-			}
+            if (tileentity instanceof MobSpawnerBlockEntity) {
+                ((MobSpawnerBlockEntity) tileentity).getLogic().setEntityId(pickMobSpawner(world, random));
+            } else {
+                LOGGER.error("Failed to fetch mob spawner entity at ({}, {}, {})", new Object[]{Integer.valueOf(position.getX()), Integer.valueOf(position.getY()), Integer.valueOf(position.getZ())});
+            }
 
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-	}
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 
-	/**
-	 * Randomly decides which spawner to use in a dungeon
-	 */
-	private static EntityType<?> pickMobSpawner(ServerWorldAccess world, Random random)
-	{
-		int roll = random.nextInt(100);
+    /**
+     * Randomly decides which spawner to use in a dungeon
+     */
+    private static EntityType<?> pickMobSpawner(ServerWorldAccess world, Random random) {
+        int roll = random.nextInt(100);
 
-		if (roll < 48)
-		{
-			//48% chance
-			EntityType<?> et = RSFeatures.pickRandomVillageDungeonMob(random);
-			if (et != EntityType.SKELETON)
-			{
-				return et;
-			}
-			else
-			{
-				return EntityType.STRAY;
-			}
-		}
-		else if (roll < 73)
-		{
-			//25% chance
-			return EntityType.STRAY;
-		}
-		else if (roll < 98)
-		{
-			//25% chance
-			return EntityType.CAVE_SPIDER;
-		}
-		else
-		{
-			//2% chance
-			return EntityType.SNOW_GOLEM;
-		}
-	}
+        if (roll < 48) {
+            //48% chance
+            EntityType<?> et = RSFeatures.pickRandomVillageDungeonMob(random);
+            if (et != EntityType.SKELETON) {
+                return et;
+            } else {
+                return EntityType.STRAY;
+            }
+        } else if (roll < 73) {
+            //25% chance
+            return EntityType.STRAY;
+        } else if (roll < 98) {
+            //25% chance
+            return EntityType.CAVE_SPIDER;
+        } else {
+            //2% chance
+            return EntityType.SNOW_GOLEM;
+        }
+    }
 }

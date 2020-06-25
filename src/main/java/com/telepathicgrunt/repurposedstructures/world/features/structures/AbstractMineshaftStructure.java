@@ -19,7 +19,7 @@ public abstract class AbstractMineshaftStructure extends StructureFeature<Defaul
     @Override
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long l, ChunkRandom chunkRandom, int i, int j, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig featureConfig) {
         chunkRandom.setCarverSeed(l, i, j);
-        double chance = mineshaftProbability()/10000D;
+        double chance = mineshaftProbability() / 10000D;
         double roll = chunkRandom.nextDouble();
         return roll < chance;
     }

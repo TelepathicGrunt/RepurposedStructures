@@ -208,8 +208,8 @@ public class NetherTemplePiece extends StructurePieceWithDimensions {
         this.addDispenser(world, boundingBox, random, 9, -2, 3, Direction.WEST, DISPENSER_NETHER_TEMPLE);
 
 
-		this.addBlock(world, Blocks.WEEPING_VINES_PLANT.getDefaultState(), 8, -2, 3, boundingBox);
-		this.addBlock(world, Blocks.WEEPING_VINES.getDefaultState(), 8, -2, 3, boundingBox);
+        this.addBlock(world, Blocks.WEEPING_VINES_PLANT.getDefaultState(), 8, -2, 3, boundingBox);
+        this.addBlock(world, Blocks.WEEPING_VINES.getDefaultState(), 8, -2, 3, boundingBox);
         this.addChest(world, boundingBox, random, 9, -3, 3, CHESTS_NETHER_TEMPLE);
 
 
