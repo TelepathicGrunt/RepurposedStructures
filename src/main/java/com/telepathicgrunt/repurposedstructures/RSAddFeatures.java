@@ -2,6 +2,7 @@ package com.telepathicgrunt.repurposedstructures;
 
 import com.telepathicgrunt.repurposedstructures.mixin.BiomeStructureAccessor;
 import com.telepathicgrunt.repurposedstructures.world.features.RSFeatures;
+import com.telepathicgrunt.repurposedstructures.world.placements.RSDungeonPlacement;
 import com.telepathicgrunt.repurposedstructures.world.placements.RSPlacements;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.registry.Registry;
@@ -419,6 +420,7 @@ public class RSAddFeatures {
                 RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes)) {
             if (RepurposedStructures.RSVillagesConfig.jungleVillageSpawnrate != 1001) {
                 biome.addStructureFeature(RSFeatures.JUNGLE_VILLAGE.configure(FeatureConfig.DEFAULT));
+                biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, RSFeatures.JUNGLE_VILLAGE_VINES.configure(FeatureConfig.DEFAULT).createDecoratedFeature(RSPlacements.RS_VINE_PLACEMENT.configure(new CountDecoratorConfig(30))));
             }
         }
 
@@ -426,6 +428,7 @@ public class RSAddFeatures {
                 RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes)) {
             if (RepurposedStructures.RSVillagesConfig.swampVillageSpawnrate != 1001) {
                 biome.addStructureFeature(RSFeatures.SWAMP_VILLAGE.configure(FeatureConfig.DEFAULT));
+                biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, RSFeatures.SWAMP_VILLAGE_VINES.configure(FeatureConfig.DEFAULT).createDecoratedFeature(RSPlacements.RS_VINE_PLACEMENT.configure(new CountDecoratorConfig(30))));
             }
         }
 

@@ -64,43 +64,53 @@
 //     */
 //    private static final Identifier NETHER_STRONGHOLD_BOOKSHELF_RL = new Identifier("repurposed_structures:nether_stronghold_bookshelves");
 //
-//    private static final RSStrongholdPieces.PieceWeight[] PIECE_WEIGHTS = new RSStrongholdPieces.PieceWeight[] { new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.Straight.class, 40, 0), new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.Prison.class, 5, 8), new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.LeftTurn.class, 20, 0), new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.RightTurn.class, 20, 0), new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.RoomCrossing.class, 10, 9), new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.StairsStraight.class, 5, 7), new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.Stairs.class, 5, 7),
-//	    new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.Crossing.class, 5, 7), new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.ChestCorridor.class, 5, 16), new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.Library.class, 10, 6) {
-//		@Override
-//		public boolean canSpawnMoreStructures(int distanceFromStart) {
-//		    return super.canSpawnMoreStructures(distanceFromStart) && distanceFromStart > 4;
-//		}
-//	    }, new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.PortalRoom.class, 20, 1) {
-//		@Override
-//		public boolean canSpawnMoreStructures(int distanceFromStart) {
-//		    return this.instancesSpawned < 1 && distanceFromStart > 5;
-//		}
+//    private static final RSStrongholdPieces.PieceWeight[] PIECE_WEIGHTS = new RSStrongholdPieces.PieceWeight[] {
+//            new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.Straight.class, 40, 0),
+//            new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.Prison.class, 5, 8),
+//            new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.LeftTurn.class, 20, 0),
+//            new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.RightTurn.class, 20, 0),
+//            new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.RoomCrossing.class, 10, 9),
+//            new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.StairsStraight.class, 5, 7),
+//            new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.Stairs.class, 5, 7),
+//	        new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.Crossing.class, 5, 7),
+//            new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.ChestCorridor.class, 5, 16),
+//            new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.Library.class, 10, 6) {
+//            @Override
+//                public boolean canSpawnMoreStructures(int distanceFromStart) {
+//                    return super.canSpawnMoreStructures(distanceFromStart) && distanceFromStart > 4;
+//                }
+//            },
+//            new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.PortalRoom.class, 20, 1) {
+//                @Override
+//                public boolean canSpawnMoreStructures(int distanceFromStart) {
+//                    return this.instancesSpawned < 1 && distanceFromStart > 5;
+//                }
 //
-//
-//		@Override
-//		public boolean canSpawnMoreStructures() {
-//		    return this.instancesSpawned < 1;
-//		}
-//	    } };
+//                @Override
+//                public boolean canSpawnMoreStructures() {
+//                    return this.instancesSpawned < 1;
+//                }
+//            }
+//    };
 //    private static List<RSStrongholdPieces.PieceWeight> structurePieceList;
 //    private static Class<? extends RSStrongholdPieces.Stronghold> strongComponentType;
 //    static int totalWeight;
 //    private static final Map<Block, Block> NETHER_BLOCK_MAP;
 //    static {
-//	NETHER_BLOCK_MAP = new HashMap<Block, Block>();
-//	NETHER_BLOCK_MAP.put(Blocks.STONE_BRICKS, Blocks.NETHER_BRICKS);
-//	NETHER_BLOCK_MAP.put(Blocks.STONE_BRICK_SLAB, Blocks.NETHER_BRICK_SLAB);
-//	NETHER_BLOCK_MAP.put(Blocks.STONE_BRICK_STAIRS, Blocks.NETHER_BRICK_STAIRS);
-//	NETHER_BLOCK_MAP.put(Blocks.COBBLESTONE, Blocks.SOUL_SAND);
-//	NETHER_BLOCK_MAP.put(Blocks.COBBLESTONE_STAIRS, Blocks.RED_NETHER_BRICK_STAIRS);
-//	NETHER_BLOCK_MAP.put(Blocks.COBBLESTONE_SLAB, Blocks.RED_NETHER_BRICK_SLAB);
-//	NETHER_BLOCK_MAP.put(Blocks.STONE_SLAB, Blocks.RED_NETHER_BRICK_SLAB);
-//	NETHER_BLOCK_MAP.put(Blocks.IRON_BARS, Blocks.NETHER_BRICK_FENCE);
-//	NETHER_BLOCK_MAP.put(Blocks.OAK_PLANKS, Blocks.DARK_OAK_PLANKS);
-//	NETHER_BLOCK_MAP.put(Blocks.OAK_FENCE, Blocks.DARK_OAK_FENCE);
-//	NETHER_BLOCK_MAP.put(Blocks.WATER, Blocks.LAVA);
-//	NETHER_BLOCK_MAP.put(Blocks.WALL_TORCH, Blocks.REDSTONE_WALL_TORCH);
-//	NETHER_BLOCK_MAP.put(Blocks.TORCH, Blocks.REDSTONE_TORCH);
+//        NETHER_BLOCK_MAP = new HashMap<Block, Block>();
+//        NETHER_BLOCK_MAP.put(Blocks.STONE_BRICKS, Blocks.NETHER_BRICKS);
+//        NETHER_BLOCK_MAP.put(Blocks.STONE_BRICK_SLAB, Blocks.NETHER_BRICK_SLAB);
+//        NETHER_BLOCK_MAP.put(Blocks.STONE_BRICK_STAIRS, Blocks.NETHER_BRICK_STAIRS);
+//        NETHER_BLOCK_MAP.put(Blocks.COBBLESTONE, Blocks.SOUL_SAND);
+//        NETHER_BLOCK_MAP.put(Blocks.COBBLESTONE_STAIRS, Blocks.RED_NETHER_BRICK_STAIRS);
+//        NETHER_BLOCK_MAP.put(Blocks.COBBLESTONE_SLAB, Blocks.RED_NETHER_BRICK_SLAB);
+//        NETHER_BLOCK_MAP.put(Blocks.STONE_SLAB, Blocks.RED_NETHER_BRICK_SLAB);
+//        NETHER_BLOCK_MAP.put(Blocks.IRON_BARS, Blocks.NETHER_BRICK_FENCE);
+//        NETHER_BLOCK_MAP.put(Blocks.OAK_PLANKS, Blocks.DARK_OAK_PLANKS);
+//        NETHER_BLOCK_MAP.put(Blocks.OAK_FENCE, Blocks.DARK_OAK_FENCE);
+//        NETHER_BLOCK_MAP.put(Blocks.WATER, Blocks.LAVA);
+//        NETHER_BLOCK_MAP.put(Blocks.WALL_TORCH, Blocks.REDSTONE_WALL_TORCH);
+//        NETHER_BLOCK_MAP.put(Blocks.TORCH, Blocks.REDSTONE_TORCH);
 //    }
 //
 //    /**

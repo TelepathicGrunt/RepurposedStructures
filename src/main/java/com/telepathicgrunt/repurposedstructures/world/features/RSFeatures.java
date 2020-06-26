@@ -40,6 +40,8 @@ public class RSFeatures {
     public static Feature<DefaultFeatureConfig> BOULDER_TINY = new BoulderTiny(DefaultFeatureConfig.CODEC);
     public static Feature<TreeFeatureConfig> HORNED_SWAMP_TREE = new TreeSwampHorned(TreeFeatureConfig.CODEC);
     public static Feature<DefaultFeatureConfig> SHORT_VINES = new VinesShort(DefaultFeatureConfig.CODEC);
+    public static Feature<DefaultFeatureConfig> SWAMP_VILLAGE_VINES = new SwampVillageVines(DefaultFeatureConfig.CODEC);
+    public static Feature<DefaultFeatureConfig> JUNGLE_VILLAGE_VINES = new JungleVillageVines(DefaultFeatureConfig.CODEC);
 
     public static StructureFeature<DefaultFeatureConfig> BIRCH_MINESHAFT = new RSMineshaftBirchStructure(DefaultFeatureConfig.CODEC);
     public static StructureFeature<DefaultFeatureConfig> DESERT_MINESHAFT = new RSMineshaftDesertStructure(DefaultFeatureConfig.CODEC);
@@ -89,18 +91,20 @@ public class RSFeatures {
         Registry.register(Registry.FEATURE, RepurposedStructures.MODID + "boulder_tiny", BOULDER_TINY);
         Registry.register(Registry.FEATURE, RepurposedStructures.MODID + "horned_swamp_tree", HORNED_SWAMP_TREE);
         Registry.register(Registry.FEATURE, RepurposedStructures.MODID + "short_vines", SHORT_VINES);
+        Registry.register(Registry.FEATURE, RepurposedStructures.MODID + "swamp_village_vines", SWAMP_VILLAGE_VINES);
+        Registry.register(Registry.FEATURE, RepurposedStructures.MODID + "jungle_village_vines", JUNGLE_VILLAGE_VINES);
 
-        LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "minecraft_birch"), BIRCH_MINESHAFT, GenerationStep.Feature.UNDERGROUND_STRUCTURES, new StructureConfig(1, 0, 399117345), BIRCH_MINESHAFT.configure(FeatureConfig.DEFAULT));
-        LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "minecraft_desert"), DESERT_MINESHAFT, GenerationStep.Feature.UNDERGROUND_STRUCTURES, new StructureConfig(1, 0, 399117346), DESERT_MINESHAFT.configure(FeatureConfig.DEFAULT));
-        LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "minecraft_end"), END_MINESHAFT, GenerationStep.Feature.UNDERGROUND_STRUCTURES, new StructureConfig(1, 0, 399117347), END_MINESHAFT.configure(FeatureConfig.DEFAULT));
-        LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "minecraft_nether"), NETHER_MINESHAFT, GenerationStep.Feature.UNDERGROUND_STRUCTURES, new StructureConfig(1, 0, 399117348), NETHER_MINESHAFT.configure(FeatureConfig.DEFAULT));
-        LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "minecraft_icy"), ICY_MINESHAFT, GenerationStep.Feature.UNDERGROUND_STRUCTURES, new StructureConfig(1, 0, 399117349), ICY_MINESHAFT.configure(FeatureConfig.DEFAULT));
-        LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "minecraft_jungle"), JUNGLE_MINESHAFT, GenerationStep.Feature.UNDERGROUND_STRUCTURES, new StructureConfig(1, 0, 399117350), JUNGLE_MINESHAFT.configure(FeatureConfig.DEFAULT));
-        LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "minecraft_ocean"), OCEAN_MINESHAFT, GenerationStep.Feature.UNDERGROUND_STRUCTURES, new StructureConfig(1, 0, 399117351), OCEAN_MINESHAFT.configure(FeatureConfig.DEFAULT));
-        LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "minecraft_savanna"), SAVANNA_MINESHAFT, GenerationStep.Feature.UNDERGROUND_STRUCTURES, new StructureConfig(1, 0, 399117352), SAVANNA_MINESHAFT.configure(FeatureConfig.DEFAULT));
-        LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "minecraft_stone"), STONE_MINESHAFT, GenerationStep.Feature.UNDERGROUND_STRUCTURES, new StructureConfig(1, 0, 399117353), STONE_MINESHAFT.configure(FeatureConfig.DEFAULT));
+        LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "mineshaft_birch"), BIRCH_MINESHAFT, GenerationStep.Feature.UNDERGROUND_STRUCTURES, new StructureConfig(1, 0, 399117345), BIRCH_MINESHAFT.configure(FeatureConfig.DEFAULT));
+        LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "mineshaft_desert"), DESERT_MINESHAFT, GenerationStep.Feature.UNDERGROUND_STRUCTURES, new StructureConfig(1, 0, 399117346), DESERT_MINESHAFT.configure(FeatureConfig.DEFAULT));
+        LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "mineshaft_end"), END_MINESHAFT, GenerationStep.Feature.UNDERGROUND_STRUCTURES, new StructureConfig(1, 0, 399117347), END_MINESHAFT.configure(FeatureConfig.DEFAULT));
+        LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "mineshaft_nether"), NETHER_MINESHAFT, GenerationStep.Feature.UNDERGROUND_STRUCTURES, new StructureConfig(1, 0, 399117348), NETHER_MINESHAFT.configure(FeatureConfig.DEFAULT));
+        LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "mineshaft_icy"), ICY_MINESHAFT, GenerationStep.Feature.UNDERGROUND_STRUCTURES, new StructureConfig(1, 0, 399117349), ICY_MINESHAFT.configure(FeatureConfig.DEFAULT));
+        LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "mineshaft_jungle"), JUNGLE_MINESHAFT, GenerationStep.Feature.UNDERGROUND_STRUCTURES, new StructureConfig(1, 0, 399117350), JUNGLE_MINESHAFT.configure(FeatureConfig.DEFAULT));
+        LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "mineshaft_ocean"), OCEAN_MINESHAFT, GenerationStep.Feature.UNDERGROUND_STRUCTURES, new StructureConfig(1, 0, 399117351), OCEAN_MINESHAFT.configure(FeatureConfig.DEFAULT));
+        LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "mineshaft_savanna"), SAVANNA_MINESHAFT, GenerationStep.Feature.UNDERGROUND_STRUCTURES, new StructureConfig(1, 0, 399117352), SAVANNA_MINESHAFT.configure(FeatureConfig.DEFAULT));
+        LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "mineshaft_stone"), STONE_MINESHAFT, GenerationStep.Feature.UNDERGROUND_STRUCTURES, new StructureConfig(1, 0, 399117353), STONE_MINESHAFT.configure(FeatureConfig.DEFAULT));
         LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "mineshaft_swamp_or_dark_forest"), SWAMP_OR_DARK_FOREST_MINESHAFT, GenerationStep.Feature.UNDERGROUND_STRUCTURES, new StructureConfig(1, 0, 399117354), SWAMP_OR_DARK_FOREST_MINESHAFT.configure(FeatureConfig.DEFAULT));
-        LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "minecraft_taiga"), TAIGA_MINESHAFT, GenerationStep.Feature.UNDERGROUND_STRUCTURES, new StructureConfig(1, 0, 399117355), TAIGA_MINESHAFT.configure(FeatureConfig.DEFAULT));
+        LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "mineshaft_taiga"), TAIGA_MINESHAFT, GenerationStep.Feature.UNDERGROUND_STRUCTURES, new StructureConfig(1, 0, 399117355), TAIGA_MINESHAFT.configure(FeatureConfig.DEFAULT));
 
         LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "fortress_jungle"), JUNGLE_FORTRESS, GenerationStep.Feature.SURFACE_STRUCTURES, new StructureConfig(RepurposedStructures.RSMainConfig.jungleFortress.jungleFortressSpawnrate, (int) (RepurposedStructures.RSMainConfig.jungleFortress.jungleFortressSpawnrate * 0.75f), 399117356), JUNGLE_FORTRESS.configure(FeatureConfig.DEFAULT));
         LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "temple_nether"), NETHER_TEMPLE, GenerationStep.Feature.SURFACE_STRUCTURES, new StructureConfig(RepurposedStructures.RSMainConfig.temples.netherTempleSpawnrate, (int) (RepurposedStructures.RSMainConfig.temples.netherTempleSpawnrate * 0.75f), 399117357), NETHER_TEMPLE.configure(FeatureConfig.DEFAULT));

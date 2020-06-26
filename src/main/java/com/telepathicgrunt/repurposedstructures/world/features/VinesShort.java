@@ -38,9 +38,7 @@ public class VinesShort extends Feature<DefaultFeatureConfig> {
         for (; blockpos$Mutable.getY() > 15 && length < random.nextInt(3) + 4; blockpos$Mutable.move(Direction.DOWN)) {
             if (world.isAir(blockpos$Mutable)) {
                 for (Direction direction : Direction.Type.HORIZONTAL) {
-
                     BlockState iblockstate = Blocks.VINE.getDefaultState().with(VineBlock.getFacingProperty(direction), Boolean.valueOf(true));
-                    blockpos$Mutable2.set(blockpos$Mutable).move(Direction.UP);
                     if (iblockstate.canPlaceAt(world, blockpos$Mutable)) {
                         if (world.getBlockState(blockpos$Mutable.up()).isSideSolidFullSquare(world, blockpos$Mutable, Direction.UP)) {
                             world.setBlockState(blockpos$Mutable, iblockstate.with(VineBlock.UP, true), 2);
@@ -49,8 +47,8 @@ public class VinesShort extends Feature<DefaultFeatureConfig> {
                         }
                         length++;
                         break;
-                    } else if (world.getBlockState(blockpos$Mutable2).getBlock() == Blocks.VINE) {
-                        world.setBlockState(blockpos$Mutable, world.getBlockState(blockpos$Mutable2), 2);
+                    } else if (world.getBlockState(blockpos$Mutable.up()).getBlock() == Blocks.VINE) {
+                        world.setBlockState(blockpos$Mutable, world.getBlockState(blockpos$Mutable.up()), 2);
                         length++;
                         break;
                     }
