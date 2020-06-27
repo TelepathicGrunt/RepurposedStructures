@@ -44,11 +44,6 @@ public class JungleFortressStructure extends StructureFeature<DefaultFeatureConf
         return JungleFortressStructure.Start::new;
     }
 
-    @Override
-    public String getName() {
-        return RepurposedStructures.MODID + ":fortress_jungle";
-    }
-
     public static class Start extends StructureStart<DefaultFeatureConfig> {
         public Start(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);

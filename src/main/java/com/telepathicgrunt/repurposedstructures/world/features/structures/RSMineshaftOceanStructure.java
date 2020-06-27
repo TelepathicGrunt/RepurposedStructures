@@ -26,12 +26,6 @@ public class RSMineshaftOceanStructure extends AbstractMineshaftStructure {
         return RSMineshaftOceanStructure.Start::new;
     }
 
-
-    @Override
-    public String getName() {
-        return RepurposedStructures.MODID + ":mineshaft_ocean";
-    }
-
     public static class Start extends StructureStart<DefaultFeatureConfig> {
         public Start(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);

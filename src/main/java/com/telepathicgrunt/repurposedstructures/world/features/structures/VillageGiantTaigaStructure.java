@@ -41,12 +41,6 @@ public class VillageGiantTaigaStructure extends StructureFeature<DefaultFeatureC
 		return VillageGiantTaigaStructure.Start::new;
 	}
 
-
-	public String getName() {
-		return RepurposedStructures.MODID + ":village_giant_taiga";
-	}
-
-
 	public static class Start extends VillageStructureStart<DefaultFeatureConfig> {
 		public Start(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
 			super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);

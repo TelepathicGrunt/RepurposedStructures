@@ -23,7 +23,8 @@ public class RepurposedStructures implements ModInitializer {
 	public static RSMainConfig RSMainConfig = null;
 	public static RSMineshaftsConfig RSMineshaftsConfig = null;
 	public static RSWellsConfig RSWellsConfig = null;
-	public static RSVillagesConfig RSVillagesConfig = null;
+    public static RSVillagesConfig RSVillagesConfig = null;
+    public static RSStrongholdsConfig RSStrongholdsConfig = null;
 
     @Override
     public void onInitialize() {
@@ -32,12 +33,14 @@ public class RepurposedStructures implements ModInitializer {
         AutoConfig.register(RSMineshaftsConfig.class, Toml4jConfigSerializer::new);
         AutoConfig.register(RSWellsConfig.class, Toml4jConfigSerializer::new);
         AutoConfig.register(RSVillagesConfig.class, Toml4jConfigSerializer::new);
+        AutoConfig.register(RSStrongholdsConfig.class, Toml4jConfigSerializer::new);
 
 		RSDungeonsConfig = AutoConfig.getConfigHolder(RSDungeonsConfig.class).getConfig();
 		RSMainConfig = AutoConfig.getConfigHolder(RSMainConfig.class).getConfig();
 		RSMineshaftsConfig = AutoConfig.getConfigHolder(RSMineshaftsConfig.class).getConfig();
 		RSWellsConfig = AutoConfig.getConfigHolder(RSWellsConfig.class).getConfig();
-		RSVillagesConfig = AutoConfig.getConfigHolder(RSVillagesConfig.class).getConfig();
+        RSVillagesConfig = AutoConfig.getConfigHolder(RSVillagesConfig.class).getConfig();
+        RSStrongholdsConfig = AutoConfig.getConfigHolder(RSStrongholdsConfig.class).getConfig();
 
         RSPlacements.registerPlacements();
         RSFeatures.registerFeatures();
@@ -65,6 +68,7 @@ public class RepurposedStructures implements ModInitializer {
             RSAddFeatures.addBadlandsTemple(biome, biomeNamespace, biomePath);
             RSAddFeatures.addIgloos(biome, biomeNamespace, biomePath);
             RSAddFeatures.addVillages(biome, biomeNamespace, biomePath);
+            RSAddFeatures.addStrongholds(biome, biomeNamespace, biomePath);
 
         }
     }

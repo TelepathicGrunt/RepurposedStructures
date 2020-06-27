@@ -26,12 +26,6 @@ public class RSMineshaftSwampOrDarkForestStructure extends AbstractMineshaftStru
         return RSMineshaftSwampOrDarkForestStructure.Start::new;
     }
 
-
-    @Override
-    public String getName() {
-        return RepurposedStructures.MODID + ":mineshaft_swamp_or_dark_forest";
-    }
-
     public static class Start extends StructureStart<DefaultFeatureConfig> {
         public Start(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);

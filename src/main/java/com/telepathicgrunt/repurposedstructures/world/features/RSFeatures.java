@@ -12,6 +12,9 @@ import net.minecraft.world.gen.chunk.StructureConfig;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 
@@ -54,12 +57,16 @@ public class RSFeatures {
     public static StructureFeature<DefaultFeatureConfig> STONE_MINESHAFT = new RSMineshaftStoneStructure(DefaultFeatureConfig.CODEC);
     public static StructureFeature<DefaultFeatureConfig> SWAMP_OR_DARK_FOREST_MINESHAFT = new RSMineshaftSwampOrDarkForestStructure(DefaultFeatureConfig.CODEC);
     public static StructureFeature<DefaultFeatureConfig> TAIGA_MINESHAFT = new RSMineshaftTaigaStructure(DefaultFeatureConfig.CODEC);
-    //public static StructureFeature<DefaultFeatureConfig>				STRONGHOLD			= new RSStrongholdStructure(DefaultFeatureConfig.CODEC);
+
+    public static StructureFeature<DefaultFeatureConfig> STONEBRICK_STRONGHOLD = new RSStonebrickStrongholdStructure(DefaultFeatureConfig.CODEC);
+    public static StructureFeature<DefaultFeatureConfig> NETHER_STRONGHOLD = new RSNetherStrongholdStructure(DefaultFeatureConfig.CODEC);
+
     public static StructureFeature<DefaultFeatureConfig> JUNGLE_FORTRESS = new JungleFortressStructure(DefaultFeatureConfig.CODEC);
     public static StructureFeature<DefaultFeatureConfig> NETHER_TEMPLE = new NetherTempleStructure(DefaultFeatureConfig.CODEC);
     public static StructureFeature<DefaultFeatureConfig> BADLANDS_TEMPLE = new BadlandsTempleStructure(DefaultFeatureConfig.CODEC);
     public static StructureFeature<DefaultFeatureConfig> GRASSY_IGLOO = new IglooGrassyStructure(DefaultFeatureConfig.CODEC);
     public static StructureFeature<DefaultFeatureConfig> STONE_IGLOO = new IglooStoneStructure(DefaultFeatureConfig.CODEC);
+
     public static StructureFeature<DefaultFeatureConfig> BADLANDS_VILLAGE = new VillageBadlandsStructure(DefaultFeatureConfig.CODEC);
     public static StructureFeature<DefaultFeatureConfig> BIRCH_VILLAGE = new VillageBirchStructure(DefaultFeatureConfig.CODEC);
     public static StructureFeature<DefaultFeatureConfig> DARK_FOREST_VILLAGE = new VillageDarkForestStructure(DefaultFeatureConfig.CODEC);
@@ -67,7 +74,15 @@ public class RSFeatures {
     public static StructureFeature<DefaultFeatureConfig> SWAMP_VILLAGE = new VillageSwampStructure(DefaultFeatureConfig.CODEC);
     public static StructureFeature<DefaultFeatureConfig> MOUNTAINS_VILLAGE = new VillageMountainsStructure(DefaultFeatureConfig.CODEC);
     public static StructureFeature<DefaultFeatureConfig> GIANT_TAIGA_VILLAGE = new VillageGiantTaigaStructure(DefaultFeatureConfig.CODEC);
-
+    public static List<StructureFeature<DefaultFeatureConfig>> VILLAGE_LIST = Arrays.asList(
+            BADLANDS_VILLAGE,
+            BIRCH_VILLAGE,
+            DARK_FOREST_VILLAGE,
+            JUNGLE_VILLAGE,
+            SWAMP_VILLAGE,
+            MOUNTAINS_VILLAGE,
+            GIANT_TAIGA_VILLAGE
+    );
 
     public static void registerFeatures() {
         Registry.register(Registry.FEATURE, RepurposedStructures.MODID + "dungeons_badlands", BADLANDS_DUNGEONS);
@@ -106,6 +121,9 @@ public class RSFeatures {
         LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "mineshaft_swamp_or_dark_forest"), SWAMP_OR_DARK_FOREST_MINESHAFT, GenerationStep.Feature.UNDERGROUND_STRUCTURES, new StructureConfig(1, 0, 399117354), SWAMP_OR_DARK_FOREST_MINESHAFT.configure(FeatureConfig.DEFAULT));
         LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "mineshaft_taiga"), TAIGA_MINESHAFT, GenerationStep.Feature.UNDERGROUND_STRUCTURES, new StructureConfig(1, 0, 399117355), TAIGA_MINESHAFT.configure(FeatureConfig.DEFAULT));
 
+        LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "stronghold_stonebrick"), STONEBRICK_STRONGHOLD, GenerationStep.Feature.UNDERGROUND_STRUCTURES, new StructureConfig(RepurposedStructures.RSStrongholdsConfig.stonebrick.stonebrickStrongholdSpawnrate, (int) (RepurposedStructures.RSStrongholdsConfig.stonebrick.stonebrickStrongholdSpawnrate * 0.75f), 399117368), STONEBRICK_STRONGHOLD.configure(FeatureConfig.DEFAULT));
+        LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "stronghold_nether"), NETHER_STRONGHOLD, GenerationStep.Feature.UNDERGROUND_STRUCTURES, new StructureConfig(RepurposedStructures.RSStrongholdsConfig.nether.netherStrongholdSpawnrate, (int) (RepurposedStructures.RSStrongholdsConfig.nether.netherStrongholdSpawnrate * 0.75f), 399117369), NETHER_STRONGHOLD.configure(FeatureConfig.DEFAULT));
+
         LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "fortress_jungle"), JUNGLE_FORTRESS, GenerationStep.Feature.SURFACE_STRUCTURES, new StructureConfig(RepurposedStructures.RSMainConfig.jungleFortress.jungleFortressSpawnrate, (int) (RepurposedStructures.RSMainConfig.jungleFortress.jungleFortressSpawnrate * 0.75f), 399117356), JUNGLE_FORTRESS.configure(FeatureConfig.DEFAULT));
         LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "temple_nether"), NETHER_TEMPLE, GenerationStep.Feature.SURFACE_STRUCTURES, new StructureConfig(RepurposedStructures.RSMainConfig.temples.netherTempleSpawnrate, (int) (RepurposedStructures.RSMainConfig.temples.netherTempleSpawnrate * 0.75f), 399117357), NETHER_TEMPLE.configure(FeatureConfig.DEFAULT));
         LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "temple_badlands"), BADLANDS_TEMPLE, GenerationStep.Feature.SURFACE_STRUCTURES, new StructureConfig(RepurposedStructures.RSMainConfig.temples.badlandsTempleSpawnrate, (int) (RepurposedStructures.RSMainConfig.temples.badlandsTempleSpawnrate * 0.75f), 399117358), BADLANDS_TEMPLE.configure(FeatureConfig.DEFAULT));
@@ -126,12 +144,12 @@ public class RSFeatures {
 
     public static void registerVillagePools() {
         VillageBadlandsPools.init();
-		VillageBirchPools.init();
-		VillageDarkForestPools.init();
-		VillageJunglePools.init();
-		VillageSwampPools.init();
-		VillageMountainsPools.init();
-		VillageGiantTaigaPools.init();
+        VillageBirchPools.init();
+        VillageDarkForestPools.init();
+        VillageJunglePools.init();
+        VillageSwampPools.init();
+        VillageMountainsPools.init();
+        VillageGiantTaigaPools.init();
     }
 
     /**

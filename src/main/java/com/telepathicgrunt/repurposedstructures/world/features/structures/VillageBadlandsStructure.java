@@ -39,10 +39,6 @@ public class VillageBadlandsStructure extends StructureFeature<DefaultFeatureCon
         return VillageBadlandsStructure.Start::new;
     }
 
-    public String getName() {
-        return RepurposedStructures.MODID + ":village_badlands";
-    }
-
     public static class Start extends VillageStructureStart<DefaultFeatureConfig> {
         public Start(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);

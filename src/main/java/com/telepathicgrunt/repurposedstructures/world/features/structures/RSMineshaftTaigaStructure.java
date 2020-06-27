@@ -27,11 +27,6 @@ public class RSMineshaftTaigaStructure extends AbstractMineshaftStructure {
     }
 
 
-    @Override
-    public String getName() {
-        return RepurposedStructures.MODID + ":mineshaft_taiga";
-    }
-
 
     public static class Start extends StructureStart<DefaultFeatureConfig> {
         public Start(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {

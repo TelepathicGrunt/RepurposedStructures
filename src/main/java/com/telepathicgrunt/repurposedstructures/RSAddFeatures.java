@@ -346,6 +346,32 @@ public class RSAddFeatures {
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // STRONGHOLDS //
+
+
+    public static void addStrongholds(Biome biome, String biomeNamespace, String biomePath) {
+
+        if (RepurposedStructures.RSStrongholdsConfig.stonebrick.allowStonebrickStronghold &&
+                RepurposedStructures.RSStrongholdsConfig.stonebrick.stonebrickStrongholdSpawnrate != 1001 &&
+                biome.getCategory() != Category.NETHER &&
+                (biome.hasStructureFeature(StructureFeature.STRONGHOLD) ||
+                (!biomeNamespace.equals("minecraft") && RepurposedStructures.RSStrongholdsConfig.stonebrick.addStonebrickStrongholdToModdedBiomes))) {
+
+            //replace vanilla stronghold with ours if vanilla's is present
+            ((BiomeStructureAccessor) biome).getStructureFeatures().remove(StructureFeature.STRONGHOLD);
+            biome.addStructureFeature(RSFeatures.STONEBRICK_STRONGHOLD.configure(FeatureConfig.DEFAULT));
+
+        }
+
+        else if (RepurposedStructures.RSStrongholdsConfig.nether.netherStrongholdSpawnrate != 1001 && biome.getCategory() == Category.NETHER &&
+                (biomeNamespace.equals("minecraft") || RepurposedStructures.RSStrongholdsConfig.nether.addNetherStrongholdToModdedBiomes)) {
+            biome.addStructureFeature(RSFeatures.NETHER_STRONGHOLD.configure(FeatureConfig.DEFAULT));
+        }
+    }
+
+
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // NETHER TEMPLE //
 
 

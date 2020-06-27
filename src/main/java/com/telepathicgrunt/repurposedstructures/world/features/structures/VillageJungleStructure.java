@@ -41,11 +41,6 @@ public class VillageJungleStructure extends StructureFeature<DefaultFeatureConfi
         return VillageJungleStructure.Start::new;
     }
 
-
-    public String getName() {
-        return RepurposedStructures.MODID + ":village_jungle";
-    }
-
     public static class Start extends VillageStructureStart<DefaultFeatureConfig> {
         public Start(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);

@@ -39,14 +39,8 @@ public class VillageSwampStructure extends StructureFeature<DefaultFeatureConfig
 	}
 
     public StructureFeature.StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
-	return VillageSwampStructure.Start::new;
+		return VillageSwampStructure.Start::new;
     }
-
-
-    public String getName() {
-	return RepurposedStructures.MODID + ":village_swamp";
-    }
-
 
     public static class Start extends VillageStructureStart<DefaultFeatureConfig>
     {

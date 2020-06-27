@@ -28,12 +28,6 @@ public class IglooStoneStructure extends StructureFeature<DefaultFeatureConfig> 
     }
 
 
-    @Override
-    public String getName() {
-        return RepurposedStructures.MODID + ":igloo_stone";
-    }
-
-
     public static class Start extends StructureStart<DefaultFeatureConfig> {
         public static Identifier TOP_PIECE_RL = new Identifier(RepurposedStructures.MODID + ":igloos/stone_top");
 

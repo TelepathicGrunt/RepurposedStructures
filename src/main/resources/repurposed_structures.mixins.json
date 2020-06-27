@@ -4,7 +4,11 @@
   "package": "com.telepathicgrunt.repurposedstructures.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "BiomeStructureAccessor"
+    "BiomeStructureAccessor",
+    "StrongholdGeneratorAccessor",
+    "StructurePieceAccessor",
+    "EnderEyeStrongholdLocatingMixin",
+    "NoVillageLakesMixin"
   ],
   "client": [
   ],

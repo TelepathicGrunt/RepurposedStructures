@@ -37,13 +37,6 @@ public class RSMineshaftIcyStructure extends AbstractMineshaftStructure {
         return RSMineshaftIcyStructure.Start::new;
     }
 
-
-    @Override
-    public String getName() {
-        return RepurposedStructures.MODID + ":mineshaft_icy";
-    }
-
-
     public static class Start extends StructureStart<DefaultFeatureConfig> {
         public Start(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);

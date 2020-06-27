@@ -27,12 +27,6 @@ public class IglooGrassyStructure extends StructureFeature<DefaultFeatureConfig>
         return IglooGrassyStructure.Start::new;
     }
 
-
-    @Override
-    public String getName() {
-        return RepurposedStructures.MODID + ":igloo_grassy";
-    }
-
     public static class Start extends StructureStart<DefaultFeatureConfig> {
         public static Identifier TOP_PIECE_RL = new Identifier(RepurposedStructures.MODID + ":igloos/grassy_top");
 
