@@ -28,6 +28,9 @@ dependencies {
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
+	modImplementation "me.shedaniel.cloth:config-2:${project.cloth_config_version}"
+	include "me.shedaniel.cloth:config-2:${project.cloth_config_version}"
+
 	modImplementation "me.sargunvohra.mcmods:autoconfig1u:${project.auto_config_version}"
     include "me.sargunvohra.mcmods:autoconfig1u:${project.auto_config_version}"
 

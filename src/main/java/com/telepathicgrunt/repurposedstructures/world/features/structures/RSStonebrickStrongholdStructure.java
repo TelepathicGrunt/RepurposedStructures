@@ -31,11 +31,7 @@ public class RSStonebrickStrongholdStructure extends StrongholdFeature {
 
     @Override
     public StructureFeature.StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
-        if (RepurposedStructures.RSStrongholdsConfig.useVanillaStronghold) {
-            return super.getStructureStartFactory();
-        } else {
-            return RSStonebrickStrongholdStructure.Start::new;
-        }
+        return super.getStructureStartFactory();
     }
 
 

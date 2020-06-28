@@ -9,11 +9,6 @@ import me.sargunvohra.mcmods.autoconfig1u.shadowed.blue.endless.jankson.Comment;
 @Config(name = "Repurposed_Structures-Strongholds")
 public class RSStrongholdsConfig implements ConfigData
 {
-	@Comment("\r\n Use vanilla Stronghold instead of using this mod's modded version.\r\n"
-			+" Note: The other Stronghold configs here will have no effect on vanilla Strongholds. \r\n"
-			+" WARNING: Nether Strongholds will be turned off too when this option is on.")
-	public boolean useVanillaStronghold = false;
-
 	@Comment("\r\n How large the Stronghold is on average as a percentage."
 			+ "\r\n Note: The Stonghold is much larger by default. To get something "
 			+ "\r\n closer to vanilla stronghold size, use the value of 60."
@@ -40,7 +35,8 @@ public class RSStrongholdsConfig implements ConfigData
 
 		@Comment("\r\n Allow Stonebrick-styled Stronghold to replace vanilla Strongholds" +
 				"\r\n in any biome. If off, vanilla Strongholds will still generate while " +
-				"\r\n this mod's Stonebrick-styled Stronghold will not generate.")
+				"\r\n this mod's Stonebrick-styled Stronghold will not generate. " +
+				"\r\n (Note: Nether Stronghold will still spawn)")
 		public boolean allowStonebrickStronghold = true;
 
 		@Comment("\r\n Allow Stonebrick-styled Stronghold to generate in all modded non-Nether biomes " +

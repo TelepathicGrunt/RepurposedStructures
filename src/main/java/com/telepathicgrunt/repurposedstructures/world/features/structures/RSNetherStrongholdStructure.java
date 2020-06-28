@@ -32,11 +32,7 @@ public class RSNetherStrongholdStructure extends StrongholdFeature {
 
     @Override
     public StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
-        if (RepurposedStructures.RSStrongholdsConfig.useVanillaStronghold) {
-            return super.getStructureStartFactory();
-        } else {
-            return RSNetherStrongholdStructure.Start::new;
-        }
+        return RSNetherStrongholdStructure.Start::new;
     }
 
 

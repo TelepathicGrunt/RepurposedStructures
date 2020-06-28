@@ -20,6 +20,9 @@
   "entrypoints": {
     "main": [
       "com.telepathicgrunt.repurposedstructures.RepurposedStructures"
+    ],
+    "modmenu": [
+      "com.telepathicgrunt.repurposedstructures.configs.ModMenuConfig"
     ]
   },
   "mixins": [

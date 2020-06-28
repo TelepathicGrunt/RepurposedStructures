@@ -2,7 +2,6 @@ package com.telepathicgrunt.repurposedstructures;
 
 import com.telepathicgrunt.repurposedstructures.configs.*;
 import com.telepathicgrunt.repurposedstructures.world.features.RSFeatures;
-import com.telepathicgrunt.repurposedstructures.world.features.structures.VillageBadlandsPools;
 import com.telepathicgrunt.repurposedstructures.world.placements.RSPlacements;
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import me.sargunvohra.mcmods.autoconfig1u.serializer.Toml4jConfigSerializer;
@@ -28,6 +27,7 @@ public class RepurposedStructures implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        AutoConfig.register(RSAllConfig.class, Toml4jConfigSerializer::new);
         AutoConfig.register(RSDungeonsConfig.class, Toml4jConfigSerializer::new);
         AutoConfig.register(RSMainConfig.class, Toml4jConfigSerializer::new);
         AutoConfig.register(RSMineshaftsConfig.class, Toml4jConfigSerializer::new);
@@ -41,6 +41,7 @@ public class RepurposedStructures implements ModInitializer {
 		RSWellsConfig = AutoConfig.getConfigHolder(RSWellsConfig.class).getConfig();
         RSVillagesConfig = AutoConfig.getConfigHolder(RSVillagesConfig.class).getConfig();
         RSStrongholdsConfig = AutoConfig.getConfigHolder(RSStrongholdsConfig.class).getConfig();
+
 
         RSPlacements.registerPlacements();
         RSFeatures.registerFeatures();
