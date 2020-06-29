@@ -25,6 +25,11 @@
         },
         {
           "type": "minecraft:item",
+          "weight": 1,
+          "name": "minecraft:netherite_scrap"
+        },
+        {
+          "type": "minecraft:item",
           "weight": 10,
           "functions": [
             {
@@ -176,6 +181,21 @@
             }
           ],
           "name": "minecraft:book"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2.0,
+                "max": 4.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:blackstone"
         }
       ]
     }

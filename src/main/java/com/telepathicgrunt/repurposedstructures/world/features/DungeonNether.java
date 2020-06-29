@@ -171,7 +171,7 @@ public class DungeonNether extends Feature<DefaultFeatureConfig> {
 
         if (roll < 49) {
             // 49% chance
-            return EntityType.ZOMBIFIED_PIGLIN;
+            return EntityType.ZOGLIN;
         } else if (roll < 74) {
             // 25% chance
             return EntityType.BLAZE;

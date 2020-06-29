@@ -313,6 +313,11 @@
         },
         {
           "type": "minecraft:item",
+          "weight": 4,
+          "name": "minecraft:music_disc_pigstep"
+        },
+        {
+          "type": "minecraft:item",
           "weight": 20,
           "name": "minecraft:name_tag"
         },

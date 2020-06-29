@@ -65,7 +65,7 @@ public class JungleFortressStructure extends StructureFeature<DefaultFeatureConf
             }
 
             this.setBoundingBoxFromChildren();
-            this.method_14976(this.random, 58, 63);
+            this.method_14976(this.random, 55, 60);
         }
     }
 }
