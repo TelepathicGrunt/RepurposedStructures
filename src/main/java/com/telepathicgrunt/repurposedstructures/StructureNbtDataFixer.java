@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class StructureNBTDataFixer {
+public class StructureNbtDataFixer {
 
 
     public static void updateAllNbtFiles() throws IOException {
@@ -22,7 +22,7 @@ public class StructureNBTDataFixer {
         setAllNbtFilesToList(resourcePath, files);
         for(File file : files){
             InputStream inputStream = new FileInputStream(file);
-            
+
             File resultingFile = new File(mainPath+"//"+file.getAbsolutePath().split("resources\\\\")[1]);
             resultingFile.getParentFile().mkdirs();
             OutputStream outputStream = new FileOutputStream(resultingFile);
@@ -52,6 +52,6 @@ public class StructureNBTDataFixer {
 
     public static CompoundTag updateNbtCompound(InputStream structureInputStream) throws IOException {
         CompoundTag compoundTag = NbtIo.readCompressed(structureInputStream);
-        return NbtHelper.update(Schemas.getFixer(), DataFixTypes.STRUCTURE, compoundTag, compoundTag.getInt("DataVersion"));
+        return NbtHelper.update(Schemas.getFixer(), DataFixTypes.STRUCTURE, compoundTag, compoundTag.getInt("DataVersion"), compoundTag.getInt("DataVersion"));
     }
 }

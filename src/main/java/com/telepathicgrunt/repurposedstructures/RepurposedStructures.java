@@ -49,11 +49,11 @@ public class RepurposedStructures implements ModInitializer {
         RSFeatures.registerFeatures();
         RepurposedStructures.addFeaturesAndStructuresToBiomes();
 
-        try {
-            StructureNBTDataFixer.updateAllNbtFiles();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            StructureNbtDataFixer.updateAllNbtFiles();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
     /*
