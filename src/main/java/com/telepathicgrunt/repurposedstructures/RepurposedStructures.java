@@ -6,11 +6,6 @@ import com.telepathicgrunt.repurposedstructures.world.placements.RSPlacements;
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import me.sargunvohra.mcmods.autoconfig1u.serializer.Toml4jConfigSerializer;
 import net.fabricmc.api.ModInitializer;
-import net.minecraft.datafixer.DataFixTypes;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.NbtHelper;
-import net.minecraft.nbt.NbtIo;
-import net.minecraft.structure.Structure;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
@@ -18,7 +13,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
-import java.io.InputStream;
 
 
 @SuppressWarnings("deprecation")
@@ -56,7 +50,7 @@ public class RepurposedStructures implements ModInitializer {
         RepurposedStructures.addFeaturesAndStructuresToBiomes();
 
         try {
-            StructureNBTDataFixer.updateAllNBT();
+            StructureNBTDataFixer.updateAllNbtFiles();
         } catch (IOException e) {
             e.printStackTrace();
         }
