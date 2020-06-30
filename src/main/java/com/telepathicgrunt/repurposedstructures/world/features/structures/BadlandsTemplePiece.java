@@ -1,5 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.features.structures;
 
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.StairsBlock;
@@ -11,6 +12,7 @@ import net.minecraft.loot.LootTables;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.structure.StructureManager;
 import net.minecraft.structure.StructurePieceWithDimensions;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
@@ -24,22 +26,9 @@ import java.util.Random;
 
 
 public class BadlandsTemplePiece extends StructurePieceWithDimensions {
-    /**
-     * --------------------------------------------------------------------------
-     * |									|
-     * |	HELLO READERS! IF YOU'RE HERE, YOU'RE PROBABLY			|
-     * |	LOOKING FOR A TUTORIAL ON HOW TO DO STRUCTURES			|
-     * |									|
-     * -------------------------------------------------------------------------
-     * <p>
-     * Don't worry, I actually have a structure tutorial
-     * mod already setup for you to check out! It's full
-     * of comments on what does what and how to make structures.
-     * <p>
-     * Here's the link! https://github.com/TelepathicGrunt/StructureTutorialMod
-     * <p>
-     * Good luck and have fun modding!
-     */
+    public static final Identifier CHESTS_BADLANDS_TEMPLE = new Identifier("repurposed_structures:chests/temple_badlands_chest");
+
+
     public BadlandsTemplePiece(Random random, int x, int z) {
         super(StructurePieces.BADLANDS_TEMPLE_PIECE, random, x, 64, z, 21, 15, 21);
     }
@@ -271,16 +260,18 @@ public class BadlandsTemplePiece extends StructurePieceWithDimensions {
         this.addBlock(world, Blocks.CHISELED_RED_SANDSTONE.getDefaultState(), 10, -10, 13, boundingBox);
         this.addBlock(world, Blocks.CUT_RED_SANDSTONE.getDefaultState(), 10, -11, 13, boundingBox);
 
-        for (Direction direction : Direction.Type.HORIZONTAL) {
-            int x = 10 + direction.getOffsetX() * 2;
-            int z = 10 + direction.getOffsetZ() * 2;
-            blockpos = new BlockPos(this.applyXTransform(x, z), this.applyYTransform(-11), this.applyZTransform(x, z));
-            BlockState chest = method_14916(world, blockpos, Blocks.TRAPPED_CHEST.getDefaultState());
+        if(RepurposedStructures.RSMainConfig.temples.lootChestsBT) {
+            for (Direction direction : Direction.Type.HORIZONTAL) {
+                int x = 10 + direction.getOffsetX() * 2;
+                int z = 10 + direction.getOffsetZ() * 2;
+                blockpos = new BlockPos(this.applyXTransform(x, z), this.applyYTransform(-11), this.applyZTransform(x, z));
+                BlockState chest = method_14916(world, blockpos, Blocks.TRAPPED_CHEST.getDefaultState());
 
-            world.setBlockState(blockpos, chest, 2);
-            tileentity = world.getBlockEntity(blockpos);
-            if (tileentity instanceof ChestBlockEntity) {
-                ((ChestBlockEntity) tileentity).setLootTable(LootTables.DESERT_PYRAMID_CHEST, random.nextLong());
+                world.setBlockState(blockpos, chest, 2);
+                tileentity = world.getBlockEntity(blockpos);
+                if (tileentity instanceof ChestBlockEntity) {
+                    ((ChestBlockEntity) tileentity).setLootTable(CHESTS_BADLANDS_TEMPLE, random.nextLong());
+                }
             }
         }
 

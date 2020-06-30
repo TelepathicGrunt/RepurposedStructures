@@ -372,21 +372,20 @@ public class RSAddFeatures {
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // NETHER TEMPLE //
+    // TEMPLES //
 
 
-    public static void addNetherTemple(Biome biome, String biomeNamespace, String biomePath) {
+    public static void addTemples(Biome biome, String biomeNamespace, String biomePath) {
         if (RepurposedStructures.RSMainConfig.temples.netherTempleSpawnrate != 1001 && biome.getCategory() == Category.NETHER &&
                 (biomeNamespace.equals("minecraft") || RepurposedStructures.RSMainConfig.temples.addNetherTempleToModdedBiomes)) {
             biome.addStructureFeature(RSFeatures.NETHER_TEMPLE.configure(FeatureConfig.DEFAULT));
         }
-    }
 
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // BADLANDS TEMPLE //
+        if (RepurposedStructures.RSMainConfig.temples.netherPyramidSpawnrate != 1001 && biome.getCategory() == Category.NETHER &&
+                (biomeNamespace.equals("minecraft") || RepurposedStructures.RSMainConfig.temples.addNetherPyramidToModdedBiomes)) {
+            biome.addStructureFeature(RSFeatures.NETHER_PYRAMID.configure(FeatureConfig.DEFAULT));
+        }
 
-
-    public static void addBadlandsTemple(Biome biome, String biomeNamespace, String biomePath) {
         if (RepurposedStructures.RSMainConfig.temples.badlandsTempleSpawnrate != 1001 && biome.getCategory() == Category.MESA &&
                 (biomeNamespace.equals("minecraft") || RepurposedStructures.RSMainConfig.temples.addBadlandsTempleToModdedBiomes)) {
             biome.addStructureFeature(RSFeatures.BADLANDS_TEMPLE.configure(FeatureConfig.DEFAULT));

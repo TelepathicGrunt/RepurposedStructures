@@ -33,6 +33,7 @@ import net.minecraft.world.WorldAccess;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 
+import java.lang.reflect.Constructor;
 import java.util.*;
 
 
@@ -102,6 +103,8 @@ public class RSStrongholdPieces {
 
         for(StrongholdGenerator.PieceSetting piece : StrongholdGeneratorAccessor.getALL_PIECE_SETTINGS()){
             try {
+                Constructor<?>[] c = piece.pieceType.getDeclaredConstructors();
+                Constructor c2 = c[0];
                 if(!Registry.STRUCTURE_PIECE.getId((StructurePieceType) piece.pieceType.getDeclaredConstructors()[0].newInstance())
                         .getNamespace().equals("minecraft"))
                 {
@@ -1631,14 +1634,16 @@ public class RSStrongholdPieces {
         protected EntityType<?> getSpawnerEntity(Random random) {
             if (this.strongholdType == Type.NETHER) {
                 float chance = random.nextFloat();
-                if(chance < 0.8){
+                if(chance < 0.5){
+                    // 50% chance
                     return EntityType.BLAZE;
                 }
-                else if(chance <= 1){
+                else if(chance <= 0.8){
+                    // 30% chance
                     return EntityType.ZOGLIN;
                 }
                 else{
-                    //disabled until mojang fixes log spam with them
+                    // 20% chance
                     return EntityType.ZOMBIFIED_PIGLIN;
                 }
             } else {

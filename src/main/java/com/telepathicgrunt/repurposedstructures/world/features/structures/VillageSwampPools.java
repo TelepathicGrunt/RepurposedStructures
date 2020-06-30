@@ -58,16 +58,18 @@ public class VillageSwampPools
 
        ImmutableList<StructureProcessor> path_randomizer = ImmutableList.of(new RuleStructureProcessor(
 	       ImmutableList.of(
-		       new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.GRASS_PATH, 0.4F), AlwaysTrueRuleTest.INSTANCE, Blocks.BROWN_TERRACOTTA.getDefaultState()),
+		       new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.GRASS_PATH, 0.3F), AlwaysTrueRuleTest.INSTANCE, Blocks.BROWN_TERRACOTTA.getDefaultState()),
 		       new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.GRASS_PATH, 0.1F), AlwaysTrueRuleTest.INSTANCE, Blocks.COARSE_DIRT.getDefaultState()),
+				   new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.GRASS_PATH, 0.2F), AlwaysTrueRuleTest.INSTANCE, Blocks.GRASS_BLOCK.getDefaultState()),
 		       new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.GRASS_PATH, 0.2F), AlwaysTrueRuleTest.INSTANCE, Blocks.GRAY_TERRACOTTA.getDefaultState()),
-		       new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.GRASS_PATH, 0.5F), new BlockMatchRuleTest(Blocks.WATER), Blocks.GRAY_TERRACOTTA.getDefaultState()),
-		       new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.GRASS_PATH, 0.8F), new BlockMatchRuleTest(Blocks.WATER), Blocks.BROWN_TERRACOTTA.getDefaultState()),
+		       new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.GRASS_PATH, 0.55F), new BlockMatchRuleTest(Blocks.WATER), Blocks.GRAY_TERRACOTTA.getDefaultState()),
+		       new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.GRASS_PATH, 0.85F), new BlockMatchRuleTest(Blocks.WATER), Blocks.BROWN_TERRACOTTA.getDefaultState()),
 		       new StructureProcessorRule(new BlockMatchRuleTest(Blocks.GRASS_PATH), new BlockMatchRuleTest(Blocks.WATER), Blocks.WATER.getDefaultState()),
 		       new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.GRASS_BLOCK, 0.5F), new BlockMatchRuleTest(Blocks.WATER), Blocks.WATER.getDefaultState()),
 		       new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.GRASS_BLOCK, 0.1F), new BlockMatchRuleTest(Blocks.WATER), Blocks.BROWN_TERRACOTTA.getDefaultState()),
 		       new StructureProcessorRule(new BlockMatchRuleTest(Blocks.GRASS_BLOCK), new BlockMatchRuleTest(Blocks.WATER), Blocks.GRAY_TERRACOTTA.getDefaultState()),
 		       new StructureProcessorRule(new BlockMatchRuleTest(Blocks.DIRT), new BlockMatchRuleTest(Blocks.WATER), Blocks.WATER.getDefaultState()),
+				   new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.DIRT, 0.95F), AlwaysTrueRuleTest.INSTANCE, Blocks.GRASS_BLOCK.getDefaultState()),
 		       new StructureProcessorRule(new BlockMatchRuleTest(Blocks.DIRT), AlwaysTrueRuleTest.INSTANCE, Blocks.COARSE_DIRT.getDefaultState()))));
 
        ImmutableList<StructureProcessor> crop_randomizer = ImmutableList.of(new RuleStructureProcessor(

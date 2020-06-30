@@ -70,6 +70,18 @@ public class RSMainConfig implements ConfigData {
 
     public static class Temples {
 
+        @Comment("\r\n How rare are Nether Pyramids in Nether."
+                + "\n "
+                + "\r\n 1 for spawning in most chunks and 1001 for no spawn.")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int netherPyramidSpawnrate = 20;
+
+        @Comment("\r\n Controls whether loot chests spawn or not in Nether Pyramids.")
+        public boolean lootChestsNP = true;
+
+        @Comment("\r\n Add Nether Pyramids to modded Nether biomes.")
+        public boolean addNetherPyramidToModdedBiomes = false;
+
         @Comment("\r\n How rare are Nether Temples in Nether."
                 + "\n "
                 + "\r\n 1 for spawning in most chunks and 1001 for no spawn.")
@@ -79,7 +91,7 @@ public class RSMainConfig implements ConfigData {
         @Comment("\r\n Controls whether loot chests spawn or not in Nether Temples.")
         public boolean lootChestsNT = true;
 
-        @Comment("\r\n Add Jungle Fortress to modded jungle biomes.")
+        @Comment("\r\n Add Nether Temples to modded Nether biomes.")
         public boolean addNetherTempleToModdedBiomes = false;
 
         @Comment("\r\n How rare are Nether Temples in Nether."
@@ -93,6 +105,7 @@ public class RSMainConfig implements ConfigData {
 
         @Comment("\r\n Add Jungle Fortress to modded jungle biomes.")
         public boolean addBadlandsTempleToModdedBiomes = false;
+
     }
 
     public static class Igloos {

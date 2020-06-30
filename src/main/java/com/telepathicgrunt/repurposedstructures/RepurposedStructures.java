@@ -12,8 +12,6 @@ import net.minecraft.world.biome.Biome;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.IOException;
-
 
 @SuppressWarnings("deprecation")
 public class RepurposedStructures implements ModInitializer {
@@ -26,6 +24,9 @@ public class RepurposedStructures implements ModInitializer {
 	public static RSWellsConfig RSWellsConfig = null;
     public static RSVillagesConfig RSVillagesConfig = null;
     public static RSStrongholdsConfig RSStrongholdsConfig = null;
+
+//    static Block LOAD_NBT_BLOCK = new LoadNbtBlock();
+//    public static final Item LOAD_NBT_ITEM = new BlockItem(LOAD_NBT_BLOCK, new Item.Settings().group(ItemGroup.REDSTONE));
 
     @Override
     public void onInitialize() {
@@ -49,11 +50,8 @@ public class RepurposedStructures implements ModInitializer {
         RSFeatures.registerFeatures();
         RepurposedStructures.addFeaturesAndStructuresToBiomes();
 
-//        try {
-//            StructureNbtDataFixer.updateAllNbtFiles();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+//        Registry.register(Registry.BLOCK, new Identifier(MODID, "load_nbt_block"), LOAD_NBT_BLOCK);
+//        Registry.register(Registry.ITEM, new Identifier(MODID, "load_nbt_block"), LOAD_NBT_ITEM);
     }
 
     /*
@@ -72,8 +70,7 @@ public class RepurposedStructures implements ModInitializer {
             RSAddFeatures.addDungeons(biome, biomeNamespace, biomePath);
             RSAddFeatures.addWells(biome, biomeNamespace, biomePath);
             RSAddFeatures.addMiscFeatures(biome, biomeNamespace, biomePath);
-            RSAddFeatures.addNetherTemple(biome, biomeNamespace, biomePath);
-            RSAddFeatures.addBadlandsTemple(biome, biomeNamespace, biomePath);
+            RSAddFeatures.addTemples(biome, biomeNamespace, biomePath);
             RSAddFeatures.addIgloos(biome, biomeNamespace, biomePath);
             RSAddFeatures.addVillages(biome, biomeNamespace, biomePath);
             RSAddFeatures.addStrongholds(biome, biomeNamespace, biomePath);

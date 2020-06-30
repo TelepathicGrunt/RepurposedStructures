@@ -24,22 +24,6 @@ import java.util.Random;
 
 
 public class NetherTemplePiece extends StructurePieceWithDimensions {
-    /**
-     * --------------------------------------------------------------------------
-     * |									|
-     * |	HELLO READERS! IF YOU'RE HERE, YOU'RE PROBABLY			|
-     * |	LOOKING FOR A TUTORIAL ON HOW TO DO STRUCTURES			|
-     * |									|
-     * -------------------------------------------------------------------------
-     * <p>
-     * Don't worry, I actually have a structure tutorial
-     * mod already setup for you to check out! It's full
-     * of comments on what does what and how to make structures.
-     * <p>
-     * Here's the link! https://github.com/TelepathicGrunt/StructureTutorialMod
-     * <p>
-     * Good luck and have fun modding!
-     */
     private static final NetherTemplePiece.Selector NETHER_BLOCK_SELECTOR = new NetherTemplePiece.Selector();
     public static final Identifier CHESTS_NETHER_TEMPLE = new Identifier("repurposed_structures:chests/nether_temple_chest");
     public static final Identifier DISPENSER_NETHER_TEMPLE = new Identifier("repurposed_structures:chests/nether_temple_dispenser");
@@ -69,7 +53,7 @@ public class NetherTemplePiece extends StructurePieceWithDimensions {
             mutable.move(Direction.UP);
         }
 
-        if (mutable.getY() >= world.getHeight() || mutable.getY() <= 32) {
+        if (mutable.getY() >= world.getHeight() - 20 || mutable.getY() <= 32) {
             this.boundingBox.offset(0, this.hPos - this.boundingBox.minY + 32, 0);
         } else {
             this.boundingBox.offset(0, this.hPos - this.boundingBox.minY + mutable.getY(), 0);

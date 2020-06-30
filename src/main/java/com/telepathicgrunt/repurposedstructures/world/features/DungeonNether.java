@@ -169,15 +169,18 @@ public class DungeonNether extends Feature<DefaultFeatureConfig> {
     private static EntityType<?> pickMobSpawner(ServerWorldAccess world, Random random, BlockPos position) {
         int roll = random.nextInt(100);
 
-        if (roll < 49) {
-            // 49% chance
-            return EntityType.ZOGLIN;
-        } else if (roll < 74) {
-            // 25% chance
-            return EntityType.BLAZE;
-        } else if (roll < 99) {
+        if (roll < 44) {
+            // 44% chance
+            return EntityType.ZOMBIFIED_PIGLIN;
+        } else if (roll < 64) {
+            // 20% chance
+            return EntityType.STRIDER;
+        }  else if (roll < 89) {
             // 25% chance
             return EntityType.MAGMA_CUBE;
+        } else if (roll < 99) {
+            // 10% chance
+            return EntityType.BLAZE;
         } else {
             // 1% chance
             if (position.getY() < 30) {

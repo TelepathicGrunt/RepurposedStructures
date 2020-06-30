@@ -39,6 +39,7 @@ public class StructurePieces {
     public static StructurePieceType STRONGHOLD_ENTRANCE_STAIRS = RSStrongholdPieces.EntranceStairs::new;
     public static StructurePieceType NETHER_TEMPLE_PIECE = NetherTemplePiece::new;
     public static StructurePieceType BADLANDS_TEMPLE_PIECE = BadlandsTemplePiece::new;
+    public static StructurePieceType NETHER_PYRAMID_PIECE = NetherPyramidPiece::new;
     public static StructurePieceType RS_IGLOO_PIECE = RSIglooPieces.Piece::new;
 
     public static void registerStructurePieces() {
@@ -76,6 +77,7 @@ public class StructurePieces {
         Registry.register(Registry.STRUCTURE_PIECE, "stronghold_entrance_stairs", STRONGHOLD_ENTRANCE_STAIRS);
         Registry.register(Registry.STRUCTURE_PIECE, "nether_temple_piece", NETHER_TEMPLE_PIECE);
         Registry.register(Registry.STRUCTURE_PIECE, "badlands_temple_piece", BADLANDS_TEMPLE_PIECE);
+        Registry.register(Registry.STRUCTURE_PIECE, "nether_pyramid_piece", NETHER_PYRAMID_PIECE);
         Registry.register(Registry.STRUCTURE_PIECE, "rs_igloo_piece", RS_IGLOO_PIECE);
     }
 

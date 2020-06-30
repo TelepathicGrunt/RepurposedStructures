@@ -36,24 +36,32 @@ public class WellNether extends WellAbstract {
     public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
         // move to top land block below position
         BlockPos.Mutable mutable = new BlockPos.Mutable().set(position);
-        for (mutable.move(Direction.UP); world.isAir(mutable) && mutable.getY() > 2; ) {
-            mutable.move(Direction.DOWN);
-        }
+        for (mutable.move(Direction.UP); mutable.getY() > 2;) {
 
-        // check to make sure spot is valid and not a single block ledge
-        Block block = world.getBlockState(mutable).getBlock();
-        if ((BlockTags.INFINIBURN_NETHER.contains(block) ||
-                block == Blocks.SOUL_SAND ||
-                block == Blocks.GRAVEL ||
-                block == Blocks.NETHERRACK ||
-                block == world.getBiome(mutable).getSurfaceConfig().getTopMaterial().getBlock()) &&
-                (!world.isAir(mutable.down()) || !world.isAir(mutable.down(2)))) {
-            // Creates the well centered on our spot
-            mutable.move(Direction.DOWN);
-            Structure template = this.generateTemplate(NETHER_WELL_RL, world, random, mutable);
-            this.handleDataBlocks(NETHER_WELL_ORE_RL, template, world, random, mutable, Blocks.NETHERRACK, 0);
+            if(world.isAir(mutable)){
+                mutable.move(Direction.DOWN);
+                continue;
+            }
 
-            return true;
+
+            // check to make sure spot is valid and not a single block ledge
+            Block block = world.getBlockState(mutable).getBlock();
+            if ((BlockTags.INFINIBURN_NETHER.contains(block) ||
+                    block == Blocks.SOUL_SAND ||
+                    block == Blocks.GRAVEL ||
+                    block == Blocks.NETHERRACK ||
+                    block == world.getBiome(mutable).getSurfaceConfig().getTopMaterial().getBlock()) &&
+                    (!world.isAir(mutable.down()) || !world.isAir(mutable.down(2)))) {
+                // Creates the well centered on our spot
+                mutable.move(Direction.DOWN);
+                Structure template = this.generateTemplate(NETHER_WELL_RL, world, random, mutable);
+                this.handleDataBlocks(NETHER_WELL_ORE_RL, template, world, random, mutable, Blocks.NETHERRACK, 0);
+
+                return true;
+            }
+            else{
+                mutable.move(Direction.DOWN);
+            }
         }
 
         return false;
@@ -100,7 +108,7 @@ public class WellNether extends WellAbstract {
     protected static void addSpace(String function, BlockPos position, ServerWorldAccess world) {
         if (function.equals("space")) {
             BlockState blockstate;
-            if (position.getY() < world.getSeaLevel()) {
+            if (position.getY() < 32) {
                 blockstate = Blocks.LAVA.getDefaultState();
             } else {
                 blockstate = Blocks.AIR.getDefaultState();
