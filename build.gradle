@@ -11,16 +11,16 @@ version = project.mod_version
 group = project.maven_group
 
 repositories {
+	maven { url 'https://jitpack.io' }
 	maven { url 'http://server.bbkr.space:8081/artifactory/libs-release' }
 	maven { url "https://maven.fabricmc.net" }
 	maven {
 		name = 'Earthcomputer Mods'
 		url = 'https://dl.bintray.com/earthcomputer/mods'
 	}
-	maven { url 'https://jitpack.io' }
-	flatDir {
-		dirs 'deps'
-	}
+//	flatDir {
+//		dirs 'deps'
+//	}
 }
 
 minecraft {

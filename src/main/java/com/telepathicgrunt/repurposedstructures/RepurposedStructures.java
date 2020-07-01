@@ -35,7 +35,6 @@ public class RepurposedStructures implements ModInitializer {
 
         RSAllConfig = AutoConfig.getConfigHolder(RSAllConfig.class).getConfig();
 
-
         RSPlacements.registerPlacements();
         RSFeatures.registerFeatures();
         RepurposedStructures.addFeaturesAndStructuresToBiomes();

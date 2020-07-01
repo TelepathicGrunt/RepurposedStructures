@@ -177,8 +177,8 @@ public class NetherTemplePiece extends StructurePieceWithDimensions {
         this.addDispenser(world, boundingBox, random, 3, -2, 1, Direction.NORTH, DISPENSER_NETHER_TEMPLE);
 
 
-        this.addBlock(world, Blocks.WEEPING_VINES_PLANT.getDefaultState(), 3, -2, 2, boundingBox);
         this.addBlock(world, Blocks.WEEPING_VINES.getDefaultState(), 3, -2, 2, boundingBox);
+        this.addBlock(world, Blocks.WEEPING_VINES_PLANT.getDefaultState(), 3, -1, 2, boundingBox);
         this.addBlock(world, Blocks.TRIPWIRE_HOOK.getDefaultState().with(TripwireHookBlock.FACING, Direction.NORTH).with(TripwireHookBlock.ATTACHED, Boolean.valueOf(true)), 7, -3, 1, boundingBox);
         this.addBlock(world, Blocks.TRIPWIRE_HOOK.getDefaultState().with(TripwireHookBlock.FACING, Direction.SOUTH).with(TripwireHookBlock.ATTACHED, Boolean.valueOf(true)), 7, -3, 5, boundingBox);
         this.addBlock(world, Blocks.TRIPWIRE.getDefaultState().with(TripwireBlock.NORTH, Boolean.valueOf(true)).with(TripwireBlock.SOUTH, Boolean.valueOf(true)).with(TripwireBlock.ATTACHED, Boolean.valueOf(true)), 7, -3, 2, boundingBox);
@@ -192,8 +192,9 @@ public class NetherTemplePiece extends StructurePieceWithDimensions {
         this.addDispenser(world, boundingBox, random, 9, -2, 3, Direction.WEST, DISPENSER_NETHER_TEMPLE);
 
 
+        this.addBlock(world, Blocks.WEEPING_VINES.getDefaultState(), 8, -3, 3, boundingBox);
         this.addBlock(world, Blocks.WEEPING_VINES_PLANT.getDefaultState(), 8, -2, 3, boundingBox);
-        this.addBlock(world, Blocks.WEEPING_VINES.getDefaultState(), 8, -2, 3, boundingBox);
+        this.addBlock(world, Blocks.WEEPING_VINES_PLANT.getDefaultState(), 8, -1, 3, boundingBox);
         this.addChest(world, boundingBox, random, 9, -3, 3, CHESTS_NETHER_TEMPLE);
 
 
