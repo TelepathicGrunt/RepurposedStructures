@@ -50,6 +50,7 @@ public class WellNether extends WellAbstract {
                     block == Blocks.SOUL_SAND ||
                     block == Blocks.GRAVEL ||
                     block == Blocks.NETHERRACK ||
+                    block == Blocks.SOUL_SOIL ||
                     block == world.getBiome(mutable).getSurfaceConfig().getTopMaterial().getBlock()) &&
                     (!world.isAir(mutable.down()) || !world.isAir(mutable.down(2)))) {
                 // Creates the well centered on our spot

@@ -57,7 +57,6 @@ public class BadlandsTemplePiece extends StructurePieceWithDimensions {
 
         this.boundingBox.offset(0, this.hPos - this.boundingBox.minY + minY + 1, 0);
 
-
         this.fillWithOutline(world, boundingBox, 0, -4, 0, this.width - 1, 0, this.depth - 1, Blocks.RED_SANDSTONE.getDefaultState(), Blocks.RED_SANDSTONE.getDefaultState(), false);
 
         for (int i = 1; i <= 9; ++i) {

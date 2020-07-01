@@ -39,7 +39,7 @@ public class StructurePieces {
     public static StructurePieceType STRONGHOLD_ENTRANCE_STAIRS = RSStrongholdPieces.EntranceStairs::new;
     public static StructurePieceType NETHER_TEMPLE_PIECE = NetherTemplePiece::new;
     public static StructurePieceType BADLANDS_TEMPLE_PIECE = BadlandsTemplePiece::new;
-    public static StructurePieceType NETHER_PYRAMID_PIECE = NetherPyramidPiece::new;
+    public static StructurePieceType NETHER_PYRAMID_PIECE = NetherPyramidPiece.Piece::new;
     public static StructurePieceType RS_IGLOO_PIECE = RSIglooPieces.Piece::new;
 
     public static void registerStructurePieces() {

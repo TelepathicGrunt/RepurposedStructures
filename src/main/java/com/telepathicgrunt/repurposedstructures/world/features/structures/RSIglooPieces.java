@@ -30,22 +30,6 @@ import java.util.Random;
 
 
 public class RSIglooPieces {
-    /**
-     * --------------------------------------------------------------------------
-     * |									|
-     * |	HELLO READERS! IF YOU'RE HERE, YOU'RE PROBABLY			|
-     * |	LOOKING FOR A TUTORIAL ON HOW TO DO STRUCTURES			|
-     * |									|
-     * -------------------------------------------------------------------------
-     * <p>
-     * Don't worry, I actually have a structure tutorial
-     * mod already setup for you to check out! It's full
-     * of comments on what does what and how to make structures.
-     * <p>
-     * Here's the link! https://github.com/TelepathicGrunt/StructureTutorialMod
-     * <p>
-     * Good luck and have fun modding!
-     */
     private static final Identifier IGLOO_MIDDLE_RL = new Identifier("igloo/middle");
     private static final Identifier IGLOO_BOTTOM_RL = new Identifier("igloo/bottom");
     private static final Map<Identifier, BlockPos> OFFSET_1 = ImmutableMap.of(IglooStoneStructure.Start.TOP_PIECE_RL, new BlockPos(3, 4, 5), IglooGrassyStructure.Start.TOP_PIECE_RL, new BlockPos(3, 4, 5), IGLOO_MIDDLE_RL, new BlockPos(1, 3, 1), IGLOO_BOTTOM_RL, new BlockPos(3, 6, 7));

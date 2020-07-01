@@ -3,10 +3,13 @@ package com.telepathicgrunt.repurposedstructures.world.features.structures;
 import com.mojang.serialization.Codec;
 import net.minecraft.structure.StructureManager;
 import net.minecraft.structure.StructureStart;
+import net.minecraft.util.BlockRotation;
 import net.minecraft.util.math.BlockBox;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.FeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
 
@@ -30,8 +33,9 @@ public class NetherPyramidStructure extends StructureFeature<DefaultFeatureConfi
 
         @Override
         public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
-            BadlandsTemplePiece netherTemplePiece = new BadlandsTemplePiece(this.random, chunkX * 16, chunkZ * 16);
-            this.children.add(netherTemplePiece);
+            BlockPos blockpos = new BlockPos(chunkX * 16, 0, chunkZ * 16);
+            BlockRotation rotation = BlockRotation.values()[this.random.nextInt(BlockRotation.values().length)];
+            NetherPyramidPiece.func_207617_a(structureManager, blockpos, rotation, this.children, this.random, FeatureConfig.DEFAULT);
             this.setBoundingBoxFromChildren();
             this.method_14976(this.random, 55, 60);
         }

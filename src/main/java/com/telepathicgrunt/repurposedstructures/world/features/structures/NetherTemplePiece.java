@@ -49,11 +49,11 @@ public class NetherTemplePiece extends StructurePieceWithDimensions {
 
     public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
         BlockPos.Mutable mutable = new BlockPos.Mutable((boundingBox.maxX - boundingBox.minX) / 2 + boundingBox.minX, 30, (boundingBox.maxZ - boundingBox.minZ) / 2 + boundingBox.minZ);
-        while (!world.isAir(mutable)) {
+        while (!world.isAir(mutable) && mutable.getY() <= 108) {
             mutable.move(Direction.UP);
         }
 
-        if (mutable.getY() >= world.getHeight() - 20 || mutable.getY() <= 32) {
+        if (mutable.getY() >= 108 || mutable.getY() <= 32) {
             this.boundingBox.offset(0, this.hPos - this.boundingBox.minY + 32, 0);
         } else {
             this.boundingBox.offset(0, this.hPos - this.boundingBox.minY + mutable.getY(), 0);
