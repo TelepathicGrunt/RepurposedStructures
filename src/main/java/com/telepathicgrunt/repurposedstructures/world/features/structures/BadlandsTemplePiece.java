@@ -259,7 +259,7 @@ public class BadlandsTemplePiece extends StructurePieceWithDimensions {
         this.addBlock(world, Blocks.CHISELED_RED_SANDSTONE.getDefaultState(), 10, -10, 13, boundingBox);
         this.addBlock(world, Blocks.CUT_RED_SANDSTONE.getDefaultState(), 10, -11, 13, boundingBox);
 
-        if(RepurposedStructures.RSMainConfig.temples.lootChestsBT) {
+        if(RepurposedStructures.RSAllConfig.RSMainConfig.temples.lootChestsBT) {
             for (Direction direction : Direction.Type.HORIZONTAL) {
                 int x = 10 + direction.getOffsetX() * 2;
                 int z = 10 + direction.getOffsetZ() * 2;

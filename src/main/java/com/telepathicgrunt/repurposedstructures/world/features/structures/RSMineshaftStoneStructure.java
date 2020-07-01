@@ -18,7 +18,7 @@ public class RSMineshaftStoneStructure extends AbstractMineshaftStructure {
     }
 
     public double mineshaftProbability() {
-        return RepurposedStructures.RSMineshaftsConfig.spawnrate.stoneMineshaftSpawnrate;
+        return RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.stoneMineshaftSpawnrate;
     }
 
     @Override
@@ -40,8 +40,8 @@ public class RSMineshaftStoneStructure extends AbstractMineshaftStructure {
             structuremineshaftpiecesua$room.placeJigsaw(structuremineshaftpiecesua$room, this.children, this.random);
             this.setBoundingBoxFromChildren();
 
-            int minimum = RepurposedStructures.RSMineshaftsConfig.minHeight.stoneMineshaftMinHeight;
-            int maximum = Math.max(RepurposedStructures.RSMineshaftsConfig.maxHeight.stoneMineshaftMaxHeight, minimum) + 1;
+            int minimum = RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.stoneMineshaftMinHeight;
+            int maximum = Math.max(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.stoneMineshaftMaxHeight, minimum) + 1;
 
             int offset = this.random.nextInt(maximum - minimum) + minimum;
             this.boundingBox.offset(0, offset - 50, 0);

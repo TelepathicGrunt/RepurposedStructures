@@ -18,7 +18,7 @@ public class RSMineshaftSwampOrDarkForestStructure extends AbstractMineshaftStru
     }
 
     public double mineshaftProbability() {
-        return RepurposedStructures.RSMineshaftsConfig.spawnrate.swampAndDarkForestMineshaftSpawnrate;
+        return RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.swampAndDarkForestMineshaftSpawnrate;
     }
 
     @Override
@@ -40,8 +40,8 @@ public class RSMineshaftSwampOrDarkForestStructure extends AbstractMineshaftStru
             structuremineshaftpiecesua$room.placeJigsaw(structuremineshaftpiecesua$room, this.children, this.random);
             this.setBoundingBoxFromChildren();
 
-            int minimum = RepurposedStructures.RSMineshaftsConfig.minHeight.swampAndDarkForestMineshaftMinHeight;
-            int maximum = Math.max(RepurposedStructures.RSMineshaftsConfig.maxHeight.swampAndDarkForestMineshaftMaxHeight, minimum) + 1;
+            int minimum = RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.swampAndDarkForestMineshaftMinHeight;
+            int maximum = Math.max(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.swampAndDarkForestMineshaftMaxHeight, minimum) + 1;
 
             int offset = this.random.nextInt(maximum - minimum) + minimum;
             this.boundingBox.offset(0, offset - 50, 0);

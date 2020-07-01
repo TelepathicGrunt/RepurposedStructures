@@ -48,6 +48,8 @@
   "text.autoconfig.repurposed_structures-main.option.RSMainConfig.jungleFortress.lootChestsJF": "Allow Loot Chests",
   "text.autoconfig.repurposed_structures-main.option.RSMainConfig.jungleFortress.addJungleFortressToModdedBiomes": "Add JF to Modded Biomes",
   "text.autoconfig.repurposed_structures-main.option.RSMainConfig.temples": "Temples",
+  "text.autoconfig.repurposed_structures-main.option.RSMainConfig.temples.netherPyramidSpawnrate": "Nether Pyramid Spawnrate",
+  "text.autoconfig.repurposed_structures-main.option.RSMainConfig.temples.addNetherPyramidToModdedBiomes": "Add Nether Pyramid to Modded Biomes",
   "text.autoconfig.repurposed_structures-main.option.RSMainConfig.temples.netherTempleSpawnrate": "Nether Temple Spawnrate",
   "text.autoconfig.repurposed_structures-main.option.RSMainConfig.temples.lootChestsNT": "Allow Nether Temple Loot Chests",
   "text.autoconfig.repurposed_structures-main.option.RSMainConfig.temples.addNetherTempleToModdedBiomes": "Add Nether Temples to Modded Biomes",

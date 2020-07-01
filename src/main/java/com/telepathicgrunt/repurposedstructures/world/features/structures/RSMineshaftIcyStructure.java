@@ -22,12 +22,12 @@ public class RSMineshaftIcyStructure extends AbstractMineshaftStructure {
     }
 
     public double mineshaftProbability() {
-        return RepurposedStructures.RSMineshaftsConfig.spawnrate.icyMineshaftSpawnrate;
+        return RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.icyMineshaftSpawnrate;
     }
 
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, int x, int z, Biome biome, ChunkPos chunkPos, MineshaftFeatureConfig mineshaftFeatureConfig) {
         chunkRandom.setCarverSeed(seed, x, z);
-        double d = (RepurposedStructures.RSMineshaftsConfig.spawnrate.icyMineshaftSpawnrate / 10000D);
+        double d = (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.icyMineshaftSpawnrate / 10000D);
         return chunkRandom.nextDouble() < d;
     }
 
@@ -51,8 +51,8 @@ public class RSMineshaftIcyStructure extends AbstractMineshaftStructure {
             structuremineshaftpiecesua$room.placeJigsaw(structuremineshaftpiecesua$room, this.children, this.random);
             this.setBoundingBoxFromChildren();
 
-            int minimum = RepurposedStructures.RSMineshaftsConfig.minHeight.icyMineshaftMinHeight;
-            int maximum = Math.max(RepurposedStructures.RSMineshaftsConfig.maxHeight.icyMineshaftMaxHeight, minimum) + 1;
+            int minimum = RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.icyMineshaftMinHeight;
+            int maximum = Math.max(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.icyMineshaftMaxHeight, minimum) + 1;
 
             int offset = this.random.nextInt(maximum - minimum) + minimum;
             this.boundingBox.offset(0, offset - 50, 0);

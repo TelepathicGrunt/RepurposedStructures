@@ -45,7 +45,7 @@ public class RSNetherStrongholdStructure extends StrongholdFeature {
         @Override
         public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
             RSStrongholdPieces.prepareStructurePieces();
-            //RepurposedStructures.RSStrongholdsConfig.nether.allowNetherStronghold
+            //RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.allowNetherStronghold
             RSStrongholdPieces.EntranceStairs strongholdpieces$entrancestairs = new RSStrongholdPieces.EntranceStairs(this.random, (chunkX << 4) + 2, (chunkZ << 4) + 2, RSStrongholdPieces.Type.NETHER);
             this.children.add(strongholdpieces$entrancestairs);
             strongholdpieces$entrancestairs.placeJigsaw(strongholdpieces$entrancestairs, this.children, this.random);
@@ -73,8 +73,8 @@ public class RSNetherStrongholdStructure extends StrongholdFeature {
 
             this.setBoundingBoxFromChildren();
             int lowestBounds = this.boundingBox.minY - 2;
-            int maxYConfig = RepurposedStructures.RSStrongholdsConfig.nether.netherStrongholdMaxHeight;
-            int minYConfig = RepurposedStructures.RSStrongholdsConfig.nether.netherStrongholdMinHeight;
+            int maxYConfig = RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdMaxHeight;
+            int minYConfig = RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdMinHeight;
 
 
             int minimum = minYConfig;

@@ -74,10 +74,7 @@ public class RSMainConfig implements ConfigData {
                 + "\n "
                 + "\r\n 1 for spawning in most chunks and 1001 for no spawn.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int netherPyramidSpawnrate = 20;
-
-        @Comment("\r\n Controls whether loot chests spawn or not in Nether Pyramids.")
-        public boolean lootChestsNP = true;
+        public int netherPyramidSpawnrate = 32;
 
         @Comment("\r\n Add Nether Pyramids to modded Nether biomes.")
         public boolean addNetherPyramidToModdedBiomes = false;
@@ -86,7 +83,7 @@ public class RSMainConfig implements ConfigData {
                 + "\n "
                 + "\r\n 1 for spawning in most chunks and 1001 for no spawn.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int netherTempleSpawnrate = 20;
+        public int netherTempleSpawnrate = 26;
 
         @Comment("\r\n Controls whether loot chests spawn or not in Nether Temples.")
         public boolean lootChestsNT = true;

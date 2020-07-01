@@ -35,8 +35,7 @@ public class NetherPyramidPiece {
         public Piece(StructureManager templateManager, Identifier pieceRL, BlockPos position, BlockRotation rotationIn, int heightOffset) {
             super(StructurePieces.NETHER_PYRAMID_PIECE, 0);
             this.pieceRL = pieceRL;
-            BlockPos blockpos = new BlockPos(0,0,0);
-            this.pos = position.add(blockpos.getX(), blockpos.getY() - heightOffset, blockpos.getZ());
+            this.pos = position;
             this.rotation = rotationIn;
             this.func_207614_a(templateManager);
         }
@@ -60,6 +59,7 @@ public class NetherPyramidPiece {
         /**
          * (abstract) Helper method to read subclass data from NBT
          */
+        @Override
         protected void toNbt(CompoundTag tagCompound) {
             super.toNbt(tagCompound);
             tagCompound.putString("Template", this.pieceRL.toString());
@@ -67,7 +67,7 @@ public class NetherPyramidPiece {
         }
 
 
-
+        @Override
         public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
 
             BlockPos.Mutable mutable = new BlockPos.Mutable().set(this.boundingBox.getCenter().getX(), 32, this.boundingBox.getCenter().getZ());
@@ -89,7 +89,7 @@ public class NetherPyramidPiece {
                 mutable.set(mutable.getX(), 32, mutable.getZ());
             }
 
-            this.pos = this.pos.add(0, mutable.getY() - 3, 0);
+            this.pos = this.pos.add(0, mutable.getY() - 93, 0);
             super.generate(world, structureAccessor, generator, random, boundingBox, chunkPos, blockPos);
             this.pos = mutable;
 

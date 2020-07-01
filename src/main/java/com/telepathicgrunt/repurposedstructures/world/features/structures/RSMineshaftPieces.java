@@ -331,7 +331,7 @@ public class RSMineshaftPieces {
                     this.placeDecoration(world, box, random, 0.05F, 0, 2, k1 + 2);
                     this.placeDecoration(world, box, random, 0.05F, 2, 2, k1 + 2);
 
-                    if (RepurposedStructures.RSMineshaftsConfig.lootChestsMS) {
+                    if (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.lootChestsMS) {
                         if (random.nextInt(50) == 0) {
                             this.addChest(world, box, random, 2, 0, k1 - 1, getChestLoot());
                         }

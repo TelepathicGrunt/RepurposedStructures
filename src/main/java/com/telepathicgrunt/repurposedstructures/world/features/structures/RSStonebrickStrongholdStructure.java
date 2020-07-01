@@ -71,8 +71,8 @@ public class RSStonebrickStrongholdStructure extends StrongholdFeature {
 
             this.setBoundingBoxFromChildren();
             int lowestBounds = this.boundingBox.minY - 2;
-            int maxYConfig = RepurposedStructures.RSStrongholdsConfig.stonebrick.stonebrickStrongholdMaxHeight;
-            int minYConfig = RepurposedStructures.RSStrongholdsConfig.stonebrick.stonebrickStrongholdMinHeight;
+            int maxYConfig = RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.stonebrickStrongholdMaxHeight;
+            int minYConfig = RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.stonebrickStrongholdMinHeight;
 
 
 

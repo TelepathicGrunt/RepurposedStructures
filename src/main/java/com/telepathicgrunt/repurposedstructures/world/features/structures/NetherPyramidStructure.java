@@ -33,11 +33,10 @@ public class NetherPyramidStructure extends StructureFeature<DefaultFeatureConfi
 
         @Override
         public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
-            BlockPos blockpos = new BlockPos(chunkX * 16, 0, chunkZ * 16);
+            BlockPos blockpos = new BlockPos(chunkX * 16, 90, chunkZ * 16);
             BlockRotation rotation = BlockRotation.values()[this.random.nextInt(BlockRotation.values().length)];
             NetherPyramidPiece.func_207617_a(structureManager, blockpos, rotation, this.children, this.random, FeatureConfig.DEFAULT);
             this.setBoundingBoxFromChildren();
-            this.method_14976(this.random, 55, 60);
         }
     }
 }

@@ -18,12 +18,7 @@ public class RepurposedStructures implements ModInitializer {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MODID = "repurposed_structures";
 
-	public static RSDungeonsConfig RSDungeonsConfig = null;
-	public static RSMainConfig RSMainConfig = null;
-	public static RSMineshaftsConfig RSMineshaftsConfig = null;
-	public static RSWellsConfig RSWellsConfig = null;
-    public static RSVillagesConfig RSVillagesConfig = null;
-    public static RSStrongholdsConfig RSStrongholdsConfig = null;
+	public static RSAllConfig RSAllConfig = null;
 
 //    static Block LOAD_NBT_BLOCK = new LoadNbtBlock();
 //    public static final Item LOAD_NBT_ITEM = new BlockItem(LOAD_NBT_BLOCK, new Item.Settings().group(ItemGroup.REDSTONE));
@@ -38,12 +33,7 @@ public class RepurposedStructures implements ModInitializer {
         AutoConfig.register(RSVillagesConfig.class, Toml4jConfigSerializer::new);
         AutoConfig.register(RSStrongholdsConfig.class, Toml4jConfigSerializer::new);
 
-		RSDungeonsConfig = AutoConfig.getConfigHolder(RSDungeonsConfig.class).getConfig();
-		RSMainConfig = AutoConfig.getConfigHolder(RSMainConfig.class).getConfig();
-		RSMineshaftsConfig = AutoConfig.getConfigHolder(RSMineshaftsConfig.class).getConfig();
-		RSWellsConfig = AutoConfig.getConfigHolder(RSWellsConfig.class).getConfig();
-        RSVillagesConfig = AutoConfig.getConfigHolder(RSVillagesConfig.class).getConfig();
-        RSStrongholdsConfig = AutoConfig.getConfigHolder(RSStrongholdsConfig.class).getConfig();
+        RSAllConfig = AutoConfig.getConfigHolder(RSAllConfig.class).getConfig();
 
 
         RSPlacements.registerPlacements();
