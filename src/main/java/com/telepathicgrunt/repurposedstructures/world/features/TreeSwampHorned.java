@@ -35,7 +35,7 @@ public class TreeSwampHorned extends Feature<TreeFeatureConfig> {
         super(config);
     }
 
-
+    @Override
     public boolean generate(ServerWorldAccess serverWorldAccess, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos blockPos, TreeFeatureConfig treeFeatureConfig) {
         Set<BlockPos> set = Sets.newHashSet();
         Set<BlockPos> set2 = Sets.newHashSet();
@@ -144,6 +144,7 @@ public class TreeSwampHorned extends Feature<TreeFeatureConfig> {
 
                                 if (isAirOrLeaves(world, blockpos) || isReplaceablePlant(world, blockpos)) {
                                     this.setBlockState(world, blockpos, LEAF);
+                                    leavesPositions.add(blockpos);
                                 }
                             }
                         }
@@ -151,10 +152,11 @@ public class TreeSwampHorned extends Feature<TreeFeatureConfig> {
                 }
 
                 // the following four for statements generates the trunk of the tree
-                genTrunk(world, position, height);
-                genTrunk(world, position.west(), height);
-                genTrunk(world, position.north(), height);
-                genTrunk(world, position.west().north(), height);
+                genTrunk(world, position, height-1);
+                genTrunk(world, position.west(), height-1);
+                genTrunk(world, position.north(), height-1);
+                genTrunk(world, position.west().north(), height-1);
+                logPositions.add(position);
 
                 // vine generation
                 for (int currentHeight = position.getY() - 3 + height; currentHeight <= position.getY() + height; ++currentHeight) {
@@ -217,17 +219,25 @@ public class TreeSwampHorned extends Feature<TreeFeatureConfig> {
 
     private void genTrunk(ServerWorldAccess world, BlockPos position, int height) {
         this.setBlockState(world, position.down(), Blocks.DIRT.getDefaultState());
+        BlockPos.Mutable mutable = new BlockPos.Mutable().set(position);
 
-        for (int currentHeight = 0; currentHeight < height; ++currentHeight) {
-            BlockPos upN = position.up(currentHeight);
-            BlockState iblockstate1 = world.getBlockState(upN);
-            Block block2 = iblockstate1.getBlock();
+        for (int currentHeight = 0; currentHeight < height; currentHeight++) {
+            BlockState iblockstate1 = world.getBlockState(mutable);
 
-            if (currentHeight != height - 1 && world.isAir(upN) || iblockstate1.isIn(BlockTags.LEAVES) || block2 == Blocks.WATER || block2 == Blocks.LILY_PAD) {
-                this.setBlockState(world, upN, TRUNK);
-            } else {
-                this.setBlockState(world, upN, LEAF);
+            if(world.isAir(mutable) ||
+                    iblockstate1.isIn(BlockTags.LEAVES) ||
+                    iblockstate1.getMaterial() == Material.PLANT ||
+                    iblockstate1.getMaterial() == Material.UNDERWATER_PLANT ||
+                    iblockstate1.getMaterial() == Material.WATER){
+
+                if (currentHeight != height - 1) {
+                    this.setBlockState(world, mutable, TRUNK);
+                } else if(currentHeight == height - 1) {
+                    this.setBlockState(world, mutable, LEAF);
+                }
             }
+
+            mutable.move(Direction.UP);
         }
     }
 

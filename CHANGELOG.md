@@ -15,4 +15,4 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 -First release of this mod for Fabric!!!!! PARTY TIME!! 
 
--Ported v1.7.2 Forge version to Fabric
+-Ported v1.7.2 Forge version to Fabric! So many tweaks and fixes was done that basically, don't compare this to the Forge version anymore lol. 

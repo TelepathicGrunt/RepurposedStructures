@@ -26,13 +26,6 @@ public class RepurposedStructures implements ModInitializer {
     @Override
     public void onInitialize() {
         AutoConfig.register(RSAllConfig.class, Toml4jConfigSerializer::new);
-        AutoConfig.register(RSDungeonsConfig.class, Toml4jConfigSerializer::new);
-        AutoConfig.register(RSMainConfig.class, Toml4jConfigSerializer::new);
-        AutoConfig.register(RSMineshaftsConfig.class, Toml4jConfigSerializer::new);
-        AutoConfig.register(RSWellsConfig.class, Toml4jConfigSerializer::new);
-        AutoConfig.register(RSVillagesConfig.class, Toml4jConfigSerializer::new);
-        AutoConfig.register(RSStrongholdsConfig.class, Toml4jConfigSerializer::new);
-
         RSAllConfig = AutoConfig.getConfigHolder(RSAllConfig.class).getConfig();
 
         RSPlacements.registerPlacements();

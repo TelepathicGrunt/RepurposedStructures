@@ -24,18 +24,18 @@ import net.minecraft.world.gen.chunk.ChunkGenerator;
 import java.util.Random;
 
 
-public class NetherTemplePiece extends StructurePieceWithDimensions {
-    private static final NetherTemplePiece.Selector NETHER_BLOCK_SELECTOR = new NetherTemplePiece.Selector();
+public class TempleNetherPiece extends StructurePieceWithDimensions {
+    private static final TempleNetherPiece.Selector NETHER_BLOCK_SELECTOR = new TempleNetherPiece.Selector();
     public static final Identifier CHESTS_NETHER_TEMPLE = new Identifier("repurposed_structures:chests/nether_temple_chest");
     public static final Identifier DISPENSER_NETHER_TEMPLE = new Identifier("repurposed_structures:chests/nether_temple_dispenser");
 
 
-    public NetherTemplePiece(Random random, int x, int z) {
+    public TempleNetherPiece(Random random, int x, int z) {
         super(StructurePieces.NETHER_TEMPLE_PIECE, random, x, 64, z, 12, 10, 15);
     }
 
 
-    public NetherTemplePiece(StructureManager templateManager, CompoundTag data) {
+    public TempleNetherPiece(StructureManager templateManager, CompoundTag data) {
         super(StructurePieces.NETHER_TEMPLE_PIECE, data);
     }
 
@@ -53,7 +53,7 @@ public class NetherTemplePiece extends StructurePieceWithDimensions {
         BlockState currentBlockstate = world.getBlockState(mutable);
         while (mutable.getY() <= 108) {
 
-            if(!world.isAir(mutable) && world.isAir(mutable.up(5)) &&
+            if(!world.isAir(mutable) && world.isAir(mutable.up()) && world.isAir(mutable.up(5)) &&
                     !world.isAir(mutable.add(2,-1,2)) &&
                     !world.isAir(mutable.add(-2,-1,2)) &&
                     !world.isAir(mutable.add(2,-1,-2)) &&
@@ -71,6 +71,7 @@ public class NetherTemplePiece extends StructurePieceWithDimensions {
                      currentBlockstate.getMaterial() == Material.STONE ||
                      currentBlockstate.getMaterial() == Material.SOIL))
             {
+                mutable.move(Direction.UP);
                 break;
             }
 

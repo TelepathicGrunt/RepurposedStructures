@@ -1,7 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.features.structures;
 
 import com.mojang.serialization.Codec;
-import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.structure.StructureManager;
 import net.minecraft.structure.StructureStart;
 import net.minecraft.util.math.BlockBox;
@@ -11,14 +10,14 @@ import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
 
-public class NetherTempleStructure extends StructureFeature<DefaultFeatureConfig> {
-    public NetherTempleStructure(Codec<DefaultFeatureConfig> config) {
+public class TempleNetherStructure extends StructureFeature<DefaultFeatureConfig> {
+    public TempleNetherStructure(Codec<DefaultFeatureConfig> config) {
         super(config);
     }
 
     @Override
     public StructureFeature.StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
-        return NetherTempleStructure.Start::new;
+        return TempleNetherStructure.Start::new;
     }
 
     public static class Start extends StructureStart<DefaultFeatureConfig> {
@@ -29,8 +28,8 @@ public class NetherTempleStructure extends StructureFeature<DefaultFeatureConfig
 
         @Override
         public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
-            NetherTemplePiece netherTemplePiece = new NetherTemplePiece(this.random, chunkX * 16, chunkZ * 16);
-            this.children.add(netherTemplePiece);
+            TempleNetherPiece templeNetherPiece = new TempleNetherPiece(this.random, chunkX * 16, chunkZ * 16);
+            this.children.add(templeNetherPiece);
             this.setBoundingBoxFromChildren();
             this.method_14976(this.random, 59, 60);
         }

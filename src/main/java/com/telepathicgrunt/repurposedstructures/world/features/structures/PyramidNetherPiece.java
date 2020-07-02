@@ -2,7 +2,6 @@ package com.telepathicgrunt.repurposedstructures.world.features.structures;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.Material;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.structure.*;
 import net.minecraft.structure.processor.BlockIgnoreStructureProcessor;
@@ -23,11 +22,11 @@ import java.util.List;
 import java.util.Random;
 
 
-public class NetherPyramidPiece {
+public class PyramidNetherPiece {
     private static final Identifier NETHER_PYRAMID_ID = new Identifier(RepurposedStructures.MODID + ":temples/nether_pyramid");
 
     public static void func_207617_a(StructureManager templateManager, BlockPos position, BlockRotation rotationIn, List<StructurePiece> structurePieceList, Random random, DefaultFeatureConfig p_207617_5_) {
-        structurePieceList.add(new NetherPyramidPiece.Piece(templateManager, NETHER_PYRAMID_ID, position, rotationIn, 0));
+        structurePieceList.add(new PyramidNetherPiece.Piece(templateManager, NETHER_PYRAMID_ID, position, rotationIn, 0));
     }
 
     public static class Piece extends SimpleStructurePiece {

@@ -1,7 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.features.structures;
 
 import com.mojang.serialization.Codec;
-import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.features.RSFeatures;
 import net.minecraft.structure.StructureManager;
 import net.minecraft.structure.StructurePiece;
@@ -18,8 +17,8 @@ import net.minecraft.world.gen.feature.StructureFeature;
 import java.util.List;
 
 
-public class JungleFortressStructure extends StructureFeature<DefaultFeatureConfig> {
-    public JungleFortressStructure(Codec<DefaultFeatureConfig> codec) {
+public class FortressJungleStructure extends StructureFeature<DefaultFeatureConfig> {
+    public FortressJungleStructure(Codec<DefaultFeatureConfig> codec) {
         super(codec);
     }
 
@@ -41,7 +40,7 @@ public class JungleFortressStructure extends StructureFeature<DefaultFeatureConf
 
     @Override
     public StructureFeature.StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
-        return JungleFortressStructure.Start::new;
+        return FortressJungleStructure.Start::new;
     }
 
     public static class Start extends StructureStart<DefaultFeatureConfig> {
@@ -52,7 +51,7 @@ public class JungleFortressStructure extends StructureFeature<DefaultFeatureConf
 
         @Override
         public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
-            JungleFortressPieces.Start fortresspieces$start = new JungleFortressPieces.Start(this.random, (chunkX << 4) + 2, (chunkZ << 4) + 2);
+            FortressJunglePieces.Start fortresspieces$start = new FortressJunglePieces.Start(this.random, (chunkX << 4) + 2, (chunkZ << 4) + 2);
             this.children.add(fortresspieces$start);
 
             fortresspieces$start.placeJigsaw(fortresspieces$start, this.children, this.random);

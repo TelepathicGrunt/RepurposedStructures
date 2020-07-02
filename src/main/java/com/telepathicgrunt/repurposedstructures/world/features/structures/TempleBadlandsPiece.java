@@ -25,16 +25,16 @@ import net.minecraft.world.gen.chunk.ChunkGenerator;
 import java.util.Random;
 
 
-public class BadlandsTemplePiece extends StructurePieceWithDimensions {
+public class TempleBadlandsPiece extends StructurePieceWithDimensions {
     public static final Identifier CHESTS_BADLANDS_TEMPLE = new Identifier("repurposed_structures:chests/temple_badlands_chest");
 
 
-    public BadlandsTemplePiece(Random random, int x, int z) {
+    public TempleBadlandsPiece(Random random, int x, int z) {
         super(StructurePieces.BADLANDS_TEMPLE_PIECE, random, x, 64, z, 21, 15, 21);
     }
 
 
-    public BadlandsTemplePiece(StructureManager templateManager, CompoundTag data) {
+    public TempleBadlandsPiece(StructureManager templateManager, CompoundTag data) {
         super(StructurePieces.BADLANDS_TEMPLE_PIECE, data);
     }
 

@@ -1,5 +1,6 @@
 package com.telepathicgrunt.repurposedstructures;
 
+import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.mixin.BiomeStructureAccessor;
 import com.telepathicgrunt.repurposedstructures.world.features.RSFeatures;
 import com.telepathicgrunt.repurposedstructures.world.placements.RSDungeonPlacement;
@@ -315,21 +316,24 @@ public class RSAddFeatures {
     public static void addMiscFeatures(Biome biome, String biomeNamespace, String biomePath) {
 
         // only exists in vanilla biomes
-        if (RepurposedStructures.RSAllConfig.RSMainConfig.misc.hornedSwampTree && !biomeNamespace.equals("ultra_amplified_dimension") && biome == Biomes.SWAMP_HILLS) {
-
+        if (RepurposedStructures.RSAllConfig.RSMainConfig.misc.hornedSwampTree && !biomeNamespace.equals("ultra_amplified_dimension") && biome == Biomes.SWAMP) {
             biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, RSFeatures.HORNED_SWAMP_TREE.configure(DefaultBiomeFeatures.SWAMP_TREE_CONFIG).createDecoratedFeature(Decorator.COUNT_EXTRA_HEIGHTMAP.configure(new CountExtraChanceDecoratorConfig(0, 0.7F, 1))));
         }
 
-
         // can exist in modded biomes too
-        else if (RepurposedStructures.RSAllConfig.RSMainConfig.misc.hornedSwampTree && !biomeNamespace.equals("ultra_amplified_dimension") &&
-                RepurposedStructures.RSAllConfig.RSMainConfig.misc.addMiscToModdedBiomes &&
-                !biomeNamespace.equals("minecraft") && biome.getCategory() == Category.SWAMP) {
+        else if (RepurposedStructures.RSAllConfig.RSMainConfig.misc.hornedSwampTree &&
+                (biome == Biomes.SWAMP_HILLS ||
+                    (RepurposedStructures.RSAllConfig.RSMainConfig.misc.addMiscToModdedBiomes &&
+                    biome.getCategory() == Category.SWAMP &&
+                    !biomeNamespace.equals("ultra_amplified_dimension") &&
+                    !biomeNamespace.equals("minecraft")))) {
 
             // replace the swamp tree with our own
             biome.getFeaturesForStep(GenerationStep.Feature.VEGETAL_DECORATION).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && serializeAndCompareFeature(configuredFeature, VANILLA_SWAMP_TREE));
             biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, RSFeatures.HORNED_SWAMP_TREE.configure(DefaultBiomeFeatures.SWAMP_TREE_CONFIG).createDecoratedFeature(Decorator.COUNT_EXTRA_HEIGHTMAP.configure(new CountExtraChanceDecoratorConfig(2, 0.8F, 1))));
-        } else if (RepurposedStructures.RSAllConfig.RSMainConfig.misc.boulderGiant && !biomeNamespace.equals("ultra_amplified_dimension") &&
+        }
+
+        if (RepurposedStructures.RSAllConfig.RSMainConfig.misc.boulderGiant && !biomeNamespace.equals("ultra_amplified_dimension") &&
                 ((biome == Biomes.GIANT_SPRUCE_TAIGA_HILLS || biome == Biomes.GIANT_TREE_TAIGA_HILLS) ||
                         (RepurposedStructures.RSAllConfig.RSMainConfig.misc.addMiscToModdedBiomes && !biomeNamespace.equals("minecraft") &&
                                 ((biomePath.contains("giant") && biomePath.contains("taiga")) || biomePath.contains("redwood"))))) {
@@ -337,7 +341,8 @@ public class RSAddFeatures {
             // replace the boulders with our own
             biome.getFeaturesForStep(GenerationStep.Feature.LOCAL_MODIFICATIONS).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && serializeAndCompareFeature(configuredFeature, VANILLA_BOULDER));
             biome.addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, RSFeatures.BOULDER_GIANT.configure(FeatureConfig.DEFAULT).createDecoratedFeature(Decorator.COUNT_TOP_SOLID.configure(new CountDecoratorConfig(2))));
-        } else if (RepurposedStructures.RSAllConfig.RSMainConfig.misc.boulderTiny && !biomeNamespace.equals("ultra_amplified_dimension") &&
+        }
+        else if (RepurposedStructures.RSAllConfig.RSMainConfig.misc.boulderTiny && !biomeNamespace.equals("ultra_amplified_dimension") &&
                 ((biome == Biomes.SNOWY_TAIGA_MOUNTAINS || biome == Biomes.TAIGA_MOUNTAINS) ||
                         (RepurposedStructures.RSAllConfig.RSMainConfig.misc.addMiscToModdedBiomes && !biomeNamespace.equals("minecraft") && biomePath.contains("taiga")))) {
 
@@ -482,21 +487,13 @@ public class RSAddFeatures {
      * Will serialize (if possible) both features and check if they are the same feature. If cannot serialize, compare the feature itself to see if it is the same
      */
     private static boolean serializeAndCompareFeature(ConfiguredFeature<?, ?> feature1, ConfiguredFeature<?, ?> feature2) {
-        try {
-            //	    Map<DynamicOps<Tag>, DynamicOps<Tag>> feature1Map = feature1.CODEC.serialize(NbtOps.INSTANCE).getMapValues();
-            //	    Map<DynamicOps<Tag>, DynamicOps<Tag>> feature2Map = feature2.serialize(NbtOps.INSTANCE).getMapValues();
-            //
-            //	    if (feature1Map != null && feature2Map != null) {
-            //		return feature1Map.equals(feature2Map);
-            //	    }
-        } catch (Exception e) {
-            // One of the features cannot be serialized which can only happen with custom modded features
-            // Check if the features are the same feature even though the placement or config for the feature might be different.
-            // This is the best way we can remove duplicate modded features as best as we can. (I think)
-            if ((feature1.config instanceof DecoratedFeatureConfig && feature2.config instanceof DecoratedFeatureConfig) &&
-                    ((DecoratedFeatureConfig) feature1.config).feature.feature == ((DecoratedFeatureConfig) feature2.config).feature.feature) {
-                return true;
-            }
+
+        // One of the features cannot be serialized which can only happen with custom modded features
+        // Check if the features are the same feature even though the placement or config for the feature might be different.
+        // This is the best way we can remove duplicate modded features as best as we can. (I think)
+        if ((feature1.config instanceof DecoratedFeatureConfig && feature2.config instanceof DecoratedFeatureConfig) &&
+                ((DecoratedFeatureConfig) feature1.config).feature.feature == ((DecoratedFeatureConfig) feature2.config).feature.feature) {
+            return true;
         }
 
         return false;
