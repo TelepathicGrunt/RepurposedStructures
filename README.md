@@ -1,6 +1,8 @@
 <p><img src="https://i.imgur.com/lD8Pa6U.png" alt="Picture that shows the title of this mod with a Stonebrick Fortress during sunset behind the text" width="1519" height="516" /></p>
-<h2 style="text-align: center;"><strong><span style="font-size: 36px; color: #009611;">CURRENTLY FOR 1.16 MC</span></strong></h2>
+<h2 style="text-align: center;"><strong><span style="font-size: 36px; color: #009611;">CURRENTLY FOR 1.16.0 MC</span></strong></h2>
 <p>&nbsp;</p>
+<p>&nbsp;</p>
+<p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;"><span style="font-size: 18px;"><strong>______________________________________________________________________________</strong></span></p>
 <p style="text-align: center;">&nbsp;</p>
@@ -8,16 +10,36 @@
 <p style="text-align: center;"><span style="font-size: 14px;">&nbsp;</span></p>
 <p style="text-align: left;"><span style="font-size: 14px;">&nbsp;<strong> &nbsp; Repurposed Structures is a mod about taking existing vanilla features and structures and creating new variants or modifications to them! Originally, most of the structures and features in this mod was actually made for my Ultra Amplified Dimension mod. but then I realized these features and structures would look great in the Overworld as well so I decided to take those structures and features and split them into their own mod. This mod! </strong></span></p>
 <p style="text-align: left;">&nbsp;</p>
-<p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; Currently, this mod creates a Nether Fortresses using Stonebrick blocks and spawns it in Jungles, Dungeons and Mineshafts now has more variants to match whatever biome they are in, Badlands Village, two new biome variants of Igloos, Strongholds has a configurable size and has more Silverfish spawners, Giant Tree/Spruce Taiga Hills biomes has giant ore filled boulders that could have Diamond ore if you are extremely lucky, Taiga Mountain biomes now has tiny boulders, Swamps now has a new 2x2 swamp-like tree, and several new Desert Well variations were made for other biomes (Also, loot for Dungeons and Mineshafts are tailored to their variant as well so start exploring!)</strong></span></p>
+<p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; Currently, this mod creates a Nether Fortresses using Stonebrick blocks and spawns it in Jungles, Dungeons and Mineshafts now has more variants to match whatever biome they are in, 7 new biome variants of Villages, 3 new temples variants, 2 new biome variants of Igloos, Stonebrick and Nether Strongholds has a configurable size and has more Silverfish spawners, Giant Tree/Spruce Taiga Hills biomes has giant ore filled boulders that could have Diamond ore if you are extremely lucky, Taiga Mountain biomes now has tiny boulders, Swamps now has a new 2x2 swamp-like tree, and several new Desert Well variations were made for other biomes (Also, loot for Dungeons and Mineshafts are tailored to their variant as well so start exploring!)</strong></span></p>
 <p style="text-align: left;">&nbsp;</p>
 <p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; If you have trouble finding one of these structures, just start typing `<em>/locate repu</em>` into the chat and you should see my structures pop up! For example, typing `<em>/locate repurposed_structures:fortress_jungle</em>` will find the closest Jungle Fortress to your location. :) However, do note that due to a Vanilla limitation, the locate command can only find the themed Mineshafts if they are within 1600 blocks of you. All other structures can be found easily from anywhere!</strong></span></p>
 <p style="text-align: left;"><span style="font-size: 14px;">&nbsp;</span></p>
-<p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; You can use this mod in a modpack or download and modify the source code. It is all under MIT License so you can do whatever you want! Also, be sure to check out the images page for several screenshots of what the world looks like!&nbsp;And also, the section below this one talks about how to configure everything as I want players to have the ability to change things to their preferences.</strong></span></p>
+<p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; You can use this mod in a modpack or download and modify the source code. It is all under LGPL (a license) so you can do whatever you want as long as you don't sell my code and you make your codebase also open sourced. Also, be sure to check out the images page for several screenshots of what the world looks like!&nbsp;And also, the section below this one talks about how to configure everything as I want players to have the ability to change things to their preferences.</strong></span></p>
 <p style="text-align: left;">&nbsp;</p>
 <p style="text-align: left;"><span style="font-size: 12px;">Note: /locate command can only find the Mineshaft if it is within 1600 blocks of you due to a hardcoded search radius in vanilla MC's code.</span></p>
 <p style="text-align: left;"><span style="font-size: 14px;">&nbsp;</span></p>
 <p style="text-align: left;">&nbsp;</p>
 <p style="text-align: left;"><span style="text-decoration: underline; font-size: 18px;"><strong>Extra Details about everything in this mod!</strong></span></p>
+<p>&nbsp;</p>
+<p><strong><b>Village Variants</b></strong></p>
+<div class="spoiler">
+<p><strong><b>Note: Some village houses will have custom loot to match their biome better but nothing too crazy for balance reasons.</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>-Badlands</b></strong></p>
+<p><strong><b><br />-Jungle</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>-Giant Taiga</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>-Swamp</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>-Dark Forest</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>-Mountains</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>-Birch</b></strong></p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 <p><strong>Badlands Dungeons spawner's mob rates</strong></p>
 <div class="spoiler">
 <p><strong>48% : Husk</strong></p>
@@ -73,14 +95,16 @@
 <p><strong>Nether Dungeons spawner's mob rates</strong></p>
 <div class="spoiler">
 <p><strong><b>if above Y = 30</b></strong></p>
-<p><strong>49% : Zombie Pigman</strong></p>
-<p><strong>25% : Blaze</strong></p>
+<p><strong>44% : Zombified Piglin</strong></p>
+<p><strong>20% : Strider</strong></p>
 <p><strong>26% : Magma Cube</strong></p>
+<p><strong>10% :&nbsp;Blaze</strong></p>
 <p>&nbsp;</p>
 <p><strong>if below Y = 30</strong></p>
-<p><strong>49% : Zombie Pigman</strong></p>
-<p><strong>25% : Blaze</strong></p>
+<p><strong>44% : Zombified Piglin</strong></p>
+<p><strong>20% : Strider</strong></p>
 <p><strong>25% : Magma Cube</strong></p>
+<p><strong>10% :&nbsp;Blaze</strong></p>
 <p><strong>1% : Wither Skeleton</strong></p>
 </div>
 <p>&nbsp;</p>
@@ -167,6 +191,8 @@
 <p><strong><b>&nbsp;- Quartz Blocks</b></strong></p>
 <p><strong><b>&nbsp;- Gold Blocks</b></strong></p>
 <p><strong><b>&nbsp;- Lvl 30 Enchanted Books</b></strong></p>
+<p><strong><b>- Netherite Scraps</b></strong></p>
+<p><strong><b>- Blackstone</b></strong></p>
 <p>&nbsp;</p>
 <p><strong>Has one hidden Pigmen spawner</strong></p>
 </div>
@@ -174,7 +200,7 @@
 <p><strong>Badlands Temple loot</strong></p>
 <div class="spoiler">
 <p><strong>Chests loot</strong></p>
-<p><strong>Uses normal Desert Temple loot</strong></p>
+<p><strong>Uses barely modified Desert Temple loot. (Has Dead Bush and Red Sand instead)</strong></p>
 <p>&nbsp;</p>
 <p><strong>Has two hidden Husk spawner&nbsp;</strong></p>
 </div>
@@ -192,8 +218,11 @@
 <p><strong>Non-Library chest loot uses the Nether Fortress's chest loot table.</strong></p>
 <p><strong>Corridor Chests has a 33% chance of spawning.</strong></p>
 <p><strong>Storage rooms has 4 chests instead of 1 due to them not having much loot naturally.</strong></p>
-<p><strong>Blaze spawners are added to storage room, the room with the pillar that holds 4 Torches and fountain room.</strong></p>
 <p><strong>The Silverfish spawner at the Portal Room is now a Blaze spawner.</strong></p>
+<p>&nbsp;</p>
+<p><strong>Extra spawners are added to storage room, the room with the pillar that holds 4 Torches and fountain room. </strong></p>
+<p><strong>The mob rates are the following:</strong></p>
+<p><strong>50% : Blaze<br />30% : Zoglin<br />20% : Zombiefied Piglin</strong></p>
 </div>
 <p>&nbsp;</p>
 <p><strong>Grassy Igloo and Stone Igloo loot</strong></p>
@@ -252,6 +281,7 @@
 <p><strong><b>Each of the 5 blocks inside has a 8% chance of being a Chiseled Quartz block and a 50% chance of being a Quartz Ore</b></strong></p>
 </div>
 <p><strong>&nbsp;</strong></p>
+<p>&nbsp;</p>
 <p><span style="font-size: 18px;"><strong>______________________________________________________________________________</strong></span></p>
 <p><span style="font-size: 18px;">&nbsp;</span></p>
 <h2><strong><span style="font-size: 24px; color: #009611;">HOW CAN I CONFIGURE THIS MOD?</span></strong></h2>
@@ -264,6 +294,8 @@
 <p>&nbsp;</p>
 <p><strong>&nbsp; &nbsp; The config for Jungle Fortresses is fairly straightforward. You can change their spawnrate, how much Stonebrick blocks are infested with SIlverfish, turn on or off the creation of Silverfish spawners, or disable the creation of loot chests. Not much else to it!</strong></p>
 <p>&nbsp;</p>
+<p><strong>&nbsp; &nbsp; Temples are just like the Jungle Fortress configs minus the Silverfish stuff lol.</strong></p>
+<p>&nbsp;</p>
 <p><strong>&nbsp; &nbsp; &nbsp;For Strongholds, the config lets you change the size of the Stronghold, their spawnrates, how many Stonebrick blocks are infested with Silverfish, turn on or off the additional Silverfish spawners, or disable the creation of loot chests. And you can change the maximum and minimum y value that both normal and nether strongholds can start their generation at.&nbsp;</strong></p>
 <p>&nbsp;</p>
 <p><strong>&nbsp; &nbsp; &nbsp;And lastly, the rest of the features (2x2 swamp tree and boulders) can be enabled/disabled individually.&nbsp;&nbsp;</strong></p>
@@ -271,7 +303,6 @@
 <p>----</p>
 <p>&nbsp;</p>
 <p><strong>This mod also uses tags so you can make datapack to customize this mod further!&nbsp;All the tags are under data.repurposed_structures.tags.blocks and you can specify more than one block. The json files you can override are the following:</strong></p>
-<p>&nbsp;</p>
 <div class="spoiler">
 <p><strong><span style="font-size: 14px;">badlands_well_ores.json</span> - will randomly pick blocks when generating a rare block in the well.</strong></p>
 <p>&nbsp;</p>
@@ -288,16 +319,30 @@
 <p><strong><span style="font-size: 14px;">jungle_fortress_staircase_soils.json</span> - will randomly pick blocks for the staircase room to go under the plants.</strong></p>
 <p>&nbsp;</p>
 <p><strong><span style="font-size: 14px;">nether_stronghold_bookshelves.json</span> - will randomly pick blocks to use for the bookshelves in Nether strongholds.</strong></p>
-</div>
+<p><span style="font-size: 14px;"><strong><br />Source:</strong></span></p>
+<strong><a style="font-size: 14px;" href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/tags/blocks">https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/tags/blocks</a></strong></div>
 <p><strong>&nbsp;</strong></p>
 <p>&nbsp;</p>
-<p><strong>Furthermore, if you want to change the loot tables that the structures in this mod uses, you can override my loot tables with a data pack! All loot tables are under data.repurposed_structures.loot_tables.chests path and you can find the file names here in order to override them:&nbsp;<a href="https://github.com/TelepathicGrunt/RepurposedStructures/tree/master/src/main/resources/data/repurposed_structures/loot_tables/chests">https://github.com/TelepathicGrunt/RepurposedStructures/tree/master/src/main/resources/data/repurposed_structures/loot_tables/chests</a></strong></p>
-<p>&nbsp;</p>
+<p><strong>Furthermore, if you want to change the loot tables that the structures in this mod uses, you can override my loot tables with a data pack! All loot tables are under data.repurposed_structures.loot_tables.chests path and you can find the file names here in order to override them: <a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/loot_tables/chests">https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/loot_tables/chests</a></strong></p>
+<p>&nbsp;<br /><span style="font-size: 12px;"><strong>And some structure pieces such as Wells, Villages, Nether Pyramid, and Igloos can also be overridden with datapacks. You can find what pieces can be replaced and their filenames here: <a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/structures">https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/structures</a></strong></span><br /><br /></p>
 <p><span style="font-size: 14px;"><strong>Let me know if you think of a new config option that you would need and I will try and add it! :)&nbsp;</strong></span></p>
 <p><span style="font-size: 18px;"><strong>______________________________________________________________________________</strong></span></p>
 <p>&nbsp;</p>
+<h2><strong><span style="font-size: 24px; color: #009611;">PRE-MADE DATAPACKS</span></strong></h2>
+<p>&nbsp;</p>
+<p>Since Villages and Wells can be overridden with datapacks, that means you can customize the blocks in those structures with other mod's blocks! If you decide to use the datapack below, download it, go into your world's save folder, and put the zipped folder into the datapack folder. Now when you load the game, the datapack should take effect! (Also, you can share mod-compat datapacks you made to me and I'll add it below after I check it out and like it!)</p>
+<p>&nbsp;<br />: Current no mod-compat datapack made yet :<br /><br /></p>
+<p><strong>______________________________________________________________________________</strong></p>
+<p>&nbsp;</p>
 <p style="text-align: center;"><span style="font-size: 12px;">For the list of changes in this mod, click the Source tab and check out README.txt file. </span></p>
 <p style="text-align: center;"><span style="font-size: 12px;">This helps me keep track of what I had done so far.&nbsp;</span></p>
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;"><span style="font-size: 12px;">If you're wondering about the license, it just means you can take/modify this mod's code</span></p>
+<p style="text-align: center;"><span style="font-size: 12px;">and use it in your own mod as long as you open source your mod and make</span></p>
+<p style="text-align: center;"><span style="font-size: 12px;">your license be LGPL (the license I'm using) as well. That's all. :)</span></p>
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;"><span style="font-size: 12px;">Special credit to <strong>/r/l-ll-ll-l_IsDisLoss</strong> from Reddit for</span></p>
+<p style="text-align: center;"><span style="font-size: 12px;">&nbsp;allowing&nbsp;me to use his Nether Pyramid design!</span></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p><span style="font-size: 14px; color: #009611;"><strong><span style="text-decoration: underline;">*If you find an issue, glitch, or have a suggestion about my mod, let me know! But if you don't have a GitHub account to report in the Issue tab above, just comment what the problem is below and I'll try and get back to you ASAP! :)&nbsp;</span></strong></span></p>
