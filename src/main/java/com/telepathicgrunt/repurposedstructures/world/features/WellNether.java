@@ -5,6 +5,7 @@ import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.Material;
 import net.minecraft.block.enums.StructureBlockMode;
 import net.minecraft.structure.Structure;
 import net.minecraft.structure.Structure.StructureBlockInfo;
@@ -36,7 +37,7 @@ public class WellNether extends WellAbstract {
     public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
         // move to top land block below position
         BlockPos.Mutable mutable = new BlockPos.Mutable().set(position);
-        for (mutable.move(Direction.UP); mutable.getY() > 2;) {
+        for (mutable.move(Direction.UP); mutable.getY() > 32;) {
 
             if(world.isAir(mutable)){
                 mutable.move(Direction.DOWN);
@@ -45,12 +46,14 @@ public class WellNether extends WellAbstract {
 
 
             // check to make sure spot is valid and not a single block ledge
-            Block block = world.getBlockState(mutable).getBlock();
+            BlockState blockState = world.getBlockState(mutable);
+            Block block = blockState.getBlock();
             if ((BlockTags.INFINIBURN_NETHER.contains(block) ||
-                    block == Blocks.SOUL_SAND ||
-                    block == Blocks.GRAVEL ||
-                    block == Blocks.NETHERRACK ||
-                    block == Blocks.SOUL_SOIL ||
+                    BlockTags.VALID_SPAWN.contains(block) ||
+                    BlockTags.WITHER_IMMUNE.contains(block) ||
+                    blockState.getMaterial() == Material.AGGREGATE ||
+                    blockState.getMaterial() == Material.STONE ||
+                    blockState.getMaterial() == Material.SOIL ||
                     block == world.getBiome(mutable).getSurfaceConfig().getTopMaterial().getBlock()) &&
                     (!world.isAir(mutable.down()) || !world.isAir(mutable.down(2)))) {
                 // Creates the well centered on our spot

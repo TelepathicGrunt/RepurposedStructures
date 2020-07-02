@@ -32,7 +32,7 @@ public class NetherTempleStructure extends StructureFeature<DefaultFeatureConfig
             NetherTemplePiece netherTemplePiece = new NetherTemplePiece(this.random, chunkX * 16, chunkZ * 16);
             this.children.add(netherTemplePiece);
             this.setBoundingBoxFromChildren();
-            this.method_14976(this.random, 55, 60);
+            this.method_14976(this.random, 59, 60);
         }
     }
 }

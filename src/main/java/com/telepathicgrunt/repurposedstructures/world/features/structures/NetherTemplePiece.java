@@ -11,6 +11,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.structure.StructureManager;
 import net.minecraft.structure.StructurePiece;
 import net.minecraft.structure.StructurePieceWithDimensions;
+import net.minecraft.tag.BlockTags;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
@@ -48,13 +49,37 @@ public class NetherTemplePiece extends StructurePieceWithDimensions {
 
 
     public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
-        BlockPos.Mutable mutable = new BlockPos.Mutable((boundingBox.maxX - boundingBox.minX) / 2 + boundingBox.minX, 30, (boundingBox.maxZ - boundingBox.minZ) / 2 + boundingBox.minZ);
-        while (!world.isAir(mutable) && mutable.getY() <= 108) {
+        BlockPos.Mutable mutable = new BlockPos.Mutable((boundingBox.maxX - boundingBox.minX) / 2 + boundingBox.minX, 35, (boundingBox.maxZ - boundingBox.minZ) / 2 + boundingBox.minZ);
+        BlockState currentBlockstate = world.getBlockState(mutable);
+        while (mutable.getY() <= 108) {
+
+            if(!world.isAir(mutable) && world.isAir(mutable.up(5)) &&
+                    !world.isAir(mutable.add(2,-1,2)) &&
+                    !world.isAir(mutable.add(-2,-1,2)) &&
+                    !world.isAir(mutable.add(2,-1,-2)) &&
+                    !world.isAir(mutable.add(-2,-1,-2)) &&
+                    (BlockTags.INFINIBURN_NETHER.contains(currentBlockstate.getBlock()) ||
+                     BlockTags.VALID_SPAWN.contains(currentBlockstate.getBlock()) ||
+                     BlockTags.SAND.contains(currentBlockstate.getBlock()) ||
+                     BlockTags.NYLIUM.contains(currentBlockstate.getBlock()) ||
+                     BlockTags.ICE.contains(currentBlockstate.getBlock()) ||
+                     BlockTags.PLANKS.contains(currentBlockstate.getBlock()) ||
+                     BlockTags.STONE_BRICKS.contains(currentBlockstate.getBlock()) ||
+                     BlockTags.WITHER_IMMUNE.contains(currentBlockstate.getBlock()) ||
+                     BlockTags.WOOL.contains(currentBlockstate.getBlock()) ||
+                     currentBlockstate.getMaterial() == Material.AGGREGATE ||
+                     currentBlockstate.getMaterial() == Material.STONE ||
+                     currentBlockstate.getMaterial() == Material.SOIL))
+            {
+                break;
+            }
+
             mutable.move(Direction.UP);
+            currentBlockstate = world.getBlockState(mutable);
         }
 
-        if (mutable.getY() >= 108 || mutable.getY() <= 32) {
-            this.boundingBox.offset(0, this.hPos - this.boundingBox.minY + 32, 0);
+        if (mutable.getY() >= 108 || mutable.getY() <= 33) {
+            this.boundingBox.offset(0, this.hPos - this.boundingBox.minY + 33, 0);
         } else {
             this.boundingBox.offset(0, this.hPos - this.boundingBox.minY + mutable.getY(), 0);
         }
@@ -177,8 +202,8 @@ public class NetherTemplePiece extends StructurePieceWithDimensions {
         this.addDispenser(world, boundingBox, random, 3, -2, 1, Direction.NORTH, DISPENSER_NETHER_TEMPLE);
 
 
-        this.addBlock(world, Blocks.WEEPING_VINES.getDefaultState(), 3, -2, 2, boundingBox);
-        this.addBlock(world, Blocks.WEEPING_VINES_PLANT.getDefaultState(), 3, -1, 2, boundingBox);
+        this.addBlock(world, Blocks.WEEPING_VINES.getDefaultState(), 3, -3, 2, boundingBox);
+        this.addBlock(world, Blocks.WEEPING_VINES_PLANT.getDefaultState(), 3, -2, 2, boundingBox);
         this.addBlock(world, Blocks.TRIPWIRE_HOOK.getDefaultState().with(TripwireHookBlock.FACING, Direction.NORTH).with(TripwireHookBlock.ATTACHED, Boolean.valueOf(true)), 7, -3, 1, boundingBox);
         this.addBlock(world, Blocks.TRIPWIRE_HOOK.getDefaultState().with(TripwireHookBlock.FACING, Direction.SOUTH).with(TripwireHookBlock.ATTACHED, Boolean.valueOf(true)), 7, -3, 5, boundingBox);
         this.addBlock(world, Blocks.TRIPWIRE.getDefaultState().with(TripwireBlock.NORTH, Boolean.valueOf(true)).with(TripwireBlock.SOUTH, Boolean.valueOf(true)).with(TripwireBlock.ATTACHED, Boolean.valueOf(true)), 7, -3, 2, boundingBox);

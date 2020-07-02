@@ -247,6 +247,6 @@ public class RSMineshaftsConfig implements ConfigData {
                 + " Note: The mineshaft will spawn between min and max y height set in config.\r\n"
                 + " Setting this to below min height config will make mineshaft spawn only at min height.")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
-        public int netherMineshaftMaxHeight = 20;
+        public int netherMineshaftMaxHeight = 13;
     }
 }

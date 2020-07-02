@@ -71,36 +71,19 @@ public class NetherPyramidPiece {
 
         @Override
         public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
-            boundingBox = new BlockBox(boundingBox.minX, boundingBox.minY, boundingBox.minZ, boundingBox.maxX+21, boundingBox.maxY+16, boundingBox.maxZ+21);
-            BlockPos.Mutable mutable = new BlockPos.Mutable().set(this.boundingBox.getCenter().getX(), 32, this.boundingBox.getCenter().getZ());
-            while(mutable.getY() > 33){
-                if(!world.isAir(mutable)){
-                    mutable.move(Direction.DOWN);
-                    continue;
-                }
-                else if(world.getBlockState(mutable.add(5,2,5)).getMaterial() == Material.AIR &&
-                        world.getBlockState(mutable.add(-5,2,5)).getMaterial() == Material.AIR &&
-                        world.getBlockState(mutable.add(5,2,-5)).getMaterial() == Material.AIR &&
-                        world.getBlockState(mutable.add(-5,2,-5)).getMaterial() == Material.AIR){
-                    break;
-                }
-                mutable.move(Direction.DOWN);
-            }
+            BlockPos.Mutable mutable = new BlockPos.Mutable().set(this.boundingBox.getCenter().getX(), this.boundingBox.minY, this.boundingBox.getCenter().getZ());
+            super.generate(world, structureAccessor, generator, random, boundingBox, chunkPos, this.pos);
 
-            this.pos = this.pos.add(0, mutable.getY() - 93, 0);
-            super.generate(world, structureAccessor, generator, random, boundingBox, chunkPos, blockPos);
-
-
-            mutable.set(boundingBox.minX, this.pos.getY()-2, boundingBox.minZ).move(Direction.DOWN);
-            for(; mutable.getX() < boundingBox.maxX && mutable.getY() > 1; mutable.move(1, 0,0)){
-                for(; mutable.getZ() < boundingBox.maxZ && mutable.getY() > 1; mutable.move(0, 0,1)){
+            mutable.set(this.pos.getX(), this.pos.getY() - 1, this.pos.getZ());
+            for(; mutable.getX() < this.pos.getX() + this.placementData.getPosition().getX() && mutable.getY() > 1; mutable.move(1, 0,0)){
+                for(; mutable.getZ() < this.pos.getZ() + this.placementData.getPosition().getZ() && mutable.getY() > 1; mutable.move(0, 0,1)){
                     while(!world.getBlockState(mutable).isOpaque() && mutable.getY() > 1){
                         world.setBlockState(mutable, Blocks.BLACKSTONE.getDefaultState(), 2);
                         mutable.move(Direction.DOWN);
                     }
-                    mutable.set(mutable.getX(), this.pos.getY(), mutable.getZ());
+                    mutable.set(mutable.getX(), this.pos.getY()-1, mutable.getZ());
                 }
-                mutable.set(mutable.getX(), this.pos.getY(), this.pos.getZ());
+                mutable.set(mutable.getX(), this.pos.getY()-1, this.pos.getZ());
             }
 
             return true;

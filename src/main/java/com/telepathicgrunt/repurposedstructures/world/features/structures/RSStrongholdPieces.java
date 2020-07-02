@@ -103,9 +103,7 @@ public class RSStrongholdPieces {
 
         for(StrongholdGenerator.PieceSetting piece : StrongholdGeneratorAccessor.getALL_PIECE_SETTINGS()){
             try {
-                Constructor<?>[] c = piece.pieceType.getDeclaredConstructors();
-                Constructor c2 = c[0];
-                if(!Registry.STRUCTURE_PIECE.getId((StructurePieceType) piece.pieceType.getDeclaredConstructors()[0].newInstance())
+                if(!Registry.STRUCTURE_PIECE.getId((StructurePieceType) piece.pieceType.getDeclaredConstructors()[0].newInstance(new Random(), new BlockBox(), Direction.NORTH))
                         .getNamespace().equals("minecraft"))
                 {
                     PIECE_WEIGHTS.add(new RSStrongholdPieces.PieceWeight(piece.pieceType, piece.field_15278, piece.limit));
