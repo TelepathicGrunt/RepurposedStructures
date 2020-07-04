@@ -14,7 +14,23 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - End Mineshafts no longer spawn in Small End Island Biome
 
+##### Dungeons: 
 
+- Mushroom and Badlands dungeons now spawn again instead of Icy Dungeons.
+
+##### Configs:
+
+- Fixed Dungeon's config tooltips
+
+- Fixed Mineshaft's config tooltips
+
+- Fixed Stronghold's config tooltips
+
+- Fixed Wells's config tooltips
+
+- Fixed Village's config tooltips
+
+- Fixed Misc's config tooltips
 
 
 ## (V.1.0.0 Changes) (1.16-Pre1 Minecraft)

@@ -9,18 +9,21 @@ import me.sargunvohra.mcmods.autoconfig1u.shadowed.blue.endless.jankson.Comment;
 @Config(name = "Repurposed_Structures-Strongholds")
 public class RSStrongholdsConfig implements ConfigData
 {
-	@Comment("\r\n How large the Stronghold is on average as a percentage."
-			+ "\r\n Note: The Stonghold is much larger by default. To get something "
-			+ "\r\n closer to vanilla stronghold size, use the value of 60."
-			+ "\r\n 10 for supertiny Strongholds and 2000 for supermassive Strongholds.")
+	@ConfigEntry.Gui.Tooltip(count = 4)
+	@Comment("Size of average Stronghold as a percentage."
+			+ "\nNote: RS Stonghold is much larger by default."
+			+ "\nTo get closer to vanilla's size, enter 60 here."
+			+ "\n10 for supertiny and 2000 for supermassive Strongholds.")
 	@ConfigEntry.BoundedDiscrete(min = 10, max = 2000)
 	public double strongholdSizeSH = 100D;
 
-	@Comment("\r\n Make Mob Spawners generate in rooms other than the Portal Room in Strongholds.\r\n"
-			+" Note: Spawners in Portal Room will always remain.")
+	@ConfigEntry.Gui.Tooltip(count = 2)
+	@Comment("Add Mob Spawners to rooms other than the Portal Room."
+			+"\nNote: Spawners in Portal Room will always spawn.")
 	public boolean allowExtraSpawnersSH = true;
 
-	@Comment("\r\n Controls whether loot chests spawn or not in the Stronghold.")
+	@ConfigEntry.Gui.Tooltip
+	@Comment("Controls whether loot chests spawn or not in the Stronghold.")
 	public boolean lootChestsSH = true;
 
 
@@ -33,63 +36,68 @@ public class RSStrongholdsConfig implements ConfigData
 
 	public static class Stonebrick {
 
-		@Comment("\r\n Allow Stonebrick-styled Stronghold to replace vanilla Strongholds" +
-				"\r\n in any biome. If off, vanilla Strongholds will still generate while " +
-				"\r\n this mod's Stonebrick-styled Stronghold will not generate. " +
-				"\r\n (Note: Nether Stronghold will still spawn)")
+		@ConfigEntry.Gui.Tooltip(count = 3)
+		@Comment("Stonebrick-styled Stronghold replaces vanilla Strongholds" +
+				"\nin any biome. If off, vanilla Strongholds will generate" +
+				"\ninstead but Nether Strongholds will still be active.")
 		public boolean allowStonebrickStronghold = true;
 
-		@Comment("\r\n Allow Stonebrick-styled Stronghold to generate in all modded non-Nether biomes " +
-				"\r\n regardless if they have vanilla Strongholds or not.")
+		@ConfigEntry.Gui.Tooltip(count = 2)
+		@Comment("Add Stonebrick-styled Stronghold to all modded non-Nether" +
+				"\nbiomes even if they have don't have vanilla Strongholds.")
 		public boolean addStonebrickStrongholdToModdedBiomes = false;
 
-		@Comment("\r\n How often Silverfish Blocks will generate in Stonebrick-styled Strongholds as a percentage."
-				+ "\r\n Note: Mossy Stone Bricks block cannot be infected by Silverfish"
-				+ "\r\n 0 for no Silverfish Blocks and 100 for max spawnrate.")
+		@ConfigEntry.Gui.Tooltip(count = 3)
+		@Comment("Percentage of Stonebrick-styled Strongholds is Silverfish Blocks."
+				+ "\nNote: Mossy Stone Bricks block cannot be infected by Silverfish."
+				+ "\n0 for no Silverfish Blocks and 100 for max spawnrate.")
 		@ConfigEntry.BoundedDiscrete(min = 0, max = 100)
 		public double silverfishSpawnrateSH = 0.8D;
 
-		@Comment("\r\n Minimum Y height that Stonebrick-styled stronghold's starting point can spawn at."
-				+ "\r\n Default is 0."
-				+ "\r\n Note: Strongholds will spawn between min and max y height set in config.")
+		@ConfigEntry.Gui.Tooltip(count = 2)
+		@Comment("Min Y height that the starting point can spawn at."
+				+ "\nDefault is 0.")
 		@ConfigEntry.BoundedDiscrete(min = 0, max = 255)
 		public int stonebrickStrongholdMinHeight = 0;
 
-		@Comment("\r\n Minimum Y height that Stonebrick-styled stronghold's starting point can spawn at."
-				+ "\r\n Default is 50."
-				+ "\r\n Note: Strongholds will spawn between min and max y height set in config."
-				+ "\r\n Setting this to below min height config will make strongholds spawn only at min height.")
+		@ConfigEntry.Gui.Tooltip(count = 3)
+		@Comment("Max Y height that the starting point can spawn at."
+				+ "\nDefault is 50."
+				+ "\nIf below min height, this will be read as min.")
 		@ConfigEntry.BoundedDiscrete(min = 0, max = 255)
 		public int stonebrickStrongholdMaxHeight = 45;
 
-		@Comment("\r\n How rare are Stonebrick-styled Strongholds."
-				+ "\r\n 1 for spawning in most chunks and 1001 for no spawn.")
+		@ConfigEntry.Gui.Tooltip(count = 2)
+		@Comment("How rare are Stonebrick-styled Strongholds."
+				+ "\n1 for spawning in most chunks and 1001 for no spawn.")
 		@ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
 		public int stonebrickStrongholdSpawnrate = 85;
 	}
 
 	public static class Nether {
 
-		@Comment("\r\n Allow Stonebrick-styled Stronghold to generate in modded Nether biomes.")
+		@ConfigEntry.Gui.Tooltip(count = 3)
+		@Comment("How rare are Nether-styled Strongholds in Nether-category biomes."
+				+ "\n1 for spawning in most chunks and 1001 for no spawn."
+				+ "\nNote: Eyes of Ender will work and show the closest Nether Stronghold too.")
+		@ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+		public int netherStrongholdSpawnrate = 85;
+
+		@ConfigEntry.Gui.Tooltip
+		@Comment("Allow Stonebrick-styled Stronghold to generate in modded Nether biomes.")
 		public boolean addNetherStrongholdToModdedBiomes = false;
 
-		@Comment("\r\n Minimum Y height that Nether stronghold's starting point can spawn at."
-				+"\r\n Default is 30."
-				+"\r\n Note: Strongholds will spawn between min and max y height set in config.")
+		@ConfigEntry.Gui.Tooltip(count = 2)
+		@Comment("Min Y height that the starting point can spawn at."
+				+"\nDefault is 30.")
 		@ConfigEntry.BoundedDiscrete(min = 0, max = 255)
 		public int netherStrongholdMinHeight = 33;
 
-		@Comment("\r\n Minimum Y height that Nether stronghold's starting point can spawn at."
-				+"\r\n Default is 35."
-				+"\r\n Note: Strongholds will spawn between min and max y height set in config."
-				+"\r\n Setting this to below min height config will make strongholds spawn only at min height.")
+		@ConfigEntry.Gui.Tooltip(count = 3)
+		@Comment("Max Y height that the starting point can spawn at."
+				+"\nDefault is 35."
+				+ "\nIf below min height, this will be read as min.")
 		@ConfigEntry.BoundedDiscrete(min = 0, max = 255)
 		public int netherStrongholdMaxHeight = 36;
-
-		@Comment("\r\n How rare are Nether-styled Strongholds in Nether category biomes."
-				+ "\r\n 1 for spawning in most chunks and 1001 for no spawn."
-				+ "\r\n Note: Eyes of Ender will work and show the closest Nether Stronghold too.")
-		@ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-		public int netherStrongholdSpawnrate = 85;
 	}
 }
