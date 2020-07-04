@@ -1,4 +1,4 @@
-# Made for Minecraft v.1.16-Pre1
+# Made for Minecraft v.1.16.1
 
 ## Created by TelepathicGrunt
 
@@ -8,7 +8,7 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
-## (V.1.0.1 Changes) (1.16-Pre1 Minecraft)
+## (V.1.0.1 Changes) (1.16.1 Minecraft)
 
 ##### Mineshafts: 
 
@@ -37,7 +37,7 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Fixed Misc's config tooltips
 
 
-## (V.1.0.0 Changes) (1.16-Pre1 Minecraft)
+## (V.1.0.0 Changes) (1.16.1 Minecraft)
 
 ##### Major: 
 
