@@ -1,13 +1,10 @@
-package com.telepathicgrunt.repurposedstructures;
+package com.telepathicgrunt.repurposedstructures.utils;
 
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.StructureBlockBlockEntity;
 import net.minecraft.block.enums.StructureBlockMode;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.NbtIo;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
@@ -23,6 +20,12 @@ public class LoadNbtBlock extends Block {
     public LoadNbtBlock() {
         super(AbstractBlock.Settings.of(Material.METAL, MaterialColor.LIGHT_GRAY).requiresTool().strength(-1.0F, 3600000.0F).dropsNothing());
     }
+
+    //    static Block LOAD_NBT_BLOCK = new LoadNbtBlock();
+    //    public static final Item LOAD_NBT_ITEM = new BlockItem(LOAD_NBT_BLOCK, new Item.Settings().group(ItemGroup.REDSTONE));
+
+    //    Registry.register(Registry.BLOCK, new Identifier(MODID, "load_nbt_block"), LOAD_NBT_BLOCK);
+    //    Registry.register(Registry.ITEM, new Identifier(MODID, "load_nbt_block"), LOAD_NBT_ITEM);
 
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         String mainPath = "C:\\Users\\Admin\\Documents\\PersonalFun\\Minecraft stuff\\JavaCodeMods\\ModdingWorkspace\\RepurposedStructures-Fabric";

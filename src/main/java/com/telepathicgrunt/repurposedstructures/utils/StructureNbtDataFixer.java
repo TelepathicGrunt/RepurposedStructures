@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures;
+package com.telepathicgrunt.repurposedstructures.utils;
 
 import net.minecraft.datafixer.DataFixTypes;
 import net.minecraft.datafixer.Schemas;

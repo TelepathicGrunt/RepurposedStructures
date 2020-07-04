@@ -286,7 +286,7 @@
 <p><span style="font-size: 18px;">&nbsp;</span></p>
 <h2><strong><span style="font-size: 24px; color: #009611;">HOW CAN I CONFIGURE THIS MOD?</span></strong></h2>
 <p><span style="font-size: 14px;">&nbsp;</span></p>
-<p><span style="font-size: 14px;">&nbsp;&nbsp;<strong> &nbsp;To reach this mod's config file, go into the config folder that is above the mods folder and edit the repurposed_structures-common.toml file to change the config. Then exit/restart Minecraft for all changes to take effect. Do note that the config will affect this mod for all worlds so keep that in mind.</strong></span></p>
+<p><span style="font-size: 14px;">&nbsp;&nbsp;<strong> &nbsp;You can change the configs by using Mod Menu mod with this mod. Just go into my mod in the list and click the gear. Just be sure to restart you game when you're finished changing configs! If you want to find this mod's config file directly, go into the config folder that is above the mods folder and there will be 6 config files for this mod. Then exit/restart Minecraft for all changes to take effect. Do note that the config will affect this mod for all worlds so keep that in mind!</strong></span></p>
 <p>&nbsp;</p>
 <p><strong>&nbsp; &nbsp; Right now, there are lots of config options. The big ones that you may be interested in are the <span style="font-size: 14px;">add____ToModdedBiomes</span> config entries. Turning this on will make the config add the features or structures to any modded biomes with the correct category. For example, if you turn on <span style="font-size: 14px;">addMineshaftsToModdedBiomes</span> and you have a mod that adds a new kind of Desert biome in any dimension, then that biome will now spawn Desert themed Mineshafts in it!</strong></p>
 <p>&nbsp;</p>

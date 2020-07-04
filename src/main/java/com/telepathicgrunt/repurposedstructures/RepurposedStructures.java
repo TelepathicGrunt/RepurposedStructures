@@ -20,8 +20,6 @@ public class RepurposedStructures implements ModInitializer {
 
 	public static RSAllConfig RSAllConfig = null;
 
-//    static Block LOAD_NBT_BLOCK = new LoadNbtBlock();
-//    public static final Item LOAD_NBT_ITEM = new BlockItem(LOAD_NBT_BLOCK, new Item.Settings().group(ItemGroup.REDSTONE));
 
     @Override
     public void onInitialize() {
@@ -32,8 +30,6 @@ public class RepurposedStructures implements ModInitializer {
         RSFeatures.registerFeatures();
         RepurposedStructures.addFeaturesAndStructuresToBiomes();
 
-//        Registry.register(Registry.BLOCK, new Identifier(MODID, "load_nbt_block"), LOAD_NBT_BLOCK);
-//        Registry.register(Registry.ITEM, new Identifier(MODID, "load_nbt_block"), LOAD_NBT_ITEM);
     }
 
     /*
