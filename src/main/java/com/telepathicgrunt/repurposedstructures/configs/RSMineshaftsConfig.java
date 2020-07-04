@@ -241,7 +241,7 @@ public class RSMineshaftsConfig implements ConfigData {
         public int endMineshaftMaxHeight = 37;
 
         @ConfigEntry.Gui.Tooltip(count = 2)
-        @Comment("Max Y height of Mineshaft. Default is 20."
+        @Comment("Max Y height of Mineshaft. Default is 13."
                 + "\nIf below min height, this will be read as min.")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int netherMineshaftMaxHeight = 13;

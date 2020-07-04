@@ -18,6 +18,10 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Mushroom and Badlands dungeons now spawn again instead of Icy Dungeons.
 
+##### Misc: 
+
+- Moved logs in Horned Swamp tree up one to stop leave decay.
+
 ##### Configs:
 
 - Fixed Dungeon's config tooltips

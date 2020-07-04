@@ -152,10 +152,10 @@ public class TreeSwampHorned extends Feature<TreeFeatureConfig> {
                 }
 
                 // the following four for statements generates the trunk of the tree
-                genTrunk(world, position, height-1);
-                genTrunk(world, position.west(), height-1);
-                genTrunk(world, position.north(), height-1);
-                genTrunk(world, position.west().north(), height-1);
+                genTrunk(world, position, height);
+                genTrunk(world, position.west(), height);
+                genTrunk(world, position.north(), height);
+                genTrunk(world, position.west().north(), height);
                 logPositions.add(position);
 
                 // vine generation

@@ -83,8 +83,9 @@ public class RSStrongholdsConfig implements ConfigData
 		@ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
 		public int netherStrongholdSpawnrate = 85;
 
-		@ConfigEntry.Gui.Tooltip
-		@Comment("Allow Stonebrick-styled Stronghold to generate in modded Nether biomes.")
+		@ConfigEntry.Gui.Tooltip(count = 2)
+		@Comment("Allow Nether-styled Stronghold to"
+				+ "\ngenerate in modded Nether biomes.")
 		public boolean addNetherStrongholdToModdedBiomes = false;
 
 		@ConfigEntry.Gui.Tooltip(count = 2)
