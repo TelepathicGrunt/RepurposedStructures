@@ -105,6 +105,11 @@ public class RSDungeonsConfig implements ConfigData {
         @Comment("\r\n Minimum Y height that this dungeon can spawn at. Default is 2.\r\n"
                 + " Note: The dungeon will spawn between min and max y height set in config.")
         @ConfigEntry.BoundedDiscrete(min = 2, max = 255)
+        public int badlandsDungeonMinHeight = 2;
+
+        @Comment("\r\n Minimum Y height that this dungeon can spawn at. Default is 2.\r\n"
+                + " Note: The dungeon will spawn between min and max y height set in config.")
+        @ConfigEntry.BoundedDiscrete(min = 2, max = 255)
         public int darkForestDungeonMinHeight = 2;
 
         @Comment("\r\n Minimum Y height that this dungeon can spawn at. Default is 2.\r\n"
