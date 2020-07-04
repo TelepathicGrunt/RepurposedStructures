@@ -27,66 +27,77 @@ public class RSAddFeatures {
                 ((BiomeStructureAccessor) biome).getStructureFeatures().remove(StructureFeature.MINESHAFT);
                 biome.addStructureFeature(RSFeatures.BIRCH_MINESHAFT.configure(FeatureConfig.DEFAULT));
             }
-        } else if (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.jungleMineshaftSpawnrate != 0 && biome.getCategory() == Category.JUNGLE &&
+        }
+        else if (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.jungleMineshaftSpawnrate != 0 && biome.getCategory() == Category.JUNGLE &&
                 (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSMineshaftsConfig.addMineshaftsToModdedBiomes)) {
             if (biome.hasStructureFeature(StructureFeature.MINESHAFT)) {
                 // replace vanilla mineshaft with our own
                 ((BiomeStructureAccessor) biome).getStructureFeatures().remove(StructureFeature.MINESHAFT);
                 biome.addStructureFeature(RSFeatures.JUNGLE_MINESHAFT.configure(FeatureConfig.DEFAULT));
             }
-        } else if (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.desertMineshaftSpawnrate != 0 && biome.getCategory() == Category.DESERT &&
+        }
+        else if (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.desertMineshaftSpawnrate != 0 && biome.getCategory() == Category.DESERT &&
                 (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSMineshaftsConfig.addMineshaftsToModdedBiomes)) {
             if (biome.hasStructureFeature(StructureFeature.MINESHAFT)) {
                 // replace vanilla mineshaft with our own
                 ((BiomeStructureAccessor) biome).getStructureFeatures().remove(StructureFeature.MINESHAFT);
                 biome.addStructureFeature(RSFeatures.DESERT_MINESHAFT.configure(FeatureConfig.DEFAULT));
             }
-        } else if (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.stoneMineshaftSpawnrate != 0 && biome.getCategory() == Category.EXTREME_HILLS &&
+        }
+        else if (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.stoneMineshaftSpawnrate != 0 && biome.getCategory() == Category.EXTREME_HILLS &&
                 (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSMineshaftsConfig.addMineshaftsToModdedBiomes)) {
             if (biome.hasStructureFeature(StructureFeature.MINESHAFT)) {
                 // replace vanilla mineshaft with our own
                 ((BiomeStructureAccessor) biome).getStructureFeatures().remove(StructureFeature.MINESHAFT);
                 biome.addStructureFeature(RSFeatures.STONE_MINESHAFT.configure(FeatureConfig.DEFAULT));
             }
-        } else if (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.savannaMineshaftSpawnrate != 0 && biome.getCategory() == Category.SAVANNA &&
+        }
+        else if (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.savannaMineshaftSpawnrate != 0 && biome.getCategory() == Category.SAVANNA &&
                 (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSMineshaftsConfig.addMineshaftsToModdedBiomes)) {
             if (biome.hasStructureFeature(StructureFeature.MINESHAFT)) {
                 // replace vanilla mineshaft with our own
                 ((BiomeStructureAccessor) biome).getStructureFeatures().remove(StructureFeature.MINESHAFT);
                 biome.addStructureFeature(RSFeatures.SAVANNA_MINESHAFT.configure(FeatureConfig.DEFAULT));
             }
-        } else if (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.icyMineshaftSpawnrate != 0 && (biome.getCategory() == Category.ICY || biomePath.contains("snowy")) &&
+        }
+        else if (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.icyMineshaftSpawnrate != 0 && (biome.getCategory() == Category.ICY || biomePath.contains("snowy")) &&
                 (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSMineshaftsConfig.addMineshaftsToModdedBiomes)) {
             if (biome.hasStructureFeature(StructureFeature.MINESHAFT)) {
                 // replace vanilla mineshaft with our own
                 ((BiomeStructureAccessor) biome).getStructureFeatures().remove(StructureFeature.MINESHAFT);
                 biome.addStructureFeature(RSFeatures.ICY_MINESHAFT.configure(FeatureConfig.DEFAULT));
             }
-        } else if (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.oceanMineshaftSpawnrate != 0 && biome.getCategory() == Category.OCEAN &&
+        }
+        else if (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.oceanMineshaftSpawnrate != 0 && biome.getCategory() == Category.OCEAN &&
                 (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSMineshaftsConfig.addMineshaftsToModdedBiomes)) {
             if (biome.hasStructureFeature(StructureFeature.MINESHAFT)) {
                 // replace vanilla mineshaft with our own
                 ((BiomeStructureAccessor) biome).getStructureFeatures().remove(StructureFeature.MINESHAFT);
                 biome.addStructureFeature(RSFeatures.OCEAN_MINESHAFT.configure(FeatureConfig.DEFAULT));
             }
-        } else if (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.taigaMineshaftSpawnrate != 0 && biome.getCategory() == Category.TAIGA &&
+        }
+        else if (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.taigaMineshaftSpawnrate != 0 && biome.getCategory() == Category.TAIGA &&
                 (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSMineshaftsConfig.addMineshaftsToModdedBiomes)) {
             if (biome.hasStructureFeature(StructureFeature.MINESHAFT)) {
                 // replace vanilla mineshaft with our own
                 ((BiomeStructureAccessor) biome).getStructureFeatures().remove(StructureFeature.MINESHAFT);
                 biome.addStructureFeature(RSFeatures.TAIGA_MINESHAFT.configure(FeatureConfig.DEFAULT));
             }
-        } else if (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.swampAndDarkForestMineshaftSpawnrate != 0 && (biome.getCategory() == Category.SWAMP || biomePath.contains("dark_forest") || biomePath.contains("dark_oak")) &&
+        }
+        else if (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.swampAndDarkForestMineshaftSpawnrate != 0 && (biome.getCategory() == Category.SWAMP || biomePath.contains("dark_forest") || biomePath.contains("dark_oak")) &&
                 (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSMineshaftsConfig.addMineshaftsToModdedBiomes)) {
             if (biome.hasStructureFeature(StructureFeature.MINESHAFT)) {
                 // replace vanilla mineshaft with our own
                 ((BiomeStructureAccessor) biome).getStructureFeatures().remove(StructureFeature.MINESHAFT);
                 biome.addStructureFeature(RSFeatures.SWAMP_OR_DARK_FOREST_MINESHAFT.configure(FeatureConfig.DEFAULT));
             }
-        } else if (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.endMineshaftSpawnrate != 0 && (biome.getCategory() == Category.THEEND && biome != Biomes.THE_END && biome != Biomes.END_BARRENS) &&
+        }
+        else if (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.endMineshaftSpawnrate != 0 &&
+                (biome.getCategory() == Category.THEEND && biome != Biomes.THE_END && biome != Biomes.END_BARRENS && biome != Biomes.SMALL_END_ISLANDS) &&
                 (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSMineshaftsConfig.addMineshaftsToModdedBiomes)) {
             biome.addStructureFeature(RSFeatures.END_MINESHAFT.configure(FeatureConfig.DEFAULT));
-        } else if (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.netherMineshaftSpawnrate != 0 && biome.getCategory() == Category.NETHER &&
+        }
+        else if (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.netherMineshaftSpawnrate != 0 && biome.getCategory() == Category.NETHER &&
                 (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSMineshaftsConfig.addMineshaftsToModdedBiomes)) {
             biome.addStructureFeature(RSFeatures.NETHER_MINESHAFT.configure(FeatureConfig.DEFAULT));
         }

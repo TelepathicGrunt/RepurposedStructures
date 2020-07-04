@@ -8,6 +8,14 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.1.0.1 Changes) (1.16-Pre1 Minecraft)
+
+##### Mineshafts: 
+
+- End Mineshafts no longer spawn in Small End Island Biome
+
+
+
 
 ## (V.1.0.0 Changes) (1.16-Pre1 Minecraft)
 
