@@ -1,6 +1,7 @@
 <p><img src="https://i.imgur.com/lD8Pa6U.png" alt="Picture that shows the title of this mod with a Stonebrick Fortress during sunset behind the text" width="1519" height="516" /></p>
-<h2 style="text-align: center;"><strong><span style="font-size: 36px; color: #009611;">CURRENTLY FOR 1.16.0 MC</span></strong></h2>
-<p>&nbsp;</p>
+<h2 style="text-align: center;"><strong><span style="font-size: 36px; color: #009611;">CURRENTLY FOR 1.16.1 MC</span></strong></h2>
+<h2 style="text-align: center;"><span style="font-size: 14px;"><strong><span style="color: #009611;">CLICK HERE FOR 1.15.2 FORGE VERSION:&nbsp;</span></strong></span></h2>
+<p style="text-align: center;"><span style="font-size: 14px;"><strong><span style="color: #009611;"><a href="https://www.curseforge.com/minecraft/mc-mods/repurposed-structures">https://www.curseforge.com/minecraft/mc-mods/repurposed-structures</a></span></strong></span></p>
 <p>&nbsp;</p>
 <p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;">&nbsp;</p>
