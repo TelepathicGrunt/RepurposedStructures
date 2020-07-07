@@ -18,41 +18,36 @@ import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 
-public class VillageSwampStructure extends StructureFeature<DefaultFeatureConfig>
+public class VillageSwampStructure extends AbstractVillageStructure
 {
     public VillageSwampStructure(Codec<DefaultFeatureConfig> config) {
 	super(config);
     }
 
-
-	protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long l, ChunkRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig defaultFeatureConfig) {
-
-		for (int curChunkX = chunkX - 1; curChunkX <= chunkX + 1; curChunkX++) {
-			for (int curChunkZ = chunkZ - 1; curChunkZ <= chunkZ + 1; curChunkZ++) {
-				if (!biomeSource.getBiomeForNoiseGen(curChunkX << 2, 60, curChunkZ << 2).hasStructureFeature(RSFeatures.SWAMP_VILLAGE)) {
-					return false;
-				}
-			}
-		}
-
-		return true;
+	@Override
+	public StructureFeature<DefaultFeatureConfig> getVillageInstance() {
+		return RSFeatures.SWAMP_VILLAGE;
 	}
 
     public StructureFeature.StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
 		return VillageSwampStructure.Start::new;
     }
 
-    public static class Start extends VillageStructureStart<DefaultFeatureConfig>
+    public static class Start extends AbstractStart
     {
 		public Start(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
 			super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
 		}
 
+		public static Identifier VILLAGE_IDENTIFIER = new Identifier(RepurposedStructures.MODID + ":village/swamp/town_centers");
+		@Override
+		public Identifier getIdentifier() {
+			return VILLAGE_IDENTIFIER;
+		}
 
-		public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
-			BlockPos blockpos = new BlockPos(chunkX * 16, 0, chunkZ * 16);
-			VillageGenerator.addPieces(chunkGenerator, structureManager, blockpos, this.children, this.random, new StructurePoolFeatureConfig(new Identifier(RepurposedStructures.MODID + ":village/swamp/town_centers"), 6));
-			this.setBoundingBoxFromChildren();
+		@Override
+		public int getSize() {
+			return 6;
 		}
     }
 }

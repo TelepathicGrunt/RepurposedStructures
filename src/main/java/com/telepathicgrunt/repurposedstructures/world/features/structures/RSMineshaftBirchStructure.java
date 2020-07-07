@@ -21,14 +21,8 @@ public class RSMineshaftBirchStructure extends AbstractMineshaftStructure {
         super(config);
     }
 
-    public double mineshaftProbability() {
+    public double getProbability() {
         return RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.birchMineshaftSpawnrate;
-    }
-
-    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, int x, int z, Biome biome, ChunkPos chunkPos, MineshaftFeatureConfig mineshaftFeatureConfig) {
-        chunkRandom.setCarverSeed(seed, x, z);
-        double d = (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.birchMineshaftSpawnrate / 10000D);
-        return chunkRandom.nextDouble() < d;
     }
 
     @Override
@@ -36,30 +30,24 @@ public class RSMineshaftBirchStructure extends AbstractMineshaftStructure {
         return RSMineshaftBirchStructure.Start::new;
     }
 
-    public static class Start extends StructureStart<DefaultFeatureConfig> {
+    public static class Start extends AbstractStart{
         public Start(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
         }
 
-
         @Override
-        public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
-            RSMineshaftPieces.Room structuremineshaftpiecesua$room = new RSMineshaftPieces.Room(0, this.random, (chunkX << 4) + 2, (chunkZ << 4) + 2, RSMineshaftPieces.Type.BIRCH);
-            this.children.add(structuremineshaftpiecesua$room);
-
-            structuremineshaftpiecesua$room.placeJigsaw(structuremineshaftpiecesua$room, this.children, this.random);
-            this.setBoundingBoxFromChildren();
-
-            int minimum = RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.birchMineshaftMinHeight;
-            int maximum = Math.max(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.birchMineshaftMaxHeight, minimum) + 1;
-
-            int offset = this.random.nextInt(maximum - minimum) + minimum;
-            this.boundingBox.offset(0, offset - 50, 0);
-
-            for (StructurePiece structurepiece : this.children) {
-                structurepiece.translate(0, offset - 50, 0);
-            }
+        public RSMineshaftPieces.Type getMineshaftType() {
+            return RSMineshaftPieces.Type.BIRCH;
         }
+        @Override
+        public int getMaxHeight() {
+            return RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.birchMineshaftMaxHeight;
+        }
+        @Override
+        public int getMinHeight() {
+            return RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.birchMineshaftMinHeight;
+        }
+
     }
 
 }

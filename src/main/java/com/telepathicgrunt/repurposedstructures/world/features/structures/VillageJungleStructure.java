@@ -18,38 +18,35 @@ import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 
-public class VillageJungleStructure extends StructureFeature<DefaultFeatureConfig> {
+public class VillageJungleStructure extends AbstractVillageStructure {
     public VillageJungleStructure(Codec<DefaultFeatureConfig> config) {
         super(config);
     }
 
 
-    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long l, ChunkRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig defaultFeatureConfig) {
-       for (int curChunkX = chunkX - 1; curChunkX <= chunkX + 1; curChunkX++) {
-            for (int curChunkZ = chunkZ - 1; curChunkZ <= chunkZ + 1; curChunkZ++) {
-                if (!biomeSource.getBiomeForNoiseGen(curChunkX << 2, 60, curChunkZ << 2).hasStructureFeature(RSFeatures.JUNGLE_VILLAGE)) {
-                    return false;
-                }
-            }
-        }
-
-        return true;
+    @Override
+    public StructureFeature<DefaultFeatureConfig> getVillageInstance() {
+        return RSFeatures.JUNGLE_VILLAGE;
     }
-
 
     public StructureFeature.StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
         return VillageJungleStructure.Start::new;
     }
 
-    public static class Start extends VillageStructureStart<DefaultFeatureConfig> {
+    public static class Start extends AbstractStart {
         public Start(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
         }
 
-        public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
-            BlockPos blockpos = new BlockPos(chunkX * 16, 0, chunkZ * 16);
-            VillageGenerator.addPieces(chunkGenerator, structureManager, blockpos, this.children, this.random, new StructurePoolFeatureConfig(new Identifier(RepurposedStructures.MODID + ":village/jungle/town_centers"), 8));
-            this.setBoundingBoxFromChildren();
+        public static Identifier VILLAGE_IDENTIFIER = new Identifier(RepurposedStructures.MODID + ":village/jungle/town_centers");
+        @Override
+        public Identifier getIdentifier() {
+            return VILLAGE_IDENTIFIER;
+        }
+
+        @Override
+        public int getSize() {
+            return 8;
         }
     }
 }

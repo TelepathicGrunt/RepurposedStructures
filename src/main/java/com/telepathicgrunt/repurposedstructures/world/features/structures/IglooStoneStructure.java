@@ -16,34 +16,25 @@ import net.minecraft.world.gen.feature.FeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
 
-public class IglooStoneStructure extends StructureFeature<DefaultFeatureConfig> {
+public class IglooStoneStructure extends AbstractIglooStructure {
     public IglooStoneStructure(Codec<DefaultFeatureConfig> config) {
         super(config);
     }
-
 
     @Override
     public StructureFeature.StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
         return IglooStoneStructure.Start::new;
     }
 
-
-    public static class Start extends StructureStart<DefaultFeatureConfig> {
-        public static Identifier TOP_PIECE_RL = new Identifier(RepurposedStructures.MODID + ":igloos/stone_top");
-
+    public static class Start extends AbstractStart {
         public Start(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
         }
 
-
+        public static Identifier TOP_PIECE_IDENTIFIER = new Identifier(RepurposedStructures.MODID + ":igloos/stone_top");
         @Override
-        public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
-            int x = chunkX * 16;
-            int z = chunkZ * 16;
-            BlockPos blockpos = new BlockPos(x, 90, z);
-            BlockRotation rotation = BlockRotation.values()[this.random.nextInt(BlockRotation.values().length)];
-            RSIglooPieces.func_207617_a(structureManager, TOP_PIECE_RL, Blocks.PODZOL, blockpos, rotation, this.children, this.random, FeatureConfig.DEFAULT);
-            this.setBoundingBoxFromChildren();
+        public Identifier getTopPieceIdentifier() {
+            return TOP_PIECE_IDENTIFIER;
         }
     }
 }

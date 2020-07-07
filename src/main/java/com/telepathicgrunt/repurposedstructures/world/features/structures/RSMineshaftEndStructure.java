@@ -17,7 +17,7 @@ public class RSMineshaftEndStructure extends AbstractMineshaftStructure {
         super(config);
     }
 
-    public double mineshaftProbability() {
+    public double getProbability() {
         return RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.endMineshaftSpawnrate;
     }
 
@@ -26,29 +26,22 @@ public class RSMineshaftEndStructure extends AbstractMineshaftStructure {
         return RSMineshaftEndStructure.Start::new;
     }
 
-    public static class Start extends StructureStart<DefaultFeatureConfig> {
+    public static class Start extends AbstractStart {
         public Start(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
         }
 
-
         @Override
-        public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
-            RSMineshaftPieces.Room structuremineshaftpiecesua$room = new RSMineshaftPieces.Room(0, this.random, (chunkX << 4) + 2, (chunkZ << 4) + 2, RSMineshaftPieces.Type.END);
-            this.children.add(structuremineshaftpiecesua$room);
-
-            structuremineshaftpiecesua$room.placeJigsaw(structuremineshaftpiecesua$room, this.children, this.random);
-            this.setBoundingBoxFromChildren();
-
-            int minimum = RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.endMineshaftMinHeight;
-            int maximum = Math.max(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.endMineshaftMaxHeight, minimum) + 1;
-
-            int offset = this.random.nextInt(maximum - minimum) + minimum;
-            this.boundingBox.offset(0, offset - 50, 0);
-
-            for (StructurePiece structurepiece : this.children) {
-                structurepiece.translate(0, offset - 50, 0);
-            }
+        public RSMineshaftPieces.Type getMineshaftType() {
+            return RSMineshaftPieces.Type.END;
+        }
+        @Override
+        public int getMaxHeight() {
+            return RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.endMineshaftMaxHeight;
+        }
+        @Override
+        public int getMinHeight() {
+            return RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.endMineshaftMinHeight;
         }
     }
 

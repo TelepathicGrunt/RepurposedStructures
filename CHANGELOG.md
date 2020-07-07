@@ -8,6 +8,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.1.1.0 Changes) (1.16.1 Minecraft)
+
+
 ## (V.1.0.1 Changes) (1.16.1 Minecraft)
 
 ##### Mineshafts: 
