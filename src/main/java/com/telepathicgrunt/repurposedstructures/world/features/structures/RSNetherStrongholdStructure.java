@@ -9,7 +9,6 @@ import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.biome.source.BiomeSource;
 import net.minecraft.world.gen.ChunkRandom;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
@@ -59,7 +58,7 @@ public class RSNetherStrongholdStructure extends StrongholdFeature {
 
             if (strongholdpieces$entrancestairs.strongholdPortalRoom == null) {
                 BlockBox box = this.children.get(this.children.size() - 1).getBoundingBox();
-                RSStrongholdPieces.Stronghold portalRoom = RSStrongholdPieces.PortalRoom.createPiece(this.children, this.random, box.minX, box.minY + 1, box.minZ, Direction.NORTH, RSStrongholdPieces.Type.NETHER);
+                RSStrongholdPieces.Stronghold portalRoom = RSStrongholdPieces.PortalRoom.createPiece(box.minX, box.minY + 1, box.minZ, Direction.NORTH, RSStrongholdPieces.Type.NETHER);
                 this.children.add(portalRoom);
                 strongholdpieces$entrancestairs.pendingChildren.add(portalRoom);
                 list = strongholdpieces$entrancestairs.pendingChildren;

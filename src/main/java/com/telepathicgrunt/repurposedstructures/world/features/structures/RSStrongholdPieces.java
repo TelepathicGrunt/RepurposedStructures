@@ -33,7 +33,6 @@ import net.minecraft.world.WorldAccess;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 
-import java.lang.reflect.Constructor;
 import java.util.*;
 
 
@@ -48,6 +47,10 @@ public class RSStrongholdPieces {
     }
     
     private static final Identifier NETHER_STRONGHOLD_BOOKSHELF_RL = new Identifier("repurposed_structures:nether_stronghold_bookshelves");
+    private static final Identifier STONEBRICK_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":stronghold_stonebrick");
+    private static final Identifier STONEBRICK_PORTAL_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":stronghold_stonebrick_portal_room");
+    private static final Identifier NETHER_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":stronghold_nether");
+    private static final Identifier NETHER_PORTAL_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":stronghold_nether_portal_room");
 
     private static final List<RSStrongholdPieces.PieceWeight> PIECE_WEIGHTS = new ArrayList<RSStrongholdPieces.PieceWeight>();
 
@@ -176,7 +179,7 @@ public class RSStrongholdPieces {
         } else if (pieceClass == RSStrongholdPieces.Library.class) {
             structurestrongholdpieces$stronghold = RSStrongholdPieces.Library.createPiece(piecesList, random, xStart, yStart, zStart, direction, distanceFromStart, stronghold$type);
         } else if (pieceClass == RSStrongholdPieces.PortalRoom.class) {
-            structurestrongholdpieces$stronghold = RSStrongholdPieces.PortalRoom.createPiece(piecesList, random, xStart, yStart, zStart, direction, distanceFromStart, stronghold$type);
+            structurestrongholdpieces$stronghold = RSStrongholdPieces.PortalRoom.createPiece(piecesList, xStart, yStart, zStart, direction, distanceFromStart, stronghold$type);
         }
 
         return structurestrongholdpieces$stronghold;
@@ -671,20 +674,20 @@ public class RSStrongholdPieces {
                 this.addBlock(world, Blocks.OAK_PLANKS.getDefaultState(), 9, 5, 11, structureBoundingBoxIn);
                 this.addBlock(world, Blocks.OAK_PLANKS.getDefaultState(), 8, 5, 11, structureBoundingBoxIn);
                 this.addBlock(world, Blocks.OAK_PLANKS.getDefaultState(), 9, 5, 10, structureBoundingBoxIn);
-                BlockState iblockstate5 = Blocks.OAK_FENCE.getDefaultState().with(HorizontalConnectingBlock.WEST, Boolean.valueOf(true)).with(HorizontalConnectingBlock.EAST, Boolean.valueOf(true));
-                BlockState iblockstate = Blocks.OAK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, Boolean.valueOf(true)).with(HorizontalConnectingBlock.SOUTH, Boolean.valueOf(true));
+                BlockState iblockstate5 = Blocks.OAK_FENCE.getDefaultState().with(HorizontalConnectingBlock.WEST, Boolean.TRUE).with(HorizontalConnectingBlock.EAST, Boolean.TRUE);
+                BlockState iblockstate = Blocks.OAK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, Boolean.TRUE).with(HorizontalConnectingBlock.SOUTH, Boolean.TRUE);
                 this.fillWithOutline(world, structureBoundingBoxIn, 3, 6, 3, 3, 6, 11, iblockstate, iblockstate, false);
                 this.fillWithOutline(world, structureBoundingBoxIn, 10, 6, 3, 10, 6, 9, iblockstate, iblockstate, false);
                 this.fillWithOutline(world, structureBoundingBoxIn, 4, 6, 2, 9, 6, 2, iblockstate5, iblockstate5, false);
                 this.fillWithOutline(world, structureBoundingBoxIn, 4, 6, 12, 7, 6, 12, iblockstate5, iblockstate5, false);
-                this.addBlock(world, Blocks.OAK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, Boolean.valueOf(true)).with(HorizontalConnectingBlock.EAST, Boolean.valueOf(true)), 3, 6, 2, structureBoundingBoxIn);
-                this.addBlock(world, Blocks.OAK_FENCE.getDefaultState().with(HorizontalConnectingBlock.SOUTH, Boolean.valueOf(true)).with(HorizontalConnectingBlock.EAST, Boolean.valueOf(true)), 3, 6, 12, structureBoundingBoxIn);
-                this.addBlock(world, Blocks.OAK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, Boolean.valueOf(true)).with(HorizontalConnectingBlock.WEST, Boolean.valueOf(true)), 10, 6, 2, structureBoundingBoxIn);
+                this.addBlock(world, Blocks.OAK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, Boolean.TRUE).with(HorizontalConnectingBlock.EAST, Boolean.TRUE), 3, 6, 2, structureBoundingBoxIn);
+                this.addBlock(world, Blocks.OAK_FENCE.getDefaultState().with(HorizontalConnectingBlock.SOUTH, Boolean.TRUE).with(HorizontalConnectingBlock.EAST, Boolean.TRUE), 3, 6, 12, structureBoundingBoxIn);
+                this.addBlock(world, Blocks.OAK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, Boolean.TRUE).with(HorizontalConnectingBlock.WEST, Boolean.TRUE), 10, 6, 2, structureBoundingBoxIn);
 
                 for (int i1 = 0; i1 <= 2; ++i1) {
-                    this.addBlock(world, Blocks.OAK_FENCE.getDefaultState().with(HorizontalConnectingBlock.SOUTH, Boolean.valueOf(true)).with(HorizontalConnectingBlock.WEST, Boolean.valueOf(true)), 8 + i1, 6, 12 - i1, structureBoundingBoxIn);
+                    this.addBlock(world, Blocks.OAK_FENCE.getDefaultState().with(HorizontalConnectingBlock.SOUTH, Boolean.TRUE).with(HorizontalConnectingBlock.WEST, Boolean.TRUE), 8 + i1, 6, 12 - i1, structureBoundingBoxIn);
                     if (i1 != 2) {
-                        this.addBlock(world, Blocks.OAK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, Boolean.valueOf(true)).with(HorizontalConnectingBlock.EAST, Boolean.valueOf(true)), 8 + i1, 6, 11 - i1, structureBoundingBoxIn);
+                        this.addBlock(world, Blocks.OAK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, Boolean.TRUE).with(HorizontalConnectingBlock.EAST, Boolean.TRUE), 8 + i1, 6, 11 - i1, structureBoundingBoxIn);
                     }
                 }
 
@@ -696,21 +699,21 @@ public class RSStrongholdPieces {
                 this.addBlock(world, iblockstate6, 10, 5, 13, structureBoundingBoxIn);
                 this.addBlock(world, iblockstate6, 10, 6, 13, structureBoundingBoxIn);
                 this.addBlock(world, iblockstate6, 10, 7, 13, structureBoundingBoxIn);
-                BlockState iblockstate1 = Blocks.OAK_FENCE.getDefaultState().with(HorizontalConnectingBlock.EAST, Boolean.valueOf(true));
+                BlockState iblockstate1 = Blocks.OAK_FENCE.getDefaultState().with(HorizontalConnectingBlock.EAST, Boolean.TRUE);
                 this.addBlock(world, iblockstate1, 6, 9, 7, structureBoundingBoxIn);
-                BlockState iblockstate2 = Blocks.OAK_FENCE.getDefaultState().with(HorizontalConnectingBlock.WEST, Boolean.valueOf(true));
+                BlockState iblockstate2 = Blocks.OAK_FENCE.getDefaultState().with(HorizontalConnectingBlock.WEST, Boolean.TRUE);
                 this.addBlock(world, iblockstate2, 7, 9, 7, structureBoundingBoxIn);
                 this.addBlock(world, iblockstate1, 6, 8, 7, structureBoundingBoxIn);
                 this.addBlock(world, iblockstate2, 7, 8, 7, structureBoundingBoxIn);
-                BlockState iblockstate3 = iblockstate.with(HorizontalConnectingBlock.WEST, Boolean.valueOf(true)).with(HorizontalConnectingBlock.EAST, Boolean.valueOf(true));
+                BlockState iblockstate3 = iblockstate.with(HorizontalConnectingBlock.WEST, Boolean.TRUE).with(HorizontalConnectingBlock.EAST, Boolean.TRUE);
                 this.addBlock(world, iblockstate3, 6, 7, 7, structureBoundingBoxIn);
                 this.addBlock(world, iblockstate3, 7, 7, 7, structureBoundingBoxIn);
                 this.addBlock(world, iblockstate1, 5, 7, 7, structureBoundingBoxIn);
                 this.addBlock(world, iblockstate2, 8, 7, 7, structureBoundingBoxIn);
-                this.addBlock(world, iblockstate1.with(HorizontalConnectingBlock.NORTH, Boolean.valueOf(true)), 6, 7, 6, structureBoundingBoxIn);
-                this.addBlock(world, iblockstate1.with(HorizontalConnectingBlock.SOUTH, Boolean.valueOf(true)), 6, 7, 8, structureBoundingBoxIn);
-                this.addBlock(world, iblockstate2.with(HorizontalConnectingBlock.NORTH, Boolean.valueOf(true)), 7, 7, 6, structureBoundingBoxIn);
-                this.addBlock(world, iblockstate2.with(HorizontalConnectingBlock.SOUTH, Boolean.valueOf(true)), 7, 7, 8, structureBoundingBoxIn);
+                this.addBlock(world, iblockstate1.with(HorizontalConnectingBlock.NORTH, Boolean.TRUE), 6, 7, 6, structureBoundingBoxIn);
+                this.addBlock(world, iblockstate1.with(HorizontalConnectingBlock.SOUTH, Boolean.TRUE), 6, 7, 8, structureBoundingBoxIn);
+                this.addBlock(world, iblockstate2.with(HorizontalConnectingBlock.NORTH, Boolean.TRUE), 7, 7, 6, structureBoundingBoxIn);
+                this.addBlock(world, iblockstate2.with(HorizontalConnectingBlock.SOUTH, Boolean.TRUE), 7, 7, 8, structureBoundingBoxIn);
                 BlockState iblockstate4 = Blocks.TORCH.getDefaultState();
                 this.addBlock(world, iblockstate4, 5, 8, 7, structureBoundingBoxIn);
                 this.addBlock(world, iblockstate4, 8, 8, 7, structureBoundingBoxIn);
@@ -772,7 +775,7 @@ public class RSStrongholdPieces {
         }
 
 
-        public PortalRoom(StructureManager p_i50132_1_, CompoundTag p_i50132_2_) {
+        public PortalRoom(StructureManager p_i50133_1_, CompoundTag p_i50132_2_) {
             super(StructurePieces.STRONGHOLD_PORTAL_ROOM, p_i50132_2_);
         }
 
@@ -794,13 +797,13 @@ public class RSStrongholdPieces {
         }
 
 
-        public static RSStrongholdPieces.PortalRoom createPiece(List<StructurePiece> p_175865_0_, Random p_175865_1_, int x, int y, int z, Direction p_175865_5_, int componentType, Type strongholdType) {
+        public static RSStrongholdPieces.PortalRoom createPiece(List<StructurePiece> p_175865_0_, int x, int y, int z, Direction p_175865_5_, int componentType, Type strongholdType) {
             BlockBox mutableboundingbox = BlockBox.rotated(x, y, z, -4, -1, 0, 11, 8, 16, p_175865_5_);
             return canStrongholdGoDeeper(mutableboundingbox) && StructurePiece.getOverlappingPiece(p_175865_0_, mutableboundingbox) == null ? new RSStrongholdPieces.PortalRoom(componentType, mutableboundingbox, p_175865_5_, strongholdType) : null;
         }
 
 
-        public static RSStrongholdPieces.PortalRoom createPiece(List<StructurePiece> p_175865_0_, Random p_175865_1_, int x, int y, int z, Direction p_175865_5_, Type strongholdType) {
+        public static RSStrongholdPieces.PortalRoom createPiece(int x, int y, int z, Direction p_175865_5_, Type strongholdType) {
             BlockBox mutableboundingbox = BlockBox.rotated(x, y, z, -4, -1, 0, 11, 8, 16, p_175865_5_);
             return new RSStrongholdPieces.PortalRoom(1, mutableboundingbox, p_175865_5_, strongholdType);
         }
@@ -848,25 +851,25 @@ public class RSStrongholdPieces {
             BlockState iblockstate1 = Blocks.END_PORTAL_FRAME.getDefaultState().with(EndPortalFrameBlock.FACING, Direction.EAST);
             BlockState iblockstate2 = Blocks.END_PORTAL_FRAME.getDefaultState().with(EndPortalFrameBlock.FACING, Direction.WEST);
             boolean flag = true;
-            boolean[] aboolean = new boolean[12];
+            boolean[] eyesPlaced = new boolean[12];
 
-            for (int l = 0; l < aboolean.length; ++l) {
-                aboolean[l] = random.nextFloat() > 0.9F;
-                flag &= aboolean[l];
+            for (int l = 0; l < eyesPlaced.length; ++l) {
+                eyesPlaced[l] = random.nextFloat() > 0.9F;
+                flag &= eyesPlaced[l];
             }
 
-            this.addBlock(world, iblockstate4.with(EndPortalFrameBlock.EYE, Boolean.valueOf(aboolean[0])), 4, 3, 8, structureBoundingBoxIn);
-            this.addBlock(world, iblockstate4.with(EndPortalFrameBlock.EYE, Boolean.valueOf(aboolean[1])), 5, 3, 8, structureBoundingBoxIn);
-            this.addBlock(world, iblockstate4.with(EndPortalFrameBlock.EYE, Boolean.valueOf(aboolean[2])), 6, 3, 8, structureBoundingBoxIn);
-            this.addBlock(world, iblockstate.with(EndPortalFrameBlock.EYE, Boolean.valueOf(aboolean[3])), 4, 3, 12, structureBoundingBoxIn);
-            this.addBlock(world, iblockstate.with(EndPortalFrameBlock.EYE, Boolean.valueOf(aboolean[4])), 5, 3, 12, structureBoundingBoxIn);
-            this.addBlock(world, iblockstate.with(EndPortalFrameBlock.EYE, Boolean.valueOf(aboolean[5])), 6, 3, 12, structureBoundingBoxIn);
-            this.addBlock(world, iblockstate1.with(EndPortalFrameBlock.EYE, Boolean.valueOf(aboolean[6])), 3, 3, 9, structureBoundingBoxIn);
-            this.addBlock(world, iblockstate1.with(EndPortalFrameBlock.EYE, Boolean.valueOf(aboolean[7])), 3, 3, 10, structureBoundingBoxIn);
-            this.addBlock(world, iblockstate1.with(EndPortalFrameBlock.EYE, Boolean.valueOf(aboolean[8])), 3, 3, 11, structureBoundingBoxIn);
-            this.addBlock(world, iblockstate2.with(EndPortalFrameBlock.EYE, Boolean.valueOf(aboolean[9])), 7, 3, 9, structureBoundingBoxIn);
-            this.addBlock(world, iblockstate2.with(EndPortalFrameBlock.EYE, Boolean.valueOf(aboolean[10])), 7, 3, 10, structureBoundingBoxIn);
-            this.addBlock(world, iblockstate2.with(EndPortalFrameBlock.EYE, Boolean.valueOf(aboolean[11])), 7, 3, 11, structureBoundingBoxIn);
+            this.addBlock(world, iblockstate4.with(EndPortalFrameBlock.EYE, eyesPlaced[0]), 4, 3, 8, structureBoundingBoxIn);
+            this.addBlock(world, iblockstate4.with(EndPortalFrameBlock.EYE, eyesPlaced[1]), 5, 3, 8, structureBoundingBoxIn);
+            this.addBlock(world, iblockstate4.with(EndPortalFrameBlock.EYE, eyesPlaced[2]), 6, 3, 8, structureBoundingBoxIn);
+            this.addBlock(world, iblockstate.with(EndPortalFrameBlock.EYE, eyesPlaced[3]), 4, 3, 12, structureBoundingBoxIn);
+            this.addBlock(world, iblockstate.with(EndPortalFrameBlock.EYE, eyesPlaced[4]), 5, 3, 12, structureBoundingBoxIn);
+            this.addBlock(world, iblockstate.with(EndPortalFrameBlock.EYE, eyesPlaced[5]), 6, 3, 12, structureBoundingBoxIn);
+            this.addBlock(world, iblockstate1.with(EndPortalFrameBlock.EYE, eyesPlaced[6]), 3, 3, 9, structureBoundingBoxIn);
+            this.addBlock(world, iblockstate1.with(EndPortalFrameBlock.EYE, eyesPlaced[7]), 3, 3, 10, structureBoundingBoxIn);
+            this.addBlock(world, iblockstate1.with(EndPortalFrameBlock.EYE, eyesPlaced[8]), 3, 3, 11, structureBoundingBoxIn);
+            this.addBlock(world, iblockstate2.with(EndPortalFrameBlock.EYE, eyesPlaced[9]), 7, 3, 9, structureBoundingBoxIn);
+            this.addBlock(world, iblockstate2.with(EndPortalFrameBlock.EYE, eyesPlaced[10]), 7, 3, 10, structureBoundingBoxIn);
+            this.addBlock(world, iblockstate2.with(EndPortalFrameBlock.EYE, eyesPlaced[11]), 7, 3, 11, structureBoundingBoxIn);
 
             if (flag) {
                 BlockState iblockstate5 = Blocks.END_PORTAL.getDefaultState();
@@ -889,7 +892,8 @@ public class RSStrongholdPieces {
                 BlockEntity tileentity = world.getBlockEntity(blockpos);
 
                 if (tileentity instanceof MobSpawnerBlockEntity) {
-                    ((MobSpawnerBlockEntity) tileentity).getLogic().setEntityId(getSpawnerEntity(random));
+                    ((MobSpawnerBlockEntity) tileentity).getLogic()
+                            .setEntityId(getSpawnerEntity(random, true));
                 }
             }
 
@@ -906,7 +910,7 @@ public class RSStrongholdPieces {
         }
 
 
-        public Prison(StructureManager p_i50130_1_, CompoundTag p_i50130_2_) {
+        public Prison(StructureManager p_i50133_1_, CompoundTag p_i50130_2_) {
             super(StructurePieces.STRONGHOLD_PRISON, p_i50130_2_);
         }
 
@@ -1062,7 +1066,7 @@ public class RSStrongholdPieces {
                             BlockEntity tileentity = world.getBlockEntity(blockpos);
 
                             if (tileentity instanceof MobSpawnerBlockEntity) {
-                                ((MobSpawnerBlockEntity) tileentity).getLogic().setEntityId(getSpawnerEntity(random));
+                                ((MobSpawnerBlockEntity) tileentity).getLogic().setEntityId(getSpawnerEntity(random, false));
                             }
                         } else {
                             world.setBlockState(blockpos, Blocks.STONE_BRICKS.getDefaultState(), 2);
@@ -1104,7 +1108,7 @@ public class RSStrongholdPieces {
                             BlockEntity tileentity = world.getBlockEntity(blockpos);
 
                             if (tileentity instanceof MobSpawnerBlockEntity) {
-                                ((MobSpawnerBlockEntity) tileentity).getLogic().setEntityId(getSpawnerEntity(random));
+                                ((MobSpawnerBlockEntity) tileentity).getLogic().setEntityId(getSpawnerEntity(random, false));
                             }
                         } else {
                             world.setBlockState(blockpos, Blocks.STONE_BRICKS.getDefaultState(), 2);
@@ -1152,7 +1156,7 @@ public class RSStrongholdPieces {
                             BlockEntity tileentity = world.getBlockEntity(blockpos);
 
                             if (tileentity instanceof MobSpawnerBlockEntity) {
-                                ((MobSpawnerBlockEntity) tileentity).getLogic().setEntityId(getSpawnerEntity(random));
+                                ((MobSpawnerBlockEntity) tileentity).getLogic().setEntityId(getSpawnerEntity(random, false));
                             }
                             this.addBlock(world, Blocks.TORCH.getDefaultState(), 5, 2, 5, structureBoundingBoxIn);
                         } else {
@@ -1629,23 +1633,18 @@ public class RSStrongholdPieces {
             }
         }
 
-        protected EntityType<?> getSpawnerEntity(Random random) {
+        protected EntityType<?> getSpawnerEntity(Random random, boolean isPortalRoom) {
             if (this.strongholdType == Type.NETHER) {
-                float chance = random.nextFloat();
-                if(chance < 0.5){
-                    // 50% chance
-                    return EntityType.BLAZE;
-                }
-                else if(chance <= 0.8){
-                    // 30% chance
-                    return EntityType.ZOGLIN;
-                }
-                else{
-                    // 20% chance
-                    return EntityType.ZOMBIFIED_PIGLIN;
-                }
-            } else {
-                return EntityType.SILVERFISH;
+                if(isPortalRoom)
+                    return RepurposedStructures.mobSpawnerManager.getSpawnerMob(NETHER_PORTAL_SPAWNER_ID, random);
+                else
+                    return RepurposedStructures.mobSpawnerManager.getSpawnerMob(NETHER_SPAWNER_ID, random);
+            }
+            else {
+                if(isPortalRoom)
+                    return RepurposedStructures.mobSpawnerManager.getSpawnerMob(STONEBRICK_PORTAL_SPAWNER_ID, random);
+                else
+                    return RepurposedStructures.mobSpawnerManager.getSpawnerMob(STONEBRICK_SPAWNER_ID, random);
             }
         }
 

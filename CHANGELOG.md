@@ -10,6 +10,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ## (V.1.1.0 Changes) (1.16.1 Minecraft)
 
+##### Datapacks: 
+
+-Added a new folder called data.repurposed_structures.rs_spawners where you can specify what kind of mob spawner can be in RS's dungeons, mineshafts, strongholds, and jungle fortress! You can specify more than one mob and what the chances are of the spawner being that mob.
 
 ## (V.1.0.1 Changes) (1.16.1 Minecraft)
 

@@ -9,7 +9,6 @@ import net.minecraft.block.enums.RailShape;
 import net.minecraft.block.enums.WireConnection;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.vehicle.ChestMinecartEntity;
-import net.minecraft.fluid.FluidState;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.state.property.Properties;
@@ -29,27 +28,37 @@ import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 
 public class RSMineshaftPieces {
-    /**
-     * --------------------------------------------------------------------------
-     * |									|
-     * |	HELLO READERS! IF YOU'RE HERE, YOU'RE PROBABLY			|
-     * |	LOOKING FOR A TUTORIAL ON HOW TO DO STRUCTURES			|
-     * |									|
-     * -------------------------------------------------------------------------
-     * <p>
-     * Don't worry, I actually have a structure tutorial
-     * mod already setup for you to check out! It's full
-     * of comments on what does what and how to make structures.
-     * <p>
-     * Here's the link! https://github.com/TelepathicGrunt/StructureTutorialMod
-     * <p>
-     * Good luck and have fun modding!
-     */
-    public static enum Type {
+
+    private static final Identifier ICY_CHEST_ID =  new Identifier(RepurposedStructures.MODID + ":chests/mineshaft_icy");
+    private static final Identifier JUNGLE_CHEST_ID =  new Identifier(RepurposedStructures.MODID + ":chests/mineshaft_jungle");
+    private static final Identifier TAIGA_CHEST_ID =  new Identifier(RepurposedStructures.MODID + ":chests/mineshaft_taiga");
+    private static final Identifier DESERT_CHEST_ID =  new Identifier(RepurposedStructures.MODID + ":chests/mineshaft_desert");
+    private static final Identifier END_CHEST_ID =  new Identifier(RepurposedStructures.MODID + ":chests/mineshaft_end");
+    private static final Identifier NETHER_CHEST_ID =  new Identifier(RepurposedStructures.MODID + ":chests/mineshaft_nether");
+    private static final Identifier OCEAN_CHEST_ID =  new Identifier(RepurposedStructures.MODID + ":chests/mineshaft_ocean");
+    private static final Identifier STONE_CHEST_ID =  new Identifier(RepurposedStructures.MODID + ":chests/mineshaft_stone");
+    private static final Identifier SAVANNA_CHEST_ID =  new Identifier(RepurposedStructures.MODID + ":chests/mineshaft_savanna");
+    private static final Identifier SWAMP_OR_DARK_FOREST_CHEST_ID =  new Identifier(RepurposedStructures.MODID + ":chests/mineshaft_swamp_dark_forest");
+    private static final Identifier BIRCH_CHEST_ID =  new Identifier(RepurposedStructures.MODID + ":chests/mineshaft_birch");
+    private static final Identifier ICY_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":mineshaft_icy");
+    private static final Identifier BIRCH_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":mineshaft_birch");
+    private static final Identifier JUNGLE_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":mineshaft_jungle");
+    private static final Identifier TAIGA_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":mineshaft_taiga");
+    private static final Identifier DESERT_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":mineshaft_desert");;
+    private static final Identifier STONE_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":mineshaft_stone");
+    private static final Identifier SAVANNA_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":mineshaft_savanna");
+    private static final Identifier SWAMPORDARKFOREST_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":mineshaft_swamp_or_dark_forest");
+    private static final Identifier END_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":mineshaft_end");
+    private static final Identifier NETHER_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":mineshaft_nether");
+    private static final Identifier OCEAN_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":mineshaft_ocean");
+
+
+    public enum Type {
         ICY, BIRCH, JUNGLE, TAIGA, DESERT, STONE, SAVANNA, SWAMPORDARKFOREST, END, NETHER, OCEAN;
 
         public static RSMineshaftPieces.Type byId(int id) {
@@ -103,10 +112,10 @@ public class RSMineshaftPieces {
     }
 
     public static class Corridor extends RSMineshaftPieces.Piece {
-        private boolean hasRails;
-        private boolean attemptSpawnerCreation;
+        private final boolean hasRails;
+        private final boolean attemptSpawnerCreation;
         private boolean spawnerPlaced;
-        private int sectionCount;
+        private final int sectionCount;
 
         public Corridor(StructureManager p_i50456_1_, CompoundTag p_i50456_2_) {
             super(StructurePieces.MINESHAFT_CORRIDOR_RS, p_i50456_2_);
@@ -140,7 +149,7 @@ public class RSMineshaftPieces {
             } else {
                 this.attemptSpawnerCreation = !this.hasRails && p_i47140_2_.nextInt(20) == 0;
             }
-            if (this.getFacing().getAxis() == Direction.Axis.Z) {
+            if (Objects.requireNonNull(this.getFacing()).getAxis() == Direction.Axis.Z) {
                 this.sectionCount = p_i47140_3_.getBlockCountZ() / 5;
             } else {
                 this.sectionCount = p_i47140_3_.getBlockCountX() / 5;
@@ -272,7 +281,7 @@ public class RSMineshaftPieces {
             Material currentMaterial = world.getBlockState(blockpos).getMaterial();
 
             if (boundingBox.contains(blockpos) && (currentMaterial == Material.AIR || currentMaterial == Material.WATER)) {
-                BlockState blockstate = null;
+                BlockState blockstate;
                 if (currentMaterial == Material.AIR) {
                     blockstate = Blocks.RAIL.getDefaultState().with(RailBlock.SHAPE, random.nextBoolean() ? RailShape.NORTH_SOUTH : RailShape.EAST_WEST);
                 } else {
@@ -292,7 +301,7 @@ public class RSMineshaftPieces {
 
         @Override
         public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox box, ChunkPos chunkPos, BlockPos blockPos) {
-            Boolean isOceanType = this.mineShaftType == RSMineshaftPieces.Type.OCEAN;
+            boolean isOceanType = this.mineShaftType == RSMineshaftPieces.Type.OCEAN;
             if (isOceanType ? this.isAirInStructureBoundingBox(world, box) : this.method_14937(world, box)) {
                 return false;
             } else {
@@ -354,7 +363,7 @@ public class RSMineshaftPieces {
                             BlockEntity tileentity = world.getBlockEntity(blockpos);
 
                             if (tileentity instanceof MobSpawnerBlockEntity) {
-                                ((MobSpawnerBlockEntity) tileentity).getLogic().setEntityId(getSpawnerMob());
+                                ((MobSpawnerBlockEntity) tileentity).getLogic().setEntityId(getSpawnerMob(random));
                             }
                         }
                     }
@@ -440,7 +449,6 @@ public class RSMineshaftPieces {
         }
 
 
-        @SuppressWarnings("deprecation")
         private void placeDecoration(ServerWorldAccess world, BlockBox box, Random random, float probability, int x, int y, int z) {
             if (world.getDimension() != DimensionType.getOverworldDimensionType() || this.isUnderSeaLevel(world, x, y, z, box)) {
                 BlockState decorativeBlock = getDecorativeBlock(random);
@@ -476,8 +484,8 @@ public class RSMineshaftPieces {
     }
 
     public static class Cross extends RSMineshaftPieces.Piece {
-        private Direction corridorDirection;
-        private boolean isMultipleFloors;
+        private final Direction corridorDirection;
+        private final boolean isMultipleFloors;
 
         public Cross(StructureManager p_i50454_1_, CompoundTag p_i50454_2_) {
             super(StructurePieces.MINESHAFT_CROSSING_RS, p_i50454_2_);
@@ -594,7 +602,7 @@ public class RSMineshaftPieces {
 
         @Override
         public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox box, ChunkPos chunkPos, BlockPos blockPos) {
-            Boolean isOceanType = this.mineShaftType == RSMineshaftPieces.Type.OCEAN;
+            boolean isOceanType = this.mineShaftType == RSMineshaftPieces.Type.OCEAN;
             if (isOceanType ? this.isAirInStructureBoundingBox(world, box) : this.method_14937(world, box)) {
                 return false;
             } else {
@@ -643,7 +651,7 @@ public class RSMineshaftPieces {
     }
 
     public static class Room extends RSMineshaftPieces.Piece {
-        private final List<BlockBox> roomsLinkedToTheRoom = Lists.<BlockBox>newLinkedList();
+        private final List<BlockBox> roomsLinkedToTheRoom = Lists.newLinkedList();
 
         public Room(int p_i47137_1_, Random p_i47137_2_, int p_i47137_3_, int p_i47137_4_, RSMineshaftPieces.Type p_i47137_5_) {
             super(StructurePieces.MINESHAFT_ROOM_RS, p_i47137_1_, p_i47137_5_);
@@ -795,40 +803,6 @@ public class RSMineshaftPieces {
                 MutableBoundingBox.offset(x, y, z);
             }
         }
-
-
-        protected void updateLiquidBlocks(ServerWorldAccess world, BlockBox boundingboxIn, int minX, int minY, int minZ, int maxX, int maxY, int maxZ) {
-            float f = maxX - minX + 1;
-            float f1 = maxY - minY + 1;
-            float f2 = maxZ - minZ + 1;
-            float f3 = minX + f / 2.0F;
-            float f4 = minZ + f2 / 2.0F;
-
-            for (int y = minY; y <= maxY; ++y) {
-                float f5 = (y - minY) / f1;
-
-                for (int x = minX; x <= maxX; ++x) {
-                    float f6 = (x - f3) / (f * 0.5F);
-
-                    for (int z = minZ; z <= maxZ; ++z) {
-                        float f7 = (z - f4) / (f2 * 0.5F);
-                        if (!this.getBlockAt(world, x, y, z, boundingboxIn).getFluidState().isEmpty()) {
-                            float f8 = f6 * f6 + f5 * f5 + f7 * f7;
-                            if (f8 <= 1.05F) {
-                                BlockPos blockpos = new BlockPos(this.applyXTransform(x, z), this.applyYTransform(y), this.applyZTransform(x, z));
-
-                                FluidState ifluidstate = world.getFluidState(blockpos);
-                                if (!ifluidstate.isEmpty()) {
-                                    world.getFluidTickScheduler().schedule(blockpos, ifluidstate.getFluid(), 0);
-
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-        }
     }
 
     public static class Stairs extends RSMineshaftPieces.Piece {
@@ -902,7 +876,7 @@ public class RSMineshaftPieces {
 
         @Override
         public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox box, ChunkPos chunkPos, BlockPos blockPos) {
-            Boolean isOceanType = this.mineShaftType == RSMineshaftPieces.Type.OCEAN;
+            boolean isOceanType = this.mineShaftType == RSMineshaftPieces.Type.OCEAN;
             if (isOceanType ? this.isAirInStructureBoundingBox(world, box) : this.method_14937(world, box)) {
                 return false;
             } else {
@@ -1002,8 +976,8 @@ public class RSMineshaftPieces {
 
         @SuppressWarnings("deprecation")
         protected void fillWithVines(ServerWorldAccess world, Random random, BlockBox boundingbox, int rarity, int xMin, int yMin, int zMin, int xMax, int yMax, int zMax) {
-            BlockState vineBlock = Blocks.VINE.getDefaultState();
-            int vineLength = 0;
+            BlockState vineBlock;
+            int vineLength;
 
             for (int x = xMin; x <= xMax; ++x) {
                 for (int z = zMin; z <= zMax; ++z) {
@@ -1089,38 +1063,38 @@ public class RSMineshaftPieces {
         protected Identifier getChestLoot() {
             switch (this.mineShaftType) {
                 case ICY:
-                    return new Identifier(RepurposedStructures.MODID + ":chests/mineshaft_icy");
+                    return ICY_CHEST_ID;
 
                 case JUNGLE:
-                    return new Identifier(RepurposedStructures.MODID + ":chests/mineshaft_jungle");
+                    return JUNGLE_CHEST_ID;
 
                 case TAIGA:
-                    return new Identifier(RepurposedStructures.MODID + ":chests/mineshaft_taiga");
+                    return TAIGA_CHEST_ID;
 
                 case DESERT:
-                    return new Identifier(RepurposedStructures.MODID + ":chests/mineshaft_desert");
+                    return DESERT_CHEST_ID;
 
                 case END:
-                    return new Identifier(RepurposedStructures.MODID + ":chests/mineshaft_end");
+                    return END_CHEST_ID;
 
                 case NETHER:
-                    return new Identifier(RepurposedStructures.MODID + ":chests/mineshaft_nether");
+                    return NETHER_CHEST_ID;
 
                 case OCEAN:
-                    return new Identifier(RepurposedStructures.MODID + ":chests/mineshaft_ocean");
+                    return OCEAN_CHEST_ID;
 
                 case STONE:
-                    return new Identifier(RepurposedStructures.MODID + ":chests/mineshaft_stone");
+                    return STONE_CHEST_ID;
 
                 case SAVANNA:
-                    return new Identifier(RepurposedStructures.MODID + ":chests/mineshaft_savanna");
+                    return SAVANNA_CHEST_ID;
 
                 case SWAMPORDARKFOREST:
-                    return new Identifier(RepurposedStructures.MODID + ":chests/mineshaft_swamp_dark_forest");
+                    return SWAMP_OR_DARK_FOREST_CHEST_ID;
 
                 case BIRCH:
                 default:
-                    return new Identifier(RepurposedStructures.MODID + ":chests/mineshaft_birch");
+                    return BIRCH_CHEST_ID;
             }
         }
 
@@ -1206,43 +1180,57 @@ public class RSMineshaftPieces {
 
 
         protected BlockState getFillingBlock() {
-            switch (this.mineShaftType) {
-                case OCEAN:
-                    return Blocks.WATER.getDefaultState();
-
-                default:
-                    return Blocks.CAVE_AIR.getDefaultState();
+            if (this.mineShaftType == Type.OCEAN) {
+                return Blocks.WATER.getDefaultState();
             }
+            return Blocks.CAVE_AIR.getDefaultState();
         }
 
 
         protected BlockState getRailBlock() {
-            switch (this.mineShaftType) {
-                case OCEAN:
-                    return Blocks.OAK_TRAPDOOR.getDefaultState().with(Properties.WATERLOGGED, true);
-
-                default:
-                    return Blocks.RAIL.getDefaultState().with(RailBlock.SHAPE, RailShape.NORTH_SOUTH);
+            if (this.mineShaftType == Type.OCEAN) {
+                return Blocks.OAK_TRAPDOOR.getDefaultState().with(Properties.WATERLOGGED, true);
             }
+            return Blocks.RAIL.getDefaultState().with(RailBlock.SHAPE, RailShape.NORTH_SOUTH);
         }
 
 
-        protected EntityType<?> getSpawnerMob() {
+        protected EntityType<?> getSpawnerMob(Random random) {
             switch (this.mineShaftType) {
-                case OCEAN:
-                    return EntityType.DROWNED;
 
                 case ICY:
-                    return EntityType.STRAY;
+                    return RepurposedStructures.mobSpawnerManager.getSpawnerMob(ICY_SPAWNER_ID, random);
 
-                case NETHER:
-                    return EntityType.BLAZE;
+                case JUNGLE:
+                    return RepurposedStructures.mobSpawnerManager.getSpawnerMob(JUNGLE_SPAWNER_ID, random);
+
+                case TAIGA:
+                    return RepurposedStructures.mobSpawnerManager.getSpawnerMob(TAIGA_SPAWNER_ID, random);
+
+                case DESERT:
+                    return RepurposedStructures.mobSpawnerManager.getSpawnerMob(DESERT_SPAWNER_ID, random);
 
                 case END:
-                    return EntityType.ENDERMITE;
+                    return RepurposedStructures.mobSpawnerManager.getSpawnerMob(END_SPAWNER_ID, random);
 
+                case NETHER:
+                    return RepurposedStructures.mobSpawnerManager.getSpawnerMob(NETHER_SPAWNER_ID, random);
+
+                case OCEAN:
+                    return RepurposedStructures.mobSpawnerManager.getSpawnerMob(OCEAN_SPAWNER_ID, random);
+
+                case STONE:
+                    return RepurposedStructures.mobSpawnerManager.getSpawnerMob(STONE_SPAWNER_ID, random);
+
+                case SAVANNA:
+                    return RepurposedStructures.mobSpawnerManager.getSpawnerMob(SAVANNA_SPAWNER_ID, random);
+
+                case SWAMPORDARKFOREST:
+                    return RepurposedStructures.mobSpawnerManager.getSpawnerMob(SWAMPORDARKFOREST_SPAWNER_ID, random);
+
+                case BIRCH:
                 default:
-                    return EntityType.CAVE_SPIDER;
+                    return RepurposedStructures.mobSpawnerManager.getSpawnerMob(BIRCH_SPAWNER_ID, random);
             }
         }
 

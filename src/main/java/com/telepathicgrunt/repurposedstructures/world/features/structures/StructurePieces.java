@@ -28,7 +28,7 @@ public class StructurePieces {
     public static StructurePieceType STRONGHOLD_CORRIDOR = RSStrongholdPieces.Corridor::new;
     public static StructurePieceType STRONGHOLD_PORTAL_ROOM = RSStrongholdPieces.PortalRoom::new;
     public static StructurePieceType STRONGHOLD_LIBRARY = RSStrongholdPieces.Library::new;
-    public static StructurePieceType STRONGHOLD_PRISON = RSStrongholdPieces.Prison::new;
+    public static StructurePieceType STRONGHOLD_PRISON =  RSStrongholdPieces.Prison::new;
     public static StructurePieceType STRONGHOLD_ROOM_CROSSING = RSStrongholdPieces.RoomCrossing::new;
     public static StructurePieceType STRONGHOLD_CROSSING = RSStrongholdPieces.Crossing::new;
     public static StructurePieceType STRONGHOLD_LEFT_TURN = RSStrongholdPieces.LeftTurn::new;

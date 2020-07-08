@@ -59,11 +59,6 @@ public class RSMainConfig implements ConfigData {
         @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
         public Double silverfishSpawnrateJF = 0.5D;
 
-        @ConfigEntry.Gui.Tooltip(count = 2)
-        @Comment("Allow generation of 2 Silverfish Mob Spawners."
-                + "\nIf turned off, the spawners will become Skeleton spawners.")
-        public boolean allowSilverfishSpawnerJF = true;
-
         @ConfigEntry.Gui.Tooltip
         @Comment("Controls whether loot chests spawn or not.")
         public boolean lootChestsJF = true;

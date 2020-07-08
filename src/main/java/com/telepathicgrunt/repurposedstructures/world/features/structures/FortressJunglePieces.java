@@ -48,6 +48,7 @@ public class FortressJunglePieces {
      */
     private static final Identifier JF_PLANT_TAG_RL = new Identifier("repurposed_structures:jungle_fortress_staircase_plants");
     private static final Identifier JF_SOIL_TAG_RL = new Identifier("repurposed_structures:jungle_fortress_staircase_soils");
+    private static final Identifier SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":fortress_jungle");
 
     private static final Map<BlockState, BlockState> INFESTED_STONE_LOOKUP;
 
@@ -1479,12 +1480,8 @@ public class FortressJunglePieces {
                     BlockEntity tileentity2 = world.getBlockEntity(blockpos.down(2));
 
                     if (tileentity2 instanceof MobSpawnerBlockEntity) {
-                        // silverfish mob spawner
-                        if (RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.allowSilverfishSpawnerJF) {
-                            ((MobSpawnerBlockEntity) tileentity2).getLogic().setEntityId(EntityType.SILVERFISH);
-                        } else {
-                            ((MobSpawnerBlockEntity) tileentity2).getLogic().setEntityId(EntityType.SKELETON);
-                        }
+                        ((MobSpawnerBlockEntity) tileentity2).getLogic()
+                                    .setEntityId(RepurposedStructures.mobSpawnerManager.getSpawnerMob(SPAWNER_ID, random));
                     }
                 }
             }
