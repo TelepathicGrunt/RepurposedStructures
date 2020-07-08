@@ -32,6 +32,7 @@ public class DungeonSwamp extends Feature<DefaultFeatureConfig> {
     private static final Logger LOGGER = LogManager.getLogger();
     private static final BlockState CAVE_AIR = Blocks.CAVE_AIR.getDefaultState();
     private static final Identifier CHEST_LOOT = new Identifier(RepurposedStructures.MODID + ":chests/dungeon_swamp");
+    private static final Identifier SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":dungeon_swamp");
 
 
     //only the mob spawner chance and what blocks the wall cannot replace was changed. Everything else is just the normal dungeon code.
@@ -135,7 +136,8 @@ public class DungeonSwamp extends Feature<DefaultFeatureConfig> {
             BlockEntity tileentity = world.getBlockEntity(position);
 
             if (tileentity instanceof MobSpawnerBlockEntity) {
-                ((MobSpawnerBlockEntity) tileentity).getLogic().setEntityId(pickMobSpawner(world, random));
+                ((MobSpawnerBlockEntity) tileentity).getLogic()
+                        .setEntityId(RepurposedStructures.mobSpawnerManager.getSpawnerMob(SPAWNER_ID, random));
             } else {
                 LOGGER.error("Failed to fetch mob spawner entity at ({}, {}, {})", new Object[]{Integer.valueOf(position.getX()), Integer.valueOf(position.getY()), Integer.valueOf(position.getZ())});
             }
@@ -143,25 +145,6 @@ public class DungeonSwamp extends Feature<DefaultFeatureConfig> {
             return true;
         } else {
             return false;
-        }
-    }
-
-
-    /**
-     * Randomly decides which spawner to use in a dungeon
-     */
-    private static EntityType<?> pickMobSpawner(ServerWorldAccess world, Random random) {
-        int roll = random.nextInt(100);
-
-        if (roll < 74) {
-            //74% chance
-            return RSFeatures.pickRandomVillageDungeonMob(random);
-        } else if (roll < 99) {
-            //25% chance
-            return EntityType.VEX;
-        } else {
-            //1% chance
-            return EntityType.SLIME;
         }
     }
 }

@@ -56,7 +56,7 @@ public class RSIglooPieces {
         public Piece(StructureManager templateManager, Identifier pieceRL, BlockPos position, BlockRotation rotationIn, int heightOffset, Block floorBlockIn) {
             super(StructurePieces.RS_IGLOO_PIECE, 0);
             this.pieceRL = pieceRL;
-            BlockPos blockpos = OFFSET_2.get(pieceRL);
+            BlockPos blockpos = OFFSET_2.containsKey(this.pieceRL) ? OFFSET_2.get(this.pieceRL) : new BlockPos(0, -1, 0);
             this.pos = position.add(blockpos.getX(), blockpos.getY() - heightOffset, blockpos.getZ());
             this.rotation = rotationIn;
             this.func_207614_a(templateManager);
@@ -75,7 +75,7 @@ public class RSIglooPieces {
 
         private void func_207614_a(StructureManager templateManager) {
             Structure template = templateManager.getStructureOrBlank(this.pieceRL);
-            StructurePlacementData placementsettings = (new StructurePlacementData()).setRotation(this.rotation).setMirror(BlockMirror.NONE).setPosition(OFFSET_1.get(this.pieceRL)).addProcessor(BlockIgnoreStructureProcessor.IGNORE_STRUCTURE_BLOCKS);
+            StructurePlacementData placementsettings = (new StructurePlacementData()).setRotation(this.rotation).setMirror(BlockMirror.NONE).setPosition(OFFSET_1.containsKey(this.pieceRL) ? OFFSET_1.get(this.pieceRL) : new BlockPos(3, 4, 5)).addProcessor(BlockIgnoreStructureProcessor.IGNORE_STRUCTURE_BLOCKS);
             this.setStructureData(template, this.pos, placementsettings);
         }
 

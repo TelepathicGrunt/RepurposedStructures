@@ -26,6 +26,7 @@ import java.util.Random;
 public class DungeonDarkForest extends Feature<DefaultFeatureConfig> {
     private static final Logger LOGGER = LogManager.getLogger();
     private static final Identifier CHEST_LOOT = new Identifier(RepurposedStructures.MODID + ":chests/dungeon_dark_forest");
+    private static final Identifier SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":dungeon_dark_forest");
     private static final BlockState CAVE_AIR = Blocks.CAVE_AIR.getDefaultState();
     private static final BlockState LEAVES = Blocks.DARK_OAK_LEAVES.getDefaultState().with(LeavesBlock.DISTANCE, Integer.valueOf(1));
     private static final BlockState LOGS = Blocks.DARK_OAK_LOG.getDefaultState();
@@ -165,7 +166,8 @@ public class DungeonDarkForest extends Feature<DefaultFeatureConfig> {
             BlockEntity tileentity = world.getBlockEntity(position);
 
             if (tileentity instanceof MobSpawnerBlockEntity) {
-                ((MobSpawnerBlockEntity) tileentity).getLogic().setEntityId(pickMobSpawner(world, random));
+                ((MobSpawnerBlockEntity) tileentity).getLogic()
+                        .setEntityId(RepurposedStructures.mobSpawnerManager.getSpawnerMob(SPAWNER_ID, random));
             } else {
                 LOGGER.error("Failed to fetch mob spawner entity at ({}, {}, {})", new Object[]{Integer.valueOf(position.getX()), Integer.valueOf(position.getY()), Integer.valueOf(position.getZ())});
             }
@@ -173,28 +175,6 @@ public class DungeonDarkForest extends Feature<DefaultFeatureConfig> {
             return true;
         } else {
             return false;
-        }
-    }
-
-
-    /**
-     * Randomly decides which spawner to use in a dungeon
-     */
-    private static EntityType<?> pickMobSpawner(ServerWorldAccess world, Random random) {
-        int roll = random.nextInt(100);
-
-        if (roll < 73) {
-            //73% chance
-            return RSFeatures.pickRandomVillageDungeonMob(random);
-        } else if (roll < 97) {
-            //25% chance
-            return EntityType.VEX;
-        } else if (roll < 99) {
-            //2% chance
-            return EntityType.ILLUSIONER;
-        } else {
-            //1% chance
-            return EntityType.CREEPER;
         }
     }
 }

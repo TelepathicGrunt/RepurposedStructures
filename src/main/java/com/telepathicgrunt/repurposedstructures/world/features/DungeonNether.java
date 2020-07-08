@@ -32,6 +32,8 @@ public class DungeonNether extends Feature<DefaultFeatureConfig> {
     private static final Logger LOGGER = LogManager.getLogger();
     private static final BlockState CAVE_AIR = Blocks.CAVE_AIR.getDefaultState();
     private static final Identifier CHEST_LOOT = new Identifier(RepurposedStructures.MODID + ":chests/dungeon_nether");
+    private static final Identifier HIGH_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":dungeon_nether_high");
+    private static final Identifier LOW_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":dungeon_nether_low");
 
 
     // only the mob spawner chance and what blocks the wall cannot replace was changed. Everything else is just the normal dungeon code.
@@ -134,7 +136,12 @@ public class DungeonNether extends Feature<DefaultFeatureConfig> {
             BlockEntity tileentity = world.getBlockEntity(position);
 
             if (tileentity instanceof MobSpawnerBlockEntity) {
-                ((MobSpawnerBlockEntity) tileentity).getLogic().setEntityId(pickMobSpawner(world, random, position));
+                if(position.getY() < 30)
+                    ((MobSpawnerBlockEntity) tileentity).getLogic()
+                            .setEntityId(RepurposedStructures.mobSpawnerManager.getSpawnerMob(LOW_SPAWNER_ID, random));
+                else
+                    ((MobSpawnerBlockEntity) tileentity).getLogic()
+                            .setEntityId(RepurposedStructures.mobSpawnerManager.getSpawnerMob(HIGH_SPAWNER_ID, random));
             } else {
                 LOGGER.error("Failed to fetch mob spawner entity at ({}, {}, {})", new Object[]{Integer.valueOf(position.getX()), Integer.valueOf(position.getY()), Integer.valueOf(position.getZ())});
             }
@@ -159,35 +166,6 @@ public class DungeonNether extends Feature<DefaultFeatureConfig> {
             return true;
         } else {
             return false;
-        }
-    }
-
-
-    /**
-     * Randomly decides which spawner to use in a dungeon
-     */
-    private static EntityType<?> pickMobSpawner(ServerWorldAccess world, Random random, BlockPos position) {
-        int roll = random.nextInt(100);
-
-        if (roll < 44) {
-            // 44% chance
-            return EntityType.ZOMBIFIED_PIGLIN;
-        } else if (roll < 64) {
-            // 20% chance
-            return EntityType.STRIDER;
-        }  else if (roll < 89) {
-            // 25% chance
-            return EntityType.MAGMA_CUBE;
-        } else if (roll < 99) {
-            // 10% chance
-            return EntityType.BLAZE;
-        } else {
-            // 1% chance
-            if (position.getY() < 30) {
-                return EntityType.WITHER_SKELETON;
-            } else {
-                return EntityType.MAGMA_CUBE;
-            }
         }
     }
 }

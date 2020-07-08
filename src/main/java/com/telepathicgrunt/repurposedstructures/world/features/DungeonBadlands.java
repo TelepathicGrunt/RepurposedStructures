@@ -28,6 +28,7 @@ import java.util.Random;
 public class DungeonBadlands extends Feature<DefaultFeatureConfig> {
     private static final Logger LOGGER = LogManager.getLogger();
     private static final Identifier CHEST_LOOT = new Identifier(RepurposedStructures.MODID + ":chests/dungeon_badlands");
+    private static final Identifier SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":dungeon_badlands");
     private static final BlockState CAVE_AIR = Blocks.CAVE_AIR.getDefaultState();
     private static final BlockState RED_TERRACOTTA = Blocks.RED_TERRACOTTA.getDefaultState();
     private static final BlockState ORANGE_TERRACOTTA = Blocks.ORANGE_TERRACOTTA.getDefaultState();
@@ -140,7 +141,8 @@ public class DungeonBadlands extends Feature<DefaultFeatureConfig> {
             BlockEntity tileentity = world.getBlockEntity(position);
 
             if (tileentity instanceof MobSpawnerBlockEntity) {
-                ((MobSpawnerBlockEntity) tileentity).getLogic().setEntityId(pickMobSpawner(world, random));
+                ((MobSpawnerBlockEntity) tileentity).getLogic()
+                        .setEntityId(RepurposedStructures.mobSpawnerManager.getSpawnerMob(SPAWNER_ID, random));
             } else {
                 LOGGER.error("Failed to fetch mob spawner entity at ({}, {}, {})", new Object[]{Integer.valueOf(position.getX()), Integer.valueOf(position.getY()), Integer.valueOf(position.getZ())});
             }
@@ -148,33 +150,6 @@ public class DungeonBadlands extends Feature<DefaultFeatureConfig> {
             return true;
         } else {
             return false;
-        }
-    }
-
-
-    /**
-     * Randomly decides which spawner to use in a dungeon
-     */
-    private static EntityType<?> pickMobSpawner(WorldAccess world, Random random) {
-        int roll = random.nextInt(100);
-
-        if (roll < 48) {
-            //48% chance
-            return EntityType.HUSK;
-        } else if (roll < 73) {
-            //25% chance
-            return EntityType.CAVE_SPIDER;
-        } else if (roll < 98) {
-            //25% chance
-            EntityType<?> et = RSFeatures.pickRandomVillageDungeonMob(random);
-            if (et != EntityType.ZOMBIE) {
-                return et;
-            } else {
-                return EntityType.HUSK;
-            }
-        } else {
-            //2% chance
-            return EntityType.ILLUSIONER;
         }
     }
 }

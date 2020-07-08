@@ -152,19 +152,4 @@ public class RSFeatures {
         VillageMountainsPools.init();
         VillageGiantTaigaPools.init();
     }
-
-    /**
-     * Helper method that will return a random vanilla dungeon mob
-     */
-    public static EntityType<?> pickRandomVillageDungeonMob(Random random) {
-        int chance = random.nextInt(4);
-        if (chance == 0) {
-            return EntityType.SPIDER;
-        } else if (chance == 0) {
-            return EntityType.SKELETON;
-        } else {
-            return EntityType.ZOMBIE;
-        }
-    }
-
 }

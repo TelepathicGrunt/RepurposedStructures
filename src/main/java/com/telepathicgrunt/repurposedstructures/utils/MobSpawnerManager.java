@@ -5,61 +5,67 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.internal.LinkedTreeMap;
+import com.google.gson.reflect.TypeToken;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.entity.EntityType;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.LootTables;
 import net.minecraft.resource.JsonDataLoader;
 import net.minecraft.resource.ResourceManager;
+import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.InvalidIdentifierException;
 import net.minecraft.util.Pair;
 import net.minecraft.util.profiler.Profiler;
+import net.minecraft.util.registry.Registry;
 import org.apache.logging.log4j.Level;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 public class MobSpawnerManager extends JsonDataLoader{
     private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().disableHtmlEscaping().create();
-    private Map<Identifier, List<Pair<EntityType<?>, Integer>>> spawnerMap = ImmutableMap.of();
+    private Map<Identifier, List<MobSpawnerObj>> spawnerMap = ImmutableMap.of();
     public MobSpawnerManager() {
         super(GSON, "rs_spawners");
     }
 
     @Override
     protected void apply(Map<Identifier, JsonElement> loader, ResourceManager manager, Profiler profiler) {
-        ImmutableMap.Builder<Identifier, List<Pair<EntityType<?>, Integer>>> builder = ImmutableMap.builder();
-        JsonElement jsonElement = (JsonElement)loader.remove(LootTables.EMPTY);
-
-        loader.forEach((identifier, jsonElementx) -> {
+        ImmutableMap.Builder<Identifier, List<MobSpawnerObj>> builder = ImmutableMap.builder();
+        loader.forEach((fileIdentifier, jsonElement) -> {
             try {
-                Object spawnerList = GSON.fromJson(jsonElement, Object.class);
-                builder.put(identifier, (List<Pair<EntityType<?>, Integer>>) spawnerList);
-            } catch (Exception var4) {
-                RepurposedStructures.LOGGER.error("Couldn't parse spawner mob list {}", identifier, var4);
+                List<MobSpawnerObj> spawnerMobEntries = GSON.fromJson(jsonElement.getAsJsonObject().get("mobs"), new TypeToken<List<MobSpawnerObj>>(){}.getType());
+                for(MobSpawnerObj entry : spawnerMobEntries)
+                    entry.setEntityType();
+                builder.put(fileIdentifier, spawnerMobEntries);
             }
-
+            catch (Exception e) {
+                RepurposedStructures.LOGGER.error("Couldn't parse spawner mob list {}", fileIdentifier, e);
+            }
         });
-        builder.put(new Identifier(RepurposedStructures.MODID,"empty_spawner"), new ArrayList<>());
-        ImmutableMap<Identifier, List<Pair<EntityType<?>, Integer>>> immutableMap = builder.build();
-        immutableMap.getClass();
-
-        this.spawnerMap = immutableMap;
+        this.spawnerMap =  builder.build();
     }
 
-    public EntityType<?> getSpawnerMob(Identifier spawnerJsonEntry) {
-        try {
-            return spawnerMap.get(spawnerJsonEntry).get(0).getLeft();
+    public EntityType<?> getSpawnerMob(Identifier spawnerJsonEntry, Random random) {
+        List<MobSpawnerObj> spawnerMobEntries = this.spawnerMap.get(spawnerJsonEntry);
+        int totalWeight = spawnerMobEntries.stream().mapToInt(mobEntry -> mobEntry.weight).sum();
+        int randomWeight = random.nextInt(totalWeight) + 1;
+        int index = 0;
+
+        while(randomWeight > 0){
+            randomWeight -= spawnerMobEntries.get(index).weight;
+            if(randomWeight <= 0)
+                return  Registry.ENTITY_TYPE.get(new Identifier(spawnerMobEntries.get(index).name));
+
+            index++;
         }
-        catch (IndexOutOfBoundsException e) {
-            RepurposedStructures.LOGGER.log(Level.ERROR,"***************************************\nFailed to load mob spawner. Please check that "+spawnerJsonEntry+".json is correct. The mob weight must be a positive number greater than 0.\n***************************************");
-            return EntityType.PIG;
-        }
-        catch (InvalidIdentifierException e) {
-            RepurposedStructures.LOGGER.log(Level.ERROR,"***************************************\nFailed to load mob spawner. Please check that "+spawnerJsonEntry+".json is correct. The mob ID must exist.\n***************************************");
-            return EntityType.PIG;
-        }
+
+        RepurposedStructures.LOGGER.log(Level.ERROR,"***************************************\nFailed to get mob. Please check that "+spawnerJsonEntry+".json is correct and let Telepathicgrunt (mod author) know he broke the mob spawner code!\n***************************************");
+        return EntityType.PIG;
     }
 }

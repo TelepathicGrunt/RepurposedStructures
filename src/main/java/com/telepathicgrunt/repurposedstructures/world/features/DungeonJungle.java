@@ -35,6 +35,7 @@ public class DungeonJungle extends Feature<DefaultFeatureConfig> {
     private static final BlockState SIDEWAYS_LOGS = Blocks.JUNGLE_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.X);
     private static final BlockState PLANKS = Blocks.JUNGLE_PLANKS.getDefaultState();
     private static final Identifier CHEST_LOOT = new Identifier(RepurposedStructures.MODID + ":chests/dungeon_jungle");
+    private static final Identifier SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":dungeon_jungle");
 
 
     // only the mob spawner chance and what blocks the wall cannot replace was changed. Everything else is just the normal dungeon code.
@@ -163,7 +164,8 @@ public class DungeonJungle extends Feature<DefaultFeatureConfig> {
             BlockEntity tileentity = world.getBlockEntity(position);
 
             if (tileentity instanceof MobSpawnerBlockEntity) {
-                ((MobSpawnerBlockEntity) tileentity).getLogic().setEntityId(pickMobSpawner(world, random));
+                ((MobSpawnerBlockEntity) tileentity).getLogic()
+                        .setEntityId(RepurposedStructures.mobSpawnerManager.getSpawnerMob(SPAWNER_ID, random));
             } else {
                 LOGGER.error("Failed to fetch mob spawner entity at ({}, {}, {})", new Object[]{Integer.valueOf(position.getX()), Integer.valueOf(position.getY()), Integer.valueOf(position.getZ())});
             }
@@ -171,29 +173,6 @@ public class DungeonJungle extends Feature<DefaultFeatureConfig> {
             return true;
         } else {
             return false;
-        }
-    }
-
-
-    /**
-     * Randomly decides which spawner to use in a dungeon
-     */
-    private static EntityType<?> pickMobSpawner(ServerWorldAccess world, Random random) {
-        int roll = random.nextInt(100);
-
-        if (roll < 73) {
-            // 73% chance
-            return RSFeatures.pickRandomVillageDungeonMob(random);
-        } else if (roll < 98) {
-            // 25% chance
-            return EntityType.PARROT;
-
-        } else if (roll < 99) {
-            // 1% chance
-            return EntityType.CHICKEN;
-        } else {
-            // 1% chance
-            return EntityType.CREEPER;
         }
     }
 }

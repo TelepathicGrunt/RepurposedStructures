@@ -44,6 +44,12 @@ public class DungeonOcean extends Feature<DefaultFeatureConfig> {
     private static final BlockState DARK_PRISMARINE = Blocks.DARK_PRISMARINE.getDefaultState();
     private static final BlockState MAGMA_BLOCK = Blocks.MAGMA_BLOCK.getDefaultState();
     private static final Identifier CHEST_LOOT = new Identifier(RepurposedStructures.MODID + ":chests/dungeon_ocean");
+    private static final Identifier FROZEN_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":dungeon_ocean_frozen");
+    private static final Identifier COLD_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":dungeon_ocean_cold");
+    private static final Identifier NEUTRAL_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":dungeon_ocean_neutral");
+    private static final Identifier LUKEWARM_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":dungeon_ocean_lukewarm");
+    private static final Identifier WARM_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":dungeon_ocean_warm");
+    private static final Identifier MISC_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":dungeon_ocean_misc");
 
 
     // only the mob spawner chance and what blocks the wall cannot replace was changed. Everything else is just the normal dungeon code.
@@ -269,7 +275,6 @@ public class DungeonOcean extends Feature<DefaultFeatureConfig> {
                 }
             }
 
-
             return true;
         } else {
             return false;
@@ -281,42 +286,31 @@ public class DungeonOcean extends Feature<DefaultFeatureConfig> {
      * Randomly decides which spawner to use in a dungeon
      */
     private static EntityType<?> pickMobSpawner(ServerWorldAccess world, Random random, BlockPos position) {
-        int roll = random.nextInt(100);
+        Biome biome = world.getBiome(position);
 
-        if (roll < 96) {
-            // 96%
-            return EntityType.DROWNED;
-        } else if (roll < 99) {
-            // 3%
-            Biome biome = world.getBiome(position);
+        // spot must be an ocean so we don't return wrong mob when a hot land biome borders a frozen ocean
+        if (biome.getCategory() == Category.OCEAN) {
+            String biomeName = Registry.BIOME.getId(biome).getPath();
+            float biomeTemp = biome.getTemperature();
 
-            // spot must be an ocean so we don't return wrong mob when a hot land biome borders a frozen ocean
-            if (biome.getCategory() == Category.OCEAN) {
-                String biomeName = Registry.BIOME.getId(biome).getPath();
-                float biomeTemp = biome.getTemperature();
-
-                if (biomeTemp < 0.0 || biomeName.contains("frozen") || biomeName.contains("snow") || biomeName.contains("ice")) {
-                    return EntityType.SQUID;
-                }
-
-                // deliberately skip 0.5 temp as all vanilla oceans are 0.5 and we are checking for vanilla oceans temp by name
-                else if (biomeTemp < 0.5 || biomeName.contains("cold")) {
-                    return EntityType.SALMON;
-                } else if (biomeTemp > 0.5 || biomeName.equals("ocean") || biomeName.equals("deep_ocean")) {
-                    return EntityType.COD;
-                } else if (biomeTemp >= 0.9 || biomeName.contains("lukewarm")) {
-                    return EntityType.PUFFERFISH;
-                } else if (biomeTemp >= 1.5 || biomeName.contains("warm") || biomeName.contains("hot") || biomeName.contains("tropic")) {
-                    return EntityType.TROPICAL_FISH;
-                } else {
-                    return EntityType.COD; // default
-                }
+            if (biomeTemp < 0.0 || biomeName.contains("frozen") || biomeName.contains("snow") || biomeName.contains("ice")) {
+                return RepurposedStructures.mobSpawnerManager.getSpawnerMob(FROZEN_SPAWNER_ID, random);
             }
-
-            return EntityType.DROWNED;
-        } else {
-            // 1% chance
-            return EntityType.TURTLE;
+            // deliberately skip 0.5 temp as all vanilla oceans are 0.5 and we are checking for vanilla oceans temp by name
+            else if (biomeTemp < 0.5 || biomeName.contains("cold")) {
+                return RepurposedStructures.mobSpawnerManager.getSpawnerMob(COLD_SPAWNER_ID, random);
+            }
+            else if (biomeTemp > 0.5 || biomeName.equals("ocean") || biomeName.equals("deep_ocean")) {
+                return RepurposedStructures.mobSpawnerManager.getSpawnerMob(NEUTRAL_SPAWNER_ID, random);
+            }
+            else if (biomeTemp >= 0.9 || biomeName.contains("lukewarm")) {
+                return RepurposedStructures.mobSpawnerManager.getSpawnerMob(LUKEWARM_SPAWNER_ID, random);
+            }
+            else if (biomeTemp >= 1.5 || biomeName.contains("warm") || biomeName.contains("hot") || biomeName.contains("tropic")) {
+                return RepurposedStructures.mobSpawnerManager.getSpawnerMob(WARM_SPAWNER_ID, random);
+            }
         }
+
+        return RepurposedStructures.mobSpawnerManager.getSpawnerMob(MISC_SPAWNER_ID, random);
     }
 }

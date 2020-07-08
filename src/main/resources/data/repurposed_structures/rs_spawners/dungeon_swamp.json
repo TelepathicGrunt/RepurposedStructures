@@ -1,0 +1,28 @@
+{
+  "mobs" : [
+    {
+      "name" : "minecraft:zombie",
+      "weight" : 24
+    },
+    {
+      "name" : "minecraft:drowned",
+      "weight" : 24
+    },
+    {
+      "name" : "minecraft:spider",
+      "weight" : 16
+    },
+    {
+      "name" : "minecraft:skeleton",
+      "weight" : 16
+    },
+    {
+      "name" : "minecraft:vex",
+      "weight" : 9
+    },
+    {
+      "name" : "minecraft:slime",
+      "weight" : 1
+    }
+  ]
+}
