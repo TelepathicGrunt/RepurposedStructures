@@ -18,9 +18,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.Random;
 
 
-/**
- * Special thanks to Draylar for this mixin to fix log spam from mojang bug with putting neutral mobs in mob spawners!
- */
 @Mixin(LakeFeature.class)
 public class NoVillageLakesMixin {
 

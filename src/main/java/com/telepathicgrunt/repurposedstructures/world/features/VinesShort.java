@@ -31,9 +31,7 @@ public class VinesShort extends Feature<DefaultFeatureConfig> {
         // generates vines from given position down 4-6 blocks if path is clear and the given position is valid
         // Also won't generate vines below Y = 15.
         int length = 0;
-
         BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().set(position);
-        BlockPos.Mutable blockpos$Mutable2 = new BlockPos.Mutable().set(position);
 
         for (; blockpos$Mutable.getY() > 15 && length < random.nextInt(3) + 4; blockpos$Mutable.move(Direction.DOWN)) {
             if (world.isAir(blockpos$Mutable)) {

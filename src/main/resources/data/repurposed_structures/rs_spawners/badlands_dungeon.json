@@ -1,0 +1,24 @@
+{
+  "mobs" : [
+    {
+      "name" : "minecraft:husk",
+      "weight" : 48
+    },
+    {
+      "name" : "minecraft:cave_spider",
+      "weight" : 25
+    },
+    {
+      "name" : "minecraft:skeleton",
+      "weight" : 18
+    },
+    {
+      "name" : "minecraft:spider",
+      "weight" : 8
+    },
+    {
+      "name" : "minecraft:illusioner",
+      "weight" : 2
+    }
+  ]
+}

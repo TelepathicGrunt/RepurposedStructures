@@ -32,8 +32,8 @@ import java.util.Random;
 public class RSIglooPieces {
     private static final Identifier IGLOO_MIDDLE_RL = new Identifier("igloo/middle");
     private static final Identifier IGLOO_BOTTOM_RL = new Identifier("igloo/bottom");
-    private static final Map<Identifier, BlockPos> OFFSET_1 = ImmutableMap.of(IglooStoneStructure.Start.TOP_PIECE_RL, new BlockPos(3, 4, 5), IglooGrassyStructure.Start.TOP_PIECE_RL, new BlockPos(3, 4, 5), IGLOO_MIDDLE_RL, new BlockPos(1, 3, 1), IGLOO_BOTTOM_RL, new BlockPos(3, 6, 7));
-    private static final Map<Identifier, BlockPos> OFFSET_2 = ImmutableMap.of(IglooStoneStructure.Start.TOP_PIECE_RL, new BlockPos(0, -1, 0), IglooGrassyStructure.Start.TOP_PIECE_RL, new BlockPos(0, -1, 0), IGLOO_MIDDLE_RL, new BlockPos(2, -3, 4), IGLOO_BOTTOM_RL, new BlockPos(0, -3, -2));
+    private static final Map<Identifier, BlockPos> OFFSET_1 = ImmutableMap.of(IGLOO_MIDDLE_RL, new BlockPos(1, 3, 1), IGLOO_BOTTOM_RL, new BlockPos(3, 6, 7));
+    private static final Map<Identifier, BlockPos> OFFSET_2 = ImmutableMap.of(IGLOO_MIDDLE_RL, new BlockPos(2, -3, 4), IGLOO_BOTTOM_RL, new BlockPos(0, -3, -2));
 
     public static void func_207617_a(StructureManager templateManager, Identifier topPieceRL, Block floorBlock, BlockPos position, BlockRotation rotationIn, List<StructurePiece> p_207617_3_, Random random, DefaultFeatureConfig p_207617_5_) {
         if (random.nextDouble() < 0.5D) {
@@ -104,8 +104,9 @@ public class RSIglooPieces {
 
 
         public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
-            StructurePlacementData placementsettings = (new StructurePlacementData()).setRotation(this.rotation).setMirror(BlockMirror.NONE).setPosition(OFFSET_1.get(this.pieceRL)).addProcessor(BlockIgnoreStructureProcessor.IGNORE_STRUCTURE_BLOCKS);
-            BlockPos blockpos = OFFSET_2.get(this.pieceRL);
+            BlockPos offset = OFFSET_1.containsKey(this.pieceRL) ? OFFSET_1.get(this.pieceRL) : new BlockPos(3, 4, 5);
+            StructurePlacementData placementsettings = (new StructurePlacementData()).setRotation(this.rotation).setMirror(BlockMirror.NONE).setPosition(offset).addProcessor(BlockIgnoreStructureProcessor.IGNORE_STRUCTURE_BLOCKS);
+            BlockPos blockpos = OFFSET_2.containsKey(this.pieceRL) ? OFFSET_2.get(this.pieceRL) : new BlockPos(0, -1, 0);
             BlockPos blockpos1 = this.pos.add(Structure.transform(placementsettings, new BlockPos(3 - blockpos.getX(), 0, 0 - blockpos.getZ())));
             int terrainSurfaceY = world.getTopY(Heightmap.Type.WORLD_SURFACE_WG, blockpos1.getX(), blockpos1.getZ());
             BlockPos blockpos2 = this.pos;

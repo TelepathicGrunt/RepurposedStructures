@@ -5,10 +5,11 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "BiomeStructureAccessor",
-    "StrongholdGeneratorAccessor",
-    "StructurePieceAccessor",
     "EnderEyeStrongholdLocatingMixin",
-    "NoVillageLakesMixin"
+    "NoVillageLakesMixin",
+    "ServerResourceManagerMixin",
+    "StrongholdGeneratorAccessor",
+    "StructurePieceAccessor"
   ],
   "client": [
   ],
