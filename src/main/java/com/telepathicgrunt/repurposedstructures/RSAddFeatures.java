@@ -415,19 +415,42 @@ public class RSAddFeatures {
     // TEMPLES //
 
 
-    public static void addTemples(Biome biome, String biomeNamespace, String biomePath) {
-        if (RepurposedStructures.RSAllConfig.RSMainConfig.temples.netherTempleSpawnrate != 1001 && biome.getCategory() == Category.NETHER &&
-                (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSMainConfig.temples.addNetherTempleToModdedBiomes)) {
+    public static void addTemplesAndPyramids(Biome biome, String biomeNamespace, String biomePath) {
+
+        if (RepurposedStructures.RSAllConfig.RSTempleConfig.temples.netherBasaltTempleSpawnrate != 1001 &&
+                biome.getCategory() == Category.NETHER && (biomePath.contains("basalt") || biomePath.contains("blackstone")) &&
+                (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSTempleConfig.temples.addNetherBasaltTempleToModdedBiomes)) {
+            biome.addStructureFeature(RSFeatures.NETHER_BASALT_TEMPLE.configure(FeatureConfig.DEFAULT));
+        }
+        else if (RepurposedStructures.RSAllConfig.RSTempleConfig.temples.netherCrimsonTempleSpawnrate != 1001 &&
+                biome.getCategory() == Category.NETHER && biomePath.contains("crimson") &&
+                (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSTempleConfig.temples.addNetherCrimsonTempleToModdedBiomes)) {
+            biome.addStructureFeature(RSFeatures.NETHER_CRIMSON_TEMPLE.configure(FeatureConfig.DEFAULT));
+        }
+        else if (RepurposedStructures.RSAllConfig.RSTempleConfig.temples.netherWarpedTempleSpawnrate != 1001 &&
+                biome.getCategory() == Category.NETHER && biomePath.contains("warped") &&
+                (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSTempleConfig.temples.addNetherWarpedTempleToModdedBiomes)) {
+            biome.addStructureFeature(RSFeatures.NETHER_WARPED_TEMPLE.configure(FeatureConfig.DEFAULT));
+        }
+        else if (RepurposedStructures.RSAllConfig.RSTempleConfig.temples.netherSoulTempleSpawnrate != 1001 &&
+                biome.getCategory() == Category.NETHER && biomePath.contains("soul") &&
+                (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSTempleConfig.temples.addNetherSoulTempleToModdedBiomes)) {
+            biome.addStructureFeature(RSFeatures.NETHER_SOUL_TEMPLE.configure(FeatureConfig.DEFAULT));
+        }
+        else if (RepurposedStructures.RSAllConfig.RSTempleConfig.temples.netherWastelandTempleSpawnrate != 1001 &&
+                biome.getCategory() == Category.NETHER &&
+                (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSTempleConfig.temples.addNetherWastelandTempleToModdedBiomes)) {
             biome.addStructureFeature(RSFeatures.NETHER_TEMPLE.configure(FeatureConfig.DEFAULT));
         }
 
-        if (RepurposedStructures.RSAllConfig.RSMainConfig.temples.netherPyramidSpawnrate != 1001 && biome.getCategory() == Category.NETHER &&
-                (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSMainConfig.temples.addNetherPyramidToModdedBiomes)) {
+
+        if (RepurposedStructures.RSAllConfig.RSTempleConfig.pyramids.netherPyramidSpawnrate != 1001 && biome.getCategory() == Category.NETHER &&
+                (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSTempleConfig.pyramids.addNetherPyramidToModdedBiomes)) {
             biome.addStructureFeature(RSFeatures.NETHER_PYRAMID.configure(FeatureConfig.DEFAULT));
         }
 
-        if (RepurposedStructures.RSAllConfig.RSMainConfig.temples.badlandsTempleSpawnrate != 1001 && biome.getCategory() == Category.MESA &&
-                (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSMainConfig.temples.addBadlandsTempleToModdedBiomes)) {
+        if (RepurposedStructures.RSAllConfig.RSTempleConfig.pyramids.badlandsTempleSpawnrate != 1001 && biome.getCategory() == Category.MESA &&
+                (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSTempleConfig.pyramids.addBadlandsTempleToModdedBiomes)) {
             biome.addStructureFeature(RSFeatures.BADLANDS_TEMPLE.configure(FeatureConfig.DEFAULT));
         }
     }
@@ -522,6 +545,7 @@ public class RSAddFeatures {
      * Will serialize (if possible) both features and check if they are the same feature. If cannot serialize, compare the feature itself to see if it is the same
      */
     private static boolean serializeAndCompareFeature(ConfiguredFeature<?, ?> feature1, ConfiguredFeature<?, ?> feature2) {
+
 
         // One of the features cannot be serialized which can only happen with custom modded features
         // Check if the features are the same feature even though the placement or config for the feature might be different.

@@ -39,8 +39,9 @@ public class StructurePieces {
     public static StructurePieceType STRONGHOLD_ENTRANCE_STAIRS = RSStrongholdPieces.EntranceStairs::new;
     public static StructurePieceType NETHER_TEMPLE_PIECE = TempleNetherPiece::new;
     public static StructurePieceType BADLANDS_TEMPLE_PIECE = TempleBadlandsPiece::new;
-    public static StructurePieceType NETHER_PYRAMID_PIECE = PyramidNetherPiece.Piece::new;
+    public static StructurePieceType PYRAMID_FLOOR_PIECE = PyramidFloorPiece.Piece::new;
     public static StructurePieceType RS_IGLOO_PIECE = RSIglooPieces.Piece::new;
+    public static StructurePieceType GENERAL_JIGSAW_GENERATOR_PIECE = GeneralJigsawGenerator.Piece::new;
 
     public static void registerStructurePieces() {
         Registry.register(Registry.STRUCTURE_PIECE, "mineshaft_room_rs", MINESHAFT_ROOM_RS);
@@ -77,8 +78,9 @@ public class StructurePieces {
         Registry.register(Registry.STRUCTURE_PIECE, "stronghold_entrance_stairs", STRONGHOLD_ENTRANCE_STAIRS);
         Registry.register(Registry.STRUCTURE_PIECE, "nether_temple_piece", NETHER_TEMPLE_PIECE);
         Registry.register(Registry.STRUCTURE_PIECE, "badlands_temple_piece", BADLANDS_TEMPLE_PIECE);
-        Registry.register(Registry.STRUCTURE_PIECE, "nether_pyramid_piece", NETHER_PYRAMID_PIECE);
+        Registry.register(Registry.STRUCTURE_PIECE, "pyramid_floor_piece", PYRAMID_FLOOR_PIECE);
         Registry.register(Registry.STRUCTURE_PIECE, "rs_igloo_piece", RS_IGLOO_PIECE);
+        Registry.register(Registry.STRUCTURE_PIECE, "general_jigsaw_generator_piece", GENERAL_JIGSAW_GENERATOR_PIECE);
     }
 
 }

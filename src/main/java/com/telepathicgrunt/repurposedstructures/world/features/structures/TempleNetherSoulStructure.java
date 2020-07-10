@@ -4,11 +4,8 @@ import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.Material;
 import net.minecraft.structure.StructureManager;
-import net.minecraft.structure.VillageStructureStart;
 import net.minecraft.structure.pool.SinglePoolElement;
 import net.minecraft.structure.pool.StructurePool;
 import net.minecraft.structure.pool.StructurePoolBasedGenerator;
@@ -17,48 +14,40 @@ import net.minecraft.structure.processor.StructureProcessor;
 import net.minecraft.structure.processor.StructureProcessorRule;
 import net.minecraft.structure.rule.AlwaysTrueRuleTest;
 import net.minecraft.structure.rule.RandomBlockMatchRuleTest;
-import net.minecraft.tag.BlockTags;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.Heightmap;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
 
-public class TempleNetherStructure extends StructureFeature<DefaultFeatureConfig> {
+public class TempleNetherSoulStructure extends StructureFeature<DefaultFeatureConfig> {
     static {
         ImmutableList<StructureProcessor> randomizationList = ImmutableList.of(new RuleStructureProcessor(ImmutableList.of(
-                new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.NETHER_BRICKS, 0.015F),
-                        AlwaysTrueRuleTest.INSTANCE, Blocks.MAGMA_BLOCK.getDefaultState()),
-                new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.NETHER_BRICKS, 0.12F),
-                        AlwaysTrueRuleTest.INSTANCE, Blocks.BLACK_TERRACOTTA.getDefaultState()),
-                new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.NETHER_BRICKS, 0.22F),
-                        AlwaysTrueRuleTest.INSTANCE, Blocks.RED_NETHER_BRICKS.getDefaultState()),
-                new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.NETHER_BRICKS, 0.2F),
-                        AlwaysTrueRuleTest.INSTANCE, Blocks.CRACKED_NETHER_BRICKS.getDefaultState()))));
+                new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.SOUL_SOIL, 0.1F),
+                        AlwaysTrueRuleTest.INSTANCE, Blocks.SOUL_SAND.getDefaultState()),
+                new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.SOUL_SAND, 0.05F),
+                        AlwaysTrueRuleTest.INSTANCE, Blocks.SOUL_SOIL.getDefaultState()))));
 
         StructurePoolBasedGenerator.REGISTRY.add(
-                new StructurePool(new Identifier(RepurposedStructures.MODID,"temples/temple_nether"), new Identifier("empty"), ImmutableList.of(Pair.of(
-                        new SinglePoolElement(RepurposedStructures.MODID+":temples/temple_nether", randomizationList), 1)),
+                new StructurePool(new Identifier(RepurposedStructures.MODID,"temples/temple_nether_soul"), new Identifier("empty"), ImmutableList.of(Pair.of(
+                        new SinglePoolElement(RepurposedStructures.MODID+":temples/temple_nether_soul", randomizationList), 1)),
                         StructurePool.Projection.RIGID));
     }
 
-    public TempleNetherStructure(Codec<DefaultFeatureConfig> config) {
+    public TempleNetherSoulStructure(Codec<DefaultFeatureConfig> config) {
         super(config);
     }
 
     @Override
-    public StructureFeature.StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
-        return TempleNetherStructure.Start::new;
+    public StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
+        return TempleNetherSoulStructure.Start::new;
     }
 
     public static class Start extends AbstractNetherStructure.AbstractStart{
-        Identifier NETHER_TEMPLE_POOL = new Identifier(RepurposedStructures.MODID,"temples/temple_nether");
+        Identifier NETHER_TEMPLE_POOL = new Identifier(RepurposedStructures.MODID,"temples/temple_nether_soul");
 
         public Start(StructureFeature<DefaultFeatureConfig> structureFeature, int i, int j, BlockBox blockBox, int k, long l) {
             super(structureFeature, i, j, blockBox, k, l);

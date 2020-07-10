@@ -58,7 +58,7 @@ public class RSNetherStrongholdStructure extends StrongholdFeature {
 
             if (strongholdpieces$entrancestairs.strongholdPortalRoom == null) {
                 BlockBox box = this.children.get(this.children.size() - 1).getBoundingBox();
-                RSStrongholdPieces.Stronghold portalRoom = RSStrongholdPieces.PortalRoom.createPiece(box.minX, box.minY + 1, box.minZ, Direction.NORTH, RSStrongholdPieces.Type.NETHER);
+                RSStrongholdPieces.Stronghold portalRoom = RSStrongholdPieces.PortalRoom.createPiece(this.children, this.random, box.minX, box.minY + 1, box.minZ, Direction.NORTH, RSStrongholdPieces.Type.NETHER);
                 this.children.add(portalRoom);
                 strongholdpieces$entrancestairs.pendingChildren.add(portalRoom);
                 list = strongholdpieces$entrancestairs.pendingChildren;

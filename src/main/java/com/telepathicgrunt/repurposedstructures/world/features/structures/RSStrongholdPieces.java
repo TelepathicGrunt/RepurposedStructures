@@ -179,7 +179,7 @@ public class RSStrongholdPieces {
         } else if (pieceClass == RSStrongholdPieces.Library.class) {
             structurestrongholdpieces$stronghold = RSStrongholdPieces.Library.createPiece(piecesList, random, xStart, yStart, zStart, direction, distanceFromStart, stronghold$type);
         } else if (pieceClass == RSStrongholdPieces.PortalRoom.class) {
-            structurestrongholdpieces$stronghold = RSStrongholdPieces.PortalRoom.createPiece(piecesList, xStart, yStart, zStart, direction, distanceFromStart, stronghold$type);
+            structurestrongholdpieces$stronghold = RSStrongholdPieces.PortalRoom.createPiece(piecesList, random, xStart, yStart, zStart, direction, distanceFromStart, stronghold$type);
         }
 
         return structurestrongholdpieces$stronghold;
@@ -797,13 +797,13 @@ public class RSStrongholdPieces {
         }
 
 
-        public static RSStrongholdPieces.PortalRoom createPiece(List<StructurePiece> p_175865_0_, int x, int y, int z, Direction p_175865_5_, int componentType, Type strongholdType) {
+        public static RSStrongholdPieces.PortalRoom createPiece(List<StructurePiece> p_175865_0_, Random random, int x, int y, int z, Direction p_175865_5_, int componentType, Type strongholdType) {
             BlockBox mutableboundingbox = BlockBox.rotated(x, y, z, -4, -1, 0, 11, 8, 16, p_175865_5_);
             return canStrongholdGoDeeper(mutableboundingbox) && StructurePiece.getOverlappingPiece(p_175865_0_, mutableboundingbox) == null ? new RSStrongholdPieces.PortalRoom(componentType, mutableboundingbox, p_175865_5_, strongholdType) : null;
         }
 
 
-        public static RSStrongholdPieces.PortalRoom createPiece(int x, int y, int z, Direction p_175865_5_, Type strongholdType) {
+        public static RSStrongholdPieces.PortalRoom createPiece(List<StructurePiece> p_175865_0_, Random p_175865_1_, int x, int y, int z, Direction p_175865_5_, Type strongholdType) {
             BlockBox mutableboundingbox = BlockBox.rotated(x, y, z, -4, -1, 0, 11, 8, 16, p_175865_5_);
             return new RSStrongholdPieces.PortalRoom(1, mutableboundingbox, p_175865_5_, strongholdType);
         }

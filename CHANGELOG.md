@@ -14,6 +14,16 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 -Added a new folder called data.repurposed_structures.rs_spawners where you can specify what kind of mob spawner can be in RS's dungeons, mineshafts, strongholds, and jungle fortress! You can specify more than one mob and what the chances are of the spawner being that mob.
 
+##### Temples: 
+
+-Added Nether Warped, Basalt, Crimson, and Soul Temples to the other Nether Biomes! The regular Nether Temple now only spawns in Wastelands.
+
+-Nether Temple chests now face the correct way and part of the temple made of Cracked Nether Bricks.
+
+-Nether Temples are now an NBT file under structures/temples/ and can be replaced with datapacks. 
+
+-Nether Pyramids now has rotation and land will be generated under them.
+
 ## (V.1.0.1 Changes) (1.16.1 Minecraft)
 
 ##### Mineshafts: 

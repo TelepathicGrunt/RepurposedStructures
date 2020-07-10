@@ -257,7 +257,7 @@ public class TempleNetherPiece extends StructurePieceWithDimensions {
         this.addBlock(world, Blocks.STICKY_PISTON.getDefaultState().with(PistonBlock.FACING, Direction.WEST), 10, -1, 8, boundingBox);
         this.addBlock(world, Blocks.REPEATER.getDefaultState().with(RepeaterBlock.FACING, Direction.NORTH), 10, -2, 10, boundingBox);
 
-        if (RepurposedStructures.RSAllConfig.RSMainConfig.temples.lootChestsNT) {
+        if (RepurposedStructures.RSAllConfig.RSTempleConfig.pyramids.lootChestsBT) {
             this.addChest(world, boundingBox, random, 9, -3, 10, CHESTS_NETHER_TEMPLE);
             this.addChest(world, boundingBox, random, 9, -3, 8, CHESTS_NETHER_TEMPLE);
         } else {

@@ -17,6 +17,10 @@ public class RSAllConfig implements ConfigData {
     @ConfigEntry.Gui.TransitiveObject
     public RSMainConfig RSMainConfig = new RSMainConfig();
 
+    @ConfigEntry.Category("Temple")
+    @ConfigEntry.Gui.TransitiveObject
+    public RSTempleConfig RSTempleConfig = new RSTempleConfig();
+
     @ConfigEntry.Category("Mineshafts")
     @ConfigEntry.Gui.TransitiveObject
     public RSMineshaftsConfig RSMineshaftsConfig = new RSMineshaftsConfig();

@@ -30,22 +30,6 @@ import java.util.*;
 
 
 public class FortressJunglePieces {
-    /**
-     * --------------------------------------------------------------------------
-     * |									|
-     * |	HELLO READERS! IF YOU'RE HERE, YOU'RE PROBABLY			|
-     * |	LOOKING FOR A TUTORIAL ON HOW TO DO STRUCTURES			|
-     * |									|
-     * -------------------------------------------------------------------------
-     * <p>
-     * Don't worry, I actually have a structure tutorial
-     * mod already setup for you to check out! It's full
-     * of comments on what does what and how to make structures.
-     * <p>
-     * Here's the link! https://github.com/TelepathicGrunt/StructureTutorialMod
-     * <p>
-     * Good luck and have fun modding!
-     */
     private static final Identifier JF_PLANT_TAG_RL = new Identifier("repurposed_structures:jungle_fortress_staircase_plants");
     private static final Identifier JF_SOIL_TAG_RL = new Identifier("repurposed_structures:jungle_fortress_staircase_soils");
     private static final Identifier SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":fortress_jungle");
@@ -53,7 +37,7 @@ public class FortressJunglePieces {
     private static final Map<BlockState, BlockState> INFESTED_STONE_LOOKUP;
 
     static {
-        INFESTED_STONE_LOOKUP = new HashMap<BlockState, BlockState>();
+        INFESTED_STONE_LOOKUP = new HashMap<>();
         INFESTED_STONE_LOOKUP.put(Blocks.STONE_BRICKS.getDefaultState(), Blocks.INFESTED_STONE_BRICKS.getDefaultState());
         INFESTED_STONE_LOOKUP.put(Blocks.STONE.getDefaultState(), Blocks.INFESTED_STONE.getDefaultState());
         INFESTED_STONE_LOOKUP.put(Blocks.MOSSY_COBBLESTONE.getDefaultState(), Blocks.INFESTED_MOSSY_STONE_BRICKS.getDefaultState());

@@ -16,9 +16,6 @@ public class RSMainConfig implements ConfigData {
     public JungleFortress jungleFortress = new JungleFortress();
 
     @ConfigEntry.Gui.CollapsibleObject
-    public Temples temples = new Temples();
-
-    @ConfigEntry.Gui.CollapsibleObject
     public Igloos igloos = new Igloos();
 
 
@@ -66,48 +63,6 @@ public class RSMainConfig implements ConfigData {
         @ConfigEntry.Gui.Tooltip
         @Comment("Add Jungle Fortress to modded jungle biomes.")
         public boolean addJungleFortressToModdedBiomes = false;
-
-    }
-
-    public static class Temples {
-
-        @ConfigEntry.Gui.Tooltip(count = 2)
-        @Comment("How rare are Nether Pyramids in Nether."
-                + "\n1 for spawning in most chunks and 1001 for none.")
-        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int netherPyramidSpawnrate = 32;
-
-        @ConfigEntry.Gui.Tooltip
-        @Comment("Add Nether Pyramids to modded Nether biomes.")
-        public boolean addNetherPyramidToModdedBiomes = false;
-
-        @ConfigEntry.Gui.Tooltip(count = 2)
-        @Comment("How rare are Nether Temples in Nether."
-                + "\n1 for spawning in most chunks and 1001 for none.")
-        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int netherTempleSpawnrate = 26;
-
-        @ConfigEntry.Gui.Tooltip
-        @Comment("Controls whether loot chests spawn or not in Nether Temples.")
-        public boolean lootChestsNT = true;
-
-        @ConfigEntry.Gui.Tooltip
-        @Comment("Add Nether Temples to modded Nether biomes.")
-        public boolean addNetherTempleToModdedBiomes = false;
-
-        @ConfigEntry.Gui.Tooltip(count = 2)
-        @Comment("How rare are Nether Temples in Nether."
-                + "\n1 for spawning in most chunks and 1001 for none.")
-        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int badlandsTempleSpawnrate = 20;
-
-        @ConfigEntry.Gui.Tooltip
-        @Comment("Controls whether loot chests spawn or not in Badlands Temples.")
-        public boolean lootChestsBT = true;
-
-        @ConfigEntry.Gui.Tooltip
-        @Comment("Add Badlands Temple to modded jungle biomes.")
-        public boolean addBadlandsTempleToModdedBiomes = false;
 
     }
 
