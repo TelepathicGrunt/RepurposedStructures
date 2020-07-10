@@ -10,14 +10,14 @@ import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
 
-public class TempleBadlandsStructure extends StructureFeature<DefaultFeatureConfig> {
-    public TempleBadlandsStructure(Codec<DefaultFeatureConfig> config) {
+public class PyramidBadlandsStructure extends StructureFeature<DefaultFeatureConfig> {
+    public PyramidBadlandsStructure(Codec<DefaultFeatureConfig> config) {
         super(config);
     }
 
     @Override
     public StructureFeature.StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
-        return TempleBadlandsStructure.Start::new;
+        return PyramidBadlandsStructure.Start::new;
     }
 
     public static class Start extends StructureStart<DefaultFeatureConfig> {
@@ -28,7 +28,7 @@ public class TempleBadlandsStructure extends StructureFeature<DefaultFeatureConf
 
         @Override
         public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
-            TempleBadlandsPiece netherTemplePiece = new TempleBadlandsPiece(this.random, chunkX * 16, chunkZ * 16);
+            PyramidBadlandsPiece netherTemplePiece = new PyramidBadlandsPiece(this.random, chunkX * 16, chunkZ * 16);
             this.children.add(netherTemplePiece);
             this.setBoundingBoxFromChildren();
             this.method_14976(this.random, 63, 64);

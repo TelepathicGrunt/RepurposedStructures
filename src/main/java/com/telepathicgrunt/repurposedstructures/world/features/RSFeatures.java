@@ -4,7 +4,6 @@ import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.*;
 import net.earthcomputer.libstructure.LibStructure;
 import net.minecraft.block.Blocks;
-import net.minecraft.entity.EntityType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.GenerationStep;
@@ -14,7 +13,6 @@ import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 
 public class RSFeatures {
@@ -61,13 +59,13 @@ public class RSFeatures {
     public static StructureFeature<DefaultFeatureConfig> NETHER_STRONGHOLD = new RSNetherStrongholdStructure(DefaultFeatureConfig.CODEC);
 
     public static StructureFeature<DefaultFeatureConfig> JUNGLE_FORTRESS = new FortressJungleStructure(DefaultFeatureConfig.CODEC);
-    public static StructureFeature<DefaultFeatureConfig> NETHER_TEMPLE = new TempleNetherStructure(DefaultFeatureConfig.CODEC);
+    public static StructureFeature<DefaultFeatureConfig> NETHER_TEMPLE = new TempleNetherWastelandStructure(DefaultFeatureConfig.CODEC);
     public static StructureFeature<DefaultFeatureConfig> NETHER_BASALT_TEMPLE = new TempleNetherBasaltStructure(DefaultFeatureConfig.CODEC);
     public static StructureFeature<DefaultFeatureConfig> NETHER_WARPED_TEMPLE = new TempleNetherWarpedStructure(DefaultFeatureConfig.CODEC);
     public static StructureFeature<DefaultFeatureConfig> NETHER_CRIMSON_TEMPLE = new TempleNetherCrimsonStructure(DefaultFeatureConfig.CODEC);
     public static StructureFeature<DefaultFeatureConfig> NETHER_SOUL_TEMPLE = new TempleNetherSoulStructure(DefaultFeatureConfig.CODEC);
     public static StructureFeature<DefaultFeatureConfig> NETHER_PYRAMID = new PyramidNetherStructure(DefaultFeatureConfig.CODEC);
-    public static StructureFeature<DefaultFeatureConfig> BADLANDS_TEMPLE = new TempleBadlandsStructure(DefaultFeatureConfig.CODEC);
+    public static StructureFeature<DefaultFeatureConfig> BADLANDS_TEMPLE = new PyramidBadlandsStructure(DefaultFeatureConfig.CODEC);
     public static StructureFeature<DefaultFeatureConfig> GRASSY_IGLOO = new IglooGrassyStructure(DefaultFeatureConfig.CODEC);
     public static StructureFeature<DefaultFeatureConfig> STONE_IGLOO = new IglooStoneStructure(DefaultFeatureConfig.CODEC);
 
@@ -129,12 +127,12 @@ public class RSFeatures {
         LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "stronghold_nether"), NETHER_STRONGHOLD, GenerationStep.Feature.UNDERGROUND_STRUCTURES, new StructureConfig(RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdSpawnrate * 0.75f), 399117357), NETHER_STRONGHOLD.configure(FeatureConfig.DEFAULT));
 
         LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "fortress_jungle"), JUNGLE_FORTRESS, GenerationStep.Feature.SURFACE_STRUCTURES, new StructureConfig(RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.jungleFortressSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.jungleFortressSpawnrate * 0.75f), 399117358), JUNGLE_FORTRESS.configure(FeatureConfig.DEFAULT));
-        LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "temple_nether"), NETHER_TEMPLE, GenerationStep.Feature.SURFACE_STRUCTURES, new StructureConfig(RepurposedStructures.RSAllConfig.RSTempleConfig.temples.netherWastelandTempleSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSTempleConfig.temples.netherWastelandTempleSpawnrate * 0.75f), 399117359), NETHER_TEMPLE.configure(FeatureConfig.DEFAULT));
+        LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "temple_nether_wasteland"), NETHER_TEMPLE, GenerationStep.Feature.SURFACE_STRUCTURES, new StructureConfig(RepurposedStructures.RSAllConfig.RSTempleConfig.temples.netherWastelandTempleSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSTempleConfig.temples.netherWastelandTempleSpawnrate * 0.75f), 399117359), NETHER_TEMPLE.configure(FeatureConfig.DEFAULT));
         LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "temple_nether_soul"), NETHER_SOUL_TEMPLE, GenerationStep.Feature.SURFACE_STRUCTURES, new StructureConfig(RepurposedStructures.RSAllConfig.RSTempleConfig.temples.netherSoulTempleSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSTempleConfig.temples.netherSoulTempleSpawnrate * 0.75f), 399117359), NETHER_TEMPLE.configure(FeatureConfig.DEFAULT));
         LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "temple_nether_basalt"), NETHER_BASALT_TEMPLE, GenerationStep.Feature.SURFACE_STRUCTURES, new StructureConfig(RepurposedStructures.RSAllConfig.RSTempleConfig.temples.netherBasaltTempleSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSTempleConfig.temples.netherBasaltTempleSpawnrate * 0.75f), 399117359), NETHER_TEMPLE.configure(FeatureConfig.DEFAULT));
         LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "temple_nether_crimson"), NETHER_CRIMSON_TEMPLE, GenerationStep.Feature.SURFACE_STRUCTURES, new StructureConfig(RepurposedStructures.RSAllConfig.RSTempleConfig.temples.netherCrimsonTempleSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSTempleConfig.temples.netherCrimsonTempleSpawnrate * 0.75f), 399117359), NETHER_TEMPLE.configure(FeatureConfig.DEFAULT));
         LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "temple_nether_warped"), NETHER_WARPED_TEMPLE, GenerationStep.Feature.SURFACE_STRUCTURES, new StructureConfig(RepurposedStructures.RSAllConfig.RSTempleConfig.temples.netherWarpedTempleSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSTempleConfig.temples.netherWarpedTempleSpawnrate * 0.75f), 399117359), NETHER_TEMPLE.configure(FeatureConfig.DEFAULT));
-        LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "temple_badlands"), BADLANDS_TEMPLE, GenerationStep.Feature.SURFACE_STRUCTURES, new StructureConfig(RepurposedStructures.RSAllConfig.RSTempleConfig.pyramids.badlandsTempleSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSTempleConfig.pyramids.badlandsTempleSpawnrate * 0.75f), 399117360), BADLANDS_TEMPLE.configure(FeatureConfig.DEFAULT));
+        LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "pyramid_badlands"), BADLANDS_TEMPLE, GenerationStep.Feature.SURFACE_STRUCTURES, new StructureConfig(RepurposedStructures.RSAllConfig.RSTempleConfig.pyramids.badlandsPyramidSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSTempleConfig.pyramids.badlandsPyramidSpawnrate * 0.75f), 399117360), BADLANDS_TEMPLE.configure(FeatureConfig.DEFAULT));
         LibStructure.registerSurfaceAdjustingStructure(new Identifier(RepurposedStructures.MODID, "pyramid_nether"), NETHER_PYRAMID, GenerationStep.Feature.SURFACE_STRUCTURES, new StructureConfig(RepurposedStructures.RSAllConfig.RSTempleConfig.pyramids.netherPyramidSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSTempleConfig.pyramids.netherPyramidSpawnrate * 0.75f), 399117361), NETHER_PYRAMID.configure(FeatureConfig.DEFAULT));
         LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "igloo_grassy"), GRASSY_IGLOO, GenerationStep.Feature.SURFACE_STRUCTURES, new StructureConfig(RepurposedStructures.RSAllConfig.RSMainConfig.igloos.grassyIglooSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSMainConfig.igloos.grassyIglooSpawnrate * 0.75f), 399117362), GRASSY_IGLOO.configure(FeatureConfig.DEFAULT));
         LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "igloo_stone"), STONE_IGLOO, GenerationStep.Feature.SURFACE_STRUCTURES, new StructureConfig(RepurposedStructures.RSAllConfig.RSMainConfig.igloos.stoneIglooSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSMainConfig.igloos.stoneIglooSpawnrate * 0.75f), 399117363), STONE_IGLOO.configure(FeatureConfig.DEFAULT));

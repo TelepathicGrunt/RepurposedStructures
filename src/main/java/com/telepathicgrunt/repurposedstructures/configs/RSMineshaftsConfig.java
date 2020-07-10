@@ -6,7 +6,7 @@ import me.sargunvohra.mcmods.autoconfig1u.annotation.ConfigEntry;
 import me.sargunvohra.mcmods.autoconfig1u.shadowed.blue.endless.jankson.Comment;
 
 
-@Config(name = "Repurposed_Structures-Mineshafts")
+@Config(name = "Mineshafts")
 public class RSMineshaftsConfig implements ConfigData {
 
 

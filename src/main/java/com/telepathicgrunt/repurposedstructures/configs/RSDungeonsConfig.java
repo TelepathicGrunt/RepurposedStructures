@@ -6,7 +6,7 @@ import me.sargunvohra.mcmods.autoconfig1u.annotation.Config;
 import me.sargunvohra.mcmods.autoconfig1u.annotation.ConfigEntry;
 import me.sargunvohra.mcmods.autoconfig1u.shadowed.blue.endless.jankson.Comment;
 
-@Config(name = "Repurposed_Structures-Dungeons")
+@Config(name = "Dungeons")
 public class RSDungeonsConfig implements ConfigData {
 
     @ConfigEntry.Gui.Tooltip

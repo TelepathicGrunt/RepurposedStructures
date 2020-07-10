@@ -6,7 +6,7 @@ import me.sargunvohra.mcmods.autoconfig1u.annotation.Config;
 import me.sargunvohra.mcmods.autoconfig1u.annotation.ConfigEntry;
 import me.sargunvohra.mcmods.autoconfig1u.shadowed.blue.endless.jankson.Comment;
 
-@Config(name = "Repurposed_Structures-Strongholds")
+@Config(name = "Strongholds")
 public class RSStrongholdsConfig implements ConfigData
 {
 	@ConfigEntry.Gui.Tooltip(count = 4)

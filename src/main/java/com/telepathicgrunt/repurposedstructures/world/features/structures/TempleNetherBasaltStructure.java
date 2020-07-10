@@ -26,11 +26,11 @@ import net.minecraft.world.gen.feature.StructureFeature;
 public class TempleNetherBasaltStructure extends StructureFeature<DefaultFeatureConfig> {
     static {
         ImmutableList<StructureProcessor> randomizationList = ImmutableList.of(new RuleStructureProcessor(ImmutableList.of(
-                new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.BLACKSTONE, 0.01F),
+                new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.BLACKSTONE, 0.013F),
                         AlwaysTrueRuleTest.INSTANCE, Blocks.MAGMA_BLOCK.getDefaultState()),
-                new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.BLACKSTONE, 0.01F),
+                new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.BLACKSTONE, 0.014F),
                         AlwaysTrueRuleTest.INSTANCE, Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS.getDefaultState()),
-                new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.BLACKSTONE, 0.01F),
+                new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.BLACKSTONE, 0.015F),
                         AlwaysTrueRuleTest.INSTANCE, Blocks.OBSIDIAN.getDefaultState()),
                 new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.BLACKSTONE, 0.02F),
                         AlwaysTrueRuleTest.INSTANCE, Blocks.BASALT.getDefaultState()),
@@ -55,8 +55,8 @@ public class TempleNetherBasaltStructure extends StructureFeature<DefaultFeature
     public static class Start extends AbstractNetherStructure.AbstractStart{
         Identifier NETHER_TEMPLE_POOL = new Identifier(RepurposedStructures.MODID,"temples/temple_nether_basalt");
 
-        public Start(StructureFeature<DefaultFeatureConfig> structureFeature, int i, int j, BlockBox blockBox, int k, long l) {
-            super(structureFeature, i, j, blockBox, k, l);
+        public Start(StructureFeature<DefaultFeatureConfig> structureFeature, int x, int z, BlockBox blockBox, int referenceIn, long seed) {
+            super(structureFeature, x, z, blockBox, referenceIn, seed);
         }
 
         public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int i, int j, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {

@@ -1,9 +1,7 @@
 package com.telepathicgrunt.repurposedstructures;
 
-import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.mixin.BiomeStructureAccessor;
 import com.telepathicgrunt.repurposedstructures.world.features.RSFeatures;
-import com.telepathicgrunt.repurposedstructures.world.placements.RSDungeonPlacement;
 import com.telepathicgrunt.repurposedstructures.world.placements.RSPlacements;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.registry.Registry;
@@ -449,8 +447,8 @@ public class RSAddFeatures {
             biome.addStructureFeature(RSFeatures.NETHER_PYRAMID.configure(FeatureConfig.DEFAULT));
         }
 
-        if (RepurposedStructures.RSAllConfig.RSTempleConfig.pyramids.badlandsTempleSpawnrate != 1001 && biome.getCategory() == Category.MESA &&
-                (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSTempleConfig.pyramids.addBadlandsTempleToModdedBiomes)) {
+        if (RepurposedStructures.RSAllConfig.RSTempleConfig.pyramids.badlandsPyramidSpawnrate != 1001 && biome.getCategory() == Category.MESA &&
+                (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSTempleConfig.pyramids.addBadlandsPyramidToModdedBiomes)) {
             biome.addStructureFeature(RSFeatures.BADLANDS_TEMPLE.configure(FeatureConfig.DEFAULT));
         }
     }

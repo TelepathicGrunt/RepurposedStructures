@@ -59,8 +59,8 @@ public class TempleNetherWarpedStructure extends StructureFeature<DefaultFeature
     public static class Start extends AbstractNetherStructure.AbstractStart{
         Identifier NETHER_TEMPLE_POOL = new Identifier(RepurposedStructures.MODID,"temples/temple_nether_warped");
 
-        public Start(StructureFeature<DefaultFeatureConfig> structureFeature, int i, int j, BlockBox blockBox, int k, long l) {
-            super(structureFeature, i, j, blockBox, k, l);
+        public Start(StructureFeature<DefaultFeatureConfig> structureFeature, int x, int z, BlockBox blockBox, int referenceIn, long seed) {
+            super(structureFeature, x, z, blockBox, referenceIn, seed);
         }
 
         public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int i, int j, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {

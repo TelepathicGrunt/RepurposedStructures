@@ -8,7 +8,6 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.ChestBlockEntity;
 import net.minecraft.block.entity.MobSpawnerBlockEntity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.loot.LootTables;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.structure.StructureManager;
 import net.minecraft.structure.StructurePieceWithDimensions;
@@ -25,17 +24,17 @@ import net.minecraft.world.gen.chunk.ChunkGenerator;
 import java.util.Random;
 
 
-public class TempleBadlandsPiece extends StructurePieceWithDimensions {
+public class PyramidBadlandsPiece extends StructurePieceWithDimensions {
     public static final Identifier CHESTS_BADLANDS_TEMPLE = new Identifier("repurposed_structures:chests/temple_badlands_chest");
 
 
-    public TempleBadlandsPiece(Random random, int x, int z) {
-        super(StructurePieces.BADLANDS_TEMPLE_PIECE, random, x, 64, z, 21, 15, 21);
+    public PyramidBadlandsPiece(Random random, int x, int z) {
+        super(StructurePieces.BADLANDS_PYRAMID_PIECE, random, x, 64, z, 21, 15, 21);
     }
 
 
-    public TempleBadlandsPiece(StructureManager templateManager, CompoundTag data) {
-        super(StructurePieces.BADLANDS_TEMPLE_PIECE, data);
+    public PyramidBadlandsPiece(StructureManager templateManager, CompoundTag data) {
+        super(StructurePieces.BADLANDS_PYRAMID_PIECE, data);
     }
 
 
@@ -259,7 +258,7 @@ public class TempleBadlandsPiece extends StructurePieceWithDimensions {
         this.addBlock(world, Blocks.CHISELED_RED_SANDSTONE.getDefaultState(), 10, -10, 13, boundingBox);
         this.addBlock(world, Blocks.CUT_RED_SANDSTONE.getDefaultState(), 10, -11, 13, boundingBox);
 
-        if(RepurposedStructures.RSAllConfig.RSTempleConfig.pyramids.lootChestsBT) {
+        if(RepurposedStructures.RSAllConfig.RSTempleConfig.pyramids.lootChestsBP) {
             for (Direction direction : Direction.Type.HORIZONTAL) {
                 int x = 10 + direction.getOffsetX() * 2;
                 int z = 10 + direction.getOffsetZ() * 2;

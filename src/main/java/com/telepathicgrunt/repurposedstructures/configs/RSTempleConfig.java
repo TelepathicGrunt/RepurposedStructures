@@ -6,7 +6,7 @@ import me.sargunvohra.mcmods.autoconfig1u.annotation.ConfigEntry;
 import me.sargunvohra.mcmods.autoconfig1u.shadowed.blue.endless.jankson.Comment;
 
 
-@Config(name = "Repurposed_Structures-Temples")
+@Config(name = "Temples")
 public class RSTempleConfig implements ConfigData {
 
     @ConfigEntry.Gui.CollapsibleObject
@@ -86,18 +86,18 @@ public class RSTempleConfig implements ConfigData {
         public boolean addNetherPyramidToModdedBiomes = false;
 
         @ConfigEntry.Gui.Tooltip(count = 2)
-        @Comment("How rare are Nether Temples in Nether."
+        @Comment("How rare are Badlands Pyramid in non-plateau Badlands biomes."
                 + "\n1 for spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int badlandsTempleSpawnrate = 20;
+        public int badlandsPyramidSpawnrate = 20;
 
         @ConfigEntry.Gui.Tooltip
-        @Comment("Controls whether loot chests spawn or not in Badlands Temples.")
-        public boolean lootChestsBT = true;
+        @Comment("Controls whether loot chests spawn or not in Badlands Pyramids.")
+        public boolean lootChestsBP = true;
 
         @ConfigEntry.Gui.Tooltip
-        @Comment("Add Badlands Temple to modded Badlands biomes.")
-        public boolean addBadlandsTempleToModdedBiomes = false;
+        @Comment("Add Badlands Pyramid to modded Badlands biomes.")
+        public boolean addBadlandsPyramidToModdedBiomes = false;
 
     }
 }
