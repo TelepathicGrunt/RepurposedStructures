@@ -44,7 +44,7 @@ public class PyramidFloorPiece {
         public Piece(StructureManager templateManager, CompoundTag data) {
             super(StructurePieces.PYRAMID_FLOOR_PIECE, data);
             this.rotation = BlockRotation.valueOf(data.getString("Rot"));
-            this.block = Registry.BLOCK.get(new Identifier(data.getString("block")));
+            this.block = Registry.BLOCK.get(new Identifier(data.getString("Block")));
             this.func_207614_a(templateManager);
         }
 
@@ -62,8 +62,9 @@ public class PyramidFloorPiece {
         @Override
         protected void toNbt(CompoundTag tagCompound) {
             super.toNbt(tagCompound);
+            tagCompound.putString("Rot", this.rotation.name());
+            tagCompound.putString("Block", Registry.BLOCK.getId(this.block).toString());
         }
-
 
         @Override
         public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {

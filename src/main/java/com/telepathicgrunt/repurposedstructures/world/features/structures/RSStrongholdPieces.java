@@ -33,6 +33,7 @@ import net.minecraft.world.WorldAccess;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 
+import java.lang.reflect.Constructor;
 import java.util.*;
 
 
@@ -106,13 +107,13 @@ public class RSStrongholdPieces {
 
         for(StrongholdGenerator.PieceSetting piece : StrongholdGeneratorAccessor.getALL_PIECE_SETTINGS()){
             try {
-                if(!Registry.STRUCTURE_PIECE.getId((StructurePieceType) piece.pieceType.getDeclaredConstructors()[0].newInstance(new Random(), new BlockBox(), Direction.NORTH))
-                        .getNamespace().equals("minecraft"))
+                if(!piece.pieceType.getEnclosingClass().getName().contains(StrongholdGenerator.class.getName()))
                 {
                     PIECE_WEIGHTS.add(new RSStrongholdPieces.PieceWeight(piece.pieceType, piece.field_15278, piece.limit));
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                //definitely not vanilla piece
+                PIECE_WEIGHTS.add(new RSStrongholdPieces.PieceWeight(piece.pieceType, piece.field_15278, piece.limit));
             }
         }
     }
