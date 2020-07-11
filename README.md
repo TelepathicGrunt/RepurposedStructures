@@ -3,6 +3,12 @@
 <h2 style="text-align: center;"><span style="font-size: 14px;"><strong><span style="color: #009611;">CLICK HERE FOR 1.15.2 FORGE VERSION:&nbsp;</span></strong></span></h2>
 <p style="text-align: center;"><span style="font-size: 14px;"><strong><span style="color: #009611;"><a href="https://www.curseforge.com/minecraft/mc-mods/repurposed-structures">https://www.curseforge.com/minecraft/mc-mods/repurposed-structures</a></span></strong></span></p>
 <p>&nbsp;</p>
+<p>&nbsp;</p>
+<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;Fixed config for adding</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>the structures to modded biomes!</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>New Nether Temples and Outpost!</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>See changelog for more detail and</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>please report any bugs!</strong></b></span></em></p>
 <p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;"><span style="font-size: 18px;"><strong>______________________________________________________________________________</strong></span></p>
@@ -11,11 +17,13 @@
 <p style="text-align: center;"><span style="font-size: 14px;">&nbsp;</span></p>
 <p style="text-align: left;"><span style="font-size: 14px;">&nbsp;<strong> &nbsp; Repurposed Structures is a mod about taking existing vanilla features and structures and creating new variants or modifications to them! Originally, most of the structures and features in this mod was actually made for my Ultra Amplified Dimension mod. but then I realized these features and structures would look great in the Overworld as well so I decided to take those structures and features and split them into their own mod. This mod! </strong></span></p>
 <p style="text-align: left;">&nbsp;</p>
-<p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; Currently, this mod creates a Nether Fortresses using Stonebrick blocks and spawns it in Jungles, Dungeons and Mineshafts now has more variants to match whatever biome they are in, 7 new biome variants of Villages, 3 new temples variants, 2 new biome variants of Igloos, Stonebrick and Nether Strongholds has a configurable size and has more Silverfish spawners, Giant Tree/Spruce Taiga Hills biomes has giant ore filled boulders that could have Diamond ore if you are extremely lucky, Taiga Mountain biomes now has tiny boulders, Swamps now has a new 2x2 swamp-like tree, and several new Desert Well variations were made for other biomes (Also, loot for Dungeons and Mineshafts are tailored to their variant as well so start exploring!)</strong></span></p>
+<p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; Currently, this mod creates a Nether Fortresses using Stonebrick blocks and spawns it in Jungles, Dungeons and Mineshafts now has more variants to match whatever biome they are in, 7 new biome variants of Villages, 3 new temples variants, 2 new biome variants of Igloos, a Nether themed Pillager Outpost, Stonebrick and Nether Strongholds has a configurable size and has more Silverfish spawners, Giant Tree/Spruce Taiga Hills biomes has giant ore filled boulders that could have Diamond ore if you are extremely lucky, Taiga Mountain biomes now has tiny boulders, Swamps now has a new 2x2 swamp-like tree, and several new Desert Well variations were made for other biomes (Also, loot for Dungeons and Mineshafts are tailored to their variant as well so start exploring!)</strong></span></p>
 <p style="text-align: left;">&nbsp;</p>
 <p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; If you have trouble finding one of these structures, just start typing `<em>/locate repu</em>` into the chat and you should see my structures pop up! For example, typing `<em>/locate repurposed_structures:fortress_jungle</em>` will find the closest Jungle Fortress to your location. :) However, do note that due to a Vanilla limitation, the locate command can only find the themed Mineshafts if they are within 1600 blocks of you. All other structures can be found easily from anywhere!</strong></span></p>
+<p style="text-align: left;">&nbsp;</p>
+<p style="text-align: left;"><span style="font-size: 24px; color: #993300;"><em><strong>NOTE:&nbsp;The structures are not added to modded biomes by default. If you want them in modded biomes, go into the config and turn on add___ToModdedBiomes config options and then restart the game</strong></em></span></p>
 <p style="text-align: left;"><span style="font-size: 14px;">&nbsp;</span></p>
-<p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; You can use this mod in a modpack or download and modify the source code. It is all under LGPL (a license) so you can do whatever you want as long as you don't sell my code and you make your codebase also open sourced. Also, be sure to check out the images page for several screenshots of what the world looks like!&nbsp;And also, the section below this one talks about how to configure everything as I want players to have the ability to change things to their preferences.</strong></span></p>
+<p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; You can use this mod in a modpack or download and modify the source code. It is all under LGPL (a license) so you can do whatever you want as long as you make your mod's codebase also open sourced. Also, be sure to check out the images page for several screenshots of what the world looks like!&nbsp;And also, the section below this one talks about how to configure everything as I want players to have the ability to change things to their preferences.</strong></span></p>
 <p style="text-align: left;">&nbsp;</p>
 <p style="text-align: left;"><span style="font-size: 12px;">Note: /locate command can only find the Mineshaft if it is within 1600 blocks of you due to a hardcoded search radius in vanilla MC's code.</span></p>
 <p style="text-align: left;"><span style="font-size: 14px;">&nbsp;</span></p>
@@ -41,26 +49,32 @@
 </div>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
+<p><strong>Dungeons</strong></p>
+<div class="spoiler">
 <p><strong>Badlands Dungeons spawner's mob rates</strong></p>
 <div class="spoiler">
 <p><strong>48% : Husk</strong></p>
 <p><strong>25% : Cave Spider</strong></p>
-<p><strong>25% : randomly picking a default or modded dungeon mob but if Zombie is picked, will use Husk instead for spawner</strong></p>
+<p><strong>17% : Skeleton</strong></p>
+<p><strong>8% : Spider</strong></p>
 <p><strong>2% : Illusioner&nbsp;</strong></p>
 </div>
 <p>&nbsp;</p>
 <p><strong>Dark Forest Dungeons spawner's mob rates</strong></p>
 <div class="spoiler">
-<p><strong>73% : randomly picking a default or modded dungeon mob</strong></p>
-<p><strong style="font-size: 1.2rem;">24% : Vex</strong></p>
+<p><strong>43% : Zombie</strong></p>
+<p><strong>20% : Spider</strong></p>
+<p><strong>20% : Skeleton</strong></p>
+<p><strong>15% : Vex</strong></p>
 <p><strong>2% : Illusioner&nbsp;</strong></p>
 <p><strong>1% : Creeper</strong></p>
 </div>
 <p>&nbsp;</p>
 <p><strong>Desert Dungeons spawner's mob rates</strong></p>
 <div class="spoiler">
-<p><strong>48% : Husk</strong></p>
-<p><strong>50% : randomly picking a default or modded dungeon mob but if Zombie is picked, will use Husk instead for spawner</strong></p>
+<p><strong>73% : Husk</strong></p>
+<p><strong>13% : Spider</strong></p>
+<p><strong>12% : Skeleton</strong></p>
 <p><strong>1% : Llama</strong></p>
 <p><strong>1% : Illusioner&nbsp;</strong></p>
 </div>
@@ -76,8 +90,10 @@
 <p>&nbsp;</p>
 <p><strong>Jungle Dungeons spawner's mob rates</strong></p>
 <div class="spoiler">
-<p><strong>73% : randomly picking a default or modded dungeon mob but if Zombie is picked, will use Husk instead for spawner</strong></p>
-<p><strong style="font-size: 1.2rem;">25% : Parrot</strong></p>
+<p><strong>37% : Zombie</strong></p>
+<p><strong>25% : Parrot</strong></p>
+<p><strong>18% : Spider</strong></p>
+<p><strong>18% : Skeleton</strong></p>
 <p><strong>1% : Chicken</strong></p>
 <p><strong>1% : Creeper</strong></p>
 </div>
@@ -85,11 +101,11 @@
 <p><strong>Mushroom Dungeons spawner's mob rates</strong></p>
 <div class="spoiler">
 <p><em><strong> if above Y = 64</strong></em></p>
-<p><strong>98% : Rabbit</strong></p>
+<p><strong>96% : Rabbit</strong></p>
 <p><strong>4% : Mooshroom</strong></p>
 <p>&nbsp;</p>
 <p><em><strong> if below Y = 64</strong></em></p>
-<p><strong><span style="font-size: 1.2rem;">98%</span><strong style="font-size: 1.2rem;"> : Bat</strong></strong></p>
+<p><strong>96% : Bat</strong></p>
 <p><strong>4% : Mooshroom</strong></p>
 </div>
 <p>&nbsp;</p>
@@ -111,16 +127,20 @@
 <p>&nbsp;</p>
 <p><strong>Snow Dungeons spawner's mob rates</strong></p>
 <div class="spoiler">
-<p><strong>48% : randomly picking a default or modded dungeon mob but if Skeleton is picked, will use Stray instead for spawner</strong></p>
-<p><strong>25% : Stray</strong></p>
+<p><strong>37% : Stray</strong></p>
 <p><strong>25% : Cave Spider</strong></p>
+<p><strong>24% : Zombie</strong></p>
+<p><strong>12% : Spider</strong></p>
 <p><strong>2% : Snow Golem</strong></p>
 </div>
 <p>&nbsp;</p>
 <p><strong>Swamp Dungeons spawner's mob rates</strong></p>
 <div class="spoiler">
-<p><strong>74% : randomly picking a default or modded dungeon mob but if Zombie is picked, will use Husk instead for spawner</strong></p>
-<p><strong>25% : Vex</strong></p>
+<p><strong>24% : Zombie</strong></p>
+<p><strong>24% : Drowned</strong></p>
+<p><strong>16% : Spider</strong></p>
+<p><strong>16% : Skeleton</strong></p>
+<p><strong>9% : Vex</strong></p>
 <p><strong>1% : Slime</strong></p>
 </div>
 <p>&nbsp;</p>
@@ -159,7 +179,19 @@
 <p><strong>3% : Tropical Fish</strong></p>
 <p><strong>1% : Turtle</strong></p>
 </div>
+</div>
 <p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>Mineshafts</strong></p>
+<div class="spoiler">
+<p><strong><b>Icy Mineshafts has Stray Spawners</b></strong></p>
+<p><strong>&nbsp;</strong></p>
+<p><strong>Ocean Mineshafts has Drowned Spawners</strong></p>
+<p>&nbsp;</p>
+<p><strong>Nether Mineshafts has Blaze Spawners</strong></p>
+<p>&nbsp;</p>
+<p><strong>End Mineshafts has Endermite Spawners<br /><br />All other Mineshafts has Cave Spider Spawner. And chest loot is specifically tailored to every Mineshaft with some having very unique loot and others having loot that's barely different.<br /></strong></p>
+</div>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p><strong>Jungle Fortress loot</strong></p>
@@ -167,13 +199,44 @@
 <p><strong>Spawner Chests</strong></p>
 <p><strong>100% : End City loot</strong></p>
 <p>&nbsp;</p>
+<p><strong>2 Mob Spawners</strong></p>
+<p><strong>100% : Silverfish</strong></p>
+<p>&nbsp;</p>
 <p><strong>Hallway Chests</strong></p>
 <p><strong>38% : Village Weaponsmith loot</strong></p>
 <p><strong>38% : Village Armorer loot</strong></p>
 <p><strong>24% : Jungle Temple loot</strong></p>
 </div>
 <p>&nbsp;</p>
-<p><strong>Nether Temple loot</strong></p>
+<p>&nbsp;</p>
+<p><strong>Nether Brick Outpost loot</strong></p>
+<div class="spoiler">
+<p><strong>Chests loot</strong></p>
+<p><strong><b>Can contain the following in order from most common to least common</b></strong></p>
+<p><strong><b>&nbsp;- Lvl 20 to 30 Enchanted Stone Swords</b></strong></p>
+<p><strong><b>&nbsp;- Raw Porkchop</b></strong></p>
+<p><strong><b>&nbsp;- Cooked Porkchop</b></strong></p>
+<p><strong><b>&nbsp;- Blackstone</b></strong></p>
+<p><strong><b>&nbsp;- Nether Bricks</b></strong></p>
+<p><strong>&nbsp;- Gold ingots</strong></p>
+<p><strong><b>&nbsp;- Golden Nuggets</b></strong></p>
+<p><strong><b>&nbsp;- Arrows</b></strong></p>
+<p><strong><b>&nbsp;- Lvl 15 to 25 Enchanted Crossbow</b></strong></p>
+<p><strong><b>&nbsp;- Lvl 15 to 25 Enchanted Bow</b></strong></p>
+<p><strong><b>&nbsp;- Lvl 15 to 25 Enchanted Golden Swords</b></strong></p>
+<p><strong><b>&nbsp;- Lvl 15 to 25 Enchanted Gold Helmet</b></strong></p>
+<p><strong><b>&nbsp;- Lvl 15 to 25 Enchanted Gold Leggings</b></strong></p>
+<p><strong><b>&nbsp;- Lvl 15 to 25 Enchanted Gold Chestplate</b></strong></p>
+<p><strong><b>&nbsp;- Lvl 15 to 25 Enchanted Gold Boots</b></strong></p>
+<p><strong style="font-size: 1.2rem;"><b>&nbsp;- Lvl 15 to 25 Enchanted Gold Helmet</b></strong></p>
+<p><strong><b>&nbsp;- Lvl 15 to 25 Enchanted Gold Blocks</b></strong></p>
+<p><strong><b>- Netherite Scraps</b></strong></p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>Temples</strong></p>
+<div class="spoiler">
+<p><strong>Nether Wasteland Temple loot</strong></p>
 <div class="spoiler">
 <p><strong>Dispensers loot</strong></p>
 <p><strong>5 to 14 Arrows of Harming II</strong></p>
@@ -195,24 +258,164 @@
 <p><strong><b>- Netherite Scraps</b></strong></p>
 <p><strong><b>- Blackstone</b></strong></p>
 <p>&nbsp;</p>
-<p><strong>Has one hidden Pigmen spawner</strong></p>
+<p><strong>Has one hidden Zombified Piglin spawner</strong></p>
 </div>
 <p>&nbsp;</p>
-<p><strong>Badlands Temple loot</strong></p>
+<p><strong>Nether Basalt loot</strong></p>
+<div class="spoiler">
+<p><strong>Dispensers loot</strong></p>
+<p><strong>5 to 14 Arrows of Weakness I</strong></p>
+<p>&nbsp;</p>
+<p><strong>Chests loot</strong></p>
+<p><strong><b>Can contain the following in order from most common to least common:</b></strong></p>
+<p><strong><b>&nbsp;- Coal</b></strong></p>
+<p><strong><b>&nbsp;- Redstone</b></strong></p>
+<p><strong><b>&nbsp;- Lvl 30 Enchanted Stone Swords</b></strong></p>
+<p><strong><b>&nbsp;- Quartz</b></strong></p>
+<p><strong>&nbsp;- Gold ingots</strong></p>
+<p><strong><b>&nbsp;- Basalt</b></strong></p>
+<p><strong><b>&nbsp;- Gold Nugget</b></strong></p>
+<p><strong><b>&nbsp;- Lvl 20 to 30 Enchanted Golden Swords</b></strong></p>
+<p><strong><b>&nbsp;- Quartz Blocks</b></strong></p>
+<p><strong><b>&nbsp;- Coal Blocks</b></strong></p>
+<p><strong><b>&nbsp;- Magma Blocks</b></strong></p>
+<p><strong><b>&nbsp;- Chains</b></strong></p>
+<p><strong><b>&nbsp;- Golden Horse Armor</b></strong></p>
+<p><strong><b>&nbsp;- Gold Blocks</b></strong></p>
+<p><strong><b>- Blackstone</b></strong></p>
+<p><strong><b>&nbsp;- Lvl 30 Enchanted Books</b></strong></p>
+<p><strong><b>- Gilded Blackstone</b></strong></p>
+<p><strong><b>- Netherite Scraps</b></strong></p>
+<p>&nbsp;</p>
+<p><strong>Has one hidden Magma Cube spawner</strong></p>
+</div>
+<p>&nbsp;</p>
+<p><strong>Nether Crimson Temple loot</strong></p>
+<div class="spoiler">
+<p><strong>Dispensers loot</strong></p>
+<p><strong>5 to 14 Arrows of Harming II</strong></p>
+<p>&nbsp;</p>
+<p><strong>Chests loot</strong></p>
+<p><strong><b>Can contain the following in order from most common to least common:</b></strong></p>
+<p><strong><b>&nbsp;- Redstone</b></strong></p>
+<p><strong><b>&nbsp;- Lvl 30 Enchanted Stone Swords</b></strong></p>
+<p><strong><b>&nbsp;- Quartz</b></strong></p>
+<p><strong>&nbsp;- Gold ingots</strong></p>
+<p><strong><b>&nbsp;- Rotten Flesh</b></strong></p>
+<p><strong><b>&nbsp;- Golden Nuggets</b></strong></p>
+<p><strong><b>&nbsp;- Lvl 20 to 30 Enchanted Golden Swords</b></strong></p>
+<p><strong><b>&nbsp;- Golden Horse Armor</b></strong></p>
+<p><strong><b>&nbsp;- Crimson Fungus</b></strong></p>
+<p><strong><b>&nbsp;- Shroomlight</b></strong></p>
+<p><strong><b>&nbsp;- Gold Blocks</b></strong></p>
+<p><strong><b>&nbsp;- Nether Wart Block</b></strong></p>
+<p><strong><b>&nbsp;- Lvl 30 Enchanted Books</b></strong></p>
+<p><strong><b>&nbsp;- Netherite Scraps</b></strong></p>
+<p>&nbsp;</p>
+<p><strong>Has one hidden Zoglin spawner</strong></p>
+</div>
+<p>&nbsp;</p>
+<p><strong>Nether Warped Temple loot</strong></p>
+<div class="spoiler">
+<p><strong>Dispensers loot</strong></p>
+<p><strong>5 to 14 Arrows of Harming II</strong></p>
+<p>&nbsp;</p>
+<p><strong>Chests loot</strong></p>
+<p><strong><b>Can contain the following in order from most common to least common:</b></strong></p>
+<p><strong><b>&nbsp;- Redstone</b></strong></p>
+<p><strong><b>&nbsp;- Lvl 30 Enchanted Stone Swords</b></strong></p>
+<p><strong><b>&nbsp;- Quartz</b></strong></p>
+<p><strong>&nbsp;- Gold ingots</strong></p>
+<p><strong><b>&nbsp;- Rotten Flesh</b></strong></p>
+<p><strong><b>&nbsp;- Golden Nuggets</b></strong></p>
+<p><strong><b>&nbsp;- Lvl 20 to 30 Enchanted Golden Swords</b></strong></p>
+<p><strong><b>&nbsp;- Golden Horse Armor</b></strong></p>
+<p><strong><b>&nbsp;- Warped Fungus</b></strong></p>
+<p><strong><b>&nbsp;- Chains</b></strong></p>
+<p><strong><b>&nbsp;- Soul Lantern</b></strong></p>
+<p><strong><b>&nbsp;- Quartz Blocks</b></strong></p>
+<p><strong><b>&nbsp;- Gold Blocks</b></strong></p>
+<p><strong><b>&nbsp;- Warped Wart Block</b></strong></p>
+<p><strong><b>&nbsp;- Lvl 30 Enchanted Books</b></strong></p>
+<p><strong><b>&nbsp;- Netherite Scraps</b></strong></p>
+<p>&nbsp;</p>
+<p><strong>Has one hidden Enderman spawner and 1 Strider spawner</strong></p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>Nether Soul Temple loot</strong></p>
+<div class="spoiler">
+<p><strong>Dispensers loot</strong></p>
+<p><strong>A mix of Arrows of Slowness and Fire Charges</strong></p>
+<p>&nbsp;</p>
+<p><strong>Chests loot</strong></p>
+<p><strong><b>Can contain the following in order from most common to least common:</b></strong></p>
+<p><strong><b>&nbsp;- Redstone</b></strong></p>
+<p><strong><b>&nbsp;- Lvl 30 Enchanted Stone Swords</b></strong></p>
+<p><strong><b>&nbsp;- Quartz</b></strong></p>
+<p><strong><b>&nbsp;- Bone Meal</b></strong></p>
+<p><strong><b>&nbsp;- Soul Torch</b></strong></p>
+<p><strong>&nbsp;- Gold ingots</strong></p>
+<p><strong><b>&nbsp;- Golden Nuggets</b></strong></p>
+<p><strong><b>&nbsp;- Lvl 20 to 30 Enchanted Golden Swords</b></strong></p>
+<p><strong><b>&nbsp;- Bone</b></strong></p>
+<p><strong><b>&nbsp;- Golden Horse Armor</b></strong></p>
+<p><strong><b>&nbsp;- Bone Block</b></strong></p>
+<p><strong><b>&nbsp;- Soul Sand</b></strong></p>
+<p><strong><b>&nbsp;- Gold Blocks</b></strong></p>
+<p><strong><b>&nbsp;- Lvl 30 Enchanted Books</b></strong></p>
+<p><strong><b>&nbsp;- Netherite Scraps</b></strong></p>
+<p>&nbsp;</p>
+<p><strong>Has two hidden Skeleton spawners</strong></p>
+</div>
+</div>
+<p>&nbsp;</p>
+<p><strong>Pyramids</strong></p>
+<div class="spoiler">
+<p>&nbsp;<strong>Badlands Pyramid loot</strong></p>
 <div class="spoiler">
 <p><strong>Chests loot</strong></p>
 <p><strong>Uses barely modified Desert Temple loot. (Has Dead Bush and Red Sand instead)</strong></p>
 <p>&nbsp;</p>
-<p><strong>Has two hidden Husk spawner&nbsp;</strong></p>
+<p><strong>Has two hidden Husk spawners&nbsp;</strong></p>
 </div>
 <p>&nbsp;</p>
-<p><strong>Stronghold Chest rates and Silverfish Spawner locations</strong></p>
+<p>&nbsp;<strong>Nether Pyramid loot</strong></p>
 <div class="spoiler">
-<p><span style="font-size: 1.2rem;"><strong>Chest loot is not changed.</strong></span></p>
-<p><span style="font-size: 1.2rem;"><strong>Corridor Chests has a 33% chance of spawning.</strong></span></p>
-<p><span style="font-size: 1.2rem;"><strong>Storage rooms has 4 chests instead of 1 due to them not having much loot naturally.</strong></span></p>
-<p><span style="font-size: 1.2rem;"><strong>Silverfish spawners are added to storage room, the room with the pillar that holds 4 Torches and fountain room.</strong></span></p>
+<p>&nbsp;</p>
+<p><strong>Chests loot</strong></p>
+<p><strong><b>Can contain the following in order from most common to least common:</b></strong></p>
+<p><strong><b>&nbsp;- Redstone</b></strong></p>
+<p><strong><b>&nbsp;- Lvl 30 Enchanted Stone Swords</b></strong></p>
+<p><strong><b>&nbsp;- Quartz</b></strong></p>
+<p><strong>&nbsp;- Gold ingots</strong></p>
+<p><strong><b>&nbsp;- Rotten Flesh</b></strong></p>
+<p><strong><b>&nbsp;- Lvl 20 to 30 Enchanted Golden Swords</b></strong></p>
+<p><strong><b>&nbsp;- Fire Charge</b></strong></p>
+<p><strong><b>&nbsp;- Gold Nugget</b></strong></p>
+<p><strong><b>&nbsp;- Lvl 30 Enchanted Books</b></strong></p>
+<p><strong><b>&nbsp;- Blackstone</b></strong></p>
+<p><strong><b>&nbsp;- Golden Horse Armor</b></strong></p>
+<p><strong><b>&nbsp;- Nether Wart</b></strong></p>
+<p><strong><b>&nbsp;- Gold Blocks</b></strong></p>
+<p><strong><b>&nbsp;- Quartz Blocks</b></strong></p>
+<p><strong><b>&nbsp;- Netherite Scraps</b></strong></p>
+<p>&nbsp;</p>
+<p><strong>Has two hidden Zombified Piglin spawners&nbsp;</strong></p>
 </div>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>Strongholds</strong></p>
+<div class="spoiler">
+<p>&nbsp;<strong>Stronghold Chest rates and Silverfish Spawner locations</strong></p>
+<div class="spoiler">
+<p><strong>Chest loot is not changed.</strong></p>
+<p><strong>Corridor Chests has a 33% chance of spawning.</strong></p>
+<p><strong>Storage rooms has 4 chests instead of 1 due to them not having much loot naturally.</strong></p>
+<p><strong>Silverfish spawners are added to storage room, the room with the pillar that holds 4 Torches and fountain room.</strong></p>
+</div>
+<p>&nbsp;</p>
 <p>&nbsp;</p>
 <p><strong>Nether Stronghold Chest rates and Blaze Spawner locations</strong></p>
 <div class="spoiler">
@@ -224,6 +427,7 @@
 <p><strong>Extra spawners are added to storage room, the room with the pillar that holds 4 Torches and fountain room. </strong></p>
 <p><strong>The mob rates are the following:</strong></p>
 <p><strong>50% : Blaze<br />30% : Zoglin<br />20% : Zombiefied Piglin</strong></p>
+</div>
 </div>
 <p>&nbsp;</p>
 <p><strong>Grassy Igloo and Stone Igloo loot</strong></p>
@@ -251,6 +455,9 @@
 <p><strong>rest is a mix of Mossy Cobblestone, Cobblestone, and Andesite with Andesite sometime replaced by vanilla's blobs of dirt, various stones, or ores.</strong></p>
 </div>
 <p><strong>&nbsp;</strong></p>
+<p>&nbsp;</p>
+<p><b><strong>Wells</strong></b></p>
+<div class="spoiler">
 <p>&nbsp;</p>
 <p><b><strong>Badlands Well</strong></b></p>
 <div class="spoiler">
@@ -281,13 +488,14 @@
 <p><strong><b>1% chance of having a Bell</b></strong></p>
 <p><strong><b>Each of the 5 blocks inside has a 8% chance of being a Chiseled Quartz block and a 50% chance of being a Quartz Ore</b></strong></p>
 </div>
+</div>
 <p><strong>&nbsp;</strong></p>
 <p>&nbsp;</p>
 <p><span style="font-size: 18px;"><strong>______________________________________________________________________________</strong></span></p>
 <p><span style="font-size: 18px;">&nbsp;</span></p>
 <h2><strong><span style="font-size: 24px; color: #009611;">HOW CAN I CONFIGURE THIS MOD?</span></strong></h2>
 <p><span style="font-size: 14px;">&nbsp;</span></p>
-<p><span style="font-size: 14px;">&nbsp;&nbsp;<strong> &nbsp;You can change the configs by using Mod Menu mod with this mod. Just go into my mod in the list and click the gear. Just be sure to restart you game when you're finished changing configs! If you want to find this mod's config file directly, go into the config folder that is above the mods folder and there will be 6 config files for this mod. Then exit/restart Minecraft for all changes to take effect. Do note that the config will affect this mod for all worlds so keep that in mind!</strong></span></p>
+<p><span style="font-size: 14px;">&nbsp;&nbsp;<strong> &nbsp;You can change the configs by using Mod Menu mod with this mod. Just go into my mod in the list and click the gear. Just be sure to restart you game when you're finished changing configs! If you want to find this mod's config file directly, go into the config folder that is above the mods folder and there will be 1 config file for this mod. Then exit/restart Minecraft for all changes to take effect. Do note that the config will affect this mod for all worlds so keep that in mind!</strong></span></p>
 <p>&nbsp;</p>
 <p><strong>&nbsp; &nbsp; Right now, there are lots of config options. The big ones that you may be interested in are the <span style="font-size: 14px;">add____ToModdedBiomes</span> config entries. Turning this on will make the config add the features or structures to any modded biomes with the correct category. For example, if you turn on <span style="font-size: 14px;">addMineshaftsToModdedBiomes</span> and you have a mod that adds a new kind of Desert biome in any dimension, then that biome will now spawn Desert themed Mineshafts in it!</strong></p>
 <p>&nbsp;</p>
