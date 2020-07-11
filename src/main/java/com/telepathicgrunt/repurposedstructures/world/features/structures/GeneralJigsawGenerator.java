@@ -42,7 +42,7 @@ import java.util.Random;
 
 public class GeneralJigsawGenerator {
     public static void addPieces(ChunkGenerator chunkGenerator, StructureManager structureManager, BlockPos pos, List<StructurePiece> pieces, ChunkRandom random, Identifier startPool, int size) {
-        StructurePoolBasedGenerator.addPieces(startPool, size, GeneralJigsawGenerator.Piece::new, chunkGenerator, structureManager, pos, pieces, random, false, false);
+        StructurePoolBasedGenerator.addPieces(startPool, size, GeneralJigsawGenerator.Piece::new, chunkGenerator, structureManager, pos, pieces, random, true, false);
     }
 
     public static class Piece extends PoolStructurePiece {

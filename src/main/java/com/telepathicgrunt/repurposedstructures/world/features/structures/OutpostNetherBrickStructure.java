@@ -20,10 +20,12 @@ import java.util.List;
 
 
 public class OutpostNetherBrickStructure extends StructureFeature<DefaultFeatureConfig> {
+    //Special thanks to cannon_foddr for the this Nether Outpost design!
+
     static {
         StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID,"outposts/nether_brick/base_plates"), new Identifier("empty"),
                 ImmutableList.of(Pair.of(
-                        new LegacySinglePoolElement(RepurposedStructures.MODID+":outposts/nether_brick/base_plate"), 1)),
+                        new SinglePoolElement(RepurposedStructures.MODID+":outposts/nether_brick/base_plate"), 1)),
                 StructurePool.Projection.RIGID));
 
         StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID,"outposts/nether_brick/towers"), new Identifier("empty"),
@@ -33,7 +35,7 @@ public class OutpostNetherBrickStructure extends StructureFeature<DefaultFeature
 
         StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID,"outposts/nether_brick/plates"), new Identifier("empty"),
                 ImmutableList.of(Pair.of(
-                        new LegacySinglePoolElement(RepurposedStructures.MODID+":outposts/nether_brick/plate"), 1)),
+                        new SinglePoolElement(RepurposedStructures.MODID+":outposts/nether_brick/plate"), 1)),
                 StructurePool.Projection.RIGID));
 
         StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID,"outposts/nether_brick/features"), new Identifier("empty"),
@@ -43,7 +45,8 @@ public class OutpostNetherBrickStructure extends StructureFeature<DefaultFeature
                         Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":outposts/nether_brick/fossil"), 1),
                         Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":outposts/nether_brick/tent1"), 1),
                         Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":outposts/nether_brick/tent2"), 1),
-                        Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":outposts/nether_brick/targets"), 1)),
+                        Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":outposts/nether_brick/targets"), 1)
+                ),
                 StructurePool.Projection.RIGID));
     }
 

@@ -14,6 +14,10 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 -Added a new folder called data.repurposed_structures.rs_spawners where you can specify what kind of mob spawner can be in RS's dungeons, mineshafts, strongholds, and jungle fortress! You can specify more than one mob and what the chances are of the spawner being that mob.
 
+##### Outpost:
+
+-Added Nether Bricks Outpost to the Nether biomes! They will spawn Piglins naturally over time.
+
 ##### Temples: 
 
 -Renamed Nether Temple to Nether Wasteland Temple.
@@ -34,7 +38,11 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 -Jungle Fortresses will now very rarely spawn Wither Skeletons inside over time like how Nether Fortresses do.
 
--Fixed Vines in Jungle Fortress so it is not strangely placed.
+-Fixed Vines in Jungle Fortress so it is not strangely placed and that they can sometimes replace the Fortress's blocks.
+
+-Parts of the Jungle Fortress will be broken to help give a more ancient and old feel while letting more light inside.
+
+-Jungle Fortresses's hallways will be flooded with water when below sea level.
 
 ##### Strongholds: 
 

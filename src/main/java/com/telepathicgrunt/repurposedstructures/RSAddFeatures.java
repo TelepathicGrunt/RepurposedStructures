@@ -103,22 +103,6 @@ public class RSAddFeatures {
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // JUNGLE FORTRESS //
-
-
-    public static void addJungleFortress(Biome biome, String biomeNamespace, String biomePath) {
-        if(RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.jungleFortressSpawnrate != 1001)
-        {
-            if ( biome.getCategory() == Category.JUNGLE &&
-                    (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.addJungleFortressToModdedBiomes)) {
-                biome.addStructureFeature(RSFeatures.JUNGLE_FORTRESS.configure(FeatureConfig.DEFAULT));
-            }
-            biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, RSFeatures.JUNGLE_STRUCTURES_VINES.configure(FeatureConfig.DEFAULT).createDecoratedFeature(RSPlacements.RS_VINE_PLACEMENT.configure(new RangeDecoratorConfig(36, 0, 2, 20))));
-            biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, RSFeatures.FORTRESS_BREAKAGE.configure(FeatureConfig.DEFAULT).createDecoratedFeature(Decorator.COUNT_EXTRA_HEIGHTMAP.configure(new CountExtraChanceDecoratorConfig(0, 0.85F, 1))));
-        }
-    }
-
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // DUNGEONS //
 
 
@@ -427,6 +411,22 @@ public class RSAddFeatures {
         }
     }
 
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // JUNGLE FORTRESS //
+
+
+    public static void addJungleFortress(Biome biome, String biomeNamespace, String biomePath) {
+        if(RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.jungleFortressSpawnrate != 1001)
+        {
+            if ( biome.getCategory() == Category.JUNGLE &&
+                    (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.addJungleFortressToModdedBiomes)) {
+                biome.addStructureFeature(RSFeatures.JUNGLE_FORTRESS.configure(FeatureConfig.DEFAULT));
+            }
+            biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, RSFeatures.JUNGLE_STRUCTURES_VINES.configure(FeatureConfig.DEFAULT).createDecoratedFeature(RSPlacements.RS_VINE_PLACEMENT.configure(new RangeDecoratorConfig(40, 0, 2, 20))));
+            biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, RSFeatures.FORTRESS_BREAKAGE.configure(FeatureConfig.DEFAULT).createDecoratedFeature(Decorator.COUNT_EXTRA_HEIGHTMAP.configure(new CountExtraChanceDecoratorConfig(1, 0.0F, 0))));
+        }
+    }
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////

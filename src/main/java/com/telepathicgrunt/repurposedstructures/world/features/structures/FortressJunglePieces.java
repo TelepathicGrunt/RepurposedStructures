@@ -2,11 +2,9 @@ package com.telepathicgrunt.repurposedstructures.world.features.structures;
 
 import com.google.common.collect.Lists;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.world.features.RSFeatures;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.MobSpawnerBlockEntity;
-import net.minecraft.entity.EntityType;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.loot.LootTables;
 import net.minecraft.nbt.CompoundTag;
@@ -24,7 +22,6 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 
 import java.util.*;
 
@@ -139,6 +136,7 @@ public class FortressJunglePieces {
                 }
             }
 
+            this.fillWithWater(world, boundingBox, 0, 0, 0, 4, 5, 4);
             return true;
         }
     }
@@ -204,6 +202,7 @@ public class FortressJunglePieces {
                 }
             }
 
+            this.fillWithWater(world, boundingBox, 0, 0, 0, 4, 6, 4);
             return true;
         }
     }
@@ -265,6 +264,7 @@ public class FortressJunglePieces {
                 }
             }
 
+            this.fillWithWater(world, boundingBox, 0, 0, 0, 4, 9, 9);
             return true;
         }
     }
@@ -334,6 +334,7 @@ public class FortressJunglePieces {
                 }
             }
 
+            this.fillWithWater(world, boundingBox, 0, 0, 0, 8, 5, 8);
             return true;
         }
     }
@@ -382,6 +383,7 @@ public class FortressJunglePieces {
                 }
             }
 
+            this.fillWithWater(world, boundingBox, 0, 0, 0, 4, 6, 4);
             return true;
         }
     }
@@ -442,6 +444,7 @@ public class FortressJunglePieces {
                 }
             }
 
+            this.fillWithWater(world, boundingBox, 0, 0, 0, 6, 6, 6);
             return true;
         }
     }
@@ -489,6 +492,7 @@ public class FortressJunglePieces {
                 }
             }
 
+            this.fillWithWater(world, boundingBox, 0, 0, 0, 4, 6, 4);
             return true;
         }
     }
@@ -576,6 +580,7 @@ public class FortressJunglePieces {
                 }
             }
 
+            this.fillWithWater(world, boundingBox, 0, 0, 0, 18, 5, 11);
             return true;
         }
     }
@@ -642,6 +647,7 @@ public class FortressJunglePieces {
                 }
             }
 
+            this.fillWithWater(world, boundingBox, 0, 0, 0, 7, 5, 7);
             return true;
         }
     }
@@ -748,6 +754,7 @@ public class FortressJunglePieces {
                 world.getFluidTickScheduler().schedule(blockpos, Fluids.LAVA, 0);
             }
 
+            this.fillWithWater(world, boundingBox, 0, 0, 0, 12, 13, 12);
             return true;
         }
     }
@@ -890,6 +897,7 @@ public class FortressJunglePieces {
                 }
             }
 
+            this.fillWithWater(world, boundingBox, 0, 0, 0, 12, 13, 12);
             return true;
         }
     }
@@ -1164,13 +1172,13 @@ public class FortressJunglePieces {
          */
         protected void fillWithRandomBlocks(ServerWorldAccess world, BlockBox boundingboxIn, int xMin, int yMin, int zMin, int xMax, int yMax, int zMax, BlockState boundaryBlockState, BlockState insideBlockState, boolean existingOnly, Random rand) {
             for (int y = yMin; y <= yMax; ++y) {
-                for (int j = xMin; j <= xMax; ++j) {
-                    for (int k = zMin; k <= zMax; ++k) {
-                        if (!existingOnly || this.getBlockAt(world, j, y, k, boundingboxIn).getMaterial() != Material.AIR) {
-                            if (y != yMin && y != yMax && j != xMin && j != xMax && k != zMin && k != zMax) {
-                                this.addBlock(world, insideBlockState, j, y, k, boundingboxIn);
+                for (int x = xMin; x <= xMax; ++x) {
+                    for (int z = zMin; z <= zMax; ++z) {
+                        if (!existingOnly || this.getBlockAt(world, x, y, z, boundingboxIn).getMaterial() != Material.AIR) {
+                            if (y != yMin && y != yMax && x != xMin && x != xMax && z != zMin && z != zMax) {
+                                this.addBlock(world, insideBlockState, x, y, z, boundingboxIn);
                             } else {
-                                this.addBlock(world, getStoneVariantBlockState(boundaryBlockState.getBlock().getDefaultState(), rand), j, y, k, boundingboxIn);
+                                this.addBlock(world, getStoneVariantBlockState(boundaryBlockState.getBlock().getDefaultState(), rand), x, y, z, boundingboxIn);
                             }
                         }
                     }
@@ -1179,6 +1187,29 @@ public class FortressJunglePieces {
 
         }
 
+        protected void fillWithWater(ServerWorldAccess world, BlockBox boundingboxIn, int xMin, int yMin, int zMin, int xMax, int yMax, int zMax) {
+            BlockPos.Mutable blockPos;
+
+            for (int y = yMin; y <= yMax; ++y) {
+                for (int x = xMin; x <= xMax; ++x) {
+                    for (int z = zMin; z <= zMax; ++z) {
+                        blockPos = new BlockPos.Mutable(this.applyXTransform(x, z), this.applyYTransform(y), this.applyZTransform(x, z));
+
+                        if (blockPos.getY() < world.getSeaLevel())
+                        {
+                            if(world.getBlockState(blockPos).getMaterial() == Material.AIR){
+                                this.addBlock(world, Blocks.WATER.getDefaultState(), x, y, z, boundingboxIn);
+                                world.getFluidTickScheduler().schedule(blockPos, Fluids.WATER, 0);
+                            }
+                            else if(world.getBlockState(blockPos).getProperties().contains(Properties.WATERLOGGED)){
+                                world.setBlockState(blockPos, world.getBlockState(blockPos).with(Properties.WATERLOGGED, true),3);
+                                world.getFluidTickScheduler().schedule(blockPos, Fluids.WATER, 0);
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
         /**
          * Replaces air and liquid from given position downwards. Stops when hitting anything else than air or liquid
@@ -1283,6 +1314,7 @@ public class FortressJunglePieces {
                 }
             }
 
+            this.fillWithWater(world, boundingBox, 0, 0, 0, 6, 10, 6);
             return true;
         }
     }
@@ -1372,6 +1404,7 @@ public class FortressJunglePieces {
             this.fillWithRandomBlocks(world, boundingBox, 4, 3, 14, 4, 4, 14, iblockstate3, iblockstate3, false, random);
             this.fillWithRandomBlocks(world, boundingBox, 4, 1, 17, 4, 4, 17, iblockstate3, iblockstate3, false, random);
 
+            this.fillWithWater(world, boundingBox, 0, 0, 0, 4, 7, 18);
             return true;
         }
     }
@@ -1468,6 +1501,7 @@ public class FortressJunglePieces {
                 this.addChest(world, boundingBox, random, 3, 5, 7, LootTables.END_CITY_TREASURE_CHEST);
             }
 
+            this.fillWithWater(world, boundingBox, 0, 0, 0, 6, 7, 8);
             return true;
         }
     }
