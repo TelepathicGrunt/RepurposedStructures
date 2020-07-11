@@ -55,7 +55,14 @@ public class WellNether extends WellAbstract {
                     blockState.getMaterial() == Material.STONE ||
                     blockState.getMaterial() == Material.SOIL ||
                     block == world.getBiome(mutable).getSurfaceConfig().getTopMaterial().getBlock()) &&
-                    (!world.isAir(mutable.down()) || !world.isAir(mutable.down(2)))) {
+                    !world.isAir(mutable.down()) &&
+                    world.isAir(mutable.up(3)) &&
+                    !world.isAir(mutable.north(2).down()) &&
+                    !world.isAir(mutable.west(2).down()) &&
+                    !world.isAir(mutable.east(2).down()) &&
+                    !world.isAir(mutable.south(2).down())
+                    )
+            {
                 // Creates the well centered on our spot
                 mutable.move(Direction.DOWN);
                 Structure template = this.generateTemplate(NETHER_WELL_RL, world, random, mutable);

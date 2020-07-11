@@ -28,7 +28,7 @@ public class LoadNbtBlock extends Block {
     //    Registry.register(Registry.ITEM, new Identifier(MODID, "load_nbt_block"), LOAD_NBT_ITEM);
 
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        String mainPath = "C:\\Users\\Admin\\Documents\\PersonalFun\\Minecraft stuff\\JavaCodeMods\\ModdingWorkspace\\RepurposedStructures-Fabric";
+        String mainPath = "C:\\Users\\MSI Laptop\\Documents\\PersonalFun\\Minecraft stuff\\JavaCodeMods\\ModdingWorkspace\\RepurposedStructures-Fabric";
         String resourcePath = mainPath+"\\src\\main\\resources\\data";
 
         // Finds and gets all identifiers for pieces
@@ -80,7 +80,7 @@ public class LoadNbtBlock extends Block {
 
                 structureBlockBlockEntity.setStructureName(new Identifier(identifiers.get(pieceIndex-1).toString().replace("village/", ""))); // set identifier
                 structureBlockBlockEntity.setMode(StructureBlockMode.SAVE);
-                structureBlockBlockEntity.saveStructure(true); //save structure
+                //structureBlockBlockEntity.saveStructure(true); //save structure
                 structureBlockBlockEntity.setShowAir(true);
             }
 
