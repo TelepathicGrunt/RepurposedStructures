@@ -58,8 +58,8 @@ public class PyramidNetherStructure extends StructureFeature<DefaultFeatureConfi
         public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
             BlockPos blockpos = new BlockPos(chunkX * 16, 35, chunkZ * 16);
             GeneralJigsawGenerator.addPieces(chunkGenerator, structureManager, blockpos, this.children, this.random, NETHER_PYRAMID_POOL, 1);
-            PyramidFloorPiece.func_207617_a(structureManager, blockpos, this.children.get(0).getRotation(), this.children, random, Blocks.BLACKSTONE, defaultFeatureConfig);
-            this.children.get(1).getBoundingBox().encompass(this.children.get(0).getBoundingBox());
+            //PyramidFloorPiece.func_207617_a(structureManager, blockpos, this.children.get(0).getRotation(), this.children, random, Blocks.BLACKSTONE, defaultFeatureConfig);
+            //this.children.get(1).getBoundingBox().encompass(this.children.get(0).getBoundingBox());
             this.setBoundingBoxFromChildren();
 
             BlockPos highestLandPos = getHighestLand(chunkGenerator);

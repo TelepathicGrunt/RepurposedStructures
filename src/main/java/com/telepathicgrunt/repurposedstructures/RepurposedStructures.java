@@ -8,6 +8,8 @@ import com.telepathicgrunt.repurposedstructures.world.placements.RSPlacements;
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import me.sargunvohra.mcmods.autoconfig1u.serializer.Toml4jConfigSerializer;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.event.registry.RegistryEntryAddedCallback;
+import net.fabricmc.fabric.api.event.server.ServerStartCallback;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -27,45 +29,36 @@ public class RepurposedStructures implements ModInitializer {
 
 	public static RSAllConfig RSAllConfig = null;
 
-        static Block LOAD_NBT_BLOCK = new LoadNbtBlock();
-        public static final Item LOAD_NBT_ITEM = new BlockItem(LOAD_NBT_BLOCK, new Item.Settings().group(ItemGroup.REDSTONE));
-
-
     @Override
     public void onInitialize() {
         AutoConfig.register(RSAllConfig.class, Toml4jConfigSerializer::new);
         RSAllConfig = AutoConfig.getConfigHolder(RSAllConfig.class).getConfig();
 
+        RSFeatures.registerVillagePools();
         RSPlacements.registerPlacements();
         RSFeatures.registerFeatures();
-        RepurposedStructures.addFeaturesAndStructuresToBiomes();
 
-        Registry.register(Registry.BLOCK, new Identifier(MODID, "load_nbt_block"), LOAD_NBT_BLOCK);
-        Registry.register(Registry.ITEM, new Identifier(MODID, "load_nbt_block"), LOAD_NBT_ITEM);
-
+        for (Biome biome : Registry.BIOME) {
+            addFeaturesAndStructuresToBiomes(biome, Registry.BIOME.getId(biome));
+        }
+        RegistryEntryAddedCallback.event(Registry.BIOME).register((i, identifier, biome) -> addFeaturesAndStructuresToBiomes(biome, identifier));
     }
 
     /*
      * Here, we will use this to add our structures/features to all biomes.
      */
-    private static void addFeaturesAndStructuresToBiomes() {
-        RSFeatures.registerVillagePools();
+    public static void addFeaturesAndStructuresToBiomes(Biome biome, Identifier biomeID) {
+        String biomeNamespace = biomeID.getNamespace();
+        String biomePath = biomeID.getPath();
 
-        for (Biome biome : Registry.BIOME) {
-            Identifier biomeID = Registry.BIOME.getId(biome);
-            String biomeNamespace = biomeID.getNamespace();
-            String biomePath = biomeID.getPath();
-
-            RSAddFeatures.addMineshafts(biome, biomeNamespace, biomePath);
-            RSAddFeatures.addJungleFortress(biome, biomeNamespace, biomePath);
-            RSAddFeatures.addDungeons(biome, biomeNamespace, biomePath);
-            RSAddFeatures.addWells(biome, biomeNamespace, biomePath);
-            RSAddFeatures.addMiscFeatures(biome, biomeNamespace, biomePath);
-            RSAddFeatures.addTemplesAndPyramids(biome, biomeNamespace, biomePath);
-            RSAddFeatures.addIgloos(biome, biomeNamespace, biomePath);
-            RSAddFeatures.addVillages(biome, biomeNamespace, biomePath);
-            RSAddFeatures.addStrongholds(biome, biomeNamespace, biomePath);
-
-        }
+        RSAddFeatures.addMineshafts(biome, biomeNamespace, biomePath);
+        RSAddFeatures.addJungleFortress(biome, biomeNamespace, biomePath);
+        RSAddFeatures.addDungeons(biome, biomeNamespace, biomePath);
+        RSAddFeatures.addWells(biome, biomeNamespace, biomePath);
+        RSAddFeatures.addMiscFeatures(biome, biomeNamespace, biomePath);
+        RSAddFeatures.addTemplesAndPyramids(biome, biomeNamespace, biomePath);
+        RSAddFeatures.addIgloos(biome, biomeNamespace, biomePath);
+        RSAddFeatures.addVillages(biome, biomeNamespace, biomePath);
+        RSAddFeatures.addStrongholds(biome, biomeNamespace, biomePath);
     }
 }

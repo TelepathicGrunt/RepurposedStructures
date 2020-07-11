@@ -36,8 +36,8 @@ public class TempleNetherWastelandStructure extends StructureFeature<DefaultFeat
                         AlwaysTrueRuleTest.INSTANCE, Blocks.CRACKED_NETHER_BRICKS.getDefaultState()))));
 
         StructurePoolBasedGenerator.REGISTRY.add(
-                new StructurePool(new Identifier(RepurposedStructures.MODID,"temples/temple_wasteland_nether"), new Identifier("empty"), ImmutableList.of(Pair.of(
-                        new SinglePoolElement(RepurposedStructures.MODID+":temples/temple_wasteland_nether", randomizationList), 1)),
+                new StructurePool(new Identifier(RepurposedStructures.MODID,"temples/temple_nether_wasteland"), new Identifier("empty"), ImmutableList.of(Pair.of(
+                        new SinglePoolElement(RepurposedStructures.MODID+":temples/temple_nether_wasteland", randomizationList), 1)),
                         StructurePool.Projection.RIGID));
     }
 
@@ -51,7 +51,7 @@ public class TempleNetherWastelandStructure extends StructureFeature<DefaultFeat
     }
 
     public static class Start extends AbstractNetherStructure.AbstractStart{
-        Identifier NETHER_TEMPLE_POOL = new Identifier(RepurposedStructures.MODID,"temples/temple_wasteland_nether");
+        Identifier NETHER_TEMPLE_POOL = new Identifier(RepurposedStructures.MODID,"temples/temple_nether_wasteland");
 
         public Start(StructureFeature<DefaultFeatureConfig> structureFeature, int x, int z, BlockBox blockBox, int referenceIn, long seed) {
             super(structureFeature, x, z, blockBox, referenceIn, seed);
