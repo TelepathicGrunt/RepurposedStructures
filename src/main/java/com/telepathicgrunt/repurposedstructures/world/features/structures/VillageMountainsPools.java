@@ -243,5 +243,11 @@ public class VillageMountainsPools
 		       new Pair<>(new FeaturePoolElement(Feature.BLOCK_PILE.configure(RSFeatures.COBBLESTONE_PILE_CONFIG)), 2),
 		       Pair.of(EmptyPoolElement.INSTANCE, 2)),
 	       StructurePool.Projection.RIGID));
+
+		StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier("village/mountains/zombie/villagers"), new Identifier("empty"),
+				ImmutableList.of(
+						new Pair(new LegacySinglePoolElement("village/taiga/zombie/villagers/nitwit"), 1),
+						new Pair(new LegacySinglePoolElement("village/taiga/zombie/villagers/unemployed"), 10)),
+				StructurePool.Projection.RIGID));
     }
 }

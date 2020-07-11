@@ -107,9 +107,14 @@ public class RSAddFeatures {
 
 
     public static void addJungleFortress(Biome biome, String biomeNamespace, String biomePath) {
-        if (RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.jungleFortressSpawnrate != 1001 && biome.getCategory() == Category.JUNGLE &&
-                (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.addJungleFortressToModdedBiomes)) {
-            biome.addStructureFeature(RSFeatures.JUNGLE_FORTRESS.configure(FeatureConfig.DEFAULT));
+        if(RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.jungleFortressSpawnrate != 1001)
+        {
+            if ( biome.getCategory() == Category.JUNGLE &&
+                    (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.addJungleFortressToModdedBiomes)) {
+                biome.addStructureFeature(RSFeatures.JUNGLE_FORTRESS.configure(FeatureConfig.DEFAULT));
+            }
+            biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, RSFeatures.JUNGLE_STRUCTURES_VINES.configure(FeatureConfig.DEFAULT).createDecoratedFeature(RSPlacements.RS_VINE_PLACEMENT.configure(new RangeDecoratorConfig(36, 0, 2, 20))));
+            biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, RSFeatures.FORTRESS_BREAKAGE.configure(FeatureConfig.DEFAULT).createDecoratedFeature(Decorator.COUNT_EXTRA_HEIGHTMAP.configure(new CountExtraChanceDecoratorConfig(0, 0.85F, 1))));
         }
     }
 
@@ -411,45 +416,59 @@ public class RSAddFeatures {
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // OUTPOSTS //
+
+    public static void addOutposts(Biome biome, String biomeNamespace, String biomePath) {
+
+        if (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.netherBrickOutpostSpawnrate != 1001 &&
+                biome.getCategory() == Category.NETHER &&
+                (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.addNetherBrickOutpostToModdedBiomes)) {
+            biome.addStructureFeature(RSFeatures.NETHER_BRICK_OUTPOST.configure(FeatureConfig.DEFAULT));
+        }
+    }
+
+
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // TEMPLES //
 
 
     public static void addTemplesAndPyramids(Biome biome, String biomeNamespace, String biomePath) {
 
-        if (RepurposedStructures.RSAllConfig.RSTempleConfig.temples.netherBasaltTempleSpawnrate != 1001 &&
+        if (RepurposedStructures.RSAllConfig.RSTemplesConfig.temples.netherBasaltTempleSpawnrate != 1001 &&
                 biome.getCategory() == Category.NETHER && (biomePath.contains("basalt") || biomePath.contains("blackstone")) &&
-                (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSTempleConfig.temples.addNetherBasaltTempleToModdedBiomes)) {
+                (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSTemplesConfig.temples.addNetherBasaltTempleToModdedBiomes)) {
             biome.addStructureFeature(RSFeatures.NETHER_BASALT_TEMPLE.configure(FeatureConfig.DEFAULT));
         }
-        else if (RepurposedStructures.RSAllConfig.RSTempleConfig.temples.netherCrimsonTempleSpawnrate != 1001 &&
+        else if (RepurposedStructures.RSAllConfig.RSTemplesConfig.temples.netherCrimsonTempleSpawnrate != 1001 &&
                 biome.getCategory() == Category.NETHER && biomePath.contains("crimson") &&
-                (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSTempleConfig.temples.addNetherCrimsonTempleToModdedBiomes)) {
+                (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSTemplesConfig.temples.addNetherCrimsonTempleToModdedBiomes)) {
             biome.addStructureFeature(RSFeatures.NETHER_CRIMSON_TEMPLE.configure(FeatureConfig.DEFAULT));
         }
-        else if (RepurposedStructures.RSAllConfig.RSTempleConfig.temples.netherWarpedTempleSpawnrate != 1001 &&
+        else if (RepurposedStructures.RSAllConfig.RSTemplesConfig.temples.netherWarpedTempleSpawnrate != 1001 &&
                 biome.getCategory() == Category.NETHER && biomePath.contains("warped") &&
-                (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSTempleConfig.temples.addNetherWarpedTempleToModdedBiomes)) {
+                (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSTemplesConfig.temples.addNetherWarpedTempleToModdedBiomes)) {
             biome.addStructureFeature(RSFeatures.NETHER_WARPED_TEMPLE.configure(FeatureConfig.DEFAULT));
         }
-        else if (RepurposedStructures.RSAllConfig.RSTempleConfig.temples.netherSoulTempleSpawnrate != 1001 &&
+        else if (RepurposedStructures.RSAllConfig.RSTemplesConfig.temples.netherSoulTempleSpawnrate != 1001 &&
                 biome.getCategory() == Category.NETHER && biomePath.contains("soul") &&
-                (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSTempleConfig.temples.addNetherSoulTempleToModdedBiomes)) {
+                (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSTemplesConfig.temples.addNetherSoulTempleToModdedBiomes)) {
             biome.addStructureFeature(RSFeatures.NETHER_SOUL_TEMPLE.configure(FeatureConfig.DEFAULT));
         }
-        else if (RepurposedStructures.RSAllConfig.RSTempleConfig.temples.netherWastelandTempleSpawnrate != 1001 &&
+        else if (RepurposedStructures.RSAllConfig.RSTemplesConfig.temples.netherWastelandTempleSpawnrate != 1001 &&
                 biome.getCategory() == Category.NETHER &&
-                (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSTempleConfig.temples.addNetherWastelandTempleToModdedBiomes)) {
-            biome.addStructureFeature(RSFeatures.NETHER_TEMPLE.configure(FeatureConfig.DEFAULT));
+                (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSTemplesConfig.temples.addNetherWastelandTempleToModdedBiomes)) {
+            biome.addStructureFeature(RSFeatures.NETHER_WASTELAND_TEMPLE.configure(FeatureConfig.DEFAULT));
         }
 
 
-        if (RepurposedStructures.RSAllConfig.RSTempleConfig.pyramids.netherPyramidSpawnrate != 1001 && biome.getCategory() == Category.NETHER &&
-                (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSTempleConfig.pyramids.addNetherPyramidToModdedBiomes)) {
+        if (RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.netherPyramidSpawnrate != 1001 && biome.getCategory() == Category.NETHER &&
+                (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.addNetherPyramidToModdedBiomes)) {
             biome.addStructureFeature(RSFeatures.NETHER_PYRAMID.configure(FeatureConfig.DEFAULT));
         }
 
-        if (RepurposedStructures.RSAllConfig.RSTempleConfig.pyramids.badlandsPyramidSpawnrate != 1001 && biome.getCategory() == Category.MESA &&
-                (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSTempleConfig.pyramids.addBadlandsPyramidToModdedBiomes)) {
+        if (RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.badlandsPyramidSpawnrate != 1001 && biome.getCategory() == Category.MESA &&
+                (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.addBadlandsPyramidToModdedBiomes)) {
             biome.addStructureFeature(RSFeatures.BADLANDS_TEMPLE.configure(FeatureConfig.DEFAULT));
         }
     }
@@ -507,7 +526,7 @@ public class RSAddFeatures {
                 RepurposedStructures.RSAllConfig.RSVillagesConfig.addVillagesToModdedBiomes)) {
             if (RepurposedStructures.RSAllConfig.RSVillagesConfig.jungleVillageSpawnrate != 1001) {
                 biome.addStructureFeature(RSFeatures.JUNGLE_VILLAGE.configure(FeatureConfig.DEFAULT));
-                biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, RSFeatures.JUNGLE_VILLAGE_VINES.configure(FeatureConfig.DEFAULT).createDecoratedFeature(RSPlacements.RS_VINE_PLACEMENT.configure(new CountDecoratorConfig(30))));
+                biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, RSFeatures.JUNGLE_STRUCTURES_VINES.configure(FeatureConfig.DEFAULT).createDecoratedFeature(RSPlacements.RS_VINE_PLACEMENT.configure(new RangeDecoratorConfig(30, 0, 8, 16))));
             }
         }
 
@@ -515,7 +534,7 @@ public class RSAddFeatures {
                 RepurposedStructures.RSAllConfig.RSVillagesConfig.addVillagesToModdedBiomes)) {
             if (RepurposedStructures.RSAllConfig.RSVillagesConfig.swampVillageSpawnrate != 1001) {
                 biome.addStructureFeature(RSFeatures.SWAMP_VILLAGE.configure(FeatureConfig.DEFAULT));
-                biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, RSFeatures.SWAMP_VILLAGE_VINES.configure(FeatureConfig.DEFAULT).createDecoratedFeature(RSPlacements.RS_VINE_PLACEMENT.configure(new CountDecoratorConfig(30))));
+                biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, RSFeatures.SWAMP_VILLAGE_VINES.configure(FeatureConfig.DEFAULT).createDecoratedFeature(RSPlacements.RS_VINE_PLACEMENT.configure(new RangeDecoratorConfig(30, 0,8, 16))));
             }
         }
 

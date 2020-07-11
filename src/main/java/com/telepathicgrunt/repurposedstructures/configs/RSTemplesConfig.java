@@ -7,7 +7,7 @@ import me.sargunvohra.mcmods.autoconfig1u.shadowed.blue.endless.jankson.Comment;
 
 
 @Config(name = "Temples")
-public class RSTempleConfig implements ConfigData {
+public class RSTemplesConfig implements ConfigData {
 
     @ConfigEntry.Gui.CollapsibleObject
     public Temples temples = new Temples();
@@ -90,10 +90,6 @@ public class RSTempleConfig implements ConfigData {
                 + "\n1 for spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
         public int badlandsPyramidSpawnrate = 20;
-
-        @ConfigEntry.Gui.Tooltip
-        @Comment("Controls whether loot chests spawn or not in Badlands Pyramids.")
-        public boolean lootChestsBP = true;
 
         @ConfigEntry.Gui.Tooltip
         @Comment("Add Badlands Pyramid to modded Badlands biomes.")

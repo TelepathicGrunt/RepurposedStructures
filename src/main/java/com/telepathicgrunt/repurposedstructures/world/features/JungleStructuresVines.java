@@ -12,19 +12,23 @@ import net.minecraft.world.gen.feature.Feature;
 import java.util.Random;
 
 
-public class JungleVillageVines extends Feature<DefaultFeatureConfig> {
+public class JungleStructuresVines extends Feature<DefaultFeatureConfig> {
 
-    public JungleVillageVines(Codec<DefaultFeatureConfig> configFactory) {
+    public JungleStructuresVines(Codec<DefaultFeatureConfig> configFactory) {
         super(configFactory);
     }
 
 
     @Override
     public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
-        if (structureAccessor.getStructuresWithChildren(ChunkSectionPos.from(position), RSFeatures.JUNGLE_VILLAGE).findAny().isPresent()) {
+        if (world.isAir(position) &&
+                (structureAccessor.getStructuresWithChildren(ChunkSectionPos.from(position), RSFeatures.JUNGLE_VILLAGE).findAny().isPresent() ||
+                structureAccessor.getStructuresWithChildren(ChunkSectionPos.from(position), RSFeatures.JUNGLE_FORTRESS).findAny().isPresent()))
+        {
             RSFeatures.SHORT_VINES.generate(world, structureAccessor, chunkGenerator, random, position, DefaultFeatureConfig.DEFAULT);
             return true;
         }
+
         return false;
     }
 }

@@ -30,6 +30,16 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 -Badlands Pyramids are now made with NBT files under structures/temples/.
 
+##### Fortresses:
+
+-Jungle Fortresses will now very rarely spawn Wither Skeletons inside over time like how Nether Fortresses do.
+
+-Fixed Vines in Jungle Fortress so it is not strangely placed.
+
+##### Strongholds: 
+
+-Nether Strongholds now will spawn Blaze, Wither Skeletons, Zombified Piglin, Magma Cube, and Skeletons naturally over time like Nether Fortresses do.
+
 ##### Villages: 
 
 -Fixed Giant Tiaga, Mountains, and Swamp Village's zombie houses not spawning.

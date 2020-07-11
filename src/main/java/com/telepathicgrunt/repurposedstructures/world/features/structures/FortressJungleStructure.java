@@ -1,7 +1,9 @@
 package com.telepathicgrunt.repurposedstructures.world.features.structures;
 
+import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.world.features.RSFeatures;
+import net.minecraft.entity.EntityType;
 import net.minecraft.structure.StructureManager;
 import net.minecraft.structure.StructurePiece;
 import net.minecraft.structure.StructureStart;
@@ -14,6 +16,7 @@ import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
+import java.util.Collections;
 import java.util.List;
 
 
@@ -42,6 +45,13 @@ public class FortressJungleStructure extends StructureFeature<DefaultFeatureConf
     public StructureFeature.StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
         return FortressJungleStructure.Start::new;
     }
+
+    private static final List<Biome.SpawnEntry> MONSTER_SPAWNS = Lists.newArrayList(new Biome.SpawnEntry(EntityType.WITHER_SKELETON, 27, 1, 1));
+    @Override
+    public List<Biome.SpawnEntry> getMonsterSpawns() {
+        return MONSTER_SPAWNS;
+    }
+
 
     public static class Start extends StructureStart<DefaultFeatureConfig> {
         public Start(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {

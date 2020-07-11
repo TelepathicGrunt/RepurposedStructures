@@ -3,7 +3,6 @@ package com.telepathicgrunt.repurposedstructures.configs;
 import me.sargunvohra.mcmods.autoconfig1u.ConfigData;
 import me.sargunvohra.mcmods.autoconfig1u.annotation.Config;
 import me.sargunvohra.mcmods.autoconfig1u.annotation.ConfigEntry;
-import me.sargunvohra.mcmods.autoconfig1u.shadowed.blue.endless.jankson.Comment;
 
 
 @Config(name = "repurposed_structures-main")
@@ -17,9 +16,9 @@ public class RSAllConfig implements ConfigData {
     @ConfigEntry.Gui.TransitiveObject
     public RSMainConfig RSMainConfig = new RSMainConfig();
 
-    @ConfigEntry.Category("Temple")
+    @ConfigEntry.Category("Temples")
     @ConfigEntry.Gui.TransitiveObject
-    public RSTempleConfig RSTempleConfig = new RSTempleConfig();
+    public RSTemplesConfig RSTemplesConfig = new RSTemplesConfig();
 
     @ConfigEntry.Category("Mineshafts")
     @ConfigEntry.Gui.TransitiveObject
@@ -28,6 +27,10 @@ public class RSAllConfig implements ConfigData {
     @ConfigEntry.Category("Strongholds")
     @ConfigEntry.Gui.TransitiveObject
     public RSStrongholdsConfig RSStrongholdsConfig = new RSStrongholdsConfig();
+
+    @ConfigEntry.Category("Outposts")
+    @ConfigEntry.Gui.TransitiveObject
+    public RSOutpostsConfig RSOutpostsConfig = new RSOutpostsConfig();
 
     @ConfigEntry.Category("Villages")
     @ConfigEntry.Gui.TransitiveObject

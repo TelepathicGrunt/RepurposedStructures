@@ -58,6 +58,7 @@ public class RepurposedStructures implements ModInitializer {
         RSAddFeatures.addMiscFeatures(biome, biomeNamespace, biomePath);
         RSAddFeatures.addTemplesAndPyramids(biome, biomeNamespace, biomePath);
         RSAddFeatures.addIgloos(biome, biomeNamespace, biomePath);
+        RSAddFeatures.addOutposts(biome, biomeNamespace, biomePath);
         RSAddFeatures.addVillages(biome, biomeNamespace, biomePath);
         RSAddFeatures.addStrongholds(biome, biomeNamespace, biomePath);
     }

@@ -1,7 +1,9 @@
 package com.telepathicgrunt.repurposedstructures.world.features.structures;
 
+import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import net.minecraft.entity.EntityType;
 import net.minecraft.structure.StructureManager;
 import net.minecraft.structure.StructurePiece;
 import net.minecraft.structure.StructureStart;
@@ -16,10 +18,18 @@ import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StrongholdFeature;
 import net.minecraft.world.gen.feature.StructureFeature;
 
+import java.util.Collections;
 import java.util.List;
 
 
 public class RSNetherStrongholdStructure extends StrongholdFeature {
+    private static final List<Biome.SpawnEntry> MONSTER_SPAWNS =
+            Lists.newArrayList(new Biome.SpawnEntry(EntityType.BLAZE, 10, 2, 3),
+                    new Biome.SpawnEntry(EntityType.ZOMBIFIED_PIGLIN, 3, 4, 4),
+                    new Biome.SpawnEntry(EntityType.WITHER_SKELETON, 10, 5, 5),
+                    new Biome.SpawnEntry(EntityType.SKELETON, 2, 5, 5),
+                    new Biome.SpawnEntry(EntityType.MAGMA_CUBE, 3, 4, 4));
+
     public RSNetherStrongholdStructure(Codec<DefaultFeatureConfig> config) {
         super(config);
     }
@@ -34,6 +44,10 @@ public class RSNetherStrongholdStructure extends StrongholdFeature {
         return RSNetherStrongholdStructure.Start::new;
     }
 
+    @Override
+    public List<Biome.SpawnEntry> getMonsterSpawns() {
+        return MONSTER_SPAWNS;
+    }
 
     public static class Start extends StructureStart<DefaultFeatureConfig> {
         public Start(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
@@ -44,7 +58,6 @@ public class RSNetherStrongholdStructure extends StrongholdFeature {
         @Override
         public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
             RSStrongholdPieces.prepareStructurePieces();
-            //RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.allowNetherStronghold
             RSStrongholdPieces.EntranceStairs strongholdpieces$entrancestairs = new RSStrongholdPieces.EntranceStairs(this.random, (chunkX << 4) + 2, (chunkZ << 4) + 2, RSStrongholdPieces.Type.NETHER);
             this.children.add(strongholdpieces$entrancestairs);
             strongholdpieces$entrancestairs.placeJigsaw(strongholdpieces$entrancestairs, this.children, this.random);

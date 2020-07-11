@@ -9,6 +9,7 @@
     "NoVillageLakesMixin",
     "ServerResourceManagerMixin",
     "StrongholdGeneratorAccessor",
+    "StructureMobSpawningMixin",
     "StructurePieceAccessor"
   ],
   "client": [

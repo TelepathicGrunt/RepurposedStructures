@@ -139,7 +139,6 @@ public class FortressJunglePieces {
                 }
             }
 
-            attemptToAddVines(world, structureAccessor, generator, random, boundingBox);
             return true;
         }
     }
@@ -205,7 +204,6 @@ public class FortressJunglePieces {
                 }
             }
 
-            attemptToAddVines(world, structureAccessor, generator, random, boundingBox);
             return true;
         }
     }
@@ -267,7 +265,6 @@ public class FortressJunglePieces {
                 }
             }
 
-            attemptToAddVines(world, structureAccessor, generator, random, boundingBox);
             return true;
         }
     }
@@ -337,7 +334,6 @@ public class FortressJunglePieces {
                 }
             }
 
-            attemptToAddVines(world, structureAccessor, generator, random, boundingBox);
             return true;
         }
     }
@@ -386,7 +382,6 @@ public class FortressJunglePieces {
                 }
             }
 
-            attemptToAddVines(world, structureAccessor, generator, random, boundingBox);
             return true;
         }
     }
@@ -447,7 +442,6 @@ public class FortressJunglePieces {
                 }
             }
 
-            attemptToAddVines(world, structureAccessor, generator, random, boundingBox);
             return true;
         }
     }
@@ -495,7 +489,6 @@ public class FortressJunglePieces {
                 }
             }
 
-            attemptToAddVines(world, structureAccessor, generator, random, boundingBox);
             return true;
         }
     }
@@ -583,7 +576,6 @@ public class FortressJunglePieces {
                 }
             }
 
-            attemptToAddVines(world, structureAccessor, generator, random, boundingBox);
             return true;
         }
     }
@@ -756,7 +748,6 @@ public class FortressJunglePieces {
                 world.getFluidTickScheduler().schedule(blockpos, Fluids.LAVA, 0);
             }
 
-            attemptToAddVines(world, structureAccessor, generator, random, boundingBox);
             return true;
         }
     }
@@ -899,7 +890,6 @@ public class FortressJunglePieces {
                 }
             }
 
-            attemptToAddVines(world, structureAccessor, generator, random, boundingBox);
             return true;
         }
     }
@@ -1293,7 +1283,6 @@ public class FortressJunglePieces {
                 }
             }
 
-            attemptToAddVines(world, structureAccessor, generator, random, boundingBox);
             return true;
         }
     }
@@ -1383,7 +1372,6 @@ public class FortressJunglePieces {
             this.fillWithRandomBlocks(world, boundingBox, 4, 3, 14, 4, 4, 14, iblockstate3, iblockstate3, false, random);
             this.fillWithRandomBlocks(world, boundingBox, 4, 1, 17, 4, 4, 17, iblockstate3, iblockstate3, false, random);
 
-            attemptToAddVines(world, structureAccessor, generator, random, boundingBox);
             return true;
         }
     }
@@ -1480,7 +1468,6 @@ public class FortressJunglePieces {
                 this.addChest(world, boundingBox, random, 3, 5, 7, LootTables.END_CITY_TREASURE_CHEST);
             }
 
-            attemptToAddVines(world, structureAccessor, generator, random, boundingBox);
             return true;
         }
     }
@@ -1499,19 +1486,5 @@ public class FortressJunglePieces {
 
 
         return lootTable;
-    }
-
-
-    private static void attemptToAddVines(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox boundingBox) {
-        BlockPos.Mutable mutablePos = new BlockPos.Mutable();
-        for (int x = boundingBox.minX; x <= boundingBox.maxX; x++) {
-            for (int z = boundingBox.minZ; z <= boundingBox.maxZ; z++) {
-                for (int y = 62; y <= 90; y++) {
-                    if (random.nextInt(150) == 0) {
-                        RSFeatures.SHORT_VINES.generate(world, structureAccessor, chunkGenerator, random, mutablePos.set(x, y, z), DefaultFeatureConfig.DEFAULT);
-                    }
-                }
-            }
-        }
     }
 }

@@ -26,7 +26,7 @@ public class SwampVillageVines extends Feature<DefaultFeatureConfig> {
 
     @Override
     public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
-        if (structureAccessor.getStructuresWithChildren(ChunkSectionPos.from(position), RSFeatures.SWAMP_VILLAGE).findAny().isPresent()) {
+        if (world.isAir(position) && structureAccessor.getStructuresWithChildren(ChunkSectionPos.from(position), RSFeatures.SWAMP_VILLAGE).findAny().isPresent()) {
             RSFeatures.SHORT_VINES.generate(world, structureAccessor, chunkGenerator, random, position, DefaultFeatureConfig.DEFAULT);
             return true;
         }
