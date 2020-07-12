@@ -48,7 +48,9 @@ public class FortressBreakage extends Feature<DefaultFeatureConfig> {
         if (FORTRESS_BLOCKS.test(world.getBlockState(position.down())) &&
             structureAccessor.getStructuresWithChildren(ChunkSectionPos.from(position), RSFeatures.JUNGLE_FORTRESS).findAny().isPresent())
         {
-            position = position.down();
+            if(random.nextBoolean())
+                position = position.down();
+
             float f = random.nextFloat() * 3.1415927F;
             float g = 3;
             int i = 2;

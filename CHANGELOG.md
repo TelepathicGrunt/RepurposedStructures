@@ -8,6 +8,14 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.1.1.1 Changes) (1.16.1 Minecraft)
+
+##### Fortresses:
+
+-Fixed vines looking weird when it tries attaching to block above in Jungle Fortress.
+
+-Slightly increased breakage of Jungle Fortress.
+
 ## (V.1.1.0 Changes) (1.16.1 Minecraft)
 
 ##### Mod Compat: 
