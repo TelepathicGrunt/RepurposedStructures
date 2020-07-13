@@ -10,7 +10,11 @@
     "ServerResourceManagerMixin",
     "StrongholdGeneratorAccessor",
     "StructureMobSpawningMixin",
-    "StructurePieceAccessor"
+    "StructurePieceAccessor",
+    "DebugMixin",
+    "Debug2Mixin",
+    "Debug3Mixin",
+    "DebugInvoker"
   ],
   "client": [
   ],

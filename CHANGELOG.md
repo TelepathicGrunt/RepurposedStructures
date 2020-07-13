@@ -10,6 +10,10 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ## (V.1.1.1 Changes) (1.16.1 Minecraft)
 
+##### Major:
+
+-Attempted to fix a Mojang bug that breaks worlds and is caused by missing structures. hopefully this works...
+
 ##### Fortresses:
 
 -Fixed vines looking weird when it tries attaching to block above in Jungle Fortress.
