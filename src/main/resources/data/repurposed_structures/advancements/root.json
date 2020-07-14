@@ -1,0 +1,35 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:mossy_stone_bricks"
+    },
+    "title": {
+      "translate": "advancements.repurposed_structures.root.title"
+    },
+    "description": {
+      "translate": "advancements.repurposed_structures.root.description"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true,
+    "background": "minecraft:textures/block/green_terracotta.png"
+  },
+  "criteria": {
+    "always": {
+      "trigger": "minecraft:tick",
+      "conditions": {
+        "condition": "minecraft:time_check",
+        "value": {
+          "min": 0,
+          "max": 2147483646
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "always"
+    ]
+  ]
+}

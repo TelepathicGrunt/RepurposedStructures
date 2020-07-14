@@ -1,4 +1,5 @@
 {
+  "parent": "repurposed_structures:root",
   "display": {
     "icon": {
       "item": "minecraft:grass_block"

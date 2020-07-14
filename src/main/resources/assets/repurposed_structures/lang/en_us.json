@@ -442,5 +442,7 @@
   "advancements.repurposed_structures.igloo_grassy.title": "It was a Hobbit-Hole",
   "advancements.repurposed_structures.igloo_grassy.description": "Enter a Grassy Igloo",
   "advancements.repurposed_structures.igloo_stone.title": "A Cozy Rock",
-  "advancements.repurposed_structures.igloo_stone.description": "Enter a Stone Igloo"
+  "advancements.repurposed_structures.igloo_stone.description": "Enter a Stone Igloo",
+  "advancements.repurposed_structures.root.title": "Repurposed Structures by TelepathicGrunt",
+  "advancements.repurposed_structures.root.description": "Start exploring for structures!"
 }
