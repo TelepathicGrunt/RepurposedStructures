@@ -27,6 +27,9 @@ import java.util.*;
 
 
 public class FortressJunglePieces {
+    private static final Identifier JF_HALLWAY_CHEST_RL = new Identifier(RepurposedStructures.MODID + ":chests/fortress_jungle_hallway_chest");
+    private static final Identifier JF_SHRINE_CHEST_RL = new Identifier(RepurposedStructures.MODID + ":chests/fortress_jungle_shrine_chest");
+    private static final Identifier JF_CENTER_CHEST_RL = new Identifier(RepurposedStructures.MODID + ":chests/fortress_jungle_center_chest");
     private static final Identifier JF_PLANT_TAG_RL = new Identifier("repurposed_structures:jungle_fortress_staircase_plants");
     private static final Identifier JF_SOIL_TAG_RL = new Identifier("repurposed_structures:jungle_fortress_staircase_soils");
     private static final Identifier SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":fortress_jungle");
@@ -114,8 +117,8 @@ public class FortressJunglePieces {
         public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
             this.fillWithRandomBlocks(world, boundingBox, 0, 0, 0, 4, 1, 4, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 0, 2, 0, 4, 5, 4, Blocks.CAVE_AIR.getDefaultState(), Blocks.CAVE_AIR.getDefaultState(), false, random);
-            BlockState iblockstate = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.WEST, Boolean.valueOf(true)).with(HorizontalConnectingBlock.EAST, Boolean.valueOf(true)), random);
-            BlockState iblockstate1 = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, Boolean.valueOf(true)).with(HorizontalConnectingBlock.SOUTH, Boolean.valueOf(true)), random);
+            BlockState iblockstate = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.WEST, true).with(HorizontalConnectingBlock.EAST, true), random);
+            BlockState iblockstate1 = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, true).with(HorizontalConnectingBlock.SOUTH, true), random);
             this.fillWithRandomBlocks(world, boundingBox, 4, 2, 0, 4, 5, 4, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 4, 3, 1, 4, 4, 1, iblockstate1, iblockstate1, false, random);
             this.fillWithRandomBlocks(world, boundingBox, 4, 3, 3, 4, 4, 3, iblockstate1, iblockstate1, false, random);
@@ -125,7 +128,7 @@ public class FortressJunglePieces {
             this.fillWithRandomBlocks(world, boundingBox, 3, 3, 4, 3, 4, 4, iblockstate, iblockstate, false, random);
 
             if (RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.lootChestsJF && random.nextInt(9) == 0 && boundingBox.contains(new BlockPos(this.applyXTransform(3, 3), this.applyYTransform(2), this.applyZTransform(3, 3)))) {
-                this.addChest(world, boundingBox, random, 3, 2, 3, pickRandomLoot(random));
+                this.addChest(world, boundingBox, random, 3, 2, 3, JF_HALLWAY_CHEST_RL);
             }
 
             this.fillWithRandomBlocks(world, boundingBox, 0, 6, 0, 4, 6, 4, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
@@ -180,8 +183,8 @@ public class FortressJunglePieces {
         public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
             this.fillWithRandomBlocks(world, boundingBox, 0, 0, 0, 4, 1, 4, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 0, 2, 0, 4, 5, 4, Blocks.CAVE_AIR.getDefaultState(), Blocks.CAVE_AIR.getDefaultState(), false, random);
-            BlockState iblockstate = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState(), random).with(HorizontalConnectingBlock.WEST, Boolean.valueOf(true)).with(HorizontalConnectingBlock.EAST, Boolean.valueOf(true));
-            BlockState iblockstate1 = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState(), random).with(HorizontalConnectingBlock.NORTH, Boolean.valueOf(true)).with(HorizontalConnectingBlock.SOUTH, Boolean.valueOf(true));
+            BlockState iblockstate = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState(), random).with(HorizontalConnectingBlock.WEST, true).with(HorizontalConnectingBlock.EAST, true);
+            BlockState iblockstate1 = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState(), random).with(HorizontalConnectingBlock.NORTH, true).with(HorizontalConnectingBlock.SOUTH, true);
             this.fillWithRandomBlocks(world, boundingBox, 0, 2, 0, 0, 5, 4, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 0, 3, 1, 0, 4, 1, iblockstate1, iblockstate1, false, random);
             this.fillWithRandomBlocks(world, boundingBox, 0, 3, 3, 0, 4, 3, iblockstate1, iblockstate1, false, random);
@@ -191,7 +194,7 @@ public class FortressJunglePieces {
             this.fillWithRandomBlocks(world, boundingBox, 3, 3, 4, 3, 4, 4, iblockstate, iblockstate, false, random);
 
             if (RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.lootChestsJF && random.nextInt(9) == 0 && boundingBox.contains(new BlockPos(this.applyXTransform(1, 3), this.applyYTransform(2), this.applyZTransform(1, 3)))) {
-                this.addChest(world, boundingBox, random, 1, 2, 3, pickRandomLoot(random));
+                this.addChest(world, boundingBox, random, 1, 2, 3, JF_HALLWAY_CHEST_RL);
             }
 
             this.fillWithRandomBlocks(world, boundingBox, 0, 6, 0, 4, 6, 4, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
@@ -235,12 +238,11 @@ public class FortressJunglePieces {
         @Override
         public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
             BlockState iblockstate = getStoneVariantBlockState(Blocks.NETHER_BRICK_STAIRS.getDefaultState().with(StairsBlock.FACING, Direction.SOUTH), random);
-            BlockState iblockstate1 = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, Boolean.valueOf(true)).with(HorizontalConnectingBlock.SOUTH, Boolean.valueOf(true)), random);
+            BlockState iblockstate1 = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, true).with(HorizontalConnectingBlock.SOUTH, true), random);
 
             for (int i = 0; i <= 9; ++i) {
                 int j = Math.max(1, 7 - i);
                 int k = Math.min(Math.max(j + 5, 14 - i), 13);
-                int l = i;
                 this.fillWithRandomBlocks(world, boundingBox, 0, 0, i, 4, j, i, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
                 this.fillWithRandomBlocks(world, boundingBox, 1, j + 1, i, 3, k - 1, i, Blocks.CAVE_AIR.getDefaultState(), Blocks.CAVE_AIR.getDefaultState(), false, random);
 
@@ -260,7 +262,7 @@ public class FortressJunglePieces {
                 }
 
                 for (int i1 = 0; i1 <= 4; ++i1) {
-                    this.replaceAirAndLiquidDownwardsRandomBlocks(world, Blocks.NETHER_BRICKS.getDefaultState(), i1, -1, l, boundingBox, random);
+                    this.replaceAirAndLiquidDownwardsRandomBlocks(world, Blocks.NETHER_BRICKS.getDefaultState(), i1, -1, i, boundingBox, random);
                 }
             }
 
@@ -304,8 +306,8 @@ public class FortressJunglePieces {
 
         @Override
         public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
-            BlockState iblockstate = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, Boolean.valueOf(true)).with(HorizontalConnectingBlock.SOUTH, Boolean.valueOf(true)), random);
-            BlockState iblockstate1 = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.WEST, Boolean.valueOf(true)).with(HorizontalConnectingBlock.EAST, Boolean.valueOf(true)), random);
+            BlockState iblockstate = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, true).with(HorizontalConnectingBlock.SOUTH, true), random);
+            BlockState iblockstate1 = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.WEST, true).with(HorizontalConnectingBlock.EAST, true), random);
             this.fillWithRandomBlocks(world, boundingBox, 0, 0, 0, 8, 1, 8, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 0, 2, 0, 8, 5, 8, Blocks.CAVE_AIR.getDefaultState(), Blocks.CAVE_AIR.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 0, 6, 0, 8, 6, 5, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
@@ -317,8 +319,8 @@ public class FortressJunglePieces {
             this.fillWithRandomBlocks(world, boundingBox, 1, 1, 4, 2, 2, 4, Blocks.CAVE_AIR.getDefaultState(), Blocks.CAVE_AIR.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 6, 1, 4, 7, 2, 4, Blocks.CAVE_AIR.getDefaultState(), Blocks.CAVE_AIR.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 1, 3, 8, 7, 3, 8, iblockstate1, iblockstate1, false, random);
-            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.EAST, Boolean.valueOf(true)).with(HorizontalConnectingBlock.SOUTH, Boolean.valueOf(true)), random), 0, 3, 8, boundingBox);
-            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.WEST, Boolean.valueOf(true)).with(HorizontalConnectingBlock.SOUTH, Boolean.valueOf(true)), random), 8, 3, 8, boundingBox);
+            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.EAST, true).with(HorizontalConnectingBlock.SOUTH, true), random), 0, 3, 8, boundingBox);
+            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.WEST, true).with(HorizontalConnectingBlock.SOUTH, true), random), 8, 3, 8, boundingBox);
             this.fillWithRandomBlocks(world, boundingBox, 0, 3, 6, 0, 3, 7, iblockstate, iblockstate, false, random);
             this.fillWithRandomBlocks(world, boundingBox, 8, 3, 6, 8, 3, 7, iblockstate, iblockstate, false, random);
             this.fillWithRandomBlocks(world, boundingBox, 0, 3, 4, 0, 5, 5, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
@@ -368,7 +370,7 @@ public class FortressJunglePieces {
         public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
             this.fillWithRandomBlocks(world, boundingBox, 0, 0, 0, 4, 1, 4, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 0, 2, 0, 4, 5, 4, Blocks.CAVE_AIR.getDefaultState(), Blocks.CAVE_AIR.getDefaultState(), false, random);
-            BlockState iblockstate = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, Boolean.valueOf(true)).with(HorizontalConnectingBlock.SOUTH, Boolean.valueOf(true)), random);
+            BlockState iblockstate = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, true).with(HorizontalConnectingBlock.SOUTH, true), random);
             this.fillWithRandomBlocks(world, boundingBox, 0, 2, 0, 0, 5, 4, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 4, 2, 0, 4, 5, 4, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 0, 3, 1, 0, 4, 1, iblockstate, iblockstate, false, random);
@@ -427,8 +429,8 @@ public class FortressJunglePieces {
             this.fillWithRandomBlocks(world, boundingBox, 0, 2, 5, 0, 6, 6, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 6, 2, 0, 6, 6, 1, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 6, 2, 5, 6, 6, 6, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
-            BlockState iblockstate = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.WEST, Boolean.valueOf(true)).with(HorizontalConnectingBlock.EAST, Boolean.valueOf(true)), random);
-            BlockState iblockstate1 = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, Boolean.valueOf(true)).with(HorizontalConnectingBlock.SOUTH, Boolean.valueOf(true)), random);
+            BlockState iblockstate = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.WEST, true).with(HorizontalConnectingBlock.EAST, true), random);
+            BlockState iblockstate1 = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, true).with(HorizontalConnectingBlock.SOUTH, true), random);
             this.fillWithRandomBlocks(world, boundingBox, 2, 6, 0, 4, 6, 0, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 2, 5, 0, 4, 5, 0, iblockstate, iblockstate, false, random);
             this.fillWithRandomBlocks(world, boundingBox, 2, 6, 6, 4, 6, 6, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
@@ -586,7 +588,7 @@ public class FortressJunglePieces {
     }
 
     public static class End extends FortressJunglePieces.Piece {
-        private int fillSeed;
+        private final int fillSeed;
 
 
         public End(int p_i45621_1_, Random p_i45621_2_, BlockBox p_i45621_3_, Direction p_i45621_4_) {
@@ -691,8 +693,8 @@ public class FortressJunglePieces {
             this.fillWithRandomBlocks(world, boundingBox, 5, 9, 0, 7, 12, 1, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 2, 11, 2, 10, 12, 10, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 5, 8, 0, 7, 8, 0, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState(), random), getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState(), random), false, random);
-            BlockState iblockstate = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.WEST, Boolean.valueOf(true)).with(HorizontalConnectingBlock.EAST, Boolean.valueOf(true)), random);
-            BlockState iblockstate1 = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, Boolean.valueOf(true)).with(HorizontalConnectingBlock.SOUTH, Boolean.valueOf(true)), random);
+            BlockState iblockstate = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.WEST, true).with(HorizontalConnectingBlock.EAST, true), random);
+            BlockState iblockstate1 = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, true).with(HorizontalConnectingBlock.SOUTH, true), random);
 
             for (int i = 1; i <= 11; i += 2) {
                 this.fillWithRandomBlocks(world, boundingBox, i, 10, 0, i, 11, 0, iblockstate, iblockstate, false, random);
@@ -709,14 +711,14 @@ public class FortressJunglePieces {
                 this.addBlock(world, iblockstate1, 12, 13, i + 1, boundingBox);
             }
 
-            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, Boolean.valueOf(true)).with(HorizontalConnectingBlock.EAST, Boolean.valueOf(true)), random), 0, 13, 0, boundingBox);
-            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.SOUTH, Boolean.valueOf(true)).with(HorizontalConnectingBlock.EAST, Boolean.valueOf(true)), random), 0, 13, 12, boundingBox);
-            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.SOUTH, Boolean.valueOf(true)).with(HorizontalConnectingBlock.WEST, Boolean.valueOf(true)), random), 12, 13, 12, boundingBox);
-            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, Boolean.valueOf(true)).with(HorizontalConnectingBlock.WEST, Boolean.valueOf(true)), random), 12, 13, 0, boundingBox);
+            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, true).with(HorizontalConnectingBlock.EAST, true), random), 0, 13, 0, boundingBox);
+            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.SOUTH, true).with(HorizontalConnectingBlock.EAST, true), random), 0, 13, 12, boundingBox);
+            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.SOUTH, true).with(HorizontalConnectingBlock.WEST, true), random), 12, 13, 12, boundingBox);
+            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, true).with(HorizontalConnectingBlock.WEST, true), random), 12, 13, 0, boundingBox);
 
             for (int k = 3; k <= 9; k += 2) {
-                this.fillWithRandomBlocks(world, boundingBox, 1, 7, k, 1, 8, k, iblockstate.with(HorizontalConnectingBlock.WEST, Boolean.valueOf(true)), iblockstate.with(HorizontalConnectingBlock.WEST, Boolean.valueOf(true)), false, random);
-                this.fillWithRandomBlocks(world, boundingBox, 11, 7, k, 11, 8, k, iblockstate.with(HorizontalConnectingBlock.EAST, Boolean.valueOf(true)), iblockstate.with(HorizontalConnectingBlock.EAST, Boolean.valueOf(true)), false, random);
+                this.fillWithRandomBlocks(world, boundingBox, 1, 7, k, 1, 8, k, iblockstate.with(HorizontalConnectingBlock.WEST, true), iblockstate.with(HorizontalConnectingBlock.WEST, true), false, random);
+                this.fillWithRandomBlocks(world, boundingBox, 11, 7, k, 11, 8, k, iblockstate.with(HorizontalConnectingBlock.EAST, true), iblockstate.with(HorizontalConnectingBlock.EAST, true), false, random);
             }
 
             this.fillWithRandomBlocks(world, boundingBox, 4, 2, 0, 8, 2, 12, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
@@ -747,7 +749,7 @@ public class FortressJunglePieces {
             BlockPos blockpos = new BlockPos(this.applyXTransform(6, 6), this.applyYTransform(5), this.applyZTransform(6, 6));
 
             if (RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.lootChestsJF) {
-                this.addChest(world, boundingBox, random, 6, 5, 8, pickRandomLoot(random));
+                this.addChest(world, boundingBox, random, 6, 5, 8, JF_CENTER_CHEST_RL);
             }
 
             if (boundingBox.contains(blockpos)) {
@@ -798,10 +800,10 @@ public class FortressJunglePieces {
             this.fillWithRandomBlocks(world, boundingBox, 8, 5, 0, 10, 12, 1, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 5, 9, 0, 7, 12, 1, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 2, 11, 2, 10, 12, 10, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
-            BlockState iblockstate = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.WEST, Boolean.valueOf(true)).with(HorizontalConnectingBlock.EAST, Boolean.valueOf(true)), random);
-            BlockState iblockstate1 = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, Boolean.valueOf(true)).with(HorizontalConnectingBlock.SOUTH, Boolean.valueOf(true)), random);
-            BlockState iblockstate2 = iblockstate1.with(HorizontalConnectingBlock.WEST, Boolean.valueOf(true));
-            BlockState iblockstate3 = iblockstate1.with(HorizontalConnectingBlock.EAST, Boolean.valueOf(true));
+            BlockState iblockstate = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.WEST, true).with(HorizontalConnectingBlock.EAST, true), random);
+            BlockState iblockstate1 = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, true).with(HorizontalConnectingBlock.SOUTH, true), random);
+            BlockState iblockstate2 = iblockstate1.with(HorizontalConnectingBlock.WEST, true);
+            BlockState iblockstate3 = iblockstate1.with(HorizontalConnectingBlock.EAST, true);
 
             for (int i = 1; i <= 11; i += 2) {
                 this.fillWithRandomBlocks(world, boundingBox, i, 10, 0, i, 11, 0, iblockstate, iblockstate, false, random);
@@ -818,10 +820,10 @@ public class FortressJunglePieces {
                 this.addBlock(world, iblockstate1, 12, 13, i + 1, boundingBox);
             }
 
-            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, Boolean.valueOf(true)).with(HorizontalConnectingBlock.EAST, Boolean.valueOf(true)), random), 0, 13, 0, boundingBox);
-            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.SOUTH, Boolean.valueOf(true)).with(HorizontalConnectingBlock.EAST, Boolean.valueOf(true)), random), 0, 13, 12, boundingBox);
-            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.SOUTH, Boolean.valueOf(true)).with(HorizontalConnectingBlock.WEST, Boolean.valueOf(true)), random), 12, 13, 12, boundingBox);
-            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, Boolean.valueOf(true)).with(HorizontalConnectingBlock.WEST, Boolean.valueOf(true)), random), 12, 13, 0, boundingBox);
+            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, true).with(HorizontalConnectingBlock.EAST, true), random), 0, 13, 0, boundingBox);
+            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.SOUTH, true).with(HorizontalConnectingBlock.EAST, true), random), 0, 13, 12, boundingBox);
+            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.SOUTH, true).with(HorizontalConnectingBlock.WEST, true), random), 12, 13, 12, boundingBox);
+            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, true).with(HorizontalConnectingBlock.WEST, true), random), 12, 13, 0, boundingBox);
 
             for (int j1 = 3; j1 <= 9; j1 += 2) {
                 this.fillWithRandomBlocks(world, boundingBox, 1, 7, j1, 1, 8, j1, iblockstate2, iblockstate2, false, random);
@@ -874,8 +876,12 @@ public class FortressJunglePieces {
 
             this.fillWithRandomBlocks(world, boundingBox, 3, 4, 4, 4, 4, 8, Blocks.SOUL_SAND.getDefaultState(), Blocks.SOUL_SAND.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 8, 4, 4, 9, 4, 8, Blocks.SOUL_SAND.getDefaultState(), Blocks.SOUL_SAND.getDefaultState(), false, random);
-            this.fillWithRandomBlocks(world, boundingBox, 3, 5, 4, 4, 5, 8, Blocks.NETHER_WART.getDefaultState(), Blocks.NETHER_WART.getDefaultState(), false, random);
-            this.fillWithRandomBlocks(world, boundingBox, 8, 5, 4, 9, 5, 8, Blocks.NETHER_WART.getDefaultState(), Blocks.NETHER_WART.getDefaultState(), false, random);
+
+            if(this.applyYTransform(5) >= world.getWorld().getSeaLevel()){
+                this.fillWithRandomBlocks(world, boundingBox, 3, 5, 4, 4, 5, 8, Blocks.NETHER_WART.getDefaultState(), Blocks.NETHER_WART.getDefaultState(), false, random);
+                this.fillWithRandomBlocks(world, boundingBox, 8, 5, 4, 9, 5, 8, Blocks.NETHER_WART.getDefaultState(), Blocks.NETHER_WART.getDefaultState(), false, random);
+            }
+
             this.fillWithRandomBlocks(world, boundingBox, 4, 2, 0, 8, 2, 12, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 0, 2, 4, 12, 2, 8, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 4, 0, 0, 8, 1, 3, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
@@ -1109,7 +1115,7 @@ public class FortressJunglePieces {
 
                 return newBlockState;
             } else if (block == Blocks.NETHER_BRICK_FENCE) {
-                return Blocks.IRON_BARS.getDefaultState().with(HorizontalConnectingBlock.NORTH, Boolean.valueOf(blockstateIn.get(HorizontalConnectingBlock.NORTH))).with(HorizontalConnectingBlock.EAST, Boolean.valueOf(blockstateIn.get(HorizontalConnectingBlock.EAST))).with(HorizontalConnectingBlock.SOUTH, Boolean.valueOf(blockstateIn.get(HorizontalConnectingBlock.SOUTH))).with(HorizontalConnectingBlock.WEST, Boolean.valueOf(blockstateIn.get(HorizontalConnectingBlock.WEST)));
+                return Blocks.IRON_BARS.getDefaultState().with(HorizontalConnectingBlock.NORTH, blockstateIn.get(HorizontalConnectingBlock.NORTH)).with(HorizontalConnectingBlock.EAST, Boolean.valueOf(blockstateIn.get(HorizontalConnectingBlock.EAST))).with(HorizontalConnectingBlock.SOUTH, Boolean.valueOf(blockstateIn.get(HorizontalConnectingBlock.SOUTH))).with(HorizontalConnectingBlock.WEST, Boolean.valueOf(blockstateIn.get(HorizontalConnectingBlock.WEST)));
             } else if (block == Blocks.NETHER_BRICK_STAIRS) {
 
                 float chance = rand.nextFloat();
@@ -1293,8 +1299,8 @@ public class FortressJunglePieces {
             this.fillWithRandomBlocks(world, boundingBox, 0, 2, 1, 0, 8, 6, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 6, 2, 1, 6, 8, 6, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 1, 2, 6, 5, 8, 6, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
-            BlockState iblockstate = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.WEST, Boolean.valueOf(true)).with(HorizontalConnectingBlock.EAST, Boolean.valueOf(true)), random);
-            BlockState iblockstate1 = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, Boolean.valueOf(true)).with(HorizontalConnectingBlock.SOUTH, Boolean.valueOf(true)), random);
+            BlockState iblockstate = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.WEST, true).with(HorizontalConnectingBlock.EAST, true), random);
+            BlockState iblockstate1 = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, true).with(HorizontalConnectingBlock.SOUTH, true), random);
             this.fillWithRandomBlocks(world, boundingBox, 0, 3, 2, 0, 5, 4, iblockstate1, iblockstate1, false, random);
             this.fillWithRandomBlocks(world, boundingBox, 6, 3, 2, 6, 5, 2, iblockstate1, iblockstate1, false, random);
             this.fillWithRandomBlocks(world, boundingBox, 6, 3, 4, 6, 5, 4, iblockstate1, iblockstate1, false, random);
@@ -1323,19 +1329,19 @@ public class FortressJunglePieces {
         public FortressJunglePieces.PieceWeight theNetherBridgePieceWeight;
         public List<FortressJunglePieces.PieceWeight> primaryWeights;
         public List<FortressJunglePieces.PieceWeight> secondaryWeights;
-        public List<StructurePiece> pendingChildren = Lists.<StructurePiece>newArrayList();
+        public List<StructurePiece> pendingChildren = Lists.newArrayList();
 
 
         public Start(Random p_i2059_1_, int p_i2059_2_, int p_i2059_3_) {
             super(p_i2059_1_, p_i2059_2_, p_i2059_3_);
-            this.primaryWeights = Lists.<FortressJunglePieces.PieceWeight>newArrayList();
+            this.primaryWeights = Lists.newArrayList();
 
             for (FortressJunglePieces.PieceWeight structurenetherbridgepieces$pieceweight : FortressJunglePieces.PRIMARY_COMPONENTS) {
                 structurenetherbridgepieces$pieceweight.placeCount = 0;
                 this.primaryWeights.add(structurenetherbridgepieces$pieceweight);
             }
 
-            this.secondaryWeights = Lists.<FortressJunglePieces.PieceWeight>newArrayList();
+            this.secondaryWeights = Lists.newArrayList();
 
             for (FortressJunglePieces.PieceWeight structurenetherbridgepieces$pieceweight1 : FortressJunglePieces.SECONDARY_COMPONENTS) {
                 structurenetherbridgepieces$pieceweight1.placeCount = 0;
@@ -1391,9 +1397,9 @@ public class FortressJunglePieces {
                     this.replaceAirAndLiquidDownwardsRandomBlocks(world, Blocks.NETHER_BRICKS.getDefaultState(), i, -1, 18 - j, boundingBox, random);
                 }
             }
-            BlockState iblockstate1 = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, Boolean.valueOf(true)).with(HorizontalConnectingBlock.SOUTH, Boolean.valueOf(true)), random);
-            BlockState iblockstate2 = iblockstate1.with(HorizontalConnectingBlock.EAST, Boolean.valueOf(true));
-            BlockState iblockstate3 = iblockstate1.with(HorizontalConnectingBlock.WEST, Boolean.valueOf(true));
+            BlockState iblockstate1 = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, true).with(HorizontalConnectingBlock.SOUTH, true), random);
+            BlockState iblockstate2 = iblockstate1.with(HorizontalConnectingBlock.EAST, true);
+            BlockState iblockstate3 = iblockstate1.with(HorizontalConnectingBlock.WEST, true);
 
             this.fillWithRandomBlocks(world, boundingBox, 0, 1, 1, 0, 4, 1, iblockstate2, iblockstate2, false, random);
             this.fillWithRandomBlocks(world, boundingBox, 0, 3, 4, 0, 4, 4, iblockstate2, iblockstate2, false, random);
@@ -1456,23 +1462,23 @@ public class FortressJunglePieces {
             this.fillWithRandomBlocks(world, boundingBox, 0, 5, 3, 0, 5, 8, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 6, 5, 3, 6, 5, 8, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 1, 5, 8, 5, 5, 8, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
-            BlockState iblockstate = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.WEST, Boolean.valueOf(true)).with(HorizontalConnectingBlock.EAST, Boolean.valueOf(true)), random);
-            BlockState iblockstate1 = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, Boolean.valueOf(true)).with(HorizontalConnectingBlock.SOUTH, Boolean.valueOf(true)), random);
-            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.WEST, Boolean.valueOf(true)), random), 1, 6, 3, boundingBox);
-            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.EAST, Boolean.valueOf(true)), random), 5, 6, 3, boundingBox);
-            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.EAST, Boolean.valueOf(true)).with(HorizontalConnectingBlock.NORTH, Boolean.valueOf(true)), random), 0, 6, 3, boundingBox);
-            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.WEST, Boolean.valueOf(true)).with(HorizontalConnectingBlock.NORTH, Boolean.valueOf(true)), random), 6, 6, 3, boundingBox);
+            BlockState iblockstate = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.WEST, true).with(HorizontalConnectingBlock.EAST, true), random);
+            BlockState iblockstate1 = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, true).with(HorizontalConnectingBlock.SOUTH, true), random);
+            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.WEST, true), random), 1, 6, 3, boundingBox);
+            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.EAST, true), random), 5, 6, 3, boundingBox);
+            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.EAST, true).with(HorizontalConnectingBlock.NORTH, true), random), 0, 6, 3, boundingBox);
+            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.WEST, true).with(HorizontalConnectingBlock.NORTH, true), random), 6, 6, 3, boundingBox);
             this.fillWithRandomBlocks(world, boundingBox, 0, 6, 4, 0, 6, 7, iblockstate1, iblockstate1, false, random);
             this.fillWithRandomBlocks(world, boundingBox, 6, 6, 4, 6, 6, 7, iblockstate1, iblockstate1, false, random);
-            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.EAST, Boolean.valueOf(true)).with(HorizontalConnectingBlock.SOUTH, Boolean.valueOf(true)), random), 0, 6, 8, boundingBox);
-            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.WEST, Boolean.valueOf(true)).with(HorizontalConnectingBlock.SOUTH, Boolean.valueOf(true)), random), 6, 6, 8, boundingBox);
+            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.EAST, true).with(HorizontalConnectingBlock.SOUTH, true), random), 0, 6, 8, boundingBox);
+            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.WEST, true).with(HorizontalConnectingBlock.SOUTH, true), random), 6, 6, 8, boundingBox);
             this.fillWithRandomBlocks(world, boundingBox, 1, 6, 8, 5, 6, 8, iblockstate, iblockstate, false, random);
-            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.EAST, Boolean.valueOf(true)), random), 1, 7, 8, boundingBox);
+            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.EAST, true), random), 1, 7, 8, boundingBox);
             this.fillWithRandomBlocks(world, boundingBox, 2, 7, 8, 4, 7, 8, iblockstate, iblockstate, false, random);
-            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.WEST, Boolean.valueOf(true)), random), 5, 7, 8, boundingBox);
-            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.EAST, Boolean.valueOf(true)), random), 2, 8, 8, boundingBox);
+            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.WEST, true), random), 5, 7, 8, boundingBox);
+            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.EAST, true), random), 2, 8, 8, boundingBox);
             this.addBlock(world, iblockstate, 3, 8, 8, boundingBox);
-            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.WEST, Boolean.valueOf(true)), random), 4, 8, 8, boundingBox);
+            this.addBlock(world, getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.WEST, true), random), 4, 8, 8, boundingBox);
 
             if (!this.hasSpawner) {
                 BlockPos blockpos = new BlockPos(this.applyXTransform(3, 5), this.applyYTransform(5), this.applyZTransform(3, 5));
@@ -1498,27 +1504,11 @@ public class FortressJunglePieces {
             }
 
             if (RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.lootChestsJF) {
-                this.addChest(world, boundingBox, random, 3, 5, 7, LootTables.END_CITY_TREASURE_CHEST);
+                this.addChest(world, boundingBox, random, 3, 5, 7, FortressJunglePieces.JF_SHRINE_CHEST_RL);
             }
 
             this.fillWithWater(world, boundingBox, 0, 0, 0, 6, 7, 8);
             return true;
         }
-    }
-
-    private static Identifier pickRandomLoot(Random random) {
-        Identifier lootTable = null;
-
-        float chance = random.nextFloat();
-        if (chance < 0.38f) {
-            lootTable = LootTables.VILLAGE_WEAPONSMITH_CHEST;
-        } else if (chance < 0.76f) {
-            lootTable = LootTables.VILLAGE_ARMORER_CHEST;
-        } else {
-            lootTable = LootTables.JUNGLE_TEMPLE_CHEST;
-        }
-
-
-        return lootTable;
     }
 }

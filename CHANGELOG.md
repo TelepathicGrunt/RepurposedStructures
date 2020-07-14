@@ -22,9 +22,17 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 -Added config to allow End Mineshafts to spawn in End Islands and End Barrens biomes.
 
+##### Fortress:
+
+-Nerfed Jungle Fortress loot significantly and changed them to use their own loottables (fortress_jungle_xxxxx_chest.json) so you cna change them with datapacks now
+
+-Jungle Fortress's plant room will not place plants if it is below sea level now. (No more floating mushrooms items when the plant room is flooded)
+
 ##### Misc:
 
 -Fixed Vines have horizontal vine part floating when stacked on each other.
+
+-Fixed vines to not be strangely attached to nothing anymore.
 
 ## (V.1.1.2 Changes) (1.16.1 Minecraft)
 
