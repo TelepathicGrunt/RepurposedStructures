@@ -435,5 +435,11 @@
   "text.autoconfig.repurposed_structures-main.option.RSWellsConfig.spawnrate.netherWellSpawnrate": "Nether Well",
   "text.autoconfig.repurposed_structures-main.option.RSWellsConfig.spawnrate.snowWellSpawnrate": "Snow Well",
   "text.autoconfig.repurposed_structures-main.option.RSWellsConfig.spawnrate.mossyStoneWellSpawnrate": "Mossy Stone Well",
-  "text.autoconfig.repurposed_structures-main.option.RSWellsConfig.spawnrate.forestWellSpawnrate": "Forest Well"
+  "text.autoconfig.repurposed_structures-main.option.RSWellsConfig.spawnrate.forestWellSpawnrate": "Forest Well",
+  "advancements.repurposed_structures.fortress_jungle.title": "Decaying Glory",
+  "advancements.repurposed_structures.fortress_jungle.description": "Enter a Jungle Fortress",
+  "advancements.repurposed_structures.igloo_grassy.title": "It was a Hobbit-Hole",
+  "advancements.repurposed_structures.igloo_grassy.description": "Enter a Grassy Igloo",
+  "advancements.repurposed_structures.igloo_stone.title": "A Cozy Rock",
+  "advancements.repurposed_structures.igloo_stone.description": "Enter a Stone Igloo"
 }

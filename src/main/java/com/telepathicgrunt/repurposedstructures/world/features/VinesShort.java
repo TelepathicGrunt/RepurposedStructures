@@ -32,24 +32,27 @@ public class VinesShort extends Feature<DefaultFeatureConfig> {
         // Also won't generate vines below Y = 15.
         int length = 0;
         BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().set(position);
+        BlockState currentBlockstate;
+        BlockState aboveBlockstate;
 
         for (; blockpos$Mutable.getY() > 15 && length < random.nextInt(3) + 4; blockpos$Mutable.move(Direction.DOWN)) {
             if (world.isAir(blockpos$Mutable)) {
                 for (Direction direction : Direction.Type.HORIZONTAL) {
-                    BlockState iblockstate = Blocks.VINE.getDefaultState().with(VineBlock.getFacingProperty(direction), Boolean.valueOf(true));
+                    currentBlockstate = Blocks.VINE.getDefaultState().with(VineBlock.getFacingProperty(direction), Boolean.valueOf(true));
+                    aboveBlockstate = world.getBlockState(blockpos$Mutable.up());
 
-                    if (iblockstate.canPlaceAt(world, blockpos$Mutable)) {
+                    if (currentBlockstate.canPlaceAt(world, blockpos$Mutable)) {
                         world.setBlockState(
                                 blockpos$Mutable,
-                                iblockstate.with(
+                                currentBlockstate.with(
                                         VineBlock.UP,
-                                        world.getBlockState(blockpos$Mutable.up())
-                                                .isSideSolidFullSquare(world, blockpos$Mutable, Direction.DOWN)),
+                                        aboveBlockstate.isOpaque()),
                                 2);
                         length++;
                         break;
-                    } else if (world.getBlockState(blockpos$Mutable.up()).getBlock() == Blocks.VINE) {
-                        world.setBlockState(blockpos$Mutable, world.getBlockState(blockpos$Mutable.up()), 2);
+                    }
+                    else if (aboveBlockstate.getBlock() == Blocks.VINE) {
+                        world.setBlockState(blockpos$Mutable, aboveBlockstate, 2);
                         length++;
                         break;
                     }

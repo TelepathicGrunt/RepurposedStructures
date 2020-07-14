@@ -8,6 +8,22 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.1.1.3 Changes) (1.16.1 Minecraft)
+
+##### Major:
+
+-Removed code from v1.1.1 and v1.1.2 as the patch didn't fix the broken vanilla issue with missing structures.
+
+##### Advancements:
+
+-Added advancements for entering Jungle Fortress, Stone Igloo, and Grassy Igloo.
+
+## (V.1.1.2 Changes) (1.16.1 Minecraft)
+
+##### Major:
+
+-Forgot to uncomment out the structures from testing...
+
 ## (V.1.1.1 Changes) (1.16.1 Minecraft)
 
 ##### Major:
