@@ -35,17 +35,17 @@ public class RSIglooPieces {
     private static final Map<Identifier, BlockPos> OFFSET_1 = ImmutableMap.of(IGLOO_MIDDLE_RL, new BlockPos(1, 3, 1), IGLOO_BOTTOM_RL, new BlockPos(3, 6, 7));
     private static final Map<Identifier, BlockPos> OFFSET_2 = ImmutableMap.of(IGLOO_MIDDLE_RL, new BlockPos(2, -3, 4), IGLOO_BOTTOM_RL, new BlockPos(0, -3, -2));
 
-    public static void func_207617_a(StructureManager templateManager, Identifier topPieceRL, Block floorBlock, BlockPos position, BlockRotation rotationIn, List<StructurePiece> p_207617_3_, Random random, DefaultFeatureConfig p_207617_5_) {
+    public static void func_207617_a(StructureManager templateManager, Identifier topPieceRL, Block floorBlock, BlockPos position, BlockRotation rotationIn, List<StructurePiece> pieceList, Random random, DefaultFeatureConfig p_207617_5_) {
         if (random.nextDouble() < 0.5D) {
             int basementY = random.nextInt(8) + 4;
-            p_207617_3_.add(new RSIglooPieces.Piece(templateManager, IGLOO_BOTTOM_RL, position, rotationIn, basementY * 3, null));
+            pieceList.add(new RSIglooPieces.Piece(templateManager, IGLOO_BOTTOM_RL, position, rotationIn, basementY * 3, null));
 
             for (int middleY = 0; middleY < basementY - 1; ++middleY) {
-                p_207617_3_.add(new RSIglooPieces.Piece(templateManager, IGLOO_MIDDLE_RL, position, rotationIn, middleY * 3, null));
+                pieceList.add(new RSIglooPieces.Piece(templateManager, IGLOO_MIDDLE_RL, position, rotationIn, middleY * 3, null));
             }
         }
 
-        p_207617_3_.add(new RSIglooPieces.Piece(templateManager, topPieceRL, position, rotationIn, 0, floorBlock));
+        pieceList.add(new RSIglooPieces.Piece(templateManager, topPieceRL, position, rotationIn, 0, floorBlock));
     }
 
     public static class Piece extends SimpleStructurePiece {

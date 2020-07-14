@@ -22,6 +22,10 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 -Added config to allow End Mineshafts to spawn in End Islands and End Barrens biomes.
 
+##### Misc:
+
+-Fixed Vines have horizontal vine part floating when stacked on each other.
+
 ## (V.1.1.2 Changes) (1.16.1 Minecraft)
 
 ##### Major:

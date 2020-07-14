@@ -42,17 +42,18 @@ public class VinesShort extends Feature<DefaultFeatureConfig> {
                     aboveBlockstate = world.getBlockState(blockpos$Mutable.up());
 
                     if (currentBlockstate.canPlaceAt(world, blockpos$Mutable)) {
-                        world.setBlockState(
-                                blockpos$Mutable,
-                                currentBlockstate.with(
-                                        VineBlock.UP,
-                                        aboveBlockstate.isOpaque()),
-                                2);
+                        //places topmost vine that can face upward
+                        //tick scheduled so it can break if block it was attached to was removed later in worldgen
+                        world.setBlockState(blockpos$Mutable, currentBlockstate.with(VineBlock.UP, aboveBlockstate.isOpaque()), 2);
+                        world.getBlockTickScheduler().schedule(blockpos$Mutable, currentBlockstate.getBlock(),3);
                         length++;
                         break;
                     }
                     else if (aboveBlockstate.getBlock() == Blocks.VINE) {
-                        world.setBlockState(blockpos$Mutable, aboveBlockstate, 2);
+                        //places rest of the vine as long as vine is above
+                        //tick scheduled so it can break if block it was attached to was removed later in worldgen
+                        world.setBlockState(blockpos$Mutable, aboveBlockstate.with(VineBlock.UP, false), 2);
+                        world.getBlockTickScheduler().schedule(blockpos$Mutable, aboveBlockstate.getBlock(),3);
                         length++;
                         break;
                     }
