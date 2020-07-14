@@ -333,6 +333,7 @@
   "text.autoconfig.repurposed_structures-main.option.RSMineshaftsConfig.maxHeight.swampAndDarkForestMineshaftMaxHeight": "Swamp/Dark Forest Mineshaft",
   "text.autoconfig.repurposed_structures-main.option.RSMineshaftsConfig.maxHeight.endMineshaftMaxHeight": "End Mineshaft",
   "text.autoconfig.repurposed_structures-main.option.RSMineshaftsConfig.maxHeight.netherMineshaftMaxHeight": "Nether Mineshaft",
+  "text.autoconfig.repurposed_structures-main.option.RSMineshaftsConfig.misc.barrensIslandsEndMineshafts": "Add End Mineshafts to End Barrens and End Islands biome",
   "text.autoconfig.repurposed_structures-main.category.Strongholds": "Strongholds Configs",
   "text.autoconfig.repurposed_structures-main.option.RSStrongholdsConfig.strongholdSizeSH.@Tooltip[0]":"Size of average Stronghold as a percentage.",
   "text.autoconfig.repurposed_structures-main.option.RSStrongholdsConfig.strongholdSizeSH.@Tooltip[1]":"Note: RS Stonghold is much larger by default.",

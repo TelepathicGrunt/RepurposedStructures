@@ -18,6 +18,10 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 -Added advancements for entering Jungle Fortress, Stone Igloo, and Grassy Igloo.
 
+##### Config:
+
+-Added config to allow End Mineshafts to spawn in End Islands and End Barrens biomes.
+
 ## (V.1.1.2 Changes) (1.16.1 Minecraft)
 
 ##### Major:

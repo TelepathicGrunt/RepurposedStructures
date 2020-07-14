@@ -91,9 +91,11 @@ public class RSAddFeatures {
             }
         }
         else if (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.endMineshaftSpawnrate != 0 &&
-                (biome.getCategory() == Category.THEEND && biome != Biomes.THE_END && biome != Biomes.END_BARRENS && biome != Biomes.SMALL_END_ISLANDS) &&
+                (biome.getCategory() == Category.THEEND && biome != Biomes.THE_END) &&
+                (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.misc.barrensIslandsEndMineshafts ||
+                        (biome != Biomes.END_BARRENS && biome != Biomes.SMALL_END_ISLANDS)) &&
                 (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSMineshaftsConfig.addMineshaftsToModdedBiomes)) {
-            biome.addStructureFeature(RSFeatures.END_MINESHAFT.configure(FeatureConfig.DEFAULT));
+                biome.addStructureFeature(RSFeatures.END_MINESHAFT.configure(FeatureConfig.DEFAULT));
         }
         else if (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.netherMineshaftSpawnrate != 0 && biome.getCategory() == Category.NETHER &&
                 (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSMineshaftsConfig.addMineshaftsToModdedBiomes)) {

@@ -27,9 +27,11 @@ public class RSMineshaftsConfig implements ConfigData {
     @ConfigEntry.Gui.CollapsibleObject
     public MaxHeight maxHeight = new MaxHeight();
 
+    @ConfigEntry.Gui.CollapsibleObject
+    public Misc misc = new Misc();
 
     public static class Spawnrate {
-        
+
         @ConfigEntry.Gui.Tooltip(count = 4)
         @Comment("Replaces Mineshafts in Birch biomes."
                 + "\nHow often Mineshafts will spawn."
@@ -125,12 +127,12 @@ public class RSMineshaftsConfig implements ConfigData {
         @Comment("Min Y height of Mineshaft. Default is 5.")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int birchMineshaftMinHeight = 5;
-        
+
         @ConfigEntry.Gui.Tooltip
         @Comment("Min Y height of Mineshaft. Default is 5.")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int jungleMineshaftMinHeight = 5;
-        
+
         @ConfigEntry.Gui.Tooltip
         @Comment("Min Y height of Mineshaft. Default is 5.")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
@@ -155,7 +157,7 @@ public class RSMineshaftsConfig implements ConfigData {
         @Comment("Min Y height of Mineshaft. Default is 5.")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int oceanMineshaftMinHeight = 5;
-        
+
         @ConfigEntry.Gui.Tooltip
         @Comment("Min Y height of Mineshaft. Default is 5.")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
@@ -233,7 +235,7 @@ public class RSMineshaftsConfig implements ConfigData {
                 + "\nIf below min height, this will be read as min.")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int swampAndDarkForestMineshaftMaxHeight = 45;
-        
+
         @ConfigEntry.Gui.Tooltip(count = 2)
         @Comment("Max Y height of Mineshaft. Default is 37."
                 + "\nIf below min height, this will be read as min.")
@@ -245,5 +247,11 @@ public class RSMineshaftsConfig implements ConfigData {
                 + "\nIf below min height, this will be read as min.")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int netherMineshaftMaxHeight = 13;
+    }
+
+    public static class Misc {
+        @ConfigEntry.Gui.Tooltip
+        @Comment("Add End Mineshafts to End Barrens and End Islands biome.")
+        public boolean barrensIslandsEndMineshafts = false;
     }
 }
