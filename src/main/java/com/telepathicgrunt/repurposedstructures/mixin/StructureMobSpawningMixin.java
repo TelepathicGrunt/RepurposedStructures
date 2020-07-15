@@ -51,6 +51,10 @@ public class StructureMobSpawningMixin {
             if (accessor.method_28388(pos, true, RSFeatures.JUNGLE_FORTRESS).hasChildren()) {
                 return Lists.newArrayList(Iterators.concat(biome.getEntitySpawnList(SpawnGroup.MONSTER).iterator(), RSFeatures.JUNGLE_FORTRESS.getMonsterSpawns().iterator()));
             }
+
+            if (accessor.method_28388(pos, true, RSFeatures.END_MINESHAFT).hasChildren()) {
+                return Lists.newArrayList(Iterators.concat(biome.getEntitySpawnList(SpawnGroup.MONSTER).iterator(), RSFeatures.END_MINESHAFT.getMonsterSpawns().iterator()));
+            }
         }
 
         return null;

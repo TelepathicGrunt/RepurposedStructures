@@ -1,0 +1,34 @@
+{
+  "parent": "repurposed_structures:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:soul_sand"
+    },
+    "title": {
+      "translate": "advancements.repurposed_structures.temple_nether_soul.title"
+    },
+    "description": {
+      "translate": "advancements.repurposed_structures.temple_nether_soul.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 50
+  },
+  "criteria": {
+    "in_temple_nether_soul": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:temple_nether_soul"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_temple_nether_soul"
+    ]
+  ]
+}

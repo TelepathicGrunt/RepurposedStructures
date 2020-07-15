@@ -1,0 +1,34 @@
+{
+  "parent": "repurposed_structures:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:magma_block"
+    },
+    "title": {
+      "translate": "advancements.repurposed_structures.temple_nether_wasteland.title"
+    },
+    "description": {
+      "translate": "advancements.repurposed_structures.temple_nether_wasteland.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 50
+  },
+  "criteria": {
+    "in_temple_nether_wasteland": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:temple_nether_wasteland"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_temple_nether_wasteland"
+    ]
+  ]
+}

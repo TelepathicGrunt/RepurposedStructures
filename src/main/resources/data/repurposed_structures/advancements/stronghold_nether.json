@@ -1,0 +1,34 @@
+{
+  "parent": "repurposed_structures:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:ender_eye"
+    },
+    "title": {
+      "translate": "advancements.repurposed_structures.stronghold_nether.title"
+    },
+    "description": {
+      "translate": "advancements.repurposed_structures.stronghold_nether.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 100
+  },
+  "criteria": {
+    "in_stronghold_nether": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:stronghold_nether"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_stronghold_nether"
+    ]
+  ]
+}

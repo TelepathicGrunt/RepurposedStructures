@@ -1,7 +1,9 @@
 package com.telepathicgrunt.repurposedstructures.world.features.structures;
 
+import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import net.minecraft.entity.EntityType;
 import net.minecraft.structure.StructureManager;
 import net.minecraft.structure.StructurePiece;
 import net.minecraft.structure.StructureStart;
@@ -11,6 +13,9 @@ import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
+import java.util.Collections;
+import java.util.List;
+
 
 public class RSMineshaftEndStructure extends AbstractMineshaftStructure {
     public RSMineshaftEndStructure(Codec<DefaultFeatureConfig> config) {
@@ -19,6 +24,15 @@ public class RSMineshaftEndStructure extends AbstractMineshaftStructure {
 
     public double getProbability() {
         return RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.endMineshaftSpawnrate;
+    }
+
+    private static final List<Biome.SpawnEntry> MONSTER_SPAWNS = Lists.newArrayList(
+                new Biome.SpawnEntry(EntityType.ENDERMITE, 10, 2, 5),
+                new Biome.SpawnEntry(EntityType.ENDERMAN, 5, 1, 3)
+            );
+
+    public List<Biome.SpawnEntry> getMonsterSpawns() {
+        return MONSTER_SPAWNS;
     }
 
     @Override

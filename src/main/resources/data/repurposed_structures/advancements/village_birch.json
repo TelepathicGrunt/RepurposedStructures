@@ -1,0 +1,34 @@
+{
+  "parent": "repurposed_structures:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:birch_wood"
+    },
+    "title": {
+      "translate": "advancements.repurposed_structures.village_birch.title"
+    },
+    "description": {
+      "translate": "advancements.repurposed_structures.village_birch.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 20
+  },
+  "criteria": {
+    "in_village_birch": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:village_birch"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_village_birch"
+    ]
+  ]
+}

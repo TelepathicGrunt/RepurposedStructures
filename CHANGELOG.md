@@ -16,11 +16,15 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ##### Advancements:
 
--Added advancements for entering Jungle Fortress, Stone Igloo, and Grassy Igloo.
+-Added advancements for entering all structures!
 
 ##### Config:
 
 -Added config to allow End Mineshafts to spawn in End Islands and End Barrens biomes.
+
+##### Strongholds:
+
+-Both Overworld and Nether Strongholds no longer will spawn within 1600 blocks of world origin.
 
 ##### Fortress:
 
@@ -28,11 +32,29 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 -Jungle Fortress's plant room will not place plants if it is below sea level now. (No more floating mushrooms items when the plant room is flooded)
 
+##### Villages:
+
+-Fixed Giant Tree Villages being added to vanilla's Giant Tree Taiga Hills and Giant Spruce Taiga Hills biomes when the addVillagesToModdedBiomes config is on. 
+
+##### Mineshafts:
+
+-End Mineshafts will now spawn Endermites over time in them naturally.
+
+##### Outposts:
+
+-Changed name of Nether Bricks Outposts chest's loot table to outpost_nether_brick_chest.json .
+
+##### Outposts:
+
+-Changed name of Badlands Pyramid chest's loot table to pyramid_badlands_chest.json .
+
 ##### Misc:
 
 -Fixed Vines have horizontal vine part floating when stacked on each other.
 
 -Fixed vines to not be strangely attached to nothing anymore.
+
+-Slightly nerfed giant boulders in vanilla's Giant Tree Taiga and Giant Spruce Taiga biomes.
 
 ## (V.1.1.2 Changes) (1.16.1 Minecraft)
 

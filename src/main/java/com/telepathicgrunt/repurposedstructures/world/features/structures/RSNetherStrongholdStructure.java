@@ -35,10 +35,9 @@ public class RSNetherStrongholdStructure extends StrongholdFeature {
     }
 
     @Override
-    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, int i, int j, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig defaultFeatureConfig) {
-        return true;
+    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, int x, int z, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig featureConfig) {
+        return (x * x) + (z * z) > 100;
     }
-
     @Override
     public StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
         return RSNetherStrongholdStructure.Start::new;

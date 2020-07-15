@@ -1,15 +1,20 @@
 package com.telepathicgrunt.repurposedstructures.utils;
 
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.StructureBlockBlockEntity;
 import net.minecraft.block.enums.StructureBlockMode;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 
 import java.io.*;
@@ -21,11 +26,13 @@ public class LoadNbtBlock extends Block {
         super(AbstractBlock.Settings.of(Material.METAL, MaterialColor.LIGHT_GRAY).requiresTool().strength(-1.0F, 3600000.0F).dropsNothing());
     }
 
-    //    static Block LOAD_NBT_BLOCK = new LoadNbtBlock();
-    //    public static final Item LOAD_NBT_ITEM = new BlockItem(LOAD_NBT_BLOCK, new Item.Settings().group(ItemGroup.REDSTONE));
+    static Block LOAD_NBT_BLOCK = new LoadNbtBlock();
+    public static final Item LOAD_NBT_ITEM = new BlockItem(LOAD_NBT_BLOCK, new Item.Settings().group(ItemGroup.REDSTONE));
 
-    //    Registry.register(Registry.BLOCK, new Identifier(MODID, "load_nbt_block"), LOAD_NBT_BLOCK);
-    //    Registry.register(Registry.ITEM, new Identifier(MODID, "load_nbt_block"), LOAD_NBT_ITEM);
+    public static void instantiateNbtBlock(){
+        Registry.register(Registry.BLOCK, new Identifier(RepurposedStructures.MODID, "load_nbt_block"), LOAD_NBT_BLOCK);
+        Registry.register(Registry.ITEM, new Identifier(RepurposedStructures.MODID, "load_nbt_block"), LOAD_NBT_ITEM);
+    }
 
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         String mainPath = "C:\\Users\\MSI Laptop\\Documents\\PersonalFun\\Minecraft stuff\\JavaCodeMods\\ModdingWorkspace\\RepurposedStructures-Fabric";
@@ -81,7 +88,8 @@ public class LoadNbtBlock extends Block {
                 structureBlockBlockEntity.setStructureName(new Identifier(identifiers.get(pieceIndex-1).toString().replace("village/", ""))); // set identifier
                 structureBlockBlockEntity.setMode(StructureBlockMode.SAVE);
                 //structureBlockBlockEntity.saveStructure(true); //save structure
-                structureBlockBlockEntity.setShowAir(true);
+                //structureBlockBlockEntity.setShowAir(true);
+                structureBlockBlockEntity.setIgnoreEntities(false);
             }
 
             mutable.move(0,0,32);

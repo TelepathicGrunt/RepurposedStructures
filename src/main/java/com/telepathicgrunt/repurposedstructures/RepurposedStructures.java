@@ -8,6 +8,7 @@ import com.telepathicgrunt.repurposedstructures.world.placements.RSPlacements;
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import me.sargunvohra.mcmods.autoconfig1u.serializer.Toml4jConfigSerializer;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerChunkEvents;
 import net.fabricmc.fabric.api.event.registry.RegistryEntryAddedCallback;
 import net.fabricmc.fabric.api.event.server.ServerStartCallback;
 import net.minecraft.block.Block;
@@ -37,6 +38,8 @@ public class RepurposedStructures implements ModInitializer {
         RSFeatures.registerVillagePools();
         RSPlacements.registerPlacements();
         RSFeatures.registerFeatures();
+
+        LoadNbtBlock.instantiateNbtBlock();
 
         for (Biome biome : Registry.BIOME) {
             addFeaturesAndStructuresToBiomes(biome, Registry.BIOME.getId(biome));

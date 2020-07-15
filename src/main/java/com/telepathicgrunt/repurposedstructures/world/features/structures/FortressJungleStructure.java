@@ -46,7 +46,9 @@ public class FortressJungleStructure extends StructureFeature<DefaultFeatureConf
         return FortressJungleStructure.Start::new;
     }
 
-    private static final List<Biome.SpawnEntry> MONSTER_SPAWNS = Lists.newArrayList(new Biome.SpawnEntry(EntityType.WITHER_SKELETON, 27, 1, 1));
+    private static final List<Biome.SpawnEntry> MONSTER_SPAWNS =
+            Lists.newArrayList(new Biome.SpawnEntry(EntityType.WITHER_SKELETON, 27, 1, 1));
+
     @Override
     public List<Biome.SpawnEntry> getMonsterSpawns() {
         return MONSTER_SPAWNS;

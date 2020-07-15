@@ -1,0 +1,34 @@
+{
+  "parent": "repurposed_structures:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:nether_bricks"
+    },
+    "title": {
+      "translate": "advancements.repurposed_structures.mineshaft_nether.title"
+    },
+    "description": {
+      "translate": "advancements.repurposed_structures.mineshaft_nether.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 20
+  },
+  "criteria": {
+    "in_mineshaft_nether": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:mineshaft_nether"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_mineshaft_nether"
+    ]
+  ]
+}

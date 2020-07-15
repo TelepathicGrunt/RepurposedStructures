@@ -1,0 +1,34 @@
+{
+  "parent": "repurposed_structures:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:spruce_wood"
+    },
+    "title": {
+      "translate": "advancements.repurposed_structures.village_giant_taiga.title"
+    },
+    "description": {
+      "translate": "advancements.repurposed_structures.village_giant_taiga.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 20
+  },
+  "criteria": {
+    "in_village_giant_taiga": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:village_giant_taiga"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_village_giant_taiga"
+    ]
+  ]
+}

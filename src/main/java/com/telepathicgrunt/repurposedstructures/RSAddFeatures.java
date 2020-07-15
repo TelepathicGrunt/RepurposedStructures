@@ -13,6 +13,7 @@ import net.minecraft.world.gen.decorator.*;
 import net.minecraft.world.gen.feature.*;
 
 public class RSAddFeatures {
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MINESHAFTS //
 
@@ -106,7 +107,6 @@ public class RSAddFeatures {
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // DUNGEONS //
-
 
     public static void addDungeons(Biome biome, String biomeNamespace, String biomePath) {
 
@@ -273,9 +273,9 @@ public class RSAddFeatures {
         return false;
     }
 
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // WELLS //
-
 
     public static void addWells(Biome biome, String biomeNamespace, String biomePath) {
 
@@ -337,7 +337,6 @@ public class RSAddFeatures {
     private static final ConfiguredFeature<?, ?> VANILLA_SWAMP_TREE = Feature.TREE.configure(DefaultBiomeFeatures.SWAMP_TREE_CONFIG).createDecoratedFeature(Decorator.COUNT_EXTRA_HEIGHTMAP.configure(new CountExtraChanceDecoratorConfig(2, 0.1F, 1)));
     private static final ConfiguredFeature<?, ?> VANILLA_BOULDER = Feature.FOREST_ROCK.configure(new ForestRockFeatureConfig(Blocks.MOSSY_COBBLESTONE.getDefaultState(), 0)).createDecoratedFeature(Decorator.FOREST_ROCK.configure(new CountDecoratorConfig(3)));
 
-
     public static void addMiscFeatures(Biome biome, String biomeNamespace, String biomePath) {
 
         // only exists in vanilla biomes
@@ -365,7 +364,7 @@ public class RSAddFeatures {
 
             // replace the boulders with our own
             biome.getFeaturesForStep(GenerationStep.Feature.LOCAL_MODIFICATIONS).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && serializeAndCompareFeature(configuredFeature, VANILLA_BOULDER));
-            biome.addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, RSFeatures.BOULDER_GIANT.configure(FeatureConfig.DEFAULT).createDecoratedFeature(Decorator.COUNT_TOP_SOLID.configure(new CountDecoratorConfig(biomeNamespace.equals("minecraft") ? 2 : 1))));
+            biome.addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, RSFeatures.BOULDER_GIANT.configure(FeatureConfig.DEFAULT).createDecoratedFeature(Decorator.COUNT_EXTRA_HEIGHTMAP.configure(biomeNamespace.equals("minecraft") ? new CountExtraChanceDecoratorConfig(1, 0.5F, 1) : new CountExtraChanceDecoratorConfig(1, 0.0F, 0))));
         }
         else if (RepurposedStructures.RSAllConfig.RSMainConfig.misc.boulderTiny && !biomeNamespace.equals("ultra_amplified_dimension") &&
                 ((biome == Biomes.SNOWY_TAIGA_MOUNTAINS || biome == Biomes.TAIGA_MOUNTAINS) ||
@@ -378,7 +377,6 @@ public class RSAddFeatures {
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // STRONGHOLDS //
-
 
     public static void addStrongholds(Biome biome, String biomeNamespace, String biomePath) {
 
@@ -417,7 +415,6 @@ public class RSAddFeatures {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // JUNGLE FORTRESS //
 
-
     public static void addJungleFortress(Biome biome, String biomeNamespace, String biomePath) {
         if(RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.jungleFortressSpawnrate != 1001)
         {
@@ -433,7 +430,6 @@ public class RSAddFeatures {
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // TEMPLES //
-
 
     public static void addTemplesAndPyramids(Biome biome, String biomeNamespace, String biomePath) {
 
@@ -479,7 +475,6 @@ public class RSAddFeatures {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // IGLOOS //
 
-
     public static void addIgloos(Biome biome, String biomeNamespace, String biomePath) {
         if (RepurposedStructures.RSAllConfig.RSMainConfig.igloos.grassyIglooSpawnrate != 1001) {
             if ((biome.getCategory() == Category.FOREST || biome.getCategory() == Category.PLAINS) &&
@@ -500,7 +495,6 @@ public class RSAddFeatures {
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // VILLAGES //
-
 
     public static void addVillages(Biome biome, String biomeNamespace, String biomePath) {
         if ((biome.getCategory() == Category.MESA && !biomePath.contains("plateau")) &&
@@ -548,8 +542,9 @@ public class RSAddFeatures {
         }
 
         else if ((biome == Biomes.GIANT_SPRUCE_TAIGA || biome == Biomes.GIANT_TREE_TAIGA) ||
-                (RepurposedStructures.RSAllConfig.RSVillagesConfig.addVillagesToModdedBiomes &&
-                        ((biomePath.contains("giant") && biomePath.contains("taiga")) || biomePath.contains("redwood")))) {
+                (!biomeNamespace.equals("minecraft") &&
+                  RepurposedStructures.RSAllConfig.RSVillagesConfig.addVillagesToModdedBiomes &&
+                ((biomePath.contains("giant") && biomePath.contains("taiga")) || biomePath.contains("redwood")))) {
             if (RepurposedStructures.RSAllConfig.RSVillagesConfig.giantTaigaVillageSpawnrate != 1001) {
                 biome.addStructureFeature(RSFeatures.GIANT_TAIGA_VILLAGE.configure(FeatureConfig.DEFAULT));
             }
@@ -559,7 +554,6 @@ public class RSAddFeatures {
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // GENERAL UTILITIES //
-
 
     /**
      * Will serialize (if possible) both features and check if they are the same feature. If cannot serialize, compare the feature itself to see if it is the same
@@ -577,4 +571,5 @@ public class RSAddFeatures {
 
         return false;
     }
+
 }
