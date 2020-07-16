@@ -1,6 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.mixin;
 
-import com.telepathicgrunt.repurposedstructures.world.features.RSFeatures;
+import com.telepathicgrunt.repurposedstructures.RSFeatures;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkSectionPos;
 import net.minecraft.world.ServerWorldAccess;

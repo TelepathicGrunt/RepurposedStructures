@@ -2,7 +2,7 @@ package com.telepathicgrunt.repurposedstructures.world.features.structures;
 
 import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;
-import com.telepathicgrunt.repurposedstructures.world.features.RSFeatures;
+import com.telepathicgrunt.repurposedstructures.RSFeatures;
 import net.minecraft.entity.EntityType;
 import net.minecraft.structure.StructureManager;
 import net.minecraft.structure.StructurePiece;
@@ -16,7 +16,6 @@ import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
-import java.util.Collections;
 import java.util.List;
 
 

@@ -3,18 +3,11 @@ package com.telepathicgrunt.repurposedstructures;
 import com.telepathicgrunt.repurposedstructures.configs.*;
 import com.telepathicgrunt.repurposedstructures.utils.LoadNbtBlock;
 import com.telepathicgrunt.repurposedstructures.utils.MobSpawnerManager;
-import com.telepathicgrunt.repurposedstructures.world.features.RSFeatures;
 import com.telepathicgrunt.repurposedstructures.world.placements.RSPlacements;
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import me.sargunvohra.mcmods.autoconfig1u.serializer.Toml4jConfigSerializer;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerChunkEvents;
 import net.fabricmc.fabric.api.event.registry.RegistryEntryAddedCallback;
-import net.fabricmc.fabric.api.event.server.ServerStartCallback;
-import net.minecraft.block.Block;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
@@ -62,6 +55,7 @@ public class RepurposedStructures implements ModInitializer {
         RSAddFeatures.addTemplesAndPyramids(biome, biomeNamespace, biomePath);
         RSAddFeatures.addIgloos(biome, biomeNamespace, biomePath);
         RSAddFeatures.addOutposts(biome, biomeNamespace, biomePath);
+        RSAddFeatures.addShipwrecks(biome, biomeNamespace, biomePath);
         RSAddFeatures.addVillages(biome, biomeNamespace, biomePath);
         RSAddFeatures.addStrongholds(biome, biomeNamespace, biomePath);
     }

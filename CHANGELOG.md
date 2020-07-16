@@ -26,6 +26,10 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 -Both Overworld and Nether Strongholds no longer will spawn within 1600 blocks of world origin.
 
+##### Shipwrecks:
+
+-Added End Shipwreck to End Highlands! Check out their amazing loot!
+
 ##### Fortress:
 
 -Nerfed Jungle Fortress loot significantly and changed them to use their own loottables (fortress_jungle_xxxxx_chest.json) so you cna change them with datapacks now
@@ -36,6 +40,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 -Fixed Giant Tree Villages being added to vanilla's Giant Tree Taiga Hills and Giant Spruce Taiga Hills biomes when the addVillagesToModdedBiomes config is on. 
 
+-Fixed missing zombie villager pool in Mountains Village.
+
 ##### Mineshafts:
 
 -End Mineshafts will now spawn Endermites over time in them naturally.
@@ -44,7 +50,7 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 -Changed name of Nether Bricks Outposts chest's loot table to outpost_nether_brick_chest.json .
 
-##### Outposts:
+##### Pyramids:
 
 -Changed name of Badlands Pyramid chest's loot table to pyramid_badlands_chest.json .
 

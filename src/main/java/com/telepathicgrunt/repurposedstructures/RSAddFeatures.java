@@ -1,7 +1,6 @@
 package com.telepathicgrunt.repurposedstructures;
 
 import com.telepathicgrunt.repurposedstructures.mixin.BiomeStructureAccessor;
-import com.telepathicgrunt.repurposedstructures.world.features.RSFeatures;
 import com.telepathicgrunt.repurposedstructures.world.placements.RSPlacements;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.registry.Registry;
@@ -404,10 +403,37 @@ public class RSAddFeatures {
 
     public static void addOutposts(Biome biome, String biomeNamespace, String biomePath) {
 
+        //Nether based Outposts
+        if(biome.getCategory() == Category.NETHER)
+        {
+            if (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.netherBrickOutpostSpawnrate != 1001 &&
+                    biomePath.contains("crimson") &&
+                    (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.addNetherBrickOutpostToModdedBiomes)) {
+                biome.addStructureFeature(RSFeatures.CRIMSON_OUTPOST.configure(FeatureConfig.DEFAULT));
+            }
+            else if (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.netherBrickOutpostSpawnrate != 1001 &&
+                    biomePath.contains("warped") &&
+                    (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.addNetherBrickOutpostToModdedBiomes)) {
+                biome.addStructureFeature(RSFeatures.WARPED_OUTPOST.configure(FeatureConfig.DEFAULT));
+            }
+            else if (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.netherBrickOutpostSpawnrate != 1001 &&
+                    (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.addNetherBrickOutpostToModdedBiomes)) {
+                biome.addStructureFeature(RSFeatures.NETHER_BRICK_OUTPOST.configure(FeatureConfig.DEFAULT));
+            }
+        }
+    }
+
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // OUTPOSTS //
+
+    public static void addShipwrecks(Biome biome, String biomeNamespace, String biomePath) {
+
         if (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.netherBrickOutpostSpawnrate != 1001 &&
-                biome.getCategory() == Category.NETHER &&
-                (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.addNetherBrickOutpostToModdedBiomes)) {
-            biome.addStructureFeature(RSFeatures.NETHER_BRICK_OUTPOST.configure(FeatureConfig.DEFAULT));
+                (biome == Biomes.END_HIGHLANDS ||
+                (!biomeNamespace.equals("minecraft") && biome.getCategory() == Category.THEEND &&
+                RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.addNetherBrickOutpostToModdedBiomes))) {
+            biome.addStructureFeature(RSFeatures.END_SHIPWRECK.configure(FeatureConfig.DEFAULT));
         }
     }
 

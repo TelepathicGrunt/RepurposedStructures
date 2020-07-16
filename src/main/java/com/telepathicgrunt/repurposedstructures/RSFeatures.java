@@ -1,6 +1,6 @@
-package com.telepathicgrunt.repurposedstructures.world.features;
+package com.telepathicgrunt.repurposedstructures;
 
-import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.world.features.*;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.*;
 import net.earthcomputer.libstructure.LibStructure;
 import net.minecraft.block.Blocks;
@@ -70,9 +70,13 @@ public class RSFeatures {
     public static StructureFeature<DefaultFeatureConfig> NETHER_SOUL_TEMPLE = new TempleNetherSoulStructure(DefaultFeatureConfig.CODEC);
 
     public static StructureFeature<DefaultFeatureConfig> NETHER_BRICK_OUTPOST = new OutpostNetherBrickStructure(DefaultFeatureConfig.CODEC);
+    public static StructureFeature<DefaultFeatureConfig> WARPED_OUTPOST = new OutpostWarpedStructure(DefaultFeatureConfig.CODEC);
+    public static StructureFeature<DefaultFeatureConfig> CRIMSON_OUTPOST = new OutpostCrimsonStructure(DefaultFeatureConfig.CODEC);
 
     public static StructureFeature<DefaultFeatureConfig> NETHER_PYRAMID = new PyramidNetherStructure(DefaultFeatureConfig.CODEC);
     public static StructureFeature<DefaultFeatureConfig> BADLANDS_TEMPLE = new PyramidBadlandsStructure(DefaultFeatureConfig.CODEC);
+
+    public static StructureFeature<DefaultFeatureConfig> END_SHIPWRECK = new EndShipwreckStructure(DefaultFeatureConfig.CODEC);
 
     public static StructureFeature<DefaultFeatureConfig> BADLANDS_VILLAGE = new VillageBadlandsStructure(DefaultFeatureConfig.CODEC);
     public static StructureFeature<DefaultFeatureConfig> BIRCH_VILLAGE = new VillageBirchStructure(DefaultFeatureConfig.CODEC);
@@ -143,9 +147,13 @@ public class RSFeatures {
         LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "temple_nether_warped"), NETHER_WARPED_TEMPLE, GenerationStep.Feature.SURFACE_STRUCTURES, new StructureConfig(RepurposedStructures.RSAllConfig.RSTemplesConfig.temples.netherWarpedTempleSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSTemplesConfig.temples.netherWarpedTempleSpawnrate * 0.75f), 399117359), NETHER_WARPED_TEMPLE.configure(FeatureConfig.DEFAULT));
 
         LibStructure.registerSurfaceAdjustingStructure(new Identifier(RepurposedStructures.MODID, "outpost_nether_brick"), NETHER_BRICK_OUTPOST, GenerationStep.Feature.SURFACE_STRUCTURES, new StructureConfig(RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.netherBrickOutpostSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.netherBrickOutpostSpawnrate * 0.75f), 399117371), NETHER_BRICK_OUTPOST.configure(FeatureConfig.DEFAULT));
+        LibStructure.registerSurfaceAdjustingStructure(new Identifier(RepurposedStructures.MODID, "outpost_warped"), WARPED_OUTPOST, GenerationStep.Feature.SURFACE_STRUCTURES, new StructureConfig(RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.netherBrickOutpostSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.netherBrickOutpostSpawnrate * 0.75f), 399117372), WARPED_OUTPOST.configure(FeatureConfig.DEFAULT));
+        LibStructure.registerSurfaceAdjustingStructure(new Identifier(RepurposedStructures.MODID, "outpost_crimson"), CRIMSON_OUTPOST, GenerationStep.Feature.SURFACE_STRUCTURES, new StructureConfig(RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.netherBrickOutpostSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.netherBrickOutpostSpawnrate * 0.75f), 399117373), CRIMSON_OUTPOST.configure(FeatureConfig.DEFAULT));
 
         LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "pyramid_badlands"), BADLANDS_TEMPLE, GenerationStep.Feature.SURFACE_STRUCTURES, new StructureConfig(RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.badlandsPyramidSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.badlandsPyramidSpawnrate * 0.75f), 399117360), BADLANDS_TEMPLE.configure(FeatureConfig.DEFAULT));
         LibStructure.registerSurfaceAdjustingStructure(new Identifier(RepurposedStructures.MODID, "pyramid_nether"), NETHER_PYRAMID, GenerationStep.Feature.SURFACE_STRUCTURES, new StructureConfig(RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.netherPyramidSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.netherPyramidSpawnrate * 0.75f), 399117361), NETHER_PYRAMID.configure(FeatureConfig.DEFAULT));
+
+        LibStructure.registerStructure(new Identifier(RepurposedStructures.MODID, "shipwreck_end"), END_SHIPWRECK, GenerationStep.Feature.SURFACE_STRUCTURES, new StructureConfig(RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.badlandsPyramidSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.badlandsPyramidSpawnrate * 0.75f), 399117374), END_SHIPWRECK.configure(FeatureConfig.DEFAULT));
 
         LibStructure.registerSurfaceAdjustingStructure(new Identifier(RepurposedStructures.MODID, "village_badlands"), BADLANDS_VILLAGE, GenerationStep.Feature.SURFACE_STRUCTURES, new StructureConfig(RepurposedStructures.RSAllConfig.RSVillagesConfig.badlandsVillageSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSVillagesConfig.badlandsVillageSpawnrate * 0.75f), 399117364), BADLANDS_VILLAGE.configure(FeatureConfig.DEFAULT));
         LibStructure.registerSurfaceAdjustingStructure(new Identifier(RepurposedStructures.MODID, "village_birch"), BIRCH_VILLAGE, GenerationStep.Feature.SURFACE_STRUCTURES, new StructureConfig(RepurposedStructures.RSAllConfig.RSVillagesConfig.birchVillageSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSVillagesConfig.birchVillageSpawnrate * 0.75f), 399117365), BIRCH_VILLAGE.configure(FeatureConfig.DEFAULT));
@@ -155,7 +163,8 @@ public class RSFeatures {
         LibStructure.registerSurfaceAdjustingStructure(new Identifier(RepurposedStructures.MODID, "village_mountains"), MOUNTAINS_VILLAGE, GenerationStep.Feature.SURFACE_STRUCTURES, new StructureConfig(RepurposedStructures.RSAllConfig.RSVillagesConfig.mountainsVillageSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSVillagesConfig.mountainsVillageSpawnrate * 0.75f), 399117369), MOUNTAINS_VILLAGE.configure(FeatureConfig.DEFAULT));
         LibStructure.registerSurfaceAdjustingStructure(new Identifier(RepurposedStructures.MODID, "village_giant_taiga"), GIANT_TAIGA_VILLAGE, GenerationStep.Feature.SURFACE_STRUCTURES, new StructureConfig(RepurposedStructures.RSAllConfig.RSVillagesConfig.giantTaigaVillageSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSVillagesConfig.giantTaigaVillageSpawnrate * 0.75f), 399117370), GIANT_TAIGA_VILLAGE.configure(FeatureConfig.DEFAULT));
 
-        //Next avaliable seed: 399117372
+
+        //Next avaliable seed: 399117375
 
         //registers the structure pieces.
         StructurePieces.registerStructurePieces();

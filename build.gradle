@@ -18,9 +18,9 @@ repositories {
 		name = 'Earthcomputer Mods'
 		url = 'https://dl.bintray.com/earthcomputer/mods'
 	}
-//	flatDir {
-//		dirs 'deps'
-//	}
+	flatDir {
+		dirs 'deps'
+	}
 }
 
 minecraft {
@@ -50,7 +50,9 @@ dependencies {
 //	modRuntime "com.github.jellysquid3:lithium_fabric:1.16.1"
 //	modRuntime "com.github.jellysquid3:phosphor_fabric:1.16.1"
 //	modRuntime "com.github.jellysquid3:sodium_fabric:1.16.1"
-//
+
+//	modRuntime "zabi.minecraft.nbttooltip:nbttooltip:1.0.4"
+
 //	modRuntime "com.github.voronoiaoc:byg:1.0.6"
 }
 

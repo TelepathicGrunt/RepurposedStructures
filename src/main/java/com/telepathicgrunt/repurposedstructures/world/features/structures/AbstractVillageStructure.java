@@ -1,8 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.features.structures;
 
 import com.mojang.serialization.Codec;
-import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.world.features.RSFeatures;
 import net.minecraft.structure.StructureManager;
 import net.minecraft.structure.VillageGenerator;
 import net.minecraft.structure.VillageStructureStart;

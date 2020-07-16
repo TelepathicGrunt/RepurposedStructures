@@ -4,7 +4,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Iterables;
 import com.mojang.datafixers.util.Pair;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.world.features.RSFeatures;
+import com.telepathicgrunt.repurposedstructures.RSFeatures;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.PaneBlock;
 import net.minecraft.structure.pool.*;
@@ -244,7 +244,7 @@ public class VillageMountainsPools
 		       Pair.of(EmptyPoolElement.INSTANCE, 2)),
 	       StructurePool.Projection.RIGID));
 
-		StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier("village/mountains/zombie/villagers"), new Identifier("empty"),
+		StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/mountains/zombie/villagers"), new Identifier("empty"),
 				ImmutableList.of(
 						new Pair(new LegacySinglePoolElement("village/taiga/zombie/villagers/nitwit"), 1),
 						new Pair(new LegacySinglePoolElement("village/taiga/zombie/villagers/unemployed"), 10)),
