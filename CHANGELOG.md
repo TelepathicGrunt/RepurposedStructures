@@ -8,11 +8,12 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
-## (V.1.1.3 Changes) (1.16.1 Minecraft)
+## (V.1.2.0 Changes) (1.16.1 Minecraft)
 
 ##### Major:
 
--Removed code from v1.1.1 and v1.1.2 as the patch didn't fix the broken vanilla issue with missing structures.
+-Removed code from v1.1.1 and v1.1.2 as the patch didn't fix the broken vanilla world issue with missing structures. 
+Upvote the issue on Mojang's issue tracker here to help get them to see the bug! https://bugs.mojang.com/projects/MC/issues/MC-194811
 
 ##### Advancements:
 

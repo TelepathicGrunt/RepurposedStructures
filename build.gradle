@@ -18,9 +18,9 @@ repositories {
 		name = 'Earthcomputer Mods'
 		url = 'https://dl.bintray.com/earthcomputer/mods'
 	}
-	flatDir {
-		dirs 'deps'
-	}
+//	flatDir {
+//		dirs 'deps'
+//	}
 }
 
 minecraft {
