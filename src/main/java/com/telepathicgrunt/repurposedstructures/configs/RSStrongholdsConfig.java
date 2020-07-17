@@ -73,7 +73,7 @@ public class RSStrongholdsConfig implements ConfigData
 		@ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
 		public int stonebrickStrongholdSpawnrate = 85;
 
-		@ConfigEntry.Gui.Tooltip()
+		@ConfigEntry.Gui.Tooltip(count = 2)
 		@Comment("How rare are Chains in this Stronghold. (Can have Lantern attached)")
 		@ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
 		public int stonebrickStrongholdChainSpawnrate = 35;
@@ -106,7 +106,7 @@ public class RSStrongholdsConfig implements ConfigData
 		@ConfigEntry.BoundedDiscrete(min = 0, max = 255)
 		public int netherStrongholdMaxHeight = 36;
 
-		@ConfigEntry.Gui.Tooltip()
+		@ConfigEntry.Gui.Tooltip(count = 2)
 		@Comment("How rare are Chains in this Stronghold. (Can have Soul Lantern attached)")
 		@ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
 		public int netherStrongholdChainSpawnrate = 50;
