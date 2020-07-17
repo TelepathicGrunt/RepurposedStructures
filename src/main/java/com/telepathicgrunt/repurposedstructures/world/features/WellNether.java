@@ -18,6 +18,8 @@ import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
+import org.apache.logging.log4j.Level;
 
 import java.util.Collection;
 import java.util.Random;
@@ -39,11 +41,10 @@ public class WellNether extends WellAbstract {
         BlockPos.Mutable mutable = new BlockPos.Mutable().set(position);
         for (mutable.move(Direction.UP); mutable.getY() > 32;) {
 
-            if(world.isAir(mutable)){
+            if(world.isAir(mutable) && mutable.getY() > 32){
                 mutable.move(Direction.DOWN);
                 continue;
             }
-
 
             // check to make sure spot is valid and not a single block ledge
             BlockState blockState = world.getBlockState(mutable);
@@ -54,7 +55,8 @@ public class WellNether extends WellAbstract {
                     blockState.getMaterial() == Material.AGGREGATE ||
                     blockState.getMaterial() == Material.STONE ||
                     blockState.getMaterial() == Material.SOIL ||
-                    blockState.isOf(world.getBiome(mutable).getSurfaceConfig().getTopMaterial().getBlock())) &&
+                    (world.getBiome(mutable).getSurfaceConfig().getTopMaterial() != null &&
+                     blockState.isOf(world.getBiome(mutable).getSurfaceConfig().getTopMaterial().getBlock()))) &&
                     !world.isAir(mutable.down()) &&
                     world.isAir(mutable.up(3)) &&
                     !world.isAir(mutable.north(2).down()) &&

@@ -31,7 +31,7 @@ public class RSOutpostsConfig implements ConfigData {
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
         public int warpedOutpostSpawnrate = 21;
 
-        @ConfigEntry.Gui.Tooltip(count = 2)
+        @ConfigEntry.Gui.Tooltip()
         @Comment("Add Warped Outposts to modded Nether Warped biomes.")
         public boolean addWarpedOutpostToModdedBiomes = false;
 
@@ -42,7 +42,7 @@ public class RSOutpostsConfig implements ConfigData {
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
         public int crimsonOutpostSpawnrate = 21;
 
-        @ConfigEntry.Gui.Tooltip(count = 2)
+        @ConfigEntry.Gui.Tooltip()
         @Comment("Add Crimson Outposts to modded Nether Warped biomes.")
         public boolean addCrimsonOutpostToModdedBiomes = false;
     }

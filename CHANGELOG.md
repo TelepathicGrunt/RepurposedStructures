@@ -8,6 +8,16 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.1.2.1 Changes) (1.16.1 Minecraft)
+
+##### Wells:
+
+-Fixed Nether Wells crashing when a mod adds a biome that returns null for their top block in their surfacebuilder. Dunno why anyone would do that but someone did lol.
+
+##### Outposts:
+
+-Fixed Warped and Crimson Outpost's config tooltip not showing.
+
 ## (V.1.2.0 Changes) (1.16.1 Minecraft)
 
 ##### Major:
