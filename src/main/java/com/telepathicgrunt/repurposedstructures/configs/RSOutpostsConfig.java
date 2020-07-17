@@ -23,5 +23,27 @@ public class RSOutpostsConfig implements ConfigData {
         @ConfigEntry.Gui.Tooltip(count = 2)
         @Comment("Add Nether Brick Outposts to modded Nether biomes that other nether outposts don't fit in.")
         public boolean addNetherBrickOutpostToModdedBiomes = false;
+
+
+        @ConfigEntry.Gui.Tooltip(count = 2)
+        @Comment("How rare are Warped Outposts in Warped Nether biomes."
+                + "\n1 for spawning in most chunks and 1001 for none.")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int warpedOutpostSpawnrate = 21;
+
+        @ConfigEntry.Gui.Tooltip(count = 2)
+        @Comment("Add Warped Outposts to modded Nether Warped biomes.")
+        public boolean addWarpedOutpostToModdedBiomes = false;
+
+
+        @ConfigEntry.Gui.Tooltip(count = 2)
+        @Comment("How rare are Crimson Outposts in Warped Nether biomes."
+                + "\n1 for spawning in most chunks and 1001 for none.")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int crimsonOutpostSpawnrate = 21;
+
+        @ConfigEntry.Gui.Tooltip(count = 2)
+        @Comment("Add Crimson Outposts to modded Nether Warped biomes.")
+        public boolean addCrimsonOutpostToModdedBiomes = false;
     }
 }

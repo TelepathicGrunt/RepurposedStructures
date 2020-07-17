@@ -1034,14 +1034,10 @@ public class FortressJunglePieces {
             if (enumfacing != null) {
                 switch (enumfacing) {
                     case NORTH:
-                        return this.generateAndAddPiece(p_74961_1_, p_74961_2_, p_74961_3_, this.boundingBox.minX - 1, this.boundingBox.minY + p_74961_4_, this.boundingBox.minZ + p_74961_5_, Direction.WEST, this.getLength(), p_74961_6_);
-
                     case SOUTH:
                         return this.generateAndAddPiece(p_74961_1_, p_74961_2_, p_74961_3_, this.boundingBox.minX - 1, this.boundingBox.minY + p_74961_4_, this.boundingBox.minZ + p_74961_5_, Direction.WEST, this.getLength(), p_74961_6_);
 
                     case WEST:
-                        return this.generateAndAddPiece(p_74961_1_, p_74961_2_, p_74961_3_, this.boundingBox.minX + p_74961_5_, this.boundingBox.minY + p_74961_4_, this.boundingBox.minZ - 1, Direction.NORTH, this.getLength(), p_74961_6_);
-
                     case EAST:
                         return this.generateAndAddPiece(p_74961_1_, p_74961_2_, p_74961_3_, this.boundingBox.minX + p_74961_5_, this.boundingBox.minY + p_74961_4_, this.boundingBox.minZ - 1, Direction.NORTH, this.getLength(), p_74961_6_);
 
@@ -1060,14 +1056,10 @@ public class FortressJunglePieces {
             if (enumfacing != null) {
                 switch (enumfacing) {
                     case NORTH:
-                        return this.generateAndAddPiece(p_74965_1_, p_74965_2_, p_74965_3_, this.boundingBox.maxX + 1, this.boundingBox.minY + p_74965_4_, this.boundingBox.minZ + p_74965_5_, Direction.EAST, this.getLength(), p_74965_6_);
-
                     case SOUTH:
                         return this.generateAndAddPiece(p_74965_1_, p_74965_2_, p_74965_3_, this.boundingBox.maxX + 1, this.boundingBox.minY + p_74965_4_, this.boundingBox.minZ + p_74965_5_, Direction.EAST, this.getLength(), p_74965_6_);
 
                     case WEST:
-                        return this.generateAndAddPiece(p_74965_1_, p_74965_2_, p_74965_3_, this.boundingBox.minX + p_74965_5_, this.boundingBox.minY + p_74965_4_, this.boundingBox.maxZ + 1, Direction.SOUTH, this.getLength(), p_74965_6_);
-
                     case EAST:
                         return this.generateAndAddPiece(p_74965_1_, p_74965_2_, p_74965_3_, this.boundingBox.minX + p_74965_5_, this.boundingBox.minY + p_74965_4_, this.boundingBox.maxZ + 1, Direction.SOUTH, this.getLength(), p_74965_6_);
 
@@ -1088,7 +1080,7 @@ public class FortressJunglePieces {
         protected BlockState getStoneVariantBlockState(BlockState blockstateIn, Random rand) {
             Block block = blockstateIn.getBlock();
 
-            if (block == Blocks.NETHER_BRICKS) {
+            if (blockstateIn.isOf(Blocks.NETHER_BRICKS)) {
                 BlockState newBlockState;
                 float chance = rand.nextFloat();
                 if (chance < 0.50f) {
@@ -1114,9 +1106,11 @@ public class FortressJunglePieces {
 
 
                 return newBlockState;
-            } else if (block == Blocks.NETHER_BRICK_FENCE) {
+            }
+            else if (blockstateIn.isOf(Blocks.NETHER_BRICK_FENCE)) {
                 return Blocks.IRON_BARS.getDefaultState().with(HorizontalConnectingBlock.NORTH, blockstateIn.get(HorizontalConnectingBlock.NORTH)).with(HorizontalConnectingBlock.EAST, Boolean.valueOf(blockstateIn.get(HorizontalConnectingBlock.EAST))).with(HorizontalConnectingBlock.SOUTH, Boolean.valueOf(blockstateIn.get(HorizontalConnectingBlock.SOUTH))).with(HorizontalConnectingBlock.WEST, Boolean.valueOf(blockstateIn.get(HorizontalConnectingBlock.WEST)));
-            } else if (block == Blocks.NETHER_BRICK_STAIRS) {
+            }
+            else if (blockstateIn.isOf(Blocks.NETHER_BRICK_STAIRS)) {
 
                 float chance = rand.nextFloat();
                 if (chance < 0.8f) {
@@ -1126,7 +1120,8 @@ public class FortressJunglePieces {
                     // 20%
                     return Blocks.MOSSY_STONE_BRICK_STAIRS.getDefaultState().with(StairsBlock.FACING, blockstateIn.get(StairsBlock.FACING));
                 }
-            } else if (block == Blocks.SOUL_SAND) {
+            }
+            else if (blockstateIn.isOf(Blocks.SOUL_SAND)) {
                 Tag<Block> ORE_TAG = BlockTags.getContainer().getOrCreate(JF_SOIL_TAG_RL);
                 Collection<Block> allSoilBlocks = ORE_TAG.values();
                 BlockState soilBlock = null;
@@ -1134,11 +1129,12 @@ public class FortressJunglePieces {
                 if (!allSoilBlocks.isEmpty())
                     soilBlock = ((Block) allSoilBlocks.toArray()[rand.nextInt(allSoilBlocks.size())]).getDefaultState();
 
-                if (soilBlock.contains(Properties.MOISTURE))
+                if (soilBlock != null && soilBlock.contains(Properties.MOISTURE))
                     soilBlock = soilBlock.with(Properties.MOISTURE, rand.nextInt(8));
 
                 return soilBlock != null ? soilBlock : Blocks.COARSE_DIRT.getDefaultState();
-            } else if (block == Blocks.NETHER_WART) {
+            }
+            else if (blockstateIn.isOf(Blocks.NETHER_WART)) {
                 Tag<Block> ORE_TAG = BlockTags.getContainer().getOrCreate(JF_PLANT_TAG_RL);
                 Collection<Block> allPlantBlocks = ORE_TAG.values();
                 float chance = rand.nextFloat();
@@ -1165,7 +1161,7 @@ public class FortressJunglePieces {
                 } else {
                     return Blocks.CAVE_AIR.getDefaultState();
                 }
-            } else if (block == Blocks.LAVA) {
+            } else if (blockstateIn.isOf(Blocks.LAVA)) {
                 return Blocks.WATER.getDefaultState();
             }
 

@@ -49,7 +49,7 @@ public class RSMineshaftPieces {
     private static final Identifier BIRCH_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":mineshaft_birch");
     private static final Identifier JUNGLE_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":mineshaft_jungle");
     private static final Identifier TAIGA_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":mineshaft_taiga");
-    private static final Identifier DESERT_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":mineshaft_desert");;
+    private static final Identifier DESERT_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":mineshaft_desert");
     private static final Identifier STONE_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":mineshaft_stone");
     private static final Identifier SAVANNA_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":mineshaft_savanna");
     private static final Identifier SWAMPORDARKFOREST_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":mineshaft_swamp_or_dark_forest");
@@ -317,7 +317,7 @@ public class RSMineshaftPieces {
                         // can only place chorus fruit on end stone
                         for (int x = 0; x <= 2; ++x) {
                             for (int z = 0; z <= offsetInSection; ++z) {
-                                if (this.getBlockAt(world, x, 0, z, box).getBlock() == Blocks.CHORUS_FLOWER) {
+                                if (this.getBlockAt(world, x, 0, z, box).isOf(Blocks.CHORUS_FLOWER)) {
                                     this.addBlock(world, Blocks.END_STONE.getDefaultState(), x, -1, z, box);
                                 }
                             }
@@ -452,14 +452,14 @@ public class RSMineshaftPieces {
         private void placeDecoration(ServerWorldAccess world, BlockBox box, Random random, float probability, int x, int y, int z) {
             if (world.getDimension() != DimensionType.getOverworldDimensionType() || this.isUnderSeaLevel(world, x, y, z, box)) {
                 BlockState decorativeBlock = getDecorativeBlock(random);
-                if (decorativeBlock.getBlock() != Blocks.COBWEB) {
+                if (!decorativeBlock.isOf(Blocks.COBWEB)) {
                     y = 0;
                 }
                 this.addBlockWithRandomThreshold(world, box, random, probability, x, y, z, decorativeBlock);
 
                 // can only place chorus fruit on end stone
                 //Also places it in a grown state
-                if (this.getBlockAt(world, x, y, z, box).getBlock() == Blocks.CHORUS_FLOWER) {
+                if (this.getBlockAt(world, x, y, z, box).isOf(Blocks.CHORUS_FLOWER)) {
                     this.addBlock(world, Blocks.END_STONE.getDefaultState(), x, -1, z, box);
                     this.addBlock(world, Blocks.CHORUS_PLANT.getDefaultState().with(ConnectingBlock.UP, true).with(ConnectingBlock.DOWN, true), x, 0, z, box);
                     this.addBlock(world, Blocks.CHORUS_PLANT.getDefaultState().with(ConnectingBlock.SOUTH, true).with(ConnectingBlock.NORTH, true).with(ConnectingBlock.EAST, true).with(ConnectingBlock.WEST, true).with(ConnectingBlock.DOWN, true), x, 1, z, box);
@@ -645,7 +645,7 @@ public class RSMineshaftPieces {
 
         private void placeSupportPillar(ServerWorldAccess world, BlockBox box, int x, int miny, int z, int maxy, boolean isOceanType) {
             if (this.getBlockAt(world, x, maxy + 1, z, box).getMaterial() != (isOceanType ? Material.WATER : Material.AIR)) {
-                this.fillWithOutline(world, box, x, miny, z, x, maxy, z, this.getFloorBlock() == Blocks.GRASS_BLOCK.getDefaultState() ? Blocks.MOSSY_STONE_BRICKS.getDefaultState() : this.getFloorBlock(), getFillingBlock(), false);
+                this.fillWithOutline(world, box, x, miny, z, x, maxy, z, this.getFloorBlock().isOf(Blocks.GRASS_BLOCK) ? Blocks.MOSSY_STONE_BRICKS.getDefaultState() : this.getFloorBlock(), getFillingBlock(), false);
             }
         }
     }
@@ -991,7 +991,7 @@ public class RSMineshaftPieces {
                     for (int y = yMax; y >= yMin; --y) {
                         BlockState aboveBlockState = this.getBlockAt(world, x, y + 1, z, boundingbox);
                         if (this.getBlockAt(world, x, y, z, boundingbox).isAir()) {
-                            if ((aboveBlockState.isOpaque() || aboveBlockState.getBlock() == Blocks.VINE)) {
+                            if ((aboveBlockState.isOpaque() || aboveBlockState.isOf(Blocks.VINE))) {
                                 vineLength++;
                                 if (aboveBlockState.isOpaque()) {
                                     this.setVineBlockState(world, vineBlock.with(VineBlock.UP, true), x, y, z, boundingbox);

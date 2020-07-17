@@ -26,7 +26,7 @@ public class RSStonebrickStrongholdStructure extends StrongholdFeature {
 
     @Override
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, int x, int z, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig featureConfig) {
-        return (x * x) + (z * z) > 100;
+        return (x * x) + (z * z) > 10000;
     }
 
     @Override

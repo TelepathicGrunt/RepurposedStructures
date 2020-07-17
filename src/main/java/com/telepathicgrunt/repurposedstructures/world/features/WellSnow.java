@@ -3,6 +3,7 @@ package com.telepathicgrunt.repurposedstructures.world.features;
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.structure.Structure;
 import net.minecraft.util.Identifier;
@@ -33,8 +34,8 @@ public class WellSnow extends WellAbstract {
         }
 
         // check to make sure spot is valid and not a single block ledge
-        Block block = world.getBlockState(mutable).getBlock();
-        if ((block == Blocks.SNOW_BLOCK || isDirt(block)) && (!world.isAir(mutable.down()) || !world.isAir(mutable.down(2)))) {
+        BlockState block = world.getBlockState(mutable);
+        if ((block.isOf(Blocks.SNOW_BLOCK) || isDirt(block.getBlock())) && (!world.isAir(mutable.down()) || !world.isAir(mutable.down(2)))) {
             // Creates the well centered on our spot
             mutable.move(Direction.DOWN);
             Structure template = this.generateTemplate(SNOW_WELL_RL, world, random, mutable);

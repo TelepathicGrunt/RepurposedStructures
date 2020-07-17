@@ -32,7 +32,7 @@ public class RepurposedStructures implements ModInitializer {
         RSPlacements.registerPlacements();
         RSFeatures.registerFeatures();
 
-        LoadNbtBlock.instantiateNbtBlock();
+        //LoadNbtBlock.instantiateNbtBlock();
 
         for (Biome biome : Registry.BIOME) {
             addFeaturesAndStructuresToBiomes(biome, Registry.BIOME.getId(biome));

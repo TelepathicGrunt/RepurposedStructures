@@ -54,7 +54,7 @@ public class WellNether extends WellAbstract {
                     blockState.getMaterial() == Material.AGGREGATE ||
                     blockState.getMaterial() == Material.STONE ||
                     blockState.getMaterial() == Material.SOIL ||
-                    block == world.getBiome(mutable).getSurfaceConfig().getTopMaterial().getBlock()) &&
+                    blockState.isOf(world.getBiome(mutable).getSurfaceConfig().getTopMaterial().getBlock())) &&
                     !world.isAir(mutable.down()) &&
                     world.isAir(mutable.up(3)) &&
                     !world.isAir(mutable.north(2).down()) &&

@@ -38,7 +38,7 @@ public class VinesShort extends Feature<DefaultFeatureConfig> {
         for (; blockpos$Mutable.getY() > 15 && length < random.nextInt(3) + 4; blockpos$Mutable.move(Direction.DOWN)) {
             if (world.isAir(blockpos$Mutable)) {
                 for (Direction direction : Direction.Type.HORIZONTAL) {
-                    currentBlockstate = Blocks.VINE.getDefaultState().with(VineBlock.getFacingProperty(direction), Boolean.valueOf(true));
+                    currentBlockstate = Blocks.VINE.getDefaultState().with(VineBlock.getFacingProperty(direction), Boolean.TRUE);
                     aboveBlockstate = world.getBlockState(blockpos$Mutable.up());
 
                     if (currentBlockstate.canPlaceAt(world, blockpos$Mutable)) {
@@ -49,7 +49,7 @@ public class VinesShort extends Feature<DefaultFeatureConfig> {
                         length++;
                         break;
                     }
-                    else if (aboveBlockstate.getBlock() == Blocks.VINE) {
+                    else if (aboveBlockstate.isOf(Blocks.VINE)) {
                         //places rest of the vine as long as vine is above
                         //tick scheduled so it can break if block it was attached to was removed later in worldgen
                         world.setBlockState(blockpos$Mutable, aboveBlockstate.with(VineBlock.UP, false), 2);

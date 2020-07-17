@@ -214,7 +214,7 @@
               }
             }
           ],
-          "name": "minecraft:crimson_fungus"
+          "name": "minecraft:warped_fungus"
         },
         {
           "type": "minecraft:item",
@@ -229,7 +229,7 @@
               }
             }
           ],
-          "name": "minecraft:nether_wart_block"
+          "name": "minecraft:warped_wart_block"
         },
         {
           "type": "minecraft:item",

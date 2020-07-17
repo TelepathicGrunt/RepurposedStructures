@@ -72,6 +72,11 @@ public class RSStrongholdsConfig implements ConfigData
 				+ "\n1 for spawning in most chunks and 1001 for no spawn.")
 		@ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
 		public int stonebrickStrongholdSpawnrate = 85;
+
+		@ConfigEntry.Gui.Tooltip()
+		@Comment("How rare are Chains in this Stronghold. (Can have Lantern attached)")
+		@ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
+		public int stonebrickStrongholdChainSpawnrate = 35;
 	}
 
 	public static class Nether {
@@ -100,5 +105,10 @@ public class RSStrongholdsConfig implements ConfigData
 				+ "\nIf below min height, this will be read as min.")
 		@ConfigEntry.BoundedDiscrete(min = 0, max = 255)
 		public int netherStrongholdMaxHeight = 36;
+
+		@ConfigEntry.Gui.Tooltip()
+		@Comment("How rare are Chains in this Stronghold. (Can have Soul Lantern attached)")
+		@ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
+		public int netherStrongholdChainSpawnrate = 50;
 	}
 }

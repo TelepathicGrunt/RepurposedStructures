@@ -26,9 +26,11 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 -Both Overworld and Nether Strongholds no longer will spawn within 1600 blocks of world origin.
 
+-Added Chains to both Overworld and Nether Strongholds and the chains has a small chance of having a Lantern or Soul Lantern!
+
 ##### Shipwrecks:
 
--Added End Shipwreck to End Highlands! Check out their amazing loot!
+-Added End Shipwreck to End Highlands! Check out their amazing loot! (Special thanks to cannon_foddr for the design!)
 
 ##### Fortress:
 

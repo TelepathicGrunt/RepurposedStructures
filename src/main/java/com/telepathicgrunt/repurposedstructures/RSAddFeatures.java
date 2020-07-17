@@ -388,12 +388,13 @@ public class RSAddFeatures {
             //replace vanilla stronghold with ours if vanilla's is present
             ((BiomeStructureAccessor) biome).getStructureFeatures().remove(StructureFeature.STRONGHOLD);
             biome.addStructureFeature(RSFeatures.STONEBRICK_STRONGHOLD.configure(FeatureConfig.DEFAULT));
-
+            biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, RSFeatures.STRONGHOLD_CHAINS.configure(FeatureConfig.DEFAULT).createDecoratedFeature(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.stonebrickStrongholdChainSpawnrate, 5, 0, Math.max(RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.stonebrickStrongholdMaxHeight, RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.stonebrickStrongholdMinHeight+1)+15))));
         }
 
         else if (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdSpawnrate != 1001 && biome.getCategory() == Category.NETHER &&
                 (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.addNetherStrongholdToModdedBiomes)) {
             biome.addStructureFeature(RSFeatures.NETHER_STRONGHOLD.configure(FeatureConfig.DEFAULT));
+            biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, RSFeatures.STRONGHOLD_CHAINS.configure(FeatureConfig.DEFAULT).createDecoratedFeature(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdChainSpawnrate, 5, 0, Math.max(RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdMaxHeight, RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdMinHeight+1)+15))));
         }
     }
 
@@ -406,14 +407,14 @@ public class RSAddFeatures {
         //Nether based Outposts
         if(biome.getCategory() == Category.NETHER)
         {
-            if (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.netherBrickOutpostSpawnrate != 1001 &&
+            if (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.crimsonOutpostSpawnrate != 1001 &&
                     biomePath.contains("crimson") &&
-                    (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.addNetherBrickOutpostToModdedBiomes)) {
+                    (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.addCrimsonOutpostToModdedBiomes)) {
                 biome.addStructureFeature(RSFeatures.CRIMSON_OUTPOST.configure(FeatureConfig.DEFAULT));
             }
-            else if (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.netherBrickOutpostSpawnrate != 1001 &&
+            else if (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.warpedOutpostSpawnrate != 1001 &&
                     biomePath.contains("warped") &&
-                    (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.addNetherBrickOutpostToModdedBiomes)) {
+                    (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.addWarpedOutpostToModdedBiomes)) {
                 biome.addStructureFeature(RSFeatures.WARPED_OUTPOST.configure(FeatureConfig.DEFAULT));
             }
             else if (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.netherBrickOutpostSpawnrate != 1001 &&
@@ -429,10 +430,10 @@ public class RSAddFeatures {
 
     public static void addShipwrecks(Biome biome, String biomeNamespace, String biomePath) {
 
-        if (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.netherBrickOutpostSpawnrate != 1001 &&
+        if (RepurposedStructures.RSAllConfig.RSMainConfig.shipwrecks.endShipwreckSpawnrate != 1001 &&
                 (biome == Biomes.END_HIGHLANDS ||
                 (!biomeNamespace.equals("minecraft") && biome.getCategory() == Category.THEEND &&
-                RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.addNetherBrickOutpostToModdedBiomes))) {
+                RepurposedStructures.RSAllConfig.RSMainConfig.shipwrecks.addEndShipwreckToModdedBiomes))) {
             biome.addStructureFeature(RSFeatures.END_SHIPWRECK.configure(FeatureConfig.DEFAULT));
         }
     }

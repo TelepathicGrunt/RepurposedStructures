@@ -16,6 +16,9 @@ public class RSMainConfig implements ConfigData {
     public JungleFortress jungleFortress = new JungleFortress();
 
     @ConfigEntry.Gui.CollapsibleObject
+    public Shipwrecks shipwrecks = new Shipwrecks();
+
+    @ConfigEntry.Gui.CollapsibleObject
     public Igloos igloos = new Igloos();
 
 
@@ -64,6 +67,18 @@ public class RSMainConfig implements ConfigData {
         @Comment("Add Jungle Fortress to modded jungle biomes.")
         public boolean addJungleFortressToModdedBiomes = false;
 
+    }
+    public static class Shipwrecks {
+
+        @ConfigEntry.Gui.Tooltip(count = 2)
+        @Comment("How rare are End Shipwreck in End Highlands biomes."
+                + "\n1 for spawning in most chunks and 1001 for none.")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int endShipwreckSpawnrate = 21;
+
+        @ConfigEntry.Gui.Tooltip(count = 1)
+        @Comment("Add End Shipwreck to modded End biomes.")
+        public boolean addEndShipwreckToModdedBiomes = false;
     }
 
     public static class Igloos {

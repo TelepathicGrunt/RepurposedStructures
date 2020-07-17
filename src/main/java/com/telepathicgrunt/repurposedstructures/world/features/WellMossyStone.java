@@ -37,8 +37,8 @@ public class WellMossyStone extends WellAbstract {
         }
 
         // check to make sure spot is valid and not a single block ledge
-        Block block = world.getBlockState(mutable).getBlock();
-        if ((BlockTags.SAND.contains(block) || block == Blocks.CLAY || isDirt(block))
+        BlockState block = world.getBlockState(mutable);
+        if ((BlockTags.SAND.contains(block.getBlock()) || block.isOf(Blocks.CLAY) || isDirt(block.getBlock()))
                 && (!world.isAir(mutable.down()) || !world.isAir(mutable.down(2)))) {
             // Creates the well centered on our spot
             mutable.move(Direction.DOWN);
@@ -61,14 +61,14 @@ public class WellMossyStone extends WellAbstract {
     }
 
     private static void mossifyBlocks(ServerWorldAccess world, Random random, BlockPos position) {
-        Block block = world.getBlockState(position).getBlock();
-        if (block == Blocks.STONE_BRICKS && random.nextFloat() < 0.6f) {
+        BlockState block = world.getBlockState(position);
+        if (block.isOf(Blocks.STONE_BRICKS) && random.nextFloat() < 0.6f) {
             world.setBlockState(position, Blocks.MOSSY_STONE_BRICKS.getDefaultState(), 2);
-        } else if (block == Blocks.STONE_BRICK_WALL && random.nextFloat() < 0.6f) {
+        } else if (block.isOf(Blocks.STONE_BRICK_WALL) && random.nextFloat() < 0.6f) {
             world.setBlockState(position, Blocks.MOSSY_STONE_BRICK_WALL.getDefaultState(), 2);
-        } else if (block == Blocks.STONE_BRICK_SLAB && random.nextFloat() < 0.6f) {
+        } else if (block.isOf(Blocks.STONE_BRICK_SLAB) && random.nextFloat() < 0.6f) {
             world.setBlockState(position, Blocks.MOSSY_STONE_BRICK_SLAB.getDefaultState(), 2);
-        } else if (block == Blocks.COBBLESTONE && random.nextFloat() < 0.5f) {
+        } else if (block.isOf(Blocks.COBBLESTONE) && random.nextFloat() < 0.5f) {
             world.setBlockState(position, Blocks.MOSSY_COBBLESTONE.getDefaultState(), 2);
         }
     }

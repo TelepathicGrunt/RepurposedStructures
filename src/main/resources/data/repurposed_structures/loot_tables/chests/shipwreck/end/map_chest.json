@@ -12,7 +12,7 @@
 							"destination": "endcity",
 							"decoration": "banner_magenta",
 							"zoom": 2,
-							"skip_existing_chunks": false
+							"skip_existing_chunks": true
 						}
 					],
 					"name": "minecraft:map"
