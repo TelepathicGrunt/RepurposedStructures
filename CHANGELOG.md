@@ -10,6 +10,14 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ## (V.1.2.1 Changes) (1.16.1 Minecraft)
 
+##### All Structures:
+
+-Greatly improved the /locate command's speed at finding Repurposed Structures's structures at any distance (including the Mineshafts too)!
+
+##### Fortress:
+
+-Jungle Fortress now needs to be more inside a Jungle biome to spawn instead of close to the edge.
+
 ##### Wells:
 
 -Fixed Nether Wells crashing when a mod adds a biome that returns null for their top block in their surfacebuilder. Dunno why anyone would do that but someone did lol.

@@ -2,49 +2,47 @@ package com.telepathicgrunt.repurposedstructures.world.features.structures;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
 import net.minecraft.structure.StructureManager;
-import net.minecraft.structure.StructureStart;
+import net.minecraft.structure.VillageGenerator;
 import net.minecraft.structure.VillageStructureStart;
 import net.minecraft.tag.BlockTags;
-import net.minecraft.util.BlockRotation;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.source.BiomeSource;
+import net.minecraft.world.gen.ChunkRandom;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
-import net.minecraft.world.gen.feature.FeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
+import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 
-
-public abstract class AbstractNetherStructure extends AbstractBaseStructure {
-    public AbstractNetherStructure(Codec<DefaultFeatureConfig> config) {
+public abstract class AbstractNetherVillageStructure extends AbstractVillageStructure {
+    public AbstractNetherVillageStructure(Codec<DefaultFeatureConfig> config) {
         super(config);
     }
 
-    public static abstract class AbstractStart extends VillageStructureStart<DefaultFeatureConfig> {
-        public AbstractStart(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
+    public static abstract class NetherAbstractStart extends AbstractStart {
+        public NetherAbstractStart(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
         }
 
-
-        public BlockPos getHighestLand(ChunkGenerator chunkGenerator){
+        public BlockPos getHighestLand(ChunkGenerator chunkGenerator) {
             BlockPos.Mutable mutable = new BlockPos.Mutable().set(this.boundingBox.getCenter().getX(), 108, this.boundingBox.getCenter().getZ());
             BlockView blockView = chunkGenerator.getColumnSample(mutable.getX(), mutable.getZ());
             BlockState currentBlockstate;
-            while(mutable.getY() > 33){
+            while (mutable.getY() > 33) {
                 currentBlockstate = blockView.getBlockState(mutable);
-                if(!currentBlockstate.isSolidBlock(blockView, mutable)){
+                if (!currentBlockstate.isSolidBlock(blockView, mutable)) {
                     mutable.move(Direction.DOWN);
                     continue;
                 }
-                else if(blockView.getBlockState(mutable.add(0,3,0)).getMaterial() == Material.AIR &&
-                        isValidBlock(currentBlockstate))
-                {
+                else if (blockView.getBlockState(mutable.add(0, 3, 0)).getMaterial() == Material.AIR &&
+                        isValidBlock(currentBlockstate)) {
                     break;
                 }
                 mutable.move(Direction.DOWN);
@@ -53,32 +51,8 @@ public abstract class AbstractNetherStructure extends AbstractBaseStructure {
             return mutable;
         }
 
-        public BlockPos getLowestLand(ChunkGenerator chunkGenerator){
-            BlockPos.Mutable mutable = new BlockPos.Mutable().set(this.boundingBox.getCenter().getX(), 35, this.boundingBox.getCenter().getZ());
-            BlockView blockView = chunkGenerator.getColumnSample(mutable.getX(), mutable.getZ());
-            BlockState currentBlockstate = blockView.getBlockState(mutable);
-            while (mutable.getY() <= 108) {
-
-                if(blockView.getBlockState(mutable).getMaterial() != Material.AIR &&
-                        blockView.getBlockState(mutable.up()).getMaterial() == Material.AIR &&
-                        blockView.getBlockState(mutable.up(5)).getMaterial() == Material.AIR &&
-                        isValidBlock(currentBlockstate))
-                {
-                    mutable.move(Direction.UP);
-                    break;
-                }
-
-                mutable.move(Direction.UP);
-                currentBlockstate = blockView.getBlockState(mutable);
-            }
-
-            return mutable;
-        }
-
-
-
-        private boolean isValidBlock(BlockState currentBlockstate){
-            if(BlockTags.INFINIBURN_NETHER.contains(currentBlockstate.getBlock()) ||
+        private boolean isValidBlock(BlockState currentBlockstate) {
+            if (BlockTags.INFINIBURN_NETHER.contains(currentBlockstate.getBlock()) ||
                     BlockTags.VALID_SPAWN.contains(currentBlockstate.getBlock()) ||
                     BlockTags.SAND.contains(currentBlockstate.getBlock()) ||
                     BlockTags.NYLIUM.contains(currentBlockstate.getBlock()) ||

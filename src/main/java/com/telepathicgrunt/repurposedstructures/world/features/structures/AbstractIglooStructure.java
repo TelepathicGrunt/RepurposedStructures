@@ -16,7 +16,7 @@ import net.minecraft.world.gen.feature.FeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
 
-public abstract class AbstractIglooStructure extends StructureFeature<DefaultFeatureConfig> {
+public abstract class AbstractIglooStructure extends AbstractBaseStructure {
     public AbstractIglooStructure(Codec<DefaultFeatureConfig> config) {
         super(config);
     }

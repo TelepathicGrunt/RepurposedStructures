@@ -24,7 +24,7 @@ import net.minecraft.world.gen.feature.StructureFeature;
 import java.util.ArrayList;
 
 
-public class EndShipwreckStructure extends StructureFeature<DefaultFeatureConfig> {
+public class EndShipwreckStructure extends AbstractBaseStructure {
     public EndShipwreckStructure(Codec<DefaultFeatureConfig> config) {
         super(config);
     }

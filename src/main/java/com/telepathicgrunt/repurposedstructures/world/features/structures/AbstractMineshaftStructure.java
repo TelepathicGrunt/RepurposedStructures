@@ -1,24 +1,34 @@
 package com.telepathicgrunt.repurposedstructures.world.features.structures;
 
 import com.mojang.serialization.Codec;
+import com.telepathicgrunt.repurposedstructures.RSFeatures;
 import net.minecraft.structure.StructureManager;
 import net.minecraft.structure.StructurePiece;
 import net.minecraft.structure.StructureStart;
 import net.minecraft.util.math.BlockBox;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
+import net.minecraft.util.math.ChunkSectionPos;
+import net.minecraft.world.WorldView;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.source.BiomeSource;
+import net.minecraft.world.chunk.Chunk;
+import net.minecraft.world.chunk.ChunkStatus;
 import net.minecraft.world.gen.ChunkRandom;
+import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
+import net.minecraft.world.gen.chunk.StructureConfig;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
 
-public abstract class AbstractMineshaftStructure extends StructureFeature<DefaultFeatureConfig> {
+public abstract class AbstractMineshaftStructure extends AbstractBaseStructure {
 
     public AbstractMineshaftStructure(Codec<DefaultFeatureConfig> config) {
         super(config);
     }
+
+    public abstract double getProbability();
 
     @Override
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, int x, int z, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig featureConfig) {
@@ -26,8 +36,6 @@ public abstract class AbstractMineshaftStructure extends StructureFeature<Defaul
         double d = (getProbability() / 10000D);
         return chunkRandom.nextDouble() < d;
     }
-
-    public abstract double getProbability();
 
     public static abstract class AbstractStart extends StructureStart<DefaultFeatureConfig> {
         public AbstractStart(StructureFeature<DefaultFeatureConfig> feature, int chunkX, int chunkZ, BlockBox box, int references, long seed) {

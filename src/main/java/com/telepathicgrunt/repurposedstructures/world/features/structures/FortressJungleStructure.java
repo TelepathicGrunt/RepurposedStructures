@@ -19,18 +19,15 @@ import net.minecraft.world.gen.feature.StructureFeature;
 import java.util.List;
 
 
-public class FortressJungleStructure extends StructureFeature<DefaultFeatureConfig> {
+public class FortressJungleStructure extends AbstractBaseStructure {
     public FortressJungleStructure(Codec<DefaultFeatureConfig> codec) {
         super(codec);
     }
 
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long l, ChunkRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig defaultFeatureConfig) {
-        int x = chunkX >> 4;
-        int z = chunkZ >> 4;
-
         for (int curChunkX = chunkX - 2; curChunkX <= chunkX + 2; curChunkX += 2) {
             for (int curChunkZ = chunkZ - 2; curChunkZ <= chunkZ + 2; curChunkZ += 2) {
-                if (biomeSource.getBiomeForNoiseGen(curChunkX * 16, 60, curChunkZ * 16).hasStructureFeature(RSFeatures.JUNGLE_FORTRESS)) {
+                if (!biomeSource.getBiomeForNoiseGen(curChunkX << 2, 60, curChunkZ << 2).hasStructureFeature(RSFeatures.JUNGLE_FORTRESS)) {
                     return false;
                 }
             }
