@@ -28,7 +28,6 @@ public class RepurposedStructures implements ModInitializer {
         AutoConfig.register(RSAllConfig.class, Toml4jConfigSerializer::new);
         RSAllConfig = AutoConfig.getConfigHolder(RSAllConfig.class).getConfig();
 
-        RSFeatures.registerVillagePools();
         RSPlacements.registerPlacements();
         RSFeatures.registerFeatures();
 

@@ -54,4 +54,17 @@ public class RSVillagesConfig implements ConfigData {
             + "\n1 for spawning in most chunks and 1001 for no spawn.")
     @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
     public int giantTaigaVillageSpawnrate = 26;
+
+
+    @ConfigEntry.Gui.Tooltip(count = 2)
+    @Comment("How rare are Crimson Village in Crimson Forest biomes."
+            + "\n1 for spawning in most chunks and 1001 for none.")
+    @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+    public int crimsonVillageSpawnrate = 25;
+
+    @ConfigEntry.Gui.Tooltip(count = 2)
+    @Comment("How rare are Warped Village in Warped Forest biomes."
+            + "\n1 for spawning in most chunks and 1001 for none.")
+    @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+    public int warpedVillageSpawnrate = 21;
 }

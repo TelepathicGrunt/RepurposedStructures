@@ -3,27 +3,20 @@ package com.telepathicgrunt.repurposedstructures.world.features.structures;
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RSFeatures;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Material;
 import net.minecraft.structure.StructureManager;
-import net.minecraft.structure.VillageGenerator;
-import net.minecraft.tag.BlockTags;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.BlockView;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.source.BiomeSource;
 import net.minecraft.world.gen.ChunkRandom;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
-import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 
-public class VillageNetherStructure extends AbstractNetherVillageStructure {
-    public VillageNetherStructure(Codec<DefaultFeatureConfig> config) {
+public class VillageCrimsonStructure extends AbstractNetherVillageStructure {
+    public VillageCrimsonStructure(Codec<DefaultFeatureConfig> config) {
         super(config);
     }
 
@@ -34,11 +27,11 @@ public class VillageNetherStructure extends AbstractNetherVillageStructure {
 
     @Override
     public StructureFeature<DefaultFeatureConfig> getVillageInstance() {
-        return RSFeatures.NETHER_BRICK_OUTPOST;
+        return RSFeatures.CRIMSON_VILLAGE;
     }
 
     public StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
-        return VillageNetherStructure.Start::new;
+        return VillageCrimsonStructure.Start::new;
     }
 
     public static class Start extends NetherAbstractStart {

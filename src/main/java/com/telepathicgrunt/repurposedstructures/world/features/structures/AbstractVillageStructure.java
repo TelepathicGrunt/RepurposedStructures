@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.features.structures;
 
 import com.mojang.serialization.Codec;
+import com.telepathicgrunt.repurposedstructures.RSFeatures;
 import net.minecraft.structure.StructureManager;
 import net.minecraft.structure.StructureStart;
 import net.minecraft.structure.VillageGenerator;
@@ -42,21 +43,23 @@ public abstract class AbstractVillageStructure extends StructureFeature<DefaultF
         return true;
     }
 
-    @Override
-    public BlockPos locateStructure(WorldView worldView, StructureAccessor structureAccessor, BlockPos blockPos, int radius, boolean skipExistingChunks, long seed, StructureConfig structureConfig) {
-        return AbstractBaseStructure.locateStructureFast(worldView, structureAccessor, blockPos, radius, skipExistingChunks, seed, structureConfig, this);
-    }
 
     public static abstract class AbstractStart extends VillageStructureStart<DefaultFeatureConfig> {
         public AbstractStart(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
         }
 
-
         public abstract Identifier getIdentifier();
         public abstract int getSize();
 
+        private static boolean initalizedPools = false;
+
         public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
+            if(!initalizedPools){
+                RSFeatures.registerVillagePools();
+                initalizedPools = true;
+            }
+
             BlockPos blockpos = new BlockPos(chunkX * 16, 0, chunkZ * 16);
             VillageGenerator.addPieces(chunkGenerator, structureManager, blockpos, this.children, this.random, new StructurePoolFeatureConfig(getIdentifier(), getSize()));
             this.setBoundingBoxFromChildren();

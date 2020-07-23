@@ -20,11 +20,6 @@ public abstract class AbstractBaseStructure extends StructureFeature<DefaultFeat
         super(codec);
     }
 
-    @Override
-    public BlockPos locateStructure(WorldView worldView, StructureAccessor structureAccessor, BlockPos blockPos, int radius, boolean skipExistingChunks, long seed, StructureConfig structureConfig) {
-        return AbstractBaseStructure.locateStructureFast(worldView, structureAccessor, blockPos, radius, skipExistingChunks, seed, structureConfig, this);
-    }
-
     public static BlockPos locateStructureFast(WorldView worldView, StructureAccessor structureAccessor, BlockPos blockPos, int radius, boolean skipExistingChunks, long seed, StructureConfig structureConfig, StructureFeature<DefaultFeatureConfig> structure) {
         int spacing = structureConfig.getSpacing();
         int chunkX = blockPos.getX() >> 4;

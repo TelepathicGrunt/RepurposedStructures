@@ -28,7 +28,7 @@ public class NoVillageLakesMixin {
     )
     private void checkForRSVillages(ServerWorldAccess serverWorldAccess, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos blockPos, SingleStateFeatureConfig singleStateFeatureConfig, CallbackInfoReturnable<Boolean> cir) {
 
-        for (StructureFeature<DefaultFeatureConfig> village : RSFeatures.VILLAGE_LIST) {
+        for (StructureFeature<DefaultFeatureConfig> village : RSFeatures.OVERWORLD_VILLAGE_LIST) {
             if (structureAccessor.getStructuresWithChildren(ChunkSectionPos.from(blockPos), village).findAny().isPresent()) {
                 cir.setReturnValue(false);
             }

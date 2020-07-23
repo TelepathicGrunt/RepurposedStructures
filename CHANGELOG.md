@@ -14,6 +14,14 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 -Greatly improved the /locate command's speed at finding Repurposed Structures's structures at any distance (including the Mineshafts too)!
 
+##### Villages:
+
+-Added Crimson Village to Crimson Forest biome in the Nether!
+
+-Added Warped Village to Warped Forest biome in the Nether!
+
+-Moved the village pool registration to during worldgen to make sure datapacks can replace the village piece nbt files.
+
 ##### Fortress:
 
 -Jungle Fortress now needs to be more inside a Jungle biome to spawn instead of close to the edge.
@@ -25,6 +33,10 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Outposts:
 
 -Fixed Warped and Crimson Outpost's config tooltip not showing.
+
+##### Shipwrecks:
+
+-Fixed Treasure Map's name in End Shipwrecks.
 
 ## (V.1.2.0 Changes) (1.16.1 Minecraft)
 

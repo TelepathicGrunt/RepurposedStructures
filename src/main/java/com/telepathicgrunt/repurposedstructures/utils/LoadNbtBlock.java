@@ -43,8 +43,10 @@ public class LoadNbtBlock extends Block {
         List<Identifier> identifiers = new ArrayList<>();
         StructureNbtDataFixer.setAllNbtFilesToList(resourcePath, files);
         for(File file : files){
-            String modifiedFileName = file.getAbsolutePath().replace(resourcePath+"\\","").replace("\\structures\\",":").replace(".nbt","").replace('\\','/');
-            identifiers.add(new Identifier(modifiedFileName));
+            if(file.getAbsolutePath().contains("crimson") && file.getAbsolutePath().contains("village")){
+                String modifiedFileName = file.getAbsolutePath().replace(resourcePath+"\\","").replace("\\structures\\",":").replace(".nbt","").replace('\\','/');
+                identifiers.add(new Identifier(modifiedFileName));
+            }
         }
 
         // Size of area we will need

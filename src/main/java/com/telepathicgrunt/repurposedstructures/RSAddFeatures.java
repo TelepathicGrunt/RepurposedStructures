@@ -576,6 +576,16 @@ public class RSAddFeatures {
                 biome.addStructureFeature(RSFeatures.GIANT_TAIGA_VILLAGE.configure(FeatureConfig.DEFAULT));
             }
         }
+        else if (RepurposedStructures.RSAllConfig.RSVillagesConfig.crimsonVillageSpawnrate != 1001 &&
+                biome.getCategory() == Category.NETHER && biomePath.contains("crimson") &&
+                (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSVillagesConfig.addVillagesToModdedBiomes)) {
+            biome.addStructureFeature(RSFeatures.CRIMSON_VILLAGE.configure(FeatureConfig.DEFAULT));
+        }
+        else if (RepurposedStructures.RSAllConfig.RSVillagesConfig.warpedVillageSpawnrate != 1001 &&
+                biome.getCategory() == Category.NETHER && biomePath.contains("warped") &&
+                (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSVillagesConfig.addVillagesToModdedBiomes)) {
+            biome.addStructureFeature(RSFeatures.WARPED_VILLAGE.configure(FeatureConfig.DEFAULT));
+        }
     }
 
 

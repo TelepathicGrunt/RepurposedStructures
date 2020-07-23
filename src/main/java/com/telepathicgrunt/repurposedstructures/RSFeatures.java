@@ -88,7 +88,9 @@ public class RSFeatures {
     public static StructureFeature<DefaultFeatureConfig> SWAMP_VILLAGE = new VillageSwampStructure(DefaultFeatureConfig.CODEC);
     public static StructureFeature<DefaultFeatureConfig> MOUNTAINS_VILLAGE = new VillageMountainsStructure(DefaultFeatureConfig.CODEC);
     public static StructureFeature<DefaultFeatureConfig> GIANT_TAIGA_VILLAGE = new VillageGiantTaigaStructure(DefaultFeatureConfig.CODEC);
-    public static List<StructureFeature<DefaultFeatureConfig>> VILLAGE_LIST = Arrays.asList(
+    public static StructureFeature<DefaultFeatureConfig> CRIMSON_VILLAGE = new VillageCrimsonStructure(DefaultFeatureConfig.CODEC);
+    public static StructureFeature<DefaultFeatureConfig> WARPED_VILLAGE = new VillageWarpedStructure(DefaultFeatureConfig.CODEC);
+    public static List<StructureFeature<DefaultFeatureConfig>> OVERWORLD_VILLAGE_LIST = Arrays.asList(
             BADLANDS_VILLAGE,
             BIRCH_VILLAGE,
             DARK_FOREST_VILLAGE,
@@ -166,9 +168,10 @@ public class RSFeatures {
         LibStructure.registerSurfaceAdjustingStructure(new Identifier(RepurposedStructures.MODID, "village_swamp"), SWAMP_VILLAGE, GenerationStep.Feature.SURFACE_STRUCTURES, new StructureConfig(RepurposedStructures.RSAllConfig.RSVillagesConfig.swampVillageSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSVillagesConfig.swampVillageSpawnrate * 0.75f), 399117368), SWAMP_VILLAGE.configure(FeatureConfig.DEFAULT));
         LibStructure.registerSurfaceAdjustingStructure(new Identifier(RepurposedStructures.MODID, "village_mountains"), MOUNTAINS_VILLAGE, GenerationStep.Feature.SURFACE_STRUCTURES, new StructureConfig(RepurposedStructures.RSAllConfig.RSVillagesConfig.mountainsVillageSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSVillagesConfig.mountainsVillageSpawnrate * 0.75f), 399117369), MOUNTAINS_VILLAGE.configure(FeatureConfig.DEFAULT));
         LibStructure.registerSurfaceAdjustingStructure(new Identifier(RepurposedStructures.MODID, "village_giant_taiga"), GIANT_TAIGA_VILLAGE, GenerationStep.Feature.SURFACE_STRUCTURES, new StructureConfig(RepurposedStructures.RSAllConfig.RSVillagesConfig.giantTaigaVillageSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSVillagesConfig.giantTaigaVillageSpawnrate * 0.75f), 399117370), GIANT_TAIGA_VILLAGE.configure(FeatureConfig.DEFAULT));
+        LibStructure.registerSurfaceAdjustingStructure(new Identifier(RepurposedStructures.MODID, "village_crimson"), CRIMSON_VILLAGE, GenerationStep.Feature.SURFACE_STRUCTURES, new StructureConfig(RepurposedStructures.RSAllConfig.RSVillagesConfig.crimsonVillageSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSVillagesConfig.crimsonVillageSpawnrate * 0.75f), 399117375), CRIMSON_VILLAGE.configure(FeatureConfig.DEFAULT));
+        LibStructure.registerSurfaceAdjustingStructure(new Identifier(RepurposedStructures.MODID, "village_warped"), WARPED_VILLAGE, GenerationStep.Feature.SURFACE_STRUCTURES, new StructureConfig(RepurposedStructures.RSAllConfig.RSVillagesConfig.warpedVillageSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSVillagesConfig.warpedVillageSpawnrate * 0.75f), 399117376), WARPED_VILLAGE.configure(FeatureConfig.DEFAULT));
 
-
-        //Next avaliable seed: 399117375
+        //Next avaliable seed: 399117377
 
         //registers the structure pieces.
         StructurePieces.registerStructurePieces();
@@ -182,5 +185,7 @@ public class RSFeatures {
         VillageSwampPools.init();
         VillageMountainsPools.init();
         VillageGiantTaigaPools.init();
+        VillageCrimsonPools.init();
+        VillageWarpedPools.init();
     }
 }
