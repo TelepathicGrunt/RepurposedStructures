@@ -240,7 +240,6 @@ public class VillageCrimsonPools
        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/crimson/decor"), new Identifier("empty"),
 	       ImmutableList.of(new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/crimson/lamp_1"), 8),
 		       new Pair<>(new FeaturePoolElement(Feature.HUGE_FUNGUS.configure(HugeFungusFeatureConfig.CRIMSON_FUNGUS_NOT_PLANTED_CONFIG)), 4),
-		       new Pair<>(new FeaturePoolElement(Feature.FLOWER.configure(DefaultBiomeFeatures.NETHER_FIRE_CONFIG)), 1),
 		       new Pair<>(new FeaturePoolElement(Feature.BLOCK_PILE.configure(DefaultBiomeFeatures.CRIMSON_ROOTS_CONFIG)), 4),
 		       Pair.of(EmptyPoolElement.INSTANCE, 2)),
 	       StructurePool.Projection.RIGID));
@@ -249,7 +248,6 @@ public class VillageCrimsonPools
 	       ImmutableList.of(
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/crimson/lamp_1", zombiefy), 3),
 		       new Pair<>(new FeaturePoolElement(Feature.HUGE_FUNGUS.configure(HugeFungusFeatureConfig.CRIMSON_FUNGUS_NOT_PLANTED_CONFIG)), 4),
-		       new Pair<>(new FeaturePoolElement(Feature.FLOWER.configure(DefaultBiomeFeatures.NETHER_FIRE_CONFIG)), 1),
 		       new Pair<>(new FeaturePoolElement(Feature.BLOCK_PILE.configure(DefaultBiomeFeatures.CRIMSON_ROOTS_CONFIG)), 4),
 		       Pair.of(EmptyPoolElement.INSTANCE, 2)),
 	       StructurePool.Projection.RIGID));

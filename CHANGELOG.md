@@ -8,6 +8,18 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.1.3.1 Changes) (1.16.1 Minecraft)
+
+##### Villages:
+
+-Moved the Cartographer code to later to prevent crash with Better Wandering Traders mod.
+
+-Fixed name of Jungle Fortress Map from Cartographers.
+
+-Replaced Grass in the town center pieces of Crimson and Warped Villages with Crimson or Warped Roots.
+
+-Removed small chance of large patches of fire in Crimson and Warped Villages.
+
 ## (V.1.3.0 Changes) (1.16.1 Minecraft)
 
 ##### All Structures:
