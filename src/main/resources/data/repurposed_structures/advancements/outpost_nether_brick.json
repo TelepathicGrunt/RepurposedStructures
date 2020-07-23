@@ -1,5 +1,5 @@
 {
-  "parent": "repurposed_structures:root",
+  "parent": "repurposed_structures:outposts",
   "display": {
     "icon": {
       "item": "minecraft:red_nether_bricks"

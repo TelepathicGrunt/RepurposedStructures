@@ -1,13 +1,14 @@
 {
+  "parent": "repurposed_structures:root",
   "display": {
     "icon": {
-      "item": "minecraft:filled_map"
+      "item": "minecraft:crossbow"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.root.title"
+      "translate": "advancements.repurposed_structures.outposts.title"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.root.description"
+      "translate": "advancements.repurposed_structures.outposts.description"
     },
     "frame": "task",
     "show_toast": false,

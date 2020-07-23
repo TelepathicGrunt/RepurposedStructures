@@ -12,7 +12,11 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ##### All Structures:
 
--Greatly improved the /locate command's speed at finding Repurposed Structures's structures at any distance (including the Mineshafts too)!
+-Greatly improved the /locate command's and treasure map's speed at finding Repurposed Structures's structures at any distance (including the Mineshafts too)!
+
+##### Advancements:
+
+-Improved the Advancement layout greatly!
 
 ##### Villages:
 
@@ -28,6 +32,12 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 -Jungle Fortress now needs to be more inside a Jungle biome to spawn instead of close to the edge.
 
+##### Shipwrecks:
+
+-Fixed End City Map's name in End Shipwrecks.
+
+## (V.1.2.1 Changes) (1.16.1 Minecraft)
+
 ##### Wells:
 
 -Fixed Nether Wells crashing when a mod adds a biome that returns null for their top block in their surfacebuilder. Dunno why anyone would do that but someone did lol.
@@ -35,10 +45,6 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Outposts:
 
 -Fixed Warped and Crimson Outpost's config tooltip not showing.
-
-##### Shipwrecks:
-
--Fixed End City Map's name in End Shipwrecks.
 
 ## (V.1.2.0 Changes) (1.16.1 Minecraft)
 

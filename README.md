@@ -4,19 +4,20 @@
 <p style="text-align: center;"><span style="font-size: 14px;"><strong><span style="color: #009611;"><a href="https://www.curseforge.com/minecraft/mc-mods/repurposed-structures">https://www.curseforge.com/minecraft/mc-mods/repurposed-structures</a></span></strong></span></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;Two new Nether Outposts!<br />End Shipwreck! And lots of QoL improvements</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>such as Strongholds cannot spawn within</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>1600 blocks of world origin now. Also, </strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>advancements for every structure now!<br />See changelog for more details.</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>Crimson and Warped Villages&nbsp;</strong></b></span></em><em><span style="font-size: 14px;"><b><strong>are now added,</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>Cartographers may sell </strong></b></span></em><em><span style="font-size: 14px;"><b><strong>maps&nbsp;</strong></b></span></em><em><span style="font-size: 14px;"><b><strong>to Jungle Fortresses, </strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>more&nbsp;</strong></b></span></em><em><span style="font-size: 14px;"><b><strong>organized Advancements, and more! </strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>Check the changelog for more info!</strong></b></span></em></p>
 <p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;"><span style="font-size: 18px;"><strong>______________________________________________________________________________</strong></span></p>
 <p style="text-align: center;">&nbsp;</p>
 <h2 style="text-align: left;"><span style="color: #009611; font-size: 24px;"><strong>WHAT IS REPURPOSED STRUCTURES?</strong></span></h2>
 <p style="text-align: center;"><span style="font-size: 14px;">&nbsp;</span></p>
-<p style="text-align: left;"><span style="font-size: 14px;">&nbsp;<strong> &nbsp; Repurposed Structures is a mod about taking existing vanilla features and structures and creating new variants or modifications to them! Originally, most of the structures and features in this mod was actually made for my Ultra Amplified Dimension mod. but then I realized these features and structures would look great in the Overworld as well so I decided to take those structures and features and split them into their own mod. This mod! </strong></span></p>
+<p style="text-align: left;"><span style="font-size: 14px;">&nbsp;<strong> &nbsp; Repurposed Structures is a mod about taking existing vanilla features and structures and creating new variants or modifications to them! Originally, most of the structures and features in this mod was actually made for my Ultra Amplified Dimension mod. but then I realized these features and structures would look great in the Overworld as well so I decided to take those structures and features and split them into their own mod and continue to add MORE biome variants of vanilla structures!</strong></span></p>
 <p style="text-align: left;">&nbsp;</p>
-<p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; Currently, this mod creates a Nether Fortresses using Stonebrick blocks and spawns it in Jungles, Dungeons and Mineshafts now has more variants to match whatever biome they are in, 7 new biome variants of Villages, 3 new temples variants, 2 new biome variants of Igloos, 3 Nether themed Pillager Outposts, End Shipwreck, Stonebrick and Nether Strongholds has a configurable size and has more Silverfish spawners, Giant Tree/Spruce Taiga Hills biomes has giant ore filled boulders that could have Diamond ore if you are extremely lucky, Taiga Mountain biomes now has tiny boulders, Swamps now has a new 2x2 swamp-like tree, and several new Desert Well variations were made for other biomes (Also, loot for Dungeons and Mineshafts are tailored to their variant as well so start exploring!)</strong></span></p>
+<p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; Currently, this mod creates a Nether Fortresses using Stonebrick blocks and spawns it in Jungles, Dungeons and Mineshafts now has more variants to match whatever biome they are in, 9 new biome variants of Villages, 3 new temples variants, 2 new biome variants of Igloos, 3 Nether themed Pillager Outposts, End Shipwreck, Stonebrick and Nether Strongholds has a configurable size and has more Silverfish spawners, Giant Tree/Spruce Taiga Hills biomes has giant ore filled boulders that could have Diamond ore if you are extremely lucky, Taiga Mountain biomes now has tiny boulders, Swamps now has a new 2x2 swamp-like tree, and several new Desert Well variations were made for other biomes (Also, loot for Dungeons and Mineshafts are tailored to their variant as well so start exploring!)</strong></span></p>
 <p style="text-align: left;">&nbsp;</p>
 <p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; If you have trouble finding one of these structures, just start typing `<em>/locate repu</em>` into the chat and you should see my structures pop up! For example, typing `<em>/locate repurposed_structures:fortress_jungle</em>` will find the closest Jungle Fortress to your location. :) However, do note that due to a Vanilla limitation, the locate command can only find the themed Mineshafts if they are within 1600 blocks of you. All other structures can be found easily from anywhere!</strong></span></p>
 <p style="text-align: left;">&nbsp;</p>
@@ -31,7 +32,7 @@
 <p>&nbsp;</p>
 <p><strong><b>Village Variants</b></strong></p>
 <div class="spoiler">
-<p><strong><b>Note: Some village houses will have custom loot to match their biome better but nothing too crazy for balance reasons.</b></strong></p>
+<p><strong><b>Note: Some village houses will have custom loot to match their biome better but nothing too crazy for balance reasons. The Nether based villages are full of fully armored Piglins and have fully unique chest loot.</b></strong></p>
 <p>&nbsp;</p>
 <p><strong><b>-Badlands</b></strong></p>
 <p><strong><b><br />-Jungle</b></strong></p>
@@ -45,6 +46,10 @@
 <p><strong><b>-Mountains</b></strong></p>
 <p>&nbsp;</p>
 <p><strong><b>-Birch</b></strong></p>
+<p><strong><b>&nbsp;</b></strong></p>
+<p><strong><b>-Crimson</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>-Warped</b></strong></p>
 </div>
 <p>&nbsp;</p>
 <p><strong>Dungeons</strong></p>
@@ -449,7 +454,6 @@
 </div>
 </div>
 <p>&nbsp;</p>
-<p>&nbsp;</p>
 <p><strong>End Shipwreck</strong></p>
 <div class="spoiler">
 <p><strong>Treasure Chest loot</strong></p>
@@ -642,7 +646,7 @@
 <p>&nbsp;</p>
 <p>Since Villages and Wells can be overridden with datapacks, that means you can customize the blocks in those structures with other mod's blocks! If you decide to use the datapack below, download it, go into your world's save folder, and put the zipped folder into the datapack folder. Now when you load the game, the datapack should take effect! (Also, you can share mod-compat datapacks you made to me and I'll add it below after I check it out and like it!)</p>
 <p>&nbsp;<br />: Current no mod-compat datapack made yet :<br /><br /></p>
-<p><strong>______________________________________________________________________________</strong></p>
+<p><span style="font-size: 18px;"><strong>______________________________________________________________________________</strong></span></p>
 <p>&nbsp;</p>
 <p style="text-align: center;"><span style="font-size: 12px;">For the list of changes in this mod, click the Source tab and check out CHANGELOG.txt file. </span></p>
 <p style="text-align: center;"><span style="font-size: 12px;">This helps me keep track of what I had done so far.&nbsp;</span></p>

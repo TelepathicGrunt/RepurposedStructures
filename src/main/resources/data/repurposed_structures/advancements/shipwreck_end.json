@@ -1,5 +1,5 @@
 {
-  "parent": "repurposed_structures:root",
+  "parent": "repurposed_structures:shipwrecks",
   "display": {
     "icon": {
       "item": "minecraft:purpur_stairs"

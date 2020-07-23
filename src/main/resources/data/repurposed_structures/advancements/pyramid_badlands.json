@@ -1,5 +1,5 @@
 {
-  "parent": "repurposed_structures:root",
+  "parent": "repurposed_structures:pyramids",
   "display": {
     "icon": {
       "item": "minecraft:smooth_red_sandstone"

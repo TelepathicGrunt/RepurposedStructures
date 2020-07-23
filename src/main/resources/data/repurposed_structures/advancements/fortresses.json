@@ -1,13 +1,14 @@
 {
+  "parent": "repurposed_structures:root",
   "display": {
     "icon": {
-      "item": "minecraft:filled_map"
+      "item": "minecraft:iron_bars"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.root.title"
+      "translate": "advancements.repurposed_structures.fortresses.title"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.root.description"
+      "translate": "advancements.repurposed_structures.fortresses.description"
     },
     "frame": "task",
     "show_toast": false,

@@ -1,5 +1,5 @@
 {
-  "parent": "repurposed_structures:root",
+  "parent": "repurposed_structures:fortresses",
   "display": {
     "icon": {
       "item": "minecraft:mossy_stone_bricks"

@@ -1,5 +1,5 @@
 {
-  "parent": "repurposed_structures:root",
+  "parent": "repurposed_structures:mineshafts",
   "display": {
     "icon": {
       "item": "minecraft:jungle_planks"

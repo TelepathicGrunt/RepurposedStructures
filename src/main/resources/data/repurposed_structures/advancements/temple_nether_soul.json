@@ -1,5 +1,5 @@
 {
-  "parent": "repurposed_structures:root",
+  "parent": "repurposed_structures:temples",
   "display": {
     "icon": {
       "item": "minecraft:soul_sand"

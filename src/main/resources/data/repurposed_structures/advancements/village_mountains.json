@@ -1,5 +1,5 @@
 {
-  "parent": "repurposed_structures:root",
+  "parent": "repurposed_structures:villages",
   "display": {
     "icon": {
       "item": "minecraft:chiseled_stone_bricks"
