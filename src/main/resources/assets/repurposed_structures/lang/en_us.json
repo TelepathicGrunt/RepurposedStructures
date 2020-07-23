@@ -538,5 +538,6 @@
   "advancements.repurposed_structures.warped_village.description": "Enter a Warped Village",
   "filled_map.netherfortress": "Nether Fortress Map",
   "filled_map.bastionremnant": "Bastion Remnant Map",
-  "filled_map.endcity": "End City Map"
+  "filled_map.endcity": "End City Map",
+  "filled_map.repurposed_structures.fortress_jungle": "Jungle Fortress Map"
 }

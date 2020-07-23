@@ -8,7 +8,7 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
-## (V.1.2.1 Changes) (1.16.1 Minecraft)
+## (V.1.3.0 Changes) (1.16.1 Minecraft)
 
 ##### All Structures:
 
@@ -21,6 +21,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 -Added Warped Village to Warped Forest biome in the Nether!
 
 -Moved the village pool registration to during worldgen to make sure datapacks can replace the village piece nbt files.
+
+-Added Jungle Fortress Maps to Cartographer tier 3 and 4 trades!
 
 ##### Fortress:
 
@@ -36,7 +38,7 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ##### Shipwrecks:
 
--Fixed Treasure Map's name in End Shipwrecks.
+-Fixed End City Map's name in End Shipwrecks.
 
 ## (V.1.2.0 Changes) (1.16.1 Minecraft)
 

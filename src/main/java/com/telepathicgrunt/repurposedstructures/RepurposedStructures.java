@@ -1,6 +1,8 @@
 package com.telepathicgrunt.repurposedstructures;
 
+import com.google.common.collect.ImmutableMap;
 import com.telepathicgrunt.repurposedstructures.configs.*;
+import com.telepathicgrunt.repurposedstructures.misc.VillagerTrades;
 import com.telepathicgrunt.repurposedstructures.utils.LoadNbtBlock;
 import com.telepathicgrunt.repurposedstructures.utils.MobSpawnerManager;
 import com.telepathicgrunt.repurposedstructures.world.placements.RSPlacements;
@@ -8,11 +10,20 @@ import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import me.sargunvohra.mcmods.autoconfig1u.serializer.Toml4jConfigSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.registry.RegistryEntryAddedCallback;
+import net.minecraft.item.Items;
+import net.minecraft.item.map.MapIcon;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.village.TradeOffers;
+import net.minecraft.village.VillagerProfession;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.gen.feature.StructureFeature;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 
 @SuppressWarnings("deprecation")
@@ -30,6 +41,7 @@ public class RepurposedStructures implements ModInitializer {
 
         RSPlacements.registerPlacements();
         RSFeatures.registerFeatures();
+        VillagerTrades.addMapTrades();
 
         //LoadNbtBlock.instantiateNbtBlock();
 
