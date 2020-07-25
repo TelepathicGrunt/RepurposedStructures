@@ -43,6 +43,10 @@ public abstract class AbstractVillageStructure extends StructureFeature<DefaultF
         return true;
     }
 
+    @Override
+    public BlockPos locateStructure(WorldView worldView, StructureAccessor structureAccessor, BlockPos blockPos, int radius, boolean skipExistingChunks, long seed, StructureConfig structureConfig) {
+        return AbstractBaseStructure.locateStructureFast(worldView, structureAccessor, blockPos, radius, skipExistingChunks, seed, structureConfig, this);
+    }
 
     public static abstract class AbstractStart extends VillageStructureStart<DefaultFeatureConfig> {
         public AbstractStart(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
