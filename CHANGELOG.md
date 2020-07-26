@@ -8,17 +8,17 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
-## (V.1.3.3 Changes) (1.16.1 Minecraft)
-
-##### Strongholds:
-
--Nether Strongholds now uses Polished Blackstone Buttons instead of Stone Buttons.
-
 ## (V.1.3.2 Changes) (1.16.1 Minecraft)
 
 ##### All structures:
 
 -Fixed locateStructure speed up to truly return closest structure now and villages now uses the speed up method.
+
+##### Strongholds:
+
+-addStonebrickStrongholdToModdedBiomes is now true by default
+
+-Nether Strongholds now uses Polished Blackstone Buttons instead of Stone Buttons.
 
 ## (V.1.3.1 Changes) (1.16.1 Minecraft)
 

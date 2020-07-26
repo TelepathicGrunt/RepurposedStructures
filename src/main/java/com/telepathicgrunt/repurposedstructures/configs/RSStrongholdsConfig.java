@@ -45,7 +45,7 @@ public class RSStrongholdsConfig implements ConfigData
 		@ConfigEntry.Gui.Tooltip(count = 2)
 		@Comment("Add Stonebrick-styled Stronghold to all modded non-Nether" +
 				"\nbiomes even if they have don't have vanilla Strongholds.")
-		public boolean addStonebrickStrongholdToModdedBiomes = false;
+		public boolean addStonebrickStrongholdToModdedBiomes = true;
 
 		@ConfigEntry.Gui.Tooltip(count = 3)
 		@Comment("Percentage of Stonebrick-styled Strongholds is Silverfish Blocks."

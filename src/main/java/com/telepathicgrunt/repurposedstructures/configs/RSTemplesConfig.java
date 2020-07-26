@@ -79,7 +79,7 @@ public class RSTemplesConfig implements ConfigData {
         @Comment("How rare are Nether Pyramids in Nether."
                 + "\n1 for spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int netherPyramidSpawnrate = 32;
+        public int netherPyramidSpawnrate = 34;
 
         @ConfigEntry.Gui.Tooltip
         @Comment("Add Nether Pyramids to modded Nether biomes.")
