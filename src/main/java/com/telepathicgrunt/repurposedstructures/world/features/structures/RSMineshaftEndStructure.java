@@ -4,16 +4,11 @@ import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.entity.EntityType;
-import net.minecraft.structure.StructureManager;
-import net.minecraft.structure.StructurePiece;
-import net.minecraft.structure.StructureStart;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
-import java.util.Collections;
 import java.util.List;
 
 

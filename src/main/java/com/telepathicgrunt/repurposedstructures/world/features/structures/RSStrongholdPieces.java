@@ -27,13 +27,11 @@ import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 
-import java.lang.reflect.Constructor;
 import java.util.*;
 
 
@@ -76,6 +74,7 @@ public class RSStrongholdPieces {
         NETHER_BLOCK_MAP.put(Blocks.WATER, Blocks.LAVA);
         NETHER_BLOCK_MAP.put(Blocks.WALL_TORCH, Blocks.REDSTONE_WALL_TORCH);
         NETHER_BLOCK_MAP.put(Blocks.TORCH, Blocks.REDSTONE_TORCH);
+        NETHER_BLOCK_MAP.put(Blocks.STONE_BUTTON, Blocks.POLISHED_BLACKSTONE_BUTTON);
 
 
         PIECE_WEIGHTS.add(new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.Straight.class, 40, 0));

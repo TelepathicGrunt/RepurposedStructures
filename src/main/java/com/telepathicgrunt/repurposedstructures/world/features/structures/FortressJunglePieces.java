@@ -6,7 +6,6 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.MobSpawnerBlockEntity;
 import net.minecraft.fluid.Fluids;
-import net.minecraft.loot.LootTables;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.state.property.Properties;
 import net.minecraft.structure.StructureManager;

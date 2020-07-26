@@ -1,6 +1,9 @@
 package com.telepathicgrunt.repurposedstructures.world.features.structures;
 
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.FluidBlock;
+import net.minecraft.block.Material;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.structure.*;
 import net.minecraft.structure.processor.BlockIgnoreStructureProcessor;

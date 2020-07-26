@@ -1,8 +1,8 @@
 package com.telepathicgrunt.repurposedstructures.world.features.structures;
 
 import com.mojang.serialization.Codec;
-import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.RSFeatures;
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;

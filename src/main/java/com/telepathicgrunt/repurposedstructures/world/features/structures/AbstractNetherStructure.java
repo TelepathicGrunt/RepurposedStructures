@@ -2,22 +2,15 @@ package com.telepathicgrunt.repurposedstructures.world.features.structures;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
-import net.minecraft.structure.StructureManager;
-import net.minecraft.structure.StructureStart;
 import net.minecraft.structure.VillageStructureStart;
 import net.minecraft.tag.BlockTags;
-import net.minecraft.util.BlockRotation;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
-import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
-import net.minecraft.world.gen.feature.FeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
 

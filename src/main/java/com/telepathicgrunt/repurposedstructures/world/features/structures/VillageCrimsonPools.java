@@ -4,7 +4,6 @@ import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.block.*;
-import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.structure.pool.*;
 import net.minecraft.structure.processor.RuleStructureProcessor;
 import net.minecraft.structure.processor.StructureProcessor;
