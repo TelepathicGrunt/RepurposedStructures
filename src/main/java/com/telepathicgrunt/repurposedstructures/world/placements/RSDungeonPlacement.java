@@ -1,27 +1,25 @@
 package com.telepathicgrunt.repurposedstructures.world.placements;
 
 import java.util.Random;
-import java.util.function.Function;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.GenerationSettings;
-import net.minecraft.world.gen.placement.CountRangeConfig;
-import net.minecraft.world.gen.placement.Placement;
+import net.minecraft.world.WorldAccess;
+import net.minecraft.world.gen.chunk.ChunkGenerator;
+import net.minecraft.world.gen.decorator.Decorator;
+import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
 
-public class RSDungeonPlacement extends Placement<CountRangeConfig>
+public class RSDungeonPlacement extends Decorator<RangeDecoratorConfig>
 {
-    public RSDungeonPlacement(Function<Dynamic<?>, ? extends CountRangeConfig> config) {
+    public RSDungeonPlacement(Codec<RangeDecoratorConfig> config) {
 	super(config);
     }
 
 
-    public Stream<BlockPos> getPositions(IWorld world, ChunkGenerator<? extends GenerationSettings> generator, Random random, CountRangeConfig config, BlockPos pos) {
+    public Stream<BlockPos> getPositions(WorldAccess world, ChunkGenerator generator, Random random, RangeDecoratorConfig config, BlockPos pos) {
 	int maxCount = config.count;
 	int range = Math.max(config.maximum-config.bottomOffset, 1);
 	return IntStream.range(0, maxCount).mapToObj((index) -> {

@@ -1,19 +1,17 @@
 package com.telepathicgrunt.repurposedstructures.world.placements;
 
-import com.telepathicgrunt.repurposedstructures.utils.RegUtil;
-
-import net.minecraft.world.gen.placement.CountRangeConfig;
-import net.minecraft.world.gen.placement.Placement;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.registries.IForgeRegistry;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.world.gen.decorator.CountDecoratorConfig;
+import net.minecraft.world.gen.decorator.Decorator;
+import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
 
 public class RSPlacements
 {
-    public static final Placement<CountRangeConfig> RS_DUNGEON_PLACEMENT = new RSDungeonPlacement(CountRangeConfig::deserialize);
+    public static final Decorator<RangeDecoratorConfig> RS_DUNGEON_PLACEMENT = new RSDungeonPlacement(RangeDecoratorConfig.CODEC);
+    public static final Decorator<RangeDecoratorConfig> RS_VINE_PLACEMENT = new RSVinePlacement(RangeDecoratorConfig.CODEC);
 
-
-    public static void registerPlacements(RegistryEvent.Register<Placement<?>> event) {
-	IForgeRegistry<Placement<?>> registry = event.getRegistry();
-	RegUtil.register(registry, RS_DUNGEON_PLACEMENT, "rs_dungeon_placement");
+    public static void registerPlacements() {
+        Registry.register(Registry.DECORATOR, "rs_dungeon_placement", RS_DUNGEON_PLACEMENT);
+        Registry.register(Registry.DECORATOR, "rs_vine_placement", RS_VINE_PLACEMENT);
     }
 }

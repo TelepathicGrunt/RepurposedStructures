@@ -1,115 +1,57 @@
 package com.telepathicgrunt.repurposedstructures.world.features.structures;
 
-import java.util.Random;
-import java.util.function.Function;
-
-import com.mojang.datafixers.Dynamic;
+import com.google.common.collect.Lists;
+import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-
-import net.minecraft.util.SharedSeedRandom;
-import net.minecraft.util.math.ChunkPos;
-import net.minecraft.util.math.MutableBoundingBox;
+import net.minecraft.entity.EntityType;
+import net.minecraft.util.math.BlockBox;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeManager;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.structure.Structure;
-import net.minecraft.world.gen.feature.structure.StructurePiece;
-import net.minecraft.world.gen.feature.structure.StructureStart;
-import net.minecraft.world.gen.feature.template.TemplateManager;
+import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.StructureFeature;
+
+import java.util.List;
 
 
-public class RSMineshaftEndStructure extends Structure<NoFeatureConfig>
-{
-    /**
-     * --------------------------------------------------------------------------
-     * |									|
-     * |	HELLO READERS! IF YOU'RE HERE, YOU'RE PROBABLY			|
-     * |	LOOKING FOR A TUTORIAL ON HOW TO DO STRUCTURES			|
-     * |									|
-     * -------------------------------------------------------------------------
-     * 
-     * Don't worry, I actually have a structure tutorial
-     * mod already setup for you to check out! It's full
-     * of comments on what does what and how to make structures.
-     * 
-     * Here's the link! https://github.com/TelepathicGrunt/StructureTutorialMod
-     * 
-     * Good luck and have fun modding!
-     */
-    public RSMineshaftEndStructure(Function<Dynamic<?>, ? extends NoFeatureConfig> config) {
-	super(config);
+public class RSMineshaftEndStructure extends AbstractMineshaftStructure {
+    public RSMineshaftEndStructure(Codec<DefaultFeatureConfig> config) {
+        super(config);
     }
 
+    public double getProbability() {
+        return RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.endMineshaftSpawnrate;
+    }
+
+    private static final List<Biome.SpawnEntry> MONSTER_SPAWNS = Lists.newArrayList(
+                new Biome.SpawnEntry(EntityType.ENDERMITE, 10, 2, 5),
+                new Biome.SpawnEntry(EntityType.ENDERMAN, 5, 1, 3)
+            );
+
+    public List<Biome.SpawnEntry> getMonsterSpawns() {
+        return MONSTER_SPAWNS;
+    }
 
     @Override
-    protected ChunkPos getStartPositionForPosition(ChunkGenerator<?> chunkGenerator, Random random, int x, int z, int spacingOffsetsX, int spacingOffsetsZ) {
-	int xChunk = x + spacingOffsetsX;
-	int zChunk = z + spacingOffsetsZ;
-	((SharedSeedRandom) random).setLargeFeatureSeed(chunkGenerator.getSeed() + 3, xChunk, zChunk);
-	if (random.nextDouble() < (RepurposedStructures.RSMineshaftsConfig.endMineshaftSpawnrate.get() / 10000D)) {
-	    return new ChunkPos(xChunk, zChunk);
-	}
-
-	return new ChunkPos(Integer.MAX_VALUE, Integer.MAX_VALUE); // always will fail
+    public StructureFeature.StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
+        return RSMineshaftEndStructure.Start::new;
     }
 
+    public static class Start extends AbstractStart {
+        public Start(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
+            super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
+        }
 
-    @Override
-    public boolean canBeGenerated(BiomeManager biomeManager, ChunkGenerator<?> chunkGenerator, Random random, int chunkPosX, int chunkPosZ, Biome biome) {
-	ChunkPos chunkpos = this.getStartPositionForPosition(chunkGenerator, random, chunkPosX, chunkPosZ, 0, 0);
-	if (chunkPosX == chunkpos.x && chunkPosZ == chunkpos.z) {
-	    if (chunkGenerator.hasStructure(biome, this)) {
-		return true;
-	    }
-	}
-
-	return false;
-    }
-
-
-    @Override
-    public Structure.IStartFactory getStartFactory() {
-	return RSMineshaftEndStructure.Start::new;
-    }
-
-
-    @Override
-    public String getStructureName() {
-	return RepurposedStructures.MODID + ":mineshaft_end";
-    }
-
-
-    @Override
-    public int getSize() {
-	return 8;
-    }
-
-    public static class Start extends StructureStart
-    {
-	public Start(Structure<?> structureIn, int chunkX, int chunkZ, MutableBoundingBox mutableBoundingBox, int referenceIn, long seedIn) {
-	    super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
-	}
-
-
-	@Override
-	public void init(ChunkGenerator<?> generator, TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn) {
-	    RSMineshaftPieces.Room structuremineshaftpiecesua$room = new RSMineshaftPieces.Room(0, this.rand, (chunkX << 4) + 2, (chunkZ << 4) + 2, RSMineshaftPieces.Type.END);
-	    this.components.add(structuremineshaftpiecesua$room);
-
-	    structuremineshaftpiecesua$room.buildComponent(structuremineshaftpiecesua$room, this.components, this.rand);
-	    this.recalculateStructureSize();
-	    
-	    int minimum = RepurposedStructures.RSMineshaftsConfig.endMineshaftMinHeight.get();
-	    int maximum = Math.max(RepurposedStructures.RSMineshaftsConfig.endMineshaftMaxHeight.get(), minimum)+1;
-
-	    int offset = this.rand.nextInt(maximum-minimum)+minimum;
-	    this.bounds.offset(0, offset-50, 0);
-	    
-	    for (StructurePiece structurepiece : this.components) {
-		structurepiece.offset(0, offset-50, 0);
-	    }
-	}
+        @Override
+        public RSMineshaftPieces.Type getMineshaftType() {
+            return RSMineshaftPieces.Type.END;
+        }
+        @Override
+        public int getMaxHeight() {
+            return RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.endMineshaftMaxHeight;
+        }
+        @Override
+        public int getMinHeight() {
+            return RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.endMineshaftMinHeight;
+        }
     }
 
 }
