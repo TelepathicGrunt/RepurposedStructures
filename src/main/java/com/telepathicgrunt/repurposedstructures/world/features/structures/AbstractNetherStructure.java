@@ -1,14 +1,19 @@
 package com.telepathicgrunt.repurposedstructures.world.features.structures;
 
 import com.mojang.serialization.Codec;
+import com.telepathicgrunt.repurposedstructures.RSFeatures;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Material;
 import net.minecraft.structure.VillageStructureStart;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.source.BiomeSource;
+import net.minecraft.world.gen.ChunkRandom;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
@@ -17,6 +22,29 @@ import net.minecraft.world.gen.feature.StructureFeature;
 public abstract class AbstractNetherStructure extends AbstractBaseStructure {
     public AbstractNetherStructure(Codec<DefaultFeatureConfig> config) {
         super(config);
+    }
+
+    @Override
+    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig defaultFeatureConfig) {
+        if(this != RSFeatures.WARPED_OUTPOST && this != RSFeatures.CRIMSON_OUTPOST && this != RSFeatures.NETHER_BRICK_OUTPOST){
+            for (int curChunkX = chunkX - 6; curChunkX <= chunkX + 6; curChunkX++) {
+                for (int curChunkZ = chunkZ - 6; curChunkZ <= chunkZ + 6; curChunkZ++) {
+                    ChunkPos chunkPos2 = RSFeatures.WARPED_OUTPOST.method_27218(chunkGenerator.getConfig().method_28600(StructureFeature.VILLAGE), seed, chunkRandom, curChunkX, curChunkZ);
+                    if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
+                        return false;
+                    }
+                    chunkPos2 = RSFeatures.CRIMSON_OUTPOST.method_27218(chunkGenerator.getConfig().method_28600(StructureFeature.VILLAGE), seed, chunkRandom, curChunkX, curChunkZ);
+                    if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
+                        return false;
+                    }
+                    chunkPos2 = RSFeatures.NETHER_BRICK_OUTPOST.method_27218(chunkGenerator.getConfig().method_28600(StructureFeature.VILLAGE), seed, chunkRandom, curChunkX, curChunkZ);
+                    if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return super.shouldStartAt(chunkGenerator, biomeSource, seed, chunkRandom, chunkX, chunkZ, biome, chunkPos, defaultFeatureConfig);
     }
 
     public static abstract class AbstractStart extends VillageStructureStart<DefaultFeatureConfig> {

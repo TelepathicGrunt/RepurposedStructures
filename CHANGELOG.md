@@ -20,6 +20,28 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 -Nether Strongholds now uses Polished Blackstone Buttons instead of Stone Buttons.
 
+-Eyes of Ender will now point to closest Stronghold of all 3 types (vanilla, RS's stonebrick, RS's nether) when more than one is present in a dimension.
+
+##### Temples:
+
+-All Nether Temples cannot be within 6 chunks of any Nether Outposts.
+
+##### Pyramids:
+
+-Nether Pyramids cannot be within 6 chunks of any Nether Outposts.
+
+##### Villages:
+
+-Warped and Crimson Villages cannot be within 10 chunks of any Nether Outposts.
+
+##### Misc:
+
+-Added config to change the chance of Diamond Ore in Giant Boulders. (Default rate reduced from 1/3000 to 1/7000 now)
+
+-Added config to allow control of how many Giant Boulders to spawn per chunk. (Default reduced for Vanilla biomes now)
+
+-Decreased Iron Ore rates heavily and slightly reduced Coal Ore rates in Giant Boulders.
+
 ## (V.1.3.1 Changes) (1.16.1 Minecraft)
 
 ##### Villages:

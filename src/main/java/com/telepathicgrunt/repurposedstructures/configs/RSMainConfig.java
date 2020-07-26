@@ -37,6 +37,18 @@ public class RSMainConfig implements ConfigData {
                 + "\nIron, and extremely rarely, Diamond Ores.")
         public boolean boulderGiant = true;
 
+        @ConfigEntry.Gui.Tooltip(count = 3)
+        @Comment("1 out of ___ chance of Diamond Ore when placing"
+                + "\na block in giant Boulders. Lower number = more common."
+                + "\nEnter 0 to disable Diamond Ores completely.")
+        @ConfigEntry.BoundedDiscrete(min = 0, max = 1000000)
+        public int diamondChanceInGiantBoulders = 7000;
+
+        @ConfigEntry.Gui.Tooltip
+        @Comment("How many Giant Boulders per chunk. (Can be decimal too)")
+        @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
+        public double giantBouldersPerChunk = 1.0D;
+
         @ConfigEntry.Gui.Tooltip(count = 2)
         @Comment("Adds large tree somewhat uncommonly to Swamp biome"
                 +"\nand replaces all vanilla trees in Swamp Hills biome.")
@@ -57,7 +69,7 @@ public class RSMainConfig implements ConfigData {
                 + "\nNote: Mossy Stone Bricks block cannot be infested."
                 + "\n0 for no Silverfish Blocks and 100 for max spawnrate.")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
-        public Double silverfishSpawnrateJF = 0.5D;
+        public double silverfishSpawnrateJF = 0.5D;
 
         @ConfigEntry.Gui.Tooltip
         @Comment("Controls whether loot chests spawn or not.")

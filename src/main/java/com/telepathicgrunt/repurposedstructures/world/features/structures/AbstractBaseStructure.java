@@ -26,7 +26,7 @@ public abstract class AbstractBaseStructure extends StructureFeature<DefaultFeat
         int chunkZ = blockPos.getZ() >> 4;
         int currentRadius = 0;
 
-        for(ChunkRandom chunkRandom = new ChunkRandom(); currentRadius <= 100000 / structureConfig.getSpacing(); ++currentRadius) {
+        for(ChunkRandom chunkRandom = new ChunkRandom(); currentRadius <= 100000; ++currentRadius) {
             for(int xRadius = -currentRadius; xRadius <= currentRadius; ++xRadius) {
                 boolean xEdge = xRadius == -currentRadius || xRadius == currentRadius;
 
