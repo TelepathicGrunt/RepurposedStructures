@@ -10,17 +10,17 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
 
 public abstract class AbstractNetherStructure extends AbstractBaseStructure {
-    public AbstractNetherStructure(Codec<DefaultFeatureConfig> config) {
+    public AbstractNetherStructure(Codec<NoFeatureConfig> config) {
         super(config);
     }
 
-    public static abstract class AbstractStart extends VillageStructureStart<DefaultFeatureConfig> {
-        public AbstractStart(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
+    public static abstract class AbstractStart extends VillageStructureStart<NoFeatureConfig> {
+        public AbstractStart(StructureFeature<NoFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
         }
 

@@ -11,7 +11,7 @@ import net.minecraft.structure.processor.StructureProcessor;
 import net.minecraft.structure.processor.StructureProcessorRule;
 import net.minecraft.structure.rule.*;
 import net.minecraft.tag.BlockTags;
-import net.minecraft.util.Identifier;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.feature.Feature;
 
@@ -66,7 +66,7 @@ public class VillageJunglePools
 		       new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.WHEAT, 0.5F), AlwaysTrueRuleTest.INSTANCE, Blocks.CARROTS.getDefaultState()),
 		       new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.WHEAT, 0.3F), AlwaysTrueRuleTest.INSTANCE, Blocks.POTATOES.getDefaultState()))));
       
-       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/jungle/town_centers"), new Identifier("empty"),
+       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID+":village/jungle/town_centers"), new ResourceLocation("empty"),
 	       ImmutableList.of(new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/jungle/town_centers/meeting_point_1", mossify), 50),
         		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/jungle/town_centers/meeting_point_2", mossify), 50),
         		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/jungle/town_centers/meeting_point_3", mossify), 50),
@@ -77,7 +77,7 @@ public class VillageJunglePools
         		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/jungle/zombie/town_centers/meeting_point_4", zombiefy), 1)),
 	       StructurePool.Projection.RIGID));
        
-       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/jungle/streets"), new Identifier(RepurposedStructures.MODID+":village/jungle/terminators"),
+       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID+":village/jungle/streets"), new ResourceLocation(RepurposedStructures.MODID+":village/jungle/terminators"),
 	       ImmutableList.of(
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/jungle/streets/corner_01", path_randomizer), 2),
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/jungle/streets/corner_03", path_randomizer), 2),
@@ -100,7 +100,7 @@ public class VillageJunglePools
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/jungle/streets/turn_01", path_randomizer), 3)),
 	       StructurePool.Projection.TERRAIN_MATCHING));
        
-       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/jungle/zombie/streets"), new Identifier(RepurposedStructures.MODID+":village/jungle/terminators"),
+       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID+":village/jungle/zombie/streets"), new ResourceLocation(RepurposedStructures.MODID+":village/jungle/terminators"),
 	       ImmutableList.of(
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/jungle/zombie/streets/corner_01", path_randomizer), 2),
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/jungle/zombie/streets/corner_03", path_randomizer), 2),
@@ -123,7 +123,7 @@ public class VillageJunglePools
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/jungle/zombie/streets/turn_01", path_randomizer), 3)),
 	       StructurePool.Projection.TERRAIN_MATCHING));
        
-       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/jungle/houses"), new Identifier(RepurposedStructures.MODID+":village/jungle/terminators"),
+       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID+":village/jungle/houses"), new ResourceLocation(RepurposedStructures.MODID+":village/jungle/terminators"),
 	       ImmutableList.of(
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/jungle/houses/animal_pen_1", mossify), 2),
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/jungle/houses/animal_pen_2", mossify), 3),
@@ -159,7 +159,7 @@ public class VillageJunglePools
 		       Pair.of(EmptyPoolElement.INSTANCE, 10)),
 	       StructurePool.Projection.RIGID));
        
-       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/jungle/zombie/houses"), new Identifier(RepurposedStructures.MODID+":village/jungle/terminators"),
+       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID+":village/jungle/zombie/houses"), new ResourceLocation(RepurposedStructures.MODID+":village/jungle/terminators"),
 	       ImmutableList.of(
 		       new Pair<>(new SinglePoolElement("village/jungle/zombie/houses/small_house_1", zombiefy), 2),
 		       new Pair<>(new SinglePoolElement("village/jungle/zombie/houses/small_house_2", zombiefy), 2),
@@ -195,22 +195,22 @@ public class VillageJunglePools
 		       Pair.of(EmptyPoolElement.INSTANCE, 10)),
 	       StructurePool.Projection.RIGID));
       
-       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/jungle/terminators"), new Identifier("empty"),
+       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID+":village/jungle/terminators"), new ResourceLocation("empty"),
 	       ImmutableList.of(
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/jungle/terminators/terminator_05", path_randomizer), 1)),
 	       StructurePool.Projection.TERRAIN_MATCHING));
 
-       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/jungle/zombie/terminators"), new Identifier("empty"),
+       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID+":village/jungle/zombie/terminators"), new ResourceLocation("empty"),
 	       ImmutableList.of(
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/jungle/zombie/terminators/terminator_05", path_randomizer), 1)),
 	       StructurePool.Projection.TERRAIN_MATCHING));
        
-       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/jungle/trees"), new Identifier("empty"),
+       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID+":village/jungle/trees"), new ResourceLocation("empty"),
 	       ImmutableList.of(
 		       new Pair<>(new FeaturePoolElement(Feature.TREE.configure(DefaultBiomeFeatures.MEGA_JUNGLE_TREE_CONFIG)), 1)),
 	       StructurePool.Projection.RIGID));
        
-       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/jungle/decor"), new Identifier("empty"),
+       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID+":village/jungle/decor"), new ResourceLocation("empty"),
 	       ImmutableList.of(new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/jungle/decor/lamp_1"), 5),
 		       new Pair<>(new FeaturePoolElement(Feature.TREE.configure(DefaultBiomeFeatures.JUNGLE_TREE_CONFIG)), 1),
 		       new Pair<>(new FeaturePoolElement(Feature.FLOWER.configure(DefaultBiomeFeatures.FOREST_FLOWER_CONFIG)), 1),
@@ -218,7 +218,7 @@ public class VillageJunglePools
 		       Pair.of(EmptyPoolElement.INSTANCE, 2)),
 	       StructurePool.Projection.RIGID));
       
-       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/jungle/zombie/decor"), new Identifier("empty"),
+       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID+":village/jungle/zombie/decor"), new ResourceLocation("empty"),
 	       ImmutableList.of(
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/jungle/decor/lamp_1", zombiefy), 1),
 		       new Pair<>(new FeaturePoolElement(Feature.TREE.configure(DefaultBiomeFeatures.JUNGLE_TREE_CONFIG)), 1),
@@ -227,14 +227,14 @@ public class VillageJunglePools
 		       Pair.of(EmptyPoolElement.INSTANCE, 2)),
 	       StructurePool.Projection.RIGID));
       
-       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/jungle/villagers"), new Identifier("empty"),
+       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID+":village/jungle/villagers"), new ResourceLocation("empty"),
 	       ImmutableList.of(
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/jungle/villagers/nitwit"), 1),
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/jungle/villagers/baby"), 1),
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/jungle/villagers/unemployed"), 10)),
 	       StructurePool.Projection.RIGID));
       
-       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/jungle/zombie/villagers"), new Identifier("empty"),
+       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID+":village/jungle/zombie/villagers"), new ResourceLocation("empty"),
 	       ImmutableList.of(
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/jungle/zombie/villagers/nitwit"), 1),
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/jungle/zombie/villagers/unemployed"), 10)),

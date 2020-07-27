@@ -9,13 +9,13 @@ import net.minecraft.block.entity.MobSpawnerBlockEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.state.property.Properties;
 import net.minecraft.structure.StructurePiece;
-import net.minecraft.util.Identifier;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -23,17 +23,17 @@ import org.apache.logging.log4j.Logger;
 import java.util.Random;
 
 
-public class DungeonDarkForest extends Feature<DefaultFeatureConfig> {
+public class DungeonDarkForest extends Feature<NoFeatureConfig> {
     private static final Logger LOGGER = LogManager.getLogger();
-    private static final Identifier CHEST_LOOT = new Identifier(RepurposedStructures.MODID + ":chests/dungeon_dark_forest");
-    private static final Identifier SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":dungeon_dark_forest");
+    private static final ResourceLocation CHEST_LOOT = new ResourceLocation(RepurposedStructures.MODID + ":chests/dungeon_dark_forest");
+    private static final ResourceLocation SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID + ":dungeon_dark_forest");
     private static final BlockState CAVE_AIR = Blocks.CAVE_AIR.getDefaultState();
     private static final BlockState LEAVES = Blocks.DARK_OAK_LEAVES.getDefaultState().with(LeavesBlock.DISTANCE, Integer.valueOf(1));
     private static final BlockState LOGS = Blocks.DARK_OAK_LOG.getDefaultState();
     private static final BlockState SIDEWAYS_LOGS = Blocks.DARK_OAK_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.X);
     private static final BlockState PLANKS = Blocks.DARK_OAK_PLANKS.getDefaultState();
 
-    public DungeonDarkForest(Codec<DefaultFeatureConfig> configFactory) {
+    public DungeonDarkForest(Codec<NoFeatureConfig> configFactory) {
         super(configFactory);
     }
 
@@ -41,7 +41,7 @@ public class DungeonDarkForest extends Feature<DefaultFeatureConfig> {
     //only the mob spawner chance and what blocks the wall cannot replace was changed. Everything else is just the normal dungeon code.
 
     @Override
-    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
+    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
         int randXRange = random.nextInt(2) + 2;
         int xMin = -randXRange - 1;
         int xMax = randXRange + 1;

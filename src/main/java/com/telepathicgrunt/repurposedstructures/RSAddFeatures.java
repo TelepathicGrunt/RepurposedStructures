@@ -233,7 +233,7 @@ public class RSAddFeatures {
     /**
      * Adds RS's dungeon to the biome along with option to remove vanilla dungeon as well.
      */
-    private static void replaceOrAddDungeon(boolean replacing, Biome biome, Feature<DefaultFeatureConfig> rsDungeon, int spawnrate, int minHeight, int maxheight) {
+    private static void replaceOrAddDungeon(boolean replacing, Biome biome, Feature<NoFeatureConfig> rsDungeon, int spawnrate, int minHeight, int maxheight) {
 
         //remove vanilla dungeon
         if (replacing) {

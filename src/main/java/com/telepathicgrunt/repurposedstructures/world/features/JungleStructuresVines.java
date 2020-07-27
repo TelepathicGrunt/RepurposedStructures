@@ -10,16 +10,16 @@ import net.minecraft.util.math.ChunkSectionPos;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 
 import java.util.Random;
 import java.util.Set;
 
 
-public class JungleStructuresVines extends Feature<DefaultFeatureConfig> {
+public class JungleStructuresVines extends Feature<NoFeatureConfig> {
 
-    public JungleStructuresVines(Codec<DefaultFeatureConfig> configFactory) {
+    public JungleStructuresVines(Codec<NoFeatureConfig> configFactory) {
         super(configFactory);
     }
 
@@ -36,14 +36,14 @@ public class JungleStructuresVines extends Feature<DefaultFeatureConfig> {
             Blocks.STONE);
 
     @Override
-    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
+    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
         //Place vines without replacing blocks.
         if (world.isAir(position))
         {
             if(structureAccessor.getStructuresWithChildren(ChunkSectionPos.from(position), RSFeatures.JUNGLE_VILLAGE).findAny().isPresent() ||
                     structureAccessor.getStructuresWithChildren(ChunkSectionPos.from(position), RSFeatures.JUNGLE_FORTRESS).findAny().isPresent())
             {
-                RSFeatures.SHORT_VINES.generate(world, structureAccessor, chunkGenerator, random, position, DefaultFeatureConfig.DEFAULT);
+                RSFeatures.SHORT_VINES.generate(world, structureAccessor, chunkGenerator, random, position, NoFeatureConfig.DEFAULT);
                 return true;
             }
         }
@@ -51,7 +51,7 @@ public class JungleStructuresVines extends Feature<DefaultFeatureConfig> {
         if (FORTRESS_BLOCKS_SET.contains(world.getBlockState(position).getBlock()) && world.isAir(position.down())) {
             if (structureAccessor.getStructuresWithChildren(ChunkSectionPos.from(position), RSFeatures.JUNGLE_FORTRESS).findAny().isPresent()) {
                 world.setBlockState(position, Blocks.AIR.getDefaultState(), 3);
-                RSFeatures.SHORT_VINES.generate(world, structureAccessor, chunkGenerator, random, position, DefaultFeatureConfig.DEFAULT);
+                RSFeatures.SHORT_VINES.generate(world, structureAccessor, chunkGenerator, random, position, NoFeatureConfig.DEFAULT);
                 return true;
             }
         }

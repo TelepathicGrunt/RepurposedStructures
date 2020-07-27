@@ -10,38 +10,38 @@ import net.minecraft.structure.StructureManager;
 import net.minecraft.structure.pool.SinglePoolElement;
 import net.minecraft.structure.pool.StructurePool;
 import net.minecraft.structure.pool.StructurePoolBasedGenerator;
-import net.minecraft.util.Identifier;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
 import java.util.List;
 
 
-public class OutpostCrimsonStructure extends StructureFeature<DefaultFeatureConfig> {
+public class OutpostCrimsonStructure extends StructureFeature<NoFeatureConfig> {
     // Special thanks to /r/l-ll-ll-l_IsDisLoss for allowing me to mimic his Nether Outpost design!
 
     static {
-        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID,"outposts/crimson/base_plates"), new Identifier("empty"),
+        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID,"outposts/crimson/base_plates"), new ResourceLocation("empty"),
                 ImmutableList.of(Pair.of(
                         new SinglePoolElement(RepurposedStructures.MODID+":outposts/crimson/base_plate"), 1)),
                 StructurePool.Projection.RIGID));
 
-        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID,"outposts/crimson/towers"), new Identifier("empty"),
+        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID,"outposts/crimson/towers"), new ResourceLocation("empty"),
                 ImmutableList.of(
                         Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":outposts/crimson/tower"), 1),
                         Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":outposts/crimson/tower_glowing"), 1)),
                 StructurePool.Projection.RIGID));
 
-        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID,"outposts/crimson/plates"), new Identifier("empty"),
+        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID,"outposts/crimson/plates"), new ResourceLocation("empty"),
                 ImmutableList.of(Pair.of(
                         new SinglePoolElement(RepurposedStructures.MODID+":outposts/crimson/plate"), 1)),
                 StructurePool.Projection.RIGID));
 
-        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID,"outposts/crimson/features"), new Identifier("empty"),
+        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID,"outposts/crimson/features"), new ResourceLocation("empty"),
                 ImmutableList.of(
                         Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":outposts/crimson/cage1"), 1),
                         Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":outposts/crimson/cage2"), 1),
@@ -55,12 +55,12 @@ public class OutpostCrimsonStructure extends StructureFeature<DefaultFeatureConf
 
     private static final List<Biome.SpawnEntry> MONSTER_SPAWNS = Lists.newArrayList(new Biome.SpawnEntry(EntityType.PIGLIN, 10, 1, 1));
 
-    public OutpostCrimsonStructure(Codec<DefaultFeatureConfig> config) {
+    public OutpostCrimsonStructure(Codec<NoFeatureConfig> config) {
         super(config);
     }
 
     @Override
-    public StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
+    public StructureStartFactory<NoFeatureConfig> getStructureStartFactory() {
         return OutpostCrimsonStructure.Start::new;
     }
 
@@ -70,13 +70,13 @@ public class OutpostCrimsonStructure extends StructureFeature<DefaultFeatureConf
     }
 
     public static class Start extends AbstractNetherStructure.AbstractStart{
-        Identifier NETHER_OUTPOST_POOL = new Identifier(RepurposedStructures.MODID,"outposts/crimson/base_plates");
+        ResourceLocation NETHER_OUTPOST_POOL = new ResourceLocation(RepurposedStructures.MODID,"outposts/crimson/base_plates");
 
-        public Start(StructureFeature<DefaultFeatureConfig> structureFeature, int x, int z, BlockBox blockBox, int referenceIn, long seed) {
+        public Start(StructureFeature<NoFeatureConfig> structureFeature, int x, int z, BlockBox blockBox, int referenceIn, long seed) {
             super(structureFeature, x, z, blockBox, referenceIn, seed);
         }
 
-        public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int x, int z, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
+        public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int x, int z, Biome biome, NoFeatureConfig NoFeatureConfig) {
             BlockPos blockPos = new BlockPos(x * 16, 0, z * 16);
             GeneralJigsawGenerator.addPieces(chunkGenerator, structureManager, blockPos, this.children, this.random, NETHER_OUTPOST_POOL, 11);
             this.setBoundingBoxFromChildren();

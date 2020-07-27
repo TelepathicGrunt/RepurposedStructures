@@ -10,16 +10,16 @@ import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 
 import java.util.Random;
 import java.util.function.Predicate;
 
 
-public class StrongholdChains extends Feature<DefaultFeatureConfig> {
+public class StrongholdChains extends Feature<NoFeatureConfig> {
 
-    public StrongholdChains(Codec<DefaultFeatureConfig> configFactory) {
+    public StrongholdChains(Codec<NoFeatureConfig> configFactory) {
         super(configFactory);
     }
 
@@ -44,7 +44,7 @@ public class StrongholdChains extends Feature<DefaultFeatureConfig> {
     };
 
     @Override
-    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
+    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
         if (!world.isAir(position) ||
                 (!structureAccessor.getStructuresWithChildren(ChunkSectionPos.from(position), RSFeatures.STONEBRICK_STRONGHOLD).findAny().isPresent() &&
                  !structureAccessor.getStructuresWithChildren(ChunkSectionPos.from(position), RSFeatures.NETHER_STRONGHOLD).findAny().isPresent()))

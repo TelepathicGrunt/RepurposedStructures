@@ -9,25 +9,25 @@ import net.minecraft.structure.StructureStart;
 import net.minecraft.structure.pool.SinglePoolElement;
 import net.minecraft.structure.pool.StructurePool;
 import net.minecraft.structure.pool.StructurePoolBasedGenerator;
-import net.minecraft.util.Identifier;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
 import java.util.ArrayList;
 
 
 public class EndShipwreckStructure extends AbstractBaseStructure {
-    public EndShipwreckStructure(Codec<DefaultFeatureConfig> config) {
+    public EndShipwreckStructure(Codec<NoFeatureConfig> config) {
         super(config);
     }
     static {
         StructurePoolBasedGenerator.REGISTRY.add(
-                new StructurePool(new Identifier(RepurposedStructures.MODID,"shipwrecks/end"), new Identifier("empty"),
+                new StructurePool(new ResourceLocation(RepurposedStructures.MODID,"shipwrecks/end"), new ResourceLocation("empty"),
                         ImmutableList.of(
                             Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":shipwrecks/end/rightsideup_backhalf", new ArrayList<>()), 1),
                                 Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":shipwrecks/end/rightsideup_backhalf_degraded", new ArrayList<>()), 1),
@@ -51,21 +51,21 @@ public class EndShipwreckStructure extends AbstractBaseStructure {
     }
 
     @Override
-    public StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
+    public StructureStartFactory<NoFeatureConfig> getStructureStartFactory() {
         return EndShipwreckStructure.Start::new;
     }
 
-    public static class Start extends StructureStart<DefaultFeatureConfig> {
-        public Start(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
+    public static class Start extends StructureStart<NoFeatureConfig> {
+        public Start(StructureFeature<NoFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
         }
 
-        private static Identifier SHIPWRECK_IDENTIFIER = new Identifier(RepurposedStructures.MODID + ":shipwrecks/end");
+        private static ResourceLocation SHIPWRECK_ResourceLocation = new ResourceLocation(RepurposedStructures.MODID + ":shipwrecks/end");
 
         @Override
-        public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
+        public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
             BlockPos blockpos = new BlockPos(chunkX * 16, 62, chunkZ * 16);
-            GeneralJigsawGenerator.addPieces(chunkGenerator, structureManager, blockpos, this.children, this.random, SHIPWRECK_IDENTIFIER, 1);
+            GeneralJigsawGenerator.addPieces(chunkGenerator, structureManager, blockpos, this.children, this.random, SHIPWRECK_ResourceLocation, 1);
             this.setBoundingBoxFromChildren();
 
             BlockPos blockPos = new BlockPos(this.children.get(0).getBoundingBox().getCenter());

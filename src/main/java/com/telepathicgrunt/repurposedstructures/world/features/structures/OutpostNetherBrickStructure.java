@@ -10,37 +10,37 @@ import net.minecraft.structure.StructureManager;
 import net.minecraft.structure.pool.SinglePoolElement;
 import net.minecraft.structure.pool.StructurePool;
 import net.minecraft.structure.pool.StructurePoolBasedGenerator;
-import net.minecraft.util.Identifier;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
 import java.util.List;
 
 
-public class OutpostNetherBrickStructure extends StructureFeature<DefaultFeatureConfig> {
+public class OutpostNetherBrickStructure extends StructureFeature<NoFeatureConfig> {
     //Special thanks to cannon_foddr for the this Nether Outpost design!
 
     static {
-        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID,"outposts/nether_brick/base_plates"), new Identifier("empty"),
+        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID,"outposts/nether_brick/base_plates"), new ResourceLocation("empty"),
                 ImmutableList.of(Pair.of(
                         new SinglePoolElement(RepurposedStructures.MODID+":outposts/nether_brick/base_plate"), 1)),
                 StructurePool.Projection.RIGID));
 
-        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID,"outposts/nether_brick/towers"), new Identifier("empty"),
+        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID,"outposts/nether_brick/towers"), new ResourceLocation("empty"),
                 ImmutableList.of(Pair.of(
                         new SinglePoolElement(RepurposedStructures.MODID+":outposts/nether_brick/tower"), 1)),
                 StructurePool.Projection.RIGID));
 
-        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID,"outposts/nether_brick/plates"), new Identifier("empty"),
+        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID,"outposts/nether_brick/plates"), new ResourceLocation("empty"),
                 ImmutableList.of(Pair.of(
                         new SinglePoolElement(RepurposedStructures.MODID+":outposts/nether_brick/plate"), 1)),
                 StructurePool.Projection.RIGID));
 
-        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID,"outposts/nether_brick/features"), new Identifier("empty"),
+        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID,"outposts/nether_brick/features"), new ResourceLocation("empty"),
                 ImmutableList.of(
                         Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":outposts/nether_brick/cage1"), 1),
                         Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":outposts/nether_brick/cage2"), 1),
@@ -54,12 +54,12 @@ public class OutpostNetherBrickStructure extends StructureFeature<DefaultFeature
 
     private static final List<Biome.SpawnEntry> MONSTER_SPAWNS = Lists.newArrayList(new Biome.SpawnEntry(EntityType.PIGLIN, 10, 1, 1));
 
-    public OutpostNetherBrickStructure(Codec<DefaultFeatureConfig> config) {
+    public OutpostNetherBrickStructure(Codec<NoFeatureConfig> config) {
         super(config);
     }
 
     @Override
-    public StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
+    public StructureStartFactory<NoFeatureConfig> getStructureStartFactory() {
         return OutpostNetherBrickStructure.Start::new;
     }
 
@@ -69,13 +69,13 @@ public class OutpostNetherBrickStructure extends StructureFeature<DefaultFeature
     }
 
     public static class Start extends AbstractNetherStructure.AbstractStart{
-        Identifier NETHER_OUTPOST_POOL = new Identifier(RepurposedStructures.MODID,"outposts/nether_brick/base_plates");
+        ResourceLocation NETHER_OUTPOST_POOL = new ResourceLocation(RepurposedStructures.MODID,"outposts/nether_brick/base_plates");
 
-        public Start(StructureFeature<DefaultFeatureConfig> structureFeature, int x, int z, BlockBox blockBox, int referenceIn, long seed) {
+        public Start(StructureFeature<NoFeatureConfig> structureFeature, int x, int z, BlockBox blockBox, int referenceIn, long seed) {
             super(structureFeature, x, z, blockBox, referenceIn, seed);
         }
 
-        public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int x, int z, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
+        public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int x, int z, Biome biome, NoFeatureConfig NoFeatureConfig) {
             BlockPos blockPos = new BlockPos(x * 16, 0, z * 16);
             GeneralJigsawGenerator.addPieces(chunkGenerator, structureManager, blockPos, this.children, this.random, NETHER_OUTPOST_POOL, 11);
             this.setBoundingBoxFromChildren();

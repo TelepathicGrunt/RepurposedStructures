@@ -17,27 +17,27 @@ import net.minecraft.tag.BlockTags;
 import net.minecraft.tag.Tag;
 import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;
-import net.minecraft.util.Identifier;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.ServerWorldAccess;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 
 import java.util.Collection;
 import java.util.Random;
 
 
-public abstract class WellAbstract extends Feature<DefaultFeatureConfig> {
+public abstract class WellAbstract extends Feature<NoFeatureConfig> {
     private StructureManager templatemanager = null;
     protected StructurePlacementData placementsettings = (new StructurePlacementData()).setMirror(BlockMirror.NONE).setRotation(BlockRotation.NONE).setIgnoreEntities(false).setChunkPosition((ChunkPos) null);
 
-    public WellAbstract(Codec<DefaultFeatureConfig> config) {
+    public WellAbstract(Codec<NoFeatureConfig> config) {
         super(config);
     }
 
 
-    protected Structure generateTemplate(Identifier templateRL, ServerWorldAccess world, Random random, BlockPos position) {
+    protected Structure generateTemplate(ResourceLocation templateRL, ServerWorldAccess world, Random random, BlockPos position) {
 
         // cache to save time and speed
         if (templatemanager == null) templatemanager = ((ServerWorld) world.getWorld()).getStructureManager();
@@ -58,7 +58,7 @@ public abstract class WellAbstract extends Feature<DefaultFeatureConfig> {
     }
 
 
-    protected void handleDataBlocks(Identifier templateOresRL, Structure template, ServerWorldAccess world, Random random, BlockPos position, Block defaultBlock, float oreChance) {
+    protected void handleDataBlocks(ResourceLocation templateOresRL, Structure template, ServerWorldAccess world, Random random, BlockPos position, Block defaultBlock, float oreChance) {
         // Replace the Data blocks with ores or bells
         Tag<Block> ORE_TAG = BlockTags.getContainer().getOrCreate(templateOresRL);
         Collection<Block> allOreBlocks = ORE_TAG.values();

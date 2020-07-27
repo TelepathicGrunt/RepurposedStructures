@@ -11,16 +11,16 @@ import net.minecraft.world.chunk.ChunkStatus;
 import net.minecraft.world.gen.ChunkRandom;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.StructureConfig;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
-public abstract class AbstractBaseStructure extends StructureFeature<DefaultFeatureConfig> {
+public abstract class AbstractBaseStructure extends StructureFeature<NoFeatureConfig> {
 
-    public AbstractBaseStructure(Codec<DefaultFeatureConfig> codec) {
+    public AbstractBaseStructure(Codec<NoFeatureConfig> codec) {
         super(codec);
     }
 
-    public static BlockPos locateStructureFast(WorldView worldView, StructureAccessor structureAccessor, BlockPos blockPos, int radius, boolean skipExistingChunks, long seed, StructureConfig structureConfig, StructureFeature<DefaultFeatureConfig> structure) {
+    public static BlockPos locateStructureFast(WorldView worldView, StructureAccessor structureAccessor, BlockPos blockPos, int radius, boolean skipExistingChunks, long seed, StructureConfig structureConfig, StructureFeature<NoFeatureConfig> structure) {
         int spacing = structureConfig.getSpacing();
         int chunkX = blockPos.getX() >> 4;
         int chunkZ = blockPos.getZ() >> 4;

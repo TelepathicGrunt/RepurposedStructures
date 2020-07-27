@@ -9,21 +9,21 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 
 import java.util.Random;
 
 
-public class BoulderGiant extends Feature<DefaultFeatureConfig> {
+public class BoulderGiant extends Feature<NoFeatureConfig> {
     private final static int START_RADIUS = 4;
 
-    public BoulderGiant(Codec<DefaultFeatureConfig> configFactory) {
+    public BoulderGiant(Codec<NoFeatureConfig> configFactory) {
         super(configFactory);
     }
 
     @Override
-    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
+    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
 
         BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().set(position);
         BlockState blockState = world.getBlockState(blockpos$Mutable);

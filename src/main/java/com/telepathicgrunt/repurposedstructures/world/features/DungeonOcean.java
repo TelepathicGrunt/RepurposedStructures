@@ -12,7 +12,7 @@ import net.minecraft.block.entity.MobSpawnerBlockEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.state.property.Properties;
 import net.minecraft.structure.StructurePiece;
-import net.minecraft.util.Identifier;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.Registry;
@@ -22,7 +22,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -30,8 +30,8 @@ import org.apache.logging.log4j.Logger;
 import java.util.Random;
 
 
-public class DungeonOcean extends Feature<DefaultFeatureConfig> {
-    public DungeonOcean(Codec<DefaultFeatureConfig> configFactory) {
+public class DungeonOcean extends Feature<NoFeatureConfig> {
+    public DungeonOcean(Codec<NoFeatureConfig> configFactory) {
         super(configFactory);
     }
 
@@ -43,19 +43,19 @@ public class DungeonOcean extends Feature<DefaultFeatureConfig> {
     private static final BlockState DARK_PRISMARINE_STAIRS = Blocks.DARK_PRISMARINE_STAIRS.getDefaultState();
     private static final BlockState DARK_PRISMARINE = Blocks.DARK_PRISMARINE.getDefaultState();
     private static final BlockState MAGMA_BLOCK = Blocks.MAGMA_BLOCK.getDefaultState();
-    private static final Identifier CHEST_LOOT = new Identifier(RepurposedStructures.MODID + ":chests/dungeon_ocean");
-    private static final Identifier FROZEN_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":dungeon_ocean_frozen");
-    private static final Identifier COLD_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":dungeon_ocean_cold");
-    private static final Identifier NEUTRAL_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":dungeon_ocean_neutral");
-    private static final Identifier LUKEWARM_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":dungeon_ocean_lukewarm");
-    private static final Identifier WARM_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":dungeon_ocean_warm");
-    private static final Identifier MISC_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":dungeon_ocean_misc");
+    private static final ResourceLocation CHEST_LOOT = new ResourceLocation(RepurposedStructures.MODID + ":chests/dungeon_ocean");
+    private static final ResourceLocation FROZEN_SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID + ":dungeon_ocean_frozen");
+    private static final ResourceLocation COLD_SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID + ":dungeon_ocean_cold");
+    private static final ResourceLocation NEUTRAL_SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID + ":dungeon_ocean_neutral");
+    private static final ResourceLocation LUKEWARM_SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID + ":dungeon_ocean_lukewarm");
+    private static final ResourceLocation WARM_SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID + ":dungeon_ocean_warm");
+    private static final ResourceLocation MISC_SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID + ":dungeon_ocean_misc");
 
 
     // only the mob spawner chance and what blocks the wall cannot replace was changed. Everything else is just the normal dungeon code.
 
     @Override
-    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
+    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
         int randXRange = random.nextInt(2) + 2;
         int xMin = -randXRange - 1;
         int xMax = randXRange + 1;

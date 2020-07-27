@@ -7,7 +7,7 @@ import net.minecraft.structure.StructurePiece;
 import net.minecraft.structure.pool.StructurePoolBasedGenerator;
 import net.minecraft.structure.pool.StructurePoolElement;
 import net.minecraft.util.BlockRotation;
-import net.minecraft.util.Identifier;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.gen.ChunkRandom;
@@ -17,7 +17,7 @@ import java.util.List;
 
 
 public class GeneralJigsawGenerator {
-    public static void addPieces(ChunkGenerator chunkGenerator, StructureManager structureManager, BlockPos pos, List<StructurePiece> pieces, ChunkRandom random, Identifier startPool, int size) {
+    public static void addPieces(ChunkGenerator chunkGenerator, StructureManager structureManager, BlockPos pos, List<StructurePiece> pieces, ChunkRandom random, ResourceLocation startPool, int size) {
         StructurePoolBasedGenerator.addPieces(startPool, size, GeneralJigsawGenerator.Piece::new, chunkGenerator, structureManager, pos, pieces, random, true, false);
     }
 

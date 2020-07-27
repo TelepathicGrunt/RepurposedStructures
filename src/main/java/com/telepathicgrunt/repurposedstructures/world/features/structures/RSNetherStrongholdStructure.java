@@ -18,7 +18,7 @@ import net.minecraft.world.gen.ChunkRandom;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.chunk.StructureConfig;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.StrongholdFeature;
 import net.minecraft.world.gen.feature.StructureFeature;
 
@@ -33,12 +33,12 @@ public class RSNetherStrongholdStructure extends StrongholdFeature {
                     new Biome.SpawnEntry(EntityType.SKELETON, 2, 5, 5),
                     new Biome.SpawnEntry(EntityType.MAGMA_CUBE, 3, 4, 4));
 
-    public RSNetherStrongholdStructure(Codec<DefaultFeatureConfig> config) {
+    public RSNetherStrongholdStructure(Codec<NoFeatureConfig> config) {
         super(config);
     }
 
     @Override
-    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, int x, int z, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig featureConfig) {
+    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, int x, int z, Biome biome, ChunkPos chunkPos, NoFeatureConfig featureConfig) {
         return (x * x) + (z * z) > 10000;
     }
 
@@ -48,7 +48,7 @@ public class RSNetherStrongholdStructure extends StrongholdFeature {
     }
 
     @Override
-    public StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
+    public StructureStartFactory<NoFeatureConfig> getStructureStartFactory() {
         return RSNetherStrongholdStructure.Start::new;
     }
 
@@ -57,14 +57,14 @@ public class RSNetherStrongholdStructure extends StrongholdFeature {
         return MONSTER_SPAWNS;
     }
 
-    public static class Start extends StructureStart<DefaultFeatureConfig> {
-        public Start(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
+    public static class Start extends StructureStart<NoFeatureConfig> {
+        public Start(StructureFeature<NoFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
         }
 
 
         @Override
-        public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
+        public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
             RSStrongholdPieces.prepareStructurePieces();
             RSStrongholdPieces.EntranceStairs strongholdpieces$entrancestairs = new RSStrongholdPieces.EntranceStairs(this.random, (chunkX << 4) + 2, (chunkZ << 4) + 2, RSStrongholdPieces.Type.NETHER);
             this.children.add(strongholdpieces$entrancestairs);

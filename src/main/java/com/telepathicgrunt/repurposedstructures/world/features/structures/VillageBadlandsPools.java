@@ -10,7 +10,7 @@ import net.minecraft.structure.processor.StructureProcessor;
 import net.minecraft.structure.processor.StructureProcessorRule;
 import net.minecraft.structure.rule.AlwaysTrueRuleTest;
 import net.minecraft.structure.rule.RandomBlockMatchRuleTest;
-import net.minecraft.util.Identifier;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.feature.Feature;
 
@@ -23,13 +23,13 @@ public class VillageBadlandsPools {
                 new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.WHEAT, 0.2F), AlwaysTrueRuleTest.INSTANCE, Blocks.BEETROOTS.getDefaultState()),
                 new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.WHEAT, 0.1F), AlwaysTrueRuleTest.INSTANCE, Blocks.MELON_STEM.getDefaultState()))));
 
-        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID + ":village/badlands/town_centers"), new Identifier("empty"),
+        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID + ":village/badlands/town_centers"), new ResourceLocation("empty"),
                 ImmutableList.of(
                         new Pair<>(new SinglePoolElement(RepurposedStructures.MODID + ":village/badlands/town_centers/center_1"), 98)),
                 StructurePool.Projection.RIGID));
 
-        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID + ":village/badlands/streets"),
-                new Identifier(RepurposedStructures.MODID + ":village/badlands/terminators"),
+        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID + ":village/badlands/streets"),
+                new ResourceLocation(RepurposedStructures.MODID + ":village/badlands/terminators"),
                 ImmutableList.of(
                         new Pair<>(new SinglePoolElement(RepurposedStructures.MODID + ":village/badlands/streets/corner_01"), 3),
                         new Pair<>(new SinglePoolElement(RepurposedStructures.MODID + ":village/badlands/streets/corner_02"), 3),
@@ -44,7 +44,7 @@ public class VillageBadlandsPools {
                         new Pair<>(new SinglePoolElement(RepurposedStructures.MODID + ":village/badlands/streets/square_02"), 3)),
                 StructurePool.Projection.TERRAIN_MATCHING));
 
-        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID + ":village/badlands/houses"), new Identifier(RepurposedStructures.MODID + ":village/badlands/terminators"),
+        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID + ":village/badlands/houses"), new ResourceLocation(RepurposedStructures.MODID + ":village/badlands/terminators"),
                 ImmutableList.of(
                         new Pair<>(new SinglePoolElement(RepurposedStructures.MODID + ":village/badlands/houses/small_house_1"), 2),
                         new Pair<>(new SinglePoolElement(RepurposedStructures.MODID + ":village/badlands/houses/small_house_2"), 2),
@@ -76,14 +76,14 @@ public class VillageBadlandsPools {
                         Pair.of(EmptyPoolElement.INSTANCE, 5)),
                 StructurePool.Projection.RIGID));
 
-        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID + ":village/badlands/terminators"), new Identifier("empty"),
+        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID + ":village/badlands/terminators"), new ResourceLocation("empty"),
                 ImmutableList.of(
                         new Pair<>(new SinglePoolElement(RepurposedStructures.MODID + ":village/badlands/terminators/terminator_01"), 1),
                         new Pair<>(new SinglePoolElement(RepurposedStructures.MODID + ":village/badlands/terminators/terminator_02"), 1),
                         new Pair<>(new SinglePoolElement(RepurposedStructures.MODID + ":village/badlands/terminators/terminator_03"), 1)),
                 StructurePool.Projection.TERRAIN_MATCHING));
 
-        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID + ":village/badlands/decor"), new Identifier("empty"),
+        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID + ":village/badlands/decor"), new ResourceLocation("empty"),
                 ImmutableList.of(
                         new Pair<>(new SinglePoolElement(RepurposedStructures.MODID + ":village/badlands/decor/lamp_1"), 10),
                         new Pair<>(new SinglePoolElement(RepurposedStructures.MODID + ":village/badlands/decor/lamp_2"), 10),

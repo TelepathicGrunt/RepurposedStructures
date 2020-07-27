@@ -12,7 +12,7 @@ import net.minecraft.structure.*;
 import net.minecraft.structure.processor.BlockIgnoreStructureProcessor;
 import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;
-import net.minecraft.util.Identifier;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
@@ -22,7 +22,7 @@ import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 
 import java.util.List;
 import java.util.Map;
@@ -30,12 +30,12 @@ import java.util.Random;
 
 
 public class RSIglooPieces {
-    private static final Identifier IGLOO_MIDDLE_RL = new Identifier("igloo/middle");
-    private static final Identifier IGLOO_BOTTOM_RL = new Identifier("igloo/bottom");
-    private static final Map<Identifier, BlockPos> OFFSET_1 = ImmutableMap.of(IGLOO_MIDDLE_RL, new BlockPos(1, 3, 1), IGLOO_BOTTOM_RL, new BlockPos(3, 6, 7));
-    private static final Map<Identifier, BlockPos> OFFSET_2 = ImmutableMap.of(IGLOO_MIDDLE_RL, new BlockPos(2, -3, 4), IGLOO_BOTTOM_RL, new BlockPos(0, -3, -2));
+    private static final ResourceLocation IGLOO_MIDDLE_RL = new ResourceLocation("igloo/middle");
+    private static final ResourceLocation IGLOO_BOTTOM_RL = new ResourceLocation("igloo/bottom");
+    private static final Map<ResourceLocation, BlockPos> OFFSET_1 = ImmutableMap.of(IGLOO_MIDDLE_RL, new BlockPos(1, 3, 1), IGLOO_BOTTOM_RL, new BlockPos(3, 6, 7));
+    private static final Map<ResourceLocation, BlockPos> OFFSET_2 = ImmutableMap.of(IGLOO_MIDDLE_RL, new BlockPos(2, -3, 4), IGLOO_BOTTOM_RL, new BlockPos(0, -3, -2));
 
-    public static void func_207617_a(StructureManager templateManager, Identifier topPieceRL, Block floorBlock, BlockPos position, BlockRotation rotationIn, List<StructurePiece> pieceList, Random random, DefaultFeatureConfig p_207617_5_) {
+    public static void func_207617_a(StructureManager templateManager, ResourceLocation topPieceRL, Block floorBlock, BlockPos position, BlockRotation rotationIn, List<StructurePiece> pieceList, Random random, NoFeatureConfig p_207617_5_) {
         if (random.nextDouble() < 0.5D) {
             int basementY = random.nextInt(8) + 4;
             pieceList.add(new RSIglooPieces.Piece(templateManager, IGLOO_BOTTOM_RL, position, rotationIn, basementY * 3, null));
@@ -49,11 +49,11 @@ public class RSIglooPieces {
     }
 
     public static class Piece extends SimpleStructurePiece {
-        private final Identifier pieceRL;
+        private final ResourceLocation pieceRL;
         private final BlockRotation rotation;
         private final Block floorBlock;
 
-        public Piece(StructureManager templateManager, Identifier pieceRL, BlockPos position, BlockRotation rotationIn, int heightOffset, Block floorBlockIn) {
+        public Piece(StructureManager templateManager, ResourceLocation pieceRL, BlockPos position, BlockRotation rotationIn, int heightOffset, Block floorBlockIn) {
             super(StructurePieces.RS_IGLOO_PIECE, 0);
             this.pieceRL = pieceRL;
             BlockPos blockpos = OFFSET_2.containsKey(this.pieceRL) ? OFFSET_2.get(this.pieceRL) : new BlockPos(0, -1, 0);
@@ -66,10 +66,10 @@ public class RSIglooPieces {
 
         public Piece(StructureManager templateManager, CompoundTag data) {
             super(StructurePieces.RS_IGLOO_PIECE, data);
-            this.pieceRL = new Identifier(data.getString("Template"));
+            this.pieceRL = new ResourceLocation(data.getString("Template"));
             this.rotation = BlockRotation.valueOf(data.getString("Rot"));
             this.func_207614_a(templateManager);
-            this.floorBlock = Registry.BLOCK.get(new Identifier(data.getString("FloorBlock")));
+            this.floorBlock = Registry.BLOCK.get(new ResourceLocation(data.getString("FloorBlock")));
         }
 
 

@@ -12,7 +12,7 @@ import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 
 import java.util.BitSet;
@@ -20,9 +20,9 @@ import java.util.Random;
 import java.util.function.Predicate;
 
 
-public class FortressBreakage extends Feature<DefaultFeatureConfig> {
+public class FortressBreakage extends Feature<NoFeatureConfig> {
 
-    public FortressBreakage(Codec<DefaultFeatureConfig> configFactory) {
+    public FortressBreakage(Codec<NoFeatureConfig> configFactory) {
         super(configFactory);
     }
 
@@ -41,7 +41,7 @@ public class FortressBreakage extends Feature<DefaultFeatureConfig> {
     };
 
     @Override
-    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
+    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
         if (FORTRESS_BLOCKS.test(world.getBlockState(position.down())) &&
             structureAccessor.getStructuresWithChildren(ChunkSectionPos.from(position), RSFeatures.JUNGLE_FORTRESS).findAny().isPresent())
         {

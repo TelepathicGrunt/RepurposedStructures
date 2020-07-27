@@ -6,28 +6,28 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.structure.Structure;
 import net.minecraft.tag.BlockTags;
-import net.minecraft.util.Identifier;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 
 import java.util.Random;
 
 
 public class WellBadlands extends WellAbstract {
     private static final float ORE_CHANCE = 0.15f;
-    private static final Identifier BADLANDS_WELL_ORE_RL = new Identifier(RepurposedStructures.MODID + ":badlands_well_ores");
-    private static final Identifier BADLANDS_WELL_RL = new Identifier(RepurposedStructures.MODID + ":wells/badlands");
+    private static final ResourceLocation BADLANDS_WELL_ORE_RL = new ResourceLocation(RepurposedStructures.MODID + ":badlands_well_ores");
+    private static final ResourceLocation BADLANDS_WELL_RL = new ResourceLocation(RepurposedStructures.MODID + ":wells/badlands");
 
-    public WellBadlands(Codec<DefaultFeatureConfig> config) {
+    public WellBadlands(Codec<NoFeatureConfig> config) {
         super(config);
     }
 
 
-    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
+    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
         // move to top land block below position
         BlockPos.Mutable mutable = new BlockPos.Mutable().set(position);
         for (mutable.move(Direction.UP); world.isAir(mutable) && mutable.getY() > 2; ) {

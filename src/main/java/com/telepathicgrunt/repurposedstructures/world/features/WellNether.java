@@ -11,13 +11,13 @@ import net.minecraft.structure.Structure;
 import net.minecraft.structure.Structure.StructureBlockInfo;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.tag.Tag;
-import net.minecraft.util.Identifier;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import org.apache.logging.log4j.Level;
 
@@ -28,15 +28,15 @@ import java.util.Random;
 public class WellNether extends WellAbstract {
     private static final float COMMON_ORE_CHANCE = 0.5f;
     private static final float RARE_ORE_CHANCE = 0.08f;
-    private static final Identifier NETHER_WELL_ORE_RL = new Identifier("repurposed_structures:nether_well_ores");
-    private static final Identifier NETHER_WELL_RL = new Identifier(RepurposedStructures.MODID + ":wells/nether");
+    private static final ResourceLocation NETHER_WELL_ORE_RL = new ResourceLocation("repurposed_structures:nether_well_ores");
+    private static final ResourceLocation NETHER_WELL_RL = new ResourceLocation(RepurposedStructures.MODID + ":wells/nether");
 
 
-    public WellNether(Codec<DefaultFeatureConfig> config) {
+    public WellNether(Codec<NoFeatureConfig> config) {
         super(config);
     }
 
-    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
+    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
         // move to top land block below position
         BlockPos.Mutable mutable = new BlockPos.Mutable().set(position);
         for (mutable.move(Direction.UP); mutable.getY() > 32;) {
@@ -81,7 +81,7 @@ public class WellNether extends WellAbstract {
     }
 
 
-    protected void handleDataBlocks(Identifier templateOresRL, Structure template, ServerWorldAccess world, Random random, BlockPos position, Block defaultBlock, float oreChance) {
+    protected void handleDataBlocks(ResourceLocation templateOresRL, Structure template, ServerWorldAccess world, Random random, BlockPos position, Block defaultBlock, float oreChance) {
         // Replace the Data blocks with ores or bells
         Tag<Block> ORE_TAG = BlockTags.getContainer().getOrCreate(templateOresRL);
         Collection<Block> allOreBlocks = ORE_TAG.values();

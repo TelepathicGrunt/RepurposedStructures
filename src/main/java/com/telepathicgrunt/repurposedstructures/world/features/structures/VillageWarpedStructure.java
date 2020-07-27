@@ -4,7 +4,7 @@ import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RSFeatures;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.structure.StructureManager;
-import net.minecraft.util.Identifier;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
@@ -12,38 +12,38 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.source.BiomeSource;
 import net.minecraft.world.gen.ChunkRandom;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
 public class VillageWarpedStructure extends AbstractNetherVillageStructure {
-    public VillageWarpedStructure(Codec<DefaultFeatureConfig> config) {
+    public VillageWarpedStructure(Codec<NoFeatureConfig> config) {
         super(config);
     }
 
     @Override
-    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig defaultFeatureConfig) {
+    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig NoFeatureConfig) {
         return true;
     }
 
     @Override
-    public StructureFeature<DefaultFeatureConfig> getVillageInstance() {
+    public StructureFeature<NoFeatureConfig> getVillageInstance() {
         return RSFeatures.WARPED_VILLAGE;
     }
 
-    public StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
+    public StructureStartFactory<NoFeatureConfig> getStructureStartFactory() {
         return VillageWarpedStructure.Start::new;
     }
 
     public static class Start extends NetherAbstractStart {
-        public Start(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
+        public Start(StructureFeature<NoFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
         }
 
-        public static Identifier VILLAGE_IDENTIFIER = new Identifier(RepurposedStructures.MODID + ":village/warped/town_centers");
+        public static ResourceLocation VILLAGE_ResourceLocation = new ResourceLocation(RepurposedStructures.MODID + ":village/warped/town_centers");
 
         @Override
-        public Identifier getIdentifier() {
-            return VILLAGE_IDENTIFIER;
+        public ResourceLocation getResourceLocation() {
+            return VILLAGE_ResourceLocation;
         }
 
         @Override
@@ -51,8 +51,8 @@ public class VillageWarpedStructure extends AbstractNetherVillageStructure {
             return 6;
         }
 
-        public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
-            super.init(chunkGenerator, structureManager, chunkX, chunkZ, biome, defaultFeatureConfig);
+        public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
+            super.init(chunkGenerator, structureManager, chunkX, chunkZ, biome, NoFeatureConfig);
 
             BlockPos lowestLandPos = getHighestLand(chunkGenerator);
             if (lowestLandPos.getY() >= 108 || lowestLandPos.getY() <= 33) {

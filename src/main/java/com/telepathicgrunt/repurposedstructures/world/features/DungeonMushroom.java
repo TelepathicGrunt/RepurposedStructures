@@ -10,13 +10,13 @@ import net.minecraft.block.entity.LootableContainerBlockEntity;
 import net.minecraft.block.entity.MobSpawnerBlockEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.structure.StructurePiece;
-import net.minecraft.util.Identifier;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -24,22 +24,22 @@ import org.apache.logging.log4j.Logger;
 import java.util.Random;
 
 
-public class DungeonMushroom extends Feature<DefaultFeatureConfig> {
-    public DungeonMushroom(Codec<DefaultFeatureConfig> configFactory) {
+public class DungeonMushroom extends Feature<NoFeatureConfig> {
+    public DungeonMushroom(Codec<NoFeatureConfig> configFactory) {
         super(configFactory);
     }
 
     private static final Logger LOGGER = LogManager.getLogger();
     private static final BlockState CAVE_AIR = Blocks.CAVE_AIR.getDefaultState();
-    private static final Identifier CHEST_LOOT = new Identifier(RepurposedStructures.MODID + ":chests/dungeon_mushroom");
-    private static final Identifier HIGH_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":dungeon_mushroom_high");
-    private static final Identifier LOW_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":dungeon_mushroom_low");
+    private static final ResourceLocation CHEST_LOOT = new ResourceLocation(RepurposedStructures.MODID + ":chests/dungeon_mushroom");
+    private static final ResourceLocation HIGH_SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID + ":dungeon_mushroom_high");
+    private static final ResourceLocation LOW_SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID + ":dungeon_mushroom_low");
 
 
     //only the mob spawner chance and what blocks the wall cannot replace was changed. Everything else is just the normal dungeon code.
 
     @Override
-    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
+    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
         int randXRange = random.nextInt(2) + 2;
         int xMin = -randXRange - 1;
         int xMax = randXRange + 1;

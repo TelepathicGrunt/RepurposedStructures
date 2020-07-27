@@ -10,38 +10,38 @@ import net.minecraft.structure.StructureManager;
 import net.minecraft.structure.pool.SinglePoolElement;
 import net.minecraft.structure.pool.StructurePool;
 import net.minecraft.structure.pool.StructurePoolBasedGenerator;
-import net.minecraft.util.Identifier;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
 import java.util.List;
 
 
-public class OutpostWarpedStructure extends StructureFeature<DefaultFeatureConfig> {
+public class OutpostWarpedStructure extends StructureFeature<NoFeatureConfig> {
     // Special thanks to /r/l-ll-ll-l_IsDisLoss for allowing me to mimic his Nether Outpost design!
 
     static {
-        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID,"outposts/warped/base_plates"), new Identifier("empty"),
+        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID,"outposts/warped/base_plates"), new ResourceLocation("empty"),
                 ImmutableList.of(Pair.of(
                         new SinglePoolElement(RepurposedStructures.MODID+":outposts/warped/base_plate"), 1)),
                 StructurePool.Projection.RIGID));
 
-        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID,"outposts/warped/towers"), new Identifier("empty"),
+        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID,"outposts/warped/towers"), new ResourceLocation("empty"),
                 ImmutableList.of(
                         Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":outposts/warped/tower"), 1),
                         Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":outposts/warped/tower_glowing"), 1)),
                 StructurePool.Projection.RIGID));
 
-        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID,"outposts/warped/plates"), new Identifier("empty"),
+        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID,"outposts/warped/plates"), new ResourceLocation("empty"),
                 ImmutableList.of(Pair.of(
                         new SinglePoolElement(RepurposedStructures.MODID+":outposts/warped/plate"), 1)),
                 StructurePool.Projection.RIGID));
 
-        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID,"outposts/warped/features"), new Identifier("empty"),
+        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID,"outposts/warped/features"), new ResourceLocation("empty"),
                 ImmutableList.of(
                         Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":outposts/warped/cage1"), 1),
                         Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":outposts/warped/cage2"), 1),
@@ -55,12 +55,12 @@ public class OutpostWarpedStructure extends StructureFeature<DefaultFeatureConfi
 
     private static final List<Biome.SpawnEntry> MONSTER_SPAWNS = Lists.newArrayList(new Biome.SpawnEntry(EntityType.PIGLIN, 10, 1, 1));
 
-    public OutpostWarpedStructure(Codec<DefaultFeatureConfig> config) {
+    public OutpostWarpedStructure(Codec<NoFeatureConfig> config) {
         super(config);
     }
 
     @Override
-    public StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
+    public StructureStartFactory<NoFeatureConfig> getStructureStartFactory() {
         return OutpostWarpedStructure.Start::new;
     }
 
@@ -70,13 +70,13 @@ public class OutpostWarpedStructure extends StructureFeature<DefaultFeatureConfi
     }
 
     public static class Start extends AbstractNetherStructure.AbstractStart{
-        Identifier NETHER_OUTPOST_POOL = new Identifier(RepurposedStructures.MODID,"outposts/warped/base_plates");
+        ResourceLocation NETHER_OUTPOST_POOL = new ResourceLocation(RepurposedStructures.MODID,"outposts/warped/base_plates");
 
-        public Start(StructureFeature<DefaultFeatureConfig> structureFeature, int x, int z, BlockBox blockBox, int referenceIn, long seed) {
+        public Start(StructureFeature<NoFeatureConfig> structureFeature, int x, int z, BlockBox blockBox, int referenceIn, long seed) {
             super(structureFeature, x, z, blockBox, referenceIn, seed);
         }
 
-        public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int x, int z, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
+        public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int x, int z, Biome biome, NoFeatureConfig NoFeatureConfig) {
             BlockPos blockPos = new BlockPos(x * 16, 0, z * 16);
             GeneralJigsawGenerator.addPieces(chunkGenerator, structureManager, blockPos, this.children, this.random, NETHER_OUTPOST_POOL, 11);
             this.setBoundingBoxFromChildren();

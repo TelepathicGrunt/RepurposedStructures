@@ -14,8 +14,8 @@ import net.minecraft.loot.LootTables;
 import net.minecraft.resource.JsonDataLoader;
 import net.minecraft.resource.ResourceManager;
 import net.minecraft.tag.Tag;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.InvalidIdentifierException;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.InvalidResourceLocationException;
 import net.minecraft.util.Pair;
 import net.minecraft.util.profiler.Profiler;
 import net.minecraft.util.registry.Registry;
@@ -29,29 +29,29 @@ import java.util.Random;
 
 public class MobSpawnerManager extends JsonDataLoader{
     private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().disableHtmlEscaping().create();
-    private Map<Identifier, List<MobSpawnerObj>> spawnerMap = ImmutableMap.of();
+    private Map<ResourceLocation, List<MobSpawnerObj>> spawnerMap = ImmutableMap.of();
     public MobSpawnerManager() {
         super(GSON, "rs_spawners");
     }
 
     @Override
-    protected void apply(Map<Identifier, JsonElement> loader, ResourceManager manager, Profiler profiler) {
-        ImmutableMap.Builder<Identifier, List<MobSpawnerObj>> builder = ImmutableMap.builder();
-        loader.forEach((fileIdentifier, jsonElement) -> {
+    protected void apply(Map<ResourceLocation, JsonElement> loader, ResourceManager manager, Profiler profiler) {
+        ImmutableMap.Builder<ResourceLocation, List<MobSpawnerObj>> builder = ImmutableMap.builder();
+        loader.forEach((fileResourceLocation, jsonElement) -> {
             try {
                 List<MobSpawnerObj> spawnerMobEntries = GSON.fromJson(jsonElement.getAsJsonObject().get("mobs"), new TypeToken<List<MobSpawnerObj>>(){}.getType());
                 for(MobSpawnerObj entry : spawnerMobEntries)
                     entry.setEntityType();
-                builder.put(fileIdentifier, spawnerMobEntries);
+                builder.put(fileResourceLocation, spawnerMobEntries);
             }
             catch (Exception e) {
-                RepurposedStructures.LOGGER.error("Couldn't parse spawner mob list {}", fileIdentifier, e);
+                RepurposedStructures.LOGGER.error("Couldn't parse spawner mob list {}", fileResourceLocation, e);
             }
         });
         this.spawnerMap =  builder.build();
     }
 
-    public EntityType<?> getSpawnerMob(Identifier spawnerJsonEntry, Random random) {
+    public EntityType<?> getSpawnerMob(ResourceLocation spawnerJsonEntry, Random random) {
         List<MobSpawnerObj> spawnerMobEntries = this.spawnerMap.get(spawnerJsonEntry);
         int totalWeight = spawnerMobEntries.stream().mapToInt(mobEntry -> mobEntry.weight).sum();
         int randomWeight = random.nextInt(totalWeight) + 1;
@@ -60,7 +60,7 @@ public class MobSpawnerManager extends JsonDataLoader{
         while(randomWeight > 0){
             randomWeight -= spawnerMobEntries.get(index).weight;
             if(randomWeight <= 0)
-                return  Registry.ENTITY_TYPE.get(new Identifier(spawnerMobEntries.get(index).name));
+                return  Registry.ENTITY_TYPE.get(new ResourceLocation(spawnerMobEntries.get(index).name));
 
             index++;
         }

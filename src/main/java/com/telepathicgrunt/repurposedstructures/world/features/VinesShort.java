@@ -9,21 +9,21 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 
 import java.util.Random;
 
 
-public class VinesShort extends Feature<DefaultFeatureConfig> {
+public class VinesShort extends Feature<NoFeatureConfig> {
 
-    public VinesShort(Codec<DefaultFeatureConfig> configFactory) {
+    public VinesShort(Codec<NoFeatureConfig> configFactory) {
         super(configFactory);
     }
 
 
     @Override
-    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
+    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
         if (!world.isAir(position)) {
             return false;
         }

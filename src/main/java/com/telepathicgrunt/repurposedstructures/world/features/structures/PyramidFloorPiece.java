@@ -9,7 +9,7 @@ import net.minecraft.structure.*;
 import net.minecraft.structure.processor.BlockIgnoreStructureProcessor;
 import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;
-import net.minecraft.util.Identifier;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
@@ -20,7 +20,7 @@ import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 
 import java.util.List;
 import java.util.Random;
@@ -28,7 +28,7 @@ import java.util.Random;
 
 public class PyramidFloorPiece {
 
-    public static void func_207617_a(StructureManager templateManager, BlockPos position, BlockRotation rotationIn, List<StructurePiece> structurePieceList, Random random, Block block, DefaultFeatureConfig p_207617_5_) {
+    public static void func_207617_a(StructureManager templateManager, BlockPos position, BlockRotation rotationIn, List<StructurePiece> structurePieceList, Random random, Block block, NoFeatureConfig p_207617_5_) {
         structurePieceList.add(new PyramidFloorPiece.Piece(templateManager, position, block, rotationIn));
     }
 
@@ -48,13 +48,13 @@ public class PyramidFloorPiece {
         public Piece(StructureManager templateManager, CompoundTag data) {
             super(StructurePieces.PYRAMID_FLOOR_PIECE, data);
             this.rotation = BlockRotation.valueOf(data.getString("Rot"));
-            this.block = Registry.BLOCK.get(new Identifier(data.getString("Block")));
+            this.block = Registry.BLOCK.get(new ResourceLocation(data.getString("Block")));
             this.func_207614_a(templateManager);
         }
 
 
         private void func_207614_a(StructureManager templateManager) {
-            Structure template = templateManager.getStructureOrBlank(new Identifier("blank"));
+            Structure template = templateManager.getStructureOrBlank(new ResourceLocation("blank"));
             StructurePlacementData placementsettings = (new StructurePlacementData()).setRotation(this.rotation).setPosition(new BlockPos(21,16,21)).setMirror(BlockMirror.NONE).addProcessor(BlockIgnoreStructureProcessor.IGNORE_STRUCTURE_BLOCKS);
             this.setStructureData(template, this.pos, placementsettings);
         }

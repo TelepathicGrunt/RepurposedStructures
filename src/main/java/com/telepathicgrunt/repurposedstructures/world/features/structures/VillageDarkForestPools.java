@@ -11,7 +11,7 @@ import net.minecraft.structure.processor.StructureProcessor;
 import net.minecraft.structure.processor.StructureProcessorRule;
 import net.minecraft.structure.rule.*;
 import net.minecraft.tag.BlockTags;
-import net.minecraft.util.Identifier;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.feature.Feature;
 
@@ -61,7 +61,7 @@ public class VillageDarkForestPools
 		       new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.WHEAT, 0.2F), AlwaysTrueRuleTest.INSTANCE, Blocks.POTATOES.getDefaultState()),
 		       new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.WHEAT, 0.1F), AlwaysTrueRuleTest.INSTANCE, Blocks.BEETROOTS.getDefaultState()))));
       
-       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/dark_forest/town_centers"), new Identifier("empty"),
+       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID+":village/dark_forest/town_centers"), new ResourceLocation("empty"),
 	       ImmutableList.of(new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/dark_forest/town_centers/fountain_01", ImmutableList.of(new RuleStructureProcessor(
         	       ImmutableList.of(
         		       new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.COBBLESTONE, 0.2F), AlwaysTrueRuleTest.INSTANCE, Blocks.MOSSY_COBBLESTONE.getDefaultState()))))), 50),
@@ -78,7 +78,7 @@ public class VillageDarkForestPools
         		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/dark_forest/zombie/town_centers/meeting_point_3", zombiefy), 1)),
 	       StructurePool.Projection.RIGID));
        
-       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/dark_forest/streets"), new Identifier(RepurposedStructures.MODID+":village/dark_forest/terminators"),
+       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID+":village/dark_forest/streets"), new ResourceLocation(RepurposedStructures.MODID+":village/dark_forest/terminators"),
 	       ImmutableList.of(
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/dark_forest/streets/corner_01", path_randomizer), 2),
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/dark_forest/streets/corner_02", path_randomizer), 2),
@@ -98,7 +98,7 @@ public class VillageDarkForestPools
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/dark_forest/streets/turn_01", path_randomizer), 3)),
 	       StructurePool.Projection.TERRAIN_MATCHING));
        
-       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/dark_forest/zombie/streets"), new Identifier(RepurposedStructures.MODID+":village/dark_forest/terminators"),
+       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID+":village/dark_forest/zombie/streets"), new ResourceLocation(RepurposedStructures.MODID+":village/dark_forest/terminators"),
 	       ImmutableList.of(
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/dark_forest/zombie/streets/corner_01", path_randomizer), 2),
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/dark_forest/zombie/streets/corner_02", path_randomizer), 2),
@@ -118,7 +118,7 @@ public class VillageDarkForestPools
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/dark_forest/zombie/streets/turn_01", path_randomizer), 3)),
 	       StructurePool.Projection.TERRAIN_MATCHING));
        
-       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/dark_forest/houses"), new Identifier(RepurposedStructures.MODID+":village/dark_forest/terminators"),
+       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID+":village/dark_forest/houses"), new ResourceLocation(RepurposedStructures.MODID+":village/dark_forest/terminators"),
 	       ImmutableList.of(
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/dark_forest/houses/small_house_1", mossify), 2),
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/dark_forest/houses/small_house_2", mossify), 2),
@@ -160,7 +160,7 @@ public class VillageDarkForestPools
 		       Pair.of(EmptyPoolElement.INSTANCE, 10)),
 	       StructurePool.Projection.RIGID));
        
-       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/dark_forest/zombie/houses"), new Identifier(RepurposedStructures.MODID+":village/dark_forest/terminators"),
+       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID+":village/dark_forest/zombie/houses"), new ResourceLocation(RepurposedStructures.MODID+":village/dark_forest/terminators"),
 	       ImmutableList.of(
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/dark_forest/zombie/houses/small_house_1", zombiefy), 2),
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/dark_forest/zombie/houses/small_house_2", zombiefy), 2),
@@ -200,7 +200,7 @@ public class VillageDarkForestPools
 		       Pair.of(EmptyPoolElement.INSTANCE, 10)),
 	       StructurePool.Projection.RIGID));
       
-       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/dark_forest/terminators"), new Identifier("empty"),
+       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID+":village/dark_forest/terminators"), new ResourceLocation("empty"),
 	       ImmutableList.of(
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/dark_forest/terminators/terminator_01", path_randomizer), 1),
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/dark_forest/terminators/terminator_02", path_randomizer), 1),
@@ -208,7 +208,7 @@ public class VillageDarkForestPools
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/dark_forest/terminators/terminator_04", path_randomizer), 1)),
 	       StructurePool.Projection.TERRAIN_MATCHING));
 
-       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/dark_forest/zombie/terminators"), new Identifier("empty"),
+       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID+":village/dark_forest/zombie/terminators"), new ResourceLocation("empty"),
 	       ImmutableList.of(
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/dark_forest/zombie/terminators/terminator_01", path_randomizer), 1),
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/dark_forest/zombie/terminators/terminator_02", path_randomizer), 1),
@@ -216,12 +216,12 @@ public class VillageDarkForestPools
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/dark_forest/zombie/terminators/terminator_04", path_randomizer), 1)),
 	       StructurePool.Projection.TERRAIN_MATCHING));
        
-       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/dark_forest/trees"), new Identifier("empty"),
+       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID+":village/dark_forest/trees"), new ResourceLocation("empty"),
 	       ImmutableList.of(
 		       new Pair<>(new FeaturePoolElement(Feature.TREE.configure(DefaultBiomeFeatures.DARK_OAK_TREE_CONFIG)), 1)),
 	       StructurePool.Projection.RIGID));
        
-       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/dark_forest/decor"), new Identifier("empty"),
+       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID+":village/dark_forest/decor"), new ResourceLocation("empty"),
 	       ImmutableList.of(new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/dark_forest/decor/lamp_1"), 5),
 		       new Pair<>(new FeaturePoolElement(Feature.TREE.configure(DefaultBiomeFeatures.DARK_OAK_TREE_CONFIG)), 1),
 		       new Pair<>(new FeaturePoolElement(Feature.FLOWER.configure(DefaultBiomeFeatures.RED_MUSHROOM_CONFIG)), 1),
@@ -230,7 +230,7 @@ public class VillageDarkForestPools
 		       Pair.of(EmptyPoolElement.INSTANCE, 2)),
 	       StructurePool.Projection.RIGID));
       
-       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/dark_forest/zombie/decor"), new Identifier("empty"),
+       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID+":village/dark_forest/zombie/decor"), new ResourceLocation("empty"),
 	       ImmutableList.of(
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/dark_forest/decor/lamp_1", zombiefy), 1),
 		       new Pair<>(new FeaturePoolElement(Feature.TREE.configure(DefaultBiomeFeatures.DARK_OAK_TREE_CONFIG)), 1),
@@ -240,14 +240,14 @@ public class VillageDarkForestPools
 		       Pair.of(EmptyPoolElement.INSTANCE, 2)),
 	       StructurePool.Projection.RIGID));
       
-       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/dark_forest/villagers"), new Identifier("empty"),
+       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID+":village/dark_forest/villagers"), new ResourceLocation("empty"),
 	       ImmutableList.of(
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/dark_forest/villagers/nitwit"), 1),
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/dark_forest/villagers/baby"), 1),
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/dark_forest/villagers/unemployed"), 10)),
 	       StructurePool.Projection.RIGID));
       
-       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/dark_forest/zombie/villagers"), new Identifier("empty"),
+       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID+":village/dark_forest/zombie/villagers"), new ResourceLocation("empty"),
 	       ImmutableList.of(
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/dark_forest/zombie/villagers/nitwit"), 1),
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/dark_forest/zombie/villagers/unemployed"), 10)),

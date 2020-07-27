@@ -12,52 +12,52 @@ import net.minecraft.structure.pool.SinglePoolElement;
 import net.minecraft.structure.pool.StructurePool;
 import net.minecraft.structure.pool.StructurePoolBasedGenerator;
 import net.minecraft.util.BlockRotation;
-import net.minecraft.util.Identifier;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
 import java.util.ArrayList;
 
 
-public class PyramidBadlandsStructure extends StructureFeature<DefaultFeatureConfig> {
-    public PyramidBadlandsStructure(Codec<DefaultFeatureConfig> config) {
+public class PyramidBadlandsStructure extends StructureFeature<NoFeatureConfig> {
+    public PyramidBadlandsStructure(Codec<NoFeatureConfig> config) {
         super(config);
     }
     static {
         StructurePoolBasedGenerator.REGISTRY.add(
-                new StructurePool(new Identifier(RepurposedStructures.MODID,"temples/pyramid_badlands"), new Identifier("empty"), ImmutableList.of(Pair.of(
+                new StructurePool(new ResourceLocation(RepurposedStructures.MODID,"temples/pyramid_badlands"), new ResourceLocation("empty"), ImmutableList.of(Pair.of(
                         new SinglePoolElement(RepurposedStructures.MODID+":temples/pyramid_badlands_body", new ArrayList<>()), 1)),
                         StructurePool.Projection.RIGID));
 
         StructurePoolBasedGenerator.REGISTRY.add(
-                new StructurePool(new Identifier(RepurposedStructures.MODID,"temples/pyramid_badlands_pit"), new Identifier("empty"), ImmutableList.of(Pair.of(
+                new StructurePool(new ResourceLocation(RepurposedStructures.MODID,"temples/pyramid_badlands_pit"), new ResourceLocation("empty"), ImmutableList.of(Pair.of(
                         new SinglePoolElement(RepurposedStructures.MODID+":temples/pyramid_badlands_pit", new ArrayList<>()), 1)),
                         StructurePool.Projection.RIGID));
     }
 
 
     @Override
-    public StructureFeature.StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
+    public StructureFeature.StructureStartFactory<NoFeatureConfig> getStructureStartFactory() {
         return PyramidBadlandsStructure.Start::new;
     }
 
-    public static class Start extends StructureStart<DefaultFeatureConfig> {
-        Identifier BADLANDS_PYRAMID_POOL = new Identifier(RepurposedStructures.MODID,"temples/pyramid_badlands");
+    public static class Start extends StructureStart<NoFeatureConfig> {
+        ResourceLocation BADLANDS_PYRAMID_POOL = new ResourceLocation(RepurposedStructures.MODID,"temples/pyramid_badlands");
 
-        public Start(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
+        public Start(StructureFeature<NoFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
         }
 
         @Override
-        public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
+        public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
             BlockPos blockpos = new BlockPos(chunkX * 16, 62, chunkZ * 16);
             GeneralJigsawGenerator.addPieces(chunkGenerator, structureManager, blockpos, this.children, this.random, BADLANDS_PYRAMID_POOL, 1);
-            PyramidFloorPiece.func_207617_a(structureManager, blockpos, this.children.get(0).getRotation(), this.children, random, Blocks.RED_SANDSTONE, defaultFeatureConfig);
+            PyramidFloorPiece.func_207617_a(structureManager, blockpos, this.children.get(0).getRotation(), this.children, random, Blocks.RED_SANDSTONE, NoFeatureConfig);
 
             //put the floor placing before the pit.
             StructurePiece temp = this.children.get(1);

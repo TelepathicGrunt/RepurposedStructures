@@ -7,21 +7,21 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 
 import java.util.Random;
 
 
-public class BoulderTiny extends Feature<DefaultFeatureConfig> {
+public class BoulderTiny extends Feature<NoFeatureConfig> {
     private final static int START_RADIUS = 0;
 
-    public BoulderTiny(Codec<DefaultFeatureConfig> configFactory) {
+    public BoulderTiny(Codec<NoFeatureConfig> configFactory) {
         super(configFactory);
     }
 
     @Override
-    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
+    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
 
         BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().set(position.down());
         Block block = world.getBlockState(blockpos$Mutable).getBlock();

@@ -6,27 +6,27 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.structure.Structure;
-import net.minecraft.util.Identifier;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 
 import java.util.Random;
 
 
 public class WellSnow extends WellAbstract {
     private static final float ORE_CHANCE = 0.3f;
-    private static final Identifier SNOW_WELL_ORE_RL = new Identifier("repurposed_structures:snow_well_ores");
-    private static final Identifier SNOW_WELL_RL = new Identifier(RepurposedStructures.MODID + ":wells/snow");
+    private static final ResourceLocation SNOW_WELL_ORE_RL = new ResourceLocation("repurposed_structures:snow_well_ores");
+    private static final ResourceLocation SNOW_WELL_RL = new ResourceLocation(RepurposedStructures.MODID + ":wells/snow");
 
-    public WellSnow(Codec<DefaultFeatureConfig> config) {
+    public WellSnow(Codec<NoFeatureConfig> config) {
         super(config);
     }
 
-    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
+    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
         // move to top land block below position
         BlockPos.Mutable mutable = new BlockPos.Mutable().set(position);
         for (mutable.move(Direction.UP); world.isAir(mutable) && mutable.getY() > 2; ) {

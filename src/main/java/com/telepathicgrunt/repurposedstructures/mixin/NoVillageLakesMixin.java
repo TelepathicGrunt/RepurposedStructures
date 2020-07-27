@@ -6,7 +6,7 @@ import net.minecraft.util.math.ChunkSectionPos;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.LakeFeature;
 import net.minecraft.world.gen.feature.SingleStateFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
@@ -28,7 +28,7 @@ public class NoVillageLakesMixin {
     )
     private void checkForRSVillages(ServerWorldAccess serverWorldAccess, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos blockPos, SingleStateFeatureConfig singleStateFeatureConfig, CallbackInfoReturnable<Boolean> cir) {
 
-        for (StructureFeature<DefaultFeatureConfig> village : RSFeatures.OVERWORLD_VILLAGE_LIST) {
+        for (StructureFeature<NoFeatureConfig> village : RSFeatures.OVERWORLD_VILLAGE_LIST) {
             if (structureAccessor.getStructuresWithChildren(ChunkSectionPos.from(blockPos), village).findAny().isPresent()) {
                 cir.setReturnValue(false);
             }

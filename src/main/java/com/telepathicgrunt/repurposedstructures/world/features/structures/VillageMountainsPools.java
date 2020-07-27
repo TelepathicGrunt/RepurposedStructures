@@ -13,7 +13,7 @@ import net.minecraft.structure.processor.StructureProcessor;
 import net.minecraft.structure.processor.StructureProcessorRule;
 import net.minecraft.structure.rule.*;
 import net.minecraft.tag.BlockTags;
-import net.minecraft.util.Identifier;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.feature.Feature;
 
@@ -88,7 +88,7 @@ public class VillageMountainsPools
             		new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.WHEAT, 0.2F), AlwaysTrueRuleTest.INSTANCE, Blocks.CARROTS.getDefaultState()),
             		new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.WHEAT, 0.3F), AlwaysTrueRuleTest.INSTANCE, Blocks.SWEET_BERRY_BUSH.getDefaultState()))));
 
-       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/mountains/town_centers"), new Identifier("empty"),
+       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID+":village/mountains/town_centers"), new ResourceLocation("empty"),
 	       ImmutableList.of(
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/mountains/town_centers/meeting_point_1", path_randomizer_and_mossify), 50),
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/mountains/town_centers/meeting_point_2", path_randomizer_and_mossify), 50),
@@ -96,7 +96,7 @@ public class VillageMountainsPools
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/mountains/zombie/town_centers/meeting_point_2", path_randomizer_and_mossify), 1)),
 	       StructurePool.Projection.RIGID));
        
-       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/mountains/streets"), new Identifier(RepurposedStructures.MODID+":village/mountains/terminators"),
+       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID+":village/mountains/streets"), new ResourceLocation(RepurposedStructures.MODID+":village/mountains/terminators"),
 	       ImmutableList.of(
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/mountains/streets/corner_01", path_randomizer), 2),
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/mountains/streets/corner_02", path_randomizer), 2),
@@ -116,7 +116,7 @@ public class VillageMountainsPools
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/mountains/streets/turn_01", path_randomizer), 3)),
 	       StructurePool.Projection.TERRAIN_MATCHING));
        
-       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/mountains/zombie/streets"), new Identifier(RepurposedStructures.MODID+":village/mountains/terminators"),
+       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID+":village/mountains/zombie/streets"), new ResourceLocation(RepurposedStructures.MODID+":village/mountains/terminators"),
 	       ImmutableList.of(
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/mountains/zombie/streets/corner_01", path_randomizer), 2),
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/mountains/zombie/streets/corner_02", path_randomizer), 2),
@@ -136,7 +136,7 @@ public class VillageMountainsPools
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/mountains/zombie/streets/turn_01", path_randomizer), 3)),
 	       StructurePool.Projection.TERRAIN_MATCHING));
        
-       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/mountains/houses"), new Identifier(RepurposedStructures.MODID+":village/mountains/terminators"),
+       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID+":village/mountains/houses"), new ResourceLocation(RepurposedStructures.MODID+":village/mountains/terminators"),
 	       ImmutableList.of(
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/mountains/houses/animal_pen_1"), 1),
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/mountains/houses/armorer_house_1", mossify), 2),
@@ -168,7 +168,7 @@ public class VillageMountainsPools
 		       Pair.of(EmptyPoolElement.INSTANCE, 10)),
 	       StructurePool.Projection.RIGID));
        
-       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/mountains/zombie/houses"), new Identifier(RepurposedStructures.MODID+":village/mountains/terminators"),
+       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID+":village/mountains/zombie/houses"), new ResourceLocation(RepurposedStructures.MODID+":village/mountains/terminators"),
 	       ImmutableList.of(
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/mountains/zombie/houses/small_house_1", zombiefy), 4),
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/mountains/zombie/houses/small_house_2", zombiefy), 4),
@@ -200,22 +200,22 @@ public class VillageMountainsPools
 	       StructurePool.Projection.RIGID));
        
       
-       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/mountains/terminators"), new Identifier("empty"),
+       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID+":village/mountains/terminators"), new ResourceLocation("empty"),
 	       ImmutableList.of(
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/plains/terminators/terminator_05", path_randomizer), 1)),
 	       StructurePool.Projection.TERRAIN_MATCHING));
 
-       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/mountains/zombie/terminators"), new Identifier("empty"),
+       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID+":village/mountains/zombie/terminators"), new ResourceLocation("empty"),
 	       ImmutableList.of(
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/plains/zombie/terminators/terminator_05", path_randomizer), 1)),
 	       StructurePool.Projection.TERRAIN_MATCHING));
        
-       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/mountains/trees"), new Identifier("empty"),
+       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID+":village/mountains/trees"), new ResourceLocation("empty"),
 	       ImmutableList.of(
 		       new Pair<>(new FeaturePoolElement(Feature.TREE.configure(DefaultBiomeFeatures.SPRUCE_TREE_CONFIG)), 1)),
 	       StructurePool.Projection.RIGID));
        
-       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/mountains/decor"), new Identifier("empty"),
+       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID+":village/mountains/decor"), new ResourceLocation("empty"),
 	       ImmutableList.of(new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/mountains/decor/lamp_post_1"), 1),
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/mountains/decor/decoration_1"), 1),
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/mountains/decor/decoration_2"), 1),
@@ -229,7 +229,7 @@ public class VillageMountainsPools
 		       Pair.of(EmptyPoolElement.INSTANCE, 2)),
 	       StructurePool.Projection.RIGID));
       
-       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/mountains/zombie/decor"), new Identifier("empty"),
+       StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID+":village/mountains/zombie/decor"), new ResourceLocation("empty"),
 	       ImmutableList.of(
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/mountains/decor/lamp_post_1", zombiefy), 1),
 		       new Pair<>(new SinglePoolElement(RepurposedStructures.MODID+":village/mountains/decor/decoration_1"), 1),
@@ -244,7 +244,7 @@ public class VillageMountainsPools
 		       Pair.of(EmptyPoolElement.INSTANCE, 2)),
 	       StructurePool.Projection.RIGID));
 
-		StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/mountains/zombie/villagers"), new Identifier("empty"),
+		StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID+":village/mountains/zombie/villagers"), new ResourceLocation("empty"),
 				ImmutableList.of(
 						new Pair(new LegacySinglePoolElement("village/taiga/zombie/villagers/nitwit"), 1),
 						new Pair(new LegacySinglePoolElement("village/taiga/zombie/villagers/unemployed"), 10)),

@@ -15,17 +15,17 @@ import net.minecraft.structure.processor.StructureProcessor;
 import net.minecraft.structure.processor.StructureProcessorRule;
 import net.minecraft.structure.rule.AlwaysTrueRuleTest;
 import net.minecraft.structure.rule.RandomBlockMatchRuleTest;
-import net.minecraft.util.Identifier;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
 
-public class TempleNetherCrimsonStructure extends StructureFeature<DefaultFeatureConfig> {
+public class TempleNetherCrimsonStructure extends StructureFeature<NoFeatureConfig> {
     static {
         ImmutableList<StructureProcessor> randomizationList = ImmutableList.of(new RuleStructureProcessor(ImmutableList.of(
                 new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.CRIMSON_HYPHAE, 0.02F),
@@ -42,28 +42,28 @@ public class TempleNetherCrimsonStructure extends StructureFeature<DefaultFeatur
                         AlwaysTrueRuleTest.INSTANCE, Blocks.CRIMSON_HYPHAE.getDefaultState()))));
 
         StructurePoolBasedGenerator.REGISTRY.add(
-                new StructurePool(new Identifier(RepurposedStructures.MODID,"temples/temple_nether_crimson"), new Identifier("empty"), ImmutableList.of(Pair.of(
+                new StructurePool(new ResourceLocation(RepurposedStructures.MODID,"temples/temple_nether_crimson"), new ResourceLocation("empty"), ImmutableList.of(Pair.of(
                         new SinglePoolElement(RepurposedStructures.MODID+":temples/temple_nether_crimson", randomizationList), 1)),
                         StructurePool.Projection.RIGID));
     }
 
-    public TempleNetherCrimsonStructure(Codec<DefaultFeatureConfig> config) {
+    public TempleNetherCrimsonStructure(Codec<NoFeatureConfig> config) {
         super(config);
     }
 
     @Override
-    public StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
+    public StructureStartFactory<NoFeatureConfig> getStructureStartFactory() {
         return TempleNetherCrimsonStructure.Start::new;
     }
 
     public static class Start extends AbstractNetherStructure.AbstractStart{
-        Identifier NETHER_TEMPLE_POOL = new Identifier(RepurposedStructures.MODID,"temples/temple_nether_crimson");
+        ResourceLocation NETHER_TEMPLE_POOL = new ResourceLocation(RepurposedStructures.MODID,"temples/temple_nether_crimson");
 
-        public Start(StructureFeature<DefaultFeatureConfig> structureFeature, int x, int z, BlockBox blockBox, int referenceIn, long seed) {
+        public Start(StructureFeature<NoFeatureConfig> structureFeature, int x, int z, BlockBox blockBox, int referenceIn, long seed) {
             super(structureFeature, x, z, blockBox, referenceIn, seed);
         }
 
-        public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int i, int j, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
+        public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int i, int j, Biome biome, NoFeatureConfig NoFeatureConfig) {
             BlockPos blockPos = new BlockPos(i * 16, 35, j * 16);
             GeneralJigsawGenerator.addPieces(chunkGenerator, structureManager, blockPos, this.children, this.random, NETHER_TEMPLE_POOL, 1);
             this.setBoundingBoxFromChildren();
