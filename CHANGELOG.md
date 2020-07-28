@@ -18,6 +18,10 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 -Mobs that initially spawn in Warped and Crimson Villages will not despawn over time now.
 
+##### Dungeons:
+
+-Slightly decrease the default config spawnrate for Ocean Dungeons.
+
 ## (V.1.3.2 Changes) (1.16.1 Minecraft)
 
 ##### All structures:

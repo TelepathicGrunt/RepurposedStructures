@@ -104,7 +104,7 @@ public class RSDungeonsConfig implements ConfigData {
                 + "\nis on which is unlike the other dungeons from this mod"
                 + "\nas those would normally replace the Vanilla Dungeons.")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int oceanDungeonSpawnrate = 8;
+        public int oceanDungeonSpawnrate = 6;
 
     }
 
