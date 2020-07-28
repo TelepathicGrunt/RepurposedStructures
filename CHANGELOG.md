@@ -8,6 +8,16 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.1.3.3 Changes) (1.16.1 Minecraft)
+
+##### Outposts:
+
+-Mobs that initially spawn in Warped, Crimson, and Nether Brick Outposts will not despawn over time now.
+
+##### Villages:
+
+-Mobs that initially spawn in Warped and Crimson Villages will not despawn over time now.
+
 ## (V.1.3.2 Changes) (1.16.1 Minecraft)
 
 ##### All structures:
