@@ -4,11 +4,11 @@ import com.mojang.serialization.Codec;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ServerWorldAccess;
-import net.minecraft.world.gen.StructureAccessor;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.ISeedReader;
+import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.structure.StructureManager;
 
 import java.util.Random;
 
@@ -21,13 +21,13 @@ public class BoulderTiny extends Feature<NoFeatureConfig> {
     }
 
     @Override
-    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
+    public boolean generate(ISeedReader world, StructureManager structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
 
-        BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().set(position.down());
+        BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().setPos(position.down());
         Block block = world.getBlockState(blockpos$Mutable).getBlock();
 
         //boulder can only generate on grass/dirt
-        if (block != Blocks.PODZOL && block != Blocks.GRASS_BLOCK && !isDirt(block)) {
+        if (block != Blocks.PODZOL && block != Blocks.GRASS_BLOCK && !isSoil(block)) {
             return false;
         }
 
@@ -37,8 +37,8 @@ public class BoulderTiny extends Feature<NoFeatureConfig> {
             int z = START_RADIUS + random.nextInt(2);
             float calculatedDistance = (x + y + z) * 0.333F + 0.5F;
 
-            for (BlockPos blockpos : BlockPos.iterate(blockpos$Mutable.add(-x, -y, -z), blockpos$Mutable.add(x, y, z))) {
-                if (blockpos.getSquaredDistance(blockpos$Mutable) <= calculatedDistance * calculatedDistance) {
+            for (BlockPos blockpos : BlockPos.getAllInBoxMutable(blockpos$Mutable.add(-x, -y, -z), blockpos$Mutable.add(x, y, z))) {
+                if (blockpos.distanceSq(blockpos$Mutable) <= calculatedDistance * calculatedDistance) {
                     //adds the blocks for generation in this boulder
                     //note, if user turns off an ore, that ore's chance is dumped into the below ore for generation
                     int randomChance = random.nextInt(1000);

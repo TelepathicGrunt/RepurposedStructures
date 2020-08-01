@@ -1,0 +1,34 @@
+{
+  "parent": "repurposed_structures:outposts",
+  "display": {
+    "icon": {
+      "item": "minecraft:red_nether_bricks"
+    },
+    "title": {
+      "translate": "advancements.repurposed_structures.outpost_nether_brick.title"
+    },
+    "description": {
+      "translate": "advancements.repurposed_structures.outpost_nether_brick.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 50
+  },
+  "criteria": {
+    "in_outpost_nether_brick": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:outpost_nether_brick"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_outpost_nether_brick"
+    ]
+  ]
+}

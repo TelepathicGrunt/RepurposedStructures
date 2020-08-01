@@ -4,26 +4,25 @@ import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.Material;
 import net.minecraft.block.StairsBlock;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.LootableContainerBlockEntity;
-import net.minecraft.block.entity.MobSpawnerBlockEntity;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityType;
-import net.minecraft.state.property.Properties;
-import net.minecraft.structure.StructurePiece;
+import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.tileentity.LockableLootTileEntity;
+import net.minecraft.tileentity.MobSpawnerTileEntity;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.world.Heightmap;
-import net.minecraft.world.ServerWorldAccess;
+import net.minecraft.world.ISeedReader;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biome.Category;
-import net.minecraft.world.gen.StructureAccessor;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.ChunkGenerator;
+import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.structure.StructureManager;
+import net.minecraft.world.gen.feature.structure.StructurePiece;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -55,7 +54,7 @@ public class DungeonOcean extends Feature<NoFeatureConfig> {
     // only the mob spawner chance and what blocks the wall cannot replace was changed. Everything else is just the normal dungeon code.
 
     @Override
-    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
+    public boolean generate(ISeedReader world, StructureManager structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
         int randXRange = random.nextInt(2) + 2;
         int xMin = -randXRange - 1;
         int xMax = randXRange + 1;
@@ -66,8 +65,8 @@ public class DungeonOcean extends Feature<NoFeatureConfig> {
         int ceilingOpenings = 0;
         boolean validSpot = false;
         boolean oceanFloor = false;
-        BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().set(position);
-        int terrainHeight = world.getTopY(Heightmap.Type.OCEAN_FLOOR_WG, blockpos$Mutable.getX(), blockpos$Mutable.getZ());
+        BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().setPos(position);
+        int terrainHeight = world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, blockpos$Mutable.getX(), blockpos$Mutable.getZ());
 
         // ocean floor
         if (terrainHeight - blockpos$Mutable.getY() > 1 && terrainHeight - blockpos$Mutable.getY() < 5) {
@@ -79,7 +78,7 @@ public class DungeonOcean extends Feature<NoFeatureConfig> {
             for (int y = -1; y <= 4; ++y) {
                 for (int z = zMin; z <= zMax; ++z) {
 
-                    blockpos$Mutable.set(position).move(x, y, z);
+                    blockpos$Mutable.setPos(position).move(x, y, z);
                     Material material = world.getBlockState(blockpos$Mutable).getMaterial();
                     boolean flag = material.isSolid() || material == Material.WATER;
 
@@ -111,12 +110,12 @@ public class DungeonOcean extends Feature<NoFeatureConfig> {
                 for (int y = 4; y >= -1; --y) {
                     for (int z = zMin; z <= zMax; ++z) {
 
-                        blockpos$Mutable.set(position).move(x, y, z);
+                        blockpos$Mutable.setPos(position).move(x, y, z);
                         currentBlock = world.getBlockState(blockpos$Mutable);
 
                         if (x != xMin && y != -1 && z != zMin && x != xMax && y != 5 && z != zMax) {
                             if (y == 4) {
-                                if (currentBlock.isOpaque()) {
+                                if (currentBlock.isSolid()) {
                                     // ceiling
                                     if (random.nextInt(3) < 2) {
                                         world.setBlockState(blockpos$Mutable, PRISMARINE, 2);
@@ -137,7 +136,7 @@ public class DungeonOcean extends Feature<NoFeatureConfig> {
                                 }
 
                                 currentBlock = world.getBlockState(blockpos$Mutable.up());
-                                if (currentBlock.getMaterial() == Material.UNDERWATER_PLANT) {
+                                if (currentBlock.getMaterial() == Material.OCEAN_PLANT) {
                                     if (blockpos$Mutable.getY() + 1 < world.getSeaLevel()) {
                                         world.setBlockState(blockpos$Mutable, WATER, 2);
                                     } else {
@@ -180,7 +179,7 @@ public class DungeonOcean extends Feature<NoFeatureConfig> {
                                     world.setBlockState(blockpos$Mutable, PRISMARINE, 2);
                                 } else {
                                     currentBlock = world.getBlockState(blockpos$Mutable);
-                                    world.setBlockState(blockpos$Mutable, PRISMARINE_WALL.with(Properties.WATERLOGGED, blockpos$Mutable.getY() < world.getSeaLevel()), 3);
+                                    world.setBlockState(blockpos$Mutable, PRISMARINE_WALL.with(BlockStateProperties.WATERLOGGED, blockpos$Mutable.getY() < world.getSeaLevel()), 3);
                                 }
                             }
                         }
@@ -194,13 +193,13 @@ public class DungeonOcean extends Feature<NoFeatureConfig> {
                     int x = position.getX() + random.nextInt(randXRange * 2 + 1) - randXRange;
                     int y = position.getY();
                     int z = position.getZ() + random.nextInt(randZRange * 2 + 1) - randZRange;
-                    blockpos$Mutable.set(x, y, z);
+                    blockpos$Mutable.setPos(x, y, z);
                     currentBlock = world.getBlockState(blockpos$Mutable);
 
                     if (currentBlock.getMaterial() == Material.WATER || currentBlock.getMaterial() == Material.AIR) {
                         int j3 = 0;
 
-                        for (Direction direction : Direction.Type.HORIZONTAL) {
+                        for (Direction direction : Direction.Plane.HORIZONTAL) {
                             Material neighboringMaterial = world.getBlockState(blockpos$Mutable.offset(direction)).getMaterial();
                             if (neighboringMaterial.isSolid()) {
                                 ++j3;
@@ -209,12 +208,12 @@ public class DungeonOcean extends Feature<NoFeatureConfig> {
 
                         if (j3 == 1) {
                             world.setBlockState(blockpos$Mutable,
-                                    StructurePiece.method_14916(world, blockpos$Mutable,
+                                    StructurePiece.func_197528_a(world, blockpos$Mutable,
                                             Blocks.CHEST.getDefaultState()
-                                                    .with(Properties.WATERLOGGED,
+                                                    .with(BlockStateProperties.WATERLOGGED,
                                                             blockpos$Mutable.getY() < world.getSeaLevel())), 3);
 
-                            LootableContainerBlockEntity.setLootTable(world, random, blockpos$Mutable, CHEST_LOOT);
+                            LockableLootTileEntity.setLootTable(world, random, blockpos$Mutable, CHEST_LOOT);
                             break;
                         }
                     }
@@ -223,7 +222,7 @@ public class DungeonOcean extends Feature<NoFeatureConfig> {
 
             for (int x = -1; x <= 1; x++) {
                 for (int z = -1; z <= 1; z++) {
-                    blockpos$Mutable.set(position).move(x, -1, z);
+                    blockpos$Mutable.setPos(position).move(x, -1, z);
                     currentBlock = world.getBlockState(blockpos$Mutable);
 
                     if (currentBlock.getBlock() != Blocks.CHEST && currentBlock.getBlock() != Blocks.SPAWNER) {
@@ -238,16 +237,16 @@ public class DungeonOcean extends Feature<NoFeatureConfig> {
                 }
             }
 
-            blockpos$Mutable.set(position).move(Direction.DOWN);
+            blockpos$Mutable.setPos(position).move(Direction.DOWN);
 
             if (blockpos$Mutable.getY() < world.getSeaLevel()) world.setBlockState(blockpos$Mutable, WATER, 2);
 
             world.setBlockState(blockpos$Mutable, Blocks.AIR.getDefaultState(), 2);
             world.setBlockState(blockpos$Mutable, Blocks.SPAWNER.getDefaultState(), 2);
-            BlockEntity tileentity = world.getBlockEntity(blockpos$Mutable);
+            TileEntity tileentity = world.getTileEntity(blockpos$Mutable);
 
-            if (tileentity instanceof MobSpawnerBlockEntity) {
-                ((MobSpawnerBlockEntity) tileentity).getLogic().setEntityId(pickMobSpawner(world, random, blockpos$Mutable));
+            if (tileentity instanceof MobSpawnerTileEntity) {
+                ((MobSpawnerTileEntity) tileentity).getSpawnerBaseLogic().setEntityType(pickMobSpawner(world, random, blockpos$Mutable));
             } else {
                 LOGGER.error("Failed to fetch mob spawner entity at ({}, {}, {})", new Object[]{Integer.valueOf(blockpos$Mutable.getX()), Integer.valueOf(blockpos$Mutable.getY()), Integer.valueOf(blockpos$Mutable.getZ())});
             }
@@ -256,21 +255,21 @@ public class DungeonOcean extends Feature<NoFeatureConfig> {
             currentBlock = world.getBlockState(blockpos$Mutable.move(Direction.UP));
             if (currentBlock.getBlock() != Blocks.CHEST && currentBlock.getBlock() != Blocks.SPAWNER) {
                 world.setBlockState(blockpos$Mutable, PRISMARINE_WALL
-                        .with(Properties.WATERLOGGED, blockpos$Mutable.getY() < world.getSeaLevel()), 2);
+                        .with(BlockStateProperties.WATERLOGGED, blockpos$Mutable.getY() < world.getSeaLevel()), 2);
             }
 
             currentBlock = world.getBlockState(blockpos$Mutable.move(Direction.UP));
             if (currentBlock.getBlock() != Blocks.CHEST && currentBlock.getBlock() != Blocks.SPAWNER) {
                 world.setBlockState(blockpos$Mutable, PRISMARINE_WALL
-                        .with(Properties.WATERLOGGED, blockpos$Mutable.getY() < world.getSeaLevel()), 2);
+                        .with(BlockStateProperties.WATERLOGGED, blockpos$Mutable.getY() < world.getSeaLevel()), 2);
             }
 
-            for (Direction direction : Direction.Type.HORIZONTAL) {
-                blockpos$Mutable.set(position).move(direction);
+            for (Direction direction : Direction.Plane.HORIZONTAL) {
+                blockpos$Mutable.setPos(position).move(direction);
                 currentBlock = world.getBlockState(blockpos$Mutable);
                 if (currentBlock.getBlock() != Blocks.CHEST && currentBlock.getBlock() != Blocks.SPAWNER) {
                     world.setBlockState(blockpos$Mutable, DARK_PRISMARINE_STAIRS
-                            .with(Properties.WATERLOGGED, blockpos$Mutable.getY() < world.getSeaLevel())
+                            .with(BlockStateProperties.WATERLOGGED, blockpos$Mutable.getY() < world.getSeaLevel())
                             .with(StairsBlock.FACING, direction.getOpposite()), 2);
                 }
             }
@@ -285,13 +284,13 @@ public class DungeonOcean extends Feature<NoFeatureConfig> {
     /**
      * Randomly decides which spawner to use in a dungeon
      */
-    private static EntityType<?> pickMobSpawner(ServerWorldAccess world, Random random, BlockPos position) {
+    private static EntityType<?> pickMobSpawner(ISeedReader world, Random random, BlockPos position) {
         Biome biome = world.getBiome(position);
 
         // spot must be an ocean so we don't return wrong mob when a hot land biome borders a frozen ocean
-        if (biome.getCategory() == Category.OCEAN) {
-            String biomeName = Registry.BIOME.getId(biome).getPath();
-            float biomeTemp = biome.getTemperature();
+        if (biome.getCategory() == Biome.Category.OCEAN) {
+            String biomeName = Registry.BIOME.getKey(biome).getPath();
+            float biomeTemp = biome.getDefaultTemperature();
 
             if (biomeTemp < 0.0 || biomeName.contains("frozen") || biomeName.contains("snow") || biomeName.contains("ice")) {
                 return RepurposedStructures.mobSpawnerManager.getSpawnerMob(FROZEN_SPAWNER_ID, random);

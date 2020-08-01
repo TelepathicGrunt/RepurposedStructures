@@ -1,10 +1,9 @@
 package com.telepathicgrunt.repurposedstructures.mixin;
 
 import net.minecraft.block.Block;
-import net.minecraft.structure.StrongholdGenerator;
-import net.minecraft.structure.StructurePiece;
-import net.minecraft.util.BlockMirror;
-import net.minecraft.util.BlockRotation;
+import net.minecraft.util.Mirror;
+import net.minecraft.util.Rotation;
+import net.minecraft.world.gen.feature.structure.StructurePiece;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
@@ -14,11 +13,11 @@ import java.util.Set;
 public interface StructurePieceAccessor {
 
     @Accessor("mirror")
-    BlockMirror getMirror();
+    Mirror getMirror();
 
     @Accessor("rotation")
-    BlockRotation getRotation();
+    Rotation getRotation();
 
-    @Accessor("BLOCKS_NEEDING_POST_PROCESSING")
+    @Accessor("BLOCKS_NEEDING_POSTPROCESSING")
     Set<Block> getBLOCKS_NEEDING_POST_PROCESSING();
 }

@@ -2,7 +2,6 @@ package com.telepathicgrunt.repurposedstructures.configs;
 
 import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
 import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper.ConfigValueListener;
-
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.fml.common.Mod;
 
@@ -50,6 +49,8 @@ public class RSMineshaftsConfig
 		public ConfigValueListener<Integer> swampAndDarkForestMineshaftMaxHeight;
 		public ConfigValueListener<Integer> endMineshaftMaxHeight;
 		public ConfigValueListener<Integer> netherMineshaftMaxHeight;
+
+		public ConfigValueListener<Boolean> barrensIslandsEndMineshafts ;
 
 		public RSMineshaftsConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
 		{
@@ -316,6 +317,13 @@ public class RSMineshaftsConfig
 						.translation("repurposedstructures.config.feature.mineshaft.nethermineshaftmaxheight")
 						.defineInRange("netherMineshaftMaxHeight", 22, 5, 255));
 
+				builder.pop();
+
+				builder.push("Misc");
+					barrensIslandsEndMineshafts = subscriber.subscribe(builder
+							.comment("\r\n Add End Mineshafts to End Barrens and End Islands biome.")
+							.translation("repurposedstructures.config.feature.mineshaft.barrensislandsendmineshafts")
+							.define("barrensIslandsEndMineshafts", false));
 				builder.pop();
 			builder.pop();
 		}

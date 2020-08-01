@@ -4,17 +4,17 @@ import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RSFeatures;
 import net.minecraft.entity.EntityType;
-import net.minecraft.structure.StructureManager;
-import net.minecraft.structure.StructurePiece;
-import net.minecraft.structure.StructureStart;
-import net.minecraft.util.math.BlockBox;
+import net.minecraft.util.SharedSeedRandom;
+import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.source.BiomeSource;
-import net.minecraft.world.gen.ChunkRandom;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
+import net.minecraft.world.biome.provider.BiomeProvider;
+import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.StructureFeature;
+import net.minecraft.world.gen.feature.structure.Structure;
+import net.minecraft.world.gen.feature.structure.StructurePiece;
+import net.minecraft.world.gen.feature.structure.StructureStart;
+import net.minecraft.world.gen.feature.template.TemplateManager;
 
 import java.util.List;
 
@@ -24,10 +24,10 @@ public class FortressJungleStructure extends AbstractBaseStructure {
         super(codec);
     }
 
-    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long l, ChunkRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig NoFeatureConfig) {
+    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long l, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig NoFeatureConfig) {
         for (int curChunkX = chunkX - 2; curChunkX <= chunkX + 2; curChunkX += 2) {
             for (int curChunkZ = chunkZ - 2; curChunkZ <= chunkZ + 2; curChunkZ += 2) {
-                if (!biomeSource.getBiomeForNoiseGen(curChunkX << 2, 60, curChunkZ << 2).hasStructureFeature(RSFeatures.JUNGLE_FORTRESS)) {
+                if (!biomeSource.getBiomeForNoiseGen(curChunkX << 2, 60, curChunkZ << 2).hasStructure(RSFeatures.JUNGLE_FORTRESS)) {
                     return false;
                 }
             }
@@ -38,41 +38,41 @@ public class FortressJungleStructure extends AbstractBaseStructure {
 
 
     @Override
-    public StructureFeature.StructureStartFactory<NoFeatureConfig> getStructureStartFactory() {
+    public Structure.IStartFactory<NoFeatureConfig> getStartFactory() {
         return FortressJungleStructure.Start::new;
     }
 
-    private static final List<Biome.SpawnEntry> MONSTER_SPAWNS =
-            Lists.newArrayList(new Biome.SpawnEntry(EntityType.WITHER_SKELETON, 27, 1, 1));
+    private static final List<Biome.SpawnListEntry> MONSTER_SPAWNS =
+            Lists.newArrayList(new Biome.SpawnListEntry(EntityType.WITHER_SKELETON, 27, 1, 1));
 
     @Override
-    public List<Biome.SpawnEntry> getMonsterSpawns() {
+    public List<Biome.SpawnListEntry> getSpawnList() {
         return MONSTER_SPAWNS;
     }
 
 
     public static class Start extends StructureStart<NoFeatureConfig> {
-        public Start(StructureFeature<NoFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
+        public Start(Structure<NoFeatureConfig> structureIn, int chunkX, int chunkZ, MutableBoundingBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
         }
 
 
         @Override
-        public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
-            FortressJunglePieces.Start fortresspieces$start = new FortressJunglePieces.Start(this.random, (chunkX << 4) + 2, (chunkZ << 4) + 2);
-            this.children.add(fortresspieces$start);
+        public void init(ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
+            FortressJunglePieces.Start fortresspieces$start = new FortressJunglePieces.Start(this.rand, (chunkX << 4) + 2, (chunkZ << 4) + 2);
+            this.components.add(fortresspieces$start);
 
-            fortresspieces$start.placeJigsaw(fortresspieces$start, this.children, this.random);
+            fortresspieces$start.buildComponent(fortresspieces$start, this.components, this.rand);
             List<StructurePiece> list = fortresspieces$start.pendingChildren;
 
             while (!list.isEmpty()) {
-                int i = this.random.nextInt(list.size());
+                int i = this.rand.nextInt(list.size());
                 StructurePiece structurepiece = list.remove(i);
-                structurepiece.placeJigsaw(fortresspieces$start, this.children, this.random);
+                structurepiece.buildComponent(fortresspieces$start, this.components, this.rand);
             }
 
-            this.setBoundingBoxFromChildren();
-            this.method_14976(this.random, 55, 60);
+            this.recalculateStructureSize();
+            this.func_214626_a(this.rand, 55, 60);
         }
     }
 }

@@ -3,29 +3,30 @@ package com.telepathicgrunt.repurposedstructures.world.features.structures;
 import com.google.common.collect.Lists;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.block.*;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.MobSpawnerBlockEntity;
-import net.minecraft.block.enums.RailShape;
-import net.minecraft.block.enums.WireConnection;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.vehicle.ChestMinecartEntity;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
-import net.minecraft.state.property.Properties;
-import net.minecraft.structure.StructureManager;
-import net.minecraft.structure.StructurePiece;
-import net.minecraft.structure.StructurePieceType;
+import net.minecraft.entity.item.minecart.ChestMinecartEntity;
+import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.nbt.ListNBT;
+import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.state.properties.RailShape;
+import net.minecraft.state.properties.RedstoneSide;
+import net.minecraft.tileentity.MobSpawnerTileEntity;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockBox;
+import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.ServerWorldAccess;
-import net.minecraft.world.WorldAccess;
-import net.minecraft.world.dimension.DimensionType;
-import net.minecraft.world.gen.StructureAccessor;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
+import net.minecraft.world.DimensionType;
+import net.minecraft.world.IBlockReader;
+import net.minecraft.world.ISeedReader;
+import net.minecraft.world.IWorld;
+import net.minecraft.world.gen.ChunkGenerator;
+import net.minecraft.world.gen.feature.structure.IStructurePieceType;
+import net.minecraft.world.gen.feature.structure.StructureManager;
+import net.minecraft.world.gen.feature.structure.StructurePiece;
+import net.minecraft.world.gen.feature.template.TemplateManager;
 
 import java.util.List;
 import java.util.Objects;
@@ -70,19 +71,19 @@ public class RSMineshaftPieces {
         int i = p_189940_1_.nextInt(100);
 
         if (i >= 80) {
-            BlockBox MutableBoundingBox = RSMineshaftPieces.Cross.findCrossing(p_189940_0_, p_189940_1_, p_189940_2_, p_189940_3_, p_189940_4_, p_189940_5_);
+            MutableBoundingBox MutableBoundingBox = RSMineshaftPieces.Cross.findCrossing(p_189940_0_, p_189940_1_, p_189940_2_, p_189940_3_, p_189940_4_, p_189940_5_);
 
             if (MutableBoundingBox != null) {
                 return new RSMineshaftPieces.Cross(p_189940_6_, MutableBoundingBox, p_189940_5_, type);
             }
         } else if (i >= 70) {
-            BlockBox MutableBoundingBox1 = RSMineshaftPieces.Stairs.findStairs(p_189940_0_, p_189940_1_, p_189940_2_, p_189940_3_, p_189940_4_, p_189940_5_);
+            MutableBoundingBox MutableBoundingBox1 = RSMineshaftPieces.Stairs.findStairs(p_189940_0_, p_189940_1_, p_189940_2_, p_189940_3_, p_189940_4_, p_189940_5_);
 
             if (MutableBoundingBox1 != null) {
                 return new RSMineshaftPieces.Stairs(p_189940_6_, MutableBoundingBox1, p_189940_5_, type);
             }
         } else {
-            BlockBox MutableBoundingBox2 = RSMineshaftPieces.Corridor.findCorridorSize(p_189940_0_, p_189940_1_, p_189940_2_, p_189940_3_, p_189940_4_, p_189940_5_);
+            MutableBoundingBox MutableBoundingBox2 = RSMineshaftPieces.Corridor.findCorridorSize(p_189940_0_, p_189940_1_, p_189940_2_, p_189940_3_, p_189940_4_, p_189940_5_);
 
             if (MutableBoundingBox2 != null) {
                 return new RSMineshaftPieces.Corridor(p_189940_6_, p_189940_1_, MutableBoundingBox2, p_189940_5_, type);
@@ -102,7 +103,7 @@ public class RSMineshaftPieces {
 
             if (structuremineshaftpieces$peice != null) {
                 p_189938_1_.add(structuremineshaftpieces$peice);
-                structuremineshaftpieces$peice.placeJigsaw(p_189938_0_, p_189938_1_, p_189938_2_);
+                structuremineshaftpieces$peice.buildComponent(p_189938_0_, p_189938_1_, p_189938_2_);
             }
 
             return structuremineshaftpieces$peice;
@@ -117,7 +118,7 @@ public class RSMineshaftPieces {
         private boolean spawnerPlaced;
         private final int sectionCount;
 
-        public Corridor(StructureManager p_i50456_1_, CompoundTag p_i50456_2_) {
+        public Corridor(TemplateManager p_i50456_1_, CompoundNBT p_i50456_2_) {
             super(StructurePieces.MINESHAFT_CORRIDOR_RS, p_i50456_2_);
             this.hasRails = p_i50456_2_.getBoolean("hr");
             this.attemptSpawnerCreation = p_i50456_2_.getBoolean("sc");
@@ -130,8 +131,8 @@ public class RSMineshaftPieces {
          * (abstract) Helper method to read subclass data from NBT
          */
         @Override
-        protected void toNbt(CompoundTag tagCompound) {
-            super.toNbt(tagCompound);
+        protected void readAdditional(CompoundNBT tagCompound) {
+            super.readAdditional(tagCompound);
             tagCompound.putBoolean("hr", this.hasRails);
             tagCompound.putBoolean("sc", this.attemptSpawnerCreation);
             tagCompound.putBoolean("hps", this.spawnerPlaced);
@@ -139,9 +140,9 @@ public class RSMineshaftPieces {
         }
 
 
-        public Corridor(int p_i47140_1_, Random p_i47140_2_, BlockBox p_i47140_3_, Direction p_i47140_4_, RSMineshaftPieces.Type p_i47140_5_) {
+        public Corridor(int p_i47140_1_, Random p_i47140_2_, MutableBoundingBox p_i47140_3_, Direction p_i47140_4_, RSMineshaftPieces.Type p_i47140_5_) {
             super(StructurePieces.MINESHAFT_CORRIDOR_RS, p_i47140_1_, p_i47140_5_);
-            this.setOrientation(p_i47140_4_);
+            this.setCoordBaseMode(p_i47140_4_);
             this.boundingBox = p_i47140_3_;
             this.hasRails = p_i47140_2_.nextInt(3) == 0;
             if (this.mineShaftType == RSMineshaftPieces.Type.END) {
@@ -149,17 +150,17 @@ public class RSMineshaftPieces {
             } else {
                 this.attemptSpawnerCreation = !this.hasRails && p_i47140_2_.nextInt(20) == 0;
             }
-            if (Objects.requireNonNull(this.getFacing()).getAxis() == Direction.Axis.Z) {
-                this.sectionCount = p_i47140_3_.getBlockCountZ() / 5;
+            if (Objects.requireNonNull(this.getCoordBaseMode()).getAxis() == Direction.Axis.Z) {
+                this.sectionCount = p_i47140_3_.getZSize() / 5;
             } else {
-                this.sectionCount = p_i47140_3_.getBlockCountX() / 5;
+                this.sectionCount = p_i47140_3_.getXSize() / 5;
             }
 
         }
 
 
-        public static BlockBox findCorridorSize(List<StructurePiece> p_175814_0_, Random rand, int x, int y, int z, Direction facing) {
-            BlockBox MutableBoundingBox = new BlockBox(x, y, z, x, y + 2, z);
+        public static MutableBoundingBox findCorridorSize(List<StructurePiece> p_175814_0_, Random rand, int x, int y, int z, Direction facing) {
+            MutableBoundingBox MutableBoundingBox = new MutableBoundingBox(x, y, z, x, y + 2, z);
             int i;
 
             for (i = rand.nextInt(3) + 2; i > 0; --i) {
@@ -187,7 +188,7 @@ public class RSMineshaftPieces {
                         MutableBoundingBox.maxZ = z + 2;
                 }
 
-                if (StructurePiece.getOverlappingPiece(p_175814_0_, MutableBoundingBox) == null) {
+                if (StructurePiece.findIntersecting(p_175814_0_, MutableBoundingBox) == null) {
                     break;
                 }
             }
@@ -197,10 +198,10 @@ public class RSMineshaftPieces {
 
 
         @Override
-        public void placeJigsaw(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
-            int i = this.getLength();
+        public void buildComponent(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
+            int i = this.getComponentType();
             int j = rand.nextInt(4);
-            Direction enumfacing = this.getFacing();
+            Direction enumfacing = this.getCoordBaseMode();
 
             if (enumfacing != null) {
                 switch (enumfacing) {
@@ -276,22 +277,22 @@ public class RSMineshaftPieces {
 
 
         @Override
-        protected boolean addChest(WorldAccess world, BlockBox boundingBox, Random random, int x, int y, int z, ResourceLocation lootTableId) {
-            BlockPos blockpos = new BlockPos(this.applyXTransform(x, z), this.applyYTransform(y), this.applyZTransform(x, z));
+        protected boolean generateChest(IWorld world, MutableBoundingBox boundingBox, Random random, int x, int y, int z, ResourceLocation lootTableId) {
+            BlockPos blockpos = new BlockPos(this.getXWithOffset(x, z), this.getYWithOffset(y), this.getZWithOffset(x, z));
             Material currentMaterial = world.getBlockState(blockpos).getMaterial();
 
-            if (boundingBox.contains(blockpos) && (currentMaterial == Material.AIR || currentMaterial == Material.WATER)) {
+            if (boundingBox.isVecInside(blockpos) && (currentMaterial == Material.AIR || currentMaterial == Material.WATER)) {
                 BlockState blockstate;
                 if (currentMaterial == Material.AIR) {
                     blockstate = Blocks.RAIL.getDefaultState().with(RailBlock.SHAPE, random.nextBoolean() ? RailShape.NORTH_SOUTH : RailShape.EAST_WEST);
                 } else {
-                    blockstate = Blocks.OAK_TRAPDOOR.getDefaultState().with(Properties.WATERLOGGED, true);
+                    blockstate = Blocks.OAK_TRAPDOOR.getDefaultState().with(BlockStateProperties.WATERLOGGED, true);
                 }
 
-                this.addBlock(world, blockstate, x, y, z, boundingBox);
+                this.setBlockState(world, blockstate, x, y, z, boundingBox);
                 ChestMinecartEntity entityminecartchest = new ChestMinecartEntity(world.getWorld(), blockpos.getX() + 0.5F, blockpos.getY() + 0.5F, blockpos.getZ() + 0.5F);
                 entityminecartchest.setLootTable(lootTableId, random.nextLong());
-                world.spawnEntity(entityminecartchest);
+                world.addEntity(entityminecartchest);
                 return true;
             } else {
                 return false;
@@ -300,31 +301,31 @@ public class RSMineshaftPieces {
 
 
         @Override
-        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox box, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean generate(ISeedReader world, StructureManager structureAccessor, ChunkGenerator chunkGenerator, Random random, MutableBoundingBox box, ChunkPos chunkPos, BlockPos blockPos) {
             boolean isOceanType = this.mineShaftType == RSMineshaftPieces.Type.OCEAN;
-            if (isOceanType ? this.isAirInStructureBoundingBox(world, box) : this.method_14937(world, box)) {
+            if (isOceanType ? this.isAirInStructureBoundingBox(world, box) : this.isLiquidInStructureBoundingBox(world, box)) {
                 return false;
             } else {
                 int offsetInSection = this.sectionCount * 5 - 1;
                 BlockState iblockstate = this.getFloorBlock();
-                this.fillWithOutline(world, box, 0, 0, 0, 2, 1, offsetInSection, getFillingBlock(), getFillingBlock(), false);
-                this.fillWithOutlineUnderSealevel(world, box, random, 0.8F, 0, 2, 0, 2, 2, offsetInSection, getFillingBlock(), getFillingBlock(), false, false);
+                this.fillWithBlocks(world, box, 0, 0, 0, 2, 1, offsetInSection, getFillingBlock(), getFillingBlock(), false);
+                this.generateMaybeBox(world, box, random, 0.8F, 0, 2, 0, 2, 2, offsetInSection, getFillingBlock(), getFillingBlock(), false, false);
 
                 if (this.attemptSpawnerCreation) {
                     if (isOceanType || this.mineShaftType == RSMineshaftPieces.Type.NETHER || this.mineShaftType == RSMineshaftPieces.Type.END) {
-                        this.fillWithOutlineUnderSealevel(world, box, random, 0.6F, 0, 0, 0, 2, 0, offsetInSection, getDecorativeBlock(random), getDecorativeBlock(random), false, true);
+                        this.generateMaybeBox(world, box, random, 0.6F, 0, 0, 0, 2, 0, offsetInSection, getDecorativeBlock(random), getDecorativeBlock(random), false, true);
 
                         // can only place chorus fruit on end stone
                         for (int x = 0; x <= 2; ++x) {
                             for (int z = 0; z <= offsetInSection; ++z) {
-                                if (this.getBlockAt(world, x, 0, z, box).isOf(Blocks.CHORUS_FLOWER)) {
-                                    this.addBlock(world, Blocks.END_STONE.getDefaultState(), x, -1, z, box);
+                                if (this.getBlockStateFromPos(world, x, 0, z, box).isIn(Blocks.CHORUS_FLOWER)) {
+                                    this.setBlockState(world, Blocks.END_STONE.getDefaultState(), x, -1, z, box);
                                 }
                             }
                         }
 
                     } else {
-                        this.fillWithOutlineUnderSealevel(world, box, random, 0.6F, 0, 0, 0, 2, 1, offsetInSection, getDecorativeBlock(random), getFillingBlock(), false, true);
+                        this.generateMaybeBox(world, box, random, 0.6F, 0, 0, 0, 2, 1, offsetInSection, getDecorativeBlock(random), getFillingBlock(), false, true);
                     }
                 }
 
@@ -340,46 +341,46 @@ public class RSMineshaftPieces {
                     this.placeDecoration(world, box, random, 0.05F, 0, 2, k1 + 2);
                     this.placeDecoration(world, box, random, 0.05F, 2, 2, k1 + 2);
 
-                    if (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.lootChestsMS) {
+                    if (RepurposedStructures.RSMineshaftsConfig.lootChestsMS.get()) {
                         if (random.nextInt(50) == 0) {
-                            this.addChest(world, box, random, 2, 0, k1 - 1, getChestLoot());
+                            this.generateChest(world, box, random, 2, 0, k1 - 1, getChestLoot());
                         }
 
                         if (random.nextInt(50) == 0) {
-                            this.addChest(world, box, random, 0, 0, k1 + 1, getChestLoot());
+                            this.generateChest(world, box, random, 0, 0, k1 + 1, getChestLoot());
                         }
                     }
 
                     if (this.attemptSpawnerCreation && (!this.spawnerPlaced || (this.mineShaftType == RSMineshaftPieces.Type.END && random.nextBoolean()))) {
-                        int l1 = this.applyYTransform(0);
+                        int l1 = this.getYWithOffset(0);
                         int i2 = k1 - 1 + random.nextInt(3);
-                        int j2 = this.applyXTransform(1, i2);
-                        int k2 = this.applyZTransform(1, i2);
+                        int j2 = this.getXWithOffset(1, i2);
+                        int k2 = this.getZWithOffset(1, i2);
                         BlockPos blockpos = new BlockPos(j2, l1, k2);
 
-                        if (box.contains(blockpos) && this.isUnderSeaLevel(world, 1, 0, i2, box)) {
+                        if (box.isVecInside(blockpos) && this.getSkyBrightness(world, 1, 0, i2, box)) {
                             this.spawnerPlaced = true;
                             world.setBlockState(blockpos, Blocks.SPAWNER.getDefaultState(), 2);
-                            BlockEntity tileentity = world.getBlockEntity(blockpos);
+                            TileEntity tileentity = world.getTileEntity(blockpos);
 
-                            if (tileentity instanceof MobSpawnerBlockEntity) {
-                                ((MobSpawnerBlockEntity) tileentity).getLogic().setEntityId(getSpawnerMob(random));
+                            if (tileentity instanceof MobSpawnerTileEntity) {
+                                ((MobSpawnerTileEntity) tileentity).getSpawnerBaseLogic().setEntityType(getSpawnerMob(random));
                             }
                         }
                     }
 
                     //wall of glass
                     if (this.mineShaftType == RSMineshaftPieces.Type.END && random.nextFloat() < 0.3f) {
-                        this.fillWithOutline(world, box, 0, 0, 0, 2, 2, 0, Blocks.PURPLE_STAINED_GLASS_PANE.getDefaultState().with(PaneBlock.EAST, true).with(PaneBlock.WEST, true), Blocks.PURPLE_STAINED_GLASS_PANE.getDefaultState().with(PaneBlock.NORTH, true).with(PaneBlock.SOUTH, true), false);
+                        this.fillWithBlocks(world, box, 0, 0, 0, 2, 2, 0, Blocks.PURPLE_STAINED_GLASS_PANE.getDefaultState().with(PaneBlock.EAST, true).with(PaneBlock.WEST, true), Blocks.PURPLE_STAINED_GLASS_PANE.getDefaultState().with(PaneBlock.NORTH, true).with(PaneBlock.SOUTH, true), false);
                     }
                 }
 
                 for (int x = 0; x <= 2; ++x) {
                     for (int z = 0; z <= offsetInSection; ++z) {
-                        BlockState spaceForFloor = this.getBlockAt(world, x, -1, z, box);
+                        BlockState spaceForFloor = this.getBlockStateFromPos(world, x, -1, z, box);
 
                         if (isOceanType ? spaceForFloor.getMaterial() == Material.WATER : spaceForFloor.getMaterial() == Material.AIR) {
-                            this.addBlock(world, iblockstate, x, -1, z, box);
+                            this.setBlockState(world, iblockstate, x, -1, z, box);
                         }
                     }
                 }
@@ -388,11 +389,11 @@ public class RSMineshaftPieces {
                     BlockState blockstate = getRailBlock();
 
                     for (int j3 = 0; j3 <= offsetInSection; ++j3) {
-                        BlockState spaceForRails = this.getBlockAt(world, 1, -1, j3, box);
+                        BlockState spaceForRails = this.getBlockStateFromPos(world, 1, -1, j3, box);
 
                         if (isOceanType ? spaceForRails.getMaterial() != Material.WATER : spaceForRails.getMaterial() != Material.AIR) {
-                            float f = this.isUnderSeaLevel(world, 1, 0, j3, box) ? 0.7F : 0.9F;
-                            this.addBlockWithRandomThreshold(world, box, random, f, 1, 0, j3, blockstate);
+                            float f = this.getSkyBrightness(world, 1, 0, j3, box) ? 0.7F : 0.9F;
+                            this.randomlyPlaceBlock(world, box, random, f, 1, 0, j3, blockstate);
                         }
                     }
                 }
@@ -408,73 +409,73 @@ public class RSMineshaftPieces {
         }
 
 
-        private void placeSupport(ServerWorldAccess world, BlockBox boundingBox, int x, int y2, int z, int y, int x2, Random random) {
+        private void placeSupport(ISeedReader world, MutableBoundingBox boundingBox, int x, int y2, int z, int y, int x2, Random random) {
 
             BlockState iblockstate = this.getArchTopBlock();
             BlockState iblockstate2 = getFillingBlock();
-            this.fillWithOutline(world, boundingBox, x, y2, z, x, y - 1, z, this.getArchSupportBlock(random), iblockstate2, false);
-            this.fillWithOutline(world, boundingBox, x2, y2, z, x2, y - 1, z, this.getArchSupportBlock(random), iblockstate2, false);
-            this.fillWithOutline(world, boundingBox, x, y, z, x2, y, z, iblockstate, iblockstate2, false);
+            this.fillWithBlocks(world, boundingBox, x, y2, z, x, y - 1, z, this.getArchSupportBlock(random), iblockstate2, false);
+            this.fillWithBlocks(world, boundingBox, x2, y2, z, x2, y - 1, z, this.getArchSupportBlock(random), iblockstate2, false);
+            this.fillWithBlocks(world, boundingBox, x, y, z, x2, y, z, iblockstate, iblockstate2, false);
 
             if (this.mineShaftType == Type.END) {
                 if (random.nextFloat() < 0.08F) {
-                    this.addBlockWithRandomThreshold(world, boundingBox, random, 1F, x, y, z - 1, Blocks.END_ROD.getDefaultState().with(FacingBlock.FACING, Direction.SOUTH));
-                    this.addBlockWithRandomThreshold(world, boundingBox, random, 1F, x, y, z + 1, Blocks.END_ROD.getDefaultState().with(FacingBlock.FACING, Direction.NORTH));
+                    this.randomlyPlaceBlock(world, boundingBox, random, 1F, x, y, z - 1, Blocks.END_ROD.getDefaultState().with(DirectionalBlock.FACING, Direction.SOUTH));
+                    this.randomlyPlaceBlock(world, boundingBox, random, 1F, x, y, z + 1, Blocks.END_ROD.getDefaultState().with(DirectionalBlock.FACING, Direction.NORTH));
                 }
 
                 if (random.nextFloat() < 0.08F) {
-                    this.addBlockWithRandomThreshold(world, boundingBox, random, 1F, x + 2, y, z - 1, Blocks.END_ROD.getDefaultState().with(FacingBlock.FACING, Direction.SOUTH));
-                    this.addBlockWithRandomThreshold(world, boundingBox, random, 1F, x + 2, y, z + 1, Blocks.END_ROD.getDefaultState().with(FacingBlock.FACING, Direction.NORTH));
+                    this.randomlyPlaceBlock(world, boundingBox, random, 1F, x + 2, y, z - 1, Blocks.END_ROD.getDefaultState().with(DirectionalBlock.FACING, Direction.SOUTH));
+                    this.randomlyPlaceBlock(world, boundingBox, random, 1F, x + 2, y, z + 1, Blocks.END_ROD.getDefaultState().with(DirectionalBlock.FACING, Direction.NORTH));
                 }
             } else if (this.mineShaftType == Type.NETHER) {
                 if (random.nextFloat() < 0.1f) {
-                    this.addBlock(world, Blocks.REDSTONE_LAMP.getDefaultState().with(RedstoneLampBlock.LIT, true), x + 1, y, z, boundingBox);
-                    this.addBlock(world, Blocks.REDSTONE_TORCH.getDefaultState(), x, y + 1, z, boundingBox);
-                    this.addBlock(world, Blocks.REDSTONE_TORCH.getDefaultState(), x + 2, y + 1, z, boundingBox);
-                    this.addBlock(world, Blocks.REDSTONE_WIRE.getDefaultState().with(RedstoneWireBlock.POWER, 14).with(RedstoneWireBlock.WIRE_CONNECTION_EAST, WireConnection.SIDE).with(RedstoneWireBlock.WIRE_CONNECTION_WEST, WireConnection.SIDE), x + 1, y + 1, z, boundingBox);
+                    this.setBlockState(world, Blocks.REDSTONE_LAMP.getDefaultState().with(RedstoneLampBlock.LIT, true), x + 1, y, z, boundingBox);
+                    this.setBlockState(world, Blocks.REDSTONE_TORCH.getDefaultState(), x, y + 1, z, boundingBox);
+                    this.setBlockState(world, Blocks.REDSTONE_TORCH.getDefaultState(), x + 2, y + 1, z, boundingBox);
+                    this.setBlockState(world, Blocks.REDSTONE_WIRE.getDefaultState().with(RedstoneWireBlock.POWER, 14).with(RedstoneWireBlock.EAST, RedstoneSide.SIDE).with(RedstoneWireBlock.EAST, RedstoneSide.SIDE), x + 1, y + 1, z, boundingBox);
                 } else {
-                    this.addBlockWithRandomThreshold(world, boundingBox, random, 0.1F, x + 1, y, z - 1, Blocks.REDSTONE_WALL_TORCH.getDefaultState().with(WallTorchBlock.FACING, Direction.SOUTH));
-                    this.addBlockWithRandomThreshold(world, boundingBox, random, 0.1F, x + 1, y, z + 1, Blocks.REDSTONE_WALL_TORCH.getDefaultState().with(WallTorchBlock.FACING, Direction.NORTH));
+                    this.randomlyPlaceBlock(world, boundingBox, random, 0.1F, x + 1, y, z - 1, Blocks.REDSTONE_WALL_TORCH.getDefaultState().with(WallTorchBlock.HORIZONTAL_FACING, Direction.SOUTH));
+                    this.randomlyPlaceBlock(world, boundingBox, random, 0.1F, x + 1, y, z + 1, Blocks.REDSTONE_WALL_TORCH.getDefaultState().with(WallTorchBlock.HORIZONTAL_FACING, Direction.NORTH));
                 }
             } else if (this.mineShaftType == Type.OCEAN) {
-                this.addBlockWithRandomThreshold(world, boundingBox, random, 0.2F, x + 1, y, z, Blocks.SEA_LANTERN.getDefaultState());
+                this.randomlyPlaceBlock(world, boundingBox, random, 0.2F, x + 1, y, z, Blocks.SEA_LANTERN.getDefaultState());
             } else if (this.mineShaftType == Type.ICY) {
-                this.addBlockWithRandomThreshold(world, boundingBox, random, 0.08F, x + 1, y, z - 1, Blocks.REDSTONE_WALL_TORCH.getDefaultState().with(WallTorchBlock.FACING, Direction.SOUTH));
-                this.addBlockWithRandomThreshold(world, boundingBox, random, 0.08F, x + 1, y, z + 1, Blocks.REDSTONE_WALL_TORCH.getDefaultState().with(WallTorchBlock.FACING, Direction.NORTH));
+                this.randomlyPlaceBlock(world, boundingBox, random, 0.08F, x + 1, y, z - 1, Blocks.REDSTONE_WALL_TORCH.getDefaultState().with(WallTorchBlock.HORIZONTAL_FACING, Direction.SOUTH));
+                this.randomlyPlaceBlock(world, boundingBox, random, 0.08F, x + 1, y, z + 1, Blocks.REDSTONE_WALL_TORCH.getDefaultState().with(WallTorchBlock.HORIZONTAL_FACING, Direction.NORTH));
             } else {
-                this.addBlockWithRandomThreshold(world, boundingBox, random, 0.08F, x + 1, y, z - 1, Blocks.WALL_TORCH.getDefaultState().with(WallTorchBlock.FACING, Direction.SOUTH));
-                this.addBlockWithRandomThreshold(world, boundingBox, random, 0.08F, x + 1, y, z + 1, Blocks.WALL_TORCH.getDefaultState().with(WallTorchBlock.FACING, Direction.NORTH));
+                this.randomlyPlaceBlock(world, boundingBox, random, 0.08F, x + 1, y, z - 1, Blocks.WALL_TORCH.getDefaultState().with(WallTorchBlock.HORIZONTAL_FACING, Direction.SOUTH));
+                this.randomlyPlaceBlock(world, boundingBox, random, 0.08F, x + 1, y, z + 1, Blocks.WALL_TORCH.getDefaultState().with(WallTorchBlock.HORIZONTAL_FACING, Direction.NORTH));
             }
 
         }
 
 
-        private void placeDecoration(ServerWorldAccess world, BlockBox box, Random random, float probability, int x, int y, int z) {
-            if (world.getDimension() != DimensionType.getOverworldDimensionType() || this.isUnderSeaLevel(world, x, y, z, box)) {
+        private void placeDecoration(ISeedReader world, MutableBoundingBox box, Random random, float probability, int x, int y, int z) {
+            if (world.getDimension() != DimensionType.getOverworldDimensionType() || this.getSkyBrightness(world, x, y, z, box)) {
                 BlockState decorativeBlock = getDecorativeBlock(random);
-                if (!decorativeBlock.isOf(Blocks.COBWEB)) {
+                if (!decorativeBlock.isIn(Blocks.COBWEB)) {
                     y = 0;
                 }
-                this.addBlockWithRandomThreshold(world, box, random, probability, x, y, z, decorativeBlock);
+                this.randomlyPlaceBlock(world, box, random, probability, x, y, z, decorativeBlock);
 
                 // can only place chorus fruit on end stone
                 //Also places it in a grown state
-                if (this.getBlockAt(world, x, y, z, box).isOf(Blocks.CHORUS_FLOWER)) {
-                    this.addBlock(world, Blocks.END_STONE.getDefaultState(), x, -1, z, box);
-                    this.addBlock(world, Blocks.CHORUS_PLANT.getDefaultState().with(ConnectingBlock.UP, true).with(ConnectingBlock.DOWN, true), x, 0, z, box);
-                    this.addBlock(world, Blocks.CHORUS_PLANT.getDefaultState().with(ConnectingBlock.SOUTH, true).with(ConnectingBlock.NORTH, true).with(ConnectingBlock.EAST, true).with(ConnectingBlock.WEST, true).with(ConnectingBlock.DOWN, true), x, 1, z, box);
+                if (this.getBlockStateFromPos(world, x, y, z, box).isIn(Blocks.CHORUS_FLOWER)) {
+                    this.setBlockState(world, Blocks.END_STONE.getDefaultState(), x, -1, z, box);
+                    this.setBlockState(world, Blocks.CHORUS_PLANT.getDefaultState().with(SixWayBlock.UP, true).with(SixWayBlock.DOWN, true), x, 0, z, box);
+                    this.setBlockState(world, Blocks.CHORUS_PLANT.getDefaultState().with(SixWayBlock.SOUTH, true).with(SixWayBlock.NORTH, true).with(SixWayBlock.EAST, true).with(SixWayBlock.WEST, true).with(SixWayBlock.DOWN, true), x, 1, z, box);
 
                     if (random.nextBoolean()) {
-                        if (this.getBlockAt(world, x - 1, 1, z, box).isAir()) {
-                            this.addBlock(world, Blocks.CHORUS_FLOWER.getDefaultState().with(ChorusFlowerBlock.AGE, 5), x - 1, 1, z, box);
+                        if (this.getBlockStateFromPos(world, x - 1, 1, z, box).isAir()) {
+                            this.setBlockState(world, Blocks.CHORUS_FLOWER.getDefaultState().with(ChorusFlowerBlock.AGE, 5), x - 1, 1, z, box);
                         } else {
-                            this.addBlock(world, Blocks.CHORUS_FLOWER.getDefaultState().with(ChorusFlowerBlock.AGE, 5), x, 1, z, box);
+                            this.setBlockState(world, Blocks.CHORUS_FLOWER.getDefaultState().with(ChorusFlowerBlock.AGE, 5), x, 1, z, box);
                         }
                     } else {
-                        if (this.getBlockAt(world, x + 1, 1, z, box).isAir()) {
-                            this.addBlock(world, Blocks.CHORUS_FLOWER.getDefaultState().with(ChorusFlowerBlock.AGE, 5), x + 1, 1, z, box);
+                        if (this.getBlockStateFromPos(world, x + 1, 1, z, box).isAir()) {
+                            this.setBlockState(world, Blocks.CHORUS_FLOWER.getDefaultState().with(ChorusFlowerBlock.AGE, 5), x + 1, 1, z, box);
                         } else {
-                            this.addBlock(world, Blocks.CHORUS_FLOWER.getDefaultState().with(ChorusFlowerBlock.AGE, 5), x, 1, z, box);
+                            this.setBlockState(world, Blocks.CHORUS_FLOWER.getDefaultState().with(ChorusFlowerBlock.AGE, 5), x, 1, z, box);
                         }
                     }
                 }
@@ -487,10 +488,10 @@ public class RSMineshaftPieces {
         private final Direction corridorDirection;
         private final boolean isMultipleFloors;
 
-        public Cross(StructureManager p_i50454_1_, CompoundTag p_i50454_2_) {
+        public Cross(TemplateManager p_i50454_1_, CompoundNBT p_i50454_2_) {
             super(StructurePieces.MINESHAFT_CROSSING_RS, p_i50454_2_);
             this.isMultipleFloors = p_i50454_2_.getBoolean("tf");
-            this.corridorDirection = Direction.fromHorizontal(p_i50454_2_.getInt("D"));
+            this.corridorDirection = Direction.byHorizontalIndex(p_i50454_2_.getInt("D"));
         }
 
 
@@ -498,23 +499,23 @@ public class RSMineshaftPieces {
          * (abstract) Helper method to read subclass data from NBT
          */
         @Override
-        protected void toNbt(CompoundTag tagCompound) {
-            super.toNbt(tagCompound);
+        protected void readAdditional(CompoundNBT tagCompound) {
+            super.readAdditional(tagCompound);
             tagCompound.putBoolean("tf", this.isMultipleFloors);
-            tagCompound.putInt("D", this.corridorDirection.getHorizontal());
+            tagCompound.putInt("D", this.corridorDirection.getHorizontalIndex());
         }
 
 
-        public Cross(int p_i50455_1_, BlockBox p_i50455_2_, Direction p_i50455_3_, RSMineshaftPieces.Type p_i50455_4_) {
+        public Cross(int p_i50455_1_, MutableBoundingBox p_i50455_2_, Direction p_i50455_3_, RSMineshaftPieces.Type p_i50455_4_) {
             super(StructurePieces.MINESHAFT_CROSSING_RS, p_i50455_1_, p_i50455_4_);
             this.corridorDirection = p_i50455_3_;
             this.boundingBox = p_i50455_2_;
-            this.isMultipleFloors = p_i50455_2_.getBlockCountY() > 3;
+            this.isMultipleFloors = p_i50455_2_.getYSize() > 3;
         }
 
 
-        public static BlockBox findCrossing(List<StructurePiece> listIn, Random rand, int x, int y, int z, Direction facing) {
-            BlockBox MutableBoundingBox = new BlockBox(x, y, z, x, y + 2, z);
+        public static MutableBoundingBox findCrossing(List<StructurePiece> listIn, Random rand, int x, int y, int z, Direction facing) {
+            MutableBoundingBox MutableBoundingBox = new MutableBoundingBox(x, y, z, x, y + 2, z);
 
             if (rand.nextInt(4) == 0) {
                 MutableBoundingBox.maxY += 4;
@@ -546,13 +547,13 @@ public class RSMineshaftPieces {
                     MutableBoundingBox.maxZ = z + 3;
             }
 
-            return StructurePiece.getOverlappingPiece(listIn, MutableBoundingBox) != null ? null : MutableBoundingBox;
+            return StructurePiece.findIntersecting(listIn, MutableBoundingBox) != null ? null : MutableBoundingBox;
         }
 
 
         @Override
-        public void placeJigsaw(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
-            int i = this.getLength();
+        public void buildComponent(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
+            int i = this.getComponentType();
 
             switch (this.corridorDirection) {
                 case NORTH:
@@ -601,22 +602,22 @@ public class RSMineshaftPieces {
 
 
         @Override
-        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox box, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean generate(ISeedReader world, StructureManager structureAccessor, ChunkGenerator chunkGenerator, Random random, MutableBoundingBox box, ChunkPos chunkPos, BlockPos blockPos) {
             boolean isOceanType = this.mineShaftType == RSMineshaftPieces.Type.OCEAN;
-            if (isOceanType ? this.isAirInStructureBoundingBox(world, box) : this.method_14937(world, box)) {
+            if (isOceanType ? this.isAirInStructureBoundingBox(world, box) : this.isLiquidInStructureBoundingBox(world, box)) {
                 return false;
             } else {
                 BlockState iblockstate = this.getFloorBlock();
 
                 if (this.isMultipleFloors) {
-                    this.fillWithOutline(world, box, this.boundingBox.minX + 1, this.boundingBox.minY, this.boundingBox.minZ, this.boundingBox.maxX - 1, this.boundingBox.minY + 3 - 1, this.boundingBox.maxZ, getFillingBlock(), getFillingBlock(), false);
-                    this.fillWithOutline(world, box, this.boundingBox.minX, this.boundingBox.minY, this.boundingBox.minZ + 1, this.boundingBox.maxX, this.boundingBox.minY + 3 - 1, this.boundingBox.maxZ - 1, getFillingBlock(), getFillingBlock(), false);
-                    this.fillWithOutline(world, box, this.boundingBox.minX + 1, this.boundingBox.maxY - 2, this.boundingBox.minZ, this.boundingBox.maxX - 1, this.boundingBox.maxY, this.boundingBox.maxZ, getFillingBlock(), getFillingBlock(), false);
-                    this.fillWithOutline(world, box, this.boundingBox.minX, this.boundingBox.maxY - 2, this.boundingBox.minZ + 1, this.boundingBox.maxX, this.boundingBox.maxY, this.boundingBox.maxZ - 1, getFillingBlock(), getFillingBlock(), false);
-                    this.fillWithOutline(world, box, this.boundingBox.minX + 1, this.boundingBox.minY + 3, this.boundingBox.minZ + 1, this.boundingBox.maxX - 1, this.boundingBox.minY + 3, this.boundingBox.maxZ - 1, getFillingBlock(), getFillingBlock(), false);
+                    this.fillWithBlocks(world, box, this.boundingBox.minX + 1, this.boundingBox.minY, this.boundingBox.minZ, this.boundingBox.maxX - 1, this.boundingBox.minY + 3 - 1, this.boundingBox.maxZ, getFillingBlock(), getFillingBlock(), false);
+                    this.fillWithBlocks(world, box, this.boundingBox.minX, this.boundingBox.minY, this.boundingBox.minZ + 1, this.boundingBox.maxX, this.boundingBox.minY + 3 - 1, this.boundingBox.maxZ - 1, getFillingBlock(), getFillingBlock(), false);
+                    this.fillWithBlocks(world, box, this.boundingBox.minX + 1, this.boundingBox.maxY - 2, this.boundingBox.minZ, this.boundingBox.maxX - 1, this.boundingBox.maxY, this.boundingBox.maxZ, getFillingBlock(), getFillingBlock(), false);
+                    this.fillWithBlocks(world, box, this.boundingBox.minX, this.boundingBox.maxY - 2, this.boundingBox.minZ + 1, this.boundingBox.maxX, this.boundingBox.maxY, this.boundingBox.maxZ - 1, getFillingBlock(), getFillingBlock(), false);
+                    this.fillWithBlocks(world, box, this.boundingBox.minX + 1, this.boundingBox.minY + 3, this.boundingBox.minZ + 1, this.boundingBox.maxX - 1, this.boundingBox.minY + 3, this.boundingBox.maxZ - 1, getFillingBlock(), getFillingBlock(), false);
                 } else {
-                    this.fillWithOutline(world, box, this.boundingBox.minX + 1, this.boundingBox.minY, this.boundingBox.minZ, this.boundingBox.maxX - 1, this.boundingBox.maxY, this.boundingBox.maxZ, getFillingBlock(), getFillingBlock(), false);
-                    this.fillWithOutline(world, box, this.boundingBox.minX, this.boundingBox.minY, this.boundingBox.minZ + 1, this.boundingBox.maxX, this.boundingBox.maxY, this.boundingBox.maxZ - 1, getFillingBlock(), getFillingBlock(), false);
+                    this.fillWithBlocks(world, box, this.boundingBox.minX + 1, this.boundingBox.minY, this.boundingBox.minZ, this.boundingBox.maxX - 1, this.boundingBox.maxY, this.boundingBox.maxZ, getFillingBlock(), getFillingBlock(), false);
+                    this.fillWithBlocks(world, box, this.boundingBox.minX, this.boundingBox.minY, this.boundingBox.minZ + 1, this.boundingBox.maxX, this.boundingBox.maxY, this.boundingBox.maxZ - 1, getFillingBlock(), getFillingBlock(), false);
                 }
 
                 this.placeSupportPillar(world, box, this.boundingBox.minX + 1, this.boundingBox.minY, this.boundingBox.minZ + 1, this.boundingBox.maxY, isOceanType);
@@ -626,8 +627,8 @@ public class RSMineshaftPieces {
 
                 for (int i = this.boundingBox.minX; i <= this.boundingBox.maxX; ++i) {
                     for (int j = this.boundingBox.minZ; j <= this.boundingBox.maxZ; ++j) {
-                        if (this.getBlockAt(world, i, this.boundingBox.minY - 1, j, box).getMaterial() == (isOceanType ? Material.WATER : Material.AIR) && this.isUnderSeaLevel(world, i, this.boundingBox.minY - 1, j, box)) {
-                            this.addBlock(world, iblockstate, i, this.boundingBox.minY - 1, j, box);
+                        if (this.getBlockStateFromPos(world, i, this.boundingBox.minY - 1, j, box).getMaterial() == (isOceanType ? Material.WATER : Material.AIR) && this.getSkyBrightness(world, i, this.boundingBox.minY - 1, j, box)) {
+                            this.setBlockState(world, iblockstate, i, this.boundingBox.minY - 1, j, box);
                         }
                     }
                 }
@@ -643,29 +644,29 @@ public class RSMineshaftPieces {
         }
 
 
-        private void placeSupportPillar(ServerWorldAccess world, BlockBox box, int x, int miny, int z, int maxy, boolean isOceanType) {
-            if (this.getBlockAt(world, x, maxy + 1, z, box).getMaterial() != (isOceanType ? Material.WATER : Material.AIR)) {
-                this.fillWithOutline(world, box, x, miny, z, x, maxy, z, this.getFloorBlock().isOf(Blocks.GRASS_BLOCK) ? Blocks.MOSSY_STONE_BRICKS.getDefaultState() : this.getFloorBlock(), getFillingBlock(), false);
+        private void placeSupportPillar(ISeedReader world, MutableBoundingBox box, int x, int miny, int z, int maxy, boolean isOceanType) {
+            if (this.getBlockStateFromPos(world, x, maxy + 1, z, box).getMaterial() != (isOceanType ? Material.WATER : Material.AIR)) {
+                this.fillWithBlocks(world, box, x, miny, z, x, maxy, z, this.getFloorBlock().isIn(Blocks.GRASS_BLOCK) ? Blocks.MOSSY_STONE_BRICKS.getDefaultState() : this.getFloorBlock(), getFillingBlock(), false);
             }
         }
     }
 
     public static class Room extends RSMineshaftPieces.Piece {
-        private final List<BlockBox> roomsLinkedToTheRoom = Lists.newLinkedList();
+        private final List<MutableBoundingBox> roomsLinkedToTheRoom = Lists.newLinkedList();
 
         public Room(int p_i47137_1_, Random p_i47137_2_, int p_i47137_3_, int p_i47137_4_, RSMineshaftPieces.Type p_i47137_5_) {
             super(StructurePieces.MINESHAFT_ROOM_RS, p_i47137_1_, p_i47137_5_);
             this.mineShaftType = p_i47137_5_;
-            this.boundingBox = new BlockBox(p_i47137_3_, 50, p_i47137_4_, p_i47137_3_ + 7 + p_i47137_2_.nextInt(6), 54 + p_i47137_2_.nextInt(6), p_i47137_4_ + 7 + p_i47137_2_.nextInt(6));
+            this.boundingBox = new MutableBoundingBox(p_i47137_3_, 50, p_i47137_4_, p_i47137_3_ + 7 + p_i47137_2_.nextInt(6), 54 + p_i47137_2_.nextInt(6), p_i47137_4_ + 7 + p_i47137_2_.nextInt(6));
         }
 
 
-        public Room(StructureManager p_i50451_1_, CompoundTag p_i50451_2_) {
+        public Room(TemplateManager p_i50451_1_, CompoundNBT p_i50451_2_) {
             super(StructurePieces.MINESHAFT_ROOM_RS, p_i50451_2_);
-            ListTag listnbt = p_i50451_2_.getList("Entrances", 11);
+            ListNBT listnbt = p_i50451_2_.getList("Entrances", 11);
 
             for (int i = 0; i < listnbt.size(); ++i) {
-                this.roomsLinkedToTheRoom.add(new BlockBox(listnbt.getIntArray(i)));
+                this.roomsLinkedToTheRoom.add(new MutableBoundingBox(listnbt.getIntArray(i)));
             }
         }
 
@@ -674,12 +675,12 @@ public class RSMineshaftPieces {
          * (abstract) Helper method to read subclass data from NBT
          */
         @Override
-        protected void toNbt(CompoundTag tagCompound) {
-            super.toNbt(tagCompound);
-            ListTag listnbt = new ListTag();
+        protected void readAdditional(CompoundNBT tagCompound) {
+            super.readAdditional(tagCompound);
+            ListNBT listnbt = new ListNBT();
 
-            for (BlockBox mutableboundingbox : this.roomsLinkedToTheRoom) {
-                listnbt.add(mutableboundingbox.toNbt());
+            for (MutableBoundingBox mutableboundingbox : this.roomsLinkedToTheRoom) {
+                listnbt.add(mutableboundingbox.toNBTTagIntArray());
             }
 
             tagCompound.put("Entrances", listnbt);
@@ -687,77 +688,77 @@ public class RSMineshaftPieces {
 
 
         @Override
-        public void placeJigsaw(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
-            int i = this.getLength();
-            int k = this.boundingBox.getBlockCountY() - 3 - 1;
+        public void buildComponent(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
+            int i = this.getComponentType();
+            int k = this.boundingBox.getYSize() - 3 - 1;
             if (k <= 0) {
                 k = 1;
             }
 
             int l;
-            for (int j = 0; j < this.boundingBox.getBlockCountX(); j = l + 4) {
-                l = j + rand.nextInt(this.boundingBox.getBlockCountX());
-                if (l + 3 > this.boundingBox.getBlockCountX()) {
+            for (int j = 0; j < this.boundingBox.getXSize(); j = l + 4) {
+                l = j + rand.nextInt(this.boundingBox.getXSize());
+                if (l + 3 > this.boundingBox.getXSize()) {
                     break;
                 }
 
                 RSMineshaftPieces.Piece structuremineshaftpieces$peice = RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.minX + l, this.boundingBox.minY + rand.nextInt(k) + 1, this.boundingBox.minZ - 1, Direction.NORTH, i);
 
                 if (structuremineshaftpieces$peice != null) {
-                    BlockBox MutableBoundingBox = structuremineshaftpieces$peice.getBoundingBox();
-                    this.roomsLinkedToTheRoom.add(new BlockBox(MutableBoundingBox.minX, MutableBoundingBox.minY, this.boundingBox.minZ, MutableBoundingBox.maxX, MutableBoundingBox.maxY, this.boundingBox.minZ + 1));
+                    MutableBoundingBox MutableBoundingBox = structuremineshaftpieces$peice.getBoundingBox();
+                    this.roomsLinkedToTheRoom.add(new MutableBoundingBox(MutableBoundingBox.minX, MutableBoundingBox.minY, this.boundingBox.minZ, MutableBoundingBox.maxX, MutableBoundingBox.maxY, this.boundingBox.minZ + 1));
                 }
             }
 
-            for (int i1 = 0; i1 < this.boundingBox.getBlockCountX(); i1 = l + 4) {
-                l = i1 + rand.nextInt(this.boundingBox.getBlockCountX());
+            for (int i1 = 0; i1 < this.boundingBox.getXSize(); i1 = l + 4) {
+                l = i1 + rand.nextInt(this.boundingBox.getXSize());
 
-                if (l + 3 > this.boundingBox.getBlockCountX()) {
+                if (l + 3 > this.boundingBox.getXSize()) {
                     break;
                 }
 
                 RSMineshaftPieces.Piece structuremineshaftpieces$peice1 = RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.minX + l, this.boundingBox.minY + rand.nextInt(k) + 1, this.boundingBox.maxZ + 1, Direction.SOUTH, i);
 
                 if (structuremineshaftpieces$peice1 != null) {
-                    BlockBox MutableBoundingBox1 = structuremineshaftpieces$peice1.getBoundingBox();
-                    this.roomsLinkedToTheRoom.add(new BlockBox(MutableBoundingBox1.minX, MutableBoundingBox1.minY, this.boundingBox.maxZ - 1, MutableBoundingBox1.maxX, MutableBoundingBox1.maxY, this.boundingBox.maxZ));
+                    MutableBoundingBox MutableBoundingBox1 = structuremineshaftpieces$peice1.getBoundingBox();
+                    this.roomsLinkedToTheRoom.add(new MutableBoundingBox(MutableBoundingBox1.minX, MutableBoundingBox1.minY, this.boundingBox.maxZ - 1, MutableBoundingBox1.maxX, MutableBoundingBox1.maxY, this.boundingBox.maxZ));
                 }
             }
 
-            for (int j1 = 0; j1 < this.boundingBox.getBlockCountZ(); j1 = l + 4) {
-                l = j1 + rand.nextInt(this.boundingBox.getBlockCountZ());
+            for (int j1 = 0; j1 < this.boundingBox.getZSize(); j1 = l + 4) {
+                l = j1 + rand.nextInt(this.boundingBox.getZSize());
 
-                if (l + 3 > this.boundingBox.getBlockCountZ()) {
+                if (l + 3 > this.boundingBox.getZSize()) {
                     break;
                 }
 
                 RSMineshaftPieces.Piece structuremineshaftpieces$peice2 = RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.minX - 1, this.boundingBox.minY + rand.nextInt(k) + 1, this.boundingBox.minZ + l, Direction.WEST, i);
 
                 if (structuremineshaftpieces$peice2 != null) {
-                    BlockBox MutableBoundingBox2 = structuremineshaftpieces$peice2.getBoundingBox();
-                    this.roomsLinkedToTheRoom.add(new BlockBox(this.boundingBox.minX, MutableBoundingBox2.minY, MutableBoundingBox2.minZ, this.boundingBox.minX + 1, MutableBoundingBox2.maxY, MutableBoundingBox2.maxZ));
+                    MutableBoundingBox MutableBoundingBox2 = structuremineshaftpieces$peice2.getBoundingBox();
+                    this.roomsLinkedToTheRoom.add(new MutableBoundingBox(this.boundingBox.minX, MutableBoundingBox2.minY, MutableBoundingBox2.minZ, this.boundingBox.minX + 1, MutableBoundingBox2.maxY, MutableBoundingBox2.maxZ));
                 }
             }
 
-            for (int k1 = 0; k1 < this.boundingBox.getBlockCountZ(); k1 = l + 4) {
-                l = k1 + rand.nextInt(this.boundingBox.getBlockCountZ());
+            for (int k1 = 0; k1 < this.boundingBox.getZSize(); k1 = l + 4) {
+                l = k1 + rand.nextInt(this.boundingBox.getZSize());
 
-                if (l + 3 > this.boundingBox.getBlockCountZ()) {
+                if (l + 3 > this.boundingBox.getZSize()) {
                     break;
                 }
 
                 StructurePiece StructurePiece = RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.maxX + 1, this.boundingBox.minY + rand.nextInt(k) + 1, this.boundingBox.minZ + l, Direction.EAST, i);
 
                 if (StructurePiece != null) {
-                    BlockBox MutableBoundingBox3 = StructurePiece.getBoundingBox();
-                    this.roomsLinkedToTheRoom.add(new BlockBox(this.boundingBox.maxX - 1, MutableBoundingBox3.minY, MutableBoundingBox3.minZ, this.boundingBox.maxX, MutableBoundingBox3.maxY, MutableBoundingBox3.maxZ));
+                    MutableBoundingBox MutableBoundingBox3 = StructurePiece.getBoundingBox();
+                    this.roomsLinkedToTheRoom.add(new MutableBoundingBox(this.boundingBox.maxX - 1, MutableBoundingBox3.minY, MutableBoundingBox3.minZ, this.boundingBox.maxX, MutableBoundingBox3.maxY, MutableBoundingBox3.maxZ));
                 }
             }
         }
 
 
         @Override
-        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox box, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean generate(ISeedReader world, StructureManager structureAccessor, ChunkGenerator chunkGenerator, Random random, MutableBoundingBox box, ChunkPos chunkPos, BlockPos blockPos) {
             BlockState flooring;
 
             if (this.mineShaftType == RSMineshaftPieces.Type.NETHER) {
@@ -770,19 +771,19 @@ public class RSMineshaftPieces {
                 flooring = getFloorBlock().getMaterial() == Material.WOOD ? Blocks.COARSE_DIRT.getDefaultState() : getFloorBlock();
             }
 
-            this.fillWithOutline(world, box, this.boundingBox.minX, this.boundingBox.minY, this.boundingBox.minZ, this.boundingBox.maxX, this.boundingBox.minY, this.boundingBox.maxZ, flooring, getFillingBlock(), false);
-            this.fillWithOutline(world, box, this.boundingBox.minX, this.boundingBox.minY + 1, this.boundingBox.minZ, this.boundingBox.maxX, Math.min(this.boundingBox.minY + 3, this.boundingBox.maxY), this.boundingBox.maxZ, getFillingBlock(), getFillingBlock(), false);
+            this.fillWithBlocks(world, box, this.boundingBox.minX, this.boundingBox.minY, this.boundingBox.minZ, this.boundingBox.maxX, this.boundingBox.minY, this.boundingBox.maxZ, flooring, getFillingBlock(), false);
+            this.fillWithBlocks(world, box, this.boundingBox.minX, this.boundingBox.minY + 1, this.boundingBox.minZ, this.boundingBox.maxX, Math.min(this.boundingBox.minY + 3, this.boundingBox.maxY), this.boundingBox.maxZ, getFillingBlock(), getFillingBlock(), false);
 
             //nether_wart floor
             if (this.mineShaftType == RSMineshaftPieces.Type.NETHER) {
-                this.fillWithOutlineUnderSealevel(world, box, world.getRandom(), 0.3f, this.boundingBox.minX, this.boundingBox.minY + 1, this.boundingBox.minZ, this.boundingBox.maxX, this.boundingBox.minY + 1, this.boundingBox.maxZ, Blocks.NETHER_WART.getDefaultState().with(NetherWartBlock.AGE, 2), Blocks.NETHER_WART.getDefaultState().with(NetherWartBlock.AGE, 2), false, false);
+                this.generateMaybeBox(world, box, world.getRandom(), 0.3f, this.boundingBox.minX, this.boundingBox.minY + 1, this.boundingBox.minZ, this.boundingBox.maxX, this.boundingBox.minY + 1, this.boundingBox.maxZ, Blocks.NETHER_WART.getDefaultState().with(NetherWartBlock.AGE, 2), Blocks.NETHER_WART.getDefaultState().with(NetherWartBlock.AGE, 2), false, false);
             }
 
-            for (BlockBox MutableBoundingBox : this.roomsLinkedToTheRoom) {
-                this.fillWithOutline(world, box, MutableBoundingBox.minX, MutableBoundingBox.maxY - 2, MutableBoundingBox.minZ, MutableBoundingBox.maxX, MutableBoundingBox.maxY, MutableBoundingBox.maxZ, getFillingBlock(), getFillingBlock(), false);
+            for (MutableBoundingBox MutableBoundingBox : this.roomsLinkedToTheRoom) {
+                this.fillWithBlocks(world, box, MutableBoundingBox.minX, MutableBoundingBox.maxY - 2, MutableBoundingBox.minZ, MutableBoundingBox.maxX, MutableBoundingBox.maxY, MutableBoundingBox.maxZ, getFillingBlock(), getFillingBlock(), false);
             }
 
-            this.method_14919(world, box, this.boundingBox.minX, this.boundingBox.minY + 4, this.boundingBox.minZ, this.boundingBox.maxX, this.boundingBox.maxY, this.boundingBox.maxZ, getFillingBlock(), false);
+            this.randomlyRareFillWithBlocks(world, box, this.boundingBox.minX, this.boundingBox.minY + 4, this.boundingBox.minZ, this.boundingBox.maxX, this.boundingBox.maxY, this.boundingBox.maxZ, getFillingBlock(), false);
 
             //vines
             if (this.mineShaftType == RSMineshaftPieces.Type.JUNGLE) {
@@ -796,30 +797,30 @@ public class RSMineshaftPieces {
 
 
         @Override
-        public void translate(int x, int y, int z) {
-            super.translate(x, y, z);
+        public void offset(int x, int y, int z) {
+            super.offset(x, y, z);
 
-            for (BlockBox MutableBoundingBox : this.roomsLinkedToTheRoom) {
+            for (MutableBoundingBox MutableBoundingBox : this.roomsLinkedToTheRoom) {
                 MutableBoundingBox.offset(x, y, z);
             }
         }
     }
 
     public static class Stairs extends RSMineshaftPieces.Piece {
-        public Stairs(int p_i50449_1_, BlockBox p_i50449_2_, Direction p_i50449_3_, RSMineshaftPieces.Type p_i50449_4_) {
+        public Stairs(int p_i50449_1_, MutableBoundingBox p_i50449_2_, Direction p_i50449_3_, RSMineshaftPieces.Type p_i50449_4_) {
             super(StructurePieces.MINESHAFT_STAIRS_RS, p_i50449_1_, p_i50449_4_);
-            this.setOrientation(p_i50449_3_);
+            this.setCoordBaseMode(p_i50449_3_);
             this.boundingBox = p_i50449_2_;
         }
 
 
-        public Stairs(StructureManager p_i50450_1_, CompoundTag p_i50450_2_) {
+        public Stairs(TemplateManager p_i50450_1_, CompoundNBT p_i50450_2_) {
             super(StructurePieces.MINESHAFT_STAIRS_RS, p_i50450_2_);
         }
 
 
-        public static BlockBox findStairs(List<StructurePiece> listIn, Random rand, int x, int y, int z, Direction facing) {
-            BlockBox MutableBoundingBox = new BlockBox(x, y - 5, z, x, y + 2, z);
+        public static MutableBoundingBox findStairs(List<StructurePiece> listIn, Random rand, int x, int y, int z, Direction facing) {
+            MutableBoundingBox MutableBoundingBox = new MutableBoundingBox(x, y - 5, z, x, y + 2, z);
 
             switch (facing) {
                 case NORTH:
@@ -843,14 +844,14 @@ public class RSMineshaftPieces {
                     MutableBoundingBox.maxZ = z + 2;
             }
 
-            return StructurePiece.getOverlappingPiece(listIn, MutableBoundingBox) != null ? null : MutableBoundingBox;
+            return StructurePiece.findIntersecting(listIn, MutableBoundingBox) != null ? null : MutableBoundingBox;
         }
 
 
         @Override
-        public void placeJigsaw(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
-            int i = this.getLength();
-            Direction enumfacing = this.getFacing();
+        public void buildComponent(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
+            int i = this.getComponentType();
+            Direction enumfacing = this.getCoordBaseMode();
 
             if (enumfacing != null) {
                 switch (enumfacing) {
@@ -875,16 +876,16 @@ public class RSMineshaftPieces {
 
 
         @Override
-        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox box, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean generate(ISeedReader world, StructureManager structureAccessor, ChunkGenerator chunkGenerator, Random random, MutableBoundingBox box, ChunkPos chunkPos, BlockPos blockPos) {
             boolean isOceanType = this.mineShaftType == RSMineshaftPieces.Type.OCEAN;
-            if (isOceanType ? this.isAirInStructureBoundingBox(world, box) : this.method_14937(world, box)) {
+            if (isOceanType ? this.isAirInStructureBoundingBox(world, box) : this.isLiquidInStructureBoundingBox(world, box)) {
                 return false;
             } else {
-                this.fillWithOutline(world, box, 0, 5, 0, 2, 7, 1, getFillingBlock(), getFillingBlock(), false);
-                this.fillWithOutline(world, box, 0, 0, 7, 2, 2, 8, getFillingBlock(), getFillingBlock(), false);
+                this.fillWithBlocks(world, box, 0, 5, 0, 2, 7, 1, getFillingBlock(), getFillingBlock(), false);
+                this.fillWithBlocks(world, box, 0, 0, 7, 2, 2, 8, getFillingBlock(), getFillingBlock(), false);
 
                 for (int i = 0; i < 5; ++i) {
-                    this.fillWithOutline(world, box, 0, 5 - i - (i < 4 ? 1 : 0), 2 + i, 2, 7 - i, 2 + i, getFillingBlock(), getFillingBlock(), false);
+                    this.fillWithBlocks(world, box, 0, 5 - i - (i < 4 ? 1 : 0), 2 + i, 2, 7 - i, 2 + i, getFillingBlock(), getFillingBlock(), false);
                 }
 
                 if (this.mineShaftType == RSMineshaftPieces.Type.JUNGLE) {
@@ -901,13 +902,13 @@ public class RSMineshaftPieces {
     abstract static class Piece extends StructurePiece {
         protected RSMineshaftPieces.Type mineShaftType;
 
-        public Piece(StructurePieceType piece, int componentType, RSMineshaftPieces.Type mineshaftType) {
+        public Piece(IStructurePieceType piece, int componentType, RSMineshaftPieces.Type mineshaftType) {
             super(piece, componentType);
             this.mineShaftType = mineshaftType;
         }
 
 
-        public Piece(StructurePieceType piece, CompoundTag data) {
+        public Piece(IStructurePieceType piece, CompoundNBT data) {
             super(piece, data);
             this.mineShaftType = RSMineshaftPieces.Type.byId(data.getInt("MST"));
         }
@@ -917,7 +918,7 @@ public class RSMineshaftPieces {
          * (abstract) Helper method to read subclass data from NBT
          */
         @Override
-        protected void toNbt(CompoundTag data) {
+        protected void readAdditional(CompoundNBT data) {
             data.putInt("MST", this.mineShaftType.ordinal());
         }
 
@@ -925,7 +926,7 @@ public class RSMineshaftPieces {
         /**
          * checks the entire StructureBoundingBox for Liquids
          */
-        protected boolean isAirInStructureBoundingBox(BlockView worldIn, BlockBox boundingboxIn) {
+        protected boolean isAirInStructureBoundingBox(IBlockReader worldIn, MutableBoundingBox boundingboxIn) {
             int xMin = Math.max(this.boundingBox.minX - 1, boundingboxIn.minX);
             int yMin = Math.max(this.boundingBox.minY - 1, boundingboxIn.minY);
             int zMin = Math.max(this.boundingBox.minZ - 1, boundingboxIn.minZ);
@@ -936,11 +937,11 @@ public class RSMineshaftPieces {
 
             for (int x = xMin; x <= xMax; ++x) {
                 for (int z = zMin; z <= zMax; ++z) {
-                    if (worldIn.getBlockState(blockpos$mutable.set(x, yMin, z)).getMaterial() == Material.AIR) {
+                    if (worldIn.getBlockState(blockpos$mutable.setPos(x, yMin, z)).getMaterial() == Material.AIR) {
                         return true;
                     }
 
-                    if (worldIn.getBlockState(blockpos$mutable.set(x, yMax, z)).getMaterial() == Material.AIR) {
+                    if (worldIn.getBlockState(blockpos$mutable.setPos(x, yMax, z)).getMaterial() == Material.AIR) {
                         return true;
                     }
                 }
@@ -948,11 +949,11 @@ public class RSMineshaftPieces {
 
             for (int x = xMin; x <= xMax; ++x) {
                 for (int y = yMin; y <= yMax; ++y) {
-                    if (worldIn.getBlockState(blockpos$mutable.set(x, y, zMin)).getMaterial() == Material.AIR) {
+                    if (worldIn.getBlockState(blockpos$mutable.setPos(x, y, zMin)).getMaterial() == Material.AIR) {
                         return true;
                     }
 
-                    if (worldIn.getBlockState(blockpos$mutable.set(x, y, zMax)).getMaterial() == Material.AIR) {
+                    if (worldIn.getBlockState(blockpos$mutable.setPos(x, y, zMax)).getMaterial() == Material.AIR) {
                         return true;
                     }
                 }
@@ -960,11 +961,11 @@ public class RSMineshaftPieces {
 
             for (int z = zMin; z <= zMax; ++z) {
                 for (int y = yMin; y <= yMax; ++y) {
-                    if (worldIn.getBlockState(blockpos$mutable.set(xMin, y, z)).getMaterial() == Material.AIR) {
+                    if (worldIn.getBlockState(blockpos$mutable.setPos(xMin, y, z)).getMaterial() == Material.AIR) {
                         return true;
                     }
 
-                    if (worldIn.getBlockState(blockpos$mutable.set(xMax, y, z)).getMaterial() == Material.AIR) {
+                    if (worldIn.getBlockState(blockpos$mutable.setPos(xMax, y, z)).getMaterial() == Material.AIR) {
                         return true;
                     }
                 }
@@ -975,7 +976,7 @@ public class RSMineshaftPieces {
 
 
         @SuppressWarnings("deprecation")
-        protected void fillWithVines(ServerWorldAccess world, Random random, BlockBox boundingbox, int rarity, int xMin, int yMin, int zMin, int xMax, int yMax, int zMax) {
+        protected void fillWithVines(ISeedReader world, Random random, MutableBoundingBox boundingbox, int rarity, int xMin, int yMin, int zMin, int xMax, int yMax, int zMax) {
             BlockState vineBlock;
             int vineLength;
 
@@ -985,20 +986,20 @@ public class RSMineshaftPieces {
                         break;
                     }
 
-                    vineBlock = Blocks.VINE.getDefaultState().with(VineBlock.FACING_PROPERTIES.get(Direction.Type.HORIZONTAL.random(random)), true);
+                    vineBlock = Blocks.VINE.getDefaultState().with(VineBlock.FACING_TO_PROPERTY_MAP.get(Direction.Plane.HORIZONTAL.random(random)), true);
                     vineLength = 0;
 
                     for (int y = yMax; y >= yMin; --y) {
-                        BlockState aboveBlockState = this.getBlockAt(world, x, y + 1, z, boundingbox);
-                        if (this.getBlockAt(world, x, y, z, boundingbox).isAir()) {
-                            if ((aboveBlockState.isOpaque() || aboveBlockState.isOf(Blocks.VINE))) {
+                        BlockState aboveBlockState = this.getBlockStateFromPos(world, x, y + 1, z, boundingbox);
+                        if (this.getBlockStateFromPos(world, x, y, z, boundingbox).isAir()) {
+                            if ((aboveBlockState.isSolid() || aboveBlockState.isIn(Blocks.VINE))) {
                                 vineLength++;
-                                if (aboveBlockState.isOpaque()) {
+                                if (aboveBlockState.isSolid()) {
                                     this.setVineBlockState(world, vineBlock.with(VineBlock.UP, true), x, y, z, boundingbox);
                                 } else {
                                     this.setVineBlockState(world, vineBlock, x, y, z, boundingbox);
                                 }
-                            } else if (Blocks.VINE.canPlaceAt(vineBlock, world, new BlockPos(this.applyXTransform(x, z), this.applyYTransform(y), this.applyZTransform(x, z)))) {
+                            } else if (Blocks.VINE.isValidPosition(vineBlock, world, new BlockPos(this.getXWithOffset(x, z), this.getYWithOffset(y), this.getZWithOffset(x, z)))) {
                                 this.setVineBlockState(world, vineBlock, x, y, z, boundingbox);
                             }
                         }
@@ -1013,9 +1014,9 @@ public class RSMineshaftPieces {
         }
 
 
-        protected void setVineBlockState(ServerWorldAccess worldIn, BlockState blockstateIn, int x, int y, int z, BlockBox boundingboxIn) {
-            BlockPos blockpos = new BlockPos(this.applyXTransform(x, z), this.applyYTransform(y), this.applyZTransform(x, z));
-            if (boundingboxIn.contains(blockpos)) {
+        protected void setVineBlockState(ISeedReader worldIn, BlockState blockstateIn, int x, int y, int z, MutableBoundingBox boundingboxIn) {
+            BlockPos blockpos = new BlockPos(this.getXWithOffset(x, z), this.getYWithOffset(y), this.getZWithOffset(x, z));
+            if (boundingboxIn.isVecInside(blockpos)) {
                 worldIn.setBlockState(blockpos, blockstateIn, 2);
             }
         }
@@ -1027,16 +1028,16 @@ public class RSMineshaftPieces {
                     return Blocks.PACKED_ICE.getDefaultState();
 
                 case JUNGLE:
-                    return Blocks.JUNGLE_LOG.getDefaultState().with(PillarBlock.AXIS, Direction.Axis.X);
+                    return Blocks.JUNGLE_LOG.getDefaultState().with(RotatedPillarBlock.AXIS, Direction.Axis.X);
 
                 case TAIGA:
-                    return Blocks.STRIPPED_SPRUCE_LOG.getDefaultState().with(PillarBlock.AXIS, Direction.Axis.X);
+                    return Blocks.STRIPPED_SPRUCE_LOG.getDefaultState().with(RotatedPillarBlock.AXIS, Direction.Axis.X);
 
                 case DESERT:
                     return Blocks.CHISELED_SANDSTONE.getDefaultState();
 
                 case END:
-                    return Blocks.PURPUR_PILLAR.getDefaultState().with(PillarBlock.AXIS, Direction.Axis.Z);
+                    return Blocks.PURPUR_PILLAR.getDefaultState().with(RotatedPillarBlock.AXIS, Direction.Axis.Z);
 
                 case NETHER:
                     return Blocks.NETHER_BRICKS.getDefaultState();
@@ -1048,14 +1049,14 @@ public class RSMineshaftPieces {
                     return Blocks.STONE.getDefaultState();
 
                 case SAVANNA:
-                    return Blocks.ACACIA_LOG.getDefaultState().with(PillarBlock.AXIS, Direction.Axis.X);
+                    return Blocks.ACACIA_LOG.getDefaultState().with(RotatedPillarBlock.AXIS, Direction.Axis.X);
 
                 case SWAMPORDARKFOREST:
                     return Blocks.DARK_OAK_PLANKS.getDefaultState();
 
                 case BIRCH:
                 default:
-                    return Blocks.STRIPPED_BIRCH_LOG.getDefaultState().with(PillarBlock.AXIS, Direction.Axis.X);
+                    return Blocks.STRIPPED_BIRCH_LOG.getDefaultState().with(RotatedPillarBlock.AXIS, Direction.Axis.X);
             }
         }
 
@@ -1155,13 +1156,13 @@ public class RSMineshaftPieces {
                     return Blocks.SANDSTONE_WALL.getDefaultState();
 
                 case END:
-                    return Blocks.PURPUR_PILLAR.getDefaultState().with(PillarBlock.AXIS, Direction.Axis.Y);
+                    return Blocks.PURPUR_PILLAR.getDefaultState().with(RotatedPillarBlock.AXIS, Direction.Axis.Y);
 
                 case NETHER:
                     return Blocks.NETHER_BRICK_WALL.getDefaultState();
 
                 case OCEAN:
-                    return Blocks.PRISMARINE_WALL.getDefaultState().with(Properties.WATERLOGGED, true);
+                    return Blocks.PRISMARINE_WALL.getDefaultState().with(BlockStateProperties.WATERLOGGED, true);
 
                 case STONE:
                     return random.nextInt(10) < 3 ? Blocks.MOSSY_COBBLESTONE_WALL.getDefaultState() : Blocks.COBBLESTONE_WALL.getDefaultState();
@@ -1170,7 +1171,7 @@ public class RSMineshaftPieces {
                     return Blocks.ACACIA_FENCE.getDefaultState();
 
                 case SWAMPORDARKFOREST:
-                    return Blocks.DARK_OAK_LOG.getDefaultState().with(PillarBlock.AXIS, Direction.Axis.Y);
+                    return Blocks.DARK_OAK_LOG.getDefaultState().with(RotatedPillarBlock.AXIS, Direction.Axis.Y);
 
                 case BIRCH:
                 default:
@@ -1189,7 +1190,7 @@ public class RSMineshaftPieces {
 
         protected BlockState getRailBlock() {
             if (this.mineShaftType == Type.OCEAN) {
-                return Blocks.OAK_TRAPDOOR.getDefaultState().with(Properties.WATERLOGGED, true);
+                return Blocks.OAK_TRAPDOOR.getDefaultState().with(BlockStateProperties.WATERLOGGED, true);
             }
             return Blocks.RAIL.getDefaultState().with(RailBlock.SHAPE, RailShape.NORTH_SOUTH);
         }

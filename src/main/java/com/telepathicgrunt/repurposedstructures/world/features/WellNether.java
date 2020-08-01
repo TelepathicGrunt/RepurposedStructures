@@ -5,21 +5,19 @@ import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.Material;
-import net.minecraft.block.enums.StructureBlockMode;
-import net.minecraft.structure.Structure;
-import net.minecraft.structure.Structure.StructureBlockInfo;
-import net.minecraft.tag.BlockTags;
-import net.minecraft.tag.Tag;
+import net.minecraft.block.material.Material;
+import net.minecraft.state.properties.StructureMode;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ITag;
+import net.minecraft.tags.Tag;
+import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.ServerWorldAccess;
-import net.minecraft.world.gen.StructureAccessor;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
+import net.minecraft.world.ISeedReader;
+import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
-import org.apache.logging.log4j.Level;
+import net.minecraft.world.gen.feature.structure.StructureManager;
+import net.minecraft.world.gen.feature.template.Template;
 
 import java.util.Collection;
 import java.util.Random;
@@ -36,12 +34,12 @@ public class WellNether extends WellAbstract {
         super(config);
     }
 
-    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
+    public boolean generate(ISeedReader world, StructureManager structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
         // move to top land block below position
-        BlockPos.Mutable mutable = new BlockPos.Mutable().set(position);
+        BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(position);
         for (mutable.move(Direction.UP); mutable.getY() > 32;) {
 
-            if(world.isAir(mutable) && mutable.getY() > 32){
+            if(world.isAirBlock(mutable) && mutable.getY() > 32){
                 mutable.move(Direction.DOWN);
                 continue;
             }
@@ -49,25 +47,25 @@ public class WellNether extends WellAbstract {
             // check to make sure spot is valid and not a single block ledge
             BlockState blockState = world.getBlockState(mutable);
             Block block = blockState.getBlock();
-            if ((BlockTags.INFINIBURN_NETHER.contains(block) ||
+            if ((BlockTags.field_241278_aD_.contains(block) ||
                     BlockTags.VALID_SPAWN.contains(block) ||
                     BlockTags.WITHER_IMMUNE.contains(block) ||
-                    blockState.getMaterial() == Material.AGGREGATE ||
-                    blockState.getMaterial() == Material.STONE ||
-                    blockState.getMaterial() == Material.SOIL ||
-                    (world.getBiome(mutable).getSurfaceConfig().getTopMaterial() != null &&
-                     blockState.isOf(world.getBiome(mutable).getSurfaceConfig().getTopMaterial().getBlock()))) &&
-                    !world.isAir(mutable.down()) &&
-                    world.isAir(mutable.up(3)) &&
-                    !world.isAir(mutable.north(2).down()) &&
-                    !world.isAir(mutable.west(2).down()) &&
-                    !world.isAir(mutable.east(2).down()) &&
-                    !world.isAir(mutable.south(2).down())
+                    blockState.getMaterial() == Material.SAND ||
+                    blockState.getMaterial() == Material.ROCK ||
+                    blockState.getMaterial() == Material.EARTH ||
+                    (world.getBiome(mutable).getSurfaceBuilderConfig().getTop() != null &&
+                     blockState.isIn(world.getBiome(mutable).getSurfaceBuilderConfig().getTop().getBlock()))) &&
+                    !world.isAirBlock(mutable.down()) &&
+                    world.isAirBlock(mutable.up(3)) &&
+                    !world.isAirBlock(mutable.north(2).down()) &&
+                    !world.isAirBlock(mutable.west(2).down()) &&
+                    !world.isAirBlock(mutable.east(2).down()) &&
+                    !world.isAirBlock(mutable.south(2).down())
                     )
             {
                 // Creates the well centered on our spot
                 mutable.move(Direction.DOWN);
-                Structure template = this.generateTemplate(NETHER_WELL_RL, world, random, mutable);
+                Template template = this.generateTemplate(NETHER_WELL_RL, world, random, mutable);
                 this.handleDataBlocks(NETHER_WELL_ORE_RL, template, world, random, mutable, Blocks.NETHERRACK, 0);
 
                 return true;
@@ -81,18 +79,18 @@ public class WellNether extends WellAbstract {
     }
 
 
-    protected void handleDataBlocks(ResourceLocation templateOresRL, Structure template, ServerWorldAccess world, Random random, BlockPos position, Block defaultBlock, float oreChance) {
+    protected void handleDataBlocks(ResourceLocation templateOresRL, Template template, ISeedReader world, Random random, BlockPos position, Block defaultBlock, float oreChance) {
         // Replace the Data blocks with ores or bells
-        Tag<Block> ORE_TAG = BlockTags.getContainer().getOrCreate(templateOresRL);
+        ITag<Block> ORE_TAG = BlockTags.getCollection().getOrCreate(templateOresRL);
         Collection<Block> allOreBlocks = ORE_TAG.values();
         BlockPos offset = new BlockPos(-template.getSize().getX() / 2, 0, -template.getSize().getZ() / 2);
-        for (StructureBlockInfo template$blockinfo : template.getInfosForBlock(position.add(offset), placementsettings, Blocks.STRUCTURE_BLOCK)) {
-            if (template$blockinfo.tag != null) {
-                StructureBlockMode structuremode = StructureBlockMode.valueOf(template$blockinfo.tag.getString("mode"));
-                if (structuremode == StructureBlockMode.DATA) {
-                    addBells(template$blockinfo.tag.getString("metadata"), template$blockinfo.pos, world, random, allOreBlocks);
-                    addOres(template$blockinfo.tag.getString("metadata"), template$blockinfo.pos, world, random, allOreBlocks, defaultBlock, oreChance);
-                    addSpace(template$blockinfo.tag.getString("metadata"), template$blockinfo.pos, world);
+        for (Template.BlockInfo template$blockinfo : template.func_215381_a(position.add(offset), placementsettings, Blocks.STRUCTURE_BLOCK)) {
+            if (template$blockinfo.nbt != null) {
+                StructureMode structuremode = StructureMode.valueOf(template$blockinfo.nbt.getString("mode"));
+                if (structuremode == StructureMode.DATA) {
+                    addBells(template$blockinfo.nbt.getString("metadata"), template$blockinfo.pos, world, random, allOreBlocks);
+                    addOres(template$blockinfo.nbt.getString("metadata"), template$blockinfo.pos, world, random, allOreBlocks, defaultBlock, oreChance);
+                    addSpace(template$blockinfo.nbt.getString("metadata"), template$blockinfo.pos, world);
                 }
             }
         }
@@ -102,7 +100,7 @@ public class WellNether extends WellAbstract {
     /**
      * Replaces the "ores" data block with blocks specified in the ore tag.
      */
-    protected static void addOres(String function, BlockPos position, ServerWorldAccess world, Random random, Collection<Block> allOreBlocks, Block defaultBlock, float oreChance) {
+    protected static void addOres(String function, BlockPos position, ISeedReader world, Random random, Collection<Block> allOreBlocks, Block defaultBlock, float oreChance) {
         if (function.equals("ores")) {
             float chance = random.nextFloat();
             if (!allOreBlocks.isEmpty() && chance < RARE_ORE_CHANCE) {
@@ -118,7 +116,7 @@ public class WellNether extends WellAbstract {
     /**
      * sets 'space' data blocks to air or lava based on sea level so terrain blocks wont be placed weirdly inside well The space will be done in a + shape centered on the data block
      */
-    protected static void addSpace(String function, BlockPos position, ServerWorldAccess world) {
+    protected static void addSpace(String function, BlockPos position, ISeedReader world) {
         if (function.equals("space")) {
             BlockState blockstate;
             if (position.getY() < 32) {

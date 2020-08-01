@@ -1,22 +1,23 @@
 package com.telepathicgrunt.repurposedstructures;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import com.telepathicgrunt.repurposedstructures.configs.RSDungeonsConfig.RSDungeonsConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSMainConfig;
 import com.telepathicgrunt.repurposedstructures.configs.RSMainConfig.RSConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSMineshaftsConfig.RSMineshaftsConfigValues;
+import com.telepathicgrunt.repurposedstructures.configs.RSShipwrecksConfig.RSShipwrecksConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSStrongholdsConfig.RSStrongholdsConfigValues;
+import com.telepathicgrunt.repurposedstructures.configs.RSTemplesConfig.RSTemplesConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSVillagesConfig.RSVillagesConfigValues;
+import com.telepathicgrunt.repurposedstructures.configs.RSOutpostsConfig.RSOutpostsConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSWellsConfig.RSWellsConfigValues;
-import com.telepathicgrunt.repurposedstructures.misc.VillagerTrades;
+import com.telepathicgrunt.repurposedstructures.misc.VillagerTradesModification;
 import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
+import com.telepathicgrunt.repurposedstructures.utils.MobSpawnerManager;
 import com.telepathicgrunt.repurposedstructures.world.placements.RSPlacements;
-
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -27,6 +28,8 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 @SuppressWarnings("deprecation")
@@ -40,7 +43,11 @@ public class RepurposedStructures
 	public static RSMineshaftsConfigValues RSMineshaftsConfig = null;
 	public static RSStrongholdsConfigValues RSStrongholdsConfig = null;
 	public static RSWellsConfigValues RSWellsConfig = null;
+	public static RSOutpostsConfigValues RSOutpostsConfig = null;
 	public static RSVillagesConfigValues RSVillagesConfig = null;
+	public static RSTemplesConfigValues RSTemplesConfig = null;
+	public static RSShipwrecksConfigValues RSShipwrecksConfig = null;
+	public static MobSpawnerManager mobSpawnerManager = null;
 
 
 	public RepurposedStructures()
@@ -54,6 +61,9 @@ public class RepurposedStructures
 		RSMineshaftsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSMineshaftsConfigValues::new, "repurposed_structures-mineshafts.toml");
 		RSStrongholdsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSStrongholdsConfigValues::new, "repurposed_structures-strongholds.toml");
 		RSWellsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSWellsConfigValues::new, "repurposed_structures-wells.toml");
+		RSShipwrecksConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSShipwrecksConfigValues::new, "repurposed_structures-shipwrecks.toml");
+		RSOutpostsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSOutpostsConfigValues::new, "repurposed_structures-outposts.toml");
+		RSTemplesConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSTemplesConfigValues::new, "repurposed_structures-temples.toml");
 		RSVillagesConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSVillagesConfigValues::new, "repurposed_structures-villages.toml");
 	}
 
@@ -63,7 +73,7 @@ public class RepurposedStructures
 	public void setup(final FMLCommonSetupEvent event)
 	{
 		DeferredWorkQueue.runLater(RepurposedStructures::addFeaturesAndStructuresToBiomes);
-		DeferredWorkQueue.runLater(VillagerTrades::addMapTrades);
+		DeferredWorkQueue.runLater(VillagerTradesModification::addMapTrades);
 	}
 	
 	
@@ -90,7 +100,7 @@ public class RepurposedStructures
 		{
 			RSFeatures.registerFeatures(event);
 		}
-		
+
 		@SubscribeEvent
 		public static void onRegisterPlacements(final RegistryEvent.Register<Placement<?>> event)
 		{

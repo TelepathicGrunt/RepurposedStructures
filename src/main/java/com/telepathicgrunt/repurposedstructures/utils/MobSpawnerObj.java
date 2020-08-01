@@ -3,10 +3,7 @@ package com.telepathicgrunt.repurposedstructures.utils;
 import com.google.gson.annotations.Expose;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.Pair;
 import net.minecraft.util.registry.Registry;
-
-import java.util.List;
 
 public class MobSpawnerObj {
     @Expose
@@ -24,7 +21,7 @@ public class MobSpawnerObj {
 
     public void setEntityType() throws Exception {
         ResourceLocation entity_id = new ResourceLocation(this.name);
-        if(!Registry.ENTITY_TYPE.containsId(entity_id)) throw new Exception("Error: "+entity_id+" is not a valid entity ID!");
-        entityType = Registry.ENTITY_TYPE.get(entity_id);
+        if(!Registry.ENTITY_TYPE.containsKey(entity_id)) throw new Exception("Error: "+entity_id+" is not a valid entity ID!");
+        entityType = Registry.ENTITY_TYPE.getOrDefault(entity_id);
     }
 }

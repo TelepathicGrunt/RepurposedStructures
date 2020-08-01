@@ -2,9 +2,10 @@ package com.telepathicgrunt.repurposedstructures.world.features.structures;
 
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import net.minecraft.util.math.BlockBox;
+import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
+import net.minecraft.world.gen.feature.structure.Structure;
 
 
 public class RSMineshaftSavannaStructure extends AbstractMineshaftStructure {
@@ -14,16 +15,16 @@ public class RSMineshaftSavannaStructure extends AbstractMineshaftStructure {
 
 
     public double getProbability() {
-        return RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.savannaMineshaftSpawnrate;
+        return RepurposedStructures.RSMineshaftsConfig.savannaMineshaftSpawnrate.get();
     }
 
     @Override
-    public StructureFeature.StructureStartFactory<NoFeatureConfig> getStructureStartFactory() {
+    public Structure.IStartFactory<NoFeatureConfig> getStartFactory() {
         return RSMineshaftSavannaStructure.Start::new;
     }
 
     public static class Start extends AbstractStart {
-        public Start(StructureFeature<NoFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
+        public Start(Structure<NoFeatureConfig> structureIn, int chunkX, int chunkZ, MutableBoundingBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
         }
 
@@ -34,11 +35,11 @@ public class RSMineshaftSavannaStructure extends AbstractMineshaftStructure {
         }
         @Override
         public int getMaxHeight() {
-            return RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.savannaMineshaftMaxHeight;
+            return RepurposedStructures.RSMineshaftsConfig.savannaMineshaftMaxHeight.get();
         }
         @Override
         public int getMinHeight() {
-            return RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.savannaMineshaftMinHeight;
+            return RepurposedStructures.RSMineshaftsConfig.savannaMineshaftMinHeight.get();
         }
     }
 }

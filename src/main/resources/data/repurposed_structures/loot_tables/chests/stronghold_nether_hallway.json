@@ -60,6 +60,11 @@
         },
         {
           "type": "minecraft:item",
+          "weight": 1,
+          "name": "minecraft:music_disc_pigstep"
+        },
+        {
+          "type": "minecraft:item",
           "weight": 5,
           "name": "minecraft:golden_chestplate"
         },
@@ -117,6 +122,21 @@
             }
           ],
           "name": "minecraft:obsidian"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2.0,
+                "max": 4.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:chain"
         }
       ]
     }

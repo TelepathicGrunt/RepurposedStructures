@@ -5,37 +5,32 @@ import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.block.Blocks;
-import net.minecraft.structure.StructureManager;
-import net.minecraft.structure.pool.SinglePoolElement;
-import net.minecraft.structure.pool.StructurePool;
-import net.minecraft.structure.pool.StructurePoolBasedGenerator;
-import net.minecraft.structure.processor.RuleStructureProcessor;
-import net.minecraft.structure.processor.StructureProcessor;
-import net.minecraft.structure.processor.StructureProcessorRule;
-import net.minecraft.structure.rule.AlwaysTrueRuleTest;
-import net.minecraft.structure.rule.RandomBlockMatchRuleTest;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockBox;
+import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
+import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.StructureFeature;
+import net.minecraft.world.gen.feature.jigsaw.JigsawManager;
+import net.minecraft.world.gen.feature.jigsaw.JigsawPattern;
+import net.minecraft.world.gen.feature.jigsaw.SingleJigsawPiece;
+import net.minecraft.world.gen.feature.structure.Structure;
+import net.minecraft.world.gen.feature.template.*;
 
 
-public class PyramidNetherStructure extends StructureFeature<NoFeatureConfig> {
+public class PyramidNetherStructure extends Structure<NoFeatureConfig> {
     // Special thanks to /r/l-ll-ll-l_IsDisLoss for allowing me to mimic his nether pyramid design!
     static {
         ImmutableList<StructureProcessor> randomizationList = ImmutableList.of(new RuleStructureProcessor(ImmutableList.of(
-                new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.BLACKSTONE, 0.04F),
-                        AlwaysTrueRuleTest.INSTANCE, Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS.getDefaultState()),
-                new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.WEEPING_VINES, 0.3F),
+                new RuleEntry(new RandomBlockMatchRuleTest(Blocks.field_235406_np_, 0.04F),
+                        AlwaysTrueRuleTest.INSTANCE, Blocks.field_235412_nv_.getDefaultState()),
+                new RuleEntry(new RandomBlockMatchRuleTest(Blocks.field_235384_mx_, 0.3F),
                         AlwaysTrueRuleTest.INSTANCE, Blocks.AIR.getDefaultState()))));
 
-        StructurePoolBasedGenerator.REGISTRY.add(
-                new StructurePool(new ResourceLocation(RepurposedStructures.MODID,"temples/pyramid_nether"), new ResourceLocation("empty"), ImmutableList.of(Pair.of(
-                        new SinglePoolElement(RepurposedStructures.MODID+":temples/pyramid_nether", randomizationList), 1)),
-                        StructurePool.Projection.RIGID));
+        JigsawManager.REGISTRY.register(
+                new JigsawPattern(new ResourceLocation(RepurposedStructures.MODID,"temples/pyramid_nether"), new ResourceLocation("empty"), ImmutableList.of(Pair.of(
+                        new SingleJigsawPiece(RepurposedStructures.MODID+":temples/pyramid_nether", randomizationList), 1)),
+                        JigsawPattern.PlacementBehaviour.RIGID));
     }
 
     public PyramidNetherStructure(Codec<NoFeatureConfig> config) {
@@ -43,27 +38,27 @@ public class PyramidNetherStructure extends StructureFeature<NoFeatureConfig> {
     }
 
     @Override
-    public StructureStartFactory<NoFeatureConfig> getStructureStartFactory() {
+    public Structure.IStartFactory<NoFeatureConfig> getStartFactory() {
         return PyramidNetherStructure.Start::new;
     }
 
     public static class Start extends AbstractNetherStructure.AbstractStart {
         ResourceLocation NETHER_PYRAMID_POOL = new ResourceLocation(RepurposedStructures.MODID,"temples/pyramid_nether");
 
-        public Start(StructureFeature<NoFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
+        public Start(Structure<NoFeatureConfig> structureIn, int chunkX, int chunkZ, MutableBoundingBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
         }
 
         @Override
-        public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
+        public void init(ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
             BlockPos blockpos = new BlockPos(chunkX * 16, 35, chunkZ * 16);
-            GeneralJigsawGenerator.addPieces(chunkGenerator, structureManager, blockpos, this.children, this.random, NETHER_PYRAMID_POOL, 1);
-            //PyramidFloorPiece.func_207617_a(structureManager, blockpos, this.children.get(0).getRotation(), this.children, random, Blocks.BLACKSTONE, NoFeatureConfig);
-            //this.children.get(1).getBoundingBox().encompass(this.children.get(0).getBoundingBox());
-            this.setBoundingBoxFromChildren();
+            GeneralJigsawGenerator.addPieces(chunkGenerator, structureManager, blockpos, this.components, this.rand, NETHER_PYRAMID_POOL, 1);
+            //PyramidFloorPiece.func_207617_a(structureManager, blockpos, this.components.get(0).getRotation(), this.components, random, Blocks.field_235406_np_, NoFeatureConfig);
+            //this.components.get(1).getBoundingBox().encompass(this.components.get(0).getBoundingBox());
+            this.recalculateStructureSize();
 
             BlockPos highestLandPos = getHighestLand(chunkGenerator);
-            this.method_14976(this.random, highestLandPos.getY()-16, highestLandPos.getY()-15);
+            this.func_214626_a(this.rand, highestLandPos.getY()-16, highestLandPos.getY()-15);
         }
     }
 }

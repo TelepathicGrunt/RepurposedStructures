@@ -1,0 +1,34 @@
+{
+  "parent": "repurposed_structures:temples",
+  "display": {
+    "icon": {
+      "item": "minecraft:crimson_stem"
+    },
+    "title": {
+      "translate": "advancements.repurposed_structures.temple_nether_crimson.title"
+    },
+    "description": {
+      "translate": "advancements.repurposed_structures.temple_nether_crimson.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 50
+  },
+  "criteria": {
+    "in_temple_nether_crimson": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:temple_nether_crimson"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_temple_nether_crimson"
+    ]
+  ]
+}

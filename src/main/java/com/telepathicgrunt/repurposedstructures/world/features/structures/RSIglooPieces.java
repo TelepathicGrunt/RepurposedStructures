@@ -4,25 +4,30 @@ import com.google.common.collect.ImmutableMap;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.ChestBlockEntity;
 import net.minecraft.loot.LootTables;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.structure.*;
-import net.minecraft.structure.processor.BlockIgnoreStructureProcessor;
-import net.minecraft.util.BlockMirror;
-import net.minecraft.util.BlockRotation;
+import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.tileentity.ChestTileEntity;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.Mirror;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockBox;
+import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
+import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.world.Heightmap;
-import net.minecraft.world.ServerWorldAccess;
-import net.minecraft.world.WorldAccess;
-import net.minecraft.world.gen.StructureAccessor;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
+import net.minecraft.world.ISeedReader;
+import net.minecraft.world.IWorld;
+import net.minecraft.world.gen.ChunkGenerator;
+import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.structure.Structure;
+import net.minecraft.world.gen.feature.structure.StructureManager;
+import net.minecraft.world.gen.feature.structure.StructurePiece;
+import net.minecraft.world.gen.feature.structure.TemplateStructurePiece;
+import net.minecraft.world.gen.feature.template.BlockIgnoreStructureProcessor;
+import net.minecraft.world.gen.feature.template.PlacementSettings;
+import net.minecraft.world.gen.feature.template.Template;
+import net.minecraft.world.gen.feature.template.TemplateManager;
 
 import java.util.List;
 import java.util.Map;
@@ -35,7 +40,7 @@ public class RSIglooPieces {
     private static final Map<ResourceLocation, BlockPos> OFFSET_1 = ImmutableMap.of(IGLOO_MIDDLE_RL, new BlockPos(1, 3, 1), IGLOO_BOTTOM_RL, new BlockPos(3, 6, 7));
     private static final Map<ResourceLocation, BlockPos> OFFSET_2 = ImmutableMap.of(IGLOO_MIDDLE_RL, new BlockPos(2, -3, 4), IGLOO_BOTTOM_RL, new BlockPos(0, -3, -2));
 
-    public static void func_207617_a(StructureManager templateManager, ResourceLocation topPieceRL, Block floorBlock, BlockPos position, BlockRotation rotationIn, List<StructurePiece> pieceList, Random random, NoFeatureConfig p_207617_5_) {
+    public static void func_207617_a(TemplateManager templateManager, ResourceLocation topPieceRL, Block floorBlock, BlockPos position, Rotation rotationIn, List<StructurePiece> pieceList, Random random, NoFeatureConfig p_207617_5_) {
         if (random.nextDouble() < 0.5D) {
             int basementY = random.nextInt(8) + 4;
             pieceList.add(new RSIglooPieces.Piece(templateManager, IGLOO_BOTTOM_RL, position, rotationIn, basementY * 3, null));
@@ -48,73 +53,75 @@ public class RSIglooPieces {
         pieceList.add(new RSIglooPieces.Piece(templateManager, topPieceRL, position, rotationIn, 0, floorBlock));
     }
 
-    public static class Piece extends SimpleStructurePiece {
+    public static class Piece extends TemplateStructurePiece {
         private final ResourceLocation pieceRL;
-        private final BlockRotation rotation;
+        private final Rotation rotation;
         private final Block floorBlock;
 
-        public Piece(StructureManager templateManager, ResourceLocation pieceRL, BlockPos position, BlockRotation rotationIn, int heightOffset, Block floorBlockIn) {
+        public Piece(TemplateManager templateManager, ResourceLocation pieceRL, BlockPos position, Rotation rotationIn, int heightOffset, Block floorBlockIn) {
             super(StructurePieces.RS_IGLOO_PIECE, 0);
             this.pieceRL = pieceRL;
             BlockPos blockpos = OFFSET_2.containsKey(this.pieceRL) ? OFFSET_2.get(this.pieceRL) : new BlockPos(0, -1, 0);
-            this.pos = position.add(blockpos.getX(), blockpos.getY() - heightOffset, blockpos.getZ());
+            this.templatePosition = position.add(blockpos.getX(), blockpos.getY() - heightOffset, blockpos.getZ());
             this.rotation = rotationIn;
             this.func_207614_a(templateManager);
             this.floorBlock = floorBlockIn;
         }
 
 
-        public Piece(StructureManager templateManager, CompoundTag data) {
+        public Piece(TemplateManager templateManager, CompoundNBT data) {
             super(StructurePieces.RS_IGLOO_PIECE, data);
             this.pieceRL = new ResourceLocation(data.getString("Template"));
-            this.rotation = BlockRotation.valueOf(data.getString("Rot"));
+            this.rotation = Rotation.valueOf(data.getString("Rot"));
             this.func_207614_a(templateManager);
-            this.floorBlock = Registry.BLOCK.get(new ResourceLocation(data.getString("FloorBlock")));
+            this.floorBlock = Registry.BLOCK.getOrDefault(new ResourceLocation(data.getString("FloorBlock")));
         }
 
 
-        private void func_207614_a(StructureManager templateManager) {
-            Structure template = templateManager.getStructureOrBlank(this.pieceRL);
-            StructurePlacementData placementsettings = (new StructurePlacementData()).setRotation(this.rotation).setMirror(BlockMirror.NONE).setPosition(OFFSET_1.containsKey(this.pieceRL) ? OFFSET_1.get(this.pieceRL) : new BlockPos(3, 4, 5)).addProcessor(BlockIgnoreStructureProcessor.IGNORE_STRUCTURE_BLOCKS);
-            this.setStructureData(template, this.pos, placementsettings);
+        private void func_207614_a(TemplateManager templateManager) {
+            Template template = templateManager.getTemplateDefaulted(this.pieceRL);
+            PlacementSettings placementsettings = (new PlacementSettings()).setRotation(this.rotation).setMirror(Mirror.NONE).setCenterOffset(OFFSET_1.containsKey(this.pieceRL) ? OFFSET_1.get(this.pieceRL) : new BlockPos(3, 4, 5)).addProcessor(BlockIgnoreStructureProcessor.STRUCTURE_BLOCK);
+            this.setup(template, this.templatePosition, placementsettings);
         }
 
 
         /**
          * (abstract) Helper method to read subclass data from NBT
          */
-        protected void toNbt(CompoundTag tagCompound) {
-            super.toNbt(tagCompound);
+        @Override
+        protected void readAdditional(CompoundNBT tagCompound) {
+            super.readAdditional(tagCompound);
             tagCompound.putString("Template", this.pieceRL.toString());
             tagCompound.putString("Rot", this.rotation.name());
-            tagCompound.putString("FloorBlock", this.floorBlock == null ? "" : Registry.BLOCK.getId(this.floorBlock).toString());
+            tagCompound.putString("FloorBlock", this.floorBlock == null ? "" : Registry.BLOCK.getKey(this.floorBlock).toString());
         }
 
-
-        protected void handleMetadata(String function, BlockPos pos, WorldAccess worldIn, Random rand, BlockBox sbb) {
+        @Override
+        protected void handleDataMarker(String function, BlockPos pos, IWorld worldIn, Random rand, MutableBoundingBox sbb) {
             if ("chest".equals(function)) {
                 worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
-                BlockEntity tileentity = worldIn.getBlockEntity(pos.down());
-                if (tileentity instanceof ChestBlockEntity) {
-                    ((ChestBlockEntity) tileentity).setLootTable(LootTables.IGLOO_CHEST_CHEST, rand.nextLong());
+                TileEntity tileentity = worldIn.getTileEntity(pos.down());
+                if (tileentity instanceof ChestTileEntity) {
+                    ((ChestTileEntity) tileentity).setLootTable(LootTables.CHESTS_IGLOO_CHEST, rand.nextLong());
                 }
 
             }
         }
 
 
-        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
+        @Override
+        public boolean generate(ISeedReader world, StructureManager structureAccessor, ChunkGenerator generator, Random random, MutableBoundingBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
             BlockPos offset = OFFSET_1.containsKey(this.pieceRL) ? OFFSET_1.get(this.pieceRL) : new BlockPos(3, 4, 5);
-            StructurePlacementData placementsettings = (new StructurePlacementData()).setRotation(this.rotation).setMirror(BlockMirror.NONE).setPosition(offset).addProcessor(BlockIgnoreStructureProcessor.IGNORE_STRUCTURE_BLOCKS);
+            PlacementSettings placementsettings = (new PlacementSettings()).setRotation(this.rotation).setMirror(Mirror.NONE).setCenterOffset(offset).addProcessor(BlockIgnoreStructureProcessor.STRUCTURE_BLOCK);
             BlockPos blockpos = OFFSET_2.containsKey(this.pieceRL) ? OFFSET_2.get(this.pieceRL) : new BlockPos(0, -1, 0);
-            BlockPos blockpos1 = this.pos.add(Structure.transform(placementsettings, new BlockPos(3 - blockpos.getX(), 0, 0 - blockpos.getZ())));
-            int terrainSurfaceY = world.getTopY(Heightmap.Type.WORLD_SURFACE_WG, blockpos1.getX(), blockpos1.getZ());
-            BlockPos blockpos2 = this.pos;
-            this.pos = this.pos.add(0, terrainSurfaceY - 90 - 1, 0);
+            BlockPos blockpos1 = this.templatePosition.add(Template.transformedBlockPos(placementsettings, new BlockPos(3 - blockpos.getX(), 0, 0 - blockpos.getZ())));
+            int terrainSurfaceY = world.getHeight(Heightmap.Type.WORLD_SURFACE_WG, blockpos1.getX(), blockpos1.getZ());
+            BlockPos blockpos2 = this.templatePosition;
+            this.templatePosition = this.templatePosition.add(0, terrainSurfaceY - 90 - 1, 0);
             boolean flag = super.generate(world, structureAccessor, generator, random, boundingBox, chunkPos, blockPos);
 
             if (floorBlock != null) {
-                BlockPos blockpos3 = this.pos.add(Structure.transform(placementsettings, new BlockPos(3, 0, 5)));
+                BlockPos blockpos3 = this.templatePosition.add(Template.transformedBlockPos(placementsettings, new BlockPos(3, 0, 5)));
                 BlockState blockstate = world.getBlockState(blockpos3.down());
                 if (blockstate.getBlock() != Blocks.LADDER) {
                     world.setBlockState(blockpos3.up(), floorBlock.getDefaultState(), 3);
@@ -122,7 +129,7 @@ public class RSIglooPieces {
                 }
             }
 
-            this.pos = blockpos2;
+            this.templatePosition = blockpos2;
             return flag;
         }
     }

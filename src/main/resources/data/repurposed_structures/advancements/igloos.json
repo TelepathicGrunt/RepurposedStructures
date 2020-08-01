@@ -1,0 +1,36 @@
+{
+  "parent": "repurposed_structures:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:red_bed"
+    },
+    "title": {
+      "translate": "advancements.repurposed_structures.igloos.title"
+    },
+    "description": {
+      "translate": "advancements.repurposed_structures.igloos.description"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true,
+    "background": "minecraft:textures/block/green_terracotta.png"
+  },
+  "criteria": {
+    "always": {
+      "trigger": "minecraft:tick",
+      "conditions": {
+        "condition": "minecraft:time_check",
+        "value": {
+          "min": 0,
+          "max": 2147483646
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "always"
+    ]
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "parent": "repurposed_structures:villages",
+  "display": {
+    "icon": {
+      "item": "minecraft:lily_pad"
+    },
+    "title": {
+      "translate": "advancements.repurposed_structures.village_swamp.title"
+    },
+    "description": {
+      "translate": "advancements.repurposed_structures.village_swamp.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 20
+  },
+  "criteria": {
+    "in_village_swamp": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:village_swamp"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_village_swamp"
+    ]
+  ]
+}

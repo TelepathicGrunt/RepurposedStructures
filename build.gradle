@@ -10,6 +10,13 @@ buildscript {
         classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
     }
 }
+
+repositories {
+    maven {
+        url "https://maven.tterrag.com/"
+    }
+}
+
 apply plugin: 'net.minecraftforge.gradle'
 // Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 apply plugin: 'eclipse'
@@ -23,7 +30,7 @@ sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = co
 
 minecraft {
 
-    mappings channel: 'snapshot', version: "${mapping}-${mcp_version}"
+    mappings channel: 'snapshot', version: "${mapping}-mixed-${yarnmcp_version}"
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
    
     runs {

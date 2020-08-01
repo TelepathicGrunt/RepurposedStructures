@@ -1,0 +1,12 @@
+{
+  "mobs" : [
+    {
+      "name" : "minecraft:rabbit",
+      "weight" : 96
+    },
+    {
+      "name" : "minecraft:mooshroom",
+      "weight" : 4
+    }
+  ]
+}

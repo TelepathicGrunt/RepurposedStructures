@@ -20,20 +20,19 @@ SOFTWARE.
 
 package com.telepathicgrunt.repurposedstructures.utils;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.function.BiFunction;
-import java.util.function.Consumer;
-import java.util.function.Supplier;
-
-import org.apache.commons.lang3.tuple.Pair;
-
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.config.ModConfig.ModConfigEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.apache.commons.lang3.tuple.Pair;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.BiFunction;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 
 
@@ -108,7 +107,7 @@ public class ConfigHelper
 		
 		public static <T> ConfigValueListener<T> of(final ConfigValue<T> configValue, final List<ConfigValueListener<?>> valueList)
 		{
-			final ConfigValueListener<T> value = new ConfigValueListener<T>(configValue);
+			final ConfigValueListener<T> value = new ConfigValueListener<>(configValue);
 			valueList.add(value);
 			return value;
 		}

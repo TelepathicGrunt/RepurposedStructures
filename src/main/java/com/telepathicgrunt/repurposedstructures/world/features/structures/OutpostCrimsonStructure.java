@@ -6,87 +6,87 @@ import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.entity.EntityType;
-import net.minecraft.structure.StructureManager;
-import net.minecraft.structure.pool.SinglePoolElement;
-import net.minecraft.structure.pool.StructurePool;
-import net.minecraft.structure.pool.StructurePoolBasedGenerator;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockBox;
+import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
+import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.StructureFeature;
+import net.minecraft.world.gen.feature.jigsaw.JigsawManager;
+import net.minecraft.world.gen.feature.jigsaw.JigsawPattern;
+import net.minecraft.world.gen.feature.jigsaw.SingleJigsawPiece;
+import net.minecraft.world.gen.feature.structure.Structure;
+import net.minecraft.world.gen.feature.template.TemplateManager;
 
 import java.util.List;
 
 
-public class OutpostCrimsonStructure extends StructureFeature<NoFeatureConfig> {
+public class OutpostCrimsonStructure extends Structure<NoFeatureConfig> {
     // Special thanks to /r/l-ll-ll-l_IsDisLoss for allowing me to mimic his Nether Outpost design!
 
     static {
-        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID,"outposts/crimson/base_plates"), new ResourceLocation("empty"),
+        JigsawManager.REGISTRY.register(new JigsawPattern(new ResourceLocation(RepurposedStructures.MODID,"outposts/crimson/base_plates"), new ResourceLocation("empty"),
                 ImmutableList.of(Pair.of(
-                        new SinglePoolElement(RepurposedStructures.MODID+":outposts/crimson/base_plate"), 1)),
-                StructurePool.Projection.RIGID));
+                        new SingleJigsawPiece(RepurposedStructures.MODID+":outposts/crimson/base_plate"), 1)),
+                JigsawPattern.PlacementBehaviour.RIGID));
 
-        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID,"outposts/crimson/towers"), new ResourceLocation("empty"),
+        JigsawManager.REGISTRY.register(new JigsawPattern(new ResourceLocation(RepurposedStructures.MODID,"outposts/crimson/towers"), new ResourceLocation("empty"),
                 ImmutableList.of(
-                        Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":outposts/crimson/tower"), 1),
-                        Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":outposts/crimson/tower_glowing"), 1)),
-                StructurePool.Projection.RIGID));
+                        Pair.of(new SingleJigsawPiece(RepurposedStructures.MODID+":outposts/crimson/tower"), 1),
+                        Pair.of(new SingleJigsawPiece(RepurposedStructures.MODID+":outposts/crimson/tower_glowing"), 1)),
+                JigsawPattern.PlacementBehaviour.RIGID));
 
-        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID,"outposts/crimson/plates"), new ResourceLocation("empty"),
+        JigsawManager.REGISTRY.register(new JigsawPattern(new ResourceLocation(RepurposedStructures.MODID,"outposts/crimson/plates"), new ResourceLocation("empty"),
                 ImmutableList.of(Pair.of(
-                        new SinglePoolElement(RepurposedStructures.MODID+":outposts/crimson/plate"), 1)),
-                StructurePool.Projection.RIGID));
+                        new SingleJigsawPiece(RepurposedStructures.MODID+":outposts/crimson/plate"), 1)),
+                JigsawPattern.PlacementBehaviour.RIGID));
 
-        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new ResourceLocation(RepurposedStructures.MODID,"outposts/crimson/features"), new ResourceLocation("empty"),
+        JigsawManager.REGISTRY.register(new JigsawPattern(new ResourceLocation(RepurposedStructures.MODID,"outposts/crimson/features"), new ResourceLocation("empty"),
                 ImmutableList.of(
-                        Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":outposts/crimson/cage1"), 1),
-                        Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":outposts/crimson/cage2"), 1),
-                        Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":outposts/crimson/logs"), 1),
-                        Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":outposts/crimson/tent1"), 1),
-                        Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":outposts/crimson/tent2"), 1),
-                        Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":outposts/crimson/targets"), 1)
+                        Pair.of(new SingleJigsawPiece(RepurposedStructures.MODID+":outposts/crimson/cage1"), 1),
+                        Pair.of(new SingleJigsawPiece(RepurposedStructures.MODID+":outposts/crimson/cage2"), 1),
+                        Pair.of(new SingleJigsawPiece(RepurposedStructures.MODID+":outposts/crimson/logs"), 1),
+                        Pair.of(new SingleJigsawPiece(RepurposedStructures.MODID+":outposts/crimson/tent1"), 1),
+                        Pair.of(new SingleJigsawPiece(RepurposedStructures.MODID+":outposts/crimson/tent2"), 1),
+                        Pair.of(new SingleJigsawPiece(RepurposedStructures.MODID+":outposts/crimson/targets"), 1)
                 ),
-                StructurePool.Projection.RIGID));
+                JigsawPattern.PlacementBehaviour.RIGID));
     }
 
-    private static final List<Biome.SpawnEntry> MONSTER_SPAWNS = Lists.newArrayList(new Biome.SpawnEntry(EntityType.PIGLIN, 10, 1, 1));
+    private static final List<Biome.SpawnListEntry> MONSTER_SPAWNS = Lists.newArrayList(new Biome.SpawnListEntry(EntityType.field_233591_ai_, 10, 1, 1));
 
     public OutpostCrimsonStructure(Codec<NoFeatureConfig> config) {
         super(config);
     }
 
     @Override
-    public StructureStartFactory<NoFeatureConfig> getStructureStartFactory() {
+    public Structure.IStartFactory<NoFeatureConfig> getStartFactory() {
         return OutpostCrimsonStructure.Start::new;
     }
 
     @Override
-    public List<Biome.SpawnEntry> getMonsterSpawns() {
+    public List<Biome.SpawnListEntry> getSpawnList() {
         return MONSTER_SPAWNS;
     }
 
     public static class Start extends AbstractNetherStructure.AbstractStart{
         ResourceLocation NETHER_OUTPOST_POOL = new ResourceLocation(RepurposedStructures.MODID,"outposts/crimson/base_plates");
 
-        public Start(StructureFeature<NoFeatureConfig> structureFeature, int x, int z, BlockBox blockBox, int referenceIn, long seed) {
+        public Start(Structure<NoFeatureConfig> structureFeature, int x, int z, MutableBoundingBox blockBox, int referenceIn, long seed) {
             super(structureFeature, x, z, blockBox, referenceIn, seed);
         }
 
-        public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int x, int z, Biome biome, NoFeatureConfig NoFeatureConfig) {
+        public void init(ChunkGenerator chunkGenerator, TemplateManager structureManager, int x, int z, Biome biome, NoFeatureConfig NoFeatureConfig) {
             BlockPos blockPos = new BlockPos(x * 16, 0, z * 16);
-            GeneralJigsawGenerator.addPieces(chunkGenerator, structureManager, blockPos, this.children, this.random, NETHER_OUTPOST_POOL, 11);
-            this.setBoundingBoxFromChildren();
+            GeneralJigsawGenerator.addPieces(chunkGenerator, structureManager, blockPos, this.components, this.rand, NETHER_OUTPOST_POOL, 11);
+            this.recalculateStructureSize();
 
             BlockPos lowestLandPos = getHighestLand(chunkGenerator);
             if (lowestLandPos.getY() >= 108 || lowestLandPos.getY() <= 37) {
-                this.method_14976(this.random, 19, 20);
+                this.func_214626_a(this.rand, 19, 20);
             }
             else {
-                this.method_14976(this.random, lowestLandPos.getY()-15, lowestLandPos.getY()-14);
+                this.func_214626_a(this.rand, lowestLandPos.getY()-15, lowestLandPos.getY()-14);
             }
         }
     }

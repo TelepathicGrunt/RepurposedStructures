@@ -4,21 +4,20 @@ import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.Material;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.LootableContainerBlockEntity;
-import net.minecraft.block.entity.MobSpawnerBlockEntity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.state.property.Properties;
+import net.minecraft.block.material.Material;
+import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.tileentity.LockableLootTileEntity;
+import net.minecraft.tileentity.MobSpawnerTileEntity;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.Heightmap;
-import net.minecraft.world.ServerWorldAccess;
-import net.minecraft.world.gen.StructureAccessor;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.ISeedReader;
+import net.minecraft.world.gen.ChunkGenerator;
+import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.structure.StructureManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -39,7 +38,7 @@ public class DungeonEnd extends Feature<NoFeatureConfig> {
     //only the mob spawner chance and what blocks the wall cannot replace was changed. Everything else is just the normal dungeon code.
 
     @Override
-    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
+    public boolean generate(ISeedReader world, StructureManager structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
         int randXRange = random.nextInt(2) + 2;
         int xMin = -randXRange - 1;
         int xMax = randXRange + 1;
@@ -48,13 +47,13 @@ public class DungeonEnd extends Feature<NoFeatureConfig> {
         int zMax = randZRange + 1;
         int validOpeneings = 0;
         int ceilingOpenings = 0;
-        BlockPos newPosition = new BlockPos(position.getX(), random.nextInt(world.getTopY(Heightmap.Type.WORLD_SURFACE, position.getX(), position.getZ()) + 5), position.getZ());
-        BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().set(newPosition);
+        BlockPos newPosition = new BlockPos(position.getX(), random.nextInt(world.getHeight(Heightmap.Type.WORLD_SURFACE, position.getX(), position.getZ()) + 5), position.getZ());
+        BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().setPos(newPosition);
 
         for (int x = xMin; x <= xMax; ++x) {
             for (int y = -1; y <= 4; ++y) {
                 for (int z = zMin; z <= zMax; ++z) {
-                    blockpos$Mutable.set(newPosition).move(x, y, z);
+                    blockpos$Mutable.setPos(newPosition).move(x, y, z);
                     Material material = world.getBlockState(blockpos$Mutable).getMaterial();
                     boolean flag = material.isSolid();
 
@@ -66,7 +65,7 @@ public class DungeonEnd extends Feature<NoFeatureConfig> {
                         ceilingOpenings++;
                     }
 
-                    if ((x == xMin || x == xMax || z == zMin || z == zMax) && y == 0 && world.isAir(blockpos$Mutable) && world.isAir(blockpos$Mutable.up())) {
+                    if ((x == xMin || x == xMax || z == zMin || z == zMax) && y == 0 && world.isAirBlock(blockpos$Mutable) && world.isAirBlock(blockpos$Mutable.up())) {
                         ++validOpeneings;
                     }
                 }
@@ -77,7 +76,7 @@ public class DungeonEnd extends Feature<NoFeatureConfig> {
             for (int x = xMin; x <= xMax; ++x) {
                 for (int y = 3; y >= -1; --y) {
                     for (int z = zMin; z <= zMax; ++z) {
-                        blockpos$Mutable.set(newPosition).move(x, y, z);
+                        blockpos$Mutable.setPos(newPosition).move(x, y, z);
 
                         if (x != xMin && y != -1 && z != zMin && x != xMax && y != 4 && z != zMax) {
                             if (world.getBlockState(blockpos$Mutable).getBlock() != Blocks.CHEST && world.getBlockState(blockpos$Mutable).getBlock() != Blocks.SPAWNER) {
@@ -99,12 +98,12 @@ public class DungeonEnd extends Feature<NoFeatureConfig> {
                 int x = newPosition.getX() + random.nextInt(randXRange * 2 + 1) - randXRange;
                 int y = newPosition.getY();
                 int z = newPosition.getZ() + random.nextInt(randZRange * 2 + 1) - randZRange;
-                blockpos$Mutable.set(x, y, z);
+                blockpos$Mutable.setPos(x, y, z);
 
-                if (world.isAir(blockpos$Mutable)) {
+                if (world.isAirBlock(blockpos$Mutable)) {
                     int j3 = 0;
 
-                    for (Direction Direction : Direction.Type.HORIZONTAL) {
+                    for (Direction Direction : Direction.Plane.HORIZONTAL) {
                         if (world.getBlockState(blockpos$Mutable.offset(Direction)).getMaterial().isSolid()) {
                             ++j3;
                         }
@@ -112,21 +111,21 @@ public class DungeonEnd extends Feature<NoFeatureConfig> {
 
                     if (j3 == 1) {
                         world.setBlockState(blockpos$Mutable, Blocks.SHULKER_BOX.getDefaultState(), 2);
-                        LootableContainerBlockEntity.setLootTable(world, random, blockpos$Mutable, CHEST_LOOT);
+                        LockableLootTileEntity.setLootTable(world, random, blockpos$Mutable, CHEST_LOOT);
 
                         break;
                     }
                 }
             }
 
-            world.setBlockState(newPosition, Blocks.END_PORTAL_FRAME.getDefaultState().with(Properties.EYE, true), 2);
+            world.setBlockState(newPosition, Blocks.END_PORTAL_FRAME.getDefaultState().with(BlockStateProperties.EYE, true), 2);
             world.setBlockState(position.down(), Blocks.AIR.getDefaultState(), 2);
             world.setBlockState(newPosition.down(), Blocks.SPAWNER.getDefaultState(), 2);
-            BlockEntity tileentity = world.getBlockEntity(newPosition.down());
+            TileEntity tileentity = world.getTileEntity(newPosition.down());
 
-            if (tileentity instanceof MobSpawnerBlockEntity) {
-                ((MobSpawnerBlockEntity) tileentity).getLogic()
-                        .setEntityId(RepurposedStructures.mobSpawnerManager.getSpawnerMob(SPAWNER_ID, random));
+            if (tileentity instanceof MobSpawnerTileEntity) {
+                ((MobSpawnerTileEntity) tileentity).getSpawnerBaseLogic()
+                        .setEntityType(RepurposedStructures.mobSpawnerManager.getSpawnerMob(SPAWNER_ID, random));
             } else {
                 LOGGER.error("Failed to fetch mob spawner entity at ({}, {}, {})", new Object[]{Integer.valueOf(newPosition.getX()), Integer.valueOf(newPosition.down().getY()), Integer.valueOf(newPosition.getZ())});
             }

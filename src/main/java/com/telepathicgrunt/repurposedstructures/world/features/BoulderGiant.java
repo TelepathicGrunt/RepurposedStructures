@@ -3,14 +3,14 @@ package com.telepathicgrunt.repurposedstructures.world.features;
 import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.Material;
+import net.minecraft.block.material.Material;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.ServerWorldAccess;
-import net.minecraft.world.gen.StructureAccessor;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.ISeedReader;
+import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.structure.StructureManager;
 
 import java.util.Random;
 
@@ -23,14 +23,14 @@ public class BoulderGiant extends Feature<NoFeatureConfig> {
     }
 
     @Override
-    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
+    public boolean generate(ISeedReader world, StructureManager structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
 
-        BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().set(position);
+        BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().setPos(position);
         BlockState blockState = world.getBlockState(blockpos$Mutable);
 
         //Will keeps moving down position until it finds valid ground to generate on while ignoring other boulders
         while (blockpos$Mutable.getY() >= 6) {
-            if (blockState.getMaterial() == Material.AIR || (blockState.getBlock() != Blocks.GRASS_BLOCK && !isDirt(blockState.getBlock()))) {
+            if (blockState.getMaterial() == Material.AIR || (blockState.getBlock() != Blocks.GRASS_BLOCK && !isSoil(blockState.getBlock()))) {
                 //block was air or a non-dirt/grass block. Thus move down one.
                 blockpos$Mutable.move(Direction.DOWN);
                 blockState = world.getBlockState(blockpos$Mutable);
@@ -52,8 +52,8 @@ public class BoulderGiant extends Feature<NoFeatureConfig> {
             int z = START_RADIUS + random.nextInt(2);
             float calculatedDistance = (x + y + z) * 0.333F + 0.5F;
 
-            for (BlockPos blockpos : BlockPos.iterate(blockpos$Mutable.add(-x, -y, -z), blockpos$Mutable.add(x, y, z))) {
-                if (blockpos.getSquaredDistance(blockpos$Mutable) <= calculatedDistance * calculatedDistance) {
+            for (BlockPos blockpos : BlockPos.getAllInBoxMutable(blockpos$Mutable.add(-x, -y, -z), blockpos$Mutable.add(x, y, z))) {
+                if (blockpos.distanceSq(blockpos$Mutable) <= calculatedDistance * calculatedDistance) {
                     //adds the blocks for generation in this boulder
                     //note, if user turns off an ore, that ore's chance is dumped into the below ore for generation
                     int randomChance = random.nextInt(3000);

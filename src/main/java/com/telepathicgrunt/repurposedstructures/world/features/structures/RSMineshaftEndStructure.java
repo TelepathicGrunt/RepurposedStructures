@@ -4,10 +4,11 @@ import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.entity.EntityType;
-import net.minecraft.util.math.BlockBox;
+import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
+import net.minecraft.world.gen.feature.structure.Structure;
 
 import java.util.List;
 
@@ -18,25 +19,25 @@ public class RSMineshaftEndStructure extends AbstractMineshaftStructure {
     }
 
     public double getProbability() {
-        return RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.endMineshaftSpawnrate;
+        return RepurposedStructures.RSMineshaftsConfig.endMineshaftSpawnrate.get();
     }
 
-    private static final List<Biome.SpawnEntry> MONSTER_SPAWNS = Lists.newArrayList(
-                new Biome.SpawnEntry(EntityType.ENDERMITE, 10, 2, 5),
-                new Biome.SpawnEntry(EntityType.ENDERMAN, 5, 1, 3)
+    private static final List<Biome.SpawnListEntry> MONSTER_SPAWNS = Lists.newArrayList(
+                new Biome.SpawnListEntry(EntityType.ENDERMITE, 10, 2, 5),
+                new Biome.SpawnListEntry(EntityType.ENDERMAN, 5, 1, 3)
             );
 
-    public List<Biome.SpawnEntry> getMonsterSpawns() {
+    public List<Biome.SpawnListEntry> getSpawnList() {
         return MONSTER_SPAWNS;
     }
 
     @Override
-    public StructureFeature.StructureStartFactory<NoFeatureConfig> getStructureStartFactory() {
+    public Structure.IStartFactory<NoFeatureConfig> getStartFactory() {
         return RSMineshaftEndStructure.Start::new;
     }
 
     public static class Start extends AbstractStart {
-        public Start(StructureFeature<NoFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
+        public Start(Structure<NoFeatureConfig> structureIn, int chunkX, int chunkZ, MutableBoundingBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
         }
 
@@ -46,11 +47,11 @@ public class RSMineshaftEndStructure extends AbstractMineshaftStructure {
         }
         @Override
         public int getMaxHeight() {
-            return RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.endMineshaftMaxHeight;
+            return RepurposedStructures.RSMineshaftsConfig.endMineshaftMaxHeight.get();
         }
         @Override
         public int getMinHeight() {
-            return RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.endMineshaftMinHeight;
+            return RepurposedStructures.RSMineshaftsConfig.endMineshaftMinHeight.get();
         }
     }
 

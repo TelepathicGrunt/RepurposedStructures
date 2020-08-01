@@ -4,16 +4,16 @@ import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RSFeatures;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.Material;
+import net.minecraft.block.material.Material;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkSectionPos;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.ServerWorldAccess;
-import net.minecraft.world.WorldAccess;
-import net.minecraft.world.gen.StructureAccessor;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.util.math.SectionPos;
+import net.minecraft.world.ISeedReader;
+import net.minecraft.world.IWorld;
+import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.structure.StructureManager;
 
 import java.util.BitSet;
 import java.util.Random;
@@ -30,20 +30,20 @@ public class FortressBreakage extends Feature<NoFeatureConfig> {
         if (blockState == null) {
             return false;
         } else {
-            return blockState.getMaterial() == Material.STONE ||
-                    blockState.getMaterial() == Material.SOIL ||
-                    blockState.isOf(Blocks.INFESTED_CHISELED_STONE_BRICKS) ||
-                    blockState.isOf(Blocks.INFESTED_CRACKED_STONE_BRICKS) ||
-                    blockState.isOf(Blocks.INFESTED_STONE_BRICKS) ||
-                    blockState.isOf(Blocks.INFESTED_MOSSY_STONE_BRICKS) ||
-                    blockState.isOf(Blocks.IRON_BARS);
+            return blockState.getMaterial() == Material.ROCK ||
+                    blockState.getMaterial() == Material.EARTH ||
+                    blockState.isIn(Blocks.INFESTED_CHISELED_STONE_BRICKS) ||
+                    blockState.isIn(Blocks.INFESTED_CRACKED_STONE_BRICKS) ||
+                    blockState.isIn(Blocks.INFESTED_STONE_BRICKS) ||
+                    blockState.isIn(Blocks.INFESTED_MOSSY_STONE_BRICKS) ||
+                    blockState.isIn(Blocks.IRON_BARS);
         }
     };
 
     @Override
-    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
+    public boolean generate(ISeedReader world, StructureManager structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
         if (FORTRESS_BLOCKS.test(world.getBlockState(position.down())) &&
-            structureAccessor.getStructuresWithChildren(ChunkSectionPos.from(position), RSFeatures.JUNGLE_FORTRESS).findAny().isPresent())
+            structureAccessor.getStructuresWithChildren(SectionPos.from(position), RSFeatures.JUNGLE_FORTRESS).findAny().isPresent())
         {
             if(random.nextBoolean())
                 position = position.down();
@@ -75,7 +75,7 @@ public class FortressBreakage extends Feature<NoFeatureConfig> {
     }
 
 
-    protected boolean generateVeinPart(WorldAccess world, Random random, double startX, double endX, double startZ, double endZ, double startY, double endY, int x, int y, int z, int size, int i) {
+    protected boolean generateVeinPart(IWorld world, Random random, double startX, double endX, double startZ, double endZ, double startY, double endY, int x, int y, int z, int size, int i) {
         int j = 0;
         BitSet bitSet = new BitSet(size * i * size);
         BlockPos.Mutable mutable = new BlockPos.Mutable();
@@ -132,19 +132,19 @@ public class FortressBreakage extends Feature<NoFeatureConfig> {
                 int ae = Math.max(MathHelper.floor(v + t), ab);
                 int af = Math.max(MathHelper.floor(w + t), ac);
 
-                for(int ag = aa; ag <= ad; ++ag) {
-                    double ah = ((double)ag + 0.5D - u) / t;
+                for(int xx = aa; xx <= ad; ++xx) {
+                    double ah = ((double)xx + 0.5D - u) / t;
                     if (ah * ah < 1.0D) {
-                        for(int ai = ab; ai <= ae; ++ai) {
-                            double aj = ((double)ai + 0.5D - v) / t;
+                        for(int yy = ab; yy <= ae; ++yy) {
+                            double aj = ((double)yy + 0.5D - v) / t;
                             if (ah * ah + aj * aj < 1.0D) {
-                                for(int ak = ac; ak <= af; ++ak) {
-                                    double al = ((double)ak + 0.5D - w) / t;
+                                for(int zz = ac; zz <= af; ++zz) {
+                                    double al = ((double)zz + 0.5D - w) / t;
                                     if (ah * ah + aj * aj + al * al < 1.0D) {
-                                        int am = ag - x + (ai - y) * size + (ak - z) * size * i;
+                                        int am = xx - x + (yy - y) * size + (zz - z) * size * i;
                                         if (!bitSet.get(am)) {
                                             bitSet.set(am);
-                                            mutable.set(ag, ai, ak);
+                                            mutable.setPos(xx, yy, zz);
                                             if (FORTRESS_BLOCKS.test(world.getBlockState(mutable))) {
                                                 world.setBlockState(mutable, Blocks.AIR.getDefaultState(), 2);
                                                 ++j;

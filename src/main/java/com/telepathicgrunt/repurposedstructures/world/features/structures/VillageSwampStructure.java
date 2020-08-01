@@ -4,9 +4,10 @@ import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RSFeatures;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockBox;
+import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
+import net.minecraft.world.gen.feature.structure.Structure;
 
 public class VillageSwampStructure extends AbstractVillageStructure
 {
@@ -15,17 +16,17 @@ public class VillageSwampStructure extends AbstractVillageStructure
     }
 
 	@Override
-	public StructureFeature<NoFeatureConfig> getVillageInstance() {
+	public Structure<NoFeatureConfig> getVillageInstance() {
 		return RSFeatures.SWAMP_VILLAGE;
 	}
 
-    public StructureFeature.StructureStartFactory<NoFeatureConfig> getStructureStartFactory() {
+    public Structure.IStartFactory<NoFeatureConfig> getStartFactory() {
 		return VillageSwampStructure.Start::new;
     }
 
     public static class Start extends AbstractStart
     {
-		public Start(StructureFeature<NoFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
+		public Start(Structure<NoFeatureConfig> structureIn, int chunkX, int chunkZ, MutableBoundingBox mutableBoundingBox, int referenceIn, long seedIn) {
 			super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
 		}
 

@@ -2,16 +2,18 @@ package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RSFeatures;
-import net.minecraft.block.*;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.LanternBlock;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkSectionPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.ServerWorldAccess;
+import net.minecraft.util.math.SectionPos;
+import net.minecraft.world.ISeedReader;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.StructureAccessor;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.structure.StructureManager;
 
 import java.util.Random;
 import java.util.function.Predicate;
@@ -27,34 +29,34 @@ public class StrongholdChains extends Feature<NoFeatureConfig> {
         if (blockState == null) {
             return false;
         } else {
-            return  blockState.isOf(Blocks.NETHER_BRICKS)  ||
-                    blockState.isOf(Blocks.RED_NETHER_BRICKS)  ||
-                    blockState.isOf(Blocks.MAGMA_BLOCK)  ||
-                    blockState.isOf(Blocks.BLACK_TERRACOTTA)  ||
-                    blockState.isOf(Blocks.COBBLESTONE)  ||
-                    blockState.isOf(Blocks.STONE_BRICKS)  ||
-                    blockState.isOf(Blocks.CHISELED_STONE_BRICKS)  ||
-                    blockState.isOf(Blocks.CRACKED_STONE_BRICKS)  ||
-                    blockState.isOf(Blocks.MOSSY_STONE_BRICKS)  ||
-                    blockState.isOf(Blocks.INFESTED_CHISELED_STONE_BRICKS) ||
-                    blockState.isOf(Blocks.INFESTED_CRACKED_STONE_BRICKS) ||
-                    blockState.isOf(Blocks.INFESTED_STONE_BRICKS) ||
-                    blockState.isOf(Blocks.INFESTED_MOSSY_STONE_BRICKS);
+            return  blockState.isIn(Blocks.NETHER_BRICKS)  ||
+                    blockState.isIn(Blocks.RED_NETHER_BRICKS)  ||
+                    blockState.isIn(Blocks.MAGMA_BLOCK)  ||
+                    blockState.isIn(Blocks.BLACK_TERRACOTTA)  ||
+                    blockState.isIn(Blocks.COBBLESTONE)  ||
+                    blockState.isIn(Blocks.STONE_BRICKS)  ||
+                    blockState.isIn(Blocks.CHISELED_STONE_BRICKS)  ||
+                    blockState.isIn(Blocks.CRACKED_STONE_BRICKS)  ||
+                    blockState.isIn(Blocks.MOSSY_STONE_BRICKS)  ||
+                    blockState.isIn(Blocks.INFESTED_CHISELED_STONE_BRICKS) ||
+                    blockState.isIn(Blocks.INFESTED_CRACKED_STONE_BRICKS) ||
+                    blockState.isIn(Blocks.INFESTED_STONE_BRICKS) ||
+                    blockState.isIn(Blocks.INFESTED_MOSSY_STONE_BRICKS);
         }
     };
 
     @Override
-    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
-        if (!world.isAir(position) ||
-                (!structureAccessor.getStructuresWithChildren(ChunkSectionPos.from(position), RSFeatures.STONEBRICK_STRONGHOLD).findAny().isPresent() &&
-                 !structureAccessor.getStructuresWithChildren(ChunkSectionPos.from(position), RSFeatures.NETHER_STRONGHOLD).findAny().isPresent()))
+    public boolean generate(ISeedReader world, StructureManager structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
+        if (!world.isAirBlock(position) ||
+                (!structureAccessor.getStructuresWithChildren(SectionPos.from(position), RSFeatures.STONEBRICK_STRONGHOLD).findAny().isPresent() &&
+                 !structureAccessor.getStructuresWithChildren(SectionPos.from(position), RSFeatures.NETHER_STRONGHOLD).findAny().isPresent()))
         {
            return false;
         }
 
         //move up if above is air (only goes 10 blocks up before giving up
-        BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().set(position);
-        for(int i = 0; i < 10 && world.isAir(blockpos$Mutable.up()) && blockpos$Mutable.getY() < 255; i++){
+        BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().setPos(position);
+        for(int i = 0; i < 10 && world.isAirBlock(blockpos$Mutable.up()) && blockpos$Mutable.getY() < 255; i++){
             blockpos$Mutable.move(Direction.UP);
         }
 
@@ -63,11 +65,11 @@ public class StrongholdChains extends Feature<NoFeatureConfig> {
         BlockState aboveBlockstate;
 
         for (; blockpos$Mutable.getY() > 3 && length < random.nextInt(random.nextInt(random.nextInt(8) + 1) + 1) + 1; blockpos$Mutable.move(Direction.DOWN)) {
-            if (world.isAir(blockpos$Mutable)) {
+            if (world.isAirBlock(blockpos$Mutable)) {
                 aboveBlockstate = world.getBlockState(blockpos$Mutable.up());
 
-                if (STRONGHOLD_BLOCKS.test(aboveBlockstate) || aboveBlockstate.isOf(Blocks.CHAIN)) {
-                    world.setBlockState(blockpos$Mutable, Blocks.CHAIN.getDefaultState(), 2);
+                if (STRONGHOLD_BLOCKS.test(aboveBlockstate) || aboveBlockstate.isIn(Blocks.field_235341_dI_)) {
+                    world.setBlockState(blockpos$Mutable, Blocks.field_235341_dI_.getDefaultState(), 2);
                     length++;
                 }
             } else {
@@ -76,9 +78,9 @@ public class StrongholdChains extends Feature<NoFeatureConfig> {
         }
 
         //attaches lantern at end at a rare chance
-        if(random.nextFloat() < 0.075f && world.isAir(blockpos$Mutable)){
+        if(random.nextFloat() < 0.075f && world.isAirBlock(blockpos$Mutable)){
             if(world.getBiome(blockpos$Mutable).getCategory() == Biome.Category.NETHER){
-                world.setBlockState(blockpos$Mutable, Blocks.SOUL_LANTERN.getDefaultState().with(LanternBlock.HANGING, true), 2);
+                world.setBlockState(blockpos$Mutable, Blocks.field_235366_md_.getDefaultState().with(LanternBlock.HANGING, true), 2);
             }
             else{
                 world.setBlockState(blockpos$Mutable, Blocks.LANTERN.getDefaultState().with(LanternBlock.HANGING, true), 2);

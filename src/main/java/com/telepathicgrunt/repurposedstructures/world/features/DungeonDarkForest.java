@@ -2,21 +2,24 @@ package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import net.minecraft.block.*;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.LootableContainerBlockEntity;
-import net.minecraft.block.entity.MobSpawnerBlockEntity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.state.property.Properties;
-import net.minecraft.structure.StructurePiece;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.LeavesBlock;
+import net.minecraft.block.VineBlock;
+import net.minecraft.block.material.Material;
+import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.tileentity.LockableLootTileEntity;
+import net.minecraft.tileentity.MobSpawnerTileEntity;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.ServerWorldAccess;
-import net.minecraft.world.gen.StructureAccessor;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.ISeedReader;
+import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.structure.StructureManager;
+import net.minecraft.world.gen.feature.structure.StructurePiece;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -30,7 +33,7 @@ public class DungeonDarkForest extends Feature<NoFeatureConfig> {
     private static final BlockState CAVE_AIR = Blocks.CAVE_AIR.getDefaultState();
     private static final BlockState LEAVES = Blocks.DARK_OAK_LEAVES.getDefaultState().with(LeavesBlock.DISTANCE, Integer.valueOf(1));
     private static final BlockState LOGS = Blocks.DARK_OAK_LOG.getDefaultState();
-    private static final BlockState SIDEWAYS_LOGS = Blocks.DARK_OAK_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.X);
+    private static final BlockState SIDEWAYS_LOGS = Blocks.DARK_OAK_LOG.getDefaultState().with(BlockStateProperties.AXIS, Direction.Axis.X);
     private static final BlockState PLANKS = Blocks.DARK_OAK_PLANKS.getDefaultState();
 
     public DungeonDarkForest(Codec<NoFeatureConfig> configFactory) {
@@ -41,7 +44,7 @@ public class DungeonDarkForest extends Feature<NoFeatureConfig> {
     //only the mob spawner chance and what blocks the wall cannot replace was changed. Everything else is just the normal dungeon code.
 
     @Override
-    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
+    public boolean generate(ISeedReader world, StructureManager structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
         int randXRange = random.nextInt(2) + 2;
         int xMin = -randXRange - 1;
         int xMax = randXRange + 1;
@@ -50,12 +53,12 @@ public class DungeonDarkForest extends Feature<NoFeatureConfig> {
         int zMax = randZRange + 1;
         int validOpenings = 0;
         int ceilingOpenings = 0;
-        BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().set(position);
+        BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().setPos(position);
 
         for (int x = xMin; x <= xMax; ++x) {
             for (int y = -1; y <= 4; ++y) {
                 for (int z = zMin; z <= zMax; ++z) {
-                    blockpos$Mutable.set(position).move(x, y, z);
+                    blockpos$Mutable.setPos(position).move(x, y, z);
                     Material material = world.getBlockState(blockpos$Mutable).getMaterial();
                     boolean flag = material.isSolid();
 
@@ -67,7 +70,7 @@ public class DungeonDarkForest extends Feature<NoFeatureConfig> {
                         ceilingOpenings++;
                     }
 
-                    if ((x == xMin || x == xMax || z == zMin || z == zMax) && y == 0 && world.isAir(blockpos$Mutable) && world.isAir(blockpos$Mutable.up())) {
+                    if ((x == xMin || x == xMax || z == zMin || z == zMax) && y == 0 && world.isAirBlock(blockpos$Mutable) && world.isAirBlock(blockpos$Mutable.up())) {
                         ++validOpenings;
                     }
                 }
@@ -78,7 +81,7 @@ public class DungeonDarkForest extends Feature<NoFeatureConfig> {
             for (int x = xMin; x <= xMax; ++x) {
                 for (int y = 4; y >= -1; --y) {
                     for (int z = zMin; z <= zMax; ++z) {
-                        blockpos$Mutable.set(position).move(x, y, z);
+                        blockpos$Mutable.setPos(position).move(x, y, z);
 
                         if (y == 4) {
                             if (random.nextInt(3) == 0) {
@@ -111,13 +114,13 @@ public class DungeonDarkForest extends Feature<NoFeatureConfig> {
             }
 
 
-            blockpos$Mutable.set(position);
+            blockpos$Mutable.setPos(position);
             for (int x = xMin + 1; x <= xMax - 1; ++x) {
                 for (int z = zMin + 1; z <= zMax - 1; ++z) {
                     if (x == xMin + 1 || z == zMin + 1 || x == xMax - 1 || z == zMax - 1) {
                         for (int y = 3; y >= 0; --y) {
                             Direction face = null;
-                            for (Direction facing : Direction.Type.HORIZONTAL) {
+                            for (Direction facing : Direction.Plane.HORIZONTAL) {
                                 Material wallMaterial = world.getBlockState(blockpos$Mutable.add(x, y, z).offset(facing)).getMaterial();
                                 if (wallMaterial == Material.LEAVES || wallMaterial == Material.WOOD) {
                                     face = facing;
@@ -127,7 +130,7 @@ public class DungeonDarkForest extends Feature<NoFeatureConfig> {
 
                             if (face != null) {
                                 if (random.nextInt(6) == 0) {
-                                    world.setBlockState(blockpos$Mutable.add(x, y, z), Blocks.VINE.getDefaultState().with(VineBlock.FACING_PROPERTIES.get(face), true), 2);
+                                    world.setBlockState(blockpos$Mutable.add(x, y, z), Blocks.VINE.getDefaultState().with(VineBlock.FACING_TO_PROPERTY_MAP.get(face), true), 2);
                                 }
                             }
                         }
@@ -140,20 +143,20 @@ public class DungeonDarkForest extends Feature<NoFeatureConfig> {
                     int x = position.getX() + random.nextInt(randXRange * 2 + 1) - randXRange;
                     int y = position.getY();
                     int z = position.getZ() + random.nextInt(randZRange * 2 + 1) - randZRange;
-                    blockpos$Mutable.set(x, y, z);
+                    blockpos$Mutable.setPos(x, y, z);
 
-                    if (world.isAir(blockpos$Mutable)) {
+                    if (world.isAirBlock(blockpos$Mutable)) {
                         int j3 = 0;
 
-                        for (Direction Direction : Direction.Type.HORIZONTAL) {
+                        for (Direction Direction : Direction.Plane.HORIZONTAL) {
                             if (world.getBlockState(blockpos$Mutable.offset(Direction)).getMaterial().isSolid()) {
                                 ++j3;
                             }
                         }
 
                         if (j3 == 1) {
-                            world.setBlockState(blockpos$Mutable, StructurePiece.method_14916(world, blockpos$Mutable, Blocks.CHEST.getDefaultState()), 2);
-                            LootableContainerBlockEntity.setLootTable(world, random, blockpos$Mutable, CHEST_LOOT);
+                            world.setBlockState(blockpos$Mutable, StructurePiece.func_197528_a(world, blockpos$Mutable, Blocks.CHEST.getDefaultState()), 2);
+                            LockableLootTileEntity.setLootTable(world, random, blockpos$Mutable, CHEST_LOOT);
 
                             break;
                         }
@@ -163,11 +166,11 @@ public class DungeonDarkForest extends Feature<NoFeatureConfig> {
 
             world.setBlockState(position, Blocks.AIR.getDefaultState(), 2);
             world.setBlockState(position, Blocks.SPAWNER.getDefaultState(), 2);
-            BlockEntity tileentity = world.getBlockEntity(position);
+            TileEntity tileentity = world.getTileEntity(position);
 
-            if (tileentity instanceof MobSpawnerBlockEntity) {
-                ((MobSpawnerBlockEntity) tileentity).getLogic()
-                        .setEntityId(RepurposedStructures.mobSpawnerManager.getSpawnerMob(SPAWNER_ID, random));
+            if (tileentity instanceof MobSpawnerTileEntity) {
+                ((MobSpawnerTileEntity) tileentity).getSpawnerBaseLogic()
+                        .setEntityType(RepurposedStructures.mobSpawnerManager.getSpawnerMob(SPAWNER_ID, random));
             } else {
                 LOGGER.error("Failed to fetch mob spawner entity at ({}, {}, {})", new Object[]{Integer.valueOf(position.getX()), Integer.valueOf(position.getY()), Integer.valueOf(position.getZ())});
             }

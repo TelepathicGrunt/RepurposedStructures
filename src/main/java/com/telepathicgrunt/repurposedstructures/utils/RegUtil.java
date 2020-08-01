@@ -1,17 +1,15 @@
 package com.telepathicgrunt.repurposedstructures.utils;
 
-import java.util.Locale;
-
-import javax.annotation.Nonnull;
-
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.feature.structure.IStructurePieceType;
 import net.minecraftforge.registries.GameData;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.IForgeRegistryEntry;
+
+import javax.annotation.Nonnull;
+import java.util.Locale;
 
 
 public class RegUtil

@@ -1,14 +1,14 @@
 package com.telepathicgrunt.repurposedstructures.mixin;
 
-import net.minecraft.structure.StrongholdGenerator;
+import net.minecraft.world.gen.feature.structure.StrongholdPieces;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
-@Mixin(StrongholdGenerator.class)
+@Mixin(StrongholdPieces.class)
 public interface StrongholdGeneratorAccessor {
 
-    @Accessor("ALL_PIECE_SETTINGS")
-    static StrongholdGenerator.PieceSetting[] getALL_PIECE_SETTINGS() {
+    @Accessor("PIECE_WEIGHTS")
+    static StrongholdPieces.PieceWeight[] getPIECE_WEIGHTS() {
         throw new UnsupportedOperationException();
     }
 }
