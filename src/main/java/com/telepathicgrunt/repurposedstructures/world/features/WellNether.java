@@ -9,7 +9,6 @@ import net.minecraft.block.material.Material;
 import net.minecraft.state.properties.StructureMode;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ITag;
-import net.minecraft.tags.Tag;
 import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;

@@ -1,9 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.mojang.serialization.Codec;
-import com.sun.xml.internal.ws.api.message.Attachment;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.configs.RSWellsConfig;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -12,7 +10,6 @@ import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.state.properties.StructureMode;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ITag;
-import net.minecraft.tags.Tag;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
@@ -21,7 +18,6 @@ import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.template.PlacementSettings;
 import net.minecraft.world.gen.feature.template.Template;
 import net.minecraft.world.gen.feature.template.TemplateManager;
