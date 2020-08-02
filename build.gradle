@@ -21,6 +21,11 @@ apply plugin: 'net.minecraftforge.gradle'
 // Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
+apply plugin: 'org.spongepowered.mixin'
+
+mixin {
+    add sourceSets.main, "${modid}.refmap.json"
+}
 
 version = "${mod_version}"
 group = "com.telepathicgrunt.repurposedstructures" // http://maven.apache.org/guides/mini/guide-naming-conventions.html

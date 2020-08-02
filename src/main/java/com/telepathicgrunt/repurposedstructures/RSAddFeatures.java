@@ -1,6 +1,5 @@
 package com.telepathicgrunt.repurposedstructures;
 
-import com.telepathicgrunt.repurposedstructures.mixin.BiomeStructureAccessor;
 import com.telepathicgrunt.repurposedstructures.world.placements.RSPlacements;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.registry.Registry;
@@ -24,7 +23,7 @@ public class RSAddFeatures {
                 (biomeNamespace.equals("minecraft") || RepurposedStructures.RSMineshaftsConfig.addMineshaftsToModdedBiomes.get())) {
             if (biome.hasStructure(Structure.field_236367_c_)) {
                 // replace vanilla mineshaft with our own
-                ((BiomeStructureAccessor) biome).getStructures().remove(Structure.field_236367_c_);
+                biome.structures.remove(Structure.field_236367_c_);
                 biome.addStructureFeature(RSFeatures.BIRCH_MINESHAFT.configure(IFeatureConfig.NO_FEATURE_CONFIG));
             }
         }
@@ -32,7 +31,7 @@ public class RSAddFeatures {
                 (biomeNamespace.equals("minecraft") || RepurposedStructures.RSMineshaftsConfig.addMineshaftsToModdedBiomes.get())) {
             if (biome.hasStructure(Structure.field_236367_c_)) {
                 // replace vanilla mineshaft with our own
-                ((BiomeStructureAccessor) biome).getStructures().remove(Structure.field_236367_c_);
+                biome.structures.remove(Structure.field_236367_c_);
                 biome.addStructureFeature(RSFeatures.JUNGLE_MINESHAFT.configure(IFeatureConfig.NO_FEATURE_CONFIG));
             }
         }
@@ -40,7 +39,7 @@ public class RSAddFeatures {
                 (biomeNamespace.equals("minecraft") || RepurposedStructures.RSMineshaftsConfig.addMineshaftsToModdedBiomes.get())) {
             if (biome.hasStructure(Structure.field_236367_c_)) {
                 // replace vanilla mineshaft with our own
-                ((BiomeStructureAccessor) biome).getStructures().remove(Structure.field_236367_c_);
+                biome.structures.remove(Structure.field_236367_c_);
                 biome.addStructureFeature(RSFeatures.DESERT_MINESHAFT.configure(IFeatureConfig.NO_FEATURE_CONFIG));
             }
         }
@@ -48,7 +47,7 @@ public class RSAddFeatures {
                 (biomeNamespace.equals("minecraft") || RepurposedStructures.RSMineshaftsConfig.addMineshaftsToModdedBiomes.get())) {
             if (biome.hasStructure(Structure.field_236367_c_)) {
                 // replace vanilla mineshaft with our own
-                ((BiomeStructureAccessor) biome).getStructures().remove(Structure.field_236367_c_);
+                biome.structures.remove(Structure.field_236367_c_);
                 biome.addStructureFeature(RSFeatures.STONE_MINESHAFT.configure(IFeatureConfig.NO_FEATURE_CONFIG));
             }
         }
@@ -56,7 +55,7 @@ public class RSAddFeatures {
                 (biomeNamespace.equals("minecraft") || RepurposedStructures.RSMineshaftsConfig.addMineshaftsToModdedBiomes.get())) {
             if (biome.hasStructure(Structure.field_236367_c_)) {
                 // replace vanilla mineshaft with our own
-                ((BiomeStructureAccessor) biome).getStructures().remove(Structure.field_236367_c_);
+                biome.structures.remove(Structure.field_236367_c_);
                 biome.addStructureFeature(RSFeatures.SAVANNA_MINESHAFT.configure(IFeatureConfig.NO_FEATURE_CONFIG));
             }
         }
@@ -64,7 +63,7 @@ public class RSAddFeatures {
                 (biomeNamespace.equals("minecraft") || RepurposedStructures.RSMineshaftsConfig.addMineshaftsToModdedBiomes.get())) {
             if (biome.hasStructure(Structure.field_236367_c_)) {
                 // replace vanilla mineshaft with our own
-                ((BiomeStructureAccessor) biome).getStructures().remove(Structure.field_236367_c_);
+                biome.structures.remove(Structure.field_236367_c_);
                 biome.addStructureFeature(RSFeatures.ICY_MINESHAFT.configure(IFeatureConfig.NO_FEATURE_CONFIG));
             }
         }
@@ -72,7 +71,7 @@ public class RSAddFeatures {
                 (biomeNamespace.equals("minecraft") || RepurposedStructures.RSMineshaftsConfig.addMineshaftsToModdedBiomes.get())) {
             if (biome.hasStructure(Structure.field_236367_c_)) {
                 // replace vanilla mineshaft with our own
-                ((BiomeStructureAccessor) biome).getStructures().remove(Structure.field_236367_c_);
+                biome.structures.remove(Structure.field_236367_c_);
                 biome.addStructureFeature(RSFeatures.OCEAN_MINESHAFT.configure(IFeatureConfig.NO_FEATURE_CONFIG));
             }
         }
@@ -80,7 +79,7 @@ public class RSAddFeatures {
                 (biomeNamespace.equals("minecraft") || RepurposedStructures.RSMineshaftsConfig.addMineshaftsToModdedBiomes.get())) {
             if (biome.hasStructure(Structure.field_236367_c_)) {
                 // replace vanilla mineshaft with our own
-                ((BiomeStructureAccessor) biome).getStructures().remove(Structure.field_236367_c_);
+                biome.structures.remove(Structure.field_236367_c_);
                 biome.addStructureFeature(RSFeatures.TAIGA_MINESHAFT.configure(IFeatureConfig.NO_FEATURE_CONFIG));
             }
         }
@@ -88,7 +87,7 @@ public class RSAddFeatures {
                 (biomeNamespace.equals("minecraft") || RepurposedStructures.RSMineshaftsConfig.addMineshaftsToModdedBiomes.get())) {
             if (biome.hasStructure(Structure.field_236367_c_)) {
                 // replace vanilla mineshaft with our own
-                ((BiomeStructureAccessor) biome).getStructures().remove(Structure.field_236367_c_);
+                biome.structures.remove(Structure.field_236367_c_);
                 biome.addStructureFeature(RSFeatures.SWAMP_OR_DARK_FOREST_MINESHAFT.configure(IFeatureConfig.NO_FEATURE_CONFIG));
             }
         }
@@ -388,7 +387,7 @@ public class RSAddFeatures {
                         (!biomeNamespace.equals("minecraft") && RepurposedStructures.RSStrongholdsConfig.addStonebrickStrongholdToModdedBiomes.get()))) {
 
             //replace vanilla stronghold with ours if vanilla's is present
-            ((BiomeStructureAccessor) biome).getStructures().remove(Structure.field_236375_k_);
+            biome.structures.remove(Structure.field_236375_k_);
             biome.addStructureFeature(RSFeatures.STONEBRICK_STRONGHOLD.configure(IFeatureConfig.NO_FEATURE_CONFIG));
             biome.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, RSFeatures.STRONGHOLD_CHAINS.configure(IFeatureConfig.NO_FEATURE_CONFIG).createDecoratedFeature(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new CountRangeConfig(RepurposedStructures.RSStrongholdsConfig.stonebrickStrongholdChainSpawnrate.get(), 5, 0, Math.max(RepurposedStructures.RSStrongholdsConfig.stonebrickStrongholdMaxHeight.get(), RepurposedStructures.RSStrongholdsConfig.stonebrickStrongholdMinHeight.get()+1)+15))));
         }

@@ -18,7 +18,9 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.placement.Placement;
+import net.minecraftforge.event.AddReloadListenerEvent;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DeferredWorkQueue;
@@ -107,7 +109,15 @@ public class RepurposedStructures
 		}
 
 	}
-	
+
+	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
+	public static class ForgeEvents {
+		@SubscribeEvent
+		public static void registerDatapackListener(final AddReloadListenerEvent event) {
+			RepurposedStructures.mobSpawnerManager = new MobSpawnerManager();
+			event.addListener(RepurposedStructures.mobSpawnerManager);
+		}
+	}
     /*
      * Here, we will use this to add our structures/features to all biomes.
      */

@@ -4,10 +4,8 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "repurposedstructures.refmap.json",
   "mixins": [
-    "BiomeStructureAccessor",
     "EnderEyeStrongholdLocatingMixin",
     "NoVillageLakesMixin",
-    "ServerResourceManagerMixin",
     "StrongholdGeneratorAccessor",
     "StructureMobSpawningMixin",
     "StructurePieceAccessor"
