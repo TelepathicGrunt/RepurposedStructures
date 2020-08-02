@@ -21,15 +21,10 @@ apply plugin: 'net.minecraftforge.gradle'
 // Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
-apply plugin: 'org.spongepowered.mixin'
-
-mixin {
-    add sourceSets.main, "${modid}.refmap.json"
-}
 
 version = "${mod_version}"
 group = "com.telepathicgrunt.repurposedstructures" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "${modid}"
+archivesBaseName = "repurposed_structures"
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 
@@ -41,9 +36,10 @@ minecraft {
     runs {
         client {
             workingDirectory project.file('run')
+            arg "-mixin.config="+archivesBaseName+".mixins.json"
 
             mods {
-                examplemod {
+                repurposed_structures {
                     source sourceSets.main
                 }
             }
@@ -51,9 +47,10 @@ minecraft {
 
         server {
             workingDirectory project.file('run')
+            arg "-mixin.config="+archivesBaseName+".mixins.json"
 
             mods {
-                examplemod {
+                repurposed_structures {
                     source sourceSets.main
                 }
             }
@@ -72,14 +69,14 @@ dependencies {
 jar {
     manifest {
         attributes([
-            "Specification-Title": "${modid}",
-            "Specification-Vendor": "${maker}",
+            "Specification-Title": "repurposed_structures",
+            "Specification-Vendor": "TelepathicGrunt",
             "Specification-Version": "1", // We are version 1 of ourselves
             "Implementation-Title": project.name,
             "Implementation-Version": "${version}",
-            "Implementation-Vendor" :"${maker}",
+            "Implementation-Vendor" :"TelepathicGrunt",
             "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-            "MixinConfigs": "${modid}.mixins.json"
+            "MixinConfigs": "repurposedstructures.mixins.json"
         ])
     }
 }
@@ -124,4 +121,10 @@ processResources {
 
 		println('Minified ' + jsonMinified + ' json files. Saved ' + jsonBytesSaved + ' bytes. Took ' + (System.currentTimeMillis() - jsonMinifyStart) + 'ms.')
 	}
+}
+
+apply plugin: 'org.spongepowered.mixin'
+
+mixin {
+    add sourceSets.main, "repurposedstructures.refmap.json"
 }

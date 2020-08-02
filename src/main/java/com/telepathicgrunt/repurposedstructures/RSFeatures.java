@@ -7,6 +7,7 @@ import com.telepathicgrunt.repurposedstructures.world.features.*;
 import com.telepathicgrunt.repurposedstructures.world.features.structures.*;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.gen.DimensionSettings;
 import net.minecraft.world.gen.FlatGenerationSettings;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
@@ -209,6 +210,14 @@ public class RSFeatures {
         Map<Structure<?>, StructureSeparationSettings> tempMap = new HashMap<>(DimensionStructuresSettings.DEFAULT_STRUCTURES);
         tempMap.put(structure, StructureSeparationSettings);
         DimensionStructuresSettings.DEFAULT_STRUCTURES = ImmutableMap.copyOf(tempMap);
+
+        DimensionSettings.Preset.field_236122_b_.getChunkGeneratorType().getConfig().getStructures().put(structure, StructureSeparationSettings);
+        DimensionSettings.Preset.field_236123_c_.getChunkGeneratorType().getConfig().getStructures().put(structure, StructureSeparationSettings);
+        DimensionSettings.Preset.field_236124_d_.getChunkGeneratorType().getConfig().getStructures().put(structure, StructureSeparationSettings);
+        DimensionSettings.Preset.field_236125_e_.getChunkGeneratorType().getConfig().getStructures().put(structure, StructureSeparationSettings);
+        DimensionSettings.Preset.field_236126_f_.getChunkGeneratorType().getConfig().getStructures().put(structure, StructureSeparationSettings);
+        DimensionSettings.Preset.field_236127_g_.getChunkGeneratorType().getConfig().getStructures().put(structure, StructureSeparationSettings);
+        DimensionSettings.Preset.BY_ID.forEach((presetResourceLocation, preset) -> preset.getChunkGeneratorType().getConfig().getStructures().put(structure, StructureSeparationSettings));
     }
 
     public static void registerVillagePools() {

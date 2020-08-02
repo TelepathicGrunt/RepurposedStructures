@@ -36,7 +36,7 @@ public class RSStonebrickStrongholdStructure extends StrongholdStructure {
 
     @Override
     public Structure.IStartFactory<NoFeatureConfig> getStartFactory() {
-        return super.getStartFactory();
+        return RSStonebrickStrongholdStructure.Start::new;
     }
 
 

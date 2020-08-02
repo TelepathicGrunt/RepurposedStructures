@@ -121,7 +121,7 @@ public class RSStrongholdPieces {
      * sets up Arrays with the Structure pieces and their weights
      */
     public static void prepareStructurePieces() {
-        structurePieceList = Lists.<RSStrongholdPieces.PieceWeight>newArrayList();
+        structurePieceList = Lists.newArrayList();
 
         for (RSStrongholdPieces.PieceWeight structurestrongholdpieces$pieceweight : PIECE_WEIGHTS) {
             structurestrongholdpieces$pieceweight.instancesSpawned = 0;
@@ -187,7 +187,7 @@ public class RSStrongholdPieces {
 
 
     private static RSStrongholdPieces.Stronghold generatePieceFromSmallDoor(RSStrongholdPieces.EntranceStairs p_175955_0_, List<StructurePiece> p_175955_1_, Random random, int x, int y, int z, Direction p_175955_6_, int componentType) {
-        Type stronghold$type = ((RSStrongholdPieces.Stronghold) p_175955_0_).strongholdType;
+        Type stronghold$type = p_175955_0_.strongholdType;
         if (!canAddStructurePieces()) {
             return null;
         } else {
@@ -1289,7 +1289,7 @@ public class RSStrongholdPieces {
     public static class EntranceStairs extends RSStrongholdPieces.Stairs {
         public RSStrongholdPieces.PieceWeight strongholdPieceWeight;
         public RSStrongholdPieces.PortalRoom strongholdPortalRoom;
-        public List<StructurePiece> pendingChildren = Lists.<StructurePiece>newArrayList();
+        public List<StructurePiece> pendingChildren = Lists.newArrayList();
 
 
         public EntranceStairs(Random p_i50117_1_, int x, int z, Type strongholdType) {
