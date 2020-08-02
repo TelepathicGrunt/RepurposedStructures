@@ -66,7 +66,7 @@ public class RSStrongholdsConfig
 
 					addStonebrickStrongholdToModdedBiomes = subscriber.subscribe(builder
 						.comment("\r\nAdd Stonebrick-styled Stronghold to all modded non-Nether" +
-								"\nbiomes even if they have don't have vanilla Strongholds.\r\n")
+								"\nbiomes that doesn't have vanilla Strongholds.\r\n")
 						.translation("repurposedstructures.config.structure.stronghold.addstonebrickstrongholdtomoddedbiomes")
 						.define("addStonebrickStrongholdToModdedBiomes", true));
 

@@ -1,6 +1,8 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.mojang.serialization.Codec;
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.configs.RSMainConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.material.Material;
@@ -45,8 +47,12 @@ public class BoulderGiant extends Feature<NoFeatureConfig> {
             return false;
         }
 
+        int chanceRange = RepurposedStructures.RSMainConfig.diamondChanceInGiantBoulders.get();
+        boolean disabledDiamonds = chanceRange == 0;
+        if(disabledDiamonds) chanceRange = 3000;
+
         //we are at a valid spot to generate a boulder now. Begin generation.
-        for (int currentCount = 0; START_RADIUS >= 0 && currentCount < 3; ++currentCount) {
+        for (int currentCount = 0; currentCount < 3; ++currentCount) {
             int x = START_RADIUS + random.nextInt(2);
             int y = START_RADIUS + random.nextInt(2);
             int z = START_RADIUS + random.nextInt(2);
@@ -56,34 +62,34 @@ public class BoulderGiant extends Feature<NoFeatureConfig> {
                 if (blockpos.distanceSq(blockpos$Mutable) <= calculatedDistance * calculatedDistance) {
                     //adds the blocks for generation in this boulder
                     //note, if user turns off an ore, that ore's chance is dumped into the below ore for generation
-                    int randomChance = random.nextInt(3000);
+                    int randomChance = random.nextInt(chanceRange);
 
                     // 1/3000th chance for diamond ore
-                    if (randomChance == 0) {
+                    if (!disabledDiamonds && randomChance == 0) {
                         world.setBlockState(blockpos, Blocks.DIAMOND_ORE.getDefaultState(), 4);
                     }
 
-                    // 75/3000th chance for iron ore
-                    else if (randomChance <= 75) {
+                    // 3/3000th chance for iron ore
+                    else if (randomChance <= chanceRange * 0.001F) {
                         world.setBlockState(blockpos, Blocks.IRON_ORE.getDefaultState(), 4);
                     }
 
-                    // 180/3000th chance for coal ore
-                    else if (randomChance <= 255) {
+                    // 150/3000th chance for coal ore
+                    else if (randomChance <= chanceRange * 0.05F) {
                         world.setBlockState(blockpos, Blocks.COAL_ORE.getDefaultState(), 4);
                     }
 
                     // 770/3000th chance for andesite
-                    else if (randomChance <= 1025) {
+                    else if (randomChance <= chanceRange * 0.257F) {
                         world.setBlockState(blockpos, Blocks.ANDESITE.getDefaultState(), 4);
                     }
 
-                    // 700/3000th chance for cobblestone
-                    else if (randomChance <= 1725) {
+                    // 750/3000th chance for cobblestone
+                    else if (randomChance <= chanceRange * 0.25F) {
                         world.setBlockState(blockpos, Blocks.COBBLESTONE.getDefaultState(), 4);
                     }
 
-                    // 1275/3000th chance for mossyCobblestone
+                    // 1327/3000th chance for mossyCobblestone
                     else {
                         world.setBlockState(blockpos, Blocks.MOSSY_COBBLESTONE.getDefaultState(), 4);
                     }

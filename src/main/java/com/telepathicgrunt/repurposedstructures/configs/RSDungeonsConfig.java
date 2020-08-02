@@ -138,7 +138,7 @@ public class RSDungeonsConfig
 								+"\r\n them which is unlike the other modded dungeons from this mod"
 								+"\r\n as those would normally replace the Vanilla Dungeons.")
 						.translation("repurposedstructures.config.feature.dungeons.oceandungeonspawnrate")
-						.defineInRange("oceanDungeonSpawnrate", 8, 0, 1000));
+						.defineInRange("oceanDungeonSpawnrate", 6, 0, 1000));
             
 
 				builder.pop();

@@ -31,7 +31,7 @@ public abstract class AbstractBaseStructure extends Structure<NoFeatureConfig> {
         int chunkZ = blockPos.getZ() >> 4;
         int currentRadius = 0;
 
-        for(SharedSeedRandom chunkRandom = new SharedSeedRandom(); currentRadius <= 100000 / structureConfig.getSpacing(); ++currentRadius) {
+        for(SharedSeedRandom chunkRandom = new SharedSeedRandom(); currentRadius <= 100000; ++currentRadius) {
             for(int xRadius = -currentRadius; xRadius <= currentRadius; ++xRadius) {
                 boolean xEdge = xRadius == -currentRadius || xRadius == currentRadius;
 

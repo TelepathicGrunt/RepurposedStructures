@@ -13,11 +13,13 @@ public class RSMainConfig
 	{
 		public ConfigValueListener<Boolean> addLargeSwampTreeModdedBiomes;
 		public ConfigValueListener<Boolean> addGiantBouldersModdedBiomes;
+		public ConfigValueListener<Double> giantBouldersPerChunk;
+		public ConfigValueListener<Integer> diamondChanceInGiantBoulders;
 		public ConfigValueListener<Boolean> addTinyBouldersModdedBiomes;
 		public ConfigValueListener<Boolean> boulderTiny;
 		public ConfigValueListener<Boolean> boulderGiant;
 		public ConfigValueListener<Boolean> hornedSwampTree;
-		
+
 		public ConfigValueListener<Integer> jungleFortressSpawnrate;
 		public ConfigValueListener<Double> silverfishSpawnrateJF;
 		public ConfigValueListener<Boolean> allowSilverfishSpawnerJF;
@@ -52,6 +54,20 @@ public class RSMainConfig
 						.comment("\r\n Adds giant boulders to modded Giant Tree Taiga (or Redwood) biomes.")
 					.translation("repurposedstructures.config.feature.misc.addGiantBouldersModdedBiomes")
 					.define("addGiantBouldersModdedBiomes", false));
+
+
+					giantBouldersPerChunk = subscriber.subscribe(builder
+					.comment("\r\n How many Giant Boulders per chunk. (Can be decimal too)")
+					.translation("repurposedstructures.config.feature.misc.giantbouldersperchunk")
+					.defineInRange("giantBouldersPerChunk", 1.0D, 1, 100));
+
+					diamondChanceInGiantBoulders = subscriber.subscribe(builder
+					.comment("\r\n 1 out of ___ chance of Diamond Ore when placing"
+							+ "\n a block in giant Boulders. Lower number = more common."
+							+ "\n Enter 0 to disable Diamond Ores completely.")
+					.translation("repurposedstructures.config.feature.misc.diamondchanceingiantboulders")
+					.defineInRange("diamondChanceInGiantBoulders", 7000, 0, 1000000));
+
 
 					addTinyBouldersModdedBiomes = subscriber.subscribe(builder
 						.comment("\r\n Adds tiny boulders to modded Taiga biomes.")
