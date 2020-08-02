@@ -8,6 +8,20 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.1.3.4 Changes) (1.16.1 Minecraft)
+
+##### Temples:
+
+-Fixed it so that Nether Temples cannot be within 6 chunks of any Nether Outposts now for real.
+
+##### Pyramids:
+
+-Fixed it so that Nether Pyramids cannot be within 6 chunks of any Nether Outposts now for real.
+
+##### Villages:
+
+-Fixed it so that Warped and Crimson Villages cannot be within 10 chunks of any Nether Outposts now for real.
+
 ## (V.1.3.3 Changes) (1.16.1 Minecraft)
 
 ##### Outposts:
