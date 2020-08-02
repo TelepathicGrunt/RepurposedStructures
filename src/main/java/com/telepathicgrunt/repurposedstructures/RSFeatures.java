@@ -157,29 +157,58 @@ public class RSFeatures {
         registerStructure(new ResourceLocation(RepurposedStructures.MODID, "temple_nether_crimson"), NETHER_CRIMSON_TEMPLE, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSTemplesConfig.netherCrimsonTempleSpawnrate.get(), (int) (RepurposedStructures.RSTemplesConfig.netherCrimsonTempleSpawnrate.get() * 0.75f), 399117359));
         registerStructure(new ResourceLocation(RepurposedStructures.MODID, "temple_nether_warped"), NETHER_WARPED_TEMPLE, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSTemplesConfig.netherWarpedTempleSpawnrate.get(), (int) (RepurposedStructures.RSTemplesConfig.netherWarpedTempleSpawnrate.get() * 0.75f), 399117359));
 
-        registerSurfaceAdjustingStructure(new ResourceLocation(RepurposedStructures.MODID, "outpost_nether_brick"), NETHER_BRICK_OUTPOST, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSOutpostsConfig.netherBrickOutpostSpawnrate.get(), (int) (RepurposedStructures.RSOutpostsConfig.netherBrickOutpostSpawnrate.get() * 0.75f), 399117371));
-        registerSurfaceAdjustingStructure(new ResourceLocation(RepurposedStructures.MODID, "outpost_warped"), WARPED_OUTPOST, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSOutpostsConfig.warpedOutpostSpawnrate.get(), (int) (RepurposedStructures.RSOutpostsConfig.warpedOutpostSpawnrate.get() * 0.75f), 399117372));
-        registerSurfaceAdjustingStructure(new ResourceLocation(RepurposedStructures.MODID, "outpost_crimson"), CRIMSON_OUTPOST, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSOutpostsConfig.crimsonOutpostSpawnrate.get(), (int) (RepurposedStructures.RSOutpostsConfig.crimsonOutpostSpawnrate.get() * 0.75f), 399117373));
+        registerLandscapeTransformingStructure(new ResourceLocation(RepurposedStructures.MODID, "outpost_nether_brick"), NETHER_BRICK_OUTPOST, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSOutpostsConfig.netherBrickOutpostSpawnrate.get(), (int) (RepurposedStructures.RSOutpostsConfig.netherBrickOutpostSpawnrate.get() * 0.75f), 399117371));
+        registerLandscapeTransformingStructure(new ResourceLocation(RepurposedStructures.MODID, "outpost_warped"), WARPED_OUTPOST, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSOutpostsConfig.warpedOutpostSpawnrate.get(), (int) (RepurposedStructures.RSOutpostsConfig.warpedOutpostSpawnrate.get() * 0.75f), 399117372));
+        registerLandscapeTransformingStructure(new ResourceLocation(RepurposedStructures.MODID, "outpost_crimson"), CRIMSON_OUTPOST, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSOutpostsConfig.crimsonOutpostSpawnrate.get(), (int) (RepurposedStructures.RSOutpostsConfig.crimsonOutpostSpawnrate.get() * 0.75f), 399117373));
 
         registerStructure(new ResourceLocation(RepurposedStructures.MODID, "pyramid_badlands"), BADLANDS_TEMPLE, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSTemplesConfig.badlandsPyramidSpawnrate.get(), (int) (RepurposedStructures.RSTemplesConfig.badlandsPyramidSpawnrate.get() * 0.75f), 399117360));
-        registerSurfaceAdjustingStructure(new ResourceLocation(RepurposedStructures.MODID, "pyramid_nether"), NETHER_PYRAMID, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSTemplesConfig.netherPyramidSpawnrate.get(), (int) (RepurposedStructures.RSTemplesConfig.netherPyramidSpawnrate.get() * 0.75f), 399117361));
+        registerLandscapeTransformingStructure(new ResourceLocation(RepurposedStructures.MODID, "pyramid_nether"), NETHER_PYRAMID, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSTemplesConfig.netherPyramidSpawnrate.get(), (int) (RepurposedStructures.RSTemplesConfig.netherPyramidSpawnrate.get() * 0.75f), 399117361));
 
         registerStructure(new ResourceLocation(RepurposedStructures.MODID, "shipwreck_end"), END_SHIPWRECK, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSShipwrecksConfig.endShipwreckSpawnrate.get(), (int) (RepurposedStructures.RSShipwrecksConfig.endShipwreckSpawnrate.get() * 0.75f), 399117374));
 
-        registerSurfaceAdjustingStructure(new ResourceLocation(RepurposedStructures.MODID, "village_badlands"), BADLANDS_VILLAGE, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSVillagesConfig.badlandsVillageSpawnrate.get(), (int) (RepurposedStructures.RSVillagesConfig.badlandsVillageSpawnrate.get() * 0.75f), 399117364));
-        registerSurfaceAdjustingStructure(new ResourceLocation(RepurposedStructures.MODID, "village_birch"), BIRCH_VILLAGE, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSVillagesConfig.birchVillageSpawnrate.get(), (int) (RepurposedStructures.RSVillagesConfig.birchVillageSpawnrate.get() * 0.75f), 399117365));
-        registerSurfaceAdjustingStructure(new ResourceLocation(RepurposedStructures.MODID, "village_dark_oak"), DARK_FOREST_VILLAGE, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSVillagesConfig.darkForestVillageSpawnrate.get(), (int) (RepurposedStructures.RSVillagesConfig.darkForestVillageSpawnrate.get() * 0.75f), 399117366));
-        registerSurfaceAdjustingStructure(new ResourceLocation(RepurposedStructures.MODID, "village_jungle"), JUNGLE_VILLAGE, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSVillagesConfig.jungleVillageSpawnrate.get(), (int) (RepurposedStructures.RSVillagesConfig.jungleVillageSpawnrate.get() * 0.75f), 399117367));
-        registerSurfaceAdjustingStructure(new ResourceLocation(RepurposedStructures.MODID, "village_swamp"), SWAMP_VILLAGE, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSVillagesConfig.swampVillageSpawnrate.get(), (int) (RepurposedStructures.RSVillagesConfig.swampVillageSpawnrate.get() * 0.75f), 399117368));
-        registerSurfaceAdjustingStructure(new ResourceLocation(RepurposedStructures.MODID, "village_mountains"), MOUNTAINS_VILLAGE, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSVillagesConfig.mountainsVillageSpawnrate.get(), (int) (RepurposedStructures.RSVillagesConfig.mountainsVillageSpawnrate.get() * 0.75f), 399117369));
-        registerSurfaceAdjustingStructure(new ResourceLocation(RepurposedStructures.MODID, "village_giant_taiga"), GIANT_TAIGA_VILLAGE, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSVillagesConfig.giantTaigaVillageSpawnrate.get(), (int) (RepurposedStructures.RSVillagesConfig.giantTaigaVillageSpawnrate.get() * 0.75f), 399117370));
-        registerSurfaceAdjustingStructure(new ResourceLocation(RepurposedStructures.MODID, "village_crimson"), CRIMSON_VILLAGE, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSVillagesConfig.crimsonVillageSpawnrate.get(), (int) (RepurposedStructures.RSVillagesConfig.crimsonVillageSpawnrate.get() * 0.75f), 399117375));
-        registerSurfaceAdjustingStructure(new ResourceLocation(RepurposedStructures.MODID, "village_warped"), WARPED_VILLAGE, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSVillagesConfig.warpedVillageSpawnrate.get(), (int) (RepurposedStructures.RSVillagesConfig.warpedVillageSpawnrate.get() * 0.75f), 399117376));
+        registerLandscapeTransformingStructure(new ResourceLocation(RepurposedStructures.MODID, "village_badlands"), BADLANDS_VILLAGE, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSVillagesConfig.badlandsVillageSpawnrate.get(), (int) (RepurposedStructures.RSVillagesConfig.badlandsVillageSpawnrate.get() * 0.75f), 399117364));
+        registerLandscapeTransformingStructure(new ResourceLocation(RepurposedStructures.MODID, "village_birch"), BIRCH_VILLAGE, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSVillagesConfig.birchVillageSpawnrate.get(), (int) (RepurposedStructures.RSVillagesConfig.birchVillageSpawnrate.get() * 0.75f), 399117365));
+        registerLandscapeTransformingStructure(new ResourceLocation(RepurposedStructures.MODID, "village_dark_oak"), DARK_FOREST_VILLAGE, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSVillagesConfig.darkForestVillageSpawnrate.get(), (int) (RepurposedStructures.RSVillagesConfig.darkForestVillageSpawnrate.get() * 0.75f), 399117366));
+        registerLandscapeTransformingStructure(new ResourceLocation(RepurposedStructures.MODID, "village_jungle"), JUNGLE_VILLAGE, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSVillagesConfig.jungleVillageSpawnrate.get(), (int) (RepurposedStructures.RSVillagesConfig.jungleVillageSpawnrate.get() * 0.75f), 399117367));
+        registerLandscapeTransformingStructure(new ResourceLocation(RepurposedStructures.MODID, "village_swamp"), SWAMP_VILLAGE, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSVillagesConfig.swampVillageSpawnrate.get(), (int) (RepurposedStructures.RSVillagesConfig.swampVillageSpawnrate.get() * 0.75f), 399117368));
+        registerLandscapeTransformingStructure(new ResourceLocation(RepurposedStructures.MODID, "village_mountains"), MOUNTAINS_VILLAGE, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSVillagesConfig.mountainsVillageSpawnrate.get(), (int) (RepurposedStructures.RSVillagesConfig.mountainsVillageSpawnrate.get() * 0.75f), 399117369));
+        registerLandscapeTransformingStructure(new ResourceLocation(RepurposedStructures.MODID, "village_giant_taiga"), GIANT_TAIGA_VILLAGE, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSVillagesConfig.giantTaigaVillageSpawnrate.get(), (int) (RepurposedStructures.RSVillagesConfig.giantTaigaVillageSpawnrate.get() * 0.75f), 399117370));
+        registerLandscapeTransformingStructure(new ResourceLocation(RepurposedStructures.MODID, "village_crimson"), CRIMSON_VILLAGE, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSVillagesConfig.crimsonVillageSpawnrate.get(), (int) (RepurposedStructures.RSVillagesConfig.crimsonVillageSpawnrate.get() * 0.75f), 399117375));
+        registerLandscapeTransformingStructure(new ResourceLocation(RepurposedStructures.MODID, "village_warped"), WARPED_VILLAGE, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSVillagesConfig.warpedVillageSpawnrate.get(), (int) (RepurposedStructures.RSVillagesConfig.warpedVillageSpawnrate.get() * 0.75f), 399117376));
 
         //Next avaliable seed: 399117377
 
         //registers the structure pieces.
         StructurePieces.registerStructurePieces();
+    }
+
+    public static <F extends Structure<NoFeatureConfig>> void registerLandscapeTransformingStructure(
+            ResourceLocation resourceLocation,
+            F structure,
+            GenerationStage.Decoration stage,
+            StructureSeparationSettings StructureSeparationSettings
+    ) {
+        List<Structure<?>> tempList = new ArrayList<>(Structure.field_236384_t_);
+        tempList.add(structure);
+        Structure.field_236384_t_ = ImmutableList.copyOf(tempList);
+
+        registerStructure(resourceLocation, structure, stage, StructureSeparationSettings);
+    }
+
+
+    public static <F extends Structure<NoFeatureConfig>> void registerStructure(
+            ResourceLocation resourceLocation,
+            F structure,
+            GenerationStage.Decoration stage,
+            StructureSeparationSettings StructureSeparationSettings
+    ) {
+        structure.setRegistryName(resourceLocation);
+        Structure.register(resourceLocation.toString(), structure, stage);
+        FlatGenerationSettings.STRUCTURES.put(structure, structure.configure(IFeatureConfig.NO_FEATURE_CONFIG));
+
+        Map<Structure<?>, StructureSeparationSettings> tempMap = new HashMap<>(DimensionStructuresSettings.DEFAULT_STRUCTURES);
+        tempMap.put(structure, StructureSeparationSettings);
+        DimensionStructuresSettings.DEFAULT_STRUCTURES = ImmutableMap.copyOf(tempMap);
     }
 
     public static void registerVillagePools() {
@@ -192,31 +221,5 @@ public class RSFeatures {
         VillageGiantTaigaPools.init();
         VillageCrimsonPools.init();
         VillageWarpedPools.init();
-    }
-
-    public static <F extends Structure<NoFeatureConfig>> void registerSurfaceAdjustingStructure(
-            ResourceLocation resourceLocation,
-            F structure,
-            GenerationStage.Decoration stage,
-            StructureSeparationSettings StructureSeparationSettings
-    ) {
-        List<Structure<?>> tempList = new ArrayList<>(Structure.field_236384_t_);
-        tempList.add(structure);
-        Structure.field_236384_t_ = ImmutableList.copyOf(tempList);
-
-        registerStructure(resourceLocation, structure, stage, StructureSeparationSettings);
-    }
-    public static <F extends Structure<NoFeatureConfig>> void registerStructure(
-            ResourceLocation resourceLocation,
-            F structure,
-            GenerationStage.Decoration stage,
-            StructureSeparationSettings StructureSeparationSettings
-    ) {
-        Structure.register(resourceLocation.toString(), structure, stage);
-        FlatGenerationSettings.STRUCTURES.put(structure, structure.configure(IFeatureConfig.NO_FEATURE_CONFIG));
-
-        Map<Structure<?>, StructureSeparationSettings> tempMap = new HashMap<>(DimensionStructuresSettings.DEFAULT_STRUCTURES);
-        tempMap.put(structure, StructureSeparationSettings);
-        DimensionStructuresSettings.DEFAULT_STRUCTURES = ImmutableMap.copyOf(tempMap);
     }
 }
