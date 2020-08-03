@@ -8,6 +8,29 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+
+## (V.2.0.0 Changes) (1.16.1 Minecraft)
+DO NOT LOAD THIS 1.16.1 MOD IN A 1.15.2 WORLD ALREADY MADE WITH 
+THE PREVIOUS VERSION OF REPURPOSED STRUCTURES!!!
+However, any world that never had Repurposed Structures on before will
+work just fine in 1.16.1 with this version of it.
+
+##### Major:
+-1.16.1 Fabric version now directly ported to Forge! Report any bugs please!
+See the changelog on the Fabric version to know what exactly changed and was added! 
+https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/blob/1.16/CHANGELOG.md
+
+Some additions are:
+Advancements for all structures!
+Nether Outposts!
+Nether Pyramid!
+More Nether Temples!
+Nether Stronghold re-themed!
+Chains in Strongholds!
+Cartographers can sell maps to Jungle Fortresses!
+End Shipwrecks that can have maps to unexplored End Cities!
+And more!
+
 ## (V.1.7.3 Changes) (1.15.2 Minecraft)
 
 ##### Structures:
