@@ -32,6 +32,12 @@ public class StrongholdChains extends Feature<NoFeatureConfig> {
             return  blockState.isIn(Blocks.NETHER_BRICKS)  ||
                     blockState.isIn(Blocks.RED_NETHER_BRICKS)  ||
                     blockState.isIn(Blocks.MAGMA_BLOCK)  ||
+                    blockState.isIn(Blocks.field_235406_np_)  ||
+                    blockState.isIn(Blocks.field_235410_nt_)  ||
+                    blockState.isIn(Blocks.field_235411_nu_)  ||
+                    blockState.isIn(Blocks.field_235412_nv_)  ||
+                    blockState.isIn(Blocks.field_235413_nw_)  ||
+                    blockState.isIn(Blocks.field_235387_nA_)  ||
                     blockState.isIn(Blocks.BLACK_TERRACOTTA)  ||
                     blockState.isIn(Blocks.COBBLESTONE)  ||
                     blockState.isIn(Blocks.STONE_BRICKS)  ||

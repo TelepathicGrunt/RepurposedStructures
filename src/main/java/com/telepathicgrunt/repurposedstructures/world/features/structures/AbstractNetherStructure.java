@@ -29,18 +29,26 @@ public abstract class AbstractNetherStructure extends AbstractBaseStructure {
         if(this != RSFeatures.WARPED_OUTPOST && this != RSFeatures.CRIMSON_OUTPOST && this != RSFeatures.NETHER_BRICK_OUTPOST){
             for (int curChunkX = chunkX - 6; curChunkX <= chunkX + 6; curChunkX++) {
                 for (int curChunkZ = chunkZ - 6; curChunkZ <= chunkZ + 6; curChunkZ++) {
-                    ChunkPos chunkPos2 = RSFeatures.WARPED_OUTPOST.func_236392_a_(chunkGenerator.getConfig().func_236197_a_(Structure.field_236381_q_), seed, chunkRandom, curChunkX, curChunkZ);
+                    ChunkPos chunkPos2 = RSFeatures.WARPED_OUTPOST.func_236392_a_(chunkGenerator.getConfig().func_236197_a_(RSFeatures.WARPED_OUTPOST), seed, chunkRandom, curChunkX, curChunkZ);
                     if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
                         return false;
                     }
-                    chunkPos2 = RSFeatures.CRIMSON_OUTPOST.func_236392_a_(chunkGenerator.getConfig().func_236197_a_(Structure.field_236381_q_), seed, chunkRandom, curChunkX, curChunkZ);
+                    chunkPos2 = RSFeatures.CRIMSON_OUTPOST.func_236392_a_(chunkGenerator.getConfig().func_236197_a_(RSFeatures.CRIMSON_OUTPOST), seed, chunkRandom, curChunkX, curChunkZ);
                     if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
                         return false;
                     }
-                    chunkPos2 = RSFeatures.NETHER_BRICK_OUTPOST.func_236392_a_(chunkGenerator.getConfig().func_236197_a_(Structure.field_236381_q_), seed, chunkRandom, curChunkX, curChunkZ);
+                    chunkPos2 = RSFeatures.NETHER_BRICK_OUTPOST.func_236392_a_(chunkGenerator.getConfig().func_236197_a_(RSFeatures.NETHER_BRICK_OUTPOST), seed, chunkRandom, curChunkX, curChunkZ);
                     if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
                         return false;
                     }
+                }
+            }
+        }
+        for (int curChunkX = chunkX - 3; curChunkX <= chunkX + 3; curChunkX++) {
+            for (int curChunkZ = chunkZ - 3; curChunkZ <= chunkZ + 3; curChunkZ++) {
+                ChunkPos chunkPos2 = RSFeatures.NETHER_PYRAMID.func_236392_a_(chunkGenerator.getConfig().func_236197_a_(RSFeatures.NETHER_PYRAMID), seed, chunkRandom, curChunkX, curChunkZ);
+                if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
+                    return false;
                 }
             }
         }
