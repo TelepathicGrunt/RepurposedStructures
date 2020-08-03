@@ -4,8 +4,13 @@ import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.entity.EntityType;
+import net.minecraft.util.SharedSeedRandom;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.provider.BiomeProvider;
+import net.minecraft.world.gen.ChunkGenerator;
+import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.Structure;
 
@@ -33,6 +38,14 @@ public class RSMineshaftEndStructure extends AbstractMineshaftStructure {
     @Override
     public Structure.IStartFactory<NoFeatureConfig> getStartFactory() {
         return RSMineshaftEndStructure.Start::new;
+    }
+
+    @Override
+    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int x, int z, Biome biome, ChunkPos chunkPos, NoFeatureConfig featureConfig) {
+        chunkRandom.setLargeFeatureSeed(seed, x, z);
+        double d = (getProbability() / 10000D);
+        int landHeight = chunkGenerator.func_222531_c(x, z, Heightmap.Type.WORLD_SURFACE_WG);
+        return chunkRandom.nextDouble() < d && (RepurposedStructures.RSMineshaftsConfig.barrensIslandsEndMineshafts.get() || landHeight > 20);
     }
 
     public static class Start extends AbstractStart {

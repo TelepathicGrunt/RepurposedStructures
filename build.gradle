@@ -23,7 +23,7 @@ apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
 version = "${mod_version}"
-group = "com.telepathicgrunt.repurposedstructures" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+group = "com.telepathicgrunt.repurposed_structures"
 archivesBaseName = "repurposed_structures"
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
@@ -37,6 +37,9 @@ minecraft {
         client {
             workingDirectory project.file('run')
             arg "-mixin.config="+archivesBaseName+".mixins.json"
+
+            // Recommended logging level for the console
+            property 'forge.logging.console.level', 'debug'
 
             mods {
                 repurposed_structures {
@@ -70,61 +73,37 @@ jar {
     manifest {
         attributes([
             "Specification-Title": "repurposed_structures",
-            "Specification-Vendor": "TelepathicGrunt",
+            "Specification-Vendor": "telepathicgrunt",
             "Specification-Version": "1", // We are version 1 of ourselves
             "Implementation-Title": project.name,
             "Implementation-Version": "${version}",
-            "Implementation-Vendor" :"TelepathicGrunt",
+            "Implementation-Vendor" :"telepathicgrunt",
             "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-            "MixinConfigs": "repurposedstructures.mixins.json"
+            "MixinConfigs": "repurposed_structures.mixins.json"
         ])
     }
 }
 
 import groovy.json.JsonSlurper
 import groovy.json.JsonOutput
-
-// Process resources on build
 processResources {
-	// This will ensure that this task is redone when the versions change.
-	inputs.property 'version', project.version
+    doLast {
+        def jsonMinifyStart = System.currentTimeMillis()
+        def jsonMinified = 0
+        def jsonBytesSaved = 0
+        fileTree(dir: outputs.files.asPath, include: '**/*.json').each {
+            File file = it
+            jsonMinified++
+            def oldLength = file.length()
+            file.text = JsonOutput.toJson(new JsonSlurper().parse(file))
+            jsonBytesSaved += oldLength - file.length()
+        }
+        println('Minified ' + jsonMinified + ' json files. Saved ' + jsonBytesSaved + ' bytes. Took ' + (System.currentTimeMillis() - jsonMinifyStart) + 'ms.')
+    }
 
-	// Replace stuff in mods.toml, nothing else
-	from(sourceSets.main.resources.srcDirs) {
-		include 'META-INF/mods.toml'
-
-		// Replace version
-		expand 'version':project.version
-	}
-
-	// Copy everything else except the mods.toml
-	from(sourceSets.main.resources.srcDirs) {
-		exclude 'META-INF/mods.toml'
-	}
-	
-	// Minifies all .json files when building the mod.
-	// Source files are not minified, only the jar copies.
-	doLast {
-
-		def jsonMinifyStart = System.currentTimeMillis()
-		def jsonMinified = 0
-		def jsonBytesSaved = 0
-
-		fileTree(dir: outputs.files.asPath, include: '**/*.json').each {
-
-			File file = it
-			jsonMinified++
-			def oldLength = file.length()
-			file.text = JsonOutput.toJson(new JsonSlurper().parse(file))
-			jsonBytesSaved += oldLength - file.length()
-		}
-
-		println('Minified ' + jsonMinified + ' json files. Saved ' + jsonBytesSaved + ' bytes. Took ' + (System.currentTimeMillis() - jsonMinifyStart) + 'ms.')
-	}
 }
-
 apply plugin: 'org.spongepowered.mixin'
 
 mixin {
-    add sourceSets.main, "repurposedstructures.refmap.json"
+    add sourceSets.main, "repurposed_structures.refmap.json"
 }

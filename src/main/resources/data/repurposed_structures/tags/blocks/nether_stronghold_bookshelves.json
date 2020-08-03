@@ -1,6 +1,19 @@
 {
   "replace": false,
   "values": [
-    "minecraft:bookshelf"
+    "minecraft:polished_blackstone_bricks",
+    "minecraft:polished_blackstone_bricks",
+    "minecraft:polished_blackstone_bricks",
+    "minecraft:polished_blackstone",
+    "minecraft:polished_blackstone",
+    "minecraft:polished_blackstone",
+    "minecraft:cracked_polished_blackstone_bricks",
+    "minecraft:cracked_polished_blackstone_bricks",
+    "minecraft:cracked_polished_blackstone_bricks",
+    "minecraft:cracked_polished_blackstone_bricks",
+    "minecraft:chiseled_polished_blackstone",
+    "minecraft:chiseled_polished_blackstone",
+    "minecraft:chiseled_polished_blackstone",
+    "minecraft:gilded_blackstone"
   ]
 }

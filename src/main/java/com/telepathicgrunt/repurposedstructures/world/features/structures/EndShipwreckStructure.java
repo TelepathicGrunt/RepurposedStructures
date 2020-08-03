@@ -5,23 +5,31 @@ import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.Rotation;
+import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.jigsaw.JigsawManager;
 import net.minecraft.world.gen.feature.jigsaw.JigsawPattern;
 import net.minecraft.world.gen.feature.jigsaw.SingleJigsawPiece;
+import net.minecraft.world.gen.feature.structure.EndCityStructure;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.StructureStart;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 
 public class EndShipwreckStructure extends AbstractBaseStructure {
+    // Special thanks to cannon_foddr for allowing me to use his End Shipwreck design!
+
     public EndShipwreckStructure(Codec<NoFeatureConfig> config) {
         super(config);
     }
@@ -53,6 +61,33 @@ public class EndShipwreckStructure extends AbstractBaseStructure {
     @Override
     public Structure.IStartFactory<NoFeatureConfig> getStartFactory() {
         return EndShipwreckStructure.Start::new;
+    }
+
+    protected boolean shouldStartAt(ChunkGenerator generator, BiomeProvider biomeProvider, long seed, SharedSeedRandom random, int x, int z, Biome biome, ChunkPos chunkPos, NoFeatureConfig config) {
+        return getYPosForStructure(x, z, generator) >= 20;
+    }
+
+    private static int getYPosForStructure(int x, int z, ChunkGenerator generator) {
+        Random random = new Random((long)(x + z * 10387313));
+        Rotation rotation = Rotation.randomRotation(random);
+        int i = 5;
+        int j = 5;
+        if (rotation == Rotation.CLOCKWISE_90) {
+            i = -5;
+        } else if (rotation == Rotation.CLOCKWISE_180) {
+            i = -5;
+            j = -5;
+        } else if (rotation == Rotation.COUNTERCLOCKWISE_90) {
+            j = -5;
+        }
+
+        int k = (x << 4) + 7;
+        int l = (z << 4) + 7;
+        int i1 = generator.func_222531_c(k, l, Heightmap.Type.WORLD_SURFACE_WG);
+        int j1 = generator.func_222531_c(k, l + j, Heightmap.Type.WORLD_SURFACE_WG);
+        int k1 = generator.func_222531_c(k + i, l, Heightmap.Type.WORLD_SURFACE_WG);
+        int l1 = generator.func_222531_c(k + i, l + j, Heightmap.Type.WORLD_SURFACE_WG);
+        return Math.min(Math.min(i1, j1), Math.min(k1, l1));
     }
 
     public static class Start extends StructureStart<NoFeatureConfig> {

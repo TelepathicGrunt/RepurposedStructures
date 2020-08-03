@@ -428,14 +428,11 @@ public class RSMineshaftPieces {
                     this.randomlyPlaceBlock(world, boundingBox, random, 1F, x + 2, y, z + 1, Blocks.END_ROD.getDefaultState().with(DirectionalBlock.FACING, Direction.NORTH));
                 }
             } else if (this.mineShaftType == Type.NETHER) {
-                if (random.nextFloat() < 0.1f) {
-                    this.setBlockState(world, Blocks.REDSTONE_LAMP.getDefaultState().with(RedstoneLampBlock.LIT, true), x + 1, y, z, boundingBox);
-                    this.setBlockState(world, Blocks.REDSTONE_TORCH.getDefaultState(), x, y + 1, z, boundingBox);
-                    this.setBlockState(world, Blocks.REDSTONE_TORCH.getDefaultState(), x + 2, y + 1, z, boundingBox);
-                    this.setBlockState(world, Blocks.REDSTONE_WIRE.getDefaultState().with(RedstoneWireBlock.POWER, 14).with(RedstoneWireBlock.EAST, RedstoneSide.SIDE).with(RedstoneWireBlock.EAST, RedstoneSide.SIDE), x + 1, y + 1, z, boundingBox);
+                if (random.nextFloat() < 0.3f) {
+                    this.randomlyPlaceBlock(world, boundingBox, random, 0.45F, x + 1, y, z, Blocks.field_235383_mw_.getDefaultState());
                 } else {
-                    this.randomlyPlaceBlock(world, boundingBox, random, 0.1F, x + 1, y, z - 1, Blocks.REDSTONE_WALL_TORCH.getDefaultState().with(WallTorchBlock.HORIZONTAL_FACING, Direction.SOUTH));
-                    this.randomlyPlaceBlock(world, boundingBox, random, 0.1F, x + 1, y, z + 1, Blocks.REDSTONE_WALL_TORCH.getDefaultState().with(WallTorchBlock.HORIZONTAL_FACING, Direction.NORTH));
+                    this.randomlyPlaceBlock(world, boundingBox, random, 0.1F, x + 1, y, z - 1, Blocks.field_235340_cR_.getDefaultState().with(WallTorchBlock.HORIZONTAL_FACING, Direction.SOUTH));
+                    this.randomlyPlaceBlock(world, boundingBox, random, 0.1F, x + 1, y, z + 1, Blocks.field_235340_cR_.getDefaultState().with(WallTorchBlock.HORIZONTAL_FACING, Direction.NORTH));
                 }
             } else if (this.mineShaftType == Type.OCEAN) {
                 this.randomlyPlaceBlock(world, boundingBox, random, 0.2F, x + 1, y, z, Blocks.SEA_LANTERN.getDefaultState());
