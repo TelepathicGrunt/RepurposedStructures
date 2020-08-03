@@ -75,6 +75,7 @@ public class RSStrongholdPieces {
         NETHER_BLOCK_MAP.put(Blocks.WALL_TORCH, Blocks.field_235340_cR_);
         NETHER_BLOCK_MAP.put(Blocks.TORCH, Blocks.field_235339_cQ_);
         NETHER_BLOCK_MAP.put(Blocks.STONE_BUTTON, Blocks.field_235391_nE_);
+        NETHER_BLOCK_MAP.put(Blocks.IRON_DOOR, Blocks.field_235360_mS_);
 
 
         PIECE_WEIGHTS.add(new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.Straight.class, 40, 0));
@@ -1380,19 +1381,19 @@ public class RSStrongholdPieces {
                     float chance = rand.nextFloat();
                     if (chance < 0.025F) {
                         this.blockstate = Blocks.MAGMA_BLOCK.getDefaultState();
-                    } else if (chance < 0.08F) {
+                    } else if (chance < 0.07F) {
                         this.blockstate = Blocks.RED_NETHER_BRICKS.getDefaultState();
-                    } else if (chance < 0.16F) {
+                    } else if (chance < 0.15F) {
                         this.blockstate = Blocks.NETHER_BRICKS.getDefaultState();
-                    } else if (chance < 0.33F) {
+                    } else if (chance < 0.32F) {
                         this.blockstate = Blocks.field_235406_np_.getDefaultState();
-                    } else if (chance < 0.40F) {
+                    } else if (chance < 0.35F) {
                         this.blockstate = Blocks.field_235413_nw_.getDefaultState();
-                    } else if (chance < 0.50F) {
+                    } else if (chance < 0.47F) {
                         this.blockstate = Blocks.field_235410_nt_.getDefaultState();
-                    } else if (chance < 0.501F) {
+                    } else if (chance < 0.471F) {
                         this.blockstate = Blocks.field_235387_nA_.getDefaultState();
-                    } else if (chance < 0.60F) {
+                    } else if (chance < 0.57F) {
                         this.blockstate = Blocks.field_235412_nv_.getDefaultState();
                     } else {
                         this.blockstate = Blocks.field_235411_nu_.getDefaultState();
@@ -1569,13 +1570,8 @@ public class RSStrongholdPieces {
                     this.setBlockState(world, Blocks.STONE_BRICKS.getDefaultState(), xStart + 2, yStart + 2, zStart, mutableBox);
                     this.setBlockState(world, Blocks.STONE_BRICKS.getDefaultState(), xStart + 2, yStart + 1, zStart, mutableBox);
                     this.setBlockState(world, Blocks.STONE_BRICKS.getDefaultState(), xStart + 2, yStart, zStart, mutableBox);
-                    if (this.strongholdType == Type.NETHER) {
-                        this.setBlockState(world, Blocks.field_235360_mS_.getDefaultState(), xStart + 1, yStart, zStart, mutableBox);
-                        this.setBlockState(world, Blocks.field_235360_mS_.getDefaultState().with(DoorBlock.HALF, DoubleBlockHalf.UPPER), xStart + 1, yStart + 1, zStart, mutableBox);
-                    } else {
-                        this.setBlockState(world, Blocks.IRON_DOOR.getDefaultState(), xStart + 1, yStart, zStart, mutableBox);
-                        this.setBlockState(world, Blocks.IRON_DOOR.getDefaultState().with(DoorBlock.HALF, DoubleBlockHalf.UPPER), xStart + 1, yStart + 1, zStart, mutableBox);
-                    }
+                    this.setBlockState(world, Blocks.IRON_DOOR.getDefaultState(), xStart + 1, yStart, zStart, mutableBox);
+                    this.setBlockState(world, Blocks.IRON_DOOR.getDefaultState().with(DoorBlock.HALF, DoubleBlockHalf.UPPER), xStart + 1, yStart + 1, zStart, mutableBox);
                     this.setBlockState(world, Blocks.STONE_BUTTON.getDefaultState().with(HorizontalBlock.HORIZONTAL_FACING, Direction.NORTH), xStart + 2, yStart + 1, zStart + 1, mutableBox);
                     this.setBlockState(world, Blocks.STONE_BUTTON.getDefaultState().with(HorizontalBlock.HORIZONTAL_FACING, Direction.SOUTH), xStart + 2, yStart + 1, zStart - 1, mutableBox);
             }

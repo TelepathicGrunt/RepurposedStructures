@@ -1,5 +1,7 @@
 package com.telepathicgrunt.repurposedstructures;
 
+import com.electronwill.nightconfig.core.file.CommentedFileConfig;
+import com.electronwill.nightconfig.toml.TomlFormat;
 import com.telepathicgrunt.repurposedstructures.configs.RSDungeonsConfig.RSDungeonsConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSMainConfig;
 import com.telepathicgrunt.repurposedstructures.configs.RSMainConfig.RSConfigValues;
@@ -24,9 +26,11 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ConfigTracker;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -48,7 +52,17 @@ public class RepurposedStructures
 	public static RSTemplesConfigValues RSTemplesConfig = null;
 	public static RSShipwrecksConfigValues RSShipwrecksConfig = null;
 	public static MobSpawnerManager mobSpawnerManager = null;
-
+	private static final String[] CONFIG_NAMES = new String[]{
+			"\\repurposed_structures-common.toml",
+			"\\repurposed_structures-dungeons.toml",
+			"\\repurposed_structures-mineshafts.toml",
+			"\\repurposed_structures-strongholds.toml",
+			"\\repurposed_structures-wells.toml",
+			"\\repurposed_structures-shipwrecks.toml",
+			"\\repurposed_structures-outposts.toml",
+			"\\repurposed_structures-temples.toml",
+			"\\repurposed_structures-villages.toml"
+	};
 
 	public RepurposedStructures()
 	{
@@ -65,6 +79,7 @@ public class RepurposedStructures
 		RSOutpostsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSOutpostsConfigValues::new, "repurposed_structures-outposts.toml");
 		RSTemplesConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSTemplesConfigValues::new, "repurposed_structures-temples.toml");
 		RSVillagesConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSVillagesConfigValues::new, "repurposed_structures-villages.toml");
+
 	}
 
 	/*
@@ -83,7 +98,6 @@ public class RepurposedStructures
 		{
 			addFeaturesAndStructuresToBiomes(biome, biome.getRegistryName());
 		}
-		
 		RSFeatures.registerVillagePools();
 	}
 	
@@ -98,15 +112,19 @@ public class RepurposedStructures
 		@SubscribeEvent
 		public static void onRegisterFeatures(final RegistryEvent.Register<Feature<?>> event)
 		{
+			//load the configs for structure spacing and placements
+			ConfigTracker.INSTANCE.loadConfigs(ModConfig.Type.COMMON, FMLPaths.CONFIGDIR.get());
+			int spacing = RepurposedStructures.RSTemplesConfig.netherWastelandTempleSpawnrate.get();
 			RSFeatures.registerFeatures(event);
 		}
 
 		@SubscribeEvent
 		public static void onRegisterPlacements(final RegistryEvent.Register<Placement<?>> event)
 		{
+			//load the configs for structure spacing and placements
+			ConfigTracker.INSTANCE.loadConfigs(ModConfig.Type.COMMON, FMLPaths.CONFIGDIR.get());
 			RSPlacements.registerPlacements(event);
 		}
-
 	}
 
 	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
@@ -117,6 +135,7 @@ public class RepurposedStructures
 			event.addListener(RepurposedStructures.mobSpawnerManager);
 		}
 	}
+
     /*
      * Here, we will use this to add our structures/features to all biomes.
      */

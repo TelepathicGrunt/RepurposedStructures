@@ -8,7 +8,8 @@
     "NoVillageLakesMixin",
     "StrongholdGeneratorAccessor",
     "StructureMobSpawningMixin",
-    "StructurePieceAccessor"
+    "StructurePieceAccessor",
+    "ZombifiedPiglinSpawnerMixin"
   ],
   "client": [
   ],
