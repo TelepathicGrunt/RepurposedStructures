@@ -10,6 +10,40 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ## (V.1.3.4 Changes) (1.16.1 Minecraft)
 
+##### Strongholds:
+
+-In Nether Strongholds, Black Terracotta is now removed. Instead the Nether Stronghold will be 
+ made of mostly Blackstone variant blocks with some Nether Bricks and Magma Blocks scattered throughout. 
+ Magma Blocks rate is cut in half now.
+
+-In Nether Strongholds, the following blocks have been changed: 
+   Dark Oak Planks is now Crimson Hyphae
+   Dark Oak Fences is now Crimson Fence
+   Iron Doors is now Crimson Doors
+   Redstone Torches is now Soul Torches
+
+-In Nether Strongholds Libraries now have a variety of Blackstone blocks instead of Bookcases.
+
+##### Mineshafts:
+
+-In Nether Mineshafts, Redstone Lamp is now replaced with Shroomlight. 
+
+-In Nether Mineshafts, Redstone Torches is now replaced with Soul Torches.
+
+-Fixed End Mineshafts generating completely in midair when barrensIslandsEndMineshafts config is off. 
+ (Was due to End Midlands Biome not always making land)
+ (When barrensIslandsEndMineshafts config is off, the mineshaft spot must have land at y = 20 or higher now)
+
+##### Villages:
+
+-Fixed it so that Warped and Crimson Villages cannot be within 10 chunks of any Nether Outposts now for real.
+
+-Added missing loot to chests in Warped Villages.
+
+-Fixed Zombified Piglins not spawning in zombie Crimson and zombie Warped Villages.
+
+-Zombie Crimson and zombie Warped Villages should now have Soul Torches instead of Redstone Torches.
+
 ##### Temples:
 
 -Fixed it so that Nether Temples cannot be within 6 chunks of any Nether Outposts now for real.
@@ -18,9 +52,10 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 -Fixed it so that Nether Pyramids cannot be within 6 chunks of any Nether Outposts now for real.
 
-##### Villages:
+##### Shipwrecks:
 
--Fixed it so that Warped and Crimson Villages cannot be within 10 chunks of any Nether Outposts now for real.
+-Shipwrecks now shouldn't spawn ever in the void at bottom of world and less often on edges of islands. 
+ (Their spot must have land at y = 20 or higher now)
 
 ## (V.1.3.3 Changes) (1.16.1 Minecraft)
 

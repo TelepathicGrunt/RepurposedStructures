@@ -40,7 +40,7 @@ public class RSStonebrickStrongholdStructure extends StrongholdFeature {
 
     @Override
     public StructureFeature.StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
-        return super.getStructureStartFactory();
+        return RSStonebrickStrongholdStructure.Start::new;
     }
 
 
