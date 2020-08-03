@@ -44,6 +44,14 @@ public abstract class AbstractNetherStructure extends AbstractBaseStructure {
                 }
             }
         }
+        for (int curChunkX = chunkX - 3; curChunkX <= chunkX + 3; curChunkX++) {
+            for (int curChunkZ = chunkZ - 3; curChunkZ <= chunkZ + 3; curChunkZ++) {
+                ChunkPos chunkPos2 = RSFeatures.NETHER_PYRAMID.method_27218(chunkGenerator.getConfig().method_28600(RSFeatures.NETHER_PYRAMID), seed, chunkRandom, curChunkX, curChunkZ);
+                if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
+                    return false;
+                }
+            }
+        }
         return super.shouldStartAt(chunkGenerator, biomeSource, seed, chunkRandom, chunkX, chunkZ, biome, chunkPos, defaultFeatureConfig);
     }
 

@@ -1383,6 +1383,8 @@ public class RSStrongholdPieces {
                         this.block = Blocks.MAGMA_BLOCK.getDefaultState();
                     } else if (chance < 0.07F) {
                         this.block = Blocks.RED_NETHER_BRICKS.getDefaultState();
+                    } else if (chance < 0.09F) {
+                        this.block = Blocks.CRACKED_NETHER_BRICKS.getDefaultState();
                     } else if (chance < 0.15F) {
                         this.block = Blocks.NETHER_BRICKS.getDefaultState();
                     } else if (chance < 0.32F) {

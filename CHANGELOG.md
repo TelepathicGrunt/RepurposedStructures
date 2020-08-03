@@ -44,9 +44,15 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 -Zombie Crimson and zombie Warped Villages should now have Soul Torches instead of Redstone Torches.
 
+##### Outposts:
+
+-Nether Outposts cannot be within 3 chunks of Nether Pyramids.
+
 ##### Temples:
 
 -Fixed it so that Nether Temples cannot be within 6 chunks of any Nether Outposts now for real.
+
+-Nether Temples cannot be within 3 chunks of Nether Pyramids.
 
 ##### Pyramids:
 

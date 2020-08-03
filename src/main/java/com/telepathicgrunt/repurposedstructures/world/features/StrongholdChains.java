@@ -28,9 +28,16 @@ public class StrongholdChains extends Feature<DefaultFeatureConfig> {
             return false;
         } else {
             return  blockState.isOf(Blocks.NETHER_BRICKS)  ||
+                    blockState.isOf(Blocks.CHISELED_NETHER_BRICKS)  ||
+                    blockState.isOf(Blocks.CRACKED_NETHER_BRICKS)  ||
                     blockState.isOf(Blocks.RED_NETHER_BRICKS)  ||
                     blockState.isOf(Blocks.MAGMA_BLOCK)  ||
-                    blockState.isOf(Blocks.BLACK_TERRACOTTA)  ||
+                    blockState.isOf(Blocks.BLACKSTONE)  ||
+                    blockState.isOf(Blocks.POLISHED_BLACKSTONE)  ||
+                    blockState.isOf(Blocks.POLISHED_BLACKSTONE_BRICKS)  ||
+                    blockState.isOf(Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS)  ||
+                    blockState.isOf(Blocks.CHISELED_POLISHED_BLACKSTONE)  ||
+                    blockState.isOf(Blocks.GILDED_BLACKSTONE)  ||
                     blockState.isOf(Blocks.COBBLESTONE)  ||
                     blockState.isOf(Blocks.STONE_BRICKS)  ||
                     blockState.isOf(Blocks.CHISELED_STONE_BRICKS)  ||
