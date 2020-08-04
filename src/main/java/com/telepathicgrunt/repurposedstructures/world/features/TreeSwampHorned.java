@@ -228,6 +228,7 @@ public class TreeSwampHorned extends Feature<BaseTreeFeatureConfig> {
             if(world.isAirBlock(mutable) ||
                     iblockstate1.isIn(BlockTags.LEAVES) ||
                     iblockstate1.getMaterial() == Material.PLANTS ||
+                    iblockstate1.getMaterial() == Material.TALL_PLANTS ||
                     iblockstate1.getMaterial() == Material.OCEAN_PLANT ||
                     iblockstate1.getMaterial() == Material.WATER){
 

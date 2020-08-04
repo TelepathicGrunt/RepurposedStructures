@@ -23,7 +23,7 @@ public class NoVillageLakesMixin {
 
     @Inject(
             method = "generate",
-            at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/world/gen/feature/structure/StructureManager;getStructuresWithChildren(Lnet/minecraft/util/math/SectionPos;Lnet/minecraft/world/gen/feature/structure/Structure;)Ljava/util/stream/Stream;"),
+            at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/util/math/BlockPos;down(I)Lnet/minecraft/util/math/BlockPos;"),
             cancellable = true
     )
     private void checkForRSVillages(ISeedReader serverWorldAccess, StructureManager structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos blockPos, BlockStateFeatureConfig singleStateFeatureConfig, CallbackInfoReturnable<Boolean> cir) {
@@ -31,6 +31,7 @@ public class NoVillageLakesMixin {
         for (Structure<NoFeatureConfig> village : RSFeatures.OVERWORLD_VILLAGE_LIST) {
             if (structureAccessor.getStructuresWithChildren(SectionPos.from(blockPos), village).findAny().isPresent()) {
                 cir.setReturnValue(false);
+                break;
             }
         }
     }

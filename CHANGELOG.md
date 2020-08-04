@@ -9,6 +9,18 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 # | Repurposed Structures changelog |
 
 
+## (V.2.0.1 Changes) (1.16.1 Minecraft)
+
+##### Mod compat:
+
+-Fixed crash with Structure Gel API mod by moving my mixin's 
+ target up one line to avoid their javascript coremod in Lake Feature.
+ Crash should be no more now!
+
+##### Misc:
+
+-Large swamp trees should not have tall grass replacing their trunks now.
+
 ## (V.2.0.0 Changes) (1.16.1 Minecraft)
 DO NOT LOAD THIS 1.16.1 MOD IN A 1.15.2 WORLD ALREADY MADE WITH 
 THE PREVIOUS VERSION OF REPURPOSED STRUCTURES!!!
