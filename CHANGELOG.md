@@ -8,6 +8,12 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.1.4.1 Changes) (1.16.1 Minecraft)
+
+##### Misc:
+
+-Large swamp trees should not have tall grass replacing their trunks now.
+
 ## (V.1.4.0 Changes) (1.16.1 Minecraft)
 
 ##### Strongholds:
