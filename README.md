@@ -1,14 +1,13 @@
 <p><img src="https://i.imgur.com/lD8Pa6U.png" alt="Picture that shows the title of this mod with a Stonebrick Fortress during sunset behind the text" width="1519" height="516" /></p>
 <h2 style="text-align: center;"><strong><span style="font-size: 36px; color: #009611;">CURRENTLY FOR 1.16.1 MC</span></strong></h2>
-<h2 style="text-align: center;"><span style="font-size: 14px;"><strong><span style="color: #009611;">CLICK HERE FOR 1.15.2 FORGE VERSION:&nbsp;</span></strong></span></h2>
+<p style="text-align: center;"><span style="font-size: 14px;"><strong><span style="color: #009611;">Works serverside too so vanilla clients can connect!</span></strong></span></p>
+<h2 style="text-align: center;"><span style="font-size: 14px;"><strong><span style="color: #009611;">CLICK HERE FOR 1.16.1 FORGE VERSION:&nbsp;</span></strong></span></h2>
 <p style="text-align: center;"><span style="font-size: 14px;"><strong><span style="color: #009611;"><a href="https://www.curseforge.com/minecraft/mc-mods/repurposed-structures">https://www.curseforge.com/minecraft/mc-mods/repurposed-structures</a></span></strong></span></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>Crimson and Warped Villages&nbsp;</strong></b></span></em><em><span style="font-size: 14px;"><b><strong>are now added,</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>Cartographers may sell </strong></b></span></em><em><span style="font-size: 14px;"><b><strong>maps&nbsp;</strong></b></span></em><em><span style="font-size: 14px;"><b><strong>to Jungle Fortresses, </strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>more&nbsp;</strong></b></span></em><em><span style="font-size: 14px;"><b><strong>organized Advancements, and more! </strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>Check the changelog for more info!</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>Fixed A TON of bugs!</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>Nether Stronghold re-themed!&nbsp;</strong></b></span></em></p>
 <p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;"><span style="font-size: 18px;"><strong>______________________________________________________________________________</strong></span></p>
