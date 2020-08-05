@@ -8,6 +8,12 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.2.0.2 Changes) (1.16.1 Minecraft)
+
+##### Misc:
+
+- Fixed /locate to not rarely skip over a closer structure. 
+  Special thanks ontrigger for finding the fix!
 
 ## (V.2.0.1 Changes) (1.16.1 Minecraft)
 
