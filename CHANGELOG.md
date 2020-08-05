@@ -10,6 +10,10 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ## (V.2.0.2 Changes) (1.16.1 Minecraft)
 
+##### Fortress:
+
+-Fixed bug where the Jungle Fortress would not fully generate.
+
 ##### Misc:
 
 - Fixed /locate to not rarely skip over a closer structure. 

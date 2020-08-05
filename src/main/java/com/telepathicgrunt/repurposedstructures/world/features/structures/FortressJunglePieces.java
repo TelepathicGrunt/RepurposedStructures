@@ -52,36 +52,36 @@ public class FortressJunglePieces {
             new FortressJunglePieces.PieceWeight(FortressJunglePieces.MushroomRoom.class, 5, 2)};
 
 
-    private static FortressJunglePieces.Piece findAndCreateBridgePieceFactory(FortressJunglePieces.PieceWeight p_175887_0_, List<StructurePiece> p_175887_1_, Random p_175887_2_, int p_175887_3_, int p_175887_4_, int p_175887_5_, Direction p_175887_6_, int p_175887_7_) {
+    private static FortressJunglePieces.Piece findAndCreateBridgePieceFactory(FortressJunglePieces.PieceWeight p_175887_0_, List<StructurePiece> structurePieceList, Random random, int x, int y, int z, Direction direction, int depth) {
         Class<? extends FortressJunglePieces.Piece> oclass = p_175887_0_.weightClass;
         FortressJunglePieces.Piece structurenetherbridgepieces$piece = null;
 
         if (oclass == FortressJunglePieces.Straight.class) {
-            structurenetherbridgepieces$piece = FortressJunglePieces.Straight.createPiece(p_175887_1_, p_175887_2_, p_175887_3_, p_175887_4_, p_175887_5_, p_175887_6_, p_175887_7_);
+            structurenetherbridgepieces$piece = FortressJunglePieces.Straight.createPiece(structurePieceList, random, x, y, z, direction, depth);
         } else if (oclass == FortressJunglePieces.Crossing3.class) {
-            structurenetherbridgepieces$piece = FortressJunglePieces.Crossing3.createPiece(p_175887_1_, p_175887_2_, p_175887_3_, p_175887_4_, p_175887_5_, p_175887_6_, p_175887_7_);
+            structurenetherbridgepieces$piece = FortressJunglePieces.Crossing3.createPiece(structurePieceList, random, x, y, z, direction, depth);
         } else if (oclass == FortressJunglePieces.Crossing.class) {
-            structurenetherbridgepieces$piece = FortressJunglePieces.Crossing.createPiece(p_175887_1_, p_175887_2_, p_175887_3_, p_175887_4_, p_175887_5_, p_175887_6_, p_175887_7_);
+            structurenetherbridgepieces$piece = FortressJunglePieces.Crossing.createPiece(structurePieceList, random, x, y, z, direction, depth);
         } else if (oclass == FortressJunglePieces.Stairs.class) {
-            structurenetherbridgepieces$piece = FortressJunglePieces.Stairs.createPiece(p_175887_1_, p_175887_2_, p_175887_3_, p_175887_4_, p_175887_5_, p_175887_7_, p_175887_6_);
+            structurenetherbridgepieces$piece = FortressJunglePieces.Stairs.createPiece(structurePieceList, random, x, y, z, depth, direction);
         } else if (oclass == FortressJunglePieces.Throne.class) {
-            structurenetherbridgepieces$piece = FortressJunglePieces.Throne.createPiece(p_175887_1_, p_175887_2_, p_175887_3_, p_175887_4_, p_175887_5_, p_175887_7_, p_175887_6_);
+            structurenetherbridgepieces$piece = FortressJunglePieces.Throne.createPiece(structurePieceList, random, x, y, z, depth, direction);
         } else if (oclass == FortressJunglePieces.Entrance.class) {
-            structurenetherbridgepieces$piece = FortressJunglePieces.Entrance.createPiece(p_175887_1_, p_175887_2_, p_175887_3_, p_175887_4_, p_175887_5_, p_175887_6_, p_175887_7_);
+            structurenetherbridgepieces$piece = FortressJunglePieces.Entrance.createPiece(structurePieceList, random, x, y, z, direction, depth);
         } else if (oclass == FortressJunglePieces.Corridor5.class) {
-            structurenetherbridgepieces$piece = FortressJunglePieces.Corridor5.createPiece(p_175887_1_, p_175887_2_, p_175887_3_, p_175887_4_, p_175887_5_, p_175887_6_, p_175887_7_);
+            structurenetherbridgepieces$piece = FortressJunglePieces.Corridor5.createPiece(structurePieceList, random, x, y, z, direction, depth);
         } else if (oclass == FortressJunglePieces.Corridor2.class) {
-            structurenetherbridgepieces$piece = FortressJunglePieces.Corridor2.createPiece(p_175887_1_, p_175887_2_, p_175887_3_, p_175887_4_, p_175887_5_, p_175887_6_, p_175887_7_);
+            structurenetherbridgepieces$piece = FortressJunglePieces.Corridor2.createPiece(structurePieceList, random, x, y, z, direction, depth);
         } else if (oclass == FortressJunglePieces.Corridor.class) {
-            structurenetherbridgepieces$piece = FortressJunglePieces.Corridor.createPiece(p_175887_1_, p_175887_2_, p_175887_3_, p_175887_4_, p_175887_5_, p_175887_6_, p_175887_7_);
+            structurenetherbridgepieces$piece = FortressJunglePieces.Corridor.createPiece(structurePieceList, random, x, y, z, direction, depth);
         } else if (oclass == FortressJunglePieces.Corridor3.class) {
-            structurenetherbridgepieces$piece = FortressJunglePieces.Corridor3.createPiece(p_175887_1_, p_175887_2_, p_175887_3_, p_175887_4_, p_175887_5_, p_175887_6_, p_175887_7_);
+            structurenetherbridgepieces$piece = FortressJunglePieces.Corridor3.createPiece(structurePieceList, random, x, y, z, direction, depth);
         } else if (oclass == FortressJunglePieces.Corridor4.class) {
-            structurenetherbridgepieces$piece = FortressJunglePieces.Corridor4.createPiece(p_175887_1_, p_175887_2_, p_175887_3_, p_175887_4_, p_175887_5_, p_175887_6_, p_175887_7_);
+            structurenetherbridgepieces$piece = FortressJunglePieces.Corridor4.createPiece(structurePieceList, random, x, y, z, direction, depth);
         } else if (oclass == FortressJunglePieces.Crossing2.class) {
-            structurenetherbridgepieces$piece = FortressJunglePieces.Crossing2.createPiece(p_175887_1_, p_175887_2_, p_175887_3_, p_175887_4_, p_175887_5_, p_175887_6_, p_175887_7_);
+            structurenetherbridgepieces$piece = FortressJunglePieces.Crossing2.createPiece(structurePieceList, random, x, y, z, direction, depth);
         } else if (oclass == FortressJunglePieces.MushroomRoom.class) {
-            structurenetherbridgepieces$piece = FortressJunglePieces.MushroomRoom.createPiece(p_175887_1_, p_175887_2_, p_175887_3_, p_175887_4_, p_175887_5_, p_175887_6_, p_175887_7_);
+            structurenetherbridgepieces$piece = FortressJunglePieces.MushroomRoom.createPiece(structurePieceList, random, x, y, z, direction, depth);
         }
 
         return structurenetherbridgepieces$piece;
@@ -107,12 +107,10 @@ public class FortressJunglePieces {
         }
 
 
-        public static FortressJunglePieces.Corridor createPiece(List<StructurePiece> p_175879_0_, Random p_175879_1_, int p_175879_2_, int p_175879_3_, int p_175879_4_, Direction p_175879_5_, int p_175879_6_) {
-            MutableBoundingBox mutableBoundingBox = MutableBoundingBox.getComponentToAddBoundingBox(p_175879_2_, p_175879_3_, p_175879_4_, -1, 0, 0, 5, 7, 5, p_175879_5_);
-            if (isAboveGround(mutableBoundingBox)) {
-                StructurePiece.findIntersecting(p_175879_0_, mutableBoundingBox);
-            }
-            return null;
+        @SuppressWarnings("ConstantConditions")
+        public static FortressJunglePieces.Corridor createPiece(List<StructurePiece> structurePieceList, Random random, int x, int y, int z, Direction direction, int depth) {
+            MutableBoundingBox mutableBoundingBox = MutableBoundingBox.getComponentToAddBoundingBox(x, y, z, -1, 0, 0, 5, 7, 5, direction);
+            return isAboveGround(mutableBoundingBox) && StructurePiece.findIntersecting(structurePieceList, mutableBoundingBox) == null ? new FortressJunglePieces.Corridor(depth, random, mutableBoundingBox, direction) : null;
         }
 
 
@@ -176,12 +174,10 @@ public class FortressJunglePieces {
         }
 
 
-        public static FortressJunglePieces.Corridor2 createPiece(List<StructurePiece> p_175876_0_, Random p_175876_1_, int p_175876_2_, int p_175876_3_, int p_175876_4_, Direction p_175876_5_, int p_175876_6_) {
-            MutableBoundingBox mutableBoundingBox = MutableBoundingBox.getComponentToAddBoundingBox(p_175876_2_, p_175876_3_, p_175876_4_, -1, 0, 0, 5, 7, 5, p_175876_5_);
-            if (isAboveGround(mutableBoundingBox)) {
-                StructurePiece.findIntersecting(p_175876_0_, mutableBoundingBox);
-            }
-            return null;
+        @SuppressWarnings("ConstantConditions")
+        public static FortressJunglePieces.Corridor2 createPiece(List<StructurePiece> structurePieceList, Random random, int x, int y, int z, Direction direction, int depth) {
+            MutableBoundingBox mutableBoundingBox = MutableBoundingBox.getComponentToAddBoundingBox(x, y, z, -1, 0, 0, 5, 7, 5, direction);
+            return isAboveGround(mutableBoundingBox) && StructurePiece.findIntersecting(structurePieceList, mutableBoundingBox) == null ? new FortressJunglePieces.Corridor2(depth, random, mutableBoundingBox, direction) : null;
         }
 
 
@@ -235,12 +231,10 @@ public class FortressJunglePieces {
         }
 
 
-        public static FortressJunglePieces.Corridor3 createPiece(List<StructurePiece> p_175883_0_, Random p_175883_1_, int p_175883_2_, int p_175883_3_, int p_175883_4_, Direction p_175883_5_, int p_175883_6_) {
-            MutableBoundingBox mutableBoundingBox = MutableBoundingBox.getComponentToAddBoundingBox(p_175883_2_, p_175883_3_, p_175883_4_, -1, -7, 0, 5, 14, 10, p_175883_5_);
-            if (isAboveGround(mutableBoundingBox)) {
-                StructurePiece.findIntersecting(p_175883_0_, mutableBoundingBox);
-            }
-            return null;
+        @SuppressWarnings("ConstantConditions")
+        public static FortressJunglePieces.Corridor3 createPiece(List<StructurePiece> structurePieceList, Random random, int x, int y, int z, Direction direction, int depth) {
+            MutableBoundingBox mutableBoundingBox = MutableBoundingBox.getComponentToAddBoundingBox(x, y, z, -1, -7, 0, 5, 14, 10, direction);
+            return isAboveGround(mutableBoundingBox) && StructurePiece.findIntersecting(structurePieceList, mutableBoundingBox) == null ? new FortressJunglePieces.Corridor3(depth, mutableBoundingBox, direction) : null;
         }
 
 
@@ -307,6 +301,7 @@ public class FortressJunglePieces {
         }
 
 
+        @SuppressWarnings("ConstantConditions")
         public static FortressJunglePieces.Corridor4 createPiece(List<StructurePiece> p_175880_0_, Random p_175880_1_, int p_175880_2_, int p_175880_3_, int p_175880_4_, Direction p_175880_5_, int p_175880_6_) {
             MutableBoundingBox mutableBoundingBox = MutableBoundingBox.getComponentToAddBoundingBox(p_175880_2_, p_175880_3_, p_175880_4_, -3, 0, 0, 9, 7, 9, p_175880_5_);
             return isAboveGround(mutableBoundingBox) && StructurePiece.findIntersecting(p_175880_0_, mutableBoundingBox) == null ? new FortressJunglePieces.Corridor4(p_175880_6_, mutableBoundingBox, p_175880_5_) : null;
@@ -369,12 +364,10 @@ public class FortressJunglePieces {
         }
 
 
-        public static FortressJunglePieces.Corridor5 createPiece(List<StructurePiece> p_175877_0_, Random p_175877_1_, int p_175877_2_, int p_175877_3_, int p_175877_4_, Direction p_175877_5_, int p_175877_6_) {
-            MutableBoundingBox mutableBoundingBox = MutableBoundingBox.getComponentToAddBoundingBox(p_175877_2_, p_175877_3_, p_175877_4_, -1, 0, 0, 5, 7, 5, p_175877_5_);
-            if (isAboveGround(mutableBoundingBox)) {
-                StructurePiece.findIntersecting(p_175877_0_, mutableBoundingBox);
-            }
-            return null;
+        @SuppressWarnings("ConstantConditions")
+        public static FortressJunglePieces.Corridor5 createPiece(List<StructurePiece> structurePieceList, Random random, int x, int y, int z, Direction direction, int depth) {
+            MutableBoundingBox mutableBoundingBox = MutableBoundingBox.getComponentToAddBoundingBox(x, y, z, -1, 0, 0, 5, 7, 5, direction);
+            return isAboveGround(mutableBoundingBox) && StructurePiece.findIntersecting(structurePieceList, mutableBoundingBox) == null ? new FortressJunglePieces.Corridor5(depth, mutableBoundingBox, direction) : null;
         }
 
 
@@ -423,12 +416,10 @@ public class FortressJunglePieces {
         }
 
 
-        public static FortressJunglePieces.Crossing createPiece(List<StructurePiece> p_175873_0_, Random p_175873_1_, int p_175873_2_, int p_175873_3_, int p_175873_4_, Direction p_175873_5_, int p_175873_6_) {
-            MutableBoundingBox mutableBoundingBox = MutableBoundingBox.getComponentToAddBoundingBox(p_175873_2_, p_175873_3_, p_175873_4_, -2, 0, 0, 7, 9, 7, p_175873_5_);
-            if (isAboveGround(mutableBoundingBox)) {
-                StructurePiece.findIntersecting(p_175873_0_, mutableBoundingBox);
-            }
-            return null;
+        @SuppressWarnings("ConstantConditions")
+        public static FortressJunglePieces.Crossing createPiece(List<StructurePiece> structurePieceList, Random random, int x, int y, int z, Direction direction, int depth) {
+            MutableBoundingBox mutableBoundingBox = MutableBoundingBox.getComponentToAddBoundingBox(x, y, z, -2, 0, 0, 7, 9, 7, direction);
+            return isAboveGround(mutableBoundingBox) && StructurePiece.findIntersecting(structurePieceList, mutableBoundingBox) == null ? new FortressJunglePieces.Crossing(depth, mutableBoundingBox, direction) : null;
         }
 
 
@@ -487,12 +478,10 @@ public class FortressJunglePieces {
         }
 
 
-        public static FortressJunglePieces.Crossing2 createPiece(List<StructurePiece> p_175878_0_, Random p_175878_1_, int p_175878_2_, int p_175878_3_, int p_175878_4_, Direction p_175878_5_, int p_175878_6_) {
-            MutableBoundingBox mutableBoundingBox = MutableBoundingBox.getComponentToAddBoundingBox(p_175878_2_, p_175878_3_, p_175878_4_, -1, 0, 0, 5, 7, 5, p_175878_5_);
-            if (isAboveGround(mutableBoundingBox)) {
-                StructurePiece.findIntersecting(p_175878_0_, mutableBoundingBox);
-            }
-            return null;
+        @SuppressWarnings("ConstantConditions")
+        public static FortressJunglePieces.Crossing2 createPiece(List<StructurePiece> structurePieceList, Random random, int x, int y, int z, Direction direction, int depth) {
+            MutableBoundingBox mutableBoundingBox = MutableBoundingBox.getComponentToAddBoundingBox(x, y, z, -1, 0, 0, 5, 7, 5, direction);
+            return isAboveGround(mutableBoundingBox) && StructurePiece.findIntersecting(structurePieceList, mutableBoundingBox) == null ? new FortressJunglePieces.Crossing2(depth, mutableBoundingBox, direction) : null;
         }
 
 
@@ -544,7 +533,6 @@ public class FortressJunglePieces {
             } else {
                 this.boundingBox = new MutableBoundingBox(p_i2042_2_, 64, p_i2042_3_, p_i2042_2_ + 19 - 1, 73, p_i2042_3_ + 19 - 1);
             }
-
         }
 
 
@@ -556,12 +544,10 @@ public class FortressJunglePieces {
         }
 
 
-        public static FortressJunglePieces.Crossing3 createPiece(List<StructurePiece> p_175885_0_, Random p_175885_1_, int p_175885_2_, int p_175885_3_, int p_175885_4_, Direction p_175885_5_, int p_175885_6_) {
-            MutableBoundingBox mutableBoundingBox = MutableBoundingBox.getComponentToAddBoundingBox(p_175885_2_, p_175885_3_, p_175885_4_, -8, -3, 0, 19, 10, 19, p_175885_5_);
-            if (isAboveGround(mutableBoundingBox)) {
-                StructurePiece.findIntersecting(p_175885_0_, mutableBoundingBox);
-            }
-            return null;
+        @SuppressWarnings("ConstantConditions")
+        public static FortressJunglePieces.Crossing3 createPiece(List<StructurePiece> structurePieceList, Random random, int x, int y, int z, Direction direction, int depth) {
+            MutableBoundingBox mutableBoundingBox = MutableBoundingBox.getComponentToAddBoundingBox(x, y, z, -8, -3, 0, 19, 10, 19, direction);
+            return isAboveGround(mutableBoundingBox) && StructurePiece.findIntersecting(structurePieceList, mutableBoundingBox) == null ? new FortressJunglePieces.Crossing3(depth, mutableBoundingBox, direction) : null;
         }
 
 
@@ -626,12 +612,10 @@ public class FortressJunglePieces {
         }
 
 
-        public static FortressJunglePieces.End createPiece(List<StructurePiece> p_175884_0_, Random p_175884_1_, int p_175884_2_, int p_175884_3_, int p_175884_4_, Direction p_175884_5_, int p_175884_6_) {
-            MutableBoundingBox mutableBoundingBox = MutableBoundingBox.getComponentToAddBoundingBox(p_175884_2_, p_175884_3_, p_175884_4_, -1, -3, 0, 5, 10, 8, p_175884_5_);
-            if (isAboveGround(mutableBoundingBox)) {
-                StructurePiece.findIntersecting(p_175884_0_, mutableBoundingBox);
-            }
-            return null;
+        @SuppressWarnings("ConstantConditions")
+        public static FortressJunglePieces.End createPiece(List<StructurePiece> structurePieceList, Random random, int x, int y, int z, Direction direction, int depth) {
+            MutableBoundingBox mutableBoundingBox = MutableBoundingBox.getComponentToAddBoundingBox(x, y, z, -1, -3, 0, 5, 10, 8, direction);
+            return isAboveGround(mutableBoundingBox) && StructurePiece.findIntersecting(structurePieceList, mutableBoundingBox) == null ? new FortressJunglePieces.End(depth, random, mutableBoundingBox, direction) : null;
         }
 
 
@@ -697,12 +681,10 @@ public class FortressJunglePieces {
         }
 
 
-        public static FortressJunglePieces.Entrance createPiece(List<StructurePiece> p_175881_0_, Random p_175881_1_, int p_175881_2_, int p_175881_3_, int p_175881_4_, Direction p_175881_5_, int p_175881_6_) {
-            MutableBoundingBox mutableBoundingBox = MutableBoundingBox.getComponentToAddBoundingBox(p_175881_2_, p_175881_3_, p_175881_4_, -5, -3, 0, 13, 14, 13, p_175881_5_);
-            if (isAboveGround(mutableBoundingBox)) {
-                StructurePiece.findIntersecting(p_175881_0_, mutableBoundingBox);
-            }
-            return null;
+        @SuppressWarnings("ConstantConditions")
+        public static FortressJunglePieces.Entrance createPiece(List<StructurePiece> structurePieceList, Random random, int x, int y, int z, Direction direction, int depth) {
+            MutableBoundingBox mutableBoundingBox = MutableBoundingBox.getComponentToAddBoundingBox(x, y, z, -5, -3, 0, 13, 14, 13, direction);
+            return isAboveGround(mutableBoundingBox) && StructurePiece.findIntersecting(structurePieceList, mutableBoundingBox) == null ? new FortressJunglePieces.Entrance(depth, random, mutableBoundingBox, direction) : null;
         }
 
 
@@ -808,12 +790,10 @@ public class FortressJunglePieces {
         }
 
 
-        public static FortressJunglePieces.MushroomRoom createPiece(List<StructurePiece> p_175875_0_, Random p_175875_1_, int p_175875_2_, int p_175875_3_, int p_175875_4_, Direction p_175875_5_, int p_175875_6_) {
-            MutableBoundingBox mutableBoundingBox = MutableBoundingBox.getComponentToAddBoundingBox(p_175875_2_, p_175875_3_, p_175875_4_, -5, -3, 0, 13, 14, 13, p_175875_5_);
-            if (isAboveGround(mutableBoundingBox)) {
-                StructurePiece.findIntersecting(p_175875_0_, mutableBoundingBox);
-            }
-            return null;
+        @SuppressWarnings("ConstantConditions")
+        public static FortressJunglePieces.MushroomRoom createPiece(List<StructurePiece> structurePieceList, Random random, int x, int y, int z, Direction direction, int depth) {
+            MutableBoundingBox mutableBoundingBox = MutableBoundingBox.getComponentToAddBoundingBox(x, y, z, -5, -3, 0, 13, 14, 13, direction);
+            return isAboveGround(mutableBoundingBox) && StructurePiece.findIntersecting(structurePieceList, mutableBoundingBox) == null ? new FortressJunglePieces.MushroomRoom(depth, mutableBoundingBox, direction) : null;
         }
 
 
@@ -973,31 +953,31 @@ public class FortressJunglePieces {
         }
 
 
-        private FortressJunglePieces.Piece generatePiece(FortressJunglePieces.Start startPiece, List<FortressJunglePieces.PieceWeight> p_175871_2_, List<StructurePiece> p_175871_3_, Random p_175871_4_, int p_175871_5_, int p_175871_6_, int p_175871_7_, Direction p_175871_8_, int p_175871_9_) {
-            int i = this.getTotalWeight(p_175871_2_);
-            boolean flag = i > 0 && p_175871_9_ <= 30;
+        private FortressJunglePieces.Piece generatePiece(FortressJunglePieces.Start startPiece, List<FortressJunglePieces.PieceWeight> pieceWeights, List<StructurePiece> structurePieceList, Random random, int x, int y, int z, Direction direction, int depth) {
+            int i = this.getTotalWeight(pieceWeights);
+            boolean flag = i > 0 && depth <= 30;
             int j = 0;
 
             while (j < 5 && flag) {
                 ++j;
-                int k = p_175871_4_.nextInt(i);
+                int k = random.nextInt(i);
 
-                for (FortressJunglePieces.PieceWeight structurenetherbridgepieces$pieceweight : p_175871_2_) {
+                for (FortressJunglePieces.PieceWeight structurenetherbridgepieces$pieceweight : pieceWeights) {
                     k -= structurenetherbridgepieces$pieceweight.weight;
 
                     if (k < 0) {
-                        if (!structurenetherbridgepieces$pieceweight.doPlace(p_175871_9_) || structurenetherbridgepieces$pieceweight == startPiece.theNetherBridgePieceWeight && !structurenetherbridgepieces$pieceweight.allowInRow) {
+                        if (!structurenetherbridgepieces$pieceweight.doPlace(depth) || structurenetherbridgepieces$pieceweight == startPiece.fortressPieceWeight && !structurenetherbridgepieces$pieceweight.allowInRow) {
                             break;
                         }
 
-                        FortressJunglePieces.Piece structurenetherbridgepieces$piece = FortressJunglePieces.findAndCreateBridgePieceFactory(structurenetherbridgepieces$pieceweight, p_175871_3_, p_175871_4_, p_175871_5_, p_175871_6_, p_175871_7_, p_175871_8_, p_175871_9_);
+                        FortressJunglePieces.Piece structurenetherbridgepieces$piece = FortressJunglePieces.findAndCreateBridgePieceFactory(structurenetherbridgepieces$pieceweight, structurePieceList, random, x, y, z, direction, depth);
 
                         if (structurenetherbridgepieces$piece != null) {
                             ++structurenetherbridgepieces$pieceweight.placeCount;
-                            startPiece.theNetherBridgePieceWeight = structurenetherbridgepieces$pieceweight;
+                            startPiece.fortressPieceWeight = structurenetherbridgepieces$pieceweight;
 
                             if (!structurenetherbridgepieces$pieceweight.isValid()) {
-                                p_175871_2_.remove(structurenetherbridgepieces$pieceweight);
+                                pieceWeights.remove(structurenetherbridgepieces$pieceweight);
                             }
 
                             return structurenetherbridgepieces$piece;
@@ -1006,48 +986,48 @@ public class FortressJunglePieces {
                 }
             }
 
-            return FortressJunglePieces.End.createPiece(p_175871_3_, p_175871_4_, p_175871_5_, p_175871_6_, p_175871_7_, p_175871_8_, p_175871_9_);
+            return FortressJunglePieces.End.createPiece(structurePieceList, random, x, y, z, direction, depth);
         }
 
 
-        private StructurePiece generateAndAddPiece(FortressJunglePieces.Start startPiece, List<StructurePiece> p_175870_2_, Random p_175870_3_, int p_175870_4_, int p_175870_5_, int p_175870_6_, Direction p_175870_7_, int p_175870_8_, boolean p_175870_9_) {
-            if (Math.abs(p_175870_4_ - startPiece.getBoundingBox().minX) <= 112 && Math.abs(p_175870_6_ - startPiece.getBoundingBox().minZ) <= 112) {
+        private StructurePiece generateAndAddPiece(FortressJunglePieces.Start startPiece, List<StructurePiece> structurePieces, Random random, int x, int y, int z, Direction direction, int depth, boolean secondaryList) {
+            if (Math.abs(x - startPiece.getBoundingBox().minX) <= 112 && Math.abs(z - startPiece.getBoundingBox().minZ) <= 112) {
                 List<FortressJunglePieces.PieceWeight> list = startPiece.primaryWeights;
 
-                if (p_175870_9_) {
+                if (secondaryList) {
                     list = startPiece.secondaryWeights;
                 }
 
-                StructurePiece StructurePiece = this.generatePiece(startPiece, list, p_175870_2_, p_175870_3_, p_175870_4_, p_175870_5_, p_175870_6_, p_175870_7_, p_175870_8_ + 1);
+                StructurePiece StructurePiece = this.generatePiece(startPiece, list, structurePieces, random, x, y, z, direction, depth + 1);
 
                 if (StructurePiece != null) {
-                    p_175870_2_.add(StructurePiece);
+                    structurePieces.add(StructurePiece);
                     startPiece.pendingChildren.add(StructurePiece);
                 }
 
                 return StructurePiece;
             } else {
-                return FortressJunglePieces.End.createPiece(p_175870_2_, p_175870_3_, p_175870_4_, p_175870_5_, p_175870_6_, p_175870_7_, p_175870_8_);
+                return FortressJunglePieces.End.createPiece(structurePieces, random, x, y, z, direction, depth);
             }
         }
 
 
-        protected StructurePiece getNextComponentNormal(FortressJunglePieces.Start p_74963_1_, List<StructurePiece> p_74963_2_, Random p_74963_3_, int p_74963_4_, int p_74963_5_, boolean p_74963_6_) {
+        protected StructurePiece getNextComponentNormal(FortressJunglePieces.Start structurePiece, List<StructurePiece> structurePieceList, Random random, int x, int z, boolean useSecondaryList) {
             Direction enumfacing = this.getCoordBaseMode();
 
             if (enumfacing != null) {
                 switch (enumfacing) {
                     case NORTH:
-                        return this.generateAndAddPiece(p_74963_1_, p_74963_2_, p_74963_3_, this.boundingBox.minX + p_74963_4_, this.boundingBox.minY + p_74963_5_, this.boundingBox.minZ - 1, enumfacing, this.getComponentType(), p_74963_6_);
+                        return this.generateAndAddPiece(structurePiece, structurePieceList, random, this.boundingBox.minX + x, this.boundingBox.minY + z, this.boundingBox.minZ - 1, enumfacing, this.getComponentType(), useSecondaryList);
 
                     case SOUTH:
-                        return this.generateAndAddPiece(p_74963_1_, p_74963_2_, p_74963_3_, this.boundingBox.minX + p_74963_4_, this.boundingBox.minY + p_74963_5_, this.boundingBox.maxZ + 1, enumfacing, this.getComponentType(), p_74963_6_);
+                        return this.generateAndAddPiece(structurePiece, structurePieceList, random, this.boundingBox.minX + x, this.boundingBox.minY + z, this.boundingBox.maxZ + 1, enumfacing, this.getComponentType(), useSecondaryList);
 
                     case WEST:
-                        return this.generateAndAddPiece(p_74963_1_, p_74963_2_, p_74963_3_, this.boundingBox.minX - 1, this.boundingBox.minY + p_74963_5_, this.boundingBox.minZ + p_74963_4_, enumfacing, this.getComponentType(), p_74963_6_);
+                        return this.generateAndAddPiece(structurePiece, structurePieceList, random, this.boundingBox.minX - 1, this.boundingBox.minY + z, this.boundingBox.minZ + x, enumfacing, this.getComponentType(), useSecondaryList);
 
                     case EAST:
-                        return this.generateAndAddPiece(p_74963_1_, p_74963_2_, p_74963_3_, this.boundingBox.maxX + 1, this.boundingBox.minY + p_74963_5_, this.boundingBox.minZ + p_74963_4_, enumfacing, this.getComponentType(), p_74963_6_);
+                        return this.generateAndAddPiece(structurePiece, structurePieceList, random, this.boundingBox.maxX + 1, this.boundingBox.minY + z, this.boundingBox.minZ + x, enumfacing, this.getComponentType(), useSecondaryList);
 
                     default:
                         break;
@@ -1058,18 +1038,18 @@ public class FortressJunglePieces {
         }
 
 
-        protected StructurePiece getNextComponentX(FortressJunglePieces.Start p_74961_1_, List<StructurePiece> p_74961_2_, Random p_74961_3_, int p_74961_4_, int p_74961_5_, boolean p_74961_6_) {
+        protected StructurePiece getNextComponentX(FortressJunglePieces.Start piece, List<StructurePiece> structurePieces, Random random, int x, int z, boolean useSecondaryList) {
             Direction enumfacing = this.getCoordBaseMode();
 
             if (enumfacing != null) {
                 switch (enumfacing) {
                     case NORTH:
                     case SOUTH:
-                        return this.generateAndAddPiece(p_74961_1_, p_74961_2_, p_74961_3_, this.boundingBox.minX - 1, this.boundingBox.minY + p_74961_4_, this.boundingBox.minZ + p_74961_5_, Direction.WEST, this.getComponentType(), p_74961_6_);
+                        return this.generateAndAddPiece(piece, structurePieces, random, this.boundingBox.minX - 1, this.boundingBox.minY + x, this.boundingBox.minZ + z, Direction.WEST, this.getComponentType(), useSecondaryList);
 
                     case WEST:
                     case EAST:
-                        return this.generateAndAddPiece(p_74961_1_, p_74961_2_, p_74961_3_, this.boundingBox.minX + p_74961_5_, this.boundingBox.minY + p_74961_4_, this.boundingBox.minZ - 1, Direction.NORTH, this.getComponentType(), p_74961_6_);
+                        return this.generateAndAddPiece(piece, structurePieces, random, this.boundingBox.minX + z, this.boundingBox.minY + x, this.boundingBox.minZ - 1, Direction.NORTH, this.getComponentType(), useSecondaryList);
 
                     default:
                         break;
@@ -1080,18 +1060,18 @@ public class FortressJunglePieces {
         }
 
 
-        protected StructurePiece getNextComponentZ(FortressJunglePieces.Start p_74965_1_, List<StructurePiece> p_74965_2_, Random p_74965_3_, int p_74965_4_, int p_74965_5_, boolean p_74965_6_) {
+        protected StructurePiece getNextComponentZ(FortressJunglePieces.Start start, List<StructurePiece> structurePieces, Random random, int x, int z, boolean useSecondaryList) {
             Direction enumfacing = this.getCoordBaseMode();
 
             if (enumfacing != null) {
                 switch (enumfacing) {
                     case NORTH:
                     case SOUTH:
-                        return this.generateAndAddPiece(p_74965_1_, p_74965_2_, p_74965_3_, this.boundingBox.maxX + 1, this.boundingBox.minY + p_74965_4_, this.boundingBox.minZ + p_74965_5_, Direction.EAST, this.getComponentType(), p_74965_6_);
+                        return this.generateAndAddPiece(start, structurePieces, random, this.boundingBox.maxX + 1, this.boundingBox.minY + x, this.boundingBox.minZ + z, Direction.EAST, this.getComponentType(), useSecondaryList);
 
                     case WEST:
                     case EAST:
-                        return this.generateAndAddPiece(p_74965_1_, p_74965_2_, p_74965_3_, this.boundingBox.minX + p_74965_5_, this.boundingBox.minY + p_74965_4_, this.boundingBox.maxZ + 1, Direction.SOUTH, this.getComponentType(), p_74965_6_);
+                        return this.generateAndAddPiece(start, structurePieces, random, this.boundingBox.minX + z, this.boundingBox.minY + x, this.boundingBox.maxZ + 1, Direction.SOUTH, this.getComponentType(), useSecondaryList);
 
                     default:
                         break;
@@ -1310,12 +1290,10 @@ public class FortressJunglePieces {
         }
 
 
-        public static FortressJunglePieces.Stairs createPiece(List<StructurePiece> p_175872_0_, Random p_175872_1_, int p_175872_2_, int p_175872_3_, int p_175872_4_, int p_175872_5_, Direction p_175872_6_) {
-            MutableBoundingBox mutableBoundingBox = MutableBoundingBox.getComponentToAddBoundingBox(p_175872_2_, p_175872_3_, p_175872_4_, -2, 0, 0, 7, 11, 7, p_175872_6_);
-            if (isAboveGround(mutableBoundingBox)) {
-                StructurePiece.findIntersecting(p_175872_0_, mutableBoundingBox);
-            }
-            return null;
+        @SuppressWarnings("ConstantConditions")
+        public static FortressJunglePieces.Stairs createPiece(List<StructurePiece> structurePieceList, Random random, int x, int y, int z, int depth, Direction direction) {
+            MutableBoundingBox mutableBoundingBox = MutableBoundingBox.getComponentToAddBoundingBox(x, y, z, -2, 0, 0, 7, 11, 7, direction);
+            return isAboveGround(mutableBoundingBox) && StructurePiece.findIntersecting(structurePieceList, mutableBoundingBox) == null ? new FortressJunglePieces.Stairs(depth, mutableBoundingBox, direction) : null;
         }
 
 
@@ -1355,14 +1333,14 @@ public class FortressJunglePieces {
     }
 
     public static class Start extends FortressJunglePieces.Crossing3 {
-        public FortressJunglePieces.PieceWeight theNetherBridgePieceWeight;
+        public FortressJunglePieces.PieceWeight fortressPieceWeight;
         public List<FortressJunglePieces.PieceWeight> primaryWeights;
         public List<FortressJunglePieces.PieceWeight> secondaryWeights;
         public List<StructurePiece> pendingChildren = Lists.newArrayList();
 
 
-        public Start(Random p_i2059_1_, int p_i2059_2_, int p_i2059_3_) {
-            super(p_i2059_1_, p_i2059_2_, p_i2059_3_);
+        public Start(Random random, int x, int z) {
+            super(random, x, z);
             this.primaryWeights = Lists.newArrayList();
 
             for (FortressJunglePieces.PieceWeight structurenetherbridgepieces$pieceweight : FortressJunglePieces.PRIMARY_COMPONENTS) {
@@ -1403,12 +1381,10 @@ public class FortressJunglePieces {
         }
 
 
-        public static FortressJunglePieces.Straight createPiece(List<StructurePiece> p_175882_0_, Random p_175882_1_, int p_175882_2_, int p_175882_3_, int p_175882_4_, Direction p_175882_5_, int p_175882_6_) {
-            MutableBoundingBox mutableBoundingBox = MutableBoundingBox.getComponentToAddBoundingBox(p_175882_2_, p_175882_3_, p_175882_4_, -1, -3, 0, 5, 10, 19, p_175882_5_);
-            if (isAboveGround(mutableBoundingBox)) {
-                StructurePiece.findIntersecting(p_175882_0_, mutableBoundingBox);
-            }
-            return null;
+        @SuppressWarnings("ConstantConditions")
+        public static FortressJunglePieces.Straight createPiece(List<StructurePiece> structurePieceList, Random random, int x, int y, int z, Direction direction, int depth) {
+            MutableBoundingBox mutableBoundingBox = MutableBoundingBox.getComponentToAddBoundingBox(x, y, z, -1, -3, 0, 5, 10, 19, direction);
+            return isAboveGround(mutableBoundingBox) && StructurePiece.findIntersecting(structurePieceList, mutableBoundingBox) == null ? new FortressJunglePieces.Straight(depth, random, mutableBoundingBox, direction) : null;
         }
 
 
@@ -1474,12 +1450,10 @@ public class FortressJunglePieces {
         }
 
 
-        public static FortressJunglePieces.Throne createPiece(List<StructurePiece> p_175874_0_, Random p_175874_1_, int p_175874_2_, int p_175874_3_, int p_175874_4_, int p_175874_5_, Direction p_175874_6_) {
-            MutableBoundingBox mutableBoundingBox = MutableBoundingBox.getComponentToAddBoundingBox(p_175874_2_, p_175874_3_, p_175874_4_, -2, 0, 0, 7, 8, 9, p_175874_6_);
-            if (isAboveGround(mutableBoundingBox)) {
-                StructurePiece.findIntersecting(p_175874_0_, mutableBoundingBox);
-            }
-            return null;
+        @SuppressWarnings("ConstantConditions")
+        public static FortressJunglePieces.Throne createPiece(List<StructurePiece> structurePieceList, Random random, int x, int y, int z, int depth, Direction direction) {
+            MutableBoundingBox mutableBoundingBox = MutableBoundingBox.getComponentToAddBoundingBox(x, y, z, -2, 0, 0, 7, 8, 9, direction);
+            return isAboveGround(mutableBoundingBox) && StructurePiece.findIntersecting(structurePieceList, mutableBoundingBox) == null ? new FortressJunglePieces.Throne(depth, random, mutableBoundingBox, direction) : null;
         }
 
 
