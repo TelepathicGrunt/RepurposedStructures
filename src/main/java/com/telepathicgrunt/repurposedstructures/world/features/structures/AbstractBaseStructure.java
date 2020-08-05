@@ -41,7 +41,7 @@ public abstract class AbstractBaseStructure extends StructureFeature<DefaultFeat
                         int trueChunkX = chunkX + spacing * xRadius;
                         int trueChunkZ = chunkZ + spacing * zRadius;
                         ChunkPos chunkPos = structure.method_27218(structureConfig, seed, chunkRandom, trueChunkX, trueChunkZ);
-                        if(worldView.getBiomeForNoiseGen(chunkPos.x << 2, 60, chunkPos.z << 2).hasStructureFeature(structure)) {
+                        if(worldView.getBiomeForNoiseGen((chunkPos.x << 2) + 2, 60, (chunkPos.z << 2) + 2).hasStructureFeature(structure)) {
                             Chunk chunk = worldView.getChunk(chunkPos.x, chunkPos.z, ChunkStatus.STRUCTURE_STARTS);
                             StructureStart<?> structureStart = structureAccessor.getStructureStart(ChunkSectionPos.from(chunk.getPos(), 0), structure, chunk);
                             if (structureStart != null && structureStart.hasChildren()) {

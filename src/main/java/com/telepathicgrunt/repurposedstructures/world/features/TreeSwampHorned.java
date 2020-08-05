@@ -226,7 +226,7 @@ public class TreeSwampHorned extends Feature<TreeFeatureConfig> {
                     iblockstate1.isIn(BlockTags.LEAVES) ||
                     iblockstate1.getMaterial() == Material.PLANT ||
                     iblockstate1.getMaterial() == Material.UNDERWATER_PLANT ||
-                    iblockstate1.getMaterial() == Material.TALL_PLANTS ||
+                    iblockstate1.getMaterial() == Material.REPLACEABLE_PLANT ||
                     iblockstate1.getMaterial() == Material.WATER){
 
                 if (currentHeight != height - 1) {
