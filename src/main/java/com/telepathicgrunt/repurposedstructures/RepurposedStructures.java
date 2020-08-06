@@ -94,7 +94,6 @@ public class RepurposedStructures
 		allBiomeBlacklists.put("swamp_tree", Arrays.asList(RSMainConfig.blacklistedSwampTreeBiomes.get().split(",")));
 		allBiomeBlacklists.put("fortress", Arrays.asList(RSMainConfig.blacklistedFortressBiomes.get().split(",")));
 		allBiomeBlacklists.put("igloo", Arrays.asList(RSMainConfig.blacklistedIglooBiomes.get().split(",")));
-		allBiomeBlacklists.put("swamp", Arrays.asList(RSMainConfig.blacklistedSwampTreeBiomes.get().split(",")));
 		allBiomeBlacklists.put("mineshaft", Arrays.asList(RSMineshaftsConfig.blacklistedMineshaftBiomes.get().split(",")));
 		allBiomeBlacklists.put("outpost", Arrays.asList(RSOutpostsConfig.blacklistedOutpostBiomes.get().split(",")));
 		allBiomeBlacklists.put("shipwreck", Arrays.asList(RSShipwrecksConfig.blacklistedShipwreckBiomes.get().split(",")));
@@ -168,7 +167,7 @@ public class RepurposedStructures
 		if(isBiomeAllowed("temple",biomeID, allBiomeBlacklists))
 			RSAddFeatures.addTemples(biome, biomeNamespace, biomePath);
 		if(isBiomeAllowed("pyramid",biomeID, allBiomeBlacklists))
-			RSAddFeatures.addTemples(biome, biomeNamespace, biomePath);
+			RSAddFeatures.addPyramids(biome, biomeNamespace, biomePath);
 		if(isBiomeAllowed("igloo",biomeID, allBiomeBlacklists))
 			RSAddFeatures.addIgloos(biome, biomeNamespace, biomePath);
 		if(isBiomeAllowed("outpost",biomeID, allBiomeBlacklists))
