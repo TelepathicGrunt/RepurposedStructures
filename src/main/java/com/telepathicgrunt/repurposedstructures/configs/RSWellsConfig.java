@@ -13,6 +13,13 @@ public class RSWellsConfig implements ConfigData {
     @Comment("Add RS wells to modded biomes of same categories/type.")
     public boolean addWellsToModdedBiomes = false;
 
+    @ConfigEntry.Gui.Tooltip(count = 3)
+    @Comment("Add the ID/resource location of the biome you don't want"
+            +"\nRS's wells to spawn in. Separate each ID with a comma ,"
+            +"\n"
+            +"\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
+    public String blacklistedWellBiomes = "";
+
     @ConfigEntry.Gui.Tooltip
     @Comment("Determines if Wells can have a chance of spawning a Bell.")
     public boolean canHaveBells = true;

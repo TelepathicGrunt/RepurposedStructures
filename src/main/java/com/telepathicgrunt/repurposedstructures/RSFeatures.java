@@ -176,16 +176,4 @@ public class RSFeatures {
         //registers the structure pieces.
         StructurePieces.registerStructurePieces();
     }
-
-    public static void registerVillagePools() {
-        VillageBadlandsPools.init();
-        VillageBirchPools.init();
-        VillageDarkForestPools.init();
-        VillageJunglePools.init();
-        VillageSwampPools.init();
-        VillageMountainsPools.init();
-        VillageGiantTaigaPools.init();
-        VillageCrimsonPools.init();
-        VillageWarpedPools.init();
-    }
 }

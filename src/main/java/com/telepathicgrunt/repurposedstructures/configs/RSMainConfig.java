@@ -24,8 +24,31 @@ public class RSMainConfig implements ConfigData {
 
     public static class Misc {
         @ConfigEntry.Gui.Tooltip
-        @Comment("Add RS features to modded biomes of same categories/type.")
-        public boolean addMiscToModdedBiomes = false;
+        @Comment("Add RS swamp trees to modded biomes of same categories/type.")
+        public boolean addSwampTreeToModdedBiomes = false;
+
+        @ConfigEntry.Gui.Tooltip
+        @Comment("Add RS boulders to modded biomes of same categories/type.")
+        public boolean addBoulderToModdedBiomes = false;
+
+        @ConfigEntry.Gui.Tooltip(count = 3)
+        @Comment("Add the ID/resource location of the biome you don't want"
+                +"\nRS's swamp trees to spawn in. Separate each ID with a comma ,"
+                +"\n"
+                +"\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
+        public String blacklistedSwampTreeBiomes = "";
+
+        @ConfigEntry.Gui.Tooltip(count = 3)
+        @Comment("Add the ID/resource location of the biome you don't want"
+                +"\nRS's boulders to spawn in. Separate each ID with a comma ,"
+                +"\n"
+                +"\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
+        public String blacklistedBoulderBiomes = "";
+
+        @ConfigEntry.Gui.Tooltip(count = 2)
+        @Comment("Adds large tree somewhat uncommonly to Swamp biome"
+                +"\nand replaces all vanilla trees in Swamp Hills biome.")
+        public boolean hornedSwampTree = true;
 
         @ConfigEntry.Gui.Tooltip
         @Comment("Adds tiny boulders to normal/snowy Taiga Mountains biomes.")
@@ -49,10 +72,7 @@ public class RSMainConfig implements ConfigData {
         @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
         public double giantBouldersPerChunk = 1.0D;
 
-        @ConfigEntry.Gui.Tooltip(count = 2)
-        @Comment("Adds large tree somewhat uncommonly to Swamp biome"
-                +"\nand replaces all vanilla trees in Swamp Hills biome.")
-        public boolean hornedSwampTree = true;
+
     }
 
     public static class JungleFortress {
@@ -63,6 +83,13 @@ public class RSMainConfig implements ConfigData {
                 + "\n1 for spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
         public int jungleFortressSpawnrate = 32;
+
+        @ConfigEntry.Gui.Tooltip(count = 3)
+        @Comment("Add the ID/resource location of the biome you don't want"
+                +"\nRS's fortresses to spawn in. Separate each ID with a comma ,"
+                +"\n"
+                +"\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
+        public String blacklistedFortressBiomes = "";
 
         @ConfigEntry.Gui.Tooltip(count = 3)
         @Comment("% of fortress is Silverfish Blocks."
@@ -82,18 +109,33 @@ public class RSMainConfig implements ConfigData {
     }
     public static class Shipwrecks {
 
+        @ConfigEntry.Gui.Tooltip(count = 1)
+        @Comment("Add End Shipwreck to modded End biomes.")
+        public boolean addEndShipwreckToModdedBiomes = false;
+
+        @ConfigEntry.Gui.Tooltip(count = 3)
+        @Comment("Add the ID/resource location of the biome you don't want"
+                +"\nRS's shipwrecks to spawn in. Separate each ID with a comma ,"
+                +"\n"
+                +"\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
+        public String blacklistedShipwreckBiomes = "";
+
         @ConfigEntry.Gui.Tooltip(count = 2)
         @Comment("How rare are End Shipwreck in End Highlands biomes."
                 + "\n1 for spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
         public int endShipwreckSpawnrate = 23;
 
-        @ConfigEntry.Gui.Tooltip(count = 1)
-        @Comment("Add End Shipwreck to modded End biomes.")
-        public boolean addEndShipwreckToModdedBiomes = false;
     }
 
     public static class Igloos {
+
+        @ConfigEntry.Gui.Tooltip(count = 3)
+        @Comment("Add the ID/resource location of the biome you don't want"
+                +"\nRS's igloos to spawn in. Separate each ID with a comma ,"
+                +"\n"
+                +"\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
+        public String blacklistedIglooBiomes = "";
 
         @ConfigEntry.Gui.Tooltip(count = 2)
         @Comment("How rare are Grassy Igloos in Plains and Forests."

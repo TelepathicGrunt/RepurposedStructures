@@ -15,7 +15,13 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Fixed /locate to not rarely skip over a closer structure. 
   Special thanks ontrigger for finding the fix!
 
--Large swamp trees should not have tall grass replacing their trunks now.
+- Large swamp trees should not have tall grass replacing their trunks now.
+
+##### Config:
+
+- Added configs to allow entire RS's types of structures to be blacklisted from specified biomes.
+
+- Split addMiscToModdedBiomes into addSwampTreeToModdedBiomes and addBoulderToModdedBiomes.
 
 ## (V.1.4.0 Changes) (1.16.1 Minecraft)
 

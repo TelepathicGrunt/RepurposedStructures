@@ -57,13 +57,25 @@ public abstract class AbstractVillageStructure extends StructureFeature<DefaultF
 
         public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
             if(!initalizedPools){
-                RSFeatures.registerVillagePools();
+                registerVillagePools();
                 initalizedPools = true;
             }
 
             BlockPos blockpos = new BlockPos(chunkX * 16, 0, chunkZ * 16);
             VillageGenerator.addPieces(chunkGenerator, structureManager, blockpos, this.children, this.random, new StructurePoolFeatureConfig(getIdentifier(), getSize()));
             this.setBoundingBoxFromChildren();
+        }
+
+        public static void registerVillagePools() {
+            VillageBadlandsPools.init();
+            VillageBirchPools.init();
+            VillageDarkForestPools.init();
+            VillageJunglePools.init();
+            VillageSwampPools.init();
+            VillageMountainsPools.init();
+            VillageGiantTaigaPools.init();
+            VillageCrimsonPools.init();
+            VillageWarpedPools.init();
         }
     }
 }

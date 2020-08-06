@@ -12,7 +12,14 @@ public class RSVillagesConfig implements ConfigData {
     @ConfigEntry.Gui.Tooltip
     @Comment("Add RS villages to modded biomes of same categories/type.")
     public boolean addVillagesToModdedBiomes = false;
-    
+
+    @ConfigEntry.Gui.Tooltip(count = 3)
+    @Comment("Add the ID/resource location of the biome you don't want"
+            +"\nRS's villages to spawn in. Separate each ID with a comma ,"
+            +"\n"
+            +"\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
+    public String blacklistedVillageBiomes = "";
+
     @ConfigEntry.Gui.Tooltip(count = 2)
     @Comment("How rare are Badlands Villages in Badland biomes."
             + "\n1 for spawning in most chunks and 1001 for no spawn.")

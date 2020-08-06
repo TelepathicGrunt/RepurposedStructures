@@ -13,6 +13,12 @@ public class RSDungeonsConfig implements ConfigData {
 	@Comment("Add RS dungeons to modded biomes of same categories/type.")
 	public boolean addDungeonsToModdedBiomes = false;
 
+    @ConfigEntry.Gui.Tooltip(count = 3)
+    @Comment("Add the ID/resource location of the biome you don't want"
+            +"\nRS's dungeons to spawn in. Separate each ID with a comma ,"
+            +"\n"
+            +"\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
+    public String blacklistedDungeonBiomes = "";
 
     @ConfigEntry.Gui.CollapsibleObject
     public Spawnrate spawnrate = new Spawnrate();

@@ -942,31 +942,31 @@ public class FortressJunglePieces {
         }
 
 
-        private FortressJunglePieces.Piece generatePiece(FortressJunglePieces.Start startPiece, List<FortressJunglePieces.PieceWeight> p_175871_2_, List<StructurePiece> p_175871_3_, Random p_175871_4_, int p_175871_5_, int p_175871_6_, int p_175871_7_, Direction p_175871_8_, int p_175871_9_) {
-            int i = this.getTotalWeight(p_175871_2_);
-            boolean flag = i > 0 && p_175871_9_ <= 30;
+        private FortressJunglePieces.Piece generatePiece(FortressJunglePieces.Start startPiece, List<FortressJunglePieces.PieceWeight> pieceWeights, List<StructurePiece> structurePieces, Random random, int x, int y, int z, Direction direction, int depth) {
+            int i = this.getTotalWeight(pieceWeights);
+            boolean flag = i > 0 && depth <= 30;
             int j = 0;
 
             while (j < 5 && flag) {
                 ++j;
-                int k = p_175871_4_.nextInt(i);
+                int k = random.nextInt(i);
 
-                for (FortressJunglePieces.PieceWeight structurenetherbridgepieces$pieceweight : p_175871_2_) {
+                for (FortressJunglePieces.PieceWeight structurenetherbridgepieces$pieceweight : pieceWeights) {
                     k -= structurenetherbridgepieces$pieceweight.weight;
 
                     if (k < 0) {
-                        if (!structurenetherbridgepieces$pieceweight.doPlace(p_175871_9_) || structurenetherbridgepieces$pieceweight == startPiece.theNetherBridgePieceWeight && !structurenetherbridgepieces$pieceweight.allowInRow) {
+                        if (!structurenetherbridgepieces$pieceweight.doPlace(depth) || structurenetherbridgepieces$pieceweight == startPiece.fortressPieceWeight && !structurenetherbridgepieces$pieceweight.allowInRow) {
                             break;
                         }
 
-                        FortressJunglePieces.Piece structurenetherbridgepieces$piece = FortressJunglePieces.findAndCreateBridgePieceFactory(structurenetherbridgepieces$pieceweight, p_175871_3_, p_175871_4_, p_175871_5_, p_175871_6_, p_175871_7_, p_175871_8_, p_175871_9_);
+                        FortressJunglePieces.Piece structurenetherbridgepieces$piece = FortressJunglePieces.findAndCreateBridgePieceFactory(structurenetherbridgepieces$pieceweight, structurePieces, random, x, y, z, direction, depth);
 
                         if (structurenetherbridgepieces$piece != null) {
                             ++structurenetherbridgepieces$pieceweight.placeCount;
-                            startPiece.theNetherBridgePieceWeight = structurenetherbridgepieces$pieceweight;
+                            startPiece.fortressPieceWeight = structurenetherbridgepieces$pieceweight;
 
                             if (!structurenetherbridgepieces$pieceweight.isValid()) {
-                                p_175871_2_.remove(structurenetherbridgepieces$pieceweight);
+                                pieceWeights.remove(structurenetherbridgepieces$pieceweight);
                             }
 
                             return structurenetherbridgepieces$piece;
@@ -975,28 +975,28 @@ public class FortressJunglePieces {
                 }
             }
 
-            return FortressJunglePieces.End.createPiece(p_175871_3_, p_175871_4_, p_175871_5_, p_175871_6_, p_175871_7_, p_175871_8_, p_175871_9_);
+            return FortressJunglePieces.End.createPiece(structurePieces, random, x, y, z, direction, depth);
         }
 
 
-        private StructurePiece generateAndAddPiece(FortressJunglePieces.Start startPiece, List<StructurePiece> p_175870_2_, Random p_175870_3_, int p_175870_4_, int p_175870_5_, int p_175870_6_, Direction p_175870_7_, int p_175870_8_, boolean p_175870_9_) {
-            if (Math.abs(p_175870_4_ - startPiece.getBoundingBox().minX) <= 112 && Math.abs(p_175870_6_ - startPiece.getBoundingBox().minZ) <= 112) {
+        private StructurePiece generateAndAddPiece(FortressJunglePieces.Start startPiece, List<StructurePiece> structurePieces, Random random, int x, int y, int z, Direction direction, int depth, boolean useSecondaryList) {
+            if (Math.abs(x - startPiece.getBoundingBox().minX) <= 112 && Math.abs(z - startPiece.getBoundingBox().minZ) <= 112) {
                 List<FortressJunglePieces.PieceWeight> list = startPiece.primaryWeights;
 
-                if (p_175870_9_) {
+                if (useSecondaryList) {
                     list = startPiece.secondaryWeights;
                 }
 
-                StructurePiece StructurePiece = this.generatePiece(startPiece, list, p_175870_2_, p_175870_3_, p_175870_4_, p_175870_5_, p_175870_6_, p_175870_7_, p_175870_8_ + 1);
+                StructurePiece StructurePiece = this.generatePiece(startPiece, list, structurePieces, random, x, y, z, direction, depth + 1);
 
                 if (StructurePiece != null) {
-                    p_175870_2_.add(StructurePiece);
+                    structurePieces.add(StructurePiece);
                     startPiece.pendingChildren.add(StructurePiece);
                 }
 
                 return StructurePiece;
             } else {
-                return FortressJunglePieces.End.createPiece(p_175870_2_, p_175870_3_, p_175870_4_, p_175870_5_, p_175870_6_, p_175870_7_, p_175870_8_);
+                return FortressJunglePieces.End.createPiece(structurePieces, random, x, y, z, direction, depth);
             }
         }
 
@@ -1027,18 +1027,18 @@ public class FortressJunglePieces {
         }
 
 
-        protected StructurePiece getNextComponentX(FortressJunglePieces.Start p_74961_1_, List<StructurePiece> p_74961_2_, Random p_74961_3_, int p_74961_4_, int p_74961_5_, boolean p_74961_6_) {
+        protected StructurePiece getNextComponentX(FortressJunglePieces.Start start, List<StructurePiece> structurePieces, Random random, int x, int z, boolean useSecondaryList) {
             Direction enumfacing = this.getFacing();
 
             if (enumfacing != null) {
                 switch (enumfacing) {
                     case NORTH:
                     case SOUTH:
-                        return this.generateAndAddPiece(p_74961_1_, p_74961_2_, p_74961_3_, this.boundingBox.minX - 1, this.boundingBox.minY + p_74961_4_, this.boundingBox.minZ + p_74961_5_, Direction.WEST, this.getLength(), p_74961_6_);
+                        return this.generateAndAddPiece(start, structurePieces, random, this.boundingBox.minX - 1, this.boundingBox.minY + x, this.boundingBox.minZ + z, Direction.WEST, this.getLength(), useSecondaryList);
 
                     case WEST:
                     case EAST:
-                        return this.generateAndAddPiece(p_74961_1_, p_74961_2_, p_74961_3_, this.boundingBox.minX + p_74961_5_, this.boundingBox.minY + p_74961_4_, this.boundingBox.minZ - 1, Direction.NORTH, this.getLength(), p_74961_6_);
+                        return this.generateAndAddPiece(start, structurePieces, random, this.boundingBox.minX + z, this.boundingBox.minY + x, this.boundingBox.minZ - 1, Direction.NORTH, this.getLength(), useSecondaryList);
 
                     default:
                         break;
@@ -1049,18 +1049,18 @@ public class FortressJunglePieces {
         }
 
 
-        protected StructurePiece getNextComponentZ(FortressJunglePieces.Start p_74965_1_, List<StructurePiece> p_74965_2_, Random p_74965_3_, int p_74965_4_, int p_74965_5_, boolean p_74965_6_) {
+        protected StructurePiece getNextComponentZ(FortressJunglePieces.Start start, List<StructurePiece> structurePieces, Random random, int x, int z, boolean useSecondaryList) {
             Direction enumfacing = this.getFacing();
 
             if (enumfacing != null) {
                 switch (enumfacing) {
                     case NORTH:
                     case SOUTH:
-                        return this.generateAndAddPiece(p_74965_1_, p_74965_2_, p_74965_3_, this.boundingBox.maxX + 1, this.boundingBox.minY + p_74965_4_, this.boundingBox.minZ + p_74965_5_, Direction.EAST, this.getLength(), p_74965_6_);
+                        return this.generateAndAddPiece(start, structurePieces, random, this.boundingBox.maxX + 1, this.boundingBox.minY + x, this.boundingBox.minZ + z, Direction.EAST, this.getLength(), useSecondaryList);
 
                     case WEST:
                     case EAST:
-                        return this.generateAndAddPiece(p_74965_1_, p_74965_2_, p_74965_3_, this.boundingBox.minX + p_74965_5_, this.boundingBox.minY + p_74965_4_, this.boundingBox.maxZ + 1, Direction.SOUTH, this.getLength(), p_74965_6_);
+                        return this.generateAndAddPiece(start, structurePieces, random, this.boundingBox.minX + z, this.boundingBox.minY + x, this.boundingBox.maxZ + 1, Direction.SOUTH, this.getLength(), useSecondaryList);
 
                     default:
                         break;
@@ -1321,14 +1321,14 @@ public class FortressJunglePieces {
     }
 
     public static class Start extends FortressJunglePieces.Crossing3 {
-        public FortressJunglePieces.PieceWeight theNetherBridgePieceWeight;
+        public FortressJunglePieces.PieceWeight fortressPieceWeight;
         public List<FortressJunglePieces.PieceWeight> primaryWeights;
         public List<FortressJunglePieces.PieceWeight> secondaryWeights;
         public List<StructurePiece> pendingChildren = Lists.newArrayList();
 
 
-        public Start(Random p_i2059_1_, int p_i2059_2_, int p_i2059_3_) {
-            super(p_i2059_1_, p_i2059_2_, p_i2059_3_);
+        public Start(Random random, int x, int z) {
+            super(random, x, z);
             this.primaryWeights = Lists.newArrayList();
 
             for (FortressJunglePieces.PieceWeight structurenetherbridgepieces$pieceweight : FortressJunglePieces.PRIMARY_COMPONENTS) {
