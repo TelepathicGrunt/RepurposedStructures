@@ -32,9 +32,20 @@ public class RSTemplesConfig
 		public ConfigValueListener<Boolean> addBadlandsPyramidToModdedBiomes;
 		public ConfigValueListener<Integer> badlandsPyramidSpawnrate;
 
+		public ConfigValueListener<String> blacklistedTempleBiomes;
+		public ConfigValueListener<String> blacklistedPyramidBiomes;
+
 		public RSTemplesConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
 		{
 			builder.push("Temples");
+
+				blacklistedTempleBiomes = subscriber.subscribe(builder
+					.comment("\r\n Add the ID/resource location of the biome you don't want"
+							+"\r\n temples to spawn in. Separate each ID with a comma ,"
+							+"\r\n"
+							+"\r\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
+					.translation("repurposedstructures.config.temples.blacklistedtemplebiomes")
+					.define("blacklistedTempleBiomes", ""));
 
 				addNetherWastelandTempleToModdedBiomes = subscriber.subscribe(builder
 					.comment("\r\n Add Nether Wasteland Temples to modded Nether biomes"
@@ -104,6 +115,14 @@ public class RSTemplesConfig
 					.comment("\r\n Add Nether Pyramids to modded Nether biomes.")
 					.translation("repurposedstructures.config.temples.addnetherpyramidtomoddedbiomes")
 					.define("addNetherPyramidToModdedBiomes", false));
+
+				blacklistedPyramidBiomes = subscriber.subscribe(builder
+					.comment("\r\n Add the ID/resource location of the biome you don't want"
+							+"\r\n pyramids to spawn in. Separate each ID with a comma ,"
+							+"\r\n"
+							+"\r\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
+					.translation("repurposedstructures.config.temples.blacklistedpyramidbiomes")
+					.define("blacklistedPyramidBiomes", ""));
 
 				netherPyramidSpawnrate = subscriber.subscribe(builder
 					.comment("\r\n How rare are Nether Pyramids in Nether."

@@ -332,12 +332,11 @@ public class RSAddFeatures {
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // MISC FEATURES //
+    // SWAMP TREE FEATURES //
 
     private static final ConfiguredFeature<?, ?> VANILLA_SWAMP_TREE = Feature.field_236291_c_.configure(DefaultBiomeFeatures.SWAMP_TREE_CONFIG).createDecoratedFeature(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(2, 0.1F, 1)));
-    private static final ConfiguredFeature<?, ?> VANILLA_BOULDER = Feature.FOREST_ROCK.configure(new BlockBlobConfig(Blocks.MOSSY_COBBLESTONE.getDefaultState(), 0)).createDecoratedFeature(Placement.FOREST_ROCK.configure(new FrequencyConfig(3)));
 
-    public static void addMiscFeatures(Biome biome, String biomeNamespace, String biomePath) {
+    public static void addSwampTreeFeatures(Biome biome, String biomeNamespace, String biomePath) {
 
         // only exists in vanilla biomes
         if (RepurposedStructures.RSMainConfig.hornedSwampTree.get() && !biomeNamespace.equals("ultra_amplified_dimension") && biome == Biomes.SWAMP) {
@@ -356,6 +355,14 @@ public class RSAddFeatures {
             biome.getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && serializeAndCompareFeature(configuredFeature, VANILLA_SWAMP_TREE));
             biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, RSFeatures.HORNED_SWAMP_TREE.configure(DefaultBiomeFeatures.SWAMP_TREE_CONFIG).createDecoratedFeature(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(2, 0.8F, 1))));
         }
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // BOULDER FEATURES //
+
+    private static final ConfiguredFeature<?, ?> VANILLA_BOULDER = Feature.FOREST_ROCK.configure(new BlockBlobConfig(Blocks.MOSSY_COBBLESTONE.getDefaultState(), 0)).createDecoratedFeature(Placement.FOREST_ROCK.configure(new FrequencyConfig(3)));
+
+    public static void addBoulderFeatures(Biome biome, String biomeNamespace, String biomePath) {
 
         if (RepurposedStructures.RSMainConfig.boulderGiant.get() && !biomeNamespace.equals("ultra_amplified_dimension") &&
                 ((biome == Biomes.GIANT_SPRUCE_TAIGA_HILLS || biome == Biomes.GIANT_TREE_TAIGA_HILLS) ||
@@ -459,7 +466,7 @@ public class RSAddFeatures {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // TEMPLES //
 
-    public static void addTemplesAndPyramids(Biome biome, String biomeNamespace, String biomePath) {
+    public static void addTemples(Biome biome, String biomeNamespace, String biomePath) {
 
         if (RepurposedStructures.RSTemplesConfig.netherBasaltTempleSpawnrate.get() != 1001 &&
                 biome.getCategory() == Category.NETHER && (biomePath.contains("basalt") || biomePath.contains("blackstone")) &&
@@ -486,7 +493,12 @@ public class RSAddFeatures {
                 (biomeNamespace.equals("minecraft") || RepurposedStructures.RSTemplesConfig.addNetherWastelandTempleToModdedBiomes.get())) {
             biome.addStructureFeature(RSFeatures.NETHER_WASTELAND_TEMPLE.configure(IFeatureConfig.NO_FEATURE_CONFIG));
         }
+    }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Pyramids //
+
+    public static void addPyramids(Biome biome, String biomeNamespace, String biomePath) {
 
         if (RepurposedStructures.RSTemplesConfig.netherPyramidSpawnrate.get() != 1001 && biome.getCategory() == Category.NETHER &&
                 (biomeNamespace.equals("minecraft") || RepurposedStructures.RSTemplesConfig.addNetherPyramidToModdedBiomes.get())) {

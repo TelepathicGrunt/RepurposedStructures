@@ -12,6 +12,7 @@ public class RSOutpostsConfig
 	public static class RSOutpostsConfigValues
 	{
 		public ConfigValueListener<Boolean> addNetherBrickOutpostToModdedBiomes;
+		public ConfigValueListener<String> blacklistedOutpostBiomes;
 		public ConfigValueListener<Integer> netherBrickOutpostSpawnrate;
 		public ConfigValueListener<Boolean> addWarpedOutpostToModdedBiomes;
 		public ConfigValueListener<Integer> warpedOutpostSpawnrate;
@@ -21,6 +22,14 @@ public class RSOutpostsConfig
 		public RSOutpostsConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
 		{
 			builder.push("Outposts");
+
+				blacklistedOutpostBiomes = subscriber.subscribe(builder
+					.comment("\r\n Add the ID/resource location of the biome you don't want"
+							+"\r\n RS's outposts to spawn in. Separate each ID with a comma ,"
+							+"\r\n"
+							+"\r\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
+					.translation("repurposedstructures.config.outposts.blacklistedOutpostBiomes")
+					.define("blacklistedOutpostBiomes", ""));
 
 				addNetherBrickOutpostToModdedBiomes = subscriber.subscribe(builder
 					.comment("\r\n How rare are Nether Brick Outposts in non-warped Nether biomes."

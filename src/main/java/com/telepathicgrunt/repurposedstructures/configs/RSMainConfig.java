@@ -25,19 +25,16 @@ public class RSMainConfig
 		public ConfigValueListener<Boolean> allowSilverfishSpawnerJF;
 		public ConfigValueListener<Boolean> lootChestsJF;
 		public ConfigValueListener<Boolean> addJungleFortressToModdedBiomes;
-		
-		public ConfigValueListener<Integer> netherTempleSpawnrate;
-		public ConfigValueListener<Boolean> lootChestsNT;
-		public ConfigValueListener<Boolean> addNetherTempleToModdedBiomes;
-		
-		public ConfigValueListener<Integer> badlandsTempleSpawnrate;
-		public ConfigValueListener<Boolean> lootChestsBT;
-		public ConfigValueListener<Boolean> addBadlandsTempleToModdedBiomes;
 
 		public ConfigValueListener<Integer> grassyIglooSpawnrate;
 		public ConfigValueListener<Boolean> addGrassyIglooToModdedBiomes;
 		public ConfigValueListener<Integer> stoneIglooSpawnrate;
 		public ConfigValueListener<Boolean> addStoneIglooToModdedBiomes;
+
+		public ConfigValueListener<String> blacklistedSwampTreeBiomes;
+		public ConfigValueListener<String> blacklistedBoulderBiomes;
+		public ConfigValueListener<String> blacklistedFortressBiomes;
+		public ConfigValueListener<String> blacklistedIglooBiomes;
 
 		public RSConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
 		{
@@ -47,50 +44,67 @@ public class RSMainConfig
 
 					addLargeSwampTreeModdedBiomes = subscriber.subscribe(builder
 							.comment("\r\n Add 2x2 Swamp Trees to modded swamp biomes.")
-						.translation("repurposedstructures.config.feature.misc.addlargeswamptreemoddedbiomes")
+						.translation("repurposedstructures.config.misc.addlargeswamptreemoddedbiomes")
 						.define("addLargeSwampTreeModdedBiomes", false));
 					
 					addGiantBouldersModdedBiomes = subscriber.subscribe(builder
 						.comment("\r\n Adds giant boulders to modded Giant Tree Taiga (or Redwood) biomes.")
-					.translation("repurposedstructures.config.feature.misc.addGiantBouldersModdedBiomes")
+					.translation("repurposedstructures.config.misc.addgiantbouldersmoddedbiomes")
 					.define("addGiantBouldersModdedBiomes", false));
+
+					blacklistedSwampTreeBiomes = subscriber.subscribe(builder
+							.comment("\r\n Add the ID/resource location of the biome you don't want"
+									+"\r\n RS's 2x2 Swamp trees to spawn in. Separate each ID with a comma ,"
+									+"\r\n"
+									+"\r\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
+							.translation("repurposedstructures.config.misc.blacklistedswamptreebiomes")
+							.define("blacklistedSwampTreeBiomes", ""));
+
+					blacklistedBoulderBiomes = subscriber.subscribe(builder
+						.comment("\r\n Add the ID/resource location of the biome you don't want"
+								+"\r\n RS's boulders to spawn in. Separate each ID with a comma ,"
+								+"\r\n"
+								+"\r\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
+						.translation("repurposedstructures.config.misc.blacklistedboulderbiomes")
+						.define("blacklistedBoulderBiomes", ""));
+
 
 
 					giantBouldersPerChunk = subscriber.subscribe(builder
 					.comment("\r\n How many Giant Boulders per chunk. (Can be decimal too)")
-					.translation("repurposedstructures.config.feature.misc.giantbouldersperchunk")
+					.translation("repurposedstructures.config.misc.giantbouldersperchunk")
 					.defineInRange("giantBouldersPerChunk", 1.0D, 1, 100));
 
 					diamondChanceInGiantBoulders = subscriber.subscribe(builder
 					.comment("\r\n 1 out of ___ chance of Diamond Ore when placing"
 							+ "\n a block in giant Boulders. Lower number = more common."
 							+ "\n Enter 0 to disable Diamond Ores completely.")
-					.translation("repurposedstructures.config.feature.misc.diamondchanceingiantboulders")
+					.translation("repurposedstructures.config.misc.diamondchanceingiantboulders")
 					.defineInRange("diamondChanceInGiantBoulders", 7000, 0, 1000000));
 
 
 					addTinyBouldersModdedBiomes = subscriber.subscribe(builder
 						.comment("\r\n Adds tiny boulders to modded Taiga biomes.")
-					.translation("repurposedstructures.config.feature.misc.addTinyBouldersModdedBiomes")
+					.translation("repurposedstructures.config.misc.addtinybouldersmoddedbiomes")
 					.define("addTinyBouldersModdedBiomes", false));
 
 					boulderTiny = subscriber.subscribe(builder
 							.comment("\r\n Adds tiny boulders to Taiga Mountains and Snowy Taiga Mountains biomes "
 								+"\r\n that can contain small amounts of Coal and Iron ores.")
-						.translation("repurposedstructures.config.feature.misc.bouldertiny")
+						.translation("repurposedstructures.config.misc.bouldertiny")
 						.define("boulderTiny", true));
 					
 					boulderGiant = subscriber.subscribe(builder
 							.comment("\r\n Replaces boulders in Giant Tree Taiga Hills and Giant Spruce Taiga Hills"
 								+"\r\n biomes with a larger boulder that can contain Coal, Iron, and extremely"
 								+"\r\n rarely, can also have Diamond Ores.")
-						.translation("repurposedstructures.config.feature.misc.netherdungeons")
+						.translation("repurposedstructures.config.misc.netherdungeons")
 						.define("boulderGiant", true));
 					
 					hornedSwampTree = subscriber.subscribe(builder
 							.comment("\r\n Adds a large tree somewhat uncommonly to Swamp biome and replaces"
 								+"\r\n all vanilla trees in Swamp Hills biome with the larger tree.")
-						.translation("repurposedstructures.config.feature.misc.hornedSwampTree")
+						.translation("repurposedstructures.config.misc.hornedswamptree")
 						.define("hornedSwampTree", true));
 					
 				builder.pop();
@@ -105,103 +119,77 @@ public class RSMainConfig
 							.comment("\r\n How rare are Jungle Fortresses." 
 								+"\r\n "
 								+"\r\n 1 for spawning in most chunks and 1001 for no spawn.")
-							.translation("repurposedstructures.config.structure.junglefortress.junglefortressspawnrate")
+							.translation("repurposedstructures.config.junglefortress.junglefortressspawnrate")
 							.defineInRange("jungleFortressSpawnrate", 32, 1, 1001));
+
+					blacklistedFortressBiomes = subscriber.subscribe(builder
+							.comment("\r\n Add the ID/resource location of the biome you don't want"
+									+"\r\n RS's Jungle Fortresses to spawn in. Separate each ID with a comma ,"
+									+"\r\n"
+									+"\r\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
+							.translation("repurposedstructures.config.junglefortress.blacklistedfortressbiomes")
+							.define("blacklistedFortressBiomes", ""));
 
 					silverfishSpawnrateJF = subscriber.subscribe(builder
 							.comment("\r\n How often Silverfish Blocks will generate in Jungle Fortress as a percentage."
 								+ "\r\n Note: Mossy Stone Bricks block cannot be infected by Silverfish"
 								+ "\n "
 								+ "\r\n 0 for no Silverfish Blocks and 100 for max spawnrate.")
-							.translation("repurposedstructures.config.structure.junglefortress.silverfishspawnratejf")
+							.translation("repurposedstructures.config.junglefortress.silverfishspawnratejf")
 							.defineInRange("silverfishSpawnrateJF", 0.5D, 0, 100));
 					
 					allowSilverfishSpawnerJF = subscriber.subscribe(builder
 							.comment("\r\n Silverfish Mob Spawners generate in Stone Fortresses."
 								+"\r\n If turned off, the spawners will become Skeleton spawners.")
-							.translation("repurposedstructures.config.structure.junglefortress.allowsilverfishspawnerjf")
+							.translation("repurposedstructures.config.junglefortress.allowsilverfishspawnerjf")
 							.define("allowSilverfishSpawnerJF", true));
 
 					lootChestsJF = subscriber.subscribe(builder
 							.comment("\r\n Controls whether loot chests spawn or not in Jungle Fortresses.")
-						.translation("repurposedstructures.config.structure.junglefortress.lootchestsjf")
+						.translation("repurposedstructures.config.junglefortress.lootchestsjf")
 						.define("lootChestsJF", true));
 
 					addJungleFortressToModdedBiomes = subscriber.subscribe(builder
 							.comment("\r\n Add Jungle Fortress to modded jungle biomes.")
-						.translation("repurposedstructures.config.structure.junglefortress.addjunglefortresstomoddedbiomes")
+						.translation("repurposedstructures.config.junglefortress.addjunglefortresstomoddedbiomes")
 						.define("addJungleFortressToModdedBiomes", false));
 
 				builder.pop();
 				
-				builder.push("Nether Temple");
-	
-					netherTempleSpawnrate = subscriber.subscribe(builder
-							.comment("\r\n How rare are Nether Temples in Nether." 
-								+ "\n "
-								+ "\r\n 1 for spawning in most chunks and 1001 for no spawn.")
-							.translation("repurposedstructures.config.structure.nethertemple.nethertemplespawnrate")
-							.defineInRange("netherTempleSpawnrate", 20, 1, 1001));
-
-					lootChestsNT = subscriber.subscribe(builder
-							.comment("\r\n Controls whether loot chests spawn or not in Nether Temples.")
-						.translation("repurposedstructures.config.structure.nethertemple.lootchestsnt")
-						.define("lootChestsNT", true));
-
-					addNetherTempleToModdedBiomes = subscriber.subscribe(builder
-							.comment("\r\n Add Jungle Fortress to modded jungle biomes.")
-						.translation("repurposedstructures.config.structure.nethertemple.addnethertempletomoddedbiomes")
-						.define("addNetherTempleToModdedBiomes", false));
-					
-				builder.pop();
-				
-				builder.push("Badlands Temple");
-				
-					badlandsTempleSpawnrate = subscriber.subscribe(builder
-							.comment("\r\n How rare are Nether Temples in Nether." 
-								+ "\n "
-								+ "\r\n 1 for spawning in most chunks and 1001 for no spawn.")
-							.translation("repurposedstructures.config.structure.badlandstemple.badlandstemplespawnrate")
-							.defineInRange("badlandsTempleSpawnrate", 20, 1, 1001));
-	
-					lootChestsBT = subscriber.subscribe(builder
-							.comment("\r\n Controls whether loot chests spawn or not in Badlands Temples.")
-						.translation("repurposedstructures.config.structure.badlandstemple.lootchestsbt")
-						.define("lootChestsBT", true));
-	
-					addBadlandsTempleToModdedBiomes = subscriber.subscribe(builder
-							.comment("\r\n Add Jungle Fortress to modded jungle biomes.")
-						.translation("repurposedstructures.config.structure.badlandstemple.addbadlandstempletomoddedbiomes")
-						.define("addBadlandsTempleToModdedBiomes", false));
-				
-				builder.pop();
-				
 				builder.push("Igloos");
-				
+
+					blacklistedIglooBiomes = subscriber.subscribe(builder
+							.comment("\r\n Add the ID/resource location of the biome you don't want"
+									+"\r\n RS's Igloos to spawn in. Separate each ID with a comma ,"
+									+"\r\n"
+									+"\r\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
+							.translation("repurposedstructures.config.igloo.blacklistedigloobiomes")
+							.define("blacklistedIglooBiomes", ""));
+
 					grassyIglooSpawnrate = subscriber.subscribe(builder
 						.comment("\r\n How rare are Grassy Igloos in Plains and Forests." 
 							+ "\n "
 							+ "\r\n 1 for spawning in most chunks and 1001 for no spawn.")
-						.translation("repurposedstructures.config.structure.igloo.grassyigloospawnrate")
+						.translation("repurposedstructures.config.igloo.grassyigloospawnrate")
 						.defineInRange("grassyIglooSpawnrate", 20, 1, 1001));
 	
 					addGrassyIglooToModdedBiomes = subscriber.subscribe(builder
 							.comment("\r\n Add Grassy Igloos to modded biomes that are"
 								+"\r\n most likely grassy fields or temperate forests.")
-						.translation("repurposedstructures.config.structure.igloo.addgrassyiglootomoddedbiomes")
+						.translation("repurposedstructures.config.igloo.addgrassyiglootomoddedbiomes")
 						.define("addGrassyIglooToModdedBiomes", false));
 
 					stoneIglooSpawnrate = subscriber.subscribe(builder
 						.comment("\r\n How rare are Stone Igloos in Giant Tree Taiga biomes." 
 							+ "\n "
 							+ "\r\n 1 for spawning in most chunks and 1001 for no spawn.")
-						.translation("repurposedstructures.config.structure.igloo.stoneigloospawnrate")
+						.translation("repurposedstructures.config.igloo.stoneigloospawnrate")
 						.defineInRange("stoneIglooSpawnrate", 20, 1, 1001));
 	
 					addStoneIglooToModdedBiomes = subscriber.subscribe(builder
 							.comment("\r\n Add Stone Igloos to modded biomes that are"
 								+"\r\n most likely Giant Tree Taiga variants.")
-						.translation("repurposedstructures.config.structure.igloo.addstoneiglootomoddedbiomes")
+						.translation("repurposedstructures.config.igloo.addstoneiglootomoddedbiomes")
 						.define("addStoneIglooToModdedBiomes", false));
 					
 				builder.pop();

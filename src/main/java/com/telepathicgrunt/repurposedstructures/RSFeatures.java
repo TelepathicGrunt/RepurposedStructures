@@ -22,6 +22,7 @@ import java.util.*;
 
 
 public class RSFeatures {
+
     public static final BlockStateProvidingFeatureConfig COBBLESTONE_PILE_CONFIG = new BlockStateProvidingFeatureConfig(new SimpleBlockStateProvider(Blocks.COBBLESTONE.getDefaultState()));
 
     //Static instance of our structure so we can reference it and add it to biomes easily.
@@ -205,12 +206,13 @@ public class RSFeatures {
     ) {
         structure.setRegistryName(resourceLocation);
         Structure.register(resourceLocation.toString(), structure, stage);
+
         FlatGenerationSettings.STRUCTURES.put(structure, structure.configure(IFeatureConfig.NO_FEATURE_CONFIG));
-
-        Map<Structure<?>, StructureSeparationSettings> tempMap = new HashMap<>(DimensionStructuresSettings.DEFAULT_STRUCTURES);
-        tempMap.put(structure, StructureSeparationSettings);
-        DimensionStructuresSettings.DEFAULT_STRUCTURES = ImmutableMap.copyOf(tempMap);
-
+        DimensionStructuresSettings.DEFAULT_STRUCTURES =
+                ImmutableMap.<Structure<?>, StructureSeparationSettings>builder()
+                    .putAll(DimensionStructuresSettings.DEFAULT_STRUCTURES)
+                    .put(structure, StructureSeparationSettings)
+                    .build();
         DimensionSettings.Preset.field_236122_b_.getChunkGeneratorType().getConfig().getStructures().put(structure, StructureSeparationSettings);
         DimensionSettings.Preset.field_236123_c_.getChunkGeneratorType().getConfig().getStructures().put(structure, StructureSeparationSettings);
         DimensionSettings.Preset.field_236124_d_.getChunkGeneratorType().getConfig().getStructures().put(structure, StructureSeparationSettings);

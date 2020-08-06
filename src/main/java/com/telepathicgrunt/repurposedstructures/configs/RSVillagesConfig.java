@@ -21,6 +21,7 @@ public class RSVillagesConfig
 		public ConfigValueListener<Integer> giantTaigaVillageSpawnrate;
 		public ConfigValueListener<Integer> crimsonVillageSpawnrate;
 		public ConfigValueListener<Integer> warpedVillageSpawnrate;
+		public ConfigValueListener<String> blacklistedVillageBiomes;
 
 		public RSVillagesConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
 		{
@@ -30,6 +31,14 @@ public class RSVillagesConfig
 						.comment("\r\n Add the custom villages to modded biomes of the same categories/type.")
 					.translation("repurposedstructures.config.villages.addVillagesToModdedBiomes")
 					.define("addVillagesToModdedBiomes", false));
+
+				blacklistedVillageBiomes = subscriber.subscribe(builder
+					.comment("\r\n Add the ID/resource location of the biome you don't want"
+							+"\r\n RS's village to spawn in. Separate each ID with a comma ,"
+							+"\r\n"
+							+"\r\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
+					.translation("repurposedstructures.config.villages.blacklistedvillagebiomes")
+					.define("blacklistedVillageBiomes", ""));
 
 				builder.push("Spawnrate");
 				

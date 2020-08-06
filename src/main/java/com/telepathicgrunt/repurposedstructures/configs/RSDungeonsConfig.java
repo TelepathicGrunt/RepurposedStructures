@@ -13,6 +13,7 @@ public class RSDungeonsConfig
 	{
 
 		public ConfigValueListener<Boolean> addDungeonsToModdedBiomes;
+		public ConfigValueListener<String> blacklistedDungeonBiomes;
 		public ConfigValueListener<Integer> badlandsDungeonSpawnrate;
 		public ConfigValueListener<Integer> darkForestDungeonSpawnrate;
 		public ConfigValueListener<Integer> desertDungeonSpawnrate;
@@ -52,8 +53,16 @@ public class RSDungeonsConfig
 				
 				addDungeonsToModdedBiomes = subscriber.subscribe(builder
 						.comment("\r\n Add the custom dungeons to modded biomes of the same categories/type.")
-					.translation("repurposedstructures.config.feature.dungeons.adddungeonstomoddedbiomes")
+					.translation("repurposedstructures.config.dungeons.adddungeonstomoddedbiomes")
 					.define("addDungeonsToModdedBiomes", false));
+
+				blacklistedDungeonBiomes = subscriber.subscribe(builder
+					.comment("\r\n Add the ID/resource location of the biome you don't want"
+							+"\r\n RS's dungeons to spawn in. Separate each ID with a comma ,"
+							+"\r\n"
+							+"\r\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
+					.translation("repurposedstructures.config.dungeons.blacklisteddungeonbiomes")
+					.define("blacklistedDungeonBiomes", ""));
 
 				builder.push("Spawnrate");
         					
@@ -62,7 +71,7 @@ public class RSDungeonsConfig
         							+" How often dungeons will attempt to spawn per chunk.\r\n " 
         							+" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.\r\n"
         							+" Note: Vanilla Dungeons will spawn again when this is set to 0.")
-        					.translation("repurposedstructures.config.feature.dungeons.badlandsdungeonspawnrate")
+        					.translation("repurposedstructures.config.dungeons.badlandsdungeonspawnrate")
         					.defineInRange("badlandsDungeonSpawnrate", 8, 0, 1000));
 				
 					darkForestDungeonSpawnrate = subscriber.subscribe(builder
@@ -70,7 +79,7 @@ public class RSDungeonsConfig
 								+" How often dungeons will attempt to spawn per chunk.\r\n " 
 								+" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.\r\n"
 								+" Note: Vanilla Dungeons will spawn again when this is set to 0.")
-						.translation("repurposedstructures.config.feature.dungeons.darkforestdungeonspawnrate")
+						.translation("repurposedstructures.config.dungeons.darkforestdungeonspawnrate")
 						.defineInRange("darkForestDungeonSpawnrate", 8, 0, 1000));
 				
 					desertDungeonSpawnrate = subscriber.subscribe(builder
@@ -78,7 +87,7 @@ public class RSDungeonsConfig
 								+" How often dungeons will attempt to spawn per chunk.\r\n " 
 								+" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.\r\n"
 								+" Note: Vanilla Dungeons will spawn again when this is set to 0.")
-						.translation("repurposedstructures.config.feature.dungeons.desertdungeonspawnrate")
+						.translation("repurposedstructures.config.dungeons.desertdungeonspawnrate")
 						.defineInRange("desertDungeonSpawnrate", 8, 0, 1000));
 				
 					jungleDungeonSpawnrate = subscriber.subscribe(builder
@@ -86,7 +95,7 @@ public class RSDungeonsConfig
 								+" How often dungeons will attempt to spawn per chunk.\r\n " 
 								+" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.\r\n"
 								+" Note: Vanilla Dungeons will spawn again when this is set to 0.")
-						.translation("repurposedstructures.config.feature.dungeons.jungledungeonspawnrate")
+						.translation("repurposedstructures.config.dungeons.jungledungeonspawnrate")
 						.defineInRange("jungleDungeonSpawnrate", 8, 0, 1000));
 				
 					mushroomDungeonSpawnrate = subscriber.subscribe(builder
@@ -94,7 +103,7 @@ public class RSDungeonsConfig
 								+" How often dungeons will attempt to spawn per chunk.\r\n " 
 								+" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.\r\n"
 								+" Note: Vanilla Dungeons will spawn again when this is set to 0.")
-						.translation("repurposedstructures.config.feature.dungeons.mushroomdungeonspawnrate")
+						.translation("repurposedstructures.config.dungeons.mushroomdungeonspawnrate")
 						.defineInRange("mushroomDungeonSpawnrate", 8, 0, 1000));
 				
 					snowDungeonSpawnrate = subscriber.subscribe(builder
@@ -102,7 +111,7 @@ public class RSDungeonsConfig
 								+" How often dungeons will attempt to spawn per chunk.\r\n " 
 								+" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.\r\n"
 								+" Note: Vanilla Dungeons will spawn again when this is set to 0.")
-						.translation("repurposedstructures.config.feature.dungeons.snowdungeonspawnrate")
+						.translation("repurposedstructures.config.dungeons.snowdungeonspawnrate")
 						.defineInRange("snowDungeonSpawnrate", 8, 0, 1000));
 				
 					swampDungeonSpawnrate = subscriber.subscribe(builder
@@ -110,21 +119,21 @@ public class RSDungeonsConfig
 								+" How often dungeons will attempt to spawn per chunk.\r\n " 
 								+" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.\r\n"
 								+" Note: Vanilla Dungeons will spawn again when this is set to 0.")
-						.translation("repurposedstructures.config.feature.dungeons.swampdungeonspawnrate")
+						.translation("repurposedstructures.config.dungeons.swampdungeonspawnrate")
 						.defineInRange("swampDungeonSpawnrate", 8, 0, 1000));
 				
 					endDungeonSpawnrate = subscriber.subscribe(builder
 							.comment("\r\n Add End themed dungeon to End biomes outside the Enderdragon island.\r\n"
 								+" How often dungeons will attempt to spawn per chunk.\r\n " 
 								+" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.")
-						.translation("repurposedstructures.config.feature.dungeons.enddungeonspawnrate")
+						.translation("repurposedstructures.config.dungeons.enddungeonspawnrate")
 						.defineInRange("endDungeonSpawnrate", 8, 0, 1000));
 
 					netherDungeonSpawnrate = subscriber.subscribe(builder
 							.comment("\r\n Add Nether themed dungeon to Nether biomes.\r\n"
 								+" How often dungeons will attempt to spawn per chunk.\r\n " 
 								+" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.")
-						.translation("repurposedstructures.config.feature.dungeons.netherdungeonspawnrate")
+						.translation("repurposedstructures.config.dungeons.netherdungeonspawnrate")
 						.defineInRange("netherDungeonSpawnrate", 8, 0, 1000));
 
 					oceanDungeonSpawnrate = subscriber.subscribe(builder
@@ -137,7 +146,7 @@ public class RSDungeonsConfig
 								+"\r\n Note: Vanilla Dungeons will still generate if the biome has "
 								+"\r\n them which is unlike the other modded dungeons from this mod"
 								+"\r\n as those would normally replace the Vanilla Dungeons.")
-						.translation("repurposedstructures.config.feature.dungeons.oceandungeonspawnrate")
+						.translation("repurposedstructures.config.dungeons.oceandungeonspawnrate")
 						.defineInRange("oceanDungeonSpawnrate", 6, 0, 1000));
             
 
@@ -148,61 +157,61 @@ public class RSDungeonsConfig
 					badlandsDungeonMinHeight = subscriber.subscribe(builder
 							.comment("\r\n Minimum Y height that this dungeon can spawn at. Default is 2.\r\n"
 								+" Note: The dungeon will spawn between min and max y height set in config.")
-						.translation("repurposedstructures.config.feature.dungeons.badlandsdungeonminheight")
+						.translation("repurposedstructures.config.dungeons.badlandsdungeonminheight")
 						.defineInRange("badlandsDungeonMinHeight", 2, 2, 255));
 
 					darkForestDungeonMinHeight = subscriber.subscribe(builder
 							.comment("\r\n Minimum Y height that this dungeon can spawn at. Default is 2.\r\n"
 								+" Note: The dungeon will spawn between min and max y height set in config.")
-						.translation("repurposedstructures.config.feature.dungeons.darkforestdungeonminheight")
+						.translation("repurposedstructures.config.dungeons.darkforestdungeonminheight")
 						.defineInRange("darkForestDungeonMinHeight", 2, 2, 255));
 
 					desertDungeonMinHeight = subscriber.subscribe(builder
 							.comment("\r\n Minimum Y height that this dungeon can spawn at. Default is 2.\r\n"
 								+" Note: The dungeon will spawn between min and max y height set in config.")
-						.translation("repurposedstructures.config.feature.dungeons.desertdungeonminheight")
+						.translation("repurposedstructures.config.dungeons.desertdungeonminheight")
 						.defineInRange("desertDungeonMinHeight", 2, 2, 255));
 
 					jungleDungeonMinHeight = subscriber.subscribe(builder
 							.comment("\r\n Minimum Y height that this dungeon can spawn at. Default is 2.\r\n"
 								+" Note: The dungeon will spawn between min and max y height set in config.")
-						.translation("repurposedstructures.config.feature.dungeons.jungledungeonminheight")
+						.translation("repurposedstructures.config.dungeons.jungledungeonminheight")
 						.defineInRange("jungleDungeonMinHeight", 2, 2, 255));
 
 					mushroomDungeonMinHeight = subscriber.subscribe(builder
 							.comment("\r\n Minimum Y height that this dungeon can spawn at. Default is 2.\r\n"
 								+" Note: The dungeon will spawn between min and max y height set in config.")
-						.translation("repurposedstructures.config.feature.dungeons.mushroomdungeonminheight")
+						.translation("repurposedstructures.config.dungeons.mushroomdungeonminheight")
 						.defineInRange("mushroomDungeonMinHeight", 2, 2, 255));
 
 					snowDungeonMinHeight = subscriber.subscribe(builder
 							.comment("\r\n Minimum Y height that this dungeon can spawn at. Default is 2.\r\n"
 								+" Note: The dungeon will spawn between min and max y height set in config.")
-						.translation("repurposedstructures.config.feature.dungeons.snowdungeonminheight")
+						.translation("repurposedstructures.config.dungeons.snowdungeonminheight")
 						.defineInRange("snowDungeonMinHeight", 2, 2, 255));
 
 					swampDungeonMinHeight = subscriber.subscribe(builder
 							.comment("\r\n Minimum Y height that this dungeon can spawn at. Default is 2.\r\n"
 								+" Note: The dungeon will spawn between min and max y height set in config.")
-						.translation("repurposedstructures.config.feature.dungeons.swampdungeonminheight")
+						.translation("repurposedstructures.config.dungeons.swampdungeonminheight")
 						.defineInRange("swampDungeonMinHeight", 2, 2, 255));
 
 					endDungeonMinHeight = subscriber.subscribe(builder
 							.comment("\r\n Minimum Y height that this dungeon can spawn at. Default is 2.\r\n"
 								+" Note: The dungeon will spawn between min and max y height set in config.")
-						.translation("repurposedstructures.config.feature.dungeons.enddungeonminheight")
+						.translation("repurposedstructures.config.dungeons.enddungeonminheight")
 						.defineInRange("endDungeonMinHeight", 2, 2, 255));
 
 					netherDungeonMinHeight = subscriber.subscribe(builder
 							.comment("\r\n Minimum Y height that this dungeon can spawn at. Default is 2.\r\n"
 								+" Note: The dungeon will spawn between min and max y height set in config.")
-						.translation("repurposedstructures.config.feature.dungeons.netherdungeonminheight")
+						.translation("repurposedstructures.config.dungeons.netherdungeonminheight")
 						.defineInRange("netherDungeonMinHeight", 2, 2, 255));
 
 					oceanDungeonMinHeight = subscriber.subscribe(builder
 							.comment("\r\n Minimum Y height that this dungeon can spawn at. Default is 3.\r\n"
 								+" Note: The dungeon will spawn between min and max y height set in config.")
-						.translation("repurposedstructures.config.feature.dungeons.oceandungeonminheight")
+						.translation("repurposedstructures.config.dungeons.oceandungeonminheight")
 						.defineInRange("oceanDungeonMinHeight", 3, 3, 255));
 
 				builder.pop();
@@ -214,70 +223,70 @@ public class RSDungeonsConfig
 							.comment("\r\n Maximum Y height that this dungeon can spawn at. Default is 255.\r\n"
 								+" Note: The dungeon will spawn between min and max y height set in config.\r\n"
 								+" Setting this to below min height config will make dungeon spawn only at min height.")
-						.translation("repurposedstructures.config.feature.dungeons.badlandsdungeonmaxheight")
+						.translation("repurposedstructures.config.dungeons.badlandsdungeonmaxheight")
 						.defineInRange("badlandsDungeonMaxHeight", 255, 2, 255));
 
 					darkForestDungeonMaxHeight = subscriber.subscribe(builder
 							.comment("\r\n Maximum Y height that this dungeon can spawn at. Default is 255.\r\n"
 								+" Note: The dungeon will spawn between min and max y height set in config.\r\n"
 								+" Setting this to below min height config will make dungeon spawn only at min height.")
-						.translation("repurposedstructures.config.feature.dungeons.darkforestdungeonmaxheight")
+						.translation("repurposedstructures.config.dungeons.darkforestdungeonmaxheight")
 						.defineInRange("darkForestDungeonMaxHeight", 255, 2, 255));
 
 					desertDungeonMaxHeight = subscriber.subscribe(builder
 							.comment("\r\n Maximum Y height that this dungeon can spawn at. Default is 255.\r\n"
 								+" Note: The dungeon will spawn between min and max y height set in config.\r\n"
 								+" Setting this to below min height config will make dungeon spawn only at min height.")
-						.translation("repurposedstructures.config.feature.dungeons.desertdungeonmaxheight")
+						.translation("repurposedstructures.config.dungeons.desertdungeonmaxheight")
 						.defineInRange("desertDungeonMaxHeight", 255, 2, 255));
 
 					jungleDungeonMaxHeight = subscriber.subscribe(builder
 							.comment("\r\n Maximum Y height that this dungeon can spawn at. Default is 255.\r\n"
 								+" Note: The dungeon will spawn between min and max y height set in config.\r\n"
 								+" Setting this to below min height config will make dungeon spawn only at min height.")
-						.translation("repurposedstructures.config.feature.dungeons.jungledungeonmaxheight")
+						.translation("repurposedstructures.config.dungeons.jungledungeonmaxheight")
 						.defineInRange("jungleDungeonMaxHeight", 255, 2, 255));
 
 					mushroomDungeonMaxHeight = subscriber.subscribe(builder
 							.comment("\r\n Maximum Y height that this dungeon can spawn at. Default is 255.\r\n"
 								+" Note: The dungeon will spawn between min and max y height set in config.\r\n"
 								+" Setting this to below min height config will make dungeon spawn only at min height.")
-						.translation("repurposedstructures.config.feature.dungeons.mushroomdungeonmaxheight")
+						.translation("repurposedstructures.config.dungeons.mushroomdungeonmaxheight")
 						.defineInRange("mushroomDungeonMaxHeight", 255, 2, 255));
 
 					snowDungeonMaxHeight = subscriber.subscribe(builder
 							.comment("\r\n Maximum Y height that this dungeon can spawn at. Default is 255.\r\n"
 								+" Note: The dungeon will spawn between min and max y height set in config.\r\n"
 								+" Setting this to below min height config will make dungeon spawn only at min height.")
-						.translation("repurposedstructures.config.feature.dungeons.snowdungeonmaxheight")
+						.translation("repurposedstructures.config.dungeons.snowdungeonmaxheight")
 						.defineInRange("snowDungeonMaxHeight", 255, 2, 255));
 
 					swampDungeonMaxHeight = subscriber.subscribe(builder
 							.comment("\r\n Maximum Y height that this dungeon can spawn at. Default is 255.\r\n"
 								+" Note: The dungeon will spawn between min and max y height set in config.\r\n"
 								+" Setting this to below min height config will make dungeon spawn only at min height.")
-						.translation("repurposedstructures.config.feature.dungeons.swampdungeonmaxheight")
+						.translation("repurposedstructures.config.dungeons.swampdungeonmaxheight")
 						.defineInRange("swampDungeonMaxHeight", 255, 2, 255));
 
 					endDungeonMaxHeight = subscriber.subscribe(builder
 							.comment("\r\n Maximum Y height that this dungeon can spawn at. Default is 255.\r\n"
 								+" Note: The dungeon will spawn between min and max y height set in config.\r\n"
 								+" Setting this to below min height config will make dungeon spawn only at min height.")
-						.translation("repurposedstructures.config.feature.dungeons.enddungeonmaxheight")
+						.translation("repurposedstructures.config.dungeons.enddungeonmaxheight")
 						.defineInRange("endDungeonMaxHeight", 255, 2, 255));
 
 					netherDungeonMaxHeight = subscriber.subscribe(builder
 							.comment("\r\n Maximum Y height that this dungeon can spawn at. Default is 255.\r\n"
 								+" Note: The dungeon will spawn between min and max y height set in config.\r\n"
 								+" Setting this to below min height config will make dungeon spawn only at min height.")
-						.translation("repurposedstructures.config.feature.dungeons.netherdungeonmaxheight")
+						.translation("repurposedstructures.config.dungeons.netherdungeonmaxheight")
 						.defineInRange("netherDungeonMaxHeight", 255, 2, 255));
 
 					oceanDungeonMaxHeight = subscriber.subscribe(builder
 							.comment("\r\n Maximum Y height that this dungeon can spawn at. Default is 255.\r\n"
 								+" Note: The dungeon will spawn between min and max y height set in config.\r\n"
 								+" Setting this to below min height config will make dungeon spawn only at min height.")
-						.translation("repurposedstructures.config.feature.dungeons.oceandungeonmaxheight")
+						.translation("repurposedstructures.config.dungeons.oceandungeonmaxheight")
 						.defineInRange("oceanDungeonMaxHeight", 255, 3, 255));
 
 				builder.pop();

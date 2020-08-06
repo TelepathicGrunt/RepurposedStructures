@@ -15,6 +15,9 @@ repositories {
     maven {
         url "https://maven.tterrag.com/"
     }
+    flatDir {
+        dirs 'deps'
+    }
 }
 
 apply plugin: 'net.minecraftforge.gradle'

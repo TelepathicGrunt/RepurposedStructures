@@ -30,11 +30,19 @@ public class RSStrongholdsConfig
 		public ConfigValueListener<Integer> netherStrongholdMaxHeight;
 		public ConfigValueListener<Integer> netherStrongholdChainSpawnrate;
 
+		public ConfigValueListener<String> blacklistedStrongholdBiomes;
 		
 		public RSStrongholdsConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
 		{
-
 			builder.push("Stronghold");
+
+				blacklistedStrongholdBiomes = subscriber.subscribe(builder
+					.comment("\r\n Add the ID/resource location of the biome you don't want"
+							+"\r\n RS's strongholds to spawn in. Separate each ID with a comma ,"
+							+"\r\n"
+							+"\r\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
+					.translation("repurposedstructures.config.stronghold.blacklistedstrongholdbiomes")
+					.define("blacklistedStrongholdBiomes", ""));
 
 				strongholdSize = subscriber.subscribe(builder
 					.comment("\r\n How large the Stronghold is on average as a percentage."
@@ -42,18 +50,18 @@ public class RSStrongholdsConfig
 							+ "\r\n closer to vanilla stronghold size, use the value of 60."
 							+ "\n "
 							+ "10 for supertiny Strongholds and 2000 for supermassive Strongholds.")
-					.translation("repurposedstructures.config.structure.stronghold.strongholdsizesh")
+					.translation("repurposedstructures.config.stronghold.strongholdsizesh")
 					.defineInRange("strongholdSizeSH", 100D, 10, 2000));
 
 				allowExtraSpawners = subscriber.subscribe(builder
 					.comment("\r\n Make Mob Spawners generate in rooms other than the Portal Room in Strongholds.\r\n"
 							+" Note: Spawners in Portal Room will always remain.")
-					.translation("repurposedstructures.config.structure.stronghold.allowextraspawnerssh")
+					.translation("repurposedstructures.config.stronghold.allowextraspawnerssh")
 					.define("allowExtraSpawnersSH", true));
 
 				lootChests = subscriber.subscribe(builder
 					.comment("\r\n Controls whether loot chests spawn or not in the Stronghold.")
-					.translation("repurposedstructures.config.structure.stronghold.lootchestssh")
+					.translation("repurposedstructures.config.stronghold.lootchestssh")
 					.define("lootChestsSH", true));
 
 				builder.push("Stonebrick");
@@ -61,20 +69,20 @@ public class RSStrongholdsConfig
 						.comment("\r\nStonebrick-styled Stronghold replaces vanilla Strongholds in any" +
 								"\nbiome that has it. If off, vanilla Strongholds will generate" +
 								"\nonce again but Nether Strongholds will still be active.\r\n")
-						.translation("repurposedstructures.config.structure.stronghold.allowstonebrickstronghold")
+						.translation("repurposedstructures.config.stronghold.allowstonebrickstronghold")
 						.define("allowStonebrickStronghold", true));
 
 					addStonebrickStrongholdToModdedBiomes = subscriber.subscribe(builder
 						.comment("\r\nAdd Stonebrick-styled Stronghold to all modded non-Nether" +
 								"\nbiomes that doesn't have vanilla Strongholds.\r\n")
-						.translation("repurposedstructures.config.structure.stronghold.addstonebrickstrongholdtomoddedbiomes")
+						.translation("repurposedstructures.config.stronghold.addstonebrickstrongholdtomoddedbiomes")
 						.define("addStonebrickStrongholdToModdedBiomes", true));
 
 					stonebrickStrongholdSpawnrate = subscriber.subscribe(builder
 							.comment("\r\n How rare are Stonebrick-styled Strongholds."
 									+ "\n "
 									+ "1 for spawning in most chunks and 1001 for no spawn.")
-							.translation("repurposedstructures.config.structure.stronghold.stonebrickstrongholdspawnrate")
+							.translation("repurposedstructures.config.stronghold.stonebrickstrongholdspawnrate")
 							.defineInRange("stonebrickStrongholdSpawnrate", 85, 1, 1001));
 
 					silverfishSpawnrate = subscriber.subscribe(builder
@@ -82,7 +90,7 @@ public class RSStrongholdsConfig
 									+ "\r\n Note: Mossy Stone Bricks block cannot be infected by Silverfish"
 									+ "\n "
 									+ "0 for no Silverfish Blocks and 100 for max spawnrate.")
-							.translation("repurposedstructures.config.structure.stronghold.silverfishspawnratesh")
+							.translation("repurposedstructures.config.stronghold.silverfishspawnratesh")
 							.defineInRange("silverfishSpawnrateSH", 0.8D, 0, 100));
 
 					stonebrickStrongholdMinHeight = subscriber.subscribe(builder
@@ -113,19 +121,19 @@ public class RSStrongholdsConfig
 						.comment("\r\n How rare are Nether-styled Strongholds in Nether-category biomes."
 								+ "\n "
 								+ "1 for spawning in most chunks and 1001 for no spawn.")
-						.translation("repurposedstructures.config.structure.stronghold.netherstrongholdspawnrate")
+						.translation("repurposedstructures.config.stronghold.netherstrongholdspawnrate")
 						.defineInRange("netherStrongholdSpawnrate", 85, 1, 1001));
 
 					addNetherStrongholdToModdedBiomes  = subscriber.subscribe(builder
 						.comment("\r\nAllow Nether-styled Stronghold to"
 								+ "\ngenerate in modded Nether biomes.\r\n")
-						.translation("repurposedstructures.config.structure.stronghold.addnetherstrongholdtomoddedbiomes ")
+						.translation("repurposedstructures.config.stronghold.addnetherstrongholdtomoddedbiomes ")
 						.define("addNetherStrongholdToModdedBiomes ", true));
 
 					allowNetherStronghold = subscriber.subscribe(builder
 						.comment("\r\n Allow Nether-styled Strongholds to spawn in Nether category biomes."
 								+ "\r\n Note: Eyes of Ender will work and show the closest Nether Stronghold too.")
-						.translation("repurposedstructures.config.structure.stronghold.allownetherstronghold")
+						.translation("repurposedstructures.config.stronghold.allownetherstronghold")
 						.define("allowNetherStronghold", true));
 
 					netherStrongholdMinHeight = subscriber.subscribe(builder

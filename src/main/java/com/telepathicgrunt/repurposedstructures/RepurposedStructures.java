@@ -1,7 +1,5 @@
 package com.telepathicgrunt.repurposedstructures;
 
-import com.electronwill.nightconfig.core.file.CommentedFileConfig;
-import com.electronwill.nightconfig.toml.TomlFormat;
 import com.telepathicgrunt.repurposedstructures.configs.RSDungeonsConfig.RSDungeonsConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSMainConfig;
 import com.telepathicgrunt.repurposedstructures.configs.RSMainConfig.RSConfigValues;
@@ -38,9 +36,7 @@ import org.apache.logging.log4j.Logger;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.EnumMap;
-import java.util.Set;
+import java.util.*;
 
 
 @SuppressWarnings("deprecation")
@@ -90,10 +86,29 @@ public class RepurposedStructures
 	
 	private static void addFeaturesAndStructuresToBiomes()
 	{
+		//Gets blacklisted biome IDs for each structure type
+		//Done here so the map can be garbage collected later
+		Map<String, List<String>> allBiomeBlacklists = new HashMap<>();
+		allBiomeBlacklists.put("dungeon", Arrays.asList(RSDungeonsConfig.blacklistedDungeonBiomes.get().split(",")));
+		allBiomeBlacklists.put("boulder", Arrays.asList(RSMainConfig.blacklistedBoulderBiomes.get().split(",")));
+		allBiomeBlacklists.put("swamp_tree", Arrays.asList(RSMainConfig.blacklistedSwampTreeBiomes.get().split(",")));
+		allBiomeBlacklists.put("fortress", Arrays.asList(RSMainConfig.blacklistedFortressBiomes.get().split(",")));
+		allBiomeBlacklists.put("igloo", Arrays.asList(RSMainConfig.blacklistedIglooBiomes.get().split(",")));
+		allBiomeBlacklists.put("swamp", Arrays.asList(RSMainConfig.blacklistedSwampTreeBiomes.get().split(",")));
+		allBiomeBlacklists.put("mineshaft", Arrays.asList(RSMineshaftsConfig.blacklistedMineshaftBiomes.get().split(",")));
+		allBiomeBlacklists.put("outpost", Arrays.asList(RSOutpostsConfig.blacklistedOutpostBiomes.get().split(",")));
+		allBiomeBlacklists.put("shipwreck", Arrays.asList(RSShipwrecksConfig.blacklistedShipwreckBiomes.get().split(",")));
+		allBiomeBlacklists.put("stronghold", Arrays.asList(RSStrongholdsConfig.blacklistedStrongholdBiomes.get().split(",")));
+		allBiomeBlacklists.put("temple", Arrays.asList(RSTemplesConfig.blacklistedTempleBiomes.get().split(",")));
+		allBiomeBlacklists.put("pyramid", Arrays.asList(RSTemplesConfig.blacklistedPyramidBiomes.get().split(",")));
+		allBiomeBlacklists.put("village", Arrays.asList(RSVillagesConfig.blacklistedVillageBiomes.get().split(",")));
+		allBiomeBlacklists.put("well", Arrays.asList(RSWellsConfig.blacklistedWellBiomes.get().split(",")));
+
 		for (Biome biome : ForgeRegistries.BIOMES)
 		{
-			addFeaturesAndStructuresToBiomes(biome, biome.getRegistryName());
+			addFeaturesAndStructuresToBiomes(biome, biome.getRegistryName(), allBiomeBlacklists);
 		}
+
 		RSFeatures.registerVillagePools();
 	}
 	
@@ -134,22 +149,42 @@ public class RepurposedStructures
     /*
      * Here, we will use this to add our structures/features to all biomes.
      */
-    public static void addFeaturesAndStructuresToBiomes(Biome biome, ResourceLocation biomeID) {
+    public static void addFeaturesAndStructuresToBiomes(Biome biome, ResourceLocation biomeID, Map<String, List<String>> allBiomeBlacklists) {
         String biomeNamespace = biomeID.getNamespace();
         String biomePath = biomeID.getPath();
 
-        RSAddFeatures.addMineshafts(biome, biomeNamespace, biomePath);
-        RSAddFeatures.addJungleFortress(biome, biomeNamespace, biomePath);
-        RSAddFeatures.addDungeons(biome, biomeNamespace, biomePath);
-        RSAddFeatures.addWells(biome, biomeNamespace, biomePath);
-        RSAddFeatures.addMiscFeatures(biome, biomeNamespace, biomePath);
-        RSAddFeatures.addTemplesAndPyramids(biome, biomeNamespace, biomePath);
-        RSAddFeatures.addIgloos(biome, biomeNamespace, biomePath);
-        RSAddFeatures.addOutposts(biome, biomeNamespace, biomePath);
-        RSAddFeatures.addShipwrecks(biome, biomeNamespace, biomePath);
-        RSAddFeatures.addVillages(biome, biomeNamespace, biomePath);
-        RSAddFeatures.addStrongholds(biome, biomeNamespace, biomePath);
+		if(isBiomeAllowed("mineshaft",biomeID, allBiomeBlacklists)) 
+			RSAddFeatures.addMineshafts(biome, biomeNamespace, biomePath);
+		if(isBiomeAllowed("fortress",biomeID, allBiomeBlacklists))
+			RSAddFeatures.addJungleFortress(biome, biomeNamespace, biomePath);
+		if(isBiomeAllowed("dungeon",biomeID, allBiomeBlacklists))
+			RSAddFeatures.addDungeons(biome, biomeNamespace, biomePath);
+		if(isBiomeAllowed("well",biomeID, allBiomeBlacklists))
+			RSAddFeatures.addWells(biome, biomeNamespace, biomePath);
+		if(isBiomeAllowed("swamp_tree",biomeID, allBiomeBlacklists))
+			RSAddFeatures.addSwampTreeFeatures(biome, biomeNamespace, biomePath);
+		if(isBiomeAllowed("boulder",biomeID, allBiomeBlacklists))
+			RSAddFeatures.addBoulderFeatures(biome, biomeNamespace, biomePath);
+		if(isBiomeAllowed("temple",biomeID, allBiomeBlacklists))
+			RSAddFeatures.addTemples(biome, biomeNamespace, biomePath);
+		if(isBiomeAllowed("pyramid",biomeID, allBiomeBlacklists))
+			RSAddFeatures.addTemples(biome, biomeNamespace, biomePath);
+		if(isBiomeAllowed("igloo",biomeID, allBiomeBlacklists))
+			RSAddFeatures.addIgloos(biome, biomeNamespace, biomePath);
+		if(isBiomeAllowed("outpost",biomeID, allBiomeBlacklists))
+			RSAddFeatures.addOutposts(biome, biomeNamespace, biomePath);
+		if(isBiomeAllowed("shipwreck",biomeID, allBiomeBlacklists))
+			RSAddFeatures.addShipwrecks(biome, biomeNamespace, biomePath);
+		if(isBiomeAllowed("village",biomeID, allBiomeBlacklists))
+			RSAddFeatures.addVillages(biome, biomeNamespace, biomePath);
+		if(isBiomeAllowed("stronghold",biomeID, allBiomeBlacklists))
+			RSAddFeatures.addStrongholds(biome, biomeNamespace, biomePath);
     }
+    
+    private static boolean isBiomeAllowed(String structureType, ResourceLocation biomeID, Map<String, List<String>> allBiomeBlacklists){
+    	return allBiomeBlacklists.get(structureType).stream().noneMatch(blacklistedBiome -> blacklistedBiome.equals(biomeID.toString()));
+	}
+
 
 	/**
 	 * Loads RS's configs as Forge won't load configs before registry events.
