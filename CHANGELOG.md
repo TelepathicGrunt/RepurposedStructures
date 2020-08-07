@@ -8,6 +8,16 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.2.0.4 Changes) (1.16.1 Minecraft)
+
+##### Villages:
+
+- Center of Swamp Villages are now lowered by 1 block to fit better with terrain.
+
+##### Misc:
+
+- Fixed en_us.json being missing causing untranslated names.
+
 ## (V.2.0.3 Changes) (1.16.1 Minecraft)
 
 ##### Pyramids:
