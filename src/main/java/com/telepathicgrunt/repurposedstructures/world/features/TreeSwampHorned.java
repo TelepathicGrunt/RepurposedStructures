@@ -22,7 +22,6 @@ import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.TreeFeatureConfig;
-import org.spongepowered.asm.mixin.Overwrite;
 
 import java.util.*;
 

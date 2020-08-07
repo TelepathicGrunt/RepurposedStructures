@@ -1,7 +1,6 @@
 package com.telepathicgrunt.repurposedstructures;
 
 import com.telepathicgrunt.repurposedstructures.configs.RSAllConfig;
-import com.telepathicgrunt.repurposedstructures.configs.RSMainConfig;
 import com.telepathicgrunt.repurposedstructures.misc.VillagerTrades;
 import com.telepathicgrunt.repurposedstructures.utils.MobSpawnerManager;
 import com.telepathicgrunt.repurposedstructures.world.placements.RSPlacements;

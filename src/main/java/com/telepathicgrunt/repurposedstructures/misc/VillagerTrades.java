@@ -4,11 +4,9 @@ import com.telepathicgrunt.repurposedstructures.RSFeatures;
 import net.minecraft.item.map.MapIcon;
 import net.minecraft.village.TradeOffers;
 import net.minecraft.village.VillagerProfession;
-import net.minecraft.world.gen.feature.StructureFeature;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class VillagerTrades {

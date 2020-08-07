@@ -3,10 +3,7 @@ package com.telepathicgrunt.repurposedstructures.utils;
 import com.google.gson.annotations.Expose;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.Pair;
 import net.minecraft.util.registry.Registry;
-
-import java.util.List;
 
 public class MobSpawnerObj {
     @Expose

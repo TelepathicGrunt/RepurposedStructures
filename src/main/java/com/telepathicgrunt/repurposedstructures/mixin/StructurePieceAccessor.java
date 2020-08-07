@@ -1,7 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.mixin;
 
 import net.minecraft.block.Block;
-import net.minecraft.structure.StrongholdGenerator;
 import net.minecraft.structure.StructurePiece;
 import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;

@@ -18,8 +18,6 @@ import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
-import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
-import org.apache.logging.log4j.Level;
 
 import java.util.Collection;
 import java.util.Random;

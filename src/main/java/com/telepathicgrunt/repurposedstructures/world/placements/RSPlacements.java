@@ -2,7 +2,6 @@ package com.telepathicgrunt.repurposedstructures.world.placements;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.world.gen.decorator.CountDecoratorConfig;
 import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
 
