@@ -10,6 +10,10 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ## (V.1.4.1 Changes) (1.16.1 Minecraft)
 
+##### Villages:
+
+- Center of Swamp Villages are now lowered by 1 block to fit better with terrain.
+
 ##### Misc:
 
 - Fixed /locate to not rarely skip over a closer structure. 

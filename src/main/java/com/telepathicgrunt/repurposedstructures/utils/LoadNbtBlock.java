@@ -35,7 +35,7 @@ public class LoadNbtBlock extends Block {
     }
 
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        String mainPath = "C:\\Users\\MSI Laptop\\Documents\\PersonalFun\\Minecraft stuff\\JavaCodeMods\\ModdingWorkspace\\RepurposedStructures-Fabric";
+        String mainPath = "C:\\Users\\MSI Laptop\\Documents\\ModdingWorkspace\\RepurposedStructures-Fabric";
         String resourcePath = mainPath+"\\src\\main\\resources\\data";
 
         // Finds and gets all identifiers for pieces
@@ -43,10 +43,8 @@ public class LoadNbtBlock extends Block {
         List<Identifier> identifiers = new ArrayList<>();
         StructureNbtDataFixer.setAllNbtFilesToList(resourcePath, files);
         for(File file : files){
-            if(file.getAbsolutePath().contains("crimson") && file.getAbsolutePath().contains("village")){
-                String modifiedFileName = file.getAbsolutePath().replace(resourcePath+"\\","").replace("\\structures\\",":").replace(".nbt","").replace('\\','/');
-                identifiers.add(new Identifier(modifiedFileName));
-            }
+            String modifiedFileName = file.getAbsolutePath().replace(resourcePath+"\\","").replace("\\structures\\",":").replace(".nbt","").replace('\\','/');
+            identifiers.add(new Identifier(modifiedFileName));
         }
 
         // Size of area we will need
