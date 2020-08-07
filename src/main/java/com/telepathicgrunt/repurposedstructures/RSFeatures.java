@@ -1,7 +1,7 @@
 package com.telepathicgrunt.repurposedstructures;
 
 import com.telepathicgrunt.repurposedstructures.world.features.*;
-import com.telepathicgrunt.repurposedstructures.world.features.structures.*;
+import com.telepathicgrunt.repurposedstructures.world.structures.*;
 import net.earthcomputer.libstructure.LibStructure;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Identifier;
