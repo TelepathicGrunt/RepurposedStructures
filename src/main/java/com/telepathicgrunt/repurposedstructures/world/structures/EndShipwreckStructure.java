@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.world.structures.pieces.GeneralJigsawGenerator;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.SharedSeedRandom;
@@ -29,10 +30,8 @@ import java.util.Random;
 public class EndShipwreckStructure extends AbstractBaseStructure {
     // Special thanks to cannon_foddr for allowing me to use his End Shipwreck design!
 
-    public EndShipwreckStructure(Codec<NoFeatureConfig> config) {
-        super(config);
-    }
-    static {
+    private static boolean INITIALIZED_POOLS = false;
+    private static void initPools() {
         JigsawManager.REGISTRY.register(
                 new JigsawPattern(new ResourceLocation(RepurposedStructures.MODID,"shipwrecks/end"), new ResourceLocation("empty"),
                         ImmutableList.of(
@@ -55,6 +54,10 @@ public class EndShipwreckStructure extends AbstractBaseStructure {
                                 Pair.of(new SingleJigsawPiece(RepurposedStructures.MODID+":shipwrecks/end/upsidedown_full", new ArrayList<>()), 1),
                                 Pair.of(new SingleJigsawPiece(RepurposedStructures.MODID+":shipwrecks/end/upsidedown_full_degraded", new ArrayList<>()), 1)),
                         JigsawPattern.PlacementBehaviour.RIGID));
+    }
+
+    public EndShipwreckStructure(Codec<NoFeatureConfig> config) {
+        super(config);
     }
 
     @Override
@@ -94,12 +97,16 @@ public class EndShipwreckStructure extends AbstractBaseStructure {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
         }
 
-        private static ResourceLocation SHIPWRECK_ResourceLocation = new ResourceLocation(RepurposedStructures.MODID + ":shipwrecks/end");
+        private static final ResourceLocation SHIPWRECK_RL = new ResourceLocation(RepurposedStructures.MODID + ":shipwrecks/end");
 
         @Override
         public void init(ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
+            if(!INITIALIZED_POOLS){
+                initPools();
+                INITIALIZED_POOLS = true;
+            }
             BlockPos blockpos = new BlockPos(chunkX * 16, 62, chunkZ * 16);
-            GeneralJigsawGenerator.addPieces(chunkGenerator, structureManager, blockpos, this.components, this.rand, SHIPWRECK_ResourceLocation, 1);
+            GeneralJigsawGenerator.addPieces(chunkGenerator, structureManager, blockpos, this.components, this.rand, SHIPWRECK_RL, 1);
             this.recalculateStructureSize();
 
             BlockPos blockPos = new BlockPos(this.components.get(0).getBoundingBox().func_215126_f());

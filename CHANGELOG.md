@@ -38,7 +38,7 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ##### Other:
 
-- Cleaned up code in backend...
+- Cleaned up code in backend... Made sure that Outpost, Igloo, Shipwreck, and Temple's pieces can be overridden by datapacks.
 
 ## (V.2.0.4 Changes) (1.16.1 Minecraft)
 

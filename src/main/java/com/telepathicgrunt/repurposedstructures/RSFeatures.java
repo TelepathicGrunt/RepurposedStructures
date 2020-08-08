@@ -5,6 +5,7 @@ import com.google.common.collect.ImmutableMap;
 import com.telepathicgrunt.repurposedstructures.utils.RegUtil;
 import com.telepathicgrunt.repurposedstructures.world.features.*;
 import com.telepathicgrunt.repurposedstructures.world.structures.*;
+import com.telepathicgrunt.repurposedstructures.world.structures.pieces.*;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.gen.DimensionSettings;
@@ -68,18 +69,18 @@ public class RSFeatures {
     public static Structure<NoFeatureConfig> NETHER_STRONGHOLD = new RSNetherStrongholdStructure(NoFeatureConfig.CODEC);
 
     public static Structure<NoFeatureConfig> JUNGLE_FORTRESS = new FortressJungleStructure(NoFeatureConfig.CODEC);
-    public static Structure<NoFeatureConfig> GRASSY_IGLOO = new IglooGrassyStructure(NoFeatureConfig.CODEC);
-    public static Structure<NoFeatureConfig> STONE_IGLOO = new IglooStoneStructure(NoFeatureConfig.CODEC);
+    public static Structure<NoFeatureConfig> GRASSY_IGLOO = new RSIglooStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":igloos/grassy_top"));
+    public static Structure<NoFeatureConfig> STONE_IGLOO = new RSIglooStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":igloos/stone_top"));
 
-    public static Structure<NoFeatureConfig> NETHER_WASTELAND_TEMPLE = new TempleNetherWastelandStructure(NoFeatureConfig.CODEC);
-    public static Structure<NoFeatureConfig> NETHER_BASALT_TEMPLE = new TempleNetherBasaltStructure(NoFeatureConfig.CODEC);
-    public static Structure<NoFeatureConfig> NETHER_WARPED_TEMPLE = new TempleNetherWarpedStructure(NoFeatureConfig.CODEC);
-    public static Structure<NoFeatureConfig> NETHER_CRIMSON_TEMPLE = new TempleNetherCrimsonStructure(NoFeatureConfig.CODEC);
-    public static Structure<NoFeatureConfig> NETHER_SOUL_TEMPLE = new TempleNetherSoulStructure(NoFeatureConfig.CODEC);
+    public static Structure<NoFeatureConfig> NETHER_WASTELAND_TEMPLE = new TempleNetherStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID,"temples/temple_nether_wasteland"));
+    public static Structure<NoFeatureConfig> NETHER_BASALT_TEMPLE = new TempleNetherStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID,"temples/temple_nether_basalt"));
+    public static Structure<NoFeatureConfig> NETHER_WARPED_TEMPLE = new TempleNetherStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID,"temples/temple_nether_warped"));
+    public static Structure<NoFeatureConfig> NETHER_CRIMSON_TEMPLE = new TempleNetherStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID,"temples/temple_nether_crimson"));
+    public static Structure<NoFeatureConfig> NETHER_SOUL_TEMPLE = new TempleNetherStructure(NoFeatureConfig.CODEC,new ResourceLocation(RepurposedStructures.MODID,"temples/temple_nether_soul"));
 
-    public static Structure<NoFeatureConfig> NETHER_BRICK_OUTPOST = new OutpostNetherBrickStructure(NoFeatureConfig.CODEC);
-    public static Structure<NoFeatureConfig> WARPED_OUTPOST = new OutpostWarpedStructure(NoFeatureConfig.CODEC);
-    public static Structure<NoFeatureConfig> CRIMSON_OUTPOST = new OutpostCrimsonStructure(NoFeatureConfig.CODEC);
+    public static Structure<NoFeatureConfig> NETHER_BRICK_OUTPOST = new OutpostNetherStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID,"outposts/nether_brick/base_plates"));
+    public static Structure<NoFeatureConfig> WARPED_OUTPOST = new OutpostNetherStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID,"outposts/warped/base_plates"));
+    public static Structure<NoFeatureConfig> CRIMSON_OUTPOST = new OutpostNetherStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID,"outposts/crimson/base_plates"));
 
     public static Structure<NoFeatureConfig> NETHER_PYRAMID = new PyramidNetherStructure(NoFeatureConfig.CODEC);
     public static Structure<NoFeatureConfig> BADLANDS_TEMPLE = new PyramidBadlandsStructure(NoFeatureConfig.CODEC);

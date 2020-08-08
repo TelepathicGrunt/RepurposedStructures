@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.world.structures;
+package com.telepathicgrunt.repurposedstructures.world.structures.pieces;
 
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.feature.structure.IStructurePieceType;
