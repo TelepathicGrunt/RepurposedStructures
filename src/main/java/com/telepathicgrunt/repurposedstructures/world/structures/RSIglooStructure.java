@@ -15,17 +15,23 @@ import net.minecraft.world.gen.feature.FeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
 
-public abstract class AbstractIglooStructure extends AbstractBaseStructure {
-    public AbstractIglooStructure(Codec<DefaultFeatureConfig> config) {
+public class RSIglooStructure extends AbstractBaseStructure {
+    private final Identifier TOP_PIECE_IDENTIFIER;
+
+    public RSIglooStructure(Codec<DefaultFeatureConfig> config, Identifier topPieceID) {
         super(config);
+        TOP_PIECE_IDENTIFIER = topPieceID;
     }
 
-    public static abstract class AbstractStart extends StructureStart<DefaultFeatureConfig> {
-        public AbstractStart(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
+    @Override
+    public StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
+        return Start::new;
+    }
+
+    public class Start extends StructureStart<DefaultFeatureConfig> {
+        public Start(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
         }
-
-        public abstract Identifier getTopPieceIdentifier();
 
         @Override
         public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
@@ -33,7 +39,7 @@ public abstract class AbstractIglooStructure extends AbstractBaseStructure {
             int z = chunkZ * 16;
             BlockPos blockpos = new BlockPos(x, 90, z);
             BlockRotation rotation = BlockRotation.values()[this.random.nextInt(BlockRotation.values().length)];
-            RSIglooPieces.func_207617_a(structureManager, getTopPieceIdentifier(), Blocks.PODZOL, blockpos, rotation, this.children, this.random, FeatureConfig.DEFAULT);
+            RSIglooPieces.func_207617_a(structureManager, TOP_PIECE_IDENTIFIER, Blocks.PODZOL, blockpos, rotation, this.children, this.random, FeatureConfig.DEFAULT);
             this.setBoundingBoxFromChildren();
         }
     }

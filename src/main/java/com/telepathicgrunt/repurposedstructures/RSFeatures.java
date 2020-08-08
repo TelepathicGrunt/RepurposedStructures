@@ -61,14 +61,14 @@ public class RSFeatures {
     public static StructureFeature<DefaultFeatureConfig> NETHER_STRONGHOLD = new RSNetherStrongholdStructure(DefaultFeatureConfig.CODEC);
 
     public static StructureFeature<DefaultFeatureConfig> JUNGLE_FORTRESS = new FortressJungleStructure(DefaultFeatureConfig.CODEC);
-    public static StructureFeature<DefaultFeatureConfig> GRASSY_IGLOO = new IglooGrassyStructure(DefaultFeatureConfig.CODEC);
-    public static StructureFeature<DefaultFeatureConfig> STONE_IGLOO = new IglooStoneStructure(DefaultFeatureConfig.CODEC);
+    public static StructureFeature<DefaultFeatureConfig> GRASSY_IGLOO = new RSIglooStructure(DefaultFeatureConfig.CODEC, new Identifier(RepurposedStructures.MODID + ":igloos/grassy_top"));
+    public static StructureFeature<DefaultFeatureConfig> STONE_IGLOO = new RSIglooStructure(DefaultFeatureConfig.CODEC, new Identifier(RepurposedStructures.MODID + ":igloos/stone_top"));
 
-    public static StructureFeature<DefaultFeatureConfig> NETHER_WASTELAND_TEMPLE = new TempleNetherWastelandStructure(DefaultFeatureConfig.CODEC);
-    public static StructureFeature<DefaultFeatureConfig> NETHER_BASALT_TEMPLE = new TempleNetherBasaltStructure(DefaultFeatureConfig.CODEC);
-    public static StructureFeature<DefaultFeatureConfig> NETHER_WARPED_TEMPLE = new TempleNetherWarpedStructure(DefaultFeatureConfig.CODEC);
-    public static StructureFeature<DefaultFeatureConfig> NETHER_CRIMSON_TEMPLE = new TempleNetherCrimsonStructure(DefaultFeatureConfig.CODEC);
-    public static StructureFeature<DefaultFeatureConfig> NETHER_SOUL_TEMPLE = new TempleNetherSoulStructure(DefaultFeatureConfig.CODEC);
+    public static StructureFeature<DefaultFeatureConfig> NETHER_WASTELAND_TEMPLE = new TempleNetherStructure(DefaultFeatureConfig.CODEC, new Identifier(RepurposedStructures.MODID,"temples/temple_nether_wasteland"));
+    public static StructureFeature<DefaultFeatureConfig> NETHER_BASALT_TEMPLE = new TempleNetherStructure(DefaultFeatureConfig.CODEC, new Identifier(RepurposedStructures.MODID,"temples/temple_nether_basalt"));
+    public static StructureFeature<DefaultFeatureConfig> NETHER_WARPED_TEMPLE = new TempleNetherStructure(DefaultFeatureConfig.CODEC, new Identifier(RepurposedStructures.MODID,"temples/temple_nether_warped"));
+    public static StructureFeature<DefaultFeatureConfig> NETHER_CRIMSON_TEMPLE = new TempleNetherStructure(DefaultFeatureConfig.CODEC, new Identifier(RepurposedStructures.MODID,"temples/temple_nether_crimson"));
+    public static StructureFeature<DefaultFeatureConfig> NETHER_SOUL_TEMPLE = new TempleNetherStructure(DefaultFeatureConfig.CODEC,new Identifier(RepurposedStructures.MODID,"temples/temple_nether_soul"));
 
     public static StructureFeature<DefaultFeatureConfig> NETHER_BRICK_OUTPOST = new OutpostNetherBrickStructure(DefaultFeatureConfig.CODEC);
     public static StructureFeature<DefaultFeatureConfig> WARPED_OUTPOST = new OutpostWarpedStructure(DefaultFeatureConfig.CODEC);
