@@ -18,6 +18,20 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Made End Shipwrecks spawn a bit more frequently.
 
+##### Villages:
+
+- Made Nether Villages slightly more spaced out by default in config.
+
+##### Outposts:
+
+- Made Nether Outposts slightly more spaced out by default in config.
+
+##### Temples:
+
+- Made Nether Temples and Pyramids slightly more spaced out by default in config.
+
+- Fixed Badlands Pyramid config name being incorrect inside the config file.
+
 ## (V.2.0.4 Changes) (1.16.1 Minecraft)
 
 ##### Villages:

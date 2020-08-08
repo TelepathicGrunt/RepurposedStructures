@@ -57,7 +57,7 @@ public class RSTemplesConfig
 					.comment("\r\n How rare are Nether Temples in Nether Wastelands."
 							+ "\n 1 for spawning in most chunks and 1001 for none.")
 					.translation("repurposedstructures.config.temples.netherwastelandtemplespawnrate")
-					.defineInRange("netherWastelandTempleSpawnrate", 26, 1, 1001));
+					.defineInRange("netherWastelandTempleSpawnrate", 29, 1, 1001));
 
 
 				addNetherBasaltTempleToModdedBiomes = subscriber.subscribe(builder
@@ -69,7 +69,7 @@ public class RSTemplesConfig
 					.comment("\r\n How rare are Nether Basalt Temples in Nether Basalt Delta biomes."
 							+ "\n 1 for spawning in most chunks and 1001 for none.")
 					.translation("repurposedstructures.config.temples.netherbasalttemplespawnrate")
-					.defineInRange("netherBasaltTempleSpawnrate", 26, 1, 1001));
+					.defineInRange("netherBasaltTempleSpawnrate", 29, 1, 1001));
 
 
 				addNetherCrimsonTempleToModdedBiomes = subscriber.subscribe(builder
@@ -81,7 +81,7 @@ public class RSTemplesConfig
 					.comment("\r\n How rare are Nether Crimson Temples in Nether Crimson Forest."
 							+ "\n 1 for spawning in most chunks and 1001 for none.")
 					.translation("repurposedstructures.config.temples.nethercrimsontemplespawnrate")
-					.defineInRange("netherCrimsonTempleSpawnrate", 26, 1, 1001));
+					.defineInRange("netherCrimsonTempleSpawnrate", 29, 1, 1001));
 
 
 				addNetherWarpedTempleToModdedBiomes = subscriber.subscribe(builder
@@ -93,7 +93,7 @@ public class RSTemplesConfig
 					.comment("\r\n How rare are Nether Crimson Temples in Nether Warped Forest."
 							+ "\n 1 for spawning in most chunks and 1001 for none.")
 					.translation("repurposedstructures.config.temples.netherwarpedtemplespawnrate")
-					.defineInRange("netherWarpedTempleSpawnrate", 26, 1, 1001));
+					.defineInRange("netherWarpedTempleSpawnrate", 29, 1, 1001));
 
 
 				addNetherSoulTempleToModdedBiomes = subscriber.subscribe(builder
@@ -105,7 +105,7 @@ public class RSTemplesConfig
 					.comment("\r\n How rare are Nether Soul Temples in Nether Soul Sand Valley."
 							+ "\n 1 for spawning in most chunks and 1001 for none.")
 					.translation("repurposedstructures.config.temples.nethersoultemplespawnrate")
-					.defineInRange("netherSoulTempleSpawnrate", 26, 1, 1001));
+					.defineInRange("netherSoulTempleSpawnrate", 29, 1, 1001));
 
 			builder.pop();
 
@@ -128,7 +128,7 @@ public class RSTemplesConfig
 					.comment("\r\n How rare are Nether Pyramids in Nether."
 							+ "\n 1 for spawning in most chunks and 1001 for none.")
 					.translation("repurposedstructures.config.temples.netherpyramidspawnrate")
-					.defineInRange("netherPyramidSpawnrate", 34, 1, 1001));
+					.defineInRange("netherPyramidSpawnrate", 37, 1, 1001));
 
 
 				addBadlandsPyramidToModdedBiomes = subscriber.subscribe(builder
@@ -139,8 +139,8 @@ public class RSTemplesConfig
 				badlandsPyramidSpawnrate = subscriber.subscribe(builder
 					.comment("\r\n How rare are Badlands Pyramid in non-plateau Badlands biomes."
 							+ "\n 1 for spawning in most chunks and 1001 for none.")
-					.translation("repurposedstructures.config.temples.netherpyramidspawnrate")
-					.defineInRange("netherPyramidSpawnrate", 20, 1, 1001));
+					.translation("repurposedstructures.config.temples.badlandspyramidspawnrate")
+					.defineInRange("badlandsPyramidSpawnrate", 20, 1, 1001));
 
 			builder.pop();
 		}
