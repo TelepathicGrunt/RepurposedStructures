@@ -1501,7 +1501,7 @@ public class RSStrongholdPieces {
         }
     }
 
-    abstract static class Stronghold extends StrongholdGenerator.Piece {
+    public abstract static class Stronghold extends StrongholdGenerator.Piece {
         protected RSStrongholdPieces.Stronghold.Door entryDoor = RSStrongholdPieces.Stronghold.Door.OPENING;
         protected Type strongholdType;
 
