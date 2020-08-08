@@ -8,6 +8,16 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.2.0.5 Changes) (1.16.1 Minecraft)
+
+##### Mineshafts:
+
+- Raised the default minimum Y height up a bit for several Mineshafts in the config
+
+##### Shipwrecks:
+
+- Made End Shipwrecks spawn a bit more frequently.
+
 ## (V.2.0.4 Changes) (1.16.1 Minecraft)
 
 ##### Villages:

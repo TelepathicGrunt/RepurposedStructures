@@ -16,18 +16,22 @@ import net.minecraft.world.gen.feature.structure.*;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 import net.minecraft.world.gen.settings.StructureSeparationSettings;
 
-public abstract class AbstractVillageStructure extends Structure<NoFeatureConfig> {
-    public AbstractVillageStructure(Codec<NoFeatureConfig> config) {
-        super(config);
-    }
+public class VillageBaseStructure extends Structure<NoFeatureConfig> {
+    private static boolean INITIALIZED_POOLS = false;
+    private final ResourceLocation POOL_RL;
+    private final int STRUCTURE_SIZE;
 
-    public abstract Structure<NoFeatureConfig> getVillageInstance();
+    public VillageBaseStructure(Codec<NoFeatureConfig> config, ResourceLocation poolRL, int structureSize) {
+        super(config);
+        POOL_RL = poolRL;
+        STRUCTURE_SIZE = structureSize;
+    }
 
     @Override
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig NoFeatureConfig) {
          for (int curChunkX = chunkX - 1; curChunkX <= chunkX + 1; curChunkX++) {
             for (int curChunkZ = chunkZ - 1; curChunkZ <= chunkZ + 1; curChunkZ++) {
-                if (!biomeSource.getBiomeForNoiseGen(curChunkX << 2, 60, curChunkZ << 2).hasStructure(getVillageInstance())) {
+                if (!biomeSource.getBiomeForNoiseGen(curChunkX << 2, 60, curChunkZ << 2).hasStructure(this)) {
                     return false;
                 }
             }
@@ -37,28 +41,28 @@ public abstract class AbstractVillageStructure extends Structure<NoFeatureConfig
     }
 
     @Override
+    public IStartFactory<NoFeatureConfig> getStartFactory() {
+        return MainStart::new;
+    }
+
+    @Override
     public BlockPos locateStructure(IWorldReader worldView, StructureManager structureAccessor, BlockPos blockPos, int radius, boolean skipExistingChunks, long seed, StructureSeparationSettings structureConfig) {
         return AbstractBaseStructure.locateStructureFast(worldView, structureAccessor, blockPos, radius, skipExistingChunks, seed, structureConfig, this);
     }
 
-    public static abstract class AbstractStart extends MarginedStructureStart<NoFeatureConfig> {
-        public AbstractStart(Structure<NoFeatureConfig> structureIn, int chunkX, int chunkZ, MutableBoundingBox mutableBoundingBox, int referenceIn, long seedIn) {
+    public class MainStart extends MarginedStructureStart<NoFeatureConfig> {
+        public MainStart(Structure<NoFeatureConfig> structureIn, int chunkX, int chunkZ, MutableBoundingBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
         }
 
-        public abstract ResourceLocation getResourceLocation();
-        public abstract int getSize();
-
-        private static boolean initalizedPools = false;
-
         public void init(ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
-            if(!initalizedPools){
+            if(!INITIALIZED_POOLS){
                 RSFeatures.registerVillagePools();
-                initalizedPools = true;
+                INITIALIZED_POOLS = true;
             }
 
             BlockPos blockpos = new BlockPos(chunkX * 16, 0, chunkZ * 16);
-            VillagePieces.func_214838_a(chunkGenerator, structureManager, blockpos, this.components, this.rand, new VillageConfig(getResourceLocation(), getSize()));
+            VillagePieces.func_214838_a(chunkGenerator, structureManager, blockpos, this.components, this.rand, new VillageConfig(POOL_RL, STRUCTURE_SIZE));
             this.recalculateStructureSize();
         }
     }

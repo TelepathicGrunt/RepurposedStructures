@@ -28,7 +28,7 @@ public class RSShipwrecksConfig
 					.comment("\r\n How rare are End Shipwreck in End Highlands biomes."
 							+ "\n 1 for spawning in most chunks and 1001 for none.")
 					.translation("repurposedstructures.config.shipwrecks.endshipwreckspawnrate")
-					.defineInRange("endShipwreckSpawnrate", 23, 1, 1001));
+					.defineInRange("endShipwreckSpawnrate", 18, 1, 1001));
 
 				blacklistedShipwreckBiomes = subscriber.subscribe(builder
 					.comment("\r\n Add the ID/resource location of the biome you don't want"

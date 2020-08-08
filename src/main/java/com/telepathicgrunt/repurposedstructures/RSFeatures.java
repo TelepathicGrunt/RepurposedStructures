@@ -52,17 +52,17 @@ public class RSFeatures {
     public static Feature<NoFeatureConfig> FORTRESS_BREAKAGE = new FortressBreakage(NoFeatureConfig.CODEC);
     public static Feature<NoFeatureConfig> STRONGHOLD_CHAINS = new StrongholdChains(NoFeatureConfig.CODEC);
 
-    public static Structure<NoFeatureConfig> BIRCH_MINESHAFT = new RSMineshaftBirchStructure(NoFeatureConfig.CODEC);
-    public static Structure<NoFeatureConfig> DESERT_MINESHAFT = new RSMineshaftDesertStructure(NoFeatureConfig.CODEC);
-    public static Structure<NoFeatureConfig> END_MINESHAFT = new RSMineshaftEndStructure(NoFeatureConfig.CODEC);
-    public static Structure<NoFeatureConfig> NETHER_MINESHAFT = new RSMineshaftNetherStructure(NoFeatureConfig.CODEC);
-    public static Structure<NoFeatureConfig> ICY_MINESHAFT = new RSMineshaftIcyStructure(NoFeatureConfig.CODEC);
-    public static Structure<NoFeatureConfig> JUNGLE_MINESHAFT = new RSMineshaftJungleStructure(NoFeatureConfig.CODEC);
-    public static Structure<NoFeatureConfig> OCEAN_MINESHAFT = new RSMineshaftOceanStructure(NoFeatureConfig.CODEC);
-    public static Structure<NoFeatureConfig> SAVANNA_MINESHAFT = new RSMineshaftSavannaStructure(NoFeatureConfig.CODEC);
-    public static Structure<NoFeatureConfig> STONE_MINESHAFT = new RSMineshaftStoneStructure(NoFeatureConfig.CODEC);
-    public static Structure<NoFeatureConfig> SWAMP_OR_DARK_FOREST_MINESHAFT = new RSMineshaftSwampOrDarkForestStructure(NoFeatureConfig.CODEC);
-    public static Structure<NoFeatureConfig> TAIGA_MINESHAFT = new RSMineshaftTaigaStructure(NoFeatureConfig.CODEC);
+    public static Structure<NoFeatureConfig> BIRCH_MINESHAFT = new RSMineshaftStructure(NoFeatureConfig.CODEC, RSMineshaftPieces.Type.BIRCH, RepurposedStructures.RSMineshaftsConfig.birchMineshaftSpawnrate.get(),RepurposedStructures.RSMineshaftsConfig.birchMineshaftMaxHeight.get(),RepurposedStructures.RSMineshaftsConfig.birchMineshaftMinHeight.get());
+    public static Structure<NoFeatureConfig> DESERT_MINESHAFT = new RSMineshaftStructure(NoFeatureConfig.CODEC, RSMineshaftPieces.Type.DESERT, RepurposedStructures.RSMineshaftsConfig.desertMineshaftSpawnrate.get(),RepurposedStructures.RSMineshaftsConfig.desertMineshaftMaxHeight.get(),RepurposedStructures.RSMineshaftsConfig.desertMineshaftMinHeight.get());
+    public static Structure<NoFeatureConfig> END_MINESHAFT = new RSMineshaftEndStructure(NoFeatureConfig.CODEC, RSMineshaftPieces.Type.END, RepurposedStructures.RSMineshaftsConfig.endMineshaftSpawnrate.get(),RepurposedStructures.RSMineshaftsConfig.endMineshaftMaxHeight.get(),RepurposedStructures.RSMineshaftsConfig.endMineshaftMinHeight.get());
+    public static Structure<NoFeatureConfig> NETHER_MINESHAFT = new RSMineshaftStructure(NoFeatureConfig.CODEC, RSMineshaftPieces.Type.NETHER, RepurposedStructures.RSMineshaftsConfig.netherMineshaftSpawnrate.get(),RepurposedStructures.RSMineshaftsConfig.netherMineshaftMaxHeight.get(),RepurposedStructures.RSMineshaftsConfig.netherMineshaftMinHeight.get());
+    public static Structure<NoFeatureConfig> ICY_MINESHAFT = new RSMineshaftStructure(NoFeatureConfig.CODEC, RSMineshaftPieces.Type.ICY, RepurposedStructures.RSMineshaftsConfig.icyMineshaftSpawnrate.get(),RepurposedStructures.RSMineshaftsConfig.icyMineshaftMaxHeight.get(),RepurposedStructures.RSMineshaftsConfig.icyMineshaftMinHeight.get());
+    public static Structure<NoFeatureConfig> JUNGLE_MINESHAFT = new RSMineshaftStructure(NoFeatureConfig.CODEC, RSMineshaftPieces.Type.JUNGLE, RepurposedStructures.RSMineshaftsConfig.jungleMineshaftSpawnrate.get(),RepurposedStructures.RSMineshaftsConfig.jungleMineshaftMaxHeight.get(),RepurposedStructures.RSMineshaftsConfig.jungleMineshaftMinHeight.get());
+    public static Structure<NoFeatureConfig> OCEAN_MINESHAFT = new RSMineshaftStructure(NoFeatureConfig.CODEC, RSMineshaftPieces.Type.OCEAN, RepurposedStructures.RSMineshaftsConfig.oceanMineshaftSpawnrate.get(),RepurposedStructures.RSMineshaftsConfig.oceanMineshaftMaxHeight.get(),RepurposedStructures.RSMineshaftsConfig.oceanMineshaftMinHeight.get());
+    public static Structure<NoFeatureConfig> SAVANNA_MINESHAFT = new RSMineshaftStructure(NoFeatureConfig.CODEC, RSMineshaftPieces.Type.SAVANNA, RepurposedStructures.RSMineshaftsConfig.savannaMineshaftSpawnrate.get(),RepurposedStructures.RSMineshaftsConfig.savannaMineshaftMaxHeight.get(),RepurposedStructures.RSMineshaftsConfig.savannaMineshaftMinHeight.get());
+    public static Structure<NoFeatureConfig> STONE_MINESHAFT = new RSMineshaftStructure(NoFeatureConfig.CODEC, RSMineshaftPieces.Type.STONE, RepurposedStructures.RSMineshaftsConfig.stoneMineshaftSpawnrate.get(),RepurposedStructures.RSMineshaftsConfig.stoneMineshaftMaxHeight.get(),RepurposedStructures.RSMineshaftsConfig.stoneMineshaftMinHeight.get());
+    public static Structure<NoFeatureConfig> SWAMP_OR_DARK_FOREST_MINESHAFT = new RSMineshaftStructure(NoFeatureConfig.CODEC, RSMineshaftPieces.Type.SWAMPORDARKFOREST, RepurposedStructures.RSMineshaftsConfig.swampAndDarkForestMineshaftSpawnrate.get(),RepurposedStructures.RSMineshaftsConfig.swampAndDarkForestMineshaftMaxHeight.get(),RepurposedStructures.RSMineshaftsConfig.swampAndDarkForestMineshaftMinHeight.get());
+    public static Structure<NoFeatureConfig> TAIGA_MINESHAFT = new RSMineshaftStructure(NoFeatureConfig.CODEC, RSMineshaftPieces.Type.TAIGA, RepurposedStructures.RSMineshaftsConfig.taigaMineshaftSpawnrate.get(),RepurposedStructures.RSMineshaftsConfig.taigaMineshaftMaxHeight.get(),RepurposedStructures.RSMineshaftsConfig.taigaMineshaftMinHeight.get());
 
     public static Structure<NoFeatureConfig> STONEBRICK_STRONGHOLD = new RSStonebrickStrongholdStructure(NoFeatureConfig.CODEC);
     public static Structure<NoFeatureConfig> NETHER_STRONGHOLD = new RSNetherStrongholdStructure(NoFeatureConfig.CODEC);
@@ -86,15 +86,15 @@ public class RSFeatures {
 
     public static Structure<NoFeatureConfig> END_SHIPWRECK = new EndShipwreckStructure(NoFeatureConfig.CODEC);
 
-    public static Structure<NoFeatureConfig> BADLANDS_VILLAGE = new VillageBadlandsStructure(NoFeatureConfig.CODEC);
-    public static Structure<NoFeatureConfig> BIRCH_VILLAGE = new VillageBirchStructure(NoFeatureConfig.CODEC);
-    public static Structure<NoFeatureConfig> DARK_FOREST_VILLAGE = new VillageDarkForestStructure(NoFeatureConfig.CODEC);
-    public static Structure<NoFeatureConfig> JUNGLE_VILLAGE = new VillageJungleStructure(NoFeatureConfig.CODEC);
-    public static Structure<NoFeatureConfig> SWAMP_VILLAGE = new VillageSwampStructure(NoFeatureConfig.CODEC);
-    public static Structure<NoFeatureConfig> MOUNTAINS_VILLAGE = new VillageMountainsStructure(NoFeatureConfig.CODEC);
-    public static Structure<NoFeatureConfig> GIANT_TAIGA_VILLAGE = new VillageGiantTaigaStructure(NoFeatureConfig.CODEC);
-    public static Structure<NoFeatureConfig> CRIMSON_VILLAGE = new VillageCrimsonStructure(NoFeatureConfig.CODEC);
-    public static Structure<NoFeatureConfig> WARPED_VILLAGE = new VillageWarpedStructure(NoFeatureConfig.CODEC);
+    public static Structure<NoFeatureConfig> BADLANDS_VILLAGE = new VillageBaseStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/badlands/town_centers"), 10);
+    public static Structure<NoFeatureConfig> BIRCH_VILLAGE = new VillageBaseStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/birch/town_centers"), 6);
+    public static Structure<NoFeatureConfig> DARK_FOREST_VILLAGE = new VillageBaseStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/dark_forest/town_centers"), 6);
+    public static Structure<NoFeatureConfig> JUNGLE_VILLAGE = new VillageBaseStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/jungle/town_centers"), 8);
+    public static Structure<NoFeatureConfig> SWAMP_VILLAGE = new VillageSwampStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/swamp/town_centers"), 6);
+    public static Structure<NoFeatureConfig> MOUNTAINS_VILLAGE = new VillageBaseStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/mountains/town_centers"), 6);
+    public static Structure<NoFeatureConfig> GIANT_TAIGA_VILLAGE = new VillageBaseStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/giant_taiga/town_centers"), 6);
+    public static Structure<NoFeatureConfig> CRIMSON_VILLAGE = new VillageNetherStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/crimson/town_centers"), 6);
+    public static Structure<NoFeatureConfig> WARPED_VILLAGE = new VillageNetherStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/warped/town_centers"), 6);
     public static List<Structure<NoFeatureConfig>> OVERWORLD_VILLAGE_LIST = Arrays.asList(
             BADLANDS_VILLAGE,
             BIRCH_VILLAGE,
