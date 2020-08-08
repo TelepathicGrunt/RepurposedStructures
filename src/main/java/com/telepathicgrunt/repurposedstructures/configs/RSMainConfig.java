@@ -124,7 +124,7 @@ public class RSMainConfig implements ConfigData {
         @Comment("How rare are End Shipwreck in End Highlands biomes."
                 + "\n1 for spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int endShipwreckSpawnrate = 23;
+        public int endShipwreckSpawnrate = 18;
 
     }
 

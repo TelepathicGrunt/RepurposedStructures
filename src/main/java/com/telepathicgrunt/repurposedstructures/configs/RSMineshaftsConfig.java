@@ -131,49 +131,49 @@ public class RSMineshaftsConfig implements ConfigData {
     public static class MinHeight {
 
         @ConfigEntry.Gui.Tooltip
-        @Comment("Min Y height of Mineshaft. Default is 5.")
+        @Comment("Min Y height of Mineshaft. Default is 8.")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
-        public int birchMineshaftMinHeight = 5;
+        public int birchMineshaftMinHeight = 8;
 
         @ConfigEntry.Gui.Tooltip
-        @Comment("Min Y height of Mineshaft. Default is 5.")
+        @Comment("Min Y height of Mineshaft. Default is 8.")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
-        public int jungleMineshaftMinHeight = 5;
+        public int jungleMineshaftMinHeight = 8;
 
         @ConfigEntry.Gui.Tooltip
-        @Comment("Min Y height of Mineshaft. Default is 5.")
+        @Comment("Min Y height of Mineshaft. Default is 8.")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
-        public int desertMineshaftMinHeight = 5;
+        public int desertMineshaftMinHeight = 8;
 
         @ConfigEntry.Gui.Tooltip
-        @Comment("Min Y height of Mineshaft. Default is 5.")
+        @Comment("Min Y height of Mineshaft. Default is 8.")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
-        public int stoneMineshaftMinHeight = 5;
+        public int stoneMineshaftMinHeight = 8;
 
         @ConfigEntry.Gui.Tooltip
-        @Comment("Min Y height of Mineshaft. Default is 5.")
+        @Comment("Min Y height of Mineshaft. Default is 8.")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
-        public int savannaMineshaftMinHeight = 5;
+        public int savannaMineshaftMinHeight = 8;
 
         @ConfigEntry.Gui.Tooltip
-        @Comment("Min Y height of Mineshaft. Default is 5.")
+        @Comment("Min Y height of Mineshaft. Default is 8.")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
-        public int icyMineshaftMinHeight = 5;
+        public int icyMineshaftMinHeight = 8;
 
         @ConfigEntry.Gui.Tooltip
-        @Comment("Min Y height of Mineshaft. Default is 5.")
+        @Comment("Min Y height of Mineshaft. Default is 8.")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
-        public int oceanMineshaftMinHeight = 5;
+        public int oceanMineshaftMinHeight = 8;
 
         @ConfigEntry.Gui.Tooltip
-        @Comment("Min Y height of Mineshaft. Default is 5.")
+        @Comment("Min Y height of Mineshaft. Default is 8.")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
-        public int taigaMineshaftMinHeight = 5;
+        public int taigaMineshaftMinHeight = 8;
 
         @ConfigEntry.Gui.Tooltip
-        @Comment("Min Y height of Mineshaft. Default is 5.")
+        @Comment("Min Y height of Mineshaft. Default is 8.")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
-        public int swampAndDarkForestMineshaftMinHeight = 5;
+        public int swampAndDarkForestMineshaftMinHeight = 8;
 
         @ConfigEntry.Gui.Tooltip
         @Comment("Min Y height of Mineshaft. Default is 30.")
@@ -181,9 +181,9 @@ public class RSMineshaftsConfig implements ConfigData {
         public int endMineshaftMinHeight = 30;
 
         @ConfigEntry.Gui.Tooltip
-        @Comment("Min Y height of Mineshaft. Default is 5.")
+        @Comment("Min Y height of Mineshaft. Default is 8.")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
-        public int netherMineshaftMinHeight = 5;
+        public int netherMineshaftMinHeight = 8;
     }
 
 
