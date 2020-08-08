@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.world.structures;
+package com.telepathicgrunt.repurposedstructures.world.structures.pieces;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;

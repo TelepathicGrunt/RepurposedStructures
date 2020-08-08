@@ -1,7 +1,8 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.mojang.serialization.Codec;
-import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.world.structures.pieces.GeneralJigsawGenerator;
+import com.telepathicgrunt.repurposedstructures.world.structures.pieces.TempleNetherPools;
 import net.minecraft.structure.StructureManager;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockBox;
@@ -14,6 +15,7 @@ import net.minecraft.world.gen.feature.StructureFeature;
 
 public class TempleNetherStructure extends StructureFeature<DefaultFeatureConfig> {
     private final Identifier PIECE_IDENTIFIER;
+    private static boolean INITIALIZED_POOLS = false;
 
     public TempleNetherStructure(Codec<DefaultFeatureConfig> config, Identifier pieceID) {
         super(config);
@@ -31,6 +33,11 @@ public class TempleNetherStructure extends StructureFeature<DefaultFeatureConfig
         }
 
         public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int x, int z, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
+            if(!INITIALIZED_POOLS){
+                TempleNetherPools.initPools();
+                INITIALIZED_POOLS = true;
+            }
+
             BlockPos blockPos = new BlockPos(x * 16, 35, z * 16);
             GeneralJigsawGenerator.addPieces(chunkGenerator, structureManager, blockPos, this.children, this.random, PIECE_IDENTIFIER, 1);
             this.setBoundingBoxFromChildren();

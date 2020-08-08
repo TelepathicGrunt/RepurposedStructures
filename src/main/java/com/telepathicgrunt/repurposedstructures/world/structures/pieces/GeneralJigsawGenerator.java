@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.world.structures;
+package com.telepathicgrunt.repurposedstructures.world.structures.pieces;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.structure.PoolStructurePiece;

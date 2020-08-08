@@ -2,6 +2,8 @@ package com.telepathicgrunt.repurposedstructures;
 
 import com.telepathicgrunt.repurposedstructures.world.features.*;
 import com.telepathicgrunt.repurposedstructures.world.structures.*;
+import com.telepathicgrunt.repurposedstructures.world.structures.pieces.RSMineshaftPieces;
+import com.telepathicgrunt.repurposedstructures.world.structures.pieces.StructurePieces;
 import net.earthcomputer.libstructure.LibStructure;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Identifier;
@@ -70,9 +72,9 @@ public class RSFeatures {
     public static StructureFeature<DefaultFeatureConfig> NETHER_CRIMSON_TEMPLE = new TempleNetherStructure(DefaultFeatureConfig.CODEC, new Identifier(RepurposedStructures.MODID,"temples/temple_nether_crimson"));
     public static StructureFeature<DefaultFeatureConfig> NETHER_SOUL_TEMPLE = new TempleNetherStructure(DefaultFeatureConfig.CODEC,new Identifier(RepurposedStructures.MODID,"temples/temple_nether_soul"));
 
-    public static StructureFeature<DefaultFeatureConfig> NETHER_BRICK_OUTPOST = new OutpostNetherBrickStructure(DefaultFeatureConfig.CODEC);
-    public static StructureFeature<DefaultFeatureConfig> WARPED_OUTPOST = new OutpostWarpedStructure(DefaultFeatureConfig.CODEC);
-    public static StructureFeature<DefaultFeatureConfig> CRIMSON_OUTPOST = new OutpostCrimsonStructure(DefaultFeatureConfig.CODEC);
+    public static StructureFeature<DefaultFeatureConfig> NETHER_BRICK_OUTPOST = new OutpostNetherStructure(DefaultFeatureConfig.CODEC, new Identifier(RepurposedStructures.MODID,"outposts/nether_brick/base_plates"));
+    public static StructureFeature<DefaultFeatureConfig> WARPED_OUTPOST = new OutpostNetherStructure(DefaultFeatureConfig.CODEC, new Identifier(RepurposedStructures.MODID,"outposts/warped/base_plates"));
+    public static StructureFeature<DefaultFeatureConfig> CRIMSON_OUTPOST = new OutpostNetherStructure(DefaultFeatureConfig.CODEC, new Identifier(RepurposedStructures.MODID,"outposts/crimson/base_plates"));
 
     public static StructureFeature<DefaultFeatureConfig> NETHER_PYRAMID = new PyramidNetherStructure(DefaultFeatureConfig.CODEC);
     public static StructureFeature<DefaultFeatureConfig> BADLANDS_TEMPLE = new PyramidBadlandsStructure(DefaultFeatureConfig.CODEC);

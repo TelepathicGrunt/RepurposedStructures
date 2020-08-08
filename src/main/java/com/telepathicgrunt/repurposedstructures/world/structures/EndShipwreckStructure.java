@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.world.structures.pieces.GeneralJigsawGenerator;
 import net.minecraft.structure.StructureManager;
 import net.minecraft.structure.StructureStart;
 import net.minecraft.structure.pool.SinglePoolElement;
@@ -29,10 +30,8 @@ import java.util.Random;
 public class EndShipwreckStructure extends AbstractBaseStructure {
     // Special thanks to cannon_foddr for allowing me to use his End Shipwreck design!
 
-    public EndShipwreckStructure(Codec<DefaultFeatureConfig> config) {
-        super(config);
-    }
-    static {
+    private static boolean INITIALIZED_POOLS = false;
+    private static void initPools() {
         StructurePoolBasedGenerator.REGISTRY.add(
                 new StructurePool(new Identifier(RepurposedStructures.MODID,"shipwrecks/end"), new Identifier("empty"),
                         ImmutableList.of(
@@ -57,11 +56,14 @@ public class EndShipwreckStructure extends AbstractBaseStructure {
                         StructurePool.Projection.RIGID));
     }
 
+    public EndShipwreckStructure(Codec<DefaultFeatureConfig> config) {
+        super(config);
+    }
+
     @Override
     public StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
         return EndShipwreckStructure.Start::new;
     }
-
 
     @Override
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, int x, int z, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig defaultFeatureConfig) {
@@ -96,10 +98,14 @@ public class EndShipwreckStructure extends AbstractBaseStructure {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
         }
 
-        private static Identifier SHIPWRECK_IDENTIFIER = new Identifier(RepurposedStructures.MODID + ":shipwrecks/end");
+        private static final Identifier SHIPWRECK_IDENTIFIER = new Identifier(RepurposedStructures.MODID + ":shipwrecks/end");
 
         @Override
         public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
+            if(!INITIALIZED_POOLS){
+                initPools();
+                INITIALIZED_POOLS = true;
+            }
             BlockPos blockpos = new BlockPos(chunkX * 16, 62, chunkZ * 16);
             GeneralJigsawGenerator.addPieces(chunkGenerator, structureManager, blockpos, this.children, this.random, SHIPWRECK_IDENTIFIER, 1);
             this.setBoundingBoxFromChildren();

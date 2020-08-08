@@ -4,6 +4,8 @@ import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.world.structures.pieces.GeneralJigsawGenerator;
+import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PyramidFloorPiece;
 import net.minecraft.block.Blocks;
 import net.minecraft.structure.StructureManager;
 import net.minecraft.structure.StructurePiece;
@@ -25,10 +27,8 @@ import java.util.ArrayList;
 
 
 public class PyramidBadlandsStructure extends StructureFeature<DefaultFeatureConfig> {
-    public PyramidBadlandsStructure(Codec<DefaultFeatureConfig> config) {
-        super(config);
-    }
-    static {
+    private static boolean INITIALIZED_POOLS = false;
+    private static void initPools() {
         StructurePoolBasedGenerator.REGISTRY.add(
                 new StructurePool(new Identifier(RepurposedStructures.MODID,"temples/pyramid_badlands"), new Identifier("empty"), ImmutableList.of(Pair.of(
                         new SinglePoolElement(RepurposedStructures.MODID+":temples/pyramid_badlands_body", new ArrayList<>()), 1)),
@@ -40,6 +40,9 @@ public class PyramidBadlandsStructure extends StructureFeature<DefaultFeatureCon
                         StructurePool.Projection.RIGID));
     }
 
+    public PyramidBadlandsStructure(Codec<DefaultFeatureConfig> config) {
+        super(config);
+    }
 
     @Override
     public StructureFeature.StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
@@ -47,7 +50,7 @@ public class PyramidBadlandsStructure extends StructureFeature<DefaultFeatureCon
     }
 
     public static class Start extends StructureStart<DefaultFeatureConfig> {
-        Identifier BADLANDS_PYRAMID_POOL = new Identifier(RepurposedStructures.MODID,"temples/pyramid_badlands");
+        private static final Identifier BADLANDS_PYRAMID_POOL = new Identifier(RepurposedStructures.MODID,"temples/pyramid_badlands");
 
         public Start(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
@@ -55,6 +58,10 @@ public class PyramidBadlandsStructure extends StructureFeature<DefaultFeatureCon
 
         @Override
         public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
+            if(!INITIALIZED_POOLS){
+                initPools();
+                INITIALIZED_POOLS = true;
+            }
             BlockPos blockpos = new BlockPos(chunkX * 16, 62, chunkZ * 16);
             GeneralJigsawGenerator.addPieces(chunkGenerator, structureManager, blockpos, this.children, this.random, BADLANDS_PYRAMID_POOL, 1);
             PyramidFloorPiece.func_207617_a(structureManager, blockpos, this.children.get(0).getRotation(), this.children, random, Blocks.RED_SANDSTONE, defaultFeatureConfig);

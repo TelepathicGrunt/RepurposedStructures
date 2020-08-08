@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.world.structures.pieces.GeneralJigsawGenerator;
 import net.minecraft.block.Blocks;
 import net.minecraft.structure.StructureManager;
 import net.minecraft.structure.pool.SinglePoolElement;
@@ -25,7 +26,9 @@ import net.minecraft.world.gen.feature.StructureFeature;
 
 public class PyramidNetherStructure extends StructureFeature<DefaultFeatureConfig> {
     // Special thanks to /r/l-ll-ll-l_IsDisLoss for allowing me to mimic his nether pyramid design!
-    static {
+
+    private static boolean INITIALIZED_POOLS = false;
+    private static void initPools() {
         ImmutableList<StructureProcessor> randomizationList = ImmutableList.of(new RuleStructureProcessor(ImmutableList.of(
                 new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.BLACKSTONE, 0.04F),
                         AlwaysTrueRuleTest.INSTANCE, Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS.getDefaultState()),
@@ -48,7 +51,7 @@ public class PyramidNetherStructure extends StructureFeature<DefaultFeatureConfi
     }
 
     public static class Start extends AbstractNetherStructure.AbstractStart {
-        Identifier NETHER_PYRAMID_POOL = new Identifier(RepurposedStructures.MODID,"temples/pyramid_nether");
+        private static final Identifier NETHER_PYRAMID_POOL = new Identifier(RepurposedStructures.MODID,"temples/pyramid_nether");
 
         public Start(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
@@ -56,6 +59,10 @@ public class PyramidNetherStructure extends StructureFeature<DefaultFeatureConfi
 
         @Override
         public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
+            if(!INITIALIZED_POOLS){
+                initPools();
+                INITIALIZED_POOLS = true;
+            }
             BlockPos blockpos = new BlockPos(chunkX * 16, 35, chunkZ * 16);
             GeneralJigsawGenerator.addPieces(chunkGenerator, structureManager, blockpos, this.children, this.random, NETHER_PYRAMID_POOL, 1);
             //PyramidFloorPiece.func_207617_a(structureManager, blockpos, this.children.get(0).getRotation(), this.children, random, Blocks.BLACKSTONE, defaultFeatureConfig);

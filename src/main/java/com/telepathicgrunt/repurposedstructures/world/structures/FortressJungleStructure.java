@@ -3,6 +3,7 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RSFeatures;
+import com.telepathicgrunt.repurposedstructures.world.structures.pieces.FortressJunglePieces;
 import net.minecraft.entity.EntityType;
 import net.minecraft.structure.StructureManager;
 import net.minecraft.structure.StructurePiece;
