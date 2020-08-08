@@ -25,10 +25,11 @@ public class RSMainConfig implements ConfigData {
     public static class Misc {
         @ConfigEntry.Gui.Tooltip
         @Comment("Add RS swamp trees to modded biomes of same categories/type.")
-        public boolean addSwampTreeToModdedBiomes = false;
+        public boolean addSwampTreeToModdedBiomes = true;
 
-        @ConfigEntry.Gui.Tooltip
-        @Comment("Add RS boulders to modded biomes of same categories/type.")
+        @ConfigEntry.Gui.Tooltip(count = 2)
+        @Comment("Add RS boulders to modded biomes of same categories/type " +
+                "\ninstead of just vanilla biomes.")
         public boolean addBoulderToModdedBiomes = false;
 
         @ConfigEntry.Gui.Tooltip(count = 3)
@@ -84,6 +85,10 @@ public class RSMainConfig implements ConfigData {
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
         public int jungleFortressSpawnrate = 32;
 
+        @ConfigEntry.Gui.Tooltip
+        @Comment("Add Jungle Fortress to modded jungle biomes.")
+        public boolean addJungleFortressToModdedBiomes = true;
+
         @ConfigEntry.Gui.Tooltip(count = 3)
         @Comment("Add the ID/resource location of the biome you don't want"
                 +"\nRS's fortresses to spawn in. Separate each ID with a comma ,"
@@ -102,16 +107,12 @@ public class RSMainConfig implements ConfigData {
         @Comment("Controls whether loot chests spawn or not.")
         public boolean lootChestsJF = true;
 
-        @ConfigEntry.Gui.Tooltip
-        @Comment("Add Jungle Fortress to modded jungle biomes.")
-        public boolean addJungleFortressToModdedBiomes = false;
-
     }
     public static class Shipwrecks {
 
         @ConfigEntry.Gui.Tooltip(count = 1)
         @Comment("Add End Shipwreck to modded End biomes.")
-        public boolean addEndShipwreckToModdedBiomes = false;
+        public boolean addEndShipwreckToModdedBiomes = true;
 
         @ConfigEntry.Gui.Tooltip(count = 3)
         @Comment("Add the ID/resource location of the biome you don't want"
@@ -124,7 +125,7 @@ public class RSMainConfig implements ConfigData {
         @Comment("How rare are End Shipwreck in End Highlands biomes."
                 + "\n1 for spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int endShipwreckSpawnrate = 18;
+        public int endShipwreckSpawnrate = 15;
 
     }
 

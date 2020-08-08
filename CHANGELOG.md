@@ -10,6 +10,12 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ## (V.1.4.2 Changes) (1.16.1 Minecraft)
 
+##### Configs:
+
+- Set default value for all add___ToModdedBiomes to true except for Giant Boulders which will remain in vanilla biomes by default (unless manually changed in config)
+
+- Fixed several untranslated descriptions, tooltips, and names in configs.
+
 ##### Mineshafts:
 
 - Raised the default minimum Y height up a bit for several Mineshafts in the config.
@@ -17,6 +23,22 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Shipwrecks:
 
 - Made End Shipwrecks spawn a bit more frequently
+
+##### Villages:
+
+- Made Nether Villages slightly more spaced out by default in config.
+
+##### Outposts:
+
+- Made Nether Outposts slightly more spaced out by default in config.
+
+##### Temples:
+
+- Made Nether Temples and Pyramids slightly more spaced out by default in config.
+
+##### Other:
+
+- Cleaned up code in backend...
 
 ## (V.1.4.1 Changes) (1.16.1 Minecraft)
 

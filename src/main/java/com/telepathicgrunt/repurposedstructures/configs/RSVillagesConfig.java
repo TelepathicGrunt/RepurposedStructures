@@ -11,7 +11,7 @@ public class RSVillagesConfig implements ConfigData {
 
     @ConfigEntry.Gui.Tooltip
     @Comment("Add RS villages to modded biomes of same categories/type.")
-    public boolean addVillagesToModdedBiomes = false;
+    public boolean addVillagesToModdedBiomes = true;
 
     @ConfigEntry.Gui.Tooltip(count = 3)
     @Comment("Add the ID/resource location of the biome you don't want"

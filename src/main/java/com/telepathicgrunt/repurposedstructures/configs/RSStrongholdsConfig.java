@@ -97,7 +97,7 @@ public class RSStrongholdsConfig implements ConfigData
 		@ConfigEntry.Gui.Tooltip(count = 2)
 		@Comment("Allow Nether-styled Stronghold to"
 				+ "\ngenerate in modded Nether biomes.")
-		public boolean addNetherStrongholdToModdedBiomes = false;
+		public boolean addNetherStrongholdToModdedBiomes = true;
 
 		@ConfigEntry.Gui.Tooltip(count = 2)
 		@Comment("Min Y height that the starting point can spawn at."

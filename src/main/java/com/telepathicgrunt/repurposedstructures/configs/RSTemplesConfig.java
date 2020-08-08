@@ -97,7 +97,7 @@ public class RSTemplesConfig implements ConfigData {
 
         @ConfigEntry.Gui.Tooltip
         @Comment("Add Nether Pyramids to modded Nether biomes.")
-        public boolean addNetherPyramidToModdedBiomes = false;
+        public boolean addNetherPyramidToModdedBiomes = true;
 
         @ConfigEntry.Gui.Tooltip(count = 2)
         @Comment("How rare are Badlands Pyramid in non-plateau Badlands biomes."
@@ -107,7 +107,7 @@ public class RSTemplesConfig implements ConfigData {
 
         @ConfigEntry.Gui.Tooltip
         @Comment("Add Badlands Pyramid to modded Badlands biomes.")
-        public boolean addBadlandsPyramidToModdedBiomes = false;
+        public boolean addBadlandsPyramidToModdedBiomes = true;
 
     }
 }

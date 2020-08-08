@@ -11,7 +11,7 @@ public class RSWellsConfig implements ConfigData {
 
     @ConfigEntry.Gui.Tooltip
     @Comment("Add RS wells to modded biomes of same categories/type.")
-    public boolean addWellsToModdedBiomes = false;
+    public boolean addWellsToModdedBiomes = true;
 
     @ConfigEntry.Gui.Tooltip(count = 3)
     @Comment("Add the ID/resource location of the biome you don't want"

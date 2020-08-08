@@ -16,7 +16,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
     @ConfigEntry.Gui.Tooltip
     @Comment("Add the custom Mineshafts to modded biomes of the same categories/type.")
-    public boolean addMineshaftsToModdedBiomes = false;
+    public boolean addMineshaftsToModdedBiomes = true;
 
     @ConfigEntry.Gui.Tooltip(count = 3)
     @Comment("Add the ID/resource location of the biome you don't want"

@@ -11,7 +11,7 @@ public class RSDungeonsConfig implements ConfigData {
 
     @ConfigEntry.Gui.Tooltip
 	@Comment("Add RS dungeons to modded biomes of same categories/type.")
-	public boolean addDungeonsToModdedBiomes = false;
+	public boolean addDungeonsToModdedBiomes = true;
 
     @ConfigEntry.Gui.Tooltip(count = 3)
     @Comment("Add the ID/resource location of the biome you don't want"

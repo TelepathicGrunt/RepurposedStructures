@@ -9,17 +9,17 @@ import me.sargunvohra.mcmods.autoconfig1u.shadowed.blue.endless.jankson.Comment;
 @Config(name = "Outposts")
 public class RSOutpostsConfig implements ConfigData {
 
+    @ConfigEntry.Gui.Tooltip(count = 3)
+    @Comment("Add the ID/resource location of the biome you don't want"
+            +"\nRS's outposts to spawn in. Separate each ID with a comma ,"
+            +"\n"
+            +"\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
+    public String blacklistedOutpostBiomes = "";
+
     @ConfigEntry.Gui.CollapsibleObject
     public Outposts outposts = new Outposts();
 
     public static class Outposts {
-
-        @ConfigEntry.Gui.Tooltip(count = 3)
-        @Comment("Add the ID/resource location of the biome you don't want"
-                +"\nRS's outposts to spawn in. Separate each ID with a comma ,"
-                +"\n"
-                +"\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
-        public String blacklistedOutpostBiomes = "";
 
 
         @ConfigEntry.Gui.Tooltip(count = 2)
@@ -30,7 +30,7 @@ public class RSOutpostsConfig implements ConfigData {
 
         @ConfigEntry.Gui.Tooltip(count = 2)
         @Comment("Add Nether Brick Outposts to modded Nether biomes that other nether outposts don't fit in.")
-        public boolean addNetherBrickOutpostToModdedBiomes = false;
+        public boolean addNetherBrickOutpostToModdedBiomes = true;
 
 
         @ConfigEntry.Gui.Tooltip(count = 2)
@@ -41,7 +41,7 @@ public class RSOutpostsConfig implements ConfigData {
 
         @ConfigEntry.Gui.Tooltip()
         @Comment("Add Warped Outposts to modded Nether Warped biomes.")
-        public boolean addWarpedOutpostToModdedBiomes = false;
+        public boolean addWarpedOutpostToModdedBiomes = true;
 
 
         @ConfigEntry.Gui.Tooltip(count = 2)
@@ -52,6 +52,6 @@ public class RSOutpostsConfig implements ConfigData {
 
         @ConfigEntry.Gui.Tooltip()
         @Comment("Add Crimson Outposts to modded Nether Warped biomes.")
-        public boolean addCrimsonOutpostToModdedBiomes = false;
+        public boolean addCrimsonOutpostToModdedBiomes = true;
     }
 }
