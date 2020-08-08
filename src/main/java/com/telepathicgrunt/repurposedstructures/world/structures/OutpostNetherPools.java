@@ -1,24 +1,12 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.Lists;
 import com.mojang.datafixers.util.Pair;
-import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import net.minecraft.entity.EntityType;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MutableBoundingBox;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.jigsaw.JigsawManager;
 import net.minecraft.world.gen.feature.jigsaw.JigsawPattern;
 import net.minecraft.world.gen.feature.jigsaw.SingleJigsawPiece;
-import net.minecraft.world.gen.feature.structure.Structure;
-import net.minecraft.world.gen.feature.template.TemplateManager;
-
-import java.util.List;
 
 
 public class OutpostNetherPools {

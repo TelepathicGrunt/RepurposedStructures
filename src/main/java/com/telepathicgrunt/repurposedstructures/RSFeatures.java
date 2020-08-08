@@ -19,7 +19,8 @@ import net.minecraft.world.gen.settings.StructureSeparationSettings;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.IForgeRegistry;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
 
 
 public class RSFeatures {

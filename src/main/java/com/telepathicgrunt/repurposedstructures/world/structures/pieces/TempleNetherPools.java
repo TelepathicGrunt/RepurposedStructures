@@ -2,21 +2,14 @@ package com.telepathicgrunt.repurposedstructures.world.structures.pieces;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
-import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.RotatedPillarBlock;
 import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MutableBoundingBox;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.jigsaw.JigsawManager;
 import net.minecraft.world.gen.feature.jigsaw.JigsawPattern;
 import net.minecraft.world.gen.feature.jigsaw.SingleJigsawPiece;
-import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.template.*;
 
 

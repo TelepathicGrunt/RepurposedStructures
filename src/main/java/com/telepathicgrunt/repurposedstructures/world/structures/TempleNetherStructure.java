@@ -10,7 +10,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.Structure;
-import net.minecraft.world.gen.feature.template.*;
+import net.minecraft.world.gen.feature.template.TemplateManager;
 
 
 public class TempleNetherStructure extends Structure<NoFeatureConfig> {
