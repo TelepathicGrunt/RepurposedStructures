@@ -51,7 +51,7 @@ public class RSTemplesConfig
 					.comment("\r\n Add Nether Wasteland Temples to modded Nether biomes"
 							+ "\n that other nether temples don't fit in.")
 					.translation("repurposedstructures.config.temples.addnetherwastelandtempletomoddedbiomes")
-					.define("addNetherWastelandTempleToModdedBiomes", false));
+					.define("addNetherWastelandTempleToModdedBiomes", true));
 
 				netherWastelandTempleSpawnrate = subscriber.subscribe(builder
 					.comment("\r\n How rare are Nether Temples in Nether Wastelands."
@@ -63,7 +63,7 @@ public class RSTemplesConfig
 				addNetherBasaltTempleToModdedBiomes = subscriber.subscribe(builder
 					.comment("\r\n Add Nether Basalt Temples to modded Nether Basalt biomes.")
 					.translation("repurposedstructures.config.temples.addnetherbasalttempletomoddedbiomes")
-					.define("addNetherBasaltTempleToModdedBiomes", false));
+					.define("addNetherBasaltTempleToModdedBiomes", true));
 
 				netherBasaltTempleSpawnrate = subscriber.subscribe(builder
 					.comment("\r\n How rare are Nether Basalt Temples in Nether Basalt Delta biomes."
@@ -75,7 +75,7 @@ public class RSTemplesConfig
 				addNetherCrimsonTempleToModdedBiomes = subscriber.subscribe(builder
 					.comment("\r\n Add Nether Crimson Temples to modded Nether Crimson Forest biomes.")
 					.translation("repurposedstructures.config.temples.addnethercrimsontempletomoddedbiomes")
-					.define("addNetherCrimsonTempleToModdedBiomes", false));
+					.define("addNetherCrimsonTempleToModdedBiomes", true));
 
 				netherCrimsonTempleSpawnrate = subscriber.subscribe(builder
 					.comment("\r\n How rare are Nether Crimson Temples in Nether Crimson Forest."
@@ -87,7 +87,7 @@ public class RSTemplesConfig
 				addNetherWarpedTempleToModdedBiomes = subscriber.subscribe(builder
 					.comment("\r\n Add Nether Warped Temples to modded Nether Warped Forest biomes.")
 					.translation("repurposedstructures.config.temples.addnetherwarpedtempletomoddedbiomes")
-					.define("addNetherWarpedTempleToModdedBiomes", false));
+					.define("addNetherWarpedTempleToModdedBiomes", true));
 
 				netherWarpedTempleSpawnrate = subscriber.subscribe(builder
 					.comment("\r\n How rare are Nether Crimson Temples in Nether Warped Forest."
@@ -99,7 +99,7 @@ public class RSTemplesConfig
 				addNetherSoulTempleToModdedBiomes = subscriber.subscribe(builder
 					.comment("\r\n Add Nether Soul Temples to modded Nether Soul Sand Valley biomes.")
 					.translation("repurposedstructures.config.temples.addnethersoultempletomoddedbiomes")
-					.define("addNetherSoulTempleToModdedBiomes", false));
+					.define("addNetherSoulTempleToModdedBiomes", true));
 
 				netherSoulTempleSpawnrate = subscriber.subscribe(builder
 					.comment("\r\n How rare are Nether Soul Temples in Nether Soul Sand Valley."
@@ -114,7 +114,7 @@ public class RSTemplesConfig
 				addNetherPyramidToModdedBiomes = subscriber.subscribe(builder
 					.comment("\r\n Add Nether Pyramids to modded Nether biomes.")
 					.translation("repurposedstructures.config.temples.addnetherpyramidtomoddedbiomes")
-					.define("addNetherPyramidToModdedBiomes", false));
+					.define("addNetherPyramidToModdedBiomes", true));
 
 				blacklistedPyramidBiomes = subscriber.subscribe(builder
 					.comment("\r\n Add the ID/resource location of the biome you don't want"
@@ -134,7 +134,7 @@ public class RSTemplesConfig
 				addBadlandsPyramidToModdedBiomes = subscriber.subscribe(builder
 					.comment("\r\n Add Badlands Pyramid to modded Badlands biomes.")
 					.translation("repurposedstructures.config.temples.addbadlandspyramidtomoddedbiomes")
-					.define("addBadlandsPyramidToModdedBiomes", false));
+					.define("addBadlandsPyramidToModdedBiomes", true));
 
 				badlandsPyramidSpawnrate = subscriber.subscribe(builder
 					.comment("\r\n How rare are Badlands Pyramid in non-plateau Badlands biomes."

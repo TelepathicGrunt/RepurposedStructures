@@ -66,7 +66,7 @@ public class RSMineshaftsConfig
 				addMineshaftsToModdedBiomes = subscriber.subscribe(builder
 						.comment("\r\n Add the custom Mineshafts to modded biomes of the same categories/type.")
 					.translation("repurposedstructures.config.mineshaft.addmineshaftstomoddedbiomes")
-					.define("addMineshaftsToModdedBiomes", false));
+					.define("addMineshaftsToModdedBiomes", true));
 
 				blacklistedMineshaftBiomes = subscriber.subscribe(builder
 					.comment("\r\n Add the ID/resource location of the biome you don't want"

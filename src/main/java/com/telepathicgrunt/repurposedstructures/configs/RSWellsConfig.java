@@ -29,7 +29,7 @@ public class RSWellsConfig
 				addWellsToModdedBiomes = subscriber.subscribe(builder
 						.comment("\r\n Add the custom wells to modded biomes of the same categories/type.")
 					.translation("repurposedstructures.config.smallwells.addwellstomoddedbiomes")
-					.define("addWellsToModdedBiomes", false));
+					.define("addWellsToModdedBiomes", true));
 		
 				canHaveBells = subscriber.subscribe(builder
 						.comment("\r\n Determines if Wells can have a chance of spawning a Bell.")

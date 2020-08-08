@@ -45,7 +45,7 @@ public class RSMainConfig
 					addLargeSwampTreeModdedBiomes = subscriber.subscribe(builder
 							.comment("\r\n Add 2x2 Swamp Trees to modded swamp biomes.")
 						.translation("repurposedstructures.config.misc.addlargeswamptreemoddedbiomes")
-						.define("addLargeSwampTreeModdedBiomes", false));
+						.define("addLargeSwampTreeModdedBiomes", true));
 					
 					addGiantBouldersModdedBiomes = subscriber.subscribe(builder
 						.comment("\r\n Adds giant boulders to modded Giant Tree Taiga (or Redwood) biomes.")
@@ -122,6 +122,11 @@ public class RSMainConfig
 							.translation("repurposedstructures.config.junglefortress.junglefortressspawnrate")
 							.defineInRange("jungleFortressSpawnrate", 32, 1, 1001));
 
+					addJungleFortressToModdedBiomes = subscriber.subscribe(builder
+							.comment("\r\n Add Jungle Fortress to modded jungle biomes.")
+							.translation("repurposedstructures.config.junglefortress.addjunglefortresstomoddedbiomes")
+							.define("addJungleFortressToModdedBiomes", true));
+
 					blacklistedFortressBiomes = subscriber.subscribe(builder
 							.comment("\r\n Add the ID/resource location of the biome you don't want"
 									+"\r\n RS's Jungle Fortresses to spawn in. Separate each ID with a comma ,"
@@ -149,10 +154,6 @@ public class RSMainConfig
 						.translation("repurposedstructures.config.junglefortress.lootchestsjf")
 						.define("lootChestsJF", true));
 
-					addJungleFortressToModdedBiomes = subscriber.subscribe(builder
-							.comment("\r\n Add Jungle Fortress to modded jungle biomes.")
-						.translation("repurposedstructures.config.junglefortress.addjunglefortresstomoddedbiomes")
-						.define("addJungleFortressToModdedBiomes", false));
 
 				builder.pop();
 				
@@ -177,7 +178,7 @@ public class RSMainConfig
 							.comment("\r\n Add Grassy Igloos to modded biomes that are"
 								+"\r\n most likely grassy fields or temperate forests.")
 						.translation("repurposedstructures.config.igloo.addgrassyiglootomoddedbiomes")
-						.define("addGrassyIglooToModdedBiomes", false));
+						.define("addGrassyIglooToModdedBiomes", true));
 
 					stoneIglooSpawnrate = subscriber.subscribe(builder
 						.comment("\r\n How rare are Stone Igloos in Giant Tree Taiga biomes." 
@@ -190,7 +191,7 @@ public class RSMainConfig
 							.comment("\r\n Add Stone Igloos to modded biomes that are"
 								+"\r\n most likely Giant Tree Taiga variants.")
 						.translation("repurposedstructures.config.igloo.addstoneiglootomoddedbiomes")
-						.define("addStoneIglooToModdedBiomes", false));
+						.define("addStoneIglooToModdedBiomes", true));
 					
 				builder.pop();
 				

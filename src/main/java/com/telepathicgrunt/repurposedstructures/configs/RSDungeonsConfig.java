@@ -54,7 +54,7 @@ public class RSDungeonsConfig
 				addDungeonsToModdedBiomes = subscriber.subscribe(builder
 						.comment("\r\n Add the custom dungeons to modded biomes of the same categories/type.")
 					.translation("repurposedstructures.config.dungeons.adddungeonstomoddedbiomes")
-					.define("addDungeonsToModdedBiomes", false));
+					.define("addDungeonsToModdedBiomes", true));
 
 				blacklistedDungeonBiomes = subscriber.subscribe(builder
 					.comment("\r\n Add the ID/resource location of the biome you don't want"

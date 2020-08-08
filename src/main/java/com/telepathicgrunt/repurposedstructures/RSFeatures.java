@@ -190,9 +190,11 @@ public class RSFeatures {
             GenerationStage.Decoration stage,
             StructureSeparationSettings StructureSeparationSettings
     ) {
-        List<Structure<?>> tempList = new ArrayList<>(Structure.field_236384_t_);
-        tempList.add(structure);
-        Structure.field_236384_t_ = ImmutableList.copyOf(tempList);
+        Structure.field_236384_t_ =
+                ImmutableList.<Structure<?>>builder()
+                        .addAll(Structure.field_236384_t_)
+                        .add(structure)
+                        .build();
 
         registerStructure(resourceLocation, structure, stage, StructureSeparationSettings);
     }
@@ -202,7 +204,7 @@ public class RSFeatures {
             ResourceLocation resourceLocation,
             F structure,
             GenerationStage.Decoration stage,
-            StructureSeparationSettings StructureSeparationSettings
+            StructureSeparationSettings structureSeparationSettings
     ) {
         structure.setRegistryName(resourceLocation);
         Structure.register(resourceLocation.toString(), structure, stage);
@@ -211,15 +213,15 @@ public class RSFeatures {
         DimensionStructuresSettings.DEFAULT_STRUCTURES =
                 ImmutableMap.<Structure<?>, StructureSeparationSettings>builder()
                     .putAll(DimensionStructuresSettings.DEFAULT_STRUCTURES)
-                    .put(structure, StructureSeparationSettings)
+                    .put(structure, structureSeparationSettings)
                     .build();
-        DimensionSettings.Preset.field_236122_b_.getChunkGeneratorType().getConfig().getStructures().put(structure, StructureSeparationSettings);
-        DimensionSettings.Preset.field_236123_c_.getChunkGeneratorType().getConfig().getStructures().put(structure, StructureSeparationSettings);
-        DimensionSettings.Preset.field_236124_d_.getChunkGeneratorType().getConfig().getStructures().put(structure, StructureSeparationSettings);
-        DimensionSettings.Preset.field_236125_e_.getChunkGeneratorType().getConfig().getStructures().put(structure, StructureSeparationSettings);
-        DimensionSettings.Preset.field_236126_f_.getChunkGeneratorType().getConfig().getStructures().put(structure, StructureSeparationSettings);
-        DimensionSettings.Preset.field_236127_g_.getChunkGeneratorType().getConfig().getStructures().put(structure, StructureSeparationSettings);
-        DimensionSettings.Preset.BY_ID.forEach((presetResourceLocation, preset) -> preset.getChunkGeneratorType().getConfig().getStructures().put(structure, StructureSeparationSettings));
+        DimensionSettings.Preset.field_236122_b_.getChunkGeneratorType().getConfig().getStructures().put(structure, structureSeparationSettings);
+        DimensionSettings.Preset.field_236123_c_.getChunkGeneratorType().getConfig().getStructures().put(structure, structureSeparationSettings);
+        DimensionSettings.Preset.field_236124_d_.getChunkGeneratorType().getConfig().getStructures().put(structure, structureSeparationSettings);
+        DimensionSettings.Preset.field_236125_e_.getChunkGeneratorType().getConfig().getStructures().put(structure, structureSeparationSettings);
+        DimensionSettings.Preset.field_236126_f_.getChunkGeneratorType().getConfig().getStructures().put(structure, structureSeparationSettings);
+        DimensionSettings.Preset.field_236127_g_.getChunkGeneratorType().getConfig().getStructures().put(structure, structureSeparationSettings);
+        DimensionSettings.Preset.BY_ID.forEach((presetResourceLocation, preset) -> preset.getChunkGeneratorType().getConfig().getStructures().put(structure, structureSeparationSettings));
     }
 
     public static void registerVillagePools() {

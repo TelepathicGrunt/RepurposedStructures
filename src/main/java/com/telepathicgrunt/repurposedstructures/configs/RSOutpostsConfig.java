@@ -21,9 +21,8 @@ public class RSOutpostsConfig
 
 		public RSOutpostsConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
 		{
-			builder.push("Outposts");
 
-				blacklistedOutpostBiomes = subscriber.subscribe(builder
+			blacklistedOutpostBiomes = subscriber.subscribe(builder
 					.comment("\r\n Add the ID/resource location of the biome you don't want"
 							+"\r\n RS's outposts to spawn in. Separate each ID with a comma ,"
 							+"\r\n"
@@ -31,11 +30,13 @@ public class RSOutpostsConfig
 					.translation("repurposedstructures.config.outposts.blacklistedOutpostBiomes")
 					.define("blacklistedOutpostBiomes", ""));
 
+			builder.push("Outposts");
+
 				addNetherBrickOutpostToModdedBiomes = subscriber.subscribe(builder
 					.comment("\r\n How rare are Nether Brick Outposts in non-warped Nether biomes."
 							+ "\n 1 for spawning in most chunks and 1001 for none.")
 					.translation("repurposedstructures.config.outposts.addnetherbrickoutposttomoddedbiomes")
-					.define("addNetherBrickOutpostToModdedBiomes", false));
+					.define("addNetherBrickOutpostToModdedBiomes", true));
 
 				netherBrickOutpostSpawnrate = subscriber.subscribe(builder
 					.comment("\r\n Add Nether Brick Outposts to modded Nether biomes"
@@ -48,7 +49,7 @@ public class RSOutpostsConfig
 					.comment("\r\n How rare are Warped Outposts in Warped Nether biomes."
 							+ "\n 1 for spawning in most chunks and 1001 for none.")
 					.translation("repurposedstructures.config.outposts.addwarpedoutposttomoddedbiomes")
-					.define("addWarpedOutpostToModdedBiomes", false));
+					.define("addWarpedOutpostToModdedBiomes", true));
 
 				warpedOutpostSpawnrate = subscriber.subscribe(builder
 					.comment("\r\n Add Warped Outposts to modded Nether Warped biomes.")
@@ -60,7 +61,7 @@ public class RSOutpostsConfig
 					.comment("\r\n How rare are Crimson Outposts in Warped Nether biomes."
 							+ "\n 1 for spawning in most chunks and 1001 for none.")
 					.translation("repurposedstructures.config.outposts.addcrimsonoutposttomoddedbiomes")
-					.define("addCrimsonOutpostToModdedBiomes", false));
+					.define("addCrimsonOutpostToModdedBiomes", true));
 
 				crimsonOutpostSpawnrate = subscriber.subscribe(builder
 					.comment("\r\n Add Crimson Outposts to modded Nether Warped biomes.")

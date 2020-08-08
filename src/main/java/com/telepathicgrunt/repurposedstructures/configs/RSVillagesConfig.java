@@ -30,7 +30,7 @@ public class RSVillagesConfig
 				addVillagesToModdedBiomes = subscriber.subscribe(builder
 						.comment("\r\n Add the custom villages to modded biomes of the same categories/type.")
 					.translation("repurposedstructures.config.villages.addVillagesToModdedBiomes")
-					.define("addVillagesToModdedBiomes", false));
+					.define("addVillagesToModdedBiomes", true));
 
 				blacklistedVillageBiomes = subscriber.subscribe(builder
 					.comment("\r\n Add the ID/resource location of the biome you don't want"
