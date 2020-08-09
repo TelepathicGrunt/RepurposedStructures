@@ -140,6 +140,7 @@ public class RepurposedStructures
 	public static class ForgeEvents {
 		@SubscribeEvent
 		public static void registerDatapackListener(final AddReloadListenerEvent event) {
+			//loads the RS specific json files for mob spawner chances
 			RepurposedStructures.mobSpawnerManager = new MobSpawnerManager();
 			event.addListener(RepurposedStructures.mobSpawnerManager);
 		}
@@ -152,31 +153,31 @@ public class RepurposedStructures
         String biomeNamespace = biomeID.getNamespace();
         String biomePath = biomeID.getPath();
 
-		if(isBiomeAllowed("mineshaft",biomeID, allBiomeBlacklists)) 
+		if(isBiomeAllowed("mineshaft", biomeID, allBiomeBlacklists))
 			RSAddFeatures.addMineshafts(biome, biomeNamespace, biomePath);
-		if(isBiomeAllowed("fortress",biomeID, allBiomeBlacklists))
+		if(isBiomeAllowed("fortress", biomeID, allBiomeBlacklists))
 			RSAddFeatures.addJungleFortress(biome, biomeNamespace, biomePath);
-		if(isBiomeAllowed("dungeon",biomeID, allBiomeBlacklists))
+		if(isBiomeAllowed("dungeon", biomeID, allBiomeBlacklists))
 			RSAddFeatures.addDungeons(biome, biomeNamespace, biomePath);
-		if(isBiomeAllowed("well",biomeID, allBiomeBlacklists))
+		if(isBiomeAllowed("well", biomeID, allBiomeBlacklists))
 			RSAddFeatures.addWells(biome, biomeNamespace, biomePath);
-		if(isBiomeAllowed("swamp_tree",biomeID, allBiomeBlacklists))
+		if(isBiomeAllowed("swamp_tree", biomeID, allBiomeBlacklists))
 			RSAddFeatures.addSwampTreeFeatures(biome, biomeNamespace, biomePath);
-		if(isBiomeAllowed("boulder",biomeID, allBiomeBlacklists))
+		if(isBiomeAllowed("boulder", biomeID, allBiomeBlacklists))
 			RSAddFeatures.addBoulderFeatures(biome, biomeNamespace, biomePath);
-		if(isBiomeAllowed("temple",biomeID, allBiomeBlacklists))
+		if(isBiomeAllowed("temple", biomeID, allBiomeBlacklists))
 			RSAddFeatures.addTemples(biome, biomeNamespace, biomePath);
-		if(isBiomeAllowed("pyramid",biomeID, allBiomeBlacklists))
+		if(isBiomeAllowed("pyramid", biomeID, allBiomeBlacklists))
 			RSAddFeatures.addPyramids(biome, biomeNamespace, biomePath);
-		if(isBiomeAllowed("igloo",biomeID, allBiomeBlacklists))
+		if(isBiomeAllowed("igloo", biomeID, allBiomeBlacklists))
 			RSAddFeatures.addIgloos(biome, biomeNamespace, biomePath);
-		if(isBiomeAllowed("outpost",biomeID, allBiomeBlacklists))
+		if(isBiomeAllowed("outpost", biomeID, allBiomeBlacklists))
 			RSAddFeatures.addOutposts(biome, biomeNamespace, biomePath);
-		if(isBiomeAllowed("shipwreck",biomeID, allBiomeBlacklists))
+		if(isBiomeAllowed("shipwreck", biomeID, allBiomeBlacklists))
 			RSAddFeatures.addShipwrecks(biome, biomeNamespace, biomePath);
-		if(isBiomeAllowed("village",biomeID, allBiomeBlacklists))
+		if(isBiomeAllowed("village", biomeID, allBiomeBlacklists))
 			RSAddFeatures.addVillages(biome, biomeNamespace, biomePath);
-		if(isBiomeAllowed("stronghold",biomeID, allBiomeBlacklists))
+		if(isBiomeAllowed("stronghold", biomeID, allBiomeBlacklists))
 			RSAddFeatures.addStrongholds(biome, biomeNamespace, biomePath);
     }
     
