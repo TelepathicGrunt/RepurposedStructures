@@ -59,7 +59,7 @@ public class RSIglooPieces {
             BlockPos blockpos = OFFSET_2.containsKey(this.pieceRL) ? OFFSET_2.get(this.pieceRL) : new BlockPos(0, -1, 0);
             this.pos = position.add(blockpos.getX(), blockpos.getY() - heightOffset, blockpos.getZ());
             this.rotation = rotationIn;
-            this.func_207614_a(templateManager);
+            this.initializeStructureData(templateManager);
             this.floorBlock = floorBlockIn;
         }
 
@@ -68,12 +68,12 @@ public class RSIglooPieces {
             super(StructurePieces.RS_IGLOO_PIECE, data);
             this.pieceRL = new Identifier(data.getString("Template"));
             this.rotation = BlockRotation.valueOf(data.getString("Rot"));
-            this.func_207614_a(templateManager);
+            this.initializeStructureData(templateManager);
             this.floorBlock = Registry.BLOCK.get(new Identifier(data.getString("FloorBlock")));
         }
 
 
-        private void func_207614_a(StructureManager templateManager) {
+        private void initializeStructureData(StructureManager templateManager) {
             Structure template = templateManager.getStructureOrBlank(this.pieceRL);
             StructurePlacementData placementsettings = (new StructurePlacementData()).setRotation(this.rotation).setMirror(BlockMirror.NONE).setPosition(OFFSET_1.containsKey(this.pieceRL) ? OFFSET_1.get(this.pieceRL) : new BlockPos(3, 4, 5)).addProcessor(BlockIgnoreStructureProcessor.IGNORE_STRUCTURE_BLOCKS);
             this.setStructureData(template, this.pos, placementsettings);
@@ -107,7 +107,7 @@ public class RSIglooPieces {
             BlockPos offset = OFFSET_1.containsKey(this.pieceRL) ? OFFSET_1.get(this.pieceRL) : new BlockPos(3, 4, 5);
             StructurePlacementData placementsettings = (new StructurePlacementData()).setRotation(this.rotation).setMirror(BlockMirror.NONE).setPosition(offset).addProcessor(BlockIgnoreStructureProcessor.IGNORE_STRUCTURE_BLOCKS);
             BlockPos blockpos = OFFSET_2.containsKey(this.pieceRL) ? OFFSET_2.get(this.pieceRL) : new BlockPos(0, -1, 0);
-            BlockPos blockpos1 = this.pos.add(Structure.transform(placementsettings, new BlockPos(3 - blockpos.getX(), 0, 0 - blockpos.getZ())));
+            BlockPos blockpos1 = this.pos.add(Structure.transform(placementsettings, new BlockPos(3 - blockpos.getX(), 0, -blockpos.getZ())));
             int terrainSurfaceY = world.getTopY(Heightmap.Type.WORLD_SURFACE_WG, blockpos1.getX(), blockpos1.getZ());
             BlockPos blockpos2 = this.pos;
             this.pos = this.pos.add(0, terrainSurfaceY - 90 - 1, 0);

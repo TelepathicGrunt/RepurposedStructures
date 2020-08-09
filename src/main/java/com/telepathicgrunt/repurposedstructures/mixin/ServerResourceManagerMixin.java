@@ -23,6 +23,7 @@ public class ServerResourceManagerMixin {
             at = @At(value = "TAIL")
     )
     private void registerDataManagers(CommandManager.RegistrationEnvironment registrationEnvironment, int i, CallbackInfo ci) {
+        //loads the RS specific json files for mob spawner chances
         RepurposedStructures.mobSpawnerManager = new MobSpawnerManager();
         this.resourceManager.registerListener(RepurposedStructures.mobSpawnerManager);
     }
