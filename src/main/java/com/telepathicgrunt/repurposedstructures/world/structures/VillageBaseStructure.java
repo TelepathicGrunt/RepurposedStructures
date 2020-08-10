@@ -47,7 +47,7 @@ public class VillageBaseStructure extends StructureFeature<DefaultFeatureConfig>
 
     @Override
     public StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
-        return MainStart::new;
+        return VillageBaseStructure.MainStart::new;
     }
 
     @Override

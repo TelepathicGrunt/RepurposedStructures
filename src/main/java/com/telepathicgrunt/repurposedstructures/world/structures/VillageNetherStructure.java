@@ -46,6 +46,11 @@ public class VillageNetherStructure extends VillageBaseStructure {
         return super.shouldStartAt(chunkGenerator, biomeSource, seed, chunkRandom, chunkX, chunkZ, biome, chunkPos, defaultFeatureConfig);
     }
 
+    @Override
+    public StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
+        return VillageNetherStructure.Start::new;
+    }
+
     public class Start extends MainStart {
         public Start(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
@@ -63,7 +68,6 @@ public class VillageNetherStructure extends VillageBaseStructure {
             }
         }
     }
-
 
     //Helper methods//
 

@@ -8,6 +8,12 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.1.4.3 Changes) (1.16.1 Minecraft)
+
+##### Villages:
+
+- Fixed Nether Villages spawning above ceiling in Nether.
+
 ## (V.1.4.2 Changes) (1.16.1 Minecraft)
 
 ##### Configs:
