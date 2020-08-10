@@ -14,6 +14,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Set default value for all add___ToModdedBiomes to true except for Giant Boulders which will remain in vanilla biomes by default (unless manually changed in config)
 
+- Fixed giantBouldersPerChunk config minimum being 1. 0 Should've been the minimum so you can set very low spawnrates.
+
 ##### Mineshafts:
 
 - Raised the default minimum Y height up a bit for several Mineshafts in the config

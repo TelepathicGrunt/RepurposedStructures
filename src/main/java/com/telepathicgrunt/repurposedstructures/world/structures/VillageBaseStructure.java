@@ -42,7 +42,7 @@ public class VillageBaseStructure extends Structure<NoFeatureConfig> {
 
     @Override
     public IStartFactory<NoFeatureConfig> getStartFactory() {
-        return MainStart::new;
+        return VillageBaseStructure.MainStart::new;
     }
 
     @Override
