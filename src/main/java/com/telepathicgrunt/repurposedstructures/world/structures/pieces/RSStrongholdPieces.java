@@ -27,7 +27,7 @@ import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.world.ServerWorldAccess;
+import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
@@ -296,7 +296,7 @@ public class RSStrongholdPieces {
 
 
         @Override
-        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox structureBoundingBoxIn, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox structureBoundingBoxIn, ChunkPos chunkPos, BlockPos blockPos) {
             RSStrongholdPieces.Stones randomStrongholdBlocks = new RSStrongholdPieces.Stones(this.strongholdType);
             this.fillWithOutline(world, structureBoundingBoxIn, 0, 0, 0, 4, 4, 6, false, random, randomStrongholdBlocks);
             this.placeDoor(world, random, structureBoundingBoxIn, this.entryDoor, 1, 1, 0);
@@ -372,7 +372,7 @@ public class RSStrongholdPieces {
 
 
         @Override
-        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox structureBoundingBoxIn, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox structureBoundingBoxIn, ChunkPos chunkPos, BlockPos blockPos) {
             for (int i = 0; i < this.steps; ++i) {
                 this.addBlock(world, Blocks.STONE_BRICKS.getDefaultState(), 0, 0, i, structureBoundingBoxIn);
                 this.addBlock(world, Blocks.STONE_BRICKS.getDefaultState(), 1, 0, i, structureBoundingBoxIn);
@@ -479,7 +479,7 @@ public class RSStrongholdPieces {
 
 
         @Override
-        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox structureBoundingBoxIn, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox structureBoundingBoxIn, ChunkPos chunkPos, BlockPos blockPos) {
             RSStrongholdPieces.Stones randomStrongholdBlocks = new RSStrongholdPieces.Stones(this.strongholdType);
             this.fillWithOutline(world, structureBoundingBoxIn, 0, 0, 0, 9, 8, 10, false, random, randomStrongholdBlocks);
             this.placeDoor(world, random, structureBoundingBoxIn, this.entryDoor, 4, 3, 0);
@@ -552,7 +552,7 @@ public class RSStrongholdPieces {
 
 
         @Override
-        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox structureBoundingBoxIn, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox structureBoundingBoxIn, ChunkPos chunkPos, BlockPos blockPos) {
             RSStrongholdPieces.Stones randomStrongholdBlocks = new RSStrongholdPieces.Stones(this.strongholdType);
             this.fillWithOutline(world, structureBoundingBoxIn, 0, 0, 0, 4, 4, 4, false, random, randomStrongholdBlocks);
             this.placeDoor(world, random, structureBoundingBoxIn, this.entryDoor, 1, 1, 0);
@@ -616,7 +616,7 @@ public class RSStrongholdPieces {
             BlockState bookshelfBlock = Blocks.BOOKSHELF.getDefaultState();
 
             if (this.strongholdType == Type.NETHER) {
-                Tag<Block> BOOKSHELF_TAG = BlockTags.getContainer().getOrCreate(NETHER_STRONGHOLD_BOOKSHELF_RL);
+                Tag<Block> BOOKSHELF_TAG = BlockTags.getTagGroup().getOrCreate(NETHER_STRONGHOLD_BOOKSHELF_RL);
                 Collection<Block> allBookshelfBlocks = BOOKSHELF_TAG.values();
 
                 if (!allBookshelfBlocks.isEmpty())
@@ -628,7 +628,7 @@ public class RSStrongholdPieces {
 
 
         @Override
-        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox structureBoundingBoxIn, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox structureBoundingBoxIn, ChunkPos chunkPos, BlockPos blockPos) {
             int i = 11;
 
             if (!this.isLargeRoom) {
@@ -638,7 +638,7 @@ public class RSStrongholdPieces {
             RSStrongholdPieces.Stones randomStrongholdBlocks = new RSStrongholdPieces.Stones(this.strongholdType);
             this.fillWithOutline(world, structureBoundingBoxIn, 0, 0, 0, 13, i - 1, 14, false, random, randomStrongholdBlocks);
             this.placeDoor(world, random, structureBoundingBoxIn, this.entryDoor, 4, 1, 0);
-            this.fillWithOutlineUnderSealevel(world, structureBoundingBoxIn, random, 0.07F, 2, 1, 1, 11, 4, 13, Blocks.COBWEB.getDefaultState(), Blocks.COBWEB.getDefaultState(), false, false);
+            this.fillWithOutlineUnderSeaLevel(world, structureBoundingBoxIn, random, 0.07F, 2, 1, 1, 11, 4, 13, Blocks.COBWEB.getDefaultState(), Blocks.COBWEB.getDefaultState(), false, false);
 
 
             for (int l = 1; l <= 13; ++l) {
@@ -811,7 +811,7 @@ public class RSStrongholdPieces {
 
 
         @Override
-        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox structureBoundingBoxIn, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox structureBoundingBoxIn, ChunkPos chunkPos, BlockPos blockPos) {
             RSStrongholdPieces.Stones randomStrongholdBlocks = new RSStrongholdPieces.Stones(this.strongholdType);
             this.fillWithOutline(world, structureBoundingBoxIn, 0, 0, 0, 10, 7, 15, false, random, randomStrongholdBlocks);
             this.placeDoor(world, random, structureBoundingBoxIn, RSStrongholdPieces.Stronghold.Door.GRATES, 4, 1, 0);
@@ -929,7 +929,7 @@ public class RSStrongholdPieces {
 
 
         @Override
-        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox structureBoundingBoxIn, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox structureBoundingBoxIn, ChunkPos chunkPos, BlockPos blockPos) {
             RSStrongholdPieces.Stones randomStrongholdBlocks = new RSStrongholdPieces.Stones(this.strongholdType);
             this.fillWithOutline(world, structureBoundingBoxIn, 0, 0, 0, 8, 4, 10, false, random, randomStrongholdBlocks);
             this.placeDoor(world, random, structureBoundingBoxIn, this.entryDoor, 1, 1, 0);
@@ -980,7 +980,7 @@ public class RSStrongholdPieces {
 
 
         @Override
-        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox structureBoundingBoxIn, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox structureBoundingBoxIn, ChunkPos chunkPos, BlockPos blockPos) {
             RSStrongholdPieces.Stones randomStrongholdBlocks = new RSStrongholdPieces.Stones(this.strongholdType);
             this.fillWithOutline(world, structureBoundingBoxIn, 0, 0, 0, 4, 4, 4, false, random, randomStrongholdBlocks);
             this.placeDoor(world, random, structureBoundingBoxIn, this.entryDoor, 1, 1, 0);
@@ -1046,7 +1046,7 @@ public class RSStrongholdPieces {
 
 
         @Override
-        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox structureBoundingBoxIn, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox structureBoundingBoxIn, ChunkPos chunkPos, BlockPos blockPos) {
             RSStrongholdPieces.Stones randomStrongholdBlocks = new RSStrongholdPieces.Stones(this.strongholdType);
             this.fillWithOutline(world, structureBoundingBoxIn, 0, 0, 0, 10, 6, 10, false, random, randomStrongholdBlocks);
             this.placeDoor(world, random, structureBoundingBoxIn, this.entryDoor, 4, 1, 0);
@@ -1261,7 +1261,7 @@ public class RSStrongholdPieces {
 
 
         @Override
-        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox structureBoundingBoxIn, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox structureBoundingBoxIn, ChunkPos chunkPos, BlockPos blockPos) {
             RSStrongholdPieces.Stones randomStrongholdBlocks = new RSStrongholdPieces.Stones(this.strongholdType);
             this.fillWithOutline(world, structureBoundingBoxIn, 0, 0, 0, 4, 10, 4, false, random, randomStrongholdBlocks);
             this.placeDoor(world, random, structureBoundingBoxIn, this.entryDoor, 1, 7, 0);
@@ -1330,7 +1330,7 @@ public class RSStrongholdPieces {
 
 
         @Override
-        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox structureBoundingBoxIn, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox structureBoundingBoxIn, ChunkPos chunkPos, BlockPos blockPos) {
             RSStrongholdPieces.Stones randomStrongholdBlocks = new RSStrongholdPieces.Stones(this.strongholdType);
             this.fillWithOutline(world, structureBoundingBoxIn, 0, 0, 0, 4, 10, 7, false, random, randomStrongholdBlocks);
             this.placeDoor(world, random, structureBoundingBoxIn, this.entryDoor, 1, 7, 0);
@@ -1477,7 +1477,7 @@ public class RSStrongholdPieces {
 
 
         @Override
-        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox structureBoundingBoxIn, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox structureBoundingBoxIn, ChunkPos chunkPos, BlockPos blockPos) {
             RSStrongholdPieces.Stones randomStrongholdBlocks = new RSStrongholdPieces.Stones(this.strongholdType);
             this.fillWithOutline(world, structureBoundingBoxIn, 0, 0, 0, 4, 4, 6, false, random, randomStrongholdBlocks);
             this.placeDoor(world, random, structureBoundingBoxIn, this.entryDoor, 1, 1, 0);
@@ -1529,7 +1529,7 @@ public class RSStrongholdPieces {
         }
 
 
-        protected void placeDoor(ServerWorldAccess world, Random random, BlockBox mutableBox, RSStrongholdPieces.Stronghold.Door spawnDoor, int xStart, int yStart, int zStart) {
+        protected void placeDoor(StructureWorldAccess world, Random random, BlockBox mutableBox, RSStrongholdPieces.Stronghold.Door spawnDoor, int xStart, int yStart, int zStart) {
             switch (spawnDoor) {
                 case OPENING:
                     this.fillWithOutline(world, mutableBox, xStart, yStart, zStart, xStart + 3 - 1, yStart + 3 - 1, zStart, Blocks.AIR.getDefaultState(), Blocks.AIR.getDefaultState(), false);

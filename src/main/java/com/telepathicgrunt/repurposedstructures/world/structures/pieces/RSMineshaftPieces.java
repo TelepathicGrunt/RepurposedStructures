@@ -20,7 +20,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
-import net.minecraft.world.ServerWorldAccess;
+import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.gen.StructureAccessor;
@@ -288,7 +288,7 @@ public class RSMineshaftPieces {
                 }
 
                 this.addBlock(world, blockstate, x, y, z, boundingBox);
-                ChestMinecartEntity entityminecartchest = new ChestMinecartEntity(world.getWorld(), blockpos.getX() + 0.5F, blockpos.getY() + 0.5F, blockpos.getZ() + 0.5F);
+                ChestMinecartEntity entityminecartchest = new ChestMinecartEntity(world.toServerWorld(), blockpos.getX() + 0.5F, blockpos.getY() + 0.5F, blockpos.getZ() + 0.5F);
                 entityminecartchest.setLootTable(lootTableId, random.nextLong());
                 world.spawnEntity(entityminecartchest);
                 return true;
@@ -299,7 +299,7 @@ public class RSMineshaftPieces {
 
 
         @Override
-        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox box, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox box, ChunkPos chunkPos, BlockPos blockPos) {
             boolean isOceanType = this.mineShaftType == RSMineshaftPieces.Type.OCEAN;
             if (isOceanType ? this.isAirInStructureBoundingBox(world, box) : this.method_14937(world, box)) {
                 return false;
@@ -307,11 +307,11 @@ public class RSMineshaftPieces {
                 int offsetInSection = this.sectionCount * 5 - 1;
                 BlockState iblockstate = this.getFloorBlock();
                 this.fillWithOutline(world, box, 0, 0, 0, 2, 1, offsetInSection, getFillingBlock(), getFillingBlock(), false);
-                this.fillWithOutlineUnderSealevel(world, box, random, 0.8F, 0, 2, 0, 2, 2, offsetInSection, getFillingBlock(), getFillingBlock(), false, false);
+                this.fillWithOutlineUnderSeaLevel(world, box, random, 0.8F, 0, 2, 0, 2, 2, offsetInSection, getFillingBlock(), getFillingBlock(), false, false);
 
                 if (this.attemptSpawnerCreation) {
                     if (isOceanType || this.mineShaftType == RSMineshaftPieces.Type.NETHER || this.mineShaftType == RSMineshaftPieces.Type.END) {
-                        this.fillWithOutlineUnderSealevel(world, box, random, 0.6F, 0, 0, 0, 2, 0, offsetInSection, getDecorativeBlock(random), getDecorativeBlock(random), false, true);
+                        this.fillWithOutlineUnderSeaLevel(world, box, random, 0.6F, 0, 0, 0, 2, 0, offsetInSection, getDecorativeBlock(random), getDecorativeBlock(random), false, true);
 
                         // can only place chorus fruit on end stone
                         for (int x = 0; x <= 2; ++x) {
@@ -323,7 +323,7 @@ public class RSMineshaftPieces {
                         }
 
                     } else {
-                        this.fillWithOutlineUnderSealevel(world, box, random, 0.6F, 0, 0, 0, 2, 1, offsetInSection, getDecorativeBlock(random), getFillingBlock(), false, true);
+                        this.fillWithOutlineUnderSeaLevel(world, box, random, 0.6F, 0, 0, 0, 2, 1, offsetInSection, getDecorativeBlock(random), getFillingBlock(), false, true);
                     }
                 }
 
@@ -407,7 +407,7 @@ public class RSMineshaftPieces {
         }
 
 
-        private void placeSupport(ServerWorldAccess world, BlockBox boundingBox, int x, int y2, int z, int y, int x2, Random random) {
+        private void placeSupport(StructureWorldAccess world, BlockBox boundingBox, int x, int y2, int z, int y, int x2, Random random) {
 
             BlockState iblockstate = this.getArchTopBlock();
             BlockState iblockstate2 = getFillingBlock();
@@ -445,7 +445,7 @@ public class RSMineshaftPieces {
         }
 
 
-        private void placeDecoration(ServerWorldAccess world, BlockBox box, Random random, float probability, int x, int y, int z) {
+        private void placeDecoration(StructureWorldAccess world, BlockBox box, Random random, float probability, int x, int y, int z) {
             if (world.getDimension() != DimensionType.getOverworldDimensionType() || this.isUnderSeaLevel(world, x, y, z, box)) {
                 BlockState decorativeBlock = getDecorativeBlock(random);
                 if (!decorativeBlock.isOf(Blocks.COBWEB)) {
@@ -597,7 +597,7 @@ public class RSMineshaftPieces {
 
 
         @Override
-        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox box, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox box, ChunkPos chunkPos, BlockPos blockPos) {
             boolean isOceanType = this.mineShaftType == RSMineshaftPieces.Type.OCEAN;
             if (isOceanType ? this.isAirInStructureBoundingBox(world, box) : this.method_14937(world, box)) {
                 return false;
@@ -639,7 +639,7 @@ public class RSMineshaftPieces {
         }
 
 
-        private void placeSupportPillar(ServerWorldAccess world, BlockBox box, int x, int miny, int z, int maxy, boolean isOceanType) {
+        private void placeSupportPillar(StructureWorldAccess world, BlockBox box, int x, int miny, int z, int maxy, boolean isOceanType) {
             if (this.getBlockAt(world, x, maxy + 1, z, box).getMaterial() != (isOceanType ? Material.WATER : Material.AIR)) {
                 this.fillWithOutline(world, box, x, miny, z, x, maxy, z, this.getFloorBlock().isOf(Blocks.GRASS_BLOCK) ? Blocks.MOSSY_STONE_BRICKS.getDefaultState() : this.getFloorBlock(), getFillingBlock(), false);
             }
@@ -753,7 +753,7 @@ public class RSMineshaftPieces {
 
 
         @Override
-        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox box, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox box, ChunkPos chunkPos, BlockPos blockPos) {
             BlockState flooring;
 
             if (this.mineShaftType == RSMineshaftPieces.Type.NETHER) {
@@ -771,7 +771,7 @@ public class RSMineshaftPieces {
 
             //nether_wart floor
             if (this.mineShaftType == RSMineshaftPieces.Type.NETHER) {
-                this.fillWithOutlineUnderSealevel(world, box, world.getRandom(), 0.3f, this.boundingBox.minX, this.boundingBox.minY + 1, this.boundingBox.minZ, this.boundingBox.maxX, this.boundingBox.minY + 1, this.boundingBox.maxZ, Blocks.NETHER_WART.getDefaultState().with(NetherWartBlock.AGE, 2), Blocks.NETHER_WART.getDefaultState().with(NetherWartBlock.AGE, 2), false, false);
+                this.fillWithOutlineUnderSeaLevel(world, box, world.getRandom(), 0.3f, this.boundingBox.minX, this.boundingBox.minY + 1, this.boundingBox.minZ, this.boundingBox.maxX, this.boundingBox.minY + 1, this.boundingBox.maxZ, Blocks.NETHER_WART.getDefaultState().with(NetherWartBlock.AGE, 2), Blocks.NETHER_WART.getDefaultState().with(NetherWartBlock.AGE, 2), false, false);
             }
 
             for (BlockBox MutableBoundingBox : this.roomsLinkedToTheRoom) {
@@ -871,7 +871,7 @@ public class RSMineshaftPieces {
 
 
         @Override
-        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox box, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox box, ChunkPos chunkPos, BlockPos blockPos) {
             boolean isOceanType = this.mineShaftType == RSMineshaftPieces.Type.OCEAN;
             if (isOceanType ? this.isAirInStructureBoundingBox(world, box) : this.method_14937(world, box)) {
                 return false;
@@ -971,7 +971,7 @@ public class RSMineshaftPieces {
 
 
         @SuppressWarnings("deprecation")
-        protected void fillWithVines(ServerWorldAccess world, Random random, BlockBox boundingbox, int rarity, int xMin, int yMin, int zMin, int xMax, int yMax, int zMax) {
+        protected void fillWithVines(StructureWorldAccess world, Random random, BlockBox boundingbox, int rarity, int xMin, int yMin, int zMin, int xMax, int yMax, int zMax) {
             BlockState vineBlock;
             int vineLength;
 
@@ -1009,7 +1009,7 @@ public class RSMineshaftPieces {
         }
 
 
-        protected void setVineBlockState(ServerWorldAccess worldIn, BlockState blockstateIn, int x, int y, int z, BlockBox boundingboxIn) {
+        protected void setVineBlockState(StructureWorldAccess worldIn, BlockState blockstateIn, int x, int y, int z, BlockBox boundingboxIn) {
             BlockPos blockpos = new BlockPos(this.applyXTransform(x, z), this.applyYTransform(y), this.applyZTransform(x, z));
             if (boundingboxIn.contains(blockpos)) {
                 worldIn.setBlockState(blockpos, blockstateIn, 2);

@@ -4,7 +4,7 @@ import com.mojang.serialization.Codec;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ServerWorldAccess;
+import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
@@ -21,13 +21,13 @@ public class BoulderTiny extends Feature<DefaultFeatureConfig> {
     }
 
     @Override
-    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
+    public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
 
         BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().set(position.down());
         Block block = world.getBlockState(blockpos$Mutable).getBlock();
 
         //boulder can only generate on grass/dirt
-        if (block != Blocks.PODZOL && block != Blocks.GRASS_BLOCK && !isDirt(block)) {
+        if (block != Blocks.PODZOL && block != Blocks.GRASS_BLOCK && !isSoil(block)) {
             return false;
         }
 

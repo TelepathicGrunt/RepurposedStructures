@@ -10,7 +10,7 @@ import net.minecraft.tag.BlockTags;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.world.ServerWorldAccess;
+import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
@@ -28,7 +28,7 @@ public class WellMossyStone extends WellAbstract {
     }
 
 
-    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
+    public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
         // move to top land block below position
         BlockPos.Mutable mutable = new BlockPos.Mutable().set(position);
         for (mutable.move(Direction.UP); (world.isAir(mutable) || !world.getFluidState(mutable).isEmpty()) && mutable.getY() > 2; ) {
@@ -37,7 +37,7 @@ public class WellMossyStone extends WellAbstract {
 
         // check to make sure spot is valid and not a single block ledge
         BlockState block = world.getBlockState(mutable);
-        if ((BlockTags.SAND.contains(block.getBlock()) || block.isOf(Blocks.CLAY) || isDirt(block.getBlock()))
+        if ((BlockTags.SAND.contains(block.getBlock()) || block.isOf(Blocks.CLAY) || isSoil(block.getBlock()))
                 && (!world.isAir(mutable.down()) || !world.isAir(mutable.down(2)))) {
             // Creates the well centered on our spot
             mutable.move(Direction.DOWN);
@@ -59,7 +59,7 @@ public class WellMossyStone extends WellAbstract {
         return false;
     }
 
-    private static void mossifyBlocks(ServerWorldAccess world, Random random, BlockPos position) {
+    private static void mossifyBlocks(StructureWorldAccess world, Random random, BlockPos position) {
         BlockState block = world.getBlockState(position);
         if (block.isOf(Blocks.STONE_BRICKS) && random.nextFloat() < 0.6f) {
             world.setBlockState(position, Blocks.MOSSY_STONE_BRICKS.getDefaultState(), 2);
@@ -72,7 +72,7 @@ public class WellMossyStone extends WellAbstract {
         }
     }
 
-    private static void waterlogBlocks(ServerWorldAccess world, BlockPos position) {
+    private static void waterlogBlocks(StructureWorldAccess world, BlockPos position) {
         BlockState blockstate = world.getBlockState(position);
         if (position.getY() < world.getSeaLevel() && blockstate.contains(Properties.WATERLOGGED)) {
             world.setBlockState(position, blockstate.with(Properties.WATERLOGGED, true), 2);

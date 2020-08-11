@@ -6,7 +6,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.Category;
-import net.minecraft.world.biome.Biomes;
+import net.minecraft.world.biome.BuiltInBiomes;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.decorator.*;
 import net.minecraft.world.gen.feature.*;
@@ -91,9 +91,9 @@ public class RSAddFeatures {
             }
         }
         else if (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.endMineshaftSpawnrate != 0 &&
-                biome.getCategory() == Category.THEEND && biome != Biomes.THE_END &&
+                biome.getCategory() == Category.THEEND && biome != BuiltInBiomes.THE_END &&
                 (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.misc.barrensIslandsEndMineshafts ||
-                        (biome != Biomes.END_BARRENS && biome != Biomes.SMALL_END_ISLANDS)) &&
+                        (biome != BuiltInBiomes.END_BARRENS && biome != BuiltInBiomes.SMALL_END_ISLANDS)) &&
                 (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSMineshaftsConfig.addMineshaftsToModdedBiomes)) {
                 biome.addStructureFeature(RSFeatures.END_MINESHAFT.configure(FeatureConfig.DEFAULT));
         }
@@ -205,7 +205,7 @@ public class RSAddFeatures {
                     RepurposedStructures.RSAllConfig.RSDungeonsConfig.maxHeight.netherDungeonMaxHeight);
         }
         else if (RepurposedStructures.RSAllConfig.RSDungeonsConfig.spawnrate.endDungeonSpawnrate != 0 &&
-                (biome.getCategory() == Category.THEEND && biome != Biomes.THE_END && biome != Biomes.SMALL_END_ISLANDS) &&
+                (biome.getCategory() == Category.THEEND && biome != BuiltInBiomes.THE_END && biome != BuiltInBiomes.SMALL_END_ISLANDS) &&
                 dungeonAllowedByNamespaceAndConfigUA(biomeNamespace)) {
 
             replaceOrAddDungeon(
@@ -244,7 +244,7 @@ public class RSAddFeatures {
 
         //add given dungeon
         biome.addFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, rsDungeon.configure(FeatureConfig.DEFAULT)
-                .createDecoratedFeature(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(spawnrate, minHeight, 0, maxheight))));
+                .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(spawnrate, minHeight, 0, maxheight))));
     }
 
 
@@ -283,7 +283,7 @@ public class RSAddFeatures {
 
             biome.addFeature(GenerationStep.Feature.SURFACE_STRUCTURES,
                     RSFeatures.BADLANDS_WELL.configure(FeatureConfig.DEFAULT)
-                            .createDecoratedFeature(Decorator.CHANCE_HEIGHTMAP
+                            .decorate(Decorator.CHANCE_HEIGHTMAP
                                     .configure(new ChanceDecoratorConfig(RepurposedStructures.RSAllConfig.RSWellsConfig.spawnrate.badlandsWellSpawnrate))));
         }
         else if (RepurposedStructures.RSAllConfig.RSWellsConfig.spawnrate.netherWellSpawnrate != 10000 &&
@@ -291,13 +291,13 @@ public class RSAddFeatures {
 
             biome.addFeature(GenerationStep.Feature.SURFACE_STRUCTURES,
                     RSFeatures.NETHER_WELL.configure(FeatureConfig.DEFAULT)
-                            .createDecoratedFeature(Decorator.CHANCE_RANGE
+                            .decorate(Decorator.CHANCE_RANGE
                                     .configure(new ChanceRangeDecoratorConfig(1F / RepurposedStructures.RSAllConfig.RSWellsConfig.spawnrate.netherWellSpawnrate, 30, 0, 98))));
         }
         else if (RepurposedStructures.RSAllConfig.RSWellsConfig.spawnrate.snowWellSpawnrate != 10000 &&
                 (biome.getCategory() == Category.ICY || biomePath.contains("snow")) && wellAllowedByNamespaceAndConfig(biomeNamespace)) {
 
-            biome.addFeature(GenerationStep.Feature.SURFACE_STRUCTURES, RSFeatures.SNOW_WELL.configure(FeatureConfig.DEFAULT).createDecoratedFeature(Decorator.CHANCE_HEIGHTMAP.configure(new ChanceDecoratorConfig(RepurposedStructures.RSAllConfig.RSWellsConfig.spawnrate.snowWellSpawnrate))));
+            biome.addFeature(GenerationStep.Feature.SURFACE_STRUCTURES, RSFeatures.SNOW_WELL.configure(FeatureConfig.DEFAULT).decorate(Decorator.CHANCE_HEIGHTMAP.configure(new ChanceDecoratorConfig(RepurposedStructures.RSAllConfig.RSWellsConfig.spawnrate.snowWellSpawnrate))));
         }
         else if (RepurposedStructures.RSAllConfig.RSWellsConfig.spawnrate.mossyStoneWellSpawnrate != 10000 &&
                 (biome.getCategory() == Category.SWAMP || biome.getCategory() == Category.JUNGLE ||
@@ -306,7 +306,7 @@ public class RSAddFeatures {
 
             biome.addFeature(GenerationStep.Feature.SURFACE_STRUCTURES,
                     RSFeatures.MOSSY_STONE_WELL.configure(FeatureConfig.DEFAULT)
-                            .createDecoratedFeature(Decorator.CHANCE_HEIGHTMAP
+                            .decorate(Decorator.CHANCE_HEIGHTMAP
                                     .configure(new ChanceDecoratorConfig(RepurposedStructures.RSAllConfig.RSWellsConfig.spawnrate.mossyStoneWellSpawnrate))));
         }
         else if (RepurposedStructures.RSAllConfig.RSWellsConfig.spawnrate.forestWellSpawnrate != 10000 &&
@@ -315,7 +315,7 @@ public class RSAddFeatures {
 
             biome.addFeature(GenerationStep.Feature.SURFACE_STRUCTURES,
                     RSFeatures.FOREST_WELL.configure(FeatureConfig.DEFAULT)
-                            .createDecoratedFeature(Decorator.CHANCE_HEIGHTMAP
+                            .decorate(Decorator.CHANCE_HEIGHTMAP
                                     .configure(new ChanceDecoratorConfig(RepurposedStructures.RSAllConfig.RSWellsConfig.spawnrate.forestWellSpawnrate))));
         }
     }
@@ -332,18 +332,18 @@ public class RSAddFeatures {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // SWAMP TREE FEATURES //
 
-    private static final ConfiguredFeature<?, ?> VANILLA_SWAMP_TREE = Feature.TREE.configure(DefaultBiomeFeatures.SWAMP_TREE_CONFIG).createDecoratedFeature(Decorator.COUNT_EXTRA_HEIGHTMAP.configure(new CountExtraChanceDecoratorConfig(2, 0.1F, 1)));
+    private static final ConfiguredFeature<?, ?> VANILLA_SWAMP_TREE = Feature.TREE.configure(DefaultBiomeFeatures.SWAMP_TREE_CONFIG).decorate(Decorator.COUNT_EXTRA_HEIGHTMAP.configure(new CountExtraDecoratorConfig(2, 0.1F, 1)));
 
     public static void addSwampTreeFeatures(Biome biome, String biomeNamespace, String biomePath) {
 
         // only exists in vanilla biomes
-        if (RepurposedStructures.RSAllConfig.RSMainConfig.misc.hornedSwampTree && !biomeNamespace.equals("ultra_amplified_dimension") && biome == Biomes.SWAMP) {
-            biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, RSFeatures.HORNED_SWAMP_TREE.configure(DefaultBiomeFeatures.SWAMP_TREE_CONFIG).createDecoratedFeature(Decorator.COUNT_EXTRA_HEIGHTMAP.configure(new CountExtraChanceDecoratorConfig(0, 0.7F, 1))));
+        if (RepurposedStructures.RSAllConfig.RSMainConfig.misc.hornedSwampTree && !biomeNamespace.equals("ultra_amplified_dimension") && biome == BuiltInBiomes.SWAMP) {
+            biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, RSFeatures.HORNED_SWAMP_TREE.configure(DefaultBiomeFeatures.SWAMP_TREE_CONFIG).decorate(Decorator.COUNT_EXTRA_HEIGHTMAP.configure(new CountExtraDecoratorConfig(0, 0.7F, 1))));
         }
 
         // can exist in modded biomes too
         else if (RepurposedStructures.RSAllConfig.RSMainConfig.misc.hornedSwampTree &&
-                (biome == Biomes.SWAMP_HILLS ||
+                (biome == BuiltInBiomes.SWAMP_HILLS ||
                         (RepurposedStructures.RSAllConfig.RSMainConfig.misc.addSwampTreeToModdedBiomes &&
                                 biome.getCategory() == Category.SWAMP &&
                                 !biomeNamespace.equals("ultra_amplified_dimension") &&
@@ -351,32 +351,32 @@ public class RSAddFeatures {
 
             // replace the swamp tree with our own
             biome.getFeaturesForStep(GenerationStep.Feature.VEGETAL_DECORATION).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && serializeAndCompareFeature(configuredFeature, VANILLA_SWAMP_TREE));
-            biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, RSFeatures.HORNED_SWAMP_TREE.configure(DefaultBiomeFeatures.SWAMP_TREE_CONFIG).createDecoratedFeature(Decorator.COUNT_EXTRA_HEIGHTMAP.configure(new CountExtraChanceDecoratorConfig(2, 0.8F, 1))));
+            biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, RSFeatures.HORNED_SWAMP_TREE.configure(DefaultBiomeFeatures.SWAMP_TREE_CONFIG).decorate(Decorator.COUNT_EXTRA_HEIGHTMAP.configure(new CountExtraDecoratorConfig(2, 0.8F, 1))));
         }
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MISC FEATURES //
 
-    private static final ConfiguredFeature<?, ?> VANILLA_BOULDER = Feature.FOREST_ROCK.configure(new ForestRockFeatureConfig(Blocks.MOSSY_COBBLESTONE.getDefaultState(), 0)).createDecoratedFeature(Decorator.FOREST_ROCK.configure(new CountDecoratorConfig(3)));
+    private static final ConfiguredFeature<?, ?> VANILLA_BOULDER = Feature.FOREST_ROCK.configure(new ForestRockFeatureConfig(Blocks.MOSSY_COBBLESTONE.getDefaultState(), 0)).decorate(Decorator.FOREST_ROCK.configure(new CountDecoratorConfig(3)));
 
     public static void addBoulderFeatures(Biome biome, String biomeNamespace, String biomePath) {
 
         if (RepurposedStructures.RSAllConfig.RSMainConfig.misc.boulderGiant && !biomeNamespace.equals("ultra_amplified_dimension") &&
-                ((biome == Biomes.GIANT_SPRUCE_TAIGA_HILLS || biome == Biomes.GIANT_TREE_TAIGA_HILLS) ||
+                ((biome == BuiltInBiomes.GIANT_SPRUCE_TAIGA_HILLS || biome == BuiltInBiomes.GIANT_TREE_TAIGA_HILLS) ||
                         (RepurposedStructures.RSAllConfig.RSMainConfig.misc.addBoulderToModdedBiomes && !biomeNamespace.equals("minecraft") &&
                                 ((biomePath.contains("giant") && biomePath.contains("taiga")) || biomePath.contains("redwood"))))) {
 
             // replace the boulders with our own
             biome.getFeaturesForStep(GenerationStep.Feature.LOCAL_MODIFICATIONS).removeIf(configuredFeature -> configuredFeature.config instanceof DecoratedFeatureConfig && serializeAndCompareFeature(configuredFeature, VANILLA_BOULDER));
-            biome.addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, RSFeatures.BOULDER_GIANT.configure(FeatureConfig.DEFAULT).createDecoratedFeature(Decorator.COUNT_EXTRA_HEIGHTMAP.configure(new CountExtraChanceDecoratorConfig((int)RepurposedStructures.RSAllConfig.RSMainConfig.misc.giantBouldersPerChunk, (float) (RepurposedStructures.RSAllConfig.RSMainConfig.misc.giantBouldersPerChunk - ((int)RepurposedStructures.RSAllConfig.RSMainConfig.misc.giantBouldersPerChunk)), 1))));
+            biome.addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, RSFeatures.BOULDER_GIANT.configure(FeatureConfig.DEFAULT).decorate(Decorator.COUNT_EXTRA_HEIGHTMAP.configure(new CountExtraDecoratorConfig((int)RepurposedStructures.RSAllConfig.RSMainConfig.misc.giantBouldersPerChunk, (float) (RepurposedStructures.RSAllConfig.RSMainConfig.misc.giantBouldersPerChunk - ((int)RepurposedStructures.RSAllConfig.RSMainConfig.misc.giantBouldersPerChunk)), 1))));
         }
         else if (RepurposedStructures.RSAllConfig.RSMainConfig.misc.boulderTiny && !biomeNamespace.equals("ultra_amplified_dimension") &&
-                ((biome == Biomes.SNOWY_TAIGA_MOUNTAINS || biome == Biomes.TAIGA_MOUNTAINS) ||
+                ((biome == BuiltInBiomes.SNOWY_TAIGA_MOUNTAINS || biome == BuiltInBiomes.TAIGA_MOUNTAINS) ||
                         (RepurposedStructures.RSAllConfig.RSMainConfig.misc.addBoulderToModdedBiomes && !biomeNamespace.equals("minecraft") &&
                                 biomePath.contains("taiga") && (biomePath.contains("mountain") || biomePath.contains("hill"))))) {
 
-            biome.addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, RSFeatures.BOULDER_TINY.configure(FeatureConfig.DEFAULT).createDecoratedFeature(Decorator.COUNT_TOP_SOLID.configure(new CountDecoratorConfig(2))));
+            biome.addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, RSFeatures.BOULDER_TINY.configure(FeatureConfig.DEFAULT).decorate(Decorator.COUNT_TOP_SOLID.configure(new CountDecoratorConfig(2))));
         }
     }
 
@@ -394,13 +394,13 @@ public class RSAddFeatures {
             //replace vanilla stronghold with ours if vanilla's is present
             ((BiomeStructureAccessor) biome).getStructureFeatures().remove(StructureFeature.STRONGHOLD);
             biome.addStructureFeature(RSFeatures.STONEBRICK_STRONGHOLD.configure(FeatureConfig.DEFAULT));
-            biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, RSFeatures.STRONGHOLD_CHAINS.configure(FeatureConfig.DEFAULT).createDecoratedFeature(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.stonebrickStrongholdChainSpawnrate, 5, 0, Math.max(RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.stonebrickStrongholdMaxHeight, RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.stonebrickStrongholdMinHeight+1)+15))));
+            biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, RSFeatures.STRONGHOLD_CHAINS.configure(FeatureConfig.DEFAULT).decorate(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.stonebrickStrongholdChainSpawnrate, 5, 0, Math.max(RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.stonebrickStrongholdMaxHeight, RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.stonebrickStrongholdMinHeight+1)+15))));
         }
 
         else if (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdSpawnrate != 1001 && biome.getCategory() == Category.NETHER &&
                 (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.addNetherStrongholdToModdedBiomes)) {
             biome.addStructureFeature(RSFeatures.NETHER_STRONGHOLD.configure(FeatureConfig.DEFAULT));
-            biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, RSFeatures.STRONGHOLD_CHAINS.configure(FeatureConfig.DEFAULT).createDecoratedFeature(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdChainSpawnrate, 5, 0, Math.max(RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdMaxHeight, RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdMinHeight+1)+15))));
+            biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, RSFeatures.STRONGHOLD_CHAINS.configure(FeatureConfig.DEFAULT).decorate(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdChainSpawnrate, 5, 0, Math.max(RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdMaxHeight, RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdMinHeight+1)+15))));
         }
     }
 
@@ -437,7 +437,7 @@ public class RSAddFeatures {
     public static void addShipwrecks(Biome biome, String biomeNamespace, String biomePath) {
 
         if (RepurposedStructures.RSAllConfig.RSMainConfig.shipwrecks.endShipwreckSpawnrate != 1001 &&
-                (biome == Biomes.END_HIGHLANDS ||
+                (biome == BuiltInBiomes.END_HIGHLANDS ||
                 (!biomeNamespace.equals("minecraft") && biome.getCategory() == Category.THEEND &&
                 RepurposedStructures.RSAllConfig.RSMainConfig.shipwrecks.addEndShipwreckToModdedBiomes))) {
             biome.addStructureFeature(RSFeatures.END_SHIPWRECK.configure(FeatureConfig.DEFAULT));
@@ -455,8 +455,8 @@ public class RSAddFeatures {
                     (biomeNamespace.equals("minecraft") || RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.addJungleFortressToModdedBiomes)) {
                 biome.addStructureFeature(RSFeatures.JUNGLE_FORTRESS.configure(FeatureConfig.DEFAULT));
             }
-            biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, RSFeatures.JUNGLE_STRUCTURES_VINES.configure(FeatureConfig.DEFAULT).createDecoratedFeature(RSPlacements.RS_VINE_PLACEMENT.configure(new RangeDecoratorConfig(40, 0, 2, 20))));
-            biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, RSFeatures.FORTRESS_BREAKAGE.configure(FeatureConfig.DEFAULT).createDecoratedFeature(Decorator.COUNT_EXTRA_HEIGHTMAP.configure(new CountExtraChanceDecoratorConfig(1, 0.2F, 1))));
+            biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, RSFeatures.JUNGLE_STRUCTURES_VINES.configure(FeatureConfig.DEFAULT).decorate(RSPlacements.RS_VINE_PLACEMENT.configure(new RangeDecoratorConfig(40, 0, 2, 20))));
+            biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, RSFeatures.FORTRESS_BREAKAGE.configure(FeatureConfig.DEFAULT).decorate(Decorator.COUNT_EXTRA_HEIGHTMAP.configure(new CountExtraDecoratorConfig(1, 0.2F, 1))));
         }
     }
 
@@ -560,7 +560,7 @@ public class RSAddFeatures {
                 RepurposedStructures.RSAllConfig.RSVillagesConfig.addVillagesToModdedBiomes)) {
             if (RepurposedStructures.RSAllConfig.RSVillagesConfig.jungleVillageSpawnrate != 1001) {
                 biome.addStructureFeature(RSFeatures.JUNGLE_VILLAGE.configure(FeatureConfig.DEFAULT));
-                biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, RSFeatures.JUNGLE_STRUCTURES_VINES.configure(FeatureConfig.DEFAULT).createDecoratedFeature(RSPlacements.RS_VINE_PLACEMENT.configure(new RangeDecoratorConfig(30, 0, 8, 16))));
+                biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, RSFeatures.JUNGLE_STRUCTURES_VINES.configure(FeatureConfig.DEFAULT).decorate(RSPlacements.RS_VINE_PLACEMENT.configure(new RangeDecoratorConfig(30, 0, 8, 16))));
             }
         }
 
@@ -568,7 +568,7 @@ public class RSAddFeatures {
                 RepurposedStructures.RSAllConfig.RSVillagesConfig.addVillagesToModdedBiomes)) {
             if (RepurposedStructures.RSAllConfig.RSVillagesConfig.swampVillageSpawnrate != 1001) {
                 biome.addStructureFeature(RSFeatures.SWAMP_VILLAGE.configure(FeatureConfig.DEFAULT));
-                biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, RSFeatures.SWAMP_VILLAGE_VINES.configure(FeatureConfig.DEFAULT).createDecoratedFeature(RSPlacements.RS_VINE_PLACEMENT.configure(new RangeDecoratorConfig(30, 0,8, 16))));
+                biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, RSFeatures.SWAMP_VILLAGE_VINES.configure(FeatureConfig.DEFAULT).decorate(RSPlacements.RS_VINE_PLACEMENT.configure(new RangeDecoratorConfig(30, 0,8, 16))));
             }
         }
 
@@ -579,7 +579,7 @@ public class RSAddFeatures {
             }
         }
 
-        else if ((biome == Biomes.GIANT_SPRUCE_TAIGA || biome == Biomes.GIANT_TREE_TAIGA) ||
+        else if ((biome == BuiltInBiomes.GIANT_SPRUCE_TAIGA || biome == BuiltInBiomes.GIANT_TREE_TAIGA) ||
                 (!biomeNamespace.equals("minecraft") &&
                   RepurposedStructures.RSAllConfig.RSVillagesConfig.addVillagesToModdedBiomes &&
                 ((biomePath.contains("giant") && biomePath.contains("taiga")) || biomePath.contains("redwood")))) {

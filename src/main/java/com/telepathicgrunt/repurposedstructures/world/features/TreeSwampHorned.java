@@ -15,7 +15,7 @@ import net.minecraft.util.math.Vec3i;
 import net.minecraft.util.shape.BitSetVoxelSet;
 import net.minecraft.util.shape.VoxelSet;
 import net.minecraft.world.ModifiableWorld;
-import net.minecraft.world.ServerWorldAccess;
+import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.TestableWorld;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.gen.StructureAccessor;
@@ -36,7 +36,7 @@ public class TreeSwampHorned extends Feature<TreeFeatureConfig> {
     }
 
     @Override
-    public boolean generate(ServerWorldAccess serverWorldAccess, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos blockPos, TreeFeatureConfig treeFeatureConfig) {
+    public boolean generate(StructureWorldAccess serverWorldAccess, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos blockPos, TreeFeatureConfig treeFeatureConfig) {
         Set<BlockPos> set = Sets.newHashSet();
         Set<BlockPos> set2 = Sets.newHashSet();
         Set<BlockPos> set3 = Sets.newHashSet();
@@ -61,7 +61,7 @@ public class TreeSwampHorned extends Feature<TreeFeatureConfig> {
 
 
     // generate the spooky horned swamp m trees
-    private boolean generate(ServerWorldAccess world, Random random, BlockPos position, Set<BlockPos> logPositions, Set<BlockPos> leavesPositions) {
+    private boolean generate(StructureWorldAccess world, Random random, BlockPos position, Set<BlockPos> logPositions, Set<BlockPos> leavesPositions) {
         int height = random.nextInt(4) + 6;
 
         // checks to see if there is room to generate tree
@@ -202,7 +202,7 @@ public class TreeSwampHorned extends Feature<TreeFeatureConfig> {
     }
 
 
-    private void addVine(ServerWorldAccess world, BlockPos pos, BooleanProperty prop) {
+    private void addVine(StructureWorldAccess world, BlockPos pos, BooleanProperty prop) {
         BlockState iblockstate = Blocks.VINE.getDefaultState().with(prop, Boolean.TRUE);
         this.setBlockState(world, pos, iblockstate);
         int i = 4;
@@ -214,7 +214,7 @@ public class TreeSwampHorned extends Feature<TreeFeatureConfig> {
     }
 
 
-    private void genTrunk(ServerWorldAccess world, BlockPos position, int height) {
+    private void genTrunk(StructureWorldAccess world, BlockPos position, int height) {
         this.setBlockState(world, position.down(), Blocks.DIRT.getDefaultState());
         BlockPos.Mutable mutable = new BlockPos.Mutable().set(position);
 
@@ -240,7 +240,7 @@ public class TreeSwampHorned extends Feature<TreeFeatureConfig> {
     }
 
 
-    private boolean isSpaceAt(ServerWorldAccess world, BlockPos leavesPos, int height) {
+    private boolean isSpaceAt(StructureWorldAccess world, BlockPos leavesPos, int height) {
         boolean spaceFound = true;
         if (leavesPos.getY() >= 1 && leavesPos.getY() + height + 1 <= world.getHeight()) {
             for (int y = 0; y <= 1 + height; ++y) {
@@ -280,7 +280,7 @@ public class TreeSwampHorned extends Feature<TreeFeatureConfig> {
 
 
     private static boolean isDirtOrGrass(TestableWorld world, BlockPos pos) {
-        return world.testBlockState(pos, (state) -> isDirt(state.getBlock()) || state.isOf(Blocks.FARMLAND));
+        return world.testBlockState(pos, (state) -> isSoil(state.getBlock()) || state.isOf(Blocks.FARMLAND));
     }
 
 

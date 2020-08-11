@@ -2,9 +2,9 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.*;
+import net.minecraft.structure.MarginedStructureStart;
 import net.minecraft.structure.StructureManager;
 import net.minecraft.structure.VillageGenerator;
-import net.minecraft.structure.VillageStructureStart;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
@@ -67,7 +67,7 @@ public class VillageBaseStructure extends StructureFeature<DefaultFeatureConfig>
         VillageWarpedPools.init();
     }
 
-    public class MainStart extends VillageStructureStart<DefaultFeatureConfig> {
+    public class MainStart extends MarginedStructureStart<DefaultFeatureConfig> {
         public MainStart(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
         }
