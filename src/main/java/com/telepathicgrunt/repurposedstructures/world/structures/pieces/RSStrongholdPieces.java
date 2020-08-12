@@ -27,6 +27,7 @@ import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.gen.StructureAccessor;
@@ -616,7 +617,7 @@ public class RSStrongholdPieces {
             BlockState bookshelfBlock = Blocks.BOOKSHELF.getDefaultState();
 
             if (this.strongholdType == Type.NETHER) {
-                Tag<Block> BOOKSHELF_TAG = BlockTags.getTagGroup().getOrCreate(NETHER_STRONGHOLD_BOOKSHELF_RL);
+                Tag<Block> BOOKSHELF_TAG = BlockTags.getTagGroup().getTagOrEmpty(NETHER_STRONGHOLD_BOOKSHELF_RL);
                 Collection<Block> allBookshelfBlocks = BOOKSHELF_TAG.values();
 
                 if (!allBookshelfBlocks.isEmpty())
@@ -1623,7 +1624,7 @@ public class RSStrongholdPieces {
 
 
         @Override
-        protected void addBlock(WorldAccess world, BlockState block, int x, int y, int z, BlockBox blockBox) {
+        protected void addBlock(StructureWorldAccess world, BlockState block, int x, int y, int z, BlockBox blockBox) {
             block = getBlockOfCorrectType(block);
             BlockPos blockPos = new BlockPos(this.applyXTransform(x, z), this.applyYTransform(y), this.applyZTransform(x, z));
             if (blockBox.contains(blockPos)) {

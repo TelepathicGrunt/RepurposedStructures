@@ -53,10 +53,10 @@ public class StrongholdChains extends Feature<DefaultFeatureConfig> {
     };
 
     @Override
-    public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
+    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
         if (!world.isAir(position) ||
-                (!structureAccessor.getStructuresWithChildren(ChunkSectionPos.from(position), RSFeatures.STONEBRICK_STRONGHOLD).findAny().isPresent() &&
-                 !structureAccessor.getStructuresWithChildren(ChunkSectionPos.from(position), RSFeatures.NETHER_STRONGHOLD).findAny().isPresent()))
+                (!world.getStructures(ChunkSectionPos.from(position), RSFeatures.STONEBRICK_STRONGHOLD).findAny().isPresent() &&
+                 !world.getStructures(ChunkSectionPos.from(position), RSFeatures.NETHER_STRONGHOLD).findAny().isPresent()))
         {
            return false;
         }

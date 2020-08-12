@@ -7,14 +7,15 @@ import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.GeneralJigsawGenerator;
 import net.minecraft.structure.StructureManager;
 import net.minecraft.structure.StructureStart;
-import net.minecraft.structure.pool.SinglePoolElement;
-import net.minecraft.structure.pool.StructurePool;
-import net.minecraft.structure.pool.StructurePoolBasedGenerator;
+import net.minecraft.structure.pool.*;
+import net.minecraft.structure.processor.StructureProcessorLists;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
+import net.minecraft.util.registry.BuiltinRegistries;
+import net.minecraft.util.registry.DynamicRegistryManager;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.source.BiomeSource;
@@ -32,32 +33,34 @@ public class EndShipwreckStructure extends AbstractBaseStructure {
 
     private static boolean INITIALIZED_POOLS = false;
     private static void initPools() {
-        StructurePoolBasedGenerator.REGISTRY.add(
+        StructurePools.register(
                 new StructurePool(new Identifier(RepurposedStructures.MODID,"shipwrecks/end"), new Identifier("empty"),
                         ImmutableList.of(
-                            Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":shipwrecks/end/rightsideup_backhalf", new ArrayList<>()), 1),
-                                Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":shipwrecks/end/rightsideup_backhalf_degraded", new ArrayList<>()), 1),
-                                Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":shipwrecks/end/rightsideup_fronthalf", new ArrayList<>()), 1),
-                                Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":shipwrecks/end/rightsideup_fronthalf_degraded", new ArrayList<>()), 1),
-                                Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":shipwrecks/end/rightsideup_full", new ArrayList<>()), 1),
-                                Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":shipwrecks/end/rightsideup_full_degraded", new ArrayList<>()), 1),
-                                Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":shipwrecks/end/sideways_backhalf", new ArrayList<>()), 1),
-                                Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":shipwrecks/end/sideways_backhalf_degraded", new ArrayList<>()), 1),
-                                Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":shipwrecks/end/sideways_fronthalf", new ArrayList<>()), 1),
-                                Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":shipwrecks/end/sideways_fronthalf_degraded", new ArrayList<>()), 1),
-                                Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":shipwrecks/end/sideways_full", new ArrayList<>()), 1),
-                                Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":shipwrecks/end/sideways_full_degraded", new ArrayList<>()), 1),
-                                Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":shipwrecks/end/upsidedown_backhalf", new ArrayList<>()), 1),
-                                Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":shipwrecks/end/upsidedown_backhalf_degraded", new ArrayList<>()), 1),
-                                Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":shipwrecks/end/upsidedown_fronthalf_degraded", new ArrayList<>()), 1),
-                                Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":shipwrecks/end/upsidedown_fronthalf", new ArrayList<>()), 1),
-                                Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":shipwrecks/end/upsidedown_full", new ArrayList<>()), 1),
-                                Pair.of(new SinglePoolElement(RepurposedStructures.MODID+":shipwrecks/end/upsidedown_full_degraded", new ArrayList<>()), 1)),
+                            Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/rightsideup_backhalf", StructureProcessorLists.EMPTY), 1),
+                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/rightsideup_backhalf_degraded", StructureProcessorLists.EMPTY), 1),
+                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/rightsideup_fronthalf", StructureProcessorLists.EMPTY), 1),
+                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/rightsideup_fronthalf_degraded", StructureProcessorLists.EMPTY), 1),
+                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/rightsideup_full", StructureProcessorLists.EMPTY), 1),
+                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/rightsideup_full_degraded", StructureProcessorLists.EMPTY), 1),
+                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/sideways_backhalf", StructureProcessorLists.EMPTY), 1),
+                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/sideways_backhalf_degraded", StructureProcessorLists.EMPTY), 1),
+                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/sideways_fronthalf", StructureProcessorLists.EMPTY), 1),
+                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/sideways_fronthalf_degraded", StructureProcessorLists.EMPTY), 1),
+                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/sideways_full", StructureProcessorLists.EMPTY), 1),
+                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/sideways_full_degraded", StructureProcessorLists.EMPTY), 1),
+                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/upsidedown_backhalf", StructureProcessorLists.EMPTY), 1),
+                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/upsidedown_backhalf_degraded", StructureProcessorLists.EMPTY), 1),
+                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/upsidedown_fronthalf_degraded", StructureProcessorLists.EMPTY), 1),
+                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/upsidedown_fronthalf", StructureProcessorLists.EMPTY), 1),
+                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/upsidedown_full", StructureProcessorLists.EMPTY), 1),
+                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/upsidedown_full_degraded", StructureProcessorLists.EMPTY), 1)),
                         StructurePool.Projection.RIGID));
     }
+    private final StructurePool START_POOL;
 
     public EndShipwreckStructure(Codec<DefaultFeatureConfig> config) {
         super(config);
+        START_POOL = BuiltinRegistries.STRUCTURE_POOL.get(new Identifier(RepurposedStructures.MODID + ":shipwrecks/end"));
     }
 
     @Override
@@ -93,21 +96,19 @@ public class EndShipwreckStructure extends AbstractBaseStructure {
         return Math.min(Math.min(m, n), Math.min(o, p));
     }
 
-    public static class Start extends StructureStart<DefaultFeatureConfig> {
+    public class Start extends StructureStart<DefaultFeatureConfig> {
         public Start(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
         }
 
-        private static final Identifier SHIPWRECK_IDENTIFIER = new Identifier(RepurposedStructures.MODID + ":shipwrecks/end");
-
         @Override
-        public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
+        public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
             if(!INITIALIZED_POOLS){
                 initPools();
                 INITIALIZED_POOLS = true;
             }
             BlockPos blockpos = new BlockPos(chunkX * 16, 62, chunkZ * 16);
-            GeneralJigsawGenerator.addPieces(chunkGenerator, structureManager, blockpos, this.children, this.random, SHIPWRECK_IDENTIFIER, 1);
+            GeneralJigsawGenerator.addPieces(dynamicRegistryManager, chunkGenerator, structureManager, blockpos, this.children, this.random, START_POOL, 1);
             this.setBoundingBoxFromChildren();
 
             BlockPos blockPos = new BlockPos(this.children.get(0).getBoundingBox().getCenter());

@@ -60,7 +60,7 @@ public abstract class WellAbstract extends Feature<DefaultFeatureConfig> {
 
     protected void handleDataBlocks(Identifier templateOresRL, Structure template, StructureWorldAccess world, Random random, BlockPos position, Block defaultBlock, float oreChance) {
         // Replace the Data blocks with ores or bells
-        Tag<Block> ORE_TAG = BlockTags.getTagGroup().getOrCreate(templateOresRL);
+        Tag<Block> ORE_TAG = BlockTags.getTagGroup().getTagOrEmpty(templateOresRL);
         Collection<Block> allOreBlocks = ORE_TAG.values();
         BlockPos offset = new BlockPos(-template.getSize().getX() / 2, 0, -template.getSize().getZ() / 2);
         for (StructureBlockInfo template$blockinfo : template.getInfosForBlock(position.add(offset), placementsettings, Blocks.STRUCTURE_BLOCK)) {

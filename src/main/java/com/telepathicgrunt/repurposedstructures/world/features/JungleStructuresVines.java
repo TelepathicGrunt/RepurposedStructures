@@ -36,22 +36,22 @@ public class JungleStructuresVines extends Feature<DefaultFeatureConfig> {
             Blocks.STONE);
 
     @Override
-    public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
+    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
         //Place vines without replacing blocks.
         if (world.isAir(position))
         {
-            if(structureAccessor.getStructuresWithChildren(ChunkSectionPos.from(position), RSFeatures.JUNGLE_VILLAGE).findAny().isPresent() ||
-                    structureAccessor.getStructuresWithChildren(ChunkSectionPos.from(position), RSFeatures.JUNGLE_FORTRESS).findAny().isPresent())
+            if(world.getStructures(ChunkSectionPos.from(position), RSFeatures.JUNGLE_VILLAGE).findAny().isPresent() ||
+                    world.getStructures(ChunkSectionPos.from(position), RSFeatures.JUNGLE_FORTRESS).findAny().isPresent())
             {
-                RSFeatures.SHORT_VINES.generate(world, structureAccessor, chunkGenerator, random, position, DefaultFeatureConfig.DEFAULT);
+                RSFeatures.SHORT_VINES.generate(world, chunkGenerator, random, position, DefaultFeatureConfig.DEFAULT);
                 return true;
             }
         }
         //Place vines and can replace Stone Bricks if it has air below.
         if (FORTRESS_BLOCKS_SET.contains(world.getBlockState(position).getBlock()) && world.isAir(position.down())) {
-            if (structureAccessor.getStructuresWithChildren(ChunkSectionPos.from(position), RSFeatures.JUNGLE_FORTRESS).findAny().isPresent()) {
+            if (world.getStructures(ChunkSectionPos.from(position), RSFeatures.JUNGLE_FORTRESS).findAny().isPresent()) {
                 world.setBlockState(position, Blocks.AIR.getDefaultState(), 3);
-                RSFeatures.SHORT_VINES.generate(world, structureAccessor, chunkGenerator, random, position, DefaultFeatureConfig.DEFAULT);
+                RSFeatures.SHORT_VINES.generate(world, chunkGenerator, random, position, DefaultFeatureConfig.DEFAULT);
                 return true;
             }
         }

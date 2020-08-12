@@ -23,7 +23,7 @@ public class VinesShort extends Feature<DefaultFeatureConfig> {
 
 
     @Override
-    public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
+    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
         if (!world.isAir(position)) {
             return false;
         }

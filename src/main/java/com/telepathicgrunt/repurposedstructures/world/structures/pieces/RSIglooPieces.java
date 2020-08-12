@@ -18,6 +18,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.Heightmap;
+import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.gen.StructureAccessor;
@@ -91,7 +92,7 @@ public class RSIglooPieces {
         }
 
 
-        protected void handleMetadata(String function, BlockPos pos, WorldAccess worldIn, Random rand, BlockBox sbb) {
+        protected void handleMetadata(String function, BlockPos pos, ServerWorldAccess worldIn, Random rand, BlockBox sbb) {
             if ("chest".equals(function)) {
                 worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
                 BlockEntity tileentity = worldIn.getBlockEntity(pos.down());

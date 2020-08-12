@@ -38,7 +38,7 @@ public class DungeonEnd extends Feature<DefaultFeatureConfig> {
     //only the mob spawner chance and what blocks the wall cannot replace was changed. Everything else is just the normal dungeon code.
 
     @Override
-    public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
+    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
         int randXRange = random.nextInt(2) + 2;
         int xMin = -randXRange - 1;
         int xMax = randXRange + 1;

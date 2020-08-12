@@ -1121,7 +1121,7 @@ public class FortressJunglePieces {
                 }
             }
             else if (blockstateIn.isOf(Blocks.SOUL_SAND)) {
-                Tag<Block> ORE_TAG = BlockTags.getTagGroup().getOrCreate(JF_SOIL_TAG_RL);
+                Tag<Block> ORE_TAG = BlockTags.getTagGroup().getTagOrEmpty(JF_SOIL_TAG_RL);
                 Collection<Block> allSoilBlocks = ORE_TAG.values();
                 BlockState soilBlock = null;
 
@@ -1134,7 +1134,7 @@ public class FortressJunglePieces {
                 return soilBlock != null ? soilBlock : Blocks.COARSE_DIRT.getDefaultState();
             }
             else if (blockstateIn.isOf(Blocks.NETHER_WART)) {
-                Tag<Block> ORE_TAG = BlockTags.getTagGroup().getOrCreate(JF_PLANT_TAG_RL);
+                Tag<Block> ORE_TAG = BlockTags.getTagGroup().getTagOrEmpty(JF_PLANT_TAG_RL);
                 Collection<Block> allPlantBlocks = ORE_TAG.values();
                 float chance = rand.nextFloat();
 

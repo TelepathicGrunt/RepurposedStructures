@@ -6,6 +6,7 @@ import com.telepathicgrunt.repurposedstructures.RSFeatures;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.SpawnSettings;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.NoiseChunkGenerator;
 import org.spongepowered.asm.mixin.Mixin;
@@ -23,13 +24,13 @@ public class StructureMobSpawningMixin {
             at = @At(value = "HEAD"),
             cancellable = true
     )
-    private void locateRSStrongholds(Biome biome, StructureAccessor accessor, SpawnGroup group, BlockPos pos, CallbackInfoReturnable<List<Biome.SpawnEntry>> cir) {
-        List<Biome.SpawnEntry> list = getStructureSpawns(biome, accessor, group, pos);
+    private void locateRSStrongholds(Biome biome, StructureAccessor accessor, SpawnGroup group, BlockPos pos, CallbackInfoReturnable<List<SpawnSettings.SpawnEntry>> cir) {
+        List<SpawnSettings.SpawnEntry> list = getStructureSpawns(biome, accessor, group, pos);
         if(list != null) cir.setReturnValue(list);
     }
 
 
-    private static List<Biome.SpawnEntry>  getStructureSpawns(Biome biome, StructureAccessor accessor, SpawnGroup group, BlockPos pos){
+    private static List<SpawnSettings.SpawnEntry>  getStructureSpawns(Biome biome, StructureAccessor accessor, SpawnGroup group, BlockPos pos){
         if (group == SpawnGroup.MONSTER) {
             if (accessor.getStructureAt(pos, true, RSFeatures.NETHER_BRICK_OUTPOST).hasChildren()) {
                return RSFeatures.NETHER_BRICK_OUTPOST.getMonsterSpawns();
@@ -49,11 +50,11 @@ public class StructureMobSpawningMixin {
             }
 
             if (accessor.getStructureAt(pos, true, RSFeatures.JUNGLE_FORTRESS).hasChildren()) {
-                return Lists.newArrayList(Iterators.concat(biome.getEntitySpawnList(SpawnGroup.MONSTER).iterator(), RSFeatures.JUNGLE_FORTRESS.getMonsterSpawns().iterator()));
+                return Lists.newArrayList(Iterators.concat(biome.getSpawnSettings().getSpawnEntry(SpawnGroup.MONSTER).iterator(), RSFeatures.JUNGLE_FORTRESS.getMonsterSpawns().iterator()));
             }
 
             if (accessor.getStructureAt(pos, true, RSFeatures.END_MINESHAFT).hasChildren()) {
-                return Lists.newArrayList(Iterators.concat(biome.getEntitySpawnList(SpawnGroup.MONSTER).iterator(), RSFeatures.END_MINESHAFT.getMonsterSpawns().iterator()));
+                return Lists.newArrayList(Iterators.concat(biome.getSpawnSettings().getSpawnEntry(SpawnGroup.MONSTER).iterator(), RSFeatures.END_MINESHAFT.getMonsterSpawns().iterator()));
             }
         }
 

@@ -34,7 +34,7 @@ public class WellNether extends WellAbstract {
         super(config);
     }
 
-    public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
+    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
         // move to top land block below position
         BlockPos.Mutable mutable = new BlockPos.Mutable().set(position);
         for (mutable.move(Direction.UP); mutable.getY() > 32;) {
@@ -53,8 +53,8 @@ public class WellNether extends WellAbstract {
                     blockState.getMaterial() == Material.AGGREGATE ||
                     blockState.getMaterial() == Material.STONE ||
                     blockState.getMaterial() == Material.SOIL ||
-                    (world.getBiome(mutable).getSurfaceConfig().getTopMaterial() != null &&
-                     blockState.isOf(world.getBiome(mutable).getSurfaceConfig().getTopMaterial().getBlock()))) &&
+                    (world.getBiome(mutable).getGenerationSettings().getSurfaceConfig().getTopMaterial() != null &&
+                     blockState.isOf(world.getBiome(mutable).getGenerationSettings().getSurfaceConfig().getTopMaterial().getBlock()))) &&
                     !world.isAir(mutable.down()) &&
                     world.isAir(mutable.up(3)) &&
                     !world.isAir(mutable.north(2).down()) &&
@@ -81,7 +81,7 @@ public class WellNether extends WellAbstract {
 
     protected void handleDataBlocks(Identifier templateOresRL, Structure template, StructureWorldAccess world, Random random, BlockPos position, Block defaultBlock, float oreChance) {
         // Replace the Data blocks with ores or bells
-        Tag<Block> ORE_TAG = BlockTags.getTagGroup().getOrCreate(templateOresRL);
+        Tag<Block> ORE_TAG = BlockTags.getTagGroup().getTagOrEmpty(templateOresRL);
         Collection<Block> allOreBlocks = ORE_TAG.values();
         BlockPos offset = new BlockPos(-template.getSize().getX() / 2, 0, -template.getSize().getZ() / 2);
         for (StructureBlockInfo template$blockinfo : template.getInfosForBlock(position.add(offset), placementsettings, Blocks.STRUCTURE_BLOCK)) {

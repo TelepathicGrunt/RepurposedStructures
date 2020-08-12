@@ -8,6 +8,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.SpawnSettings;
 import net.minecraft.world.biome.source.BiomeSource;
 import net.minecraft.world.gen.ChunkRandom;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
@@ -21,12 +22,12 @@ public class RSMineshaftEndStructure extends RSMineshaftStructure {
         super(config, mineshaftType, probability, maxHeight, minHeight);
     }
 
-    private static final List<Biome.SpawnEntry> MONSTER_SPAWNS = Lists.newArrayList(
-                new Biome.SpawnEntry(EntityType.ENDERMITE, 10, 2, 5),
-                new Biome.SpawnEntry(EntityType.ENDERMAN, 5, 1, 3)
+    private static final List<SpawnSettings.SpawnEntry> MONSTER_SPAWNS = Lists.newArrayList(
+                new SpawnSettings.SpawnEntry(EntityType.ENDERMITE, 10, 2, 5),
+                new SpawnSettings.SpawnEntry(EntityType.ENDERMAN, 5, 1, 3)
             );
 
-    public List<Biome.SpawnEntry> getMonsterSpawns() {
+    public List<SpawnSettings.SpawnEntry> getMonsterSpawns() {
         return MONSTER_SPAWNS;
     }
 

@@ -38,7 +38,7 @@ public class DungeonMushroom extends Feature<DefaultFeatureConfig> {
     //only the mob spawner chance and what blocks the wall cannot replace was changed. Everything else is just the normal dungeon code.
 
     @Override
-    public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
+    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
         int randXRange = random.nextInt(2) + 2;
         int xMin = -randXRange - 1;
         int xMax = randXRange + 1;
@@ -158,7 +158,7 @@ public class DungeonMushroom extends Feature<DefaultFeatureConfig> {
                     ((MobSpawnerBlockEntity) tileentity).getLogic()
                             .setEntityId(RepurposedStructures.mobSpawnerManager.getSpawnerMob(HIGH_SPAWNER_ID, random));
             } else {
-                LOGGER.error("Failed to fetch mob spawner entity at ({}, {}, {})", new Object[]{Integer.valueOf(position.getX()), Integer.valueOf(position.getY()), Integer.valueOf(position.getZ())});
+                LOGGER.error("Failed to fetch mob spawner entity at ({}, {}, {})", new Object[]{position.getX(), position.getY(), position.getZ()});
             }
 
             return true;

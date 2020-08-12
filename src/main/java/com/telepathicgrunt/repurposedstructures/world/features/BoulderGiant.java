@@ -24,7 +24,7 @@ public class BoulderGiant extends Feature<DefaultFeatureConfig> {
     }
 
     @Override
-    public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
+    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
 
         BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().set(position);
         BlockState blockState = world.getBlockState(blockpos$Mutable);

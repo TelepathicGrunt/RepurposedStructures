@@ -41,9 +41,9 @@ public class FortressBreakage extends Feature<DefaultFeatureConfig> {
     };
 
     @Override
-    public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
+    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
         if (FORTRESS_BLOCKS.test(world.getBlockState(position.down())) &&
-            structureAccessor.getStructuresWithChildren(ChunkSectionPos.from(position), RSFeatures.JUNGLE_FORTRESS).findAny().isPresent())
+            world.getStructures(ChunkSectionPos.from(position), RSFeatures.JUNGLE_FORTRESS).findAny().isPresent())
         {
             if(random.nextBoolean())
                 position = position.down();

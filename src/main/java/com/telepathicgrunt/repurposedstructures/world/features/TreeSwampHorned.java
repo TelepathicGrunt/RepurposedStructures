@@ -36,7 +36,7 @@ public class TreeSwampHorned extends Feature<TreeFeatureConfig> {
     }
 
     @Override
-    public boolean generate(StructureWorldAccess serverWorldAccess, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos blockPos, TreeFeatureConfig treeFeatureConfig) {
+    public boolean generate(StructureWorldAccess serverWorldAccess, ChunkGenerator chunkGenerator, Random random, BlockPos blockPos, TreeFeatureConfig treeFeatureConfig) {
         Set<BlockPos> set = Sets.newHashSet();
         Set<BlockPos> set2 = Sets.newHashSet();
         Set<BlockPos> set3 = Sets.newHashSet();

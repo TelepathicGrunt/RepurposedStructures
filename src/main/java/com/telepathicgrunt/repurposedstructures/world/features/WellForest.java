@@ -26,7 +26,7 @@ public class WellForest extends WellAbstract {
     }
 
 
-    public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
+    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
         // move to top land block below position
         BlockPos.Mutable mutable = new BlockPos.Mutable().set(position);
         for (mutable.move(Direction.UP); world.isAir(mutable) && mutable.getY() > 2; ) {

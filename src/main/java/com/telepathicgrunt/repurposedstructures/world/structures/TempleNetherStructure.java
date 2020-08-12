@@ -1,12 +1,16 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.mojang.serialization.Codec;
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.GeneralJigsawGenerator;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.TempleNetherPools;
 import net.minecraft.structure.StructureManager;
+import net.minecraft.structure.pool.StructurePool;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.registry.BuiltinRegistries;
+import net.minecraft.util.registry.DynamicRegistryManager;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
@@ -14,12 +18,12 @@ import net.minecraft.world.gen.feature.StructureFeature;
 
 
 public class TempleNetherStructure extends StructureFeature<DefaultFeatureConfig> {
-    private final Identifier PIECE_IDENTIFIER;
+    private final StructurePool START_POOL;
     private static boolean INITIALIZED_POOLS = false;
 
     public TempleNetherStructure(Codec<DefaultFeatureConfig> config, Identifier pieceID) {
         super(config);
-        PIECE_IDENTIFIER = pieceID;
+        START_POOL = BuiltinRegistries.STRUCTURE_POOL.get(pieceID);
     }
 
     @Override
@@ -32,14 +36,14 @@ public class TempleNetherStructure extends StructureFeature<DefaultFeatureConfig
             super(structureFeature, x, z, blockBox, referenceIn, seed);
         }
 
-        public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int x, int z, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
+        public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, int x, int z, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
             if(!INITIALIZED_POOLS){
                 TempleNetherPools.initPools();
                 INITIALIZED_POOLS = true;
             }
 
             BlockPos blockPos = new BlockPos(x * 16, 35, z * 16);
-            GeneralJigsawGenerator.addPieces(chunkGenerator, structureManager, blockPos, this.children, this.random, PIECE_IDENTIFIER, 1);
+            GeneralJigsawGenerator.addPieces(dynamicRegistryManager, chunkGenerator, structureManager, blockPos, this.children, this.random, START_POOL, 1);
             this.setBoundingBoxFromChildren();
 
             BlockPos lowestLandPos = getLowestLand(chunkGenerator);

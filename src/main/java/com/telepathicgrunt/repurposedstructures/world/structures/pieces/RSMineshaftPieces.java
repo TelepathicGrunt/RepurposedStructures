@@ -19,6 +19,7 @@ import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.WorldAccess;
@@ -275,7 +276,7 @@ public class RSMineshaftPieces {
 
 
         @Override
-        protected boolean addChest(WorldAccess world, BlockBox boundingBox, Random random, int x, int y, int z, Identifier lootTableId) {
+        protected boolean addChest(StructureWorldAccess world, BlockBox boundingBox, Random random, int x, int y, int z, Identifier lootTableId) {
             BlockPos blockpos = new BlockPos(this.applyXTransform(x, z), this.applyYTransform(y), this.applyZTransform(x, z));
             Material currentMaterial = world.getBlockState(blockpos).getMaterial();
 
@@ -446,7 +447,7 @@ public class RSMineshaftPieces {
 
 
         private void placeDecoration(StructureWorldAccess world, BlockBox box, Random random, float probability, int x, int y, int z) {
-            if (world.getDimension() != DimensionType.getOverworldDimensionType() || this.isUnderSeaLevel(world, x, y, z, box)) {
+            if (world.getRegistryManager().get(Registry.DIMENSION_TYPE_KEY).getId(world.getDimension()) != DimensionType.OVERWORLD_ID || this.isUnderSeaLevel(world, x, y, z, box)) {
                 BlockState decorativeBlock = getDecorativeBlock(random);
                 if (!decorativeBlock.isOf(Blocks.COBWEB)) {
                     y = 0;
