@@ -6,12 +6,16 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.mixin.DungeonFeatureAccessor;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.resource.JsonDataLoader;
 import net.minecraft.resource.ResourceManager;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Util;
 import net.minecraft.util.profiler.Profiler;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.gen.feature.DungeonFeature;
 import org.apache.logging.log4j.Level;
 
 import java.util.List;
@@ -44,6 +48,11 @@ public class MobSpawnerManager extends JsonDataLoader{
 
     public EntityType<?> getSpawnerMob(Identifier spawnerJsonEntry, Random random) {
         List<MobSpawnerObj> spawnerMobEntries = this.spawnerMap.get(spawnerJsonEntry);
+        if(spawnerMobEntries == null){
+            RepurposedStructures.LOGGER.log(Level.ERROR,"***************************************\nFailed to get mob. Please check that "+spawnerJsonEntry+".json is correct or that no other mod is interfering with how vanilla reads data folders. Let TelepathicGrunt know about this too!\n***************************************");
+            return Util.getRandom(DungeonFeatureAccessor.getMOB_SPAWNER_ENTITIES(), random);
+        }
+
         int totalWeight = spawnerMobEntries.stream().mapToInt(mobEntry -> mobEntry.weight).sum();
         int randomWeight = random.nextInt(totalWeight) + 1;
         int index = 0;
