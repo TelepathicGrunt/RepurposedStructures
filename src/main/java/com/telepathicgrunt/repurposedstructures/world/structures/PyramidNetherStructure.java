@@ -28,7 +28,7 @@ public class PyramidNetherStructure extends StructureFeature<DefaultFeatureConfi
 
     private static boolean INITIALIZED_POOLS = false;
     private static void initPools() {
-        StructureProcessorList randomizationList = StructureProcessorListAccessor.getRegister(RepurposedStructures.MODID+":temples/pyramid_nether_randomizer",
+        StructureProcessorList randomizationList = StructureProcessorListAccessor.invokeRegister(RepurposedStructures.MODID+":temples/pyramid_nether_randomizer",
                 ImmutableList.of(new RuleStructureProcessor(ImmutableList.of(
                     new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.BLACKSTONE, 0.04F),
                             AlwaysTrueRuleTest.INSTANCE, Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS.getDefaultState()),

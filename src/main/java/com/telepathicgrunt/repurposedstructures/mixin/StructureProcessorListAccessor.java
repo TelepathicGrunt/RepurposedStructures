@@ -19,7 +19,7 @@ import java.util.Set;
 public interface StructureProcessorListAccessor {
 
     @Invoker("register")
-    static StructureProcessorList getRegister(String id, ImmutableList<StructureProcessor> processorList) {
+    static StructureProcessorList invokeRegister(String id, ImmutableList<StructureProcessor> processorList) {
         throw new UnsupportedOperationException();
     }
 }

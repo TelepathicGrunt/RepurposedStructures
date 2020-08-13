@@ -3,25 +3,28 @@ package com.telepathicgrunt.repurposedstructures.world.structures.pieces;
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.mixin.StructureProcessorListAccessor;
 import net.minecraft.block.Blocks;
-import net.minecraft.structure.pool.*;
+import net.minecraft.structure.pool.StructurePool;
+import net.minecraft.structure.pool.StructurePoolElement;
+import net.minecraft.structure.pool.StructurePools;
 import net.minecraft.structure.processor.RuleStructureProcessor;
-import net.minecraft.structure.processor.StructureProcessor;
+import net.minecraft.structure.processor.StructureProcessorList;
 import net.minecraft.structure.processor.StructureProcessorRule;
 import net.minecraft.structure.rule.AlwaysTrueRuleTest;
 import net.minecraft.structure.rule.RandomBlockMatchRuleTest;
 import net.minecraft.util.Identifier;
-import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
-import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.ConfiguredFeatures;
 
 public class VillageBadlandsPools {
     public static void init() {
     }
 
     static {
-        ImmutableList<StructureProcessor> crop_replacement = ImmutableList.of(new RuleStructureProcessor(ImmutableList.of(
+        StructureProcessorList crop_replacement = StructureProcessorListAccessor.invokeRegister(
+                RepurposedStructures.MODID+":village/badlands/crop_replacement", ImmutableList.of(new RuleStructureProcessor(ImmutableList.of(
                 new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.WHEAT, 0.2F), AlwaysTrueRuleTest.INSTANCE, Blocks.BEETROOTS.getDefaultState()),
-                new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.WHEAT, 0.1F), AlwaysTrueRuleTest.INSTANCE, Blocks.MELON_STEM.getDefaultState()))));
+                new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.WHEAT, 0.1F), AlwaysTrueRuleTest.INSTANCE, Blocks.MELON_STEM.getDefaultState())))));
 
         StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID + ":village/badlands/town_centers"), new Identifier("empty"),
                 ImmutableList.of(
@@ -69,11 +72,11 @@ public class VillageBadlandsPools {
                         new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID + ":village/badlands/houses/weaponsmith"), 4),
                         new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID + ":village/badlands/houses/temple_1"), 4),
                         new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID + ":village/badlands/houses/temple_2"), 4),
-                        new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID + ":village/badlands/houses/farm_1", crop_replacement), 11),
-                        new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID + ":village/badlands/houses/farm_2", crop_replacement), 4),
+                        new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID + ":village/badlands/houses/farm_1", crop_replacement), 11),
+                        new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID + ":village/badlands/houses/farm_2", crop_replacement), 4),
                         new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID + ":village/badlands/houses/pen_1"), 2),
                         new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID + ":village/badlands/houses/meeting_point"), 3),
-                        Pair.of(EmptyPoolElement.INSTANCE, 5)),
+                        Pair.of(StructurePoolElement.method_30438(), 5)),
                 StructurePool.Projection.RIGID));
 
         StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID + ":village/badlands/terminators"), new Identifier("empty"),
@@ -85,13 +88,13 @@ public class VillageBadlandsPools {
 
         StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID + ":village/badlands/decor"), new Identifier("empty"),
                 ImmutableList.of(
-                        new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID + ":village/badlands/decor/lamp_1"), 10),
-                        new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID + ":village/badlands/decor/lamp_2"), 10),
-                        new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID + ":village/badlands/decor/lamp_3"), 10),
-                        new Pair<>(new FeaturePoolElement(Feature.RANDOM_PATCH.configure(DefaultBiomeFeatures.CACTUS_CONFIG)), 5),
-                        new Pair<>(new FeaturePoolElement(Feature.RANDOM_PATCH.configure(DefaultBiomeFeatures.DEAD_BUSH_CONFIG)), 10),
-                        new Pair<>(new FeaturePoolElement(Feature.BLOCK_PILE.configure(DefaultBiomeFeatures.HAY_PILE_CONFIG)), 1),
-                        Pair.of(EmptyPoolElement.INSTANCE, 10)),
+                        Pair.of(StructurePoolElement.method_30425(RepurposedStructures.MODID + ":village/badlands/decor/lamp_1"), 10),
+                        Pair.of(StructurePoolElement.method_30425(RepurposedStructures.MODID + ":village/badlands/decor/lamp_2"), 10),
+                        Pair.of(StructurePoolElement.method_30425(RepurposedStructures.MODID + ":village/badlands/decor/lamp_3"), 10),
+                        Pair.of(StructurePoolElement.method_30421(ConfiguredFeatures.PATCH_CACTUS), 5),
+                        Pair.of(StructurePoolElement.method_30421(ConfiguredFeatures.PATCH_DEAD_BUSH), 10),
+                        Pair.of(StructurePoolElement.method_30421(ConfiguredFeatures.PILE_HAY), 1),
+                        Pair.of(StructurePoolElement.method_30438(), 10)),
                 StructurePool.Projection.RIGID));
     }
 

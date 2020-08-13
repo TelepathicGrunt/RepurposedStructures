@@ -24,7 +24,7 @@ public class TempleNetherPools {
 
     static {
         //Basalt temple
-        StructureProcessorList randomizationList = StructureProcessorListAccessor.getRegister(RepurposedStructures.MODID+":temples/basalt_temple_randomizer",
+        StructureProcessorList randomizationList = StructureProcessorListAccessor.invokeRegister(RepurposedStructures.MODID+":temples/basalt_temple_randomizer",
                 ImmutableList.of(new RuleStructureProcessor(ImmutableList.of(
                     new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.BLACKSTONE, 0.013F),
                             AlwaysTrueRuleTest.INSTANCE, Blocks.MAGMA_BLOCK.getDefaultState()),
@@ -44,7 +44,7 @@ public class TempleNetherPools {
 
 
         //Crimson Temple
-        StructureProcessorList randomizationList1 = StructureProcessorListAccessor.getRegister(RepurposedStructures.MODID+":temples/crimson_temple_randomizer",
+        StructureProcessorList randomizationList1 = StructureProcessorListAccessor.invokeRegister(RepurposedStructures.MODID+":temples/crimson_temple_randomizer",
                 ImmutableList.of(new RuleStructureProcessor(ImmutableList.of(
                     new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.CRIMSON_HYPHAE, 0.02F),
                             AlwaysTrueRuleTest.INSTANCE, Blocks.NETHER_WART_BLOCK.getDefaultState()),
@@ -66,7 +66,7 @@ public class TempleNetherPools {
 
 
         //Soul Temple
-        StructureProcessorList randomizationList2 = StructureProcessorListAccessor.getRegister(RepurposedStructures.MODID+":temples/soul_temple_randomizer",
+        StructureProcessorList randomizationList2 = StructureProcessorListAccessor.invokeRegister(RepurposedStructures.MODID+":temples/soul_temple_randomizer",
                 ImmutableList.of(new RuleStructureProcessor(ImmutableList.of(
                     new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.SOUL_SOIL, 0.1F),
                             AlwaysTrueRuleTest.INSTANCE, Blocks.SOUL_SAND.getDefaultState()),
@@ -79,7 +79,7 @@ public class TempleNetherPools {
                         StructurePool.Projection.RIGID));
 
         //Warped Temple
-        StructureProcessorList randomizationList3 = StructureProcessorListAccessor.getRegister(RepurposedStructures.MODID+":temples/warped_temple_randomizer",
+        StructureProcessorList randomizationList3 = StructureProcessorListAccessor.invokeRegister(RepurposedStructures.MODID+":temples/warped_temple_randomizer",
                 ImmutableList.of(new RuleStructureProcessor(ImmutableList.of(
                     new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.WARPED_HYPHAE, 0.015F),
                             AlwaysTrueRuleTest.INSTANCE, Blocks.WARPED_WART_BLOCK.getDefaultState()),
@@ -101,7 +101,7 @@ public class TempleNetherPools {
 
 
         //Wasteland Temple
-        StructureProcessorList randomizationList4 = StructureProcessorListAccessor.getRegister(RepurposedStructures.MODID+":temples/wasteland_temple_randomizer",
+        StructureProcessorList randomizationList4 = StructureProcessorListAccessor.invokeRegister(RepurposedStructures.MODID+":temples/wasteland_temple_randomizer",
                 ImmutableList.of(new RuleStructureProcessor(ImmutableList.of(
                     new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.NETHER_BRICKS, 0.015F),
                             AlwaysTrueRuleTest.INSTANCE, Blocks.MAGMA_BLOCK.getDefaultState()),
