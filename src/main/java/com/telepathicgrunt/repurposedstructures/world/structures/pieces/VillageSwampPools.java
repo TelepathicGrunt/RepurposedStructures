@@ -89,7 +89,7 @@ public class VillageSwampPools
         		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/swamp/zombie/town_centers/meeting_point_1", path_randomizer), 1),
         		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/swamp/zombie/town_centers/meeting_point_2", path_randomizer), 1),
         		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/swamp/zombie/town_centers/meeting_point_3", path_randomizer), 1)),
-	       StructurePool.Projection.RIGID)), Lifecycle.experimental());;
+	       StructurePool.Projection.RIGID)), Lifecycle.stable());
        
        poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/swamp/streets")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/swamp/streets"), new Identifier(RepurposedStructures.MODID+":village/swamp/terminators"),
 	       ImmutableList.of(
@@ -110,7 +110,7 @@ public class VillageSwampPools
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/swamp/streets/crossroad_06", path_randomizer), 2),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/swamp/streets/square_01", path_randomizer), 1),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/swamp/streets/turn_01", path_randomizer), 3)),
-	       StructurePool.Projection.TERRAIN_MATCHING)), Lifecycle.experimental());;
+	       StructurePool.Projection.TERRAIN_MATCHING)), Lifecycle.stable());
        
        poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/swamp/zombie/streets")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/swamp/zombie/streets"), new Identifier(RepurposedStructures.MODID+":village/swamp/terminators"),
 	       ImmutableList.of(
@@ -131,7 +131,7 @@ public class VillageSwampPools
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/swamp/zombie/streets/crossroad_06", path_randomizer), 2),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/swamp/streets/square_01", path_randomizer), 1),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/swamp/zombie/streets/turn_01", path_randomizer), 3)),
-	       StructurePool.Projection.TERRAIN_MATCHING)), Lifecycle.experimental());;
+	       StructurePool.Projection.TERRAIN_MATCHING)), Lifecycle.stable());
        
        poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/swamp/houses")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/swamp/houses"), new Identifier(RepurposedStructures.MODID+":village/swamp/terminators"),
 	       ImmutableList.of(
@@ -166,7 +166,7 @@ public class VillageSwampPools
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/swamp/houses/tool_smith_1", mossify), 1),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/swamp/houses/weapon_smith_1", mossify), 1),
 		       Pair.of(StructurePoolElement.method_30438(), 10)),
-	       StructurePool.Projection.RIGID)), Lifecycle.experimental());;
+	       StructurePool.Projection.RIGID)), Lifecycle.stable());
        
        poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/swamp/zombie/houses")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/swamp/zombie/houses"), new Identifier(RepurposedStructures.MODID+":village/swamp/terminators"),
 	       ImmutableList.of(
@@ -200,7 +200,7 @@ public class VillageSwampPools
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/swamp/houses/farm_2", zombiefy), 3),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/swamp/houses/animal_pen_1", zombiefy), 2),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/swamp/houses/animal_pen_2", zombiefy), 2),
-		       Pair.of(StructurePoolElement.method_30438(), 6)), StructurePool.Projection.RIGID)), Lifecycle.experimental());;
+		       Pair.of(StructurePoolElement.method_30438(), 6)), StructurePool.Projection.RIGID)), Lifecycle.stable());
        
       
        poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/swamp/terminators")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/swamp/terminators"), new Identifier("empty"),
@@ -209,7 +209,7 @@ public class VillageSwampPools
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/plains/terminators/terminator_02", path_randomizer), 1),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/plains/terminators/terminator_03", path_randomizer), 1),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/plains/terminators/terminator_04", path_randomizer), 1)),
-	       StructurePool.Projection.TERRAIN_MATCHING)), Lifecycle.experimental());;
+	       StructurePool.Projection.TERRAIN_MATCHING)), Lifecycle.stable());
 
        poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/swamp/zombie/terminators")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/swamp/zombie/terminators"), new Identifier("empty"),
 	       ImmutableList.of(
@@ -217,12 +217,12 @@ public class VillageSwampPools
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/plains/zombie/terminators/terminator_02", path_randomizer), 1),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/plains/zombie/terminators/terminator_03", path_randomizer), 1),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/plains/zombie/terminators/terminator_04", path_randomizer), 1)),
-	       StructurePool.Projection.TERRAIN_MATCHING)), Lifecycle.experimental());;
+	       StructurePool.Projection.TERRAIN_MATCHING)), Lifecycle.stable());
        
        poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/swamp/trees")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/swamp/trees"), new Identifier("empty"),
 	       ImmutableList.of(
 		       new Pair<>(StructurePoolElement.method_30421(ConfiguredFeatures.SWAMP_TREE), 1)),
-	       StructurePool.Projection.RIGID)), Lifecycle.experimental());
+	       StructurePool.Projection.RIGID)), Lifecycle.stable());
        
        poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/swamp/decor")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/swamp/decor"), new Identifier("empty"),
 	       ImmutableList.of(new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/swamp/decor/lamp_post_01"), 1),
@@ -232,7 +232,7 @@ public class VillageSwampPools
 				   new Pair<>(StructurePoolElement.method_30421(ConfiguredFeatures.FLOWER_SWAMP), 1),
 				   new Pair<>(StructurePoolElement.method_30421(ConfiguredFeatures.PILE_PUMPKIN), 1),
 		       Pair.of(StructurePoolElement.method_30438(), 2)),
-	       StructurePool.Projection.RIGID)), Lifecycle.experimental());;
+	       StructurePool.Projection.RIGID)), Lifecycle.stable());
       
        poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/swamp/zombie/decor")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/swamp/zombie/decor"), new Identifier("empty"),
 	       ImmutableList.of(
@@ -243,19 +243,19 @@ public class VillageSwampPools
 		       new Pair<>(StructurePoolElement.method_30421(ConfiguredFeatures.FLOWER_SWAMP), 2),
 		       new Pair<>(StructurePoolElement.method_30421(ConfiguredFeatures.PILE_PUMPKIN), 2),
 		       Pair.of(StructurePoolElement.method_30438(), 2)),
-	       StructurePool.Projection.RIGID)), Lifecycle.experimental());;
+	       StructurePool.Projection.RIGID)), Lifecycle.stable());
       
        poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/swamp/villagers")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/swamp/villagers"), new Identifier("empty"),
 	       ImmutableList.of(
 		       new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/swamp/villagers/nitwit"), 1),
 		       new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/swamp/villagers/baby"), 1),
 		       new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/swamp/villagers/unemployed"), 10)),
-	       StructurePool.Projection.RIGID)), Lifecycle.experimental());;
+	       StructurePool.Projection.RIGID)), Lifecycle.stable());
       
        poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/swamp/zombie/villagers")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/swamp/zombie/villagers"), new Identifier("empty"),
 	       ImmutableList.of(
 		       new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/swamp/zombie/villagers/nitwit"), 1),
 		       new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/swamp/zombie/villagers/unemployed"), 10)),
-	       StructurePool.Projection.RIGID)), Lifecycle.experimental());;
+	       StructurePool.Projection.RIGID)), Lifecycle.stable());
     }
 }

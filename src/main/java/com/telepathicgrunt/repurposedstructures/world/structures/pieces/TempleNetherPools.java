@@ -41,7 +41,7 @@ public class TempleNetherPools {
                 StructurePools.register(
                 new StructurePool(new Identifier(RepurposedStructures.MODID,"temples/temple_nether_basalt"), new Identifier("empty"), ImmutableList.of(Pair.of(
                         StructurePoolElement.method_30435(RepurposedStructures.MODID+":temples/temple_nether_basalt", randomizationList), 1)),
-                        StructurePool.Projection.RIGID)), Lifecycle.experimental());
+                        StructurePool.Projection.RIGID)), Lifecycle.stable());
 
 
         //Crimson Temple
@@ -64,7 +64,7 @@ public class TempleNetherPools {
                 StructurePools.register(
                 new StructurePool(new Identifier(RepurposedStructures.MODID,"temples/temple_nether_crimson"), new Identifier("empty"), ImmutableList.of(Pair.of(
                         StructurePoolElement.method_30435(RepurposedStructures.MODID+":temples/temple_nether_crimson", randomizationList1), 1)),
-                        StructurePool.Projection.RIGID)), Lifecycle.experimental());
+                        StructurePool.Projection.RIGID)), Lifecycle.stable());
 
 
         //Soul Temple
@@ -79,7 +79,7 @@ public class TempleNetherPools {
                 StructurePools.register(
                 new StructurePool(new Identifier(RepurposedStructures.MODID,"temples/temple_nether_soul"), new Identifier("empty"), ImmutableList.of(Pair.of(
                         StructurePoolElement.method_30435(RepurposedStructures.MODID+":temples/temple_nether_soul", randomizationList2), 1)),
-                        StructurePool.Projection.RIGID)), Lifecycle.experimental());
+                        StructurePool.Projection.RIGID)), Lifecycle.stable());
 
         //Warped Temple
         StructureProcessorList randomizationList3 = StructureProcessorListAccessor.invokeRegister(RepurposedStructures.MODID+":temples/warped_temple_randomizer",
@@ -101,7 +101,7 @@ public class TempleNetherPools {
                 StructurePools.register(
                 new StructurePool(new Identifier(RepurposedStructures.MODID,"temples/temple_nether_warped"), new Identifier("empty"), ImmutableList.of(Pair.of(
                         StructurePoolElement.method_30435(RepurposedStructures.MODID+":temples/temple_nether_warped", randomizationList3), 1)),
-                        StructurePool.Projection.RIGID)), Lifecycle.experimental());
+                        StructurePool.Projection.RIGID)), Lifecycle.stable());
 
 
         //Wasteland Temple
@@ -120,7 +120,7 @@ public class TempleNetherPools {
                 StructurePools.register(
                 new StructurePool(new Identifier(RepurposedStructures.MODID,"temples/temple_nether_wasteland"), new Identifier("empty"), ImmutableList.of(Pair.of(
                         StructurePoolElement.method_30435(RepurposedStructures.MODID+":temples/temple_nether_wasteland", randomizationList4), 1)),
-                        StructurePool.Projection.RIGID)), Lifecycle.experimental());
+                        StructurePool.Projection.RIGID)), Lifecycle.stable());
 
 
     }

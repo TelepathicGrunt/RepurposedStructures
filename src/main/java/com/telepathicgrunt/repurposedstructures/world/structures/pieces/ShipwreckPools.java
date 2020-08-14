@@ -47,6 +47,6 @@ public class ShipwreckPools {
                                         Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/upsidedown_fronthalf", StructureProcessorLists.EMPTY), 1),
                                         Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/upsidedown_full", StructureProcessorLists.EMPTY), 1),
                                         Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/upsidedown_full_degraded", StructureProcessorLists.EMPTY), 1)),
-                                StructurePool.Projection.RIGID)), Lifecycle.experimental());
+                                StructurePool.Projection.RIGID)), Lifecycle.stable());
     }
 }

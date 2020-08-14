@@ -47,7 +47,6 @@ public class RepurposedStructures implements ModInitializer {
 
         //register all structrue pools at start of world as it is cleared from registry when exiting any world
         RepurposedStructures.registerStructurePools((MutableRegistry<StructurePool>) BuiltinRegistries.STRUCTURE_POOL);
-
     }
 
     /*

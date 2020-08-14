@@ -94,7 +94,7 @@ public class VillageCrimsonPools
         		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/crimson/zombie/town_centers/meeting_point_1", zombiefy), 1),
         		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/crimson/zombie/town_centers/meeting_point_2", zombiefy), 1),
         		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/crimson/zombie/town_centers/meeting_point_3", zombiefy), 1)),
-	       StructurePool.Projection.RIGID)), Lifecycle.experimental());;
+	       StructurePool.Projection.RIGID)), Lifecycle.stable());
 
 		poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/crimson/streets")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/crimson/streets"), new Identifier(RepurposedStructures.MODID+":village/crimson/terminators"),
 	       ImmutableList.of(
@@ -114,7 +114,7 @@ public class VillageCrimsonPools
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/crimson/streets/crossroad_05", path_randomizer), 2),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/crimson/streets/crossroad_06", path_randomizer), 2),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/crimson/streets/turn_01", path_randomizer), 3)),
-	       StructurePool.Projection.RIGID)), Lifecycle.experimental());;
+	       StructurePool.Projection.RIGID)), Lifecycle.stable());
        
        poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/crimson/zombie/streets")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/crimson/zombie/streets"), new Identifier(RepurposedStructures.MODID+":village/crimson/terminators"),
 	       ImmutableList.of(
@@ -134,7 +134,7 @@ public class VillageCrimsonPools
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/crimson/zombie/streets/crossroad_05", path_randomizer), 2),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/crimson/zombie/streets/crossroad_06", path_randomizer), 2),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/crimson/zombie/streets/turn_01", path_randomizer), 3)),
-	       StructurePool.Projection.RIGID)), Lifecycle.experimental());;
+	       StructurePool.Projection.RIGID)), Lifecycle.stable());
        
        poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/crimson/houses")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/crimson/houses"), new Identifier(RepurposedStructures.MODID+":village/crimson/terminators"),
 	       ImmutableList.of(
@@ -175,7 +175,7 @@ public class VillageCrimsonPools
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/crimson/houses/meeting_point_4", very_cracked_blackstone_randomizer), 3),
 		       new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/crimson/houses/meeting_point_5"), 1),
 		       Pair.of(StructurePoolElement.method_30438(), 10)),
-	       StructurePool.Projection.RIGID)), Lifecycle.experimental());;
+	       StructurePool.Projection.RIGID)), Lifecycle.stable());
        
        poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/crimson/zombie/houses")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/crimson/zombie/houses"), new Identifier(RepurposedStructures.MODID+":village/crimson/terminators"),
 	       ImmutableList.of(
@@ -214,7 +214,7 @@ public class VillageCrimsonPools
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/crimson/zombie/houses/meeting_point_4", zombiefy), 3),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/crimson/zombie/houses/meeting_point_5", zombiefy), 1),
 		       Pair.of(StructurePoolElement.method_30438(), 10)),
-	       StructurePool.Projection.RIGID)), Lifecycle.experimental());;
+	       StructurePool.Projection.RIGID)), Lifecycle.stable());
       
        poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/crimson/terminators")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/crimson/terminators"), new Identifier("empty"),
 	       ImmutableList.of(
@@ -222,7 +222,7 @@ public class VillageCrimsonPools
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/crimson/terminators/terminator_02", path_randomizer), 1),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/crimson/terminators/terminator_03", path_randomizer), 1),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/crimson/terminators/terminator_04", path_randomizer), 1)),
-	       StructurePool.Projection.RIGID)), Lifecycle.experimental());
+	       StructurePool.Projection.RIGID)), Lifecycle.stable());
 
        poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/crimson/zombie/terminators")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/crimson/zombie/terminators"), new Identifier("empty"),
 	       ImmutableList.of(
@@ -230,19 +230,19 @@ public class VillageCrimsonPools
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/crimson/zombie/terminators/terminator_02", path_randomizer), 1),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/crimson/zombie/terminators/terminator_03", path_randomizer), 1),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/crimson/zombie/terminators/terminator_04", path_randomizer), 1)),
-	       StructurePool.Projection.RIGID)), Lifecycle.experimental());;
+	       StructurePool.Projection.RIGID)), Lifecycle.stable());
        
        poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/crimson/trees")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/crimson/trees"), new Identifier("empty"),
 	       ImmutableList.of(
 		       new Pair<>(StructurePoolElement.method_30421(Feature.HUGE_FUNGUS.configure(HugeFungusFeatureConfig.CRIMSON_FUNGUS_NOT_PLANTED_CONFIG)), 1)),
-	       StructurePool.Projection.RIGID)), Lifecycle.experimental());;
+	       StructurePool.Projection.RIGID)), Lifecycle.stable());
        
        poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/crimson/decor")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/crimson/decor"), new Identifier("empty"),
 	       ImmutableList.of(new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/crimson/lamp_1"), 8),
 		       new Pair<>(StructurePoolElement.method_30421(Feature.HUGE_FUNGUS.configure(HugeFungusFeatureConfig.CRIMSON_FUNGUS_NOT_PLANTED_CONFIG)), 4),
 		       new Pair<>(StructurePoolElement.method_30421(ConfiguredFeatures.PATCH_CRIMSON_ROOTS), 4),
 		       Pair.of(StructurePoolElement.method_30438(), 2)),
-	       StructurePool.Projection.RIGID)), Lifecycle.experimental());;
+	       StructurePool.Projection.RIGID)), Lifecycle.stable());
       
        poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/crimson/zombie/decor")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/crimson/zombie/decor"), new Identifier("empty"),
 	       ImmutableList.of(
@@ -250,45 +250,45 @@ public class VillageCrimsonPools
 		       new Pair<>(StructurePoolElement.method_30421(Feature.HUGE_FUNGUS.configure(HugeFungusFeatureConfig.CRIMSON_FUNGUS_NOT_PLANTED_CONFIG)), 4),
 		       new Pair<>(StructurePoolElement.method_30421(ConfiguredFeatures.PATCH_CRIMSON_ROOTS), 4),
 		       Pair.of(StructurePoolElement.method_30438(), 2)),
-	       StructurePool.Projection.RIGID)), Lifecycle.experimental());;
+	       StructurePool.Projection.RIGID)), Lifecycle.stable());
       
        poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/crimson/piglins")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/crimson/piglins"), new Identifier("empty"),
 	       ImmutableList.of(
 			   new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/crimson/piglins/adult_crossbow"), 7),
 			   new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/crimson/piglins/adult_sword"), 7),
 		       new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/crimson/piglins/baby"), 1)),
-	       StructurePool.Projection.RIGID)), Lifecycle.experimental());;
+	       StructurePool.Projection.RIGID)), Lifecycle.stable());
       
        poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/crimson/zombie/piglins")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/crimson/zombie/piglins"), new Identifier("empty"),
 	       ImmutableList.of(
 			   new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/crimson/zombie/piglins/adult_crossbow"), 7),
 			   new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/crimson/zombie/piglins/adult_sword"), 7),
 		       new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/crimson/zombie/piglins/baby_sword"), 1)),
-	       StructurePool.Projection.RIGID)), Lifecycle.experimental());;
+	       StructurePool.Projection.RIGID)), Lifecycle.stable());
 
 		poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/crimson/mobs/hoglins")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/crimson/mobs/hoglins"), new Identifier("empty"),
 			ImmutableList.of(
 					new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/crimson/mobs/hoglin_adult"), 10),
 					new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/crimson/mobs/hoglin_baby"), 1)),
-			StructurePool.Projection.RIGID)), Lifecycle.experimental());;
+			StructurePool.Projection.RIGID)), Lifecycle.stable());
 
 
 		poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/crimson/mobs/zoglins")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/crimson/mobs/zoglins"), new Identifier("empty"),
 			ImmutableList.of(
 					new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/crimson/mobs/zoglin_adult"), 10),
 					new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/crimson/mobs/zoglin_baby"), 1)),
-			StructurePool.Projection.RIGID)), Lifecycle.experimental());;
+			StructurePool.Projection.RIGID)), Lifecycle.stable());
 
 
 		poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/crimson/mobs/striders")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/crimson/mobs/striders"), new Identifier("empty"),
 			ImmutableList.of(
 					new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/crimson/mobs/strider_adult"), 10),
 					new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/crimson/mobs/strider_baby"), 1)),
-			StructurePool.Projection.RIGID)), Lifecycle.experimental());;
+			StructurePool.Projection.RIGID)), Lifecycle.stable());
 
 		poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/crimson/mobs/piglin_brutes")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/crimson/mobs/piglin_brutes"), new Identifier("empty"),
 			ImmutableList.of(
 					new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/crimson/mobs/adult_sword"), 1)),
-			StructurePool.Projection.RIGID)), Lifecycle.experimental());;
+			StructurePool.Projection.RIGID)), Lifecycle.stable());
 	}
 }

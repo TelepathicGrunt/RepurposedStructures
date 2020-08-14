@@ -17,18 +17,18 @@ public class OutpostNetherPools {
         poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID,"outposts/crimson/base_plates")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID,"outposts/crimson/base_plates"), new Identifier("empty"),
                 ImmutableList.of(Pair.of(
                         StructurePoolElement.method_30425(RepurposedStructures.MODID+":outposts/crimson/base_plate"), 1)),
-                StructurePool.Projection.RIGID)), Lifecycle.experimental());;
+                StructurePool.Projection.RIGID)), Lifecycle.stable());
 
         poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID,"outposts/crimson/towers")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID,"outposts/crimson/towers"), new Identifier("empty"),
                 ImmutableList.of(
                         Pair.of(StructurePoolElement.method_30425(RepurposedStructures.MODID+":outposts/crimson/tower"), 1),
                         Pair.of(StructurePoolElement.method_30425(RepurposedStructures.MODID+":outposts/crimson/tower_glowing"), 1)),
-                StructurePool.Projection.RIGID)), Lifecycle.experimental());;
+                StructurePool.Projection.RIGID)), Lifecycle.stable());
 
         poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID,"outposts/crimson/plates")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID,"outposts/crimson/plates"), new Identifier("empty"),
                 ImmutableList.of(Pair.of(
                         StructurePoolElement.method_30425(RepurposedStructures.MODID+":outposts/crimson/plate"), 1)),
-                StructurePool.Projection.RIGID)), Lifecycle.experimental());;
+                StructurePool.Projection.RIGID)), Lifecycle.stable());
 
         poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID,"outposts/crimson/features")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID,"outposts/crimson/features"), new Identifier("empty"),
                 ImmutableList.of(
@@ -39,7 +39,7 @@ public class OutpostNetherPools {
                         Pair.of(StructurePoolElement.method_30425(RepurposedStructures.MODID+":outposts/crimson/tent2"), 1),
                         Pair.of(StructurePoolElement.method_30425(RepurposedStructures.MODID+":outposts/crimson/targets"), 1)
                 ),
-                StructurePool.Projection.RIGID)), Lifecycle.experimental());;
+                StructurePool.Projection.RIGID)), Lifecycle.stable());
 
 
         // Special thanks to /r/l-ll-ll-l_IsDisLoss for allowing me to mimic his Nether Outpost design!
@@ -47,18 +47,18 @@ public class OutpostNetherPools {
         poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID,"outposts/warped/base_plates")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID,"outposts/warped/base_plates"), new Identifier("empty"),
                 ImmutableList.of(Pair.of(
                         StructurePoolElement.method_30425(RepurposedStructures.MODID+":outposts/warped/base_plate"), 1)),
-                StructurePool.Projection.RIGID)), Lifecycle.experimental());;
+                StructurePool.Projection.RIGID)), Lifecycle.stable());
 
         poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID,"outposts/warped/towers")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID,"outposts/warped/towers"), new Identifier("empty"),
                 ImmutableList.of(
                         Pair.of(StructurePoolElement.method_30425(RepurposedStructures.MODID+":outposts/warped/tower"), 1),
                         Pair.of(StructurePoolElement.method_30425(RepurposedStructures.MODID+":outposts/warped/tower_glowing"), 1)),
-                StructurePool.Projection.RIGID)), Lifecycle.experimental());;
+                StructurePool.Projection.RIGID)), Lifecycle.stable());
 
         poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID,"outposts/warped/plates")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID,"outposts/warped/plates"), new Identifier("empty"),
                 ImmutableList.of(Pair.of(
                         StructurePoolElement.method_30425(RepurposedStructures.MODID+":outposts/warped/plate"), 1)),
-                StructurePool.Projection.RIGID)), Lifecycle.experimental());;
+                StructurePool.Projection.RIGID)), Lifecycle.stable());
 
         poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID,"outposts/warped/features")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID,"outposts/warped/features"), new Identifier("empty"),
                 ImmutableList.of(
@@ -69,7 +69,7 @@ public class OutpostNetherPools {
                         Pair.of(StructurePoolElement.method_30425(RepurposedStructures.MODID+":outposts/warped/tent2"), 1),
                         Pair.of(StructurePoolElement.method_30425(RepurposedStructures.MODID+":outposts/warped/targets"), 1)
                 ),
-                StructurePool.Projection.RIGID)), Lifecycle.experimental());;
+                StructurePool.Projection.RIGID)), Lifecycle.stable());
 
 
         //Special thanks to cannon_foddr for the this Nether Outpost design!
@@ -77,17 +77,17 @@ public class OutpostNetherPools {
         poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID,"outposts/nether_brick/base_plates")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID,"outposts/nether_brick/base_plates"), new Identifier("empty"),
                 ImmutableList.of(Pair.of(
                         StructurePoolElement.method_30425(RepurposedStructures.MODID+":outposts/nether_brick/base_plate"), 1)),
-                StructurePool.Projection.RIGID)), Lifecycle.experimental());;
+                StructurePool.Projection.RIGID)), Lifecycle.stable());
 
         poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID,"outposts/nether_brick/towers")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID,"outposts/nether_brick/towers"), new Identifier("empty"),
                 ImmutableList.of(Pair.of(
                         StructurePoolElement.method_30425(RepurposedStructures.MODID+":outposts/nether_brick/tower"), 1)),
-                StructurePool.Projection.RIGID)), Lifecycle.experimental());;
+                StructurePool.Projection.RIGID)), Lifecycle.stable());
 
         poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID,"outposts/nether_brick/plates")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID,"outposts/nether_brick/plates"), new Identifier("empty"),
                 ImmutableList.of(Pair.of(
                         StructurePoolElement.method_30425(RepurposedStructures.MODID+":outposts/nether_brick/plate"), 1)),
-                StructurePool.Projection.RIGID)), Lifecycle.experimental());;
+                StructurePool.Projection.RIGID)), Lifecycle.stable());
 
         poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID,"outposts/nether_brick/features")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID,"outposts/nether_brick/features"), new Identifier("empty"),
                 ImmutableList.of(
@@ -98,6 +98,6 @@ public class OutpostNetherPools {
                         Pair.of(StructurePoolElement.method_30425(RepurposedStructures.MODID+":outposts/nether_brick/tent2"), 1),
                         Pair.of(StructurePoolElement.method_30425(RepurposedStructures.MODID+":outposts/nether_brick/targets"), 1)
                 ),
-                StructurePool.Projection.RIGID)), Lifecycle.experimental());;
+                StructurePool.Projection.RIGID)), Lifecycle.stable());
     }
 }
