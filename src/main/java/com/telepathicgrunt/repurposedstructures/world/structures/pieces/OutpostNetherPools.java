@@ -11,7 +11,7 @@ import net.minecraft.util.registry.RegistryKey;
 
 
 public class OutpostNetherPools {
-    public static void initPools(BuiltinRegistries poolRegistry){
+    public static void initPools(MutableRegistry<StructurePool> poolRegistry){
         // Special thanks to /r/l-ll-ll-l_IsDisLoss for allowing me to mimic his Nether Outpost design!
         // Crimson Outpost
         poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID,"outposts/crimson/base_plates")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID,"outposts/crimson/base_plates"), new Identifier("empty"),

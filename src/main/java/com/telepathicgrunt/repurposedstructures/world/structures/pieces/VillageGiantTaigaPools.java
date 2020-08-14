@@ -28,7 +28,7 @@ import net.minecraft.world.gen.feature.Feature;
 @SuppressWarnings("deprecation")
 public class VillageGiantTaigaPools
 {
-    public static void init(BuiltinRegistries poolRegistry) {
+    public static void init(MutableRegistry<StructurePool> poolRegistry) {
 		StructureProcessorList mossify = StructureProcessorListAccessor.invokeRegister(RepurposedStructures.MODID+":village/giant_taiga/mossify",
 			ImmutableList.of(new RuleStructureProcessor(ImmutableList.of(
 			new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.COBBLESTONE, 0.4F), AlwaysTrueRuleTest.INSTANCE, Blocks.MOSSY_COBBLESTONE.getDefaultState()),

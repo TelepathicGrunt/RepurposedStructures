@@ -21,7 +21,7 @@ import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 @SuppressWarnings("deprecation")
 public class VillageBirchPools
 {
-    public static void init(BuiltinRegistries poolRegistry) {
+    public static void init(MutableRegistry<StructurePool> poolRegistry) {
 		StructureProcessorList zombiefy = StructureProcessorListAccessor.invokeRegister(RepurposedStructures.MODID+":village/birch/zombify",
 		ImmutableList.of(new RuleStructureProcessor(
 	       ImmutableList.of(
