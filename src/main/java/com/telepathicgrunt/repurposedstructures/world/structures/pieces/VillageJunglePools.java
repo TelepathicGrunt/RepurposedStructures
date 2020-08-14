@@ -2,6 +2,7 @@ package com.telepathicgrunt.repurposedstructures.world.structures.pieces;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
+import com.mojang.serialization.Lifecycle;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.mixin.StructureProcessorListAccessor;
 import net.minecraft.block.Blocks;
@@ -14,6 +15,8 @@ import net.minecraft.structure.processor.StructureProcessorRule;
 import net.minecraft.structure.rule.*;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.MutableRegistry;
+import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.gen.feature.ConfiguredFeatures;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.feature.Feature;
@@ -21,11 +24,7 @@ import net.minecraft.world.gen.feature.Feature;
 @SuppressWarnings("deprecation")
 public class VillageJunglePools
 {
-    public static void init() {
-    }
-
-    static {
-
+    public static void init(BuiltinRegistries poolRegistry) {
 		StructureProcessorList zombiefy = StructureProcessorListAccessor.invokeRegister(RepurposedStructures.MODID+":village/jungle/zombiefy",
 			ImmutableList.of(new RuleStructureProcessor(ImmutableList.of(
 		       new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.COBBLESTONE, 0.8F), AlwaysTrueRuleTest.INSTANCE, Blocks.MOSSY_COBBLESTONE.getDefaultState()),
@@ -69,7 +68,7 @@ public class VillageJunglePools
 		       new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.WHEAT, 0.5F), AlwaysTrueRuleTest.INSTANCE, Blocks.CARROTS.getDefaultState()),
 		       new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.WHEAT, 0.3F), AlwaysTrueRuleTest.INSTANCE, Blocks.POTATOES.getDefaultState())))));
       
-       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/jungle/town_centers"), new Identifier("empty"),
+       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/jungle/town_centers")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/jungle/town_centers"), new Identifier("empty"),
 	       ImmutableList.of(new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/jungle/town_centers/meeting_point_1", mossify), 50),
         		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/jungle/town_centers/meeting_point_2", mossify), 50),
         		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/jungle/town_centers/meeting_point_3", mossify), 50),
@@ -78,9 +77,9 @@ public class VillageJunglePools
         		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/jungle/zombie/town_centers/meeting_point_2", zombiefy), 1),
         		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/jungle/zombie/town_centers/meeting_point_3", zombiefy), 1),
         		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/jungle/zombie/town_centers/meeting_point_4", zombiefy), 1)),
-	       StructurePool.Projection.RIGID));
+	       StructurePool.Projection.RIGID)), Lifecycle.experimental());;
        
-       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/jungle/streets"), new Identifier(RepurposedStructures.MODID+":village/jungle/terminators"),
+       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/jungle/streets")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/jungle/streets"), new Identifier(RepurposedStructures.MODID+":village/jungle/terminators"),
 	       ImmutableList.of(
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/jungle/streets/corner_01", path_randomizer), 2),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/jungle/streets/corner_03", path_randomizer), 2),
@@ -101,9 +100,9 @@ public class VillageJunglePools
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/jungle/streets/crossroad_06", path_randomizer), 2),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/jungle/streets/crossroad_07", path_randomizer), 2),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/jungle/streets/turn_01", path_randomizer), 3)),
-	       StructurePool.Projection.TERRAIN_MATCHING));
+	       StructurePool.Projection.TERRAIN_MATCHING)), Lifecycle.experimental());;
        
-       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/jungle/zombie/streets"), new Identifier(RepurposedStructures.MODID+":village/jungle/terminators"),
+       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/jungle/zombie/streets")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/jungle/zombie/streets"), new Identifier(RepurposedStructures.MODID+":village/jungle/terminators"),
 	       ImmutableList.of(
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/jungle/zombie/streets/corner_01", path_randomizer), 2),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/jungle/zombie/streets/corner_03", path_randomizer), 2),
@@ -124,9 +123,9 @@ public class VillageJunglePools
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/jungle/zombie/streets/crossroad_06", path_randomizer), 2),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/jungle/zombie/streets/crossroad_07", path_randomizer), 2),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/jungle/zombie/streets/turn_01", path_randomizer), 3)),
-	       StructurePool.Projection.TERRAIN_MATCHING));
+	       StructurePool.Projection.TERRAIN_MATCHING)), Lifecycle.experimental());;
        
-       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/jungle/houses"), new Identifier(RepurposedStructures.MODID+":village/jungle/terminators"),
+       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/jungle/houses")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/jungle/houses"), new Identifier(RepurposedStructures.MODID+":village/jungle/terminators"),
 	       ImmutableList.of(
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/jungle/houses/animal_pen_1", mossify), 2),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/jungle/houses/animal_pen_2", mossify), 3),
@@ -160,9 +159,9 @@ public class VillageJunglePools
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/jungle/houses/weaponsmith_1", mossify), 3),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/jungle/houses/weaponsmith_2", mossify), 3),
 		       Pair.of(StructurePoolElement.method_30438(), 10)),
-	       StructurePool.Projection.RIGID));
+	       StructurePool.Projection.RIGID)), Lifecycle.experimental());;
        
-       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/jungle/zombie/houses"), new Identifier(RepurposedStructures.MODID+":village/jungle/terminators"),
+       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/jungle/zombie/houses")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/jungle/zombie/houses"), new Identifier(RepurposedStructures.MODID+":village/jungle/terminators"),
 	       ImmutableList.of(
 		       new Pair<>(StructurePoolElement.method_30426("village/jungle/zombie/houses/small_house_1", zombiefy), 2),
 		       new Pair<>(StructurePoolElement.method_30426("village/jungle/zombie/houses/small_house_2", zombiefy), 2),
@@ -196,51 +195,51 @@ public class VillageJunglePools
 		       new Pair<>(StructurePoolElement.method_30426("village/jungle/zombie/houses/animal_pen_2", zombiefy), 2),
 		       new Pair<>(StructurePoolElement.method_30426("village/jungle/zombie/houses/animal_pen_3", zombiefy), 2),
 		       Pair.of(StructurePoolElement.method_30438(), 10)),
-	       StructurePool.Projection.RIGID));
+	       StructurePool.Projection.RIGID)), Lifecycle.experimental());;
       
-       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/jungle/terminators"), new Identifier("empty"),
+       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/jungle/terminators")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/jungle/terminators"), new Identifier("empty"),
 	       ImmutableList.of(
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/jungle/terminators/terminator_05", path_randomizer), 1)),
-	       StructurePool.Projection.TERRAIN_MATCHING));
+	       StructurePool.Projection.TERRAIN_MATCHING)), Lifecycle.experimental());;
 
-       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/jungle/zombie/terminators"), new Identifier("empty"),
+       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/jungle/zombie/terminators")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/jungle/zombie/terminators"), new Identifier("empty"),
 	       ImmutableList.of(
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/jungle/zombie/terminators/terminator_05", path_randomizer), 1)),
-	       StructurePool.Projection.TERRAIN_MATCHING));
+	       StructurePool.Projection.TERRAIN_MATCHING)), Lifecycle.experimental());;
        
-       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/jungle/trees"), new Identifier("empty"),
+       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/jungle/trees")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/jungle/trees"), new Identifier("empty"),
 	       ImmutableList.of(
 		       new Pair<>(StructurePoolElement.method_30421(ConfiguredFeatures.MEGA_JUNGLE_TREE), 1)),
-	       StructurePool.Projection.RIGID));
+	       StructurePool.Projection.RIGID)), Lifecycle.experimental());;
        
-       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/jungle/decor"), new Identifier("empty"),
+       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/jungle/decor")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/jungle/decor"), new Identifier("empty"),
 	       ImmutableList.of(new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/jungle/decor/lamp_1"), 5),
 		       new Pair<>(StructurePoolElement.method_30421(ConfiguredFeatures.JUNGLE_TREE), 1),
 		       new Pair<>(StructurePoolElement.method_30421(ConfiguredFeatures.FLOWER_FOREST), 1),
 		       new Pair<>(StructurePoolElement.method_30421(ConfiguredFeatures.PILE_MELON), 1),
 		       Pair.of(StructurePoolElement.method_30438(), 2)),
-	       StructurePool.Projection.RIGID));
+	       StructurePool.Projection.RIGID)), Lifecycle.experimental());;
       
-       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/jungle/zombie/decor"), new Identifier("empty"),
+       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/jungle/zombie/decor")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/jungle/zombie/decor"), new Identifier("empty"),
 	       ImmutableList.of(
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/jungle/decor/lamp_1", zombiefy), 1),
 			   new Pair<>(StructurePoolElement.method_30421(ConfiguredFeatures.JUNGLE_TREE), 1),
 			   new Pair<>(StructurePoolElement.method_30421(ConfiguredFeatures.FLOWER_FOREST), 1),
 			   new Pair<>(StructurePoolElement.method_30421(ConfiguredFeatures.PILE_MELON), 1),
 		       Pair.of(StructurePoolElement.method_30438(), 2)),
-	       StructurePool.Projection.RIGID));
+	       StructurePool.Projection.RIGID)), Lifecycle.experimental());;
       
-       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/jungle/villagers"), new Identifier("empty"),
+       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/jungle/villagers")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/jungle/villagers"), new Identifier("empty"),
 	       ImmutableList.of(
 		       new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/jungle/villagers/nitwit"), 1),
 		       new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/jungle/villagers/baby"), 1),
 		       new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/jungle/villagers/unemployed"), 10)),
-	       StructurePool.Projection.RIGID));
+	       StructurePool.Projection.RIGID)), Lifecycle.experimental());;
       
-       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/jungle/zombie/villagers"), new Identifier("empty"),
+       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/jungle/zombie/villagers")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/jungle/zombie/villagers"), new Identifier("empty"),
 	       ImmutableList.of(
 		       new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/jungle/zombie/villagers/nitwit"), 1),
 		       new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/jungle/zombie/villagers/unemployed"), 10)),
-	       StructurePool.Projection.RIGID));
+	       StructurePool.Projection.RIGID)), Lifecycle.experimental());;
     }
 }

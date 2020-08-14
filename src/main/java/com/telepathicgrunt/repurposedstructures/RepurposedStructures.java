@@ -4,12 +4,16 @@ import com.telepathicgrunt.repurposedstructures.configs.RSAllConfig;
 import com.telepathicgrunt.repurposedstructures.misc.VillagerTrades;
 import com.telepathicgrunt.repurposedstructures.utils.MobSpawnerManager;
 import com.telepathicgrunt.repurposedstructures.world.placements.RSPlacements;
+import com.telepathicgrunt.repurposedstructures.world.structures.pieces.*;
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import me.sargunvohra.mcmods.autoconfig1u.serializer.Toml4jConfigSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.registry.RegistryEntryAddedCallback;
 import net.fabricmc.fabric.api.event.server.ServerStartCallback;
+import net.minecraft.structure.pool.StructurePool;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.BuiltinRegistries;
+import net.minecraft.util.registry.DynamicRegistryManager;
 import net.minecraft.util.registry.MutableRegistry;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
@@ -40,6 +44,10 @@ public class RepurposedStructures implements ModInitializer {
         ServerStartCallback.EVENT.register(minecraftServer -> VillagerTrades.addMapTrades());
 
         //LoadNbtBlock.instantiateNbtBlock();
+
+        //register all structrue pools at start of world as it is cleared from registry when exiting any world
+        RepurposedStructures.registerStructurePools((MutableRegistry<StructurePool>) BuiltinRegistries.STRUCTURE_POOL);
+
     }
 
     /*
@@ -79,5 +87,26 @@ public class RepurposedStructures implements ModInitializer {
 
     private static boolean isBiomeAllowed(String structureType, Identifier biomeID, Map<String, List<String>> allBiomeBlacklists){
         return allBiomeBlacklists.get(structureType).stream().noneMatch(blacklistedBiome -> blacklistedBiome.equals(biomeID.toString()));
+    }
+
+    /**
+     * Registers all jigsaw structures' pools
+     */
+    public static void registerStructurePools(MutableRegistry<StructurePool> poolRegistry){
+       //MutableRegistry<StructurePool> poolRegistry = dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN);
+
+        VillageBadlandsPools.init(poolRegistry);
+        VillageBirchPools.init(poolRegistry);
+        VillageCrimsonPools.init(poolRegistry);
+        VillageDarkForestPools.init(poolRegistry);
+        VillageGiantTaigaPools.init(poolRegistry);
+        VillageJunglePools.init(poolRegistry);
+        VillageMountainsPools.init(poolRegistry);
+        VillageSwampPools.init(poolRegistry);
+        VillageWarpedPools.init(poolRegistry);
+        ShipwreckPools.initPools(poolRegistry);
+        OutpostNetherPools.initPools(poolRegistry);
+        PyramidPools.initPools(poolRegistry);
+        TempleNetherPools.initPools(poolRegistry);
     }
 }

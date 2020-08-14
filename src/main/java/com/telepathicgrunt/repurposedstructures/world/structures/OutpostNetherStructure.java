@@ -13,6 +13,7 @@ import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.DynamicRegistryManager;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.SpawnSettings;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
@@ -23,13 +24,12 @@ import java.util.List;
 
 
 public class OutpostNetherStructure extends StructureFeature<DefaultFeatureConfig> {
-    private final StructurePool START_POOL;
-    private static boolean INITIALIZED_POOLS = false;
+    private final Identifier START_POOL;
     private static final List<SpawnSettings.SpawnEntry> MONSTER_SPAWNS = Lists.newArrayList(new SpawnSettings.SpawnEntry(EntityType.PIGLIN, 10, 1, 1));
 
     public OutpostNetherStructure(Codec<DefaultFeatureConfig> config, Identifier pieceRL) {
         super(config);
-        START_POOL = BuiltinRegistries.STRUCTURE_POOL.get(pieceRL);
+        START_POOL = pieceRL;
     }
 
     @Override
@@ -48,12 +48,8 @@ public class OutpostNetherStructure extends StructureFeature<DefaultFeatureConfi
         }
 
         public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, int x, int z, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
-            if(!INITIALIZED_POOLS){
-                OutpostNetherPools.initPools();
-                INITIALIZED_POOLS = true;
-            }
             BlockPos blockPos = new BlockPos(x * 16, 0, z * 16);
-            GeneralJigsawGenerator.addPieces(dynamicRegistryManager, chunkGenerator, structureManager, blockPos, this.children, this.random, START_POOL, 11);
+            GeneralJigsawGenerator.addPieces(dynamicRegistryManager, chunkGenerator, structureManager, blockPos, this.children, this.random, dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN).get(START_POOL), 11);
             this.setBoundingBoxFromChildren();
 
             BlockPos lowestLandPos = getHighestLand(chunkGenerator);

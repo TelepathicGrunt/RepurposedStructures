@@ -14,6 +14,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.DynamicRegistryManager;
+import net.minecraft.util.registry.MutableRegistry;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.source.BiomeSource;
@@ -27,13 +29,12 @@ import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 
 public class VillageBaseStructure extends StructureFeature<DefaultFeatureConfig> {
 
-    private static boolean INITIALIZED_POOLS = false;
-    private final StructurePool START_POOL;
+    private final Identifier START_POOL;
     private final int STRUCTURE_SIZE;
 
     public VillageBaseStructure(Codec<DefaultFeatureConfig> config, Identifier poolID, int structureSize) {
         super(config);
-        START_POOL = BuiltinRegistries.STRUCTURE_POOL.get(poolID);
+        START_POOL = poolID;
         STRUCTURE_SIZE = structureSize;
     }
 
@@ -60,31 +61,14 @@ public class VillageBaseStructure extends StructureFeature<DefaultFeatureConfig>
         return AbstractBaseStructure.locateStructureFast(worldView, structureAccessor, blockPos, radius, skipExistingChunks, seed, structureConfig, this);
     }
 
-    public static void registerVillagePools() {
-        VillageBadlandsPools.init();
-        VillageBirchPools.init();
-        VillageDarkForestPools.init();
-        VillageJunglePools.init();
-        VillageSwampPools.init();
-        VillageMountainsPools.init();
-        VillageGiantTaigaPools.init();
-        VillageCrimsonPools.init();
-        VillageWarpedPools.init();
-    }
-
     public class MainStart extends MarginedStructureStart<DefaultFeatureConfig> {
         public MainStart(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
         }
 
         public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
-            if(!INITIALIZED_POOLS){
-                registerVillagePools();
-                INITIALIZED_POOLS = true;
-            }
-
             BlockPos blockpos = new BlockPos(chunkX * 16, 0, chunkZ * 16);
-            StructurePoolBasedGenerator.method_30419(dynamicRegistryManager, new StructurePoolFeatureConfig(() -> START_POOL, STRUCTURE_SIZE), PoolStructurePiece::new, chunkGenerator, structureManager, blockpos, this.children, this.random, true, true);
+            StructurePoolBasedGenerator.method_30419(dynamicRegistryManager, new StructurePoolFeatureConfig(() -> dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN).get(START_POOL), STRUCTURE_SIZE), PoolStructurePiece::new, chunkGenerator, structureManager, blockpos, this.children, this.random, true, true);
             this.setBoundingBoxFromChildren();
         }
     }

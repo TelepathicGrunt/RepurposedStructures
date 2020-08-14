@@ -2,6 +2,7 @@ package com.telepathicgrunt.repurposedstructures.world.structures.pieces;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
+import com.mojang.serialization.Lifecycle;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.mixin.StructureProcessorListAccessor;
 import net.minecraft.block.*;
@@ -14,6 +15,8 @@ import net.minecraft.structure.rule.*;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.registry.MutableRegistry;
+import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.gen.feature.ConfiguredFeatures;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.feature.Feature;
@@ -22,11 +25,7 @@ import net.minecraft.world.gen.feature.HugeFungusFeatureConfig;
 @SuppressWarnings("deprecation")
 public class VillageWarpedPools
 {
-    public static void init() {
-    }
-
-    static {
-
+    public static void init(BuiltinRegistries poolRegistry) {
 		StructureProcessorList zombiefy = StructureProcessorListAccessor.invokeRegister(RepurposedStructures.MODID+":village/warped/zombiefy",
 			ImmutableList.of(new RuleStructureProcessor(ImmutableList.of(
 		       new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.BLACKSTONE, 0.8F), AlwaysTrueRuleTest.INSTANCE, Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS.getDefaultState()),
@@ -86,7 +85,7 @@ public class VillageWarpedPools
 		StructureProcessorList very_cracked_blackstone_randomizer = StructureProcessorListAccessor.invokeRegister(RepurposedStructures.MODID+":village/warped/very_cracked_blackstone_randomizer",
 				ImmutableList.of(new RuleStructureProcessor(ImmutableList.of(new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.BLACKSTONE, 0.7F), AlwaysTrueRuleTest.INSTANCE, Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS.getDefaultState())))));
 
-		StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/warped/town_centers"), new Identifier("empty"),
+		poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/warped/town_centers")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/warped/town_centers"), new Identifier("empty"),
 	       ImmutableList.of(new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/warped/town_centers/fountain_01", cracked_blackstone_randomizer), 50),
         		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/warped/town_centers/meeting_point_1", cracked_blackstone_randomizer), 50),
         		       new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/warped/town_centers/meeting_point_2"), 50),
@@ -95,9 +94,9 @@ public class VillageWarpedPools
         		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/warped/zombie/town_centers/meeting_point_1", zombiefy), 1),
         		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/warped/zombie/town_centers/meeting_point_2", zombiefy), 1),
         		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/warped/zombie/town_centers/meeting_point_3", zombiefy), 1)),
-	       StructurePool.Projection.RIGID));
+	       StructurePool.Projection.RIGID)), Lifecycle.experimental());;
 
-		StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/warped/streets"), new Identifier(RepurposedStructures.MODID+":village/warped/terminators"),
+		poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/warped/streets")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/warped/streets"), new Identifier(RepurposedStructures.MODID+":village/warped/terminators"),
 	       ImmutableList.of(
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/warped/streets/corner_01", path_randomizer), 2),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/warped/streets/corner_02", path_randomizer), 2),
@@ -115,9 +114,9 @@ public class VillageWarpedPools
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/warped/streets/crossroad_05", path_randomizer), 2),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/warped/streets/crossroad_06", path_randomizer), 2),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/warped/streets/turn_01", path_randomizer), 3)),
-	       StructurePool.Projection.RIGID));
+	       StructurePool.Projection.RIGID)), Lifecycle.experimental());;
        
-       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/warped/zombie/streets"), new Identifier(RepurposedStructures.MODID+":village/warped/terminators"),
+       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/warped/zombie/streets")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/warped/zombie/streets"), new Identifier(RepurposedStructures.MODID+":village/warped/terminators"),
 	       ImmutableList.of(
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/warped/zombie/streets/corner_01", path_randomizer), 2),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/warped/zombie/streets/corner_02", path_randomizer), 2),
@@ -135,9 +134,9 @@ public class VillageWarpedPools
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/warped/zombie/streets/crossroad_05", path_randomizer), 2),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/warped/zombie/streets/crossroad_06", path_randomizer), 2),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/warped/zombie/streets/turn_01", path_randomizer), 3)),
-	       StructurePool.Projection.RIGID));
+	       StructurePool.Projection.RIGID)), Lifecycle.experimental());;
        
-       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/warped/houses"), new Identifier(RepurposedStructures.MODID+":village/warped/terminators"),
+       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/warped/houses")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/warped/houses"), new Identifier(RepurposedStructures.MODID+":village/warped/terminators"),
 	       ImmutableList.of(
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/warped/houses/small_house_1", randomizer), 2),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/warped/houses/small_house_2", randomizer), 2),
@@ -176,9 +175,9 @@ public class VillageWarpedPools
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/warped/houses/meeting_point_4", very_cracked_blackstone_randomizer), 3),
 		       new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/warped/houses/meeting_point_5"), 1),
 		       Pair.of(StructurePoolElement.method_30438(), 10)),
-	       StructurePool.Projection.RIGID));
+	       StructurePool.Projection.RIGID)), Lifecycle.experimental());;
        
-       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/warped/zombie/houses"), new Identifier(RepurposedStructures.MODID+":village/warped/terminators"),
+       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/warped/zombie/houses")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/warped/zombie/houses"), new Identifier(RepurposedStructures.MODID+":village/warped/terminators"),
 	       ImmutableList.of(
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/warped/zombie/houses/small_house_1", zombiefy), 2),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/warped/zombie/houses/small_house_2", zombiefy), 2),
@@ -215,81 +214,81 @@ public class VillageWarpedPools
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/warped/zombie/houses/meeting_point_4", zombiefy), 3),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/warped/zombie/houses/meeting_point_5", zombiefy), 1),
 		       Pair.of(StructurePoolElement.method_30438(), 10)),
-	       StructurePool.Projection.RIGID));
+	       StructurePool.Projection.RIGID)), Lifecycle.experimental());;
       
-       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/warped/terminators"), new Identifier("empty"),
+       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/warped/terminators")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/warped/terminators"), new Identifier("empty"),
 	       ImmutableList.of(
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/warped/terminators/terminator_01", path_randomizer), 1),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/warped/terminators/terminator_02", path_randomizer), 1),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/warped/terminators/terminator_03", path_randomizer), 1),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/warped/terminators/terminator_04", path_randomizer), 1)),
-	       StructurePool.Projection.RIGID));
+	       StructurePool.Projection.RIGID)), Lifecycle.experimental());;
 
-       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/warped/zombie/terminators"), new Identifier("empty"),
+       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/warped/zombie/terminators")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/warped/zombie/terminators"), new Identifier("empty"),
 	       ImmutableList.of(
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/warped/zombie/terminators/terminator_01", path_randomizer), 1),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/warped/zombie/terminators/terminator_02", path_randomizer), 1),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/warped/zombie/terminators/terminator_03", path_randomizer), 1),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/warped/zombie/terminators/terminator_04", path_randomizer), 1)),
-	       StructurePool.Projection.RIGID));
+	       StructurePool.Projection.RIGID)), Lifecycle.experimental());
        
-       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/warped/trees"), new Identifier("empty"),
+       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/warped/trees")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/warped/trees"), new Identifier("empty"),
 	       ImmutableList.of(
 		       new Pair<>(StructurePoolElement.method_30421(Feature.HUGE_FUNGUS.configure(HugeFungusFeatureConfig.WARPED_FUNGUS_NOT_PLANTED_CONFIG)), 1)),
-	       StructurePool.Projection.RIGID));
+	       StructurePool.Projection.RIGID)), Lifecycle.experimental());;
        
-       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/warped/decor"), new Identifier("empty"),
+       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/warped/decor")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/warped/decor"), new Identifier("empty"),
 	       ImmutableList.of(new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/warped/lamp_1"), 8),
 		       new Pair<>(StructurePoolElement.method_30421(Feature.HUGE_FUNGUS.configure(HugeFungusFeatureConfig.WARPED_FUNGUS_NOT_PLANTED_CONFIG)), 4),
 		       new Pair<>(StructurePoolElement.method_30421(ConfiguredFeatures.WARPED_FOREST_VEGETATION), 4),
 		       Pair.of(StructurePoolElement.method_30438(), 2)),
-	       StructurePool.Projection.RIGID));
+	       StructurePool.Projection.RIGID)), Lifecycle.experimental());;
       
-       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/warped/zombie/decor"), new Identifier("empty"),
+       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/warped/zombie/decor")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/warped/zombie/decor"), new Identifier("empty"),
 	       ImmutableList.of(
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/warped/lamp_1", zombiefy), 3),
 		       new Pair<>(StructurePoolElement.method_30421(Feature.HUGE_FUNGUS.configure(HugeFungusFeatureConfig.WARPED_FUNGUS_NOT_PLANTED_CONFIG)), 4),
 		       new Pair<>(StructurePoolElement.method_30421(ConfiguredFeatures.WARPED_FOREST_VEGETATION), 4),
 		       Pair.of(StructurePoolElement.method_30438(), 2)),
-	       StructurePool.Projection.RIGID));
+	       StructurePool.Projection.RIGID)), Lifecycle.experimental());;
       
-       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/warped/piglins"), new Identifier("empty"),
+       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/warped/piglins")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/warped/piglins"), new Identifier("empty"),
 	       ImmutableList.of(
 			   new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/warped/piglins/adult_crossbow"), 7),
 			   new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/warped/piglins/adult_sword"), 7),
 		       new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/warped/piglins/baby"), 1)),
-	       StructurePool.Projection.RIGID));
+	       StructurePool.Projection.RIGID)), Lifecycle.experimental());;
       
-       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/warped/zombie/piglins"), new Identifier("empty"),
+       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/warped/zombie/piglins")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/warped/zombie/piglins"), new Identifier("empty"),
 	       ImmutableList.of(
 			   new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/warped/zombie/piglins/adult_crossbow"), 7),
 			   new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/warped/zombie/piglins/adult_sword"), 7),
 		       new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/warped/zombie/piglins/baby_sword"), 1)),
-	       StructurePool.Projection.RIGID));
+	       StructurePool.Projection.RIGID)), Lifecycle.experimental());;
 
-		StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/warped/mobs/hoglins"), new Identifier("empty"),
+		poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/warped/mobs/hoglins")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/warped/mobs/hoglins"), new Identifier("empty"),
 			ImmutableList.of(
 					new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/warped/mobs/hoglin_adult"), 10),
 					new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/warped/mobs/hoglin_baby"), 1)),
-			StructurePool.Projection.RIGID));
+			StructurePool.Projection.RIGID)), Lifecycle.experimental());;
 
 
-		StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/warped/mobs/zoglins"), new Identifier("empty"),
+		poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/warped/mobs/zoglins")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/warped/mobs/zoglins"), new Identifier("empty"),
 			ImmutableList.of(
 					new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/warped/mobs/zoglin_adult"), 10),
 					new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/warped/mobs/zoglin_baby"), 1)),
-			StructurePool.Projection.RIGID));
+			StructurePool.Projection.RIGID)), Lifecycle.experimental());;
 
 
-		StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/warped/mobs/striders"), new Identifier("empty"),
+		poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/warped/mobs/striders")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/warped/mobs/striders"), new Identifier("empty"),
 			ImmutableList.of(
 					new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/warped/mobs/strider_adult"), 10),
 					new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/warped/mobs/strider_baby"), 1)),
-			StructurePool.Projection.RIGID));
+			StructurePool.Projection.RIGID)), Lifecycle.experimental());;
 
-		StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/warped/mobs/piglin_brutes"), new Identifier("empty"),
+		poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/warped/mobs/piglin_brutes")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/warped/mobs/piglin_brutes"), new Identifier("empty"),
 			ImmutableList.of(
 					new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/warped/mobs/adult_sword"), 1)),
-			StructurePool.Projection.RIGID));
+			StructurePool.Projection.RIGID)), Lifecycle.experimental());;
 	}
 }

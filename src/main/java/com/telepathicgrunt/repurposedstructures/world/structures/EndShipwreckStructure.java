@@ -3,6 +3,7 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.Lifecycle;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.GeneralJigsawGenerator;
 import net.minecraft.structure.StructureManager;
@@ -14,8 +15,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
-import net.minecraft.util.registry.BuiltinRegistries;
-import net.minecraft.util.registry.DynamicRegistryManager;
+import net.minecraft.util.registry.*;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.source.BiomeSource;
@@ -31,36 +31,11 @@ import java.util.Random;
 public class EndShipwreckStructure extends AbstractBaseStructure {
     // Special thanks to cannon_foddr for allowing me to use his End Shipwreck design!
 
-    private static boolean INITIALIZED_POOLS = false;
-    private static void initPools() {
-        StructurePools.register(
-                new StructurePool(new Identifier(RepurposedStructures.MODID,"shipwrecks/end"), new Identifier("empty"),
-                        ImmutableList.of(
-                            Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/rightsideup_backhalf", StructureProcessorLists.EMPTY), 1),
-                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/rightsideup_backhalf_degraded", StructureProcessorLists.EMPTY), 1),
-                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/rightsideup_fronthalf", StructureProcessorLists.EMPTY), 1),
-                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/rightsideup_fronthalf_degraded", StructureProcessorLists.EMPTY), 1),
-                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/rightsideup_full", StructureProcessorLists.EMPTY), 1),
-                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/rightsideup_full_degraded", StructureProcessorLists.EMPTY), 1),
-                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/sideways_backhalf", StructureProcessorLists.EMPTY), 1),
-                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/sideways_backhalf_degraded", StructureProcessorLists.EMPTY), 1),
-                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/sideways_fronthalf", StructureProcessorLists.EMPTY), 1),
-                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/sideways_fronthalf_degraded", StructureProcessorLists.EMPTY), 1),
-                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/sideways_full", StructureProcessorLists.EMPTY), 1),
-                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/sideways_full_degraded", StructureProcessorLists.EMPTY), 1),
-                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/upsidedown_backhalf", StructureProcessorLists.EMPTY), 1),
-                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/upsidedown_backhalf_degraded", StructureProcessorLists.EMPTY), 1),
-                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/upsidedown_fronthalf_degraded", StructureProcessorLists.EMPTY), 1),
-                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/upsidedown_fronthalf", StructureProcessorLists.EMPTY), 1),
-                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/upsidedown_full", StructureProcessorLists.EMPTY), 1),
-                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/upsidedown_full_degraded", StructureProcessorLists.EMPTY), 1)),
-                        StructurePool.Projection.RIGID));
-    }
-    private final StructurePool START_POOL;
+    private final Identifier START_POOL;
 
     public EndShipwreckStructure(Codec<DefaultFeatureConfig> config) {
         super(config);
-        START_POOL = BuiltinRegistries.STRUCTURE_POOL.get(new Identifier(RepurposedStructures.MODID + ":shipwrecks/end"));
+        START_POOL = new Identifier(RepurposedStructures.MODID + ":shipwrecks/end");
     }
 
     @Override
@@ -103,12 +78,8 @@ public class EndShipwreckStructure extends AbstractBaseStructure {
 
         @Override
         public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
-            if(!INITIALIZED_POOLS){
-                initPools();
-                INITIALIZED_POOLS = true;
-            }
             BlockPos blockpos = new BlockPos(chunkX * 16, 62, chunkZ * 16);
-            GeneralJigsawGenerator.addPieces(dynamicRegistryManager, chunkGenerator, structureManager, blockpos, this.children, this.random, START_POOL, 1);
+            GeneralJigsawGenerator.addPieces(dynamicRegistryManager, chunkGenerator, structureManager, blockpos, this.children, this.random, dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN).get(START_POOL), 1);
             this.setBoundingBoxFromChildren();
 
             BlockPos blockPos = new BlockPos(this.children.get(0).getBoundingBox().getCenter());

@@ -1,40 +1,45 @@
 package com.telepathicgrunt.repurposedstructures.mixin;
 
-import com.telepathicgrunt.repurposedstructures.RSFeatures;
+import com.mojang.authlib.GameProfileRepository;
+import com.mojang.authlib.minecraft.MinecraftSessionService;
+import com.mojang.datafixers.DataFixer;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.configs.RSAllConfig;
-import net.fabricmc.fabric.api.event.registry.RegistryEntryAddedCallback;
+import net.minecraft.resource.ResourcePackManager;
+import net.minecraft.resource.ServerResourceManager;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkSectionPos;
+import net.minecraft.server.WorldGenerationProgressListenerFactory;
+import net.minecraft.util.UserCache;
 import net.minecraft.util.registry.DynamicRegistryManager;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.world.StructureWorldAccess;
+import net.minecraft.world.SaveProperties;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
-import net.minecraft.world.gen.feature.LakeFeature;
-import net.minecraft.world.gen.feature.SingleStateFeatureConfig;
-import net.minecraft.world.gen.feature.StructureFeature;
+import net.minecraft.world.gen.GenerationStep;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraft.world.level.storage.LevelStorage;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.net.Proxy;
 import java.util.*;
+import java.util.function.Supplier;
 
 
 @Mixin(MinecraftServer.class)
 public class MinecraftServerMixin {
 
-    @ModifyVariable(
+    @Shadow @Final
+    protected DynamicRegistryManager.Impl registryManager;
+
+    @Inject(
             method = "<init>",
-            at = @At(value = "HEAD"),
-            index = 1,
-            argsOnly = true
+            at = @At(value = "TAIL")
     )
-    private DynamicRegistryManager.Impl checkForRSVillages(DynamicRegistryManager.Impl impl) {
+    private void modifyBiomeRegistry(Thread thread, DynamicRegistryManager.Impl impl, LevelStorage.Session session, SaveProperties saveProperties, ResourcePackManager resourcePackManager, Proxy proxy, DataFixer dataFixer, ServerResourceManager serverResourceManager, MinecraftSessionService minecraftSessionService, GameProfileRepository gameProfileRepository, UserCache userCache, WorldGenerationProgressListenerFactory worldGenerationProgressListenerFactory, CallbackInfo ci) {
 
         //Gets blacklisted biome IDs for each structure type
         //Done here so the map can be garbage collected later
@@ -53,12 +58,25 @@ public class MinecraftServerMixin {
         allBiomeBlacklists.put("village", Arrays.asList(RepurposedStructures.RSAllConfig.RSVillagesConfig.blacklistedVillageBiomes.split(",")));
         allBiomeBlacklists.put("well", Arrays.asList(RepurposedStructures.RSAllConfig.RSWellsConfig.blacklistedWellBiomes.split(",")));
 
-        if(impl.getOptional(Registry.BIOME_KEY).isPresent()) {
-            for (Biome biome : impl.getOptional(Registry.BIOME_KEY).get()) {
-                RepurposedStructures.addFeaturesAndStructuresToBiomes(impl.getOptional(Registry.BIOME_KEY).get(), biome, Objects.requireNonNull(impl.getOptional(Registry.BIOME_KEY).get().getId(biome)), allBiomeBlacklists);
+        if(registryManager.getOptional(Registry.BIOME_KEY).isPresent()) {
+            // Make the structure and features list mutable for modification later
+            for (Biome biome : registryManager.getOptional(Registry.BIOME_KEY).get()) {
+                List<List<Supplier<ConfiguredFeature<?, ?>>>> tempFeature = ((GenerationSettingsAccessor)biome.getGenerationSettings()).getGSFeatures();
+                List<List<Supplier<ConfiguredFeature<?, ?>>>> mutableFeatures = new ArrayList<>();
+                for(int i = 0; i < Math.max(10, tempFeature.size()); i++){
+                    if(i >= tempFeature.size()){
+                        mutableFeatures.add(new ArrayList<>());
+                    }
+                    else{
+                        mutableFeatures.add(new ArrayList<>(tempFeature.get(i)));
+                    }
+                }
+                ((GenerationSettingsAccessor)biome.getGenerationSettings()).setGSFeatures(mutableFeatures);
+                ((GenerationSettingsAccessor)biome.getGenerationSettings()).setGSStructureFeatures(new ArrayList<>(((GenerationSettingsAccessor)biome.getGenerationSettings()).getGSStructureFeatures()));
+
+                //Add our structures and features
+                RepurposedStructures.addFeaturesAndStructuresToBiomes(registryManager.getOptional(Registry.BIOME_KEY).get(), biome, Objects.requireNonNull(registryManager.getOptional(Registry.BIOME_KEY).get().getId(biome)), allBiomeBlacklists);
             }
         }
-
-        return impl;
     }
 }

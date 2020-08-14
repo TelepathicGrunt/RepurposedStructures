@@ -11,6 +11,7 @@ import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.DynamicRegistryManager;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
@@ -18,12 +19,11 @@ import net.minecraft.world.gen.feature.StructureFeature;
 
 
 public class TempleNetherStructure extends StructureFeature<DefaultFeatureConfig> {
-    private final StructurePool START_POOL;
-    private static boolean INITIALIZED_POOLS = false;
+    private final Identifier START_POOL;
 
     public TempleNetherStructure(Codec<DefaultFeatureConfig> config, Identifier pieceID) {
         super(config);
-        START_POOL = BuiltinRegistries.STRUCTURE_POOL.get(pieceID);
+        START_POOL = pieceID;
     }
 
     @Override
@@ -37,13 +37,8 @@ public class TempleNetherStructure extends StructureFeature<DefaultFeatureConfig
         }
 
         public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, int x, int z, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
-            if(!INITIALIZED_POOLS){
-                TempleNetherPools.initPools();
-                INITIALIZED_POOLS = true;
-            }
-
             BlockPos blockPos = new BlockPos(x * 16, 35, z * 16);
-            GeneralJigsawGenerator.addPieces(dynamicRegistryManager, chunkGenerator, structureManager, blockPos, this.children, this.random, START_POOL, 1);
+            GeneralJigsawGenerator.addPieces(dynamicRegistryManager, chunkGenerator, structureManager, blockPos, this.children, this.random, dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN).get(START_POOL), 1);
             this.setBoundingBoxFromChildren();
 
             BlockPos lowestLandPos = getLowestLand(chunkGenerator);

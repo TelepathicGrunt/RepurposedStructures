@@ -17,6 +17,9 @@ import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 
+import java.util.List;
+import java.util.function.Supplier;
+
 public class RSAddFeatures {
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -245,9 +248,20 @@ public class RSAddFeatures {
 
         //remove vanilla dungeon
         if (replacing) {
+            for(List<Supplier<ConfiguredFeature<?, ?>>> stages : biome.getGenerationSettings().getFeatures()){
+                for(Supplier<ConfiguredFeature<?, ?>> supplier : stages){
+                    ConfiguredFeature<?,?> configuredFeature2 = supplier.get();
+                    if(configuredFeature2.config instanceof DecoratedFeatureConfig){
+                        DecoratedFeatureConfig decoratedFeatureConfig = (DecoratedFeatureConfig) configuredFeature2.config;
+                        Feature<?> feature = decoratedFeatureConfig.feature.get().feature;
+                        int i = 5;
+                    }
+                }
+            }
             biome.getGenerationSettings().getFeatures().get(GenerationStep.Feature.UNDERGROUND_STRUCTURES.ordinal())
                     .removeIf(configuredFeature -> configuredFeature.get().config instanceof DecoratedFeatureConfig &&
                             ((DecoratedFeatureConfig) configuredFeature.get().config).feature.get().feature == Feature.MONSTER_ROOM);
+
         }
 
         //add given dungeon

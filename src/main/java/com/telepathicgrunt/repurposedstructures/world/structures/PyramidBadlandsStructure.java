@@ -3,6 +3,7 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.Lifecycle;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.GeneralJigsawGenerator;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PyramidFloorPiece;
@@ -16,8 +17,7 @@ import net.minecraft.util.BlockRotation;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.registry.BuiltinRegistries;
-import net.minecraft.util.registry.DynamicRegistryManager;
+import net.minecraft.util.registry.*;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
@@ -28,23 +28,11 @@ import java.util.ArrayList;
 
 
 public class PyramidBadlandsStructure extends StructureFeature<DefaultFeatureConfig> {
-    private static boolean INITIALIZED_POOLS = false;
-    private static void initPools() {
-        StructurePools.register(
-                new StructurePool(new Identifier(RepurposedStructures.MODID,"temples/pyramid_badlands"), new Identifier("empty"), ImmutableList.of(Pair.of(
-                        StructurePoolElement.method_30426(RepurposedStructures.MODID+":temples/pyramid_badlands_body", StructureProcessorLists.EMPTY), 1)),
-                        StructurePool.Projection.RIGID));
 
-        StructurePools.register(
-                new StructurePool(new Identifier(RepurposedStructures.MODID,"temples/pyramid_badlands_pit"), new Identifier("empty"), ImmutableList.of(Pair.of(
-                        StructurePoolElement.method_30426(RepurposedStructures.MODID+":temples/pyramid_badlands_pit", StructureProcessorLists.EMPTY), 1)),
-                        StructurePool.Projection.RIGID));
-    }
-
-    private final StructurePool START_POOL;
+    private final Identifier START_POOL;
     public PyramidBadlandsStructure(Codec<DefaultFeatureConfig> config) {
         super(config);
-        START_POOL = BuiltinRegistries.STRUCTURE_POOL.get(new Identifier(RepurposedStructures.MODID + ":temples/pyramid_badlands"));
+        START_POOL = new Identifier(RepurposedStructures.MODID + ":temples/pyramid_badlands");
     }
 
     @Override
@@ -60,12 +48,8 @@ public class PyramidBadlandsStructure extends StructureFeature<DefaultFeatureCon
 
         @Override
         public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
-            if(!INITIALIZED_POOLS){
-                initPools();
-                INITIALIZED_POOLS = true;
-            }
             BlockPos blockpos = new BlockPos(chunkX * 16, 62, chunkZ * 16);
-            GeneralJigsawGenerator.addPieces(dynamicRegistryManager, chunkGenerator, structureManager, blockpos, this.children, this.random, START_POOL, 1);
+            GeneralJigsawGenerator.addPieces(dynamicRegistryManager, chunkGenerator, structureManager, blockpos, this.children, this.random, dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN).get(START_POOL), 1);
             PyramidFloorPiece.func_207617_a(structureManager, blockpos, this.children.get(0).getRotation(), this.children, random, Blocks.RED_SANDSTONE, defaultFeatureConfig);
 
             //put the floor placing before the pit.
