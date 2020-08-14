@@ -4,10 +4,11 @@ import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
+import net.minecraft.world.gen.decorator.SimpleDecorator;
 
 public class RSPlacements
 {
-    public static final Decorator<RangeDecoratorConfig> RS_DUNGEON_PLACEMENT = new RSDungeonPlacement(RangeDecoratorConfig.CODEC);
+    public static final SimpleDecorator<RangeDecoratorConfig> RS_DUNGEON_PLACEMENT = new RSDungeonPlacement(RangeDecoratorConfig.CODEC);
     public static final Decorator<RangeDecoratorConfig> RS_VINE_PLACEMENT = new RSVinePlacement(RangeDecoratorConfig.CODEC);
 
     public static void registerPlacements() {

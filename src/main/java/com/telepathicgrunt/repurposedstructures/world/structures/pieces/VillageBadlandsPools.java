@@ -26,12 +26,12 @@ public class VillageBadlandsPools {
                 new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.WHEAT, 0.2F), AlwaysTrueRuleTest.INSTANCE, Blocks.BEETROOTS.getDefaultState()),
                 new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.WHEAT, 0.1F), AlwaysTrueRuleTest.INSTANCE, Blocks.MELON_STEM.getDefaultState())))));
 
-        poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID + ":village/badlands/town_centers")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID + ":village/badlands/town_centers"), new Identifier("empty"),
+        StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID + ":village/badlands/town_centers"), new Identifier("empty"),
                 ImmutableList.of(
                         new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID + ":village/badlands/town_centers/center_1"), 98)),
-                StructurePool.Projection.RIGID)), Lifecycle.stable());
+                StructurePool.Projection.RIGID));
 
-        poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID + ":village/badlands/streets")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID + ":village/badlands/streets"),
+        StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID + ":village/badlands/streets"),
                 new Identifier(RepurposedStructures.MODID + ":village/badlands/terminators"),
                 ImmutableList.of(
                         new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID + ":village/badlands/streets/corner_01"), 3),
@@ -45,9 +45,9 @@ public class VillageBadlandsPools {
                         new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID + ":village/badlands/streets/crossroad_03"), 3),
                         new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID + ":village/badlands/streets/square_01"), 3),
                         new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID + ":village/badlands/streets/square_02"), 3)),
-                StructurePool.Projection.TERRAIN_MATCHING)), Lifecycle.stable());
+                StructurePool.Projection.TERRAIN_MATCHING));
 
-        poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID + ":village/badlands/houses")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID + ":village/badlands/houses"), new Identifier(RepurposedStructures.MODID + ":village/badlands/terminators"),
+        StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID + ":village/badlands/houses"), new Identifier(RepurposedStructures.MODID + ":village/badlands/terminators"),
                 ImmutableList.of(
                         new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID + ":village/badlands/houses/small_house_1"), 2),
                         new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID + ":village/badlands/houses/small_house_2"), 2),
@@ -77,16 +77,16 @@ public class VillageBadlandsPools {
                         new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID + ":village/badlands/houses/pen_1"), 2),
                         new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID + ":village/badlands/houses/meeting_point"), 3),
                         Pair.of(StructurePoolElement.method_30438(), 5)),
-                StructurePool.Projection.RIGID)), Lifecycle.stable());
+                StructurePool.Projection.RIGID));
 
-        poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID + ":village/badlands/terminators")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID + ":village/badlands/terminators"), new Identifier("empty"),
+        StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID + ":village/badlands/terminators"), new Identifier("empty"),
                 ImmutableList.of(
                         new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID + ":village/badlands/terminators/terminator_01"), 1),
                         new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID + ":village/badlands/terminators/terminator_02"), 1),
                         new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID + ":village/badlands/terminators/terminator_03"), 1)),
-                StructurePool.Projection.TERRAIN_MATCHING)), Lifecycle.stable());
+                StructurePool.Projection.TERRAIN_MATCHING));
 
-        poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID + ":village/badlands/decor")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID + ":village/badlands/decor"), new Identifier("empty"),
+        StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID + ":village/badlands/decor"), new Identifier("empty"),
                 ImmutableList.of(
                         Pair.of(StructurePoolElement.method_30425(RepurposedStructures.MODID + ":village/badlands/decor/lamp_1"), 10),
                         Pair.of(StructurePoolElement.method_30425(RepurposedStructures.MODID + ":village/badlands/decor/lamp_2"), 10),
@@ -95,7 +95,7 @@ public class VillageBadlandsPools {
                         Pair.of(StructurePoolElement.method_30421(ConfiguredFeatures.PATCH_DEAD_BUSH), 10),
                         Pair.of(StructurePoolElement.method_30421(ConfiguredFeatures.PILE_HAY), 1),
                         Pair.of(StructurePoolElement.method_30438(), 10)),
-                StructurePool.Projection.RIGID)), Lifecycle.stable());
+                StructurePool.Projection.RIGID));
     }
 
 }

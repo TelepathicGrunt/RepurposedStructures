@@ -61,7 +61,7 @@ public class VillageBirchPools
 		       new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.WHEAT, 0.2F), AlwaysTrueRuleTest.INSTANCE, Blocks.POTATOES.getDefaultState()),
 		       new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.WHEAT, 0.1F), AlwaysTrueRuleTest.INSTANCE, Blocks.BEETROOTS.getDefaultState())))));
 
-		poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/birch/town_centers")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/birch/town_centers"), new Identifier("empty"),
+		StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/birch/town_centers"), new Identifier("empty"),
 	       ImmutableList.of(new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/birch/town_centers/fountain_01", StructureProcessorLists.MOSSIFY_20_PERCENT), 50),
         		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/birch/town_centers/meeting_point_1", StructureProcessorLists.MOSSIFY_20_PERCENT), 50),
         		       new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/birch/town_centers/meeting_point_2"), 50),
@@ -70,9 +70,9 @@ public class VillageBirchPools
         		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/birch/zombie/town_centers/meeting_point_1", zombiefy), 1),
         		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/birch/zombie/town_centers/meeting_point_2", zombiefy), 1),
         		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/birch/zombie/town_centers/meeting_point_3", zombiefy), 1)),
-	       StructurePool.Projection.RIGID)), Lifecycle.stable());
+	       StructurePool.Projection.RIGID));
 
-		poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/birch/streets")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/birch/streets"), new Identifier(RepurposedStructures.MODID+":village/birch/terminators"),
+		StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/birch/streets"), new Identifier(RepurposedStructures.MODID+":village/birch/terminators"),
 	       ImmutableList.of(
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/birch/streets/corner_01", path_randomizer), 2),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/birch/streets/corner_02", path_randomizer), 2),
@@ -90,9 +90,9 @@ public class VillageBirchPools
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/birch/streets/crossroad_05", path_randomizer), 2),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/birch/streets/crossroad_06", path_randomizer), 2),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/birch/streets/turn_01", path_randomizer), 3)),
-	       StructurePool.Projection.TERRAIN_MATCHING)), Lifecycle.stable());
+	       StructurePool.Projection.TERRAIN_MATCHING));
        
-       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/birch/zombie/streets")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/birch/zombie/streets"), new Identifier(RepurposedStructures.MODID+":village/birch/terminators"),
+       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/birch/zombie/streets"), new Identifier(RepurposedStructures.MODID+":village/birch/terminators"),
 	       ImmutableList.of(
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/birch/zombie/streets/corner_01", path_randomizer), 2),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/birch/zombie/streets/corner_02", path_randomizer), 2),
@@ -110,9 +110,9 @@ public class VillageBirchPools
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/birch/zombie/streets/crossroad_05", path_randomizer), 2),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/birch/zombie/streets/crossroad_06", path_randomizer), 2),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/birch/zombie/streets/turn_01", path_randomizer), 3)),
-	       StructurePool.Projection.TERRAIN_MATCHING)), Lifecycle.stable());
+	       StructurePool.Projection.TERRAIN_MATCHING));
        
-       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/birch/houses")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/birch/houses"), new Identifier(RepurposedStructures.MODID+":village/birch/terminators"),
+       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/birch/houses"), new Identifier(RepurposedStructures.MODID+":village/birch/terminators"),
 	       ImmutableList.of(
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/birch/houses/small_house_1", mossify), 2),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/birch/houses/small_house_2", mossify), 2),
@@ -151,9 +151,9 @@ public class VillageBirchPools
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/birch/houses/meeting_point_4", StructureProcessorLists.MOSSIFY_70_PERCENT), 3),
 		       new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/birch/houses/meeting_point_5"), 1),
 		       Pair.of(StructurePoolElement.method_30438(), 10)),
-	       StructurePool.Projection.RIGID)), Lifecycle.stable());
+	       StructurePool.Projection.RIGID));
        
-       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/birch/zombie/houses")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/birch/zombie/houses"), new Identifier(RepurposedStructures.MODID+":village/birch/terminators"),
+       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/birch/zombie/houses"), new Identifier(RepurposedStructures.MODID+":village/birch/terminators"),
 	       ImmutableList.of(
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/birch/zombie/houses/small_house_1", zombiefy), 2),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/birch/zombie/houses/small_house_2", zombiefy), 2),
@@ -191,58 +191,58 @@ public class VillageBirchPools
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/birch/zombie/houses/meeting_point_4", zombiefy), 3),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/birch/zombie/houses/meeting_point_5", zombiefy), 1),
 		       Pair.of(StructurePoolElement.method_30438(), 10)),
-	       StructurePool.Projection.RIGID)), Lifecycle.stable());
+	       StructurePool.Projection.RIGID));
       
-       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/birch/terminators")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/birch/terminators"), new Identifier("empty"),
+       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/birch/terminators"), new Identifier("empty"),
 	       ImmutableList.of(
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/birch/terminators/terminator_01", path_randomizer), 1),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/birch/terminators/terminator_02", path_randomizer), 1),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/birch/terminators/terminator_03", path_randomizer), 1),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/birch/terminators/terminator_04", path_randomizer), 1)),
-	       StructurePool.Projection.TERRAIN_MATCHING)), Lifecycle.stable());
+	       StructurePool.Projection.TERRAIN_MATCHING));
 
-       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/birch/zombie/terminators")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/birch/zombie/terminators"), new Identifier("empty"),
+       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/birch/zombie/terminators"), new Identifier("empty"),
 	       ImmutableList.of(
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/birch/zombie/terminators/terminator_01", path_randomizer), 1),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/birch/zombie/terminators/terminator_02", path_randomizer), 1),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/birch/zombie/terminators/terminator_03", path_randomizer), 1),
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/birch/zombie/terminators/terminator_04", path_randomizer), 1)),
-	       StructurePool.Projection.TERRAIN_MATCHING)), Lifecycle.stable());
+	       StructurePool.Projection.TERRAIN_MATCHING));
        
-       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/birch/trees")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/birch/trees"), new Identifier("empty"),
+       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/birch/trees"), new Identifier("empty"),
 	       ImmutableList.of(
 		       new Pair<>(StructurePoolElement.method_30421(ConfiguredFeatures.TREES_BIRCH), 1)),
-	       StructurePool.Projection.RIGID)), Lifecycle.stable());
+	       StructurePool.Projection.RIGID));
 
        ConfiguredFeature lily_of_the_valley_feature = Feature.field_26361.configure((new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.LILY_OF_THE_VALLEY.getDefaultState()), SimpleBlockPlacer.INSTANCE)).tries(64).build());
-       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/birch/decor")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/birch/decor"), new Identifier("empty"),
+       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/birch/decor"), new Identifier("empty"),
 	       ImmutableList.of(new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/birch/decor/lamp_1"), 2),
 		       new Pair<>(StructurePoolElement.method_30421(ConfiguredFeatures.TREES_BIRCH), 1),
 		       new Pair<>(StructurePoolElement.method_30421(lily_of_the_valley_feature), 1),
 		       new Pair<>(StructurePoolElement.method_30421(ConfiguredFeatures.PILE_HAY), 1),
 		       Pair.of(StructurePoolElement.method_30438(), 2)),
-	       StructurePool.Projection.RIGID)), Lifecycle.stable());
+	       StructurePool.Projection.RIGID));
       
-       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/birch/zombie/decor")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/birch/zombie/decor"), new Identifier("empty"),
+       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/birch/zombie/decor"), new Identifier("empty"),
 	       ImmutableList.of(
 		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/birch/decor/lamp_1", zombiefy), 1),
 		       new Pair<>(StructurePoolElement.method_30421(ConfiguredFeatures.TREES_BIRCH), 1),
 		       new Pair<>(StructurePoolElement.method_30421(lily_of_the_valley_feature), 1),
 		       new Pair<>(StructurePoolElement.method_30421(ConfiguredFeatures.PILE_HAY), 1),
 		       Pair.of(StructurePoolElement.method_30438(), 2)),
-	       StructurePool.Projection.RIGID)), Lifecycle.stable());
+	       StructurePool.Projection.RIGID));
       
-       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/birch/villagers")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/birch/villagers"), new Identifier("empty"),
+       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/birch/villagers"), new Identifier("empty"),
 	       ImmutableList.of(
 		       new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/birch/villagers/nitwit"), 1),
 		       new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/birch/villagers/baby"), 1),
 		       new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/birch/villagers/unemployed"), 10)),
-	       StructurePool.Projection.RIGID)), Lifecycle.stable());
+	       StructurePool.Projection.RIGID));
       
-       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/birch/zombie/villagers")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/birch/zombie/villagers"), new Identifier("empty"),
+       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/birch/zombie/villagers"), new Identifier("empty"),
 	       ImmutableList.of(
 		       new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/birch/zombie/villagers/nitwit"), 1),
 		       new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/birch/zombie/villagers/unemployed"), 10)),
-	       StructurePool.Projection.RIGID)), Lifecycle.stable());
+	       StructurePool.Projection.RIGID));
     }
 }

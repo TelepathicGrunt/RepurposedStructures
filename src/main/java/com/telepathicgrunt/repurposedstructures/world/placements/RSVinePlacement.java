@@ -21,11 +21,9 @@ public class RSVinePlacement extends Decorator<RangeDecoratorConfig> {
 
     @Override
     public Stream<BlockPos> getPositions(DecoratorContext context, Random random, RangeDecoratorConfig config, BlockPos pos) {
-        return IntStream.range(0, 1).mapToObj((i) -> {
-            int x = random.nextInt(16) + pos.getX();
-            int z = random.nextInt(16) + pos.getZ();
-            int y = context.getTopY(Heightmap.Type.MOTION_BLOCKING, x, z);
-            return y <= 0 ? null : new BlockPos(x, y + config.topOffset - random.nextInt(config.maximum), z);
-        }).filter(Objects::nonNull);
+        int x = random.nextInt(16) + pos.getX();
+        int z = random.nextInt(16) + pos.getZ();
+        int y = context.getTopY(Heightmap.Type.MOTION_BLOCKING, x, z);
+        return y <= 0 ? Stream.empty() : Stream.of(new BlockPos(x, y + config.topOffset - random.nextInt(config.maximum), z));
     }
 }

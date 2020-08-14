@@ -248,27 +248,20 @@ public class RSAddFeatures {
 
         //remove vanilla dungeon
         if (replacing) {
-            for(List<Supplier<ConfiguredFeature<?, ?>>> stages : biome.getGenerationSettings().getFeatures()){
-                for(Supplier<ConfiguredFeature<?, ?>> supplier : stages){
-                    ConfiguredFeature<?,?> configuredFeature2 = supplier.get();
-                    if(configuredFeature2.config instanceof DecoratedFeatureConfig){
-                        DecoratedFeatureConfig decoratedFeatureConfig = (DecoratedFeatureConfig) configuredFeature2.config;
-                        Feature<?> feature = decoratedFeatureConfig.feature.get().feature;
-                        int i = 5;
-                    }
-                }
-            }
             biome.getGenerationSettings().getFeatures().get(GenerationStep.Feature.UNDERGROUND_STRUCTURES.ordinal())
-                    .removeIf(configuredFeature -> configuredFeature.get().config instanceof DecoratedFeatureConfig &&
-                            ((DecoratedFeatureConfig) configuredFeature.get().config).feature.get().feature == Feature.MONSTER_ROOM);
+                .removeIf(supplier ->
+                    supplier.get().config instanceof DecoratedFeatureConfig &&
+                    ((DecoratedFeatureConfig)supplier.get().config).feature.get().config instanceof DecoratedFeatureConfig &&
+                    ((DecoratedFeatureConfig)((DecoratedFeatureConfig)supplier.get().config).feature.get().config).feature.get().config instanceof DecoratedFeatureConfig &&
+                    ((DecoratedFeatureConfig)((DecoratedFeatureConfig)((DecoratedFeatureConfig)supplier.get().config).feature.get().config).feature.get().config).feature.get().feature == Feature.MONSTER_ROOM);
 
         }
 
         //add given dungeon
         biome.getGenerationSettings().getFeatures().get(GenerationStep.Feature.UNDERGROUND_STRUCTURES.ordinal())
                 .add(() -> rsDungeon.configure(FeatureConfig.DEFAULT)
-                            .repeat(spawnrate)
-                            .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(minHeight, 0, maxheight))));
+                            .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(minHeight, 0, maxheight))
+                                    .repeat(spawnrate)));
     }
 
 
@@ -645,7 +638,6 @@ public class RSAddFeatures {
      * Doesn't actually serialize because I don't know how to do that in 1.16.1 lmao
      */
     private static boolean serializeAndCompareFeature(ConfiguredFeature<?, ?> feature1, ConfiguredFeature<?, ?> feature2) {
-
 
         // One of the features cannot be serialized which can only happen with custom modded features
         // Check if the features are the same feature even though the placement or config for the feature might be different.

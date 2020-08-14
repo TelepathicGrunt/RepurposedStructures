@@ -25,28 +25,27 @@ import net.minecraft.util.registry.RegistryKey;
 public class ShipwreckPools {
     public static void initPools(MutableRegistry<StructurePool> poolRegistry){
         //End Shipwreck
-        poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":shipwrecks/end")),
-                StructurePools.register(
-                        new StructurePool(new Identifier(RepurposedStructures.MODID,"shipwrecks/end"), new Identifier("empty"),
-                                ImmutableList.of(
-                                        Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/rightsideup_backhalf", StructureProcessorLists.EMPTY), 1),
-                                        Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/rightsideup_backhalf_degraded", StructureProcessorLists.EMPTY), 1),
-                                        Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/rightsideup_fronthalf", StructureProcessorLists.EMPTY), 1),
-                                        Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/rightsideup_fronthalf_degraded", StructureProcessorLists.EMPTY), 1),
-                                        Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/rightsideup_full", StructureProcessorLists.EMPTY), 1),
-                                        Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/rightsideup_full_degraded", StructureProcessorLists.EMPTY), 1),
-                                        Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/sideways_backhalf", StructureProcessorLists.EMPTY), 1),
-                                        Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/sideways_backhalf_degraded", StructureProcessorLists.EMPTY), 1),
-                                        Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/sideways_fronthalf", StructureProcessorLists.EMPTY), 1),
-                                        Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/sideways_fronthalf_degraded", StructureProcessorLists.EMPTY), 1),
-                                        Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/sideways_full", StructureProcessorLists.EMPTY), 1),
-                                        Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/sideways_full_degraded", StructureProcessorLists.EMPTY), 1),
-                                        Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/upsidedown_backhalf", StructureProcessorLists.EMPTY), 1),
-                                        Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/upsidedown_backhalf_degraded", StructureProcessorLists.EMPTY), 1),
-                                        Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/upsidedown_fronthalf_degraded", StructureProcessorLists.EMPTY), 1),
-                                        Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/upsidedown_fronthalf", StructureProcessorLists.EMPTY), 1),
-                                        Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/upsidedown_full", StructureProcessorLists.EMPTY), 1),
-                                        Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/upsidedown_full_degraded", StructureProcessorLists.EMPTY), 1)),
-                                StructurePool.Projection.RIGID)), Lifecycle.stable());
+        StructurePools.register(
+                new StructurePool(new Identifier(RepurposedStructures.MODID,"shipwrecks/end"), new Identifier("empty"),
+                        ImmutableList.of(
+                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/rightsideup_backhalf", StructureProcessorLists.EMPTY), 1),
+                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/rightsideup_backhalf_degraded", StructureProcessorLists.EMPTY), 1),
+                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/rightsideup_fronthalf", StructureProcessorLists.EMPTY), 1),
+                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/rightsideup_fronthalf_degraded", StructureProcessorLists.EMPTY), 1),
+                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/rightsideup_full", StructureProcessorLists.EMPTY), 1),
+                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/rightsideup_full_degraded", StructureProcessorLists.EMPTY), 1),
+                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/sideways_backhalf", StructureProcessorLists.EMPTY), 1),
+                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/sideways_backhalf_degraded", StructureProcessorLists.EMPTY), 1),
+                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/sideways_fronthalf", StructureProcessorLists.EMPTY), 1),
+                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/sideways_fronthalf_degraded", StructureProcessorLists.EMPTY), 1),
+                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/sideways_full", StructureProcessorLists.EMPTY), 1),
+                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/sideways_full_degraded", StructureProcessorLists.EMPTY), 1),
+                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/upsidedown_backhalf", StructureProcessorLists.EMPTY), 1),
+                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/upsidedown_backhalf_degraded", StructureProcessorLists.EMPTY), 1),
+                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/upsidedown_fronthalf_degraded", StructureProcessorLists.EMPTY), 1),
+                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/upsidedown_fronthalf", StructureProcessorLists.EMPTY), 1),
+                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/upsidedown_full", StructureProcessorLists.EMPTY), 1),
+                                Pair.of(StructurePoolElement.method_30426(RepurposedStructures.MODID+":shipwrecks/end/upsidedown_full_degraded", StructureProcessorLists.EMPTY), 1)),
+                        StructurePool.Projection.RIGID));
     }
 }

@@ -23,17 +23,16 @@ import net.minecraft.util.registry.RegistryKey;
 public class PyramidPools {
     public static void initPools(MutableRegistry<StructurePool> poolRegistry){
         //Badlands Pyramid
-        poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":temples/pyramid_badlands")),
-                StructurePools.register(
-                        new StructurePool(new Identifier(RepurposedStructures.MODID,"temples/pyramid_badlands"), new Identifier("empty"), ImmutableList.of(Pair.of(
-                                StructurePoolElement.method_30434(RepurposedStructures.MODID+":temples/pyramid_badlands_body"), 1)),
-                                StructurePool.Projection.RIGID)), Lifecycle.stable());
+        StructurePools.register(
+                new StructurePool(new Identifier(RepurposedStructures.MODID,"temples/pyramid_badlands"), new Identifier("empty"), ImmutableList.of(Pair.of(
+                        StructurePoolElement.method_30434(RepurposedStructures.MODID+":temples/pyramid_badlands_body"), 1)),
+                        StructurePool.Projection.RIGID));
 
-        poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":temples/pyramid_badlands_pit")),
-                StructurePools.register(
-                        new StructurePool(new Identifier(RepurposedStructures.MODID,"temples/pyramid_badlands_pit"), new Identifier("empty"), ImmutableList.of(Pair.of(
-                                StructurePoolElement.method_30434(RepurposedStructures.MODID+":temples/pyramid_badlands_pit"), 1)),
-                                StructurePool.Projection.RIGID)), Lifecycle.stable());
+
+        StructurePools.register(
+                new StructurePool(new Identifier(RepurposedStructures.MODID,"temples/pyramid_badlands_pit"), new Identifier("empty"), ImmutableList.of(Pair.of(
+                        StructurePoolElement.method_30434(RepurposedStructures.MODID+":temples/pyramid_badlands_pit"), 1)),
+                        StructurePool.Projection.RIGID));
 
 
         //Nether Pyramid
@@ -44,10 +43,9 @@ public class PyramidPools {
                         new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.WEEPING_VINES, 0.3F),
                                 AlwaysTrueRuleTest.INSTANCE, Blocks.AIR.getDefaultState())))));
 
-        poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":temples/pyramid_nether")),
-                StructurePools.register(
-                        new StructurePool(new Identifier(RepurposedStructures.MODID,"temples/pyramid_nether"), new Identifier("empty"), ImmutableList.of(Pair.of(
-                                StructurePoolElement.method_30435(RepurposedStructures.MODID+":temples/pyramid_nether", randomizationList), 1)),
-                                StructurePool.Projection.RIGID)), Lifecycle.stable());
+        StructurePools.register(
+                new StructurePool(new Identifier(RepurposedStructures.MODID,"temples/pyramid_nether"), new Identifier("empty"), ImmutableList.of(Pair.of(
+                        StructurePoolElement.method_30435(RepurposedStructures.MODID+":temples/pyramid_nether", randomizationList), 1)),
+                        StructurePool.Projection.RIGID));
     }
 }

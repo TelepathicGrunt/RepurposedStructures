@@ -92,16 +92,16 @@ public class VillageGiantTaigaPools
             		new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.WHEAT, 0.2F), AlwaysTrueRuleTest.INSTANCE, Blocks.CARROTS.getDefaultState()),
             		new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.WHEAT, 0.6F), AlwaysTrueRuleTest.INSTANCE, Blocks.SWEET_BERRY_BUSH.getDefaultState())))));
 
-	       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/giant_taiga/town_centers")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/giant_taiga/town_centers"), new Identifier("empty"),
+	       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/giant_taiga/town_centers"), new Identifier("empty"),
 		       ImmutableList.of(new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/giant_taiga/town_centers/meeting_point_1", path_randomizer_and_mossify), 50),
 	        		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/giant_taiga/town_centers/meeting_point_2", path_randomizer_and_mossify), 50),
 	        		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/giant_taiga/town_centers/meeting_point_3", path_randomizer_and_mossify), 50),
 	        		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/giant_taiga/zombie/town_centers/meeting_point_1", path_randomizer_and_mossify), 1),
 	        		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/giant_taiga/zombie/town_centers/meeting_point_2", path_randomizer_and_mossify), 1),
 	        		       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/giant_taiga/zombie/town_centers/meeting_point_3", path_randomizer_and_mossify), 1)),
-		       StructurePool.Projection.RIGID)), Lifecycle.stable());
+		       StructurePool.Projection.RIGID));
 	       
-	       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/giant_taiga/streets")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/giant_taiga/streets"), new Identifier(RepurposedStructures.MODID+":village/giant_taiga/terminators"),
+	       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/giant_taiga/streets"), new Identifier(RepurposedStructures.MODID+":village/giant_taiga/terminators"),
 		       ImmutableList.of(
 			       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/giant_taiga/streets/corner_01", path_randomizer), 2),
 			       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/giant_taiga/streets/corner_02", path_randomizer), 2),
@@ -120,9 +120,9 @@ public class VillageGiantTaigaPools
 			       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/giant_taiga/streets/crossroad_06", path_randomizer), 2),
 			       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/giant_taiga/streets/square_01", path_randomizer), 1),
 			       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/giant_taiga/streets/turn_01", path_randomizer), 3)),
-		       StructurePool.Projection.TERRAIN_MATCHING)), Lifecycle.stable());
+		       StructurePool.Projection.TERRAIN_MATCHING));
 	       
-	       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/giant_taiga/zombie/streets")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/giant_taiga/zombie/streets"), new Identifier(RepurposedStructures.MODID+":village/giant_taiga/terminators"),
+	       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/giant_taiga/zombie/streets"), new Identifier(RepurposedStructures.MODID+":village/giant_taiga/terminators"),
 		       ImmutableList.of(
 			       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/giant_taiga/zombie/streets/corner_01", path_randomizer), 2),
 			       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/giant_taiga/zombie/streets/corner_02", path_randomizer), 2),
@@ -141,9 +141,9 @@ public class VillageGiantTaigaPools
 			       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/giant_taiga/zombie/streets/crossroad_06", path_randomizer), 2),
 			       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/giant_taiga/streets/square_01", path_randomizer), 1),
 			       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/giant_taiga/zombie/streets/turn_01", path_randomizer), 3)),
-		       StructurePool.Projection.TERRAIN_MATCHING)), Lifecycle.stable());
+		       StructurePool.Projection.TERRAIN_MATCHING));
 	       
-	       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/giant_taiga/houses")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/giant_taiga/houses"), new Identifier(RepurposedStructures.MODID+":village/giant_taiga/terminators"),
+	       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/giant_taiga/houses"), new Identifier(RepurposedStructures.MODID+":village/giant_taiga/terminators"),
 		       ImmutableList.of(
 			       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/giant_taiga/houses/animal_pen_1", mossify), 1),
 			       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/giant_taiga/houses/animal_pen_2", mossify), 1),
@@ -176,9 +176,9 @@ public class VillageGiantTaigaPools
 			       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/giant_taiga/houses/tool_smith_1", mossify), 1),
 			       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/giant_taiga/houses/weapon_smith_1", mossify), 1),
 			       Pair.of(StructurePoolElement.method_30438(), 10)),
-		       StructurePool.Projection.RIGID)), Lifecycle.stable());
+		       StructurePool.Projection.RIGID));
 	       
-	       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/giant_taiga/zombie/houses")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/giant_taiga/zombie/houses"), new Identifier(RepurposedStructures.MODID+":village/giant_taiga/terminators"),
+	       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/giant_taiga/zombie/houses"), new Identifier(RepurposedStructures.MODID+":village/giant_taiga/terminators"),
 		       ImmutableList.of(
 			       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/giant_taiga/zombie/houses/small_house_1", zombiefy), 2),
 			       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/giant_taiga/zombie/houses/small_house_2", zombiefy), 2),
@@ -210,31 +210,31 @@ public class VillageGiantTaigaPools
 			       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/giant_taiga/houses/farm_2", zombiefy), 3),
 			       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/giant_taiga/houses/animal_pen_1", zombiefy), 2),
 			       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/giant_taiga/houses/animal_pen_2", zombiefy), 2),
-			       Pair.of(StructurePoolElement.method_30438(), 6)), StructurePool.Projection.RIGID)), Lifecycle.stable());
+			       Pair.of(StructurePoolElement.method_30438(), 6)), StructurePool.Projection.RIGID));
 	       
 	      
-	       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/giant_taiga/terminators")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/giant_taiga/terminators"), new Identifier("empty"),
+	       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/giant_taiga/terminators"), new Identifier("empty"),
 		       ImmutableList.of(
 			       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/plains/terminators/terminator_01", path_randomizer), 1),
 			       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/plains/terminators/terminator_02", path_randomizer), 1),
 			       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/plains/terminators/terminator_03", path_randomizer), 1),
 			       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/plains/terminators/terminator_04", path_randomizer), 1)),
-		       StructurePool.Projection.TERRAIN_MATCHING)), Lifecycle.stable());
+		       StructurePool.Projection.TERRAIN_MATCHING));
 
-	       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/giant_taiga/zombie/terminators")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/giant_taiga/zombie/terminators"), new Identifier("empty"),
+	       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/giant_taiga/zombie/terminators"), new Identifier("empty"),
 		       ImmutableList.of(
 			       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/plains/zombie/terminators/terminator_01", path_randomizer), 1),
 			       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/plains/zombie/terminators/terminator_02", path_randomizer), 1),
 			       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/plains/zombie/terminators/terminator_03", path_randomizer), 1),
 			       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/plains/zombie/terminators/terminator_04", path_randomizer), 1)),
-		       StructurePool.Projection.TERRAIN_MATCHING)), Lifecycle.stable());
+		       StructurePool.Projection.TERRAIN_MATCHING));
 	       
-	       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/giant_taiga/trees")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/giant_taiga/trees"), new Identifier("empty"),
+	       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/giant_taiga/trees"), new Identifier("empty"),
 		       ImmutableList.of(
 			       new Pair<>(StructurePoolElement.method_30421(ConfiguredFeatures.MEGA_PINE), 1)),
-		       StructurePool.Projection.RIGID)), Lifecycle.stable());
+		       StructurePool.Projection.RIGID));
 	       
-	       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/giant_taiga/decor")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/giant_taiga/decor"), new Identifier("empty"),
+	       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/giant_taiga/decor"), new Identifier("empty"),
 		       ImmutableList.of(new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/giant_taiga/decor/lamp_post_01"), 1),
 			       new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/giant_taiga/decor/lamp_post_02"), 1),
 			       new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/giant_taiga/decor/lamp_post_03"), 1),
@@ -243,9 +243,9 @@ public class VillageGiantTaigaPools
 			       new Pair<>(StructurePoolElement.method_30421(ConfiguredFeatures.PATCH_GRASS_TAIGA), 1),
 			       new Pair<>(StructurePoolElement.method_30421(Feature.BLOCK_PILE.configure(RSFeatures.COBBLESTONE_PILE_CONFIG)), 1),
 			       Pair.of(StructurePoolElement.method_30438(), 2)),
-		       StructurePool.Projection.RIGID)), Lifecycle.stable());
+		       StructurePool.Projection.RIGID));
 	      
-	       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/giant_taiga/zombie/decor")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/giant_taiga/zombie/decor"), new Identifier("empty"),
+	       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/giant_taiga/zombie/decor"), new Identifier("empty"),
 		       ImmutableList.of(
 			       new Pair<>(StructurePoolElement.method_30426(RepurposedStructures.MODID+":village/giant_taiga/decor/lamp_post_01", zombiefy), 1),
 			       new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/giant_taiga/decor/lamp_post_02"), 1),
@@ -255,19 +255,19 @@ public class VillageGiantTaigaPools
 					   new Pair<>(StructurePoolElement.method_30421(ConfiguredFeatures.PATCH_GRASS_TAIGA), 1),
 			       new Pair<>(StructurePoolElement.method_30421(Feature.BLOCK_PILE.configure(RSFeatures.COBBLESTONE_PILE_CONFIG)), 2),
 			       Pair.of(StructurePoolElement.method_30438(), 2)),
-		       StructurePool.Projection.RIGID)), Lifecycle.stable());
+		       StructurePool.Projection.RIGID));
 	      
-	       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/giant_taiga/villagers")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/giant_taiga/villagers"), new Identifier("empty"),
+	       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/giant_taiga/villagers"), new Identifier("empty"),
 		       ImmutableList.of(
 			       new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/giant_taiga/villagers/nitwit"), 1),
 			       new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/giant_taiga/villagers/baby"), 1),
 			       new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/giant_taiga/villagers/unemployed"), 10)),
-		       StructurePool.Projection.RIGID)), Lifecycle.stable());
+		       StructurePool.Projection.RIGID));
 	      
-	       poolRegistry.add(RegistryKey.of(poolRegistry.getKey(), new Identifier(RepurposedStructures.MODID+":village/giant_taiga/zombie/villagers")), StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/giant_taiga/zombie/villagers"), new Identifier("empty"),
+	       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/giant_taiga/zombie/villagers"), new Identifier("empty"),
 		       ImmutableList.of(
 			       new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/giant_taiga/zombie/villagers/nitwit"), 1),
 			       new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/giant_taiga/zombie/villagers/unemployed"), 10)),
-		       StructurePool.Projection.RIGID)), Lifecycle.stable());
+		       StructurePool.Projection.RIGID));
     }
 }
