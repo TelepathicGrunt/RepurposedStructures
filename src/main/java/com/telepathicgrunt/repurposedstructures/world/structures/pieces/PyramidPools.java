@@ -21,7 +21,7 @@ import net.minecraft.util.registry.RegistryKey;
 
 
 public class PyramidPools {
-    public static void initPools(MutableRegistry<StructurePool> poolRegistry){
+    public static void initPools(){
         //Badlands Pyramid
         StructurePools.register(
                 new StructurePool(new Identifier(RepurposedStructures.MODID,"temples/pyramid_badlands"), new Identifier("empty"), ImmutableList.of(Pair.of(

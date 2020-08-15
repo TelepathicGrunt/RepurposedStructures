@@ -44,9 +44,6 @@ public class RepurposedStructures implements ModInitializer {
         ServerStartCallback.EVENT.register(minecraftServer -> VillagerTrades.addMapTrades());
 
         //LoadNbtBlock.instantiateNbtBlock();
-
-        //register all structrue pools at start of world as it is cleared from registry when exiting any world
-        RepurposedStructures.registerStructurePools((MutableRegistry<StructurePool>) BuiltinRegistries.STRUCTURE_POOL);
     }
 
     /*
@@ -91,21 +88,23 @@ public class RepurposedStructures implements ModInitializer {
     /**
      * Registers all jigsaw structures' pools
      */
-    public static void registerStructurePools(MutableRegistry<StructurePool> poolRegistry){
-       //MutableRegistry<StructurePool> poolRegistry = dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN);
+    private static boolean lock = false;
+    public static void registerStructurePools(){
+        if(lock) return;
+        lock = true;
 
-        VillageBadlandsPools.init(poolRegistry);
-        VillageBirchPools.init(poolRegistry);
-        VillageCrimsonPools.init(poolRegistry);
-        VillageDarkForestPools.init(poolRegistry);
-        VillageGiantTaigaPools.init(poolRegistry);
-        VillageJunglePools.init(poolRegistry);
-        VillageMountainsPools.init(poolRegistry);
-        VillageSwampPools.init(poolRegistry);
-        VillageWarpedPools.init(poolRegistry);
-        ShipwreckPools.initPools(poolRegistry);
-        OutpostNetherPools.initPools(poolRegistry);
-        PyramidPools.initPools(poolRegistry);
-        TempleNetherPools.initPools(poolRegistry);
+        VillageBadlandsPools.init();
+        VillageBirchPools.init();
+        VillageCrimsonPools.init();
+        VillageDarkForestPools.init();
+        VillageGiantTaigaPools.init();
+        VillageJunglePools.init();
+        VillageMountainsPools.init();
+        VillageSwampPools.init();
+        VillageWarpedPools.init();
+        ShipwreckPools.initPools();
+        OutpostNetherPools.initPools();
+        PyramidPools.initPools();
+        TempleNetherPools.initPools();
     }
 }

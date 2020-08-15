@@ -24,7 +24,7 @@ import net.minecraft.world.gen.feature.Feature;
 @SuppressWarnings("deprecation")
 public class VillageSwampPools
 {
-    public static void init(MutableRegistry<StructurePool> poolRegistry) {
+    public static void init() {
 		StructureProcessorList zombiefy = StructureProcessorListAccessor.invokeRegister(RepurposedStructures.MODID+":village/swamp/zombiefy",
 			ImmutableList.of(new RuleStructureProcessor(ImmutableList.of(
 		       new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.COBBLESTONE, 0.8F), AlwaysTrueRuleTest.INSTANCE, Blocks.MOSSY_COBBLESTONE.getDefaultState()),

@@ -22,7 +22,7 @@ import net.minecraft.util.registry.RegistryKey;
 
 
 public class TempleNetherPools {
-    public static void initPools(MutableRegistry<StructurePool> poolRegistry){
+    public static void initPools(){
 
         //Basalt temple
         StructureProcessorList randomizationList = StructureProcessorListAccessor.invokeRegister(RepurposedStructures.MODID+":temples/basalt_temple_randomizer",

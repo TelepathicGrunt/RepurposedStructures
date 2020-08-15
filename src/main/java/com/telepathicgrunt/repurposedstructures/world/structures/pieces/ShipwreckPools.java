@@ -23,7 +23,7 @@ import net.minecraft.util.registry.RegistryKey;
 
 
 public class ShipwreckPools {
-    public static void initPools(MutableRegistry<StructurePool> poolRegistry){
+    public static void initPools(){
         //End Shipwreck
         StructurePools.register(
                 new StructurePool(new Identifier(RepurposedStructures.MODID,"shipwrecks/end"), new Identifier("empty"),

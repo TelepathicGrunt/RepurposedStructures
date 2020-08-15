@@ -20,7 +20,7 @@ import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.gen.feature.ConfiguredFeatures;
 
 public class VillageBadlandsPools {
-    public static void init(MutableRegistry<StructurePool> poolRegistry) {
+    public static void init() {
         StructureProcessorList crop_replacement = StructureProcessorListAccessor.invokeRegister(
                 RepurposedStructures.MODID+":village/badlands/crop_replacement", ImmutableList.of(new RuleStructureProcessor(ImmutableList.of(
                 new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.WHEAT, 0.2F), AlwaysTrueRuleTest.INSTANCE, Blocks.BEETROOTS.getDefaultState()),

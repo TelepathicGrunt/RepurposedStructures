@@ -18,7 +18,6 @@ import java.util.List;
 
 
 public class RSFeatures {
-    public static final BlockPileFeatureConfig COBBLESTONE_PILE_CONFIG = new BlockPileFeatureConfig(new SimpleBlockStateProvider(Blocks.COBBLESTONE.getDefaultState()));
 
     //Static instance of our structure so we can reference it and add it to biomes easily.
     public static Feature<DefaultFeatureConfig> BADLANDS_DUNGEONS = new DungeonBadlands(DefaultFeatureConfig.CODEC);

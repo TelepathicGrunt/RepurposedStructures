@@ -254,7 +254,6 @@ public class RSAddFeatures {
                     ((DecoratedFeatureConfig)supplier.get().config).feature.get().config instanceof DecoratedFeatureConfig &&
                     ((DecoratedFeatureConfig)((DecoratedFeatureConfig)supplier.get().config).feature.get().config).feature.get().config instanceof DecoratedFeatureConfig &&
                     ((DecoratedFeatureConfig)((DecoratedFeatureConfig)((DecoratedFeatureConfig)supplier.get().config).feature.get().config).feature.get().config).feature.get().feature == Feature.MONSTER_ROOM);
-
         }
 
         //add given dungeon

@@ -25,7 +25,7 @@ import net.minecraft.world.gen.feature.HugeFungusFeatureConfig;
 @SuppressWarnings("deprecation")
 public class VillageCrimsonPools
 {
-    public static void init(MutableRegistry<StructurePool> poolRegistry) {
+    public static void init() {
 		StructureProcessorList zombiefy = StructureProcessorListAccessor.invokeRegister(RepurposedStructures.MODID+":village/crimson/zombify",
        		ImmutableList.of(new RuleStructureProcessor(ImmutableList.of(
 		       new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.BLACKSTONE, 0.8F), AlwaysTrueRuleTest.INSTANCE, Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS.getDefaultState()),

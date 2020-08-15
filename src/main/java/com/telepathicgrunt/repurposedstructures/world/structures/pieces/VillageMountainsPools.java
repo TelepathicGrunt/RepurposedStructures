@@ -19,14 +19,16 @@ import net.minecraft.tag.BlockTags;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.MutableRegistry;
 import net.minecraft.util.registry.RegistryKey;
+import net.minecraft.world.gen.feature.BlockPileFeatureConfig;
 import net.minecraft.world.gen.feature.ConfiguredFeatures;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 
 @SuppressWarnings("deprecation")
 public class VillageMountainsPools
 {
-    public static void init(MutableRegistry<StructurePool> poolRegistry) {
+    public static void init() {
 		StructureProcessorList zombiefy = StructureProcessorListAccessor.invokeRegister(RepurposedStructures.MODID+":village/mountains/zombiefy",
 			ImmutableList.of(new RuleStructureProcessor(ImmutableList.of(
 			new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.COBBLESTONE, 0.8F), AlwaysTrueRuleTest.INSTANCE, Blocks.MOSSY_COBBLESTONE.getDefaultState()),
@@ -217,8 +219,10 @@ public class VillageMountainsPools
 	       ImmutableList.of(
 		       new Pair<>(StructurePoolElement.method_30421(ConfiguredFeatures.SPRUCE), 1)),
 	       StructurePool.Projection.RIGID));
-       
-       StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/mountains/decor"), new Identifier("empty"),
+
+		BlockPileFeatureConfig COBBLESTONE_PILE_CONFIG = new BlockPileFeatureConfig(new SimpleBlockStateProvider(Blocks.COBBLESTONE.getDefaultState()));
+
+		StructurePools.register(new StructurePool(new Identifier(RepurposedStructures.MODID+":village/mountains/decor"), new Identifier("empty"),
 	       ImmutableList.of(new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/mountains/decor/lamp_post_1"), 1),
 		       new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/mountains/decor/decoration_1"), 1),
 		       new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/mountains/decor/decoration_2"), 1),
@@ -228,7 +232,7 @@ public class VillageMountainsPools
 		       new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/mountains/decor/decoration_6"), 1),
 		       new Pair<>(StructurePoolElement.method_30421(ConfiguredFeatures.SPRUCE), 1),
 		       new Pair<>(StructurePoolElement.method_30421(ConfiguredFeatures.FLOWER_DEFAULT), 1),
-		       new Pair<>(StructurePoolElement.method_30421(Feature.BLOCK_PILE.configure(RSFeatures.COBBLESTONE_PILE_CONFIG)), 1),
+		       new Pair<>(StructurePoolElement.method_30421(Feature.BLOCK_PILE.configure(COBBLESTONE_PILE_CONFIG)), 1),
 		       Pair.of(StructurePoolElement.method_30438(), 2)),
 	       StructurePool.Projection.RIGID));
       
@@ -243,7 +247,7 @@ public class VillageMountainsPools
 		       new Pair<>(StructurePoolElement.method_30425(RepurposedStructures.MODID+":village/mountains/decor/decoration_6"), 1),
 		       new Pair<>(StructurePoolElement.method_30421(ConfiguredFeatures.SPRUCE), 2),
 		       new Pair<>(StructurePoolElement.method_30421(ConfiguredFeatures.FLOWER_DEFAULT), 2),
-		       new Pair<>(StructurePoolElement.method_30421(Feature.BLOCK_PILE.configure(RSFeatures.COBBLESTONE_PILE_CONFIG)), 2),
+		       new Pair<>(StructurePoolElement.method_30421(Feature.BLOCK_PILE.configure(COBBLESTONE_PILE_CONFIG)), 2),
 		       Pair.of(StructurePoolElement.method_30438(), 2)),
 	       StructurePool.Projection.RIGID));
 
