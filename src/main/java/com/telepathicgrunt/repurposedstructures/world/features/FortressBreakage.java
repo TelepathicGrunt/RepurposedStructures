@@ -8,7 +8,7 @@ import net.minecraft.block.Material;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkSectionPos;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.ServerWorldAccess;
+import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
@@ -41,9 +41,9 @@ public class FortressBreakage extends Feature<DefaultFeatureConfig> {
     };
 
     @Override
-    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
+    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
         if (FORTRESS_BLOCKS.test(world.getBlockState(position.down())) &&
-            structureAccessor.getStructuresWithChildren(ChunkSectionPos.from(position), RSFeatures.JUNGLE_FORTRESS).findAny().isPresent())
+            world.getStructures(ChunkSectionPos.from(position), RSFeatures.JUNGLE_FORTRESS).findAny().isPresent())
         {
             if(random.nextBoolean())
                 position = position.down();

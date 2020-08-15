@@ -8,7 +8,7 @@ import net.minecraft.structure.Structure;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.world.ServerWorldAccess;
+import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
@@ -25,7 +25,7 @@ public class WellSnow extends WellAbstract {
         super(config);
     }
 
-    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
+    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
         // move to top land block below position
         BlockPos.Mutable mutable = new BlockPos.Mutable().set(position);
         for (mutable.move(Direction.UP); world.isAir(mutable) && mutable.getY() > 2; ) {
@@ -34,7 +34,7 @@ public class WellSnow extends WellAbstract {
 
         // check to make sure spot is valid and not a single block ledge
         BlockState block = world.getBlockState(mutable);
-        if ((block.isOf(Blocks.SNOW_BLOCK) || isDirt(block.getBlock())) && (!world.isAir(mutable.down()) || !world.isAir(mutable.down(2)))) {
+        if ((block.isOf(Blocks.SNOW_BLOCK) || isSoil(block.getBlock())) && (!world.isAir(mutable.down()) || !world.isAir(mutable.down(2)))) {
             // Creates the well centered on our spot
             mutable.move(Direction.DOWN);
             Structure template = this.generateTemplate(SNOW_WELL_RL, world, random, mutable);

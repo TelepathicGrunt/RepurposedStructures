@@ -14,7 +14,7 @@ import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.world.ServerWorldAccess;
+import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
@@ -34,7 +34,7 @@ public class WellNether extends WellAbstract {
         super(config);
     }
 
-    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
+    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
         // move to top land block below position
         BlockPos.Mutable mutable = new BlockPos.Mutable().set(position);
         for (mutable.move(Direction.UP); mutable.getY() > 32;) {
@@ -53,8 +53,8 @@ public class WellNether extends WellAbstract {
                     blockState.getMaterial() == Material.AGGREGATE ||
                     blockState.getMaterial() == Material.STONE ||
                     blockState.getMaterial() == Material.SOIL ||
-                    (world.getBiome(mutable).getSurfaceConfig().getTopMaterial() != null &&
-                     blockState.isOf(world.getBiome(mutable).getSurfaceConfig().getTopMaterial().getBlock()))) &&
+                    (world.getBiome(mutable).getGenerationSettings().getSurfaceConfig().getTopMaterial() != null &&
+                     blockState.isOf(world.getBiome(mutable).getGenerationSettings().getSurfaceConfig().getTopMaterial().getBlock()))) &&
                     !world.isAir(mutable.down()) &&
                     world.isAir(mutable.up(3)) &&
                     !world.isAir(mutable.north(2).down()) &&
@@ -79,9 +79,9 @@ public class WellNether extends WellAbstract {
     }
 
 
-    protected void handleDataBlocks(Identifier templateOresRL, Structure template, ServerWorldAccess world, Random random, BlockPos position, Block defaultBlock, float oreChance) {
+    protected void handleDataBlocks(Identifier templateOresRL, Structure template, StructureWorldAccess world, Random random, BlockPos position, Block defaultBlock, float oreChance) {
         // Replace the Data blocks with ores or bells
-        Tag<Block> ORE_TAG = BlockTags.getContainer().getOrCreate(templateOresRL);
+        Tag<Block> ORE_TAG = BlockTags.getTagGroup().getTagOrEmpty(templateOresRL);
         Collection<Block> allOreBlocks = ORE_TAG.values();
         BlockPos offset = new BlockPos(-template.getSize().getX() / 2, 0, -template.getSize().getZ() / 2);
         for (StructureBlockInfo template$blockinfo : template.getInfosForBlock(position.add(offset), placementsettings, Blocks.STRUCTURE_BLOCK)) {
@@ -100,7 +100,7 @@ public class WellNether extends WellAbstract {
     /**
      * Replaces the "ores" data block with blocks specified in the ore tag.
      */
-    protected static void addOres(String function, BlockPos position, ServerWorldAccess world, Random random, Collection<Block> allOreBlocks, Block defaultBlock, float oreChance) {
+    protected static void addOres(String function, BlockPos position, StructureWorldAccess world, Random random, Collection<Block> allOreBlocks, Block defaultBlock, float oreChance) {
         if (function.equals("ores")) {
             float chance = random.nextFloat();
             if (!allOreBlocks.isEmpty() && chance < RARE_ORE_CHANCE) {
@@ -116,7 +116,7 @@ public class WellNether extends WellAbstract {
     /**
      * sets 'space' data blocks to air or lava based on sea level so terrain blocks wont be placed weirdly inside well The space will be done in a + shape centered on the data block
      */
-    protected static void addSpace(String function, BlockPos position, ServerWorldAccess world) {
+    protected static void addSpace(String function, BlockPos position, StructureWorldAccess world) {
         if (function.equals("space")) {
             BlockState blockstate;
             if (position.getY() < 32) {

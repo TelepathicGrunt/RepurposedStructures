@@ -8,6 +8,12 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.1.5.0 Changes) (1.16.2 Minecraft)
+
+##### Major:
+
+-Ported to 1.16.2 Minecraft and had to change a lot of backend stuff. Please report any bug!
+
 ## (V.1.4.5 Changes) (1.16.1 Minecraft)
 
 ##### Dungeons:

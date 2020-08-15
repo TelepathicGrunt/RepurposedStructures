@@ -32,21 +32,43 @@ dependencies {
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-	modImplementation "me.shedaniel.cloth:config-2:${project.cloth_config_version}"
-	include "me.shedaniel.cloth:config-2:${project.cloth_config_version}"
+	modCompile "net.fabricmc.fabric-api:fabric-api:0.17.2+build.396-1.16"
 
-	modImplementation "me.sargunvohra.mcmods:autoconfig1u:${project.auto_config_version}"
-    include "me.sargunvohra.mcmods:autoconfig1u:${project.auto_config_version}"
+	modImplementation("me.shedaniel.cloth:config-2:${project.cloth_config_version}"){
+		exclude module: 'fabric-api'
+	}
+	include("me.shedaniel.cloth:config-2:${project.cloth_config_version}"){
+		exclude module: 'fabric-api'
+	}
 
-	modImplementation "net.earthcomputer:libstructure:${project.libstructure_version}"
-	include "net.earthcomputer:libstructure:${project.libstructure_version}"
+	modImplementation("me.sargunvohra.mcmods:autoconfig1u:${project.auto_config_version}"){
+		exclude module: 'fabric-api'
+	}
+	include("me.sargunvohra.mcmods:autoconfig1u:${project.auto_config_version}"){
+		exclude module: 'fabric-api'
+	}
 
-    // not required, but we want to see our config screen
-	modImplementation "io.github.prospector:modmenu:${project.mod_menu_version}"
+	modImplementation("net.earthcomputer:libstructure:${project.libstructure_version}"){
+		exclude module: 'fabric-api'
+	}
+	include("net.earthcomputer:libstructure:${project.libstructure_version}"){
+		exclude module: 'fabric-api'
+	}
 
-	modCompile 'com.github.Draylar:angerable-patch:1.0.0'
-	include 'com.github.Draylar:angerable-patch:1.0.0'
+	// not required, but we want to see our config screen
+	modImplementation("io.github.prospector:modmenu:${project.mod_menu_version}"){
+		exclude module: 'fabric-api'
+	}
+	include("io.github.prospector:modmenu:${project.mod_menu_version}"){
+		exclude module: 'fabric-api'
+	}
 
+	modCompile('com.github.Draylar:angerable-patch:1.0.0'){
+		exclude module: 'fabric-api'
+	}
+	include('com.github.Draylar:angerable-patch:1.0.0'){
+		exclude module: 'fabric-api'
+	}
 }
 
 if (project.use_third_party_mods) {

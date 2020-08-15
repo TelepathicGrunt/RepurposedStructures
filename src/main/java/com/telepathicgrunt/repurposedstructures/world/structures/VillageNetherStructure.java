@@ -11,11 +11,13 @@ import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.registry.DynamicRegistryManager;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.source.BiomeSource;
 import net.minecraft.world.gen.ChunkRandom;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
+import net.minecraft.world.gen.chunk.StructureConfig;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
@@ -27,19 +29,30 @@ public class VillageNetherStructure extends VillageBaseStructure {
 
     @Override
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig defaultFeatureConfig) {
+        StructureConfig warpedOutpostConfig = chunkGenerator.getConfig().getForType(RSFeatures.WARPED_OUTPOST);
+        StructureConfig crimsonOutpostConfig = chunkGenerator.getConfig().getForType(RSFeatures.CRIMSON_OUTPOST);
+        StructureConfig netherBrickOutpostConfig = chunkGenerator.getConfig().getForType(RSFeatures.NETHER_BRICK_OUTPOST);
+
         for (int curChunkX = chunkX - 10; curChunkX <= chunkX + 10; curChunkX++) {
             for (int curChunkZ = chunkZ - 10; curChunkZ <= chunkZ + 10; curChunkZ++) {
-                ChunkPos chunkPos2 = RSFeatures.WARPED_OUTPOST.method_27218(chunkGenerator.getConfig().method_28600(RSFeatures.WARPED_OUTPOST), seed, chunkRandom, curChunkX, curChunkZ);
-                if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
-                    return false;
+                ChunkPos chunkPos2;
+                if(warpedOutpostConfig != null){
+                    chunkPos2 = RSFeatures.WARPED_OUTPOST.getStartChunk(warpedOutpostConfig, seed, chunkRandom, curChunkX, curChunkZ);
+                    if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
+                        return false;
+                    }
                 }
-                chunkPos2 = RSFeatures.CRIMSON_OUTPOST.method_27218(chunkGenerator.getConfig().method_28600(RSFeatures.CRIMSON_OUTPOST), seed, chunkRandom, curChunkX, curChunkZ);
-                if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
-                    return false;
+                if(warpedOutpostConfig != null){
+                    chunkPos2 = RSFeatures.CRIMSON_OUTPOST.getStartChunk(crimsonOutpostConfig, seed, chunkRandom, curChunkX, curChunkZ);
+                    if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
+                        return false;
+                    }
                 }
-                chunkPos2 = RSFeatures.NETHER_BRICK_OUTPOST.method_27218(chunkGenerator.getConfig().method_28600(RSFeatures.NETHER_BRICK_OUTPOST), seed, chunkRandom, curChunkX, curChunkZ);
-                if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
-                    return false;
+                if(warpedOutpostConfig != null){
+                    chunkPos2 = RSFeatures.NETHER_BRICK_OUTPOST.getStartChunk(netherBrickOutpostConfig, seed, chunkRandom, curChunkX, curChunkZ);
+                    if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
+                        return false;
+                    }
                 }
             }
         }
@@ -56,8 +69,8 @@ public class VillageNetherStructure extends VillageBaseStructure {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
         }
 
-        public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
-            super.init(chunkGenerator, structureManager, chunkX, chunkZ, biome, defaultFeatureConfig);
+        public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
+            super.init(dynamicRegistryManager, chunkGenerator, structureManager, chunkX, chunkZ, biome, defaultFeatureConfig);
 
             BlockPos lowestLandPos = getHighestLand(chunkGenerator, this.boundingBox);
             if (lowestLandPos.getY() >= 108 || lowestLandPos.getY() <= 33) {

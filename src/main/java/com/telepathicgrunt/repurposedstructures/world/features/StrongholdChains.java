@@ -8,7 +8,7 @@ import net.minecraft.block.LanternBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkSectionPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.world.ServerWorldAccess;
+import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
@@ -53,10 +53,10 @@ public class StrongholdChains extends Feature<DefaultFeatureConfig> {
     };
 
     @Override
-    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
+    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
         if (!world.isAir(position) ||
-                (!structureAccessor.getStructuresWithChildren(ChunkSectionPos.from(position), RSFeatures.STONEBRICK_STRONGHOLD).findAny().isPresent() &&
-                 !structureAccessor.getStructuresWithChildren(ChunkSectionPos.from(position), RSFeatures.NETHER_STRONGHOLD).findAny().isPresent()))
+                (!world.getStructures(ChunkSectionPos.from(position), RSFeatures.STONEBRICK_STRONGHOLD).findAny().isPresent() &&
+                 !world.getStructures(ChunkSectionPos.from(position), RSFeatures.NETHER_STRONGHOLD).findAny().isPresent()))
         {
            return false;
         }

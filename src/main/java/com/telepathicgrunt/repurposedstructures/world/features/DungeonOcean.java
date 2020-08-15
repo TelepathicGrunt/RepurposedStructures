@@ -17,7 +17,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.Heightmap;
-import net.minecraft.world.ServerWorldAccess;
+import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.gen.StructureAccessor;
@@ -27,6 +27,7 @@ import net.minecraft.world.gen.feature.Feature;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.Objects;
 import java.util.Random;
 
 
@@ -55,7 +56,7 @@ public class DungeonOcean extends Feature<DefaultFeatureConfig> {
     // only the mob spawner chance and what blocks the wall cannot replace was changed. Everything else is just the normal dungeon code.
 
     @Override
-    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
+    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
         int randXRange = random.nextInt(2) + 2;
         int xMin = -randXRange - 1;
         int xMax = randXRange + 1;
@@ -249,7 +250,7 @@ public class DungeonOcean extends Feature<DefaultFeatureConfig> {
             if (tileentity instanceof MobSpawnerBlockEntity) {
                 ((MobSpawnerBlockEntity) tileentity).getLogic().setEntityId(pickMobSpawner(world, random, blockpos$Mutable));
             } else {
-                LOGGER.error("Failed to fetch mob spawner entity at ({}, {}, {})", new Object[]{Integer.valueOf(blockpos$Mutable.getX()), Integer.valueOf(blockpos$Mutable.getY()), Integer.valueOf(blockpos$Mutable.getZ())});
+                LOGGER.error("Failed to fetch mob spawner entity at ({}, {}, {})", new Object[]{blockpos$Mutable.getX(), blockpos$Mutable.getY(), blockpos$Mutable.getZ()});
             }
 
 
@@ -285,12 +286,12 @@ public class DungeonOcean extends Feature<DefaultFeatureConfig> {
     /**
      * Randomly decides which spawner to use in a dungeon
      */
-    private static EntityType<?> pickMobSpawner(ServerWorldAccess world, Random random, BlockPos position) {
+    private static EntityType<?> pickMobSpawner(StructureWorldAccess world, Random random, BlockPos position) {
         Biome biome = world.getBiome(position);
 
         // spot must be an ocean so we don't return wrong mob when a hot land biome borders a frozen ocean
         if (biome.getCategory() == Category.OCEAN) {
-            String biomeName = Registry.BIOME.getId(biome).getPath();
+            String biomeName = Objects.requireNonNull(world.getRegistryManager().get(Registry.BIOME_KEY).getId(biome)).getPath();
             float biomeTemp = biome.getTemperature();
 
             if (biomeTemp < 0.0 || biomeName.contains("frozen") || biomeName.contains("snow") || biomeName.contains("ice")) {

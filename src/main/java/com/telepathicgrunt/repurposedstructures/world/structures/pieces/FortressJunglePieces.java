@@ -18,7 +18,7 @@ import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.world.ServerWorldAccess;
+import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 
@@ -113,7 +113,7 @@ public class FortressJunglePieces {
 
 
         @Override
-        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
             this.fillWithRandomBlocks(world, boundingBox, 0, 0, 0, 4, 1, 4, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 0, 2, 0, 4, 5, 4, Blocks.CAVE_AIR.getDefaultState(), Blocks.CAVE_AIR.getDefaultState(), false, random);
             BlockState iblockstate = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.WEST, true).with(HorizontalConnectingBlock.EAST, true), random);
@@ -179,7 +179,7 @@ public class FortressJunglePieces {
 
 
         @Override
-        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
             this.fillWithRandomBlocks(world, boundingBox, 0, 0, 0, 4, 1, 4, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 0, 2, 0, 4, 5, 4, Blocks.CAVE_AIR.getDefaultState(), Blocks.CAVE_AIR.getDefaultState(), false, random);
             BlockState iblockstate = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState(), random).with(HorizontalConnectingBlock.WEST, true).with(HorizontalConnectingBlock.EAST, true);
@@ -235,7 +235,7 @@ public class FortressJunglePieces {
 
 
         @Override
-        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
             BlockState iblockstate = getStoneVariantBlockState(Blocks.NETHER_BRICK_STAIRS.getDefaultState().with(StairsBlock.FACING, Direction.SOUTH), random);
             BlockState iblockstate1 = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, true).with(HorizontalConnectingBlock.SOUTH, true), random);
 
@@ -304,7 +304,7 @@ public class FortressJunglePieces {
 
 
         @Override
-        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
             BlockState iblockstate = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, true).with(HorizontalConnectingBlock.SOUTH, true), random);
             BlockState iblockstate1 = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.WEST, true).with(HorizontalConnectingBlock.EAST, true), random);
             this.fillWithRandomBlocks(world, boundingBox, 0, 0, 0, 8, 1, 8, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
@@ -366,7 +366,7 @@ public class FortressJunglePieces {
 
 
         @Override
-        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
             this.fillWithRandomBlocks(world, boundingBox, 0, 0, 0, 4, 1, 4, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 0, 2, 0, 4, 5, 4, Blocks.CAVE_AIR.getDefaultState(), Blocks.CAVE_AIR.getDefaultState(), false, random);
             BlockState iblockstate = getStoneVariantBlockState(Blocks.NETHER_BRICK_FENCE.getDefaultState().with(HorizontalConnectingBlock.NORTH, true).with(HorizontalConnectingBlock.SOUTH, true), random);
@@ -417,7 +417,7 @@ public class FortressJunglePieces {
 
 
         @Override
-        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
             this.fillWithRandomBlocks(world, boundingBox, 0, 0, 0, 6, 1, 6, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 0, 2, 0, 6, 7, 6, Blocks.CAVE_AIR.getDefaultState(), Blocks.CAVE_AIR.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 0, 2, 0, 1, 6, 0, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
@@ -478,7 +478,7 @@ public class FortressJunglePieces {
 
 
         @Override
-        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
             this.fillWithRandomBlocks(world, boundingBox, 0, 0, 0, 4, 1, 4, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 0, 2, 0, 4, 5, 4, Blocks.CAVE_AIR.getDefaultState(), Blocks.CAVE_AIR.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 0, 2, 0, 0, 5, 0, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
@@ -544,7 +544,7 @@ public class FortressJunglePieces {
 
 
         @Override
-        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
             this.fillWithRandomBlocks(world, boundingBox, 7, 3, 0, 11, 4, 18, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 0, 3, 7, 18, 4, 11, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 8, 5, 0, 10, 7, 18, Blocks.CAVE_AIR.getDefaultState(), Blocks.CAVE_AIR.getDefaultState(), false, random);
@@ -621,7 +621,7 @@ public class FortressJunglePieces {
 
 
         @Override
-        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
             Random seededRandom = new Random(this.fillSeed);
 
             for (int i = 0; i <= 4; ++i) {
@@ -679,7 +679,7 @@ public class FortressJunglePieces {
 
 
         @Override
-        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
             this.fillWithRandomBlocks(world, boundingBox, 0, 3, 0, 12, 4, 12, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 0, 5, 0, 12, 13, 12, Blocks.CAVE_AIR.getDefaultState(), Blocks.CAVE_AIR.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 0, 5, 0, 1, 12, 12, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
@@ -787,7 +787,7 @@ public class FortressJunglePieces {
 
 
         @Override
-        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
             this.fillWithRandomBlocks(world, boundingBox, 0, 3, 0, 12, 4, 12, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 0, 5, 0, 12, 13, 12, Blocks.CAVE_AIR.getDefaultState(), Blocks.CAVE_AIR.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 0, 5, 0, 1, 12, 12, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
@@ -876,7 +876,7 @@ public class FortressJunglePieces {
             this.fillWithRandomBlocks(world, boundingBox, 3, 4, 4, 4, 4, 8, Blocks.SOUL_SAND.getDefaultState(), Blocks.SOUL_SAND.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 8, 4, 4, 9, 4, 8, Blocks.SOUL_SAND.getDefaultState(), Blocks.SOUL_SAND.getDefaultState(), false, random);
 
-            if(this.applyYTransform(5) >= world.getWorld().getSeaLevel()){
+            if(this.applyYTransform(5) >= world.toServerWorld().getSeaLevel()){
                 this.fillWithRandomBlocks(world, boundingBox, 3, 5, 4, 4, 5, 8, Blocks.NETHER_WART.getDefaultState(), Blocks.NETHER_WART.getDefaultState(), false, random);
                 this.fillWithRandomBlocks(world, boundingBox, 8, 5, 4, 9, 5, 8, Blocks.NETHER_WART.getDefaultState(), Blocks.NETHER_WART.getDefaultState(), false, random);
             }
@@ -1121,7 +1121,7 @@ public class FortressJunglePieces {
                 }
             }
             else if (blockstateIn.isOf(Blocks.SOUL_SAND)) {
-                Tag<Block> ORE_TAG = BlockTags.getContainer().getOrCreate(JF_SOIL_TAG_RL);
+                Tag<Block> ORE_TAG = BlockTags.getTagGroup().getTagOrEmpty(JF_SOIL_TAG_RL);
                 Collection<Block> allSoilBlocks = ORE_TAG.values();
                 BlockState soilBlock = null;
 
@@ -1134,7 +1134,7 @@ public class FortressJunglePieces {
                 return soilBlock != null ? soilBlock : Blocks.COARSE_DIRT.getDefaultState();
             }
             else if (blockstateIn.isOf(Blocks.NETHER_WART)) {
-                Tag<Block> ORE_TAG = BlockTags.getContainer().getOrCreate(JF_PLANT_TAG_RL);
+                Tag<Block> ORE_TAG = BlockTags.getTagGroup().getTagOrEmpty(JF_PLANT_TAG_RL);
                 Collection<Block> allPlantBlocks = ORE_TAG.values();
                 float chance = rand.nextFloat();
 
@@ -1171,7 +1171,7 @@ public class FortressJunglePieces {
         /**
          * Fill the given area with the selected random blocks
          */
-        protected void fillWithRandomBlocks(ServerWorldAccess world, BlockBox boundingboxIn, int xMin, int yMin, int zMin, int xMax, int yMax, int zMax, BlockState boundaryBlockState, BlockState insideBlockState, boolean existingOnly, Random rand) {
+        protected void fillWithRandomBlocks(StructureWorldAccess world, BlockBox boundingboxIn, int xMin, int yMin, int zMin, int xMax, int yMax, int zMax, BlockState boundaryBlockState, BlockState insideBlockState, boolean existingOnly, Random rand) {
             for (int y = yMin; y <= yMax; ++y) {
                 for (int x = xMin; x <= xMax; ++x) {
                     for (int z = zMin; z <= zMax; ++z) {
@@ -1188,7 +1188,7 @@ public class FortressJunglePieces {
 
         }
 
-        protected void fillWithWater(ServerWorldAccess world, BlockBox boundingboxIn, int xMin, int yMin, int zMin, int xMax, int yMax, int zMax) {
+        protected void fillWithWater(StructureWorldAccess world, BlockBox boundingboxIn, int xMin, int yMin, int zMin, int xMax, int yMax, int zMax) {
             BlockPos.Mutable blockPos;
 
             for (int y = yMin; y <= yMax; ++y) {
@@ -1215,7 +1215,7 @@ public class FortressJunglePieces {
         /**
          * Replaces air and liquid from given position downwards. Stops when hitting anything else than air or liquid
          */
-        protected void replaceAirAndLiquidDownwardsRandomBlocks(ServerWorldAccess world, BlockState blockstateIn, int x, int y, int z, BlockBox boundingboxIn, Random rand) {
+        protected void replaceAirAndLiquidDownwardsRandomBlocks(StructureWorldAccess world, BlockState blockstateIn, int x, int y, int z, BlockBox boundingboxIn, Random rand) {
             int i = this.applyXTransform(x, z);
             int j = this.applyYTransform(y);
             int k = this.applyZTransform(x, z);
@@ -1286,7 +1286,7 @@ public class FortressJunglePieces {
 
 
         @Override
-        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
             this.fillWithRandomBlocks(world, boundingBox, 0, 0, 0, 6, 1, 6, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 0, 2, 0, 6, 10, 6, Blocks.CAVE_AIR.getDefaultState(), Blocks.CAVE_AIR.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 0, 2, 0, 1, 8, 0, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
@@ -1376,7 +1376,7 @@ public class FortressJunglePieces {
 
 
         @Override
-        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
             this.fillWithRandomBlocks(world, boundingBox, 0, 3, 0, 4, 4, 18, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 1, 5, 0, 3, 7, 18, Blocks.CAVE_AIR.getDefaultState(), Blocks.CAVE_AIR.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 0, 5, 0, 0, 5, 18, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
@@ -1444,7 +1444,7 @@ public class FortressJunglePieces {
 
 
         @Override
-        public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
             this.fillWithRandomBlocks(world, boundingBox, 0, 2, 0, 6, 7, 7, Blocks.CAVE_AIR.getDefaultState(), Blocks.CAVE_AIR.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 1, 0, 0, 5, 1, 7, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);
             this.fillWithRandomBlocks(world, boundingBox, 1, 2, 1, 5, 2, 7, Blocks.NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICKS.getDefaultState(), false, random);

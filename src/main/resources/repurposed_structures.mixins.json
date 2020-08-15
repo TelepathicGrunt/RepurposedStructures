@@ -4,14 +4,17 @@
   "package": "com.telepathicgrunt.repurposedstructures.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "BiomeStructureAccessor",
+    "BootstrapMixin",
     "DungeonFeatureAccessor",
     "EnderEyeStrongholdLocatingMixin",
+    "GenerationSettingsAccessor",
+    "MinecraftServerMixin",
     "NoVillageLakesMixin",
     "ServerResourceManagerMixin",
     "StrongholdGeneratorAccessor",
     "StructureMobSpawningMixin",
-    "StructurePieceAccessor"
+    "StructurePieceAccessor",
+    "StructureProcessorListAccessor"
   ],
   "client": [
   ],

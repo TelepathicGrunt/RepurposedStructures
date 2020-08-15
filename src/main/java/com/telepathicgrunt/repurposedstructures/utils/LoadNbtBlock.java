@@ -9,6 +9,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
@@ -35,6 +36,8 @@ public class LoadNbtBlock extends Block {
     }
 
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        if(!(world instanceof ServerWorld)) return ActionResult.PASS;
+
         String mainPath = "C:\\Users\\MSI Laptop\\Documents\\ModdingWorkspace\\RepurposedStructures-Fabric";
         String resourcePath = mainPath+"\\src\\main\\resources\\data";
 
@@ -49,7 +52,7 @@ public class LoadNbtBlock extends Block {
 
         // Size of area we will need
         int rowCount = (int) Math.ceil(identifiers.size());
-        int columnCount = 1;
+        int columnCount = 2;
         BlockPos bounds = new BlockPos(32 * (rowCount+2), 32, 32 * columnCount);
 
         // Fill/clear area with structure void
@@ -82,8 +85,8 @@ public class LoadNbtBlock extends Block {
                 structureBlockBlockEntity.setStructureName(identifiers.get(pieceIndex-1)); // set identifier
 
                 structureBlockBlockEntity.setMode(StructureBlockMode.LOAD);
-                structureBlockBlockEntity.loadStructure(false); // prepare area
-                structureBlockBlockEntity.loadStructure(true); // load structure
+                structureBlockBlockEntity.loadStructure((ServerWorld) world, false); // prepare area
+                structureBlockBlockEntity.loadStructure((ServerWorld) world,true); // load structure
 
                 structureBlockBlockEntity.setStructureName(new Identifier(identifiers.get(pieceIndex-1).toString().replace("village/", ""))); // set identifier
                 structureBlockBlockEntity.setMode(StructureBlockMode.SAVE);

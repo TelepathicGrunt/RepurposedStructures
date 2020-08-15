@@ -6,6 +6,7 @@ import net.minecraft.world.Heightmap;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.decorator.Decorator;
+import net.minecraft.world.gen.decorator.DecoratorContext;
 import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
 
 import java.util.Objects;
@@ -18,13 +19,11 @@ public class RSVinePlacement extends Decorator<RangeDecoratorConfig> {
         super(config);
     }
 
-
-    public Stream<BlockPos> getPositions(WorldAccess world, ChunkGenerator generator, Random random, RangeDecoratorConfig config, BlockPos pos) {
-        return IntStream.range(0, config.count).mapToObj((i) -> {
-            int x = random.nextInt(16) + pos.getX();
-            int z = random.nextInt(16) + pos.getZ();
-            int y = world.getTopY(Heightmap.Type.MOTION_BLOCKING, x, z);
-            return y <= 0 ? null : new BlockPos(x, y + config.topOffset - random.nextInt(config.maximum), z);
-        }).filter(Objects::nonNull);
+    @Override
+    public Stream<BlockPos> getPositions(DecoratorContext context, Random random, RangeDecoratorConfig config, BlockPos pos) {
+        int x = random.nextInt(16) + pos.getX();
+        int z = random.nextInt(16) + pos.getZ();
+        int y = context.getTopY(Heightmap.Type.MOTION_BLOCKING, x, z);
+        return y <= 0 ? Stream.empty() : Stream.of(new BlockPos(x, y + config.topOffset - random.nextInt(config.maximum), z));
     }
 }
