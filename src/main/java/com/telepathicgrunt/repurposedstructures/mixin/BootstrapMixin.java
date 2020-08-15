@@ -3,7 +3,9 @@ package com.telepathicgrunt.repurposedstructures.mixin;
 import com.mojang.authlib.GameProfileRepository;
 import com.mojang.authlib.minecraft.MinecraftSessionService;
 import com.mojang.datafixers.DataFixer;
+import com.telepathicgrunt.repurposedstructures.RSFeatures;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.world.placements.RSPlacements;
 import net.minecraft.Bootstrap;
 import net.minecraft.resource.ResourcePackManager;
 import net.minecraft.resource.ServerResourceManager;
@@ -30,14 +32,13 @@ import java.util.function.Supplier;
 
 
 @Mixin(Bootstrap.class)
-public class StructurePoolsMixin {
+public class BootstrapMixin {
 
     @Inject(
             method = "initialize",
             at = @At(value = "TAIL")
     )
     private static void earlyRegister(CallbackInfo ci) {
-        //register all structure pools to builtinregistry as all worlds pull pools from there
-        RepurposedStructures.registerStructurePools();
+        RepurposedStructures.initialize();
     }
 }

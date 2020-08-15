@@ -36,13 +36,18 @@ public class RepurposedStructures implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        //LoadNbtBlock.instantiateNbtBlock();
+    }
+
+    public static void initialize() {
         AutoConfig.register(RSAllConfig.class, Toml4jConfigSerializer::new);
         RSAllConfig = AutoConfig.getConfigHolder(RSAllConfig.class).getConfig();
 
-        RSPlacements.registerPlacements();
-        RSFeatures.registerFeatures();
         ServerStartCallback.EVENT.register(minecraftServer -> VillagerTrades.addMapTrades());
 
+        RepurposedStructures.registerStructurePools();
+        RSPlacements.registerPlacements();
+        RSFeatures.registerFeatures();
         //LoadNbtBlock.instantiateNbtBlock();
     }
 
