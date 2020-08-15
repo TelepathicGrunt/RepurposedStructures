@@ -8,6 +8,26 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.1.5.0 Changes) (1.16.2 Minecraft)
+
+##### Major:
+
+-Ported to 1.16.2 Minecraft and had to change a lot of backend stuff. Please report any bug!
+
+## (V.1.4.5 Changes) (1.16.1 Minecraft)
+
+##### Dungeons:
+
+-Fixed crash on servers due to me accidentally using a clientsided method in the dungeon spawner code...
+
+## (V.1.4.4 Changes) (1.16.1 Minecraft)
+
+##### Dungeons:
+
+- Added a null check for if the game is unable to find rs_spawner json files. 
+  Will instead use vanilla's default mobs and write to the log about the error 
+  if it fails to read the json file instead of crashing.
+
 ## (V.1.4.3 Changes) (1.16.1 Minecraft)
 
 ##### Villages:

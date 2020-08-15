@@ -1,13 +1,14 @@
 <p><img src="https://i.imgur.com/lD8Pa6U.png" alt="Picture that shows the title of this mod with a Stonebrick Fortress during sunset behind the text" width="1519" height="516" /></p>
-<h2 style="text-align: center;"><strong><span style="font-size: 36px; color: #009611;">CURRENTLY FOR 1.16.1 MC</span></strong></h2>
+<h2 style="text-align: center;"><strong><span style="font-size: 36px; color: #009611;">CURRENTLY FOR 1.16.2 MC</span></strong></h2>
 <p style="text-align: center;"><span style="font-size: 14px;"><strong><span style="color: #009611;">Works serverside too so vanilla clients can connect!</span></strong></span></p>
 <h2 style="text-align: center;"><span style="font-size: 14px;"><strong><span style="color: #009611;">CLICK HERE FOR 1.16.1 FORGE VERSION:&nbsp;</span></strong></span></h2>
 <p style="text-align: center;"><span style="font-size: 14px;"><strong><span style="color: #009611;"><a href="https://www.curseforge.com/minecraft/mc-mods/repurposed-structures">https://www.curseforge.com/minecraft/mc-mods/repurposed-structures</a></span></strong></span></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>Fixed A TON of bugs!</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>Nether Stronghold re-themed!&nbsp;</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>With some blood, sweat,</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>and tears, 1.16.2 port is out!<br />Please report any bug as MC's</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>1.16.2 changes were cursed.</strong></b></span></em></p>
 <p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;"><span style="font-size: 18px;"><strong>______________________________________________________________________________</strong></span></p>
@@ -19,8 +20,7 @@
 <p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; Currently, this mod creates a Nether Fortresses using Stonebrick blocks and spawns it in Jungles, Dungeons and Mineshafts now has more variants to match whatever biome they are in, 9 new biome variants of Villages, 3 new temples variants, 2 new biome variants of Igloos, 3 Nether themed Pillager Outposts, End Shipwreck, Stonebrick and Nether Strongholds has a configurable size and has more Silverfish spawners, Giant Tree/Spruce Taiga Hills biomes has giant ore filled boulders that could have Diamond ore if you are extremely lucky, Taiga Mountain biomes now has tiny boulders, Swamps now has a new 2x2 swamp-like tree, and several new Desert Well variations were made for other biomes (Also, loot for Dungeons and Mineshafts are tailored to their variant as well so start exploring!)</strong></span></p>
 <p style="text-align: left;">&nbsp;</p>
 <p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; If you have trouble finding one of these structures, just start typing `<em>/locate repu</em>` into the chat and you should see my structures pop up! For example, typing `<em>/locate repurposed_structures:fortress_jungle</em>` will find the closest Jungle Fortress to your location. :) However, do note that due to a Vanilla limitation, the locate command can only find the themed Mineshafts if they are within 1600 blocks of you. All other structures can be found easily from anywhere!</strong></span></p>
-<p style="text-align: left;">&nbsp;</p>
-<p style="text-align: left;"><span style="font-size: 24px; color: #993300;"><em><strong>NOTE:&nbsp;The structures are not added to modded biomes by default. If you want them in modded biomes, go into the config and turn on add___ToModdedBiomes config options and then restart the game</strong></em></span></p>
+<p>&nbsp;</p>
 <p style="text-align: left;"><span style="font-size: 14px;">&nbsp;</span></p>
 <p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; You can use this mod in a modpack or download and modify the source code. It is all under LGPL (a license) so you can do whatever you want as long as you make your mod's codebase also open sourced. Also, be sure to check out the images page for several screenshots of what the world looks like!&nbsp;And also, the section below this one talks about how to configure everything as I want players to have the ability to change things to their preferences.</strong></span></p>
 <p style="text-align: left;">&nbsp;</p>
@@ -517,7 +517,7 @@
 <p><strong>Chest loot is not changed.</strong></p>
 <p><strong>Corridor Chests has a 33% chance of spawning.</strong></p>
 <p><strong>Storage rooms has 4 chests instead of 1 due to them not having much loot naturally.</strong></p>
-<p><strong>Silverfish spawners are added to storage room, the room with the pillar that holds 4 Torches and fountain room.</strong></p>
+<p><strong>Silverfish spawners are added to storage room, the room with the pillar that holds 4 Torches, and fountain room.</strong></p>
 </div>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
@@ -528,7 +528,7 @@
 <p><strong>Storage rooms has 4 chests instead of 1 due to them not having much loot naturally.</strong></p>
 <p><strong>The Silverfish spawner at the Portal Room is now a Blaze spawner.</strong></p>
 <p>&nbsp;</p>
-<p><strong>Extra spawners are added to storage room, the room with the pillar that holds 4 Torches and fountain room. </strong></p>
+<p><strong>Extra spawners are added to storage room, the room with the pillar that holds 4 Torches, and fountain room. </strong></p>
 <p><strong>The mob rates are the following:</strong></p>
 <p><strong>50% : Blaze<br />30% : Zoglin<br />20% : Zombiefied Piglin</strong></p>
 </div>
@@ -540,7 +540,7 @@
 <p>&nbsp;</p>
 <p><strong><b>Grassy Igloo has a Bed, Crafting Table, Furnace, and a Lantern.</b></strong></p>
 <p>&nbsp;</p>
-<p><strong><b>Stone Igloo has a Blast Furnace, Campfire, 1 Iron Ore, a Lantern, a Bed, and a Stone Pickaxe of Crafting Table.&nbsp;</b></strong></p>
+<p><strong><b>Stone Igloo has a Blast Furnace, Campfire, 1 Iron Ore, a Lantern, a Bed, and a Stone Pickaxe on Crafting Table.&nbsp;</b></strong></p>
 </div>
 <p>&nbsp;</p>
 <p><strong>Giant Boulder ore spawnrates</strong></p>
