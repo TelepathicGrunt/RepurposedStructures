@@ -10,8 +10,10 @@ import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MutableBoundingBox;
+import net.minecraft.util.registry.DynamicRegistries;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
@@ -23,12 +25,12 @@ import java.util.List;
 
 
 public class RSNetherStrongholdStructure extends StrongholdStructure {
-    private static final List<Biome.SpawnListEntry> MONSTER_SPAWNS =
-            Lists.newArrayList(new Biome.SpawnListEntry(EntityType.BLAZE, 10, 2, 3),
-                    new Biome.SpawnListEntry(EntityType.field_233592_ba_, 3, 4, 4),
-                    new Biome.SpawnListEntry(EntityType.WITHER_SKELETON, 10, 5, 5),
-                    new Biome.SpawnListEntry(EntityType.SKELETON, 2, 5, 5),
-                    new Biome.SpawnListEntry(EntityType.MAGMA_CUBE, 3, 4, 4));
+    private static final List<MobSpawnInfo.Spawners> MONSTER_SPAWNS =
+            Lists.newArrayList(new MobSpawnInfo.Spawners(EntityType.BLAZE, 10, 2, 3),
+                    new MobSpawnInfo.Spawners(EntityType.ZOMBIFIED_PIGLIN, 3, 4, 4),
+                    new MobSpawnInfo.Spawners(EntityType.WITHER_SKELETON, 10, 5, 5),
+                    new MobSpawnInfo.Spawners(EntityType.SKELETON, 2, 5, 5),
+                    new MobSpawnInfo.Spawners(EntityType.MAGMA_CUBE, 3, 4, 4));
 
     public RSNetherStrongholdStructure(Codec<NoFeatureConfig> config) {
         super(config);
@@ -50,7 +52,7 @@ public class RSNetherStrongholdStructure extends StrongholdStructure {
     }
 
     @Override
-    public List<Biome.SpawnListEntry> getSpawnList() {
+    public List<MobSpawnInfo.Spawners> getSpawnList() {
         return MONSTER_SPAWNS;
     }
 
@@ -61,7 +63,7 @@ public class RSNetherStrongholdStructure extends StrongholdStructure {
 
 
         @Override
-        public void init(ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
+        public void init(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
             RSStrongholdPieces.prepareStructurePieces();
             RSStrongholdPieces.EntranceStairs strongholdpieces$entrancestairs = new RSStrongholdPieces.EntranceStairs(this.rand, (chunkX << 4) + 2, (chunkZ << 4) + 2, RSStrongholdPieces.Type.NETHER);
             this.components.add(strongholdpieces$entrancestairs);

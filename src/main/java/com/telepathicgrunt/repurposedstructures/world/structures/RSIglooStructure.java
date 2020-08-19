@@ -7,6 +7,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
+import net.minecraft.util.registry.DynamicRegistries;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.IFeatureConfig;
@@ -17,8 +18,8 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
 
 
 public class RSIglooStructure extends AbstractBaseStructure {
-    private final ResourceLocation TOP_PIECE_RL;
 
+    private final ResourceLocation TOP_PIECE_RL;
     public RSIglooStructure(Codec<NoFeatureConfig> config, ResourceLocation topPieceRL) {
         super(config);
         TOP_PIECE_RL = topPieceRL;
@@ -35,7 +36,7 @@ public class RSIglooStructure extends AbstractBaseStructure {
         }
 
         @Override
-        public void init(ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
+        public void init(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
             int x = chunkX * 16;
             int z = chunkZ * 16;
             BlockPos blockpos = new BlockPos(x, 90, z);

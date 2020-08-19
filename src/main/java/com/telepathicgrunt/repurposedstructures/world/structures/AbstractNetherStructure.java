@@ -18,6 +18,8 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.MarginedStructureStart;
 import net.minecraft.world.gen.feature.structure.Structure;
 
+import java.util.Objects;
+
 
 public abstract class AbstractNetherStructure extends AbstractBaseStructure {
     public AbstractNetherStructure(Codec<NoFeatureConfig> config) {
@@ -29,15 +31,15 @@ public abstract class AbstractNetherStructure extends AbstractBaseStructure {
         if(this != RSFeatures.WARPED_OUTPOST && this != RSFeatures.CRIMSON_OUTPOST && this != RSFeatures.NETHER_BRICK_OUTPOST){
             for (int curChunkX = chunkX - 6; curChunkX <= chunkX + 6; curChunkX++) {
                 for (int curChunkZ = chunkZ - 6; curChunkZ <= chunkZ + 6; curChunkZ++) {
-                    ChunkPos chunkPos2 = RSFeatures.WARPED_OUTPOST.func_236392_a_(chunkGenerator.getConfig().func_236197_a_(RSFeatures.WARPED_OUTPOST), seed, chunkRandom, curChunkX, curChunkZ);
+                    ChunkPos chunkPos2 = RSFeatures.WARPED_OUTPOST.getStartChunk(Objects.requireNonNull(chunkGenerator.getStructuresConfig().getForType(RSFeatures.WARPED_OUTPOST)), seed, chunkRandom, curChunkX, curChunkZ);
                     if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
                         return false;
                     }
-                    chunkPos2 = RSFeatures.CRIMSON_OUTPOST.func_236392_a_(chunkGenerator.getConfig().func_236197_a_(RSFeatures.CRIMSON_OUTPOST), seed, chunkRandom, curChunkX, curChunkZ);
+                    chunkPos2 = RSFeatures.CRIMSON_OUTPOST.getStartChunk(Objects.requireNonNull(chunkGenerator.getStructuresConfig().getForType(RSFeatures.CRIMSON_OUTPOST)), seed, chunkRandom, curChunkX, curChunkZ);
                     if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
                         return false;
                     }
-                    chunkPos2 = RSFeatures.NETHER_BRICK_OUTPOST.func_236392_a_(chunkGenerator.getConfig().func_236197_a_(RSFeatures.NETHER_BRICK_OUTPOST), seed, chunkRandom, curChunkX, curChunkZ);
+                    chunkPos2 = RSFeatures.NETHER_BRICK_OUTPOST.getStartChunk(Objects.requireNonNull(chunkGenerator.getStructuresConfig().getForType(RSFeatures.NETHER_BRICK_OUTPOST)), seed, chunkRandom, curChunkX, curChunkZ);
                     if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
                         return false;
                     }
@@ -46,7 +48,7 @@ public abstract class AbstractNetherStructure extends AbstractBaseStructure {
         }
         for (int curChunkX = chunkX - 3; curChunkX <= chunkX + 3; curChunkX++) {
             for (int curChunkZ = chunkZ - 3; curChunkZ <= chunkZ + 3; curChunkZ++) {
-                ChunkPos chunkPos2 = RSFeatures.NETHER_PYRAMID.func_236392_a_(chunkGenerator.getConfig().func_236197_a_(RSFeatures.NETHER_PYRAMID), seed, chunkRandom, curChunkX, curChunkZ);
+                ChunkPos chunkPos2 = RSFeatures.NETHER_PYRAMID.getStartChunk(Objects.requireNonNull(chunkGenerator.getStructuresConfig().getForType(RSFeatures.NETHER_PYRAMID)), seed, chunkRandom, curChunkX, curChunkZ);
                 if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
                     return false;
                 }
@@ -107,10 +109,10 @@ public abstract class AbstractNetherStructure extends AbstractBaseStructure {
 
 
         private boolean isValidBlock(BlockState currentBlockstate){
-            return BlockTags.field_241278_aD_.contains(currentBlockstate.getBlock()) ||
+            return BlockTags.INFINIBURN_NETHER.contains(currentBlockstate.getBlock()) ||
                     BlockTags.VALID_SPAWN.contains(currentBlockstate.getBlock()) ||
                     BlockTags.SAND.contains(currentBlockstate.getBlock()) ||
-                    BlockTags.field_232873_an_.contains(currentBlockstate.getBlock()) ||
+                    BlockTags.NYLIUM.contains(currentBlockstate.getBlock()) ||
                     BlockTags.ICE.contains(currentBlockstate.getBlock()) ||
                     BlockTags.PLANKS.contains(currentBlockstate.getBlock()) ||
                     BlockTags.STONE_BRICKS.contains(currentBlockstate.getBlock()) ||

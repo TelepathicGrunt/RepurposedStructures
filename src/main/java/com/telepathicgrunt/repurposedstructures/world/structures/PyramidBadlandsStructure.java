@@ -1,7 +1,5 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
-import com.google.common.collect.ImmutableList;
-import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.GeneralJigsawGenerator;
@@ -11,38 +9,24 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
+import net.minecraft.util.registry.DynamicRegistries;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.jigsaw.JigsawManager;
-import net.minecraft.world.gen.feature.jigsaw.JigsawPattern;
-import net.minecraft.world.gen.feature.jigsaw.SingleJigsawPiece;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.StructurePiece;
 import net.minecraft.world.gen.feature.structure.StructureStart;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
-import java.util.ArrayList;
-
 
 public class PyramidBadlandsStructure extends Structure<NoFeatureConfig> {
 
-    private static boolean INITIALIZED_POOLS = false;
-    private static void initPools() {
-        JigsawManager.REGISTRY.register(
-                new JigsawPattern(new ResourceLocation(RepurposedStructures.MODID,"temples/pyramid_badlands"), new ResourceLocation("empty"), ImmutableList.of(Pair.of(
-                        new SingleJigsawPiece(RepurposedStructures.MODID+":temples/pyramid_badlands_body", new ArrayList<>()), 1)),
-                        JigsawPattern.PlacementBehaviour.RIGID));
-
-        JigsawManager.REGISTRY.register(
-                new JigsawPattern(new ResourceLocation(RepurposedStructures.MODID,"temples/pyramid_badlands_pit"), new ResourceLocation("empty"), ImmutableList.of(Pair.of(
-                        new SingleJigsawPiece(RepurposedStructures.MODID+":temples/pyramid_badlands_pit", new ArrayList<>()), 1)),
-                        JigsawPattern.PlacementBehaviour.RIGID));
-    }
-
+    private final ResourceLocation START_POOL;
     public PyramidBadlandsStructure(Codec<NoFeatureConfig> config) {
         super(config);
+        START_POOL = new ResourceLocation(RepurposedStructures.MODID + ":temples/pyramid_badlands");
     }
 
     @Override
@@ -50,21 +34,15 @@ public class PyramidBadlandsStructure extends Structure<NoFeatureConfig> {
         return PyramidBadlandsStructure.Start::new;
     }
 
-    public static class Start extends StructureStart<NoFeatureConfig> {
-        private static final ResourceLocation BADLANDS_PYRAMID_POOL = new ResourceLocation(RepurposedStructures.MODID,"temples/pyramid_badlands");
-
+    public class Start extends StructureStart<NoFeatureConfig> {
         public Start(Structure<NoFeatureConfig> structureIn, int chunkX, int chunkZ, MutableBoundingBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
         }
 
         @Override
-        public void init(ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
-            if(!INITIALIZED_POOLS){
-                initPools();
-                INITIALIZED_POOLS = true;
-            }
+        public void init(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
             BlockPos blockpos = new BlockPos(chunkX * 16, 62, chunkZ * 16);
-            GeneralJigsawGenerator.addPieces(chunkGenerator, structureManager, blockpos, this.components, this.rand, BADLANDS_PYRAMID_POOL, 1);
+            GeneralJigsawGenerator.addPieces(dynamicRegistryManager, chunkGenerator, structureManager, blockpos, this.components, this.rand, dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN).getOrDefault(START_POOL), 1);
             PyramidFloorPiece.func_207617_a(structureManager, blockpos, this.components.get(0).getRotation(), this.components, rand, Blocks.RED_SANDSTONE, NoFeatureConfig);
 
             //put the floor placing before the pit.

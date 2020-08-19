@@ -24,7 +24,6 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.IWorldGenerationBaseReader;
 import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.structure.StructureManager;
 import net.minecraft.world.gen.feature.template.Template;
 
 import java.util.*;
@@ -40,7 +39,7 @@ public class TreeSwampHorned extends Feature<BaseTreeFeatureConfig> {
     }
 
     @Override
-    public boolean generate(ISeedReader serverWorldAccess, StructureManager structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos blockPos, BaseTreeFeatureConfig BaseTreeFeatureConfig) {
+    public boolean generate(ISeedReader serverWorldAccess, ChunkGenerator chunkGenerator, Random random, BlockPos blockPos, BaseTreeFeatureConfig BaseTreeFeatureConfig) {
         Set<BlockPos> set = Sets.newHashSet();
         Set<BlockPos> set2 = Sets.newHashSet();
         Set<BlockPos> set3 = Sets.newHashSet();

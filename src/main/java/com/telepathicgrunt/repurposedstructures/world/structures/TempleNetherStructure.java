@@ -6,6 +6,8 @@ import com.telepathicgrunt.repurposedstructures.world.structures.pieces.TempleNe
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
+import net.minecraft.util.registry.DynamicRegistries;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
@@ -15,12 +17,12 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
 
 public class TempleNetherStructure extends Structure<NoFeatureConfig> {
 
-    private final ResourceLocation PIECE_RL;
+    private final ResourceLocation START_POOL;
     private static boolean INITIALIZED_POOLS = false;
 
     public TempleNetherStructure(Codec<NoFeatureConfig> config, ResourceLocation pieceRL) {
         super(config);
-        PIECE_RL = pieceRL;
+        START_POOL = pieceRL;
     }
 
     @Override
@@ -33,14 +35,14 @@ public class TempleNetherStructure extends Structure<NoFeatureConfig> {
             super(structureFeature, x, z, blockBox, referenceIn, seed);
         }
 
-        public void init(ChunkGenerator chunkGenerator, TemplateManager structureManager, int x, int z, Biome biome, NoFeatureConfig NoFeatureConfig) {
+        public void init(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int x, int z, Biome biome, NoFeatureConfig NoFeatureConfig) {
             if(!INITIALIZED_POOLS){
                 TempleNetherPools.initPools();
                 INITIALIZED_POOLS = true;
             }
 
             BlockPos blockPos = new BlockPos(x * 16, 35, z * 16);
-            GeneralJigsawGenerator.addPieces(chunkGenerator, structureManager, blockPos, this.components, this.rand, PIECE_RL, 1);
+            GeneralJigsawGenerator.addPieces(dynamicRegistryManager, chunkGenerator, structureManager, blockPos, this.components, this.rand, dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN).getOrDefault(START_POOL), 1);
             this.recalculateStructureSize();
 
             BlockPos lowestLandPos = getLowestLand(chunkGenerator);

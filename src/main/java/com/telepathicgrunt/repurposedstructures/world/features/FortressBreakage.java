@@ -13,7 +13,6 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.structure.StructureManager;
 
 import java.util.BitSet;
 import java.util.Random;
@@ -41,9 +40,9 @@ public class FortressBreakage extends Feature<NoFeatureConfig> {
     };
 
     @Override
-    public boolean generate(ISeedReader world, StructureManager structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
+    public boolean generate(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
         if (FORTRESS_BLOCKS.test(world.getBlockState(position.down())) &&
-            structureAccessor.getStructuresWithChildren(SectionPos.from(position), RSFeatures.JUNGLE_FORTRESS).findAny().isPresent())
+                world.getStructures(SectionPos.from(position), RSFeatures.JUNGLE_FORTRESS).findAny().isPresent())
         {
             if(random.nextBoolean())
                 position = position.down();

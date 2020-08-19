@@ -15,7 +15,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.structure.StructureManager;
 import net.minecraft.world.gen.feature.template.Template;
 
 import java.util.Collection;
@@ -33,7 +32,7 @@ public class WellNether extends WellAbstract {
         super(config);
     }
 
-    public boolean generate(ISeedReader world, StructureManager structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
+    public boolean generate(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
         // move to top land block below position
         BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(position);
         for (mutable.move(Direction.UP); mutable.getY() > 32;) {
@@ -46,14 +45,14 @@ public class WellNether extends WellAbstract {
             // check to make sure spot is valid and not a single block ledge
             BlockState blockState = world.getBlockState(mutable);
             Block block = blockState.getBlock();
-            if ((BlockTags.field_241278_aD_.contains(block) ||
+            if ((BlockTags.INFINIBURN_NETHER.contains(block) ||
                     BlockTags.VALID_SPAWN.contains(block) ||
                     BlockTags.WITHER_IMMUNE.contains(block) ||
                     blockState.getMaterial() == Material.SAND ||
                     blockState.getMaterial() == Material.ROCK ||
                     blockState.getMaterial() == Material.EARTH ||
-                    (world.getBiome(mutable).getSurfaceBuilderConfig().getTop() != null &&
-                     blockState.isIn(world.getBiome(mutable).getSurfaceBuilderConfig().getTop().getBlock()))) &&
+                    (world.getBiome(mutable).getGenerationSettings().getSurfaceConfig().getTop() != null &&
+                            blockState.isIn(world.getBiome(mutable).getGenerationSettings().getSurfaceConfig().getTop().getBlock()))) &&
                     !world.isAirBlock(mutable.down()) &&
                     world.isAirBlock(mutable.up(3)) &&
                     !world.isAirBlock(mutable.north(2).down()) &&
@@ -80,7 +79,7 @@ public class WellNether extends WellAbstract {
 
     protected void handleDataBlocks(ResourceLocation templateOresRL, Template template, ISeedReader world, Random random, BlockPos position, Block defaultBlock, float oreChance) {
         // Replace the Data blocks with ores or bells
-        ITag<Block> ORE_TAG = BlockTags.getCollection().getOrCreate(templateOresRL);
+        ITag<Block> ORE_TAG = BlockTags.getCollection().getTagOrEmpty(templateOresRL);
         Collection<Block> allOreBlocks = ORE_TAG.values();
         BlockPos offset = new BlockPos(-template.getSize().getX() / 2, 0, -template.getSize().getZ() / 2);
         for (Template.BlockInfo template$blockinfo : template.func_215381_a(position.add(offset), placementsettings, Blocks.STRUCTURE_BLOCK)) {

@@ -2,13 +2,12 @@ package com.telepathicgrunt.repurposedstructures;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
-import com.telepathicgrunt.repurposedstructures.utils.RegUtil;
 import com.telepathicgrunt.repurposedstructures.world.features.*;
 import com.telepathicgrunt.repurposedstructures.world.structures.*;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.*;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.gen.DimensionSettings;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.FlatGenerationSettings;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
@@ -16,8 +15,6 @@ import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.settings.DimensionStructuresSettings;
 import net.minecraft.world.gen.settings.StructureSeparationSettings;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.registries.IForgeRegistry;
 
 import java.util.Arrays;
 import java.util.List;
@@ -123,34 +120,34 @@ public class RSFeatures {
             GIANT_TAIGA_VILLAGE
     );
 
-    public static void registerFeatures(final RegistryEvent.Register<Feature<?>> event) {
-        IForgeRegistry<Feature<?>> registry = event.getRegistry();
+    public static void registerFeatures() {
+        Registry<Feature<?>> featureRegistry = Registry.FEATURE;
 
-        RegUtil.register(registry, BADLANDS_DUNGEONS, RepurposedStructures.MODID + "dungeons_badlands");
-        RegUtil.register(registry, DARK_FOREST_DUNGEONS, RepurposedStructures.MODID + "dungeons_dark_forest");
-        RegUtil.register(registry, DESERT_DUNGEONS, RepurposedStructures.MODID + "dungeons_desert");
-        RegUtil.register(registry, END_DUNGEONS, RepurposedStructures.MODID + "dungeons_end");
-        RegUtil.register(registry, NETHER_DUNGEONS, RepurposedStructures.MODID + "dungeons_nether");
-        RegUtil.register(registry, SNOW_DUNGEONS, RepurposedStructures.MODID + "dungeons_snow");
-        RegUtil.register(registry, SWAMP_DUNGEONS, RepurposedStructures.MODID + "dungeons_swamp");
-        RegUtil.register(registry, MUSHROOM_DUNGEONS, RepurposedStructures.MODID + "dungeons_mushroom");
-        RegUtil.register(registry, JUNGLE_DUNGEONS, RepurposedStructures.MODID + "dungeons_jungle");
-        RegUtil.register(registry, OCEAN_DUNGEONS, RepurposedStructures.MODID + "dungeons_ocean");
+        Registry.register(featureRegistry, RepurposedStructures.MODID + "dungeons_badlands", BADLANDS_DUNGEONS);
+        Registry.register(featureRegistry, RepurposedStructures.MODID + "dungeons_dark_forest", DARK_FOREST_DUNGEONS);
+        Registry.register(featureRegistry, RepurposedStructures.MODID + "dungeons_desert", DESERT_DUNGEONS);
+        Registry.register(featureRegistry, RepurposedStructures.MODID + "dungeons_end", END_DUNGEONS);
+        Registry.register(featureRegistry, RepurposedStructures.MODID + "dungeons_nether", NETHER_DUNGEONS);
+        Registry.register(featureRegistry, RepurposedStructures.MODID + "dungeons_snow", SNOW_DUNGEONS);
+        Registry.register(featureRegistry, RepurposedStructures.MODID + "dungeons_swamp", SWAMP_DUNGEONS);
+        Registry.register(featureRegistry, RepurposedStructures.MODID + "dungeons_mushroom", MUSHROOM_DUNGEONS);
+        Registry.register(featureRegistry, RepurposedStructures.MODID + "dungeons_jungle", JUNGLE_DUNGEONS);
+        Registry.register(featureRegistry, RepurposedStructures.MODID + "dungeons_ocean", OCEAN_DUNGEONS);
 
-        RegUtil.register(registry, BADLANDS_WELL, RepurposedStructures.MODID + "well_badlands");
-        RegUtil.register(registry, NETHER_WELL, RepurposedStructures.MODID + "well_nether");
-        RegUtil.register(registry, SNOW_WELL, RepurposedStructures.MODID + "well_snow");
-        RegUtil.register(registry, MOSSY_STONE_WELL, RepurposedStructures.MODID + "well_mossy_stone");
-        RegUtil.register(registry, FOREST_WELL, RepurposedStructures.MODID + "well_forest");
+        Registry.register(featureRegistry, RepurposedStructures.MODID + "well_badlands", BADLANDS_WELL);
+        Registry.register(featureRegistry, RepurposedStructures.MODID + "well_nether", NETHER_WELL);
+        Registry.register(featureRegistry, RepurposedStructures.MODID + "well_snow", SNOW_WELL);
+        Registry.register(featureRegistry, RepurposedStructures.MODID + "well_mossy_stone", MOSSY_STONE_WELL);
+        Registry.register(featureRegistry, RepurposedStructures.MODID + "well_forest", FOREST_WELL);
 
-        RegUtil.register(registry, BOULDER_GIANT, RepurposedStructures.MODID + "boulder_giant");
-        RegUtil.register(registry, BOULDER_TINY, RepurposedStructures.MODID + "boulder_tiny");
-        RegUtil.register(registry, HORNED_SWAMP_TREE, RepurposedStructures.MODID + "horned_swamp_tree");
-        RegUtil.register(registry, SHORT_VINES, RepurposedStructures.MODID + "short_vines");
-        RegUtil.register(registry, SWAMP_VILLAGE_VINES, RepurposedStructures.MODID + "swamp_village_vines");
-        RegUtil.register(registry, JUNGLE_STRUCTURES_VINES, RepurposedStructures.MODID + "jungle_structures_vines");
-        RegUtil.register(registry, FORTRESS_BREAKAGE, RepurposedStructures.MODID + "fortress_breakage");
-        RegUtil.register(registry, STRONGHOLD_CHAINS, RepurposedStructures.MODID + "stronghold_chains");
+        Registry.register(featureRegistry, RepurposedStructures.MODID + "boulder_giant", BOULDER_GIANT);
+        Registry.register(featureRegistry, RepurposedStructures.MODID + "boulder_tiny", BOULDER_TINY);
+        Registry.register(featureRegistry, RepurposedStructures.MODID + "horned_swamp_tree", HORNED_SWAMP_TREE);
+        Registry.register(featureRegistry, RepurposedStructures.MODID + "short_vines", SHORT_VINES);
+        Registry.register(featureRegistry, RepurposedStructures.MODID + "swamp_village_vines", SWAMP_VILLAGE_VINES);
+        Registry.register(featureRegistry, RepurposedStructures.MODID + "jungle_structures_vines", JUNGLE_STRUCTURES_VINES);
+        Registry.register(featureRegistry, RepurposedStructures.MODID + "fortress_breakage", FORTRESS_BREAKAGE);
+        Registry.register(featureRegistry, RepurposedStructures.MODID + "stronghold_chains", STRONGHOLD_CHAINS);
 
         registerStructure(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_birch"), BIRCH_MINESHAFT, GenerationStage.Decoration.UNDERGROUND_STRUCTURES, new StructureSeparationSettings(1, 0, 399117345));
         registerStructure(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_desert"), DESERT_MINESHAFT, GenerationStage.Decoration.UNDERGROUND_STRUCTURES, new StructureSeparationSettings(1, 0, 399117346));
@@ -208,9 +205,9 @@ public class RSFeatures {
             GenerationStage.Decoration stage,
             StructureSeparationSettings StructureSeparationSettings
     ) {
-        Structure.field_236384_t_ =
+        Structure.JIGSAW_STRUCTURES =
                 ImmutableList.<Structure<?>>builder()
-                        .addAll(Structure.field_236384_t_)
+                        .addAll(Structure.JIGSAW_STRUCTURES)
                         .add(structure)
                         .build();
 
@@ -233,13 +230,6 @@ public class RSFeatures {
                     .putAll(DimensionStructuresSettings.DEFAULT_STRUCTURES)
                     .put(structure, structureSeparationSettings)
                     .build();
-        DimensionSettings.Preset.field_236122_b_.getChunkGeneratorType().getConfig().getStructures().put(structure, structureSeparationSettings);
-        DimensionSettings.Preset.field_236123_c_.getChunkGeneratorType().getConfig().getStructures().put(structure, structureSeparationSettings);
-        DimensionSettings.Preset.field_236124_d_.getChunkGeneratorType().getConfig().getStructures().put(structure, structureSeparationSettings);
-        DimensionSettings.Preset.field_236125_e_.getChunkGeneratorType().getConfig().getStructures().put(structure, structureSeparationSettings);
-        DimensionSettings.Preset.field_236126_f_.getChunkGeneratorType().getConfig().getStructures().put(structure, structureSeparationSettings);
-        DimensionSettings.Preset.field_236127_g_.getChunkGeneratorType().getConfig().getStructures().put(structure, structureSeparationSettings);
-        DimensionSettings.Preset.BY_ID.forEach((presetResourceLocation, preset) -> preset.getChunkGeneratorType().getConfig().getStructures().put(structure, structureSeparationSettings));
     }
 
     public static void registerVillagePools() {

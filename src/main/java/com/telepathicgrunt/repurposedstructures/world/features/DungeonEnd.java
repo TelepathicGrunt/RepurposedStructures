@@ -17,7 +17,6 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.structure.StructureManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -38,7 +37,7 @@ public class DungeonEnd extends Feature<NoFeatureConfig> {
     //only the mob spawner chance and what blocks the wall cannot replace was changed. Everything else is just the normal dungeon code.
 
     @Override
-    public boolean generate(ISeedReader world, StructureManager structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
+    public boolean generate(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
         int randXRange = random.nextInt(2) + 2;
         int xMin = -randXRange - 1;
         int xMax = randXRange + 1;
@@ -127,7 +126,7 @@ public class DungeonEnd extends Feature<NoFeatureConfig> {
                 ((MobSpawnerTileEntity) tileentity).getSpawnerBaseLogic()
                         .setEntityType(RepurposedStructures.mobSpawnerManager.getSpawnerMob(SPAWNER_ID, random));
             } else {
-                LOGGER.error("Failed to fetch mob spawner entity at ({}, {}, {})", new Object[]{Integer.valueOf(newPosition.getX()), Integer.valueOf(newPosition.down().getY()), Integer.valueOf(newPosition.getZ())});
+                LOGGER.error("Failed to fetch mob spawner entity at ({}, {}, {})", new Object[]{newPosition.getX(), newPosition.down().getY(), newPosition.getZ()});
             }
 
             return true;

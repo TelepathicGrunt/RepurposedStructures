@@ -8,7 +8,9 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MutableBoundingBox;
+import net.minecraft.util.registry.DynamicRegistries;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
@@ -28,7 +30,7 @@ public class FortressJungleStructure extends AbstractBaseStructure {
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long l, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig NoFeatureConfig) {
         for (int curChunkX = chunkX - 2; curChunkX <= chunkX + 2; curChunkX += 2) {
             for (int curChunkZ = chunkZ - 2; curChunkZ <= chunkZ + 2; curChunkZ += 2) {
-                if (!biomeSource.getBiomeForNoiseGen(curChunkX << 2, 60, curChunkZ << 2).hasStructure(RSFeatures.JUNGLE_FORTRESS)) {
+                if (!biomeSource.getBiomeForNoiseGen(curChunkX << 2, 60, curChunkZ << 2).getGenerationSettings().hasStructureFeature(RSFeatures.JUNGLE_FORTRESS)) {
                     return false;
                 }
             }
@@ -43,11 +45,11 @@ public class FortressJungleStructure extends AbstractBaseStructure {
         return FortressJungleStructure.Start::new;
     }
 
-    private static final List<Biome.SpawnListEntry> MONSTER_SPAWNS =
-            Lists.newArrayList(new Biome.SpawnListEntry(EntityType.WITHER_SKELETON, 27, 1, 1));
+    private static final List<MobSpawnInfo.Spawners> MONSTER_SPAWNS =
+            Lists.newArrayList(new MobSpawnInfo.Spawners(EntityType.WITHER_SKELETON, 27, 1, 1));
 
     @Override
-    public List<Biome.SpawnListEntry> getSpawnList() {
+    public List<MobSpawnInfo.Spawners> getSpawnList() {
         return MONSTER_SPAWNS;
     }
 
@@ -59,7 +61,7 @@ public class FortressJungleStructure extends AbstractBaseStructure {
 
 
         @Override
-        public void init(ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
+        public void init(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
             FortressJunglePieces.Start fortresspieces$start = new FortressJunglePieces.Start(this.rand, (chunkX << 4) + 2, (chunkZ << 4) + 2);
             this.components.add(fortresspieces$start);
 

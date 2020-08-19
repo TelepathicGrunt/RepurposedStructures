@@ -15,7 +15,7 @@ import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.ISeedReader;
-import net.minecraft.world.IWorld;
+import net.minecraft.world.IServerWorld;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.StructureManager;
@@ -128,7 +128,7 @@ public class PyramidFloorPiece {
         }
 
         @Override
-        protected void handleDataMarker(String metadata, BlockPos pos, IWorld world, Random random, MutableBoundingBox boundingBox) {
+        protected void handleDataMarker(String p_186175_1_, BlockPos p_186175_2_, IServerWorld p_186175_3_, Random p_186175_4_, MutableBoundingBox p_186175_5_) {
         }
     }
 }

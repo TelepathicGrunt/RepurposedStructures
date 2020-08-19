@@ -21,11 +21,11 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.structure.StructureManager;
 import net.minecraft.world.gen.feature.structure.StructurePiece;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.Objects;
 import java.util.Random;
 
 
@@ -54,7 +54,7 @@ public class DungeonOcean extends Feature<NoFeatureConfig> {
     // only the mob spawner chance and what blocks the wall cannot replace was changed. Everything else is just the normal dungeon code.
 
     @Override
-    public boolean generate(ISeedReader world, StructureManager structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
+    public boolean generate(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
         int randXRange = random.nextInt(2) + 2;
         int xMin = -randXRange - 1;
         int xMax = randXRange + 1;
@@ -248,7 +248,7 @@ public class DungeonOcean extends Feature<NoFeatureConfig> {
             if (tileentity instanceof MobSpawnerTileEntity) {
                 ((MobSpawnerTileEntity) tileentity).getSpawnerBaseLogic().setEntityType(pickMobSpawner(world, random, blockpos$Mutable));
             } else {
-                LOGGER.error("Failed to fetch mob spawner entity at ({}, {}, {})", new Object[]{Integer.valueOf(blockpos$Mutable.getX()), Integer.valueOf(blockpos$Mutable.getY()), Integer.valueOf(blockpos$Mutable.getZ())});
+                LOGGER.error("Failed to fetch mob spawner entity at ({}, {}, {})", new Object[]{blockpos$Mutable.getX(), blockpos$Mutable.getY(), blockpos$Mutable.getZ()});
             }
 
 
@@ -289,8 +289,8 @@ public class DungeonOcean extends Feature<NoFeatureConfig> {
 
         // spot must be an ocean so we don't return wrong mob when a hot land biome borders a frozen ocean
         if (biome.getCategory() == Biome.Category.OCEAN) {
-            String biomeName = Registry.BIOME.getKey(biome).getPath();
-            float biomeTemp = biome.getDefaultTemperature();
+            String biomeName = Objects.requireNonNull(world.getRegistryManager().get(Registry.BIOME_KEY).getKey(biome)).getPath();
+            float biomeTemp = biome.getTemperature();
 
             if (biomeTemp < 0.0 || biomeName.contains("frozen") || biomeName.contains("snow") || biomeName.contains("ice")) {
                 return RepurposedStructures.mobSpawnerManager.getSpawnerMob(FROZEN_SPAWNER_ID, random);

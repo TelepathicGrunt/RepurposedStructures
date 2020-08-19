@@ -11,6 +11,7 @@ import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MutableBoundingBox;
+import net.minecraft.util.registry.DynamicRegistries;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.provider.BiomeProvider;
@@ -18,6 +19,8 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.template.TemplateManager;
+
+import java.util.Objects;
 
 public class VillageNetherStructure extends VillageBaseStructure {
     public VillageNetherStructure(Codec<NoFeatureConfig> config, ResourceLocation poolRL, int structureSize) {
@@ -28,15 +31,15 @@ public class VillageNetherStructure extends VillageBaseStructure {
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig defaultFeatureConfig) {
         for (int curChunkX = chunkX - 10; curChunkX <= chunkX + 10; curChunkX++) {
             for (int curChunkZ = chunkZ - 10; curChunkZ <= chunkZ + 10; curChunkZ++) {
-                ChunkPos chunkPos2 = RSFeatures.WARPED_OUTPOST.func_236392_a_(chunkGenerator.getConfig().func_236197_a_(RSFeatures.WARPED_OUTPOST), seed, chunkRandom, curChunkX, curChunkZ);
+                ChunkPos chunkPos2 = RSFeatures.WARPED_OUTPOST.getStartChunk(Objects.requireNonNull(chunkGenerator.getStructuresConfig().getForType(RSFeatures.WARPED_OUTPOST)), seed, chunkRandom, curChunkX, curChunkZ);
                 if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
                     return false;
                 }
-                chunkPos2 = RSFeatures.CRIMSON_OUTPOST.func_236392_a_(chunkGenerator.getConfig().func_236197_a_(RSFeatures.CRIMSON_OUTPOST), seed, chunkRandom, curChunkX, curChunkZ);
+                chunkPos2 = RSFeatures.CRIMSON_OUTPOST.getStartChunk(Objects.requireNonNull(chunkGenerator.getStructuresConfig().getForType(RSFeatures.CRIMSON_OUTPOST)), seed, chunkRandom, curChunkX, curChunkZ);
                 if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
                     return false;
                 }
-                chunkPos2 = RSFeatures.NETHER_BRICK_OUTPOST.func_236392_a_(chunkGenerator.getConfig().func_236197_a_(RSFeatures.NETHER_BRICK_OUTPOST), seed, chunkRandom, curChunkX, curChunkZ);
+                chunkPos2 = RSFeatures.NETHER_BRICK_OUTPOST.getStartChunk(Objects.requireNonNull(chunkGenerator.getStructuresConfig().getForType(RSFeatures.NETHER_BRICK_OUTPOST)), seed, chunkRandom, curChunkX, curChunkZ);
                 if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
                     return false;
                 }
@@ -55,8 +58,8 @@ public class VillageNetherStructure extends VillageBaseStructure {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
         }
 
-        public void init(ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
-            super.init(chunkGenerator, structureManager, chunkX, chunkZ, biome, NoFeatureConfig);
+        public void init(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
+            super.init(dynamicRegistryManager, chunkGenerator, structureManager, chunkX, chunkZ, biome, NoFeatureConfig);
 
             BlockPos lowestLandPos = getHighestLand(chunkGenerator, this.bounds);
             if (lowestLandPos.getY() >= 108 || lowestLandPos.getY() <= 33) {
@@ -93,10 +96,10 @@ public class VillageNetherStructure extends VillageBaseStructure {
     }
 
     private static boolean isValidBlock(BlockState currentBlockstate) {
-        return BlockTags.field_241278_aD_.contains(currentBlockstate.getBlock()) ||
+        return BlockTags.INFINIBURN_NETHER.contains(currentBlockstate.getBlock()) ||
                 BlockTags.VALID_SPAWN.contains(currentBlockstate.getBlock()) ||
                 BlockTags.SAND.contains(currentBlockstate.getBlock()) ||
-                BlockTags.field_232873_an_.contains(currentBlockstate.getBlock()) ||
+                BlockTags.NYLIUM.contains(currentBlockstate.getBlock()) ||
                 BlockTags.ICE.contains(currentBlockstate.getBlock()) ||
                 BlockTags.PLANKS.contains(currentBlockstate.getBlock()) ||
                 BlockTags.STONE_BRICKS.contains(currentBlockstate.getBlock()) ||

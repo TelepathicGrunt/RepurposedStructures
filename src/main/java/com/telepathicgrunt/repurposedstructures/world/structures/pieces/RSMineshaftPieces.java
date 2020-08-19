@@ -17,10 +17,10 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MutableBoundingBox;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.ISeedReader;
-import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.structure.IStructurePieceType;
 import net.minecraft.world.gen.feature.structure.StructureManager;
@@ -276,7 +276,7 @@ public class RSMineshaftPieces {
 
 
         @Override
-        protected boolean generateChest(IWorld world, MutableBoundingBox boundingBox, Random random, int x, int y, int z, ResourceLocation lootTableId) {
+        protected boolean generateChest(ISeedReader world, MutableBoundingBox boundingBox, Random random, int x, int y, int z, ResourceLocation lootTableId) {
             BlockPos blockpos = new BlockPos(this.getXWithOffset(x, z), this.getYWithOffset(y), this.getZWithOffset(x, z));
             Material currentMaterial = world.getBlockState(blockpos).getMaterial();
 
@@ -428,10 +428,10 @@ public class RSMineshaftPieces {
                 }
             } else if (this.mineShaftType == Type.NETHER) {
                 if (random.nextFloat() < 0.3f) {
-                    this.randomlyPlaceBlock(world, boundingBox, random, 0.45F, x + 1, y, z, Blocks.field_235383_mw_.getDefaultState());
+                    this.randomlyPlaceBlock(world, boundingBox, random, 0.45F, x + 1, y, z, Blocks.SHROOMLIGHT.getDefaultState());
                 } else {
-                    this.randomlyPlaceBlock(world, boundingBox, random, 0.1F, x + 1, y, z - 1, Blocks.field_235340_cR_.getDefaultState().with(WallTorchBlock.HORIZONTAL_FACING, Direction.SOUTH));
-                    this.randomlyPlaceBlock(world, boundingBox, random, 0.1F, x + 1, y, z + 1, Blocks.field_235340_cR_.getDefaultState().with(WallTorchBlock.HORIZONTAL_FACING, Direction.NORTH));
+                    this.randomlyPlaceBlock(world, boundingBox, random, 0.1F, x + 1, y, z - 1, Blocks.SOUL_WALL_TORCH.getDefaultState().with(WallTorchBlock.HORIZONTAL_FACING, Direction.SOUTH));
+                    this.randomlyPlaceBlock(world, boundingBox, random, 0.1F, x + 1, y, z + 1, Blocks.SOUL_WALL_TORCH.getDefaultState().with(WallTorchBlock.HORIZONTAL_FACING, Direction.NORTH));
                 }
             } else if (this.mineShaftType == Type.OCEAN) {
                 this.randomlyPlaceBlock(world, boundingBox, random, 0.2F, x + 1, y, z, Blocks.SEA_LANTERN.getDefaultState());
@@ -447,7 +447,7 @@ public class RSMineshaftPieces {
 
 
         private void placeDecoration(ISeedReader world, MutableBoundingBox box, Random random, float probability, int x, int y, int z) {
-            if (world.getDimension() != DimensionType.getOverworldDimensionType() || this.getSkyBrightness(world, x, y, z, box)) {
+            if (world.getRegistryManager().get(Registry.DIMENSION_TYPE_KEY).getKey(world.getDimension()) != DimensionType.OVERWORLD_ID || this.getSkyBrightness(world, x, y, z, box)) {
                 BlockState decorativeBlock = getDecorativeBlock(random);
                 if (!decorativeBlock.isIn(Blocks.COBWEB)) {
                     y = 0;

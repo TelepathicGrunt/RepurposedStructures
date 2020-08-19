@@ -4,11 +4,16 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "repurposed_structures.refmap.json",
   "mixins": [
+    "BootstrapMixin",
+    "DungeonFeatureAccessor",
     "EnderEyeStrongholdLocatingMixin",
+    "GenerationSettingsAccessor",
+    "MinecraftServerMixin",
     "NoVillageLakesMixin",
     "StrongholdGeneratorAccessor",
     "StructureMobSpawningMixin",
     "StructurePieceAccessor",
+    "StructureProcessorListAccessor",
     "ZombifiedPiglinSpawnerMixin"
   ],
   "client": [

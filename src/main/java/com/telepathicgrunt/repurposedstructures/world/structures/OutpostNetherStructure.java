@@ -7,7 +7,10 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
+import net.minecraft.util.registry.DynamicRegistries;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.Structure;
@@ -17,13 +20,12 @@ import java.util.List;
 
 
 public class OutpostNetherStructure extends Structure<NoFeatureConfig> {
-    private final ResourceLocation PIECE_RL;
-    private static boolean INITIALIZED_POOLS = false;
-    private static final List<Biome.SpawnListEntry> MONSTER_SPAWNS = Lists.newArrayList(new Biome.SpawnListEntry(EntityType.field_233591_ai_, 10, 1, 1));
+    private final ResourceLocation START_POOL;
+    private static final List<MobSpawnInfo.Spawners> MONSTER_SPAWNS = Lists.newArrayList(new MobSpawnInfo.Spawners(EntityType.PIGLIN, 10, 1, 1));
 
     public OutpostNetherStructure(Codec<NoFeatureConfig> config, ResourceLocation pieceRL) {
         super(config);
-        PIECE_RL = pieceRL;
+        START_POOL = pieceRL;
     }
 
     @Override
@@ -32,7 +34,7 @@ public class OutpostNetherStructure extends Structure<NoFeatureConfig> {
     }
 
     @Override
-    public List<Biome.SpawnListEntry> getSpawnList() {
+    public List<MobSpawnInfo.Spawners> getSpawnList() {
         return MONSTER_SPAWNS;
     }
 
@@ -42,13 +44,9 @@ public class OutpostNetherStructure extends Structure<NoFeatureConfig> {
             super(structureFeature, x, z, blockBox, referenceIn, seed);
         }
 
-        public void init(ChunkGenerator chunkGenerator, TemplateManager structureManager, int x, int z, Biome biome, NoFeatureConfig NoFeatureConfig) {
-            if(!INITIALIZED_POOLS){
-                OutpostNetherPools.initPools();
-                INITIALIZED_POOLS = true;
-            }
+        public void init(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int x, int z, Biome biome, NoFeatureConfig NoFeatureConfig) {
             BlockPos blockPos = new BlockPos(x * 16, 0, z * 16);
-            GeneralJigsawGenerator.addPieces(chunkGenerator, structureManager, blockPos, this.components, this.rand, PIECE_RL, 11);
+            GeneralJigsawGenerator.addPieces(dynamicRegistryManager, chunkGenerator, structureManager, blockPos, this.components, this.rand, dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN).getOrDefault(START_POOL), 11);
             this.recalculateStructureSize();
 
             BlockPos lowestLandPos = getHighestLand(chunkGenerator);

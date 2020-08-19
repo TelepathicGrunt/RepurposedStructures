@@ -24,7 +24,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
-import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.structure.IStructurePieceType;
 import net.minecraft.world.gen.feature.structure.StrongholdPieces;
@@ -69,13 +68,13 @@ public class RSStrongholdPieces {
         NETHER_BLOCK_MAP.put(Blocks.COBBLESTONE_SLAB, Blocks.RED_NETHER_BRICK_SLAB);
         NETHER_BLOCK_MAP.put(Blocks.STONE_SLAB, Blocks.RED_NETHER_BRICK_SLAB);
         NETHER_BLOCK_MAP.put(Blocks.IRON_BARS, Blocks.NETHER_BRICK_FENCE);
-        NETHER_BLOCK_MAP.put(Blocks.OAK_PLANKS, Blocks.field_235406_np_);
-        NETHER_BLOCK_MAP.put(Blocks.OAK_FENCE, Blocks.field_235350_mI_);
+        NETHER_BLOCK_MAP.put(Blocks.OAK_PLANKS, Blocks.CRIMSON_HYPHAE);
+        NETHER_BLOCK_MAP.put(Blocks.OAK_FENCE, Blocks.CRIMSON_FENCE);
         NETHER_BLOCK_MAP.put(Blocks.WATER, Blocks.LAVA);
-        NETHER_BLOCK_MAP.put(Blocks.WALL_TORCH, Blocks.field_235340_cR_);
-        NETHER_BLOCK_MAP.put(Blocks.TORCH, Blocks.field_235339_cQ_);
-        NETHER_BLOCK_MAP.put(Blocks.STONE_BUTTON, Blocks.field_235391_nE_);
-        NETHER_BLOCK_MAP.put(Blocks.IRON_DOOR, Blocks.field_235360_mS_);
+        NETHER_BLOCK_MAP.put(Blocks.WALL_TORCH, Blocks.SOUL_WALL_TORCH);
+        NETHER_BLOCK_MAP.put(Blocks.TORCH, Blocks.SOUL_TORCH);
+        NETHER_BLOCK_MAP.put(Blocks.STONE_BUTTON, Blocks.POLISHED_BLACKSTONE_BUTTON);
+        NETHER_BLOCK_MAP.put(Blocks.IRON_DOOR, Blocks.CRIMSON_DOOR);
 
 
         PIECE_WEIGHTS.add(new RSStrongholdPieces.PieceWeight(RSStrongholdPieces.Straight.class, 40, 0));
@@ -616,7 +615,7 @@ public class RSStrongholdPieces {
             BlockState bookshelfBlock = Blocks.BOOKSHELF.getDefaultState();
 
             if (this.strongholdType == Type.NETHER) {
-                ITag<Block> BOOKSHELF_TAG = BlockTags.getCollection().getOrCreate(NETHER_STRONGHOLD_BOOKSHELF_RL);
+                ITag<Block> BOOKSHELF_TAG = BlockTags.getCollection().getTagOrEmpty(NETHER_STRONGHOLD_BOOKSHELF_RL);
                 Collection<Block> allBookshelfBlocks = BOOKSHELF_TAG.values();
 
                 if (!allBookshelfBlocks.isEmpty())
@@ -1384,21 +1383,21 @@ public class RSStrongholdPieces {
                     } else if (chance < 0.07F) {
                         this.blockstate = Blocks.RED_NETHER_BRICKS.getDefaultState();
                     } else if (chance < 0.09F) {
-                        this.blockstate = Blocks.field_235394_nH_.getDefaultState();
+                        this.blockstate = Blocks.CRACKED_NETHER_BRICKS.getDefaultState();
                     } else if (chance < 0.15F) {
                         this.blockstate = Blocks.NETHER_BRICKS.getDefaultState();
                     } else if (chance < 0.32F) {
-                        this.blockstate = Blocks.field_235406_np_.getDefaultState();
+                        this.blockstate = Blocks.BLACKSTONE.getDefaultState();
                     } else if (chance < 0.35F) {
-                        this.blockstate = Blocks.field_235413_nw_.getDefaultState();
+                        this.blockstate = Blocks.CHISELED_POLISHED_BLACKSTONE.getDefaultState();
                     } else if (chance < 0.47F) {
-                        this.blockstate = Blocks.field_235410_nt_.getDefaultState();
+                        this.blockstate = Blocks.POLISHED_BLACKSTONE.getDefaultState();
                     } else if (chance < 0.471F) {
-                        this.blockstate = Blocks.field_235387_nA_.getDefaultState();
+                        this.blockstate = Blocks.GILDED_BLACKSTONE.getDefaultState();
                     } else if (chance < 0.57F) {
-                        this.blockstate = Blocks.field_235412_nv_.getDefaultState();
+                        this.blockstate = Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS.getDefaultState();
                     } else {
-                        this.blockstate = Blocks.field_235411_nu_.getDefaultState();
+                        this.blockstate = Blocks.POLISHED_BLACKSTONE_BRICKS.getDefaultState();
                     }
                 } else {
                     float chance = rand.nextFloat();
@@ -1621,7 +1620,7 @@ public class RSStrongholdPieces {
         }
 
         @Override
-        protected void setBlockState(IWorld world, BlockState block, int x, int y, int z, MutableBoundingBox blockBox) {
+        protected void setBlockState(ISeedReader world, BlockState block, int x, int y, int z, MutableBoundingBox blockBox) {
             block = getBlockOfCorrectType(block);
             BlockPos blockPos = new BlockPos(this.getXWithOffset(x, z), this.getYWithOffset(y), this.getZWithOffset(x, z));
             if (blockBox.isVecInside(blockPos)) {
