@@ -360,7 +360,8 @@ public class RSAddFeatures {
         if (RepurposedStructures.RSAllConfig.RSMainConfig.misc.hornedSwampTree && biome == biomeReg.get(BuiltInBiomes.SWAMP)) {
             biome.getGenerationSettings().getFeatures().get(GenerationStep.Feature.VEGETAL_DECORATION.ordinal())
                     .add(() -> RSFeatures.HORNED_SWAMP_TREE.configure(TREE_FEATURE_CONFIG)
-                            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(0, 0.7F, 1))));
+                            .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(0, 0.7F, 1))
+                            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP)));
         }
 
         // can exist in modded biomes too
@@ -375,7 +376,8 @@ public class RSAddFeatures {
             biome.getGenerationSettings().getFeatures().get(GenerationStep.Feature.VEGETAL_DECORATION.ordinal()).removeIf(configuredFeature -> configuredFeature.get().config instanceof DecoratedFeatureConfig && serializeAndCompareFeature(configuredFeature.get(), ConfiguredFeatures.SWAMP_TREE));
             biome.getGenerationSettings().getFeatures().get(GenerationStep.Feature.VEGETAL_DECORATION.ordinal())
                     .add(() -> RSFeatures.HORNED_SWAMP_TREE.configure(TREE_FEATURE_CONFIG)
-                            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(2, 0.8F, 1))));
+                            .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(2, 0.8F, 1))
+                            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP)));
         }
     }
 
@@ -392,7 +394,9 @@ public class RSAddFeatures {
             // replace the boulders with our own
             biome.getGenerationSettings().getFeatures().get(GenerationStep.Feature.LOCAL_MODIFICATIONS.ordinal()).removeIf(configuredFeature -> configuredFeature.get().config instanceof DecoratedFeatureConfig && serializeAndCompareFeature(configuredFeature.get(), ConfiguredFeatures.FOREST_ROCK));
             biome.getGenerationSettings().getFeatures().get(GenerationStep.Feature.LOCAL_MODIFICATIONS.ordinal())
-                    .add(() -> RSFeatures.BOULDER_GIANT.configure(FeatureConfig.DEFAULT).decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig((int)RepurposedStructures.RSAllConfig.RSMainConfig.misc.giantBouldersPerChunk, (float) (RepurposedStructures.RSAllConfig.RSMainConfig.misc.giantBouldersPerChunk - ((int)RepurposedStructures.RSAllConfig.RSMainConfig.misc.giantBouldersPerChunk)), 1)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP)));
+                    .add(() -> RSFeatures.BOULDER_GIANT.configure(FeatureConfig.DEFAULT)
+                            .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig((int)RepurposedStructures.RSAllConfig.RSMainConfig.misc.giantBouldersPerChunk, (float) (RepurposedStructures.RSAllConfig.RSMainConfig.misc.giantBouldersPerChunk - ((int)RepurposedStructures.RSAllConfig.RSMainConfig.misc.giantBouldersPerChunk)), 1))
+                            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP)));
         }
         else if (RepurposedStructures.RSAllConfig.RSMainConfig.misc.boulderTiny &&
                 ((biome == biomeReg.get(BuiltInBiomes.SNOWY_TAIGA_MOUNTAINS) || biome == biomeReg.get(BuiltInBiomes.TAIGA_MOUNTAINS)) ||

@@ -1,6 +1,5 @@
 package com.telepathicgrunt.repurposedstructures.mixin;
 
-import net.minecraft.structure.StrongholdGenerator;
 import net.minecraft.world.biome.GenerationSettings;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.ConfiguredStructureFeature;

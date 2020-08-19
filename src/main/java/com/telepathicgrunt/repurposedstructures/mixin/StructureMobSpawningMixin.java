@@ -24,7 +24,7 @@ public class StructureMobSpawningMixin {
             at = @At(value = "HEAD"),
             cancellable = true
     )
-    private void locateRSStrongholds(Biome biome, StructureAccessor accessor, SpawnGroup group, BlockPos pos, CallbackInfoReturnable<List<SpawnSettings.SpawnEntry>> cir) {
+    private void structureMobs(Biome biome, StructureAccessor accessor, SpawnGroup group, BlockPos pos, CallbackInfoReturnable<List<SpawnSettings.SpawnEntry>> cir) {
         List<SpawnSettings.SpawnEntry> list = getStructureSpawns(biome, accessor, group, pos);
         if(list != null) cir.setReturnValue(list);
     }
