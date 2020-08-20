@@ -50,7 +50,7 @@ public class VillageWarpedPools
 		StructureProcessorList randomizer = StructureProcessorListAccessor.invokeRegister(RepurposedStructures.MODID+":village/warped/randomizer",
 			ImmutableList.of(new RuleStructureProcessor(ImmutableList.of(
 			   new RuleEntry(new RandomBlockMatchRuleTest(Blocks.BLACKSTONE, 0.1F), AlwaysTrueRuleTest.INSTANCE, Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS.getDefaultState()),
-			   new RuleEntry(new RandomBlockMatchRuleTest(Blocks.BLACKSTONE, 0.02F), AlwaysTrueRuleTest.INSTANCE, Blocks.GILDED_BLACKSTONE.getDefaultState()),
+			   new RuleEntry(new RandomBlockMatchRuleTest(Blocks.BLACKSTONE, 0.04F), AlwaysTrueRuleTest.INSTANCE, Blocks.GILDED_BLACKSTONE.getDefaultState()),
 			   new RuleEntry(new RandomBlockMatchRuleTest(Blocks.WARPED_STEM, 0.15F), AlwaysTrueRuleTest.INSTANCE, Blocks.WARPED_HYPHAE.getDefaultState().with(RotatedPillarBlock.AXIS, Direction.Axis.Y)),
 			   new RuleEntry(new RandomBlockMatchRuleTest(Blocks.WARPED_STEM, 0.2F), AlwaysTrueRuleTest.INSTANCE, Blocks.WARPED_HYPHAE.getDefaultState().with(RotatedPillarBlock.AXIS, Direction.Axis.X)),
 			   new RuleEntry(new RandomBlockMatchRuleTest(Blocks.WARPED_STEM, 0.25F), AlwaysTrueRuleTest.INSTANCE, Blocks.WARPED_HYPHAE.getDefaultState().with(RotatedPillarBlock.AXIS, Direction.Axis.Z)),
@@ -65,7 +65,7 @@ public class VillageWarpedPools
 			ImmutableList.of(new RuleStructureProcessor(ImmutableList.of(
 				new RuleEntry(new RandomBlockMatchRuleTest(Blocks.NETHERRACK, 0.35F), AlwaysTrueRuleTest.INSTANCE, Blocks.WARPED_NYLIUM.getDefaultState()),
 			   	new RuleEntry(new RandomBlockMatchRuleTest(Blocks.NETHERRACK, 0.15F), AlwaysTrueRuleTest.INSTANCE, Blocks.BLACKSTONE.getDefaultState()),
-			   	new RuleEntry(new RandomBlockMatchRuleTest(Blocks.NETHERRACK, 0.015F), AlwaysTrueRuleTest.INSTANCE, Blocks.NETHER_GOLD_ORE.getDefaultState()),
+			   	new RuleEntry(new RandomBlockMatchRuleTest(Blocks.NETHERRACK, 0.025F), AlwaysTrueRuleTest.INSTANCE, Blocks.NETHER_GOLD_ORE.getDefaultState()),
 			   	new RuleEntry(new RandomBlockMatchRuleTest(Blocks.NETHERRACK, 0.15F), new BlockMatchRuleTest(Blocks.LAVA), Blocks.WARPED_NYLIUM.getDefaultState()),
 		       	new RuleEntry(new RandomBlockMatchRuleTest(Blocks.NETHERRACK, 0.35F), new BlockMatchRuleTest(Blocks.LAVA), Blocks.LAVA.getDefaultState())))));
 
@@ -282,7 +282,7 @@ public class VillageWarpedPools
 
 		JigsawPatternRegistry.register(new JigsawPattern(new ResourceLocation(RepurposedStructures.MODID+":village/warped/mobs/piglin_brutes"), new ResourceLocation("empty"),
 			ImmutableList.of(
-					new Pair<>(JigsawPiece.method_30425(RepurposedStructures.MODID+":village/warped/mobs/adult_sword"), 1)),
+					new Pair<>(JigsawPiece.method_30425(RepurposedStructures.MODID+":village/warped/piglins/brute"), 1)),
 			JigsawPattern.PlacementBehaviour.RIGID));
 	}
 }

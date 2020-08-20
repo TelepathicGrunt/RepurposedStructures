@@ -50,7 +50,7 @@ public class VillageCrimsonPools
 		StructureProcessorList randomizer = StructureProcessorListAccessor.invokeRegister(RepurposedStructures.MODID+":village/crimson/randomizer",
 		  	ImmutableList.of(new RuleStructureProcessor(ImmutableList.of(
 		       new RuleEntry(new RandomBlockMatchRuleTest(Blocks.BLACKSTONE, 0.1F), AlwaysTrueRuleTest.INSTANCE, Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS.getDefaultState()),
-				   new RuleEntry(new RandomBlockMatchRuleTest(Blocks.BLACKSTONE, 0.02F), AlwaysTrueRuleTest.INSTANCE, Blocks.GILDED_BLACKSTONE.getDefaultState()),
+				   new RuleEntry(new RandomBlockMatchRuleTest(Blocks.BLACKSTONE, 0.04F), AlwaysTrueRuleTest.INSTANCE, Blocks.GILDED_BLACKSTONE.getDefaultState()),
 				   new RuleEntry(new RandomBlockMatchRuleTest(Blocks.CRIMSON_STEM, 0.15F), AlwaysTrueRuleTest.INSTANCE, Blocks.CRIMSON_HYPHAE.getDefaultState().with(RotatedPillarBlock.AXIS, Direction.Axis.Y)),
 				   new RuleEntry(new RandomBlockMatchRuleTest(Blocks.CRIMSON_STEM, 0.2F), AlwaysTrueRuleTest.INSTANCE, Blocks.CRIMSON_HYPHAE.getDefaultState().with(RotatedPillarBlock.AXIS, Direction.Axis.X)),
 				   new RuleEntry(new RandomBlockMatchRuleTest(Blocks.CRIMSON_STEM, 0.25F), AlwaysTrueRuleTest.INSTANCE, Blocks.CRIMSON_HYPHAE.getDefaultState().with(RotatedPillarBlock.AXIS, Direction.Axis.Z)),
@@ -65,7 +65,7 @@ public class VillageCrimsonPools
 		   ImmutableList.of(new RuleStructureProcessor(ImmutableList.of(
 				new RuleEntry(new RandomBlockMatchRuleTest(Blocks.NETHERRACK, 0.35F), AlwaysTrueRuleTest.INSTANCE, Blocks.CRIMSON_NYLIUM.getDefaultState()),
 			   	new RuleEntry(new RandomBlockMatchRuleTest(Blocks.NETHERRACK, 0.15F), AlwaysTrueRuleTest.INSTANCE, Blocks.BLACKSTONE.getDefaultState()),
-			   	new RuleEntry(new RandomBlockMatchRuleTest(Blocks.NETHERRACK, 0.015F), AlwaysTrueRuleTest.INSTANCE, Blocks.NETHER_GOLD_ORE.getDefaultState()),
+			   	new RuleEntry(new RandomBlockMatchRuleTest(Blocks.NETHERRACK, 0.025F), AlwaysTrueRuleTest.INSTANCE, Blocks.NETHER_GOLD_ORE.getDefaultState()),
 			   	new RuleEntry(new RandomBlockMatchRuleTest(Blocks.NETHERRACK, 0.15F), new BlockMatchRuleTest(Blocks.LAVA), Blocks.CRIMSON_NYLIUM.getDefaultState()),
 		       	new RuleEntry(new RandomBlockMatchRuleTest(Blocks.NETHERRACK, 0.35F), new BlockMatchRuleTest(Blocks.LAVA), Blocks.LAVA.getDefaultState())))));
 
@@ -282,7 +282,7 @@ public class VillageCrimsonPools
 
 		JigsawPatternRegistry.register(new JigsawPattern(new ResourceLocation(RepurposedStructures.MODID+":village/crimson/mobs/piglin_brutes"), new ResourceLocation("empty"),
 			ImmutableList.of(
-					new Pair<>(JigsawPiece.method_30425(RepurposedStructures.MODID+":village/crimson/mobs/adult_sword"), 1)),
+					new Pair<>(JigsawPiece.method_30425(RepurposedStructures.MODID+":village/crimson/piglins/brute"), 1)),
 			JigsawPattern.PlacementBehaviour.RIGID));
 	}
 }

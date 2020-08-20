@@ -22,6 +22,22 @@ Welcome to the Github! If you are looking for the most recent stable version, th
   Will instead use vanilla's default mobs and write to the log about the error 
   instead of crashing when it fails to read the json files.
 
+##### Villages:
+
+- Added a single Piglin Brute to Villages in Nether.
+
+- Increased Netherrack Gold Ore and Blackstone Gold Ore rates slightly in Nether Villages.
+
+- Slightly made Nether Villages more rare in config default.
+
+##### Outposts:
+
+- Slightly made Nether Outposts more rare in config default.
+
+##### Temples:
+
+- Slightly made Nether Temples more common in config default.
+
 ## (V.2.0.5 Changes) (1.16.1 Minecraft)
 
 ##### Configs:

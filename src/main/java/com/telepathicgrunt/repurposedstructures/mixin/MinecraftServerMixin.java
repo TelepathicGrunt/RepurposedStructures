@@ -3,6 +3,7 @@ package com.telepathicgrunt.repurposedstructures.mixin;
 import com.mojang.authlib.GameProfileRepository;
 import com.mojang.authlib.minecraft.MinecraftSessionService;
 import com.mojang.datafixers.DataFixer;
+import com.telepathicgrunt.repurposedstructures.RSFeatures;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.resources.DataPackRegistries;
 import net.minecraft.resources.ResourcePackList;
@@ -74,6 +75,9 @@ public class MinecraftServerMixin {
 
                 //Add our structures and features
                 RepurposedStructures.addFeaturesAndStructuresToBiomes(registryManager.getOptional(Registry.BIOME_KEY).get(), biome, Objects.requireNonNull(registryManager.getOptional(Registry.BIOME_KEY).get().getKey(biome)), allBiomeBlacklists);
+
+                //add our structure spacing to all chunkgenerators
+                registryManager.get(Registry.NOISE_SETTINGS_WORLDGEN).forEach(registryManager -> registryManager.getStructuresConfig().structures.putAll(RSFeatures.RS_STRUCTURES));
             }
         }
     }

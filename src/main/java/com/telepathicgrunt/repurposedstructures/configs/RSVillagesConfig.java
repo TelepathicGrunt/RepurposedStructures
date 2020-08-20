@@ -95,13 +95,13 @@ public class RSVillagesConfig
 						.comment("\r\n How rare are Crimson Village in Crimson Forest biomes."
 								+ "\n 1 for spawning in most chunks and 1001 for none.")
 						.translation("repurposedstructures.config.villages.crimsonvillagespawnrate")
-						.defineInRange("crimsonVillageSpawnrate", 27, 1, 1001));
+						.defineInRange("crimsonVillageSpawnrate", 30, 1, 1001));
 
 					warpedVillageSpawnrate = subscriber.subscribe(builder
 						.comment("\r\n How rare are Warped Village in Warped Forest biomes."
 								+ "\n 1 for spawning in most chunks and 1001 for none.")
 						.translation("repurposedstructures.config.villages.warpedvillagespawnrate")
-						.defineInRange("warpedVillageSpawnrate", 27, 1, 1001));
+						.defineInRange("warpedVillageSpawnrate", 30, 1, 1001));
 
 				builder.pop();
 					

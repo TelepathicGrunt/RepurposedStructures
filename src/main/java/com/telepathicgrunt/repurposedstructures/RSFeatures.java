@@ -8,6 +8,7 @@ import com.telepathicgrunt.repurposedstructures.world.structures.pieces.*;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.gen.DimensionSettings;
 import net.minecraft.world.gen.FlatGenerationSettings;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
@@ -16,8 +17,7 @@ import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.settings.DimensionStructuresSettings;
 import net.minecraft.world.gen.settings.StructureSeparationSettings;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 
 public class RSFeatures {
@@ -38,6 +38,7 @@ public class RSFeatures {
      * Good luck and have fun modding!
      */
 
+    public static final Map<Structure<?>, StructureSeparationSettings> RS_STRUCTURES = new HashMap<>();
     public static final BlockStateProvidingFeatureConfig COBBLESTONE_PILE_CONFIG = new BlockStateProvidingFeatureConfig(new SimpleBlockStateProvider(Blocks.COBBLESTONE.getDefaultState()));
 
     //Static instance of our structure so we can reference it and add it to biomes easily.
@@ -230,6 +231,9 @@ public class RSFeatures {
                     .putAll(DimensionStructuresSettings.DEFAULT_STRUCTURES)
                     .put(structure, structureSeparationSettings)
                     .build();
+
+        DimensionSettings.INSTANCE.getStructuresConfig().structures.put(structure, structureSeparationSettings);
+        RS_STRUCTURES.put(structure, structureSeparationSettings);
     }
 
     public static void registerVillagePools() {

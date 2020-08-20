@@ -42,7 +42,7 @@ public class RSOutpostsConfig
 					.comment("\r\n Add Nether Brick Outposts to modded Nether biomes"
 							+ "\n that other nether outposts don't fit in.")
 					.translation("repurposedstructures.config.outposts.netherbrickoutpostspawnrate")
-					.defineInRange("netherBrickOutpostSpawnrate", 33, 1, 1001));
+					.defineInRange("netherBrickOutpostSpawnrate", 34, 1, 1001));
 
 
 				addWarpedOutpostToModdedBiomes = subscriber.subscribe(builder
@@ -54,7 +54,7 @@ public class RSOutpostsConfig
 				warpedOutpostSpawnrate = subscriber.subscribe(builder
 					.comment("\r\n Add Warped Outposts to modded Nether Warped biomes.")
 					.translation("repurposedstructures.config.outposts.warpedoutpostspawnrate")
-					.defineInRange("warpedOutpostSpawnrate", 33, 1, 1001));
+					.defineInRange("warpedOutpostSpawnrate", 34, 1, 1001));
 
 
 				addCrimsonOutpostToModdedBiomes = subscriber.subscribe(builder
@@ -66,7 +66,7 @@ public class RSOutpostsConfig
 				crimsonOutpostSpawnrate = subscriber.subscribe(builder
 					.comment("\r\n Add Crimson Outposts to modded Nether Warped biomes.")
 					.translation("repurposedstructures.config.outposts.crimsonoutpostspawnrate")
-					.defineInRange("crimsonOutpostSpawnrate", 33, 1, 1001));
+					.defineInRange("crimsonOutpostSpawnrate", 34, 1, 1001));
 
 			builder.pop();
 		}
