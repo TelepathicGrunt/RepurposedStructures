@@ -20,10 +20,8 @@ SOFTWARE.
 
 package com.telepathicgrunt.repurposedstructures.utils;
 
-import com.telepathicgrunt.repurposedstructures.misc.VillagerTradesModification;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
-import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.config.ModConfig.ModConfigEvent;
