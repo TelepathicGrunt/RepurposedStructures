@@ -14,6 +14,22 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Bumped LibStructure version to v1.5
 
+##### Villages:
+
+- Added a single Piglin Brute to Villages in Nether.
+
+- Increased Netherrack Gold Ore and Blackstone Gold Ore rates slightly in Nether Villages.
+
+- Slightly made Nether Villages more rare in config default.
+
+##### Outposts:
+
+- Slightly made Nether Outposts more rare in config default.
+
+##### Temples:
+
+- Slightly made Nether Temples more common in config default.
+
 ## (V.1.5.0 Changes) (1.16.2 Minecraft)
 
 ##### Major:
