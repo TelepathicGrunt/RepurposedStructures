@@ -2,16 +2,12 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;
-import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.GeneralJigsawGenerator;
-import com.telepathicgrunt.repurposedstructures.world.structures.pieces.OutpostNetherPools;
 import net.minecraft.entity.EntityType;
 import net.minecraft.structure.StructureManager;
-import net.minecraft.structure.pool.StructurePool;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.DynamicRegistryManager;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;

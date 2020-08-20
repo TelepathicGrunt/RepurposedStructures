@@ -5,13 +5,11 @@ import com.telepathicgrunt.repurposedstructures.world.structures.*;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.RSMineshaftPieces;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.StructurePieces;
 import net.earthcomputer.libstructure.LibStructure;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.chunk.StructureConfig;
 import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 
 import java.util.Arrays;
 import java.util.List;

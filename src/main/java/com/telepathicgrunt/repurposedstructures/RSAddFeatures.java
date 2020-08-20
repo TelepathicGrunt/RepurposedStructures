@@ -17,9 +17,6 @@ import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 
-import java.util.List;
-import java.util.function.Supplier;
-
 public class RSAddFeatures {
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////

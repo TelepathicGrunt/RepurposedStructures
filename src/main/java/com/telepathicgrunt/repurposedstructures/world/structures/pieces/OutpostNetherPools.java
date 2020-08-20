@@ -2,12 +2,11 @@ package com.telepathicgrunt.repurposedstructures.world.structures.pieces;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
-import com.mojang.serialization.Lifecycle;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import net.minecraft.structure.pool.*;
+import net.minecraft.structure.pool.StructurePool;
+import net.minecraft.structure.pool.StructurePoolElement;
+import net.minecraft.structure.pool.StructurePools;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.MutableRegistry;
-import net.minecraft.util.registry.RegistryKey;
 
 
 public class OutpostNetherPools {
