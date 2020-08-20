@@ -20,8 +20,10 @@ SOFTWARE.
 
 package com.telepathicgrunt.repurposedstructures.utils;
 
+import com.telepathicgrunt.repurposedstructures.misc.VillagerTradesModification;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
+import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.config.ModConfig.ModConfigEvent;
@@ -44,13 +46,12 @@ public class ConfigHelper
 		final BiFunction<ForgeConfigSpec.Builder, Subscriber, T> configBuilder,
 		final String registerConfig)
 	{
-		return register(ModLoadingContext.get(), FMLJavaModLoadingContext.get(), configType, configBuilder, registerConfig);
+		return register(ModLoadingContext.get(), configType, configBuilder, registerConfig);
 	}
 	
 	/** call this in either your @Mod class constructor or in FMLCommonSetupEvent or in FMLClientSetupEvent **/
 	public static <T> T register(
 		final ModLoadingContext modContext,
-		final FMLJavaModLoadingContext fmlContext,
 		final ModConfig.Type configType,
 		final BiFunction<ForgeConfigSpec.Builder, Subscriber, T> configBuilder,
 		final String registerConfig)
@@ -68,9 +69,8 @@ public class ConfigHelper
 				for(ConfigValueListener<?> value : subscriptionList)
 					value.update();
 		};
-		
-		fmlContext.getModEventBus().addListener(configUpdate);
-		
+
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(configUpdate);
 		return config;
 	}
 	

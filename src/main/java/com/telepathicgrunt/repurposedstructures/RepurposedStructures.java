@@ -14,10 +14,14 @@ import com.telepathicgrunt.repurposedstructures.misc.VillagerTradesModification;
 import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
 import com.telepathicgrunt.repurposedstructures.utils.MobSpawnerManager;
 import com.telepathicgrunt.repurposedstructures.world.placements.RSPlacements;
+import com.telepathicgrunt.repurposedstructures.world.structures.pieces.*;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.MutableRegistry;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.placement.Placement;
 import net.minecraftforge.event.AddReloadListenerEvent;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DeferredWorkQueue;
@@ -62,6 +66,7 @@ public class RepurposedStructures
 		// Register the setup method for modloading
 		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 		modEventBus.addListener(this::setup);
+		initialize();
 	}
 
 	public static void initialize() {
@@ -76,10 +81,7 @@ public class RepurposedStructures
 		RSVillagesConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSVillagesConfigValues::new, "repurposed_structures-villages.toml");
 
 		//load the configs for structure spacing and placements
-		loadRSConfigs();
 		RepurposedStructures.registerStructurePools();
-		RSPlacements.registerPlacements();
-		RSFeatures.registerFeatures();
 	}
 
 	/*
@@ -88,6 +90,30 @@ public class RepurposedStructures
 	public void setup(final FMLCommonSetupEvent event)
 	{
 		DeferredWorkQueue.runLater(VillagerTradesModification::addMapTrades);
+	}
+
+	/*
+	 * You will use this to register anything for your mod. The most common things you will register are blocks, items,
+	 * biomes, entities, features, and dimensions.
+	 */
+	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+	public static class RegistryEvents
+	{
+		@SubscribeEvent
+		public static void onRegisterFeatures(final RegistryEvent.Register<Feature<?>> event)
+		{
+			//load the configs for structure spacing and placements
+			loadRSConfigs();
+			RSFeatures.registerFeatures();
+		}
+
+		@SubscribeEvent
+		public static void onRegisterPlacements(final RegistryEvent.Register<Placement<?>> event)
+		{
+			//load the configs for structure spacing and placements
+			loadRSConfigs();
+			RSPlacements.registerPlacements();
+		}
 	}
 
 	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
@@ -179,7 +205,7 @@ public class RepurposedStructures
 	public static void registerStructurePools(){
 		if(lock) return;
 		lock = true;
-/*
+
 		VillageBadlandsPools.init();
 		VillageBirchPools.init();
 		VillageCrimsonPools.init();
@@ -192,6 +218,6 @@ public class RepurposedStructures
 		ShipwreckPools.initPools();
 		OutpostNetherPools.initPools();
 		PyramidPools.initPools();
-		TempleNetherPools.initPools();*/
+		TempleNetherPools.initPools();
 	}
 }
