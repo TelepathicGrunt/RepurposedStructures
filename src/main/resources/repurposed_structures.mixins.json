@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "BootstrapMixin",
+    "ChunkSerializerMixin",
     "DungeonFeatureAccessor",
     "EnderEyeStrongholdLocatingMixin",
     "GenerationSettingsAccessor",
