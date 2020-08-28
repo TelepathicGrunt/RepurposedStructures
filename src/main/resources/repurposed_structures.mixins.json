@@ -6,6 +6,7 @@
   "mixins": [
     "DungeonFeatureAccessor",
     "EnderEyeStrongholdLocatingMixin",
+    "EndermanSpawnerMixin",
     "GenerationSettingsAccessor",
     "MinecraftServerMixin",
     "NoVillageLakesMixin",

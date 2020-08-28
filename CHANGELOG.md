@@ -8,6 +8,12 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.2.1.1 Changes) (1.16.1 Minecraft)
+
+##### Temples:
+
+- Added mixin to fix Mojang bug where Enderman spawners won't show Endermen in them and spam the logs to infinity.
+
 ## (V.2.1.0 Changes) (1.16.1 Minecraft)
 
 ##### Major:
