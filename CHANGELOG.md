@@ -8,13 +8,25 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
-## (V.2.1.1 Changes) (1.16.1 Minecraft)
+## (V.2.1.1 Changes) (1.16.2 Minecraft)
 
 ##### Temples:
 
 - Added mixin to fix Mojang bug where Enderman spawners won't show Endermen in them and spam the logs to infinity.
 
-## (V.2.1.0 Changes) (1.16.1 Minecraft)
+##### Fortresses:
+
+- Fixed bug where one type of crossing in Jungle Fortress would not get filled with water properly when below sealevel.
+
+##### Wells:
+
+- Nether Well's maximum height lower to 120 so it cannot generate on bedrock ceiling anymore.
+
+##### Swamp Trees:
+
+- Swamp Trees now gets added as an addition to modded biomes instead of replacing the other mod's swamp trees.
+
+## (V.2.1.0 Changes) (1.16.2 Minecraft)
 
 ##### Major:
 

@@ -589,7 +589,7 @@ public class FortressJunglePieces {
                 }
             }
 
-            this.fillWithWater(world, boundingBox, 0, 0, 0, 18, 5, 11);
+            this.fillWithWater(world, boundingBox, 0, 0, 0, 18, 7, 18);
             return true;
         }
     }

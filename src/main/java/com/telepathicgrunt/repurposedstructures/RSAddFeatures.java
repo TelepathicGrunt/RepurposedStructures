@@ -301,7 +301,7 @@ public class RSAddFeatures {
 
             biome.getGenerationSettings().getFeatures().get(GenerationStage.Decoration.SURFACE_STRUCTURES.ordinal())
                     .add(() -> RSFeatures.NETHER_WELL.configure(IFeatureConfig.NO_FEATURE_CONFIG)
-                            .decorate(Placement.RANGE.configure(new TopSolidRangeConfig(30, 0, 98)))
+                            .decorate(Placement.RANGE.configure(new TopSolidRangeConfig(30, 0, 91)))
                             .applyChance(RepurposedStructures.RSWellsConfig.netherWellSpawnrate.get()));
         }
         else if (RepurposedStructures.RSWellsConfig.snowWellSpawnrate.get() != 10000 &&
@@ -355,9 +355,13 @@ public class RSAddFeatures {
 
     public static void addSwampTreeFeatures(MutableRegistry<Biome> biomeReg, Biome biome, String biomeNamespace, String biomePath) {
 
-        // only exists in vanilla biomes
+        // Exists in vanilla Swamp and can be in modded swamp biomes
         if (RepurposedStructures.RSMainConfig.hornedSwampTree.get() &&
-                biome == biomeReg.get(Biomes.SWAMP)) {
+                (biome == biomeReg.get(Biomes.SWAMP) ||
+                (RepurposedStructures.RSMainConfig.addLargeSwampTreeModdedBiomes.get() &&
+                        biome.getCategory() == Category.SWAMP &&
+                        !biomeNamespace.equals("ultra_amplified_dimension") &&
+                        !biomeNamespace.equals("minecraft")))){
 
             biome.getGenerationSettings().getFeatures().get(GenerationStage.Decoration.VEGETAL_DECORATION.ordinal())
                     .add(() -> RSFeatures.HORNED_SWAMP_TREE.configure(TREE_FEATURE_CONFIG)
@@ -365,13 +369,9 @@ public class RSAddFeatures {
                             .decorate(Features.Placements.SQUARE_HEIGHTMAP)));
         }
 
-        // can exist in modded biomes too
+        // Only exists in vanilla Swamp Hills biomes
         else if (RepurposedStructures.RSMainConfig.hornedSwampTree.get() &&
-                (biome == biomeReg.get(Biomes.SWAMP_HILLS) ||
-                        (RepurposedStructures.RSMainConfig.addLargeSwampTreeModdedBiomes.get() &&
-                                biome.getCategory() == Category.SWAMP &&
-                                !biomeNamespace.equals("ultra_amplified_dimension") &&
-                                !biomeNamespace.equals("minecraft")))) {
+                (biome == biomeReg.get(Biomes.SWAMP_HILLS))) {
 
             // replace the swamp tree with our own
             biome.getGenerationSettings().getFeatures().get(GenerationStage.Decoration.VEGETAL_DECORATION.ordinal())

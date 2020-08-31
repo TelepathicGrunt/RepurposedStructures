@@ -21,7 +21,6 @@ repositories {
 }
 
 apply plugin: 'net.minecraftforge.gradle'
-// Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
@@ -40,26 +39,13 @@ minecraft {
         client {
             workingDirectory project.file('run')
             arg "-mixin.config="+archivesBaseName+".mixins.json"
-
-            // Recommended logging level for the console
-            property 'forge.logging.console.level', 'debug'
-
-            mods {
-                repurposed_structures {
-                    source sourceSets.main
-                }
-            }
+            mods { repurposed_structures { source sourceSets.main } }
         }
 
         server {
             workingDirectory project.file('run')
             arg "-mixin.config="+archivesBaseName+".mixins.json"
-
-            mods {
-                repurposed_structures {
-                    source sourceSets.main
-                }
-            }
+            mods { repurposed_structures { source sourceSets.main } }
         }
     }
 }
@@ -122,8 +108,6 @@ processResources {
     }
 
 }
-apply plugin: 'org.spongepowered.mixin'
 
-mixin {
-    add sourceSets.main, "repurposed_structures.refmap.json"
-}
+apply plugin: 'org.spongepowered.mixin'
+mixin { add sourceSets.main, "repurposed_structures.refmap.json" }
