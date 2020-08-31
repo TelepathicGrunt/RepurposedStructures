@@ -8,6 +8,15 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.2.1.2 Changes) (1.16.2 Minecraft)
+
+##### Misc:
+
+- Added check to detect if a mod's dimension made a special map an ImmutableMap and to print to logs 
+  which mod is doing that instead of crashing. Please refer to the log to see which mod is causing
+  Repurposed Structures's structures to spawn in every single chunk of that dimension because of that
+  immutable map.
+
 ## (V.2.1.1 Changes) (1.16.2 Minecraft)
 
 ##### Temples:
