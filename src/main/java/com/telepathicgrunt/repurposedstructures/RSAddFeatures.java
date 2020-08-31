@@ -304,7 +304,7 @@ public class RSAddFeatures {
 
             biome.getGenerationSettings().getFeatures().get(GenerationStep.Feature.SURFACE_STRUCTURES.ordinal())
                     .add(() -> RSFeatures.NETHER_WELL.configure(FeatureConfig.DEFAULT)
-                            .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(30, 0, 98)))
+                            .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(30, 0, 91)))
                             .applyChance(RepurposedStructures.RSAllConfig.RSWellsConfig.spawnrate.netherWellSpawnrate));
         }
         else if (RepurposedStructures.RSAllConfig.RSWellsConfig.spawnrate.snowWellSpawnrate != 10000 &&
@@ -353,21 +353,22 @@ public class RSAddFeatures {
     
     public static void addSwampTreeFeatures(MutableRegistry<Biome> biomeReg, Biome biome, String biomeNamespace, String biomePath) {
 
-        // only exists in vanilla biomes
-        if (RepurposedStructures.RSAllConfig.RSMainConfig.misc.hornedSwampTree && biome == biomeReg.get(BuiltInBiomes.SWAMP)) {
+        // Exists in vanilla Swamp and can be in modded swamp biomes
+        if (RepurposedStructures.RSAllConfig.RSMainConfig.misc.hornedSwampTree &&
+                (biome == biomeReg.get(BuiltInBiomes.SWAMP) ||
+                    (RepurposedStructures.RSAllConfig.RSMainConfig.misc.addSwampTreeToModdedBiomes &&
+                        biome.getCategory() == Category.SWAMP &&
+                        !biomeNamespace.equals("ultra_amplified_dimension") &&
+                        !biomeNamespace.equals("minecraft")))){
             biome.getGenerationSettings().getFeatures().get(GenerationStep.Feature.VEGETAL_DECORATION.ordinal())
                     .add(() -> RSFeatures.HORNED_SWAMP_TREE.configure(TREE_FEATURE_CONFIG)
                             .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(0, 0.7F, 1))
                             .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP)));
         }
 
-        // can exist in modded biomes too
+        // Only exists in vanilla Swamp Hills biomes
         else if (RepurposedStructures.RSAllConfig.RSMainConfig.misc.hornedSwampTree &&
-                (biome == biomeReg.get(BuiltInBiomes.SWAMP_HILLS) ||
-                        (RepurposedStructures.RSAllConfig.RSMainConfig.misc.addSwampTreeToModdedBiomes &&
-                                biome.getCategory() == Category.SWAMP &&
-                                !biomeNamespace.equals("ultra_amplified_dimension") &&
-                                !biomeNamespace.equals("minecraft")))) {
+                (biome == biomeReg.get(BuiltInBiomes.SWAMP_HILLS))) {
 
             // replace the swamp tree with our own
             biome.getGenerationSettings().getFeatures().get(GenerationStep.Feature.VEGETAL_DECORATION.ordinal()).removeIf(configuredFeature -> configuredFeature.get().config instanceof DecoratedFeatureConfig && serializeAndCompareFeature(configuredFeature.get(), ConfiguredFeatures.SWAMP_TREE));

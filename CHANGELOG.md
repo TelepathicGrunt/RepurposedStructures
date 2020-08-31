@@ -8,6 +8,20 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.1.5.2 Changes) (1.16.2 Minecraft)
+
+##### Backend:
+
+- Removed LibStructure and is now using Fabric API's built in structure registration. (Fabric API must be latest in order to work)
+
+##### Wells:
+
+- Nether Well's maximum height lower to 120 so it cannot generate on bedrock ceiling anymore.
+
+##### Swamp Trees:
+
+- Swamp Trees now gets added as an addition to modded biomes instead of replacing the other mod's swamp trees.
+
 ## (V.1.5.1 Changes) (1.16.2 Minecraft)
 
 ##### Misc:
