@@ -14,6 +14,10 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Removed LibStructure and is now using Fabric API's built in structure registration. (Fabric API must be latest in order to work)
 
+##### Fortresses:
+
+- Fixed bug where one type of crossing in Jungle Fortress would not get filled with water properly when below sealevel.
+
 ##### Wells:
 
 - Nether Well's maximum height lower to 120 so it cannot generate on bedrock ceiling anymore.

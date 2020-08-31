@@ -1,14 +1,16 @@
 <p><img src="https://i.imgur.com/lD8Pa6U.png" alt="Picture that shows the title of this mod with a Stonebrick Fortress during sunset behind the text" width="1519" height="516" /></p>
 <h2 style="text-align: center;"><strong><span style="font-size: 36px; color: #009611;">CURRENTLY FOR 1.16.2 MC</span></strong></h2>
 <p style="text-align: center;"><span style="font-size: 14px;"><strong><span style="color: #009611;">Works serverside too so vanilla clients can connect!</span></strong></span></p>
-<h2 style="text-align: center;"><span style="font-size: 14px;"><strong><span style="color: #009611;">CLICK HERE FOR 1.16.1 FORGE VERSION:&nbsp;</span></strong></span></h2>
+<h2 style="text-align: center;"><span style="font-size: 14px;"><strong><span style="color: #009611;">CLICK HERE FOR 1.16.2 FORGE VERSION:&nbsp;</span></strong></span></h2>
 <p style="text-align: center;"><span style="font-size: 14px;"><strong><span style="color: #009611;"><a href="https://www.curseforge.com/minecraft/mc-mods/repurposed-structures">https://www.curseforge.com/minecraft/mc-mods/repurposed-structures</a></span></strong></span></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>With some blood, sweat,</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>and tears, 1.16.2 port is out!<br />Please report any bug as MC's</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>1.16.2 changes were cursed.</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>Notice: For 1.16.2 players, please </strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>update </strong></b></span></em><em><span style="font-size: 14px;"><b><strong>your </strong></b></span></em><em><span style="font-size: 14px;"><b><strong>Fabric API&nbsp;</strong></b></span></em><em><span style="font-size: 14px;"><b><strong>to latest for </strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>1.5.2+ Repurposed Structures!<br />They added structure api hooks</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>so that I can remove the </strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>StructureLib&nbsp;</strong></b></span></em><em><span style="font-size: 14px;"><b><strong>dependency.</strong></b></span></em></p>
 <p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;"><span style="font-size: 18px;"><strong>______________________________________________________________________________</strong></span></p>
@@ -391,7 +393,6 @@
 <p><strong>Has one hidden Enderman spawner and 1 Strider spawner</strong></p>
 </div>
 <p>&nbsp;</p>
-<p>&nbsp;</p>
 <p><strong>Nether Soul Temple loot</strong></p>
 <div class="spoiler">
 <p><strong>Dispensers loot</strong></p>
@@ -644,7 +645,14 @@
 <h2><strong><span style="font-size: 24px; color: #009611;">PRE-MADE DATAPACKS</span></strong></h2>
 <p>&nbsp;</p>
 <p>Since Villages and Wells can be overridden with datapacks, that means you can customize the blocks in those structures with other mod's blocks! If you decide to use the datapack below, download it, go into your world's save folder, and put the zipped folder into the datapack folder. Now when you load the game, the datapack should take effect! (Also, you can share mod-compat datapacks you made to me and I'll add it below after I check it out and like it!)</p>
-<p>&nbsp;<br />: Current no mod-compat datapack made yet :<br /><br /></p>
+<p>&nbsp;<br /><br /></p>
+<p><strong><a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/download/0.0.1/Repurposed_Structures-Landmark.zip">Landmark Compatibility pack!</a></strong></p>
+<p>Add this datapack to the world's datapack folder to add compatibility between Repurposed Structures and Landmark mod!</p>
+<p>Landmark mod:&nbsp;<a href="https://www.curseforge.com/minecraft/mc-mods/landmark">https://www.curseforge.com/minecraft/mc-mods/landmark</a><br />Download link: <a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/download/0.0.1/Repurposed_Structures-Landmark.zip">Repurposed_Structures-Landmark.zip</a></p>
+<p>&nbsp;</p>
+<p><strong><a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/download/0.0.2/Repurposed_Structures-Hidden_Advancements.zip">Hidden Advancement pack!</a></strong></p>
+<p>Add this datapack to the world's datapack folder to make Repurposed Structures's advancements no longer pop up on screen! The advancement will then only be able to be viewed in the advancements menu and nowhere else.</p>
+<p>Download link: <a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/download/0.0.2/Repurposed_Structures-Hidden_Advancements.zip">https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/download/0.0.2/Repurposed_Structures-Hidden_Advancements.zip</a></p>
 <p><span style="font-size: 18px;"><strong>______________________________________________________________________________</strong></span></p>
 <p>&nbsp;</p>
 <p style="text-align: center;"><span style="font-size: 12px;">For the list of changes in this mod, click the Source tab and check out CHANGELOG.txt file. </span></p>
