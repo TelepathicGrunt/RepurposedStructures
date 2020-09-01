@@ -92,8 +92,8 @@ public class MinecraftServerMixin {
                         if(LOGGED_DIMENSION_SETTINGS.contains(dimensionSettingsRL)) continue;
                         LOGGED_DIMENSION_SETTINGS.add(dimensionSettingsRL);
 
-                        //A mod structures spacing is using an immutable map. Time to shame that mod lol
-                        //By shame I mean, print to the logs so I can make a bug report to that mod to not immutable map this.
+                        // A mod structures spacing is using an immutable map. Print that to the logs
+                        // so I can make a bug report to that mod to not use an immutable map for this.
                         RepurposedStructures.LOGGER.log(Level.WARN, "--------------------------------------------------------------------");
                         RepurposedStructures.LOGGER.log(Level.WARN, "");
                         RepurposedStructures.LOGGER.log(Level.WARN, "Error: "+dimensionSettingsRL+" 's " +
