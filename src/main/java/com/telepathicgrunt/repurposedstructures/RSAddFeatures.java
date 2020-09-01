@@ -437,7 +437,6 @@ public class RSAddFeatures {
                             .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.configure(
                                     new TopSolidRangeConfig(5, 0, Math.max(RepurposedStructures.RSStrongholdsConfig.stonebrickStrongholdMaxHeight.get(), RepurposedStructures.RSStrongholdsConfig.stonebrickStrongholdMinHeight.get()+1)+15))
                             .repeat(RepurposedStructures.RSStrongholdsConfig.stonebrickStrongholdChainSpawnrate.get())));
-
         }
 
         else if (RepurposedStructures.RSStrongholdsConfig.netherStrongholdSpawnrate.get() != 1001 && biome.getCategory() == Category.NETHER &&

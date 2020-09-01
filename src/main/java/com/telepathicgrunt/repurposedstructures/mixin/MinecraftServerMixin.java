@@ -10,6 +10,7 @@ import net.minecraft.resources.DataPackRegistries;
 import net.minecraft.resources.ResourcePackList;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.management.PlayerProfileCache;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.DynamicRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
@@ -33,6 +34,8 @@ import java.util.function.Supplier;
 
 @Mixin(MinecraftServer.class)
 public class MinecraftServerMixin {
+
+    private static final Set<ResourceLocation> LOGGED_DIMENSION_SETTINGS = new HashSet<>();
 
     @Shadow @Final
     protected DynamicRegistries.Impl registryManager;
@@ -81,22 +84,30 @@ public class MinecraftServerMixin {
 
                 //add our structure spacing to all chunkgenerators
                 for(DimensionSettings dimensionSettings : registryManager.get(Registry.NOISE_SETTINGS_WORLDGEN)){
-                    if(dimensionSettings.getStructuresConfig().structures instanceof ImmutableMap){
+
+                    ResourceLocation dimensionSettingsRL = registryManager.get(Registry.NOISE_SETTINGS_WORLDGEN).getKey(dimensionSettings);
+                    if(dimensionSettings.getStructuresConfig().structures instanceof ImmutableMap)
+                    {
+                        //Used so we do not print the dimension settings multiple times.
+                        if(LOGGED_DIMENSION_SETTINGS.contains(dimensionSettingsRL)) continue;
+                        LOGGED_DIMENSION_SETTINGS.add(dimensionSettingsRL);
+
                         //A mod structures spacing is using an immutable map. Time to shame that mod lol
                         //By shame I mean, print to the logs so I can make a bug report to that mod to not immutable map this.
                         RepurposedStructures.LOGGER.log(Level.WARN, "--------------------------------------------------------------------");
                         RepurposedStructures.LOGGER.log(Level.WARN, "");
-                        RepurposedStructures.LOGGER.log(Level.WARN, "Error: "+registryManager.get(Registry.NOISE_SETTINGS_WORLDGEN).getKey(dimensionSettings)+" 's " +
+                        RepurposedStructures.LOGGER.log(Level.WARN, "Error: "+dimensionSettingsRL+" 's " +
                                                                             "Map<Structure<?>, StructureSeparationSettings> structures was unabled to be modified by Repurposed Structures " +
                                                                             "because the map is an immutable map. Please let either mod author know this so that the map can be changed to be " +
-                                                                            "a normal mutable map. Otherwise, Repurposed Structures stuff will spawn in every single chunk of that mod's dimension " +
-                                                                            "as the map is used to store structure's spacing configs.");
+                                                                            "a normal mutable map. Otherwise, Repurposed Structures stuff will not spawn properly if at all in the " +
+                                                                            "mod's dimension because that map is used to store structure's spacing configs.");
                         RepurposedStructures.LOGGER.log(Level.WARN, "");
                         RepurposedStructures.LOGGER.log(Level.WARN, "--------------------------------------------------------------------");
                     }
                     else{
                         dimensionSettings.getStructuresConfig().structures.putAll(RSFeatures.RS_STRUCTURES);
                     }
+
                 }
             }
         }
