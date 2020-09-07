@@ -32,87 +32,7 @@
     {
       "weight": 1,
       "element": {
-        "feature": {
-          "config": {
-            "feature": {
-              "config": {
-                "feature": {
-                  "config": {
-                    "max_water_depth": 1,
-                    "ignore_vines": false,
-                    "heightmap": "OCEAN_FLOOR",
-                    "minimum_size": {
-                      "limit": 1,
-                      "lower_size": 0,
-                      "upper_size": 1,
-                      "type": "minecraft:two_layers_feature_size"
-                    },
-                    "decorators": [
-                      {
-                        "type": "minecraft:leave_vine"
-                      }
-                    ],
-                    "trunk_provider": {
-                      "state": {
-                        "Properties": {
-                          "axis": "y"
-                        },
-                        "Name": "minecraft:oak_log"
-                      },
-                      "type": "minecraft:simple_state_provider"
-                    },
-                    "leaves_provider": {
-                      "state": {
-                        "Properties": {
-                          "persistent": "false",
-                          "distance": "7"
-                        },
-                        "Name": "minecraft:oak_leaves"
-                      },
-                      "type": "minecraft:simple_state_provider"
-                    },
-                    "foliage_placer": {
-                      "radius": 3,
-                      "offset": 0,
-                      "height": 3,
-                      "type": "minecraft:blob_foliage_placer"
-                    },
-                    "trunk_placer": {
-                      "base_height": 5,
-                      "height_rand_a": 3,
-                      "height_rand_b": 0,
-                      "type": "minecraft:straight_trunk_placer"
-                    }
-                  },
-                  "type": "minecraft:tree"
-                },
-                "decorator": {
-                  "config": {
-                    "outer": {
-                      "config": {},
-                      "type": "minecraft:square"
-                    },
-                    "inner": {
-                      "config": {},
-                      "type": "minecraft:heightmap"
-                    }
-                  },
-                  "type": "minecraft:decorated"
-                }
-              },
-              "type": "minecraft:decorated"
-            },
-            "decorator": {
-              "config": {
-                "count": 2,
-                "extra_chance": 0.1,
-                "extra_count": 1
-              },
-              "type": "minecraft:count_extra"
-            }
-          },
-          "type": "minecraft:decorated"
-        },
+        "feature": "minecraft:swamp_tree",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }
@@ -120,56 +40,7 @@
     {
       "weight": 1,
       "element": {
-        "feature": {
-          "config": {
-            "feature": {
-              "config": {
-                "feature": {
-                  "config": {
-                    "can_replace": false,
-                    "project": true,
-                    "need_water": false,
-                    "xspread": 7,
-                    "yspread": 3,
-                    "zspread": 7,
-                    "whitelist": [],
-                    "blacklist": [],
-                    "tries": 64,
-                    "state_provider": {
-                      "state": {
-                        "Name": "minecraft:blue_orchid"
-                      },
-                      "type": "minecraft:simple_state_provider"
-                    },
-                    "block_placer": {
-                      "type": "minecraft:simple_block_placer"
-                    }
-                  },
-                  "type": "minecraft:flower"
-                },
-                "decorator": {
-                  "config": {},
-                  "type": "minecraft:spread_32_above"
-                }
-              },
-              "type": "minecraft:decorated"
-            },
-            "decorator": {
-              "config": {
-                "outer": {
-                  "config": {},
-                  "type": "minecraft:square"
-                },
-                "inner": {
-                  "config": {},
-                  "type": "minecraft:heightmap"
-                }
-              },
-              "type": "minecraft:decorated"
-            }
-          },
-          "type": "minecraft:decorated"
-        },
+        "feature": "minecraft:flower_swamp",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }

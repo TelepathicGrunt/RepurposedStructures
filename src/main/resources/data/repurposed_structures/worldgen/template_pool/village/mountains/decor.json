@@ -68,61 +68,7 @@
     {
       "weight": 1,
       "element": {
-        "feature": {
-          "config": {
-            "max_water_depth": 0,
-            "ignore_vines": true,
-            "heightmap": "OCEAN_FLOOR",
-            "minimum_size": {
-              "limit": 2,
-              "lower_size": 0,
-              "upper_size": 2,
-              "type": "minecraft:two_layers_feature_size"
-            },
-            "decorators": [],
-            "trunk_provider": {
-              "state": {
-                "Properties": {
-                  "axis": "y"
-                },
-                "Name": "minecraft:spruce_log"
-              },
-              "type": "minecraft:simple_state_provider"
-            },
-            "leaves_provider": {
-              "state": {
-                "Properties": {
-                  "persistent": "false",
-                  "distance": "7"
-                },
-                "Name": "minecraft:spruce_leaves"
-              },
-              "type": "minecraft:simple_state_provider"
-            },
-            "foliage_placer": {
-              "radius": {
-                "base": 2,
-                "spread": 1
-              },
-              "offset": {
-                "base": 0,
-                "spread": 2
-              },
-              "trunk_height": {
-                "base": 1,
-                "spread": 1
-              },
-              "type": "minecraft:spruce_foliage_placer"
-            },
-            "trunk_placer": {
-              "base_height": 5,
-              "height_rand_a": 2,
-              "height_rand_b": 1,
-              "type": "minecraft:straight_trunk_placer"
-            }
-          },
-          "type": "minecraft:tree"
-        },
+        "feature": "minecraft:pine",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }
@@ -130,78 +76,7 @@
     {
       "weight": 1,
       "element": {
-        "feature": {
-          "config": {
-            "feature": {
-              "config": {
-                "feature": {
-                  "config": {
-                    "feature": {
-                      "config": {
-                        "can_replace": false,
-                        "project": true,
-                        "need_water": false,
-                        "xspread": 7,
-                        "yspread": 3,
-                        "zspread": 7,
-                        "whitelist": [],
-                        "blacklist": [],
-                        "tries": 64,
-                        "state_provider": {
-                          "entries": [
-                            {
-                              "weight": 2,
-                              "data": {
-                                "Name": "minecraft:poppy"
-                              }
-                            },
-                            {
-                              "weight": 1,
-                              "data": {
-                                "Name": "minecraft:dandelion"
-                              }
-                            }
-                          ],
-                          "type": "minecraft:weighted_state_provider"
-                        },
-                        "block_placer": {
-                          "type": "minecraft:simple_block_placer"
-                        }
-                      },
-                      "type": "minecraft:flower"
-                    },
-                    "decorator": {
-                      "config": {},
-                      "type": "minecraft:spread_32_above"
-                    }
-                  },
-                  "type": "minecraft:decorated"
-                },
-                "decorator": {
-                  "config": {
-                    "outer": {
-                      "config": {},
-                      "type": "minecraft:square"
-                    },
-                    "inner": {
-                      "config": {},
-                      "type": "minecraft:heightmap"
-                    }
-                  },
-                  "type": "minecraft:decorated"
-                }
-              },
-              "type": "minecraft:decorated"
-            },
-            "decorator": {
-              "config": {
-                "count": 2
-              },
-              "type": "minecraft:count"
-            }
-          },
-          "type": "minecraft:decorated"
-        },
+        "feature": "minecraft:flower_default",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }

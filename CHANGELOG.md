@@ -10,6 +10,12 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ## (V.1.5.4 Changes) (1.16.2 Minecraft)
 
+##### Villages:
+
+- Adjusted the weights for straight roads and houses with beds to try
+  and make Villages have more bed houses and not be just empty with only
+  clusters of roads. Affects all Repurposed Structures villages.
+
 ##### Boulders:
 
 - Giant Boulders in Giant Tree Taiga Hills and Giant Spruce Taiga Hills now
