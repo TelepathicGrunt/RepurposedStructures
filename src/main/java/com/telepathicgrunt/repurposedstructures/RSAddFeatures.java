@@ -1,5 +1,7 @@
 package com.telepathicgrunt.repurposedstructures;
 
+import com.google.gson.JsonElement;
+import com.mojang.serialization.JsonOps;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.MutableRegistry;
 import net.minecraft.world.biome.Biome;
@@ -7,6 +9,8 @@ import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.biome.BuiltInBiomes;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.*;
+
+import java.util.Optional;
 
 public class RSAddFeatures {
 
@@ -254,7 +258,7 @@ public class RSAddFeatures {
                         biome.getCategory() == Category.SWAMP &&
                         !biomeID.getNamespace().equals("ultra_amplified_dimension") &&
                         !biomeID.getNamespace().equals("minecraft")))){
-            
+
             biome.getGenerationSettings().getFeatures().get(GenerationStep.Feature.VEGETAL_DECORATION.ordinal())
                     .add(() -> RSConfiguredFeatures.HORNED_SWAMP_TREE_UNCOMMON);
         }
@@ -553,20 +557,25 @@ public class RSAddFeatures {
     // GENERAL UTILITIES //
 
     /**
-     * Will serialize (if possible) both features and check if they are the same feature. If cannot serialize, compare the feature itself to see if it is the same
-     * Doesn't actually serialize because I don't know how to do that in 1.16.1 lmao
+     * Will serialize (if possible) both features and check if they are the same feature.
+     * If cannot serialize, compare the feature itself to see if it is the same.
      */
-    private static boolean serializeAndCompareFeature(ConfiguredFeature<?, ?> feature1, ConfiguredFeature<?, ?> feature2) {
+    private static boolean serializeAndCompareFeature(ConfiguredFeature<?, ?> configuredFeature1, ConfiguredFeature<?, ?> configuredFeature2) {
 
-        // One of the features cannot be serialized which can only happen with custom modded features
-        // Check if the features are the same feature even though the placement or config for the feature might be different.
-        // This is the best way we can remove duplicate modded features as best as we can. (I think)
-        if ((feature1.config instanceof DecoratedFeatureConfig && feature2.config instanceof DecoratedFeatureConfig) &&
-                ((DecoratedFeatureConfig) feature1.config).feature.get().feature == ((DecoratedFeatureConfig) feature2.config).feature.get().feature) {
-            return true;
+        Optional<JsonElement> configuredFeatureJSON1 = ConfiguredFeature.CODEC.encode(() -> configuredFeature1, JsonOps.INSTANCE, JsonOps.INSTANCE.empty()).get().left();
+        Optional<JsonElement> configuredFeatureJSON2 = ConfiguredFeature.CODEC.encode(() -> configuredFeature2, JsonOps.INSTANCE, JsonOps.INSTANCE.empty()).get().left();
+
+        // One of the configuredfeatures cannot be serialized which
+        // shouldn't be possible but still good to do a sanity check.
+        if(!configuredFeatureJSON1.isPresent() || !configuredFeatureJSON2.isPresent()){
+            if ((configuredFeature1.config instanceof DecoratedFeatureConfig && configuredFeature2.config instanceof DecoratedFeatureConfig) &&
+                    ((DecoratedFeatureConfig) configuredFeature1.config).feature.get().feature == ((DecoratedFeatureConfig) configuredFeature2.config).feature.get().feature) {
+                return true;
+            }
         }
 
-        return false;
+        // Compare the JSON to see if it's the same ConfiguredFeature in the end.
+        return configuredFeatureJSON1.equals(configuredFeatureJSON2);
     }
 
 }

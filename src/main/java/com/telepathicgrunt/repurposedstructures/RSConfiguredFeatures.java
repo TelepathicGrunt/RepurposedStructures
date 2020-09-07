@@ -139,7 +139,7 @@ public class RSConfiguredFeatures {
                     .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP));
 
     public static ConfiguredFeature<?, ?> HORNED_SWAMP_TREE_COMMON = RSFeatures.HORNED_SWAMP_TREE.configure(TREE_FEATURE_CONFIG)
-            .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(2, 0.8F, 1))
+            .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(5, 0.8F, 1))
             .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP));
 
     public static ConfiguredFeature<?, ?> BOULDER_GIANT = RSFeatures.BOULDER_GIANT.configure(FeatureConfig.DEFAULT)

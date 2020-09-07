@@ -8,6 +8,21 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.1.5.4 Changes) (1.16.2 Minecraft)
+
+##### Boulders:
+
+- Giant Boulders in Giant Tree Taiga Hills and Giant Spruce Taiga Hills now
+  are place lower to fit on terrain better and their surfaces are roughed up.
+
+##### Swamp Trees:
+
+- Increased spawnrate of Horned Swamp Trees in Swamp Hills biome
+
+##### Misc:
+
+- Significantly cleaned up code in backend again.
+
 ## (V.1.5.3 Changes) (1.16.2 Minecraft)
 
 ##### Structures:

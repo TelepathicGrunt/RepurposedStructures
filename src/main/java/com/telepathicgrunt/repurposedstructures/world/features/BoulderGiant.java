@@ -2,11 +2,13 @@ package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.utils.OpenSimplexNoise;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.world.Heightmap;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
@@ -18,12 +20,24 @@ import java.util.Random;
 public class BoulderGiant extends Feature<DefaultFeatureConfig> {
     private final static int START_RADIUS = 4;
 
+    protected long seed;
+    protected static OpenSimplexNoise noiseGen;
+
+    public void setSeed(long seed) {
+        if (this.seed != seed || noiseGen == null) {
+            noiseGen = new OpenSimplexNoise(seed);
+            this.seed = seed;
+        }
+    }
+
+
     public BoulderGiant(Codec<DefaultFeatureConfig> configFactory) {
         super(configFactory);
     }
 
     @Override
     public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
+        setSeed(world.getSeed());
 
         BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().set(position);
         BlockState blockState = world.getBlockState(blockpos$Mutable);
@@ -35,7 +49,7 @@ public class BoulderGiant extends Feature<DefaultFeatureConfig> {
                 blockpos$Mutable.move(Direction.DOWN);
                 blockState = world.getBlockState(blockpos$Mutable);
             } else {
-                blockpos$Mutable.move(Direction.UP, 2);
+                blockpos$Mutable.move(Direction.UP);
                 break; //We hit a valid spot to generate a boulder, time to exit loop
             }
         }
@@ -58,6 +72,13 @@ public class BoulderGiant extends Feature<DefaultFeatureConfig> {
 
             for (BlockPos blockpos : BlockPos.iterate(blockpos$Mutable.add(-x, -y, -z), blockpos$Mutable.add(x, y, z))) {
                 if (blockpos.getSquaredDistance(blockpos$Mutable) <= calculatedDistance * calculatedDistance) {
+
+                    double noiseValue = noiseGen.eval(blockpos$Mutable.getX(), blockpos$Mutable.getY(), blockpos$Mutable.getZ());
+                    if(blockpos.getSquaredDistance(blockpos$Mutable) > calculatedDistance * calculatedDistance * 0.5f &&
+                            noiseValue > -0.1D && noiseValue < 0.1D){
+                        continue; // Rough the surface of the boulders a bit
+                    }
+
                     //adds the blocks for generation in this boulder
                     //note, if user turns off an ore, that ore's chance is dumped into the below ore for generation
                     int randomChance = random.nextInt(chanceRange);
@@ -94,9 +115,14 @@ public class BoulderGiant extends Feature<DefaultFeatureConfig> {
             }
             blockpos$Mutable.move(
                     -(START_RADIUS + 1) + random.nextInt(2 + START_RADIUS * 2),
-                    -random.nextInt(2),
+                    0,
                     -(START_RADIUS + 1) + random.nextInt(2 + START_RADIUS * 2));
 
+            blockpos$Mutable.move(Direction.UP,
+                    world.getTopY(Heightmap.Type.WORLD_SURFACE_WG, blockpos$Mutable.getX(), blockpos$Mutable.getZ())
+                            + 1
+                            - random.nextInt(2)
+                            - blockpos$Mutable.getY());
         }
 
         //finished generating the boulder
