@@ -113,6 +113,7 @@ public class BoulderGiant extends Feature<DefaultFeatureConfig> {
                     }
                 }
             }
+
             blockpos$Mutable.move(
                     -(START_RADIUS + 1) + random.nextInt(2 + START_RADIUS * 2),
                     0,

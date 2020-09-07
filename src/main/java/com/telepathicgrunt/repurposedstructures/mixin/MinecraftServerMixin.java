@@ -48,6 +48,7 @@ public class MinecraftServerMixin {
         if(registryManager.getOptional(Registry.BIOME_KEY).isPresent()) {
             for (Map.Entry<RegistryKey<Biome>, Biome> biomeEntry : registryManager.getOptional(Registry.BIOME_KEY).get().getEntries()) {
 
+                // Make the structure and features list mutable for modification later
                 List<List<Supplier<ConfiguredFeature<?, ?>>>> tempFeature = ((GenerationSettingsAccessor)biomeEntry.getValue().getGenerationSettings()).getGSFeatures();
                 List<List<Supplier<ConfiguredFeature<?, ?>>>> mutableGenerationStages = new ArrayList<>();
 
