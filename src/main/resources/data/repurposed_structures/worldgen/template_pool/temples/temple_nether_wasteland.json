@@ -1,0 +1,15 @@
+{
+  "name": "repurposed_structures:temples/temple_nether_wasteland",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:temples/temple_nether_wasteland",
+        "processors": "repurposed_structures:temples/wasteland_temple_randomizer",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "name": "repurposed_structures:village/swamp/zombie/streets",
+  "fallback": "repurposed_structures:village/swamp/terminators",
+  "elements": [
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/swamp/zombie/streets/corner_01",
+        "processors": "repurposed_structures:village/swamp/path_randomizer",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/swamp/zombie/streets/corner_02",
+        "processors": "repurposed_structures:village/swamp/path_randomizer",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/swamp/zombie/streets/corner_03",
+        "processors": "repurposed_structures:village/swamp/path_randomizer",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 6,
+      "element": {
+        "location": "repurposed_structures:village/swamp/zombie/streets/straight_01",
+        "processors": "repurposed_structures:village/swamp/path_randomizer",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 6,
+      "element": {
+        "location": "repurposed_structures:village/swamp/zombie/streets/straight_02",
+        "processors": "repurposed_structures:village/swamp/path_randomizer",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 8,
+      "element": {
+        "location": "repurposed_structures:village/swamp/zombie/streets/straight_03",
+        "processors": "repurposed_structures:village/swamp/path_randomizer",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 8,
+      "element": {
+        "location": "repurposed_structures:village/swamp/zombie/streets/straight_04",
+        "processors": "repurposed_structures:village/swamp/path_randomizer",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:village/swamp/zombie/streets/straight_06",
+        "processors": "repurposed_structures:village/swamp/path_randomizer",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 6,
+      "element": {
+        "location": "repurposed_structures:village/swamp/zombie/streets/straight_08",
+        "processors": "repurposed_structures:village/swamp/path_randomizer",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/swamp/zombie/streets/crossroad_01",
+        "processors": "repurposed_structures:village/swamp/path_randomizer",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:village/swamp/zombie/streets/crossroad_02",
+        "processors": "repurposed_structures:village/swamp/path_randomizer",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/swamp/zombie/streets/crossroad_03",
+        "processors": "repurposed_structures:village/swamp/path_randomizer",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/swamp/zombie/streets/crossroad_04",
+        "processors": "repurposed_structures:village/swamp/path_randomizer",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/swamp/zombie/streets/crossroad_05",
+        "processors": "repurposed_structures:village/swamp/path_randomizer",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/swamp/zombie/streets/crossroad_06",
+        "processors": "repurposed_structures:village/swamp/path_randomizer",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:village/swamp/streets/square_01",
+        "processors": "repurposed_structures:village/swamp/path_randomizer",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:village/swamp/zombie/streets/turn_01",
+        "processors": "repurposed_structures:village/swamp/path_randomizer",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    }
+  ]
+}

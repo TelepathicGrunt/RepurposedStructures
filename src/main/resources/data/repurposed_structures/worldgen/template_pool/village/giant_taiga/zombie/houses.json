@@ -1,0 +1,282 @@
+{
+  "name": "repurposed_structures:village/giant_taiga/zombie/houses",
+  "fallback": "repurposed_structures:village/giant_taiga/terminators",
+  "elements": [
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/zombie/houses/small_house_1",
+        "processors": "repurposed_structures:village/giant_taiga/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/zombie/houses/small_house_2",
+        "processors": "repurposed_structures:village/giant_taiga/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/zombie/houses/small_house_3",
+        "processors": "repurposed_structures:village/giant_taiga/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/zombie/houses/small_house_4",
+        "processors": "repurposed_structures:village/giant_taiga/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/zombie/houses/small_house_5",
+        "processors": "repurposed_structures:village/giant_taiga/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/zombie/houses/small_house_6",
+        "processors": "repurposed_structures:village/giant_taiga/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/zombie/houses/small_house_7",
+        "processors": "repurposed_structures:village/giant_taiga/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/zombie/houses/small_house_8",
+        "processors": "repurposed_structures:village/giant_taiga/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/zombie/houses/medium_house_1",
+        "processors": "repurposed_structures:village/giant_taiga/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/zombie/houses/medium_house_2",
+        "processors": "repurposed_structures:village/giant_taiga/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/zombie/houses/medium_house_3",
+        "processors": "repurposed_structures:village/giant_taiga/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/butchers_shop_1",
+        "processors": "repurposed_structures:village/giant_taiga/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/butchers_shop_2",
+        "processors": "repurposed_structures:village/giant_taiga/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/tool_smith_1",
+        "processors": "repurposed_structures:village/giant_taiga/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/fletcher_house_1",
+        "processors": "repurposed_structures:village/giant_taiga/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/shepherds_house_1",
+        "processors": "repurposed_structures:village/giant_taiga/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/armorer_house_1",
+        "processors": "repurposed_structures:village/giant_taiga/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/armorer_house_2",
+        "processors": "repurposed_structures:village/giant_taiga/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/fisher_cottage",
+        "processors": "repurposed_structures:village/giant_taiga/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/tannery_1",
+        "processors": "repurposed_structures:village/giant_taiga/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/cartographer_house_1",
+        "processors": "repurposed_structures:village/giant_taiga/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/library_1",
+        "processors": "repurposed_structures:village/giant_taiga/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/masons_house_1",
+        "processors": "repurposed_structures:village/giant_taiga/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/masons_house_2",
+        "processors": "repurposed_structures:village/giant_taiga/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/weapon_smith_1",
+        "processors": "repurposed_structures:village/giant_taiga/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/temple_1",
+        "processors": "repurposed_structures:village/giant_taiga/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/farm_1",
+        "processors": "repurposed_structures:village/giant_taiga/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/farm_2",
+        "processors": "repurposed_structures:village/giant_taiga/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/animal_pen_1",
+        "processors": "repurposed_structures:village/giant_taiga/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/animal_pen_2",
+        "processors": "repurposed_structures:village/giant_taiga/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 6,
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      }
+    }
+  ]
+}
