@@ -1,0 +1,30 @@
+{
+  "rules": [
+    {
+      "output_state": {
+        "Name": "minecraft:soul_sand"
+      },
+      "input_predicate": {
+        "block": "minecraft:soul_soil",
+        "probability": 0.1,
+        "predicate_type": "minecraft:random_block_match"
+      },
+      "location_predicate": {
+        "predicate_type": "minecraft:always_true"
+      }
+    },
+    {
+      "output_state": {
+        "Name": "minecraft:soul_soil"
+      },
+      "input_predicate": {
+        "block": "minecraft:soul_sand",
+        "probability": 0.05,
+        "predicate_type": "minecraft:random_block_match"
+      },
+      "location_predicate": {
+        "predicate_type": "minecraft:always_true"
+      }
+    }
+  ]
+}

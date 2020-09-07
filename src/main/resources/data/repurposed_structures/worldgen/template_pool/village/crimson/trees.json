@@ -1,0 +1,34 @@
+{
+  "name": "repurposed_structures:village/crimson/trees",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "feature": {
+          "config": {
+            "hat_state": {
+              "Name": "minecraft:nether_wart_block"
+            },
+            "decor_state": {
+              "Name": "minecraft:shroomlight"
+            },
+            "planted": false,
+            "valid_base_block": {
+              "Name": "minecraft:crimson_nylium"
+            },
+            "stem_state": {
+              "Properties": {
+                "axis": "y"
+              },
+              "Name": "minecraft:crimson_stem"
+            }
+          },
+          "type": "minecraft:huge_fungus"
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    }
+  ]
+}

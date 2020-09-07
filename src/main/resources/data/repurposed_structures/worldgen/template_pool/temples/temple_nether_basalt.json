@@ -1,0 +1,91 @@
+{
+  "name": "repurposed_structures:temples/temple_nether_basalt",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:temples/temple_nether_basalt",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:magma_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.013,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_polished_blackstone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.014,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:obsidian"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.015,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:basalt"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:gilded_blackstone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.01,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

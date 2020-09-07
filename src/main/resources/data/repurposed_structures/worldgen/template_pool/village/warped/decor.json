@@ -1,0 +1,103 @@
+{
+  "name": "repurposed_structures:village/warped/decor",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 8,
+      "element": {
+        "location": "repurposed_structures:village/warped/lamp_1",
+        "processors": {
+          "processors": []
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "feature": {
+          "config": {
+            "hat_state": {
+              "Name": "minecraft:warped_wart_block"
+            },
+            "decor_state": {
+              "Name": "minecraft:shroomlight"
+            },
+            "planted": false,
+            "valid_base_block": {
+              "Name": "minecraft:warped_nylium"
+            },
+            "stem_state": {
+              "Properties": {
+                "axis": "y"
+              },
+              "Name": "minecraft:warped_stem"
+            }
+          },
+          "type": "minecraft:huge_fungus"
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "feature": {
+          "config": {
+            "feature": {
+              "config": {
+                "state_provider": {
+                  "entries": [
+                    {
+                      "weight": 85,
+                      "data": {
+                        "Name": "minecraft:warped_roots"
+                      }
+                    },
+                    {
+                      "weight": 1,
+                      "data": {
+                        "Name": "minecraft:crimson_roots"
+                      }
+                    },
+                    {
+                      "weight": 13,
+                      "data": {
+                        "Name": "minecraft:warped_fungus"
+                      }
+                    },
+                    {
+                      "weight": 1,
+                      "data": {
+                        "Name": "minecraft:crimson_fungus"
+                      }
+                    }
+                  ],
+                  "type": "minecraft:weighted_state_provider"
+                }
+              },
+              "type": "minecraft:nether_forest_vegetation"
+            },
+            "decorator": {
+              "config": {
+                "count": 5
+              },
+              "type": "minecraft:count_multilayer"
+            }
+          },
+          "type": "minecraft:decorated"
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      }
+    }
+  ]
+}

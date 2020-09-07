@@ -1,0 +1,17 @@
+{
+  "rules": [
+    {
+      "output_state": {
+        "Name": "minecraft:cracked_polished_blackstone_bricks"
+      },
+      "input_predicate": {
+        "block": "minecraft:blackstone",
+        "probability": 0.2,
+        "predicate_type": "minecraft:random_block_match"
+      },
+      "location_predicate": {
+        "predicate_type": "minecraft:always_true"
+      }
+    }
+  ]
+}

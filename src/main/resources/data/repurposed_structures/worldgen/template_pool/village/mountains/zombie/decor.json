@@ -1,0 +1,550 @@
+{
+  "name": "repurposed_structures:village/mountains/zombie/decor",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:village/mountains/decor/lamp_post_1",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.8,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:air"
+                  },
+                  "input_predicate": {
+                    "tag": "minecraft:doors",
+                    "predicate_type": "minecraft:tag_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:air"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:torch",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:air"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:wall_torch",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobweb"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.07,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobweb"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:mossy_cobblestone",
+                    "probability": 0.07,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobweb"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.07,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobweb"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:mossy_stone_bricks",
+                    "probability": 0.07,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobweb"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cracked_stone_bricks",
+                    "probability": 0.07,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobweb"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:white_terracotta",
+                    "probability": 0.07,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobweb"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:spruce_log",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobweb"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:spruce_planks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobweb"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:spruce_stairs",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobweb"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stripped_spruce_log",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobweb"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:glass_pane",
+                    "probability": 0.5,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "west": "false",
+                      "waterlogged": "false",
+                      "south": "true",
+                      "north": "true",
+                      "east": "false"
+                    },
+                    "Name": "minecraft:brown_stained_glass_pane"
+                  },
+                  "input_predicate": {
+                    "block_state": {
+                      "Properties": {
+                        "west": "false",
+                        "waterlogged": "false",
+                        "south": "true",
+                        "north": "true",
+                        "east": "false"
+                      },
+                      "Name": "minecraft:glass_pane"
+                    },
+                    "predicate_type": "minecraft:blockstate_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "west": "true",
+                      "waterlogged": "false",
+                      "south": "false",
+                      "north": "false",
+                      "east": "true"
+                    },
+                    "Name": "minecraft:brown_stained_glass_pane"
+                  },
+                  "input_predicate": {
+                    "block_state": {
+                      "Properties": {
+                        "west": "true",
+                        "waterlogged": "false",
+                        "south": "false",
+                        "north": "false",
+                        "east": "true"
+                      },
+                      "Name": "minecraft:glass_pane"
+                    },
+                    "predicate_type": "minecraft:blockstate_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "age": "0"
+                    },
+                    "Name": "minecraft:carrots"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:wheat",
+                    "probability": 0.3,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "age": "0"
+                    },
+                    "Name": "minecraft:potatoes"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:wheat",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "age": "0"
+                    },
+                    "Name": "minecraft:beetroots"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:wheat",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:village/mountains/decor/decoration_1",
+        "processors": {
+          "processors": []
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:village/mountains/decor/decoration_2",
+        "processors": {
+          "processors": []
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:village/mountains/decor/decoration_3",
+        "processors": {
+          "processors": []
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:village/mountains/decor/decoration_4",
+        "processors": {
+          "processors": []
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:village/mountains/decor/decoration_5",
+        "processors": {
+          "processors": []
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:village/mountains/decor/decoration_6",
+        "processors": {
+          "processors": []
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "feature": {
+          "config": {
+            "max_water_depth": 0,
+            "ignore_vines": true,
+            "heightmap": "OCEAN_FLOOR",
+            "minimum_size": {
+              "limit": 2,
+              "lower_size": 0,
+              "upper_size": 2,
+              "type": "minecraft:two_layers_feature_size"
+            },
+            "decorators": [],
+            "trunk_provider": {
+              "state": {
+                "Properties": {
+                  "axis": "y"
+                },
+                "Name": "minecraft:spruce_log"
+              },
+              "type": "minecraft:simple_state_provider"
+            },
+            "leaves_provider": {
+              "state": {
+                "Properties": {
+                  "persistent": "false",
+                  "distance": "7"
+                },
+                "Name": "minecraft:spruce_leaves"
+              },
+              "type": "minecraft:simple_state_provider"
+            },
+            "foliage_placer": {
+              "radius": {
+                "base": 2,
+                "spread": 1
+              },
+              "offset": {
+                "base": 0,
+                "spread": 2
+              },
+              "trunk_height": {
+                "base": 1,
+                "spread": 1
+              },
+              "type": "minecraft:spruce_foliage_placer"
+            },
+            "trunk_placer": {
+              "base_height": 5,
+              "height_rand_a": 2,
+              "height_rand_b": 1,
+              "type": "minecraft:straight_trunk_placer"
+            }
+          },
+          "type": "minecraft:tree"
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "feature": {
+          "config": {
+            "feature": {
+              "config": {
+                "feature": {
+                  "config": {
+                    "feature": {
+                      "config": {
+                        "can_replace": false,
+                        "project": true,
+                        "need_water": false,
+                        "xspread": 7,
+                        "yspread": 3,
+                        "zspread": 7,
+                        "whitelist": [],
+                        "blacklist": [],
+                        "tries": 64,
+                        "state_provider": {
+                          "entries": [
+                            {
+                              "weight": 2,
+                              "data": {
+                                "Name": "minecraft:poppy"
+                              }
+                            },
+                            {
+                              "weight": 1,
+                              "data": {
+                                "Name": "minecraft:dandelion"
+                              }
+                            }
+                          ],
+                          "type": "minecraft:weighted_state_provider"
+                        },
+                        "block_placer": {
+                          "type": "minecraft:simple_block_placer"
+                        }
+                      },
+                      "type": "minecraft:flower"
+                    },
+                    "decorator": {
+                      "config": {},
+                      "type": "minecraft:spread_32_above"
+                    }
+                  },
+                  "type": "minecraft:decorated"
+                },
+                "decorator": {
+                  "config": {
+                    "outer": {
+                      "config": {},
+                      "type": "minecraft:square"
+                    },
+                    "inner": {
+                      "config": {},
+                      "type": "minecraft:heightmap"
+                    }
+                  },
+                  "type": "minecraft:decorated"
+                }
+              },
+              "type": "minecraft:decorated"
+            },
+            "decorator": {
+              "config": {
+                "count": 2
+              },
+              "type": "minecraft:count"
+            }
+          },
+          "type": "minecraft:decorated"
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "feature": {
+          "config": {
+            "state_provider": {
+              "state": {
+                "Name": "minecraft:cobblestone"
+              },
+              "type": "minecraft:simple_state_provider"
+            }
+          },
+          "type": "minecraft:block_pile"
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      }
+    }
+  ]
+}

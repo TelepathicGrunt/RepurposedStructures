@@ -1,0 +1,5035 @@
+{
+  "name": "repurposed_structures:village/giant_taiga/houses",
+  "fallback": "repurposed_structures:village/giant_taiga/terminators",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/animal_pen_1",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "powered": "false",
+                      "facing": "north",
+                      "face": "floor"
+                    },
+                    "Name": "minecraft:stone_button"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "waterlogged": "false",
+                      "type": "bottom"
+                    },
+                    "Name": "minecraft:cobblestone_slab"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:air"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.75,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/animal_pen_2",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "powered": "false",
+                      "facing": "north",
+                      "face": "floor"
+                    },
+                    "Name": "minecraft:stone_button"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "waterlogged": "false",
+                      "type": "bottom"
+                    },
+                    "Name": "minecraft:cobblestone_slab"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:air"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.75,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/armorer_house_1",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "powered": "false",
+                      "facing": "north",
+                      "face": "floor"
+                    },
+                    "Name": "minecraft:stone_button"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "waterlogged": "false",
+                      "type": "bottom"
+                    },
+                    "Name": "minecraft:cobblestone_slab"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:air"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.75,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/armorer_house_2",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "powered": "false",
+                      "facing": "north",
+                      "face": "floor"
+                    },
+                    "Name": "minecraft:stone_button"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "waterlogged": "false",
+                      "type": "bottom"
+                    },
+                    "Name": "minecraft:cobblestone_slab"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:air"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.75,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/butcher_shop_1",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "powered": "false",
+                      "facing": "north",
+                      "face": "floor"
+                    },
+                    "Name": "minecraft:stone_button"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "waterlogged": "false",
+                      "type": "bottom"
+                    },
+                    "Name": "minecraft:cobblestone_slab"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:air"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.75,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/butcher_shop_2",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "powered": "false",
+                      "facing": "north",
+                      "face": "floor"
+                    },
+                    "Name": "minecraft:stone_button"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "waterlogged": "false",
+                      "type": "bottom"
+                    },
+                    "Name": "minecraft:cobblestone_slab"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:air"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.75,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/cartographer_house_1",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "powered": "false",
+                      "facing": "north",
+                      "face": "floor"
+                    },
+                    "Name": "minecraft:stone_button"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "waterlogged": "false",
+                      "type": "bottom"
+                    },
+                    "Name": "minecraft:cobblestone_slab"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:air"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.75,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/farm_1",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Properties": {
+                      "age": "0"
+                    },
+                    "Name": "minecraft:carrots"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:wheat",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "age": "0"
+                    },
+                    "Name": "minecraft:sweet_berry_bush"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:wheat",
+                    "probability": 0.6,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/farm_2",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Properties": {
+                      "age": "0"
+                    },
+                    "Name": "minecraft:carrots"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:wheat",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "age": "0"
+                    },
+                    "Name": "minecraft:sweet_berry_bush"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:wheat",
+                    "probability": 0.6,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/fisher_cottage",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "powered": "false",
+                      "facing": "north",
+                      "face": "floor"
+                    },
+                    "Name": "minecraft:stone_button"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "waterlogged": "false",
+                      "type": "bottom"
+                    },
+                    "Name": "minecraft:cobblestone_slab"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:air"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.75,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/fletcher_house_1",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "powered": "false",
+                      "facing": "north",
+                      "face": "floor"
+                    },
+                    "Name": "minecraft:stone_button"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "waterlogged": "false",
+                      "type": "bottom"
+                    },
+                    "Name": "minecraft:cobblestone_slab"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:air"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.75,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/library_1",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "powered": "false",
+                      "facing": "north",
+                      "face": "floor"
+                    },
+                    "Name": "minecraft:stone_button"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "waterlogged": "false",
+                      "type": "bottom"
+                    },
+                    "Name": "minecraft:cobblestone_slab"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:air"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.75,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/masons_house_1",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "powered": "false",
+                      "facing": "north",
+                      "face": "floor"
+                    },
+                    "Name": "minecraft:stone_button"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "waterlogged": "false",
+                      "type": "bottom"
+                    },
+                    "Name": "minecraft:cobblestone_slab"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:air"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.75,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/masons_house_2",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "powered": "false",
+                      "facing": "north",
+                      "face": "floor"
+                    },
+                    "Name": "minecraft:stone_button"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "waterlogged": "false",
+                      "type": "bottom"
+                    },
+                    "Name": "minecraft:cobblestone_slab"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:air"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.75,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/medium_house_1",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "powered": "false",
+                      "facing": "north",
+                      "face": "floor"
+                    },
+                    "Name": "minecraft:stone_button"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "waterlogged": "false",
+                      "type": "bottom"
+                    },
+                    "Name": "minecraft:cobblestone_slab"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:air"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.75,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/medium_house_2",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "powered": "false",
+                      "facing": "north",
+                      "face": "floor"
+                    },
+                    "Name": "minecraft:stone_button"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "waterlogged": "false",
+                      "type": "bottom"
+                    },
+                    "Name": "minecraft:cobblestone_slab"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:air"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.75,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/medium_house_3",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "powered": "false",
+                      "facing": "north",
+                      "face": "floor"
+                    },
+                    "Name": "minecraft:stone_button"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "waterlogged": "false",
+                      "type": "bottom"
+                    },
+                    "Name": "minecraft:cobblestone_slab"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:air"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.75,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/shepherds_house_1",
+        "processors": {
+          "processors": []
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/small_house_1",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "powered": "false",
+                      "facing": "north",
+                      "face": "floor"
+                    },
+                    "Name": "minecraft:stone_button"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "waterlogged": "false",
+                      "type": "bottom"
+                    },
+                    "Name": "minecraft:cobblestone_slab"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:air"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.75,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/small_house_2",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "powered": "false",
+                      "facing": "north",
+                      "face": "floor"
+                    },
+                    "Name": "minecraft:stone_button"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "waterlogged": "false",
+                      "type": "bottom"
+                    },
+                    "Name": "minecraft:cobblestone_slab"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:air"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.75,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/small_house_3",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "powered": "false",
+                      "facing": "north",
+                      "face": "floor"
+                    },
+                    "Name": "minecraft:stone_button"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "waterlogged": "false",
+                      "type": "bottom"
+                    },
+                    "Name": "minecraft:cobblestone_slab"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:air"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.75,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/small_house_4",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "powered": "false",
+                      "facing": "north",
+                      "face": "floor"
+                    },
+                    "Name": "minecraft:stone_button"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "waterlogged": "false",
+                      "type": "bottom"
+                    },
+                    "Name": "minecraft:cobblestone_slab"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:air"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.75,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/small_house_5",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "powered": "false",
+                      "facing": "north",
+                      "face": "floor"
+                    },
+                    "Name": "minecraft:stone_button"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "waterlogged": "false",
+                      "type": "bottom"
+                    },
+                    "Name": "minecraft:cobblestone_slab"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:air"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.75,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/small_house_6",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "powered": "false",
+                      "facing": "north",
+                      "face": "floor"
+                    },
+                    "Name": "minecraft:stone_button"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "waterlogged": "false",
+                      "type": "bottom"
+                    },
+                    "Name": "minecraft:cobblestone_slab"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:air"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.75,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/small_house_7",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "powered": "false",
+                      "facing": "north",
+                      "face": "floor"
+                    },
+                    "Name": "minecraft:stone_button"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "waterlogged": "false",
+                      "type": "bottom"
+                    },
+                    "Name": "minecraft:cobblestone_slab"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:air"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.75,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/small_house_8",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "powered": "false",
+                      "facing": "north",
+                      "face": "floor"
+                    },
+                    "Name": "minecraft:stone_button"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "waterlogged": "false",
+                      "type": "bottom"
+                    },
+                    "Name": "minecraft:cobblestone_slab"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:air"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.75,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/tannery_1",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "powered": "false",
+                      "facing": "north",
+                      "face": "floor"
+                    },
+                    "Name": "minecraft:stone_button"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "waterlogged": "false",
+                      "type": "bottom"
+                    },
+                    "Name": "minecraft:cobblestone_slab"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:air"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.75,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 5,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/temple_1",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "powered": "false",
+                      "facing": "north",
+                      "face": "floor"
+                    },
+                    "Name": "minecraft:stone_button"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "waterlogged": "false",
+                      "type": "bottom"
+                    },
+                    "Name": "minecraft:cobblestone_slab"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:air"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.75,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/tool_smith_1",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "powered": "false",
+                      "facing": "north",
+                      "face": "floor"
+                    },
+                    "Name": "minecraft:stone_button"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "waterlogged": "false",
+                      "type": "bottom"
+                    },
+                    "Name": "minecraft:cobblestone_slab"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:air"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.75,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/houses/weapon_smith_1",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:cobblestone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:coal_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:iron_ore"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone",
+                    "probability": 0.02,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_bricks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "powered": "false",
+                      "facing": "north",
+                      "face": "floor"
+                    },
+                    "Name": "minecraft:stone_button"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "waterlogged": "false",
+                      "type": "bottom"
+                    },
+                    "Name": "minecraft:cobblestone_slab"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:air"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:stone_pressure_plate",
+                    "probability": 0.75,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      }
+    }
+  ]
+}

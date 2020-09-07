@@ -1,0 +1,4885 @@
+{
+  "name": "repurposed_structures:village/crimson/houses",
+  "fallback": "repurposed_structures:village/crimson/terminators",
+  "elements": [
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/crimson/houses/small_house_1",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_polished_blackstone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:gilded_blackstone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.04,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:stripped_crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/crimson/houses/small_house_2",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_polished_blackstone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:gilded_blackstone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.04,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:stripped_crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/crimson/houses/small_house_3",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_polished_blackstone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:gilded_blackstone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.04,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:stripped_crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/crimson/houses/small_house_4",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_polished_blackstone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:gilded_blackstone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.04,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:stripped_crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/crimson/houses/small_house_5",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_polished_blackstone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:gilded_blackstone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.04,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:stripped_crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:village/crimson/houses/small_house_6",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_polished_blackstone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:gilded_blackstone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.04,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:stripped_crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/crimson/houses/small_house_7",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_polished_blackstone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:gilded_blackstone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.04,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:stripped_crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:village/crimson/houses/small_house_8",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_polished_blackstone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:gilded_blackstone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.04,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:stripped_crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/crimson/houses/medium_house_1",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_polished_blackstone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:gilded_blackstone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.04,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:stripped_crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/crimson/houses/medium_house_2",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_polished_blackstone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:gilded_blackstone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.04,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:stripped_crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/crimson/houses/big_house_1",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_polished_blackstone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:gilded_blackstone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.04,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:stripped_crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/crimson/houses/butcher_shop_1",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_polished_blackstone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:gilded_blackstone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.04,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:stripped_crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/crimson/houses/butcher_shop_2",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_polished_blackstone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:gilded_blackstone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.04,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:stripped_crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/crimson/houses/tool_smith_1",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_polished_blackstone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:gilded_blackstone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.04,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:stripped_crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/crimson/houses/fletcher_house_1",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_polished_blackstone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:gilded_blackstone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.04,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:stripped_crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/crimson/houses/shepherds_house_1",
+        "processors": {
+          "processors": []
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/crimson/houses/armorer_house_1",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_polished_blackstone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:gilded_blackstone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.04,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:stripped_crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/crimson/houses/fisher_cottage_1",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_polished_blackstone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:gilded_blackstone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.04,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:stripped_crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/crimson/houses/tannery_1",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_polished_blackstone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:gilded_blackstone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.04,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:stripped_crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:village/crimson/houses/cartographer_1",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_polished_blackstone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:gilded_blackstone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.04,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:stripped_crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 5,
+      "element": {
+        "location": "repurposed_structures:village/crimson/houses/library_1",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_polished_blackstone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:gilded_blackstone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.04,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:stripped_crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:village/crimson/houses/library_2",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_polished_blackstone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:gilded_blackstone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.04,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:stripped_crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/crimson/houses/masons_house_1",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_polished_blackstone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:gilded_blackstone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.04,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:stripped_crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/crimson/houses/weaponsmith_1",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_polished_blackstone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:gilded_blackstone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.04,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:stripped_crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/crimson/houses/temple_3",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_polished_blackstone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:gilded_blackstone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.04,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:stripped_crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/crimson/houses/temple_4",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_polished_blackstone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:gilded_blackstone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.04,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:stripped_crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/crimson/houses/stable_1",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_polished_blackstone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:gilded_blackstone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.04,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_stem",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.15,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "x"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.2,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "z"
+                    },
+                    "Name": "minecraft:crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_hyphae",
+                    "probability": 0.25,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "axis": "y"
+                    },
+                    "Name": "minecraft:stripped_crimson_hyphae"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:nether_wart_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:crimson_planks",
+                    "probability": 0.05,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/crimson/houses/stable_2",
+        "processors": {
+          "processors": []
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:village/crimson/houses/large_farm_1",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:air"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:nether_wart",
+                    "probability": 0.35,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:village/crimson/houses/small_farm_1",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:air"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:nether_wart",
+                    "probability": 0.35,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:village/crimson/houses/animal_pen_1",
+        "processors": {
+          "processors": []
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:village/crimson/houses/animal_pen_2",
+        "processors": {
+          "processors": []
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 5,
+      "element": {
+        "location": "repurposed_structures:village/crimson/houses/animal_pen_3",
+        "processors": {
+          "processors": []
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:village/crimson/houses/accessory_1",
+        "processors": {
+          "processors": []
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:village/crimson/houses/meeting_point_4",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:cracked_polished_blackstone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:blackstone",
+                    "probability": 0.7,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:village/crimson/houses/meeting_point_5",
+        "processors": {
+          "processors": []
+        },
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      }
+    }
+  ]
+}

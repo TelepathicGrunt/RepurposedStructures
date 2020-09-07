@@ -1,0 +1,3491 @@
+{
+  "name": "repurposed_structures:village/giant_taiga/zombie/streets",
+  "fallback": "repurposed_structures:village/giant_taiga/terminators",
+  "elements": [
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/zombie/streets/corner_01",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.8,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:grass_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "level": "0"
+                    },
+                    "Name": "minecraft:water"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_block",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_block",
+                    "probability": 0.5,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "level": "0"
+                    },
+                    "Name": "minecraft:water"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:grass_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/zombie/streets/corner_02",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.8,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:grass_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "level": "0"
+                    },
+                    "Name": "minecraft:water"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_block",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_block",
+                    "probability": 0.5,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "level": "0"
+                    },
+                    "Name": "minecraft:water"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:grass_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/zombie/streets/corner_03",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.8,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:grass_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "level": "0"
+                    },
+                    "Name": "minecraft:water"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_block",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_block",
+                    "probability": 0.5,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "level": "0"
+                    },
+                    "Name": "minecraft:water"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:grass_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/zombie/streets/straight_01",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.8,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:grass_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "level": "0"
+                    },
+                    "Name": "minecraft:water"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_block",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_block",
+                    "probability": 0.5,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "level": "0"
+                    },
+                    "Name": "minecraft:water"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:grass_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/zombie/streets/straight_02",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.8,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:grass_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "level": "0"
+                    },
+                    "Name": "minecraft:water"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_block",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_block",
+                    "probability": 0.5,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "level": "0"
+                    },
+                    "Name": "minecraft:water"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:grass_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 7,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/zombie/streets/straight_03",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.8,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:grass_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "level": "0"
+                    },
+                    "Name": "minecraft:water"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_block",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_block",
+                    "probability": 0.5,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "level": "0"
+                    },
+                    "Name": "minecraft:water"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:grass_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 7,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/zombie/streets/straight_04",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.8,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:grass_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "level": "0"
+                    },
+                    "Name": "minecraft:water"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_block",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_block",
+                    "probability": 0.5,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "level": "0"
+                    },
+                    "Name": "minecraft:water"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:grass_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/zombie/streets/straight_06",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.8,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:grass_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "level": "0"
+                    },
+                    "Name": "minecraft:water"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_block",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_block",
+                    "probability": 0.5,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "level": "0"
+                    },
+                    "Name": "minecraft:water"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:grass_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/zombie/streets/straight_08",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.8,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:grass_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "level": "0"
+                    },
+                    "Name": "minecraft:water"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_block",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_block",
+                    "probability": 0.5,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "level": "0"
+                    },
+                    "Name": "minecraft:water"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:grass_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/zombie/streets/crossroad_01",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.8,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:grass_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "level": "0"
+                    },
+                    "Name": "minecraft:water"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_block",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_block",
+                    "probability": 0.5,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "level": "0"
+                    },
+                    "Name": "minecraft:water"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:grass_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/zombie/streets/crossroad_02",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.8,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:grass_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "level": "0"
+                    },
+                    "Name": "minecraft:water"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_block",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_block",
+                    "probability": 0.5,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "level": "0"
+                    },
+                    "Name": "minecraft:water"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:grass_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/zombie/streets/crossroad_03",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.8,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:grass_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "level": "0"
+                    },
+                    "Name": "minecraft:water"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_block",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_block",
+                    "probability": 0.5,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "level": "0"
+                    },
+                    "Name": "minecraft:water"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:grass_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/zombie/streets/crossroad_04",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.8,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:grass_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "level": "0"
+                    },
+                    "Name": "minecraft:water"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_block",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_block",
+                    "probability": 0.5,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "level": "0"
+                    },
+                    "Name": "minecraft:water"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:grass_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/zombie/streets/crossroad_05",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.8,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:grass_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "level": "0"
+                    },
+                    "Name": "minecraft:water"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_block",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_block",
+                    "probability": 0.5,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "level": "0"
+                    },
+                    "Name": "minecraft:water"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:grass_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/zombie/streets/crossroad_06",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.8,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:grass_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "level": "0"
+                    },
+                    "Name": "minecraft:water"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_block",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_block",
+                    "probability": 0.5,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "level": "0"
+                    },
+                    "Name": "minecraft:water"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:grass_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/streets/square_01",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.8,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:grass_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "level": "0"
+                    },
+                    "Name": "minecraft:water"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_block",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_block",
+                    "probability": 0.5,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "level": "0"
+                    },
+                    "Name": "minecraft:water"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:grass_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:village/giant_taiga/zombie/streets/turn_01",
+        "processors": {
+          "processors": [
+            {
+              "rules": [
+                {
+                  "output_state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone_bricks"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.4,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "probability": 0.8,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:grass_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_path",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "level": "0"
+                    },
+                    "Name": "minecraft:water"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_block",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:grass_block",
+                    "probability": 0.5,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:cobblestone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Name": "minecraft:stone"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "probability": 0.1,
+                    "predicate_type": "minecraft:random_block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "level": "0"
+                    },
+                    "Name": "minecraft:water"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "block": "minecraft:water",
+                    "predicate_type": "minecraft:block_match"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:podzol"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                },
+                {
+                  "output_state": {
+                    "Properties": {
+                      "snowy": "false"
+                    },
+                    "Name": "minecraft:grass_block"
+                  },
+                  "input_predicate": {
+                    "block": "minecraft:dirt",
+                    "predicate_type": "minecraft:block_match"
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  }
+                }
+              ],
+              "processor_type": "minecraft:rule"
+            }
+          ]
+        },
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    }
+  ]
+}
