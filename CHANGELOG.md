@@ -8,6 +8,34 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.2.1.3 Changes) (1.16.2 Minecraft)
+
+##### Misc:
+
+- Registered all ConfiguredFeatures and converted all Template Pools/Structure Processors 
+  into JSON so they can be used or overridden more easily by datapacks.
+
+- Significantly cleaned up code in backend again.
+
+##### Villages:
+
+- Adjusted the weights for straight roads and houses with beds to try
+  and make Villages have more bed houses and not be just empty with only
+  clusters of roads. Affects all Repurposed Structures villages.
+
+- Fixed waterlogging issue in Animal Pen 1 in Giant Tree Taiga Village.
+
+- Fixed Item Frames with Potions missing from Saloons in Badlands Villages.
+
+##### Boulders:
+
+- Giant Boulders in Giant Tree Taiga Hills and Giant Spruce Taiga Hills now
+  are place lower to fit on terrain better and their surfaces are roughed up.
+
+##### Swamp Trees:
+
+- Increased spawnrate of Horned Swamp Trees in Swamp Hills biome
+
 ## (V.2.1.2 Changes) (1.16.2 Minecraft)
 
 ##### Misc:
