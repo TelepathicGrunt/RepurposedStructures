@@ -10,6 +10,13 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ## (V.1.5.4 Changes) (1.16.2 Minecraft)
 
+##### Misc:
+
+- Registered all ConfiguredFeatures and converted all Template Pools/Structure Processors 
+  into JSON so they can be used or overridden more easily by datapacks.
+
+- Significantly cleaned up code in backend again.
+
 ##### Villages:
 
 - Adjusted the weights for straight roads and houses with beds to try
@@ -28,13 +35,6 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Swamp Trees:
 
 - Increased spawnrate of Horned Swamp Trees in Swamp Hills biome
-
-##### Misc:
-
-- Registered all ConfiguredFeatures and converted all Structure Pools/Structure Processors 
-  into JSON so they can be overridden more easily by datapacks.
-
-- Significantly cleaned up code in backend again.
 
 ## (V.1.5.3 Changes) (1.16.2 Minecraft)
 
