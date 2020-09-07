@@ -16,6 +16,10 @@ Welcome to the Github! If you are looking for the most recent stable version, th
   and make Villages have more bed houses and not be just empty with only
   clusters of roads. Affects all Repurposed Structures villages.
 
+- Fixed waterlogging issue in Animal Pen 1 in Giant Tree Taiga Village.
+
+- Fixed Item Frames with Potions missing from Saloons in Badlands Villages.
+
 ##### Boulders:
 
 - Giant Boulders in Giant Tree Taiga Hills and Giant Spruce Taiga Hills now
@@ -27,8 +31,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ##### Misc:
 
-- Converted all Structure Pools and Structure Processors into JSON so 
-  they can be overridden more easily by datapacks.
+- Registered all ConfiguredFeatures and converted all Structure Pools/Structure Processors 
+  into JSON so they can be overridden more easily by datapacks.
 
 - Significantly cleaned up code in backend again.
 

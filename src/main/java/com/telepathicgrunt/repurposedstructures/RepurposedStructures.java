@@ -2,6 +2,7 @@ package com.telepathicgrunt.repurposedstructures;
 
 import com.telepathicgrunt.repurposedstructures.configs.RSAllConfig;
 import com.telepathicgrunt.repurposedstructures.misc.VillagerTrades;
+import com.telepathicgrunt.repurposedstructures.utils.LoadNbtBlock;
 import com.telepathicgrunt.repurposedstructures.utils.MobSpawnerManager;
 import com.telepathicgrunt.repurposedstructures.world.placements.RSPlacements;
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
@@ -26,7 +27,7 @@ public class RepurposedStructures implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        //LoadNbtBlock.instantiateNbtBlock();
+        // LoadNbtBlock.instantiateNbtBlock();
     }
 
     public static void initialize() {
@@ -39,8 +40,6 @@ public class RepurposedStructures implements ModInitializer {
         RSFeatures.registerFeatures();
         RSConfiguredFeatures.registerConfiguredFeatures();
         RSConfiguredStructures.registerConfiguredStructures();
-
-        //LoadNbtBlock.instantiateNbtBlock();
     }
 
     /*
