@@ -3,55 +3,46 @@
   "fallback": "repurposed_structures:village/dark_forest/terminators",
   "elements": [
     {
-      "weight": 2,
+      "weight": 3,
       "element": {
         "location": "repurposed_structures:village/dark_forest/houses/small_house_1",
-        "processors": "repurposed_structures:village/birch/mossify",
+        "processors": "repurposed_structures:village/dark_forest/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
     },
     {
-      "weight": 2,
+      "weight": 3,
       "element": {
         "location": "repurposed_structures:village/dark_forest/houses/small_house_2",
-        "processors": "repurposed_structures:village/birch/mossify",
+        "processors": "repurposed_structures:village/dark_forest/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
     },
     {
-      "weight": 2,
+      "weight": 3,
       "element": {
         "location": "repurposed_structures:village/dark_forest/houses/small_house_3",
-        "processors": "repurposed_structures:village/birch/mossify",
+        "processors": "repurposed_structures:village/dark_forest/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
     },
     {
-      "weight": 2,
+      "weight": 3,
       "element": {
         "location": "repurposed_structures:village/dark_forest/houses/small_house_4",
-        "processors": "repurposed_structures:village/birch/mossify",
+        "processors": "repurposed_structures:village/dark_forest/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
     },
     {
-      "weight": 2,
+      "weight": 3,
       "element": {
         "location": "repurposed_structures:village/dark_forest/houses/small_house_5",
-        "processors": "repurposed_structures:village/birch/mossify",
-        "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
-      }
-    },
-    {
-      "weight": 1,
-      "element": {
-        "location": "repurposed_structures:village/dark_forest/houses/small_house_6",
-        "processors": "repurposed_structures:village/birch/mossify",
+        "processors": "repurposed_structures:village/dark_forest/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -59,8 +50,17 @@
     {
       "weight": 2,
       "element": {
+        "location": "repurposed_structures:village/dark_forest/houses/small_house_6",
+        "processors": "repurposed_structures:village/dark_forest/mossify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
         "location": "repurposed_structures:village/dark_forest/houses/small_house_7",
-        "processors": "repurposed_structures:village/birch/mossify",
+        "processors": "repurposed_structures:village/dark_forest/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -69,34 +69,34 @@
       "weight": 3,
       "element": {
         "location": "repurposed_structures:village/dark_forest/houses/small_house_8",
-        "processors": "repurposed_structures:village/birch/mossify",
+        "processors": "repurposed_structures:village/dark_forest/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
     },
     {
-      "weight": 2,
+      "weight": 3,
       "element": {
         "location": "repurposed_structures:village/dark_forest/houses/medium_house_1",
-        "processors": "repurposed_structures:village/birch/mossify",
+        "processors": "repurposed_structures:village/dark_forest/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
     },
     {
-      "weight": 2,
+      "weight": 3,
       "element": {
         "location": "repurposed_structures:village/dark_forest/houses/medium_house_2",
-        "processors": "repurposed_structures:village/birch/mossify",
+        "processors": "repurposed_structures:village/dark_forest/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
     },
     {
-      "weight": 2,
+      "weight": 4,
       "element": {
         "location": "repurposed_structures:village/dark_forest/houses/big_house_1",
-        "processors": "repurposed_structures:village/birch/mossify",
+        "processors": "repurposed_structures:village/dark_forest/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -105,7 +105,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/dark_forest/houses/butcher_shop_1",
-        "processors": "repurposed_structures:village/birch/mossify",
+        "processors": "repurposed_structures:village/dark_forest/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -114,7 +114,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/dark_forest/houses/butcher_shop_2",
-        "processors": "repurposed_structures:village/birch/mossify",
+        "processors": "repurposed_structures:village/dark_forest/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -123,7 +123,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/dark_forest/houses/tool_smith_1",
-        "processors": "repurposed_structures:village/birch/mossify",
+        "processors": "repurposed_structures:village/dark_forest/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -132,7 +132,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/dark_forest/houses/fletcher_house_1",
-        "processors": "repurposed_structures:village/birch/mossify",
+        "processors": "repurposed_structures:village/dark_forest/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -150,7 +150,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/dark_forest/houses/armorer_house_1",
-        "processors": "repurposed_structures:village/birch/mossify",
+        "processors": "repurposed_structures:village/dark_forest/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -159,7 +159,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/dark_forest/houses/fisher_cottage_1",
-        "processors": "repurposed_structures:village/birch/mossify",
+        "processors": "repurposed_structures:village/dark_forest/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -168,7 +168,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/dark_forest/houses/tannery_1",
-        "processors": "repurposed_structures:village/birch/mossify",
+        "processors": "repurposed_structures:village/dark_forest/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -177,7 +177,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:village/dark_forest/houses/cartographer_1",
-        "processors": "repurposed_structures:village/birch/mossify",
+        "processors": "repurposed_structures:village/dark_forest/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -186,7 +186,7 @@
       "weight": 5,
       "element": {
         "location": "repurposed_structures:village/dark_forest/houses/library_1",
-        "processors": "repurposed_structures:village/birch/mossify",
+        "processors": "repurposed_structures:village/dark_forest/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -195,7 +195,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:village/dark_forest/houses/library_2",
-        "processors": "repurposed_structures:village/birch/mossify",
+        "processors": "repurposed_structures:village/dark_forest/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -204,7 +204,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/dark_forest/houses/masons_house_1",
-        "processors": "repurposed_structures:village/birch/mossify",
+        "processors": "repurposed_structures:village/dark_forest/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -213,7 +213,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/dark_forest/houses/weaponsmith_1",
-        "processors": "repurposed_structures:village/birch/mossify",
+        "processors": "repurposed_structures:village/dark_forest/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -222,7 +222,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/dark_forest/houses/temple_3",
-        "processors": "repurposed_structures:village/birch/mossify",
+        "processors": "repurposed_structures:village/dark_forest/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -231,7 +231,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/dark_forest/houses/temple_4",
-        "processors": "repurposed_structures:village/birch/mossify",
+        "processors": "repurposed_structures:village/dark_forest/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -240,7 +240,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/dark_forest/houses/stable_1",
-        "processors": "repurposed_structures:village/birch/mossify",
+        "processors": "repurposed_structures:village/dark_forest/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -258,7 +258,7 @@
       "weight": 4,
       "element": {
         "location": "repurposed_structures:village/dark_forest/houses/large_farm_1",
-        "processors": "repurposed_structures:village/birch/crop_randomizer",
+        "processors": "repurposed_structures:village/dark_forest/crop_randomizer",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -267,7 +267,7 @@
       "weight": 4,
       "element": {
         "location": "repurposed_structures:village/dark_forest/houses/small_farm_1",
-        "processors": "repurposed_structures:village/birch/crop_randomizer",
+        "processors": "repurposed_structures:village/dark_forest/crop_randomizer",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }

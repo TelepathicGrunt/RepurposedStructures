@@ -513,17 +513,7 @@
     {
       "weight": 2,
       "element": {
-        "feature": {
-          "config": {
-            "state_provider": {
-              "state": {
-                "Name": "minecraft:cobblestone"
-              },
-              "type": "minecraft:simple_state_provider"
-            }
-          },
-          "type": "minecraft:block_pile"
-        },
+        "feature": "repurposed_structures:cobblestone_patch",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }

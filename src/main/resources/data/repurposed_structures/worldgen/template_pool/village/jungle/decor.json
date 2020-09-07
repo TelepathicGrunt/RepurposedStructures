@@ -14,63 +14,7 @@
     {
       "weight": 1,
       "element": {
-        "feature": {
-          "config": {
-            "max_water_depth": 0,
-            "ignore_vines": true,
-            "heightmap": "OCEAN_FLOOR",
-            "minimum_size": {
-              "limit": 1,
-              "lower_size": 0,
-              "upper_size": 1,
-              "type": "minecraft:two_layers_feature_size"
-            },
-            "decorators": [
-              {
-                "probability": 0.2,
-                "type": "minecraft:cocoa"
-              },
-              {
-                "type": "minecraft:trunk_vine"
-              },
-              {
-                "type": "minecraft:leave_vine"
-              }
-            ],
-            "trunk_provider": {
-              "state": {
-                "Properties": {
-                  "axis": "y"
-                },
-                "Name": "minecraft:jungle_log"
-              },
-              "type": "minecraft:simple_state_provider"
-            },
-            "leaves_provider": {
-              "state": {
-                "Properties": {
-                  "persistent": "false",
-                  "distance": "7"
-                },
-                "Name": "minecraft:jungle_leaves"
-              },
-              "type": "minecraft:simple_state_provider"
-            },
-            "foliage_placer": {
-              "radius": 2,
-              "offset": 0,
-              "height": 3,
-              "type": "minecraft:blob_foliage_placer"
-            },
-            "trunk_placer": {
-              "base_height": 4,
-              "height_rand_a": 8,
-              "height_rand_b": 0,
-              "type": "minecraft:straight_trunk_placer"
-            }
-          },
-          "type": "minecraft:tree"
-        },
+        "feature": "minecraft:jungle_tree",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }
@@ -78,64 +22,7 @@
     {
       "weight": 1,
       "element": {
-        "feature": {
-          "config": {
-            "feature": {
-              "config": {
-                "feature": {
-                  "config": {
-                    "feature": {
-                      "config": {
-                        "can_replace": false,
-                        "project": true,
-                        "need_water": false,
-                        "xspread": 7,
-                        "yspread": 3,
-                        "zspread": 7,
-                        "whitelist": [],
-                        "blacklist": [],
-                        "tries": 64,
-                        "state_provider": {
-                          "type": "minecraft:forest_flower_provider"
-                        },
-                        "block_placer": {
-                          "type": "minecraft:simple_block_placer"
-                        }
-                      },
-                      "type": "minecraft:flower"
-                    },
-                    "decorator": {
-                      "config": {},
-                      "type": "minecraft:spread_32_above"
-                    }
-                  },
-                  "type": "minecraft:decorated"
-                },
-                "decorator": {
-                  "config": {
-                    "outer": {
-                      "config": {},
-                      "type": "minecraft:square"
-                    },
-                    "inner": {
-                      "config": {},
-                      "type": "minecraft:heightmap"
-                    }
-                  },
-                  "type": "minecraft:decorated"
-                }
-              },
-              "type": "minecraft:decorated"
-            },
-            "decorator": {
-              "config": {
-                "count": 100
-              },
-              "type": "minecraft:count"
-            }
-          },
-          "type": "minecraft:decorated"
-        },
+        "feature": "minecraft:flower_forest",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }
@@ -143,17 +30,7 @@
     {
       "weight": 1,
       "element": {
-        "feature": {
-          "config": {
-            "state_provider": {
-              "state": {
-                "Name": "minecraft:melon"
-              },
-              "type": "minecraft:simple_state_provider"
-            }
-          },
-          "type": "minecraft:block_pile"
-        },
+        "feature": "minecraft:pile_melon",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }
