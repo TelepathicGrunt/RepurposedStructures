@@ -6,9 +6,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:shipwrecks/end/rightsideup_backhalf",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -17,9 +15,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:shipwrecks/end/rightsideup_backhalf_degraded",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -28,9 +24,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:shipwrecks/end/rightsideup_fronthalf",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -39,9 +33,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:shipwrecks/end/rightsideup_fronthalf_degraded",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -50,9 +42,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:shipwrecks/end/rightsideup_full",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -61,9 +51,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:shipwrecks/end/rightsideup_full_degraded",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -72,9 +60,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:shipwrecks/end/sideways_backhalf",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -83,9 +69,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:shipwrecks/end/sideways_backhalf_degraded",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -94,9 +78,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:shipwrecks/end/sideways_fronthalf",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -105,9 +87,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:shipwrecks/end/sideways_fronthalf_degraded",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -116,9 +96,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:shipwrecks/end/sideways_full",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -127,9 +105,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:shipwrecks/end/sideways_full_degraded",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -138,9 +114,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:shipwrecks/end/upsidedown_backhalf",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -149,9 +123,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:shipwrecks/end/upsidedown_backhalf_degraded",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -160,9 +132,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:shipwrecks/end/upsidedown_fronthalf_degraded",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -171,9 +141,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:shipwrecks/end/upsidedown_fronthalf",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -182,9 +150,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:shipwrecks/end/upsidedown_full",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -193,9 +159,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:shipwrecks/end/upsidedown_full_degraded",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }

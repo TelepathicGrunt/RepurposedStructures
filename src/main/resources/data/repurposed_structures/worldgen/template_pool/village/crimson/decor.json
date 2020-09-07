@@ -6,9 +6,7 @@
       "weight": 8,
       "element": {
         "location": "repurposed_structures:village/crimson/lamp_1",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -16,27 +14,7 @@
     {
       "weight": 4,
       "element": {
-        "feature": {
-          "config": {
-            "hat_state": {
-              "Name": "minecraft:nether_wart_block"
-            },
-            "decor_state": {
-              "Name": "minecraft:shroomlight"
-            },
-            "planted": false,
-            "valid_base_block": {
-              "Name": "minecraft:crimson_nylium"
-            },
-            "stem_state": {
-              "Properties": {
-                "axis": "y"
-              },
-              "Name": "minecraft:crimson_stem"
-            }
-          },
-          "type": "minecraft:huge_fungus"
-        },
+        "feature": "repurposed_structures:crimson_fungi_not_planted",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }
@@ -44,42 +22,7 @@
     {
       "weight": 4,
       "element": {
-        "feature": {
-          "config": {
-            "feature": {
-              "config": {
-                "can_replace": false,
-                "project": false,
-                "need_water": false,
-                "xspread": 7,
-                "yspread": 3,
-                "zspread": 7,
-                "whitelist": [],
-                "blacklist": [],
-                "tries": 64,
-                "state_provider": {
-                  "state": {
-                    "Name": "minecraft:crimson_roots"
-                  },
-                  "type": "minecraft:simple_state_provider"
-                },
-                "block_placer": {
-                  "type": "minecraft:simple_block_placer"
-                }
-              },
-              "type": "minecraft:random_patch"
-            },
-            "decorator": {
-              "config": {
-                "bottom_offset": 0,
-                "top_offset": 0,
-                "maximum": 128
-              },
-              "type": "minecraft:range"
-            }
-          },
-          "type": "minecraft:decorated"
-        },
+        "feature": "minecraft:patch_crimson_roots",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }

@@ -12,6 +12,7 @@ import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.DynamicRegistryManager;
 import net.minecraft.util.registry.MutableRegistry;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.gen.CountConfig;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.UniformIntDistribution;
 import net.minecraft.world.gen.chunk.StructureConfig;
@@ -21,6 +22,7 @@ import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
+import net.minecraft.world.gen.placer.SimpleBlockPlacer;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 
@@ -185,37 +187,51 @@ public class RSConfiguredFeatures {
                                     RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdMinHeight+1)+15))
                     .repeat(RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdChainSpawnrate));
 
+    public static ConfiguredFeature<?, ?> LILY_OF_THE_VALLEY_FEATURE = Feature.field_26361.configure(
+            (new RandomPatchFeatureConfig.Builder(
+                    new SimpleBlockStateProvider(Blocks.LILY_OF_THE_VALLEY.getDefaultState()),
+                    SimpleBlockPlacer.INSTANCE))
+            .tries(64)
+            .build());
+
+    public static ConfiguredFeature<?, ?> CRIMSON_FUNGI_NOT_PLANTED = Feature.HUGE_FUNGUS.configure(HugeFungusFeatureConfig.CRIMSON_FUNGUS_NOT_PLANTED_CONFIG);
+    public static ConfiguredFeature<?, ?> WARPED_FUNGI_NOT_PLANTED = Feature.HUGE_FUNGUS.configure(HugeFungusFeatureConfig.WARPED_FUNGUS_NOT_PLANTED_CONFIG);
 
     public static void registerConfiguredFeatures() {
         MutableRegistry<ConfiguredFeature<?, ?>> registry = (MutableRegistry<ConfiguredFeature<?, ?>>) BuiltinRegistries.CONFIGURED_FEATURE;
 
-        Registry.register(registry, RepurposedStructures.MODID + "dungeons_badlands", BADLANDS_DUNGEONS);
-        Registry.register(registry, RepurposedStructures.MODID + "dungeons_dark_forest", DARK_FOREST_DUNGEONS);
-        Registry.register(registry, RepurposedStructures.MODID + "dungeons_desert", DESERT_DUNGEONS);
-        Registry.register(registry, RepurposedStructures.MODID + "dungeons_end", END_DUNGEONS);
-        Registry.register(registry, RepurposedStructures.MODID + "dungeons_nether", NETHER_DUNGEONS);
-        Registry.register(registry, RepurposedStructures.MODID + "dungeons_snow", SNOW_DUNGEONS);
-        Registry.register(registry, RepurposedStructures.MODID + "dungeons_swamp", SWAMP_DUNGEONS);
-        Registry.register(registry, RepurposedStructures.MODID + "dungeons_mushroom", MUSHROOM_DUNGEONS);
-        Registry.register(registry, RepurposedStructures.MODID + "dungeons_jungle", JUNGLE_DUNGEONS);
-        Registry.register(registry, RepurposedStructures.MODID + "dungeons_ocean", OCEAN_DUNGEONS);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "dungeons_badlands"), BADLANDS_DUNGEONS);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "dungeons_dark_forest"), DARK_FOREST_DUNGEONS);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "dungeons_desert"), DESERT_DUNGEONS);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "dungeons_end"), END_DUNGEONS);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "dungeons_nether"), NETHER_DUNGEONS);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "dungeons_snow"), SNOW_DUNGEONS);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "dungeons_swamp"), SWAMP_DUNGEONS);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "dungeons_mushroom"), MUSHROOM_DUNGEONS);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "dungeons_jungle"), JUNGLE_DUNGEONS);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "dungeons_ocean"), OCEAN_DUNGEONS);
 
-        Registry.register(registry, RepurposedStructures.MODID + "well_badlands", BADLANDS_WELL);
-        Registry.register(registry, RepurposedStructures.MODID + "well_nether", NETHER_WELL);
-        Registry.register(registry, RepurposedStructures.MODID + "well_snow", SNOW_WELL);
-        Registry.register(registry, RepurposedStructures.MODID + "well_mossy_stone", MOSSY_STONE_WELL);
-        Registry.register(registry, RepurposedStructures.MODID + "well_forest", FOREST_WELL);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "well_badlands"), BADLANDS_WELL);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "well_nether"), NETHER_WELL);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "well_snow"), SNOW_WELL);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "well_mossy_stone"), MOSSY_STONE_WELL);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "well_forest"), FOREST_WELL);
 
-        Registry.register(registry, RepurposedStructures.MODID + "boulder_giant", BOULDER_GIANT);
-        Registry.register(registry, RepurposedStructures.MODID + "boulder_tiny", BOULDER_TINY);
-        Registry.register(registry, RepurposedStructures.MODID + "horned_swamp_tree_uncommon", HORNED_SWAMP_TREE_UNCOMMON);
-        Registry.register(registry, RepurposedStructures.MODID + "horned_swamp_tree_common", HORNED_SWAMP_TREE_COMMON);
-        Registry.register(registry, RepurposedStructures.MODID + "swamp_village_vines", SWAMP_VILLAGE_VINES);
-        Registry.register(registry, RepurposedStructures.MODID + "jungle_fortress_vines", JUNGLE_FORTRESS_VINES);
-        Registry.register(registry, RepurposedStructures.MODID + "jungle_village_vines", JUNGLE_VILLAGE_VINES);
-        Registry.register(registry, RepurposedStructures.MODID + "fortress_breakage", FORTRESS_BREAKAGE);
-        Registry.register(registry, RepurposedStructures.MODID + "stonebrick_stronghold_chains", STONEBRICK_STRONGHOLD_CHAINS);
-        Registry.register(registry, RepurposedStructures.MODID + "nether_stronghold_chains", NETHER_STRONGHOLD_CHAINS);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "boulder_giant"), BOULDER_GIANT);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "boulder_tiny"), BOULDER_TINY);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "horned_swamp_tree_uncommon"), HORNED_SWAMP_TREE_UNCOMMON);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "horned_swamp_tree_common"), HORNED_SWAMP_TREE_COMMON);
+
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "swamp_village_vines"), SWAMP_VILLAGE_VINES);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "jungle_fortress_vines"), JUNGLE_FORTRESS_VINES);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "jungle_village_vines"), JUNGLE_VILLAGE_VINES);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "fortress_breakage"), FORTRESS_BREAKAGE);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "stonebrick_stronghold_chains"), STONEBRICK_STRONGHOLD_CHAINS);
+
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "nether_stronghold_chains"), NETHER_STRONGHOLD_CHAINS);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "lily_of_the_valley"), LILY_OF_THE_VALLEY_FEATURE);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "crimson_fungi_not_planted"), CRIMSON_FUNGI_NOT_PLANTED);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "warped_fungi_not_planted"), WARPED_FUNGI_NOT_PLANTED);
 
     }
 }

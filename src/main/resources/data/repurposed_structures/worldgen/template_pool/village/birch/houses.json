@@ -3,211 +3,10 @@
   "fallback": "repurposed_structures:village/birch/terminators",
   "elements": [
     {
-      "weight": 2,
+      "weight": 3,
       "element": {
         "location": "repurposed_structures:village/birch/houses/small_house_1",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
-        "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
-      }
-    },
-    {
-      "weight": 2,
-      "element": {
-        "location": "repurposed_structures:village/birch/houses/small_house_2",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
-        "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
-      }
-    },
-    {
-      "weight": 2,
-      "element": {
-        "location": "repurposed_structures:village/birch/houses/small_house_3",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
-        "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
-      }
-    },
-    {
-      "weight": 2,
-      "element": {
-        "location": "repurposed_structures:village/birch/houses/small_house_4",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
-        "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
-      }
-    },
-    {
-      "weight": 2,
-      "element": {
-        "location": "repurposed_structures:village/birch/houses/small_house_5",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
-        "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
-      }
-    },
-    {
-      "weight": 1,
-      "element": {
-        "location": "repurposed_structures:village/birch/houses/small_house_6",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
-        "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
-      }
-    },
-    {
-      "weight": 2,
-      "element": {
-        "location": "repurposed_structures:village/birch/houses/small_house_7",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/birch/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -215,119 +14,89 @@
     {
       "weight": 3,
       "element": {
-        "location": "repurposed_structures:village/birch/houses/small_house_8",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "location": "repurposed_structures:village/birch/houses/small_house_2",
+        "processors": "repurposed_structures:village/birch/mossify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:village/birch/houses/small_house_3",
+        "processors": "repurposed_structures:village/birch/mossify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:village/birch/houses/small_house_4",
+        "processors": "repurposed_structures:village/birch/mossify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:village/birch/houses/small_house_5",
+        "processors": "repurposed_structures:village/birch/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
     },
     {
       "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/birch/houses/small_house_6",
+        "processors": "repurposed_structures:village/birch/mossify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:village/birch/houses/small_house_7",
+        "processors": "repurposed_structures:village/birch/mossify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:village/birch/houses/small_house_8",
+        "processors": "repurposed_structures:village/birch/mossify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
       "element": {
         "location": "repurposed_structures:village/birch/houses/medium_house_1",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/birch/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
     },
     {
-      "weight": 2,
+      "weight": 3,
       "element": {
         "location": "repurposed_structures:village/birch/houses/medium_house_2",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/birch/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
     },
     {
-      "weight": 2,
+      "weight": 3,
       "element": {
         "location": "repurposed_structures:village/birch/houses/big_house_1",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/birch/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -336,28 +105,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/birch/houses/butcher_shop_1",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/birch/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -366,28 +114,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/birch/houses/butcher_shop_2",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/birch/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -396,28 +123,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/birch/houses/tool_smith_1",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/birch/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -426,28 +132,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/birch/houses/fletcher_house_1",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/birch/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -456,9 +141,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/birch/houses/shepherds_house_1",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -467,28 +150,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/birch/houses/armorer_house_1",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/birch/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -497,28 +159,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/birch/houses/fisher_cottage_1",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/birch/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -527,28 +168,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/birch/houses/tannery_1",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/birch/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -557,28 +177,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:village/birch/houses/cartographer_1",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/birch/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -587,28 +186,7 @@
       "weight": 5,
       "element": {
         "location": "repurposed_structures:village/birch/houses/library_1",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/birch/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -617,28 +195,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:village/birch/houses/library_2",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/birch/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -647,28 +204,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/birch/houses/masons_house_1",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/birch/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -677,28 +213,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/birch/houses/weaponsmith_1",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/birch/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -707,28 +222,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/birch/houses/temple_3",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/birch/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -737,28 +231,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/birch/houses/temple_4",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/birch/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -767,28 +240,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/birch/houses/stable_1",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/birch/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -797,9 +249,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/birch/houses/stable_2",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -808,63 +258,7 @@
       "weight": 4,
       "element": {
         "location": "repurposed_structures:village/birch/houses/large_farm_1",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Properties": {
-                      "age": "0"
-                    },
-                    "Name": "minecraft:carrots"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:wheat",
-                    "probability": 0.3,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Properties": {
-                      "age": "0"
-                    },
-                    "Name": "minecraft:potatoes"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:wheat",
-                    "probability": 0.2,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Properties": {
-                      "age": "0"
-                    },
-                    "Name": "minecraft:beetroots"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:wheat",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/birch/crop_randomizer",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -873,63 +267,7 @@
       "weight": 4,
       "element": {
         "location": "repurposed_structures:village/birch/houses/small_farm_1",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Properties": {
-                      "age": "0"
-                    },
-                    "Name": "minecraft:carrots"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:wheat",
-                    "probability": 0.3,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Properties": {
-                      "age": "0"
-                    },
-                    "Name": "minecraft:potatoes"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:wheat",
-                    "probability": 0.2,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Properties": {
-                      "age": "0"
-                    },
-                    "Name": "minecraft:beetroots"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:wheat",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/birch/crop_randomizer",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -938,9 +276,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:village/birch/houses/animal_pen_1",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -949,9 +285,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:village/birch/houses/animal_pen_2",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -960,9 +294,7 @@
       "weight": 5,
       "element": {
         "location": "repurposed_structures:village/birch/houses/animal_pen_3",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -971,9 +303,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:village/birch/houses/accessory_1",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -982,28 +312,7 @@
       "weight": 3,
       "element": {
         "location": "repurposed_structures:village/birch/houses/meeting_point_4",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.7,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "minecraft:mossify_70_percent",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -1012,9 +321,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:village/birch/houses/meeting_point_5",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }

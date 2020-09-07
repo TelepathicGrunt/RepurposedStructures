@@ -6,9 +6,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:village/crimson/piglins/brute",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }

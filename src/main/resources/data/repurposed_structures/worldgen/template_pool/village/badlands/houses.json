@@ -6,9 +6,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/badlands/houses/small_house_1",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -17,9 +15,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/badlands/houses/small_house_2",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -28,9 +24,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/badlands/houses/small_house_3",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -39,9 +33,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/badlands/houses/small_house_4",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -50,9 +42,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/badlands/houses/small_house_5",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -61,9 +51,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/badlands/houses/medium_house_1",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -72,9 +60,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/badlands/houses/medium_house_2",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -83,9 +69,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/badlands/houses/medium_house_3",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -94,9 +78,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/badlands/houses/medium_house_4",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -105,9 +87,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:village/badlands/houses/butcher",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -116,9 +96,7 @@
       "weight": 4,
       "element": {
         "location": "repurposed_structures:village/badlands/houses/tool_smith",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -127,9 +105,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/badlands/houses/fletcher",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -138,9 +114,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:village/badlands/houses/shepherd",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -149,9 +123,7 @@
       "weight": 6,
       "element": {
         "location": "repurposed_structures:village/badlands/houses/saloon",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -160,9 +132,7 @@
       "weight": 3,
       "element": {
         "location": "repurposed_structures:village/badlands/houses/armorer",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -171,9 +141,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:village/badlands/houses/fisher",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -182,9 +150,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/badlands/houses/tannery",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -193,9 +159,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/badlands/houses/cartographer",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -204,9 +168,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/badlands/houses/library",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -215,9 +177,7 @@
       "weight": 4,
       "element": {
         "location": "repurposed_structures:village/badlands/houses/mason",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -226,9 +186,7 @@
       "weight": 4,
       "element": {
         "location": "repurposed_structures:village/badlands/houses/weaponsmith",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -237,9 +195,7 @@
       "weight": 4,
       "element": {
         "location": "repurposed_structures:village/badlands/houses/temple_1",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -248,9 +204,7 @@
       "weight": 4,
       "element": {
         "location": "repurposed_structures:village/badlands/houses/temple_2",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -259,47 +213,7 @@
       "weight": 11,
       "element": {
         "location": "repurposed_structures:village/badlands/houses/farm_1",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Properties": {
-                      "age": "0"
-                    },
-                    "Name": "minecraft:beetroots"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:wheat",
-                    "probability": 0.2,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Properties": {
-                      "age": "0"
-                    },
-                    "Name": "minecraft:melon_stem"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:wheat",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/badlands/crop_replacement",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -308,47 +222,7 @@
       "weight": 4,
       "element": {
         "location": "repurposed_structures:village/badlands/houses/farm_2",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Properties": {
-                      "age": "0"
-                    },
-                    "Name": "minecraft:beetroots"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:wheat",
-                    "probability": 0.2,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Properties": {
-                      "age": "0"
-                    },
-                    "Name": "minecraft:melon_stem"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:wheat",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/badlands/crop_replacement",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -357,9 +231,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/badlands/houses/pen_1",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -368,9 +240,7 @@
       "weight": 3,
       "element": {
         "location": "repurposed_structures:village/badlands/houses/meeting_point",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }

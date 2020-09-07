@@ -6,9 +6,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:village/mountains/houses/animal_pen_1",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -17,88 +15,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/mountains/houses/armorer_house_1",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.4,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cracked_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Properties": {
-                      "west": "none",
-                      "waterlogged": "false",
-                      "up": "true",
-                      "south": "none",
-                      "north": "none",
-                      "east": "none"
-                    },
-                    "Name": "minecraft:mossy_cobblestone_wall"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone_wall",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/mountains/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -107,88 +24,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/mountains/houses/armorer_house_2",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.4,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cracked_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Properties": {
-                      "west": "none",
-                      "waterlogged": "false",
-                      "up": "true",
-                      "south": "none",
-                      "north": "none",
-                      "east": "none"
-                    },
-                    "Name": "minecraft:mossy_cobblestone_wall"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone_wall",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/mountains/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -197,88 +33,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/mountains/houses/butcher_shop_1",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.4,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cracked_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Properties": {
-                      "west": "none",
-                      "waterlogged": "false",
-                      "up": "true",
-                      "south": "none",
-                      "north": "none",
-                      "east": "none"
-                    },
-                    "Name": "minecraft:mossy_cobblestone_wall"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone_wall",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/mountains/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -287,88 +42,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:village/mountains/houses/cartographer_house_1",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.4,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cracked_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Properties": {
-                      "west": "none",
-                      "waterlogged": "false",
-                      "up": "true",
-                      "south": "none",
-                      "north": "none",
-                      "east": "none"
-                    },
-                    "Name": "minecraft:mossy_cobblestone_wall"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone_wall",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/mountains/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -377,88 +51,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:village/mountains/houses/fisher_cottage",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.4,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cracked_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Properties": {
-                      "west": "none",
-                      "waterlogged": "false",
-                      "up": "true",
-                      "south": "none",
-                      "north": "none",
-                      "east": "none"
-                    },
-                    "Name": "minecraft:mossy_cobblestone_wall"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone_wall",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/mountains/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -467,88 +60,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/mountains/houses/fletcher_house_1",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.4,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cracked_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Properties": {
-                      "west": "none",
-                      "waterlogged": "false",
-                      "up": "true",
-                      "south": "none",
-                      "north": "none",
-                      "east": "none"
-                    },
-                    "Name": "minecraft:mossy_cobblestone_wall"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone_wall",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/mountains/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -557,47 +69,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:village/mountains/houses/large_farm_1",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Properties": {
-                      "age": "0"
-                    },
-                    "Name": "minecraft:carrots"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:wheat",
-                    "probability": 0.2,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Properties": {
-                      "age": "0"
-                    },
-                    "Name": "minecraft:sweet_berry_bush"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:wheat",
-                    "probability": 0.3,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/mountains/crop_randomizer",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -606,47 +78,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:village/mountains/houses/large_farm_2",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Properties": {
-                      "age": "0"
-                    },
-                    "Name": "minecraft:carrots"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:wheat",
-                    "probability": 0.2,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Properties": {
-                      "age": "0"
-                    },
-                    "Name": "minecraft:sweet_berry_bush"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:wheat",
-                    "probability": 0.3,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/mountains/crop_randomizer",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -655,88 +87,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:village/mountains/houses/library_1",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.4,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cracked_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Properties": {
-                      "west": "none",
-                      "waterlogged": "false",
-                      "up": "true",
-                      "south": "none",
-                      "north": "none",
-                      "east": "none"
-                    },
-                    "Name": "minecraft:mossy_cobblestone_wall"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone_wall",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/mountains/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -745,88 +96,7 @@
       "weight": 5,
       "element": {
         "location": "repurposed_structures:village/mountains/houses/masons_house_1",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.4,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cracked_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Properties": {
-                      "west": "none",
-                      "waterlogged": "false",
-                      "up": "true",
-                      "south": "none",
-                      "north": "none",
-                      "east": "none"
-                    },
-                    "Name": "minecraft:mossy_cobblestone_wall"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone_wall",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/mountains/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -835,88 +105,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/mountains/houses/medium_house_1",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.4,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cracked_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Properties": {
-                      "west": "none",
-                      "waterlogged": "false",
-                      "up": "true",
-                      "south": "none",
-                      "north": "none",
-                      "east": "none"
-                    },
-                    "Name": "minecraft:mossy_cobblestone_wall"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone_wall",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/mountains/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -925,88 +114,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/mountains/houses/medium_house_2",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.4,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cracked_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Properties": {
-                      "west": "none",
-                      "waterlogged": "false",
-                      "up": "true",
-                      "south": "none",
-                      "north": "none",
-                      "east": "none"
-                    },
-                    "Name": "minecraft:mossy_cobblestone_wall"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone_wall",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/mountains/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -1015,88 +123,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/mountains/houses/medium_house_3",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.4,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cracked_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Properties": {
-                      "west": "none",
-                      "waterlogged": "false",
-                      "up": "true",
-                      "south": "none",
-                      "north": "none",
-                      "east": "none"
-                    },
-                    "Name": "minecraft:mossy_cobblestone_wall"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone_wall",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/mountains/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -1105,88 +132,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/mountains/houses/medium_house_4",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.4,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cracked_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Properties": {
-                      "west": "none",
-                      "waterlogged": "false",
-                      "up": "true",
-                      "south": "none",
-                      "north": "none",
-                      "east": "none"
-                    },
-                    "Name": "minecraft:mossy_cobblestone_wall"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone_wall",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/mountains/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -1195,9 +141,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:village/mountains/houses/shepherds_house_1",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -1206,47 +150,7 @@
       "weight": 5,
       "element": {
         "location": "repurposed_structures:village/mountains/houses/small_farm_1",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Properties": {
-                      "age": "0"
-                    },
-                    "Name": "minecraft:carrots"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:wheat",
-                    "probability": 0.2,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Properties": {
-                      "age": "0"
-                    },
-                    "Name": "minecraft:sweet_berry_bush"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:wheat",
-                    "probability": 0.3,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/mountains/crop_randomizer",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -1255,88 +159,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/mountains/houses/small_house_1",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.4,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cracked_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Properties": {
-                      "west": "none",
-                      "waterlogged": "false",
-                      "up": "true",
-                      "south": "none",
-                      "north": "none",
-                      "east": "none"
-                    },
-                    "Name": "minecraft:mossy_cobblestone_wall"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone_wall",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/mountains/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -1345,88 +168,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/mountains/houses/small_house_2",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.4,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cracked_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Properties": {
-                      "west": "none",
-                      "waterlogged": "false",
-                      "up": "true",
-                      "south": "none",
-                      "north": "none",
-                      "east": "none"
-                    },
-                    "Name": "minecraft:mossy_cobblestone_wall"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone_wall",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/mountains/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -1435,88 +177,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/mountains/houses/small_house_3",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.4,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cracked_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Properties": {
-                      "west": "none",
-                      "waterlogged": "false",
-                      "up": "true",
-                      "south": "none",
-                      "north": "none",
-                      "east": "none"
-                    },
-                    "Name": "minecraft:mossy_cobblestone_wall"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone_wall",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/mountains/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -1525,88 +186,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/mountains/houses/small_house_4",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.4,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cracked_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Properties": {
-                      "west": "none",
-                      "waterlogged": "false",
-                      "up": "true",
-                      "south": "none",
-                      "north": "none",
-                      "east": "none"
-                    },
-                    "Name": "minecraft:mossy_cobblestone_wall"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone_wall",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/mountains/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -1615,88 +195,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/mountains/houses/small_house_5",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.4,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cracked_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Properties": {
-                      "west": "none",
-                      "waterlogged": "false",
-                      "up": "true",
-                      "south": "none",
-                      "north": "none",
-                      "east": "none"
-                    },
-                    "Name": "minecraft:mossy_cobblestone_wall"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone_wall",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/mountains/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -1705,88 +204,7 @@
       "weight": 4,
       "element": {
         "location": "repurposed_structures:village/mountains/houses/tannery_1",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.4,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cracked_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Properties": {
-                      "west": "none",
-                      "waterlogged": "false",
-                      "up": "true",
-                      "south": "none",
-                      "north": "none",
-                      "east": "none"
-                    },
-                    "Name": "minecraft:mossy_cobblestone_wall"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone_wall",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/mountains/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -1795,88 +213,7 @@
       "weight": 3,
       "element": {
         "location": "repurposed_structures:village/mountains/houses/temple_1",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.4,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cracked_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Properties": {
-                      "west": "none",
-                      "waterlogged": "false",
-                      "up": "true",
-                      "south": "none",
-                      "north": "none",
-                      "east": "none"
-                    },
-                    "Name": "minecraft:mossy_cobblestone_wall"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone_wall",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/mountains/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -1885,88 +222,7 @@
       "weight": 3,
       "element": {
         "location": "repurposed_structures:village/mountains/houses/tool_smith_1",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.4,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cracked_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Properties": {
-                      "west": "none",
-                      "waterlogged": "false",
-                      "up": "true",
-                      "south": "none",
-                      "north": "none",
-                      "east": "none"
-                    },
-                    "Name": "minecraft:mossy_cobblestone_wall"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone_wall",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/mountains/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -1975,88 +231,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/mountains/houses/weapon_smith_1",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.4,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cracked_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Properties": {
-                      "west": "none",
-                      "waterlogged": "false",
-                      "up": "true",
-                      "south": "none",
-                      "north": "none",
-                      "east": "none"
-                    },
-                    "Name": "minecraft:mossy_cobblestone_wall"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone_wall",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/mountains/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -2065,88 +240,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:village/mountains/houses/weapon_smith_2",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.4,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cracked_stone_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:stone_bricks",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Properties": {
-                      "west": "none",
-                      "waterlogged": "false",
-                      "up": "true",
-                      "south": "none",
-                      "north": "none",
-                      "east": "none"
-                    },
-                    "Name": "minecraft:mossy_cobblestone_wall"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone_wall",
-                    "probability": 0.1,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:village/mountains/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }

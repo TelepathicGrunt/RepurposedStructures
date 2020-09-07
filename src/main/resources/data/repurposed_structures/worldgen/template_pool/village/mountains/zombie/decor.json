@@ -319,9 +319,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:village/mountains/decor/decoration_1",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -330,9 +328,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:village/mountains/decor/decoration_2",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -341,9 +337,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:village/mountains/decor/decoration_3",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -352,9 +346,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:village/mountains/decor/decoration_4",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -363,9 +355,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:village/mountains/decor/decoration_5",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -374,9 +364,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:village/mountains/decor/decoration_6",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }

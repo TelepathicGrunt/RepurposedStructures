@@ -2834,9 +2834,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:village/giant_taiga/houses/shepherds_house_1",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }

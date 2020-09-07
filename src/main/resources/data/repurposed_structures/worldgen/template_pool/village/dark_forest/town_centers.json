@@ -6,28 +6,7 @@
       "weight": 50,
       "element": {
         "location": "repurposed_structures:village/dark_forest/town_centers/fountain_01",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.2,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "minecraft:mossify_20_percent",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -36,28 +15,7 @@
       "weight": 50,
       "element": {
         "location": "repurposed_structures:village/dark_forest/town_centers/meeting_point_1",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.2,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "minecraft:mossify_20_percent",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -66,9 +24,7 @@
       "weight": 50,
       "element": {
         "location": "repurposed_structures:village/dark_forest/town_centers/meeting_point_2",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -77,28 +33,7 @@
       "weight": 50,
       "element": {
         "location": "repurposed_structures:village/dark_forest/town_centers/meeting_point_3",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:mossy_cobblestone"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:cobblestone",
-                    "probability": 0.7,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "minecraft:mossify_70_percent",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }

@@ -1,41 +1,18 @@
 package com.telepathicgrunt.repurposedstructures;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import com.mojang.serialization.JsonOps;
 import com.telepathicgrunt.repurposedstructures.configs.RSAllConfig;
 import com.telepathicgrunt.repurposedstructures.misc.VillagerTrades;
 import com.telepathicgrunt.repurposedstructures.utils.MobSpawnerManager;
 import com.telepathicgrunt.repurposedstructures.world.placements.RSPlacements;
-import com.telepathicgrunt.repurposedstructures.world.structures.pieces.*;
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import me.sargunvohra.mcmods.autoconfig1u.serializer.Toml4jConfigSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.server.ServerStartCallback;
-import net.fabricmc.loader.api.FabricLoader;
-import net.fabricmc.loader.launch.knot.FabricGlobalPropertyService;
-import net.minecraft.structure.pool.StructurePool;
-import net.minecraft.structure.processor.RuleStructureProcessor;
-import net.minecraft.structure.processor.StructureProcessor;
-import net.minecraft.structure.processor.StructureProcessorList;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.BuiltinRegistries;
-import net.minecraft.util.registry.MutableRegistry;
-import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import org.apache.commons.io.FilenameUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.lwjgl.system.CallbackI;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.*;
 
 
@@ -60,6 +37,9 @@ public class RepurposedStructures implements ModInitializer {
 
         RSPlacements.registerPlacements();
         RSFeatures.registerFeatures();
+        RSConfiguredFeatures.registerConfiguredFeatures();
+        RSConfiguredStructures.registerConfiguredStructures();
+
         //LoadNbtBlock.instantiateNbtBlock();
     }
 

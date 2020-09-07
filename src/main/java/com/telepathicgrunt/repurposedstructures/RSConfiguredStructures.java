@@ -65,52 +65,52 @@ public class RSConfiguredStructures {
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> CRIMSON_VILLAGE = RSFeatures.CRIMSON_VILLAGE.configure(FeatureConfig.DEFAULT);
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> WARPED_VILLAGE = RSFeatures.WARPED_VILLAGE.configure(FeatureConfig.DEFAULT);
 
-    public static void registerConfiguredFeatures() {
+    public static void registerConfiguredStructures() {
         MutableRegistry<ConfiguredStructureFeature<?, ?>> registry = (MutableRegistry<ConfiguredStructureFeature<?, ?>>) BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE;
 
-        Registry.register(registry, RepurposedStructures.MODID + "birch_mineshaft", BIRCH_MINESHAFT);
-        Registry.register(registry, RepurposedStructures.MODID + "desert_mineshaft", DESERT_MINESHAFT);
-        Registry.register(registry, RepurposedStructures.MODID + "end_mineshaft", END_MINESHAFT);
-        Registry.register(registry, RepurposedStructures.MODID + "nether_mineshaft", NETHER_MINESHAFT);
-        Registry.register(registry, RepurposedStructures.MODID + "icy_mineshaft", ICY_MINESHAFT);
-        Registry.register(registry, RepurposedStructures.MODID + "jungle_mineshaft", JUNGLE_MINESHAFT);
-        Registry.register(registry, RepurposedStructures.MODID + "ocean_mineshaft", OCEAN_MINESHAFT);
-        Registry.register(registry, RepurposedStructures.MODID + "savanna_mineshaft", SAVANNA_MINESHAFT);
-        Registry.register(registry, RepurposedStructures.MODID + "stone_mineshaft", STONE_MINESHAFT);
-        Registry.register(registry, RepurposedStructures.MODID + "swamp_or_dark_forest_mineshaft", SWAMP_OR_DARK_FOREST_MINESHAFT);
-        Registry.register(registry, RepurposedStructures.MODID + "taiga_mineshaft", TAIGA_MINESHAFT);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "birch_mineshaft"), BIRCH_MINESHAFT);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "desert_mineshaft"), DESERT_MINESHAFT);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "end_mineshaft"), END_MINESHAFT);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "nether_mineshaft"), NETHER_MINESHAFT);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "icy_mineshaft"), ICY_MINESHAFT);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "jungle_mineshaft"), JUNGLE_MINESHAFT);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "ocean_mineshaft"), OCEAN_MINESHAFT);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "savanna_mineshaft"), SAVANNA_MINESHAFT);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "stone_mineshaft"), STONE_MINESHAFT);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "swamp_or_dark_forest_mineshaft"), SWAMP_OR_DARK_FOREST_MINESHAFT);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "taiga_mineshaft"), TAIGA_MINESHAFT);
 
-        Registry.register(registry, RepurposedStructures.MODID + "stonebrick_stronghold", STONEBRICK_STRONGHOLD);
-        Registry.register(registry, RepurposedStructures.MODID + "nether_stronghold", NETHER_STRONGHOLD);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "stonebrick_stronghold"), STONEBRICK_STRONGHOLD);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "nether_stronghold"), NETHER_STRONGHOLD);
 
-        Registry.register(registry, RepurposedStructures.MODID + "jungle_fortress", JUNGLE_FORTRESS);
-        Registry.register(registry, RepurposedStructures.MODID + "grassy_igloo", GRASSY_IGLOO);
-        Registry.register(registry, RepurposedStructures.MODID + "stone_igloo", STONE_IGLOO);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "jungle_fortress"), JUNGLE_FORTRESS);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "grassy_igloo"), GRASSY_IGLOO);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "stone_igloo"), STONE_IGLOO);
 
-        Registry.register(registry, RepurposedStructures.MODID + "nether_wasteland_temple", NETHER_WASTELAND_TEMPLE);
-        Registry.register(registry, RepurposedStructures.MODID + "nether_basalt_temple", NETHER_BASALT_TEMPLE);
-        Registry.register(registry, RepurposedStructures.MODID + "nether_warped_temple", NETHER_WARPED_TEMPLE);
-        Registry.register(registry, RepurposedStructures.MODID + "nether_crimson_temple", NETHER_CRIMSON_TEMPLE);
-        Registry.register(registry, RepurposedStructures.MODID + "nether_soul_temple", NETHER_SOUL_TEMPLE);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "nether_wasteland_temple"), NETHER_WASTELAND_TEMPLE);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "nether_basalt_temple"), NETHER_BASALT_TEMPLE);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "nether_warped_temple"), NETHER_WARPED_TEMPLE);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "nether_crimson_temple"), NETHER_CRIMSON_TEMPLE);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "nether_soul_temple"), NETHER_SOUL_TEMPLE);
 
-        Registry.register(registry, RepurposedStructures.MODID + "nether_brick_outpost", NETHER_BRICK_OUTPOST);
-        Registry.register(registry, RepurposedStructures.MODID + "warped_outpost", WARPED_OUTPOST);
-        Registry.register(registry, RepurposedStructures.MODID + "crimson_outpost", CRIMSON_OUTPOST);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "nether_brick_outpost"), NETHER_BRICK_OUTPOST);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "warped_outpost"), WARPED_OUTPOST);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "crimson_outpost"), CRIMSON_OUTPOST);
 
-        Registry.register(registry, RepurposedStructures.MODID + "nether_pyramid", NETHER_PYRAMID);
-        Registry.register(registry, RepurposedStructures.MODID + "badlands_temple", BADLANDS_TEMPLE);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "nether_pyramid"), NETHER_PYRAMID);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "badlands_temple"), BADLANDS_TEMPLE);
 
-        Registry.register(registry, RepurposedStructures.MODID + "end_shipwreck", END_SHIPWRECK);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "end_shipwreck"), END_SHIPWRECK);
 
-        Registry.register(registry, RepurposedStructures.MODID + "badlands_village", BADLANDS_VILLAGE);
-        Registry.register(registry, RepurposedStructures.MODID + "birch_village", BIRCH_VILLAGE);
-        Registry.register(registry, RepurposedStructures.MODID + "dark_forest_village", DARK_FOREST_VILLAGE);
-        Registry.register(registry, RepurposedStructures.MODID + "jungle_village", JUNGLE_VILLAGE);
-        Registry.register(registry, RepurposedStructures.MODID + "swamp_village", SWAMP_VILLAGE);
-        Registry.register(registry, RepurposedStructures.MODID + "mountains_village", MOUNTAINS_VILLAGE);
-        Registry.register(registry, RepurposedStructures.MODID + "giant_taiga_village", GIANT_TAIGA_VILLAGE);
-        Registry.register(registry, RepurposedStructures.MODID + "crimson_village", CRIMSON_VILLAGE);
-        Registry.register(registry, RepurposedStructures.MODID + "warped_village", WARPED_VILLAGE);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "badlands_village"), BADLANDS_VILLAGE);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "birch_village"), BIRCH_VILLAGE);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "dark_forest_village"), DARK_FOREST_VILLAGE);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "jungle_village"), JUNGLE_VILLAGE);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "swamp_village"), SWAMP_VILLAGE);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "mountains_village"), MOUNTAINS_VILLAGE);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "giant_taiga_village"), GIANT_TAIGA_VILLAGE);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "crimson_village"), CRIMSON_VILLAGE);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "warped_village"), WARPED_VILLAGE);
 
     }
 }

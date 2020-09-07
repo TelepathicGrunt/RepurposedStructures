@@ -6,9 +6,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:outposts/nether_brick/tower",
-        "processors": {
-          "processors": []
-        },
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
