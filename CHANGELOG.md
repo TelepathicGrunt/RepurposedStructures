@@ -21,6 +21,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ##### Misc:
 
+- Converted all Structure Pools and Structure Processors into JSON so 
+  they can be overridden more easily by datapacks.
+
 - Significantly cleaned up code in backend again.
 
 ## (V.1.5.3 Changes) (1.16.2 Minecraft)

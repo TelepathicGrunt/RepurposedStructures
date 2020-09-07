@@ -58,8 +58,6 @@ public class RepurposedStructures implements ModInitializer {
 
         ServerStartCallback.EVENT.register(minecraftServer -> VillagerTrades.addMapTrades());
 
-        //RepurposedStructures.registerStructurePools();
-
         RSPlacements.registerPlacements();
         RSFeatures.registerFeatures();
         //LoadNbtBlock.instantiateNbtBlock();
@@ -100,29 +98,6 @@ public class RepurposedStructures implements ModInitializer {
 
     private static boolean isBiomeAllowed(String structureType, Identifier biomeID, Map<String, List<String>> allBiomeBlacklists){
         return allBiomeBlacklists.get(structureType).stream().noneMatch(blacklistedBiome -> blacklistedBiome.equals(biomeID.toString()));
-    }
-
-    /**
-     * Registers all jigsaw structures' pools
-     */
-    private static boolean lock = false;
-    public static void registerStructurePools(){
-        if(lock) return;
-        lock = true;
-
-        VillageBadlandsPools.init();
-        VillageBirchPools.init();
-        VillageCrimsonPools.init();
-        VillageDarkForestPools.init();
-        VillageGiantTaigaPools.init();
-        VillageJunglePools.init();
-        VillageMountainsPools.init();
-        VillageSwampPools.init();
-        VillageWarpedPools.init();
-        ShipwreckPools.initPools();
-        OutpostNetherPools.initPools();
-        PyramidPools.initPools();
-        TempleNetherPools.initPools();
     }
 
 

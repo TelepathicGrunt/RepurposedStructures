@@ -1,17 +1,22 @@
 {
-  "rules": [
+  "processors": [
     {
-      "output_state": {
-        "Name": "minecraft:air"
-      },
-      "input_predicate": {
-        "block": "minecraft:nether_wart",
-        "probability": 0.35,
-        "predicate_type": "minecraft:random_block_match"
-      },
-      "location_predicate": {
-        "predicate_type": "minecraft:always_true"
-      }
+      "rules": [
+        {
+          "output_state": {
+            "Name": "minecraft:air"
+          },
+          "input_predicate": {
+            "block": "minecraft:nether_wart",
+            "probability": 0.35,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        }
+      ],
+      "processor_type": "minecraft:rule"
     }
   ]
 }

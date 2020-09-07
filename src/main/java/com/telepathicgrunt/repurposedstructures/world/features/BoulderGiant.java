@@ -2,7 +2,7 @@ package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.utils.OpenSimplexNoise;
+import com.telepathicgrunt.repurposedstructures.utils.OpenSimplex2F;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
@@ -21,11 +21,11 @@ public class BoulderGiant extends Feature<DefaultFeatureConfig> {
     private final static int START_RADIUS = 4;
 
     protected long seed;
-    protected static OpenSimplexNoise noiseGen;
+    protected static OpenSimplex2F noiseGen;
 
     public void setSeed(long seed) {
         if (this.seed != seed || noiseGen == null) {
-            noiseGen = new OpenSimplexNoise(seed);
+            noiseGen = new OpenSimplex2F(seed);
             this.seed = seed;
         }
     }
@@ -73,9 +73,9 @@ public class BoulderGiant extends Feature<DefaultFeatureConfig> {
             for (BlockPos blockpos : BlockPos.iterate(blockpos$Mutable.add(-x, -y, -z), blockpos$Mutable.add(x, y, z))) {
                 if (blockpos.getSquaredDistance(blockpos$Mutable) <= calculatedDistance * calculatedDistance) {
 
-                    double noiseValue = noiseGen.eval(blockpos$Mutable.getX(), blockpos$Mutable.getY(), blockpos$Mutable.getZ());
-                    if(blockpos.getSquaredDistance(blockpos$Mutable) > calculatedDistance * calculatedDistance * 0.5f &&
-                            noiseValue > -0.1D && noiseValue < 0.1D){
+                    double noiseValue = noiseGen.noise3_Classic(blockpos.getX() * 0.035D, blockpos.getY() * 0.0075D, blockpos.getZ() * 0.035D);
+                    if(blockpos.getSquaredDistance(blockpos$Mutable) > calculatedDistance * calculatedDistance * 0.55f &&
+                            noiseValue > -0.3D && noiseValue < 0.3D){
                         continue; // Rough the surface of the boulders a bit
                     }
 
