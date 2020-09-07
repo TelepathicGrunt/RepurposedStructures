@@ -6,67 +6,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:temples/temple_nether_wasteland",
-        "processors": {
-          "processors": [
-            {
-              "rules": [
-                {
-                  "output_state": {
-                    "Name": "minecraft:magma_block"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:nether_bricks",
-                    "probability": 0.015,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:black_terracotta"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:nether_bricks",
-                    "probability": 0.12,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:red_nether_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:nether_bricks",
-                    "probability": 0.22,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                },
-                {
-                  "output_state": {
-                    "Name": "minecraft:cracked_nether_bricks"
-                  },
-                  "input_predicate": {
-                    "block": "minecraft:nether_bricks",
-                    "probability": 0.2,
-                    "predicate_type": "minecraft:random_block_match"
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  }
-                }
-              ],
-              "processor_type": "minecraft:rule"
-            }
-          ]
-        },
+        "processors": "repurposed_structures:temples/wasteland_temple_randomizer",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }

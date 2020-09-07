@@ -22,7 +22,7 @@
     {
       "weight": 4,
       "element": {
-        "feature": "minecraft:patch_warped_roots",
+        "feature": "minecraft:warped_forest_vegetation",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }
