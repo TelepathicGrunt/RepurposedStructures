@@ -31,8 +31,8 @@ public class BoulderGiant extends Feature<DefaultFeatureConfig> {
     }
 
 
-    public BoulderGiant(Codec<DefaultFeatureConfig> configFactory) {
-        super(configFactory);
+    public BoulderGiant() {
+        super(DefaultFeatureConfig.CODEC);
     }
 
     @Override

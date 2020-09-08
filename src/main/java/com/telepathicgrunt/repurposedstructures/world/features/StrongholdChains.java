@@ -20,8 +20,8 @@ import java.util.function.Predicate;
 
 public class StrongholdChains extends Feature<DefaultFeatureConfig> {
 
-    public StrongholdChains(Codec<DefaultFeatureConfig> configFactory) {
-        super(configFactory);
+    public StrongholdChains() {
+        super(DefaultFeatureConfig.CODEC);
     }
 
     private static final Predicate<BlockState> STRONGHOLD_BLOCKS = (blockState) -> {

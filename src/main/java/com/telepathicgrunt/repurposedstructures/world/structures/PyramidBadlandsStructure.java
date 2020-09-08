@@ -24,8 +24,8 @@ import net.minecraft.world.gen.feature.StructureFeature;
 public class PyramidBadlandsStructure extends StructureFeature<DefaultFeatureConfig> {
 
     private final Identifier START_POOL;
-    public PyramidBadlandsStructure(Codec<DefaultFeatureConfig> config) {
-        super(config);
+    public PyramidBadlandsStructure() {
+        super(DefaultFeatureConfig.CODEC);
         START_POOL = new Identifier(RepurposedStructures.MODID + ":temples/pyramid_badlands");
     }
 

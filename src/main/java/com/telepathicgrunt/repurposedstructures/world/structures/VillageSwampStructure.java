@@ -12,8 +12,8 @@ import net.minecraft.world.gen.feature.StructureFeature;
 
 public class VillageSwampStructure extends VillageBaseStructure {
 
-    public VillageSwampStructure(Codec<DefaultFeatureConfig> config, Identifier poolID, int structureSize) {
-        super(config, poolID, structureSize);
+    public VillageSwampStructure(Identifier poolID, int structureSize) {
+        super(poolID, structureSize);
     }
 
     @Override

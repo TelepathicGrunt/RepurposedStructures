@@ -18,75 +18,75 @@ import java.util.List;
 public class RSFeatures {
 
     //Static instance of our structure so we can reference it and add it to biomes easily.
-    public static Feature<DefaultFeatureConfig> BADLANDS_DUNGEONS = new DungeonBadlands(DefaultFeatureConfig.CODEC);
-    public static Feature<DefaultFeatureConfig> DARK_FOREST_DUNGEONS = new DungeonDarkForest(DefaultFeatureConfig.CODEC);
-    public static Feature<DefaultFeatureConfig> DESERT_DUNGEONS = new DungeonDesert(DefaultFeatureConfig.CODEC);
-    public static Feature<DefaultFeatureConfig> END_DUNGEONS = new DungeonEnd(DefaultFeatureConfig.CODEC);
-    public static Feature<DefaultFeatureConfig> NETHER_DUNGEONS = new DungeonNether(DefaultFeatureConfig.CODEC);
-    public static Feature<DefaultFeatureConfig> SNOW_DUNGEONS = new DungeonSnow(DefaultFeatureConfig.CODEC);
-    public static Feature<DefaultFeatureConfig> SWAMP_DUNGEONS = new DungeonSwamp(DefaultFeatureConfig.CODEC);
-    public static Feature<DefaultFeatureConfig> MUSHROOM_DUNGEONS = new DungeonMushroom(DefaultFeatureConfig.CODEC);
-    public static Feature<DefaultFeatureConfig> JUNGLE_DUNGEONS = new DungeonJungle(DefaultFeatureConfig.CODEC);
-    public static Feature<DefaultFeatureConfig> OCEAN_DUNGEONS = new DungeonOcean(DefaultFeatureConfig.CODEC);
+    public static Feature<DefaultFeatureConfig> BADLANDS_DUNGEONS = new DungeonBadlands();
+    public static Feature<DefaultFeatureConfig> DARK_FOREST_DUNGEONS = new DungeonDarkForest();
+    public static Feature<DefaultFeatureConfig> DESERT_DUNGEONS = new DungeonDesert();
+    public static Feature<DefaultFeatureConfig> END_DUNGEONS = new DungeonEnd();
+    public static Feature<DefaultFeatureConfig> NETHER_DUNGEONS = new DungeonNether();
+    public static Feature<DefaultFeatureConfig> SNOW_DUNGEONS = new DungeonSnow();
+    public static Feature<DefaultFeatureConfig> SWAMP_DUNGEONS = new DungeonSwamp();
+    public static Feature<DefaultFeatureConfig> MUSHROOM_DUNGEONS = new DungeonMushroom();
+    public static Feature<DefaultFeatureConfig> JUNGLE_DUNGEONS = new DungeonJungle();
+    public static Feature<DefaultFeatureConfig> OCEAN_DUNGEONS = new DungeonOcean();
 
-    public static Feature<DefaultFeatureConfig> BADLANDS_WELL = new WellBadlands(DefaultFeatureConfig.CODEC);
-    public static Feature<DefaultFeatureConfig> NETHER_WELL = new WellNether(DefaultFeatureConfig.CODEC);
-    public static Feature<DefaultFeatureConfig> SNOW_WELL = new WellSnow(DefaultFeatureConfig.CODEC);
-    public static Feature<DefaultFeatureConfig> MOSSY_STONE_WELL = new WellMossyStone(DefaultFeatureConfig.CODEC);
-    public static Feature<DefaultFeatureConfig> FOREST_WELL = new WellForest(DefaultFeatureConfig.CODEC);
+    public static Feature<DefaultFeatureConfig> BADLANDS_WELL = new WellBadlands();
+    public static Feature<DefaultFeatureConfig> NETHER_WELL = new WellNether();
+    public static Feature<DefaultFeatureConfig> SNOW_WELL = new WellSnow();
+    public static Feature<DefaultFeatureConfig> MOSSY_STONE_WELL = new WellMossyStone();
+    public static Feature<DefaultFeatureConfig> FOREST_WELL = new WellForest();
 
-    public static Feature<DefaultFeatureConfig> BOULDER_GIANT = new BoulderGiant(DefaultFeatureConfig.CODEC);
-    public static Feature<DefaultFeatureConfig> BOULDER_TINY = new BoulderTiny(DefaultFeatureConfig.CODEC);
-    public static Feature<TreeFeatureConfig> HORNED_SWAMP_TREE = new TreeSwampHorned(TreeFeatureConfig.CODEC);
-    public static Feature<DefaultFeatureConfig> SHORT_VINES = new VinesShort(DefaultFeatureConfig.CODEC);
-    public static Feature<DefaultFeatureConfig> SWAMP_VILLAGE_VINES = new SwampVillageVines(DefaultFeatureConfig.CODEC);
-    public static Feature<DefaultFeatureConfig> JUNGLE_STRUCTURES_VINES = new JungleStructuresVines(DefaultFeatureConfig.CODEC);
-    public static Feature<DefaultFeatureConfig> FORTRESS_BREAKAGE = new FortressBreakage(DefaultFeatureConfig.CODEC);
-    public static Feature<DefaultFeatureConfig> STRONGHOLD_CHAINS = new StrongholdChains(DefaultFeatureConfig.CODEC);
+    public static Feature<DefaultFeatureConfig> BOULDER_GIANT = new BoulderGiant();
+    public static Feature<DefaultFeatureConfig> BOULDER_TINY = new BoulderTiny();
+    public static Feature<TreeFeatureConfig> HORNED_SWAMP_TREE = new TreeSwampHorned();
+    public static Feature<DefaultFeatureConfig> SHORT_VINES = new VinesShort();
+    public static Feature<DefaultFeatureConfig> SWAMP_VILLAGE_VINES = new SwampVillageVines();
+    public static Feature<DefaultFeatureConfig> JUNGLE_STRUCTURES_VINES = new JungleStructuresVines();
+    public static Feature<DefaultFeatureConfig> FORTRESS_BREAKAGE = new FortressBreakage();
+    public static Feature<DefaultFeatureConfig> STRONGHOLD_CHAINS = new StrongholdChains();
 
-    public static StructureFeature<DefaultFeatureConfig> BIRCH_MINESHAFT = new RSMineshaftStructure(DefaultFeatureConfig.CODEC, RSMineshaftPieces.Type.BIRCH, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.birchMineshaftSpawnrate, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.birchMineshaftMaxHeight, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.birchMineshaftMinHeight);
-    public static StructureFeature<DefaultFeatureConfig> DESERT_MINESHAFT = new RSMineshaftStructure(DefaultFeatureConfig.CODEC, RSMineshaftPieces.Type.DESERT, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.desertMineshaftSpawnrate, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.desertMineshaftMaxHeight, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.desertMineshaftMinHeight);
-    public static StructureFeature<DefaultFeatureConfig> END_MINESHAFT = new RSMineshaftEndStructure(DefaultFeatureConfig.CODEC, RSMineshaftPieces.Type.END, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.endMineshaftSpawnrate, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.endMineshaftMaxHeight, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.endMineshaftMinHeight);
-    public static StructureFeature<DefaultFeatureConfig> NETHER_MINESHAFT = new RSMineshaftStructure(DefaultFeatureConfig.CODEC, RSMineshaftPieces.Type.NETHER, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.netherMineshaftSpawnrate, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.netherMineshaftMaxHeight, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.netherMineshaftMinHeight);
-    public static StructureFeature<DefaultFeatureConfig> ICY_MINESHAFT = new RSMineshaftStructure(DefaultFeatureConfig.CODEC, RSMineshaftPieces.Type.ICY, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.icyMineshaftSpawnrate, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.icyMineshaftMaxHeight, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.icyMineshaftMinHeight);
-    public static StructureFeature<DefaultFeatureConfig> JUNGLE_MINESHAFT = new RSMineshaftStructure(DefaultFeatureConfig.CODEC, RSMineshaftPieces.Type.JUNGLE, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.jungleMineshaftSpawnrate, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.jungleMineshaftMaxHeight, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.jungleMineshaftMinHeight);
-    public static StructureFeature<DefaultFeatureConfig> OCEAN_MINESHAFT = new RSMineshaftStructure(DefaultFeatureConfig.CODEC, RSMineshaftPieces.Type.OCEAN, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.oceanMineshaftSpawnrate, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.oceanMineshaftMaxHeight, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.oceanMineshaftMinHeight);
-    public static StructureFeature<DefaultFeatureConfig> SAVANNA_MINESHAFT = new RSMineshaftStructure(DefaultFeatureConfig.CODEC, RSMineshaftPieces.Type.SAVANNA, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.savannaMineshaftSpawnrate, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.savannaMineshaftMaxHeight, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.savannaMineshaftMinHeight);
-    public static StructureFeature<DefaultFeatureConfig> STONE_MINESHAFT = new RSMineshaftStructure(DefaultFeatureConfig.CODEC, RSMineshaftPieces.Type.STONE, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.stoneMineshaftSpawnrate, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.stoneMineshaftMaxHeight, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.stoneMineshaftMinHeight);
-    public static StructureFeature<DefaultFeatureConfig> SWAMP_OR_DARK_FOREST_MINESHAFT = new RSMineshaftStructure(DefaultFeatureConfig.CODEC, RSMineshaftPieces.Type.SWAMPORDARKFOREST, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.swampAndDarkForestMineshaftSpawnrate, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.swampAndDarkForestMineshaftMaxHeight, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.swampAndDarkForestMineshaftMinHeight);
-    public static StructureFeature<DefaultFeatureConfig> TAIGA_MINESHAFT = new RSMineshaftStructure(DefaultFeatureConfig.CODEC, RSMineshaftPieces.Type.TAIGA, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.taigaMineshaftSpawnrate, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.taigaMineshaftMaxHeight, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.taigaMineshaftMinHeight);
+    public static StructureFeature<DefaultFeatureConfig> BIRCH_MINESHAFT = new RSMineshaftStructure(RSMineshaftPieces.Type.BIRCH, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.birchMineshaftSpawnrate, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.birchMineshaftMaxHeight, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.birchMineshaftMinHeight);
+    public static StructureFeature<DefaultFeatureConfig> DESERT_MINESHAFT = new RSMineshaftStructure(RSMineshaftPieces.Type.DESERT, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.desertMineshaftSpawnrate, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.desertMineshaftMaxHeight, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.desertMineshaftMinHeight);
+    public static StructureFeature<DefaultFeatureConfig> END_MINESHAFT = new RSMineshaftEndStructure(RSMineshaftPieces.Type.END, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.endMineshaftSpawnrate, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.endMineshaftMaxHeight, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.endMineshaftMinHeight);
+    public static StructureFeature<DefaultFeatureConfig> NETHER_MINESHAFT = new RSMineshaftStructure(RSMineshaftPieces.Type.NETHER, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.netherMineshaftSpawnrate, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.netherMineshaftMaxHeight, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.netherMineshaftMinHeight);
+    public static StructureFeature<DefaultFeatureConfig> ICY_MINESHAFT = new RSMineshaftStructure(RSMineshaftPieces.Type.ICY, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.icyMineshaftSpawnrate, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.icyMineshaftMaxHeight, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.icyMineshaftMinHeight);
+    public static StructureFeature<DefaultFeatureConfig> JUNGLE_MINESHAFT = new RSMineshaftStructure(RSMineshaftPieces.Type.JUNGLE, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.jungleMineshaftSpawnrate, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.jungleMineshaftMaxHeight, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.jungleMineshaftMinHeight);
+    public static StructureFeature<DefaultFeatureConfig> OCEAN_MINESHAFT = new RSMineshaftStructure(RSMineshaftPieces.Type.OCEAN, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.oceanMineshaftSpawnrate, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.oceanMineshaftMaxHeight, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.oceanMineshaftMinHeight);
+    public static StructureFeature<DefaultFeatureConfig> SAVANNA_MINESHAFT = new RSMineshaftStructure(RSMineshaftPieces.Type.SAVANNA, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.savannaMineshaftSpawnrate, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.savannaMineshaftMaxHeight, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.savannaMineshaftMinHeight);
+    public static StructureFeature<DefaultFeatureConfig> STONE_MINESHAFT = new RSMineshaftStructure(RSMineshaftPieces.Type.STONE, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.stoneMineshaftSpawnrate, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.stoneMineshaftMaxHeight, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.stoneMineshaftMinHeight);
+    public static StructureFeature<DefaultFeatureConfig> SWAMP_OR_DARK_FOREST_MINESHAFT = new RSMineshaftStructure(RSMineshaftPieces.Type.SWAMPORDARKFOREST, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.swampAndDarkForestMineshaftSpawnrate, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.swampAndDarkForestMineshaftMaxHeight, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.swampAndDarkForestMineshaftMinHeight);
+    public static StructureFeature<DefaultFeatureConfig> TAIGA_MINESHAFT = new RSMineshaftStructure(RSMineshaftPieces.Type.TAIGA, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.taigaMineshaftSpawnrate, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.taigaMineshaftMaxHeight, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.taigaMineshaftMinHeight);
 
-    public static StructureFeature<DefaultFeatureConfig> STONEBRICK_STRONGHOLD = new RSStonebrickStrongholdStructure(DefaultFeatureConfig.CODEC);
-    public static StructureFeature<DefaultFeatureConfig> NETHER_STRONGHOLD = new RSNetherStrongholdStructure(DefaultFeatureConfig.CODEC);
+    public static StructureFeature<DefaultFeatureConfig> STONEBRICK_STRONGHOLD = new RSStonebrickStrongholdStructure();
+    public static StructureFeature<DefaultFeatureConfig> NETHER_STRONGHOLD = new RSNetherStrongholdStructure();
 
-    public static StructureFeature<DefaultFeatureConfig> JUNGLE_FORTRESS = new FortressJungleStructure(DefaultFeatureConfig.CODEC);
-    public static StructureFeature<DefaultFeatureConfig> GRASSY_IGLOO = new RSIglooStructure(DefaultFeatureConfig.CODEC, new Identifier(RepurposedStructures.MODID + ":igloos/grassy_top"));
-    public static StructureFeature<DefaultFeatureConfig> STONE_IGLOO = new RSIglooStructure(DefaultFeatureConfig.CODEC, new Identifier(RepurposedStructures.MODID + ":igloos/stone_top"));
+    public static StructureFeature<DefaultFeatureConfig> JUNGLE_FORTRESS = new FortressJungleStructure();
+    public static StructureFeature<DefaultFeatureConfig> GRASSY_IGLOO = new RSIglooStructure(new Identifier(RepurposedStructures.MODID + ":igloos/grassy_top"));
+    public static StructureFeature<DefaultFeatureConfig> STONE_IGLOO = new RSIglooStructure(new Identifier(RepurposedStructures.MODID + ":igloos/stone_top"));
 
-    public static StructureFeature<DefaultFeatureConfig> NETHER_WASTELAND_TEMPLE = new TempleNetherStructure(DefaultFeatureConfig.CODEC, new Identifier(RepurposedStructures.MODID,"temples/temple_nether_wasteland"));
-    public static StructureFeature<DefaultFeatureConfig> NETHER_BASALT_TEMPLE = new TempleNetherStructure(DefaultFeatureConfig.CODEC, new Identifier(RepurposedStructures.MODID,"temples/temple_nether_basalt"));
-    public static StructureFeature<DefaultFeatureConfig> NETHER_WARPED_TEMPLE = new TempleNetherStructure(DefaultFeatureConfig.CODEC, new Identifier(RepurposedStructures.MODID,"temples/temple_nether_warped"));
-    public static StructureFeature<DefaultFeatureConfig> NETHER_CRIMSON_TEMPLE = new TempleNetherStructure(DefaultFeatureConfig.CODEC, new Identifier(RepurposedStructures.MODID,"temples/temple_nether_crimson"));
-    public static StructureFeature<DefaultFeatureConfig> NETHER_SOUL_TEMPLE = new TempleNetherStructure(DefaultFeatureConfig.CODEC,new Identifier(RepurposedStructures.MODID,"temples/temple_nether_soul"));
+    public static StructureFeature<DefaultFeatureConfig> NETHER_WASTELAND_TEMPLE = new TempleNetherStructure(new Identifier(RepurposedStructures.MODID,"temples/temple_nether_wasteland"));
+    public static StructureFeature<DefaultFeatureConfig> NETHER_BASALT_TEMPLE = new TempleNetherStructure(new Identifier(RepurposedStructures.MODID,"temples/temple_nether_basalt"));
+    public static StructureFeature<DefaultFeatureConfig> NETHER_WARPED_TEMPLE = new TempleNetherStructure(new Identifier(RepurposedStructures.MODID,"temples/temple_nether_warped"));
+    public static StructureFeature<DefaultFeatureConfig> NETHER_CRIMSON_TEMPLE = new TempleNetherStructure(new Identifier(RepurposedStructures.MODID,"temples/temple_nether_crimson"));
+    public static StructureFeature<DefaultFeatureConfig> NETHER_SOUL_TEMPLE = new TempleNetherStructure(new Identifier(RepurposedStructures.MODID,"temples/temple_nether_soul"));
 
-    public static StructureFeature<DefaultFeatureConfig> NETHER_BRICK_OUTPOST = new OutpostNetherStructure(DefaultFeatureConfig.CODEC, new Identifier(RepurposedStructures.MODID,"outposts/nether_brick/base_plates"));
-    public static StructureFeature<DefaultFeatureConfig> WARPED_OUTPOST = new OutpostNetherStructure(DefaultFeatureConfig.CODEC, new Identifier(RepurposedStructures.MODID,"outposts/warped/base_plates"));
-    public static StructureFeature<DefaultFeatureConfig> CRIMSON_OUTPOST = new OutpostNetherStructure(DefaultFeatureConfig.CODEC, new Identifier(RepurposedStructures.MODID,"outposts/crimson/base_plates"));
+    public static StructureFeature<DefaultFeatureConfig> NETHER_BRICK_OUTPOST = new OutpostNetherStructure(new Identifier(RepurposedStructures.MODID,"outposts/nether_brick/base_plates"));
+    public static StructureFeature<DefaultFeatureConfig> WARPED_OUTPOST = new OutpostNetherStructure(new Identifier(RepurposedStructures.MODID,"outposts/warped/base_plates"));
+    public static StructureFeature<DefaultFeatureConfig> CRIMSON_OUTPOST = new OutpostNetherStructure(new Identifier(RepurposedStructures.MODID,"outposts/crimson/base_plates"));
 
-    public static StructureFeature<DefaultFeatureConfig> NETHER_PYRAMID = new PyramidNetherStructure(DefaultFeatureConfig.CODEC);
-    public static StructureFeature<DefaultFeatureConfig> BADLANDS_TEMPLE = new PyramidBadlandsStructure(DefaultFeatureConfig.CODEC);
+    public static StructureFeature<DefaultFeatureConfig> NETHER_PYRAMID = new PyramidNetherStructure();
+    public static StructureFeature<DefaultFeatureConfig> BADLANDS_TEMPLE = new PyramidBadlandsStructure();
 
-    public static StructureFeature<DefaultFeatureConfig> END_SHIPWRECK = new EndShipwreckStructure(DefaultFeatureConfig.CODEC);
+    public static StructureFeature<DefaultFeatureConfig> END_SHIPWRECK = new EndShipwreckStructure();
 
-    public static StructureFeature<DefaultFeatureConfig> BADLANDS_VILLAGE = new VillageBaseStructure(DefaultFeatureConfig.CODEC, new Identifier(RepurposedStructures.MODID + ":village/badlands/town_centers"), 10);
-    public static StructureFeature<DefaultFeatureConfig> BIRCH_VILLAGE = new VillageBaseStructure(DefaultFeatureConfig.CODEC, new Identifier(RepurposedStructures.MODID + ":village/birch/town_centers"), 6);
-    public static StructureFeature<DefaultFeatureConfig> DARK_FOREST_VILLAGE = new VillageBaseStructure(DefaultFeatureConfig.CODEC, new Identifier(RepurposedStructures.MODID + ":village/dark_forest/town_centers"), 6);
-    public static StructureFeature<DefaultFeatureConfig> JUNGLE_VILLAGE = new VillageBaseStructure(DefaultFeatureConfig.CODEC, new Identifier(RepurposedStructures.MODID + ":village/jungle/town_centers"), 8);
-    public static StructureFeature<DefaultFeatureConfig> SWAMP_VILLAGE = new VillageSwampStructure(DefaultFeatureConfig.CODEC, new Identifier(RepurposedStructures.MODID + ":village/swamp/town_centers"), 6);
-    public static StructureFeature<DefaultFeatureConfig> MOUNTAINS_VILLAGE = new VillageBaseStructure(DefaultFeatureConfig.CODEC, new Identifier(RepurposedStructures.MODID + ":village/mountains/town_centers"), 6);
-    public static StructureFeature<DefaultFeatureConfig> GIANT_TAIGA_VILLAGE = new VillageBaseStructure(DefaultFeatureConfig.CODEC, new Identifier(RepurposedStructures.MODID + ":village/giant_taiga/town_centers"), 6);
-    public static StructureFeature<DefaultFeatureConfig> CRIMSON_VILLAGE = new VillageNetherStructure(DefaultFeatureConfig.CODEC, new Identifier(RepurposedStructures.MODID + ":village/crimson/town_centers"), 6);
-    public static StructureFeature<DefaultFeatureConfig> WARPED_VILLAGE = new VillageNetherStructure(DefaultFeatureConfig.CODEC, new Identifier(RepurposedStructures.MODID + ":village/warped/town_centers"), 6);
+    public static StructureFeature<DefaultFeatureConfig> BADLANDS_VILLAGE = new VillageBaseStructure(new Identifier(RepurposedStructures.MODID + ":village/badlands/town_centers"), 10);
+    public static StructureFeature<DefaultFeatureConfig> BIRCH_VILLAGE = new VillageBaseStructure(new Identifier(RepurposedStructures.MODID + ":village/birch/town_centers"), 6);
+    public static StructureFeature<DefaultFeatureConfig> DARK_FOREST_VILLAGE = new VillageBaseStructure(new Identifier(RepurposedStructures.MODID + ":village/dark_forest/town_centers"), 6);
+    public static StructureFeature<DefaultFeatureConfig> JUNGLE_VILLAGE = new VillageBaseStructure(new Identifier(RepurposedStructures.MODID + ":village/jungle/town_centers"), 8);
+    public static StructureFeature<DefaultFeatureConfig> SWAMP_VILLAGE = new VillageSwampStructure(new Identifier(RepurposedStructures.MODID + ":village/swamp/town_centers"), 6);
+    public static StructureFeature<DefaultFeatureConfig> MOUNTAINS_VILLAGE = new VillageBaseStructure(new Identifier(RepurposedStructures.MODID + ":village/mountains/town_centers"), 6);
+    public static StructureFeature<DefaultFeatureConfig> GIANT_TAIGA_VILLAGE = new VillageBaseStructure(new Identifier(RepurposedStructures.MODID + ":village/giant_taiga/town_centers"), 6);
+    public static StructureFeature<DefaultFeatureConfig> CRIMSON_VILLAGE = new VillageNetherStructure(new Identifier(RepurposedStructures.MODID + ":village/crimson/town_centers"), 6);
+    public static StructureFeature<DefaultFeatureConfig> WARPED_VILLAGE = new VillageNetherStructure(new Identifier(RepurposedStructures.MODID + ":village/warped/town_centers"), 6);
     public static List<StructureFeature<DefaultFeatureConfig>> OVERWORLD_VILLAGE_LIST = Arrays.asList(
             BADLANDS_VILLAGE,
             BIRCH_VILLAGE,

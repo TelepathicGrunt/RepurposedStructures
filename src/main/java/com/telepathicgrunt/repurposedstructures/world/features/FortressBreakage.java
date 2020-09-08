@@ -21,8 +21,8 @@ import java.util.function.Predicate;
 
 public class FortressBreakage extends Feature<DefaultFeatureConfig> {
 
-    public FortressBreakage(Codec<DefaultFeatureConfig> configFactory) {
-        super(configFactory);
+    public FortressBreakage() {
+        super(DefaultFeatureConfig.CODEC);
     }
 
     private static final Predicate<BlockState> FORTRESS_BLOCKS = (blockState) -> {

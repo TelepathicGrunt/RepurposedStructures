@@ -31,8 +31,8 @@ public class DungeonDarkForest extends Feature<DefaultFeatureConfig> {
     private static final BlockState SIDEWAYS_LOGS = Blocks.DARK_OAK_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.X);
     private static final BlockState PLANKS = Blocks.DARK_OAK_PLANKS.getDefaultState();
 
-    public DungeonDarkForest(Codec<DefaultFeatureConfig> configFactory) {
-        super(configFactory);
+    public DungeonDarkForest() {
+        super(DefaultFeatureConfig.CODEC);
     }
 
 

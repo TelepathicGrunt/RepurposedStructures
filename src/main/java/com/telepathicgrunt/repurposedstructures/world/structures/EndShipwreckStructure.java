@@ -28,8 +28,8 @@ public class EndShipwreckStructure extends AbstractBaseStructure {
 
     private final Identifier START_POOL;
 
-    public EndShipwreckStructure(Codec<DefaultFeatureConfig> config) {
-        super(config);
+    public EndShipwreckStructure() {
+        super(DefaultFeatureConfig.CODEC);
         START_POOL = new Identifier(RepurposedStructures.MODID + ":shipwrecks/end");
     }
 

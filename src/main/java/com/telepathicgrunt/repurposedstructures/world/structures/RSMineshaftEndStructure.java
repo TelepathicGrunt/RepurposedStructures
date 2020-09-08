@@ -18,8 +18,8 @@ import java.util.List;
 
 
 public class RSMineshaftEndStructure extends RSMineshaftStructure {
-    public RSMineshaftEndStructure(Codec<DefaultFeatureConfig> config, RSMineshaftPieces.Type mineshaftType, double probability, int maxHeight, int minHeight) {
-        super(config, mineshaftType, probability, maxHeight, minHeight);
+    public RSMineshaftEndStructure(RSMineshaftPieces.Type mineshaftType, double probability, int maxHeight, int minHeight) {
+        super(mineshaftType, probability, maxHeight, minHeight);
     }
 
     private static final List<SpawnSettings.SpawnEntry> MONSTER_SPAWNS = Lists.newArrayList(

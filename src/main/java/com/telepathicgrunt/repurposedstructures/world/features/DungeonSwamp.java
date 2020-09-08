@@ -23,8 +23,8 @@ import java.util.Random;
 
 
 public class DungeonSwamp extends Feature<DefaultFeatureConfig> {
-    public DungeonSwamp(Codec<DefaultFeatureConfig> configFactory) {
-        super(configFactory);
+    public DungeonSwamp() {
+        super(DefaultFeatureConfig.CODEC);
     }
 
     private static final Logger LOGGER = LogManager.getLogger();

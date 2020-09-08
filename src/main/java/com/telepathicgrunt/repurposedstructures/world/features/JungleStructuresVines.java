@@ -18,8 +18,8 @@ import java.util.Set;
 
 public class JungleStructuresVines extends Feature<DefaultFeatureConfig> {
 
-    public JungleStructuresVines(Codec<DefaultFeatureConfig> configFactory) {
-        super(configFactory);
+    public JungleStructuresVines() {
+        super(DefaultFeatureConfig.CODEC);
     }
 
     Set<Block> FORTRESS_BLOCKS_SET = Sets.newHashSet(

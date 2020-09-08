@@ -20,8 +20,8 @@ public class WellSnow extends WellAbstract {
     private static final Identifier SNOW_WELL_ORE_RL = new Identifier("repurposed_structures:snow_well_ores");
     private static final Identifier SNOW_WELL_RL = new Identifier(RepurposedStructures.MODID + ":wells/snow");
 
-    public WellSnow(Codec<DefaultFeatureConfig> config) {
-        super(config);
+    public WellSnow() {
+        super();
     }
 
     public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {

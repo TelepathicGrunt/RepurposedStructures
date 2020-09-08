@@ -22,8 +22,8 @@ import java.util.Random;
 
 
 public class DungeonJungle extends Feature<DefaultFeatureConfig> {
-    public DungeonJungle(Codec<DefaultFeatureConfig> configFactory) {
-        super(configFactory);
+    public DungeonJungle() {
+        super(DefaultFeatureConfig.CODEC);
     }
 
     private static final Logger LOGGER = LogManager.getLogger();

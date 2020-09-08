@@ -21,8 +21,8 @@ public class WellBadlands extends WellAbstract {
     private static final Identifier BADLANDS_WELL_ORE_RL = new Identifier(RepurposedStructures.MODID + ":badlands_well_ores");
     private static final Identifier BADLANDS_WELL_RL = new Identifier(RepurposedStructures.MODID + ":wells/badlands");
 
-    public WellBadlands(Codec<DefaultFeatureConfig> config) {
-        super(config);
+    public WellBadlands() {
+        super();
     }
 
 

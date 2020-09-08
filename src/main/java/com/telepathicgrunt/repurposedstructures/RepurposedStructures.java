@@ -25,6 +25,11 @@ public class RepurposedStructures implements ModInitializer {
 
 	public static RSAllConfig RSAllConfig = null;
 
+	//TODO: put weaker block between tnt in badlands pyramid
+    //TODO: increase saloon spawnrate
+    //TODO: make zombie badlands village
+    //TODO: add nether shipwreck
+
     @Override
     public void onInitialize() {
         // LoadNbtBlock.instantiateNbtBlock();

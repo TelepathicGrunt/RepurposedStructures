@@ -26,8 +26,8 @@ import java.util.List;
 
 
 public class RSStonebrickStrongholdStructure extends StrongholdFeature {
-    public RSStonebrickStrongholdStructure(Codec<DefaultFeatureConfig> config) {
-        super(config);
+    public RSStonebrickStrongholdStructure() {
+        super(DefaultFeatureConfig.CODEC);
     }
 
     @Override

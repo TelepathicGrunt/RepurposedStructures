@@ -23,8 +23,8 @@ public class RSMineshaftStructure extends AbstractBaseStructure {
     protected final int minHeight;
     protected final RSMineshaftPieces.Type mineshaftType;
 
-    public RSMineshaftStructure(Codec<DefaultFeatureConfig> config, RSMineshaftPieces.Type mineshaftType, double probability, int maxHeight, int minHeight) {
-        super(config);
+    public RSMineshaftStructure(RSMineshaftPieces.Type mineshaftType, double probability, int maxHeight, int minHeight) {
+        super(DefaultFeatureConfig.CODEC);
         this.probability = probability;
         this.maxHeight = maxHeight;
         this.minHeight = minHeight;

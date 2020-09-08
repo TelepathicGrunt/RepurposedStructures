@@ -29,8 +29,8 @@ public class WellNether extends WellAbstract {
     private static final Identifier NETHER_WELL_RL = new Identifier(RepurposedStructures.MODID + ":wells/nether");
 
 
-    public WellNether(Codec<DefaultFeatureConfig> config) {
-        super(config);
+    public WellNether() {
+        super();
     }
 
     public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {

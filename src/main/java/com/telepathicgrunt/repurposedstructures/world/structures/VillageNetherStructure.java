@@ -23,8 +23,8 @@ import net.minecraft.world.gen.feature.StructureFeature;
 
 public class VillageNetherStructure extends VillageBaseStructure {
 
-    public VillageNetherStructure(Codec<DefaultFeatureConfig> config, Identifier poolID, int structureSize) {
-        super(config, poolID, structureSize);
+    public VillageNetherStructure(Identifier poolID, int structureSize) {
+        super(poolID, structureSize);
     }
 
     @Override

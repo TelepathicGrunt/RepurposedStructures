@@ -23,8 +23,8 @@ public class OutpostNetherStructure extends StructureFeature<DefaultFeatureConfi
     private final Identifier START_POOL;
     private static final List<SpawnSettings.SpawnEntry> MONSTER_SPAWNS = Lists.newArrayList(new SpawnSettings.SpawnEntry(EntityType.PIGLIN, 10, 1, 1));
 
-    public OutpostNetherStructure(Codec<DefaultFeatureConfig> config, Identifier pieceRL) {
-        super(config);
+    public OutpostNetherStructure(Identifier pieceRL) {
+        super(DefaultFeatureConfig.CODEC);
         START_POOL = pieceRL;
     }
 

@@ -14,8 +14,8 @@ import java.util.Random;
 
 public class SwampVillageVines extends Feature<DefaultFeatureConfig> {
 
-    public SwampVillageVines(Codec<DefaultFeatureConfig> configFactory) {
-        super(configFactory);
+    public SwampVillageVines() {
+        super(DefaultFeatureConfig.CODEC);
     }
 
 

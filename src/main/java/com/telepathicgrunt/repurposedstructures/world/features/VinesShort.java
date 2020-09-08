@@ -16,8 +16,8 @@ import java.util.Random;
 
 public class VinesShort extends Feature<DefaultFeatureConfig> {
 
-    public VinesShort(Codec<DefaultFeatureConfig> configFactory) {
-        super(configFactory);
+    public VinesShort() {
+        super(DefaultFeatureConfig.CODEC);
     }
 
 

@@ -17,8 +17,8 @@ import net.minecraft.world.gen.feature.StructureFeature;
 public class TempleNetherStructure extends StructureFeature<DefaultFeatureConfig> {
     private final Identifier START_POOL;
 
-    public TempleNetherStructure(Codec<DefaultFeatureConfig> config, Identifier pieceID) {
-        super(config);
+    public TempleNetherStructure(Identifier pieceID) {
+        super(DefaultFeatureConfig.CODEC);
         START_POOL = pieceID;
     }
 

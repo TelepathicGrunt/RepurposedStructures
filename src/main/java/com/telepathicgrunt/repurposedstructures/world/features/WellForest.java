@@ -20,8 +20,8 @@ public class WellForest extends WellAbstract {
     private static final Identifier FOREST_WELL_ORE_RL = new Identifier("repurposed_structures:forest_well_ores");
     private static final Identifier FOREST_WELL_RL = new Identifier(RepurposedStructures.MODID + ":wells/forest");
 
-    public WellForest(Codec<DefaultFeatureConfig> config) {
-        super(config);
+    public WellForest() {
+        super();
     }
 
 

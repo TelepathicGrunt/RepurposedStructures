@@ -22,8 +22,8 @@ public class WellMossyStone extends WellAbstract {
     private static final Identifier MOSSY_WELL_ORE_RL = new Identifier("repurposed_structures:mossy_well_ores");
     private static final Identifier MOSSY_WELL_RL = new Identifier(RepurposedStructures.MODID + ":wells/mossy");
 
-    public WellMossyStone(Codec<DefaultFeatureConfig> config) {
-        super(config);
+    public WellMossyStone() {
+        super();
     }
 
 

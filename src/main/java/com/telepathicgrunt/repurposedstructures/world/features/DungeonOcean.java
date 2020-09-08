@@ -31,8 +31,8 @@ import java.util.Random;
 
 
 public class DungeonOcean extends Feature<DefaultFeatureConfig> {
-    public DungeonOcean(Codec<DefaultFeatureConfig> configFactory) {
-        super(configFactory);
+    public DungeonOcean() {
+        super(DefaultFeatureConfig.CODEC);
     }
 
     private static final Logger LOGGER = LogManager.getLogger();

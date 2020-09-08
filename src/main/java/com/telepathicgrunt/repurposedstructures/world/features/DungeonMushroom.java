@@ -23,8 +23,8 @@ import java.util.Random;
 
 
 public class DungeonMushroom extends Feature<DefaultFeatureConfig> {
-    public DungeonMushroom(Codec<DefaultFeatureConfig> configFactory) {
-        super(configFactory);
+    public DungeonMushroom() {
+        super(DefaultFeatureConfig.CODEC);
     }
 
     private static final Logger LOGGER = LogManager.getLogger();

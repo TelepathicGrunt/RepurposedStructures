@@ -15,8 +15,8 @@ import java.util.Random;
 public class BoulderTiny extends Feature<DefaultFeatureConfig> {
     private final static int START_RADIUS = 0;
 
-    public BoulderTiny(Codec<DefaultFeatureConfig> configFactory) {
-        super(configFactory);
+    public BoulderTiny() {
+        super(DefaultFeatureConfig.CODEC);
     }
 
     @Override

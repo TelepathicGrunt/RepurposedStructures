@@ -30,8 +30,8 @@ public class TreeSwampHorned extends Feature<TreeFeatureConfig> {
     private static final BlockState LEAF = Blocks.OAK_LEAVES.getDefaultState().with(LeavesBlock.DISTANCE, 1);
 
 
-    public TreeSwampHorned(Codec<TreeFeatureConfig> config) {
-        super(config);
+    public TreeSwampHorned() {
+        super(TreeFeatureConfig.CODEC);
     }
 
     @Override

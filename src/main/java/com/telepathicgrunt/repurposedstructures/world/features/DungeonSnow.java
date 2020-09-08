@@ -23,8 +23,8 @@ import java.util.Random;
 
 
 public class DungeonSnow extends Feature<DefaultFeatureConfig> {
-    public DungeonSnow(Codec<DefaultFeatureConfig> configFactory) {
-        super(configFactory);
+    public DungeonSnow() {
+        super(DefaultFeatureConfig.CODEC);
     }
 
     private static final Logger LOGGER = LogManager.getLogger();

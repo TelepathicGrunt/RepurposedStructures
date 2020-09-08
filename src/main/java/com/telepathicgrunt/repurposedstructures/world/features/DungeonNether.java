@@ -23,8 +23,8 @@ import java.util.Random;
 
 
 public class DungeonNether extends Feature<DefaultFeatureConfig> {
-    public DungeonNether(Codec<DefaultFeatureConfig> configFactory) {
-        super(configFactory);
+    public DungeonNether() {
+        super(DefaultFeatureConfig.CODEC);
     }
 
     private static final Logger LOGGER = LogManager.getLogger();

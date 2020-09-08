@@ -31,8 +31,8 @@ public class DungeonBadlands extends Feature<DefaultFeatureConfig> {
     private static final BlockState ORANGE_TERRACOTTA = Blocks.ORANGE_TERRACOTTA.getDefaultState();
     private static final BlockState CUT_RED_SANDSTONE = Blocks.CUT_RED_SANDSTONE.getDefaultState();
 
-    public DungeonBadlands(Codec<DefaultFeatureConfig> configFactory) {
-        super(configFactory);
+    public DungeonBadlands() {
+        super(DefaultFeatureConfig.CODEC);
     }
 
 

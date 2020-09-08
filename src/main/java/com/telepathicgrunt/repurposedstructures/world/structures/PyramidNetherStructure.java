@@ -19,8 +19,8 @@ public class PyramidNetherStructure extends StructureFeature<DefaultFeatureConfi
     // Special thanks to /r/l-ll-ll-l_IsDisLoss for allowing me to mimic his nether pyramid design!
 
     private final Identifier START_POOL;
-    public PyramidNetherStructure(Codec<DefaultFeatureConfig> config) {
-        super(config);
+    public PyramidNetherStructure() {
+        super(DefaultFeatureConfig.CODEC);
         START_POOL = new Identifier(RepurposedStructures.MODID + ":temples/pyramid_nether");
     }
 

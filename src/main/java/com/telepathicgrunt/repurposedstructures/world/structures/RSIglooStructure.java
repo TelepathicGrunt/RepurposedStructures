@@ -20,8 +20,8 @@ import net.minecraft.world.gen.feature.StructureFeature;
 public class RSIglooStructure extends AbstractBaseStructure {
     private final Identifier TOP_PIECE_IDENTIFIER;
 
-    public RSIglooStructure(Codec<DefaultFeatureConfig> config, Identifier topPieceID) {
-        super(config);
+    public RSIglooStructure(Identifier topPieceID) {
+        super(DefaultFeatureConfig.CODEC);
         TOP_PIECE_IDENTIFIER = topPieceID;
     }
 

@@ -32,8 +32,8 @@ public abstract class WellAbstract extends Feature<DefaultFeatureConfig> {
     private StructureManager templatemanager = null;
     protected StructurePlacementData placementsettings = (new StructurePlacementData()).setMirror(BlockMirror.NONE).setRotation(BlockRotation.NONE).setIgnoreEntities(false).setChunkPosition((ChunkPos) null);
 
-    public WellAbstract(Codec<DefaultFeatureConfig> config) {
-        super(config);
+    public WellAbstract() {
+        super(DefaultFeatureConfig.CODEC);
     }
 
 

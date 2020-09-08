@@ -27,8 +27,8 @@ public class VillageBaseStructure extends StructureFeature<DefaultFeatureConfig>
     private final Identifier START_POOL;
     private final int STRUCTURE_SIZE;
 
-    public VillageBaseStructure(Codec<DefaultFeatureConfig> config, Identifier poolID, int structureSize) {
-        super(config);
+    public VillageBaseStructure(Identifier poolID, int structureSize) {
+        super(DefaultFeatureConfig.CODEC);
         START_POOL = poolID;
         STRUCTURE_SIZE = structureSize;
     }

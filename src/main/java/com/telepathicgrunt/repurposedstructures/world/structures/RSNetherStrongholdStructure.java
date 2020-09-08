@@ -36,8 +36,8 @@ public class RSNetherStrongholdStructure extends StrongholdFeature {
                     new SpawnSettings.SpawnEntry(EntityType.SKELETON, 2, 5, 5),
                     new SpawnSettings.SpawnEntry(EntityType.MAGMA_CUBE, 3, 4, 4));
 
-    public RSNetherStrongholdStructure(Codec<DefaultFeatureConfig> config) {
-        super(config);
+    public RSNetherStrongholdStructure() {
+        super(DefaultFeatureConfig.CODEC);
     }
 
     @Override
