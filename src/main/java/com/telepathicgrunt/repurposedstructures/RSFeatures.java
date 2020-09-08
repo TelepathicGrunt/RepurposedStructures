@@ -238,16 +238,4 @@ public class RSFeatures {
         DimensionSettings.INSTANCE.getStructuresConfig().structures.put(structure, structureSeparationSettings);
         RS_STRUCTURES.put(structure, structureSeparationSettings);
     }
-
-    public static void registerVillagePools() {
-        VillageBadlandsPools.init();
-        VillageBirchPools.init();
-        VillageDarkForestPools.init();
-        VillageJunglePools.init();
-        VillageSwampPools.init();
-        VillageMountainsPools.init();
-        VillageGiantTaigaPools.init();
-        VillageCrimsonPools.init();
-        VillageWarpedPools.init();
-    }
 }

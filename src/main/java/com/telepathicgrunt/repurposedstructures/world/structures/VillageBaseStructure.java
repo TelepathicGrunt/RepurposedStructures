@@ -59,10 +59,6 @@ public class VillageBaseStructure extends Structure<NoFeatureConfig> {
         }
 
         public void init(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
-            if(!INITIALIZED_POOLS){
-                RSFeatures.registerVillagePools();
-                INITIALIZED_POOLS = true;
-            }
 
             BlockPos blockpos = new BlockPos(chunkX * 16, 0, chunkZ * 16);
             JigsawManager.method_30419(dynamicRegistryManager, new VillageConfig(() -> dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN).getOrDefault(START_POOL), STRUCTURE_SIZE), AbstractVillagePiece::new, chunkGenerator, structureManager, blockpos, this.components, this.rand, true, true);

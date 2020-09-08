@@ -2,7 +2,6 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.GeneralJigsawGenerator;
-import com.telepathicgrunt.repurposedstructures.world.structures.pieces.TempleNetherPools;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
@@ -36,10 +35,6 @@ public class TempleNetherStructure extends Structure<NoFeatureConfig> {
         }
 
         public void init(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int x, int z, Biome biome, NoFeatureConfig NoFeatureConfig) {
-            if(!INITIALIZED_POOLS){
-                TempleNetherPools.initPools();
-                INITIALIZED_POOLS = true;
-            }
 
             BlockPos blockPos = new BlockPos(x * 16, 35, z * 16);
             GeneralJigsawGenerator.addPieces(dynamicRegistryManager, chunkGenerator, structureManager, blockPos, this.components, this.rand, dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN).getOrDefault(START_POOL), 1);

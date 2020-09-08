@@ -18,7 +18,9 @@ import com.telepathicgrunt.repurposedstructures.world.structures.pieces.*;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.MutableRegistry;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraftforge.event.AddReloadListenerEvent;
 import net.minecraftforge.event.RegistryEvent;
@@ -76,6 +78,7 @@ public class RepurposedStructures
 		RSOutpostsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSOutpostsConfigValues::new, "repurposed_structures-outposts.toml");
 		RSTemplesConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSTemplesConfigValues::new, "repurposed_structures-temples.toml");
 		RSVillagesConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSVillagesConfigValues::new, "repurposed_structures-villages.toml");
+
 	}
 
 	/*
@@ -99,6 +102,8 @@ public class RepurposedStructures
 			//load the configs for structure spacing and placements
 			loadRSConfigs();
 			RSFeatures.registerFeatures();
+			RSConfiguredFeatures.registerConfiguredFeatures();
+			RSConfiguredStructures.registerStructureFeatures();
 		}
 
 		@SubscribeEvent
