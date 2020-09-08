@@ -5,25 +5,14 @@
 <p style="text-align: center;"><span style="font-size: 14px;"><strong><span style="color: #009611;"><a href="https://www.curseforge.com/minecraft/mc-mods/repurposed-structures-fabric">https://www.curseforge.com/minecraft/mc-mods/repurposed-structures-fabric</a></span></strong></span></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;1.16.2 FORGE VERSION IS OUT!</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>Took a while to do but it is a direct port of</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>the 1.16.2 Fabric version so please report</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>any bugs you find!&nbsp;</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;Some bugfixes lol</strong></b></span></em></p>
 <p style="text-align: center;">&nbsp;</p>
-<p style="text-align: center;"><span style="color: #993300; font-size: 14px;"><em><b><strong>New additions include:</strong></b></em></span></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>Advancements for all structures!</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>Cartographers sell map to Jungle Fortress!</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>End Shipwrecks with End City maps!</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>Nether Outposts!</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>Nether Villages!<br />New Nether Temples!</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>Nether Pyramid!</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>Re-themed Nether Stronghold!</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>And more!<br /><br /></strong></b></span></em></p>
+<p style="text-align: center;">&nbsp;<em><span style="font-size: 14px;"><b><strong><br /></strong></b></span></em></p>
 <p style="text-align: center;"><b><strong><span style="font-size: 18px; color: #800000;">DO NOT LOAD THIS 1.16+ MOD IN A 1.15.2 WORLD ALREADY&nbsp;</span></strong></b></p>
 <p style="text-align: center;"><b><strong><span style="font-size: 18px; color: #800000;">MADE WITH THE 1.15.2 VERSION OF REPURPOSED STRUCTURES!!!&nbsp;</span></strong></b></p>
 <p style="text-align: center;"><b><strong><span style="font-size: 16px; color: #800000;">However, any world that never had Repurposed Structures&nbsp;</span></strong></b></p>
 <p style="text-align: center;"><b><strong><span style="font-size: 16px; color: #800000;">on before will work just fine in 1.16+ with this version of it.&nbsp;</span></strong></b></p>
-<p style="text-align: center;"><b><strong><span style="font-size: 14px; color: #800000;">This is due to this mojang bug:&nbsp;</span></strong></b></p>
+<p style="text-align: center;"><b><strong><span style="font-size: 14px; color: #800000;">This is due to this mojang bug (vote on it to increase visibility!):&nbsp;</span></strong></b></p>
 <p style="text-align: center;"><b><strong><span style="font-size: 14px; color: #800000;"><a href="https://bugs.mojang.com/browse/MC-194811">https://bugs.mojang.com/browse/MC-194811&nbsp;</a></span></strong></b></p>
 <p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;"><span style="font-size: 18px;"><strong>______________________________________________________________________________</strong></span></p>
@@ -405,7 +394,6 @@
 <p><strong>Has one hidden Enderman spawner and 1 Strider spawner</strong></p>
 </div>
 <p>&nbsp;</p>
-<p>&nbsp;</p>
 <p><strong>Nether Soul Temple loot</strong></p>
 <div class="spoiler">
 <p><strong>Dispensers loot</strong></p>
@@ -657,10 +645,14 @@
 <p>&nbsp;</p>
 <h2><strong><span style="font-size: 24px; color: #009611;">PRE-MADE DATAPACKS</span></strong></h2>
 <p>&nbsp;</p>
-<p>Since Villages and Wells can be overridden with datapacks, that means you can customize the blocks in those structures with other mod's blocks! If you decide to use the datapack below, download it, go into your world's save folder, and put the zipped folder into the datapack folder. Now when you load the game, the datapack should take effect! (Also, you can share mod-compat datapacks you made to me and I'll add it below after I check it out and like it!)</p>
+<p>Since Villages, Temples, Shipwrecks, Wells, and their template pools/processors, you can override all of this with datapacks! That means you can customize the blocks in those structures with other mod's blocks or add pieces of other mod's villages into RS's villages!&nbsp;If you decide to use the datapack below, download it, go into your world's save folder, and put the zipped folder into the datapack folder. Now when you load the game, the datapack should take effect! (Also, you can share mod-compat datapacks you made to me and I'll add it below after I check it out and like it!)</p>
 <p>&nbsp;</p>
 <p><strong><a href="https://www.curseforge.com/minecraft/mc-mods/swamp-expansion">Swamp Expansion pack!</a>&nbsp;(1.15.2 only)</strong></p>
 <p>Repurposed Structures's swamp villages will use Swamp Expansion's wood and blocks with this datapack! I hope it looks good!<br />Download link: <a href="https://github.com/TelepathicGrunt/RepurposedStructures/files/4807148/Repurposed_Structures-Swamp_Expansion.zip">Repurposed_Structures-Swamp_Expansion.zip</a></p>
+<p>&nbsp;</p>
+<p><strong><a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/download/0.0.2/Repurposed_Structures-Hidden_Advancements.zip">Hidden Advancement pack!</a></strong></p>
+<p>Add this datapack to the world's datapack folder to make Repurposed Structures's advancements no longer pop up on screen! The advancement will then only be able to be viewed in the advancements menu and nowhere else.</p>
+<p>Download link: <a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/download/0.0.2/Repurposed_Structures-Hidden_Advancements.zip">https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/download/0.0.2/Repurposed_Structures-Hidden_Advancements.zip</a></p>
 <p><span style="font-size: 18px;"><strong>______________________________________________________________________________</strong></span></p>
 <p>&nbsp;</p>
 <p style="text-align: center;"><span style="font-size: 12px;">For the list of changes in this mod, click the Source tab and check out CHANGELOG.txt file. </span></p>
