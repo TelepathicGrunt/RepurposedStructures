@@ -29,7 +29,6 @@ import java.util.Random;
 
 
 public abstract class WellAbstract extends Feature<DefaultFeatureConfig> {
-    private StructureManager templatemanager = null;
     protected StructurePlacementData placementsettings = (new StructurePlacementData()).setMirror(BlockMirror.NONE).setRotation(BlockRotation.NONE).setIgnoreEntities(false).setChunkPosition((ChunkPos) null);
 
     public WellAbstract() {
@@ -39,13 +38,7 @@ public abstract class WellAbstract extends Feature<DefaultFeatureConfig> {
 
     protected Structure generateTemplate(Identifier templateRL, StructureWorldAccess world, Random random, BlockPos position) {
 
-        // cache to save time and speed
-        if (templatemanager == null) templatemanager = ((ServerWorld) world.toServerWorld()).getStructureManager();
-
-        // Dont cache this as templatemanager already does caching behind the scenes and users might
-        // override the file later with datapacks in world somehow. (maybe)
-        Structure template = templatemanager.getStructure(templateRL);
-
+        Structure template = world.toServerWorld().getStructureManager().getStructure(templateRL);
         if (template == null) {
             RepurposedStructures.LOGGER.warn(templateRL.toString() + " NTB does not exist!");
             return null;
