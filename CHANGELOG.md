@@ -8,6 +8,17 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.2.1.4 Changes) (1.16.2 Minecraft)
+
+##### Misc:
+
+- Updated workspace to 1.16.3 but should still work on 1.16.2. Also cleaned up 1 piece of code.
+
+##### Villages:
+
+- Fixed Swamp Village centers being 1 block too high. Again...
+
+
 ## (V.2.1.3 Changes) (1.16.2 Minecraft)
 
 ##### Misc:

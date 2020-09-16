@@ -15,6 +15,11 @@ public class VillageSwampStructure extends VillageBaseStructure {
         super(config, poolRL, structureSize);
     }
 
+    @Override
+    public IStartFactory<NoFeatureConfig> getStartFactory() {
+        return VillageSwampStructure.Start::new;
+    }
+
     public class Start extends MainStart {
         public Start(Structure<NoFeatureConfig> structureIn, int chunkX, int chunkZ, MutableBoundingBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);

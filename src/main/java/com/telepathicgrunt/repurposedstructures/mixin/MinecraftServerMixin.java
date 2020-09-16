@@ -83,15 +83,15 @@ public class MinecraftServerMixin {
                         biomeEntry.getValue(), // Biome
                         biomeEntry.getKey().getValue(), // ResourceLocation
                         allBiomeBlacklists); // Blacklists
-
-
-                //add our structure spacing to all chunkgenerators
-                for (DimensionSettings dimensionSettings : registryManager.get(Registry.NOISE_SETTINGS_WORLDGEN)) {
-                    Map<Structure<?>, StructureSeparationSettings> tempMap = new HashMap<>(dimensionSettings.getStructuresConfig().structures);
-                    tempMap.putAll(RSFeatures.RS_STRUCTURES);
-                    dimensionSettings.getStructuresConfig().structures = tempMap;
-                }
             }
+        }
+
+
+        //add our structure spacing to all chunkgenerators
+        for (DimensionSettings dimensionSettings : registryManager.get(Registry.NOISE_SETTINGS_WORLDGEN)) {
+            Map<Structure<?>, StructureSeparationSettings> tempMap = new HashMap<>(dimensionSettings.getStructuresConfig().structures);
+            tempMap.putAll(RSFeatures.RS_STRUCTURES);
+            dimensionSettings.getStructuresConfig().structures = tempMap;
         }
     }
 }
