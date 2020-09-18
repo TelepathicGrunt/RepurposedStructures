@@ -1,7 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.google.common.collect.Lists;
-import com.mojang.serialization.Codec;
+import com.telepathicgrunt.repurposedstructures.RSFeatures;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.GeneralJigsawGenerator;
 import net.minecraft.entity.EntityType;
 import net.minecraft.structure.StructureManager;
@@ -26,6 +26,7 @@ public class OutpostNetherStructure extends StructureFeature<DefaultFeatureConfi
     public OutpostNetherStructure(Identifier pieceRL) {
         super(DefaultFeatureConfig.CODEC);
         START_POOL = pieceRL;
+        RSFeatures.RS_STRUCTURE_START_PIECES.add(START_POOL);
     }
 
     @Override

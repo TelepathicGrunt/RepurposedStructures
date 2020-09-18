@@ -1,6 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
-import com.mojang.serialization.Codec;
+import com.telepathicgrunt.repurposedstructures.RSFeatures;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -26,11 +26,12 @@ public class WellNether extends WellAbstract {
     private static final float COMMON_ORE_CHANCE = 0.5f;
     private static final float RARE_ORE_CHANCE = 0.08f;
     private static final Identifier NETHER_WELL_ORE_RL = new Identifier("repurposed_structures:nether_well_ores");
-    private static final Identifier NETHER_WELL_RL = new Identifier(RepurposedStructures.MODID + ":wells/nether");
+    private static final Identifier NETHER_WELL_RL = new Identifier(RepurposedStructures.MODID, "wells/nether");
 
 
     public WellNether() {
         super();
+        RSFeatures.RS_STRUCTURE_START_PIECES.add(NETHER_WELL_RL);
     }
 
     public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {

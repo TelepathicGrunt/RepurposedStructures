@@ -1,6 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
-import com.mojang.serialization.Codec;
+import com.telepathicgrunt.repurposedstructures.RSFeatures;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.GeneralJigsawGenerator;
 import net.minecraft.structure.StructureManager;
 import net.minecraft.util.Identifier;
@@ -20,6 +20,7 @@ public class TempleNetherStructure extends StructureFeature<DefaultFeatureConfig
     public TempleNetherStructure(Identifier pieceID) {
         super(DefaultFeatureConfig.CODEC);
         START_POOL = pieceID;
+        RSFeatures.RS_STRUCTURE_START_PIECES.add(START_POOL);
     }
 
     @Override

@@ -3,10 +3,8 @@ package com.telepathicgrunt.repurposedstructures;
 import com.google.gson.JsonElement;
 import com.mojang.serialization.JsonOps;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.MutableRegistry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.Category;
-import net.minecraft.world.biome.BuiltInBiomes;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.*;
 

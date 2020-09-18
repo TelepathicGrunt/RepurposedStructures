@@ -2,7 +2,6 @@ package com.telepathicgrunt.repurposedstructures;
 
 import com.telepathicgrunt.repurposedstructures.configs.RSAllConfig;
 import com.telepathicgrunt.repurposedstructures.misc.VillagerTrades;
-import com.telepathicgrunt.repurposedstructures.utils.LoadNbtBlock;
 import com.telepathicgrunt.repurposedstructures.utils.MobSpawnerManager;
 import com.telepathicgrunt.repurposedstructures.world.placements.RSPlacements;
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
@@ -14,7 +13,10 @@ import net.minecraft.world.biome.Biome;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 @SuppressWarnings("deprecation")

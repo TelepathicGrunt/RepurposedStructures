@@ -1,6 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
-import com.mojang.serialization.Codec;
+import com.telepathicgrunt.repurposedstructures.RSFeatures;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -20,10 +20,11 @@ import java.util.Random;
 public class WellMossyStone extends WellAbstract {
     private static final float ORE_CHANCE = 0.12f;
     private static final Identifier MOSSY_WELL_ORE_RL = new Identifier("repurposed_structures:mossy_well_ores");
-    private static final Identifier MOSSY_WELL_RL = new Identifier(RepurposedStructures.MODID + ":wells/mossy");
+    private static final Identifier MOSSY_WELL_RL = new Identifier(RepurposedStructures.MODID, "wells/mossy");
 
     public WellMossyStone() {
         super();
+        RSFeatures.RS_STRUCTURE_START_PIECES.add(MOSSY_WELL_RL);
     }
 
 

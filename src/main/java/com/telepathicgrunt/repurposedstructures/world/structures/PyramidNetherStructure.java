@@ -1,6 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
-import com.mojang.serialization.Codec;
+import com.telepathicgrunt.repurposedstructures.RSFeatures;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.GeneralJigsawGenerator;
 import net.minecraft.structure.StructureManager;
@@ -21,7 +21,8 @@ public class PyramidNetherStructure extends StructureFeature<DefaultFeatureConfi
     private final Identifier START_POOL;
     public PyramidNetherStructure() {
         super(DefaultFeatureConfig.CODEC);
-        START_POOL = new Identifier(RepurposedStructures.MODID + ":temples/pyramid_nether");
+        START_POOL = new Identifier(RepurposedStructures.MODID, "temples/pyramid_nether");
+        RSFeatures.RS_STRUCTURE_START_PIECES.add(START_POOL);
     }
 
     @Override

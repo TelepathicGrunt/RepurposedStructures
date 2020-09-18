@@ -3,14 +3,21 @@ package com.telepathicgrunt.repurposedstructures.mixin;
 import com.mojang.authlib.GameProfileRepository;
 import com.mojang.authlib.minecraft.MinecraftSessionService;
 import com.mojang.datafixers.DataFixer;
+import com.telepathicgrunt.repurposedstructures.RSFeatures;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.resource.ResourcePackManager;
 import net.minecraft.resource.ServerResourceManager;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.WorldGenerationProgressListenerFactory;
+import net.minecraft.structure.Structure;
+import net.minecraft.structure.StructureManager;
+import net.minecraft.structure.pool.StructurePool;
+import net.minecraft.structure.pool.StructurePoolElement;
+import net.minecraft.util.BlockRotation;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.UserCache;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.DynamicRegistryManager;
-import net.minecraft.util.registry.MutableRegistry;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.SaveProperties;
@@ -25,7 +32,10 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.net.Proxy;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
 import java.util.function.Supplier;
 
 
@@ -34,6 +44,9 @@ public class MinecraftServerMixin {
 
     @Shadow @Final
     protected DynamicRegistryManager.Impl registryManager;
+
+    @Shadow @Final
+    private StructureManager structureManager;
 
     @Inject(
             method = "<init>",
@@ -73,5 +86,20 @@ public class MinecraftServerMixin {
                         allBiomeBlacklists); // Blacklists
             }
         }
+
+        // Temporary solution to AOF having an issue with getting a structure crashing due to
+        // something something mods causing concurrent modification exception when reading nbt files from disk.
+        for(Identifier identifier : RSFeatures.RS_STRUCTURE_START_PIECES){
+            Structure structure = structureManager.getStructure(identifier);
+            StructurePool structurePool = impl.get(Registry.TEMPLATE_POOL_WORLDGEN).get(identifier);
+            if(structurePool != null){
+                List<StructurePoolElement> elements = structurePool.getElementIndicesInRandomOrder(new Random());
+                for(StructurePoolElement element: elements){
+                    element.getBoundingBox(structureManager, new BlockPos(0,0,0), BlockRotation.NONE);
+                }
+            }
+        }
+
+        int t = 5;
     }
 }

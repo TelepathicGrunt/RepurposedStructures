@@ -1,6 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
-import com.mojang.serialization.Codec;
+import com.telepathicgrunt.repurposedstructures.RSFeatures;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -18,10 +18,11 @@ import java.util.Random;
 public class WellSnow extends WellAbstract {
     private static final float ORE_CHANCE = 0.3f;
     private static final Identifier SNOW_WELL_ORE_RL = new Identifier("repurposed_structures:snow_well_ores");
-    private static final Identifier SNOW_WELL_RL = new Identifier(RepurposedStructures.MODID + ":wells/snow");
+    private static final Identifier SNOW_WELL_RL = new Identifier(RepurposedStructures.MODID, "wells/snow");
 
     public WellSnow() {
         super();
+        RSFeatures.RS_STRUCTURE_START_PIECES.add(SNOW_WELL_RL);
     }
 
     public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {

@@ -45,10 +45,10 @@ public class RSStrongholdPieces {
     }
     
     private static final Identifier NETHER_STRONGHOLD_BOOKSHELF_RL = new Identifier("repurposed_structures:nether_stronghold_bookshelves");
-    private static final Identifier STONEBRICK_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":stronghold_stonebrick");
-    private static final Identifier STONEBRICK_PORTAL_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":stronghold_stonebrick_portal_room");
-    private static final Identifier NETHER_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":stronghold_nether");
-    private static final Identifier NETHER_PORTAL_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":stronghold_nether_portal_room");
+    private static final Identifier STONEBRICK_SPAWNER_ID = new Identifier(RepurposedStructures.MODID, "stronghold_stonebrick");
+    private static final Identifier STONEBRICK_PORTAL_SPAWNER_ID = new Identifier(RepurposedStructures.MODID, "stronghold_stonebrick_portal_room");
+    private static final Identifier NETHER_SPAWNER_ID = new Identifier(RepurposedStructures.MODID, "stronghold_nether");
+    private static final Identifier NETHER_PORTAL_SPAWNER_ID = new Identifier(RepurposedStructures.MODID, "stronghold_nether_portal_room");
 
     private static final List<RSStrongholdPieces.PieceWeight> PIECE_WEIGHTS = new ArrayList<RSStrongholdPieces.PieceWeight>();
 
@@ -1664,7 +1664,7 @@ public class RSStrongholdPieces {
 
         protected Identifier getHallwayChestLoot() {
             if (this.strongholdType == Type.NETHER) {
-                return new Identifier(RepurposedStructures.MODID + ":chests/stronghold_nether_hallway");
+                return new Identifier(RepurposedStructures.MODID, "chests/stronghold_nether_hallway");
             } else {
                 return LootTables.STRONGHOLD_CORRIDOR_CHEST;
             }
@@ -1673,7 +1673,7 @@ public class RSStrongholdPieces {
 
         protected Identifier getStorageChestLoot() {
             if (this.strongholdType == Type.NETHER) {
-                return new Identifier(RepurposedStructures.MODID + ":chests/stronghold_nether_storage_room");
+                return new Identifier(RepurposedStructures.MODID, "chests/stronghold_nether_storage_room");
             } else {
                 return LootTables.STRONGHOLD_CORRIDOR_CHEST;
             }

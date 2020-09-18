@@ -2,7 +2,6 @@ package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
-import com.mojang.serialization.Codec;
 import net.minecraft.block.*;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;

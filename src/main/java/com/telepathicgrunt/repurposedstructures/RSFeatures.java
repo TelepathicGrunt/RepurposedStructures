@@ -12,10 +12,13 @@ import net.minecraft.world.gen.chunk.StructureConfig;
 import net.minecraft.world.gen.feature.*;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 public class RSFeatures {
+    public static final Set<Identifier> RS_STRUCTURE_START_PIECES = new HashSet<>();
 
     //Static instance of our structure so we can reference it and add it to biomes easily.
     public static Feature<DefaultFeatureConfig> BADLANDS_DUNGEONS = new DungeonBadlands();
@@ -60,8 +63,8 @@ public class RSFeatures {
     public static StructureFeature<DefaultFeatureConfig> NETHER_STRONGHOLD = new RSNetherStrongholdStructure();
 
     public static StructureFeature<DefaultFeatureConfig> JUNGLE_FORTRESS = new FortressJungleStructure();
-    public static StructureFeature<DefaultFeatureConfig> GRASSY_IGLOO = new RSIglooStructure(new Identifier(RepurposedStructures.MODID + ":igloos/grassy_top"));
-    public static StructureFeature<DefaultFeatureConfig> STONE_IGLOO = new RSIglooStructure(new Identifier(RepurposedStructures.MODID + ":igloos/stone_top"));
+    public static StructureFeature<DefaultFeatureConfig> GRASSY_IGLOO = new RSIglooStructure(new Identifier(RepurposedStructures.MODID, "igloos/grassy_top"));
+    public static StructureFeature<DefaultFeatureConfig> STONE_IGLOO = new RSIglooStructure(new Identifier(RepurposedStructures.MODID, "igloos/stone_top"));
 
     public static StructureFeature<DefaultFeatureConfig> NETHER_WASTELAND_TEMPLE = new TempleNetherStructure(new Identifier(RepurposedStructures.MODID,"temples/temple_nether_wasteland"));
     public static StructureFeature<DefaultFeatureConfig> NETHER_BASALT_TEMPLE = new TempleNetherStructure(new Identifier(RepurposedStructures.MODID,"temples/temple_nether_basalt"));
@@ -78,15 +81,15 @@ public class RSFeatures {
 
     public static StructureFeature<DefaultFeatureConfig> END_SHIPWRECK = new EndShipwreckStructure();
 
-    public static StructureFeature<DefaultFeatureConfig> BADLANDS_VILLAGE = new VillageBaseStructure(new Identifier(RepurposedStructures.MODID + ":village/badlands/town_centers"), 10);
-    public static StructureFeature<DefaultFeatureConfig> BIRCH_VILLAGE = new VillageBaseStructure(new Identifier(RepurposedStructures.MODID + ":village/birch/town_centers"), 6);
-    public static StructureFeature<DefaultFeatureConfig> DARK_FOREST_VILLAGE = new VillageBaseStructure(new Identifier(RepurposedStructures.MODID + ":village/dark_forest/town_centers"), 6);
-    public static StructureFeature<DefaultFeatureConfig> JUNGLE_VILLAGE = new VillageBaseStructure(new Identifier(RepurposedStructures.MODID + ":village/jungle/town_centers"), 8);
-    public static StructureFeature<DefaultFeatureConfig> SWAMP_VILLAGE = new VillageSwampStructure(new Identifier(RepurposedStructures.MODID + ":village/swamp/town_centers"), 6);
-    public static StructureFeature<DefaultFeatureConfig> MOUNTAINS_VILLAGE = new VillageBaseStructure(new Identifier(RepurposedStructures.MODID + ":village/mountains/town_centers"), 6);
-    public static StructureFeature<DefaultFeatureConfig> GIANT_TAIGA_VILLAGE = new VillageBaseStructure(new Identifier(RepurposedStructures.MODID + ":village/giant_taiga/town_centers"), 6);
-    public static StructureFeature<DefaultFeatureConfig> CRIMSON_VILLAGE = new VillageNetherStructure(new Identifier(RepurposedStructures.MODID + ":village/crimson/town_centers"), 6);
-    public static StructureFeature<DefaultFeatureConfig> WARPED_VILLAGE = new VillageNetherStructure(new Identifier(RepurposedStructures.MODID + ":village/warped/town_centers"), 6);
+    public static StructureFeature<DefaultFeatureConfig> BADLANDS_VILLAGE = new VillageBaseStructure(new Identifier(RepurposedStructures.MODID, "village/badlands/town_centers"), 10);
+    public static StructureFeature<DefaultFeatureConfig> BIRCH_VILLAGE = new VillageBaseStructure(new Identifier(RepurposedStructures.MODID, "village/birch/town_centers"), 6);
+    public static StructureFeature<DefaultFeatureConfig> DARK_FOREST_VILLAGE = new VillageBaseStructure(new Identifier(RepurposedStructures.MODID, "village/dark_forest/town_centers"), 6);
+    public static StructureFeature<DefaultFeatureConfig> JUNGLE_VILLAGE = new VillageBaseStructure(new Identifier(RepurposedStructures.MODID, "village/jungle/town_centers"), 8);
+    public static StructureFeature<DefaultFeatureConfig> SWAMP_VILLAGE = new VillageSwampStructure(new Identifier(RepurposedStructures.MODID, "village/swamp/town_centers"), 6);
+    public static StructureFeature<DefaultFeatureConfig> MOUNTAINS_VILLAGE = new VillageBaseStructure(new Identifier(RepurposedStructures.MODID, "village/mountains/town_centers"), 6);
+    public static StructureFeature<DefaultFeatureConfig> GIANT_TAIGA_VILLAGE = new VillageBaseStructure(new Identifier(RepurposedStructures.MODID, "village/giant_taiga/town_centers"), 6);
+    public static StructureFeature<DefaultFeatureConfig> CRIMSON_VILLAGE = new VillageNetherStructure(new Identifier(RepurposedStructures.MODID, "village/crimson/town_centers"), 6);
+    public static StructureFeature<DefaultFeatureConfig> WARPED_VILLAGE = new VillageNetherStructure(new Identifier(RepurposedStructures.MODID, "village/warped/town_centers"), 6);
     public static List<StructureFeature<DefaultFeatureConfig>> OVERWORLD_VILLAGE_LIST = Arrays.asList(
             BADLANDS_VILLAGE,
             BIRCH_VILLAGE,
@@ -96,6 +99,7 @@ public class RSFeatures {
             MOUNTAINS_VILLAGE,
             GIANT_TAIGA_VILLAGE
     );
+
 
     public static void registerFeatures() {
         Registry.register(Registry.FEATURE, RepurposedStructures.MODID + "dungeons_badlands", BADLANDS_DUNGEONS);

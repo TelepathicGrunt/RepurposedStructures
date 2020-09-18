@@ -1,6 +1,5 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
-import com.mojang.serialization.Codec;
 import net.minecraft.structure.StructureManager;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockBox;

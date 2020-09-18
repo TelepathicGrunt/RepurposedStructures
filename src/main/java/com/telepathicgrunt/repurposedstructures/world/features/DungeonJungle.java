@@ -1,6 +1,5 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
-import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
@@ -32,8 +31,8 @@ public class DungeonJungle extends Feature<DefaultFeatureConfig> {
     private static final BlockState LOGS = Blocks.JUNGLE_LOG.getDefaultState();
     private static final BlockState SIDEWAYS_LOGS = Blocks.JUNGLE_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.X);
     private static final BlockState PLANKS = Blocks.JUNGLE_PLANKS.getDefaultState();
-    private static final Identifier CHEST_LOOT = new Identifier(RepurposedStructures.MODID + ":chests/dungeon_jungle");
-    private static final Identifier SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":dungeon_jungle");
+    private static final Identifier CHEST_LOOT = new Identifier(RepurposedStructures.MODID, "chests/dungeon_jungle");
+    private static final Identifier SPAWNER_ID = new Identifier(RepurposedStructures.MODID, "dungeon_jungle");
 
 
     // only the mob spawner chance and what blocks the wall cannot replace was changed. Everything else is just the normal dungeon code.

@@ -1,6 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
-import com.mojang.serialization.Codec;
+import com.telepathicgrunt.repurposedstructures.RSFeatures;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.RSIglooPieces;
 import net.minecraft.block.Blocks;
 import net.minecraft.structure.StructureManager;
@@ -18,11 +18,12 @@ import net.minecraft.world.gen.feature.StructureFeature;
 
 
 public class RSIglooStructure extends AbstractBaseStructure {
-    private final Identifier TOP_PIECE_IDENTIFIER;
+    private final Identifier START_POOL;
 
     public RSIglooStructure(Identifier topPieceID) {
         super(DefaultFeatureConfig.CODEC);
-        TOP_PIECE_IDENTIFIER = topPieceID;
+        START_POOL = topPieceID;
+        RSFeatures.RS_STRUCTURE_START_PIECES.add(START_POOL);
     }
 
     @Override
@@ -41,7 +42,7 @@ public class RSIglooStructure extends AbstractBaseStructure {
             int z = chunkZ * 16;
             BlockPos blockpos = new BlockPos(x, 90, z);
             BlockRotation rotation = BlockRotation.values()[this.random.nextInt(BlockRotation.values().length)];
-            RSIglooPieces.func_207617_a(structureManager, TOP_PIECE_IDENTIFIER, Blocks.PODZOL, blockpos, rotation, this.children, this.random, FeatureConfig.DEFAULT);
+            RSIglooPieces.func_207617_a(structureManager, START_POOL, Blocks.PODZOL, blockpos, rotation, this.children, this.random, FeatureConfig.DEFAULT);
             this.setBoundingBoxFromChildren();
         }
     }

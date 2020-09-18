@@ -1,6 +1,5 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
-import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.VineBlock;

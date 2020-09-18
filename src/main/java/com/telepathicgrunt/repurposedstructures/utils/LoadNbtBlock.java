@@ -2,7 +2,6 @@ package com.telepathicgrunt.repurposedstructures.utils;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.fabricmc.loader.api.FabricLoader;
-import net.fabricmc.loom.util.FabricApiExtension;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.StructureBlockBlockEntity;
@@ -12,8 +11,6 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.text.BaseText;
-import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;

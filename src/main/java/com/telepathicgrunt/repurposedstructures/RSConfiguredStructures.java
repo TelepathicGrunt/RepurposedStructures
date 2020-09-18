@@ -1,22 +1,13 @@
 package com.telepathicgrunt.repurposedstructures;
 
-import com.telepathicgrunt.repurposedstructures.world.placements.RSPlacements;
-import com.telepathicgrunt.repurposedstructures.world.structures.*;
-import com.telepathicgrunt.repurposedstructures.world.structures.pieces.RSMineshaftPieces;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.MutableRegistry;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.world.gen.UniformIntDistribution;
-import net.minecraft.world.gen.decorator.CountExtraDecoratorConfig;
-import net.minecraft.world.gen.decorator.Decorator;
-import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
-import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
-import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
-import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
-import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
+import net.minecraft.world.gen.feature.ConfiguredStructureFeature;
+import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.FeatureConfig;
+import net.minecraft.world.gen.feature.StructureFeature;
 
 
 public class RSConfiguredStructures {

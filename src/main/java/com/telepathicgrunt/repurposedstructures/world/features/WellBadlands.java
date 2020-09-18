@@ -1,6 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
-import com.mojang.serialization.Codec;
+import com.telepathicgrunt.repurposedstructures.RSFeatures;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -18,11 +18,12 @@ import java.util.Random;
 
 public class WellBadlands extends WellAbstract {
     private static final float ORE_CHANCE = 0.15f;
-    private static final Identifier BADLANDS_WELL_ORE_RL = new Identifier(RepurposedStructures.MODID + ":badlands_well_ores");
-    private static final Identifier BADLANDS_WELL_RL = new Identifier(RepurposedStructures.MODID + ":wells/badlands");
+    private static final Identifier BADLANDS_WELL_ORE_RL = new Identifier(RepurposedStructures.MODID, "badlands_well_ores");
+    private static final Identifier BADLANDS_WELL_RL = new Identifier(RepurposedStructures.MODID, "wells/badlands");
 
     public WellBadlands() {
         super();
+        RSFeatures.RS_STRUCTURE_START_PIECES.add(BADLANDS_WELL_RL);
     }
 
 

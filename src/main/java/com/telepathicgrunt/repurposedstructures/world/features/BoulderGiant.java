@@ -1,6 +1,5 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
-import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.utils.OpenSimplex2F;
 import net.minecraft.block.BlockState;

@@ -1,17 +1,14 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
-import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.enums.Attachment;
 import net.minecraft.block.enums.StructureBlockMode;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.property.Properties;
 import net.minecraft.structure.Structure;
 import net.minecraft.structure.Structure.StructureBlockInfo;
-import net.minecraft.structure.StructureManager;
 import net.minecraft.structure.StructurePlacementData;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.tag.Tag;

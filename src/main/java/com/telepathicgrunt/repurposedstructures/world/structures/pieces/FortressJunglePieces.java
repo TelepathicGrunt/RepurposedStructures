@@ -26,12 +26,12 @@ import java.util.*;
 
 
 public class FortressJunglePieces {
-    private static final Identifier JF_HALLWAY_CHEST_RL = new Identifier(RepurposedStructures.MODID + ":chests/fortress_jungle_hallway_chest");
-    private static final Identifier JF_SHRINE_CHEST_RL = new Identifier(RepurposedStructures.MODID + ":chests/fortress_jungle_shrine_chest");
-    private static final Identifier JF_CENTER_CHEST_RL = new Identifier(RepurposedStructures.MODID + ":chests/fortress_jungle_center_chest");
+    private static final Identifier JF_HALLWAY_CHEST_RL = new Identifier(RepurposedStructures.MODID, "chests/fortress_jungle_hallway_chest");
+    private static final Identifier JF_SHRINE_CHEST_RL = new Identifier(RepurposedStructures.MODID, "chests/fortress_jungle_shrine_chest");
+    private static final Identifier JF_CENTER_CHEST_RL = new Identifier(RepurposedStructures.MODID, "chests/fortress_jungle_center_chest");
     private static final Identifier JF_PLANT_TAG_RL = new Identifier("repurposed_structures:jungle_fortress_staircase_plants");
     private static final Identifier JF_SOIL_TAG_RL = new Identifier("repurposed_structures:jungle_fortress_staircase_soils");
-    private static final Identifier SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":fortress_jungle");
+    private static final Identifier SPAWNER_ID = new Identifier(RepurposedStructures.MODID, "fortress_jungle");
 
     private static final Map<BlockState, BlockState> INFESTED_STONE_LOOKUP;
 

@@ -1,6 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
-import com.mojang.serialization.Codec;
+import com.telepathicgrunt.repurposedstructures.RSFeatures;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -18,10 +18,11 @@ import java.util.Random;
 public class WellForest extends WellAbstract {
     private static final float ORE_CHANCE = 0.3f;
     private static final Identifier FOREST_WELL_ORE_RL = new Identifier("repurposed_structures:forest_well_ores");
-    private static final Identifier FOREST_WELL_RL = new Identifier(RepurposedStructures.MODID + ":wells/forest");
+    private static final Identifier FOREST_WELL_RL = new Identifier(RepurposedStructures.MODID, "wells/forest");
 
     public WellForest() {
         super();
+        RSFeatures.RS_STRUCTURE_START_PIECES.add(FOREST_WELL_RL);
     }
 
 

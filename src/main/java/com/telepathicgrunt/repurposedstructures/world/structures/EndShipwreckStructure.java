@@ -1,6 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
-import com.mojang.serialization.Codec;
+import com.telepathicgrunt.repurposedstructures.RSFeatures;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.GeneralJigsawGenerator;
 import net.minecraft.structure.StructureManager;
@@ -30,7 +30,8 @@ public class EndShipwreckStructure extends AbstractBaseStructure {
 
     public EndShipwreckStructure() {
         super(DefaultFeatureConfig.CODEC);
-        START_POOL = new Identifier(RepurposedStructures.MODID + ":shipwrecks/end");
+        START_POOL = new Identifier(RepurposedStructures.MODID, "shipwrecks/end");
+        RSFeatures.RS_STRUCTURE_START_PIECES.add(START_POOL);
     }
 
     @Override
