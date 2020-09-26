@@ -1,5 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
+import com.telepathicgrunt.repurposedstructures.RSStructures;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -28,8 +29,9 @@ import java.util.Random;
 public abstract class WellAbstract extends Feature<DefaultFeatureConfig> {
     protected StructurePlacementData placementsettings = (new StructurePlacementData()).setMirror(BlockMirror.NONE).setRotation(BlockRotation.NONE).setIgnoreEntities(false).setChunkPosition((ChunkPos) null);
 
-    public WellAbstract() {
+    public WellAbstract(Identifier PIECE_RL ) {
         super(DefaultFeatureConfig.CODEC);
+        RSStructures.RS_STRUCTURE_START_PIECES.add(PIECE_RL);
     }
 
 

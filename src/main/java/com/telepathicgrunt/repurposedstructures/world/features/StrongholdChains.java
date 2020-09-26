@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.telepathicgrunt.repurposedstructures.RSFeatures;
+import com.telepathicgrunt.repurposedstructures.RSStructures;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.LanternBlock;
@@ -53,8 +54,8 @@ public class StrongholdChains extends Feature<DefaultFeatureConfig> {
     @Override
     public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
         if (!world.isAir(position) ||
-                (!world.getStructures(ChunkSectionPos.from(position), RSFeatures.STONEBRICK_STRONGHOLD).findAny().isPresent() &&
-                 !world.getStructures(ChunkSectionPos.from(position), RSFeatures.NETHER_STRONGHOLD).findAny().isPresent()))
+                (!world.getStructures(ChunkSectionPos.from(position), RSStructures.STONEBRICK_STRONGHOLD).findAny().isPresent() &&
+                 !world.getStructures(ChunkSectionPos.from(position), RSStructures.NETHER_STRONGHOLD).findAny().isPresent()))
         {
            return false;
         }

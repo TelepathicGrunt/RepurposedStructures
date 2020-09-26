@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.telepathicgrunt.repurposedstructures.RSFeatures;
+import com.telepathicgrunt.repurposedstructures.RSStructures;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -23,8 +24,7 @@ public class WellMossyStone extends WellAbstract {
     private static final Identifier MOSSY_WELL_RL = new Identifier(RepurposedStructures.MODID, "wells/mossy");
 
     public WellMossyStone() {
-        super();
-        RSFeatures.RS_STRUCTURE_START_PIECES.add(MOSSY_WELL_RL);
+        super(MOSSY_WELL_RL);
     }
 
 

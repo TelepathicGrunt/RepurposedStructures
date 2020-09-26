@@ -30,7 +30,7 @@ public class RepurposedStructures implements ModInitializer {
 	//TODO: put weaker block between tnt in badlands pyramid
     //TODO: increase saloon spawnrate
     //TODO: make zombie badlands village
-    //TODO: add nether shipwreck
+    //TODO: add nether shipwrecks
 
     @Override
     public void onInitialize() {

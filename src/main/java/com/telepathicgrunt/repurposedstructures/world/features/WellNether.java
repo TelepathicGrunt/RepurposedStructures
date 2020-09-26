@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.telepathicgrunt.repurposedstructures.RSFeatures;
+import com.telepathicgrunt.repurposedstructures.RSStructures;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -30,8 +31,7 @@ public class WellNether extends WellAbstract {
 
 
     public WellNether() {
-        super();
-        RSFeatures.RS_STRUCTURE_START_PIECES.add(NETHER_WELL_RL);
+        super(NETHER_WELL_RL);
     }
 
     public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {

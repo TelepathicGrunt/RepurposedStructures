@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.telepathicgrunt.repurposedstructures.RSFeatures;
+import com.telepathicgrunt.repurposedstructures.RSStructures;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -21,8 +22,7 @@ public class WellForest extends WellAbstract {
     private static final Identifier FOREST_WELL_RL = new Identifier(RepurposedStructures.MODID, "wells/forest");
 
     public WellForest() {
-        super();
-        RSFeatures.RS_STRUCTURE_START_PIECES.add(FOREST_WELL_RL);
+        super(FOREST_WELL_RL);
     }
 
 

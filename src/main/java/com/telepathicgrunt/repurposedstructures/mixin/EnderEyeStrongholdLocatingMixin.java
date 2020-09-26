@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.mixin;
 
 import com.telepathicgrunt.repurposedstructures.RSFeatures;
+import com.telepathicgrunt.repurposedstructures.RSStructures;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.EnderEyeItem;
 import net.minecraft.server.world.ServerWorld;
@@ -22,8 +23,8 @@ public class EnderEyeStrongholdLocatingMixin {
     }
 
     private static BlockPos returnClosestStronghold(BlockPos blockPos, World world, PlayerEntity user){
-        BlockPos closestPos = returnCloserPos(blockPos, ((ServerWorld)world).getChunkManager().getChunkGenerator().locateStructure((ServerWorld)world, RSFeatures.STONEBRICK_STRONGHOLD, user.getBlockPos(), 100, false), user.getBlockPos());
-        closestPos = returnCloserPos(closestPos, ((ServerWorld)world).getChunkManager().getChunkGenerator().locateStructure((ServerWorld)world, RSFeatures.NETHER_STRONGHOLD, user.getBlockPos(), 100, false), user.getBlockPos());
+        BlockPos closestPos = returnCloserPos(blockPos, ((ServerWorld)world).getChunkManager().getChunkGenerator().locateStructure((ServerWorld)world, RSStructures.STONEBRICK_STRONGHOLD, user.getBlockPos(), 100, false), user.getBlockPos());
+        closestPos = returnCloserPos(closestPos, ((ServerWorld)world).getChunkManager().getChunkGenerator().locateStructure((ServerWorld)world, RSStructures.NETHER_STRONGHOLD, user.getBlockPos(), 100, false), user.getBlockPos());
         return closestPos;
     }
 

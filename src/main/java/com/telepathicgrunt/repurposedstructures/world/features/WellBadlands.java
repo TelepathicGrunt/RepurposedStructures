@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.telepathicgrunt.repurposedstructures.RSFeatures;
+import com.telepathicgrunt.repurposedstructures.RSStructures;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -22,8 +23,7 @@ public class WellBadlands extends WellAbstract {
     private static final Identifier BADLANDS_WELL_RL = new Identifier(RepurposedStructures.MODID, "wells/badlands");
 
     public WellBadlands() {
-        super();
-        RSFeatures.RS_STRUCTURE_START_PIECES.add(BADLANDS_WELL_RL);
+        super(BADLANDS_WELL_RL);
     }
 
 

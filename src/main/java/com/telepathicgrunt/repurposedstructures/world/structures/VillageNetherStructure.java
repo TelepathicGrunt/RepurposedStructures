@@ -28,9 +28,9 @@ public class VillageNetherStructure extends VillageBaseStructure {
 
     @Override
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig defaultFeatureConfig) {
-        StructureConfig warpedOutpostConfig = chunkGenerator.getConfig().getForType(RSStructures.WARPED_OUTPOST);
-        StructureConfig crimsonOutpostConfig = chunkGenerator.getConfig().getForType(RSStructures.CRIMSON_OUTPOST);
-        StructureConfig netherBrickOutpostConfig = chunkGenerator.getConfig().getForType(RSStructures.NETHER_BRICK_OUTPOST);
+        StructureConfig warpedOutpostConfig = chunkGenerator.getStructuresConfig().getForType(RSStructures.WARPED_OUTPOST);
+        StructureConfig crimsonOutpostConfig = chunkGenerator.getStructuresConfig().getForType(RSStructures.CRIMSON_OUTPOST);
+        StructureConfig netherBrickOutpostConfig = chunkGenerator.getStructuresConfig().getForType(RSStructures.NETHER_BRICK_OUTPOST);
 
         for (int curChunkX = chunkX - 10; curChunkX <= chunkX + 10; curChunkX++) {
             for (int curChunkZ = chunkZ - 10; curChunkZ <= chunkZ + 10; curChunkZ++) {

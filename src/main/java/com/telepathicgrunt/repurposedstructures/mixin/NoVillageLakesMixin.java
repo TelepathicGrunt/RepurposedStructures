@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.mixin;
 
 import com.telepathicgrunt.repurposedstructures.RSFeatures;
+import com.telepathicgrunt.repurposedstructures.RSStructures;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkSectionPos;
 import net.minecraft.world.StructureWorldAccess;
@@ -27,7 +28,7 @@ public class NoVillageLakesMixin {
     )
     private void checkForRSVillages(StructureWorldAccess structureWorldAccess, ChunkGenerator chunkGenerator, Random random, BlockPos blockPos, SingleStateFeatureConfig singleStateFeatureConfig, CallbackInfoReturnable<Boolean> cir) {
 
-        for (StructureFeature<DefaultFeatureConfig> village : RSFeatures.OVERWORLD_VILLAGE_LIST) {
+        for (StructureFeature<DefaultFeatureConfig> village : RSStructures.OVERWORLD_VILLAGE_LIST) {
             if (structureWorldAccess.getStructures(ChunkSectionPos.from(blockPos), village).findAny().isPresent()) {
                 cir.setReturnValue(false);
             }
