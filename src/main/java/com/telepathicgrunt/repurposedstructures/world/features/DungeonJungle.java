@@ -31,7 +31,7 @@ public class DungeonJungle extends Feature<DefaultFeatureConfig> {
     private static final BlockState LOGS = Blocks.JUNGLE_LOG.getDefaultState();
     private static final BlockState SIDEWAYS_LOGS = Blocks.JUNGLE_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.X);
     private static final BlockState PLANKS = Blocks.JUNGLE_PLANKS.getDefaultState();
-    private static final Identifier CHEST_LOOT = new Identifier(RepurposedStructures.MODID, "chests/dungeon_jungle");
+    private static final Identifier CHEST_LOOT = new Identifier(RepurposedStructures.MODID, "chest/dungeon/jungle");
     private static final Identifier SPAWNER_ID = new Identifier(RepurposedStructures.MODID, "dungeon_jungle");
 
 

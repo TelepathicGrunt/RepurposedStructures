@@ -28,7 +28,7 @@ public class DungeonNether extends Feature<DefaultFeatureConfig> {
 
     private static final Logger LOGGER = LogManager.getLogger();
     private static final BlockState CAVE_AIR = Blocks.CAVE_AIR.getDefaultState();
-    private static final Identifier CHEST_LOOT = new Identifier(RepurposedStructures.MODID, "chests/dungeon_nether");
+    private static final Identifier CHEST_LOOT = new Identifier(RepurposedStructures.MODID, "chest/dungeon/nether");
     private static final Identifier HIGH_SPAWNER_ID = new Identifier(RepurposedStructures.MODID, "dungeon_nether_high");
     private static final Identifier LOW_SPAWNER_ID = new Identifier(RepurposedStructures.MODID, "dungeon_nether_low");
 

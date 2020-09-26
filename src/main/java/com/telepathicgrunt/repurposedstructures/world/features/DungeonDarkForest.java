@@ -22,7 +22,7 @@ import java.util.Random;
 
 public class DungeonDarkForest extends Feature<DefaultFeatureConfig> {
     private static final Logger LOGGER = LogManager.getLogger();
-    private static final Identifier CHEST_LOOT = new Identifier(RepurposedStructures.MODID, "chests/dungeon_dark_forest");
+    private static final Identifier CHEST_LOOT = new Identifier(RepurposedStructures.MODID, "chest/dungeon/dark_forest");
     private static final Identifier SPAWNER_ID = new Identifier(RepurposedStructures.MODID, "dungeon_dark_forest");
     private static final BlockState CAVE_AIR = Blocks.CAVE_AIR.getDefaultState();
     private static final BlockState LEAVES = Blocks.DARK_OAK_LEAVES.getDefaultState().with(LeavesBlock.DISTANCE, Integer.valueOf(1));

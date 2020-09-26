@@ -28,7 +28,7 @@ public class DungeonSnow extends Feature<DefaultFeatureConfig> {
 
     private static final Logger LOGGER = LogManager.getLogger();
     private static final BlockState CAVE_AIR = Blocks.CAVE_AIR.getDefaultState();
-    private static final Identifier CHEST_LOOT = new Identifier(RepurposedStructures.MODID, "chests/dungeon_snow");
+    private static final Identifier CHEST_LOOT = new Identifier(RepurposedStructures.MODID, "chest/dungeon/snow");
     private static final Identifier SPAWNER_ID = new Identifier(RepurposedStructures.MODID, "dungeon_snow");
 
 
