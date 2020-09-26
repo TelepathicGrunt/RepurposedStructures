@@ -72,10 +72,5 @@ public class RSFeatures {
         Registry.register(Registry.FEATURE, RepurposedStructures.MODID + "jungle_structures_vines", JUNGLE_STRUCTURES_VINES);
         Registry.register(Registry.FEATURE, RepurposedStructures.MODID + "fortress_breakage", FORTRESS_BREAKAGE);
         Registry.register(Registry.FEATURE, RepurposedStructures.MODID + "stronghold_chains", STRONGHOLD_CHAINS);
-
-        //Next avaliable seed: 399117377
-
-        //registers the structure pieces.
-        StructurePieces.registerStructurePieces();
     }
 }
