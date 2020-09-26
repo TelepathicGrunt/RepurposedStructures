@@ -4,6 +4,7 @@ import com.mojang.authlib.GameProfileRepository;
 import com.mojang.authlib.minecraft.MinecraftSessionService;
 import com.mojang.datafixers.DataFixer;
 import com.telepathicgrunt.repurposedstructures.RSFeatures;
+import com.telepathicgrunt.repurposedstructures.RSStructures;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.resource.ResourcePackManager;
 import net.minecraft.resource.ServerResourceManager;
@@ -52,7 +53,7 @@ public class MinecraftServerMixin {
             method = "<init>",
             at = @At(value = "TAIL")
     )
-    private void modifyBiomeRegistry(Thread thread, DynamicRegistryManager.Impl impl, LevelStorage.Session session, SaveProperties saveProperties, ResourcePackManager resourcePackManager, Proxy proxy, DataFixer dataFixer, ServerResourceManager serverResourceManager, MinecraftSessionService minecraftSessionService, GameProfileRepository gameProfileRepository, UserCache userCache, WorldGenerationProgressListenerFactory worldGenerationProgressListenerFactory, CallbackInfo ci) {
+    private void modifyBiomeRegistry(Thread thread, DynamicRegistryManager.Impl dynamicRegistryManager, LevelStorage.Session session, SaveProperties saveProperties, ResourcePackManager resourcePackManager, Proxy proxy, DataFixer dataFixer, ServerResourceManager serverResourceManager, MinecraftSessionService minecraftSessionService, GameProfileRepository gameProfileRepository, UserCache userCache, WorldGenerationProgressListenerFactory worldGenerationProgressListenerFactory, CallbackInfo ci) {
 
         //Gets blacklisted biome IDs for each structure type
         //Done here so the map can be garbage collected later
@@ -87,19 +88,16 @@ public class MinecraftServerMixin {
             }
         }
 
-        // Temporary solution to AOF having an issue with getting a structure crashing due to
-        // something something mods causing concurrent modification exception when reading nbt files from disk.
-        for(Identifier identifier : RSFeatures.RS_STRUCTURE_START_PIECES){
-            Structure structure = structureManager.getStructure(identifier);
-            StructurePool structurePool = impl.get(Registry.TEMPLATE_POOL_WORLDGEN).get(identifier);
+        // Load up the nbt files for several structures at startup instead of during worldgen.
+        for(Identifier identifier : RSStructures.RS_STRUCTURE_START_PIECES){
+            StructurePool structurePool = dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN).get(identifier);
             if(structurePool != null){
                 List<StructurePoolElement> elements = structurePool.getElementIndicesInRandomOrder(new Random());
                 for(StructurePoolElement element: elements){
+                    // This loads the structure piece to nbt
                     element.getBoundingBox(structureManager, new BlockPos(0,0,0), BlockRotation.NONE);
                 }
             }
         }
-
-        int t = 5;
     }
 }

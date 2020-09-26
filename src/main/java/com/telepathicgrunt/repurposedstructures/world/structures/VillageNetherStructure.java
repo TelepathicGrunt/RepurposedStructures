@@ -1,6 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
-import com.telepathicgrunt.repurposedstructures.RSFeatures;
+import com.telepathicgrunt.repurposedstructures.RSStructures;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Material;
 import net.minecraft.structure.StructureManager;
@@ -28,27 +28,27 @@ public class VillageNetherStructure extends VillageBaseStructure {
 
     @Override
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig defaultFeatureConfig) {
-        StructureConfig warpedOutpostConfig = chunkGenerator.getConfig().getForType(RSFeatures.WARPED_OUTPOST);
-        StructureConfig crimsonOutpostConfig = chunkGenerator.getConfig().getForType(RSFeatures.CRIMSON_OUTPOST);
-        StructureConfig netherBrickOutpostConfig = chunkGenerator.getConfig().getForType(RSFeatures.NETHER_BRICK_OUTPOST);
+        StructureConfig warpedOutpostConfig = chunkGenerator.getConfig().getForType(RSStructures.WARPED_OUTPOST);
+        StructureConfig crimsonOutpostConfig = chunkGenerator.getConfig().getForType(RSStructures.CRIMSON_OUTPOST);
+        StructureConfig netherBrickOutpostConfig = chunkGenerator.getConfig().getForType(RSStructures.NETHER_BRICK_OUTPOST);
 
         for (int curChunkX = chunkX - 10; curChunkX <= chunkX + 10; curChunkX++) {
             for (int curChunkZ = chunkZ - 10; curChunkZ <= chunkZ + 10; curChunkZ++) {
                 ChunkPos chunkPos2;
                 if(warpedOutpostConfig != null){
-                    chunkPos2 = RSFeatures.WARPED_OUTPOST.getStartChunk(warpedOutpostConfig, seed, chunkRandom, curChunkX, curChunkZ);
+                    chunkPos2 = RSStructures.WARPED_OUTPOST.getStartChunk(warpedOutpostConfig, seed, chunkRandom, curChunkX, curChunkZ);
                     if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
                         return false;
                     }
                 }
                 if(warpedOutpostConfig != null){
-                    chunkPos2 = RSFeatures.CRIMSON_OUTPOST.getStartChunk(crimsonOutpostConfig, seed, chunkRandom, curChunkX, curChunkZ);
+                    chunkPos2 = RSStructures.CRIMSON_OUTPOST.getStartChunk(crimsonOutpostConfig, seed, chunkRandom, curChunkX, curChunkZ);
                     if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
                         return false;
                     }
                 }
                 if(warpedOutpostConfig != null){
-                    chunkPos2 = RSFeatures.NETHER_BRICK_OUTPOST.getStartChunk(netherBrickOutpostConfig, seed, chunkRandom, curChunkX, curChunkZ);
+                    chunkPos2 = RSStructures.NETHER_BRICK_OUTPOST.getStartChunk(netherBrickOutpostConfig, seed, chunkRandom, curChunkX, curChunkZ);
                     if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
                         return false;
                     }

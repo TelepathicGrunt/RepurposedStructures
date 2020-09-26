@@ -1,7 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.mojang.serialization.Codec;
-import com.telepathicgrunt.repurposedstructures.RSFeatures;
+import com.telepathicgrunt.repurposedstructures.RSStructures;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Material;
 import net.minecraft.structure.MarginedStructureStart;
@@ -26,18 +26,18 @@ public abstract class AbstractNetherStructure extends AbstractBaseStructure {
 
     @Override
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig defaultFeatureConfig) {
-        if(this != RSFeatures.WARPED_OUTPOST && this != RSFeatures.CRIMSON_OUTPOST && this != RSFeatures.NETHER_BRICK_OUTPOST){
+        if(this != RSStructures.WARPED_OUTPOST && this != RSStructures.CRIMSON_OUTPOST && this != RSStructures.NETHER_BRICK_OUTPOST){
             for (int curChunkX = chunkX - 6; curChunkX <= chunkX + 6; curChunkX++) {
                 for (int curChunkZ = chunkZ - 6; curChunkZ <= chunkZ + 6; curChunkZ++) {
-                    ChunkPos chunkPos2 = RSFeatures.WARPED_OUTPOST.getStartChunk(chunkGenerator.getConfig().getForType(RSFeatures.WARPED_OUTPOST), seed, chunkRandom, curChunkX, curChunkZ);
+                    ChunkPos chunkPos2 = RSStructures.WARPED_OUTPOST.getStartChunk(chunkGenerator.getConfig().getForType(RSStructures.WARPED_OUTPOST), seed, chunkRandom, curChunkX, curChunkZ);
                     if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
                         return false;
                     }
-                    chunkPos2 = RSFeatures.CRIMSON_OUTPOST.getStartChunk(chunkGenerator.getConfig().getForType(RSFeatures.CRIMSON_OUTPOST), seed, chunkRandom, curChunkX, curChunkZ);
+                    chunkPos2 = RSStructures.CRIMSON_OUTPOST.getStartChunk(chunkGenerator.getConfig().getForType(RSStructures.CRIMSON_OUTPOST), seed, chunkRandom, curChunkX, curChunkZ);
                     if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
                         return false;
                     }
-                    chunkPos2 = RSFeatures.NETHER_BRICK_OUTPOST.getStartChunk(chunkGenerator.getConfig().getForType(RSFeatures.NETHER_BRICK_OUTPOST), seed, chunkRandom, curChunkX, curChunkZ);
+                    chunkPos2 = RSStructures.NETHER_BRICK_OUTPOST.getStartChunk(chunkGenerator.getConfig().getForType(RSStructures.NETHER_BRICK_OUTPOST), seed, chunkRandom, curChunkX, curChunkZ);
                     if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
                         return false;
                     }
@@ -46,7 +46,7 @@ public abstract class AbstractNetherStructure extends AbstractBaseStructure {
         }
         for (int curChunkX = chunkX - 3; curChunkX <= chunkX + 3; curChunkX++) {
             for (int curChunkZ = chunkZ - 3; curChunkZ <= chunkZ + 3; curChunkZ++) {
-                ChunkPos chunkPos2 = RSFeatures.NETHER_PYRAMID.getStartChunk(chunkGenerator.getConfig().getForType(RSFeatures.NETHER_PYRAMID), seed, chunkRandom, curChunkX, curChunkZ);
+                ChunkPos chunkPos2 = RSStructures.NETHER_PYRAMID.getStartChunk(chunkGenerator.getConfig().getForType(RSStructures.NETHER_PYRAMID), seed, chunkRandom, curChunkX, curChunkZ);
                 if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
                     return false;
                 }

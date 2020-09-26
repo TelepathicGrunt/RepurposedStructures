@@ -1,6 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
-import com.telepathicgrunt.repurposedstructures.RSFeatures;
+import com.telepathicgrunt.repurposedstructures.RSStructures;
 import net.minecraft.structure.MarginedStructureStart;
 import net.minecraft.structure.PoolStructurePiece;
 import net.minecraft.structure.StructureManager;
@@ -31,7 +31,7 @@ public class VillageBaseStructure extends StructureFeature<DefaultFeatureConfig>
         super(DefaultFeatureConfig.CODEC);
         START_POOL = poolID;
         STRUCTURE_SIZE = structureSize;
-        RSFeatures.RS_STRUCTURE_START_PIECES.add(START_POOL);
+        RSStructures.RS_STRUCTURE_START_PIECES.add(START_POOL);
     }
 
     @Override

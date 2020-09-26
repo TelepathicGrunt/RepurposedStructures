@@ -1,6 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
-import com.telepathicgrunt.repurposedstructures.RSFeatures;
+import com.telepathicgrunt.repurposedstructures.RSStructures;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.GeneralJigsawGenerator;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PyramidFloorPiece;
@@ -27,7 +27,7 @@ public class PyramidBadlandsStructure extends StructureFeature<DefaultFeatureCon
     public PyramidBadlandsStructure() {
         super(DefaultFeatureConfig.CODEC);
         START_POOL = new Identifier(RepurposedStructures.MODID, "temples/pyramid_badlands");
-        RSFeatures.RS_STRUCTURE_START_PIECES.add(START_POOL);
+        RSStructures.RS_STRUCTURE_START_PIECES.add(START_POOL);
     }
 
     @Override

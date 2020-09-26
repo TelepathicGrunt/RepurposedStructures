@@ -1,6 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
-import com.telepathicgrunt.repurposedstructures.RSFeatures;
+import com.telepathicgrunt.repurposedstructures.RSStructures;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.RSIglooPieces;
 import net.minecraft.block.Blocks;
 import net.minecraft.structure.StructureManager;
@@ -23,7 +23,7 @@ public class RSIglooStructure extends AbstractBaseStructure {
     public RSIglooStructure(Identifier topPieceID) {
         super(DefaultFeatureConfig.CODEC);
         START_POOL = topPieceID;
-        RSFeatures.RS_STRUCTURE_START_PIECES.add(START_POOL);
+        RSStructures.RS_STRUCTURE_START_PIECES.add(START_POOL);
     }
 
     @Override
