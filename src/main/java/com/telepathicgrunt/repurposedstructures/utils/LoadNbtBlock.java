@@ -55,8 +55,8 @@ public class LoadNbtBlock extends Block {
         }
 
         // Size of area we will need
-        int rowCount = (int) Math.max(Math.ceil(identifiers.size()), 1);
         int columnCount = 3;
+        int rowCount = (int) Math.max(Math.ceil(identifiers.size()) / columnCount, 1);
         BlockPos bounds = new BlockPos(32 * (rowCount+2), 32, 32 * columnCount);
 
         // Fill/clear area with structure void
