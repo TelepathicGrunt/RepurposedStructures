@@ -33,17 +33,17 @@ import java.util.Random;
 
 public class RSMineshaftPieces {
 
-    private static final Identifier ICY_CHEST_ID =  new Identifier(RepurposedStructures.MODID, "chests/mineshaft_icy");
-    private static final Identifier JUNGLE_CHEST_ID =  new Identifier(RepurposedStructures.MODID, "chests/mineshaft_jungle");
-    private static final Identifier TAIGA_CHEST_ID =  new Identifier(RepurposedStructures.MODID, "chests/mineshaft_taiga");
-    private static final Identifier DESERT_CHEST_ID =  new Identifier(RepurposedStructures.MODID, "chests/mineshaft_desert");
-    private static final Identifier END_CHEST_ID =  new Identifier(RepurposedStructures.MODID, "chests/mineshaft_end");
-    private static final Identifier NETHER_CHEST_ID =  new Identifier(RepurposedStructures.MODID, "chests/mineshaft_nether");
-    private static final Identifier OCEAN_CHEST_ID =  new Identifier(RepurposedStructures.MODID, "chests/mineshaft_ocean");
-    private static final Identifier STONE_CHEST_ID =  new Identifier(RepurposedStructures.MODID, "chests/mineshaft_stone");
-    private static final Identifier SAVANNA_CHEST_ID =  new Identifier(RepurposedStructures.MODID, "chests/mineshaft_savanna");
-    private static final Identifier SWAMP_OR_DARK_FOREST_CHEST_ID =  new Identifier(RepurposedStructures.MODID, "chests/mineshaft_swamp_dark_forest");
-    private static final Identifier BIRCH_CHEST_ID =  new Identifier(RepurposedStructures.MODID, "chests/mineshaft_birch");
+    private static final Identifier ICY_CHEST_ID =  new Identifier(RepurposedStructures.MODID, "chests/mineshaft/icy");
+    private static final Identifier JUNGLE_CHEST_ID =  new Identifier(RepurposedStructures.MODID, "chests/mineshaft/jungle");
+    private static final Identifier TAIGA_CHEST_ID =  new Identifier(RepurposedStructures.MODID, "chests/mineshaft/taiga");
+    private static final Identifier DESERT_CHEST_ID =  new Identifier(RepurposedStructures.MODID, "chests/mineshaft/desert");
+    private static final Identifier END_CHEST_ID =  new Identifier(RepurposedStructures.MODID, "chests/mineshaft/end");
+    private static final Identifier NETHER_CHEST_ID =  new Identifier(RepurposedStructures.MODID, "chests/mineshaft/nether");
+    private static final Identifier OCEAN_CHEST_ID =  new Identifier(RepurposedStructures.MODID, "chests/mineshaft/ocean");
+    private static final Identifier STONE_CHEST_ID =  new Identifier(RepurposedStructures.MODID, "chests/mineshaft/stone");
+    private static final Identifier SAVANNA_CHEST_ID =  new Identifier(RepurposedStructures.MODID, "chests/mineshaft/savanna");
+    private static final Identifier SWAMP_OR_DARK_FOREST_CHEST_ID =  new Identifier(RepurposedStructures.MODID, "chests/mineshaft/swamp_dark_forest");
+    private static final Identifier BIRCH_CHEST_ID =  new Identifier(RepurposedStructures.MODID, "chests/mineshaft/birch");
     private static final Identifier ICY_SPAWNER_ID = new Identifier(RepurposedStructures.MODID, "mineshaft_icy");
     private static final Identifier BIRCH_SPAWNER_ID = new Identifier(RepurposedStructures.MODID, "mineshaft_birch");
     private static final Identifier JUNGLE_SPAWNER_ID = new Identifier(RepurposedStructures.MODID, "mineshaft_jungle");

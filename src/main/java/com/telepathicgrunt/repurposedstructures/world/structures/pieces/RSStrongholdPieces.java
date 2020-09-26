@@ -50,7 +50,7 @@ public class RSStrongholdPieces {
     private static final Identifier NETHER_SPAWNER_ID = new Identifier(RepurposedStructures.MODID, "stronghold_nether");
     private static final Identifier NETHER_PORTAL_SPAWNER_ID = new Identifier(RepurposedStructures.MODID, "stronghold_nether_portal_room");
 
-    private static final List<RSStrongholdPieces.PieceWeight> PIECE_WEIGHTS = new ArrayList<RSStrongholdPieces.PieceWeight>();
+    private static final List<RSStrongholdPieces.PieceWeight> PIECE_WEIGHTS = new ArrayList<>();
 
     private static List<RSStrongholdPieces.PieceWeight> structurePieceList;
     private static Class<? extends RSStrongholdPieces.Stronghold> strongComponentType;
@@ -1664,7 +1664,7 @@ public class RSStrongholdPieces {
 
         protected Identifier getHallwayChestLoot() {
             if (this.strongholdType == Type.NETHER) {
-                return new Identifier(RepurposedStructures.MODID, "chests/stronghold_nether_hallway");
+                return new Identifier(RepurposedStructures.MODID, "chests/stronghold/nether_hallway");
             } else {
                 return LootTables.STRONGHOLD_CORRIDOR_CHEST;
             }
@@ -1673,7 +1673,7 @@ public class RSStrongholdPieces {
 
         protected Identifier getStorageChestLoot() {
             if (this.strongholdType == Type.NETHER) {
-                return new Identifier(RepurposedStructures.MODID, "chests/stronghold_nether_storage_room");
+                return new Identifier(RepurposedStructures.MODID, "chests/stronghold/nether_storage_room");
             } else {
                 return LootTables.STRONGHOLD_CORRIDOR_CHEST;
             }

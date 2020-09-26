@@ -16,6 +16,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Fixed registry names of all features (not structures) to not be in minecraft namespace by mistake.
 
+- Organized several structure's loottable file path. Will break datapacks still using old path.
+
 ##### Villages:
 
 - Saloon spawnrate increased
