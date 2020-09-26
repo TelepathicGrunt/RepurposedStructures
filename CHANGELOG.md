@@ -14,9 +14,15 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Load up some structure nbt files at world startup instead of during worldgen.
 
+- Fixed registry names of all features (not structures) to not be in minecraft namespace by mistake.
+
 ##### Villages:
 
 - Saloon spawnrate increased
+
+##### Pyramids:
+
+- Fixed Badlands Pyramid's trap not always fully activating.
 
 
 ## (V.1.5.4 Changes) (1.16.2 Minecraft)

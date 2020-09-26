@@ -13,6 +13,67 @@
 					"weight": 8,
 					"functions": [
 						{
+							"function": "minecraft:set_stew_effect",
+							"effects": [
+								{
+									"type": "minecraft:blindness",
+									"duration": {
+										"min": 10.0,
+										"max": 25.0
+									}
+								},
+								{
+									"type": "minecraft:wither",
+									"duration": {
+										"min": 10.0,
+										"max": 20.0
+									}
+								},
+								{
+									"type": "minecraft:weakness",
+									"duration": {
+										"min": 30.0,
+										"max": 50.0
+									}
+								},
+								{
+									"type": "minecraft:fatal_poison",
+									"duration": {
+										"min": 15.0,
+										"max": 30.0
+									}
+								},
+								{
+									"type": "minecraft:fire_resistance",
+									"duration": {
+										"min": 360.0,
+										"max": 600.0
+									}
+								},
+								{
+									"type": "minecraft:night_vision",
+									"duration": {
+										"min": 60.0,
+										"max": 120.0
+									}
+								},
+								{
+									"type": "minecraft:saturation",
+									"duration": {
+										"min": 10.0,
+										"max": 12.0
+									}
+								}
+							]
+						}
+					],
+					"name": "minecraft:suspicious_stew"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 8,
+					"functions": [
+						{
 							"function": "minecraft:set_count",
 							"count": {
 								"min": 1.0,
@@ -36,7 +97,7 @@
 							}
 						}
 					],
-					"name": "minecraft:chorus_fruit"
+					"name": "minecraft:crimson_fungus"
 				},
 				{
 					"type": "minecraft:item",
@@ -51,26 +112,7 @@
 							}
 						}
 					],
-					"name": "minecraft:beetroot_seeds"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 7,
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"min": 2.0,
-								"max": 4.0,
-								"type": "minecraft:uniform"
-							}
-						},
-						{
-							"function":"set_nbt",
-							"tag":"{BlockEntityTag:{Patterns:[{Color:15,Pattern:tt}, {Color:15,Pattern:bt}]}}"
-						}
-					],
-					"name": "minecraft:magenta_banner"
+					"name": "minecraft:nether_wart_block"
 				},
 				{
 					"type": "minecraft:item",
@@ -85,82 +127,7 @@
 							}
 						}
 					],
-					"name": "minecraft:popped_chorus_fruit"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 10,
-					"functions": [
-						{
-							"function": "minecraft:set_stew_effect",
-							"effects": [
-								{
-									"type": "minecraft:blindness",
-									"duration": {
-										"min": 10.0,
-										"max": 25.0
-									}
-								},
-								{
-									"type": "minecraft:levitation",
-									"duration": {
-										"min": 25.0,
-										"max": 55.0
-									}
-								},
-								{
-									"type": "minecraft:weakness",
-									"duration": {
-										"min": 30.0,
-										"max": 50.0
-									}
-								},
-								{
-									"type": "minecraft:jump_boost",
-									"duration": {
-										"min": 60.0,
-										"max": 120.0
-									}
-								},
-								{
-									"type": "minecraft:night_vision",
-									"duration": {
-										"min": 60.0,
-										"max": 120.0
-									}
-								},
-								{
-									"type": "minecraft:saturation",
-									"duration": {
-										"min": 10.0,
-										"max": 12.0
-									}
-								},
-								{
-									"type": "minecraft:invisibility",
-									"duration": {
-										"min": 30.0,
-										"max": 120.0
-									}
-								},
-								{
-									"type": "minecraft:slow_falling",
-									"duration": {
-										"min": 30.0,
-										"max": 120.0
-									}
-								},
-								{
-									"type": "minecraft:glowing",
-									"duration": {
-										"min": 30.0,
-										"max": 120.0
-									}
-								}
-							]
-						}
-					],
-					"name": "minecraft:suspicious_stew"
+					"name": "minecraft:shroomlight"
 				},
 				{
 					"type": "minecraft:item",
@@ -169,58 +136,13 @@
 						{
 							"function": "minecraft:set_count",
 							"count": {
-								"min": 1.0,
-								"max": 3.0,
+								"min": 2.0,
+								"max": 5.0,
 								"type": "minecraft:uniform"
 							}
 						}
 					],
-					"name": "minecraft:phantom_membrane"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 5,
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"min": 1.0,
-								"max": 3.0,
-								"type": "minecraft:uniform"
-							}
-						}
-					],
-					"name": "minecraft:ender_pearl"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 2,
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"min": 1.0,
-								"max": 3.0,
-								"type": "minecraft:uniform"
-							}
-						}
-					],
-					"name": "minecraft:end_rod"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 2,
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"min": 1.0,
-								"max": 3.0,
-								"type": "minecraft:uniform"
-							}
-						}
-					],
-					"name": "minecraft:magenta_stained_glass_pane"
+					"name": "minecraft:ghast_tear"
 				},
 				{
 					"type": "minecraft:item",
@@ -251,7 +173,7 @@
 						},
 						{
 							"function":"set_nbt",
-							"tag":"{Explosion:{Colors:[I;8073150], FadeColors:[I;12801229], Trail:1b, Flicker:1b, Type:2b}}"
+							"tag":"{Explosion:{Colors:[I;0000000], FadeColors:[I;12201518], Trail:1b, Flicker:1b, Type:4b}}"
 						}
 					],
 					"name": "minecraft:firework_star"
@@ -270,24 +192,10 @@
 						},
 						{
 							"function":"set_nbt",
-							"tag":"{Explosion:{Colors:[I;12801229], FadeColors:[I;8073150], Trail:1b, Flicker:1b, Type:2b}}"
+							"tag":"{Explosion:{Colors:[I;12201518], FadeColors:[I;0000000], Trail:1b, Flicker:1b, Type:4b}}"
 						}
 					],
 					"name": "minecraft:firework_star"
-				},
-				{
-					"type": "minecraft:item",
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"min": 1.0,
-								"max": 6.0,
-								"type": "minecraft:uniform"
-							}
-						}
-					],
-					"name": "minecraft:obsidian"
 				},
 				{
 					"type": "minecraft:item",
@@ -328,6 +236,41 @@
 						}
 					],
 					"name": "minecraft:iron_boots"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 3,
+					"name": "minecraft:warped_fungus_on_a_stick"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 2,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 1.0,
+								"max": 3.0,
+								"type": "minecraft:uniform"
+							}
+						}
+					],
+					"name": "minecraft:red_stained_glass_pane"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 2,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 1.0,
+								"max": 3.0,
+								"type": "minecraft:uniform"
+							}
+						}
+					],
+					"name": "minecraft:black_stained_glass_pane"
 				}
 			]
 		}

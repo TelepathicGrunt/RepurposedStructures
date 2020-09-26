@@ -10,7 +10,7 @@
 			"entries": [
 				{
 					"type": "minecraft:item",
-					"weight": 70,
+					"weight": 40,
 					"functions": [
 						{
 							"function": "minecraft:set_count",
@@ -25,48 +25,19 @@
 				},
 				{
 					"type": "minecraft:item",
-					"weight": 10,
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"min": 3.0,
-								"max": 10.0,
-								"type": "minecraft:uniform"
-							}
-						}
-					],
-					"name": "minecraft:gold_ingot"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 40,
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"min": 3.0,
-								"max": 8.0,
-								"type": "minecraft:uniform"
-							}
-						}
-					],
-					"name": "minecraft:emerald"
-				},
-				{
-					"type": "minecraft:item",
 					"weight": 15,
 					"functions": [
 						{
-							"function": "minecraft:set_count",
-							"count": {
-								"min": 2.0,
-								"max": 5.0,
+							"function": "minecraft:enchant_with_levels",
+							"levels": {
+								"min": 30.0,
+								"max": 45.0,
 								"type": "minecraft:uniform"
-							}
+							},
+							"treasure": true
 						}
 					],
-					"name": "minecraft:diamond"
+					"name": "minecraft:stone_sword"
 				},
 				{
 					"type": "minecraft:item",
@@ -90,7 +61,7 @@
 						{
 							"function": "minecraft:enchant_with_levels",
 							"levels": {
-								"min": 28.0,
+								"min": 30.0,
 								"max": 40.0,
 								"type": "minecraft:uniform"
 							},
@@ -101,13 +72,182 @@
 				},
 				{
 					"type": "minecraft:item",
-					"weight": 5,
-					"name": "minecraft:dragon_breath"
+					"weight": 13,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": 1
+						}
+					],
+					"name": "minecraft:netherite_ingot"
 				},
 				{
 					"type": "minecraft:item",
-					"weight": 2,
-					"name": "minecraft:elytra"
+					"weight": 10,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 3.0,
+								"max": 10.0,
+								"type": "minecraft:uniform"
+							}
+						}
+					],
+					"name": "minecraft:gold_ingot"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 10,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 3.0,
+								"max": 10.0,
+								"type": "minecraft:uniform"
+							}
+						}
+					],
+					"name": "minecraft:coal"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 10,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 3.0,
+								"max": 10.0,
+								"type": "minecraft:uniform"
+							}
+						}
+					],
+					"name": "minecraft:bone"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 9,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": 1
+						}
+					],
+					"name": "minecraft:ancient_debris"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 5,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": 1
+						}
+					],
+					"name": "minecraft:netherite_scrap"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 4,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": 2
+						}
+					],
+					"name": "minecraft:ancient_debris"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 1,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 2.0,
+								"max": 5.0,
+								"type": "minecraft:uniform"
+							}
+						}
+					],
+					"name": "minecraft:gold_block"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 1,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 2.0,
+								"max": 5.0,
+								"type": "minecraft:uniform"
+							}
+						}
+					],
+					"name": "minecraft:iron_block"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 1,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 3.0,
+								"max": 5.0,
+								"type": "minecraft:uniform"
+							}
+						}
+					],
+					"name": "minecraft:crying_obsidian"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 1,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 8.0,
+								"max": 23.0,
+								"type": "minecraft:uniform"
+							}
+						}
+					],
+					"name": "minecraft:quartz"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 1,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 5.0,
+								"max": 15.0,
+								"type": "minecraft:uniform"
+							}
+						}
+					],
+					"name": "minecraft:gilded_blackstone"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 1,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 3.0,
+								"max": 8.0,
+								"type": "minecraft:uniform"
+							}
+						}
+					],
+					"name": "minecraft:magma_cream"
 				}
 			]
 		},
@@ -120,7 +260,22 @@
 			"entries": [
 				{
 					"type": "minecraft:item",
-					"weight": 30,
+					"weight": 20,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 6.0,
+								"max": 20.0,
+								"type": "minecraft:uniform"
+							}
+						}
+					],
+					"name": "minecraft:coal"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 10,
 					"functions": [
 						{
 							"function": "minecraft:set_count",
@@ -150,18 +305,33 @@
 				},
 				{
 					"type": "minecraft:item",
-					"weight": 30,
+					"weight": 10,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 3.0,
+								"max": 10.0,
+								"type": "minecraft:uniform"
+							}
+						}
+					],
+					"name": "minecraft:bone"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 5,
 					"functions": [
 						{
 							"function": "minecraft:set_count",
 							"count": {
 								"min": 6.0,
-								"max": 20.0,
+								"max": 12.0,
 								"type": "minecraft:uniform"
 							}
 						}
 					],
-					"name": "minecraft:lapis_lazuli"
+					"name": "minecraft:spectral_arrow"
 				}
 			]
 		}

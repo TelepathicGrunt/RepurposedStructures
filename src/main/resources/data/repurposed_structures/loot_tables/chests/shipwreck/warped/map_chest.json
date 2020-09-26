@@ -6,15 +6,35 @@
 			"entries": [
 				{
 					"type": "minecraft:item",
+					"weight": 1,
 					"functions": [
 						{
 							"function": "minecraft:exploration_map",
-							"destination": "endcity",
-							"decoration": "banner_magenta",
+							"destination": "bastion_remnant",
+							"decoration": "mansion",
 							"zoom": 2,
 							"skip_existing_chunks": true
 						}
 					],
+					"name": "minecraft:map"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 2,
+					"functions": [
+						{
+							"function": "minecraft:exploration_map",
+							"destination": "fortress",
+							"decoration": "banner_red",
+							"zoom": 2,
+							"skip_existing_chunks": true
+						}
+					],
+					"name": "minecraft:map"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 1,
 					"name": "minecraft:map"
 				}
 			]
@@ -69,7 +89,7 @@
 				},
 				{
 					"type": "minecraft:item",
-					"weight": 5,
+					"weight": 3,
 					"functions": [
 						{
 							"function": "minecraft:set_count",
@@ -80,7 +100,22 @@
 							}
 						}
 					],
-					"name": "minecraft:ender_pearl"
+					"name": "minecraft:bone"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 3,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 3.0,
+								"max": 6.0,
+								"type": "minecraft:uniform"
+							}
+						}
+					],
+					"name": "minecraft:coal"
 				},
 				{
 					"type": "minecraft:item",
@@ -121,4 +156,4 @@
 			]
 		}
 	]
-}
+}s
