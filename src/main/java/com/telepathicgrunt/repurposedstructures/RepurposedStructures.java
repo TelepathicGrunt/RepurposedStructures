@@ -27,7 +27,6 @@ public class RepurposedStructures implements ModInitializer {
 
 	public static RSAllConfig RSAllConfig = null;
 
-	//TODO: put weaker block between tnt in badlands pyramid
     //TODO: make zombie badlands village
     //TODO: add nether shipwrecks
 

@@ -53,9 +53,9 @@ public class RSStructures {
     public static StructureFeature<DefaultFeatureConfig> BADLANDS_TEMPLE = new PyramidBadlandsStructure();
 
     public static StructureFeature<DefaultFeatureConfig> END_SHIPWRECK = new EndShipwreckStructure();
-    public static StructureFeature<DefaultFeatureConfig> NETHER_BRICKS_SHIPWRECK = new ShipwreckNetherStructure(new Identifier(RepurposedStructures.MODID, "shipwrecks/nether/nether_bricks"), false);
-    public static StructureFeature<DefaultFeatureConfig> CRIMSON_SHIPWRECK = new ShipwreckNetherStructure(new Identifier(RepurposedStructures.MODID, "shipwrecks/nether/crimson"), true);
-    public static StructureFeature<DefaultFeatureConfig> WARPED_SHIPWRECK = new ShipwreckNetherStructure(new Identifier(RepurposedStructures.MODID, "shipwrecks/nether/warped"), true);
+    public static StructureFeature<DefaultFeatureConfig> NETHER_BRICKS_SHIPWRECK = new ShipwreckNetherStructure(new Identifier(RepurposedStructures.MODID, "shipwrecks/nether_bricks"), false);
+    public static StructureFeature<DefaultFeatureConfig> CRIMSON_SHIPWRECK = new ShipwreckNetherStructure(new Identifier(RepurposedStructures.MODID, "shipwrecks/crimson"), true);
+    public static StructureFeature<DefaultFeatureConfig> WARPED_SHIPWRECK = new ShipwreckNetherStructure(new Identifier(RepurposedStructures.MODID, "shipwrecks/warped"), true);
 
     public static StructureFeature<DefaultFeatureConfig> BADLANDS_VILLAGE = new VillageBaseStructure(new Identifier(RepurposedStructures.MODID, "village/badlands/town_centers"), 10);
     public static StructureFeature<DefaultFeatureConfig> BIRCH_VILLAGE = new VillageBaseStructure(new Identifier(RepurposedStructures.MODID, "village/birch/town_centers"), 6);
@@ -92,6 +92,11 @@ public class RSStructures {
             NETHER_CRIMSON_TEMPLE,
             NETHER_SOUL_TEMPLE,
             NETHER_PYRAMID
+    );
+    public static List<StructureFeature<DefaultFeatureConfig>> NETHER_SHIPWRECKS_LIST = Arrays.asList(
+            NETHER_BRICKS_SHIPWRECK,
+            WARPED_SHIPWRECK,
+            CRIMSON_SHIPWRECK
     );
 
 
@@ -131,8 +136,8 @@ public class RSStructures {
 
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "shipwreck_end"), END_SHIPWRECK).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSMainConfig.shipwrecks.endShipwreckSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSMainConfig.shipwrecks.endShipwreckSpawnrate * 0.75f), 399117374)).superflatFeature(END_SHIPWRECK.configure(FeatureConfig.DEFAULT)).register();
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "shipwreck_nether_bricks"), NETHER_BRICKS_SHIPWRECK).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSMainConfig.shipwrecks.endShipwreckSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSMainConfig.shipwrecks.endShipwreckSpawnrate * 0.75f), 399117377)).superflatFeature(NETHER_BRICKS_SHIPWRECK.configure(FeatureConfig.DEFAULT)).register();
-        FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "shipwreck_crimson"), CRIMSON_SHIPWRECK).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSMainConfig.shipwrecks.endShipwreckSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSMainConfig.shipwrecks.endShipwreckSpawnrate * 0.75f), 399117378)).superflatFeature(CRIMSON_SHIPWRECK.configure(FeatureConfig.DEFAULT)).register();
-        FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "shipwreck_warped"), WARPED_SHIPWRECK).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSMainConfig.shipwrecks.endShipwreckSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSMainConfig.shipwrecks.endShipwreckSpawnrate * 0.75f), 399117379)).superflatFeature(WARPED_SHIPWRECK.configure(FeatureConfig.DEFAULT)).register();
+        FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "shipwreck_crimson"), CRIMSON_SHIPWRECK).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSMainConfig.shipwrecks.endShipwreckSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSMainConfig.shipwrecks.endShipwreckSpawnrate * 0.75f), 399117378)).superflatFeature(CRIMSON_SHIPWRECK.configure(FeatureConfig.DEFAULT)).adjustsSurface().register();
+        FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "shipwreck_warped"), WARPED_SHIPWRECK).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSMainConfig.shipwrecks.endShipwreckSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSMainConfig.shipwrecks.endShipwreckSpawnrate * 0.75f), 399117379)).superflatFeature(WARPED_SHIPWRECK.configure(FeatureConfig.DEFAULT)).adjustsSurface().register();
 
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "village_badlands"), BADLANDS_VILLAGE).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSVillagesConfig.badlandsVillageSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSVillagesConfig.badlandsVillageSpawnrate * 0.75f), 399117364)).superflatFeature(BADLANDS_VILLAGE.configure(FeatureConfig.DEFAULT)).adjustsSurface().register();
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "village_birch"), BIRCH_VILLAGE).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSVillagesConfig.birchVillageSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSVillagesConfig.birchVillageSpawnrate * 0.75f), 399117365)).superflatFeature(BIRCH_VILLAGE.configure(FeatureConfig.DEFAULT)).adjustsSurface().register();

@@ -18,6 +18,14 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Organized several structure's loottable file path. Will break datapacks still using old path.
 
+##### Shipwrecks:
+
+- Added Warped and Crimson Shipwreck to their respective Nether biomes! 
+  Special thanks to miguelforge for providing the designs and nbt file!
+  
+- Added Nether Bricks Shipwreck to all other Nether biomes! 
+  Special thanks to /r/l-ll-ll-l_IsDisLoss for providing the designs and nbt file!
+
 ##### Villages:
 
 - Saloon spawnrate increased
