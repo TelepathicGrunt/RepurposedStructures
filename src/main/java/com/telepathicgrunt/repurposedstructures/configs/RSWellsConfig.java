@@ -13,7 +13,8 @@ public class RSWellsConfig implements ConfigData {
     @Comment("Add RS wells to modded biomes of same categories/type.")
     public boolean addWellsToModdedBiomes = true;
 
-    @ConfigEntry.Gui.Tooltip(count = 3)
+    @ConfigEntry.Gui.Tooltip(count = 0)
+    @ConfigEntry.Gui.PrefixText
     @Comment("Add the ID/resource location of the biome you don't want"
             +"\nRS's wells to spawn in. Separate each ID with a comma ,"
             +"\n"
@@ -31,7 +32,8 @@ public class RSWellsConfig implements ConfigData {
 
     public static class Spawnrate {
 
-        @ConfigEntry.Gui.Tooltip(count = 4)
+        @ConfigEntry.Gui.Tooltip(count = 0)
+    @ConfigEntry.Gui.PrefixText
         @Comment("Adds Badlands themed wells to Badlands biomes."
                 + "\nChanges how often wells attempt to spawn per chunk."
                 + "\nChance of a well generating in a chunk is 1/spawnrate."
@@ -39,7 +41,8 @@ public class RSWellsConfig implements ConfigData {
         @ConfigEntry.BoundedDiscrete(min = 1, max = 10000)
         public int badlandsWellSpawnrate = 350;
 
-        @ConfigEntry.Gui.Tooltip(count = 4)
+        @ConfigEntry.Gui.Tooltip(count = 0)
+    @ConfigEntry.Gui.PrefixText
         @Comment("Adds Nether themed wells to Nether biomes."
                 + "\nChanges how often wells attempt to spawn per chunk."
                 + "\nChance of a well generating in a chunk is 1/spawnrate."
@@ -47,7 +50,8 @@ public class RSWellsConfig implements ConfigData {
         @ConfigEntry.BoundedDiscrete(min = 1, max = 10000)
         public int netherWellSpawnrate = 350;
 
-        @ConfigEntry.Gui.Tooltip(count = 4)
+        @ConfigEntry.Gui.Tooltip(count = 0)
+    @ConfigEntry.Gui.PrefixText
         @Comment("Adds Snow themed wells to snowy and icy biomes."
                 + "\nChanges how often wells attempt to spawn per chunk."
                 + "\nChance of a well generating in a chunk is 1/spawnrate."
@@ -55,7 +59,8 @@ public class RSWellsConfig implements ConfigData {
         @ConfigEntry.BoundedDiscrete(min = 1, max = 10000)
         public int snowWellSpawnrate = 350;
 
-        @ConfigEntry.Gui.Tooltip(count = 4)
+        @ConfigEntry.Gui.Tooltip(count = 0)
+    @ConfigEntry.Gui.PrefixText
         @Comment("Adds mossy stone themed wells to Jungles, Dark Oak, and Swamp biomes."
                 + "\nChanges how often wells attempt to spawn per chunk."
                 + "\nChance of a well generating in a chunk is 1/spawnrate."
@@ -63,7 +68,8 @@ public class RSWellsConfig implements ConfigData {
         @ConfigEntry.BoundedDiscrete(min = 1, max = 10000)
         public int mossyStoneWellSpawnrate = 350;
 
-        @ConfigEntry.Gui.Tooltip(count = 4)
+        @ConfigEntry.Gui.Tooltip(count = 0)
+    @ConfigEntry.Gui.PrefixText
         @Comment("Adds a wood themed wells to Forest and Birch Forest biomes."
                 + "\nChanges how often wells attempt to spawn per chunk."
                 + "\nChance of a well generating in a chunk is 1/spawnrate."

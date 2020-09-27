@@ -18,6 +18,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Organized several structure's loottable file path. Will break datapacks still using old path.
 
+- Organized config screen to say what entries does instead of hiding it in tooltips.
+
 ##### Shipwrecks:
 
 - Added Warped and Crimson Shipwreck to their respective Nether biomes! 
@@ -29,6 +31,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Villages:
 
 - Saloon spawnrate increased
+
+- Fixed name of Nether Fortress and Bastion Remnant maps from Nether Villages.
 
 ##### Pyramids:
 

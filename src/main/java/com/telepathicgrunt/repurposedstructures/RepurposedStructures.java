@@ -108,7 +108,7 @@ public class RepurposedStructures implements ModInitializer {
         allBiomeBlacklists.put("igloo", Arrays.asList(RepurposedStructures.RSAllConfig.RSMainConfig.igloos.blacklistedIglooBiomes.split(",")));
         allBiomeBlacklists.put("mineshaft", Arrays.asList(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.blacklistedMineshaftBiomes.split(",")));
         allBiomeBlacklists.put("outpost", Arrays.asList(RepurposedStructures.RSAllConfig.RSOutpostsConfig.blacklistedOutpostBiomes.split(",")));
-        allBiomeBlacklists.put("shipwreck", Arrays.asList(RepurposedStructures.RSAllConfig.RSMainConfig.shipwrecks.blacklistedShipwreckBiomes.split(",")));
+        allBiomeBlacklists.put("shipwreck", Arrays.asList(RepurposedStructures.RSAllConfig.RSShipwrecksConfig.blacklist.blacklistedShipwreckBiomes.split(",")));
         allBiomeBlacklists.put("stronghold", Arrays.asList(RepurposedStructures.RSAllConfig.RSStrongholdsConfig.blacklistedStrongholdBiomes.split(",")));
         allBiomeBlacklists.put("temple", Arrays.asList(RepurposedStructures.RSAllConfig.RSTemplesConfig.temples.blacklistedTempleBiomes.split(",")));
         allBiomeBlacklists.put("pyramid", Arrays.asList(RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.blacklistedPyramidBiomes.split(",")));

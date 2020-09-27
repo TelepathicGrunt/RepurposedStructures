@@ -39,4 +39,8 @@ public class RSAllConfig implements ConfigData {
     @ConfigEntry.Category("Wells")
     @ConfigEntry.Gui.TransitiveObject
     public RSWellsConfig RSWellsConfig = new RSWellsConfig();
+
+    @ConfigEntry.Category("Shipwrecks")
+    @ConfigEntry.Gui.TransitiveObject
+    public RSShipwrecksConfig RSShipwrecksConfig = new RSShipwrecksConfig();
 }

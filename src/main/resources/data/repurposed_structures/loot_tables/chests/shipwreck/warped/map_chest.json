@@ -11,7 +11,7 @@
 						{
 							"function": "minecraft:exploration_map",
 							"destination": "bastion_remnant",
-							"decoration": "mansion",
+							"decoration": "banner_black",
 							"zoom": 2,
 							"skip_existing_chunks": true
 						}
