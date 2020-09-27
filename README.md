@@ -1,34 +1,34 @@
 <p><img src="https://i.imgur.com/lD8Pa6U.png" alt="Picture that shows the title of this mod with a Stonebrick Fortress during sunset behind the text" width="1519" height="516" /></p>
-<h2 style="text-align: center;"><strong><span style="font-size: 36px; color: #009611;">CURRENTLY FOR 1.16.2 MC</span></strong></h2>
+<h2 style="text-align: center;"><strong><span style="font-size: 36px; color: #009611;">CURRENTLY FOR 1.16.3 MC</span></strong></h2>
 <p style="text-align: center;"><span style="color: #339966;"><strong>Works serverside too so vanilla clients can connect!</strong></span></p>
-<h2 style="text-align: center;"><span style="font-size: 14px;"><strong><span style="color: #009611;">CLICK HERE FOR FABRIC 1.16.2 MC PORT:&nbsp;</span></strong></span></h2>
+<p style="text-align: center;"><span style="color: #339966;"><strong>NOTE: Latest version of this mod requires Forge&nbsp;1.16.3-34.1.0 or newer.</strong></span></p>
+<h2 style="text-align: center;"><span style="font-size: 14px;"><strong><span style="color: #009611;">CLICK HERE FOR FABRIC 1.16.3 MC PORT:&nbsp;</span></strong></span></h2>
 <p style="text-align: center;"><span style="font-size: 14px;"><strong><span style="color: #009611;"><a href="https://www.curseforge.com/minecraft/mc-mods/repurposed-structures-fabric">https://www.curseforge.com/minecraft/mc-mods/repurposed-structures-fabric</a></span></strong></span></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;Some bugfixes lol</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;Added new Nether Ships!!</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>Special thanks to&nbsp;<a href="https://www.curseforge.com/members/miguelforge">miguelforge</a>&nbsp;and&nbsp;<a href="https://www.curseforge.com/members/cannon_foddr">cannon_foddr</a></strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>for creating the ships and letting them be added!</strong></b></span></em></p>
 <p style="text-align: center;">&nbsp;</p>
-<p style="text-align: center;">&nbsp;<em><span style="font-size: 14px;"><b><strong><br /></strong></b></span></em></p>
-<p style="text-align: center;"><b><strong><span style="font-size: 18px; color: #800000;">DO NOT LOAD THIS 1.16+ MOD IN A 1.15.2 WORLD ALREADY&nbsp;</span></strong></b></p>
-<p style="text-align: center;"><b><strong><span style="font-size: 18px; color: #800000;">MADE WITH THE 1.15.2 VERSION OF REPURPOSED STRUCTURES!!!&nbsp;</span></strong></b></p>
-<p style="text-align: center;"><b><strong><span style="font-size: 16px; color: #800000;">However, any world that never had Repurposed Structures&nbsp;</span></strong></b></p>
-<p style="text-align: center;"><b><strong><span style="font-size: 16px; color: #800000;">on before will work just fine in 1.16+ with this version of it.&nbsp;</span></strong></b></p>
-<p style="text-align: center;"><b><strong><span style="font-size: 14px; color: #800000;">This is due to this mojang bug (vote on it to increase visibility!):&nbsp;</span></strong></b></p>
-<p style="text-align: center;"><b><strong><span style="font-size: 14px; color: #800000;"><a href="https://bugs.mojang.com/browse/MC-194811">https://bugs.mojang.com/browse/MC-194811&nbsp;</a></span></strong></b></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>Also, loottables were organized so if you have a</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>datapack that modified this mod's loottables,</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>you just need to spend a few minutes to fix them.</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>See the new <a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/loot_tables/chests">loottable layout here.</a></strong></b></span></em></p>
+<p style="text-align: center;"><span style="font-size: 1.2rem;">&nbsp;</span></p>
 <p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;"><span style="font-size: 18px;"><strong>______________________________________________________________________________</strong></span></p>
 <p style="text-align: center;">&nbsp;</p>
 <h2 style="text-align: left;"><span style="color: #009611; font-size: 24px;"><strong>WHAT IS REPURPOSED STRUCTURES?</strong></span></h2>
 <p style="text-align: center;"><span style="font-size: 14px;">&nbsp;</span></p>
-<p style="text-align: left;"><span style="font-size: 14px;">&nbsp;<strong> &nbsp; Repurposed Structures is a mod about taking existing vanilla features and structures and creating new variants or modifications to them! Originally, most of the structures and features in this mod was actually made for my Ultra Amplified Dimension mod. but then I realized these features and structures would look great in the Overworld as well so I decided to take those structures and features and split them into their own mod and continue to add MORE biome variants of vanilla structures!</strong></span></p>
+<p style="text-align: left;"><span style="font-size: 14px;">&nbsp;<strong> &nbsp; Repurposed Structures is a mod about taking existing vanilla features and structures and creating new variants or modifications to them! Originally, most of the structures and features in this mod was actually made for my Ultra Amplified Dimension mod. but then I realized these features and structures would look great in the Overworld as well so I decided to take those structures and features and split them into their own mod and continue to add MORE biome variants of vanilla structures! And over time, some other people even help contribute more vanilla styled structures!</strong></span></p>
 <p style="text-align: left;">&nbsp;</p>
-<p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; Currently, this mod creates a Nether Fortresses using Stonebrick blocks and spawns it in Jungles, Dungeons and Mineshafts now has more variants to match whatever biome they are in, 9 new biome variants of Villages, 3 new temples variants, 2 new biome variants of Igloos, 3 Nether themed Pillager Outposts, End Shipwreck, Stonebrick and Nether Strongholds has a configurable size and has more Silverfish spawners, Giant Tree/Spruce Taiga Hills biomes has giant ore filled boulders that could have Diamond ore if you are extremely lucky, Taiga Mountain biomes now has tiny boulders, Swamps now has a new 2x2 swamp-like tree, and several new Desert Well variations were made for other biomes (Also, loot for Dungeons and Mineshafts are tailored to their variant as well so start exploring!)</strong></span></p>
+<p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; Currently, this mod creates a Nether Fortresses using Stonebrick blocks and spawns it in Jungles, Dungeons and Mineshafts now has more variants to match whatever biome they are in, 9 new biome variants of Villages, 3 new temples variants, 2 new biome variants of Igloos, 3 Nether themed Pillager Outposts, 4 new types of Shipwrecks, Stonebrick and Nether Strongholds has a configurable size and has more Silverfish spawners, Giant Tree/Spruce Taiga Hills biomes has giant ore filled boulders that could have Diamond ore if you are extremely lucky, Taiga Mountain biomes now has tiny boulders, Swamps now has a new 2x2 swamp-like tree, and several new Desert Well variations were made for other biomes (Also, loot for Dungeons and Mineshafts are tailored to their variant as well so start exploring!)</strong></span></p>
 <p style="text-align: left;">&nbsp;</p>
-<p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; If you have trouble finding one of these structures, just start typing `<em>/locate repu</em>` into the chat and you should see my structures pop up! For example, typing `<em>/locate repurposed_structures:fortress_jungle</em>` will find the closest Jungle Fortress to your location. :) However, do note that due to a Vanilla limitation, the locate command can only find the themed Mineshafts if they are within 1600 blocks of you. All other structures can be found easily from anywhere!</strong></span></p>
+<p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; If you have trouble finding one of these structures, just start typing `<em>/locate repu</em>` into the chat and you should see my structures pop up! For example, typing `<em>/locate repurposed_structures:fortress_jungle</em>` will find the closest Jungle Fortress to your location. :) All structures can be found easily from anywhere!</strong></span></p>
+<p>&nbsp;</p>
 <p style="text-align: left;"><span style="font-size: 14px;">&nbsp;</span></p>
 <p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; You can use this mod in a modpack or download and modify the source code. It is all under LGPL (a license) so you can do whatever you want as long as you make your mod's codebase also open sourced. Also, be sure to check out the images page for several screenshots of what the world looks like!&nbsp;And also, the section below this one talks about how to configure everything as I want players to have the ability to change things to their preferences.</strong></span></p>
-<p style="text-align: left;">&nbsp;</p>
-<p style="text-align: left;"><span style="font-size: 12px;">Note: /locate command can only find the Mineshaft if it is within 1600 blocks of you due to a hardcoded search radius in vanilla MC's code.</span></p>
-<p style="text-align: left;"><span style="font-size: 14px;">&nbsp;</span></p>
+<p>&nbsp;</p>
 <p style="text-align: left;">&nbsp;</p>
 <p style="text-align: left;"><span style="text-decoration: underline; font-size: 18px;"><strong>Extra Details about everything in this mod!</strong></span></p>
 <p>&nbsp;</p>
@@ -194,27 +194,31 @@
 <p>&nbsp;</p>
 <p><strong>Nether Mineshafts has Blaze Spawners</strong></p>
 <p>&nbsp;</p>
-<p><strong>End Mineshafts has Endermite Spawners<br /><br />All other Mineshafts has Cave Spider Spawner. And chest loot is specifically tailored to every Mineshaft with some having very unique loot and others having loot that's barely different.</strong></p>
+<p><strong>End Mineshafts has Endermite Spawners (Will also naturally spawn Endermites over time)<br /><br />All other Mineshafts has Cave Spider Spawner. And chest loot is specifically tailored to every Mineshaft with some having very unique loot and others having loot that's barely different.</strong></p>
 </div>
 <p>&nbsp;</p>
-<p><strong>Jungle Fortress loot</strong></p>
+<p><strong>Jungle Fortress</strong></p>
 <div class="spoiler">
+<p><strong>(Can naturally spawn Wither Skeletons over time but it is extremely rare)</strong></p>
+<p>&nbsp;</p>
 <p><strong>Spawner Chests</strong></p>
 <p><strong>100% : End City loot</strong></p>
 <p>&nbsp;</p>
 <p><strong>2 Mob Spawners</strong></p>
 <p><strong>100% : Silverfish</strong></p>
-<p>&nbsp;</p>
+<p><span style="font-size: 1.2rem;">&nbsp;</span></p>
 <p><strong>Hallway Chests</strong></p>
 <p><strong>38% : Village Weaponsmith loot</strong></p>
 <p><strong>38% : Village Armorer loot</strong></p>
 <p><strong>24% : Jungle Temple loot</strong></p>
 </div>
 <p>&nbsp;</p>
-<p><strong>Outposts</strong></p>
+<p><strong>Outposts&nbsp;</strong></p>
 <div class="spoiler">
-<p>&nbsp;<strong>Nether Brick Outpost loot</strong></p>
+<p>&nbsp;<strong>Nether Brick Outpost</strong></p>
 <div class="spoiler">
+<p><strong>(Can naturally spawn Piglins over time)</strong></p>
+<p>&nbsp;</p>
 <p><strong>Chests loot</strong></p>
 <p><strong><b>Can contain the following in order from most common to least common</b></strong></p>
 <p><strong><b>&nbsp;- Lvl 20 to 30 Enchanted Stone Swords</b></strong></p>
@@ -237,8 +241,10 @@
 <p><strong><b>- Netherite Scraps</b></strong></p>
 </div>
 <p>&nbsp;</p>
-<p><strong>Warped Outpost loot</strong></p>
+<p><strong>Warped Outpost</strong></p>
 <div class="spoiler">
+<p><strong>(Can naturally spawn Piglins over time)</strong></p>
+<p>&nbsp;</p>
 <p><strong>Chests loot</strong></p>
 <p><strong><b>Can contain the following in order from most common to least common</b></strong></p>
 <p><strong><b>&nbsp;- Lvl 20 to 30 Enchanted Stone Swords</b></strong></p>
@@ -261,8 +267,10 @@
 <p><strong><b>- Netherite Scraps</b></strong></p>
 </div>
 <p>&nbsp;</p>
-<p><strong>Crimson Outpost loot</strong></p>
+<p><strong>Crimson Outpost</strong></p>
 <div class="spoiler">
+<p><strong>(Can naturally spawn Piglins over time)</strong></p>
+<p>&nbsp;</p>
 <p><strong>Chests loot</strong></p>
 <p><strong><b>Can contain the following in order from most common to least common</b></strong></p>
 <p><strong><b>&nbsp;- Lvl 20 to 30 Enchanted Stone Swords</b></strong></p>
@@ -295,6 +303,7 @@
 <p>&nbsp;</p>
 <p><strong>Chests loot</strong></p>
 <p><strong><b>Can contain the following in order from most common to least common:</b></strong></p>
+<p>&nbsp;</p>
 <p><strong><b>&nbsp;- Redstone</b></strong></p>
 <p><strong><b>&nbsp;- Lvl 30 Enchanted Stone Swords</b></strong></p>
 <p><strong><b>&nbsp;- Quartz</b></strong></p>
@@ -320,6 +329,7 @@
 <p>&nbsp;</p>
 <p><strong>Chests loot</strong></p>
 <p><strong><b>Can contain the following in order from most common to least common:</b></strong></p>
+<p>&nbsp;</p>
 <p><strong><b>&nbsp;- Coal</b></strong></p>
 <p><strong><b>&nbsp;- Redstone</b></strong></p>
 <p><strong><b>&nbsp;- Lvl 30 Enchanted Stone Swords</b></strong></p>
@@ -349,6 +359,7 @@
 <p>&nbsp;</p>
 <p><strong>Chests loot</strong></p>
 <p><strong><b>Can contain the following in order from most common to least common:</b></strong></p>
+<p>&nbsp;</p>
 <p><strong><b>&nbsp;- Redstone</b></strong></p>
 <p><strong><b>&nbsp;- Lvl 30 Enchanted Stone Swords</b></strong></p>
 <p><strong><b>&nbsp;- Quartz</b></strong></p>
@@ -374,6 +385,7 @@
 <p>&nbsp;</p>
 <p><strong>Chests loot</strong></p>
 <p><strong><b>Can contain the following in order from most common to least common:</b></strong></p>
+<p>&nbsp;</p>
 <p><strong><b>&nbsp;- Redstone</b></strong></p>
 <p><strong><b>&nbsp;- Lvl 30 Enchanted Stone Swords</b></strong></p>
 <p><strong><b>&nbsp;- Quartz</b></strong></p>
@@ -401,6 +413,7 @@
 <p>&nbsp;</p>
 <p><strong>Chests loot</strong></p>
 <p><strong><b>Can contain the following in order from most common to least common:</b></strong></p>
+<p>&nbsp;</p>
 <p><strong><b>&nbsp;- Redstone</b></strong></p>
 <p><strong><b>&nbsp;- Lvl 30 Enchanted Stone Swords</b></strong></p>
 <p><strong><b>&nbsp;- Quartz</b></strong></p>
@@ -435,6 +448,7 @@
 <div class="spoiler">
 <p><strong>Chests loot</strong></p>
 <p><strong><b>Can contain the following in order from most common to least common:</b></strong></p>
+<p>&nbsp;</p>
 <p><strong><b>&nbsp;- Redstone</b></strong></p>
 <p><strong><b>&nbsp;- Lvl 30 Enchanted Stone Swords</b></strong></p>
 <p><strong><b>&nbsp;- Quartz</b></strong></p>
@@ -455,11 +469,15 @@
 </div>
 </div>
 <p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;<strong>Shipwrecks</strong></p>
+<div class="spoiler">
 <p><strong>End Shipwreck</strong></p>
 <div class="spoiler">
 <p><strong>Treasure Chest loot</strong></p>
 <div class="spoiler">
 <p>&nbsp;<strong><b>Can contain the following in order from most common to least common:</b></strong></p>
+<p>&nbsp;</p>
 <p><strong><b>&nbsp;- Iron Nugget</b></strong></p>
 <p><strong><b>&nbsp;- Lapis Lazuli</b></strong></p>
 <p><strong><b>&nbsp;- GoldNugget</b></strong></p>
@@ -475,8 +493,8 @@
 <p>&nbsp;</p>
 <p><strong>Map Chest loot</strong></p>
 <div class="spoiler">
+<p>&nbsp;<strong><b>Can contain the following in order from most common to least common:</b></strong></p>
 <p>&nbsp;</p>
-<p><strong><b>Can contain the following in order from most common to least common:</b></strong></p>
 <p><strong><b>&nbsp;- 1 Treasure Map that points to closest unexplored End City</b></strong></p>
 <p><strong><b>&nbsp;- Lvl 30 Enchanted Stone Swords</b></strong></p>
 <p><strong><b>&nbsp;- Paper</b></strong></p>
@@ -492,8 +510,8 @@
 <p>&nbsp;</p>
 <p><strong>Supply Chest loot</strong></p>
 <div class="spoiler">
+<p>&nbsp;<strong><b>Can contain the following in order from most common to least common:</b></strong></p>
 <p>&nbsp;</p>
-<p><strong><b>Can contain the following in order from most common to least common:</b></strong></p>
 <p><strong><b>&nbsp;- Suspicious Stew that could give Blindness, Levitation, Weakness, Jump Boost, Night Vision, Saturation, Invisibility, Slow Falling, or Glowing</b></strong></p>
 <p><strong><b>&nbsp;- Paper</b></strong></p>
 <p><strong><b>&nbsp;- Chorus Fruit</b></strong></p>
@@ -512,22 +530,196 @@
 </div>
 </div>
 <p>&nbsp;</p>
+<p><strong>Nether Bricks Shipwreck</strong></p>
+<div class="spoiler">
+<p><strong>(Can naturally spawn Wither Skeletons over time)</strong></p>
+<p>&nbsp;</p>
+<p><strong>Treasure Chest loot</strong></p>
+<div class="spoiler">
+<p>&nbsp;<strong><b>Can contain the following in order from most common to least common:</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>&nbsp;- Iron Ingot</b></strong></p>
+<p><strong><b>- Coal</b></strong></p>
+<p><strong><b>- Netherite Ingot</b></strong></p>
+<p><strong><b>- Bone</b></strong></p>
+<p><strong><b>- Ancient Debris</b></strong></p>
+<p><strong><b>- Nether Fortress Map</b></strong></p>
+<p><strong><b>- Bastion Remnant Map</b></strong></p>
+<p><strong><b>- Experience Bottle</b></strong></p>
+<p><strong><b>- Gold Ingot</b></strong></p>
+<p><strong><b>- Lvl 30 Enchanted Stone Sword&nbsp;</b></strong></p>
+<p><strong><b>- Netherite Scrap</b></strong></p>
+<p><strong><b>- Spectral Arrow</b></strong></p>
+<p><strong><b>- Crying Obsidian</b></strong></p>
+<p><strong><b>- Gold Block</b></strong></p>
+<p><strong><b>- Iron Block</b></strong></p>
+<p><strong><b>- Elytra (0.02% to 0.05% chance. Very very rare)</b></strong></p>
+</div>
+</div>
+<p>&nbsp;</p>
+<p><strong>Crimson Shipwreck</strong></p>
+<div class="spoiler">
+<p><strong>(Can naturally spawn Wither Skeletons over time)</strong></p>
+<p>&nbsp;</p>
+<p><strong>Treasure Chest loot</strong></p>
+<div class="spoiler">
+<p>&nbsp;<strong><b>Can contain the following in order from most common to least common:</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>&nbsp;- Iron Ingot</b></strong></p>
+<p><strong><b>&nbsp;- Lvl 30 Enchanted Stone Sword</b></strong></p>
+<p><strong><b>&nbsp;- Experience Bottle</b></strong></p>
+<p><strong><b>&nbsp;- Coal</b></strong></p>
+<p><strong><b>&nbsp;- Bone</b></strong></p>
+<p><strong><b>&nbsp;- Iron Nugget</b></strong></p>
+<p><strong><b>&nbsp;- Gold Nugget</b></strong></p>
+<p><strong><b>&nbsp;- Spectral Arrow</b></strong></p>
+<p><strong><b>&nbsp;- Lvl 30 Enchanted Book</b></strong></p>
+<p><strong>&nbsp;- Netherite Ingot</strong></p>
+<p><strong><b>&nbsp;- Gold Ingot</b></strong></p>
+<p><strong><b>&nbsp;- Ancient Debris</b></strong></p>
+<p><strong><b>&nbsp;- Netherite Scrap</b></strong></p>
+<p><strong><b>&nbsp;- Gold Block</b></strong></p>
+<p><strong><b>&nbsp;- Iron Block</b></strong></p>
+<p><strong><b>&nbsp;- Crying Obsidian</b></strong></p>
+<p><strong><b>&nbsp;- Quartz</b></strong></p>
+<p><strong><b>&nbsp;- Gilded Blackstone</b></strong></p>
+<p><strong><b>&nbsp;- Magma Cream</b></strong></p>
+</div>
+<p>&nbsp;</p>
+<p><strong>Map Chest loot</strong></p>
+<div class="spoiler">
+<p>&nbsp;<strong><b>Can contain the following in order from most common to least common:</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>&nbsp;- Nether Fortress Map</b></strong></p>
+<p><strong><b>&nbsp;- Bastion Remnant Map</b></strong></p>
+<p><strong><b>&nbsp;- Empty Map</b></strong></p>
+<p><strong><b>&nbsp;- Compass</b></strong></p>
+<p><strong><b>&nbsp;- Clock</b></strong></p>
+<p><strong><b>&nbsp;- Paper</b></strong></p>
+<p><strong>&nbsp;- Feather</strong></p>
+<p><strong>&nbsp;- Bone</strong></p>
+<p><strong>&nbsp;- Coal</strong></p>
+<p><strong><b>&nbsp;- Book</b></strong></p>
+<p><strong><b>&nbsp;- Book and Quill</b></strong></p>
+<p><strong><b>&nbsp;- Lvl 25 to 30 Enchanted Books</b></strong></p>
+</div>
+<p>&nbsp;</p>
+<p><strong>Supply Chest loot</strong></p>
+<div class="spoiler">
+<p>&nbsp;<strong><b>Can contain the following in order from most common to least common:</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>&nbsp;- Suspicious Stew that could give Blindness, Wither, Weakness, Poison, Unluck, Fire Resistance, Night Vision, Saturation</b></strong></p>
+<p><strong><b>&nbsp;- Paper</b></strong></p>
+<p><strong><b>&nbsp;- Crimson Fungus</b></strong></p>
+<p><strong><b>&nbsp;- Nether Wart Block</b></strong></p>
+<p><strong><b>&nbsp;- Shroomlight</b></strong></p>
+<p><strong>&nbsp;- Ghast Tear</strong></p>
+<p><strong><b>&nbsp;- Firework Star that is flickering Black with Red Trail and does cone shape</b></strong></p>
+<p><strong><b>&nbsp;- Firework Star that is flickering Red with Black Trail and does cone shape</b></strong></p>
+<p><strong><b>&nbsp;- Warped Fungus on a Stick</b></strong></p>
+<p><strong><b>&nbsp;- Gunpowder</b></strong></p>
+<p><strong><b>&nbsp;- Randomly Enchanted Iron Helmet</b></strong></p>
+<p><strong><b>&nbsp;- Randomly Enchanted Iron Chestplate</b></strong></p>
+<p><strong><b>&nbsp;- Randomly Enchanted Iron Leggings</b></strong></p>
+<p><strong><b>&nbsp;- Randomly Enchanted Iron Boots</b></strong></p>
+<p><strong><b>&nbsp;- Red Stained Glass Pane</b></strong></p>
+<p><strong><b>&nbsp;- Black Stained Glass Pane</b></strong></p>
+</div>
+</div>
+<p>&nbsp;</p>
+<p><strong>Warped Shipwreck</strong></p>
+<div class="spoiler">
+<p><strong>(Can naturally spawn Wither Skeletons over time)</strong></p>
+<p>&nbsp;</p>
+<p><strong>Treasure Chest loot</strong></p>
+<div class="spoiler">
+<p>&nbsp;<strong><b>Can contain the following in order from most common to least common:</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>&nbsp;- Iron Ingot</b></strong></p>
+<p><strong><b>&nbsp;- Lvl 30 Enchanted Stone Sword</b></strong></p>
+<p><strong><b>&nbsp;- Experience Bottle</b></strong></p>
+<p><strong><b>&nbsp;- Coal</b></strong></p>
+<p><strong><b>&nbsp;- Bone</b></strong></p>
+<p><strong><b>&nbsp;- Iron Nugget</b></strong></p>
+<p><strong><b>&nbsp;- Gold Nugget</b></strong></p>
+<p><strong><b>&nbsp;- Spectral Arrow</b></strong></p>
+<p><strong><b>&nbsp;- Lvl 30 Enchanted Book</b></strong></p>
+<p><strong>&nbsp;- Netherite Ingot</strong></p>
+<p><strong><b>&nbsp;- Gold Ingot</b></strong></p>
+<p><strong><b>&nbsp;- Ancient Debris</b></strong></p>
+<p><strong><b>&nbsp;- Netherite Scrap</b></strong></p>
+<p><strong><b>&nbsp;- Gold Block</b></strong></p>
+<p><strong><b>&nbsp;- Iron Block</b></strong></p>
+<p><strong><b>&nbsp;- Crying Obsidian</b></strong></p>
+<p><strong><b>&nbsp;- Quartz</b></strong></p>
+<p><strong><b>&nbsp;- Gilded Blackstone</b></strong></p>
+<p><strong><b>&nbsp;- Magma Cream</b></strong></p>
+</div>
+<p>&nbsp;</p>
+<p><strong>Map Chest loot</strong></p>
+<div class="spoiler">
+<p>&nbsp;<strong><b>Can contain the following in order from most common to least common:</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>&nbsp;- Nether Fortress Map</b></strong></p>
+<p><strong><b>&nbsp;- Bastion Remnant Map</b></strong></p>
+<p><strong><b>&nbsp;- Empty Map</b></strong></p>
+<p><strong><b>&nbsp;- Compass</b></strong></p>
+<p><strong><b>&nbsp;- Clock</b></strong></p>
+<p><strong><b>&nbsp;- Paper</b></strong></p>
+<p><strong>&nbsp;- Feather</strong></p>
+<p><strong>&nbsp;- Bone</strong></p>
+<p><strong>&nbsp;- Coal</strong></p>
+<p><strong><b>&nbsp;- Book</b></strong></p>
+<p><strong><b>&nbsp;- Book and Quill</b></strong></p>
+<p><strong><b>&nbsp;- Lvl 25 to 30 Enchanted Books</b></strong></p>
+</div>
+<p>&nbsp;</p>
+<p><strong>Supply Chest loot</strong></p>
+<div class="spoiler">
+<p>&nbsp;<strong><b>Can contain the following in order from most common to least common:</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>&nbsp;- Suspicious Stew that could give Blindness, Wither, Weakness, Poison, Unluck, Fire Resistance, Night Vision, Saturation</b></strong></p>
+<p><strong><b>&nbsp;- Paper</b></strong></p>
+<p><strong><b>&nbsp;- Warped Fungus</b></strong></p>
+<p><strong><b>&nbsp;- Warped Wart Block</b></strong></p>
+<p><strong><b>&nbsp;- Shroomlight</b></strong></p>
+<p><strong>&nbsp;- Ghast Tear</strong></p>
+<p><strong><b>&nbsp;- Firework Star that is flickering Black with Blue Trail and does cone shape</b></strong></p>
+<p><strong><b>&nbsp;- Firework Star that is flickering Blue with Black Trail and does cone shape</b></strong></p>
+<p><strong><b>&nbsp;- Warped Fungus on a Stick</b></strong></p>
+<p><strong><b>&nbsp;- Gunpowder</b></strong></p>
+<p><strong><b>&nbsp;- Randomly Enchanted Iron Helmet</b></strong></p>
+<p><strong><b>&nbsp;- Randomly Enchanted Iron Chestplate</b></strong></p>
+<p><strong><b>&nbsp;- Randomly Enchanted Iron Leggings</b></strong></p>
+<p><strong><b>&nbsp;- Randomly Enchanted Iron Boots</b></strong></p>
+<p><strong><b>&nbsp;- Lime Stained Glass Pane</b></strong></p>
+<p><strong><b>&nbsp;- Black Stained Glass Pane</b></strong></p>
+</div>
+</div>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 <p><strong>Strongholds</strong></p>
 <div class="spoiler">
-<p>&nbsp;<strong>Stronghold Chest rates and Silverfish Spawner locations</strong></p>
+<p>&nbsp;<strong>Stonebrick Stronghold</strong></p>
 <div class="spoiler">
 <p><strong>Chest loot is not changed.</strong></p>
 <p><strong>Corridor Chests has a 33% chance of spawning.</strong></p>
 <p><strong>Storage rooms has 4 chests instead of 1 due to them not having much loot naturally.</strong></p>
+<p>&nbsp;</p>
 <p><strong>Silverfish spawners are added to storage room, the room with the pillar that holds 4 Torches, and fountain room.</strong></p>
 </div>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p><strong>Nether Stronghold Chest rates and Blaze Spawner locations</strong></p>
 <div class="spoiler">
+<p><strong>(Can naturally spawn Blaze, Zombified Piglins, Wither Skeletons, Skeletons, and Magma Cubes over time)</strong></p>
+<p>&nbsp;</p>
 <p><strong>Non-Library chest loot uses the Nether Fortress's chest loot table.</strong></p>
 <p><strong>Corridor Chests has a 33% chance of spawning.</strong></p>
 <p><strong>Storage rooms has 4 chests instead of 1 due to them not having much loot naturally.</strong></p>
+<p>&nbsp;</p>
 <p><strong>The Silverfish spawner at the Portal Room is now a Blaze spawner.</strong></p>
 <p>&nbsp;</p>
 <p><strong>Extra spawners are added to storage room, the room with the pillar that holds 4 Torches, and fountain room. </strong></p>
@@ -597,8 +789,8 @@
 <p><span style="font-size: 18px;"><strong>______________________________________________________________________________</strong></span></p>
 <p><span style="font-size: 18px;">&nbsp;</span></p>
 <h2><strong><span style="font-size: 24px; color: #009611;">HOW CAN I CONFIGURE THIS MOD?</span></strong></h2>
-<p>&nbsp;</p>
-<p><span style="font-size: 18px;">&nbsp;&nbsp;<strong> &nbsp;To reach this mod's config file, go into the config folder that is above the mods folder and edit any of the repurposed_structures-___.toml files to change the config. The config is split up into many files for better organization and ease of edition. Then exit/restart Minecraft for all changes to take effect. Do note that the config will affect this mod for all worlds so keep that in mind.</strong></span></p>
+<p><span style="font-size: 14px;">&nbsp;</span></p>
+<p><span style="font-size: 14px;">&nbsp;&nbsp;<strong> &nbsp;To reach this mod's config file, go into the config folder that is above the mods folder and edit any of the repurposed_structures-___.toml files to change the config. The config is split up into many files for better organization and ease of edition. Then exit/restart Minecraft for all changes to take effect. Do note that the config will affect this mod for all worlds so keep that in mind.</strong></span></p>
 <p>&nbsp;</p>
 <p><strong>&nbsp; &nbsp; Right now, there are lots of config options. The big ones that you may be interested in are the <span style="font-size: 14px;">add____ToModdedBiomes</span> config entries. Turning this on will make the config add the features or structures to any modded biomes with the correct category. For example, if you turn on <span style="font-size: 14px;">addMineshaftsToModdedBiomes</span> and you have a mod that adds a new kind of Desert biome in any dimension, then that biome will now spawn Desert themed Mineshafts in it!</strong></p>
 <p>&nbsp;</p>
@@ -639,7 +831,9 @@
 <p>&nbsp;</p>
 <p><strong>The mob spawner for all none-nbt based structures can be changed with datapacks as well! You just need to override the json files for the spawners which you can find here:</strong></p>
 <p><strong><a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/rs_spawners">https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/rs_spawners</a></strong></p>
-<p>&nbsp;<br /><span style="font-size: 12px;"><strong>And some structure pieces such as Wells, Villages, Outposts, Shipwrecks, Pyramids, and Igloos can also be overridden with datapacks. You can find what pieces can be replaced and their filenames here: <a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/structures">https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/structures</a></strong></span><br /><br /></p>
+<p>&nbsp;<br /><span style="font-size: 12px;"><strong>And some structure pieces such as Wells, Villages, Outposts, Shipwrecks, Pyramids, and Igloos can also be overridden with datapacks. Furthermore, the template pools that holds structure pieces for Villages can also be overridden with datapacks to add your own pieces to the villages! You can find what pieces can be replaced and their filenames here: </strong></span></p>
+<p><span style="font-size: 12px;"><strong><a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/structures">https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/structures</a></strong></span><br /><a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/worldgen"><strong>https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/worldgen</strong></a></p>
+<p>&nbsp;</p>
 <p><span style="font-size: 14px;"><strong>Let me know if you think of a new config option that you would need and I will try and add it! :)&nbsp;</strong></span></p>
 <p><span style="font-size: 18px;"><strong>______________________________________________________________________________</strong></span></p>
 <p>&nbsp;</p>
@@ -666,6 +860,8 @@
 <p style="text-align: center;"><span style="font-size: 12px;">&nbsp;allowing&nbsp;me to use his Nether Pyramid and Nether Crimson Outpost design!&nbsp;</span></p>
 <p style="text-align: center;"><span style="font-size: 12px;"><br />Special Thanks to&nbsp;<strong>cannon_foddr</strong> for allowing me to</span></p>
 <p style="text-align: center;"><span style="font-size: 12px;">use his Nether Brick Outpost and End Shipwreck design!</span></p>
+<p style="text-align: center;"><br />Special Thanks to&nbsp;<strong>miguelforge</strong>&nbsp;for allowing me to</p>
+<p style="text-align: center;">use his Crimson and Warped Shipwreck design!</p>
 <p>&nbsp;</p>
 <p><span style="font-size: 14px; color: #009611;"><strong><span style="text-decoration: underline;">*If you find an issue, glitch, or have a suggestion about my mod, let me know! But if you don't have a GitHub account to report in the Issue tab above, just comment what the problem is below and I'll try and get back to you ASAP! :)&nbsp;</span></strong></span></p>
 <p>&nbsp;</p>
