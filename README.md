@@ -1,7 +1,8 @@
 <p><img src="https://i.imgur.com/lD8Pa6U.png" alt="Picture that shows the title of this mod with a Stonebrick Fortress during sunset behind the text" width="1519" height="516" /></p>
-<h2 style="text-align: center;"><strong><span style="font-size: 36px; color: #009611;">CURRENTLY FOR 1.16.2 MC</span></strong></h2>
+<h2 style="text-align: center;"><strong><span style="font-size: 36px; color: #009611;">CURRENTLY FOR 1.16.3 MC</span></strong></h2>
 <p style="text-align: center;"><span style="color: #339966;"><strong>Works serverside too so vanilla clients can connect!</strong></span></p>
-<h2 style="text-align: center;"><span style="font-size: 14px;"><strong><span style="color: #009611;">CLICK HERE FOR FABRIC 1.16.2 MC PORT:&nbsp;</span></strong></span></h2>
+<p style="text-align: center;"><span style="color: #339966;"><strong>NOTE: Latest version of this mod requires Forge&nbsp;1.16.3-34.1.0 or newer.</strong></span></p>
+<h2 style="text-align: center;"><span style="font-size: 14px;"><strong><span style="color: #009611;">CLICK HERE FOR FABRIC 1.16.3 MC PORT:&nbsp;</span></strong></span></h2>
 <p style="text-align: center;"><span style="font-size: 14px;"><strong><span style="color: #009611;"><a href="https://www.curseforge.com/minecraft/mc-mods/repurposed-structures-fabric">https://www.curseforge.com/minecraft/mc-mods/repurposed-structures-fabric</a></span></strong></span></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
@@ -13,7 +14,7 @@
 <p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>datapack that modified this mod's loottables,</strong></b></span></em></p>
 <p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>you just need to spend a few minutes to fix them.</strong></b></span></em></p>
 <p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>See the new <a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/loot_tables/chests">loottable layout here.</a></strong></b></span></em></p>
-<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;"><span style="font-size: 1.2rem;">&nbsp;</span></p>
 <p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;"><span style="font-size: 18px;"><strong>______________________________________________________________________________</strong></span></p>
 <p style="text-align: center;">&nbsp;</p>
@@ -193,27 +194,31 @@
 <p>&nbsp;</p>
 <p><strong>Nether Mineshafts has Blaze Spawners</strong></p>
 <p>&nbsp;</p>
-<p><strong>End Mineshafts has Endermite Spawners<br /><br />All other Mineshafts has Cave Spider Spawner. And chest loot is specifically tailored to every Mineshaft with some having very unique loot and others having loot that's barely different.</strong></p>
+<p><strong>End Mineshafts has Endermite Spawners (Will also naturally spawn Endermites over time)<br /><br />All other Mineshafts has Cave Spider Spawner. And chest loot is specifically tailored to every Mineshaft with some having very unique loot and others having loot that's barely different.</strong></p>
 </div>
 <p>&nbsp;</p>
-<p><strong>Jungle Fortress loot</strong></p>
+<p><strong>Jungle Fortress</strong></p>
 <div class="spoiler">
+<p><strong>(Can naturally spawn Wither Skeletons over time but it is extremely rare)</strong></p>
+<p>&nbsp;</p>
 <p><strong>Spawner Chests</strong></p>
 <p><strong>100% : End City loot</strong></p>
 <p>&nbsp;</p>
 <p><strong>2 Mob Spawners</strong></p>
 <p><strong>100% : Silverfish</strong></p>
-<p>&nbsp;</p>
+<p><span style="font-size: 1.2rem;">&nbsp;</span></p>
 <p><strong>Hallway Chests</strong></p>
 <p><strong>38% : Village Weaponsmith loot</strong></p>
 <p><strong>38% : Village Armorer loot</strong></p>
 <p><strong>24% : Jungle Temple loot</strong></p>
 </div>
 <p>&nbsp;</p>
-<p><strong>Outposts</strong></p>
+<p><strong>Outposts&nbsp;</strong></p>
 <div class="spoiler">
-<p>&nbsp;<strong>Nether Brick Outpost loot</strong></p>
+<p>&nbsp;<strong>Nether Brick Outpost</strong></p>
 <div class="spoiler">
+<p><strong>(Can naturally spawn Piglins over time)</strong></p>
+<p>&nbsp;</p>
 <p><strong>Chests loot</strong></p>
 <p><strong><b>Can contain the following in order from most common to least common</b></strong></p>
 <p><strong><b>&nbsp;- Lvl 20 to 30 Enchanted Stone Swords</b></strong></p>
@@ -236,8 +241,10 @@
 <p><strong><b>- Netherite Scraps</b></strong></p>
 </div>
 <p>&nbsp;</p>
-<p><strong>Warped Outpost loot</strong></p>
+<p><strong>Warped Outpost</strong></p>
 <div class="spoiler">
+<p><strong>(Can naturally spawn Piglins over time)</strong></p>
+<p>&nbsp;</p>
 <p><strong>Chests loot</strong></p>
 <p><strong><b>Can contain the following in order from most common to least common</b></strong></p>
 <p><strong><b>&nbsp;- Lvl 20 to 30 Enchanted Stone Swords</b></strong></p>
@@ -260,8 +267,10 @@
 <p><strong><b>- Netherite Scraps</b></strong></p>
 </div>
 <p>&nbsp;</p>
-<p><strong>Crimson Outpost loot</strong></p>
+<p><strong>Crimson Outpost</strong></p>
 <div class="spoiler">
+<p><strong>(Can naturally spawn Piglins over time)</strong></p>
+<p>&nbsp;</p>
 <p><strong>Chests loot</strong></p>
 <p><strong><b>Can contain the following in order from most common to least common</b></strong></p>
 <p><strong><b>&nbsp;- Lvl 20 to 30 Enchanted Stone Swords</b></strong></p>
@@ -523,6 +532,8 @@
 <p>&nbsp;</p>
 <p><strong>Nether Bricks Shipwreck</strong></p>
 <div class="spoiler">
+<p><strong>(Can naturally spawn Wither Skeletons over time)</strong></p>
+<p>&nbsp;</p>
 <p><strong>Treasure Chest loot</strong></p>
 <div class="spoiler">
 <p>&nbsp;<strong><b>Can contain the following in order from most common to least common:</b></strong></p>
@@ -548,6 +559,8 @@
 <p>&nbsp;</p>
 <p><strong>Crimson Shipwreck</strong></p>
 <div class="spoiler">
+<p><strong>(Can naturally spawn Wither Skeletons over time)</strong></p>
+<p>&nbsp;</p>
 <p><strong>Treasure Chest loot</strong></p>
 <div class="spoiler">
 <p>&nbsp;<strong><b>Can contain the following in order from most common to least common:</b></strong></p>
@@ -616,6 +629,8 @@
 <p>&nbsp;</p>
 <p><strong>Warped Shipwreck</strong></p>
 <div class="spoiler">
+<p><strong>(Can naturally spawn Wither Skeletons over time)</strong></p>
+<p>&nbsp;</p>
 <p><strong>Treasure Chest loot</strong></p>
 <div class="spoiler">
 <p>&nbsp;<strong><b>Can contain the following in order from most common to least common:</b></strong></p>
@@ -687,20 +702,24 @@
 <p>&nbsp;</p>
 <p><strong>Strongholds</strong></p>
 <div class="spoiler">
-<p>&nbsp;<strong>Stronghold Chest rates and Silverfish Spawner locations</strong></p>
+<p>&nbsp;<strong>Stonebrick Stronghold</strong></p>
 <div class="spoiler">
 <p><strong>Chest loot is not changed.</strong></p>
 <p><strong>Corridor Chests has a 33% chance of spawning.</strong></p>
 <p><strong>Storage rooms has 4 chests instead of 1 due to them not having much loot naturally.</strong></p>
+<p>&nbsp;</p>
 <p><strong>Silverfish spawners are added to storage room, the room with the pillar that holds 4 Torches, and fountain room.</strong></p>
 </div>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p><strong>Nether Stronghold Chest rates and Blaze Spawner locations</strong></p>
 <div class="spoiler">
+<p><strong>(Can naturally spawn Blaze, Zombified Piglins, Wither Skeletons, Skeletons, and Magma Cubes over time)</strong></p>
+<p>&nbsp;</p>
 <p><strong>Non-Library chest loot uses the Nether Fortress's chest loot table.</strong></p>
 <p><strong>Corridor Chests has a 33% chance of spawning.</strong></p>
 <p><strong>Storage rooms has 4 chests instead of 1 due to them not having much loot naturally.</strong></p>
+<p>&nbsp;</p>
 <p><strong>The Silverfish spawner at the Portal Room is now a Blaze spawner.</strong></p>
 <p>&nbsp;</p>
 <p><strong>Extra spawners are added to storage room, the room with the pillar that holds 4 Torches, and fountain room. </strong></p>
@@ -816,7 +835,8 @@
 <p><span style="font-size: 12px;"><strong><a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/structures">https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/structures</a></strong></span><br /><a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/worldgen"><strong>https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/worldgen</strong></a></p>
 <p>&nbsp;</p>
 <p><span style="font-size: 14px;"><strong>Let me know if you think of a new config option that you would need and I will try and add it! :)&nbsp;</strong></span></p>
-<p><span style="font-size: 18px;"><strong>______________________________________________________________________________</strong></span></p><p>&nbsp;</p>
+<p><span style="font-size: 18px;"><strong>______________________________________________________________________________</strong></span></p>
+<p>&nbsp;</p>
 <h2><strong><span style="font-size: 24px; color: #009611;">PRE-MADE DATAPACKS</span></strong></h2>
 <p>&nbsp;</p>
 <p>Since Villages, Temples, Shipwrecks, Wells, and their template pools/processors, you can override all of this with datapacks! That means you can customize the blocks in those structures with other mod's blocks or add pieces of other mod's villages into RS's villages!&nbsp;If you decide to use the datapack below, download it, go into your world's save folder, and put the zipped folder into the datapack folder. Now when you load the game, the datapack should take effect! (Also, you can share mod-compat datapacks you made to me and I'll add it below after I check it out and like it!)</p>
@@ -840,6 +860,8 @@
 <p style="text-align: center;"><span style="font-size: 12px;">&nbsp;allowing&nbsp;me to use his Nether Pyramid and Nether Crimson Outpost design!&nbsp;</span></p>
 <p style="text-align: center;"><span style="font-size: 12px;"><br />Special Thanks to&nbsp;<strong>cannon_foddr</strong> for allowing me to</span></p>
 <p style="text-align: center;"><span style="font-size: 12px;">use his Nether Brick Outpost and End Shipwreck design!</span></p>
+<p style="text-align: center;"><br />Special Thanks to&nbsp;<strong>miguelforge</strong>&nbsp;for allowing me to</p>
+<p style="text-align: center;">use his Crimson and Warped Shipwreck design!</p>
 <p>&nbsp;</p>
 <p><span style="font-size: 14px; color: #009611;"><strong><span style="text-decoration: underline;">*If you find an issue, glitch, or have a suggestion about my mod, let me know! But if you don't have a GitHub account to report in the Issue tab above, just comment what the problem is below and I'll try and get back to you ASAP! :)&nbsp;</span></strong></span></p>
 <p>&nbsp;</p>
