@@ -101,6 +101,7 @@
   "filled_map.fortress": "Nether Fortress Map",
   "filled_map.bastion_remnant": "Bastion Remnant Map",
   "filled_map.endcity": "End City Map",
+  "filled_map.repurposed_structures:fortress_jungle":"Jungle Fortress Map",
 
   "text.autoconfig.repurposed_structures-main.category.Shipwrecks": "Shipwrecks Configs",
   "text.autoconfig.repurposed_structures-main.option.RSShipwrecksConfig.blacklist": "Blacklists",
