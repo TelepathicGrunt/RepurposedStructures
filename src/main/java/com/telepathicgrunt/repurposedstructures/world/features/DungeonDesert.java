@@ -34,7 +34,7 @@ public class DungeonDesert extends Feature<DefaultFeatureConfig> {
     private static final BlockState CREEPER_SANDSTONE = Blocks.CHISELED_SANDSTONE.getDefaultState();
     private static final BlockState SLAB_BOTTOM = Blocks.SANDSTONE_SLAB.getDefaultState();
     private static final BlockState SLAB_TOP = Blocks.SANDSTONE_SLAB.getDefaultState().with(SlabBlock.TYPE, SlabType.TOP);
-    private static final Identifier CHEST_LOOT = new Identifier(RepurposedStructures.MODID, "chest/dungeon/desert");
+    private static final Identifier CHEST_LOOT = new Identifier(RepurposedStructures.MODID, "chests/dungeon/desert");
     private static final Identifier SPAWNER_ID = new Identifier(RepurposedStructures.MODID, "dungeon_desert");
 
 
