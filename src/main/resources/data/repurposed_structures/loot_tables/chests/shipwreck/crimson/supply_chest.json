@@ -1,0 +1,285 @@
+{
+	"type": "minecraft:chest",
+	"pools": [
+		{
+			"rolls": {
+				"min": 5.0,
+				"max": 11.0,
+				"type": "minecraft:uniform"
+			},
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"weight": 8,
+					"functions": [
+						{
+							"function": "minecraft:set_stew_effect",
+							"effects": [
+								{
+									"type": "minecraft:blindness",
+									"duration": {
+										"min": 10.0,
+										"max": 25.0
+									}
+								},
+								{
+									"type": "minecraft:wither",
+									"duration": {
+										"min": 10.0,
+										"max": 20.0
+									}
+								},
+								{
+									"type": "minecraft:weakness",
+									"duration": {
+										"min": 30.0,
+										"max": 50.0
+									}
+								},
+								{
+									"type": "minecraft:poison",
+									"duration": {
+										"min": 15.0,
+										"max": 30.0
+									}
+								},
+								{
+									"type": "minecraft:unluck",
+									"duration": {
+										"min": 200.0,
+										"max": 400.0
+									}
+								},
+								{
+									"type": "minecraft:fire_resistance",
+									"duration": {
+										"min": 360.0,
+										"max": 600.0
+									}
+								},
+								{
+									"type": "minecraft:night_vision",
+									"duration": {
+										"min": 60.0,
+										"max": 120.0
+									}
+								},
+								{
+									"type": "minecraft:saturation",
+									"duration": {
+										"min": 10.0,
+										"max": 12.0
+									}
+								}
+							]
+						}
+					],
+					"name": "minecraft:suspicious_stew"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 8,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 1.0,
+								"max": 12.0,
+								"type": "minecraft:uniform"
+							}
+						}
+					],
+					"name": "minecraft:paper"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 7,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 2.0,
+								"max": 12.0,
+								"type": "minecraft:uniform"
+							}
+						}
+					],
+					"name": "minecraft:crimson_fungus"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 7,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 1.0,
+								"max": 10.0,
+								"type": "minecraft:uniform"
+							}
+						}
+					],
+					"name": "minecraft:nether_wart_block"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 7,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 5.0,
+								"max": 10.0,
+								"type": "minecraft:uniform"
+							}
+						}
+					],
+					"name": "minecraft:shroomlight"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 6,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 2.0,
+								"max": 5.0,
+								"type": "minecraft:uniform"
+							}
+						}
+					],
+					"name": "minecraft:ghast_tear"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 4,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 1.0,
+								"max": 3.0,
+								"type": "minecraft:uniform"
+							}
+						},
+						{
+							"function":"set_nbt",
+							"tag":"{Explosion:{Colors:[I;0], FadeColors:[I;12201518], Trail:1b, Flicker:1b, Type:4b}}"
+						}
+					],
+					"name": "minecraft:firework_star"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 4,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 1.0,
+								"max": 3.0,
+								"type": "minecraft:uniform"
+							}
+						},
+						{
+							"function":"set_nbt",
+							"tag":"{Explosion:{Colors:[I;12201518], FadeColors:[I;0], Trail:1b, Flicker:1b, Type:4b}}"
+						}
+					],
+					"name": "minecraft:firework_star"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 4,
+					"name": "minecraft:warped_fungus_on_a_stick"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 3,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 10.0,
+								"max": 15.0,
+								"type": "minecraft:uniform"
+							}
+						}
+					],
+					"name": "minecraft:gunpowder"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 3,
+					"functions": [
+						{
+							"function": "minecraft:enchant_randomly"
+						}
+					],
+					"name": "minecraft:iron_helmet"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 3,
+					"functions": [
+						{
+							"function": "minecraft:enchant_randomly"
+						}
+					],
+					"name": "minecraft:iron_chestplate"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 3,
+					"functions": [
+						{
+							"function": "minecraft:enchant_randomly"
+						}
+					],
+					"name": "minecraft:iron_leggings"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 3,
+					"functions": [
+						{
+							"function": "minecraft:enchant_randomly"
+						}
+					],
+					"name": "minecraft:iron_boots"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 2,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 1.0,
+								"max": 3.0,
+								"type": "minecraft:uniform"
+							}
+						}
+					],
+					"name": "minecraft:red_stained_glass_pane"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 2,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 1.0,
+								"max": 3.0,
+								"type": "minecraft:uniform"
+							}
+						}
+					],
+					"name": "minecraft:black_stained_glass_pane"
+				}
+			]
+		}
+	]
+}
