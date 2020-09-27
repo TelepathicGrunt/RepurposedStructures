@@ -375,6 +375,30 @@ public class RSAddFeatures {
 
             biome.getGenerationSettings().getStructureFeatures().add(() -> RSConfiguredStructures.END_SHIPWRECK);
         }
+
+        //Nether based Shipwrecks
+        if(biome.getCategory() == Category.NETHER)
+        {
+            if (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.crimsonOutpostSpawnrate != 1001 &&
+                    biomeID.getPath().contains("crimson") &&
+                    (biomeID.getNamespace().equals("minecraft") || RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.addCrimsonOutpostToModdedBiomes)) {
+
+                biome.getGenerationSettings().getStructureFeatures().add(() -> RSConfiguredStructures.CRIMSON_SHIPWRECK);
+            }
+
+            else if (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.warpedOutpostSpawnrate != 1001 &&
+                    biomeID.getPath().contains("warped") &&
+                    (biomeID.getNamespace().equals("minecraft") || RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.addWarpedOutpostToModdedBiomes)) {
+
+                biome.getGenerationSettings().getStructureFeatures().add(() -> RSConfiguredStructures.WARPED_SHIPWRECK);
+            }
+
+            else if (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.netherBrickOutpostSpawnrate != 1001 &&
+                    (biomeID.getNamespace().equals("minecraft") || RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.addNetherBrickOutpostToModdedBiomes)) {
+
+                biome.getGenerationSettings().getStructureFeatures().add(() -> RSConfiguredStructures.NETHER_BRICKS_SHIPWRECK);
+            }
+        }
     }
 
 

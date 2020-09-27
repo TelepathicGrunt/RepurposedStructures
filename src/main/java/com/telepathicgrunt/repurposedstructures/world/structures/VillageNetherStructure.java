@@ -20,7 +20,10 @@ import net.minecraft.world.gen.chunk.StructureConfig;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
+import java.util.Objects;
+
 public class VillageNetherStructure extends VillageBaseStructure {
+    // Special thanks to /r/l-ll-ll-l_IsDisLoss for allowing me to use his nether village design!
 
     public VillageNetherStructure(Identifier poolID, int structureSize) {
         super(poolID, structureSize);
@@ -28,27 +31,11 @@ public class VillageNetherStructure extends VillageBaseStructure {
 
     @Override
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig defaultFeatureConfig) {
-        StructureConfig warpedOutpostConfig = chunkGenerator.getStructuresConfig().getForType(RSStructures.WARPED_OUTPOST);
-        StructureConfig crimsonOutpostConfig = chunkGenerator.getStructuresConfig().getForType(RSStructures.CRIMSON_OUTPOST);
-        StructureConfig netherBrickOutpostConfig = chunkGenerator.getStructuresConfig().getForType(RSStructures.NETHER_BRICK_OUTPOST);
 
         for (int curChunkX = chunkX - 10; curChunkX <= chunkX + 10; curChunkX++) {
             for (int curChunkZ = chunkZ - 10; curChunkZ <= chunkZ + 10; curChunkZ++) {
-                ChunkPos chunkPos2;
-                if(warpedOutpostConfig != null){
-                    chunkPos2 = RSStructures.WARPED_OUTPOST.getStartChunk(warpedOutpostConfig, seed, chunkRandom, curChunkX, curChunkZ);
-                    if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
-                        return false;
-                    }
-                }
-                if(warpedOutpostConfig != null){
-                    chunkPos2 = RSStructures.CRIMSON_OUTPOST.getStartChunk(crimsonOutpostConfig, seed, chunkRandom, curChunkX, curChunkZ);
-                    if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
-                        return false;
-                    }
-                }
-                if(warpedOutpostConfig != null){
-                    chunkPos2 = RSStructures.NETHER_BRICK_OUTPOST.getStartChunk(netherBrickOutpostConfig, seed, chunkRandom, curChunkX, curChunkZ);
+                for(StructureFeature<DefaultFeatureConfig> outpost : RSStructures.NETHER_OUTPOSTS_LIST){
+                    ChunkPos chunkPos2 = outpost.getStartChunk(Objects.requireNonNull(chunkGenerator.getStructuresConfig().getForType(outpost)), seed, chunkRandom, curChunkX, curChunkZ);
                     if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
                         return false;
                     }

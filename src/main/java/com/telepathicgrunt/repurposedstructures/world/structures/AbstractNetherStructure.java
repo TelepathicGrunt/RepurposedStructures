@@ -5,6 +5,7 @@ import com.telepathicgrunt.repurposedstructures.RSStructures;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Material;
 import net.minecraft.structure.MarginedStructureStart;
+import net.minecraft.structure.Structure;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
@@ -18,6 +19,8 @@ import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
+import java.util.Objects;
+
 
 public abstract class AbstractNetherStructure extends AbstractBaseStructure {
     public AbstractNetherStructure(Codec<DefaultFeatureConfig> config) {
@@ -29,17 +32,11 @@ public abstract class AbstractNetherStructure extends AbstractBaseStructure {
         if(this != RSStructures.WARPED_OUTPOST && this != RSStructures.CRIMSON_OUTPOST && this != RSStructures.NETHER_BRICK_OUTPOST){
             for (int curChunkX = chunkX - 6; curChunkX <= chunkX + 6; curChunkX++) {
                 for (int curChunkZ = chunkZ - 6; curChunkZ <= chunkZ + 6; curChunkZ++) {
-                    ChunkPos chunkPos2 = RSStructures.WARPED_OUTPOST.getStartChunk(chunkGenerator.getStructuresConfig().getForType(RSStructures.WARPED_OUTPOST), seed, chunkRandom, curChunkX, curChunkZ);
-                    if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
-                        return false;
-                    }
-                    chunkPos2 = RSStructures.CRIMSON_OUTPOST.getStartChunk(chunkGenerator.getStructuresConfig().getForType(RSStructures.CRIMSON_OUTPOST), seed, chunkRandom, curChunkX, curChunkZ);
-                    if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
-                        return false;
-                    }
-                    chunkPos2 = RSStructures.NETHER_BRICK_OUTPOST.getStartChunk(chunkGenerator.getStructuresConfig().getForType(RSStructures.NETHER_BRICK_OUTPOST), seed, chunkRandom, curChunkX, curChunkZ);
-                    if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
-                        return false;
+                    for(StructureFeature<DefaultFeatureConfig> outpost : RSStructures.NETHER_OUTPOSTS_LIST){
+                        ChunkPos chunkPos2 = outpost.getStartChunk(Objects.requireNonNull(chunkGenerator.getStructuresConfig().getForType(outpost)), seed, chunkRandom, curChunkX, curChunkZ);
+                        if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
+                            return false;
+                        }
                     }
                 }
             }
@@ -103,8 +100,6 @@ public abstract class AbstractNetherStructure extends AbstractBaseStructure {
 
             return mutable;
         }
-
-
 
         private boolean isValidBlock(BlockState currentBlockstate){
             if(BlockTags.INFINIBURN_NETHER.contains(currentBlockstate.getBlock()) ||

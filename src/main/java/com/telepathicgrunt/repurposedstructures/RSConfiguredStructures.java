@@ -45,6 +45,9 @@ public class RSConfiguredStructures {
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> BADLANDS_TEMPLE = RSStructures.BADLANDS_TEMPLE.configure(FeatureConfig.DEFAULT);
 
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> END_SHIPWRECK = RSStructures.END_SHIPWRECK.configure(FeatureConfig.DEFAULT);
+    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> NETHER_BRICKS_SHIPWRECK = RSStructures.NETHER_BRICKS_SHIPWRECK.configure(FeatureConfig.DEFAULT);
+    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> CRIMSON_SHIPWRECK = RSStructures.CRIMSON_SHIPWRECK.configure(FeatureConfig.DEFAULT);
+    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> WARPED_SHIPWRECK = RSStructures.WARPED_SHIPWRECK.configure(FeatureConfig.DEFAULT);
 
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> BADLANDS_VILLAGE = RSStructures.BADLANDS_VILLAGE.configure(FeatureConfig.DEFAULT);
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> BIRCH_VILLAGE = RSStructures.BIRCH_VILLAGE.configure(FeatureConfig.DEFAULT);
@@ -92,6 +95,9 @@ public class RSConfiguredStructures {
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "badlands_temple"), BADLANDS_TEMPLE);
 
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "end_shipwreck"), END_SHIPWRECK);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "nether_bricks_shipwreck"), NETHER_BRICKS_SHIPWRECK);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "crimson_shipwreck"), CRIMSON_SHIPWRECK);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "warped_shipwreck"), WARPED_SHIPWRECK);
 
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "badlands_village"), BADLANDS_VILLAGE);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "birch_village"), BIRCH_VILLAGE);
