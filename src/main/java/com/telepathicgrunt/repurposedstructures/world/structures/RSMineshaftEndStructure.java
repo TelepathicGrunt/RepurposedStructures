@@ -26,6 +26,7 @@ public class RSMineshaftEndStructure extends RSMineshaftStructure {
                 new SpawnSettings.SpawnEntry(EntityType.ENDERMAN, 5, 1, 3)
             );
 
+    @Override
     public List<SpawnSettings.SpawnEntry> getMonsterSpawns() {
         return MONSTER_SPAWNS;
     }
@@ -35,7 +36,7 @@ public class RSMineshaftEndStructure extends RSMineshaftStructure {
         chunkRandom.setCarverSeed(seed, x, z);
         double d = (probability / 10000D);
         if(chunkRandom.nextDouble() < d){
-            int landHeight = chunkGenerator.getHeightInGround(x << 4 + 7, z << 4 + 7, Heightmap.Type.WORLD_SURFACE_WG);
+            int landHeight = chunkGenerator.getHeightInGround(x << 4, z << 4, Heightmap.Type.WORLD_SURFACE_WG);
             return RepurposedStructures.RSAllConfig.RSMineshaftsConfig.misc.barrensIslandsEndMineshafts || landHeight >= 20;
         }
         return false;

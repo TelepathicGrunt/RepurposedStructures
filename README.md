@@ -193,27 +193,31 @@
 <p>&nbsp;</p>
 <p><strong>Nether Mineshafts has Blaze Spawners</strong></p>
 <p>&nbsp;</p>
-<p><strong>End Mineshafts has Endermite Spawners<br /><br />All other Mineshafts has Cave Spider Spawner. And chest loot is specifically tailored to every Mineshaft with some having very unique loot and others having loot that's barely different.</strong></p>
+<p><strong>End Mineshafts has Endermite Spawners (Will also naturally spawn Endermites over time)<br /><br />All other Mineshafts has Cave Spider Spawner. And chest loot is specifically tailored to every Mineshaft with some having very unique loot and others having loot that's barely different.</strong></p>
 </div>
 <p>&nbsp;</p>
-<p><strong>Jungle Fortress loot</strong></p>
+<p><strong>Jungle Fortress</strong></p>
 <div class="spoiler">
+<p><strong>(Can naturally spawn Wither Skeletons over time but it is extremely rare)</strong></p>
+<p>&nbsp;</p>
 <p><strong>Spawner Chests</strong></p>
 <p><strong>100% : End City loot</strong></p>
 <p>&nbsp;</p>
 <p><strong>2 Mob Spawners</strong></p>
 <p><strong>100% : Silverfish</strong></p>
-<p>&nbsp;</p>
+<p><span style="font-size: 1.2rem;">&nbsp;</span></p>
 <p><strong>Hallway Chests</strong></p>
 <p><strong>38% : Village Weaponsmith loot</strong></p>
 <p><strong>38% : Village Armorer loot</strong></p>
 <p><strong>24% : Jungle Temple loot</strong></p>
 </div>
 <p>&nbsp;</p>
-<p><strong>Outposts</strong></p>
+<p><strong>Outposts&nbsp;</strong></p>
 <div class="spoiler">
-<p>&nbsp;<strong>Nether Brick Outpost loot</strong></p>
+<p>&nbsp;<strong>Nether Brick Outpost</strong></p>
 <div class="spoiler">
+<p><strong>(Can naturally spawn Piglins over time)</strong></p>
+<p>&nbsp;</p>
 <p><strong>Chests loot</strong></p>
 <p><strong><b>Can contain the following in order from most common to least common</b></strong></p>
 <p><strong><b>&nbsp;- Lvl 20 to 30 Enchanted Stone Swords</b></strong></p>
@@ -236,8 +240,10 @@
 <p><strong><b>- Netherite Scraps</b></strong></p>
 </div>
 <p>&nbsp;</p>
-<p><strong>Warped Outpost loot</strong></p>
+<p><strong>Warped Outpost</strong></p>
 <div class="spoiler">
+<p><strong>(Can naturally spawn Piglins over time)</strong></p>
+<p>&nbsp;</p>
 <p><strong>Chests loot</strong></p>
 <p><strong><b>Can contain the following in order from most common to least common</b></strong></p>
 <p><strong><b>&nbsp;- Lvl 20 to 30 Enchanted Stone Swords</b></strong></p>
@@ -260,8 +266,10 @@
 <p><strong><b>- Netherite Scraps</b></strong></p>
 </div>
 <p>&nbsp;</p>
-<p><strong>Crimson Outpost loot</strong></p>
+<p><strong>Crimson Outpost</strong></p>
 <div class="spoiler">
+<p><strong>(Can naturally spawn Piglins over time)</strong></p>
+<p>&nbsp;</p>
 <p><strong>Chests loot</strong></p>
 <p><strong><b>Can contain the following in order from most common to least common</b></strong></p>
 <p><strong><b>&nbsp;- Lvl 20 to 30 Enchanted Stone Swords</b></strong></p>
@@ -460,7 +468,6 @@
 </div>
 </div>
 <p>&nbsp;</p>
-<p>&nbsp;</p>
 <p>&nbsp;<strong>Shipwrecks</strong></p>
 <div class="spoiler">
 <p><strong>End Shipwreck</strong></p>
@@ -523,6 +530,8 @@
 <p>&nbsp;</p>
 <p><strong>Nether Bricks Shipwreck</strong></p>
 <div class="spoiler">
+<p><strong>(Can naturally spawn Wither Skeletons over time)</strong></p>
+<p>&nbsp;</p>
 <p><strong>Treasure Chest loot</strong></p>
 <div class="spoiler">
 <p>&nbsp;<strong><b>Can contain the following in order from most common to least common:</b></strong></p>
@@ -548,6 +557,8 @@
 <p>&nbsp;</p>
 <p><strong>Crimson Shipwreck</strong></p>
 <div class="spoiler">
+<p><strong>(Can naturally spawn Wither Skeletons over time)</strong></p>
+<p>&nbsp;</p>
 <p><strong>Treasure Chest loot</strong></p>
 <div class="spoiler">
 <p>&nbsp;<strong><b>Can contain the following in order from most common to least common:</b></strong></p>
@@ -616,6 +627,8 @@
 <p>&nbsp;</p>
 <p><strong>Warped Shipwreck</strong></p>
 <div class="spoiler">
+<p><strong>(Can naturally spawn Wither Skeletons over time)</strong></p>
+<p>&nbsp;</p>
 <p><strong>Treasure Chest loot</strong></p>
 <div class="spoiler">
 <p>&nbsp;<strong><b>Can contain the following in order from most common to least common:</b></strong></p>
@@ -683,24 +696,26 @@
 </div>
 </div>
 <p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
 <p><strong>Strongholds</strong></p>
 <div class="spoiler">
-<p>&nbsp;<strong>Stronghold Chest rates and Silverfish Spawner locations</strong></p>
+<p>&nbsp;<strong>Stonebrick Stronghold</strong></p>
 <div class="spoiler">
 <p><strong>Chest loot is not changed.</strong></p>
 <p><strong>Corridor Chests has a 33% chance of spawning.</strong></p>
 <p><strong>Storage rooms has 4 chests instead of 1 due to them not having much loot naturally.</strong></p>
+<p>&nbsp;</p>
 <p><strong>Silverfish spawners are added to storage room, the room with the pillar that holds 4 Torches, and fountain room.</strong></p>
 </div>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p><strong>Nether Stronghold Chest rates and Blaze Spawner locations</strong></p>
 <div class="spoiler">
+<p><strong>(Can naturally spawn Blaze, Zombified Piglins, Wither Skeletons, Skeletons, and Magma Cubes over time)</strong></p>
+<p>&nbsp;</p>
 <p><strong>Non-Library chest loot uses the Nether Fortress's chest loot table.</strong></p>
 <p><strong>Corridor Chests has a 33% chance of spawning.</strong></p>
 <p><strong>Storage rooms has 4 chests instead of 1 due to them not having much loot naturally.</strong></p>
+<p>&nbsp;</p>
 <p><strong>The Silverfish spawner at the Portal Room is now a Blaze spawner.</strong></p>
 <p>&nbsp;</p>
 <p><strong>Extra spawners are added to storage room, the room with the pillar that holds 4 Torches, and fountain room. </strong></p>

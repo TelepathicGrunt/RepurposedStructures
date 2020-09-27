@@ -56,7 +56,7 @@ public class MinecraftServerMixin {
         //Gets blacklisted biome IDs for each structure type
         //Done here so the map can be garbage collected later
         Map<String, List<String>> allBiomeBlacklists = RepurposedStructures.getBiomeBlacklists();
-
+        
         if(registryManager.getOptional(Registry.BIOME_KEY).isPresent()) {
             for (Map.Entry<RegistryKey<Biome>, Biome> biomeEntry : registryManager.getOptional(Registry.BIOME_KEY).get().getEntries()) {
 
