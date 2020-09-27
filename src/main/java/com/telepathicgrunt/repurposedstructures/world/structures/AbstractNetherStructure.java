@@ -1,7 +1,9 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
+import com.google.common.collect.Iterators;
+import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;
-import com.telepathicgrunt.repurposedstructures.RSFeatures;
+import com.telepathicgrunt.repurposedstructures.RSStructures;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
 import net.minecraft.tags.BlockTags;
@@ -18,42 +20,41 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.MarginedStructureStart;
 import net.minecraft.world.gen.feature.structure.Structure;
 
+import java.util.List;
 import java.util.Objects;
 
 
 public abstract class AbstractNetherStructure extends AbstractBaseStructure {
+    private static List<Structure<?>> AVOID_STRUCTURE_LIST = null;
     public AbstractNetherStructure(Codec<NoFeatureConfig> config) {
         super(config);
     }
 
     @Override
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig defaultFeatureConfig) {
-        if(this != RSFeatures.WARPED_OUTPOST && this != RSFeatures.CRIMSON_OUTPOST && this != RSFeatures.NETHER_BRICK_OUTPOST){
-            for (int curChunkX = chunkX - 6; curChunkX <= chunkX + 6; curChunkX++) {
-                for (int curChunkZ = chunkZ - 6; curChunkZ <= chunkZ + 6; curChunkZ++) {
-                    ChunkPos chunkPos2 = RSFeatures.WARPED_OUTPOST.getStartChunk(Objects.requireNonNull(chunkGenerator.getStructuresConfig().getForType(RSFeatures.WARPED_OUTPOST)), seed, chunkRandom, curChunkX, curChunkZ);
-                    if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
-                        return false;
-                    }
-                    chunkPos2 = RSFeatures.CRIMSON_OUTPOST.getStartChunk(Objects.requireNonNull(chunkGenerator.getStructuresConfig().getForType(RSFeatures.CRIMSON_OUTPOST)), seed, chunkRandom, curChunkX, curChunkZ);
-                    if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
-                        return false;
-                    }
-                    chunkPos2 = RSFeatures.NETHER_BRICK_OUTPOST.getStartChunk(Objects.requireNonNull(chunkGenerator.getStructuresConfig().getForType(RSFeatures.NETHER_BRICK_OUTPOST)), seed, chunkRandom, curChunkX, curChunkZ);
-                    if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
-                        return false;
+        if(AVOID_STRUCTURE_LIST == null){
+            AVOID_STRUCTURE_LIST = Lists.newArrayList(Iterators.concat(
+                    RSStructures.NETHER_SHIPWRECKS_LIST.iterator(),
+                    RSStructures.NETHER_OUTPOSTS_LIST.iterator(),
+                    RSStructures.LARGE_VANILLA_NETHER_STRUCTURE_LIST.iterator()));
+            AVOID_STRUCTURE_LIST.add(RSStructures.NETHER_PYRAMID);
+        }
+
+        // No one can be within 6 chunks of outpost
+        int radius = RSStructures.NETHER_OUTPOSTS_LIST.contains(this) ? 6 : 3;
+        if(this != RSStructures.WARPED_OUTPOST && this != RSStructures.CRIMSON_OUTPOST && this != RSStructures.NETHER_BRICK_OUTPOST){
+            for (int curChunkX = chunkX - radius; curChunkX <= chunkX + radius; curChunkX++) {
+                for (int curChunkZ = chunkZ - radius; curChunkZ <= chunkZ + radius; curChunkZ++) {
+                    for(Structure<?> structureFeature : AVOID_STRUCTURE_LIST) {
+                        ChunkPos chunkPos2 = structureFeature.getStartChunk(Objects.requireNonNull(chunkGenerator.getStructuresConfig().getForType(structureFeature)), seed, chunkRandom, curChunkX, curChunkZ);
+                        if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
+                            return false;
+                        }
                     }
                 }
             }
         }
-        for (int curChunkX = chunkX - 3; curChunkX <= chunkX + 3; curChunkX++) {
-            for (int curChunkZ = chunkZ - 3; curChunkZ <= chunkZ + 3; curChunkZ++) {
-                ChunkPos chunkPos2 = RSFeatures.NETHER_PYRAMID.getStartChunk(Objects.requireNonNull(chunkGenerator.getStructuresConfig().getForType(RSFeatures.NETHER_PYRAMID)), seed, chunkRandom, curChunkX, curChunkZ);
-                if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
-                    return false;
-                }
-            }
-        }
+
         return super.shouldStartAt(chunkGenerator, biomeSource, seed, chunkRandom, chunkX, chunkZ, biome, chunkPos, defaultFeatureConfig);
     }
 

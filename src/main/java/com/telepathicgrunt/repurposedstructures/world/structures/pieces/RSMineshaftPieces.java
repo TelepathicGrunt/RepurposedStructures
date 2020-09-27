@@ -34,17 +34,17 @@ import java.util.Random;
 
 public class RSMineshaftPieces {
 
-    private static final ResourceLocation ICY_CHEST_ID =  new ResourceLocation(RepurposedStructures.MODID + ":chests/mineshaft_icy");
-    private static final ResourceLocation JUNGLE_CHEST_ID =  new ResourceLocation(RepurposedStructures.MODID + ":chests/mineshaft_jungle");
-    private static final ResourceLocation TAIGA_CHEST_ID =  new ResourceLocation(RepurposedStructures.MODID + ":chests/mineshaft_taiga");
-    private static final ResourceLocation DESERT_CHEST_ID =  new ResourceLocation(RepurposedStructures.MODID + ":chests/mineshaft_desert");
-    private static final ResourceLocation END_CHEST_ID =  new ResourceLocation(RepurposedStructures.MODID + ":chests/mineshaft_end");
-    private static final ResourceLocation NETHER_CHEST_ID =  new ResourceLocation(RepurposedStructures.MODID + ":chests/mineshaft_nether");
-    private static final ResourceLocation OCEAN_CHEST_ID =  new ResourceLocation(RepurposedStructures.MODID + ":chests/mineshaft_ocean");
-    private static final ResourceLocation STONE_CHEST_ID =  new ResourceLocation(RepurposedStructures.MODID + ":chests/mineshaft_stone");
-    private static final ResourceLocation SAVANNA_CHEST_ID =  new ResourceLocation(RepurposedStructures.MODID + ":chests/mineshaft_savanna");
-    private static final ResourceLocation SWAMP_OR_DARK_FOREST_CHEST_ID =  new ResourceLocation(RepurposedStructures.MODID + ":chests/mineshaft_swamp_dark_forest");
-    private static final ResourceLocation BIRCH_CHEST_ID =  new ResourceLocation(RepurposedStructures.MODID + ":chests/mineshaft_birch");
+    private static final ResourceLocation ICY_CHEST_ID =  new ResourceLocation(RepurposedStructures.MODID + ":chests/mineshaft/icy");
+    private static final ResourceLocation JUNGLE_CHEST_ID =  new ResourceLocation(RepurposedStructures.MODID + ":chests/mineshaft/jungle");
+    private static final ResourceLocation TAIGA_CHEST_ID =  new ResourceLocation(RepurposedStructures.MODID + ":chests/mineshaft/taiga");
+    private static final ResourceLocation DESERT_CHEST_ID =  new ResourceLocation(RepurposedStructures.MODID + ":chests/mineshaft/desert");
+    private static final ResourceLocation END_CHEST_ID =  new ResourceLocation(RepurposedStructures.MODID + ":chests/mineshaft/end");
+    private static final ResourceLocation NETHER_CHEST_ID =  new ResourceLocation(RepurposedStructures.MODID + ":chests/mineshaft/nether");
+    private static final ResourceLocation OCEAN_CHEST_ID =  new ResourceLocation(RepurposedStructures.MODID + ":chests/mineshaft/ocean");
+    private static final ResourceLocation STONE_CHEST_ID =  new ResourceLocation(RepurposedStructures.MODID + ":chests/mineshaft/stone");
+    private static final ResourceLocation SAVANNA_CHEST_ID =  new ResourceLocation(RepurposedStructures.MODID + ":chests/mineshaft/savanna");
+    private static final ResourceLocation SWAMP_OR_DARK_FOREST_CHEST_ID =  new ResourceLocation(RepurposedStructures.MODID + ":chests/mineshaft/swamp_dark_forest");
+    private static final ResourceLocation BIRCH_CHEST_ID =  new ResourceLocation(RepurposedStructures.MODID + ":chests/mineshaft/birch");
     private static final ResourceLocation ICY_SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID + ":mineshaft_icy");
     private static final ResourceLocation BIRCH_SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID + ":mineshaft_birch");
     private static final ResourceLocation JUNGLE_SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID + ":mineshaft_jungle");

@@ -3,6 +3,7 @@ package com.telepathicgrunt.repurposedstructures.world.features;
 import com.google.common.collect.Sets;
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RSFeatures;
+import com.telepathicgrunt.repurposedstructures.RSStructures;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -39,8 +40,8 @@ public class JungleStructuresVines extends Feature<NoFeatureConfig> {
         //Place vines without replacing blocks.
         if (world.isAirBlock(position))
         {
-            if(world.getStructures(SectionPos.from(position), RSFeatures.JUNGLE_VILLAGE).findAny().isPresent() ||
-                    world.getStructures(SectionPos.from(position), RSFeatures.JUNGLE_FORTRESS).findAny().isPresent())
+            if(world.getStructures(SectionPos.from(position), RSStructures.JUNGLE_VILLAGE).findAny().isPresent() ||
+                    world.getStructures(SectionPos.from(position), RSStructures.JUNGLE_FORTRESS).findAny().isPresent())
             {
                 RSFeatures.SHORT_VINES.generate(world, chunkGenerator, random, position, NoFeatureConfig.NO_FEATURE_CONFIG);
                 return true;
@@ -48,7 +49,7 @@ public class JungleStructuresVines extends Feature<NoFeatureConfig> {
         }
         //Place vines and can replace Stone Bricks if it has air below.
         if (FORTRESS_BLOCKS_SET.contains(world.getBlockState(position).getBlock()) && world.isAirBlock(position.down())) {
-            if (world.getStructures(SectionPos.from(position), RSFeatures.JUNGLE_FORTRESS).findAny().isPresent()) {
+            if (world.getStructures(SectionPos.from(position), RSStructures.JUNGLE_FORTRESS).findAny().isPresent()) {
                 world.setBlockState(position, Blocks.AIR.getDefaultState(), 3);
                 RSFeatures.SHORT_VINES.generate(world, chunkGenerator, random, position, NoFeatureConfig.NO_FEATURE_CONFIG);
                 return true;

@@ -1,7 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.mojang.serialization.Codec;
-import com.telepathicgrunt.repurposedstructures.RSFeatures;
+import com.telepathicgrunt.repurposedstructures.RSStructures;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.BlockPos;
@@ -28,6 +28,7 @@ public class VillageBaseStructure extends Structure<NoFeatureConfig> {
         super(config);
         START_POOL = poolRL;
         STRUCTURE_SIZE = structureSize;
+        RSStructures.RS_STRUCTURE_START_PIECES.add(START_POOL);
     }
 
     @Override

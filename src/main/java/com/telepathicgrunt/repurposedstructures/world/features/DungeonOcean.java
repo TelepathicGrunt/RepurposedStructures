@@ -42,7 +42,7 @@ public class DungeonOcean extends Feature<NoFeatureConfig> {
     private static final BlockState DARK_PRISMARINE_STAIRS = Blocks.DARK_PRISMARINE_STAIRS.getDefaultState();
     private static final BlockState DARK_PRISMARINE = Blocks.DARK_PRISMARINE.getDefaultState();
     private static final BlockState MAGMA_BLOCK = Blocks.MAGMA_BLOCK.getDefaultState();
-    private static final ResourceLocation CHEST_LOOT = new ResourceLocation(RepurposedStructures.MODID + ":chests/dungeon_ocean");
+    private static final ResourceLocation CHEST_LOOT = new ResourceLocation(RepurposedStructures.MODID + ":chests/dungeon/ocean");
     private static final ResourceLocation FROZEN_SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID + ":dungeon_ocean_frozen");
     private static final ResourceLocation COLD_SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID + ":dungeon_ocean_cold");
     private static final ResourceLocation NEUTRAL_SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID + ":dungeon_ocean_neutral");

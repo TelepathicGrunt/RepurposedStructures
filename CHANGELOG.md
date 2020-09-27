@@ -1,4 +1,4 @@
-# Made for Minecraft v.1.15.2
+# Made for Minecraft v.1.16.3
 
 ## Created by TelepathicGrunt
 
@@ -7,6 +7,52 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ------------------------------------------------
 # | Repurposed Structures changelog |
+
+
+## (V.2.2.1 Changes) (1.16.3 Minecraft)
+
+##### Shipwrecks:
+
+- Ah shoot. I forgot to add naturally spawning Wither Skeleton to the Nether Shipwrecks!
+
+## (V.2.2.0 Changes) (1.16.3 Minecraft)
+
+##### Misc:
+
+- Load up some structure nbt files at world startup instead of during worldgen.
+
+- Fixed registry names of all features (not structures) to not be in minecraft namespace by mistake.
+
+- Organized all structure loottables file path. Will break datapacks still using old path.
+
+- Organized config screen to say what entries does instead of hiding it in tooltips.
+
+- Adjusted spacing between two different structures in many nether structures.
+
+##### Shipwrecks:
+
+- Added Warped and Crimson Shipwreck to their respective Nether biomes! 
+  Special thanks to miguelforge for providing the designs and nbt file!
+  
+- Added Nether Bricks Shipwreck to all other Nether biomes! 
+  Special thanks to cannon_foddr for providing the designs and nbt file!
+
+##### Villages:
+
+- Saloon spawnrate increased
+
+- Fixed name of Nether Fortress and Bastion Remnant maps from Nether Villages.
+
+##### Pyramids:
+
+- Fixed Badlands Pyramid's trap not always fully activating.
+
+##### Mineshafts:
+
+- Increased default spawnrate of End Mineshafts
+
+- Fixed bug that really screwed up the spawning of End Mineshafts (made them spawn waaaaaaaayyyyy too far out)
+
 
 ## (V.2.1.4 Changes) (1.16.2 Minecraft)
 

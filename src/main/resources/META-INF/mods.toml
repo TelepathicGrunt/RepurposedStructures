@@ -10,6 +10,7 @@ version="${version}" #mandatory
 displayName="Repurposed Structures" #mandatory
 displayURL="https://www.curseforge.com/minecraft/mc-mods/repurposed-structures"
 authors="TelepathicGrunt"
+credits="Special thanks to /r/l-ll-ll-l_IsDisLoss, miguelforge, and cannon_foddr for donating some structures to this mod!"
 description='''
 Taking existing vanilla structures and changing them up for extra variety!
 '''
@@ -17,4 +18,4 @@ Taking existing vanilla structures and changing them up for extra variety!
 [[dependencies.repurposed_structures]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16.2, 1.17.0)"
+    versionRange="[1.16.3, 1.17.0)"

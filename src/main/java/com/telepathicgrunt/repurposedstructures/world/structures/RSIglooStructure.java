@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.mojang.serialization.Codec;
+import com.telepathicgrunt.repurposedstructures.RSStructures;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.RSIglooPieces;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.ResourceLocation;
@@ -19,10 +20,11 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
 
 public class RSIglooStructure extends AbstractBaseStructure {
 
-    private final ResourceLocation TOP_PIECE_RL;
+    private final ResourceLocation START_POOL;
     public RSIglooStructure(Codec<NoFeatureConfig> config, ResourceLocation topPieceRL) {
         super(config);
-        TOP_PIECE_RL = topPieceRL;
+        START_POOL = topPieceRL;
+        RSStructures.RS_STRUCTURE_START_PIECES.add(START_POOL);
     }
 
     @Override
@@ -41,7 +43,7 @@ public class RSIglooStructure extends AbstractBaseStructure {
             int z = chunkZ * 16;
             BlockPos blockpos = new BlockPos(x, 90, z);
             Rotation rotation = Rotation.values()[this.rand.nextInt(Rotation.values().length)];
-            RSIglooPieces.func_207617_a(structureManager, TOP_PIECE_RL, Blocks.PODZOL, blockpos, rotation, this.components, this.rand, IFeatureConfig.NO_FEATURE_CONFIG);
+            RSIglooPieces.func_207617_a(structureManager, START_POOL, Blocks.PODZOL, blockpos, rotation, this.components, this.rand, IFeatureConfig.NO_FEATURE_CONFIG);
             this.recalculateStructureSize();
         }
     }

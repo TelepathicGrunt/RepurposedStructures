@@ -5,6 +5,12 @@
   "advancements.repurposed_structures.fortress_jungle.description":"Enter a Jungle Fortress",
   "advancements.repurposed_structures.shipwreck_end.title":"The Ship that cannot Fly Again",
   "advancements.repurposed_structures.shipwreck_end.description":"Enter a End Shipwreck",
+  "advancements.repurposed_structures.shipwreck_nether_bricks.title": "The Hovering Withering Vessel",
+  "advancements.repurposed_structures.shipwreck_nether_bricks.description": "Enter a Nether Bricks Shipwreck",
+  "advancements.repurposed_structures.shipwreck_crimson.title": "The Burning Velvet Ship.",
+  "advancements.repurposed_structures.shipwreck_crimson.description": "Enter a Crimson Shipwreck",
+  "advancements.repurposed_structures.shipwreck_warped.title": "Hell's own Ghost Ship",
+  "advancements.repurposed_structures.shipwreck_warped.description": "Enter a Warped Shipwreck",
   "advancements.repurposed_structures.igloo_grassy.title":"It was a Hobbit-Hole",
   "advancements.repurposed_structures.igloo_grassy.description":"Enter a Grassy Igloo",
   "advancements.repurposed_structures.igloo_stone.title":"A Cozy Rock",
@@ -91,8 +97,8 @@
   "advancements.repurposed_structures.igloos.description":"Go look for a Igloo!",
   "advancements.repurposed_structures.fortresses.title":"Fortresses",
   "advancements.repurposed_structures.fortresses.description":"Go look for a Fortress!",
-  "filled_map.netherfortress":"Nether Fortress Map",
-  "filled_map.bastionremnant":"Bastion Remnant Map",
+  "filled_map.fortress": "Nether Fortress Map",
+  "filled_map.bastion_remnant": "Bastion Remnant Map",
   "filled_map.endcity":"End City Map",
   "filled_map.repurposed_structures:fortress_jungle":"Jungle Fortress Map"
 }

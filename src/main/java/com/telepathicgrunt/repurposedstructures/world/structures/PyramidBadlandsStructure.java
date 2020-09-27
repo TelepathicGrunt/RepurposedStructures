@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.mojang.serialization.Codec;
+import com.telepathicgrunt.repurposedstructures.RSStructures;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.GeneralJigsawGenerator;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PyramidFloorPiece;
@@ -27,6 +28,7 @@ public class PyramidBadlandsStructure extends Structure<NoFeatureConfig> {
     public PyramidBadlandsStructure(Codec<NoFeatureConfig> config) {
         super(config);
         START_POOL = new ResourceLocation(RepurposedStructures.MODID + ":temples/pyramid_badlands");
+        RSStructures.RS_STRUCTURE_START_PIECES.add(START_POOL);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.mojang.serialization.Codec;
+import com.telepathicgrunt.repurposedstructures.RSStructures;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.GeneralJigsawGenerator;
 import net.minecraft.util.ResourceLocation;
@@ -23,26 +24,28 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
 import java.util.Random;
 
 
-public class EndShipwreckStructure extends AbstractBaseStructure {
+public class ShipwreckEndStructure extends AbstractBaseStructure {
     // Special thanks to cannon_foddr for allowing me to use his End Shipwreck design!
 
     private final ResourceLocation START_POOL;
-    public EndShipwreckStructure(Codec<NoFeatureConfig> config) {
+    public ShipwreckEndStructure(Codec<NoFeatureConfig> config) {
         super(config);
         START_POOL = new ResourceLocation(RepurposedStructures.MODID + ":shipwrecks/end");
+        RSStructures.RS_STRUCTURE_START_PIECES.add(START_POOL);
     }
 
     @Override
     public Structure.IStartFactory<NoFeatureConfig> getStartFactory() {
-        return EndShipwreckStructure.Start::new;
+        return ShipwreckEndStructure.Start::new;
     }
 
+    @Override
     protected boolean shouldStartAt(ChunkGenerator generator, BiomeProvider biomeProvider, long seed, SharedSeedRandom random, int x, int z, Biome biome, ChunkPos chunkPos, NoFeatureConfig config) {
         return getYPosForStructure(x, z, generator) >= 20;
     }
 
     private static int getYPosForStructure(int x, int z, ChunkGenerator generator) {
-        Random random = new Random((long)(x + z * 10387313));
+        Random random = new Random(x + z * 10387313);
         Rotation rotation = Rotation.randomRotation(random);
         int i = 5;
         int j = 5;

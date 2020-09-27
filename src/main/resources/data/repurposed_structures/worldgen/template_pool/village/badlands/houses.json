@@ -120,7 +120,7 @@
       }
     },
     {
-      "weight": 6,
+      "weight": 10,
       "element": {
         "location": "repurposed_structures:village/badlands/houses/saloon",
         "processors": "minecraft:empty",
