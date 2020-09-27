@@ -1,5 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
+import com.google.common.collect.Iterators;
 import com.google.common.collect.Lists;
 import com.telepathicgrunt.repurposedstructures.RSStructures;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
@@ -22,6 +23,7 @@ import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Random;
@@ -32,6 +34,8 @@ public class ShipwreckNetherStructure extends StructureFeature<DefaultFeatureCon
 
     private final Identifier START_POOL;
     private final boolean spawnAtSeaLevel;
+    private static List<StructureFeature<?>> AVOID_STRUCTURE_LIST = null;
+
 
     public ShipwreckNetherStructure(Identifier start_pool, boolean spawnAtSeaLevel) {
         super(DefaultFeatureConfig.CODEC);
@@ -42,8 +46,17 @@ public class ShipwreckNetherStructure extends StructureFeature<DefaultFeatureCon
 
     @Override
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig defaultFeatureConfig) {
+        if(AVOID_STRUCTURE_LIST == null){
+            AVOID_STRUCTURE_LIST = Lists.newArrayList(Iterators.concat(
+                    RSStructures.NETHER_OUTPOSTS_LIST.iterator(),
+                    RSStructures.NETHER_TEMPLE_LIST.iterator(),
+                    RSStructures.NETHER_VILLAGE_LIST.iterator(),
+                    RSStructures.LARGE_VANILLA_NETHER_STRUCTURE_LIST.iterator()));
+        }
 
-        //quick shitty check to see if there some air where the sealevel boat wants to spawn
+
+        // Quick shitty check to see if there some air where the structure wants to spawn.
+        // Doesn't account for rotation of structure.
         BlockPos blockPos;
         if(spawnAtSeaLevel){
             blockPos = new BlockPos(chunkX << 4, chunkGenerator.getSeaLevel() + 1, chunkZ << 4);
@@ -55,41 +68,28 @@ public class ShipwreckNetherStructure extends StructureFeature<DefaultFeatureCon
         }
 
         for(Direction direction : Direction.Type.HORIZONTAL) {
-            BlockPos blockPos2 = blockPos.offset(direction, 6);
+            BlockPos blockPos2 = blockPos.offset(direction, 8);
             BlockView blockView = chunkGenerator.getColumnSample(blockPos2.getX(), blockPos2.getZ());
 
             if (!blockView.getBlockState(blockPos2).isAir() ||
-                    !blockView.getBlockState(blockPos2.up(8)).isAir() ||
-                    !blockView.getBlockState(blockPos2.up(16)).isAir()) {
+                    !blockView.getBlockState(blockPos2.up(9)).isAir() ||
+                    !blockView.getBlockState(blockPos2.up(18)).isAir()) {
                 return false;
             }
         }
 
         //cannot be near any other structure
-        if(this != RSStructures.WARPED_OUTPOST && this != RSStructures.CRIMSON_OUTPOST && this != RSStructures.NETHER_BRICK_OUTPOST){
-            for (int curChunkX = chunkX - 3; curChunkX <= chunkX + 3; curChunkX++) {
-                for (int curChunkZ = chunkZ - 3; curChunkZ <= chunkZ + 3; curChunkZ++) {
-                    for(StructureFeature<DefaultFeatureConfig> outpost : RSStructures.NETHER_OUTPOSTS_LIST){
-                        ChunkPos chunkPos2 = outpost.getStartChunk(Objects.requireNonNull(chunkGenerator.getStructuresConfig().getForType(outpost)), seed, chunkRandom, curChunkX, curChunkZ);
-                        if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
-                            return false;
-                        }
-                    }
-                    for(StructureFeature<DefaultFeatureConfig> outpost : RSStructures.NETHER_TEMPLE_LIST){
-                        ChunkPos chunkPos2 = outpost.getStartChunk(Objects.requireNonNull(chunkGenerator.getStructuresConfig().getForType(outpost)), seed, chunkRandom, curChunkX, curChunkZ);
-                        if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
-                            return false;
-                        }
-                    }
-                    for(StructureFeature<DefaultFeatureConfig> outpost : RSStructures.NETHER_VILLAGE_LIST){
-                        ChunkPos chunkPos2 = outpost.getStartChunk(Objects.requireNonNull(chunkGenerator.getStructuresConfig().getForType(outpost)), seed, chunkRandom, curChunkX, curChunkZ);
-                        if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
-                            return false;
-                        }
+        for (int curChunkX = chunkX - 3; curChunkX <= chunkX + 3; curChunkX++) {
+            for (int curChunkZ = chunkZ - 3; curChunkZ <= chunkZ + 3; curChunkZ++) {
+                for(StructureFeature<?> structureFeature : AVOID_STRUCTURE_LIST){
+                    ChunkPos chunkPos2 = structureFeature.getStartChunk(Objects.requireNonNull(chunkGenerator.getStructuresConfig().getForType(structureFeature)), seed, chunkRandom, curChunkX, curChunkZ);
+                    if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
+                        return false;
                     }
                 }
             }
         }
+
         return super.shouldStartAt(chunkGenerator, biomeSource, seed, chunkRandom, chunkX, chunkZ, biome, chunkPos, defaultFeatureConfig);
     }
 

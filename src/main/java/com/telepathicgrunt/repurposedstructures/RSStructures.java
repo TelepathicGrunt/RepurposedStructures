@@ -50,7 +50,7 @@ public class RSStructures {
     public static StructureFeature<DefaultFeatureConfig> NETHER_PYRAMID = new PyramidNetherStructure();
     public static StructureFeature<DefaultFeatureConfig> BADLANDS_TEMPLE = new PyramidBadlandsStructure();
 
-    public static StructureFeature<DefaultFeatureConfig> END_SHIPWRECK = new EndShipwreckStructure();
+    public static StructureFeature<DefaultFeatureConfig> END_SHIPWRECK = new ShipwreckEndStructure();
     public static StructureFeature<DefaultFeatureConfig> NETHER_BRICKS_SHIPWRECK = new ShipwreckNetherStructure(new Identifier(RepurposedStructures.MODID, "shipwrecks/nether_bricks"), false);
     public static StructureFeature<DefaultFeatureConfig> CRIMSON_SHIPWRECK = new ShipwreckNetherStructure(new Identifier(RepurposedStructures.MODID, "shipwrecks/crimson"), true);
     public static StructureFeature<DefaultFeatureConfig> WARPED_SHIPWRECK = new ShipwreckNetherStructure(new Identifier(RepurposedStructures.MODID, "shipwrecks/warped"), true);
@@ -78,12 +78,12 @@ public class RSStructures {
             CRIMSON_VILLAGE,
             WARPED_VILLAGE
     );
-    public static List<StructureFeature<DefaultFeatureConfig>> NETHER_OUTPOSTS_LIST = Arrays.asList(
+    public static List<StructureFeature<?>> NETHER_OUTPOSTS_LIST = Arrays.asList(
             NETHER_BRICK_OUTPOST,
             WARPED_OUTPOST,
             CRIMSON_OUTPOST
     );
-    public static List<StructureFeature<DefaultFeatureConfig>> NETHER_TEMPLE_LIST = Arrays.asList(
+    public static List<StructureFeature<?>> NETHER_TEMPLE_LIST = Arrays.asList(
             NETHER_WASTELAND_TEMPLE,
             NETHER_BASALT_TEMPLE,
             NETHER_WARPED_TEMPLE,
@@ -91,10 +91,14 @@ public class RSStructures {
             NETHER_SOUL_TEMPLE,
             NETHER_PYRAMID
     );
-    public static List<StructureFeature<DefaultFeatureConfig>> NETHER_SHIPWRECKS_LIST = Arrays.asList(
+    public static List<StructureFeature<?>> NETHER_SHIPWRECKS_LIST = Arrays.asList(
             NETHER_BRICKS_SHIPWRECK,
             WARPED_SHIPWRECK,
             CRIMSON_SHIPWRECK
+    );
+    public static List<StructureFeature<?>> LARGE_VANILLA_NETHER_STRUCTURE_LIST = Arrays.asList(
+            StructureFeature.FORTRESS,
+            StructureFeature.BASTION_REMNANT
     );
 
 

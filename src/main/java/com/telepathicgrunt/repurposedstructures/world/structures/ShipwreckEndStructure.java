@@ -23,12 +23,12 @@ import net.minecraft.world.gen.feature.StructureFeature;
 import java.util.Random;
 
 
-public class EndShipwreckStructure extends AbstractBaseStructure {
+public class ShipwreckEndStructure extends AbstractBaseStructure {
     // Special thanks to cannon_foddr for allowing me to use his End Shipwreck design!
 
     private final Identifier START_POOL;
 
-    public EndShipwreckStructure() {
+    public ShipwreckEndStructure() {
         super(DefaultFeatureConfig.CODEC);
         START_POOL = new Identifier(RepurposedStructures.MODID, "shipwrecks/end");
         RSStructures.RS_STRUCTURE_START_PIECES.add(START_POOL);
@@ -36,7 +36,7 @@ public class EndShipwreckStructure extends AbstractBaseStructure {
 
     @Override
     public StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
-        return EndShipwreckStructure.Start::new;
+        return ShipwreckEndStructure.Start::new;
     }
 
     @Override

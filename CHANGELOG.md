@@ -20,6 +20,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Organized config screen to say what entries does instead of hiding it in tooltips.
 
+- Adjusted spacing between two different structures in many nether structures.
+
 ##### Shipwrecks:
 
 - Added Warped and Crimson Shipwreck to their respective Nether biomes! 

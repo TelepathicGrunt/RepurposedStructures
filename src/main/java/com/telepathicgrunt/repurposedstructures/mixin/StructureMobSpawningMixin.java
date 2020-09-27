@@ -35,13 +35,13 @@ public class StructureMobSpawningMixin {
     private static List<SpawnSettings.SpawnEntry>  getStructureSpawns(Biome biome, StructureAccessor accessor, SpawnGroup group, BlockPos pos){
         if (group == SpawnGroup.MONSTER) {
 
-            for(StructureFeature<DefaultFeatureConfig> outpost : RSStructures.NETHER_OUTPOSTS_LIST){
+            for(StructureFeature<?> outpost : RSStructures.NETHER_OUTPOSTS_LIST){
                 if (accessor.getStructureAt(pos, true, outpost).hasChildren()) {
                     return outpost.getMonsterSpawns();
                 }
             }
 
-            for(StructureFeature<DefaultFeatureConfig> shipwreck : RSStructures.NETHER_SHIPWRECKS_LIST){
+            for(StructureFeature<?> shipwreck : RSStructures.NETHER_SHIPWRECKS_LIST){
                 if (accessor.getStructureAt(pos, true, shipwreck).hasChildren()) {
                     return Lists.newArrayList(Iterators.concat(biome.getSpawnSettings().getSpawnEntry(SpawnGroup.MONSTER).iterator(), shipwreck.getMonsterSpawns().iterator()));
                 }
