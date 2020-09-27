@@ -8,6 +8,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.gen.NoiseChunkGenerator;
+import net.minecraft.world.gen.feature.StructureFeature;
+import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.StructureManager;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -32,18 +34,18 @@ public class StructureMobSpawningMixin {
 
     private static List<MobSpawnInfo.Spawners>  getStructureSpawns(Biome biome, StructureManager accessor, EntityClassification group, BlockPos pos){
         if (group == EntityClassification.MONSTER) {
-            if (accessor.getStructureAt(pos, true, RSStructures.NETHER_BRICK_OUTPOST).isValid()) {
-               return RSStructures.NETHER_BRICK_OUTPOST.getSpawnList();
+
+            for(Structure<?> outpost : RSStructures.NETHER_OUTPOSTS_LIST){
+                if (accessor.getStructureAt(pos, true, outpost).isValid()) {
+                    return outpost.getSpawnList();
+                }
             }
 
-            if (accessor.getStructureAt(pos, true, RSStructures.WARPED_OUTPOST).isValid()) {
-                return RSStructures.WARPED_OUTPOST.getSpawnList();
+            for(Structure<?> shipwreck : RSStructures.NETHER_SHIPWRECKS_LIST){
+                if (accessor.getStructureAt(pos, true, shipwreck).isValid()) {
+                    return Lists.newArrayList(Iterators.concat(biome.getSpawnSettings().getSpawnEntry(EntityClassification.MONSTER).iterator(), shipwreck.getSpawnList().iterator()));
+                }
             }
-
-            if (accessor.getStructureAt(pos, true, RSStructures.CRIMSON_OUTPOST).isValid()) {
-                return RSStructures.CRIMSON_OUTPOST.getSpawnList();
-            }
-
 
             if (accessor.getStructureAt(pos, true, RSStructures.NETHER_STRONGHOLD).isValid()) {
                 return RSStructures.NETHER_STRONGHOLD.getSpawnList();

@@ -9,6 +9,12 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 # | Repurposed Structures changelog |
 
 
+## (V.2.2.1 Changes) (1.16.3 Minecraft)
+
+##### Shipwrecks:
+
+- Ah shoot. I forgot to add naturally spawning Wither Skeleton to the Nether Shipwrecks!
+
 ## (V.2.2.0 Changes) (1.16.3 Minecraft)
 
 ##### Misc:
