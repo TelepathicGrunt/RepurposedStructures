@@ -2,7 +2,6 @@ package com.telepathicgrunt.repurposedstructures.mixin;
 
 import com.google.common.collect.Iterators;
 import com.google.common.collect.Lists;
-import com.telepathicgrunt.repurposedstructures.RSFeatures;
 import com.telepathicgrunt.repurposedstructures.RSStructures;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.util.math.BlockPos;

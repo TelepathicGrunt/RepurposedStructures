@@ -15,11 +15,11 @@ import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
 import com.telepathicgrunt.repurposedstructures.utils.MobSpawnerManager;
 import com.telepathicgrunt.repurposedstructures.world.placements.RSPlacements;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraftforge.event.AddReloadListenerEvent;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DeferredWorkQueue;
@@ -120,39 +120,51 @@ public class RepurposedStructures
 			RepurposedStructures.mobSpawnerManager = new MobSpawnerManager();
 			event.addListener(RepurposedStructures.mobSpawnerManager);
 		}
+
+		@SubscribeEvent
+		public static void biomeModification(final BiomeLoadingEvent event) {
+			//Gets blacklisted biome IDs for each structure type
+			//Done here so the map can be garbage collected later
+			Map<String, List<String>> allBiomeBlacklists = RepurposedStructures.getBiomeBlacklists();
+			
+			//Add our structures and features
+			RepurposedStructures.addFeaturesAndStructuresToBiomes(
+					event, // Biome
+					allBiomeBlacklists); // Blacklists
+		}
 	}
 
     /*
      * Here, we will use this to add our structures/features to all biomes.
      */
-	public static void addFeaturesAndStructuresToBiomes(Biome biome, ResourceLocation biomeID, Map<String, List<String>> allBiomeBlacklists) {
+	public static void addFeaturesAndStructuresToBiomes(BiomeLoadingEvent event, Map<String, List<String>> allBiomeBlacklists) {
 
-		if(isBiomeAllowed("mineshaft", biomeID, allBiomeBlacklists))
-			RSAddFeatures.addMineshafts(biome, biomeID);
-		if(isBiomeAllowed("fortress", biomeID, allBiomeBlacklists))
-			RSAddFeatures.addJungleFortress(biome, biomeID);
-		if(isBiomeAllowed("dungeon", biomeID, allBiomeBlacklists))
-			RSAddFeatures.addDungeons(biome, biomeID);
-		if(isBiomeAllowed("well", biomeID, allBiomeBlacklists))
-			RSAddFeatures.addWells(biome, biomeID);
-		if(isBiomeAllowed("swamp_tree", biomeID, allBiomeBlacklists))
-			RSAddFeatures.addSwampTreeFeatures(biome, biomeID);
-		if(isBiomeAllowed("boulder", biomeID, allBiomeBlacklists))
-			RSAddFeatures.addBoulderFeatures(biome, biomeID);
-		if(isBiomeAllowed("temple", biomeID, allBiomeBlacklists))
-			RSAddFeatures.addTemples(biome, biomeID);
-		if(isBiomeAllowed("pyramid", biomeID, allBiomeBlacklists))
-			RSAddFeatures.addPyramids(biome, biomeID);
-		if(isBiomeAllowed("igloo", biomeID, allBiomeBlacklists))
-			RSAddFeatures.addIgloos(biome, biomeID);
-		if(isBiomeAllowed("outpost", biomeID, allBiomeBlacklists))
-			RSAddFeatures.addOutposts(biome, biomeID);
-		if(isBiomeAllowed("shipwreck", biomeID, allBiomeBlacklists))
-			RSAddFeatures.addShipwrecks(biome, biomeID);
-		if(isBiomeAllowed("village", biomeID, allBiomeBlacklists))
-			RSAddFeatures.addVillages(biome, biomeID);
-		if(isBiomeAllowed("stronghold", biomeID, allBiomeBlacklists))
-			RSAddFeatures.addStrongholds(biome, biomeID);
+		if(isBiomeAllowed("mineshaft", event.getName(), allBiomeBlacklists))
+			RSAddFeatures.addMineshafts(event);
+		if(isBiomeAllowed("fortress", event.getName(), allBiomeBlacklists))
+			RSAddFeatures.addJungleFortress(event);
+		if(isBiomeAllowed("dungeon", event.getName(), allBiomeBlacklists))
+			RSAddFeatures.addDungeons(event);
+		if(isBiomeAllowed("well", event.getName(), allBiomeBlacklists))
+			RSAddFeatures.addWells(event);
+		if(isBiomeAllowed("swamp_tree", event.getName(), allBiomeBlacklists))
+			RSAddFeatures.addSwampTreeFeatures(event);
+		if(isBiomeAllowed("boulder", event.getName(), allBiomeBlacklists))
+			RSAddFeatures.addBoulderFeatures(event);
+		if(isBiomeAllowed("temple", event.getName(), allBiomeBlacklists))
+			RSAddFeatures.addTemples(event);
+		if(isBiomeAllowed("pyramid", event.getName(), allBiomeBlacklists))
+			RSAddFeatures.addPyramids(event);
+		if(isBiomeAllowed("igloo", event.getName(), allBiomeBlacklists))
+			RSAddFeatures.addIgloos(event);
+		if(isBiomeAllowed("outpost", event.getName(), allBiomeBlacklists))
+			RSAddFeatures.addOutposts(event);
+		if(isBiomeAllowed("shipwreck", event.getName(), allBiomeBlacklists))
+			RSAddFeatures.addShipwrecks(event);
+		if(isBiomeAllowed("village", event.getName(), allBiomeBlacklists))
+			RSAddFeatures.addVillages(event);
+		if(isBiomeAllowed("stronghold", event.getName(), allBiomeBlacklists))
+			RSAddFeatures.addStrongholds(event);
 	}
     
     private static boolean isBiomeAllowed(String structureType, ResourceLocation biomeID, Map<String, List<String>> allBiomeBlacklists){
