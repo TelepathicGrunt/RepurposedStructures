@@ -1,6 +1,5 @@
 package com.telepathicgrunt.repurposedstructures.mixin;
 
-import com.telepathicgrunt.repurposedstructures.RSFeatures;
 import com.telepathicgrunt.repurposedstructures.RSStructures;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkSectionPos;

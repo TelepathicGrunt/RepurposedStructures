@@ -3,7 +3,6 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 import com.google.common.collect.Iterators;
 import com.google.common.collect.Lists;
 import com.telepathicgrunt.repurposedstructures.RSStructures;
-import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.GeneralJigsawGenerator;
 import net.minecraft.entity.EntityType;
 import net.minecraft.structure.StructureManager;
@@ -23,10 +22,8 @@ import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Random;
 
 
 public class ShipwreckNetherStructure extends StructureFeature<DefaultFeatureConfig> {

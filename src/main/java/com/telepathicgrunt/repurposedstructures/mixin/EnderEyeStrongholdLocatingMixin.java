@@ -1,6 +1,5 @@
 package com.telepathicgrunt.repurposedstructures.mixin;
 
-import com.telepathicgrunt.repurposedstructures.RSFeatures;
 import com.telepathicgrunt.repurposedstructures.RSStructures;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.EnderEyeItem;

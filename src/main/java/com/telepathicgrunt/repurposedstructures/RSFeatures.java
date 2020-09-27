@@ -1,20 +1,11 @@
 package com.telepathicgrunt.repurposedstructures;
 
 import com.telepathicgrunt.repurposedstructures.world.features.*;
-import com.telepathicgrunt.repurposedstructures.world.structures.*;
-import com.telepathicgrunt.repurposedstructures.world.structures.pieces.RSMineshaftPieces;
-import com.telepathicgrunt.repurposedstructures.world.structures.pieces.StructurePieces;
-import net.fabricmc.fabric.api.structure.v1.FabricStructureBuilder;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.world.gen.GenerationStep;
-import net.minecraft.world.gen.chunk.StructureConfig;
-import net.minecraft.world.gen.feature.*;
-
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.TreeFeatureConfig;
 
 
 public class RSFeatures {

@@ -1,6 +1,5 @@
 package com.telepathicgrunt.repurposedstructures.misc;
 
-import com.telepathicgrunt.repurposedstructures.RSFeatures;
 import com.telepathicgrunt.repurposedstructures.RSStructures;
 import net.minecraft.item.map.MapIcon;
 import net.minecraft.village.TradeOffers;

@@ -1,7 +1,5 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
-import com.telepathicgrunt.repurposedstructures.RSFeatures;
-import com.telepathicgrunt.repurposedstructures.RSStructures;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
