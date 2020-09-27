@@ -38,6 +38,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Fixed Badlands Pyramid's trap not always fully activating.
 
+##### Mineshafts:
+
+- Increased default spawnrate of End Mineshafts
 
 ## (V.1.5.4 Changes) (1.16.2 Minecraft)
 

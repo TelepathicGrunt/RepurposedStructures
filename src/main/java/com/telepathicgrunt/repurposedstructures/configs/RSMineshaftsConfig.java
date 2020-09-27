@@ -130,7 +130,7 @@ public class RSMineshaftsConfig implements ConfigData {
                 + "\nHow often Mineshafts will spawn."
                 + "\n0 for no Mineshafts and 1000 for max spawnrate.")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int endMineshaftSpawnrate = 40;
+        public int endMineshaftSpawnrate = 60;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText

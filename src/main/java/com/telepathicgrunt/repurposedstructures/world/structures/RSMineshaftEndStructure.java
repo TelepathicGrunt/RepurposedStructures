@@ -34,7 +34,10 @@ public class RSMineshaftEndStructure extends RSMineshaftStructure {
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, int x, int z, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig featureConfig) {
         chunkRandom.setCarverSeed(seed, x, z);
         double d = (probability / 10000D);
-        int landHeight = chunkGenerator.getHeightInGround(x << 4 + 7, z << 4 + 7, Heightmap.Type.WORLD_SURFACE_WG);
-        return chunkRandom.nextDouble() < d && (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.misc.barrensIslandsEndMineshafts || landHeight >= 20);
+        if(chunkRandom.nextDouble() < d){
+            int landHeight = chunkGenerator.getHeightInGround(x << 4 + 7, z << 4 + 7, Heightmap.Type.WORLD_SURFACE_WG);
+            return RepurposedStructures.RSAllConfig.RSMineshaftsConfig.misc.barrensIslandsEndMineshafts || landHeight >= 20;
+        }
+        return false;
     }
 }
