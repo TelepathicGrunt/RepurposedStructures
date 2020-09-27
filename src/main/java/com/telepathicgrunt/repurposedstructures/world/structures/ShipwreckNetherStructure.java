@@ -30,7 +30,7 @@ import java.util.Random;
 
 
 public class ShipwreckNetherStructure extends StructureFeature<DefaultFeatureConfig> {
-    // Special thanks to /r/l-ll-ll-l_IsDisLoss and miguelforge for allowing me to use their nether shipwreck design!
+    // Special thanks to cannon_foddr and miguelforge for allowing me to use their nether shipwreck design!
 
     private final Identifier START_POOL;
     private final boolean spawnAtSeaLevel;
