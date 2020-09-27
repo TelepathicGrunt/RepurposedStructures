@@ -46,6 +46,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Increased default spawnrate of End Mineshafts
 
+- Fixed bug that really screwed up the spawning of End Mineshafts (made them spawn waaaaaaaayyyyy too far out)
+
 
 ## (V.2.1.4 Changes) (1.16.2 Minecraft)
 

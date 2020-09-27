@@ -27,16 +27,17 @@ public class RSMineshaftEndStructure extends RSMineshaftStructure {
                 new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 5, 1, 3)
             );
 
+    @Override
     public List<MobSpawnInfo.Spawners> getSpawnList() {
         return MONSTER_SPAWNS;
     }
 
     @Override
-    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int x, int z, Biome biome, ChunkPos chunkPos, NoFeatureConfig featureConfig) {
-        chunkRandom.setLargeFeatureSeed(seed, x, z);
+    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig featureConfig) {
+        chunkRandom.setLargeFeatureSeed(seed, chunkX, chunkZ);
         double d = (probability / 10000D);
         if(chunkRandom.nextDouble() < d) {
-            int landHeight = chunkGenerator.func_222531_c(x, z, Heightmap.Type.WORLD_SURFACE_WG);
+            int landHeight = chunkGenerator.func_222531_c(chunkX << 4, chunkZ << 4, Heightmap.Type.WORLD_SURFACE_WG);
             return RepurposedStructures.RSMineshaftsConfig.barrensIslandsEndMineshafts.get() || landHeight > 20;
         }
         return false;

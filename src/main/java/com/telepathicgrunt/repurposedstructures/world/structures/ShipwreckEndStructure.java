@@ -39,12 +39,13 @@ public class ShipwreckEndStructure extends AbstractBaseStructure {
         return ShipwreckEndStructure.Start::new;
     }
 
+    @Override
     protected boolean shouldStartAt(ChunkGenerator generator, BiomeProvider biomeProvider, long seed, SharedSeedRandom random, int x, int z, Biome biome, ChunkPos chunkPos, NoFeatureConfig config) {
         return getYPosForStructure(x, z, generator) >= 20;
     }
 
     private static int getYPosForStructure(int x, int z, ChunkGenerator generator) {
-        Random random = new Random((long)(x + z * 10387313));
+        Random random = new Random(x + z * 10387313);
         Rotation rotation = Rotation.randomRotation(random);
         int i = 5;
         int j = 5;
