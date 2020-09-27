@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.mojang.serialization.Codec;
+import com.telepathicgrunt.repurposedstructures.RSStructures;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.GeneralJigsawGenerator;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
@@ -22,6 +23,7 @@ public class TempleNetherStructure extends Structure<NoFeatureConfig> {
     public TempleNetherStructure(Codec<NoFeatureConfig> config, ResourceLocation pieceRL) {
         super(config);
         START_POOL = pieceRL;
+        RSStructures.RS_STRUCTURE_START_PIECES.add(START_POOL);
     }
 
     @Override

@@ -29,7 +29,7 @@ public class DungeonSwamp extends Feature<NoFeatureConfig> {
 
     private static final Logger LOGGER = LogManager.getLogger();
     private static final BlockState CAVE_AIR = Blocks.CAVE_AIR.getDefaultState();
-    private static final ResourceLocation CHEST_LOOT = new ResourceLocation(RepurposedStructures.MODID + ":chests/dungeon_swamp");
+    private static final ResourceLocation CHEST_LOOT = new ResourceLocation(RepurposedStructures.MODID + ":chests/dungeon/swamp");
     private static final ResourceLocation SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID + ":dungeon_swamp");
 
 

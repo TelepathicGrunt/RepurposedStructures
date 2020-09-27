@@ -14,13 +14,9 @@ import com.telepathicgrunt.repurposedstructures.misc.VillagerTradesModification;
 import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
 import com.telepathicgrunt.repurposedstructures.utils.MobSpawnerManager;
 import com.telepathicgrunt.repurposedstructures.world.placements.RSPlacements;
-import com.telepathicgrunt.repurposedstructures.world.structures.pieces.*;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.MutableRegistry;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraftforge.event.AddReloadListenerEvent;
 import net.minecraftforge.event.RegistryEvent;
@@ -102,6 +98,7 @@ public class RepurposedStructures
 			//load the configs for structure spacing and placements
 			loadRSConfigs();
 			RSFeatures.registerFeatures();
+			RSStructures.registerStructures();
 			RSConfiguredFeatures.registerConfiguredFeatures();
 			RSConfiguredStructures.registerStructureFeatures();
 		}

@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.mojang.serialization.Codec;
+import com.telepathicgrunt.repurposedstructures.RSStructures;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.GeneralJigsawGenerator;
 import net.minecraft.util.ResourceLocation;
@@ -22,6 +23,7 @@ public class PyramidNetherStructure extends Structure<NoFeatureConfig> {
     public PyramidNetherStructure(Codec<NoFeatureConfig> config) {
         super(config);
         START_POOL = new ResourceLocation(RepurposedStructures.MODID + ":temples/pyramid_nether");
+        RSStructures.RS_STRUCTURE_START_PIECES.add(START_POOL);
     }
 
     @Override

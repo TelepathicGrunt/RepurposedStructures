@@ -11,49 +11,52 @@ import net.minecraft.world.gen.feature.structure.Structure;
 
 public class RSConfiguredStructures {
 
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> BIRCH_MINESHAFT = RSFeatures.BIRCH_MINESHAFT.configure(IFeatureConfig.NO_FEATURE_CONFIG);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> DESERT_MINESHAFT = RSFeatures.DESERT_MINESHAFT.configure(IFeatureConfig.NO_FEATURE_CONFIG);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> END_MINESHAFT = RSFeatures.END_MINESHAFT.configure(IFeatureConfig.NO_FEATURE_CONFIG);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_MINESHAFT = RSFeatures.NETHER_MINESHAFT.configure(IFeatureConfig.NO_FEATURE_CONFIG);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> ICY_MINESHAFT = RSFeatures.ICY_MINESHAFT.configure(IFeatureConfig.NO_FEATURE_CONFIG);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> JUNGLE_MINESHAFT = RSFeatures.JUNGLE_MINESHAFT.configure(IFeatureConfig.NO_FEATURE_CONFIG);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> OCEAN_MINESHAFT = RSFeatures.OCEAN_MINESHAFT.configure(IFeatureConfig.NO_FEATURE_CONFIG);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> SAVANNA_MINESHAFT = RSFeatures.SAVANNA_MINESHAFT.configure(IFeatureConfig.NO_FEATURE_CONFIG);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> STONE_MINESHAFT = RSFeatures.STONE_MINESHAFT.configure(IFeatureConfig.NO_FEATURE_CONFIG);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> SWAMP_OR_DARK_FOREST_MINESHAFT = RSFeatures.SWAMP_OR_DARK_FOREST_MINESHAFT.configure(IFeatureConfig.NO_FEATURE_CONFIG);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> TAIGA_MINESHAFT = RSFeatures.TAIGA_MINESHAFT.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> BIRCH_MINESHAFT = RSStructures.BIRCH_MINESHAFT.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> DESERT_MINESHAFT = RSStructures.DESERT_MINESHAFT.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> END_MINESHAFT = RSStructures.END_MINESHAFT.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_MINESHAFT = RSStructures.NETHER_MINESHAFT.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> ICY_MINESHAFT = RSStructures.ICY_MINESHAFT.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> JUNGLE_MINESHAFT = RSStructures.JUNGLE_MINESHAFT.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> OCEAN_MINESHAFT = RSStructures.OCEAN_MINESHAFT.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> SAVANNA_MINESHAFT = RSStructures.SAVANNA_MINESHAFT.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> STONE_MINESHAFT = RSStructures.STONE_MINESHAFT.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> SWAMP_OR_DARK_FOREST_MINESHAFT = RSStructures.SWAMP_OR_DARK_FOREST_MINESHAFT.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> TAIGA_MINESHAFT = RSStructures.TAIGA_MINESHAFT.configure(IFeatureConfig.NO_FEATURE_CONFIG);
 
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> STONEBRICK_STRONGHOLD = RSFeatures.STONEBRICK_STRONGHOLD.configure(IFeatureConfig.NO_FEATURE_CONFIG);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_STRONGHOLD = RSFeatures.NETHER_STRONGHOLD.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> STONEBRICK_STRONGHOLD = RSStructures.STONEBRICK_STRONGHOLD.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_STRONGHOLD = RSStructures.NETHER_STRONGHOLD.configure(IFeatureConfig.NO_FEATURE_CONFIG);
 
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> JUNGLE_FORTRESS = RSFeatures.JUNGLE_FORTRESS.configure(IFeatureConfig.NO_FEATURE_CONFIG);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> GRASSY_IGLOO = RSFeatures.GRASSY_IGLOO.configure(IFeatureConfig.NO_FEATURE_CONFIG);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> STONE_IGLOO = RSFeatures.STONE_IGLOO.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> JUNGLE_FORTRESS = RSStructures.JUNGLE_FORTRESS.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> GRASSY_IGLOO = RSStructures.GRASSY_IGLOO.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> STONE_IGLOO = RSStructures.STONE_IGLOO.configure(IFeatureConfig.NO_FEATURE_CONFIG);
 
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_WASTELAND_TEMPLE = RSFeatures.NETHER_WASTELAND_TEMPLE.configure(IFeatureConfig.NO_FEATURE_CONFIG);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_BASALT_TEMPLE = RSFeatures.NETHER_BASALT_TEMPLE.configure(IFeatureConfig.NO_FEATURE_CONFIG);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_WARPED_TEMPLE = RSFeatures.NETHER_WARPED_TEMPLE.configure(IFeatureConfig.NO_FEATURE_CONFIG);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_CRIMSON_TEMPLE = RSFeatures.NETHER_CRIMSON_TEMPLE.configure(IFeatureConfig.NO_FEATURE_CONFIG);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_SOUL_TEMPLE = RSFeatures.NETHER_SOUL_TEMPLE.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_WASTELAND_TEMPLE = RSStructures.NETHER_WASTELAND_TEMPLE.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_BASALT_TEMPLE = RSStructures.NETHER_BASALT_TEMPLE.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_WARPED_TEMPLE = RSStructures.NETHER_WARPED_TEMPLE.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_CRIMSON_TEMPLE = RSStructures.NETHER_CRIMSON_TEMPLE.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_SOUL_TEMPLE = RSStructures.NETHER_SOUL_TEMPLE.configure(IFeatureConfig.NO_FEATURE_CONFIG);
 
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_BRICK_OUTPOST = RSFeatures.NETHER_BRICK_OUTPOST.configure(IFeatureConfig.NO_FEATURE_CONFIG);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> WARPED_OUTPOST = RSFeatures.WARPED_OUTPOST.configure(IFeatureConfig.NO_FEATURE_CONFIG);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> CRIMSON_OUTPOST = RSFeatures.CRIMSON_OUTPOST.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_BRICK_OUTPOST = RSStructures.NETHER_BRICK_OUTPOST.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> WARPED_OUTPOST = RSStructures.WARPED_OUTPOST.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> CRIMSON_OUTPOST = RSStructures.CRIMSON_OUTPOST.configure(IFeatureConfig.NO_FEATURE_CONFIG);
 
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_PYRAMID = RSFeatures.NETHER_PYRAMID.configure(IFeatureConfig.NO_FEATURE_CONFIG);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> BADLANDS_TEMPLE = RSFeatures.BADLANDS_TEMPLE.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_PYRAMID = RSStructures.NETHER_PYRAMID.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> BADLANDS_TEMPLE = RSStructures.BADLANDS_TEMPLE.configure(IFeatureConfig.NO_FEATURE_CONFIG);
 
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> END_SHIPWRECK = RSFeatures.END_SHIPWRECK.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> END_SHIPWRECK = RSStructures.END_SHIPWRECK.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_BRICKS_SHIPWRECK = RSStructures.NETHER_BRICKS_SHIPWRECK.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> CRIMSON_SHIPWRECK = RSStructures.CRIMSON_SHIPWRECK.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> WARPED_SHIPWRECK = RSStructures.WARPED_SHIPWRECK.configure(IFeatureConfig.NO_FEATURE_CONFIG);
 
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> BADLANDS_VILLAGE = RSFeatures.BADLANDS_VILLAGE.configure(IFeatureConfig.NO_FEATURE_CONFIG);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> BIRCH_VILLAGE = RSFeatures.BIRCH_VILLAGE.configure(IFeatureConfig.NO_FEATURE_CONFIG);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> DARK_FOREST_VILLAGE = RSFeatures.DARK_FOREST_VILLAGE.configure(IFeatureConfig.NO_FEATURE_CONFIG);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> JUNGLE_VILLAGE = RSFeatures.JUNGLE_VILLAGE.configure(IFeatureConfig.NO_FEATURE_CONFIG);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> SWAMP_VILLAGE = RSFeatures.SWAMP_VILLAGE.configure(IFeatureConfig.NO_FEATURE_CONFIG);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> MOUNTAINS_VILLAGE = RSFeatures.MOUNTAINS_VILLAGE.configure(IFeatureConfig.NO_FEATURE_CONFIG);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> GIANT_TAIGA_VILLAGE = RSFeatures.GIANT_TAIGA_VILLAGE.configure(IFeatureConfig.NO_FEATURE_CONFIG);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> CRIMSON_VILLAGE = RSFeatures.CRIMSON_VILLAGE.configure(IFeatureConfig.NO_FEATURE_CONFIG);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> WARPED_VILLAGE = RSFeatures.WARPED_VILLAGE.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> BADLANDS_VILLAGE = RSStructures.BADLANDS_VILLAGE.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> BIRCH_VILLAGE = RSStructures.BIRCH_VILLAGE.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> DARK_FOREST_VILLAGE = RSStructures.DARK_FOREST_VILLAGE.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> JUNGLE_VILLAGE = RSStructures.JUNGLE_VILLAGE.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> SWAMP_VILLAGE = RSStructures.SWAMP_VILLAGE.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> MOUNTAINS_VILLAGE = RSStructures.MOUNTAINS_VILLAGE.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> GIANT_TAIGA_VILLAGE = RSStructures.GIANT_TAIGA_VILLAGE.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> CRIMSON_VILLAGE = RSStructures.CRIMSON_VILLAGE.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> WARPED_VILLAGE = RSStructures.WARPED_VILLAGE.configure(IFeatureConfig.NO_FEATURE_CONFIG);
 
     public static void registerStructureFeatures() {
         MutableRegistry<StructureFeature<?, ?>> registry = (MutableRegistry<StructureFeature<?, ?>>) WorldGenRegistries.CONFIGURED_STRUCTURE_FEATURE;
@@ -91,6 +94,9 @@ public class RSConfiguredStructures {
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "badlands_temple"), BADLANDS_TEMPLE);
 
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "end_shipwreck"), END_SHIPWRECK);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "nether_bricks_shipwreck"), NETHER_BRICKS_SHIPWRECK);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "crimson_shipwreck"), CRIMSON_SHIPWRECK);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "warped_shipwreck"), WARPED_SHIPWRECK);
 
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "badlands_village"), BADLANDS_VILLAGE);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "birch_village"), BIRCH_VILLAGE);

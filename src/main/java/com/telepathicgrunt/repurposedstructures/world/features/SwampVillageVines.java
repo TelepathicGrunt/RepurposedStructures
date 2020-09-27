@@ -2,6 +2,7 @@ package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RSFeatures;
+import com.telepathicgrunt.repurposedstructures.RSStructures;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.SectionPos;
 import net.minecraft.world.ISeedReader;
@@ -21,7 +22,7 @@ public class SwampVillageVines extends Feature<NoFeatureConfig> {
 
     @Override
     public boolean generate(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
-        if (world.isAirBlock(position) && world.getStructures(SectionPos.from(position), RSFeatures.SWAMP_VILLAGE).findAny().isPresent()) {
+        if (world.isAirBlock(position) && world.getStructures(SectionPos.from(position), RSStructures.SWAMP_VILLAGE).findAny().isPresent()) {
             RSFeatures.SHORT_VINES.generate(world, chunkGenerator, random, position, NoFeatureConfig.NO_FEATURE_CONFIG);
             return true;
         }

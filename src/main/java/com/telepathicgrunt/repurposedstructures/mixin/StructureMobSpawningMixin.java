@@ -3,6 +3,7 @@ package com.telepathicgrunt.repurposedstructures.mixin;
 import com.google.common.collect.Iterators;
 import com.google.common.collect.Lists;
 import com.telepathicgrunt.repurposedstructures.RSFeatures;
+import com.telepathicgrunt.repurposedstructures.RSStructures;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
@@ -32,29 +33,29 @@ public class StructureMobSpawningMixin {
 
     private static List<MobSpawnInfo.Spawners>  getStructureSpawns(Biome biome, StructureManager accessor, EntityClassification group, BlockPos pos){
         if (group == EntityClassification.MONSTER) {
-            if (accessor.getStructureAt(pos, true, RSFeatures.NETHER_BRICK_OUTPOST).isValid()) {
-               return RSFeatures.NETHER_BRICK_OUTPOST.getSpawnList();
+            if (accessor.getStructureAt(pos, true, RSStructures.NETHER_BRICK_OUTPOST).isValid()) {
+               return RSStructures.NETHER_BRICK_OUTPOST.getSpawnList();
             }
 
-            if (accessor.getStructureAt(pos, true, RSFeatures.WARPED_OUTPOST).isValid()) {
-                return RSFeatures.WARPED_OUTPOST.getSpawnList();
+            if (accessor.getStructureAt(pos, true, RSStructures.WARPED_OUTPOST).isValid()) {
+                return RSStructures.WARPED_OUTPOST.getSpawnList();
             }
 
-            if (accessor.getStructureAt(pos, true, RSFeatures.CRIMSON_OUTPOST).isValid()) {
-                return RSFeatures.CRIMSON_OUTPOST.getSpawnList();
+            if (accessor.getStructureAt(pos, true, RSStructures.CRIMSON_OUTPOST).isValid()) {
+                return RSStructures.CRIMSON_OUTPOST.getSpawnList();
             }
 
 
-            if (accessor.getStructureAt(pos, true, RSFeatures.NETHER_STRONGHOLD).isValid()) {
-                return RSFeatures.NETHER_STRONGHOLD.getSpawnList();
+            if (accessor.getStructureAt(pos, true, RSStructures.NETHER_STRONGHOLD).isValid()) {
+                return RSStructures.NETHER_STRONGHOLD.getSpawnList();
             }
 
-            if (accessor.getStructureAt(pos, true, RSFeatures.JUNGLE_FORTRESS).isValid()) {
-                return Lists.newArrayList(Iterators.concat(biome.getSpawnSettings().getSpawnEntry(EntityClassification.MONSTER).iterator(), RSFeatures.JUNGLE_FORTRESS.getSpawnList().iterator()));
+            if (accessor.getStructureAt(pos, true, RSStructures.JUNGLE_FORTRESS).isValid()) {
+                return Lists.newArrayList(Iterators.concat(biome.getSpawnSettings().getSpawnEntry(EntityClassification.MONSTER).iterator(), RSStructures.JUNGLE_FORTRESS.getSpawnList().iterator()));
             }
 
-            if (accessor.getStructureAt(pos, true, RSFeatures.END_MINESHAFT).isValid()) {
-                return Lists.newArrayList(Iterators.concat(biome.getSpawnSettings().getSpawnEntry(EntityClassification.MONSTER).iterator(), RSFeatures.END_MINESHAFT.getSpawnList().iterator()));
+            if (accessor.getStructureAt(pos, true, RSStructures.END_MINESHAFT).isValid()) {
+                return Lists.newArrayList(Iterators.concat(biome.getSpawnSettings().getSpawnEntry(EntityClassification.MONSTER).iterator(), RSStructures.END_MINESHAFT.getSpawnList().iterator()));
             }
         }
 

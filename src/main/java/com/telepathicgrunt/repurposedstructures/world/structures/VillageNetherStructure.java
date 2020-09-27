@@ -2,6 +2,7 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RSFeatures;
+import com.telepathicgrunt.repurposedstructures.RSStructures;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
 import net.minecraft.tags.BlockTags;
@@ -17,6 +18,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
@@ -31,17 +33,11 @@ public class VillageNetherStructure extends VillageBaseStructure {
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig defaultFeatureConfig) {
         for (int curChunkX = chunkX - 10; curChunkX <= chunkX + 10; curChunkX++) {
             for (int curChunkZ = chunkZ - 10; curChunkZ <= chunkZ + 10; curChunkZ++) {
-                ChunkPos chunkPos2 = RSFeatures.WARPED_OUTPOST.getStartChunk(Objects.requireNonNull(chunkGenerator.getStructuresConfig().getForType(RSFeatures.WARPED_OUTPOST)), seed, chunkRandom, curChunkX, curChunkZ);
-                if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
-                    return false;
-                }
-                chunkPos2 = RSFeatures.CRIMSON_OUTPOST.getStartChunk(Objects.requireNonNull(chunkGenerator.getStructuresConfig().getForType(RSFeatures.CRIMSON_OUTPOST)), seed, chunkRandom, curChunkX, curChunkZ);
-                if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
-                    return false;
-                }
-                chunkPos2 = RSFeatures.NETHER_BRICK_OUTPOST.getStartChunk(Objects.requireNonNull(chunkGenerator.getStructuresConfig().getForType(RSFeatures.NETHER_BRICK_OUTPOST)), seed, chunkRandom, curChunkX, curChunkZ);
-                if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
-                    return false;
+                for(Structure<?> outpost : RSStructures.NETHER_OUTPOSTS_LIST){
+                    ChunkPos chunkPos2 = outpost.getStartChunk(Objects.requireNonNull(chunkGenerator.getStructuresConfig().getForType(outpost)), seed, chunkRandom, curChunkX, curChunkZ);
+                    if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
+                        return false;
+                    }
                 }
             }
         }
