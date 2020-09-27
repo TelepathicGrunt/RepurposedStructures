@@ -39,7 +39,7 @@
 						{
 							"function": "minecraft:set_count",
 							"count": {
-								"min": 15.0,
+								"min": 2.0,
 								"max": 20.0,
 								"type": "minecraft:uniform"
 							}
@@ -63,7 +63,7 @@
 						{
 							"function": "minecraft:set_count",
 							"count": {
-								"min": 10.0,
+								"min": 5.0,
 								"max": 20.0,
 								"type": "minecraft:uniform"
 							}
@@ -104,7 +104,7 @@
 						{
 							"function": "minecraft:set_count",
 							"count": {
-								"min": 6.0,
+								"min": 4.0,
 								"max": 20.0,
 								"type": "minecraft:uniform"
 							}
@@ -130,7 +130,7 @@
 						{
 							"function": "minecraft:set_count",
 							"count": {
-								"min": 10.0,
+								"min": 2.0,
 								"max": 20.0,
 								"type": "minecraft:uniform"
 							}

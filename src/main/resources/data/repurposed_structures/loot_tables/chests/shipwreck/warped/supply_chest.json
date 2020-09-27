@@ -129,7 +129,7 @@
 							"function": "minecraft:set_count",
 							"count": {
 								"min": 5.0,
-								"max": 17.0,
+								"max": 10.0,
 								"type": "minecraft:uniform"
 							}
 						}
@@ -153,22 +153,7 @@
 				},
 				{
 					"type": "minecraft:item",
-					"weight": 3,
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"min": 10.0,
-								"max": 15.0,
-								"type": "minecraft:uniform"
-							}
-						}
-					],
-					"name": "minecraft:gunpowder"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 3,
+					"weight": 4,
 					"functions": [
 						{
 							"function": "minecraft:set_count",
@@ -187,7 +172,7 @@
 				},
 				{
 					"type": "minecraft:item",
-					"weight": 3,
+					"weight": 4,
 					"functions": [
 						{
 							"function": "minecraft:set_count",
@@ -203,6 +188,26 @@
 						}
 					],
 					"name": "minecraft:firework_star"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 4,
+					"name": "minecraft:warped_fungus_on_a_stick"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 3,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 10.0,
+								"max": 15.0,
+								"type": "minecraft:uniform"
+							}
+						}
+					],
+					"name": "minecraft:gunpowder"
 				},
 				{
 					"type": "minecraft:item",
@@ -246,11 +251,6 @@
 				},
 				{
 					"type": "minecraft:item",
-					"weight": 3,
-					"name": "minecraft:warped_fungus_on_a_stick"
-				},
-				{
-					"type": "minecraft:item",
 					"weight": 2,
 					"functions": [
 						{
@@ -262,7 +262,7 @@
 							}
 						}
 					],
-					"name": "minecraft:blue_stained_glass_pane"
+					"name": "minecraft:lime_stained_glass_pane"
 				},
 				{
 					"type": "minecraft:item",
