@@ -1,4 +1,4 @@
-# Made for Minecraft v.1.16.1
+# Made for Minecraft v.1.16.3
 
 ## Created by TelepathicGrunt
 
@@ -8,7 +8,7 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
-## (V.1.6.0 Changes) (1.16.2 Minecraft)
+## (V.1.6.0 Changes) (1.16.3 Minecraft)
 
 ##### Misc:
 
