@@ -8,6 +8,15 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.2.2.2 Changes) (1.16.3 Minecraft)
+
+##### Mineshafts:
+
+- Overworld Repurposed Structures Mineshafts now still spawns and 
+  won't conflict with Yung's Better Mineshafts when that mod is on.
+  The Mineshafts will now be added to modded biomes of the right type
+  even if said biomes do not have Vanilla Mineshafts. Use the config
+  blacklist to prevent Repurposed Mineshafts in certain biomes.
 
 ## (V.2.2.1 Changes) (1.16.3 Minecraft)
 

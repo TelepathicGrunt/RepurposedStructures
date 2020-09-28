@@ -23,6 +23,7 @@ import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DeferredWorkQueue;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ConfigTracker;
 import net.minecraftforge.fml.config.ModConfig;
@@ -55,6 +56,7 @@ public class RepurposedStructures
 	public static RSTemplesConfigValues RSTemplesConfig = null;
 	public static RSShipwrecksConfigValues RSShipwrecksConfig = null;
 	public static MobSpawnerManager mobSpawnerManager = null;
+	public static boolean yungsBetterMineshaftIsNotOn = true;
 
 	public RepurposedStructures()
 	{
@@ -75,6 +77,7 @@ public class RepurposedStructures
 		RSTemplesConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSTemplesConfigValues::new, "repurposed_structures-temples.toml");
 		RSVillagesConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSVillagesConfigValues::new, "repurposed_structures-villages.toml");
 
+		yungsBetterMineshaftIsNotOn = !ModList.get().isLoaded("bettermineshafts");
 	}
 
 	/*
