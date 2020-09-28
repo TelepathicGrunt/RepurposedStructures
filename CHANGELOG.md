@@ -20,10 +20,12 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Fixed Jungle Fortress Map not being translated properly
 
-
 ##### Mineshafts:
 
 - Fixed possible issue if another mod removes Vanilla Mineshafts from biomes.
+  The Mineshafts will now be added to modded biomes of the right type
+  even if said biomes do not have Vanilla Mineshafts. Use the config
+  blacklist to prevent Repurposed Mineshafts in certain biomes.
 
 ## (V.1.6.0 Changes) (1.16.3 Minecraft)
 

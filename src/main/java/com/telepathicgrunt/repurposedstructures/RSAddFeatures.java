@@ -9,64 +9,62 @@ import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.*;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.function.BiFunction;
 
 public class RSAddFeatures {
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MINESHAFTS //
 
-    private static final List<Pair<ConfiguredStructureFeature<?, ?>, TestBiomeInterface>> MINESHAFT_TYPE_AND_CONDITIONS = Arrays.asList(
-        new Pair<ConfiguredStructureFeature<?, ?>, TestBiomeInterface>(RSConfiguredStructures.BIRCH_MINESHAFT, (biomeIDIn, biomeIn) ->
+    private static final List<Pair<ConfiguredStructureFeature<?, ?>, BiomeCheckingInterface>> MINESHAFT_TYPE_AND_CONDITIONS = Arrays.asList(
+        new Pair<ConfiguredStructureFeature<?, ?>, BiomeCheckingInterface>(RSConfiguredStructures.BIRCH_MINESHAFT, (biomeIDIn, biomeIn) ->
                 (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.birchMineshaftSpawnrate != 0 && biomeIDIn.getPath().contains("birch") &&
                 (biomeIDIn.getNamespace().equals("minecraft") || RepurposedStructures.RSAllConfig.RSMineshaftsConfig.addMineshaftsToModdedBiomes))),
 
-        new Pair<ConfiguredStructureFeature<?, ?>, TestBiomeInterface>(RSConfiguredStructures.JUNGLE_MINESHAFT, (biomeIDIn, biomeIn) ->
+        new Pair<ConfiguredStructureFeature<?, ?>, BiomeCheckingInterface>(RSConfiguredStructures.JUNGLE_MINESHAFT, (biomeIDIn, biomeIn) ->
                 (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.jungleMineshaftSpawnrate != 0 && biomeIn.getCategory() == Category.JUNGLE &&
                 (biomeIDIn.getNamespace().equals("minecraft") || RepurposedStructures.RSAllConfig.RSMineshaftsConfig.addMineshaftsToModdedBiomes))),
 
-        new Pair<ConfiguredStructureFeature<?, ?>, TestBiomeInterface>(RSConfiguredStructures.DESERT_MINESHAFT, (biomeIDIn, biomeIn) ->
+        new Pair<ConfiguredStructureFeature<?, ?>, BiomeCheckingInterface>(RSConfiguredStructures.DESERT_MINESHAFT, (biomeIDIn, biomeIn) ->
                 (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.desertMineshaftSpawnrate != 0 && biomeIn.getCategory() == Category.DESERT &&
                 (biomeIDIn.getNamespace().equals("minecraft") || RepurposedStructures.RSAllConfig.RSMineshaftsConfig.addMineshaftsToModdedBiomes))),
 
-        new Pair<ConfiguredStructureFeature<?, ?>, TestBiomeInterface>(RSConfiguredStructures.STONE_MINESHAFT, (biomeIDIn, biomeIn) ->
+        new Pair<ConfiguredStructureFeature<?, ?>, BiomeCheckingInterface>(RSConfiguredStructures.STONE_MINESHAFT, (biomeIDIn, biomeIn) ->
                 (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.stoneMineshaftSpawnrate != 0 && biomeIn.getCategory() == Category.EXTREME_HILLS &&
                 (biomeIDIn.getNamespace().equals("minecraft") || RepurposedStructures.RSAllConfig.RSMineshaftsConfig.addMineshaftsToModdedBiomes))),
 
-        new Pair<ConfiguredStructureFeature<?, ?>, TestBiomeInterface>(RSConfiguredStructures.SAVANNA_MINESHAFT, (biomeIDIn, biomeIn) ->
+        new Pair<ConfiguredStructureFeature<?, ?>, BiomeCheckingInterface>(RSConfiguredStructures.SAVANNA_MINESHAFT, (biomeIDIn, biomeIn) ->
                 (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.savannaMineshaftSpawnrate != 0 && biomeIn.getCategory() == Category.SAVANNA &&
                 (biomeIDIn.getNamespace().equals("minecraft") || RepurposedStructures.RSAllConfig.RSMineshaftsConfig.addMineshaftsToModdedBiomes))),
 
-        new Pair<ConfiguredStructureFeature<?, ?>, TestBiomeInterface>(RSConfiguredStructures.ICY_MINESHAFT, (biomeIDIn, biomeIn) ->
+        new Pair<ConfiguredStructureFeature<?, ?>, BiomeCheckingInterface>(RSConfiguredStructures.ICY_MINESHAFT, (biomeIDIn, biomeIn) ->
                 (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.icyMineshaftSpawnrate != 0 &&
                 (biomeIn.getCategory() == Category.ICY || biomeIDIn.getPath().contains("snowy")) &&
                 (biomeIDIn.getNamespace().equals("minecraft") || RepurposedStructures.RSAllConfig.RSMineshaftsConfig.addMineshaftsToModdedBiomes))),
 
-        new Pair<ConfiguredStructureFeature<?, ?>, TestBiomeInterface>(RSConfiguredStructures.OCEAN_MINESHAFT, (biomeIDIn, biomeIn) ->
+        new Pair<ConfiguredStructureFeature<?, ?>, BiomeCheckingInterface>(RSConfiguredStructures.OCEAN_MINESHAFT, (biomeIDIn, biomeIn) ->
                 (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.oceanMineshaftSpawnrate != 0 && biomeIn.getCategory() == Category.OCEAN &&
                 (biomeIDIn.getNamespace().equals("minecraft") || RepurposedStructures.RSAllConfig.RSMineshaftsConfig.addMineshaftsToModdedBiomes))),
 
-        new Pair<ConfiguredStructureFeature<?, ?>, TestBiomeInterface>(RSConfiguredStructures.TAIGA_MINESHAFT, (biomeIDIn, biomeIn) ->
+        new Pair<ConfiguredStructureFeature<?, ?>, BiomeCheckingInterface>(RSConfiguredStructures.TAIGA_MINESHAFT, (biomeIDIn, biomeIn) ->
                 (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.taigaMineshaftSpawnrate != 0 && biomeIn.getCategory() == Category.TAIGA &&
                 (biomeIDIn.getNamespace().equals("minecraft") || RepurposedStructures.RSAllConfig.RSMineshaftsConfig.addMineshaftsToModdedBiomes))),
 
-        new Pair<ConfiguredStructureFeature<?, ?>, TestBiomeInterface>(RSConfiguredStructures.SWAMP_OR_DARK_FOREST_MINESHAFT, (biomeIDIn, biomeIn) ->
+        new Pair<ConfiguredStructureFeature<?, ?>, BiomeCheckingInterface>(RSConfiguredStructures.SWAMP_OR_DARK_FOREST_MINESHAFT, (biomeIDIn, biomeIn) ->
                 (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.swampAndDarkForestMineshaftSpawnrate != 0 &&
                 (biomeIn.getCategory() == Category.SWAMP || biomeIDIn.getPath().contains("dark_forest") || biomeIDIn.getPath().contains("dark_oak")) &&
                 (biomeIDIn.getNamespace().equals("minecraft") || RepurposedStructures.RSAllConfig.RSMineshaftsConfig.addMineshaftsToModdedBiomes))),
 
-        new Pair<ConfiguredStructureFeature<?, ?>, TestBiomeInterface>(RSConfiguredStructures.END_MINESHAFT, (biomeIDIn, biomeIn) ->
+        new Pair<ConfiguredStructureFeature<?, ?>, BiomeCheckingInterface>(RSConfiguredStructures.END_MINESHAFT, (biomeIDIn, biomeIn) ->
                 (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.endMineshaftSpawnrate != 0 &&
                 biomeIn.getCategory() == Category.THEEND && !biomeIDIn.equals(new Identifier("minecraft:the_end")) &&
                 (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.misc.barrensIslandsEndMineshafts ||
                 (!biomeIDIn.equals(new Identifier("minecraft:end_barrens")) && !biomeIDIn.equals(new Identifier("minecraft:small_end_islands")))) &&
                 (biomeIDIn.getNamespace().equals("minecraft") || RepurposedStructures.RSAllConfig.RSMineshaftsConfig.addMineshaftsToModdedBiomes))),
 
-        new Pair<ConfiguredStructureFeature<?, ?>, TestBiomeInterface>(RSConfiguredStructures.NETHER_MINESHAFT, (biomeIDIn, biomeIn) ->
+        new Pair<ConfiguredStructureFeature<?, ?>, BiomeCheckingInterface>(RSConfiguredStructures.NETHER_MINESHAFT, (biomeIDIn, biomeIn) ->
                 (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.netherMineshaftSpawnrate != 0 && biomeIn.getCategory() == Category.NETHER &&
                 (biomeIDIn.getNamespace().equals("minecraft") || RepurposedStructures.RSAllConfig.RSMineshaftsConfig.addMineshaftsToModdedBiomes)))
     );
@@ -74,24 +72,27 @@ public class RSAddFeatures {
     public static void addMineshafts(Biome biome, Identifier biomeID) {
         // Testing out this short circuit idea I had.
         // Takes a condition and tries to add the mineshaft.
-        // If fails, move on to next Mineshaft type. If it works, stops and exits method.
-        for(Pair<ConfiguredStructureFeature<?, ?>, TestBiomeInterface> mineshaftTypeAndCondition : MINESHAFT_TYPE_AND_CONDITIONS){
-            if(attemptToAddMineshaft(biomeID, biome, mineshaftTypeAndCondition.getFirst(), mineshaftTypeAndCondition.getSecond()))
+        // If fails, move on to next Mineshaft type. If it succeeds, stop and exit method.
+        for(Pair<ConfiguredStructureFeature<?, ?>, BiomeCheckingInterface> mineshaftTypeAndCondition : MINESHAFT_TYPE_AND_CONDITIONS){
+            if(attemptToAddMineshaft(biome, biomeID, mineshaftTypeAndCondition.getFirst(), mineshaftTypeAndCondition.getSecond())){
                 break;
+            }
         }
     }
 
-    interface TestBiomeInterface {
-         boolean testBiome(Identifier a, Biome b);
+    // helper stuff to allow a cleaner way of passing in mineshaft types
+    // and their conditions to see if they should be added to the biome
+    interface BiomeCheckingInterface {
+         boolean checkIfValidBiome(Identifier a, Biome b);
     }
-    private static boolean attemptToAddMineshaft(Identifier biomeID, Biome biome, ConfiguredStructureFeature<?,?> configuredStructureFeature, TestBiomeInterface predicate){
-        if (predicate.testBiome(biomeID, biome)) {
-            // replace vanilla mineshaft with our own (only reoves vanilla mineshaft if it exists)
+    private static boolean attemptToAddMineshaft(Biome biome, Identifier biomeID, ConfiguredStructureFeature<?,?> configuredStructureFeature, BiomeCheckingInterface predicate){
+        if (predicate.checkIfValidBiome(biomeID, biome)) {
+            // replace vanilla mineshaft with our own (only removes vanilla mineshaft if it exists)
             biome.getGenerationSettings().getStructureFeatures().removeIf((supplier) -> supplier.get().feature == StructureFeature.MINESHAFT);
             biome.getGenerationSettings().getStructureFeatures().add(() -> configuredStructureFeature);
             return true; // Do not proceed to next mineshaft type.
         }
-        return false; // continue to next mienshaft type
+        return false; // continue to next mineshaft type
     }
 
 
