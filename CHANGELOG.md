@@ -10,9 +10,20 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ## (V.1.6.1 Changes) (1.16.3 Minecraft)
 
+##### Misc:
+
+- Jar-in-jar'd Modmuss's Voyager to fix a rare bug that crashes servers
+  running Java 11 when they try to load two chunks with structures in 
+  two dimensions at the same time.
+
 ##### Fortress:
 
 - Fixed Jungle Fortress Map not being translated properly
+
+
+##### Mineshafts:
+
+- Fixed possible issue if another mod removes Vanilla Mineshafts from biomes.
 
 ## (V.1.6.0 Changes) (1.16.3 Minecraft)
 

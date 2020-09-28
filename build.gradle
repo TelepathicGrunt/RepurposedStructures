@@ -48,6 +48,9 @@ dependencies {
 		exclude module: 'fabric-api'
 	}
 
+	implementation 'com.github.modmuss50:Voyager:1.0.0'
+	include 'com.github.modmuss50:Voyager:1.0.0'
+
 	// not required, but we want to see our config screen
 	modImplementation("io.github.prospector:modmenu:${project.mod_menu_version}"){
 		exclude module: 'fabric-api'
