@@ -8,6 +8,7 @@ import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import me.sargunvohra.mcmods.autoconfig1u.serializer.Toml4jConfigSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.server.ServerStartCallback;
+import net.fabricmc.loader.FabricLoader;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.Biome;
 import org.apache.logging.log4j.LogManager;
@@ -24,6 +25,7 @@ public class RepurposedStructures implements ModInitializer {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MODID = "repurposed_structures";
     public static MobSpawnerManager mobSpawnerManager = null;
+    public static boolean yungsBetterMineshaftIsNotOn = true;
 
 	public static RSAllConfig RSAllConfig = null;
 
@@ -46,6 +48,8 @@ public class RepurposedStructures implements ModInitializer {
         RSStructures.registerStructures();
         RSConfiguredFeatures.registerConfiguredFeatures();
         RSConfiguredStructures.registerConfiguredStructures();
+
+        yungsBetterMineshaftIsNotOn = !FabricLoader.INSTANCE.isModLoaded("bettermineshafts");
     }
 
     /*

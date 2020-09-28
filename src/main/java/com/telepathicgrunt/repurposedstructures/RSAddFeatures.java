@@ -88,7 +88,10 @@ public class RSAddFeatures {
     private static boolean attemptToAddMineshaft(Biome biome, Identifier biomeID, ConfiguredStructureFeature<?,?> configuredStructureFeature, BiomeCheckingInterface predicate){
         if (predicate.checkIfValidBiome(biomeID, biome)) {
             // replace vanilla mineshaft with our own (only removes vanilla mineshaft if it exists)
-            biome.getGenerationSettings().getStructureFeatures().removeIf((supplier) -> supplier.get().feature == StructureFeature.MINESHAFT);
+            // Do not remove when yungs is on. They need the mineshaft to replace it.
+            if (RepurposedStructures.yungsBetterMineshaftIsNotOn){
+                biome.getGenerationSettings().getStructureFeatures().removeIf((supplier) -> supplier.get().feature == StructureFeature.MINESHAFT);
+            }
             biome.getGenerationSettings().getStructureFeatures().add(() -> configuredStructureFeature);
             return true; // Do not proceed to next mineshaft type.
         }

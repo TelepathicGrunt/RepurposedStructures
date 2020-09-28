@@ -22,7 +22,7 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ##### Mineshafts:
 
-- Fixed possible issue if another mod removes Vanilla Mineshafts from biomes.
+- Now has compat with Yungs Better Mineshafts. Neither Mineshafts will go missing.
   The Mineshafts will now be added to modded biomes of the right type
   even if said biomes do not have Vanilla Mineshafts. Use the config
   blacklist to prevent Repurposed Mineshafts in certain biomes.
