@@ -57,7 +57,8 @@ public class LoadNbtBlock extends Block {
         // Size of area we will need
         int columnCount = 3;
         int rowCount = (int) Math.max(Math.ceil(identifiers.size()) / columnCount, 1);
-        BlockPos bounds = new BlockPos(32 * (rowCount+2), 32, 32 * columnCount);
+        int spacing = 48;
+        BlockPos bounds = new BlockPos(spacing * (rowCount+2), spacing, spacing * columnCount);
 
         // Fill/clear area with structure void
         BlockPos.Mutable mutable = new BlockPos.Mutable().set(pos);
@@ -101,14 +102,14 @@ public class LoadNbtBlock extends Block {
                 structureBlockBlockEntity.setIgnoreEntities(false);
             }
 
-            mutable.move(0,0,32);
+            mutable.move(0,0,spacing);
 
 
             player.sendMessage(new TranslatableText(" Working making structure: "+identifiers.get(pieceIndex-1)), true);
 
             // Move back to start of row
             if(pieceIndex % columnCount == 0){
-                mutable.move(32,0, (-32*(columnCount)));
+                mutable.move(spacing,0, (-spacing*(columnCount)));
             }
         }
 
