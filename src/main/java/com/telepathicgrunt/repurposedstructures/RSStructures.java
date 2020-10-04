@@ -203,13 +203,6 @@ public class RSStructures {
         Structure.register(resourceLocation.toString(), structure, stage);
 
         FlatGenerationSettings.STRUCTURES.put(structure, structure.configure(IFeatureConfig.NO_FEATURE_CONFIG));
-        DimensionStructuresSettings.DEFAULT_STRUCTURES =
-                ImmutableMap.<Structure<?>, StructureSeparationSettings>builder()
-                    .putAll(DimensionStructuresSettings.DEFAULT_STRUCTURES)
-                    .put(structure, structureSeparationSettings)
-                    .build();
-
-        DimensionSettings.INSTANCE.getStructuresConfig().structures.put(structure, structureSeparationSettings);
         RS_STRUCTURES.put(structure, structureSeparationSettings);
     }
 }

@@ -15,11 +15,21 @@ import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
 import com.telepathicgrunt.repurposedstructures.utils.MobSpawnerManager;
 import com.telepathicgrunt.repurposedstructures.world.placements.RSPlacements;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.Rotation;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.jigsaw.JigsawPattern;
+import net.minecraft.world.gen.feature.jigsaw.JigsawPiece;
+import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.placement.Placement;
+import net.minecraft.world.gen.settings.DimensionStructuresSettings;
+import net.minecraft.world.gen.settings.StructureSeparationSettings;
+import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.event.AddReloadListenerEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
+import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DeferredWorkQueue;
@@ -134,6 +144,39 @@ public class RepurposedStructures
 			RepurposedStructures.addFeaturesAndStructuresToBiomes(
 					event, // Biome
 					allBiomeBlacklists); // Blacklists
+		}
+
+		@SubscribeEvent
+		public static void addDimensionalSpacing(final WorldEvent.Load event) {
+			//add our structure spacing to all chunkgenerators including modded one and datapack ones.
+			List<String> dimensionBlacklist = Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedDimensions.get().split(","));
+
+			if (event.getWorld() instanceof ServerWorld){
+				ServerWorld serverWorld = (ServerWorld) event.getWorld();
+				Map<Structure<?>, StructureSeparationSettings> tempMap = new HashMap<>(serverWorld.getChunkProvider().generator.getStructuresConfig().getStructures());
+
+				if(dimensionBlacklist.stream().anyMatch(blacklist -> blacklist.equals((serverWorld.getRegistryKey().getValue().toString())))) {
+					// make absolutely sure dimension cannot spawn RS structures
+					tempMap.keySet().removeAll(RSStructures.RS_STRUCTURES.keySet());
+				}
+				else{
+					// make absolutely sure dimension can spawn RS structures
+					tempMap.putAll(RSStructures.RS_STRUCTURES);
+				}
+				serverWorld.getChunkProvider().generator.getStructuresConfig().structures = tempMap;
+
+				// Load up the nbt files for several structures at startup instead of during worldgen.
+				for(ResourceLocation identifier : RSStructures.RS_STRUCTURE_START_PIECES){
+					JigsawPattern structurePool = serverWorld.getRegistryManager().get(Registry.TEMPLATE_POOL_WORLDGEN).getOrDefault(identifier);
+					if(structurePool != null){
+						List<JigsawPiece> elements = structurePool.getShuffledPieces(new Random());
+						for(JigsawPiece element: elements){
+							// This loads the structure piece to nbt
+							element.getBoundingBox(serverWorld.getStructureTemplateManager(), new BlockPos(0,0,0), Rotation.NONE);
+						}
+					}
+				}
+			}
 		}
 	}
 

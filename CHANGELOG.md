@@ -8,6 +8,14 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.2.2.3 Changes) (1.16.3 Minecraft)
+
+##### Configs:
+
+- Added config option to blacklist all Repurposed Structures's structures from
+  any dimension(s) you specify. Finally figured out how to do it safely!
+
+
 ## (V.2.2.2 Changes) (1.16.3 Minecraft)
 
 ##### Mineshafts:
