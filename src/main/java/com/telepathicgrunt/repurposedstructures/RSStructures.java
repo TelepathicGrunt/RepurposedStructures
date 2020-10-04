@@ -55,8 +55,8 @@ public class RSStructures {
     public static Structure<NoFeatureConfig> NETHER_STRONGHOLD = new RSNetherStrongholdStructure(NoFeatureConfig.CODEC);
 
     public static Structure<NoFeatureConfig> JUNGLE_FORTRESS = new FortressJungleStructure(NoFeatureConfig.CODEC);
-    public static Structure<NoFeatureConfig> GRASSY_IGLOO = new RSIglooStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":igloos/grassy_top"));
-    public static Structure<NoFeatureConfig> STONE_IGLOO = new RSIglooStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":igloos/stone_top"));
+    public static Structure<NoFeatureConfig> GRASSY_IGLOO = new VillageBaseStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":igloos/grassy_top"), 3);
+    public static Structure<NoFeatureConfig> STONE_IGLOO = new VillageBaseStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":igloos/stone_top"), 3);
 
     public static Structure<NoFeatureConfig> NETHER_WASTELAND_TEMPLE = new TempleNetherStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID,"temples/temple_nether_wasteland"));
     public static Structure<NoFeatureConfig> NETHER_BASALT_TEMPLE = new TempleNetherStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID,"temples/temple_nether_basalt"));
@@ -140,8 +140,8 @@ public class RSStructures {
         registerStructure(new ResourceLocation(RepurposedStructures.MODID, "stronghold_nether"), NETHER_STRONGHOLD, GenerationStage.Decoration.UNDERGROUND_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSStrongholdsConfig.netherStrongholdSpawnrate.get(), (int) (RepurposedStructures.RSStrongholdsConfig.netherStrongholdSpawnrate.get() * 0.5f), 1731422513));
 
         registerStructure(new ResourceLocation(RepurposedStructures.MODID, "fortress_jungle"), JUNGLE_FORTRESS, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMainConfig.jungleFortressSpawnrate.get(), (int) (RepurposedStructures.RSMainConfig.jungleFortressSpawnrate.get() * 0.5f), 1464189157));
-        registerStructure(new ResourceLocation(RepurposedStructures.MODID, "igloo_grassy"), GRASSY_IGLOO, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMainConfig.grassyIglooSpawnrate.get(), (int) (RepurposedStructures.RSMainConfig.grassyIglooSpawnrate.get() * 0.5f), 1460835582));
-        registerStructure(new ResourceLocation(RepurposedStructures.MODID, "igloo_stone"), STONE_IGLOO, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMainConfig.stoneIglooSpawnrate.get(), (int) (RepurposedStructures.RSMainConfig.stoneIglooSpawnrate.get() * 0.5f), 1327429039));
+        registerLandscapeTransformingStructure(new ResourceLocation(RepurposedStructures.MODID, "igloo_grassy"), GRASSY_IGLOO, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMainConfig.grassyIglooSpawnrate.get(), (int) (RepurposedStructures.RSMainConfig.grassyIglooSpawnrate.get() * 0.5f), 1460835582));
+        registerLandscapeTransformingStructure(new ResourceLocation(RepurposedStructures.MODID, "igloo_stone"), STONE_IGLOO, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMainConfig.stoneIglooSpawnrate.get(), (int) (RepurposedStructures.RSMainConfig.stoneIglooSpawnrate.get() * 0.5f), 1327429039));
 
         registerStructure(new ResourceLocation(RepurposedStructures.MODID, "temple_nether_wasteland"), NETHER_WASTELAND_TEMPLE, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSTemplesConfig.netherWastelandTempleSpawnrate.get(), (int) (RepurposedStructures.RSTemplesConfig.netherWastelandTempleSpawnrate.get() * 0.5f), 1435489909));
         registerStructure(new ResourceLocation(RepurposedStructures.MODID, "temple_nether_soul"), NETHER_SOUL_TEMPLE, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSTemplesConfig.netherSoulTempleSpawnrate.get(), (int) (RepurposedStructures.RSTemplesConfig.netherSoulTempleSpawnrate.get() * 0.5f), 1799485937));
@@ -171,7 +171,7 @@ public class RSStructures {
         registerLandscapeTransformingStructure(new ResourceLocation(RepurposedStructures.MODID, "village_crimson"), CRIMSON_VILLAGE, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSVillagesConfig.crimsonVillageSpawnrate.get(), (int) (RepurposedStructures.RSVillagesConfig.crimsonVillageSpawnrate.get() * 0.5f), 1854750198));
         registerLandscapeTransformingStructure(new ResourceLocation(RepurposedStructures.MODID, "village_warped"), WARPED_VILLAGE, GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSVillagesConfig.warpedVillageSpawnrate.get(), (int) (RepurposedStructures.RSVillagesConfig.warpedVillageSpawnrate.get() * 0.5f), 1298332136));
 
-        //Next avaliable seed: https://www.google.com/search?q=random+number
+        //Next available seed: https://www.google.com/search?q=random+number
 
         //registers the structure pieces.
         StructurePieces.registerStructurePieces();
