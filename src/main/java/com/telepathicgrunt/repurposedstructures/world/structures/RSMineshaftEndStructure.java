@@ -15,6 +15,7 @@ import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 
 import java.util.List;
+import java.util.Objects;
 
 
 public class RSMineshaftEndStructure extends RSMineshaftStructure {
@@ -34,7 +35,7 @@ public class RSMineshaftEndStructure extends RSMineshaftStructure {
 
     @Override
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig featureConfig) {
-        chunkRandom.setLargeFeatureSeed(seed, chunkX, chunkZ);
+        chunkRandom.setLargeFeatureSeed(seed + Objects.requireNonNull(chunkGenerator.getStructuresConfig().getForType(this)).getSalt(), chunkX, chunkZ);
         double d = (probability / 10000D);
         if(chunkRandom.nextDouble() < d) {
             int landHeight = chunkGenerator.func_222531_c(chunkX << 4, chunkZ << 4, Heightmap.Type.WORLD_SURFACE_WG);

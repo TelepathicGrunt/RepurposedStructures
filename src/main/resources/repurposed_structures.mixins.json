@@ -7,8 +7,6 @@
     "DungeonFeatureAccessor",
     "EnderEyeStrongholdLocatingMixin",
     "EndermanSpawnerMixin",
-    "GenerationSettingsAccessor",
-    "MinecraftServerMixin",
     "NoVillageLakesMixin",
     "StrongholdGeneratorAccessor",
     "StructureMobSpawningMixin",

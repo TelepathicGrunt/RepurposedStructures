@@ -28,8 +28,7 @@ import java.util.Random;
 
 
 public abstract class WellAbstract extends Feature<NoFeatureConfig> {
-    private TemplateManager templatemanager = null;
-    protected PlacementSettings placementsettings = (new PlacementSettings()).setMirror(Mirror.NONE).setRotation(Rotation.NONE).setIgnoreEntities(false).setChunk((ChunkPos) null);
+    protected PlacementSettings placementsettings = (new PlacementSettings()).setMirror(Mirror.NONE).setRotation(Rotation.NONE).setIgnoreEntities(false).setChunk(null);
 
     public WellAbstract(Codec<NoFeatureConfig> config) {
         super(config);
@@ -38,12 +37,9 @@ public abstract class WellAbstract extends Feature<NoFeatureConfig> {
 
     protected Template generateTemplate(ResourceLocation templateRL, ISeedReader world, Random random, BlockPos position) {
 
-        // cache to save time and speed
-        if (templatemanager == null) templatemanager = ((ServerWorld) world.getWorld()).getStructureTemplateManager();
-
-        // Dont cache this as templatemanager already does caching behind the scenes and users might
-        // override the file later with datapacks in world somehow. (maybe)
-        Template template = templatemanager.getTemplateDefaulted(templateRL);
+        // Dont cache this as templatemanager already does caching behind the
+        // scenes and users might override the file later with datapacks.
+        Template template = world.getWorld().getStructureTemplateManager().getTemplate(templateRL);
 
         if (template == null) {
             RepurposedStructures.LOGGER.warn(templateRL.toString() + " NTB does not exist!");
@@ -118,11 +114,7 @@ public abstract class WellAbstract extends Feature<NoFeatureConfig> {
             for (int x = -1; x <= 1; x++) {
                 for (int z = -1; z <= 1; z++) {
                     if (x * z == 0) {
-                        if (position.getY() < world.getSeaLevel()) {
-                            world.setBlockState(position.add(x, 0, z), blockstate, 2);
-                        } else {
-                            world.setBlockState(position.add(x, 0, z), blockstate, 2);
-                        }
+                        world.setBlockState(position.add(x, 0, z), blockstate, 2);
                     }
                 }
             }

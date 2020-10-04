@@ -4,6 +4,7 @@ import com.google.gson.JsonElement;
 import com.mojang.serialization.JsonOps;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
@@ -18,100 +19,46 @@ import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoader;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
+import java.util.function.BiPredicate;
+import java.util.function.Predicate;
 
-public class RSAddFeatures {
+public class RSAddFeaturesAndStructures {
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MINESHAFTS //
 
     public static void addMineshafts(BiomeLoadingEvent event) {
-
-        if (RepurposedStructures.RSMineshaftsConfig.birchMineshaftSpawnrate.get() != 0 && event.getName().getPath().contains("birch") &&
-                (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSMineshaftsConfig.addMineshaftsToModdedBiomes.get())) {
-            if (RepurposedStructures.yungsBetterMineshaftIsNotOn) {
-                event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature == Structure.MINESHAFT);
+        // Testing out this short circuit idea I had.
+        // Takes a condition and tries to add the mineshaft.
+        // If fails, move on to next Mineshaft type. If it succeeds, stop and exit method.
+        for(Map.Entry<StructureFeature<?, ?>, Predicate<BiomeLoadingEvent>> mineshaftTypeAndCondition : RSStructureFilterMaps.MINESHAFT_TYPE_AND_CONDITIONS.entrySet()){
+            if(attemptToAddMineshaft(event, mineshaftTypeAndCondition.getKey(), mineshaftTypeAndCondition.getValue())){
+                break;
             }
-            // replace vanilla mineshaft with our own
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.BIRCH_MINESHAFT);
-        }
-        else if (RepurposedStructures.RSMineshaftsConfig.jungleMineshaftSpawnrate.get() != 0 && event.getCategory() == Category.JUNGLE &&
-                (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSMineshaftsConfig.addMineshaftsToModdedBiomes.get())) {
-            if (RepurposedStructures.yungsBetterMineshaftIsNotOn) {
-                event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature == Structure.MINESHAFT);
-            }
-            // replace vanilla mineshaft with our own
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.JUNGLE_MINESHAFT);
-        }
-        else if (RepurposedStructures.RSMineshaftsConfig.desertMineshaftSpawnrate.get() != 0 && event.getCategory() == Category.DESERT &&
-                (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSMineshaftsConfig.addMineshaftsToModdedBiomes.get())) {
-            if (RepurposedStructures.yungsBetterMineshaftIsNotOn) {
-                event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature == Structure.MINESHAFT);
-            }
-            // replace vanilla mineshaft with our own
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.DESERT_MINESHAFT);
-        }
-        else if (RepurposedStructures.RSMineshaftsConfig.stoneMineshaftSpawnrate.get() != 0 && event.getCategory() == Category.EXTREME_HILLS &&
-                (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSMineshaftsConfig.addMineshaftsToModdedBiomes.get())) {
-            if (RepurposedStructures.yungsBetterMineshaftIsNotOn) {
-                event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature == Structure.MINESHAFT);
-            }
-            // replace vanilla mineshaft with our own
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.STONE_MINESHAFT);
-        }
-        else if (RepurposedStructures.RSMineshaftsConfig.savannaMineshaftSpawnrate.get() != 0 && event.getCategory() == Category.SAVANNA &&
-                (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSMineshaftsConfig.addMineshaftsToModdedBiomes.get())) {
-            if (RepurposedStructures.yungsBetterMineshaftIsNotOn) {
-                event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature == Structure.MINESHAFT);
-            }
-            // replace vanilla mineshaft with our own
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.SAVANNA_MINESHAFT);
-        }
-        else if (RepurposedStructures.RSMineshaftsConfig.icyMineshaftSpawnrate.get() != 0 &&
-                (event.getCategory() == Category.ICY || event.getName().getPath().contains("snowy")) &&
-                (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSMineshaftsConfig.addMineshaftsToModdedBiomes.get())) {
-            if (RepurposedStructures.yungsBetterMineshaftIsNotOn) {
-                event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature == Structure.MINESHAFT);
-            }
-            // replace vanilla mineshaft with our own
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.ICY_MINESHAFT);
-        }
-        else if (RepurposedStructures.RSMineshaftsConfig.oceanMineshaftSpawnrate.get() != 0 && event.getCategory() == Category.OCEAN &&
-                (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSMineshaftsConfig.addMineshaftsToModdedBiomes.get())) {
-            if (RepurposedStructures.yungsBetterMineshaftIsNotOn) {
-                event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature == Structure.MINESHAFT);
-            }
-            // replace vanilla mineshaft with our own
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OCEAN_MINESHAFT);
-        }
-        else if (RepurposedStructures.RSMineshaftsConfig.taigaMineshaftSpawnrate.get() != 0 && event.getCategory() == Category.TAIGA &&
-                (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSMineshaftsConfig.addMineshaftsToModdedBiomes.get())) {
-            if (RepurposedStructures.yungsBetterMineshaftIsNotOn) {
-                event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature == Structure.MINESHAFT);
-            }
-            // replace vanilla mineshaft with our own
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.TAIGA_MINESHAFT);
-        }
-        else if (RepurposedStructures.RSMineshaftsConfig.swampAndDarkForestMineshaftSpawnrate.get() != 0 && (event.getCategory() == Category.SWAMP || event.getName().getPath().contains("dark_forest") || event.getName().getPath().contains("dark_oak")) &&
-                (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSMineshaftsConfig.addMineshaftsToModdedBiomes.get())) {
-            if (RepurposedStructures.yungsBetterMineshaftIsNotOn) {
-                event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature == Structure.MINESHAFT);
-            }
-            // replace vanilla mineshaft with our own
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.SWAMP_OR_DARK_FOREST_MINESHAFT);
-        }
-        else if (RepurposedStructures.RSMineshaftsConfig.endMineshaftSpawnrate.get() != 0 &&
-                event.getCategory() == Category.THEEND && !event.getName().equals(new ResourceLocation("minecraft:the_end")) &&
-                (RepurposedStructures.RSMineshaftsConfig.barrensIslandsEndMineshafts.get() ||
-                        (!event.getName().equals(new ResourceLocation("minecraft:end_barrens")) && !event.getName().equals(new ResourceLocation("minecraft:small_end_islands")))) &&
-                (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSMineshaftsConfig.addMineshaftsToModdedBiomes.get())) {
-                event.getGeneration().getStructures().add(() -> RSConfiguredStructures.END_MINESHAFT);
-        }
-        else if (RepurposedStructures.RSMineshaftsConfig.netherMineshaftSpawnrate.get() != 0 && event.getCategory() == Category.NETHER &&
-                (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSMineshaftsConfig.addMineshaftsToModdedBiomes.get())) {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_MINESHAFT);
         }
     }
+
+    // helper stuff to allow a cleaner way of passing in mineshaft types
+    // and their conditions to see if they should be added to the biome
+    private static boolean attemptToAddMineshaft(BiomeLoadingEvent event, StructureFeature<?,?> configuredStructureFeature, Predicate<BiomeLoadingEvent> predicate){
+        if (predicate.test(event) &&
+                (event.getName().getNamespace().equals("minecraft") ||
+                        RepurposedStructures.RSMineshaftsConfig.addMineshaftsToModdedBiomes.get()))
+        {
+            // replace vanilla mineshaft with our own (only removes vanilla mineshaft if it exists)
+            // Do not remove when yungs is on. They need the mineshaft to replace it.
+            if (RepurposedStructures.yungsBetterMineshaftIsNotOn){
+                event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature == Structure.MINESHAFT);
+            }
+            event.getGeneration().getStructures().add(() -> configuredStructureFeature);
+            return true; // Do not proceed to next mineshaft type.
+        }
+        return false; // continue to next mineshaft type
+    }
+
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
