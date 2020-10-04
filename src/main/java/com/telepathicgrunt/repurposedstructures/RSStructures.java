@@ -36,7 +36,7 @@ public class RSStructures {
 
     public static StructureFeature<DefaultFeatureConfig> JUNGLE_FORTRESS = new FortressJungleStructure();
     public static StructureFeature<DefaultFeatureConfig> GRASSY_IGLOO = new VillageBaseStructure(new Identifier(RepurposedStructures.MODID, "igloos/grassy_top"), 3);
-    public static StructureFeature<DefaultFeatureConfig> STONE_IGLOO = new RSIglooStructure(new Identifier(RepurposedStructures.MODID, "igloos/stone_top"));
+    public static StructureFeature<DefaultFeatureConfig> STONE_IGLOO = new VillageBaseStructure(new Identifier(RepurposedStructures.MODID, "igloos/stone_top"), 3);
 
     public static StructureFeature<DefaultFeatureConfig> NETHER_WASTELAND_TEMPLE = new TempleNetherStructure(new Identifier(RepurposedStructures.MODID,"temples/temple_nether_wasteland"));
     public static StructureFeature<DefaultFeatureConfig> NETHER_BASALT_TEMPLE = new TempleNetherStructure(new Identifier(RepurposedStructures.MODID,"temples/temple_nether_basalt"));
@@ -122,7 +122,7 @@ public class RSStructures {
 
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "fortress_jungle"), JUNGLE_FORTRESS).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.jungleFortressSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.jungleFortressSpawnrate * 0.5f), 1464189157)).superflatFeature(JUNGLE_FORTRESS.configure(FeatureConfig.DEFAULT)).register();
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "igloo_grassy"), GRASSY_IGLOO).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSMainConfig.igloos.grassyIglooSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSMainConfig.igloos.grassyIglooSpawnrate * 0.5f), 1460835582)).superflatFeature(GRASSY_IGLOO.configure(FeatureConfig.DEFAULT)).adjustsSurface().register();
-        FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "igloo_stone"), STONE_IGLOO).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSMainConfig.igloos.stoneIglooSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSMainConfig.igloos.stoneIglooSpawnrate * 0.5f), 1327429039)).superflatFeature(STONE_IGLOO.configure(FeatureConfig.DEFAULT)).register();
+        FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "igloo_stone"), STONE_IGLOO).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSMainConfig.igloos.stoneIglooSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSMainConfig.igloos.stoneIglooSpawnrate * 0.5f), 1327429039)).superflatFeature(STONE_IGLOO.configure(FeatureConfig.DEFAULT)).adjustsSurface().register();
 
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "temple_nether_wasteland"), NETHER_WASTELAND_TEMPLE).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSTemplesConfig.temples.netherWastelandTempleSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSTemplesConfig.temples.netherWastelandTempleSpawnrate * 0.5f), 1435489909)).superflatFeature(NETHER_WASTELAND_TEMPLE.configure(FeatureConfig.DEFAULT)).register();
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "temple_nether_soul"), NETHER_SOUL_TEMPLE).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSTemplesConfig.temples.netherSoulTempleSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSTemplesConfig.temples.netherSoulTempleSpawnrate * 0.5f), 1799485937)).superflatFeature(NETHER_SOUL_TEMPLE.configure(FeatureConfig.DEFAULT)).register();
@@ -152,7 +152,7 @@ public class RSStructures {
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "village_crimson"), CRIMSON_VILLAGE).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSVillagesConfig.crimsonVillageSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSVillagesConfig.crimsonVillageSpawnrate * 0.5f), 1854750198)).superflatFeature(CRIMSON_VILLAGE.configure(FeatureConfig.DEFAULT)).adjustsSurface().register();
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "village_warped"), WARPED_VILLAGE).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSVillagesConfig.warpedVillageSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSVillagesConfig.warpedVillageSpawnrate * 0.5f), 1298332136)).superflatFeature(WARPED_VILLAGE.configure(FeatureConfig.DEFAULT)).adjustsSurface().register();
 
-        //Next avaliable seed: https://www.google.com/search?q=random+number
+        //Next available seed: https://www.google.com/search?q=random+number
         RS_STRUCTURES.putAll(StructuresConfig.DEFAULT_STRUCTURES);
         RS_STRUCTURES.keySet().removeIf(key -> !key.getName().contains(RepurposedStructures.MODID));
 

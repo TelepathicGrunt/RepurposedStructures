@@ -33,6 +33,11 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Made it so Mineshafts will not spawn in exact same coordinates 
   if multiple are added to the same biome.
 
+##### Igloos:
+
+- Grassy and Stone Igloos are now Jigsaw structures! You can use datapacks to change their
+  ladder and basements nbt pieces now. And their basement chests now has its own loottable!
+
 
 ## (V.1.6.1 Changes) (1.16.3 Minecraft)
 
