@@ -38,7 +38,6 @@ public class StructurePieces {
     public static IStructurePieceType STRONGHOLD_STAIRS_STRAIGHT = RSStrongholdPieces.StairsStraight::new;
     public static IStructurePieceType STRONGHOLD_ENTRANCE_STAIRS = RSStrongholdPieces.EntranceStairs::new;
     public static IStructurePieceType PYRAMID_FLOOR_PIECE = PyramidFloorPiece.Piece::new;
-    public static IStructurePieceType RS_IGLOO_PIECE = RSIglooPieces.Piece::new;
     public static IStructurePieceType GENERAL_JIGSAW_GENERATOR_PIECE = GeneralJigsawGenerator.Piece::new;
 
     public static void registerStructurePieces() {
@@ -75,7 +74,6 @@ public class StructurePieces {
         Registry.register(Registry.STRUCTURE_PIECE, "stronghold_stairs_straight", STRONGHOLD_STAIRS_STRAIGHT);
         Registry.register(Registry.STRUCTURE_PIECE, "stronghold_entrance_stairs", STRONGHOLD_ENTRANCE_STAIRS);
         Registry.register(Registry.STRUCTURE_PIECE, "pyramid_floor_piece", PYRAMID_FLOOR_PIECE);
-        Registry.register(Registry.STRUCTURE_PIECE, "rs_igloo_piece", RS_IGLOO_PIECE);
         Registry.register(Registry.STRUCTURE_PIECE, "general_jigsaw_generator_piece", GENERAL_JIGSAW_GENERATOR_PIECE);
     }
 
