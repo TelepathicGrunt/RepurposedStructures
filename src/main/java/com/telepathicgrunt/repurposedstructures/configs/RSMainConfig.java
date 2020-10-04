@@ -45,6 +45,7 @@ public class RSMainConfig
 				blacklistedDimensions = subscriber.subscribe(builder
 						.comment("\r\n Add the identifier for the dimension that you want"
 								+"\r\n no Repurposed Structures structure to spawn in."
+								+"\r\n Separate multiple entries with a comma."
 								+"\r\n"
 								+"\r\nExample: \"minecraft:the_end,awesome_mod:awesome_dimension\"")
 						.translation("repurposedstructures.config.all.blacklisteddimensions")
