@@ -35,7 +35,7 @@ public class RSStructures {
     public static StructureFeature<DefaultFeatureConfig> NETHER_STRONGHOLD = new RSNetherStrongholdStructure();
 
     public static StructureFeature<DefaultFeatureConfig> JUNGLE_FORTRESS = new FortressJungleStructure();
-    public static StructureFeature<DefaultFeatureConfig> GRASSY_IGLOO = new RSIglooStructure(new Identifier(RepurposedStructures.MODID, "igloos/grassy_top"));
+    public static StructureFeature<DefaultFeatureConfig> GRASSY_IGLOO = new VillageBaseStructure(new Identifier(RepurposedStructures.MODID, "igloos/grassy_top"), 3);
     public static StructureFeature<DefaultFeatureConfig> STONE_IGLOO = new RSIglooStructure(new Identifier(RepurposedStructures.MODID, "igloos/stone_top"));
 
     public static StructureFeature<DefaultFeatureConfig> NETHER_WASTELAND_TEMPLE = new TempleNetherStructure(new Identifier(RepurposedStructures.MODID,"temples/temple_nether_wasteland"));
