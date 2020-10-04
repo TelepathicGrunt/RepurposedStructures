@@ -24,6 +24,10 @@ Welcome to the Github! If you are looking for the most recent stable version, th
   means the structure will not be more that 50 chunk apart from another and cannot 
   be closer than 25 chunks to itself.
 
+- The 'salt' used for structure placement has now been fully randomized due to some
+  weird quirks in Java's RNG that causes different structures to have similar effects
+  from their salts if the salts are too similar.
+  
 ##### Mineshafts:
 
 - Made it so Mineshafts will not spawn in exact same coordinates 

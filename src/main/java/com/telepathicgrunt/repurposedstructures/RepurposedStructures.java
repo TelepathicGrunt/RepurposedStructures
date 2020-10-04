@@ -30,7 +30,6 @@ public class RepurposedStructures implements ModInitializer {
 	public static RSAllConfig RSAllConfig = null;
 
     //TODO: make zombie badlands village
-    //TODO: add nether shipwrecks
 
     @Override
     public void onInitialize() {
