@@ -7,17 +7,16 @@ import net.fabricmc.fabric.api.structure.v1.FabricStructureBuilder;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.chunk.StructureConfig;
+import net.minecraft.world.gen.chunk.StructuresConfig;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.FeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 
 public class RSStructures {
+    public static final Map<StructureFeature<?>, StructureConfig> RS_STRUCTURES = new HashMap<>();
     public static final Set<Identifier> RS_STRUCTURE_START_PIECES = new HashSet<>();
 
     public static StructureFeature<DefaultFeatureConfig> BIRCH_MINESHAFT = new RSMineshaftStructure(RSMineshaftPieces.Type.BIRCH, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.birchMineshaftSpawnrate, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.birchMineshaftMaxHeight, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.birchMineshaftMinHeight);
@@ -154,6 +153,8 @@ public class RSStructures {
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "village_warped"), WARPED_VILLAGE).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSVillagesConfig.warpedVillageSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSVillagesConfig.warpedVillageSpawnrate * 0.75f), 399117376)).superflatFeature(WARPED_VILLAGE.configure(FeatureConfig.DEFAULT)).adjustsSurface().register();
 
         //Next avaliable seed: 399117380
+        RS_STRUCTURES.putAll(StructuresConfig.DEFAULT_STRUCTURES);
+        RS_STRUCTURES.keySet().removeIf(key -> !key.getName().contains(RepurposedStructures.MODID));
 
         //registers the structure pieces.
         StructurePieces.registerStructurePieces();

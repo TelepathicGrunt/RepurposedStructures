@@ -52,7 +52,6 @@ public class MinecraftServerMixin {
             at = @At(value = "TAIL")
     )
     private void modifyBiomeRegistry(Thread thread, DynamicRegistryManager.Impl dynamicRegistryManager, LevelStorage.Session session, SaveProperties saveProperties, ResourcePackManager resourcePackManager, Proxy proxy, DataFixer dataFixer, ServerResourceManager serverResourceManager, MinecraftSessionService minecraftSessionService, GameProfileRepository gameProfileRepository, UserCache userCache, WorldGenerationProgressListenerFactory worldGenerationProgressListenerFactory, CallbackInfo ci) {
-
         //Gets blacklisted biome IDs for each structure type
         //Done here so the map can be garbage collected later
         Map<String, List<String>> allBiomeBlacklists = RepurposedStructures.getBiomeBlacklists();

@@ -18,6 +18,14 @@ public class RSMainConfig implements ConfigData {
     @ConfigEntry.Gui.CollapsibleObject
     public Igloos igloos = new Igloos();
 
+    @ConfigEntry.Gui.Tooltip(count = 0)
+    @ConfigEntry.Gui.PrefixText
+    @Comment("Add the identifiers for the dimension that you want"
+            +"\n no Repurposed Structures structure to spawn in."
+            +"\n Separate multiple entries with a comma."
+            +"\n"
+            +"\nExample: \"minecraft:the_end,awesome_mod:awesome_dimension\"")
+    public String blacklistedDimensions = "the_bumblezone:the_bumblezone";
 
     public static class Misc {
         @ConfigEntry.Gui.Tooltip
@@ -25,13 +33,13 @@ public class RSMainConfig implements ConfigData {
         public boolean addSwampTreeToModdedBiomes = true;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-    @ConfigEntry.Gui.PrefixText
+        @ConfigEntry.Gui.PrefixText
         @Comment("Add RS boulders to modded biomes of same categories/type " +
                 "\ninstead of just vanilla biomes.")
         public boolean addBoulderToModdedBiomes = false;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-    @ConfigEntry.Gui.PrefixText
+        @ConfigEntry.Gui.PrefixText
         @Comment("Add the ID/resource location of the biome you don't want"
                 +"\nRS's swamp trees to spawn in. Separate each ID with a comma ,"
                 +"\n"
@@ -39,7 +47,7 @@ public class RSMainConfig implements ConfigData {
         public String blacklistedSwampTreeBiomes = "";
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-    @ConfigEntry.Gui.PrefixText
+        @ConfigEntry.Gui.PrefixText
         @Comment("Add the ID/resource location of the biome you don't want"
                 +"\nRS's boulders to spawn in. Separate each ID with a comma ,"
                 +"\n"
@@ -47,7 +55,7 @@ public class RSMainConfig implements ConfigData {
         public String blacklistedBoulderBiomes = "";
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-    @ConfigEntry.Gui.PrefixText
+        @ConfigEntry.Gui.PrefixText
         @Comment("Adds large tree somewhat uncommonly to Swamp biome"
                 +"\nand replaces all vanilla trees in Swamp Hills biome.")
         public boolean hornedSwampTree = true;
@@ -57,14 +65,14 @@ public class RSMainConfig implements ConfigData {
         public boolean boulderTiny = true;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-    @ConfigEntry.Gui.PrefixText
+        @ConfigEntry.Gui.PrefixText
         @Comment("Replaces boulders in Giant Tree/Spruce Taiga Hills"
                 + "\nbiomes with giant boulders that can contain Coal,"
                 + "\nIron, and extremely rarely, Diamond Ores.")
         public boolean boulderGiant = true;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-    @ConfigEntry.Gui.PrefixText
+        @ConfigEntry.Gui.PrefixText
         @Comment("1 out of ___ chance of Diamond Ore when placing"
                 + "\na block in giant Boulders. Lower number = more common."
                 + "\nEnter 0 to disable Diamond Ores completely.")
@@ -83,7 +91,7 @@ public class RSMainConfig implements ConfigData {
 
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-    @ConfigEntry.Gui.PrefixText
+        @ConfigEntry.Gui.PrefixText
         @Comment("How rare are Jungle Fortresses."
                 + "\n1 for spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
@@ -94,7 +102,7 @@ public class RSMainConfig implements ConfigData {
         public boolean addJungleFortressToModdedBiomes = true;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-    @ConfigEntry.Gui.PrefixText
+        @ConfigEntry.Gui.PrefixText
         @Comment("Add the ID/resource location of the biome you don't want"
                 +"\nRS's fortresses to spawn in. Separate each ID with a comma ,"
                 +"\n"
@@ -102,7 +110,7 @@ public class RSMainConfig implements ConfigData {
         public String blacklistedFortressBiomes = "";
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-    @ConfigEntry.Gui.PrefixText
+        @ConfigEntry.Gui.PrefixText
         @Comment("% of fortress is Silverfish Blocks."
                 + "\nNote: Mossy Stone Bricks block cannot be infested."
                 + "\n0 for no Silverfish Blocks and 100 for max spawnrate.")
@@ -118,7 +126,7 @@ public class RSMainConfig implements ConfigData {
     public static class Igloos {
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-    @ConfigEntry.Gui.PrefixText
+        @ConfigEntry.Gui.PrefixText
         @Comment("Add the ID/resource location of the biome you don't want"
                 +"\nRS's igloos to spawn in. Separate each ID with a comma ,"
                 +"\n"
@@ -126,27 +134,27 @@ public class RSMainConfig implements ConfigData {
         public String blacklistedIglooBiomes = "";
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-    @ConfigEntry.Gui.PrefixText
+        @ConfigEntry.Gui.PrefixText
         @Comment("How rare are Grassy Igloos in Plains and Forests."
                 + "\n1 for spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
         public int grassyIglooSpawnrate = 20;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-    @ConfigEntry.Gui.PrefixText
+        @ConfigEntry.Gui.PrefixText
         @Comment("Add Grassy Igloos to modded biomes that are"
                 + "\nmost likely grassy fields or temperate forests.")
         public boolean addGrassyIglooToModdedBiomes = false;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-    @ConfigEntry.Gui.PrefixText
+        @ConfigEntry.Gui.PrefixText
         @Comment("How rare are Stone Igloos in Giant Tree Taiga biomes."
                 + "\n1 for spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
         public int stoneIglooSpawnrate = 20;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-    @ConfigEntry.Gui.PrefixText
+        @ConfigEntry.Gui.PrefixText
         @Comment("Add Stone Igloos to modded biomes that are"
                 + "\nmost likely Giant Tree Taiga variants.")
         public boolean addStoneIglooToModdedBiomes = false;

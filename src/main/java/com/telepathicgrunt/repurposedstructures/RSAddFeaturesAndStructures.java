@@ -2,18 +2,43 @@ package com.telepathicgrunt.repurposedstructures;
 
 import com.google.gson.JsonElement;
 import com.mojang.serialization.JsonOps;
+import com.telepathicgrunt.repurposedstructures.mixin.StructuresConfigAccessor;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerWorldEvents;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.gen.GenerationStep;
+import net.minecraft.world.gen.chunk.StructureConfig;
 import net.minecraft.world.gen.feature.*;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.BiPredicate;
 
-public class RSAddFeatures {
+public class RSAddFeaturesAndStructures {
+
+
+    public static void allowStructureSpawningPerDimension() {
+        // Controls the dimension blacklisting
+        ServerWorldEvents.LOAD.register((MinecraftServer minecraftServer, ServerWorld serverWorld)->{
+            //add our structure spacing to all chunkgenerators including modded one and datapack ones.
+            List<String> dimensionBlacklist = Arrays.asList(RepurposedStructures.RSAllConfig.RSMainConfig.blacklistedDimensions.split(","));
+            Map<StructureFeature<?>, StructureConfig> tempMap = new HashMap<>(serverWorld.getChunkManager().getChunkGenerator().getStructuresConfig().getStructures());
+
+            if(dimensionBlacklist.stream().anyMatch(blacklist -> blacklist.equals((serverWorld.getRegistryKey().getValue().toString())))) {
+                // make absolutely sure dimension cannot spawn RS structures
+                tempMap.keySet().removeAll(RSStructures.RS_STRUCTURES.keySet());
+            }
+            else{
+                // make absolutely sure dimension can spawn RS structures
+                tempMap.putAll(RSStructures.RS_STRUCTURES);
+            }
+
+            ((StructuresConfigAccessor)serverWorld.getChunkManager().getChunkGenerator().getStructuresConfig()).setStructures(tempMap);
+        });
+    }
+
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MINESHAFTS //

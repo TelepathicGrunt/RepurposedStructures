@@ -35,6 +35,7 @@ public class RepurposedStructures implements ModInitializer {
     @Override
     public void onInitialize() {
         // LoadNbtBlock.instantiateNbtBlock();
+        RSAddFeaturesAndStructures.allowStructureSpawningPerDimension();
     }
 
     public static void initialize() {
@@ -58,31 +59,31 @@ public class RepurposedStructures implements ModInitializer {
     public static void addFeaturesAndStructuresToBiomes(Biome biome, Identifier biomeID, Map<String, List<String>> allBiomeBlacklists) {
 
         if(isBiomeAllowed("mineshaft", biomeID, allBiomeBlacklists))
-            RSAddFeatures.addMineshafts(biome, biomeID);
+            RSAddFeaturesAndStructures.addMineshafts(biome, biomeID);
         if(isBiomeAllowed("fortress", biomeID, allBiomeBlacklists))
-            RSAddFeatures.addJungleFortress(biome, biomeID);
+            RSAddFeaturesAndStructures.addJungleFortress(biome, biomeID);
         if(isBiomeAllowed("dungeon", biomeID, allBiomeBlacklists))
-            RSAddFeatures.addDungeons(biome, biomeID);
+            RSAddFeaturesAndStructures.addDungeons(biome, biomeID);
         if(isBiomeAllowed("well", biomeID, allBiomeBlacklists))
-            RSAddFeatures.addWells(biome, biomeID);
+            RSAddFeaturesAndStructures.addWells(biome, biomeID);
         if(isBiomeAllowed("swamp_tree", biomeID, allBiomeBlacklists))
-            RSAddFeatures.addSwampTreeFeatures(biome, biomeID);
+            RSAddFeaturesAndStructures.addSwampTreeFeatures(biome, biomeID);
         if(isBiomeAllowed("boulder", biomeID, allBiomeBlacklists))
-            RSAddFeatures.addBoulderFeatures(biome, biomeID);
+            RSAddFeaturesAndStructures.addBoulderFeatures(biome, biomeID);
         if(isBiomeAllowed("temple", biomeID, allBiomeBlacklists))
-            RSAddFeatures.addTemples(biome, biomeID);
+            RSAddFeaturesAndStructures.addTemples(biome, biomeID);
         if(isBiomeAllowed("pyramid", biomeID, allBiomeBlacklists))
-            RSAddFeatures.addPyramids(biome, biomeID);
+            RSAddFeaturesAndStructures.addPyramids(biome, biomeID);
         if(isBiomeAllowed("igloo", biomeID, allBiomeBlacklists))
-            RSAddFeatures.addIgloos(biome, biomeID);
+            RSAddFeaturesAndStructures.addIgloos(biome, biomeID);
         if(isBiomeAllowed("outpost", biomeID, allBiomeBlacklists))
-            RSAddFeatures.addOutposts(biome, biomeID);
+            RSAddFeaturesAndStructures.addOutposts(biome, biomeID);
         if(isBiomeAllowed("shipwreck", biomeID, allBiomeBlacklists))
-            RSAddFeatures.addShipwrecks(biome, biomeID);
+            RSAddFeaturesAndStructures.addShipwrecks(biome, biomeID);
         if(isBiomeAllowed("village", biomeID, allBiomeBlacklists))
-            RSAddFeatures.addVillages(biome, biomeID);
+            RSAddFeaturesAndStructures.addVillages(biome, biomeID);
         if(isBiomeAllowed("stronghold", biomeID, allBiomeBlacklists))
-            RSAddFeatures.addStrongholds(biome, biomeID);
+            RSAddFeaturesAndStructures.addStrongholds(biome, biomeID);
     }
 
     private static boolean isBiomeAllowed(String structureType, Identifier biomeID, Map<String, List<String>> allBiomeBlacklists){
