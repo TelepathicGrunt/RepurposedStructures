@@ -483,70 +483,19 @@ public class RSAddFeaturesAndStructures {
     // VILLAGES //
 
     public static void addVillages(Biome biome, Identifier biomeID) {
-        if ((biome.getCategory() == Category.MESA && !biomeID.getPath().contains("plateau")) &&
-                (biomeID.getNamespace().equals("minecraft") || RepurposedStructures.RSAllConfig.RSVillagesConfig.addVillagesToModdedBiomes)) {
-            if (RepurposedStructures.RSAllConfig.RSVillagesConfig.badlandsVillageSpawnrate != 1001) {
-                biome.getGenerationSettings().getStructureFeatures().add(() -> RSConfiguredStructures.BADLANDS_VILLAGE);
-            }
-        }
-
-        else if (biomeID.getPath().contains("birch") && (biomeID.getNamespace().equals("minecraft") ||
-                RepurposedStructures.RSAllConfig.RSVillagesConfig.addVillagesToModdedBiomes)) {
-            if (RepurposedStructures.RSAllConfig.RSVillagesConfig.birchVillageSpawnrate != 1001) {
+              biome.getGenerationSettings().getStructureFeatures().add(() -> RSConfiguredStructures.BADLANDS_VILLAGE);
                 biome.getGenerationSettings().getStructureFeatures().add(() -> RSConfiguredStructures.BIRCH_VILLAGE);
-            }
-        }
-
-        else if (biomeID.getPath().contains("dark_forest") && (biomeID.getNamespace().equals("minecraft") ||
-                RepurposedStructures.RSAllConfig.RSVillagesConfig.addVillagesToModdedBiomes)) {
-            if (RepurposedStructures.RSAllConfig.RSVillagesConfig.darkForestVillageSpawnrate != 1001) {
                 biome.getGenerationSettings().getStructureFeatures().add(() -> RSConfiguredStructures.DARK_FOREST_VILLAGE);
-            }
-        }
-
-        else if (biome.getCategory() == Category.JUNGLE && (biomeID.getNamespace().equals("minecraft") ||
-                RepurposedStructures.RSAllConfig.RSVillagesConfig.addVillagesToModdedBiomes)) {
-            if (RepurposedStructures.RSAllConfig.RSVillagesConfig.jungleVillageSpawnrate != 1001) {
-                biome.getGenerationSettings().getStructureFeatures().add(() -> RSConfiguredStructures.JUNGLE_VILLAGE);
+               biome.getGenerationSettings().getStructureFeatures().add(() -> RSConfiguredStructures.JUNGLE_VILLAGE);
                 biome.getGenerationSettings().getFeatures().get(GenerationStep.Feature.VEGETAL_DECORATION.ordinal())
                         .add(() -> RSConfiguredFeatures.JUNGLE_VILLAGE_VINES);
-            }
-        }
-
-        else if (biome.getCategory() == Category.SWAMP && (biomeID.getNamespace().equals("minecraft") ||
-                RepurposedStructures.RSAllConfig.RSVillagesConfig.addVillagesToModdedBiomes)) {
-            if (RepurposedStructures.RSAllConfig.RSVillagesConfig.swampVillageSpawnrate != 1001) {
                 biome.getGenerationSettings().getStructureFeatures().add(() -> RSConfiguredStructures.SWAMP_VILLAGE);
                 biome.getGenerationSettings().getFeatures().get(GenerationStep.Feature.VEGETAL_DECORATION.ordinal())
                         .add(() -> RSConfiguredFeatures.SWAMP_VILLAGE_VINES);
-            }
-        }
-
-        else if (biome.getCategory() == Category.EXTREME_HILLS && (biomeID.getNamespace().equals("minecraft") ||
-                RepurposedStructures.RSAllConfig.RSVillagesConfig.addVillagesToModdedBiomes)) {
-            if (RepurposedStructures.RSAllConfig.RSVillagesConfig.mountainsVillageSpawnrate != 1001) {
                 biome.getGenerationSettings().getStructureFeatures().add(() -> RSConfiguredStructures.MOUNTAINS_VILLAGE);
-            }
-        }
-
-        else if ((biomeID.equals(new Identifier("minecraft:giant_spruce_taiga")) || biomeID.equals(new Identifier("minecraft:giant_tree_taiga"))) ||
-                (!biomeID.getNamespace().equals("minecraft") &&
-                  RepurposedStructures.RSAllConfig.RSVillagesConfig.addVillagesToModdedBiomes &&
-                ((biomeID.getPath().contains("giant") && biomeID.getPath().contains("taiga")) || biomeID.getPath().contains("redwood")))) {
-            if (RepurposedStructures.RSAllConfig.RSVillagesConfig.giantTaigaVillageSpawnrate != 1001) {
                 biome.getGenerationSettings().getStructureFeatures().add(() -> RSConfiguredStructures.GIANT_TAIGA_VILLAGE);
-            }
-        }
-        else if (RepurposedStructures.RSAllConfig.RSVillagesConfig.crimsonVillageSpawnrate != 1001 &&
-                biome.getCategory() == Category.NETHER && biomeID.getPath().contains("crimson") &&
-                (biomeID.getNamespace().equals("minecraft") || RepurposedStructures.RSAllConfig.RSVillagesConfig.addVillagesToModdedBiomes)) {
-            biome.getGenerationSettings().getStructureFeatures().add(() -> RSConfiguredStructures.CRIMSON_VILLAGE);
-        }
-        else if (RepurposedStructures.RSAllConfig.RSVillagesConfig.warpedVillageSpawnrate != 1001 &&
-                biome.getCategory() == Category.NETHER && biomeID.getPath().contains("warped") &&
-                (biomeID.getNamespace().equals("minecraft") || RepurposedStructures.RSAllConfig.RSVillagesConfig.addVillagesToModdedBiomes)) {
-            biome.getGenerationSettings().getStructureFeatures().add(() -> RSConfiguredStructures.WARPED_VILLAGE);
-        }
+          biome.getGenerationSettings().getStructureFeatures().add(() -> RSConfiguredStructures.CRIMSON_VILLAGE);
+        biome.getGenerationSettings().getStructureFeatures().add(() -> RSConfiguredStructures.WARPED_VILLAGE);
     }
 
 

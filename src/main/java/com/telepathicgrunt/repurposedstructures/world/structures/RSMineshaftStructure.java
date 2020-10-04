@@ -14,6 +14,8 @@ import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
+import java.util.Objects;
+
 
 public class RSMineshaftStructure extends AbstractBaseStructure {
 
@@ -32,7 +34,7 @@ public class RSMineshaftStructure extends AbstractBaseStructure {
 
     @Override
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, int x, int z, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig featureConfig) {
-        chunkRandom.setCarverSeed(seed, x, z);
+        chunkRandom.setCarverSeed(seed + Objects.requireNonNull(chunkGenerator.getStructuresConfig().getForType(this)).getSalt(), x, z);
         double d = (probability / 10000D);
         return chunkRandom.nextDouble() < d;
     }
