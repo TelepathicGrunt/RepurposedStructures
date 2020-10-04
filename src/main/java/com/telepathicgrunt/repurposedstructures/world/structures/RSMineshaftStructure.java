@@ -15,6 +15,8 @@ import net.minecraft.world.gen.feature.structure.StructurePiece;
 import net.minecraft.world.gen.feature.structure.StructureStart;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
+import java.util.Objects;
+
 
 public class RSMineshaftStructure extends AbstractBaseStructure {
     protected final double probability;
@@ -32,7 +34,7 @@ public class RSMineshaftStructure extends AbstractBaseStructure {
 
     @Override
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int x, int z, Biome biome, ChunkPos chunkPos, NoFeatureConfig featureConfig) {
-        chunkRandom.setLargeFeatureSeed(seed, x, z);
+        chunkRandom.setLargeFeatureSeed(seed + Objects.requireNonNull(chunkGenerator.getStructuresConfig().getForType(this)).getSalt(), x, z);
         double d = (probability / 10000D);
         return chunkRandom.nextDouble() < d;
     }

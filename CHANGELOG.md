@@ -15,6 +15,17 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Added config option to blacklist all Repurposed Structures's structures from
   any dimension(s) you specify. Finally figured out how to do it safely!
 
+##### Major:
+
+- All structures now will spawn away from themselves with spacing being between
+  the spawnrate's number and half that number (in chunks). So a spawnrate of 50
+  means the structure will not be more that 50 chunk apart from another and cannot 
+  be closer than 25 chunks to itself.
+
+##### Mineshafts:
+
+- Made it so Mineshafts will not spawn in exact same coordinates 
+  if multiple are added to the same biome.
 
 ## (V.2.2.2 Changes) (1.16.3 Minecraft)
 
