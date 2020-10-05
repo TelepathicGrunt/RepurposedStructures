@@ -39,6 +39,7 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -138,11 +139,16 @@ public class RepurposedStructures
 			//Gets blacklisted biome IDs for each structure type
 			//Done here so the map can be garbage collected later
 			Map<String, List<String>> allBiomeBlacklists = RepurposedStructures.getBiomeBlacklists();
-			
+
+			//RepurposedStructures.LOGGER.log(Level.WARN, "Biome triggered: " + event.getName());
+			//RepurposedStructures.LOGGER.log(Level.WARN, "  Structures before: " + event.getGeneration().getStructures().size());
+
 			//Add our structures and features
 			RepurposedStructures.addFeaturesAndStructuresToBiomes(
 					event, // Biome
 					allBiomeBlacklists); // Blacklists
+
+			//RepurposedStructures.LOGGER.log(Level.WARN, "  Structures after: " + event.getGeneration().getStructures().size());
 		}
 
 		@SubscribeEvent

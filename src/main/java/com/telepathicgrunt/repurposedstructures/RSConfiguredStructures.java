@@ -59,7 +59,7 @@ public class RSConfiguredStructures {
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> WARPED_VILLAGE = RSStructures.WARPED_VILLAGE.configure(IFeatureConfig.NO_FEATURE_CONFIG);
 
     public static void registerStructureFeatures() {
-        MutableRegistry<StructureFeature<?, ?>> registry = (MutableRegistry<StructureFeature<?, ?>>) WorldGenRegistries.CONFIGURED_STRUCTURE_FEATURE;
+        Registry<StructureFeature<?, ?>> registry = WorldGenRegistries.CONFIGURED_STRUCTURE_FEATURE;
 
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "birch_mineshaft"), BIRCH_MINESHAFT);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "desert_mineshaft"), DESERT_MINESHAFT);
