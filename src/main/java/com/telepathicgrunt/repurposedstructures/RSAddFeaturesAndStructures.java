@@ -207,13 +207,6 @@ public class RSAddFeaturesAndStructures {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // SWAMP TREE FEATURES //
 
-    private static final BaseTreeFeatureConfig TREE_FEATURE_CONFIG = (new BaseTreeFeatureConfig.Builder(
-            new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState()),
-            new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState()),
-            new BlobFoliagePlacer(FeatureSpread.of(3), FeatureSpread.of(0), 3),
-            new StraightTrunkPlacer(5, 3, 0),
-            new TwoLayerFeature(1, 0, 1))).build();
-
     public static void addSwampTreeFeatures(BiomeLoadingEvent event) {
 
         // Exists in vanilla Swamp and can be in modded swamp biomes
@@ -225,9 +218,7 @@ public class RSAddFeaturesAndStructures {
                         !event.getName().getNamespace().equals("minecraft")))){
 
             event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION)
-                    .add(() -> RSFeatures.HORNED_SWAMP_TREE.configure(TREE_FEATURE_CONFIG)
-                            .decorate(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, 0.7F, 1))
-                            .decorate(Features.Placements.SQUARE_HEIGHTMAP)));
+                    .add(() -> RSConfiguredFeatures.HORNED_SWAMP_TREE_UNCOMMON);
         }
 
         // Only exists in vanilla Swamp Hills biomes
@@ -240,9 +231,7 @@ public class RSAddFeaturesAndStructures {
                             serializeAndCompareFeature(configuredFeature.get(), Features.SWAMP_TREE));
 
             event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION)
-                    .add(() -> RSFeatures.HORNED_SWAMP_TREE.configure(TREE_FEATURE_CONFIG)
-                            .decorate(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(2, 0.8F, 1))
-                            .decorate(Features.Placements.SQUARE_HEIGHTMAP)));
+                    .add(() -> RSConfiguredFeatures.HORNED_SWAMP_TREE_COMMON);
         }
     }
 

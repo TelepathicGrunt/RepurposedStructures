@@ -8,6 +8,13 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.2.2.4 Changes) (1.16.3 Minecraft)
+
+##### Misc:
+
+- Used the registered ConfiguredFeatures for Horned Swamp Trees properly now.
+
+
 ## (V.2.2.3 Changes) (1.16.3 Minecraft)
 
 ##### Configs:

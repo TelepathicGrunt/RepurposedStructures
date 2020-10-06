@@ -39,7 +39,6 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
-import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -49,7 +48,6 @@ import java.nio.file.Path;
 import java.util.*;
 
 
-@SuppressWarnings("deprecation")
 @Mod(RepurposedStructures.MODID)
 public class RepurposedStructures
 {
@@ -93,6 +91,7 @@ public class RepurposedStructures
 	/*
 	 * Here, we will use this to add our structures/features to all biomes.
 	 */
+	@SuppressWarnings("deprecation")
 	public void setup(final FMLCommonSetupEvent event)
 	{
 		DeferredWorkQueue.runLater(VillagerTradesModification::addMapTrades);
