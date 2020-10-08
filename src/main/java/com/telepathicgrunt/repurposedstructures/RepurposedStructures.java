@@ -31,7 +31,6 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ConfigTracker;
@@ -79,11 +78,6 @@ public class RepurposedStructures
 		modEventBus.addGenericListener(Feature.class, this::onRegisterFeatures);
 		modEventBus.addGenericListener(Placement.class, this::onRegisterPlacements);
 
-
-		initialize();
-	}
-
-	public static void initialize() {
 		RSMainConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSConfigValues::new, "repurposed_structures-common.toml");
 		RSDungeonsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSDungeonsConfigValues::new, "repurposed_structures-dungeons.toml");
 		RSMineshaftsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSMineshaftsConfigValues::new, "repurposed_structures-mineshafts.toml");
@@ -100,10 +94,9 @@ public class RepurposedStructures
 	/*
 	 * Here, we will use this to add our structures/features to all biomes.
 	 */
-	@SuppressWarnings("deprecation")
 	public void setup(final FMLCommonSetupEvent event)
 	{
-		DeferredWorkQueue.runLater(VillagerTradesModification::addMapTrades);
+		event.enqueueWork(VillagerTradesModification::addMapTrades);
 	}
 
 	public void onRegisterFeatures(final RegistryEvent.Register<Feature<?>> event)

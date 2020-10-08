@@ -22,7 +22,6 @@ import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.settings.StructureSeparationSettings;
 
 import java.util.List;
-import java.util.Objects;
 
 
 public abstract class AbstractNetherStructure extends AbstractBaseStructure {

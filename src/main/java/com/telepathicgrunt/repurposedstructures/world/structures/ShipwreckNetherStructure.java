@@ -24,7 +24,6 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
 import net.minecraft.world.gen.settings.StructureSeparationSettings;
 
 import java.util.List;
-import java.util.Objects;
 
 
 public class ShipwreckNetherStructure extends Structure<NoFeatureConfig> {

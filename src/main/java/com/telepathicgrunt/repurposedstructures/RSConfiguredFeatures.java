@@ -3,7 +3,6 @@ package com.telepathicgrunt.repurposedstructures;
 import com.telepathicgrunt.repurposedstructures.world.placements.RSPlacements;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.MutableRegistry;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
@@ -94,20 +93,16 @@ public class RSConfiguredFeatures {
     // Wells
 
     public static ConfiguredFeature<?, ?> BADLANDS_WELL = RSFeatures.BADLANDS_WELL.configure(IFeatureConfig.NO_FEATURE_CONFIG)
-                    .decorate(Features.Placements.SQUARE_HEIGHTMAP)
-                    .applyChance(RepurposedStructures.RSWellsConfig.badlandsWellSpawnrate.get());
+            .decorate(Features.Placements.SQUARE_HEIGHTMAP).applyChance(RepurposedStructures.RSWellsConfig.badlandsWellSpawnrate.get());
 
     public static ConfiguredFeature<?, ?> NETHER_WELL = RSFeatures.NETHER_WELL.configure(IFeatureConfig.NO_FEATURE_CONFIG)
-                    .decorate(Placement.RANGE.configure(new TopSolidRangeConfig(30, 0, 91)))
-                    .applyChance(RepurposedStructures.RSWellsConfig.netherWellSpawnrate.get());
+            .decorate(Placement.RANGE.configure(new TopSolidRangeConfig(30, 0, 91))).applyChance(RepurposedStructures.RSWellsConfig.netherWellSpawnrate.get());
 
     public static ConfiguredFeature<?, ?> SNOW_WELL = RSFeatures.SNOW_WELL.configure(IFeatureConfig.NO_FEATURE_CONFIG)
-                    .decorate(Features.Placements.SQUARE_HEIGHTMAP)
-                    .applyChance(RepurposedStructures.RSWellsConfig.snowWellSpawnrate.get());
+            .decorate(Features.Placements.SQUARE_HEIGHTMAP).applyChance(RepurposedStructures.RSWellsConfig.snowWellSpawnrate.get());
 
     public static ConfiguredFeature<?, ?> MOSSY_STONE_WELL = RSFeatures.MOSSY_STONE_WELL.configure(IFeatureConfig.NO_FEATURE_CONFIG)
-                    .decorate(Features.Placements.SQUARE_HEIGHTMAP)
-                    .applyChance(RepurposedStructures.RSWellsConfig.mossyStoneWellSpawnrate.get());
+            .decorate(Features.Placements.SQUARE_HEIGHTMAP).applyChance(RepurposedStructures.RSWellsConfig.mossyStoneWellSpawnrate.get());
 
     public static ConfiguredFeature<?, ?> FOREST_WELL = RSFeatures.FOREST_WELL.configure(IFeatureConfig.NO_FEATURE_CONFIG)
                     .decorate(Features.Placements.SQUARE_HEIGHTMAP)
@@ -124,7 +119,7 @@ public class RSConfiguredFeatures {
 
     public static ConfiguredFeature<?, ?> HORNED_SWAMP_TREE_UNCOMMON = RSFeatures.HORNED_SWAMP_TREE.configure(TREE_FEATURE_CONFIG)
             .decorate(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, 0.7F, 1))
-                    .decorate(Features.Placements.SQUARE_HEIGHTMAP));
+            .decorate(Features.Placements.SQUARE_HEIGHTMAP));
 
     public static ConfiguredFeature<?, ?> HORNED_SWAMP_TREE_COMMON = RSFeatures.HORNED_SWAMP_TREE.configure(TREE_FEATURE_CONFIG)
             .decorate(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(5, 0.8F, 1))
@@ -135,7 +130,7 @@ public class RSConfiguredFeatures {
                     (int) RepurposedStructures.RSMainConfig.giantBouldersPerChunk.get().doubleValue(), // Intentional cast. Need to floor to whole number
                     (float) (RepurposedStructures.RSMainConfig.giantBouldersPerChunk.get() - ((int)RepurposedStructures.RSMainConfig.giantBouldersPerChunk.get().doubleValue())),
                     1))
-                    .decorate(Features.Placements.SQUARE_HEIGHTMAP));
+            .decorate(Features.Placements.SQUARE_HEIGHTMAP));
 
     public static ConfiguredFeature<?, ?> BOULDER_TINY = RSFeatures.BOULDER_TINY.configure(IFeatureConfig.NO_FEATURE_CONFIG)
             .decorate(Features.Placements.SQUARE_HEIGHTMAP)
@@ -143,19 +138,20 @@ public class RSConfiguredFeatures {
 
     public static ConfiguredFeature<?, ?> SWAMP_VILLAGE_VINES = RSFeatures.SWAMP_VILLAGE_VINES.configure(IFeatureConfig.NO_FEATURE_CONFIG)
             .decorate(RSPlacements.RS_VINE_PLACEMENT.configure(new TopSolidRangeConfig(30, 0,8))
-                    .repeat(16));
+            .repeat(16));
 
     public static ConfiguredFeature<?, ?> JUNGLE_VILLAGE_VINES = RSFeatures.JUNGLE_STRUCTURES_VINES.configure(IFeatureConfig.NO_FEATURE_CONFIG)
             .decorate(RSPlacements.RS_VINE_PLACEMENT.configure(new TopSolidRangeConfig(30, 0, 8))
-                    .repeat(16));
+            .repeat(16));
+
     public static ConfiguredFeature<?, ?> JUNGLE_FORTRESS_VINES = RSFeatures.JUNGLE_STRUCTURES_VINES.configure(IFeatureConfig.NO_FEATURE_CONFIG)
             .decorate(RSPlacements.RS_VINE_PLACEMENT.configure(new TopSolidRangeConfig(40, 0, 2))
-                    .repeat(20));
+            .repeat(20));
 
 
     public static ConfiguredFeature<?, ?> FORTRESS_BREAKAGE = RSFeatures.FORTRESS_BREAKAGE.configure(IFeatureConfig.NO_FEATURE_CONFIG)
             .decorate(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(1, 0.2F, 1))
-                    .decorate(Features.Placements.SQUARE_HEIGHTMAP));
+            .decorate(Features.Placements.SQUARE_HEIGHTMAP));
 
     public static ConfiguredFeature<?, ?> STONEBRICK_STRONGHOLD_CHAINS = RSFeatures.STRONGHOLD_CHAINS.configure(IFeatureConfig.NO_FEATURE_CONFIG)
             .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new TopSolidRangeConfig(
@@ -163,7 +159,7 @@ public class RSConfiguredFeatures {
                     0,
                     Math.max(RepurposedStructures.RSStrongholdsConfig.stonebrickStrongholdMaxHeight.get(),
                                     RepurposedStructures.RSStrongholdsConfig.stonebrickStrongholdMinHeight.get()+1)+15))
-                    .repeat(RepurposedStructures.RSStrongholdsConfig.stonebrickStrongholdChainSpawnrate.get()));
+            .repeat(RepurposedStructures.RSStrongholdsConfig.stonebrickStrongholdChainSpawnrate.get()));
 
     public static ConfiguredFeature<?, ?> NETHER_STRONGHOLD_CHAINS = RSFeatures.STRONGHOLD_CHAINS.configure(IFeatureConfig.NO_FEATURE_CONFIG)
             .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new TopSolidRangeConfig(
@@ -171,7 +167,7 @@ public class RSConfiguredFeatures {
                     0,
                     Math.max(RepurposedStructures.RSStrongholdsConfig.netherStrongholdMaxHeight.get(),
                                     RepurposedStructures.RSStrongholdsConfig.netherStrongholdMinHeight.get()+1)+15))
-                    .repeat(RepurposedStructures.RSStrongholdsConfig.netherStrongholdChainSpawnrate.get()));
+            .repeat(RepurposedStructures.RSStrongholdsConfig.netherStrongholdChainSpawnrate.get()));
 
     public static ConfiguredFeature<?, ?> LILY_OF_THE_VALLEY_FEATURE = Feature.field_26361.configure(
             (new BlockClusterFeatureConfig.Builder(
@@ -184,8 +180,7 @@ public class RSConfiguredFeatures {
 
     public static ConfiguredFeature<?, ?> WARPED_FUNGI_NOT_PLANTED = Feature.HUGE_FUNGUS.configure(HugeFungusConfig.WARPED_FUNGUS_NOT_PLANTED_CONFIG);
 
-    public static ConfiguredFeature<?, ?> COBBLESTONE_PATCH = Feature.BLOCK_PILE.configure(new BlockStateProvidingFeatureConfig(
-            new SimpleBlockStateProvider(Blocks.COBBLESTONE.getDefaultState())));
+    public static ConfiguredFeature<?, ?> COBBLESTONE_PATCH = Feature.BLOCK_PILE.configure(new BlockStateProvidingFeatureConfig(new SimpleBlockStateProvider(Blocks.COBBLESTONE.getDefaultState())));
 
     public static void registerConfiguredFeatures() {
         Registry<ConfiguredFeature<?, ?>> registry = WorldGenRegistries.CONFIGURED_FEATURE;
