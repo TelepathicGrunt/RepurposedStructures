@@ -170,9 +170,7 @@ public class RSConfiguredFeatures {
             .repeat(RepurposedStructures.RSStrongholdsConfig.netherStrongholdChainSpawnrate.get()));
 
     public static ConfiguredFeature<?, ?> LILY_OF_THE_VALLEY_FEATURE = Feature.field_26361.configure(
-            (new BlockClusterFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(Blocks.LILY_OF_THE_VALLEY.getDefaultState()),
-                    SimpleBlockPlacer.INSTANCE))
+            (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.LILY_OF_THE_VALLEY.getDefaultState()), SimpleBlockPlacer.INSTANCE))
             .tries(64)
             .build());
 
