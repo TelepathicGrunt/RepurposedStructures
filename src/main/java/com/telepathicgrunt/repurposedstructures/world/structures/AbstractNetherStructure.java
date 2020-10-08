@@ -17,6 +17,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.source.BiomeSource;
 import net.minecraft.world.gen.ChunkRandom;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
+import net.minecraft.world.gen.chunk.StructureConfig;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
@@ -46,9 +47,12 @@ public abstract class AbstractNetherStructure extends AbstractBaseStructure {
         for (int curChunkX = chunkX - radius; curChunkX <= chunkX + radius; curChunkX++) {
             for (int curChunkZ = chunkZ - radius; curChunkZ <= chunkZ + radius; curChunkZ++) {
                 for(StructureFeature<?> structureFeature : AVOID_STRUCTURE_LIST) {
-                    ChunkPos chunkPos2 = structureFeature.getStartChunk(Objects.requireNonNull(chunkGenerator.getStructuresConfig().getForType(structureFeature)), seed, chunkRandom, curChunkX, curChunkZ);
-                    if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
-                        return false;
+                    StructureConfig structureConfig = chunkGenerator.getStructuresConfig().getForType(structureFeature);
+                    if(structureConfig != null) {
+                        ChunkPos chunkPos2 = structureFeature.getStartChunk(structureConfig, seed, chunkRandom, curChunkX, curChunkZ);
+                        if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
+                            return false;
+                        }
                     }
                 }
             }

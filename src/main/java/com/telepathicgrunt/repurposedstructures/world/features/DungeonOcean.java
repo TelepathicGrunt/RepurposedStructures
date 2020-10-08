@@ -14,6 +14,7 @@ import net.minecraft.structure.StructurePiece;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.StructureWorldAccess;
@@ -286,10 +287,21 @@ public class DungeonOcean extends Feature<DefaultFeatureConfig> {
      */
     private static EntityType<?> pickMobSpawner(StructureWorldAccess world, Random random, BlockPos position) {
         Biome biome = world.getBiome(position);
+        Identifier biomeID = world.getRegistryManager().get(Registry.BIOME_KEY).getId(biome);
+        if(biomeID == null){
+            biomeID = BuiltinRegistries.BIOME.getId(biome);
+            if(biomeID == null){
+                LOGGER.error("What in the world? The Ocean Dungeon attempted to spawn in a biome not registered in both the DynamicRegistries or WorldGenRegistries." +
+                        "\nPlease tell TelepathicGrunt (RepurposedStructures dev) this and tell him your mod list you have on." +
+                        "\nFor now, Ocean Dungeons will use repurposed_structrues:dungeon_ocean_misc mobs as fallback.");
+
+                return RepurposedStructures.mobSpawnerManager.getSpawnerMob(MISC_SPAWNER_ID, random);
+            }
+        }
 
         // spot must be an ocean so we don't return wrong mob when a hot land biome borders a frozen ocean
         if (biome.getCategory() == Category.OCEAN) {
-            String biomeName = Objects.requireNonNull(world.getRegistryManager().get(Registry.BIOME_KEY).getId(biome)).getPath();
+            String biomeName = biomeID.getPath();
             float biomeTemp = biome.getTemperature();
 
             if (biomeTemp < 0.0 || biomeName.contains("frozen") || biomeName.contains("snow") || biomeName.contains("ice")) {

@@ -8,6 +8,25 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.1.6.4 Changes) (1.16.3 Minecraft)
+
+##### Mod Compat:
+
+- Fixed possible crash with some biome mods if they do 
+  strange stuff with their biome provider.
+  
+  
+## (V.1.6.3 Changes) (1.16.3 Minecraft)
+
+##### Major:
+
+- Fixed possible crash when re-entering superflat worlds or 
+  blacklisting a RS structure from a vanilla dimension.
+
+##### Igloos:
+
+- Fixed bug where Grassy Igloos had 2 Villages and 2 Zombie Villages instead of 1 of each.
+ 
 
 ## (V.1.6.2 Changes) (1.16.3 Minecraft)
 

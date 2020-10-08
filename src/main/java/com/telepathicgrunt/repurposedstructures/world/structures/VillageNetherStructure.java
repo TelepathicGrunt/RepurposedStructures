@@ -16,6 +16,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.source.BiomeSource;
 import net.minecraft.world.gen.ChunkRandom;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
+import net.minecraft.world.gen.chunk.StructureConfig;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
@@ -34,9 +35,12 @@ public class VillageNetherStructure extends VillageBaseStructure {
         for (int curChunkX = chunkX - 10; curChunkX <= chunkX + 10; curChunkX++) {
             for (int curChunkZ = chunkZ - 10; curChunkZ <= chunkZ + 10; curChunkZ++) {
                 for(StructureFeature<?> outpost : RSStructures.NETHER_OUTPOSTS_LIST){
-                    ChunkPos chunkPos2 = outpost.getStartChunk(Objects.requireNonNull(chunkGenerator.getStructuresConfig().getForType(outpost)), seed, chunkRandom, curChunkX, curChunkZ);
-                    if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
-                        return false;
+                    StructureConfig structureConfig = chunkGenerator.getStructuresConfig().getForType(outpost);
+                    if(structureConfig != null) {
+                        ChunkPos chunkPos2 = outpost.getStartChunk(structureConfig, seed, chunkRandom, curChunkX, curChunkZ);
+                        if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
+                            return false;
+                        }
                     }
                 }
             }

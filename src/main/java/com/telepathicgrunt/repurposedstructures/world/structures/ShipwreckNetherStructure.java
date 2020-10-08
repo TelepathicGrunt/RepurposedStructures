@@ -19,6 +19,7 @@ import net.minecraft.world.biome.SpawnSettings;
 import net.minecraft.world.biome.source.BiomeSource;
 import net.minecraft.world.gen.ChunkRandom;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
+import net.minecraft.world.gen.chunk.StructureConfig;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
@@ -79,9 +80,12 @@ public class ShipwreckNetherStructure extends StructureFeature<DefaultFeatureCon
         for (int curChunkX = chunkX - 3; curChunkX <= chunkX + 3; curChunkX++) {
             for (int curChunkZ = chunkZ - 3; curChunkZ <= chunkZ + 3; curChunkZ++) {
                 for(StructureFeature<?> structureFeature : AVOID_STRUCTURE_LIST){
-                    ChunkPos chunkPos2 = structureFeature.getStartChunk(Objects.requireNonNull(chunkGenerator.getStructuresConfig().getForType(structureFeature)), seed, chunkRandom, curChunkX, curChunkZ);
-                    if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
-                        return false;
+                    StructureConfig structureConfig = chunkGenerator.getStructuresConfig().getForType(structureFeature);
+                    if(structureConfig != null){
+                        ChunkPos chunkPos2 = structureFeature.getStartChunk(structureConfig, seed, chunkRandom, curChunkX, curChunkZ);
+                        if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
+                            return false;
+                        }
                     }
                 }
             }

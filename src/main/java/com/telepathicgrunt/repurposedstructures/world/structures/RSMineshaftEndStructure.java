@@ -11,6 +11,7 @@ import net.minecraft.world.biome.SpawnSettings;
 import net.minecraft.world.biome.source.BiomeSource;
 import net.minecraft.world.gen.ChunkRandom;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
+import net.minecraft.world.gen.chunk.StructureConfig;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 
 import java.util.List;
@@ -34,11 +35,14 @@ public class RSMineshaftEndStructure extends RSMineshaftStructure {
 
     @Override
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, int x, int z, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig featureConfig) {
-        chunkRandom.setCarverSeed(seed + Objects.requireNonNull(chunkGenerator.getStructuresConfig().getForType(this)).getSalt(), x, z);
-        double d = (probability / 10000D);
-        if(chunkRandom.nextDouble() < d){
-            int landHeight = chunkGenerator.getHeightInGround(x << 4, z << 4, Heightmap.Type.WORLD_SURFACE_WG);
-            return RepurposedStructures.RSAllConfig.RSMineshaftsConfig.misc.barrensIslandsEndMineshafts || landHeight >= 20;
+        StructureConfig structureConfig = chunkGenerator.getStructuresConfig().getForType(this);
+        if(structureConfig != null) {
+            chunkRandom.setCarverSeed(seed + structureConfig.getSalt(), x, z);
+            double d = (probability / 10000D);
+            if (chunkRandom.nextDouble() < d) {
+                int landHeight = chunkGenerator.getHeightInGround(x << 4, z << 4, Heightmap.Type.WORLD_SURFACE_WG);
+                return RepurposedStructures.RSAllConfig.RSMineshaftsConfig.misc.barrensIslandsEndMineshafts || landHeight >= 20;
+            }
         }
         return false;
     }
