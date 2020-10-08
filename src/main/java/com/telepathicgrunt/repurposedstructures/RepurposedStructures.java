@@ -25,12 +25,12 @@ import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.settings.StructureSeparationSettings;
 import net.minecraft.world.server.ServerWorld;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.AddReloadListenerEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
@@ -51,7 +51,6 @@ import java.util.*;
 @Mod(RepurposedStructures.MODID)
 public class RepurposedStructures
 {
-
 	public static final Logger LOGGER = LogManager.getLogger();
 	public static final String MODID = "repurposed_structures";
 	public static RSMainConfig.RSConfigValues RSMainConfig = null;
@@ -69,8 +68,18 @@ public class RepurposedStructures
 	public RepurposedStructures()
 	{
 		// Register the setup method for modloading
+		IEventBus forgeBus = MinecraftForge.EVENT_BUS;
 		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+		forgeBus.addListener(this::biomeModification);
+		forgeBus.addListener(this::addDimensionalSpacing);
+		forgeBus.addListener(this::registerDatapackListener);
+
 		modEventBus.addListener(this::setup);
+		modEventBus.addGenericListener(Feature.class, this::onRegisterFeatures);
+		modEventBus.addGenericListener(Placement.class, this::onRegisterPlacements);
+
+
 		initialize();
 	}
 
@@ -97,87 +106,66 @@ public class RepurposedStructures
 		DeferredWorkQueue.runLater(VillagerTradesModification::addMapTrades);
 	}
 
-	/*
-	 * You will use this to register anything for your mod. The most common things you will register are blocks, items,
-	 * biomes, entities, features, and dimensions.
-	 */
-	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-	public static class RegistryEvents
+	public void onRegisterFeatures(final RegistryEvent.Register<Feature<?>> event)
 	{
-		@SubscribeEvent
-		public static void onRegisterFeatures(final RegistryEvent.Register<Feature<?>> event)
-		{
-			//load the configs for structure spacing and placements
-			loadRSConfigs();
-			RSFeatures.registerFeatures();
-			RSStructures.registerStructures();
-			RSConfiguredFeatures.registerConfiguredFeatures();
-			RSConfiguredStructures.registerStructureFeatures();
-		}
-
-		@SubscribeEvent
-		public static void onRegisterPlacements(final RegistryEvent.Register<Placement<?>> event)
-		{
-			//load the configs for structure spacing and placements
-			loadRSConfigs();
-			RSPlacements.registerPlacements();
-		}
+		//load the configs for structure spacing and placements
+		loadRSConfigs();
+		RSFeatures.registerFeatures();
+		RSStructures.registerStructures();
+		RSConfiguredFeatures.registerConfiguredFeatures();
+		RSConfiguredStructures.registerStructureFeatures();
 	}
 
-	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
-	public static class ForgeEvents {
-		@SubscribeEvent
-		public static void registerDatapackListener(final AddReloadListenerEvent event) {
-			//loads the RS specific json files for mob spawner chances
-			RepurposedStructures.mobSpawnerManager = new MobSpawnerManager();
-			event.addListener(RepurposedStructures.mobSpawnerManager);
-		}
+	public void onRegisterPlacements(final RegistryEvent.Register<Placement<?>> event)
+	{
+		//load the configs for structure spacing and placements
+		loadRSConfigs();
+		RSPlacements.registerPlacements();
+	}
 
-		@SubscribeEvent
-		public static void biomeModification(final BiomeLoadingEvent event) {
-			//Gets blacklisted biome IDs for each structure type
-			//Done here so the map can be garbage collected later
-			Map<String, List<String>> allBiomeBlacklists = RepurposedStructures.getBiomeBlacklists();
+	public void registerDatapackListener(final AddReloadListenerEvent event) {
+		//loads the RS specific json files for mob spawner chances
+		RepurposedStructures.mobSpawnerManager = new MobSpawnerManager();
+		event.addListener(RepurposedStructures.mobSpawnerManager);
+	}
 
-			//RepurposedStructures.LOGGER.log(Level.WARN, "Biome triggered: " + event.getName());
-			//RepurposedStructures.LOGGER.log(Level.WARN, "  Structures before: " + event.getGeneration().getStructures().size());
+	public void biomeModification(final BiomeLoadingEvent event) {
+		//Gets blacklisted biome IDs for each structure type
+		//Done here so the map can be garbage collected later
+		Map<String, List<String>> allBiomeBlacklists = RepurposedStructures.getBiomeBlacklists();
 
-			//Add our structures and features
-			RepurposedStructures.addFeaturesAndStructuresToBiomes(
-					event, // Biome
-					allBiomeBlacklists); // Blacklists
+		//Add our structures and features
+		RepurposedStructures.addFeaturesAndStructuresToBiomes(
+				event, // Biome
+				allBiomeBlacklists); // Blacklists
+	}
 
-			//RepurposedStructures.LOGGER.log(Level.WARN, "  Structures after: " + event.getGeneration().getStructures().size());
-		}
+	public void addDimensionalSpacing(final WorldEvent.Load event) {
+		//add our structure spacing to all chunkgenerators including modded one and datapack ones.
+		List<String> dimensionBlacklist = Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedDimensions.get().split(","));
 
-		@SubscribeEvent
-		public static void addDimensionalSpacing(final WorldEvent.Load event) {
-			//add our structure spacing to all chunkgenerators including modded one and datapack ones.
-			List<String> dimensionBlacklist = Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedDimensions.get().split(","));
+		if (event.getWorld() instanceof ServerWorld){
+			ServerWorld serverWorld = (ServerWorld) event.getWorld();
+			Map<Structure<?>, StructureSeparationSettings> tempMap = new HashMap<>(serverWorld.getChunkProvider().generator.getStructuresConfig().getStructures());
 
-			if (event.getWorld() instanceof ServerWorld){
-				ServerWorld serverWorld = (ServerWorld) event.getWorld();
-				Map<Structure<?>, StructureSeparationSettings> tempMap = new HashMap<>(serverWorld.getChunkProvider().generator.getStructuresConfig().getStructures());
+			if(dimensionBlacklist.stream().anyMatch(blacklist -> blacklist.equals((serverWorld.getRegistryKey().getValue().toString())))) {
+				// make absolutely sure dimension cannot spawn RS structures
+				tempMap.keySet().removeAll(RSStructures.RS_STRUCTURES.keySet());
+			}
+			else{
+				// make absolutely sure dimension can spawn RS structures
+				tempMap.putAll(RSStructures.RS_STRUCTURES);
+			}
+			serverWorld.getChunkProvider().generator.getStructuresConfig().structures = tempMap;
 
-				if(dimensionBlacklist.stream().anyMatch(blacklist -> blacklist.equals((serverWorld.getRegistryKey().getValue().toString())))) {
-					// make absolutely sure dimension cannot spawn RS structures
-					tempMap.keySet().removeAll(RSStructures.RS_STRUCTURES.keySet());
-				}
-				else{
-					// make absolutely sure dimension can spawn RS structures
-					tempMap.putAll(RSStructures.RS_STRUCTURES);
-				}
-				serverWorld.getChunkProvider().generator.getStructuresConfig().structures = tempMap;
-
-				// Load up the nbt files for several structures at startup instead of during worldgen.
-				for(ResourceLocation identifier : RSStructures.RS_STRUCTURE_START_PIECES){
-					JigsawPattern structurePool = serverWorld.getRegistryManager().get(Registry.TEMPLATE_POOL_WORLDGEN).getOrDefault(identifier);
-					if(structurePool != null){
-						List<JigsawPiece> elements = structurePool.getShuffledPieces(new Random());
-						for(JigsawPiece element: elements){
-							// This loads the structure piece to nbt
-							element.getBoundingBox(serverWorld.getStructureTemplateManager(), new BlockPos(0,0,0), Rotation.NONE);
-						}
+			// Load up the nbt files for several structures at startup instead of during worldgen.
+			for(ResourceLocation identifier : RSStructures.RS_STRUCTURE_START_PIECES){
+				JigsawPattern structurePool = serverWorld.getRegistryManager().get(Registry.TEMPLATE_POOL_WORLDGEN).getOrDefault(identifier);
+				if(structurePool != null){
+					List<JigsawPiece> elements = structurePool.getShuffledPieces(new Random());
+					for(JigsawPiece element: elements){
+						// This loads the structure piece to nbt
+						element.getBoundingBox(serverWorld.getStructureTemplateManager(), new BlockPos(0,0,0), Rotation.NONE);
 					}
 				}
 			}

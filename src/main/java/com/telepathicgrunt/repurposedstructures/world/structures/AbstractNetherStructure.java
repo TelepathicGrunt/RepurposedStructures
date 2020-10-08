@@ -19,6 +19,7 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.MarginedStructureStart;
 import net.minecraft.world.gen.feature.structure.Structure;
+import net.minecraft.world.gen.settings.StructureSeparationSettings;
 
 import java.util.List;
 import java.util.Objects;
@@ -46,9 +47,12 @@ public abstract class AbstractNetherStructure extends AbstractBaseStructure {
             for (int curChunkX = chunkX - radius; curChunkX <= chunkX + radius; curChunkX++) {
                 for (int curChunkZ = chunkZ - radius; curChunkZ <= chunkZ + radius; curChunkZ++) {
                     for(Structure<?> structureFeature : AVOID_STRUCTURE_LIST) {
-                        ChunkPos chunkPos2 = structureFeature.getStartChunk(Objects.requireNonNull(chunkGenerator.getStructuresConfig().getForType(structureFeature)), seed, chunkRandom, curChunkX, curChunkZ);
-                        if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
-                            return false;
+                        StructureSeparationSettings structureConfig = chunkGenerator.getStructuresConfig().getForType(structureFeature);
+                        if(structureConfig != null){
+                            ChunkPos chunkPos2 = structureFeature.getStartChunk(structureConfig, seed, chunkRandom, curChunkX, curChunkZ);
+                            if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
+                                return false;
+                            }
                         }
                     }
                 }

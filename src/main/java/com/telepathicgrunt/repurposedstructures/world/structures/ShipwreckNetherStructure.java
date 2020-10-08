@@ -21,6 +21,7 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.template.TemplateManager;
+import net.minecraft.world.gen.settings.StructureSeparationSettings;
 
 import java.util.List;
 import java.util.Objects;
@@ -78,10 +79,13 @@ public class ShipwreckNetherStructure extends Structure<NoFeatureConfig> {
         //cannot be near any other structure
         for (int curChunkX = chunkX - 3; curChunkX <= chunkX + 3; curChunkX++) {
             for (int curChunkZ = chunkZ - 3; curChunkZ <= chunkZ + 3; curChunkZ++) {
-                for(Structure<?> Structure : AVOID_STRUCTURE_LIST){
-                    ChunkPos chunkPos2 = Structure.getStartChunk(Objects.requireNonNull(chunkGenerator.getStructuresConfig().getForType(Structure)), seed, chunkRandom, curChunkX, curChunkZ);
-                    if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
-                        return false;
+                for(Structure<?> structure : AVOID_STRUCTURE_LIST){
+                    StructureSeparationSettings structureConfig = chunkGenerator.getStructuresConfig().getForType(structure);
+                    if(structureConfig != null) {
+                        ChunkPos chunkPos2 = structure.getStartChunk(structureConfig, seed, chunkRandom, curChunkX, curChunkZ);
+                        if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
+                            return false;
+                        }
                     }
                 }
             }
