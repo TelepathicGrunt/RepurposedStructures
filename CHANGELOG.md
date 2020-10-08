@@ -8,6 +8,13 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.2.2.6 Changes) (1.16.3 Minecraft)
+
+##### Mod Compat:
+
+- Fixed possible crash with some biome mods if they do 
+  strange stuff with their biome provider.
+  
 
 ## (V.2.2.5 Changes) (1.16.3 Minecraft)
 

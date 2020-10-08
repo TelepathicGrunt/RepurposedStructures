@@ -149,7 +149,7 @@ public class RSMineshaftPieces {
             } else {
                 this.attemptSpawnerCreation = !this.hasRails && p_i47140_2_.nextInt(20) == 0;
             }
-            if (Objects.requireNonNull(this.getCoordBaseMode()).getAxis() == Direction.Axis.Z) {
+            if (this.getCoordBaseMode() != null && this.getCoordBaseMode().getAxis() == Direction.Axis.Z) {
                 this.sectionCount = p_i47140_3_.getZSize() / 5;
             } else {
                 this.sectionCount = p_i47140_3_.getXSize() / 5;
