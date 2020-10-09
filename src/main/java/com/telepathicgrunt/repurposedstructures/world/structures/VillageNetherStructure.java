@@ -20,8 +20,6 @@ import net.minecraft.world.gen.chunk.StructureConfig;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
-import java.util.Objects;
-
 public class VillageNetherStructure extends VillageBaseStructure {
     // Special thanks to /r/l-ll-ll-l_IsDisLoss for allowing me to use his nether village design!
 

@@ -154,7 +154,7 @@ public class RSStructures {
 
         //Next available seed: https://www.google.com/search?q=random+number
         RS_STRUCTURES.putAll(StructuresConfig.DEFAULT_STRUCTURES);
-        RS_STRUCTURES.keySet().removeIf(key -> !key.getName().contains(RepurposedStructures.MODID));
+        RS_STRUCTURES.keySet().removeIf(key -> key.getName() == null || !key.getName().contains(RepurposedStructures.MODID));
 
         //registers the structure pieces.
         StructurePieces.registerStructurePieces();

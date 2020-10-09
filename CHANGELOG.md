@@ -8,6 +8,20 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.1.6.6 Changes) (1.16.3 Minecraft)
+
+##### Backend:
+
+- Cleaned up codebase a bit.
+
+
+## (V.1.6.5 Changes) (1.16.3 Minecraft)
+
+##### Mod Compat:
+
+- Fixed a crash with Applied Energistics 2.
+
+
 ## (V.1.6.4 Changes) (1.16.3 Minecraft)
 
 ##### Mod Compat:

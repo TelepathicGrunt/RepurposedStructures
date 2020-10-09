@@ -3,9 +3,10 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 import com.google.common.collect.Iterators;
 import com.google.common.collect.Lists;
 import com.telepathicgrunt.repurposedstructures.RSStructures;
-import com.telepathicgrunt.repurposedstructures.world.structures.pieces.GeneralJigsawGenerator;
 import net.minecraft.entity.EntityType;
+import net.minecraft.structure.PoolStructurePiece;
 import net.minecraft.structure.StructureManager;
+import net.minecraft.structure.pool.StructurePoolBasedGenerator;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
@@ -22,9 +23,9 @@ import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.chunk.StructureConfig;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
+import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 
 import java.util.List;
-import java.util.Objects;
 
 
 public class ShipwreckNetherStructure extends StructureFeature<DefaultFeatureConfig> {
@@ -128,7 +129,17 @@ public class ShipwreckNetherStructure extends StructureFeature<DefaultFeatureCon
             }
 
             BlockPos blockpos = new BlockPos(chunkX * 16, placementHeight, chunkZ * 16);
-            GeneralJigsawGenerator.addPieces(dynamicRegistryManager, chunkGenerator, structureManager, blockpos, this.children, this.random, dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN).get(START_POOL), 1);
+            StructurePoolBasedGenerator.method_30419(
+                    dynamicRegistryManager,
+                    new StructurePoolFeatureConfig(() -> dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN).get(START_POOL), 1),
+                    PoolStructurePiece::new,
+                    chunkGenerator,
+                    structureManager,
+                    blockpos,
+                    this.children,
+                    random,
+                    true,
+                    false);
             this.setBoundingBoxFromChildren();
         }
     }

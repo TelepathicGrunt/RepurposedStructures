@@ -27,7 +27,6 @@ import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.Random;
 
 

@@ -1,8 +1,9 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.telepathicgrunt.repurposedstructures.RSStructures;
-import com.telepathicgrunt.repurposedstructures.world.structures.pieces.GeneralJigsawGenerator;
+import net.minecraft.structure.PoolStructurePiece;
 import net.minecraft.structure.StructureManager;
+import net.minecraft.structure.pool.StructurePoolBasedGenerator;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
@@ -12,6 +13,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
+import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 
 
 public class TempleNetherStructure extends StructureFeature<DefaultFeatureConfig> {
@@ -35,7 +37,17 @@ public class TempleNetherStructure extends StructureFeature<DefaultFeatureConfig
 
         public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, int x, int z, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
             BlockPos blockPos = new BlockPos(x * 16, 35, z * 16);
-            GeneralJigsawGenerator.addPieces(dynamicRegistryManager, chunkGenerator, structureManager, blockPos, this.children, this.random, dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN).get(START_POOL), 1);
+            StructurePoolBasedGenerator.method_30419(
+                    dynamicRegistryManager,
+                    new StructurePoolFeatureConfig(() -> dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN).get(START_POOL), 1),
+                    PoolStructurePiece::new,
+                    chunkGenerator,
+                    structureManager,
+                    blockPos,
+                    this.children,
+                    random,
+                    true,
+                    false);
             this.setBoundingBoxFromChildren();
 
             BlockPos lowestLandPos = getLowestLand(chunkGenerator);
