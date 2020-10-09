@@ -10,6 +10,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.gen.GenerationStep;
+import net.minecraft.world.gen.chunk.FlatChunkGenerator;
 import net.minecraft.world.gen.chunk.StructureConfig;
 import net.minecraft.world.gen.feature.*;
 
@@ -22,16 +23,14 @@ public class RSAddFeaturesAndStructures {
     public static void allowStructureSpawningPerDimension() {
         // Controls the dimension blacklisting
         ServerWorldEvents.LOAD.register((MinecraftServer minecraftServer, ServerWorld serverWorld)->{
+            if(serverWorld.getChunkManager().getChunkGenerator() instanceof FlatChunkGenerator){
+                return;
+            }
+
             //add our structure spacing to all chunkgenerators including modded one and datapack ones.
-            List<String> dimensionBlacklist =
-                    Arrays.asList(RepurposedStructures.RSAllConfig.RSMainConfig.blacklistedDimensions.split(","));
-
-            Map<StructureFeature<?>, StructureConfig> tempMap =
-                    new HashMap<>(serverWorld.getChunkManager().getChunkGenerator().getStructuresConfig().getStructures());
-
-            if(dimensionBlacklist.stream().anyMatch(blacklist ->
-                    blacklist.equals((serverWorld.getRegistryKey().getValue().toString()))))
-            {
+            List<String> dimensionBlacklist = Arrays.asList(RepurposedStructures.RSAllConfig.RSMainConfig.blacklistedDimensions.split(","));
+            Map<StructureFeature<?>, StructureConfig> tempMap = new HashMap<>(serverWorld.getChunkManager().getChunkGenerator().getStructuresConfig().getStructures());
+            if(dimensionBlacklist.stream().anyMatch(blacklist -> blacklist.equals((serverWorld.getRegistryKey().getValue().toString())))) {
                 // make absolutely sure dimension cannot spawn RS structures
                 tempMap.keySet().removeAll(RSStructures.RS_STRUCTURES.keySet());
             }
@@ -40,8 +39,7 @@ public class RSAddFeaturesAndStructures {
                 tempMap.putAll(RSStructures.RS_STRUCTURES);
             }
 
-            ((StructuresConfigAccessor)serverWorld.getChunkManager()
-                    .getChunkGenerator().getStructuresConfig()).setStructures(tempMap);
+            ((StructuresConfigAccessor)serverWorld.getChunkManager().getChunkGenerator().getStructuresConfig()).setStructures(tempMap);
         });
     }
 
