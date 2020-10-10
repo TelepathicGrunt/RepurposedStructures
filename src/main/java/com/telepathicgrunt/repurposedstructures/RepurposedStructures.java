@@ -30,6 +30,7 @@ public class RepurposedStructures implements ModInitializer {
 	public static RSAllConfig RSAllConfig = null;
 
     //TODO: make zombie badlands village
+    //TODO: add 1 Piglin Brute to outposts
 
     @Override
     public void onInitialize() {
