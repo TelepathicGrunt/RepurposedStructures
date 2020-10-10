@@ -151,7 +151,7 @@ public class RepurposedStructures
 				return;
 			}
 
-			// Need temp map as some mods use FlatChunkGenerator themselves.
+			// Need temp map as some mods use custom chunk generators with immutable maps in themselves.
 			Map<Structure<?>, StructureSeparationSettings> tempMap = new HashMap<>(serverWorld.getChunkProvider().generator.getStructuresConfig().getStructures());
 			if(dimensionBlacklist.stream().anyMatch(blacklist -> blacklist.equals((serverWorld.getRegistryKey().getValue().toString())))) {
 				// make absolutely sure dimension cannot spawn RS structures
