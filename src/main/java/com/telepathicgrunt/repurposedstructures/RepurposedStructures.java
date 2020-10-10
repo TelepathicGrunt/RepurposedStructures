@@ -152,11 +152,11 @@ public class RepurposedStructures
 
 			if(dimensionBlacklist.stream().anyMatch(blacklist -> blacklist.equals((serverWorld.getRegistryKey().getValue().toString())))) {
 				// make absolutely sure dimension cannot spawn RS structures
-				serverWorld.getChunkProvider().generator.getStructuresConfig().getStructures().keySet().removeAll(RSStructures.RS_STRUCTURES.keySet());
+				serverWorld.getChunkProvider().getChunkGenerator().getStructuresConfig().getStructures().keySet().removeAll(RSStructures.RS_STRUCTURES.keySet());
 			}
 			else{
 				// make absolutely sure dimension can spawn RS structures
-				serverWorld.getChunkProvider().generator.getStructuresConfig().getStructures().putAll(RSStructures.RS_STRUCTURES);
+				serverWorld.getChunkProvider().getChunkGenerator().getStructuresConfig().getStructures().putAll(RSStructures.RS_STRUCTURES);
 			}
 
 			// Load up the nbt files for several structures at startup instead of during worldgen.
