@@ -21,6 +21,11 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Cleaned up codebase a bit.
 
+##### Mineshafts:
+
+- Adjusted the default config values for the maximum Y spawnheight 
+  of Mineshafts to match the Fabric version of Repurposed Structures.
+
 
 ## (V.2.2.6 Changes) (1.16.3 Minecraft)
 

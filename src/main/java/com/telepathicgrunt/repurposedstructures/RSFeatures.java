@@ -1,9 +1,14 @@
 package com.telepathicgrunt.repurposedstructures;
 
 import com.telepathicgrunt.repurposedstructures.world.features.*;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.structure.Structure;
+import net.minecraft.world.gen.settings.StructureSeparationSettings;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.IForgeRegistry;
 
@@ -39,30 +44,44 @@ public class RSFeatures {
     public static void registerFeatures(RegistryEvent.Register<Feature<?>> event) {
         IForgeRegistry<Feature<?>> featureRegistry = event.getRegistry();
 
-        featureRegistry.register(BADLANDS_DUNGEONS.setRegistryName(RepurposedStructures.MODID, "dungeons_badlands"));
-        featureRegistry.register(DARK_FOREST_DUNGEONS.setRegistryName(RepurposedStructures.MODID, "dungeons_dark_forest"));
-        featureRegistry.register(DESERT_DUNGEONS.setRegistryName(RepurposedStructures.MODID, "dungeons_desert"));
-        featureRegistry.register(END_DUNGEONS.setRegistryName(RepurposedStructures.MODID, "dungeons_end"));
-        featureRegistry.register(NETHER_DUNGEONS.setRegistryName(RepurposedStructures.MODID, "dungeons_nether"));
-        featureRegistry.register(SNOW_DUNGEONS.setRegistryName(RepurposedStructures.MODID, "dungeons_snow"));
-        featureRegistry.register(SWAMP_DUNGEONS.setRegistryName(RepurposedStructures.MODID, "dungeons_swamp"));
-        featureRegistry.register(MUSHROOM_DUNGEONS.setRegistryName(RepurposedStructures.MODID, "dungeons_mushroom"));
-        featureRegistry.register(JUNGLE_DUNGEONS.setRegistryName(RepurposedStructures.MODID, "dungeons_jungle"));
-        featureRegistry.register(OCEAN_DUNGEONS.setRegistryName(RepurposedStructures.MODID, "dungeons_ocean"));
+        registerFeature(featureRegistry, BADLANDS_DUNGEONS, new ResourceLocation(RepurposedStructures.MODID, "dungeons_badlands"));
+        registerFeature(featureRegistry, DARK_FOREST_DUNGEONS, new ResourceLocation(RepurposedStructures.MODID, "dungeons_dark_forest"));
+        registerFeature(featureRegistry, DESERT_DUNGEONS, new ResourceLocation(RepurposedStructures.MODID, "dungeons_desert"));
+        registerFeature(featureRegistry, END_DUNGEONS, new ResourceLocation(RepurposedStructures.MODID, "dungeons_end"));
+        registerFeature(featureRegistry, NETHER_DUNGEONS, new ResourceLocation(RepurposedStructures.MODID, "dungeons_nether"));
+        registerFeature(featureRegistry, SNOW_DUNGEONS, new ResourceLocation(RepurposedStructures.MODID, "dungeons_snow"));
+        registerFeature(featureRegistry, SWAMP_DUNGEONS, new ResourceLocation(RepurposedStructures.MODID, "dungeons_swamp"));
+        registerFeature(featureRegistry, MUSHROOM_DUNGEONS, new ResourceLocation(RepurposedStructures.MODID, "dungeons_mushroom"));
+        registerFeature(featureRegistry, JUNGLE_DUNGEONS, new ResourceLocation(RepurposedStructures.MODID, "dungeons_jungle"));
+        registerFeature(featureRegistry, OCEAN_DUNGEONS, new ResourceLocation(RepurposedStructures.MODID, "dungeons_ocean"));
 
-        featureRegistry.register(BADLANDS_WELL.setRegistryName(RepurposedStructures.MODID, "well_badlands"));
-        featureRegistry.register(NETHER_WELL.setRegistryName(RepurposedStructures.MODID, "well_nether"));
-        featureRegistry.register(SNOW_WELL.setRegistryName(RepurposedStructures.MODID, "well_snow"));
-        featureRegistry.register(MOSSY_STONE_WELL.setRegistryName(RepurposedStructures.MODID, "well_mossy_stone"));
-        featureRegistry.register(FOREST_WELL.setRegistryName(RepurposedStructures.MODID, "well_forest"));
+        registerFeature(featureRegistry, BADLANDS_WELL, new ResourceLocation(RepurposedStructures.MODID, "well_badlands"));
+        registerFeature(featureRegistry, NETHER_WELL, new ResourceLocation(RepurposedStructures.MODID, "well_nether"));
+        registerFeature(featureRegistry, SNOW_WELL, new ResourceLocation(RepurposedStructures.MODID, "well_snow"));
+        registerFeature(featureRegistry, MOSSY_STONE_WELL, new ResourceLocation(RepurposedStructures.MODID, "well_mossy_stone"));
+        registerFeature(featureRegistry, FOREST_WELL, new ResourceLocation(RepurposedStructures.MODID, "well_forest"));
 
-        featureRegistry.register(BOULDER_GIANT.setRegistryName(RepurposedStructures.MODID, "boulder_giant"));
-        featureRegistry.register(BOULDER_TINY.setRegistryName(RepurposedStructures.MODID, "boulder_tiny"));
-        featureRegistry.register(HORNED_SWAMP_TREE.setRegistryName(RepurposedStructures.MODID, "horned_swamp_tree"));
-        featureRegistry.register(SHORT_VINES.setRegistryName(RepurposedStructures.MODID, "short_vines"));
-        featureRegistry.register(SWAMP_VILLAGE_VINES.setRegistryName(RepurposedStructures.MODID, "swamp_village_vines"));
-        featureRegistry.register(JUNGLE_STRUCTURES_VINES.setRegistryName(RepurposedStructures.MODID, "jungle_structures_vines"));
-        featureRegistry.register(FORTRESS_BREAKAGE.setRegistryName(RepurposedStructures.MODID, "fortress_breakage"));
-        featureRegistry.register(STRONGHOLD_CHAINS.setRegistryName(RepurposedStructures.MODID, "stronghold_chains"));
+        registerFeature(featureRegistry, BOULDER_GIANT, new ResourceLocation(RepurposedStructures.MODID, "boulder_giant"));
+        registerFeature(featureRegistry, BOULDER_TINY, new ResourceLocation(RepurposedStructures.MODID, "boulder_tiny"));
+        registerFeature(featureRegistry, HORNED_SWAMP_TREE, new ResourceLocation(RepurposedStructures.MODID, "horned_swamp_tree"));
+        registerFeature(featureRegistry, SHORT_VINES, new ResourceLocation(RepurposedStructures.MODID, "short_vines"));
+        registerFeature(featureRegistry, SWAMP_VILLAGE_VINES, new ResourceLocation(RepurposedStructures.MODID, "swamp_village_vines"));
+        registerFeature(featureRegistry, JUNGLE_STRUCTURES_VINES, new ResourceLocation(RepurposedStructures.MODID, "jungle_structures_vines"));
+        registerFeature(featureRegistry, FORTRESS_BREAKAGE, new ResourceLocation(RepurposedStructures.MODID, "fortress_breakage"));
+        registerFeature(featureRegistry, STRONGHOLD_CHAINS, new ResourceLocation(RepurposedStructures.MODID, "stronghold_chains"));
+    }
+
+
+    public static <F extends Feature<?>> void registerFeature(
+            IForgeRegistry<Feature<?>> registry,
+            F feature,
+            ResourceLocation resourceLocation
+    ) {
+        feature.setRegistryName(resourceLocation);
+        registry.register(feature);
+
+        // Have to do this as Minecraft will otherwise think the feature isn't registered.
+        // Hopefully this means people can make custom ConfiguredFeatures by datapack with the feature.
+        Registry.register(Registry.FEATURE, resourceLocation, feature);
     }
 }

@@ -242,51 +242,51 @@ public class RSMineshaftsConfig
 				builder.push("Max height");
 				
 					birchMineshaftMaxHeight = subscriber.subscribe(builder
-						.comment("\r\n Minimum Y height that this mineshaft can spawn at. Default is 50.\r\n"
+						.comment("\r\n Minimum Y height that this mineshaft can spawn at. Default is 45.\r\n"
 							+" Note: The mineshaft will spawn between min and max y height set in config.\r\n"
 							+" Setting this to below min height config will make mineshaft spawn only at min height.")
 						.translation("repurposedstructures.config.mineshaft.birchmineshaftmaxheight")
-						.defineInRange("birchMineshaftMaxHeight", 50, 5, 255));
+						.defineInRange("birchMineshaftMaxHeight", 45, 5, 255));
 
 					
 					jungleMineshaftMaxHeight = subscriber.subscribe(builder
-						.comment("\r\n Minimum Y height that this mineshaft can spawn at. Default is 50.\r\n"
+						.comment("\r\n Minimum Y height that this mineshaft can spawn at. Default is 45.\r\n"
 							+" Note: The mineshaft will spawn between min and max y height set in config.\r\n"
 							+" Setting this to below min height config will make mineshaft spawn only at min height.")
 						.translation("repurposedstructures.config.mineshaft.junglemineshaftmaxheight")
-						.defineInRange("jungleMineshaftMaxHeight", 50, 5, 255));
+						.defineInRange("jungleMineshaftMaxHeight", 45, 5, 255));
 
 					
 					desertMineshaftMaxHeight = subscriber.subscribe(builder
-						.comment("\r\n Minimum Y height that this mineshaft can spawn at. Default is 50.\r\n"
+						.comment("\r\n Minimum Y height that this mineshaft can spawn at. Default is 45.\r\n"
 							+" Note: The mineshaft will spawn between min and max y height set in config.\r\n"
 							+" Setting this to below min height config will make mineshaft spawn only at min height.")
 						.translation("repurposedstructures.config.mineshaft.desertmineshaftmaxheight")
-						.defineInRange("desertMineshaftMaxHeight", 50, 5, 255));
+						.defineInRange("desertMineshaftMaxHeight", 45, 5, 255));
 
 					
 					stoneMineshaftMaxHeight = subscriber.subscribe(builder
-						.comment("\r\n Minimum Y height that this mineshaft can spawn at. Default is 50.\r\n"
+						.comment("\r\n Minimum Y height that this mineshaft can spawn at. Default is 45.\r\n"
 							+" Note: The mineshaft will spawn between min and max y height set in config.\r\n"
 							+" Setting this to below min height config will make mineshaft spawn only at min height.")
 						.translation("repurposedstructures.config.mineshaft.stonemineshaftmaxheight")
-						.defineInRange("stoneMineshaftMaxHeight", 50, 5, 255));
+						.defineInRange("stoneMineshaftMaxHeight", 45, 5, 255));
 
 					
 					savannaMineshaftMaxHeight = subscriber.subscribe(builder
-						.comment("\r\n Minimum Y height that this mineshaft can spawn at. Default is 50.\r\n"
+						.comment("\r\n Minimum Y height that this mineshaft can spawn at. Default is 45.\r\n"
 							+" Note: The mineshaft will spawn between min and max y height set in config.\r\n"
 							+" Setting this to below min height config will make mineshaft spawn only at min height.")
 						.translation("repurposedstructures.config.mineshaft.savannamineshaftmaxheight")
-						.defineInRange("savannaMineshaftMaxHeight", 50, 5, 255));
+						.defineInRange("savannaMineshaftMaxHeight", 45, 5, 255));
 
 					
 					icyMineshaftMaxHeight = subscriber.subscribe(builder
-						.comment("\r\n Minimum Y height that this mineshaft can spawn at. Default is 50.\r\n"
+						.comment("\r\n Minimum Y height that this mineshaft can spawn at. Default is 45.\r\n"
 							+" Note: The mineshaft will spawn between min and max y height set in config.\r\n"
 							+" Setting this to below min height config will make mineshaft spawn only at min height.")
 						.translation("repurposedstructures.config.mineshaft.icymineshaftmaxheight")
-						.defineInRange("icyMineshaftMaxHeight", 50, 5, 255));
+						.defineInRange("icyMineshaftMaxHeight", 45, 5, 255));
 
 					
 					oceanMineshaftMaxHeight = subscriber.subscribe(builder
@@ -298,33 +298,33 @@ public class RSMineshaftsConfig
 
 					
 					taigaMineshaftMaxHeight = subscriber.subscribe(builder
-						.comment("\r\n Minimum Y height that this mineshaft can spawn at. Default is 50.\r\n"
+						.comment("\r\n Minimum Y height that this mineshaft can spawn at. Default is 45.\r\n"
 							+" Note: The mineshaft will spawn between min and max y height set in config.\r\n"
 							+" Setting this to below min height config will make mineshaft spawn only at min height.")
 						.translation("repurposedstructures.config.mineshaft.taigamineshaftmaxheight")
-						.defineInRange("taigaMineshaftMaxHeight", 50, 5, 255));
+						.defineInRange("taigaMineshaftMaxHeight", 45, 5, 255));
 
 					
 					swampAndDarkForestMineshaftMaxHeight = subscriber.subscribe(builder
-						.comment("\r\n Minimum Y height that this mineshaft can spawn at. Default is 50.\r\n"
+						.comment("\r\n Minimum Y height that this mineshaft can spawn at. Default is 45.\r\n"
 							+" Note: The mineshaft will spawn between min and max y height set in config.\r\n"
 							+" Setting this to below min height config will make mineshaft spawn only at min height.")
 						.translation("repurposedstructures.config.mineshaft.swampanddarkforestmineshaftmaxheight")
-						.defineInRange("swampAndDarkForestMineshaftMaxHeight", 50, 5, 255));
+						.defineInRange("swampAndDarkForestMineshaftMaxHeight", 45, 5, 255));
 
 					endMineshaftMaxHeight = subscriber.subscribe(builder
-						.comment("\r\n Minimum Y height that this mineshaft can spawn at. Default is 50.\r\n"
+						.comment("\r\n Minimum Y height that this mineshaft can spawn at. Default is 37.\r\n"
 							+" Note: The mineshaft will spawn between min and max y height set in config.\r\n"
 							+" Setting this to below min height config will make mineshaft spawn only at min height.")
 						.translation("repurposedstructures.config.mineshaft.endmineshaftmaxheight")
-						.defineInRange("endMineshaftMaxHeight", 40, 5, 255));
+						.defineInRange("endMineshaftMaxHeight", 37, 5, 255));
 
 					netherMineshaftMaxHeight = subscriber.subscribe(builder
-						.comment("\r\n Minimum Y height that this mineshaft can spawn at. Default is 22.\r\n"
+						.comment("\r\n Minimum Y height that this mineshaft can spawn at. Default is 13.\r\n"
 							+" Note: The mineshaft will spawn between min and max y height set in config.\r\n"
 							+" Setting this to below min height config will make mineshaft spawn only at min height.")
 						.translation("repurposedstructures.config.mineshaft.nethermineshaftmaxheight")
-						.defineInRange("netherMineshaftMaxHeight", 22, 5, 255));
+						.defineInRange("netherMineshaftMaxHeight", 13, 5, 255));
 
 				builder.pop();
 
