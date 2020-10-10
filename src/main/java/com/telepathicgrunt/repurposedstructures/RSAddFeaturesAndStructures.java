@@ -2,7 +2,6 @@ package com.telepathicgrunt.repurposedstructures;
 
 import com.google.gson.JsonElement;
 import com.mojang.serialization.JsonOps;
-import com.telepathicgrunt.repurposedstructures.mixin.StructuresConfigAccessor;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerWorldEvents;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.world.ServerWorld;
@@ -11,10 +10,12 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.chunk.FlatChunkGenerator;
-import net.minecraft.world.gen.chunk.StructureConfig;
 import net.minecraft.world.gen.feature.*;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.function.BiPredicate;
 
 public class RSAddFeaturesAndStructures {
@@ -29,17 +30,14 @@ public class RSAddFeaturesAndStructures {
 
             //add our structure spacing to all chunkgenerators including modded one and datapack ones.
             List<String> dimensionBlacklist = Arrays.asList(RepurposedStructures.RSAllConfig.RSMainConfig.blacklistedDimensions.split(","));
-            Map<StructureFeature<?>, StructureConfig> tempMap = new HashMap<>(serverWorld.getChunkManager().getChunkGenerator().getStructuresConfig().getStructures());
             if(dimensionBlacklist.stream().anyMatch(blacklist -> blacklist.equals((serverWorld.getRegistryKey().getValue().toString())))) {
                 // make absolutely sure dimension cannot spawn RS structures
-                tempMap.keySet().removeAll(RSStructures.RS_STRUCTURES.keySet());
+                serverWorld.getChunkManager().getChunkGenerator().getStructuresConfig().getStructures().keySet().removeAll(RSStructures.RS_STRUCTURES.keySet());
             }
             else{
                 // make absolutely sure dimension can spawn RS structures
-                tempMap.putAll(RSStructures.RS_STRUCTURES);
+                serverWorld.getChunkManager().getChunkGenerator().getStructuresConfig().getStructures().putAll(RSStructures.RS_STRUCTURES);
             }
-
-            ((StructuresConfigAccessor)serverWorld.getChunkManager().getChunkGenerator().getStructuresConfig()).setStructures(tempMap);
         });
     }
 

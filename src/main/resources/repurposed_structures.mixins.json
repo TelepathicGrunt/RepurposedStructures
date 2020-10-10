@@ -15,8 +15,7 @@
     "StrongholdGeneratorAccessor",
     "StructureMobSpawningMixin",
     "StructurePieceAccessor",
-    "StructureProcessorListAccessor",
-    "StructuresConfigAccessor"
+    "StructureProcessorListAccessor"
   ],
   "client": [
   ],

@@ -1,19 +1,12 @@
 package com.telepathicgrunt.repurposedstructures;
 
-import com.google.gson.JsonElement;
-import com.mojang.serialization.JsonOps;
-import com.telepathicgrunt.repurposedstructures.mixin.StructuresConfigAccessor;
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerWorldEvents;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.Category;
-import net.minecraft.world.gen.GenerationStep;
-import net.minecraft.world.gen.chunk.StructureConfig;
-import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.ConfiguredStructureFeature;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.function.BiPredicate;
 
 public class RSStructureFilterMaps {
