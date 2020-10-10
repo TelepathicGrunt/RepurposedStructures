@@ -8,12 +8,23 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.2.2.8 Changes) (1.16.3 Minecraft)
+
+##### Misc:
+
+- Fixed crash with some mod's custom ChunkGenerator.
+  Just be careful to not use /locate in these custom dimensions
+  as that could have a chance of causing the game to hang 
+  depending on how they coded the ChunkGenerator. 
+  Will try and think of some sort of solution to this...
+
+
 ## (V.2.2.7 Changes) (1.16.3 Minecraft)
 
 ##### Misc:
 
 - Added check to automatically blacklist any dimension using the
-  FlatChunkGenerator (Superflat worldtype) because that chunk generator
+  FlatChunkGenerator (superflat worldtype) because that chunk generator
   will spawn all RS's structures at once and make /locate on certain 
   RS structure cause the server to hang forever.
 

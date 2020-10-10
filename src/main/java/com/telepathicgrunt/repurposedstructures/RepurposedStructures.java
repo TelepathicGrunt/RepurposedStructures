@@ -18,6 +18,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.World;
 import net.minecraft.world.gen.FlatChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.jigsaw.JigsawPattern;
@@ -145,19 +146,22 @@ public class RepurposedStructures
 
 		if (event.getWorld() instanceof ServerWorld){
 			ServerWorld serverWorld = (ServerWorld) event.getWorld();
-			if(serverWorld.getChunkProvider().getChunkGenerator() instanceof FlatChunkGenerator){
+			if(serverWorld.getChunkProvider().getChunkGenerator() instanceof FlatChunkGenerator &&
+				serverWorld.getRegistryKey().equals(World.OVERWORLD)){
 				return;
 			}
 
-
+			// Need temp map as some mods use FlatChunkGenerator themselves.
+			Map<Structure<?>, StructureSeparationSettings> tempMap = new HashMap<>(serverWorld.getChunkProvider().generator.getStructuresConfig().getStructures());
 			if(dimensionBlacklist.stream().anyMatch(blacklist -> blacklist.equals((serverWorld.getRegistryKey().getValue().toString())))) {
 				// make absolutely sure dimension cannot spawn RS structures
-				serverWorld.getChunkProvider().getChunkGenerator().getStructuresConfig().getStructures().keySet().removeAll(RSStructures.RS_STRUCTURES.keySet());
+				tempMap.keySet().removeAll(RSStructures.RS_STRUCTURES.keySet());
 			}
 			else{
 				// make absolutely sure dimension can spawn RS structures
-				serverWorld.getChunkProvider().getChunkGenerator().getStructuresConfig().getStructures().putAll(RSStructures.RS_STRUCTURES);
+				tempMap.putAll(RSStructures.RS_STRUCTURES);
 			}
+			serverWorld.getChunkProvider().generator.getStructuresConfig().structures = tempMap;
 
 			// Load up the nbt files for several structures at startup instead of during worldgen.
 			// (Yes ik this fires multiple times but this event is the closest to what I need
