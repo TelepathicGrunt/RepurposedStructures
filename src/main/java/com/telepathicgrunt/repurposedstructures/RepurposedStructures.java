@@ -18,6 +18,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.gen.FlatChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.jigsaw.JigsawPattern;
 import net.minecraft.world.gen.feature.jigsaw.JigsawPiece;
@@ -76,6 +77,7 @@ public class RepurposedStructures
 
 		modEventBus.addListener(this::setup);
 		modEventBus.addGenericListener(Feature.class, this::onRegisterFeatures);
+		modEventBus.addGenericListener(Structure.class, this::onRegisterStructures);
 		modEventBus.addGenericListener(Placement.class, this::onRegisterPlacements);
 
 		RSMainConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSConfigValues::new, "repurposed_structures-common.toml");
@@ -101,11 +103,15 @@ public class RepurposedStructures
 
 	public void onRegisterFeatures(final RegistryEvent.Register<Feature<?>> event)
 	{
+		RSFeatures.registerFeatures(event);
+		RSConfiguredFeatures.registerConfiguredFeatures();
+	}
+
+	public void onRegisterStructures(final RegistryEvent.Register<Structure<?>> event)
+	{
 		//load the configs for structure spacing and placements
 		loadRSConfigs();
-		RSFeatures.registerFeatures();
-		RSStructures.registerStructures();
-		RSConfiguredFeatures.registerConfiguredFeatures();
+		RSStructures.registerStructures(event);
 		RSConfiguredStructures.registerStructureFeatures();
 	}
 
@@ -139,19 +145,23 @@ public class RepurposedStructures
 
 		if (event.getWorld() instanceof ServerWorld){
 			ServerWorld serverWorld = (ServerWorld) event.getWorld();
-			Map<Structure<?>, StructureSeparationSettings> tempMap = new HashMap<>(serverWorld.getChunkProvider().generator.getStructuresConfig().getStructures());
+			if(serverWorld.getChunkProvider().getChunkGenerator() instanceof FlatChunkGenerator){
+				return;
+			}
+
 
 			if(dimensionBlacklist.stream().anyMatch(blacklist -> blacklist.equals((serverWorld.getRegistryKey().getValue().toString())))) {
 				// make absolutely sure dimension cannot spawn RS structures
-				tempMap.keySet().removeAll(RSStructures.RS_STRUCTURES.keySet());
+				serverWorld.getChunkProvider().generator.getStructuresConfig().getStructures().keySet().removeAll(RSStructures.RS_STRUCTURES.keySet());
 			}
 			else{
 				// make absolutely sure dimension can spawn RS structures
-				tempMap.putAll(RSStructures.RS_STRUCTURES);
+				serverWorld.getChunkProvider().generator.getStructuresConfig().getStructures().putAll(RSStructures.RS_STRUCTURES);
 			}
-			serverWorld.getChunkProvider().generator.getStructuresConfig().structures = tempMap;
 
 			// Load up the nbt files for several structures at startup instead of during worldgen.
+			// (Yes ik this fires multiple times but this event is the closest to what I need
+			//  before actual worldgen and after dynamicregistries are made... I think?)
 			for(ResourceLocation identifier : RSStructures.RS_STRUCTURE_START_PIECES){
 				JigsawPattern structurePool = serverWorld.getRegistryManager().get(Registry.TEMPLATE_POOL_WORLDGEN).getOrDefault(identifier);
 				if(structurePool != null){

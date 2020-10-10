@@ -8,6 +8,20 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.2.2.7 Changes) (1.16.3 Minecraft)
+
+##### Misc:
+
+- Added check to automatically blacklist any dimension using the
+  FlatChunkGenerator (Superflat worldtype) because that chunk generator
+  will spawn all RS's structures at once and make /locate on certain 
+  RS structure cause the server to hang forever.
+
+##### Backend:
+
+- Cleaned up codebase a bit.
+
+
 ## (V.2.2.6 Changes) (1.16.3 Minecraft)
 
 ##### Mod Compat:

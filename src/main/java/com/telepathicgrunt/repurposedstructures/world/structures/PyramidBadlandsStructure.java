@@ -3,7 +3,6 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RSStructures;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.world.structures.pieces.GeneralJigsawGenerator;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PyramidFloorPiece;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.ResourceLocation;
@@ -16,9 +15,8 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.structure.Structure;
-import net.minecraft.world.gen.feature.structure.StructurePiece;
-import net.minecraft.world.gen.feature.structure.StructureStart;
+import net.minecraft.world.gen.feature.jigsaw.JigsawManager;
+import net.minecraft.world.gen.feature.structure.*;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
 
@@ -43,9 +41,21 @@ public class PyramidBadlandsStructure extends Structure<NoFeatureConfig> {
 
         @Override
         public void init(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
-            BlockPos blockpos = new BlockPos(chunkX * 16, 62, chunkZ * 16);
-            GeneralJigsawGenerator.addPieces(dynamicRegistryManager, chunkGenerator, structureManager, blockpos, this.components, this.rand, dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN).getOrDefault(START_POOL), 1);
-            PyramidFloorPiece.func_207617_a(structureManager, blockpos, this.components.get(0).getRotation(), this.components, rand, Blocks.RED_SANDSTONE, NoFeatureConfig);
+            BlockPos blockPos = new BlockPos(chunkX * 16, 62, chunkZ * 16);
+            JigsawManager.method_30419(
+                    dynamicRegistryManager,
+                    new VillageConfig(() -> dynamicRegistryManager.get(
+                            Registry.TEMPLATE_POOL_WORLDGEN).getOrDefault(START_POOL),
+                            1),
+                    AbstractVillagePiece::new,
+                    chunkGenerator,
+                    structureManager,
+                    blockPos,
+                    this.components,
+                    this.rand,
+                    true,
+                    false);
+            PyramidFloorPiece.func_207617_a(structureManager, blockPos, this.components.get(0).getRotation(), this.components, rand, Blocks.RED_SANDSTONE, NoFeatureConfig);
 
             //put the floor placing before the pit.
             StructurePiece temp = this.components.get(1);
@@ -58,10 +68,10 @@ public class PyramidBadlandsStructure extends Structure<NoFeatureConfig> {
             Rotation rotation = this.components.get(0).getRotation();
             BlockPos maxCorner = new BlockPos(this.components.get(0).getBoundingBox().getXSize(), 0, this.components.get(0).getBoundingBox().getZSize()).rotate(rotation);
 
-            int highestLandPos = chunkGenerator.func_222529_a(blockpos.getX() + maxCorner.getX(), blockpos.getZ() + maxCorner.getZ(), Heightmap.Type.WORLD_SURFACE_WG);
-            highestLandPos = Math.min(highestLandPos, chunkGenerator.func_222529_a(blockpos.getX(), blockpos.getZ() + maxCorner.getZ(), Heightmap.Type.WORLD_SURFACE_WG));
-            highestLandPos = Math.min(highestLandPos, chunkGenerator.func_222529_a(blockpos.getX() + maxCorner.getX(), blockpos.getZ(), Heightmap.Type.WORLD_SURFACE_WG));
-            highestLandPos = Math.min(highestLandPos, chunkGenerator.func_222529_a(blockpos.getX(), blockpos.getZ(), Heightmap.Type.WORLD_SURFACE_WG));
+            int highestLandPos = chunkGenerator.func_222529_a(blockPos.getX() + maxCorner.getX(), blockPos.getZ() + maxCorner.getZ(), Heightmap.Type.WORLD_SURFACE_WG);
+            highestLandPos = Math.min(highestLandPos, chunkGenerator.func_222529_a(blockPos.getX(), blockPos.getZ() + maxCorner.getZ(), Heightmap.Type.WORLD_SURFACE_WG));
+            highestLandPos = Math.min(highestLandPos, chunkGenerator.func_222529_a(blockPos.getX() + maxCorner.getX(), blockPos.getZ(), Heightmap.Type.WORLD_SURFACE_WG));
+            highestLandPos = Math.min(highestLandPos, chunkGenerator.func_222529_a(blockPos.getX(), blockPos.getZ(), Heightmap.Type.WORLD_SURFACE_WG));
 
             this.func_214626_a(this.rand, highestLandPos-15, highestLandPos-14);
         }

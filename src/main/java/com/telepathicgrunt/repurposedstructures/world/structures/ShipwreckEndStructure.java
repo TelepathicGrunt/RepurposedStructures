@@ -3,7 +3,6 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RSStructures;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.world.structures.pieces.GeneralJigsawGenerator;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.SharedSeedRandom;
@@ -17,8 +16,11 @@ import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.jigsaw.JigsawManager;
+import net.minecraft.world.gen.feature.structure.AbstractVillagePiece;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.StructureStart;
+import net.minecraft.world.gen.feature.structure.VillageConfig;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
 import java.util.Random;
@@ -74,12 +76,24 @@ public class ShipwreckEndStructure extends AbstractBaseStructure {
 
         @Override
         public void init(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
-            BlockPos blockpos = new BlockPos(chunkX * 16, 62, chunkZ * 16);
-            GeneralJigsawGenerator.addPieces(dynamicRegistryManager, chunkGenerator, structureManager, blockpos, this.components, this.rand, dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN).getOrDefault(START_POOL), 1);
+            BlockPos blockPos = new BlockPos(chunkX * 16, 62, chunkZ * 16);
+            JigsawManager.method_30419(
+                    dynamicRegistryManager,
+                    new VillageConfig(() -> dynamicRegistryManager.get(
+                            Registry.TEMPLATE_POOL_WORLDGEN).getOrDefault(START_POOL),
+                            1),
+                    AbstractVillagePiece::new,
+                    chunkGenerator,
+                    structureManager,
+                    blockPos,
+                    this.components,
+                    this.rand,
+                    true,
+                    false);
             this.recalculateStructureSize();
 
-            BlockPos blockPos = new BlockPos(this.components.get(0).getBoundingBox().func_215126_f());
-            int highestLandPos = chunkGenerator.func_222529_a(blockPos.getX(), blockPos.getZ(), Heightmap.Type.WORLD_SURFACE_WG);
+            BlockPos blockPos2 = new BlockPos(this.components.get(0).getBoundingBox().func_215126_f());
+            int highestLandPos = chunkGenerator.func_222529_a(blockPos2.getX(), blockPos2.getZ(), Heightmap.Type.WORLD_SURFACE_WG);
             highestLandPos = Math.max(30, highestLandPos);
             this.func_214626_a(this.rand, highestLandPos-5, highestLandPos-3);
         }
