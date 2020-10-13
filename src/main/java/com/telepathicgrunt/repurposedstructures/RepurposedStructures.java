@@ -31,6 +31,8 @@ public class RepurposedStructures implements ModInitializer {
 
     //TODO: make zombie badlands village
     //TODO: add 1 Piglin Brute to outposts
+    //TODO: fix ocean dungeon chests
+    //TODO NEXT: overworld biome specific outposts
 
     @Override
     public void onInitialize() {
