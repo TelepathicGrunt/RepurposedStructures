@@ -291,11 +291,15 @@ public class DungeonOcean extends Feature<NoFeatureConfig> {
         if(biomeRL == null){
             biomeRL = WorldGenRegistries.BIOME.getKey(biome);
             if(biomeRL == null){
-                LOGGER.error("What in the world? The Ocean Dungeon attempted to spawn in a biome not registered in both the DynamicRegistries or WorldGenRegistries." +
-                        "\nPlease tell TelepathicGrunt (RepurposedStructures dev) this and tell him your mod list you have on." +
-                        "\nFor now, Ocean Dungeons will use repurposed_structrues:dungeon_ocean_misc mobs as fallback.");
+                biomeRL = biome.getRegistryName();
+                if(biomeRL == null) {
+                    LOGGER.error("What in the world? The Ocean Dungeon attempted to spawn in a biome not " +
+                            "registered in DynamicRegistries, WorldGenRegistries, or the Forge registry!" +
+                            "\nPlease tell TelepathicGrunt (RepurposedStructures dev) this and tell him your mod list you have on." +
+                            "\nFor now, Ocean Dungeons will use repurposed_structrues:dungeon_ocean_misc mobs as fallback.");
 
-                return RepurposedStructures.mobSpawnerManager.getSpawnerMob(MISC_SPAWNER_ID, random);
+                    return RepurposedStructures.mobSpawnerManager.getSpawnerMob(MISC_SPAWNER_ID, random);
+                }
             }
         }
 
