@@ -65,7 +65,6 @@ dependencies {
 	include('com.github.Draylar:angerable-patch:1.0.0'){
 		exclude module: 'fabric-api'
 	}
-
 }
 
 if (project.use_third_party_mods) {
