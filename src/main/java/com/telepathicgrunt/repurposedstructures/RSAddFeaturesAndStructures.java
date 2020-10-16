@@ -17,6 +17,7 @@ import net.minecraft.world.gen.feature.*;
 
 import java.util.*;
 import java.util.function.BiPredicate;
+import java.util.stream.Collectors;
 
 public class RSAddFeaturesAndStructures {
 
@@ -30,7 +31,7 @@ public class RSAddFeaturesAndStructures {
             }
 
             //add our structure spacing to all chunkgenerators including modded one and datapack ones.
-            List<String> dimensionBlacklist = Arrays.asList(RepurposedStructures.RSAllConfig.RSMainConfig.blacklistedDimensions.split(","));
+            List<String> dimensionBlacklist = Arrays.stream(RepurposedStructures.RSAllConfig.RSMainConfig.blacklistedDimensions.split(",")).map(String::trim).collect(Collectors.toList());
 
             // Need temp map as some mods use custom chunk generators with immutable maps in themselves.
             Map<StructureFeature<?>, StructureConfig> tempMap = new HashMap<>(serverWorld.getChunkManager().getChunkGenerator().getStructuresConfig().getStructures());

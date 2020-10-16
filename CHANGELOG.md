@@ -8,6 +8,13 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.1.6.8 Changes) (1.16.3 Minecraft)
+
+##### Config:
+
+- Dimension blacklist will now ignore any spaces you leave between entries in it.
+
+
 ## (V.1.6.7 Changes) (1.16.3 Minecraft)
 
 ##### Misc:
