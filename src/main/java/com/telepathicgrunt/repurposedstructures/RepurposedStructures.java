@@ -73,7 +73,7 @@ public class RepurposedStructures
 		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
 		forgeBus.addListener(this::biomeModification);
-		forgeBus.addListener(this::addDimensionalSpacing);
+		forgeBus.addListener(RSAddFeaturesAndStructures::addDimensionalSpacing);
 		forgeBus.addListener(this::registerDatapackListener);
 
 		modEventBus.addListener(this::setup);
@@ -138,45 +138,6 @@ public class RepurposedStructures
 		RepurposedStructures.addFeaturesAndStructuresToBiomes(
 				event, // Biome
 				allBiomeBlacklists); // Blacklists
-	}
-
-	public void addDimensionalSpacing(final WorldEvent.Load event) {
-		//add our structure spacing to all chunkgenerators including modded one and datapack ones.
-		List<String> dimensionBlacklist = Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedDimensions.get().split(","));
-
-		if (event.getWorld() instanceof ServerWorld){
-			ServerWorld serverWorld = (ServerWorld) event.getWorld();
-			if(serverWorld.getChunkProvider().getChunkGenerator() instanceof FlatChunkGenerator &&
-				serverWorld.getRegistryKey().equals(World.OVERWORLD)){
-				return;
-			}
-
-			// Need temp map as some mods use custom chunk generators with immutable maps in themselves.
-			Map<Structure<?>, StructureSeparationSettings> tempMap = new HashMap<>(serverWorld.getChunkProvider().generator.getStructuresConfig().getStructures());
-			if(dimensionBlacklist.stream().anyMatch(blacklist -> blacklist.equals((serverWorld.getRegistryKey().getValue().toString())))) {
-				// make absolutely sure dimension cannot spawn RS structures
-				tempMap.keySet().removeAll(RSStructures.RS_STRUCTURES.keySet());
-			}
-			else{
-				// make absolutely sure dimension can spawn RS structures
-				tempMap.putAll(RSStructures.RS_STRUCTURES);
-			}
-			serverWorld.getChunkProvider().generator.getStructuresConfig().structures = tempMap;
-
-			// Load up the nbt files for several structures at startup instead of during worldgen.
-			// (Yes ik this fires multiple times but this event is the closest to what I need
-			//  before actual worldgen and after dynamicregistries are made... I think?)
-			for(ResourceLocation identifier : RSStructures.RS_STRUCTURE_START_PIECES){
-				JigsawPattern structurePool = serverWorld.getRegistryManager().get(Registry.TEMPLATE_POOL_WORLDGEN).getOrDefault(identifier);
-				if(structurePool != null){
-					List<JigsawPiece> elements = structurePool.getShuffledPieces(new Random());
-					for(JigsawPiece element: elements){
-						// This loads the structure piece to nbt
-						element.getBoundingBox(serverWorld.getStructureTemplateManager(), new BlockPos(0,0,0), Rotation.NONE);
-					}
-				}
-			}
-		}
 	}
 
     /*
