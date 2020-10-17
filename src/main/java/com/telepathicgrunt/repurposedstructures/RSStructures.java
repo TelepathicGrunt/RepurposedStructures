@@ -204,7 +204,6 @@ public class RSStructures {
             StructureSeparationSettings structureSeparationSettings
     ) {
         structure.setRegistryName(resourceLocation);
-        registry.register(structure);
 
         // Have to do this as Minecraft will otherwise complain my structure isn't registered.
         // I guess Forge forgot to make the structure registration attach to

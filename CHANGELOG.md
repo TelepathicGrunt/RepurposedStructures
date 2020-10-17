@@ -10,6 +10,14 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ## (V.2.2.9 Changes) (1.16.3 Minecraft)
 
+##### Villages:
+
+- Fixed typos in template_pools so that now ALL village pieces can spawn in villages!
+
+##### Misc:
+
+- Fixed log spam about stuff being registered multiple times. Sorry about that!
+
 ##### Config:
 
 - Dimension blacklist will now ignore any spaces you leave between entries in it.

@@ -78,7 +78,6 @@ public class RSFeatures {
             ResourceLocation resourceLocation
     ) {
         feature.setRegistryName(resourceLocation);
-        registry.register(feature);
 
         // Have to do this as Minecraft will otherwise think the feature isn't registered.
         // Hopefully this means people can make custom ConfiguredFeatures by datapack with the feature.
