@@ -50,7 +50,7 @@
     {
       "weight": 1,
       "element": {
-        "location": "repurposed_structures:village/mountains/houses/fisher_cottage",
+        "location": "repurposed_structures:village/mountains/houses/fisher_cottage_1",
         "processors": "repurposed_structures:village/mountains/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
@@ -230,7 +230,7 @@
     {
       "weight": 2,
       "element": {
-        "location": "repurposed_structures:village/mountains/houses/weapon_smith_1",
+        "location": "repurposed_structures:village/mountains/houses/weaponsmith_1",
         "processors": "repurposed_structures:village/mountains/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
@@ -239,7 +239,7 @@
     {
       "weight": 2,
       "element": {
-        "location": "repurposed_structures:village/mountains/houses/weapon_smith_2",
+        "location": "repurposed_structures:village/mountains/houses/weaponsmith_2",
         "processors": "repurposed_structures:village/mountains/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"

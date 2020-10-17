@@ -8,7 +8,12 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+
 ## (V.1.6.8 Changes) (1.16.3 Minecraft)
+
+##### Villages:
+
+- Fixed typos in template_pools so that now ALL village pieces can spawn in villages!
 
 ##### Config:
 
