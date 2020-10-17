@@ -4,7 +4,6 @@ import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.RSMineshaftPieces;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.ChunkPos;
@@ -17,7 +16,6 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.settings.StructureSeparationSettings;
 
 import java.util.List;
-import java.util.Objects;
 
 
 public class RSMineshaftEndStructure extends RSMineshaftStructure {

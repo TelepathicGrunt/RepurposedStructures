@@ -28,7 +28,6 @@ import net.minecraft.world.gen.feature.structure.StructurePiece;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.Random;
 
 

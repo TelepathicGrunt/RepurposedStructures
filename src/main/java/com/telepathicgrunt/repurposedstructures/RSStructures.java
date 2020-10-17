@@ -5,7 +5,6 @@ import com.telepathicgrunt.repurposedstructures.world.structures.*;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.RSMineshaftPieces;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.StructurePieces;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.FlatGenerationSettings;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.IFeatureConfig;
@@ -14,7 +13,6 @@ import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.settings.StructureSeparationSettings;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.IForgeRegistry;
-import net.minecraftforge.registries.IForgeRegistryEntry;
 
 import java.util.*;
 
