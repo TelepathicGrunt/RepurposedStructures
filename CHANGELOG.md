@@ -9,6 +9,15 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 # | Repurposed Structures changelog |
 
 
+## (V.1.6.9 Changes) (1.16.3 Minecraft)
+
+##### Dungeons:
+
+- Ocean Dungeons chests will now have Prismarine placed under 
+  them if they are floating. Should reduce the amount of 
+  floating chests by a lot. 
+
+
 ## (V.1.6.8 Changes) (1.16.3 Minecraft)
 
 ##### Villages:
