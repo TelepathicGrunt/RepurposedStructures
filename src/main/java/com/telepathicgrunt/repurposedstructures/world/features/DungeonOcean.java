@@ -63,7 +63,7 @@ public class DungeonOcean extends Feature<DefaultFeatureConfig> {
         int zMax = randZRange + 1;
         int validOpenings = 0;
         int ceilingOpenings = 0;
-        boolean validSpot = false;
+        boolean validSpot;
         boolean oceanFloor = false;
         BlockPos.Mutable mutable = new BlockPos.Mutable().set(position);
         int terrainHeight = world.getTopY(Heightmap.Type.OCEAN_FLOOR_WG, mutable.getX(), mutable.getZ());
@@ -124,38 +124,27 @@ public class DungeonOcean extends Feature<DefaultFeatureConfig> {
                                     }
                                 }
                             } else {
-                                if (currentBlock.getBlock() != Blocks.CHEST &&
-                                        currentBlock.getBlock() != Blocks.SPAWNER &&
-                                        currentBlock.getBlock() != Blocks.DARK_PRISMARINE &&
-                                        currentBlock.getBlock() != Blocks.DARK_PRISMARINE_STAIRS) {
-                                    if (mutable.getY() < world.getSeaLevel()) {
-                                        world.setBlockState(mutable, WATER, 2);
-                                    } else {
-                                        world.setBlockState(mutable, Blocks.AIR.getDefaultState(), 2);
-                                    }
-                                }
+                                carveSpace(world, chunkGenerator, mutable, currentBlock);
 
-                                currentBlock = world.getBlockState(mutable.up());
-                                if (currentBlock.getMaterial() == Material.UNDERWATER_PLANT) {
-                                    if (mutable.getY() + 1 < world.getSeaLevel()) {
+                                mutable.move(Direction.UP);
+                                currentBlock = world.getBlockState(mutable);
+
+                                while ((currentBlock.getMaterial() == Material.UNDERWATER_PLANT || currentBlock.getMaterial() == Material.REPLACEABLE_UNDERWATER_PLANT)
+                                        && mutable.getY() < 255)
+                                {
+                                    if (mutable.getY() < chunkGenerator.getSeaLevel()) {
                                         world.setBlockState(mutable, WATER, 2);
                                     } else {
                                         world.setBlockState(mutable, Blocks.AIR.getDefaultState(), 2);
                                     }
+
+                                    mutable.move(Direction.UP);
+                                    currentBlock = world.getBlockState(mutable);
                                 }
                             }
                         } else if (mutable.getY() >= 0 &&
                                 !world.getBlockState(mutable.down()).getMaterial().isSolid()) {
-                            if (currentBlock.getBlock() != Blocks.CHEST &&
-                                    currentBlock.getBlock() != Blocks.SPAWNER &&
-                                    currentBlock.getBlock() != Blocks.DARK_PRISMARINE &&
-                                    currentBlock.getBlock() != Blocks.DARK_PRISMARINE_STAIRS) {
-                                if (mutable.getY() < world.getSeaLevel()) {
-                                    world.setBlockState(mutable, WATER, 2);
-                                } else {
-                                    world.setBlockState(mutable, Blocks.AIR.getDefaultState(), 2);
-                                }
-                            }
+                            carveSpace(world, chunkGenerator, mutable, currentBlock);
                         }
 
                         // made sure the dungeon wall cannot replace other dungeon's mob spawner now.
@@ -178,8 +167,7 @@ public class DungeonOcean extends Feature<DefaultFeatureConfig> {
                                 if (random.nextInt(3) <= 1) {
                                     world.setBlockState(mutable, PRISMARINE, 2);
                                 } else {
-                                    currentBlock = world.getBlockState(mutable);
-                                    world.setBlockState(mutable, PRISMARINE_WALL.with(Properties.WATERLOGGED, mutable.getY() < world.getSeaLevel()), 3);
+                                    world.setBlockState(mutable, PRISMARINE_WALL.with(Properties.WATERLOGGED, mutable.getY() < chunkGenerator.getSeaLevel()), 3);
                                 }
                             }
                         }
@@ -211,7 +199,7 @@ public class DungeonOcean extends Feature<DefaultFeatureConfig> {
                                     StructurePiece.method_14916(world, mutable,
                                             Blocks.CHEST.getDefaultState()
                                                     .with(Properties.WATERLOGGED,
-                                                            mutable.getY() < world.getSeaLevel())), 3);
+                                                            mutable.getY() < chunkGenerator.getSeaLevel())), 3);
 
                             LootableContainerBlockEntity.setLootTable(world, random, mutable, CHEST_LOOT);
 
@@ -265,7 +253,7 @@ public class DungeonOcean extends Feature<DefaultFeatureConfig> {
 
             mutable.set(position).move(Direction.DOWN);
 
-            if (mutable.getY() < world.getSeaLevel()) world.setBlockState(mutable, WATER, 2);
+            if (mutable.getY() < chunkGenerator.getSeaLevel()) world.setBlockState(mutable, WATER, 2);
 
             world.setBlockState(mutable, Blocks.AIR.getDefaultState(), 2);
             world.setBlockState(mutable, Blocks.SPAWNER.getDefaultState(), 2);
@@ -281,13 +269,13 @@ public class DungeonOcean extends Feature<DefaultFeatureConfig> {
             currentBlock = world.getBlockState(mutable.move(Direction.UP));
             if (currentBlock.getBlock() != Blocks.CHEST && currentBlock.getBlock() != Blocks.SPAWNER) {
                 world.setBlockState(mutable, PRISMARINE_WALL
-                        .with(Properties.WATERLOGGED, mutable.getY() < world.getSeaLevel()), 2);
+                        .with(Properties.WATERLOGGED, mutable.getY() < chunkGenerator.getSeaLevel()), 2);
             }
 
             currentBlock = world.getBlockState(mutable.move(Direction.UP));
             if (currentBlock.getBlock() != Blocks.CHEST && currentBlock.getBlock() != Blocks.SPAWNER) {
                 world.setBlockState(mutable, PRISMARINE_WALL
-                        .with(Properties.WATERLOGGED, mutable.getY() < world.getSeaLevel()), 2);
+                        .with(Properties.WATERLOGGED, mutable.getY() < chunkGenerator.getSeaLevel()), 2);
             }
 
             for (Direction direction : Direction.Type.HORIZONTAL) {
@@ -295,7 +283,7 @@ public class DungeonOcean extends Feature<DefaultFeatureConfig> {
                 currentBlock = world.getBlockState(mutable);
                 if (currentBlock.getBlock() != Blocks.CHEST && currentBlock.getBlock() != Blocks.SPAWNER) {
                     world.setBlockState(mutable, DARK_PRISMARINE_STAIRS
-                            .with(Properties.WATERLOGGED, mutable.getY() < world.getSeaLevel())
+                            .with(Properties.WATERLOGGED, mutable.getY() < chunkGenerator.getSeaLevel())
                             .with(StairsBlock.FACING, direction.getOpposite()), 2);
                 }
             }
@@ -303,6 +291,19 @@ public class DungeonOcean extends Feature<DefaultFeatureConfig> {
             return true;
         } else {
             return false;
+        }
+    }
+
+    private void carveSpace(StructureWorldAccess world, ChunkGenerator chunkGenerator, BlockPos.Mutable mutable, BlockState currentBlock) {
+        if (currentBlock.getBlock() != Blocks.CHEST &&
+                currentBlock.getBlock() != Blocks.SPAWNER &&
+                currentBlock.getBlock() != Blocks.DARK_PRISMARINE &&
+                currentBlock.getBlock() != Blocks.DARK_PRISMARINE_STAIRS) {
+            if (mutable.getY() < chunkGenerator.getSeaLevel()) {
+                world.setBlockState(mutable, WATER, 2);
+            } else {
+                world.setBlockState(mutable, Blocks.AIR.getDefaultState(), 2);
+            }
         }
     }
 
