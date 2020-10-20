@@ -1,0 +1,34 @@
+{
+  "parent": "repurposed_structures:villages_blank5",
+  "display": {
+    "icon": {
+      "item": "minecraft:air"
+    },
+    "title": {
+      "translate": ""
+    },
+    "description": {
+      "translate": ""
+    },
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "always": {
+      "trigger": "minecraft:tick",
+      "conditions": {
+        "condition": "minecraft:time_check",
+        "value": {
+          "min": 0,
+          "max": 2147483646
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "always"
+    ]
+  ]
+}

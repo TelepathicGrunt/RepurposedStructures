@@ -10,12 +10,22 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ## (V.2.2.10 Changes) (1.16.3 Minecraft)
 
+##### Outposts:
+
+- Nether Outposts now has 1 Piglin Brute.
+
 ##### Dungeons:
 
 - Ocean Dungeons chests will now have Prismarine placed under 
   them if they are floating. Should reduce the amount of 
   floating chests by a lot. 
   
+- Removed floating plants from above Ocean Dungeons as best I can.
+  
+##### Advancements:
+
+- Trying out a new way to layout the advancements.
+
   
 ## (V.2.2.9 Changes) (1.16.3 Minecraft)
 
