@@ -22,10 +22,6 @@ Welcome to the Github! If you are looking for the most recent stable version, th
   
 - Removed floating plants from above Ocean Dungeons as best I can.
   
-##### Advancements:
-
-- Trying out a new way to layout the advancements.
-
   
 ## (V.2.2.9 Changes) (1.16.3 Minecraft)
 

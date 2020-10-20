@@ -1,5 +1,5 @@
 {
-  "parent": "repurposed_structures:temples_blank4",
+  "parent": "repurposed_structures:root",
   "display": {
     "icon": {
       "item": "minecraft:arrow"
