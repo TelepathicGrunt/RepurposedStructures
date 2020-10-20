@@ -1,5 +1,5 @@
 {
-  "parent": "repurposed_structures:villages_blank6",
+  "parent": "repurposed_structures:root",
   "display": {
     "icon": {
       "item": "minecraft:emerald"

@@ -1,5 +1,5 @@
 {
-  "parent": "repurposed_structures:shipwrecks_blank2",
+  "parent": "repurposed_structures:root",
   "display": {
     "icon": {
       "item": "minecraft:oak_boat"

@@ -1,5 +1,5 @@
 {
-  "parent": "repurposed_structures:mineshafts_blank8",
+  "parent": "repurposed_structures:root",
   "display": {
     "icon": {
       "item": "minecraft:stone_pickaxe"
