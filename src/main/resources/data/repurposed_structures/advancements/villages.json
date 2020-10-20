@@ -1,5 +1,5 @@
 {
-  "parent": "repurposed_structures:root",
+  "parent": "repurposed_structures:villages_blank6",
   "display": {
     "icon": {
       "item": "minecraft:emerald"
@@ -10,11 +10,9 @@
     "description": {
       "translate": "advancements.repurposed_structures.villages.description"
     },
-    "frame": "task",
     "show_toast": false,
     "announce_to_chat": false,
-    "hidden": true,
-    "background": "minecraft:textures/block/green_terracotta.png"
+    "hidden": true
   },
   "criteria": {
     "always": {

@@ -10,9 +10,6 @@
     "description": {
       "translate": "advancements.repurposed_structures.outpost_nether_brick.description"
     },
-    "frame": "task",
-    "show_toast": true,
-    "announce_to_chat": true,
     "hidden": true
   },
   "rewards": {
