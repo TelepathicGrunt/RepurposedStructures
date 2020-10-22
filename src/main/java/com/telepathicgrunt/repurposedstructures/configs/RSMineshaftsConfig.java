@@ -51,7 +51,7 @@ public class RSMineshaftsConfig
 		public ConfigValueListener<Integer> endMineshaftMaxHeight;
 		public ConfigValueListener<Integer> netherMineshaftMaxHeight;
 
-		public ConfigValueListener<Boolean> barrensIslandsEndMineshafts ;
+		public ConfigValueListener<Boolean> barrensIslandsEndMineshafts;
 
 		public RSMineshaftsConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
 		{
