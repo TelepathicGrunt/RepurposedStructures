@@ -47,10 +47,10 @@ public class ShipwreckNetherStructure extends Structure<NoFeatureConfig> {
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig NoFeatureConfig) {
         if(AVOID_STRUCTURE_LIST == null){
             AVOID_STRUCTURE_LIST = Lists.newArrayList(Iterators.concat(
-                    RSStructures.NETHER_OUTPOSTS_LIST.iterator(),
-                    RSStructures.NETHER_TEMPLE_LIST.iterator(),
-                    RSStructures.NETHER_VILLAGE_LIST.iterator(),
-                    RSStructures.LARGE_VANILLA_NETHER_STRUCTURE_LIST.iterator()));
+                    RSStructures.NETHER_OUTPOSTS_LIST.get().iterator(),
+                    RSStructures.NETHER_TEMPLE_LIST.get().iterator(),
+                    RSStructures.NETHER_VILLAGE_LIST.get().iterator(),
+                    RSStructures.LARGE_VANILLA_NETHER_STRUCTURE_LIST.get().iterator()));
         }
 
 
