@@ -1,38 +1,15 @@
 package com.telepathicgrunt.repurposedstructures.modinit;
 
-import java.util.function.Supplier;
-
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.world.features.BoulderGiant;
-import com.telepathicgrunt.repurposedstructures.world.features.BoulderTiny;
-import com.telepathicgrunt.repurposedstructures.world.features.DungeonBadlands;
-import com.telepathicgrunt.repurposedstructures.world.features.DungeonDarkForest;
-import com.telepathicgrunt.repurposedstructures.world.features.DungeonDesert;
-import com.telepathicgrunt.repurposedstructures.world.features.DungeonEnd;
-import com.telepathicgrunt.repurposedstructures.world.features.DungeonJungle;
-import com.telepathicgrunt.repurposedstructures.world.features.DungeonMushroom;
-import com.telepathicgrunt.repurposedstructures.world.features.DungeonNether;
-import com.telepathicgrunt.repurposedstructures.world.features.DungeonOcean;
-import com.telepathicgrunt.repurposedstructures.world.features.DungeonSnow;
-import com.telepathicgrunt.repurposedstructures.world.features.DungeonSwamp;
-import com.telepathicgrunt.repurposedstructures.world.features.FortressBreakage;
-import com.telepathicgrunt.repurposedstructures.world.features.JungleStructuresVines;
-import com.telepathicgrunt.repurposedstructures.world.features.StrongholdChains;
-import com.telepathicgrunt.repurposedstructures.world.features.SwampVillageVines;
-import com.telepathicgrunt.repurposedstructures.world.features.TreeSwampHorned;
-import com.telepathicgrunt.repurposedstructures.world.features.VinesShort;
-import com.telepathicgrunt.repurposedstructures.world.features.WellBadlands;
-import com.telepathicgrunt.repurposedstructures.world.features.WellForest;
-import com.telepathicgrunt.repurposedstructures.world.features.WellMossyStone;
-import com.telepathicgrunt.repurposedstructures.world.features.WellNether;
-import com.telepathicgrunt.repurposedstructures.world.features.WellSnow;
-
+import com.telepathicgrunt.repurposedstructures.world.features.*;
 import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+
+import java.util.function.Supplier;
 
 public class RSFeatures {
 	public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, RepurposedStructures.MODID);

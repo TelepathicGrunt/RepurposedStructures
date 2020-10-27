@@ -1,10 +1,10 @@
 package com.telepathicgrunt.repurposedstructures.world.structures.pieces;
 
 import com.google.common.collect.Lists;
-import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePieces;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.mixin.StrongholdGeneratorAccessor;
 import com.telepathicgrunt.repurposedstructures.mixin.StructurePieceAccessor;
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePieces;
 import net.minecraft.block.*;
 import net.minecraft.entity.EntityType;
 import net.minecraft.fluid.FluidState;
@@ -1762,7 +1762,7 @@ public class RSStrongholdPieces {
         }
 
         public enum Door {
-            OPENING, WOOD_DOOR, GRATES, IRON_DOOR;
+            OPENING, WOOD_DOOR, GRATES, IRON_DOOR
         }
     }
 

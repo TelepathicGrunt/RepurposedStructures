@@ -10,7 +10,7 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
-public class VillageSwampStructure extends VillageBaseStructure {
+public class VillageSwampStructure extends OverworldJigsawStructure {
     public VillageSwampStructure(Codec<NoFeatureConfig> config, ResourceLocation poolRL, int structureSize) {
         super(config, poolRL, structureSize);
     }

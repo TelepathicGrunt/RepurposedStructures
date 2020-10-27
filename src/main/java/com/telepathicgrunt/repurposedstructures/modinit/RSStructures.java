@@ -1,33 +1,10 @@
 package com.telepathicgrunt.repurposedstructures.modinit;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Set;
-import java.util.function.Supplier;
-
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.world.structures.FortressJungleStructure;
-import com.telepathicgrunt.repurposedstructures.world.structures.OutpostNetherStructure;
-import com.telepathicgrunt.repurposedstructures.world.structures.PyramidBadlandsStructure;
-import com.telepathicgrunt.repurposedstructures.world.structures.PyramidNetherStructure;
-import com.telepathicgrunt.repurposedstructures.world.structures.RSMineshaftEndStructure;
-import com.telepathicgrunt.repurposedstructures.world.structures.RSMineshaftStructure;
-import com.telepathicgrunt.repurposedstructures.world.structures.RSNetherStrongholdStructure;
-import com.telepathicgrunt.repurposedstructures.world.structures.RSStonebrickStrongholdStructure;
-import com.telepathicgrunt.repurposedstructures.world.structures.ShipwreckEndStructure;
-import com.telepathicgrunt.repurposedstructures.world.structures.ShipwreckNetherStructure;
-import com.telepathicgrunt.repurposedstructures.world.structures.TempleNetherStructure;
-import com.telepathicgrunt.repurposedstructures.world.structures.VillageBaseStructure;
-import com.telepathicgrunt.repurposedstructures.world.structures.VillageNetherStructure;
-import com.telepathicgrunt.repurposedstructures.world.structures.VillageSwampStructure;
+import com.telepathicgrunt.repurposedstructures.world.structures.*;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.RSMineshaftPieces;
-
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.gen.FlatGenerationSettings;
 import net.minecraft.world.gen.GenerationStage;
@@ -40,6 +17,9 @@ import net.minecraftforge.common.util.Lazy;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+
+import java.util.*;
+import java.util.function.Supplier;
 
 
 public class RSStructures {
@@ -83,8 +63,8 @@ public class RSStructures {
     
     //Igloos and Fortress
     public static final RegistryObject<Structure<NoFeatureConfig>> JUNGLE_FORTRESS = registerStructure("fortress_jungle", () -> (new FortressJungleStructure(NoFeatureConfig.CODEC)));
-    public static final RegistryObject<Structure<NoFeatureConfig>> GRASSY_IGLOO = registerStructure("igloo_grassy", () -> (new VillageBaseStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":igloos/grassy_top"), 3)));
-    public static final RegistryObject<Structure<NoFeatureConfig>> STONE_IGLOO = registerStructure("igloo_stone", () -> (new VillageBaseStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":igloos/stone_top"), 3)));
+    public static final RegistryObject<Structure<NoFeatureConfig>> GRASSY_IGLOO = registerStructure("igloo_grassy", () -> (new OverworldJigsawStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":igloos/grassy_top"), 3)));
+    public static final RegistryObject<Structure<NoFeatureConfig>> STONE_IGLOO = registerStructure("igloo_stone", () -> (new OverworldJigsawStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":igloos/stone_top"), 3)));
 
     //Temples
     public static final RegistryObject<Structure<NoFeatureConfig>> NETHER_WASTELAND_TEMPLE = registerStructure("temple_nether_wasteland", () -> (new TempleNetherStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID,"temples/temple_nether_wasteland"))));
@@ -109,13 +89,13 @@ public class RSStructures {
 	public static final RegistryObject<Structure<NoFeatureConfig>> WARPED_SHIPWRECK = registerStructure("shipwreck_warped", () -> (new ShipwreckNetherStructure(new ResourceLocation(RepurposedStructures.MODID, "shipwrecks/warped"), true)));
 	
 	//Villages
-	public static final RegistryObject<Structure<NoFeatureConfig>> BADLANDS_VILLAGE = registerStructure("village_badlands", () -> (new VillageBaseStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/badlands/town_centers"), 10)));
-	public static final RegistryObject<Structure<NoFeatureConfig>> BIRCH_VILLAGE = registerStructure("village_birch", () -> (new VillageBaseStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/birch/town_centers"), 6)));
-	public static final RegistryObject<Structure<NoFeatureConfig>> DARK_FOREST_VILLAGE = registerStructure("village_dark_oak", () -> (new VillageBaseStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/dark_forest/town_centers"), 6)));
-	public static final RegistryObject<Structure<NoFeatureConfig>> JUNGLE_VILLAGE = registerStructure("village_jungle", () -> (new VillageBaseStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/jungle/town_centers"), 8)));
+	public static final RegistryObject<Structure<NoFeatureConfig>> BADLANDS_VILLAGE = registerStructure("village_badlands", () -> (new OverworldJigsawStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/badlands/town_centers"), 10)));
+	public static final RegistryObject<Structure<NoFeatureConfig>> BIRCH_VILLAGE = registerStructure("village_birch", () -> (new OverworldJigsawStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/birch/town_centers"), 6)));
+	public static final RegistryObject<Structure<NoFeatureConfig>> DARK_FOREST_VILLAGE = registerStructure("village_dark_oak", () -> (new OverworldJigsawStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/dark_forest/town_centers"), 6)));
+	public static final RegistryObject<Structure<NoFeatureConfig>> JUNGLE_VILLAGE = registerStructure("village_jungle", () -> (new OverworldJigsawStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/jungle/town_centers"), 8)));
 	public static final RegistryObject<Structure<NoFeatureConfig>> SWAMP_VILLAGE = registerStructure("village_swamp", () -> (new VillageSwampStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/swamp/town_centers"), 6)));
-	public static final RegistryObject<Structure<NoFeatureConfig>> MOUNTAINS_VILLAGE = registerStructure("village_mountains", () -> (new VillageBaseStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/mountains/town_centers"), 6)));
-	public static final RegistryObject<Structure<NoFeatureConfig>> GIANT_TAIGA_VILLAGE = registerStructure("village_giant_taiga", () -> (new VillageBaseStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/giant_taiga/town_centers"), 6)));
+	public static final RegistryObject<Structure<NoFeatureConfig>> MOUNTAINS_VILLAGE = registerStructure("village_mountains", () -> (new OverworldJigsawStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/mountains/town_centers"), 6)));
+	public static final RegistryObject<Structure<NoFeatureConfig>> GIANT_TAIGA_VILLAGE = registerStructure("village_giant_taiga", () -> (new OverworldJigsawStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/giant_taiga/town_centers"), 6)));
   	public static final RegistryObject<Structure<NoFeatureConfig>> CRIMSON_VILLAGE = registerStructure("village_crimson", () -> (new VillageNetherStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/crimson/town_centers"), 6)));
   	public static final RegistryObject<Structure<NoFeatureConfig>> WARPED_VILLAGE = registerStructure("village_warped", () -> (new VillageNetherStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/warped/town_centers"), 6)));
   

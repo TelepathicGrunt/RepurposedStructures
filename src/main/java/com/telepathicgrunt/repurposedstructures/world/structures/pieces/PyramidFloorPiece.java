@@ -1,7 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.structures.pieces;
 
-import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePieces;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePieces;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FlowingFluidBlock;
@@ -27,6 +27,7 @@ import net.minecraft.world.gen.feature.template.BlockIgnoreStructureProcessor;
 import net.minecraft.world.gen.feature.template.PlacementSettings;
 import net.minecraft.world.gen.feature.template.Template;
 import net.minecraft.world.gen.feature.template.TemplateManager;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.List;
 import java.util.Random;
@@ -54,7 +55,7 @@ public class PyramidFloorPiece {
         public Piece(TemplateManager templateManager, CompoundNBT data) {
             super(RSStructurePieces.PYRAMID_FLOOR_PIECE, data);
             this.rotation = Rotation.valueOf(data.getString("Rot"));
-            this.block = Registry.BLOCK.getOrDefault(new ResourceLocation(data.getString("Block")));
+            this.block = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(data.getString("Block")));
             this.func_207614_a(templateManager);
         }
 
@@ -73,7 +74,7 @@ public class PyramidFloorPiece {
         protected void readAdditional(CompoundNBT tagCompound) {
             super.readAdditional(tagCompound);
             tagCompound.putString("Rot", this.rotation.name());
-            tagCompound.putString("Block", Registry.BLOCK.getKey(this.block).toString());
+            tagCompound.putString("Block", ForgeRegistries.BLOCKS.getKey(this.block).toString());
         }
 
         @Override

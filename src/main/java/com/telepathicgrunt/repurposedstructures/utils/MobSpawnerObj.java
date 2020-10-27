@@ -4,6 +4,7 @@ import com.google.gson.annotations.Expose;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class MobSpawnerObj {
     @Expose
@@ -21,8 +22,8 @@ public class MobSpawnerObj {
 
     public void setEntityType() throws Exception {
         ResourceLocation entity_id = new ResourceLocation(this.name);
-        if(!Registry.ENTITY_TYPE.getOrEmpty(entity_id).isPresent())
+        if(!ForgeRegistries.ENTITIES.containsKey(entity_id))
             throw new Exception("Error: "+entity_id+" is not a valid entity ID!");
-        entityType = Registry.ENTITY_TYPE.getOrDefault(entity_id);
+        entityType = ForgeRegistries.ENTITIES.getValue(entity_id);
     }
 }

@@ -1,9 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.modinit;
 
-import java.util.function.Supplier;
-
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-
 import com.telepathicgrunt.repurposedstructures.world.placements.RSDungeonPlacement;
 import com.telepathicgrunt.repurposedstructures.world.placements.RSVinePlacement;
 import net.minecraft.world.gen.placement.Placement;
@@ -12,6 +9,8 @@ import net.minecraft.world.gen.placement.TopSolidRangeConfig;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+
+import java.util.function.Supplier;
 
 public class RSPlacements
 {

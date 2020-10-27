@@ -14,6 +14,7 @@ import net.minecraft.resources.IResourceManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Util;
 import net.minecraft.util.registry.Registry;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.logging.log4j.Level;
 
 import java.util.List;
@@ -55,15 +56,18 @@ public class MobSpawnerManager extends JsonReloadListener {
         int randomWeight = random.nextInt(totalWeight) + 1;
         int index = 0;
 
-        while(randomWeight > 0){
-            randomWeight -= spawnerMobEntries.get(index).weight;
-            if(randomWeight <= 0)
-                return Registry.ENTITY_TYPE.getOrDefault(new ResourceLocation(spawnerMobEntries.get(index).name));
+        try{
+            while(true){
+                randomWeight -= spawnerMobEntries.get(index).weight;
+                if(randomWeight <= 0)
+                    return ForgeRegistries.ENTITIES.getValue(new ResourceLocation(spawnerMobEntries.get(index).name));
 
-            index++;
+                index++;
+            }
         }
-
-        RepurposedStructures.LOGGER.log(Level.ERROR,"***************************************\nFailed to get mob. Please check that "+spawnerJsonEntry+".json is correct and let Telepathicgrunt (mod author) know he broke the mob spawner code!\n***************************************");
-        return EntityType.PIG;
+        catch(Exception e){
+            RepurposedStructures.LOGGER.log(Level.ERROR,"***************************************\nFailed to get mob. Please check that "+spawnerJsonEntry+".json is correct and let Telepathicgrunt (mod author) know he broke the mob spawner code!\n***************************************");
+            return EntityType.PIG;
+        }
     }
 }

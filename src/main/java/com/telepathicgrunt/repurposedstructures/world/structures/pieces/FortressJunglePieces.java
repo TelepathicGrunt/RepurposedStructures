@@ -1,8 +1,8 @@
 package com.telepathicgrunt.repurposedstructures.world.structures.pieces;
 
 import com.google.common.collect.Lists;
-import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePieces;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePieces;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.fluid.Fluids;
@@ -1119,7 +1119,7 @@ public class FortressJunglePieces {
                 return newBlockState;
             }
             else if (blockstateIn.isIn(Blocks.NETHER_BRICK_FENCE)) {
-                return Blocks.IRON_BARS.getDefaultState().with(FourWayBlock.NORTH, blockstateIn.get(FourWayBlock.NORTH)).with(FourWayBlock.EAST, Boolean.valueOf(blockstateIn.get(FourWayBlock.EAST))).with(FourWayBlock.SOUTH, Boolean.valueOf(blockstateIn.get(FourWayBlock.SOUTH))).with(FourWayBlock.WEST, Boolean.valueOf(blockstateIn.get(FourWayBlock.WEST)));
+                return Blocks.IRON_BARS.getDefaultState().with(FourWayBlock.NORTH, blockstateIn.get(FourWayBlock.NORTH)).with(FourWayBlock.EAST, blockstateIn.get(FourWayBlock.EAST)).with(FourWayBlock.SOUTH, blockstateIn.get(FourWayBlock.SOUTH)).with(FourWayBlock.WEST, blockstateIn.get(FourWayBlock.WEST));
             }
             else if (blockstateIn.isIn(Blocks.NETHER_BRICK_STAIRS)) {
 

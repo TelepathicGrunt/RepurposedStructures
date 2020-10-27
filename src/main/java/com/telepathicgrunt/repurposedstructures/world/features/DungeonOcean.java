@@ -23,6 +23,7 @@ import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.StructurePiece;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -315,7 +316,7 @@ public class DungeonOcean extends Feature<NoFeatureConfig> {
         Biome biome = world.getBiome(position);
         ResourceLocation biomeRL = world.getRegistryManager().get(Registry.BIOME_KEY).getKey(biome);
         if(biomeRL == null){
-            biomeRL = WorldGenRegistries.BIOME.getKey(biome);
+            biomeRL = ForgeRegistries.BIOMES.getKey(biome);
             if(biomeRL == null){
                 biomeRL = biome.getRegistryName();
                 if(biomeRL == null) {

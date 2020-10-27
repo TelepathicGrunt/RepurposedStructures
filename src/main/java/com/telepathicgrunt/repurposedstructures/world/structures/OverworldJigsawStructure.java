@@ -19,12 +19,11 @@ import net.minecraft.world.gen.feature.structure.*;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 import net.minecraft.world.gen.settings.StructureSeparationSettings;
 
-public class VillageBaseStructure extends Structure<NoFeatureConfig> {
-    private static boolean INITIALIZED_POOLS = false;
+public class OverworldJigsawStructure extends Structure<NoFeatureConfig> {
     private final ResourceLocation START_POOL;
     private final int STRUCTURE_SIZE;
 
-    public VillageBaseStructure(Codec<NoFeatureConfig> config, ResourceLocation poolRL, int structureSize) {
+    public OverworldJigsawStructure(Codec<NoFeatureConfig> config, ResourceLocation poolRL, int structureSize) {
         super(config);
         START_POOL = poolRL;
         STRUCTURE_SIZE = structureSize;
@@ -46,7 +45,7 @@ public class VillageBaseStructure extends Structure<NoFeatureConfig> {
 
     @Override
     public IStartFactory<NoFeatureConfig> getStartFactory() {
-        return VillageBaseStructure.MainStart::new;
+        return OverworldJigsawStructure.MainStart::new;
     }
 
     @Override

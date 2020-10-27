@@ -20,7 +20,6 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
 public class TempleNetherStructure extends Structure<NoFeatureConfig> {
 
     private final ResourceLocation START_POOL;
-    private static boolean INITIALIZED_POOLS = false;
 
     public TempleNetherStructure(Codec<NoFeatureConfig> config, ResourceLocation pieceRL) {
         super(config);
