@@ -1,6 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
-import com.telepathicgrunt.repurposedstructures.RSStructures;
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Material;
 import net.minecraft.structure.StructureManager;
@@ -20,7 +20,7 @@ import net.minecraft.world.gen.chunk.StructureConfig;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
-public class VillageNetherStructure extends VillageBaseStructure {
+public class VillageNetherStructure extends OverworldJigsawStructure {
     // Special thanks to /r/l-ll-ll-l_IsDisLoss for allowing me to use his nether village design!
 
     public VillageNetherStructure(Identifier poolID, int structureSize) {

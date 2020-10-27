@@ -2,6 +2,7 @@ package com.telepathicgrunt.repurposedstructures.world.structures.pieces;
 
 import com.google.common.collect.Lists;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePieces;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.MobSpawnerBlockEntity;
@@ -89,14 +90,14 @@ public class FortressJunglePieces {
     public static class Corridor extends FortressJunglePieces.Piece {
 
         public Corridor(int p_i45615_1_, Random rand, BlockBox p_i45615_3_, Direction p_i45615_4_) {
-            super(StructurePieces.JUNGLE_FORTRESS_CORRIDOR_1, p_i45615_1_);
+            super(RSStructurePieces.JUNGLE_FORTRESS_CORRIDOR_1, p_i45615_1_);
             this.setOrientation(p_i45615_4_);
             this.boundingBox = p_i45615_3_;
         }
 
 
         public Corridor(StructureManager p_i50272_1_, CompoundTag p_i50272_2_) {
-            super(StructurePieces.JUNGLE_FORTRESS_CORRIDOR_1, p_i50272_2_);
+            super(RSStructurePieces.JUNGLE_FORTRESS_CORRIDOR_1, p_i50272_2_);
         }
 
 
@@ -146,14 +147,14 @@ public class FortressJunglePieces {
     public static class Corridor2 extends FortressJunglePieces.Piece {
 
         public Corridor2(int p_i45613_1_, Random rand, BlockBox p_i45613_3_, Direction p_i45613_4_) {
-            super(StructurePieces.JUNGLE_FORTRESS_CORRIDOR_2, p_i45613_1_);
+            super(RSStructurePieces.JUNGLE_FORTRESS_CORRIDOR_2, p_i45613_1_);
             this.setOrientation(p_i45613_4_);
             this.boundingBox = p_i45613_3_;
         }
 
 
         public Corridor2(StructureManager p_i50266_1_, CompoundTag p_i50266_2_) {
-            super(StructurePieces.JUNGLE_FORTRESS_CORRIDOR_2, p_i50266_2_);
+            super(RSStructurePieces.JUNGLE_FORTRESS_CORRIDOR_2, p_i50266_2_);
         }
 
 
@@ -211,14 +212,14 @@ public class FortressJunglePieces {
 
     public static class Corridor3 extends FortressJunglePieces.Piece {
         public Corridor3(int p_i50280_1_, BlockBox p_i50280_2_, Direction p_i50280_3_) {
-            super(StructurePieces.JUNGLE_FORTRESS_CORRIDOR_3, p_i50280_1_);
+            super(RSStructurePieces.JUNGLE_FORTRESS_CORRIDOR_3, p_i50280_1_);
             this.setOrientation(p_i50280_3_);
             this.boundingBox = p_i50280_2_;
         }
 
 
         public Corridor3(StructureManager p_i50281_1_, CompoundTag p_i50281_2_) {
-            super(StructurePieces.JUNGLE_FORTRESS_CORRIDOR_3, p_i50281_2_);
+            super(RSStructurePieces.JUNGLE_FORTRESS_CORRIDOR_3, p_i50281_2_);
         }
 
 
@@ -272,14 +273,14 @@ public class FortressJunglePieces {
 
     public static class Corridor4 extends FortressJunglePieces.Piece {
         public Corridor4(int p_i50277_1_, BlockBox p_i50277_2_, Direction p_i50277_3_) {
-            super(StructurePieces.JUNGLE_FORTRESS_CORRIDOR_4, p_i50277_1_);
+            super(RSStructurePieces.JUNGLE_FORTRESS_CORRIDOR_4, p_i50277_1_);
             this.setOrientation(p_i50277_3_);
             this.boundingBox = p_i50277_2_;
         }
 
 
         public Corridor4(StructureManager p_i50278_1_, CompoundTag p_i50278_2_) {
-            super(StructurePieces.JUNGLE_FORTRESS_CORRIDOR_4, p_i50278_2_);
+            super(RSStructurePieces.JUNGLE_FORTRESS_CORRIDOR_4, p_i50278_2_);
         }
 
 
@@ -342,14 +343,14 @@ public class FortressJunglePieces {
 
     public static class Corridor5 extends FortressJunglePieces.Piece {
         public Corridor5(int p_i50268_1_, BlockBox p_i50268_2_, Direction p_i50268_3_) {
-            super(StructurePieces.JUNGLE_FORTRESS_CORRIDOR_5, p_i50268_1_);
+            super(RSStructurePieces.JUNGLE_FORTRESS_CORRIDOR_5, p_i50268_1_);
             this.setOrientation(p_i50268_3_);
             this.boundingBox = p_i50268_2_;
         }
 
 
         public Corridor5(StructureManager p_i50269_1_, CompoundTag p_i50269_2_) {
-            super(StructurePieces.JUNGLE_FORTRESS_CORRIDOR_5, p_i50269_2_);
+            super(RSStructurePieces.JUNGLE_FORTRESS_CORRIDOR_5, p_i50269_2_);
         }
 
 
@@ -391,14 +392,14 @@ public class FortressJunglePieces {
 
     public static class Crossing extends FortressJunglePieces.Piece {
         public Crossing(int p_i50258_1_, BlockBox p_i50258_2_, Direction p_i50258_3_) {
-            super(StructurePieces.JUNGLE_FORTRESS_CROSSING_1, p_i50258_1_);
+            super(RSStructurePieces.JUNGLE_FORTRESS_CROSSING_1, p_i50258_1_);
             this.setOrientation(p_i50258_3_);
             this.boundingBox = p_i50258_2_;
         }
 
 
         public Crossing(StructureManager p_i50259_1_, CompoundTag p_i50259_2_) {
-            super(StructurePieces.JUNGLE_FORTRESS_CROSSING_1, p_i50259_2_);
+            super(RSStructurePieces.JUNGLE_FORTRESS_CROSSING_1, p_i50259_2_);
         }
 
 
@@ -452,14 +453,14 @@ public class FortressJunglePieces {
 
     public static class Crossing2 extends FortressJunglePieces.Piece {
         public Crossing2(int p_i50273_1_, BlockBox p_i50273_2_, Direction p_i50273_3_) {
-            super(StructurePieces.JUNGLE_FORTRESS_CROSSING_2, p_i50273_1_);
+            super(RSStructurePieces.JUNGLE_FORTRESS_CROSSING_2, p_i50273_1_);
             this.setOrientation(p_i50273_3_);
             this.boundingBox = p_i50273_2_;
         }
 
 
         public Crossing2(StructureManager p_i50274_1_, CompoundTag p_i50274_2_) {
-            super(StructurePieces.JUNGLE_FORTRESS_CROSSING_2, p_i50274_2_);
+            super(RSStructurePieces.JUNGLE_FORTRESS_CROSSING_2, p_i50274_2_);
         }
 
 
@@ -506,19 +507,19 @@ public class FortressJunglePieces {
 
 
         public Crossing3(StructureManager p_i50288_1_, CompoundTag p_i50288_2_) {
-            this(StructurePieces.JUNGLE_FORTRESS_CROSSING_3, p_i50288_2_);
+            this(RSStructurePieces.JUNGLE_FORTRESS_CROSSING_3, p_i50288_2_);
         }
 
 
         public Crossing3(int p_i50286_1_, BlockBox p_i50286_2_, Direction p_i50286_3_) {
-            super(StructurePieces.JUNGLE_FORTRESS_CROSSING_3, p_i50286_1_);
+            super(RSStructurePieces.JUNGLE_FORTRESS_CROSSING_3, p_i50286_1_);
             this.setOrientation(p_i50286_3_);
             this.boundingBox = p_i50286_2_;
         }
 
 
         protected Crossing3(Random p_i2042_1_, int p_i2042_2_, int p_i2042_3_) {
-            super(StructurePieces.JUNGLE_FORTRESS_CROSSING_3, 0);
+            super(RSStructurePieces.JUNGLE_FORTRESS_CROSSING_3, 0);
             this.setOrientation(Direction.Type.HORIZONTAL.random(p_i2042_1_));
             if (this.getFacing().getAxis() == Direction.Axis.Z) {
                 this.boundingBox = new BlockBox(p_i2042_2_, 64, p_i2042_3_, p_i2042_2_ + 19 - 1, 73, p_i2042_3_ + 19 - 1);
@@ -591,7 +592,7 @@ public class FortressJunglePieces {
 
 
         public End(int p_i45621_1_, Random p_i45621_2_, BlockBox p_i45621_3_, Direction p_i45621_4_) {
-            super(StructurePieces.JUNGLE_FORTRESS_END, p_i45621_1_);
+            super(RSStructurePieces.JUNGLE_FORTRESS_END, p_i45621_1_);
             this.setOrientation(p_i45621_4_);
             this.boundingBox = p_i45621_3_;
             this.fillSeed = p_i45621_2_.nextInt();
@@ -599,7 +600,7 @@ public class FortressJunglePieces {
 
 
         public End(StructureManager p_i50285_1_, CompoundTag p_i50285_2_) {
-            super(StructurePieces.JUNGLE_FORTRESS_END, p_i50285_2_);
+            super(RSStructurePieces.JUNGLE_FORTRESS_END, p_i50285_2_);
             this.fillSeed = p_i50285_2_.getInt("Seed");
         }
 
@@ -655,14 +656,14 @@ public class FortressJunglePieces {
 
     public static class Entrance extends FortressJunglePieces.Piece {
         public Entrance(int p_i45617_1_, Random rand, BlockBox p_i45617_3_, Direction p_i45617_4_) {
-            super(StructurePieces.JUNGLE_FORTRESS_ENTRANCE, p_i45617_1_);
+            super(RSStructurePieces.JUNGLE_FORTRESS_ENTRANCE, p_i45617_1_);
             this.setOrientation(p_i45617_4_);
             this.boundingBox = p_i45617_3_;
         }
 
 
         public Entrance(StructureManager p_i50276_1_, CompoundTag p_i50276_2_) {
-            super(StructurePieces.JUNGLE_FORTRESS_ENTRANCE, p_i50276_2_);
+            super(RSStructurePieces.JUNGLE_FORTRESS_ENTRANCE, p_i50276_2_);
         }
 
 
@@ -762,14 +763,14 @@ public class FortressJunglePieces {
 
     public static class MushroomRoom extends FortressJunglePieces.Piece {
         public MushroomRoom(int p_i50264_1_, BlockBox p_i50264_2_, Direction p_i50264_3_) {
-            super(StructurePieces.JUNGLE_FORTRESS_MUSHROOM_ROOM, p_i50264_1_);
+            super(RSStructurePieces.JUNGLE_FORTRESS_MUSHROOM_ROOM, p_i50264_1_);
             this.setOrientation(p_i50264_3_);
             this.boundingBox = p_i50264_2_;
         }
 
 
         public MushroomRoom(StructureManager p_i50265_1_, CompoundTag p_i50265_2_) {
-            super(StructurePieces.JUNGLE_FORTRESS_MUSHROOM_ROOM, p_i50265_2_);
+            super(RSStructurePieces.JUNGLE_FORTRESS_MUSHROOM_ROOM, p_i50265_2_);
         }
 
 
@@ -1107,7 +1108,7 @@ public class FortressJunglePieces {
                 return newBlockState;
             }
             else if (blockstateIn.isOf(Blocks.NETHER_BRICK_FENCE)) {
-                return Blocks.IRON_BARS.getDefaultState().with(HorizontalConnectingBlock.NORTH, blockstateIn.get(HorizontalConnectingBlock.NORTH)).with(HorizontalConnectingBlock.EAST, Boolean.valueOf(blockstateIn.get(HorizontalConnectingBlock.EAST))).with(HorizontalConnectingBlock.SOUTH, Boolean.valueOf(blockstateIn.get(HorizontalConnectingBlock.SOUTH))).with(HorizontalConnectingBlock.WEST, Boolean.valueOf(blockstateIn.get(HorizontalConnectingBlock.WEST)));
+                return Blocks.IRON_BARS.getDefaultState().with(HorizontalConnectingBlock.NORTH, blockstateIn.get(HorizontalConnectingBlock.NORTH)).with(HorizontalConnectingBlock.EAST, blockstateIn.get(HorizontalConnectingBlock.EAST)).with(HorizontalConnectingBlock.SOUTH, blockstateIn.get(HorizontalConnectingBlock.SOUTH)).with(HorizontalConnectingBlock.WEST, blockstateIn.get(HorizontalConnectingBlock.WEST));
             }
             else if (blockstateIn.isOf(Blocks.NETHER_BRICK_STAIRS)) {
 
@@ -1262,14 +1263,14 @@ public class FortressJunglePieces {
 
     public static class Stairs extends FortressJunglePieces.Piece {
         public Stairs(int p_i50255_1_, BlockBox p_i50255_2_, Direction p_i50255_3_) {
-            super(StructurePieces.JUNGLE_FORTRESS_STAIRS, p_i50255_1_);
+            super(RSStructurePieces.JUNGLE_FORTRESS_STAIRS, p_i50255_1_);
             this.setOrientation(p_i50255_3_);
             this.boundingBox = p_i50255_2_;
         }
 
 
         public Stairs(StructureManager p_i50256_1_, CompoundTag p_i50256_2_) {
-            super(StructurePieces.JUNGLE_FORTRESS_STAIRS, p_i50256_2_);
+            super(RSStructurePieces.JUNGLE_FORTRESS_STAIRS, p_i50256_2_);
         }
 
 
@@ -1346,20 +1347,20 @@ public class FortressJunglePieces {
 
 
         public Start(StructureManager p_i50253_1_, CompoundTag p_i50253_2_) {
-            super(StructurePieces.JUNGLE_FORTRESS_START, p_i50253_2_);
+            super(RSStructurePieces.JUNGLE_FORTRESS_START, p_i50253_2_);
         }
     }
 
     public static class Straight extends FortressJunglePieces.Piece {
         public Straight(int p_i45620_1_, Random p_i45620_2_, BlockBox p_i45620_3_, Direction p_i45620_4_) {
-            super(StructurePieces.JUNGLE_FORTRESS_STRAIGHT, p_i45620_1_);
+            super(RSStructurePieces.JUNGLE_FORTRESS_STRAIGHT, p_i45620_1_);
             this.setOrientation(p_i45620_4_);
             this.boundingBox = p_i45620_3_;
         }
 
 
         public Straight(StructureManager p_i50283_1_, CompoundTag p_i50283_2_) {
-            super(StructurePieces.JUNGLE_FORTRESS_STRAIGHT, p_i50283_2_);
+            super(RSStructurePieces.JUNGLE_FORTRESS_STRAIGHT, p_i50283_2_);
         }
 
 
@@ -1415,14 +1416,14 @@ public class FortressJunglePieces {
 
 
         public Throne(int p_i50262_1_, Random rand, BlockBox p_i50262_2_, Direction p_i50262_3_) {
-            super(StructurePieces.JUNGLE_FORTRESS_THRONE, p_i50262_1_);
+            super(RSStructurePieces.JUNGLE_FORTRESS_THRONE, p_i50262_1_);
             this.setOrientation(p_i50262_3_);
             this.boundingBox = p_i50262_2_;
         }
 
 
         public Throne(StructureManager p_i50263_1_, CompoundTag p_i50263_2_) {
-            super(StructurePieces.JUNGLE_FORTRESS_THRONE, p_i50263_2_);
+            super(RSStructurePieces.JUNGLE_FORTRESS_THRONE, p_i50263_2_);
             this.hasSpawner = p_i50263_2_.getBoolean("Mob");
         }
 

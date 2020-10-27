@@ -3,6 +3,9 @@ package com.telepathicgrunt.repurposedstructures;
 import com.google.gson.JsonElement;
 import com.mojang.serialization.JsonOps;
 import com.telepathicgrunt.repurposedstructures.mixin.StructuresConfigAccessor;
+import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredFeatures;
+import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredStructures;
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerWorldEvents;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.world.ServerWorld;
@@ -455,7 +458,7 @@ public class RSAddFeaturesAndStructures {
         if (RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.badlandsPyramidSpawnrate != 1001 && biome.getCategory() == Category.MESA &&
                 (biomeID.getNamespace().equals("minecraft") || RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.addBadlandsPyramidToModdedBiomes)) {
 
-            biome.getGenerationSettings().getStructureFeatures().add(() -> RSConfiguredStructures.BADLANDS_TEMPLE);
+            biome.getGenerationSettings().getStructureFeatures().add(() -> RSConfiguredStructures.BADLANDS_PYRAMID);
         }
     }
 

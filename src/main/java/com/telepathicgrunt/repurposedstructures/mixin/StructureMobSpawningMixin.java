@@ -2,7 +2,7 @@ package com.telepathicgrunt.repurposedstructures.mixin;
 
 import com.google.common.collect.Iterators;
 import com.google.common.collect.Lists;
-import com.telepathicgrunt.repurposedstructures.RSStructures;
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;

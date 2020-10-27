@@ -1,10 +1,14 @@
-package com.telepathicgrunt.repurposedstructures.world.structures.pieces;
+package com.telepathicgrunt.repurposedstructures.modinit;
 
+import com.telepathicgrunt.repurposedstructures.world.structures.pieces.FortressJunglePieces;
+import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PyramidFloorPiece;
+import com.telepathicgrunt.repurposedstructures.world.structures.pieces.RSMineshaftPieces;
+import com.telepathicgrunt.repurposedstructures.world.structures.pieces.RSStrongholdPieces;
 import net.minecraft.structure.StructurePieceType;
 import net.minecraft.util.registry.Registry;
 
 
-public class StructurePieces {
+public class RSStructurePieces {
     public static StructurePieceType MINESHAFT_ROOM_RS = RSMineshaftPieces.Room::new;
     public static StructurePieceType MINESHAFT_CORRIDOR_RS = RSMineshaftPieces.Corridor::new;
     public static StructurePieceType MINESHAFT_CROSSING_RS = RSMineshaftPieces.Cross::new;

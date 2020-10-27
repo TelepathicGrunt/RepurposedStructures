@@ -82,7 +82,7 @@ public class RSMainConfig implements ConfigData {
         @ConfigEntry.Gui.Tooltip
         @Comment("How many Giant Boulders per chunk. (Can be decimal too)")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
-        public double giantBouldersPerChunk = 1.0D;
+        public double giantBouldersPerChunk = 0.5D;
 
 
     }

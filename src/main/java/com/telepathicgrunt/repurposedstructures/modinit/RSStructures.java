@@ -1,8 +1,8 @@
-package com.telepathicgrunt.repurposedstructures;
+package com.telepathicgrunt.repurposedstructures.modinit;
 
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.structures.*;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.RSMineshaftPieces;
-import com.telepathicgrunt.repurposedstructures.world.structures.pieces.StructurePieces;
 import net.fabricmc.fabric.api.structure.v1.FabricStructureBuilder;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.gen.GenerationStep;
@@ -35,8 +35,8 @@ public class RSStructures {
     public static StructureFeature<DefaultFeatureConfig> NETHER_STRONGHOLD = new RSNetherStrongholdStructure();
 
     public static StructureFeature<DefaultFeatureConfig> JUNGLE_FORTRESS = new FortressJungleStructure();
-    public static StructureFeature<DefaultFeatureConfig> GRASSY_IGLOO = new VillageBaseStructure(new Identifier(RepurposedStructures.MODID, "igloos/grassy_top"), 3);
-    public static StructureFeature<DefaultFeatureConfig> STONE_IGLOO = new VillageBaseStructure(new Identifier(RepurposedStructures.MODID, "igloos/stone_top"), 3);
+    public static StructureFeature<DefaultFeatureConfig> GRASSY_IGLOO = new OverworldJigsawStructure(new Identifier(RepurposedStructures.MODID, "igloos/grassy_top"), 3);
+    public static StructureFeature<DefaultFeatureConfig> STONE_IGLOO = new OverworldJigsawStructure(new Identifier(RepurposedStructures.MODID, "igloos/stone_top"), 3);
 
     public static StructureFeature<DefaultFeatureConfig> NETHER_WASTELAND_TEMPLE = new TempleNetherStructure(new Identifier(RepurposedStructures.MODID,"temples/temple_nether_wasteland"));
     public static StructureFeature<DefaultFeatureConfig> NETHER_BASALT_TEMPLE = new TempleNetherStructure(new Identifier(RepurposedStructures.MODID,"temples/temple_nether_basalt"));
@@ -49,20 +49,20 @@ public class RSStructures {
     public static StructureFeature<DefaultFeatureConfig> CRIMSON_OUTPOST = new OutpostNetherStructure(new Identifier(RepurposedStructures.MODID,"outposts/crimson/base_plates"));
 
     public static StructureFeature<DefaultFeatureConfig> NETHER_PYRAMID = new PyramidNetherStructure();
-    public static StructureFeature<DefaultFeatureConfig> BADLANDS_TEMPLE = new PyramidBadlandsStructure();
+    public static StructureFeature<DefaultFeatureConfig> BADLANDS_PYRAMID = new PyramidBadlandsStructure();
 
     public static StructureFeature<DefaultFeatureConfig> END_SHIPWRECK = new ShipwreckEndStructure();
     public static StructureFeature<DefaultFeatureConfig> NETHER_BRICKS_SHIPWRECK = new ShipwreckNetherStructure(new Identifier(RepurposedStructures.MODID, "shipwrecks/nether_bricks"), false);
     public static StructureFeature<DefaultFeatureConfig> CRIMSON_SHIPWRECK = new ShipwreckNetherStructure(new Identifier(RepurposedStructures.MODID, "shipwrecks/crimson"), true);
     public static StructureFeature<DefaultFeatureConfig> WARPED_SHIPWRECK = new ShipwreckNetherStructure(new Identifier(RepurposedStructures.MODID, "shipwrecks/warped"), true);
 
-    public static StructureFeature<DefaultFeatureConfig> BADLANDS_VILLAGE = new VillageBaseStructure(new Identifier(RepurposedStructures.MODID, "village/badlands/town_centers"), 10);
-    public static StructureFeature<DefaultFeatureConfig> BIRCH_VILLAGE = new VillageBaseStructure(new Identifier(RepurposedStructures.MODID, "village/birch/town_centers"), 6);
-    public static StructureFeature<DefaultFeatureConfig> DARK_FOREST_VILLAGE = new VillageBaseStructure(new Identifier(RepurposedStructures.MODID, "village/dark_forest/town_centers"), 6);
-    public static StructureFeature<DefaultFeatureConfig> JUNGLE_VILLAGE = new VillageBaseStructure(new Identifier(RepurposedStructures.MODID, "village/jungle/town_centers"), 8);
+    public static StructureFeature<DefaultFeatureConfig> BADLANDS_VILLAGE = new OverworldJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/badlands/town_centers"), 10);
+    public static StructureFeature<DefaultFeatureConfig> BIRCH_VILLAGE = new OverworldJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/birch/town_centers"), 6);
+    public static StructureFeature<DefaultFeatureConfig> DARK_FOREST_VILLAGE = new OverworldJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/dark_forest/town_centers"), 6);
+    public static StructureFeature<DefaultFeatureConfig> JUNGLE_VILLAGE = new OverworldJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/jungle/town_centers"), 8);
     public static StructureFeature<DefaultFeatureConfig> SWAMP_VILLAGE = new VillageSwampStructure(new Identifier(RepurposedStructures.MODID, "village/swamp/town_centers"), 6);
-    public static StructureFeature<DefaultFeatureConfig> MOUNTAINS_VILLAGE = new VillageBaseStructure(new Identifier(RepurposedStructures.MODID, "village/mountains/town_centers"), 6);
-    public static StructureFeature<DefaultFeatureConfig> GIANT_TAIGA_VILLAGE = new VillageBaseStructure(new Identifier(RepurposedStructures.MODID, "village/giant_taiga/town_centers"), 6);
+    public static StructureFeature<DefaultFeatureConfig> MOUNTAINS_VILLAGE = new OverworldJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/mountains/town_centers"), 6);
+    public static StructureFeature<DefaultFeatureConfig> GIANT_TAIGA_VILLAGE = new OverworldJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/giant_taiga/town_centers"), 6);
     public static StructureFeature<DefaultFeatureConfig> CRIMSON_VILLAGE = new VillageNetherStructure(new Identifier(RepurposedStructures.MODID, "village/crimson/town_centers"), 6);
     public static StructureFeature<DefaultFeatureConfig> WARPED_VILLAGE = new VillageNetherStructure(new Identifier(RepurposedStructures.MODID, "village/warped/town_centers"), 6);
 
@@ -134,7 +134,7 @@ public class RSStructures {
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "outpost_warped"), WARPED_OUTPOST).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.warpedOutpostSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.warpedOutpostSpawnrate * 0.5f), 1928816918)).superflatFeature(WARPED_OUTPOST.configure(FeatureConfig.DEFAULT)).adjustsSurface().register();
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "outpost_crimson"), CRIMSON_OUTPOST).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.crimsonOutpostSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.crimsonOutpostSpawnrate * 0.5f), 1951425662)).superflatFeature(CRIMSON_OUTPOST.configure(FeatureConfig.DEFAULT)).adjustsSurface().register();
 
-        FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "pyramid_badlands"), BADLANDS_TEMPLE).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.badlandsPyramidSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.badlandsPyramidSpawnrate * 0.5f), 1718729448)).superflatFeature(BADLANDS_TEMPLE.configure(FeatureConfig.DEFAULT)).register();
+        FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "pyramid_badlands"), BADLANDS_PYRAMID).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.badlandsPyramidSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.badlandsPyramidSpawnrate * 0.5f), 1718729448)).superflatFeature(BADLANDS_PYRAMID.configure(FeatureConfig.DEFAULT)).register();
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "pyramid_nether"), NETHER_PYRAMID).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.netherPyramidSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.netherPyramidSpawnrate * 0.5f), 2054372964)).superflatFeature(NETHER_PYRAMID.configure(FeatureConfig.DEFAULT)).adjustsSurface().register();
 
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "shipwreck_end"), END_SHIPWRECK).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSShipwrecksConfig.spawnrate.endShipwreckSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSShipwrecksConfig.spawnrate.endShipwreckSpawnrate * 0.5f), 1605500075)).superflatFeature(END_SHIPWRECK.configure(FeatureConfig.DEFAULT)).register();
@@ -157,6 +157,6 @@ public class RSStructures {
         RS_STRUCTURES.keySet().removeIf(key -> key.getName() == null || !key.getName().contains(RepurposedStructures.MODID));
 
         //registers the structure pieces.
-        StructurePieces.registerStructurePieces();
+        RSStructurePieces.registerStructurePieces();
     }
 }

@@ -23,6 +23,15 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Removed floating plants from above Ocean Dungeons as best I can.
 
+##### Shipwreck:
+
+- Fixed map chest loot not showing up in Warped Shipwreck.
+
+##### Misc:
+
+- Giant boulders in Giant Tree Taiga biomes now are more varied in size.
+
+- Default config spawnrate of giant boulders was reduced.
 
 
 ## (V.1.6.8 Changes) (1.16.3 Minecraft)

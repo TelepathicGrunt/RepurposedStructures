@@ -1,6 +1,8 @@
-package com.telepathicgrunt.repurposedstructures.world.placements;
+package com.telepathicgrunt.repurposedstructures.modinit;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.world.placements.RSDungeonPlacement;
+import com.telepathicgrunt.repurposedstructures.world.placements.RSVinePlacement;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.decorator.RangeDecoratorConfig;

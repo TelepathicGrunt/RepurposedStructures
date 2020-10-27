@@ -2,8 +2,12 @@ package com.telepathicgrunt.repurposedstructures;
 
 import com.telepathicgrunt.repurposedstructures.configs.RSAllConfig;
 import com.telepathicgrunt.repurposedstructures.misc.VillagerTrades;
+import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredFeatures;
+import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredStructures;
+import com.telepathicgrunt.repurposedstructures.modinit.RSFeatures;
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.utils.MobSpawnerManager;
-import com.telepathicgrunt.repurposedstructures.world.placements.RSPlacements;
+import com.telepathicgrunt.repurposedstructures.modinit.RSPlacements;
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import me.sargunvohra.mcmods.autoconfig1u.serializer.Toml4jConfigSerializer;
 import net.fabricmc.api.ModInitializer;

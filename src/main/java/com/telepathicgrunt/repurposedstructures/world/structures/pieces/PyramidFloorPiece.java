@@ -1,5 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.structures.pieces;
 
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePieces;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FluidBlock;
@@ -37,7 +38,7 @@ public class PyramidFloorPiece {
         private final Block block;
 
         public Piece(StructureManager templateManager, BlockPos position, Block blockIn, BlockRotation rotationIn) {
-            super(StructurePieces.PYRAMID_FLOOR_PIECE, 0);
+            super(RSStructurePieces.PYRAMID_FLOOR_PIECE, 0);
             this.pos = position;
             this.rotation = rotationIn;
             this.block = blockIn;
@@ -46,7 +47,7 @@ public class PyramidFloorPiece {
 
 
         public Piece(StructureManager templateManager, CompoundTag data) {
-            super(StructurePieces.PYRAMID_FLOOR_PIECE, data);
+            super(RSStructurePieces.PYRAMID_FLOOR_PIECE, data);
             this.rotation = BlockRotation.valueOf(data.getString("Rot"));
             this.block = Registry.BLOCK.get(new Identifier(data.getString("Block")));
             this.func_207614_a(templateManager);

@@ -9,7 +9,7 @@ import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
-public class VillageSwampStructure extends VillageBaseStructure {
+public class VillageSwampStructure extends OverworldJigsawStructure {
 
     public VillageSwampStructure(Identifier poolID, int structureSize) {
         super(poolID, structureSize);

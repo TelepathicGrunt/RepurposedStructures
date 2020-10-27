@@ -55,15 +55,18 @@ public class MobSpawnerManager extends JsonDataLoader{
         int randomWeight = random.nextInt(totalWeight) + 1;
         int index = 0;
 
-        while(randomWeight > 0){
-            randomWeight -= spawnerMobEntries.get(index).weight;
-            if(randomWeight <= 0)
-                return  Registry.ENTITY_TYPE.get(new Identifier(spawnerMobEntries.get(index).name));
+        try{
+            while(true){
+                randomWeight -= spawnerMobEntries.get(index).weight;
+                if(randomWeight <= 0)
+                    return  Registry.ENTITY_TYPE.get(new Identifier(spawnerMobEntries.get(index).name));
 
-            index++;
+                index++;
+            }
         }
-
-        RepurposedStructures.LOGGER.log(Level.ERROR,"***************************************\nFailed to get mob. Please check that "+spawnerJsonEntry+".json is correct and let Telepathicgrunt (mod author) know he broke the mob spawner code!\n***************************************");
-        return EntityType.PIG;
+        catch(Exception e){
+            RepurposedStructures.LOGGER.log(Level.ERROR,"***************************************\nFailed to get mob. Please check that "+spawnerJsonEntry+".json is correct and let Telepathicgrunt (mod author) know he broke the mob spawner code!\n***************************************");
+            return EntityType.PIG;
+        }
     }
 }

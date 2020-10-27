@@ -21,7 +21,7 @@ public class MobSpawnerObj {
 
     public void setEntityType() throws Exception {
         Identifier entity_id = new Identifier(this.name);
-        if(Registry.ENTITY_TYPE.get(entity_id) == null)
+        if(!Registry.ENTITY_TYPE.getOrEmpty(entity_id).isPresent())
             throw new Exception("Error: "+entity_id+" is not a valid entity ID!");
         entityType = Registry.ENTITY_TYPE.get(entity_id);
     }

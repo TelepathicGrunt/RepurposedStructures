@@ -1,6 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
-import com.telepathicgrunt.repurposedstructures.RSStructures;
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import net.minecraft.structure.MarginedStructureStart;
 import net.minecraft.structure.PoolStructurePiece;
 import net.minecraft.structure.StructureManager;
@@ -22,12 +22,12 @@ import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 
-public class VillageBaseStructure extends StructureFeature<DefaultFeatureConfig> {
+public class OverworldJigsawStructure extends StructureFeature<DefaultFeatureConfig> {
 
     private final Identifier START_POOL;
     private final int STRUCTURE_SIZE;
 
-    public VillageBaseStructure(Identifier poolID, int structureSize) {
+    public OverworldJigsawStructure(Identifier poolID, int structureSize) {
         super(DefaultFeatureConfig.CODEC);
         START_POOL = poolID;
         STRUCTURE_SIZE = structureSize;
@@ -49,7 +49,7 @@ public class VillageBaseStructure extends StructureFeature<DefaultFeatureConfig>
 
     @Override
     public StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
-        return VillageBaseStructure.MainStart::new;
+        return OverworldJigsawStructure.MainStart::new;
     }
 
     @Override

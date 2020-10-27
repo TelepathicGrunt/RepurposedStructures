@@ -2,6 +2,7 @@ package com.telepathicgrunt.repurposedstructures.world.structures.pieces;
 
 import com.google.common.collect.Lists;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePieces;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.MobSpawnerBlockEntity;
@@ -116,7 +117,7 @@ public class RSMineshaftPieces {
         private final int sectionCount;
 
         public Corridor(StructureManager p_i50456_1_, CompoundTag p_i50456_2_) {
-            super(StructurePieces.MINESHAFT_CORRIDOR_RS, p_i50456_2_);
+            super(RSStructurePieces.MINESHAFT_CORRIDOR_RS, p_i50456_2_);
             this.hasRails = p_i50456_2_.getBoolean("hr");
             this.attemptSpawnerCreation = p_i50456_2_.getBoolean("sc");
             this.spawnerPlaced = p_i50456_2_.getBoolean("hps");
@@ -138,7 +139,7 @@ public class RSMineshaftPieces {
 
 
         public Corridor(int p_i47140_1_, Random p_i47140_2_, BlockBox p_i47140_3_, Direction p_i47140_4_, RSMineshaftPieces.Type p_i47140_5_) {
-            super(StructurePieces.MINESHAFT_CORRIDOR_RS, p_i47140_1_, p_i47140_5_);
+            super(RSStructurePieces.MINESHAFT_CORRIDOR_RS, p_i47140_1_, p_i47140_5_);
             this.setOrientation(p_i47140_4_);
             this.boundingBox = p_i47140_3_;
             this.hasRails = p_i47140_2_.nextInt(3) == 0;
@@ -483,7 +484,7 @@ public class RSMineshaftPieces {
         private final boolean isMultipleFloors;
 
         public Cross(StructureManager p_i50454_1_, CompoundTag p_i50454_2_) {
-            super(StructurePieces.MINESHAFT_CROSSING_RS, p_i50454_2_);
+            super(RSStructurePieces.MINESHAFT_CROSSING_RS, p_i50454_2_);
             this.isMultipleFloors = p_i50454_2_.getBoolean("tf");
             this.corridorDirection = Direction.fromHorizontal(p_i50454_2_.getInt("D"));
         }
@@ -501,7 +502,7 @@ public class RSMineshaftPieces {
 
 
         public Cross(int p_i50455_1_, BlockBox p_i50455_2_, Direction p_i50455_3_, RSMineshaftPieces.Type p_i50455_4_) {
-            super(StructurePieces.MINESHAFT_CROSSING_RS, p_i50455_1_, p_i50455_4_);
+            super(RSStructurePieces.MINESHAFT_CROSSING_RS, p_i50455_1_, p_i50455_4_);
             this.corridorDirection = p_i50455_3_;
             this.boundingBox = p_i50455_2_;
             this.isMultipleFloors = p_i50455_2_.getBlockCountY() > 3;
@@ -649,14 +650,14 @@ public class RSMineshaftPieces {
         private final List<BlockBox> roomsLinkedToTheRoom = Lists.newLinkedList();
 
         public Room(int p_i47137_1_, Random p_i47137_2_, int p_i47137_3_, int p_i47137_4_, RSMineshaftPieces.Type p_i47137_5_) {
-            super(StructurePieces.MINESHAFT_ROOM_RS, p_i47137_1_, p_i47137_5_);
+            super(RSStructurePieces.MINESHAFT_ROOM_RS, p_i47137_1_, p_i47137_5_);
             this.mineShaftType = p_i47137_5_;
             this.boundingBox = new BlockBox(p_i47137_3_, 50, p_i47137_4_, p_i47137_3_ + 7 + p_i47137_2_.nextInt(6), 54 + p_i47137_2_.nextInt(6), p_i47137_4_ + 7 + p_i47137_2_.nextInt(6));
         }
 
 
         public Room(StructureManager p_i50451_1_, CompoundTag p_i50451_2_) {
-            super(StructurePieces.MINESHAFT_ROOM_RS, p_i50451_2_);
+            super(RSStructurePieces.MINESHAFT_ROOM_RS, p_i50451_2_);
             ListTag listnbt = p_i50451_2_.getList("Entrances", 11);
 
             for (int i = 0; i < listnbt.size(); ++i) {
@@ -802,14 +803,14 @@ public class RSMineshaftPieces {
 
     public static class Stairs extends RSMineshaftPieces.Piece {
         public Stairs(int p_i50449_1_, BlockBox p_i50449_2_, Direction p_i50449_3_, RSMineshaftPieces.Type p_i50449_4_) {
-            super(StructurePieces.MINESHAFT_STAIRS_RS, p_i50449_1_, p_i50449_4_);
+            super(RSStructurePieces.MINESHAFT_STAIRS_RS, p_i50449_1_, p_i50449_4_);
             this.setOrientation(p_i50449_3_);
             this.boundingBox = p_i50449_2_;
         }
 
 
         public Stairs(StructureManager p_i50450_1_, CompoundTag p_i50450_2_) {
-            super(StructurePieces.MINESHAFT_STAIRS_RS, p_i50450_2_);
+            super(RSStructurePieces.MINESHAFT_STAIRS_RS, p_i50450_2_);
         }
 
 
