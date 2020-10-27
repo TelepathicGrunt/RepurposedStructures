@@ -88,7 +88,7 @@ public class RSMainConfig
 					giantBouldersPerChunk = subscriber.subscribe(builder
 					.comment("\r\n How many Giant Boulders per chunk. (Can be decimal too)")
 					.translation("repurposedstructures.config.misc.giantbouldersperchunk")
-					.defineInRange("giantBouldersPerChunk", 1.0D, 0, 100));
+					.defineInRange("giantBouldersPerChunk", 0.5D, 0, 100));
 
 					diamondChanceInGiantBoulders = subscriber.subscribe(builder
 					.comment("\r\n 1 out of ___ chance of Diamond Ore when placing"

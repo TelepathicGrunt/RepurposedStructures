@@ -18,7 +18,6 @@ import java.util.Random;
 
 
 public class BoulderGiant extends Feature<NoFeatureConfig> {
-    private final static int START_RADIUS = 4;
 
     protected long seed;
     protected static OpenSimplex2F noiseGen;
@@ -64,9 +63,11 @@ public class BoulderGiant extends Feature<NoFeatureConfig> {
 
         //we are at a valid spot to generate a boulder now. Begin generation.
         for (int currentCount = 0; currentCount < 3; ++currentCount) {
-            int x = START_RADIUS + random.nextInt(2);
-            int y = START_RADIUS + random.nextInt(2);
-            int z = START_RADIUS + random.nextInt(2);
+            int startRadius = random.nextInt(4) + 1; // 1 to 4 block radius
+
+            int x = startRadius + random.nextInt(2);
+            int y = startRadius + random.nextInt(2);
+            int z = startRadius + random.nextInt(2);
             float calculatedDistance = (x + y + z) * 0.333F + 0.5F;
 
             for (BlockPos blockpos : BlockPos.getAllInBoxMutable(blockpos$Mutable.add(-x, -y, -z), blockpos$Mutable.add(x, y, z))) {
@@ -115,9 +116,9 @@ public class BoulderGiant extends Feature<NoFeatureConfig> {
             }
 
             blockpos$Mutable.move(
-                    -(START_RADIUS + 1) + random.nextInt(2 + START_RADIUS * 2),
+                     random.nextInt(startRadius * 2) - startRadius,
                     0,
-                    -(START_RADIUS + 1) + random.nextInt(2 + START_RADIUS * 2));
+                    random.nextInt(startRadius * 2) - startRadius);
 
             blockpos$Mutable.move(Direction.UP,
                     world.getHeight(Heightmap.Type.WORLD_SURFACE_WG, blockpos$Mutable.getX(), blockpos$Mutable.getZ())

@@ -12,9 +12,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ##### Major:
 - Register to Forge registry instead of vanilla due to a breaking 
-  change done by Forge and they didn't even give us modders a heads up.
-  Thank you Forge. Thank you so very much. Glad to see them thinking about
-  the modders and making sure we wake up to our mods blowing up. ffs
+  change done by Forge. Special thanks to andrew0030, dev of 
+  Pandoras Creatures, for helping with fixing Repurposed Structures!
 
 ##### Outposts:
 
@@ -28,6 +27,12 @@ Welcome to the Github! If you are looking for the most recent stable version, th
   
 - Removed floating plants from above Ocean Dungeons as best I can.
   
+##### Misc:
+
+- Giant boulders in Giant Tree Taiga biomes now are more varied in size.
+
+- Default config spawnrate of giant boulders was reduced.
+
   
 ## (V.2.2.9 Changes) (1.16.3 Minecraft)
 
