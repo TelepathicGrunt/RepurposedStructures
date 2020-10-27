@@ -22,7 +22,7 @@ public class RSMineshaftsConfig
 		public ConfigValueListener<Integer> savannaMineshaftSpawnrate;
 		public ConfigValueListener<Integer> icyMineshaftSpawnrate;
 		public ConfigValueListener<Integer> oceanMineshaftSpawnrate;
-		public ConfigValueListener<Integer> taigaMineshaftSpawnrate;;
+		public ConfigValueListener<Integer> taigaMineshaftSpawnrate;
 		public ConfigValueListener<Integer> swampAndDarkForestMineshaftSpawnrate;
 		public ConfigValueListener<Integer> endMineshaftSpawnrate;
 		public ConfigValueListener<Integer> netherMineshaftSpawnrate;
@@ -34,7 +34,7 @@ public class RSMineshaftsConfig
 		public ConfigValueListener<Integer> savannaMineshaftMinHeight;
 		public ConfigValueListener<Integer> icyMineshaftMinHeight;
 		public ConfigValueListener<Integer> oceanMineshaftMinHeight;
-		public ConfigValueListener<Integer> taigaMineshaftMinHeight;;
+		public ConfigValueListener<Integer> taigaMineshaftMinHeight;
 		public ConfigValueListener<Integer> swampAndDarkForestMineshaftMinHeight;
 		public ConfigValueListener<Integer> endMineshaftMinHeight;
 		public ConfigValueListener<Integer> netherMineshaftMinHeight;
@@ -46,7 +46,7 @@ public class RSMineshaftsConfig
 		public ConfigValueListener<Integer> savannaMineshaftMaxHeight;
 		public ConfigValueListener<Integer> icyMineshaftMaxHeight;
 		public ConfigValueListener<Integer> oceanMineshaftMaxHeight;
-		public ConfigValueListener<Integer> taigaMineshaftMaxHeight;;
+		public ConfigValueListener<Integer> taigaMineshaftMaxHeight;
 		public ConfigValueListener<Integer> swampAndDarkForestMineshaftMaxHeight;
 		public ConfigValueListener<Integer> endMineshaftMaxHeight;
 		public ConfigValueListener<Integer> netherMineshaftMaxHeight;
