@@ -1,9 +1,11 @@
-package com.telepathicgrunt.repurposedstructures.world.placements;
+package com.telepathicgrunt.repurposedstructures.modinit;
 
 import java.util.function.Supplier;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 
+import com.telepathicgrunt.repurposedstructures.world.placements.RSDungeonPlacement;
+import com.telepathicgrunt.repurposedstructures.world.placements.RSVinePlacement;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.placement.SimplePlacement;
 import net.minecraft.world.gen.placement.TopSolidRangeConfig;

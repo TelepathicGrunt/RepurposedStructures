@@ -1,5 +1,6 @@
-package com.telepathicgrunt.repurposedstructures;
+package com.telepathicgrunt.repurposedstructures.modinit;
 
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;

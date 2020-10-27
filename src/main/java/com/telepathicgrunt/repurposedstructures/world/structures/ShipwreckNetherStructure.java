@@ -2,7 +2,7 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.google.common.collect.Iterators;
 import com.google.common.collect.Lists;
-import com.telepathicgrunt.repurposedstructures.RSStructures;
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;

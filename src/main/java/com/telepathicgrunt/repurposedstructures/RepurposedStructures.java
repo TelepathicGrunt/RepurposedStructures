@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.telepathicgrunt.repurposedstructures.modinit.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -21,7 +22,6 @@ import com.telepathicgrunt.repurposedstructures.configs.RSWellsConfig.RSWellsCon
 import com.telepathicgrunt.repurposedstructures.misc.VillagerTradesModification;
 import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
 import com.telepathicgrunt.repurposedstructures.utils.MobSpawnerManager;
-import com.telepathicgrunt.repurposedstructures.world.placements.RSPlacements;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
@@ -59,8 +59,9 @@ public class RepurposedStructures
 		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
 		forgeBus.addListener(this::biomeModification);
-		forgeBus.addListener(RSAddFeaturesAndStructures::addDimensionalSpacing);
 		forgeBus.addListener(this::registerDatapackListener);
+		forgeBus.addListener(RSAddFeaturesAndStructures::addDimensionalSpacing);
+		forgeBus.addListener(VillagerTradesModification::onVillagerTradesEvent);
 
 		modEventBus.addListener(this::setup);
 		RSFeatures.FEATURES.register(modEventBus);
@@ -86,7 +87,6 @@ public class RepurposedStructures
 	public void setup(final FMLCommonSetupEvent event)
 	{
 		event.enqueueWork(() -> {
-			VillagerTradesModification.addMapTrades();
 			//Moved the methods bellow into enqueue to make sure they dont cause issues during registration - andrew
 			RSConfiguredFeatures.registerConfiguredFeatures();
 			RSStructures.registerStructures();
@@ -106,9 +106,7 @@ public class RepurposedStructures
 		Map<String, List<String>> allBiomeBlacklists = RepurposedStructures.getBiomeBlacklists();
 
 		//Add our structures and features
-		RepurposedStructures.addFeaturesAndStructuresToBiomes(
-				event, // Biome
-				allBiomeBlacklists); // Blacklists
+		RepurposedStructures.addFeaturesAndStructuresToBiomes(event, allBiomeBlacklists);
 	}
 
     /*

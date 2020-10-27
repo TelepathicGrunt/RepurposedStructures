@@ -1,6 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.mixin;
 
-import com.telepathicgrunt.repurposedstructures.RSStructures;
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.EnderEyeItem;
 import net.minecraft.util.math.BlockPos;

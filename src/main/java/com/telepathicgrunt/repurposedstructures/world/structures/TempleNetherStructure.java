@@ -1,7 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.mojang.serialization.Codec;
-import com.telepathicgrunt.repurposedstructures.RSStructures;
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;

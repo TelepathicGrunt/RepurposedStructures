@@ -1,28 +1,22 @@
 package com.telepathicgrunt.repurposedstructures.misc;
 
-import com.telepathicgrunt.repurposedstructures.RSStructures;
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import net.minecraft.entity.merchant.villager.VillagerProfession;
 import net.minecraft.entity.merchant.villager.VillagerTrades;
 import net.minecraft.world.storage.MapDecoration;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import net.minecraftforge.event.village.VillagerTradesEvent;
 
 public class VillagerTradesModification {
 
-    public static void addMapTrades(){
+    public static void onVillagerTradesEvent(VillagerTradesEvent event)
+    {
+        if(event.getType() == VillagerProfession.CARTOGRAPHER)
+        {
+            //level 3 trades
+            event.getTrades().get(4).add(new VillagerTrades.EmeraldForMapTrade(13, RSStructures.JUNGLE_FORTRESS.get(), MapDecoration.Type.BANNER_GREEN, 12, 5));
 
-        //level 3 trades
-        List<VillagerTrades.ITrade> cartographer_trades = new ArrayList<>(Arrays.asList(VillagerTrades.VILLAGER_DEFAULT_TRADES.get(VillagerProfession.CARTOGRAPHER).get(3)));
-        cartographer_trades.add(new VillagerTrades.EmeraldForMapTrade(13, RSStructures.JUNGLE_FORTRESS.get(), MapDecoration.Type.BANNER_GREEN, 12, 5));
-        VillagerTrades.ITrade[] result = new VillagerTrades.ITrade[]{};
-        VillagerTrades.VILLAGER_DEFAULT_TRADES.get(VillagerProfession.CARTOGRAPHER).put(3, cartographer_trades.toArray(result));
-
-        //level 4 trades
-        cartographer_trades = new ArrayList<>(Arrays.asList(VillagerTrades.VILLAGER_DEFAULT_TRADES.get(VillagerProfession.CARTOGRAPHER).get(4)));
-        cartographer_trades.add(new VillagerTrades.EmeraldForMapTrade(14, RSStructures.JUNGLE_FORTRESS.get(), MapDecoration.Type.BANNER_GREEN, 12, 10));
-        result = new VillagerTrades.ITrade[]{};
-        VillagerTrades.VILLAGER_DEFAULT_TRADES.get(VillagerProfession.CARTOGRAPHER).put(4, cartographer_trades.toArray(result));
+            //level 4 trades
+            event.getTrades().get(5).add(new VillagerTrades.EmeraldForMapTrade(14, RSStructures.JUNGLE_FORTRESS.get(), MapDecoration.Type.BANNER_GREEN, 12, 10));
+        }
     }
 }

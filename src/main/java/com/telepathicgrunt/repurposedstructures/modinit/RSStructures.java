@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures;
+package com.telepathicgrunt.repurposedstructures.modinit;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -11,6 +11,7 @@ import java.util.function.Supplier;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.structures.FortressJungleStructure;
 import com.telepathicgrunt.repurposedstructures.world.structures.OutpostNetherStructure;
 import com.telepathicgrunt.repurposedstructures.world.structures.PyramidBadlandsStructure;
@@ -26,7 +27,6 @@ import com.telepathicgrunt.repurposedstructures.world.structures.VillageBaseStru
 import com.telepathicgrunt.repurposedstructures.world.structures.VillageNetherStructure;
 import com.telepathicgrunt.repurposedstructures.world.structures.VillageSwampStructure;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.RSMineshaftPieces;
-import com.telepathicgrunt.repurposedstructures.world.structures.pieces.StructurePieces;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.gen.FlatGenerationSettings;
@@ -163,9 +163,6 @@ public class RSStructures {
     
 	public static void registerStructures()
 	{
-		//I have no clue what the error bellow does or why its here, so I just left it in the code, if you dont need it just remove it - andrew
-		//[10:39:40] [Server thread/ERROR] [minecraft/ChunkSerializer]: Unknown structure start: repurposed_structures:mineshaft_ocean
-
         registerStructure(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_birch"), BIRCH_MINESHAFT.get(), GenerationStage.Decoration.UNDERGROUND_STRUCTURES, new StructureSeparationSettings(1, 0, 399117345));
         registerStructure(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_desert"), DESERT_MINESHAFT.get(), GenerationStage.Decoration.UNDERGROUND_STRUCTURES, new StructureSeparationSettings(1, 0, 1990612785));
         registerStructure(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_end"), END_MINESHAFT.get(), GenerationStage.Decoration.UNDERGROUND_STRUCTURES, new StructureSeparationSettings(1, 0, 2057488602));
@@ -216,8 +213,7 @@ public class RSStructures {
         //Next available seed: https://www.google.com/search?q=random+number
 
         //registers the structure pieces.
-        //This can stay here because the registerStructures method gets called in enqueueWork - andrew
-        StructurePieces.registerStructurePieces();
+        RSStructurePieces.registerStructurePieces();
     }
     
 	public static <F extends Structure<NoFeatureConfig>> void registerLandscapeTransformingStructure(ResourceLocation resourceLocation, F structure, GenerationStage.Decoration stage, StructureSeparationSettings StructureSeparationSettings)
@@ -229,9 +225,11 @@ public class RSStructures {
 	public static <F extends Structure<NoFeatureConfig>> void registerStructure(ResourceLocation resourceLocation, F structure, GenerationStage.Decoration stage, StructureSeparationSettings structureSeparationSettings)
 	{
 		Structure.STRUCTURES.put(resourceLocation.toString().toLowerCase(Locale.ROOT), structure);
-		// This is only for myself. Others should override func_236396_f_() in their structure's class
-        // to return their generation stage instead.
+
+		// This is only for myself. Others should override func_236396_f_() in
+        // their structure's class to return their generation stage instead.
 		Structure.STRUCTURE_TO_GENERATION_STEP.put(structure, stage);
+
 		DimensionStructuresSettings.DEFAULT_STRUCTURES = ImmutableMap.<Structure<?>, StructureSeparationSettings>builder().putAll(DimensionStructuresSettings.DEFAULT_STRUCTURES).put(structure, structureSeparationSettings).build();
 		FlatGenerationSettings.STRUCTURES.put(structure, structure.configure(IFeatureConfig.NO_FEATURE_CONFIG));
 		RS_STRUCTURES.put(structure, structureSeparationSettings);

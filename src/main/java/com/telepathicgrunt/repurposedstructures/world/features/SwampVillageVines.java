@@ -1,8 +1,8 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.mojang.serialization.Codec;
-import com.telepathicgrunt.repurposedstructures.RSFeatures;
-import com.telepathicgrunt.repurposedstructures.RSStructures;
+import com.telepathicgrunt.repurposedstructures.modinit.RSFeatures;
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.SectionPos;
 import net.minecraft.world.ISeedReader;

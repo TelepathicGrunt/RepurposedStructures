@@ -2,6 +2,9 @@ package com.telepathicgrunt.repurposedstructures;
 
 import com.google.gson.JsonElement;
 import com.mojang.serialization.JsonOps;
+import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredFeatures;
+import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredStructures;
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;

@@ -1,7 +1,8 @@
-package com.telepathicgrunt.repurposedstructures;
+package com.telepathicgrunt.repurposedstructures.modinit;
 
 import java.util.function.Supplier;
 
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.features.BoulderGiant;
 import com.telepathicgrunt.repurposedstructures.world.features.BoulderTiny;
 import com.telepathicgrunt.repurposedstructures.world.features.DungeonBadlands;
@@ -35,8 +36,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class RSFeatures {
 	public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, RepurposedStructures.MODID);
-	
-	//Static instance of our structure so we can reference it and add it to biomes easily.
+
 	public static final RegistryObject<Feature<NoFeatureConfig>> BADLANDS_DUNGEONS = createFeature("dungeons_badlands", () -> new DungeonBadlands(NoFeatureConfig.CODEC));
 	public static final RegistryObject<Feature<NoFeatureConfig>> DARK_FOREST_DUNGEONS = createFeature("dungeons_dark_forest", () -> new DungeonDarkForest(NoFeatureConfig.CODEC));
 	public static final RegistryObject<Feature<NoFeatureConfig>> DESERT_DUNGEONS = createFeature("dungeons_desert", () -> new DungeonDesert(NoFeatureConfig.CODEC));

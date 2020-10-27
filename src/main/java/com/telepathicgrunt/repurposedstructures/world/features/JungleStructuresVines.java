@@ -2,8 +2,8 @@ package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.google.common.collect.Sets;
 import com.mojang.serialization.Codec;
-import com.telepathicgrunt.repurposedstructures.RSFeatures;
-import com.telepathicgrunt.repurposedstructures.RSStructures;
+import com.telepathicgrunt.repurposedstructures.modinit.RSFeatures;
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
