@@ -22,8 +22,8 @@ public class SwampVillageVines extends Feature<NoFeatureConfig> {
 
     @Override
     public boolean generate(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
-        if (world.isAirBlock(position) && world.getStructures(SectionPos.from(position), RSStructures.SWAMP_VILLAGE).findAny().isPresent()) {
-            RSFeatures.SHORT_VINES.generate(world, chunkGenerator, random, position, NoFeatureConfig.NO_FEATURE_CONFIG);
+        if (world.isAirBlock(position) && world.getStructures(SectionPos.from(position), RSStructures.SWAMP_VILLAGE.get()).findAny().isPresent()) {
+            RSFeatures.SHORT_VINES.get().generate(world, chunkGenerator, random, position, NoFeatureConfig.NO_FEATURE_CONFIG);
             return true;
         }
         return false;

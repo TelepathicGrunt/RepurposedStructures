@@ -42,7 +42,7 @@ public class FortressBreakage extends Feature<NoFeatureConfig> {
     @Override
     public boolean generate(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
         if (FORTRESS_BLOCKS.test(world.getBlockState(position.down())) &&
-                world.getStructures(SectionPos.from(position), RSStructures.JUNGLE_FORTRESS).findAny().isPresent())
+                world.getStructures(SectionPos.from(position), RSStructures.JUNGLE_FORTRESS.get()).findAny().isPresent())
         {
             if(random.nextBoolean())
                 position = position.down();

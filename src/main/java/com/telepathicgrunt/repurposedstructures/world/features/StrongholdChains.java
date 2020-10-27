@@ -54,8 +54,8 @@ public class StrongholdChains extends Feature<NoFeatureConfig> {
     @Override
     public boolean generate(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
         if (!world.isAirBlock(position) ||
-                (!world.getStructures(SectionPos.from(position), RSStructures.STONEBRICK_STRONGHOLD).findAny().isPresent() &&
-                 !world.getStructures(SectionPos.from(position), RSStructures.NETHER_STRONGHOLD).findAny().isPresent()))
+                (!world.getStructures(SectionPos.from(position), RSStructures.STONEBRICK_STRONGHOLD.get()).findAny().isPresent() &&
+                 !world.getStructures(SectionPos.from(position), RSStructures.NETHER_STRONGHOLD.get()).findAny().isPresent()))
         {
            return false;
         }

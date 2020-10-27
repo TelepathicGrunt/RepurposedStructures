@@ -25,3 +25,4 @@ deps
 
 # Files from Forge MDK
 forge*changelog.txt
+/.apt_generated/
