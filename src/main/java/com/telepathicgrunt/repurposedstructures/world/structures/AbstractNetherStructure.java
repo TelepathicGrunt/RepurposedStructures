@@ -34,15 +34,15 @@ public abstract class AbstractNetherStructure extends AbstractBaseStructure {
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig defaultFeatureConfig) {
         if(AVOID_STRUCTURE_LIST == null){
             AVOID_STRUCTURE_LIST = Lists.newArrayList(Iterators.concat(
-                    RSStructures.NETHER_SHIPWRECKS_LIST.iterator(),
-                    RSStructures.NETHER_OUTPOSTS_LIST.iterator(),
-                    RSStructures.LARGE_VANILLA_NETHER_STRUCTURE_LIST.iterator()));
-            AVOID_STRUCTURE_LIST.add(RSStructures.NETHER_PYRAMID);
+                    RSStructures.NETHER_SHIPWRECKS_LIST.get().iterator(),
+                    RSStructures.NETHER_OUTPOSTS_LIST.get().iterator(),
+                    RSStructures.LARGE_VANILLA_NETHER_STRUCTURE_LIST.get().iterator()));
+            AVOID_STRUCTURE_LIST.add(RSStructures.NETHER_PYRAMID.get());
         }
 
         // No one can be within 6 chunks of outpost
-        int radius = RSStructures.NETHER_OUTPOSTS_LIST.contains(this) ? 6 : 3;
-        if(this != RSStructures.WARPED_OUTPOST && this != RSStructures.CRIMSON_OUTPOST && this != RSStructures.NETHER_BRICK_OUTPOST){
+        int radius = RSStructures.NETHER_OUTPOSTS_LIST.get().contains(this) ? 6 : 3;
+        if(this != RSStructures.WARPED_OUTPOST.get() && this != RSStructures.CRIMSON_OUTPOST.get() && this != RSStructures.NETHER_BRICK_OUTPOST.get()){
             for (int curChunkX = chunkX - radius; curChunkX <= chunkX + radius; curChunkX++) {
                 for (int curChunkZ = chunkZ - radius; curChunkZ <= chunkZ + radius; curChunkZ++) {
                     for(Structure<?> structureFeature : AVOID_STRUCTURE_LIST) {

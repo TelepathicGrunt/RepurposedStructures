@@ -1,18 +1,25 @@
 package com.telepathicgrunt.repurposedstructures.world.placements;
 
+import java.util.function.Supplier;
+
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import net.minecraft.util.registry.Registry;
+
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.placement.SimplePlacement;
 import net.minecraft.world.gen.placement.TopSolidRangeConfig;
+import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class RSPlacements
 {
-    public static final SimplePlacement<TopSolidRangeConfig> RS_DUNGEON_PLACEMENT = new RSDungeonPlacement(TopSolidRangeConfig.CODEC);
-    public static final Placement<TopSolidRangeConfig> RS_VINE_PLACEMENT = new RSVinePlacement(TopSolidRangeConfig.CODEC);
+	public static final DeferredRegister<Placement<?>> DECORATORS = DeferredRegister.create(ForgeRegistries.DECORATORS, RepurposedStructures.MODID);
+	
+	public static final RegistryObject<SimplePlacement<TopSolidRangeConfig>> RS_DUNGEON_PLACEMENT = createDecorator("rs_dungeon_placement", () -> new RSDungeonPlacement(TopSolidRangeConfig.CODEC));
+    public static final RegistryObject<Placement<TopSolidRangeConfig>> RS_VINE_PLACEMENT = createDecorator("rs_vine_placement", () -> new RSVinePlacement(TopSolidRangeConfig.CODEC));
 
-    public static void registerPlacements() {
-        Registry.register(Registry.DECORATOR, RepurposedStructures.MODID+":rs_dungeon_placement", RS_DUNGEON_PLACEMENT);
-        Registry.register(Registry.DECORATOR, RepurposedStructures.MODID+":rs_vine_placement", RS_VINE_PLACEMENT);
-    }
+    private static <P extends Placement<?>> RegistryObject<P> createDecorator(String name, Supplier<P> decorator)
+    {
+		return DECORATORS.register(name, decorator);
+	}
 }

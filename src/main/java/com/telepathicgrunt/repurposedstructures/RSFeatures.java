@@ -1,83 +1,70 @@
 package com.telepathicgrunt.repurposedstructures;
 
-import com.telepathicgrunt.repurposedstructures.world.features.*;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.Registry;
+import java.util.function.Supplier;
+
+import com.telepathicgrunt.repurposedstructures.world.features.BoulderGiant;
+import com.telepathicgrunt.repurposedstructures.world.features.BoulderTiny;
+import com.telepathicgrunt.repurposedstructures.world.features.DungeonBadlands;
+import com.telepathicgrunt.repurposedstructures.world.features.DungeonDarkForest;
+import com.telepathicgrunt.repurposedstructures.world.features.DungeonDesert;
+import com.telepathicgrunt.repurposedstructures.world.features.DungeonEnd;
+import com.telepathicgrunt.repurposedstructures.world.features.DungeonJungle;
+import com.telepathicgrunt.repurposedstructures.world.features.DungeonMushroom;
+import com.telepathicgrunt.repurposedstructures.world.features.DungeonNether;
+import com.telepathicgrunt.repurposedstructures.world.features.DungeonOcean;
+import com.telepathicgrunt.repurposedstructures.world.features.DungeonSnow;
+import com.telepathicgrunt.repurposedstructures.world.features.DungeonSwamp;
+import com.telepathicgrunt.repurposedstructures.world.features.FortressBreakage;
+import com.telepathicgrunt.repurposedstructures.world.features.JungleStructuresVines;
+import com.telepathicgrunt.repurposedstructures.world.features.StrongholdChains;
+import com.telepathicgrunt.repurposedstructures.world.features.SwampVillageVines;
+import com.telepathicgrunt.repurposedstructures.world.features.TreeSwampHorned;
+import com.telepathicgrunt.repurposedstructures.world.features.VinesShort;
+import com.telepathicgrunt.repurposedstructures.world.features.WellBadlands;
+import com.telepathicgrunt.repurposedstructures.world.features.WellForest;
+import com.telepathicgrunt.repurposedstructures.world.features.WellMossyStone;
+import com.telepathicgrunt.repurposedstructures.world.features.WellNether;
+import com.telepathicgrunt.repurposedstructures.world.features.WellSnow;
+
 import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.registries.IForgeRegistry;
-
+import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class RSFeatures {
-    //Static instance of our structure so we can reference it and add it to biomes easily.
-    public static Feature<NoFeatureConfig> BADLANDS_DUNGEONS = new DungeonBadlands(NoFeatureConfig.CODEC);
-    public static Feature<NoFeatureConfig> DARK_FOREST_DUNGEONS = new DungeonDarkForest(NoFeatureConfig.CODEC);
-    public static Feature<NoFeatureConfig> DESERT_DUNGEONS = new DungeonDesert(NoFeatureConfig.CODEC);
-    public static Feature<NoFeatureConfig> END_DUNGEONS = new DungeonEnd(NoFeatureConfig.CODEC);
-    public static Feature<NoFeatureConfig> NETHER_DUNGEONS = new DungeonNether(NoFeatureConfig.CODEC);
-    public static Feature<NoFeatureConfig> SNOW_DUNGEONS = new DungeonSnow(NoFeatureConfig.CODEC);
-    public static Feature<NoFeatureConfig> SWAMP_DUNGEONS = new DungeonSwamp(NoFeatureConfig.CODEC);
-    public static Feature<NoFeatureConfig> MUSHROOM_DUNGEONS = new DungeonMushroom(NoFeatureConfig.CODEC);
-    public static Feature<NoFeatureConfig> JUNGLE_DUNGEONS = new DungeonJungle(NoFeatureConfig.CODEC);
-    public static Feature<NoFeatureConfig> OCEAN_DUNGEONS = new DungeonOcean(NoFeatureConfig.CODEC);
+	public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, RepurposedStructures.MODID);
+	
+	//Static instance of our structure so we can reference it and add it to biomes easily.
+	public static final RegistryObject<Feature<NoFeatureConfig>> BADLANDS_DUNGEONS = createFeature("dungeons_badlands", () -> new DungeonBadlands(NoFeatureConfig.CODEC));
+	public static final RegistryObject<Feature<NoFeatureConfig>> DARK_FOREST_DUNGEONS = createFeature("dungeons_dark_forest", () -> new DungeonDarkForest(NoFeatureConfig.CODEC));
+	public static final RegistryObject<Feature<NoFeatureConfig>> DESERT_DUNGEONS = createFeature("dungeons_desert", () -> new DungeonDesert(NoFeatureConfig.CODEC));
+	public static final RegistryObject<Feature<NoFeatureConfig>> END_DUNGEONS = createFeature("dungeons_end", () -> new DungeonEnd(NoFeatureConfig.CODEC));
+	public static final RegistryObject<Feature<NoFeatureConfig>> NETHER_DUNGEONS = createFeature("dungeons_nether", () -> new DungeonNether(NoFeatureConfig.CODEC));
+	public static final RegistryObject<Feature<NoFeatureConfig>> SNOW_DUNGEONS = createFeature("dungeons_snow", () -> new DungeonSnow(NoFeatureConfig.CODEC));
+	public static final RegistryObject<Feature<NoFeatureConfig>> SWAMP_DUNGEONS = createFeature("dungeons_swamp", () -> new DungeonSwamp(NoFeatureConfig.CODEC));
+	public static final RegistryObject<Feature<NoFeatureConfig>> MUSHROOM_DUNGEONS = createFeature("dungeons_mushroom", () -> new DungeonMushroom(NoFeatureConfig.CODEC));
+	public static final RegistryObject<Feature<NoFeatureConfig>> JUNGLE_DUNGEONS = createFeature("dungeons_jungle", () -> new DungeonJungle(NoFeatureConfig.CODEC));
+	public static final RegistryObject<Feature<NoFeatureConfig>> OCEAN_DUNGEONS = createFeature("dungeons_ocean", () -> new DungeonOcean(NoFeatureConfig.CODEC));
+	
+	public static final RegistryObject<Feature<NoFeatureConfig>> BADLANDS_WELL = createFeature("well_badlands", () -> new WellBadlands(NoFeatureConfig.CODEC));
+	public static final RegistryObject<Feature<NoFeatureConfig>> NETHER_WELL = createFeature("well_nether", () -> new WellNether(NoFeatureConfig.CODEC));
+	public static final RegistryObject<Feature<NoFeatureConfig>> SNOW_WELL = createFeature("well_snow", () -> new WellSnow(NoFeatureConfig.CODEC));
+  	public static final RegistryObject<Feature<NoFeatureConfig>> MOSSY_STONE_WELL = createFeature("well_mossy_stone", () -> new WellMossyStone(NoFeatureConfig.CODEC));
+  	public static final RegistryObject<Feature<NoFeatureConfig>> FOREST_WELL = createFeature("well_forest", () -> new WellForest(NoFeatureConfig.CODEC));
 
-    public static Feature<NoFeatureConfig> BADLANDS_WELL = new WellBadlands(NoFeatureConfig.CODEC);
-    public static Feature<NoFeatureConfig> NETHER_WELL = new WellNether(NoFeatureConfig.CODEC);
-    public static Feature<NoFeatureConfig> SNOW_WELL = new WellSnow(NoFeatureConfig.CODEC);
-    public static Feature<NoFeatureConfig> MOSSY_STONE_WELL = new WellMossyStone(NoFeatureConfig.CODEC);
-    public static Feature<NoFeatureConfig> FOREST_WELL = new WellForest(NoFeatureConfig.CODEC);
-
-    public static Feature<NoFeatureConfig> BOULDER_GIANT = new BoulderGiant(NoFeatureConfig.CODEC);
-    public static Feature<NoFeatureConfig> BOULDER_TINY = new BoulderTiny(NoFeatureConfig.CODEC);
-    public static Feature<BaseTreeFeatureConfig> HORNED_SWAMP_TREE = new TreeSwampHorned(BaseTreeFeatureConfig.CODEC);
-    public static Feature<NoFeatureConfig> SHORT_VINES = new VinesShort(NoFeatureConfig.CODEC);
-    public static Feature<NoFeatureConfig> SWAMP_VILLAGE_VINES = new SwampVillageVines(NoFeatureConfig.CODEC);
-    public static Feature<NoFeatureConfig> JUNGLE_STRUCTURES_VINES = new JungleStructuresVines(NoFeatureConfig.CODEC);
-    public static Feature<NoFeatureConfig> FORTRESS_BREAKAGE = new FortressBreakage(NoFeatureConfig.CODEC);
-    public static Feature<NoFeatureConfig> STRONGHOLD_CHAINS = new StrongholdChains(NoFeatureConfig.CODEC);
-
-    public static void registerFeatures(RegistryEvent.Register<Feature<?>> event) {
-        IForgeRegistry<Feature<?>> featureRegistry = event.getRegistry();
-
-        registerFeature(featureRegistry, BADLANDS_DUNGEONS, new ResourceLocation(RepurposedStructures.MODID, "dungeons_badlands"));
-        registerFeature(featureRegistry, DARK_FOREST_DUNGEONS, new ResourceLocation(RepurposedStructures.MODID, "dungeons_dark_forest"));
-        registerFeature(featureRegistry, DESERT_DUNGEONS, new ResourceLocation(RepurposedStructures.MODID, "dungeons_desert"));
-        registerFeature(featureRegistry, END_DUNGEONS, new ResourceLocation(RepurposedStructures.MODID, "dungeons_end"));
-        registerFeature(featureRegistry, NETHER_DUNGEONS, new ResourceLocation(RepurposedStructures.MODID, "dungeons_nether"));
-        registerFeature(featureRegistry, SNOW_DUNGEONS, new ResourceLocation(RepurposedStructures.MODID, "dungeons_snow"));
-        registerFeature(featureRegistry, SWAMP_DUNGEONS, new ResourceLocation(RepurposedStructures.MODID, "dungeons_swamp"));
-        registerFeature(featureRegistry, MUSHROOM_DUNGEONS, new ResourceLocation(RepurposedStructures.MODID, "dungeons_mushroom"));
-        registerFeature(featureRegistry, JUNGLE_DUNGEONS, new ResourceLocation(RepurposedStructures.MODID, "dungeons_jungle"));
-        registerFeature(featureRegistry, OCEAN_DUNGEONS, new ResourceLocation(RepurposedStructures.MODID, "dungeons_ocean"));
-
-        registerFeature(featureRegistry, BADLANDS_WELL, new ResourceLocation(RepurposedStructures.MODID, "well_badlands"));
-        registerFeature(featureRegistry, NETHER_WELL, new ResourceLocation(RepurposedStructures.MODID, "well_nether"));
-        registerFeature(featureRegistry, SNOW_WELL, new ResourceLocation(RepurposedStructures.MODID, "well_snow"));
-        registerFeature(featureRegistry, MOSSY_STONE_WELL, new ResourceLocation(RepurposedStructures.MODID, "well_mossy_stone"));
-        registerFeature(featureRegistry, FOREST_WELL, new ResourceLocation(RepurposedStructures.MODID, "well_forest"));
-
-        registerFeature(featureRegistry, BOULDER_GIANT, new ResourceLocation(RepurposedStructures.MODID, "boulder_giant"));
-        registerFeature(featureRegistry, BOULDER_TINY, new ResourceLocation(RepurposedStructures.MODID, "boulder_tiny"));
-        registerFeature(featureRegistry, HORNED_SWAMP_TREE, new ResourceLocation(RepurposedStructures.MODID, "horned_swamp_tree"));
-        registerFeature(featureRegistry, SHORT_VINES, new ResourceLocation(RepurposedStructures.MODID, "short_vines"));
-        registerFeature(featureRegistry, SWAMP_VILLAGE_VINES, new ResourceLocation(RepurposedStructures.MODID, "swamp_village_vines"));
-        registerFeature(featureRegistry, JUNGLE_STRUCTURES_VINES, new ResourceLocation(RepurposedStructures.MODID, "jungle_structures_vines"));
-        registerFeature(featureRegistry, FORTRESS_BREAKAGE, new ResourceLocation(RepurposedStructures.MODID, "fortress_breakage"));
-        registerFeature(featureRegistry, STRONGHOLD_CHAINS, new ResourceLocation(RepurposedStructures.MODID, "stronghold_chains"));
-    }
-
-
-    public static <F extends Feature<?>> void registerFeature(
-            IForgeRegistry<Feature<?>> registry,
-            F feature,
-            ResourceLocation resourceLocation
-    ) {
-        feature.setRegistryName(resourceLocation);
-
-        // Have to do this as Minecraft will otherwise think the feature isn't registered.
-        // Hopefully this means people can make custom ConfiguredFeatures by datapack with the feature.
-        Registry.register(Registry.FEATURE, resourceLocation, feature);
-    }
+  	public static final RegistryObject<Feature<NoFeatureConfig>> BOULDER_GIANT = createFeature("boulder_giant", () -> new BoulderGiant(NoFeatureConfig.CODEC));
+  	public static final RegistryObject<Feature<NoFeatureConfig>> BOULDER_TINY = createFeature("boulder_tiny", () -> new BoulderTiny(NoFeatureConfig.CODEC));
+  	public static final RegistryObject<Feature<BaseTreeFeatureConfig>> HORNED_SWAMP_TREE = createFeature("horned_swamp_tree", () -> new TreeSwampHorned(BaseTreeFeatureConfig.CODEC));
+  	public static final RegistryObject<Feature<NoFeatureConfig>> SHORT_VINES = createFeature("short_vines", () -> new VinesShort(NoFeatureConfig.CODEC));
+  	public static final RegistryObject<Feature<NoFeatureConfig>> SWAMP_VILLAGE_VINES = createFeature("swamp_village_vines", () -> new SwampVillageVines(NoFeatureConfig.CODEC));
+  	public static final RegistryObject<Feature<NoFeatureConfig>> JUNGLE_STRUCTURES_VINES = createFeature("jungle_structures_vines", () -> new JungleStructuresVines(NoFeatureConfig.CODEC));
+  	public static final RegistryObject<Feature<NoFeatureConfig>> FORTRESS_BREAKAGE = createFeature("fortress_breakage", () -> new FortressBreakage(NoFeatureConfig.CODEC));
+  	public static final RegistryObject<Feature<NoFeatureConfig>> STRONGHOLD_CHAINS = createFeature("stronghold_chains", () -> new StrongholdChains(NoFeatureConfig.CODEC));
+	
+	private static <F extends Feature<?>> RegistryObject<F> createFeature(String name, Supplier<F> feature)
+    {
+		return FEATURES.register(name, feature);
+	}
 }

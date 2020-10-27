@@ -34,28 +34,28 @@ public class StructureMobSpawningMixin {
     private static List<MobSpawnInfo.Spawners>  getStructureSpawns(Biome biome, StructureManager accessor, EntityClassification group, BlockPos pos){
         if (group == EntityClassification.MONSTER) {
 
-            for(Structure<?> outpost : RSStructures.NETHER_OUTPOSTS_LIST){
+            for(Structure<?> outpost : RSStructures.NETHER_OUTPOSTS_LIST.get()){
                 if (accessor.getStructureAt(pos, true, outpost).isValid()) {
                     return outpost.getSpawnList();
                 }
             }
 
-            for(Structure<?> shipwreck : RSStructures.NETHER_SHIPWRECKS_LIST){
+            for(Structure<?> shipwreck : RSStructures.NETHER_SHIPWRECKS_LIST.get()){
                 if (accessor.getStructureAt(pos, true, shipwreck).isValid()) {
                     return Lists.newArrayList(Iterators.concat(biome.getSpawnSettings().getSpawnEntry(EntityClassification.MONSTER).iterator(), shipwreck.getSpawnList().iterator()));
                 }
             }
 
-            if (accessor.getStructureAt(pos, true, RSStructures.NETHER_STRONGHOLD).isValid()) {
-                return RSStructures.NETHER_STRONGHOLD.getSpawnList();
+            if (accessor.getStructureAt(pos, true, RSStructures.NETHER_STRONGHOLD.get()).isValid()) {
+                return RSStructures.NETHER_STRONGHOLD.get().getSpawnList();
             }
 
-            if (accessor.getStructureAt(pos, true, RSStructures.JUNGLE_FORTRESS).isValid()) {
-                return Lists.newArrayList(Iterators.concat(biome.getSpawnSettings().getSpawnEntry(EntityClassification.MONSTER).iterator(), RSStructures.JUNGLE_FORTRESS.getSpawnList().iterator()));
+            if (accessor.getStructureAt(pos, true, RSStructures.JUNGLE_FORTRESS.get()).isValid()) {
+                return Lists.newArrayList(Iterators.concat(biome.getSpawnSettings().getSpawnEntry(EntityClassification.MONSTER).iterator(), RSStructures.JUNGLE_FORTRESS.get().getSpawnList().iterator()));
             }
 
-            if (accessor.getStructureAt(pos, true, RSStructures.END_MINESHAFT).isValid()) {
-                return Lists.newArrayList(Iterators.concat(biome.getSpawnSettings().getSpawnEntry(EntityClassification.MONSTER).iterator(), RSStructures.END_MINESHAFT.getSpawnList().iterator()));
+            if (accessor.getStructureAt(pos, true, RSStructures.END_MINESHAFT.get()).isValid()) {
+                return Lists.newArrayList(Iterators.concat(biome.getSpawnSettings().getSpawnEntry(EntityClassification.MONSTER).iterator(), RSStructures.END_MINESHAFT.get().getSpawnList().iterator()));
             }
         }
 

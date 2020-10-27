@@ -1,5 +1,13 @@
 package com.telepathicgrunt.repurposedstructures;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.telepathicgrunt.repurposedstructures.configs.RSDungeonsConfig.RSDungeonsConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSMainConfig;
 import com.telepathicgrunt.repurposedstructures.configs.RSMainConfig.RSConfigValues;
@@ -14,29 +22,17 @@ import com.telepathicgrunt.repurposedstructures.misc.VillagerTradesModification;
 import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
 import com.telepathicgrunt.repurposedstructures.utils.MobSpawnerManager;
 import com.telepathicgrunt.repurposedstructures.world.placements.RSPlacements;
+
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.structure.Structure;
-import net.minecraft.world.gen.placement.Placement;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.AddReloadListenerEvent;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ConfigTracker;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fml.loading.FMLPaths;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.nio.file.Path;
-import java.util.*;
 
 
 @Mod(RepurposedStructures.MODID)
@@ -67,9 +63,9 @@ public class RepurposedStructures
 		forgeBus.addListener(this::registerDatapackListener);
 
 		modEventBus.addListener(this::setup);
-		modEventBus.addGenericListener(Feature.class, this::onRegisterFeatures);
-		modEventBus.addGenericListener(Structure.class, this::onRegisterStructures);
-		modEventBus.addGenericListener(Placement.class, this::onRegisterPlacements);
+		RSFeatures.FEATURES.register(modEventBus);
+		RSStructures.STRUCTURE_FEATURES.register(modEventBus);
+		RSPlacements.DECORATORS.register(modEventBus);
 
 		RSMainConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSConfigValues::new, "repurposed_structures-common.toml");
 		RSDungeonsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSDungeonsConfigValues::new, "repurposed_structures-dungeons.toml");
@@ -89,28 +85,13 @@ public class RepurposedStructures
 	 */
 	public void setup(final FMLCommonSetupEvent event)
 	{
-		event.enqueueWork(VillagerTradesModification::addMapTrades);
-	}
-
-	public void onRegisterFeatures(final RegistryEvent.Register<Feature<?>> event)
-	{
-		RSFeatures.registerFeatures(event);
-		RSConfiguredFeatures.registerConfiguredFeatures();
-	}
-
-	public void onRegisterStructures(final RegistryEvent.Register<Structure<?>> event)
-	{
-		//load the configs for structure spacing and placements
-		loadRSConfigs();
-		RSStructures.registerStructures(event);
-		RSConfiguredStructures.registerStructureFeatures();
-	}
-
-	public void onRegisterPlacements(final RegistryEvent.Register<Placement<?>> event)
-	{
-		//load the configs for structure spacing and placements
-		loadRSConfigs();
-		RSPlacements.registerPlacements();
+		event.enqueueWork(() -> {
+			VillagerTradesModification.addMapTrades();
+			//Moved the methods bellow into enqueue to make sure they dont cause issues during registration - andrew
+			RSConfiguredFeatures.registerConfiguredFeatures();
+			RSStructures.registerStructures();
+			RSConfiguredStructures.registerStructureFeatures();
+		});
 	}
 
 	public void registerDatapackListener(final AddReloadListenerEvent event) {
@@ -166,41 +147,6 @@ public class RepurposedStructures
     private static boolean isBiomeAllowed(String structureType, ResourceLocation biomeID, Map<String, List<String>> allBiomeBlacklists){
     	return allBiomeBlacklists.get(structureType).stream().noneMatch(blacklistedBiome -> blacklistedBiome.equals(biomeID.toString()));
 	}
-
-
-	/**
-	 * Loads RS's configs as Forge won't load configs before registry events.
-	 */
-	private static void loadRSConfigs(){
-		try {
-			Field fld = ConfigTracker.class.getDeclaredField("configSets");
-			fld.setAccessible(true);
-			Class[] partypes = new Class[2];
-			partypes[0] = ModConfig.class;
-			partypes[1] = Path.class;
-			Method method = ConfigTracker.class.getDeclaredMethod("openConfig", partypes);
-			method.setAccessible(true);
-
-
-			for(ModConfig modConfig : ((EnumMap<ModConfig.Type, Set<ModConfig>>)fld.get(ConfigTracker.INSTANCE)).get(ModConfig.Type.COMMON))
-			{
-				if(modConfig.getModId().equals(RepurposedStructures.MODID)){
-					Object[] arglist = new Object[2];
-					arglist[0] = modConfig;
-					arglist[1] = FMLPaths.CONFIGDIR.get();
-					method.invoke(ConfigTracker.INSTANCE, arglist);
-				}
-			}
-
-			fld.setAccessible(false);
-			method.setAccessible(false);
-		}
-		catch (Throwable e) {
-			System.err.println(e);
-		}
-	}
-
-
 
 	/**
 	 * Grabs and parses the Biome blacklist from configs and stores it into

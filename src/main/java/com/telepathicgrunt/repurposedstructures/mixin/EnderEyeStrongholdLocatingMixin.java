@@ -25,8 +25,8 @@ public class EnderEyeStrongholdLocatingMixin {
 
     private static BlockPos returnClosestStronghold(BlockPos blockPos, ServerWorld world, BlockPos playerPos) {
         ChunkGenerator chunkGenerator = world.getChunkProvider().getChunkGenerator();
-        BlockPos closestPos = returnCloserPos(blockPos, chunkGenerator.locateStructure(world, RSStructures.STONEBRICK_STRONGHOLD, playerPos, 100, false), playerPos);
-        closestPos = returnCloserPos(closestPos, chunkGenerator.locateStructure(world, RSStructures.NETHER_STRONGHOLD, playerPos, 100, false), playerPos);
+        BlockPos closestPos = returnCloserPos(blockPos, chunkGenerator.locateStructure(world, RSStructures.STONEBRICK_STRONGHOLD.get(), playerPos, 100, false), playerPos);
+        closestPos = returnCloserPos(closestPos, chunkGenerator.locateStructure(world, RSStructures.NETHER_STRONGHOLD.get(), playerPos, 100, false), playerPos);
         return closestPos;
     }
 

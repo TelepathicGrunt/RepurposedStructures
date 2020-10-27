@@ -40,18 +40,18 @@ public class JungleStructuresVines extends Feature<NoFeatureConfig> {
         //Place vines without replacing blocks.
         if (world.isAirBlock(position))
         {
-            if(world.getStructures(SectionPos.from(position), RSStructures.JUNGLE_VILLAGE).findAny().isPresent() ||
-                    world.getStructures(SectionPos.from(position), RSStructures.JUNGLE_FORTRESS).findAny().isPresent())
+            if(world.getStructures(SectionPos.from(position), RSStructures.JUNGLE_VILLAGE.get()).findAny().isPresent() ||
+                    world.getStructures(SectionPos.from(position), RSStructures.JUNGLE_FORTRESS.get()).findAny().isPresent())
             {
-                RSFeatures.SHORT_VINES.generate(world, chunkGenerator, random, position, NoFeatureConfig.NO_FEATURE_CONFIG);
+                RSFeatures.SHORT_VINES.get().generate(world, chunkGenerator, random, position, NoFeatureConfig.NO_FEATURE_CONFIG);
                 return true;
             }
         }
         //Place vines and can replace Stone Bricks if it has air below.
         if (FORTRESS_BLOCKS_SET.contains(world.getBlockState(position).getBlock()) && world.isAirBlock(position.down())) {
-            if (world.getStructures(SectionPos.from(position), RSStructures.JUNGLE_FORTRESS).findAny().isPresent()) {
+            if (world.getStructures(SectionPos.from(position), RSStructures.JUNGLE_FORTRESS.get()).findAny().isPresent()) {
                 world.setBlockState(position, Blocks.AIR.getDefaultState(), 3);
-                RSFeatures.SHORT_VINES.generate(world, chunkGenerator, random, position, NoFeatureConfig.NO_FEATURE_CONFIG);
+                RSFeatures.SHORT_VINES.get().generate(world, chunkGenerator, random, position, NoFeatureConfig.NO_FEATURE_CONFIG);
                 return true;
             }
         }

@@ -30,7 +30,7 @@ public class VillageNetherStructure extends VillageBaseStructure {
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig defaultFeatureConfig) {
         for (int curChunkX = chunkX - 10; curChunkX <= chunkX + 10; curChunkX++) {
             for (int curChunkZ = chunkZ - 10; curChunkZ <= chunkZ + 10; curChunkZ++) {
-                for(Structure<?> outpost : RSStructures.NETHER_OUTPOSTS_LIST){
+                for(Structure<?> outpost : RSStructures.NETHER_OUTPOSTS_LIST.get()){
                     StructureSeparationSettings structureConfig = chunkGenerator.getStructuresConfig().getForType(outpost);
                     if(structureConfig != null) {
                         ChunkPos chunkPos2 = outpost.getStartChunk(structureConfig, seed, chunkRandom, curChunkX, curChunkZ);
