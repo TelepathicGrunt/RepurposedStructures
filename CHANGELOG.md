@@ -8,6 +8,13 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.2.2.11 Changes) (1.16.3 Minecraft)
+
+##### Shipwreck:
+
+- Fixed map chest loot not showing up in Warped Shipwreck.
+
+
 ## (V.2.2.10 Changes) (1.16.3 Minecraft)
 
 ##### Major:
