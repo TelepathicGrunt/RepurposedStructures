@@ -76,7 +76,7 @@ if (project.use_third_party_mods) {
 	//	modRuntime "com.github.jellysquid3:sodium_fabric:1.16.1"
 	//	modRuntime "zabi.minecraft.nbttooltip:nbttooltip:1.0.4"
 	//	modRuntime "com.github.voronoiaoc:byg:1.0.6"
-		modRuntime 'com.github.qouteall:ImmersivePortalsMod:v0.41-1.16'
+		modRuntime 'com.github.qouteall:ImmersivePortalsMod:1bcad06'
 	}
 }
 
