@@ -62,7 +62,7 @@ public class RSStonebrickStrongholdStructure extends StrongholdFeature {
             while (!list.isEmpty()) {
                 int i = this.random.nextInt(list.size());
                 StructurePiece structurepiece = list.remove(i);
-                structurepiece.placeJigsaw(strongholdpieces$entrancestairs, this.children, this.random);
+                structurepiece.fillOpenings(strongholdpieces$entrancestairs, this.children, this.random);
             }
 
             if (strongholdpieces$entrancestairs.strongholdPortalRoom == null) {
@@ -75,7 +75,7 @@ public class RSStonebrickStrongholdStructure extends StrongholdFeature {
                 while (!list.isEmpty()) {
                     int i = this.random.nextInt(list.size());
                     StructurePiece structurepiece = list.remove(i);
-                    structurepiece.placeJigsaw(strongholdpieces$entrancestairs, this.children, this.random);
+                    structurepiece.fillOpenings(strongholdpieces$entrancestairs, this.children, this.random);
                 }
             }
 
@@ -100,7 +100,7 @@ public class RSStonebrickStrongholdStructure extends StrongholdFeature {
             // much as possible without hitting bedrock.
             if (this.boundingBox.maxY > maxYConfig) {
                 int heightDiff = maxYConfig - this.boundingBox.maxY;
-                offset2 = Math.max(heightDiff, -this.boundingBox.minY);
+                offset2 = this.boundingBox.minY + heightDiff < 2 ? 2 - this.boundingBox.minY : heightDiff;
             }
 
             // Apply the final offsets

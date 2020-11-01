@@ -105,15 +105,15 @@ public class RSStrongholdPieces {
             }
         });
 
-        for(StrongholdGenerator.PieceSetting piece : StrongholdGeneratorAccessor.getALL_PIECE_SETTINGS()){
+        for(StrongholdGenerator.PieceData piece : StrongholdGeneratorAccessor.getALL_PIECES()){
             try {
                 if(!piece.pieceType.getEnclosingClass().getName().contains(StrongholdGenerator.class.getName()))
                 {
-                    PIECE_WEIGHTS.add(new RSStrongholdPieces.PieceWeight(piece.pieceType, piece.field_15278, piece.limit));
+                    PIECE_WEIGHTS.add(new RSStrongholdPieces.PieceWeight(piece.pieceType, piece.weight, piece.limit));
                 }
             } catch (Exception e) {
                 //definitely not vanilla piece
-                PIECE_WEIGHTS.add(new RSStrongholdPieces.PieceWeight(piece.pieceType, piece.field_15278, piece.limit));
+                PIECE_WEIGHTS.add(new RSStrongholdPieces.PieceWeight(piece.pieceType, piece.weight, piece.limit));
             }
         }
     }
@@ -284,7 +284,7 @@ public class RSStrongholdPieces {
 
 
         @Override
-        public void placeJigsaw(StructurePiece component, List<StructurePiece> piecesList, Random rand) {
+        public void fillOpenings(StructurePiece component, List<StructurePiece> piecesList, Random rand) {
             this.getNextComponentNormal((RSStrongholdPieces.EntranceStairs) component, piecesList, rand, 1, 1);
         }
 
@@ -442,7 +442,7 @@ public class RSStrongholdPieces {
 
 
         @Override
-        public void placeJigsaw(StructurePiece component, List<StructurePiece> piecesList, Random rand) {
+        public void fillOpenings(StructurePiece component, List<StructurePiece> piecesList, Random rand) {
             int i = 3;
             int j = 5;
             Direction enumfacing = this.getFacing();
@@ -534,7 +534,7 @@ public class RSStrongholdPieces {
 
 
         @Override
-        public void placeJigsaw(StructurePiece component, List<StructurePiece> piecesList, Random rand) {
+        public void fillOpenings(StructurePiece component, List<StructurePiece> piecesList, Random rand) {
             Direction enumfacing = this.getFacing();
 
             if (enumfacing != Direction.NORTH && enumfacing != Direction.EAST) {
@@ -791,7 +791,7 @@ public class RSStrongholdPieces {
 
 
         @Override
-        public void placeJigsaw(StructurePiece component, List<StructurePiece> piecesList, Random rand) {
+        public void fillOpenings(StructurePiece component, List<StructurePiece> piecesList, Random rand) {
             if (component != null) {
                 ((RSStrongholdPieces.EntranceStairs) component).strongholdPortalRoom = this;
             }
@@ -917,7 +917,7 @@ public class RSStrongholdPieces {
 
 
         @Override
-        public void placeJigsaw(StructurePiece component, List<StructurePiece> piecesList, Random rand) {
+        public void fillOpenings(StructurePiece component, List<StructurePiece> piecesList, Random rand) {
             this.getNextComponentNormal((RSStrongholdPieces.EntranceStairs) component, piecesList, rand, 1, 1);
         }
 
@@ -967,7 +967,7 @@ public class RSStrongholdPieces {
 
 
         @Override
-        public void placeJigsaw(StructurePiece component, List<StructurePiece> piecesList, Random rand) {
+        public void fillOpenings(StructurePiece component, List<StructurePiece> piecesList, Random rand) {
             Direction enumfacing = this.getFacing();
 
             if (enumfacing != Direction.NORTH && enumfacing != Direction.EAST) {
@@ -1032,7 +1032,7 @@ public class RSStrongholdPieces {
 
 
         @Override
-        public void placeJigsaw(StructurePiece component, List<StructurePiece> piecesList, Random rand) {
+        public void fillOpenings(StructurePiece component, List<StructurePiece> piecesList, Random rand) {
             this.getNextComponentNormal((RSStrongholdPieces.EntranceStairs) component, piecesList, rand, 4, 1);
             this.getNextComponentX((RSStrongholdPieces.EntranceStairs) component, piecesList, rand, 1, 4);
             this.getNextComponentZ((RSStrongholdPieces.EntranceStairs) component, piecesList, rand, 1, 4);
@@ -1245,7 +1245,7 @@ public class RSStrongholdPieces {
 
 
         @Override
-        public void placeJigsaw(StructurePiece component, List<StructurePiece> piecesList, Random rand) {
+        public void fillOpenings(StructurePiece component, List<StructurePiece> piecesList, Random rand) {
             if (this.source) {
                 RSStrongholdPieces.strongComponentType = RSStrongholdPieces.Crossing.class;
             }
@@ -1318,7 +1318,7 @@ public class RSStrongholdPieces {
 
 
         @Override
-        public void placeJigsaw(StructurePiece piece, List<StructurePiece> piecesList, Random random) {
+        public void fillOpenings(StructurePiece piece, List<StructurePiece> piecesList, Random random) {
             this.getNextComponentNormal((RSStrongholdPieces.EntranceStairs) piece, piecesList, random, 1, 1);
         }
 
@@ -1457,7 +1457,7 @@ public class RSStrongholdPieces {
 
 
         @Override
-        public void placeJigsaw(StructurePiece component, List<StructurePiece> piecesList, Random rand) {
+        public void fillOpenings(StructurePiece component, List<StructurePiece> piecesList, Random rand) {
             this.getNextComponentNormal((RSStrongholdPieces.EntranceStairs) component, piecesList, rand, 1, 1);
 
             if (this.expandsX) {
@@ -1687,16 +1687,16 @@ public class RSStrongholdPieces {
             if (enumfacing != null) {
                 switch (enumfacing) {
                     case NORTH:
-                        return RSStrongholdPieces.generateAndAddPiece(p_74986_1_, p_74986_2_, p_74986_3_, this.boundingBox.minX + p_74986_4_, this.boundingBox.minY + p_74986_5_, this.boundingBox.minZ - 1, enumfacing, this.getLength());
+                        return RSStrongholdPieces.generateAndAddPiece(p_74986_1_, p_74986_2_, p_74986_3_, this.boundingBox.minX + p_74986_4_, this.boundingBox.minY + p_74986_5_, this.boundingBox.minZ - 1, enumfacing, this.getChainLength());
 
                     case SOUTH:
-                        return RSStrongholdPieces.generateAndAddPiece(p_74986_1_, p_74986_2_, p_74986_3_, this.boundingBox.minX + p_74986_4_, this.boundingBox.minY + p_74986_5_, this.boundingBox.maxZ + 1, enumfacing, this.getLength());
+                        return RSStrongholdPieces.generateAndAddPiece(p_74986_1_, p_74986_2_, p_74986_3_, this.boundingBox.minX + p_74986_4_, this.boundingBox.minY + p_74986_5_, this.boundingBox.maxZ + 1, enumfacing, this.getChainLength());
 
                     case WEST:
-                        return RSStrongholdPieces.generateAndAddPiece(p_74986_1_, p_74986_2_, p_74986_3_, this.boundingBox.minX - 1, this.boundingBox.minY + p_74986_5_, this.boundingBox.minZ + p_74986_4_, enumfacing, this.getLength());
+                        return RSStrongholdPieces.generateAndAddPiece(p_74986_1_, p_74986_2_, p_74986_3_, this.boundingBox.minX - 1, this.boundingBox.minY + p_74986_5_, this.boundingBox.minZ + p_74986_4_, enumfacing, this.getChainLength());
 
                     case EAST:
-                        return RSStrongholdPieces.generateAndAddPiece(p_74986_1_, p_74986_2_, p_74986_3_, this.boundingBox.maxX + 1, this.boundingBox.minY + p_74986_5_, this.boundingBox.minZ + p_74986_4_, enumfacing, this.getLength());
+                        return RSStrongholdPieces.generateAndAddPiece(p_74986_1_, p_74986_2_, p_74986_3_, this.boundingBox.maxX + 1, this.boundingBox.minY + p_74986_5_, this.boundingBox.minZ + p_74986_4_, enumfacing, this.getChainLength());
 
                     default:
                         break;
@@ -1713,16 +1713,16 @@ public class RSStrongholdPieces {
             if (enumfacing != null) {
                 switch (enumfacing) {
                     case NORTH:
-                        return RSStrongholdPieces.generateAndAddPiece(p_74989_1_, p_74989_2_, p_74989_3_, this.boundingBox.minX - 1, this.boundingBox.minY + p_74989_4_, this.boundingBox.minZ + p_74989_5_, Direction.WEST, this.getLength());
+                        return RSStrongholdPieces.generateAndAddPiece(p_74989_1_, p_74989_2_, p_74989_3_, this.boundingBox.minX - 1, this.boundingBox.minY + p_74989_4_, this.boundingBox.minZ + p_74989_5_, Direction.WEST, this.getChainLength());
 
                     case SOUTH:
-                        return RSStrongholdPieces.generateAndAddPiece(p_74989_1_, p_74989_2_, p_74989_3_, this.boundingBox.minX - 1, this.boundingBox.minY + p_74989_4_, this.boundingBox.minZ + p_74989_5_, Direction.WEST, this.getLength());
+                        return RSStrongholdPieces.generateAndAddPiece(p_74989_1_, p_74989_2_, p_74989_3_, this.boundingBox.minX - 1, this.boundingBox.minY + p_74989_4_, this.boundingBox.minZ + p_74989_5_, Direction.WEST, this.getChainLength());
 
                     case WEST:
-                        return RSStrongholdPieces.generateAndAddPiece(p_74989_1_, p_74989_2_, p_74989_3_, this.boundingBox.minX + p_74989_5_, this.boundingBox.minY + p_74989_4_, this.boundingBox.minZ - 1, Direction.NORTH, this.getLength());
+                        return RSStrongholdPieces.generateAndAddPiece(p_74989_1_, p_74989_2_, p_74989_3_, this.boundingBox.minX + p_74989_5_, this.boundingBox.minY + p_74989_4_, this.boundingBox.minZ - 1, Direction.NORTH, this.getChainLength());
 
                     case EAST:
-                        return RSStrongholdPieces.generateAndAddPiece(p_74989_1_, p_74989_2_, p_74989_3_, this.boundingBox.minX + p_74989_5_, this.boundingBox.minY + p_74989_4_, this.boundingBox.minZ - 1, Direction.NORTH, this.getLength());
+                        return RSStrongholdPieces.generateAndAddPiece(p_74989_1_, p_74989_2_, p_74989_3_, this.boundingBox.minX + p_74989_5_, this.boundingBox.minY + p_74989_4_, this.boundingBox.minZ - 1, Direction.NORTH, this.getChainLength());
 
                     default:
                         break;
@@ -1739,16 +1739,16 @@ public class RSStrongholdPieces {
             if (enumfacing != null) {
                 switch (enumfacing) {
                     case NORTH:
-                        return RSStrongholdPieces.generateAndAddPiece(p_74987_1_, p_74987_2_, p_74987_3_, this.boundingBox.maxX + 1, this.boundingBox.minY + p_74987_4_, this.boundingBox.minZ + p_74987_5_, Direction.EAST, this.getLength());
+                        return RSStrongholdPieces.generateAndAddPiece(p_74987_1_, p_74987_2_, p_74987_3_, this.boundingBox.maxX + 1, this.boundingBox.minY + p_74987_4_, this.boundingBox.minZ + p_74987_5_, Direction.EAST, this.getChainLength());
 
                     case SOUTH:
-                        return RSStrongholdPieces.generateAndAddPiece(p_74987_1_, p_74987_2_, p_74987_3_, this.boundingBox.maxX + 1, this.boundingBox.minY + p_74987_4_, this.boundingBox.minZ + p_74987_5_, Direction.EAST, this.getLength());
+                        return RSStrongholdPieces.generateAndAddPiece(p_74987_1_, p_74987_2_, p_74987_3_, this.boundingBox.maxX + 1, this.boundingBox.minY + p_74987_4_, this.boundingBox.minZ + p_74987_5_, Direction.EAST, this.getChainLength());
 
                     case WEST:
-                        return RSStrongholdPieces.generateAndAddPiece(p_74987_1_, p_74987_2_, p_74987_3_, this.boundingBox.minX + p_74987_5_, this.boundingBox.minY + p_74987_4_, this.boundingBox.maxZ + 1, Direction.SOUTH, this.getLength());
+                        return RSStrongholdPieces.generateAndAddPiece(p_74987_1_, p_74987_2_, p_74987_3_, this.boundingBox.minX + p_74987_5_, this.boundingBox.minY + p_74987_4_, this.boundingBox.maxZ + 1, Direction.SOUTH, this.getChainLength());
 
                     case EAST:
-                        return RSStrongholdPieces.generateAndAddPiece(p_74987_1_, p_74987_2_, p_74987_3_, this.boundingBox.minX + p_74987_5_, this.boundingBox.minY + p_74987_4_, this.boundingBox.maxZ + 1, Direction.SOUTH, this.getLength());
+                        return RSStrongholdPieces.generateAndAddPiece(p_74987_1_, p_74987_2_, p_74987_3_, this.boundingBox.minX + p_74987_5_, this.boundingBox.minY + p_74987_4_, this.boundingBox.maxZ + 1, Direction.SOUTH, this.getChainLength());
 
                     default:
                         break;

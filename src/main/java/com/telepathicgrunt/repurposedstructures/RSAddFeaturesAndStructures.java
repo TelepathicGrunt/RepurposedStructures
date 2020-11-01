@@ -6,6 +6,9 @@ import com.telepathicgrunt.repurposedstructures.mixin.StructuresConfigAccessor;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredFeatures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
+import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
+import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
+import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerWorldEvents;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.world.ServerWorld;
@@ -51,6 +54,61 @@ public class RSAddFeaturesAndStructures {
         });
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // BIOME MODIFICATION API //
+    public static void setupBiomeModifications() {
+        RepurposedStructures.getBiomeBlacklists();
+
+        // Variable things this needs:
+        // 1 modification Identifier
+        // Config to use
+        // Biome checking predicate
+        // Structure to add
+        BiomeModifications.create(new Identifier(RepurposedStructures.MODID, "birch_mineshaft"))
+                .add(ModificationPhase.ADDITIONS, (context) -> {
+                    boolean blanketConfigAllowed = isBiomeAllowed("mineshaft", context.getBiomeKey().getValue(), RepurposedStructures.ALL_BIOME_BLACKLISTS);
+                    return blanketConfigAllowed && (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.birchMineshaftSpawnrate != 0 && context.getBiomeKey().getValue().getPath().contains("birch"));
+                }, context -> {
+                   context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.BIRCH_MINESHAFT);
+                });
+    }
+
+    private static boolean isBiomeAllowed(String structureType, Identifier biomeID, Map<String, List<String>> allBiomeBlacklists){
+        return allBiomeBlacklists.get(structureType).stream().noneMatch(blacklistedBiome -> blacklistedBiome.equals(biomeID.toString()));
+    }
+
+    /*
+     * Here, we will use this to add our structures/features to all biomes.
+     */
+    public static void addFeaturesAndStructuresToBiomes(Biome biome, Identifier biomeID, Map<String, List<String>> allBiomeBlacklists) {
+
+        if(isBiomeAllowed("mineshaft", biomeID, allBiomeBlacklists))
+            RSAddFeaturesAndStructures.addMineshafts(biome, biomeID);
+        if(isBiomeAllowed("fortress", biomeID, allBiomeBlacklists))
+            RSAddFeaturesAndStructures.addJungleFortress(biome, biomeID);
+        if(isBiomeAllowed("dungeon", biomeID, allBiomeBlacklists))
+            RSAddFeaturesAndStructures.addDungeons(biome, biomeID);
+        if(isBiomeAllowed("well", biomeID, allBiomeBlacklists))
+            RSAddFeaturesAndStructures.addWells(biome, biomeID);
+        if(isBiomeAllowed("swamp_tree", biomeID, allBiomeBlacklists))
+            RSAddFeaturesAndStructures.addSwampTreeFeatures(biome, biomeID);
+        if(isBiomeAllowed("boulder", biomeID, allBiomeBlacklists))
+            RSAddFeaturesAndStructures.addBoulderFeatures(biome, biomeID);
+        if(isBiomeAllowed("temple", biomeID, allBiomeBlacklists))
+            RSAddFeaturesAndStructures.addTemples(biome, biomeID);
+        if(isBiomeAllowed("pyramid", biomeID, allBiomeBlacklists))
+            RSAddFeaturesAndStructures.addPyramids(biome, biomeID);
+        if(isBiomeAllowed("igloo", biomeID, allBiomeBlacklists))
+            RSAddFeaturesAndStructures.addIgloos(biome, biomeID);
+        if(isBiomeAllowed("outpost", biomeID, allBiomeBlacklists))
+            RSAddFeaturesAndStructures.addOutposts(biome, biomeID);
+        if(isBiomeAllowed("shipwreck", biomeID, allBiomeBlacklists))
+            RSAddFeaturesAndStructures.addShipwrecks(biome, biomeID);
+        if(isBiomeAllowed("village", biomeID, allBiomeBlacklists))
+            RSAddFeaturesAndStructures.addVillages(biome, biomeID);
+        if(isBiomeAllowed("stronghold", biomeID, allBiomeBlacklists))
+            RSAddFeaturesAndStructures.addStrongholds(biome, biomeID);
+    }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MINESHAFTS //
@@ -560,25 +618,17 @@ public class RSAddFeaturesAndStructures {
     // GENERAL UTILITIES //
 
     /**
-     * Will serialize (if possible) both features and check if they are the same feature.
-     * If cannot serialize, compare the feature itself to see if it is the same.
+     * Will serialize (if possible) both features and check if they are the same feature by JSON.
      */
     private static boolean serializeAndCompareFeature(ConfiguredFeature<?, ?> configuredFeature1, ConfiguredFeature<?, ?> configuredFeature2) {
 
-        Optional<JsonElement> configuredFeatureJSON1 = ConfiguredFeature.CODEC.encode(() -> configuredFeature1, JsonOps.INSTANCE, JsonOps.INSTANCE.empty()).get().left();
-        Optional<JsonElement> configuredFeatureJSON2 = ConfiguredFeature.CODEC.encode(() -> configuredFeature2, JsonOps.INSTANCE, JsonOps.INSTANCE.empty()).get().left();
+        Optional<JsonElement> configuredFeatureJSON1 = ConfiguredFeature.CODEC.encode(configuredFeature1, JsonOps.INSTANCE, JsonOps.INSTANCE.empty()).get().left();
+        Optional<JsonElement> configuredFeatureJSON2 = ConfiguredFeature.CODEC.encode(configuredFeature2, JsonOps.INSTANCE, JsonOps.INSTANCE.empty()).get().left();
 
-        // One of the configuredfeatures cannot be serialized which
-        // shouldn't be possible but still good to do a sanity check.
-        if(!configuredFeatureJSON1.isPresent() || !configuredFeatureJSON2.isPresent()){
-            if ((configuredFeature1.config instanceof DecoratedFeatureConfig && configuredFeature2.config instanceof DecoratedFeatureConfig) &&
-                    ((DecoratedFeatureConfig) configuredFeature1.config).feature.get().feature == ((DecoratedFeatureConfig) configuredFeature2.config).feature.get().feature) {
-                return true;
-            }
+        if(configuredFeatureJSON1.isPresent() && configuredFeatureJSON2.isPresent()){
+            return configuredFeatureJSON1.get().toString().equals(configuredFeatureJSON2.get().toString());
         }
-
-        // Compare the JSON to see if it's the same ConfiguredFeature in the end.
-        return configuredFeatureJSON1.equals(configuredFeatureJSON2);
+        return false;
     }
 
 }

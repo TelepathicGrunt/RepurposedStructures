@@ -9,8 +9,6 @@
     "ChunkSerializerMixin",
     "DungeonFeatureAccessor",
     "EnderEyeStrongholdLocatingMixin",
-    "GenerationSettingsAccessor",
-    "MinecraftServerMixin",
     "NoVillageLakesMixin",
     "ServerResourceManagerMixin",
     "StrongholdGeneratorAccessor",

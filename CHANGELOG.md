@@ -9,6 +9,12 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 # | Repurposed Structures changelog |
 
 
+## (V.1.6.10 Changes) (1.16.3 Minecraft)
+
+##### Strongholds:
+
+- Fixed Strongholds being cutoff by Bedrock.
+
 ## (V.1.6.9 Changes) (1.16.3 Minecraft)
 
 ##### Outposts:

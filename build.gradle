@@ -14,10 +14,6 @@ repositories {
 	maven { url 'https://jitpack.io' }
 	maven { url 'http://server.bbkr.space:8081/artifactory/libs-release' }
 	maven { url "https://maven.fabricmc.net" }
-	maven {
-		name = 'Earthcomputer Mods'
-		url = 'https://dl.bintray.com/earthcomputer/mods'
-	}
 }
 
 minecraft {
@@ -31,37 +27,20 @@ dependencies {
 
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-	modImplementation("me.shedaniel.cloth:config-2:${project.cloth_config_version}"){
-		exclude module: 'fabric-api'
-	}
-	include("me.shedaniel.cloth:config-2:${project.cloth_config_version}"){
-		exclude module: 'fabric-api'
-	}
+	modImplementation "me.shedaniel.cloth:config-2:${project.cloth_config_version}"
+	include "me.shedaniel.cloth:config-2:${project.cloth_config_version}"
 
-	modImplementation("me.sargunvohra.mcmods:autoconfig1u:${project.auto_config_version}"){
-		exclude module: 'fabric-api'
-	}
-	include("me.sargunvohra.mcmods:autoconfig1u:${project.auto_config_version}"){
-		exclude module: 'fabric-api'
-	}
+	modImplementation "me.sargunvohra.mcmods:autoconfig1u:${project.auto_config_version}"
+	include "me.sargunvohra.mcmods:autoconfig1u:${project.auto_config_version}"
 
 	implementation 'com.github.modmuss50:Voyager:1.0.0'
 	include 'com.github.modmuss50:Voyager:1.0.0'
 
 	// not required, but we want to see our config screen
-	modImplementation("io.github.prospector:modmenu:${project.mod_menu_version}"){
-		exclude module: 'fabric-api'
-	}
-	include("io.github.prospector:modmenu:${project.mod_menu_version}"){
-		exclude module: 'fabric-api'
-	}
+	modImplementation "io.github.prospector:modmenu:${project.mod_menu_version}"
 
-	modCompile('com.github.Draylar:angerable-patch:1.0.0'){
-		exclude module: 'fabric-api'
-	}
-	include('com.github.Draylar:angerable-patch:1.0.0'){
-		exclude module: 'fabric-api'
-	}
+	modCompile 'com.github.Draylar:angerable-patch:1.0.0'
+	include 'com.github.Draylar:angerable-patch:1.0.0'
 
 }
 
@@ -76,7 +55,6 @@ if (project.use_third_party_mods) {
 	//	modRuntime "com.github.jellysquid3:sodium_fabric:1.16.1"
 	//	modRuntime "zabi.minecraft.nbttooltip:nbttooltip:1.0.4"
 	//	modRuntime "com.github.voronoiaoc:byg:1.0.6"
-		modRuntime 'com.github.qouteall:ImmersivePortalsMod:1bcad06'
 	}
 }
 
