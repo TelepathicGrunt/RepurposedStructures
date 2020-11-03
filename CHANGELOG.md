@@ -8,6 +8,13 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.2.2.12 Changes) (1.16.3 Minecraft)
+
+##### Misc:
+
+- Removed logo blur from logo in mod list
+
+
 ## (V.2.2.11 Changes) (1.16.3 Minecraft)
 
 ##### Shipwreck:

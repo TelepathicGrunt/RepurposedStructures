@@ -6,6 +6,7 @@ license="https://github.com/TelepathicGrunt/RepurposedStructures/blob/1.16/LICEN
 [[mods]] #mandatory
 modId="repurposed_structures" #mandatory
 logoFile="RepurposedStructuresLogo.png"
+logoBlur=false
 version="${version}" #mandatory
 displayName="Repurposed Structures" #mandatory
 displayURL="https://www.curseforge.com/minecraft/mc-mods/repurposed-structures"
