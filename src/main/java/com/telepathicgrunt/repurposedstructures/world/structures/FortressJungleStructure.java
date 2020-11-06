@@ -27,8 +27,9 @@ public class FortressJungleStructure extends AbstractBaseStructure {
     }
 
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long l, ChunkRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig defaultFeatureConfig) {
-        for (int curChunkX = chunkX - 2; curChunkX <= chunkX + 2; curChunkX += 2) {
-            for (int curChunkZ = chunkZ - 2; curChunkZ <= chunkZ + 2; curChunkZ += 2) {
+        int radius = 4;
+        for (int curChunkX = chunkX - radius; curChunkX <= chunkX + radius; curChunkX += radius) {
+            for (int curChunkZ = chunkZ - radius; curChunkZ <= chunkZ + radius; curChunkZ += radius) {
                 if (!biomeSource.getBiomeForNoiseGen(curChunkX << 2, 60, curChunkZ << 2).getGenerationSettings().hasStructureFeature(RSStructures.JUNGLE_FORTRESS)) {
                     return false;
                 }

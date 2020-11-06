@@ -3,8 +3,8 @@
   "pools": [
     {
       "rolls": {
-        "min": 3.0,
-        "max": 6.0,
+        "min": 4.0,
+        "max": 7.0,
         "type": "minecraft:uniform"
       },
       "entries": [
@@ -30,8 +30,8 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 2.0,
-                "max": 6.0,
+                "min": 1.0,
+                "max": 4.0,
                 "type": "minecraft:uniform"
               }
             }
@@ -46,7 +46,7 @@
               "function": "minecraft:set_count",
               "count": {
                 "min": 1.0,
-                "max": 5.0,
+                "max": 3.0,
                 "type": "minecraft:uniform"
               }
             }
@@ -60,7 +60,7 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 2.0,
+                "min": 1.0,
                 "max": 6.0,
                 "type": "minecraft:uniform"
               }
@@ -100,7 +100,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 3,
+          "weight": 4,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -115,7 +115,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 3,
+          "weight": 4,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -205,7 +205,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 8,
+          "weight": 12,
           "name": "minecraft:stone_sword"
         },
         {
@@ -230,47 +230,47 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 2,
+          "weight": 3,
           "name": "minecraft:stone_pickaxe"
         },
         {
           "type": "minecraft:item",
-          "weight": 2,
+          "weight": 3,
           "name": "minecraft:stone_shovel"
         },
         {
           "type": "minecraft:item",
-          "weight": 8,
+          "weight": 5,
           "name": "minecraft:iron_sword"
         },
         {
           "type": "minecraft:item",
-          "weight": 5,
+          "weight": 3,
           "name": "minecraft:iron_boots"
         },
         {
           "type": "minecraft:item",
-          "weight": 5,
+          "weight": 3,
           "name": "minecraft:iron_chestplate"
         },
         {
           "type": "minecraft:item",
-          "weight": 5,
+          "weight": 3,
           "name": "minecraft:iron_leggings"
         },
         {
           "type": "minecraft:item",
-          "weight": 5,
+          "weight": 3,
           "name": "minecraft:iron_helmet"
         },
         {
           "type": "minecraft:item",
-          "weight": 2,
+          "weight": 1,
           "name": "minecraft:iron_pickaxe"
         },
         {
           "type": "minecraft:item",
-          "weight": 2,
+          "weight": 1,
           "name": "minecraft:iron_shovel"
         }
       ]
