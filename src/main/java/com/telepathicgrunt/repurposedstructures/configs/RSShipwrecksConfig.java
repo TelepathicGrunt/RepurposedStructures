@@ -13,7 +13,7 @@ public class RSShipwrecksConfig implements ConfigData {
     public RSShipwrecksConfig.Blacklists blacklist = new RSShipwrecksConfig.Blacklists();
 
     @ConfigEntry.Gui.CollapsibleObject
-    public RSShipwrecksConfig.Spawnrates spawnrate = new RSShipwrecksConfig.Spawnrates();
+    public MaxChunkDistance maxChunkDistance = new MaxChunkDistance();
 
     public static class Blacklists {
         @ConfigEntry.Gui.Tooltip(count = 0)
@@ -42,14 +42,14 @@ public class RSShipwrecksConfig implements ConfigData {
         public boolean addWarpedShipwreckToModdedBiomes = true;
     }
 
-    public static class Spawnrates {
+    public static class MaxChunkDistance {
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
         @Comment("How rare are End Shipwreck in End Highlands biomes."
                 + "\n1 for spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int endShipwreckSpawnrate = 15;
+        public int endShipwreckMaxChunkDistance = 15;
 
 
         @ConfigEntry.Gui.Tooltip(count = 0)
@@ -57,7 +57,7 @@ public class RSShipwrecksConfig implements ConfigData {
         @Comment("How rare are Nether Bricks Shipwreck in any non-warped or non-crimson Nether biome."
                 + "\n1 for spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int netherBricksShipwreckSpawnrate = 51;
+        public int netherBricksShipwreckMaxChunkDistance = 51;
 
 
         @ConfigEntry.Gui.Tooltip(count = 0)
@@ -65,7 +65,7 @@ public class RSShipwrecksConfig implements ConfigData {
         @Comment("How rare are Crimson Shipwreck in Crimson Nether biome."
                 + "\n1 for spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int crimsonShipwreckSpawnrate = 41;
+        public int crimsonShipwreckMaxChunkDistance = 41;
 
 
         @ConfigEntry.Gui.Tooltip(count = 0)
@@ -73,6 +73,6 @@ public class RSShipwrecksConfig implements ConfigData {
         @Comment("How rare are Warped Shipwreck in Warped Nether biome."
                 + "\n1 for spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int warpedShipwreckSpawnrate = 41;
+        public int warpedShipwreckMaxChunkDistance = 41;
     }
 }

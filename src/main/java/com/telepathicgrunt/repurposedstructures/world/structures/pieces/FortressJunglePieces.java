@@ -127,7 +127,7 @@ public class FortressJunglePieces {
             this.fillWithRandomBlocks(world, boundingBox, 1, 3, 4, 1, 4, 4, iblockstate, iblockstate, false, random);
             this.fillWithRandomBlocks(world, boundingBox, 3, 3, 4, 3, 4, 4, iblockstate, iblockstate, false, random);
 
-            if (RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.lootChestsJF && random.nextInt(5) == 0 && boundingBox.contains(new BlockPos(this.applyXTransform(3, 3), this.applyYTransform(2), this.applyZTransform(3, 3)))) {
+            if (RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.lootChests && random.nextInt(5) == 0 && boundingBox.contains(new BlockPos(this.applyXTransform(3, 3), this.applyYTransform(2), this.applyZTransform(3, 3)))) {
                 this.addChest(world, boundingBox, random, 3, 2, 3, JF_HALLWAY_CHEST_RL);
             }
 
@@ -193,7 +193,7 @@ public class FortressJunglePieces {
             this.fillWithRandomBlocks(world, boundingBox, 1, 3, 4, 1, 4, 4, iblockstate, iblockstate, false, random);
             this.fillWithRandomBlocks(world, boundingBox, 3, 3, 4, 3, 4, 4, iblockstate, iblockstate, false, random);
 
-            if (RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.lootChestsJF && random.nextInt(5) == 0 && boundingBox.contains(new BlockPos(this.applyXTransform(1, 3), this.applyYTransform(2), this.applyZTransform(1, 3)))) {
+            if (RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.lootChests && random.nextInt(5) == 0 && boundingBox.contains(new BlockPos(this.applyXTransform(1, 3), this.applyYTransform(2), this.applyZTransform(1, 3)))) {
                 this.addChest(world, boundingBox, random, 1, 2, 3, JF_HALLWAY_CHEST_RL);
             }
 
@@ -748,7 +748,7 @@ public class FortressJunglePieces {
             this.addBlock(world, getStoneVariantBlockState(Blocks.LAVA.getDefaultState(), random), 6, 5, 6, boundingBox);
             BlockPos blockpos = new BlockPos(this.applyXTransform(6, 6), this.applyYTransform(5), this.applyZTransform(6, 6));
 
-            if (RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.lootChestsJF) {
+            if (RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.lootChests) {
                 this.addChest(world, boundingBox, random, 6, 5, 8, JF_CENTER_CHEST_RL);
             }
 
@@ -1099,7 +1099,7 @@ public class FortressJunglePieces {
 
 
                 chance = rand.nextFloat();
-                float silverfishThreshold = (float) (RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.silverfishSpawnrateJF / 100);
+                float silverfishThreshold = (float) (RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.silverfishSpawnrate / 100);
                 if (chance < silverfishThreshold) {
                     newBlockState = INFESTED_STONE_LOOKUP.get(newBlockState);
                 }
@@ -1499,7 +1499,7 @@ public class FortressJunglePieces {
                 }
             }
 
-            if (RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.lootChestsJF) {
+            if (RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.lootChests) {
                 this.addChest(world, boundingBox, random, 3, 5, 7, FortressJunglePieces.JF_SHRINE_CHEST_RL);
             }
 

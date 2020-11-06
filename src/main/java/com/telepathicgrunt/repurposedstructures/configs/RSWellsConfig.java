@@ -27,55 +27,55 @@ public class RSWellsConfig implements ConfigData {
 
 
     @ConfigEntry.Gui.CollapsibleObject
-    public Spawnrate spawnrate = new Spawnrate();
+    public RarityPerChunk rarityPerChunk = new RarityPerChunk();
 
 
-    public static class Spawnrate {
+    public static class RarityPerChunk {
 
         @ConfigEntry.Gui.Tooltip(count = 0)
     @ConfigEntry.Gui.PrefixText
-        @Comment("Adds Badlands themed wells to Badlands biomes."
+        @Comment("Adds Badlands themed wells to Badlands biomes`."
                 + "\nChanges how often wells attempt to spawn per chunk."
-                + "\nChance of a well generating in a chunk is 1/spawnrate."
+                + "\nChance of a well generating in a chunk is 1/rarityPerChunk."
                 + "\n1 for spawning in every chunk and 10000 for no wells.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 10000)
-        public int badlandsWellSpawnrate = 350;
+        public int badlandsWellRarityPerChunk = 350;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
     @ConfigEntry.Gui.PrefixText
         @Comment("Adds Nether themed wells to Nether biomes."
                 + "\nChanges how often wells attempt to spawn per chunk."
-                + "\nChance of a well generating in a chunk is 1/spawnrate."
+                + "\nChance of a well generating in a chunk is 1/rarityPerChunk."
                 + "\n1 for spawning in every chunk and 10000 for no wells.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 10000)
-        public int netherWellSpawnrate = 350;
+        public int netherWellRarityPerChunk = 350;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
     @ConfigEntry.Gui.PrefixText
         @Comment("Adds Snow themed wells to snowy and icy biomes."
                 + "\nChanges how often wells attempt to spawn per chunk."
-                + "\nChance of a well generating in a chunk is 1/spawnrate."
+                + "\nChance of a well generating in a chunk is 1/rarityPerChunk."
                 + "\n1 for spawning in every chunk and 10000 for no wells.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 10000)
-        public int snowWellSpawnrate = 350;
+        public int snowWellRarityPerChunk = 350;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
     @ConfigEntry.Gui.PrefixText
         @Comment("Adds mossy stone themed wells to Jungles, Dark Oak, and Swamp biomes."
                 + "\nChanges how often wells attempt to spawn per chunk."
-                + "\nChance of a well generating in a chunk is 1/spawnrate."
+                + "\nChance of a well generating in a chunk is 1/rarityPerChunk."
                 + "\n1 for spawning in every chunk and 10000 for no wells.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 10000)
-        public int mossyStoneWellSpawnrate = 350;
+        public int mossyStoneWellRarityPerChunk = 350;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
     @ConfigEntry.Gui.PrefixText
         @Comment("Adds a wood themed wells to Forest and Birch Forest biomes."
                 + "\nChanges how often wells attempt to spawn per chunk."
-                + "\nChance of a well generating in a chunk is 1/spawnrate."
+                + "\nChance of a well generating in a chunk is 1/rarityPerChunk."
                 + "\n1 for spawning in every chunk and 10000 for no wells.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 10000)
-        public int forestWellSpawnrate = 350;
+        public int forestWellRarityPerChunk = 350;
 
     }
 }

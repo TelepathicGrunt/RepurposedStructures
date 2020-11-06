@@ -95,7 +95,7 @@ public class RSMainConfig implements ConfigData {
         @Comment("How rare are Jungle Fortresses."
                 + "\n1 for spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int jungleFortressSpawnrate = 32;
+        public int jungleFortressMaxChunkDistance = 32;
 
         @ConfigEntry.Gui.Tooltip
         @Comment("Add Jungle Fortress to modded jungle biomes.")
@@ -115,11 +115,11 @@ public class RSMainConfig implements ConfigData {
                 + "\nNote: Mossy Stone Bricks block cannot be infested."
                 + "\n0 for no Silverfish Blocks and 100 for max spawnrate.")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
-        public double silverfishSpawnrateJF = 0.5D;
+        public double silverfishSpawnrate = 0.5D;
 
         @ConfigEntry.Gui.Tooltip
         @Comment("Controls whether loot chests spawn or not.")
-        public boolean lootChestsJF = true;
+        public boolean lootChests = true;
 
     }
 
@@ -138,7 +138,7 @@ public class RSMainConfig implements ConfigData {
         @Comment("How rare are Grassy Igloos in Plains and Forests."
                 + "\n1 for spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int grassyIglooSpawnrate = 20;
+        public int grassyIglooMaxChunkDistance = 20;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
@@ -151,7 +151,7 @@ public class RSMainConfig implements ConfigData {
         @Comment("How rare are Stone Igloos in Giant Tree Taiga biomes."
                 + "\n1 for spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int stoneIglooSpawnrate = 20;
+        public int stoneIglooMaxChunkDistance = 20;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText

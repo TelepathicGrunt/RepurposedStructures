@@ -30,7 +30,7 @@ public class RSTemplesConfig implements ConfigData {
         @Comment("How rare are Nether Temples in Nether Wastelands."
                 + "\n1 for spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int netherWastelandTempleSpawnrate = 27;
+        public int netherWastelandTempleMaxChunkDistance = 27;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
@@ -43,7 +43,7 @@ public class RSTemplesConfig implements ConfigData {
         @Comment("How rare are Nether Basalt Temples in Nether Basalt Delta biomes."
                 + "\n1 for spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int netherBasaltTempleSpawnrate = 27;
+        public int netherBasaltTempleMaxChunkDistance = 27;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
@@ -56,7 +56,7 @@ public class RSTemplesConfig implements ConfigData {
         @Comment("How rare are Nether Crimson Temples in Nether Crimson Forest."
                 + "\n1 for spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int netherCrimsonTempleSpawnrate = 27;
+        public int netherCrimsonTempleMaxChunkDistance = 27;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
@@ -69,7 +69,7 @@ public class RSTemplesConfig implements ConfigData {
         @Comment("How rare are Nether Crimson Temples in Nether Warped Forest."
                 + "\n1 for spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int netherWarpedTempleSpawnrate = 27;
+        public int netherWarpedTempleMaxChunkDistance = 27;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
@@ -82,7 +82,7 @@ public class RSTemplesConfig implements ConfigData {
         @Comment("How rare are Nether Soul Temples in Nether Soul Sand Valley."
                 + "\n1 for spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int netherSoulTempleSpawnrate = 27;
+        public int netherSoulTempleMaxChunkDistance = 27;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
@@ -106,7 +106,7 @@ public class RSTemplesConfig implements ConfigData {
         @Comment("How rare are Nether Pyramids in Nether."
                 + "\n1 for spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int netherPyramidSpawnrate = 37;
+        public int netherPyramidMaxChunkDistance = 37;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
@@ -118,7 +118,7 @@ public class RSTemplesConfig implements ConfigData {
         @Comment("How rare are Badlands Pyramid in non-plateau Badlands biomes."
                 + "\n1 for spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int badlandsPyramidSpawnrate = 20;
+        public int badlandsPyramidMaxChunkDistance = 20;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText

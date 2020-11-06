@@ -23,7 +23,7 @@ public class RSDungeonsConfig implements ConfigData {
     public String blacklistedDungeonBiomes = "";
 
     @ConfigEntry.Gui.CollapsibleObject
-    public Spawnrate spawnrate = new Spawnrate();
+    public AttemptsPerChunk attemptsPerChunk = new AttemptsPerChunk();
 
 	@ConfigEntry.Gui.CollapsibleObject
     public MinHeight minHeight = new MinHeight();
@@ -32,7 +32,7 @@ public class RSDungeonsConfig implements ConfigData {
     public MaxHeight maxHeight = new MaxHeight();
 
 
-    public static class Spawnrate {
+    public static class AttemptsPerChunk {
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
         @Comment("Replaces vanilla dungeon in Badlands biomes."
@@ -40,7 +40,7 @@ public class RSDungeonsConfig implements ConfigData {
                 + "\n0 for no Dungeons at all and 1000 for max spawnrate."
                 + "\nNote: When set to 0, Vanilla Dungeons spawns again.")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int badlandsDungeonSpawnrate = 8;
+        public int badlandsDungeonAttemptsPerChunk = 8;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @Comment("Replaces vanilla dungeon in Dark Forest biomes."
@@ -48,7 +48,7 @@ public class RSDungeonsConfig implements ConfigData {
                 + "\n0 for no Dungeons at all and 1000 for max spawnrate."
                 + "\nNote: When set to 0, Vanilla Dungeons spawns again.")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int darkForestDungeonSpawnrate = 8;
+        public int darkForestDungeonAttemptsPerChunk = 8;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @Comment("Replaces vanilla dungeon in Desert biomes."
@@ -56,7 +56,7 @@ public class RSDungeonsConfig implements ConfigData {
                 + "\n0 for no Dungeons at all and 1000 for max spawnrate."
                 + "\nNote: When set to 0, Vanilla Dungeons spawns again.")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int desertDungeonSpawnrate = 8;
+        public int desertDungeonAttemptsPerChunk = 8;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @Comment("Replaces vanilla dungeon in Jungle biomes."
@@ -64,7 +64,7 @@ public class RSDungeonsConfig implements ConfigData {
                 + "\n0 for no Dungeons at all and 1000 for max spawnrate."
                 + "\nNote: When set to 0, Vanilla Dungeons spawns again.")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int jungleDungeonSpawnrate = 8;
+        public int jungleDungeonAttemptsPerChunk = 8;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @Comment("Replaces vanilla dungeon in Mushroom biomes."
@@ -72,7 +72,7 @@ public class RSDungeonsConfig implements ConfigData {
                 + "\n0 for no Dungeons at all and 1000 for max spawnrate."
                 + "\nNote: When set to 0, Vanilla Dungeons spawns again.")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int mushroomDungeonSpawnrate = 8;
+        public int mushroomDungeonAttemptsPerChunk = 8;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @Comment("Replaces vanilla dungeon in icy/snowy biomes."
@@ -80,7 +80,7 @@ public class RSDungeonsConfig implements ConfigData {
                 + "\n0 for no Dungeons at all and 1000 for max spawnrate."
                 + "\nNote: When set to 0, Vanilla Dungeons spawns again.")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int snowDungeonSpawnrate = 8;
+        public int snowDungeonAttemptsPerChunk = 8;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @Comment("Replaces vanilla dungeon in Swamp biomes."
@@ -88,21 +88,21 @@ public class RSDungeonsConfig implements ConfigData {
                 + "\n0 for no Dungeons at all and 1000 for max spawnrate."
                 + "\nNote: When set to 0, Vanilla Dungeons spawns again.")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int swampDungeonSpawnrate = 8;
+        public int swampDungeonAttemptsPerChunk = 8;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @Comment("Add End themed dungeon to biomes outside the Enderdragon island."
                 + "\nSpawn attempts per chunk."
                 + "\n0 for no Dungeons at all and 1000 for max spawnrate.")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int endDungeonSpawnrate = 8;
+        public int endDungeonAttemptsPerChunk = 8;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @Comment("Add Nether themed dungeon to Nether biomes."
                 + "\nSpawn attempts per chunk."
                 + "\n0 for no Dungeons at all and 1000 for max spawnrate.")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int netherDungeonSpawnrate = 8;
+        public int netherDungeonAttemptsPerChunk = 8;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
     @ConfigEntry.Gui.PrefixText
@@ -114,7 +114,7 @@ public class RSDungeonsConfig implements ConfigData {
                 + "\nis on which is unlike the other dungeons from this mod"
                 + "\nas those would normally replace the Vanilla Dungeons.")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int oceanDungeonSpawnrate = 6;
+        public int oceanDungeonAttemptsPerChunk = 6;
 
     }
 

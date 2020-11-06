@@ -28,7 +28,7 @@ public class RSOutpostsConfig implements ConfigData {
         @Comment("How rare are Nether Brick Outposts in non-warped Nether biomes."
                 + "\n1 for spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int netherBrickOutpostSpawnrate = 34;
+        public int netherBrickOutpostMaxChunkDistance = 34;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
@@ -41,7 +41,7 @@ public class RSOutpostsConfig implements ConfigData {
         @Comment("How rare are Warped Outposts in Warped Nether biomes."
                 + "\n1 for spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int warpedOutpostSpawnrate = 34;
+        public int warpedOutpostMaxChunkDistance = 34;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
@@ -54,7 +54,7 @@ public class RSOutpostsConfig implements ConfigData {
         @Comment("How rare are Crimson Outposts in Warped Nether biomes."
                 + "\n1 for spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int crimsonOutpostSpawnrate = 34;
+        public int crimsonOutpostMaxChunkDistance = 34;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText

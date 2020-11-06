@@ -180,55 +180,55 @@ public class RSAddFeaturesAndStructures {
 
         addToBiome("jungle_dungeon",
                 (context) -> genericDungeonCheck(context)
-                        && (RepurposedStructures.RSAllConfig.RSDungeonsConfig.spawnrate.jungleDungeonSpawnrate != 0
+                        && (RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.jungleDungeonAttemptsPerChunk != 0
                             && context.getBiome().getCategory() == Category.JUNGLE),
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.JUNGLE_DUNGEONS));
 
         addToBiome("badlands_dungeon",
                 (context) -> genericDungeonCheck(context)
-                        && (RepurposedStructures.RSAllConfig.RSDungeonsConfig.spawnrate.badlandsDungeonSpawnrate != 0
+                        && (RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.badlandsDungeonAttemptsPerChunk != 0
                             && context.getBiome().getCategory() == Category.MESA),
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.BADLANDS_DUNGEONS));
 
         addToBiome("dark_forest_dungeons",
                 (context) -> genericDungeonCheck(context)
-                        && (RepurposedStructures.RSAllConfig.RSDungeonsConfig.spawnrate.darkForestDungeonSpawnrate != 0
+                        && (RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.darkForestDungeonAttemptsPerChunk != 0
                             && context.getBiomeKey().getValue().getPath().contains("dark_forest")),
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.DARK_FOREST_DUNGEONS));
 
         addToBiome("desert_dungeons",
                 (context) -> genericDungeonCheck(context)
-                        && (RepurposedStructures.RSAllConfig.RSDungeonsConfig.spawnrate.desertDungeonSpawnrate != 0
+                        && (RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.desertDungeonAttemptsPerChunk != 0
                             && context.getBiome().getCategory() == Category.DESERT),
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.DESERT_DUNGEONS));
 
         addToBiome("mushroom_dungeons",
                 (context) -> genericDungeonCheck(context)
-                        && (RepurposedStructures.RSAllConfig.RSDungeonsConfig.spawnrate.mushroomDungeonSpawnrate != 0
+                        && (RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.mushroomDungeonAttemptsPerChunk != 0
                             && context.getBiome().getCategory() == Category.MUSHROOM),
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.MUSHROOM_DUNGEONS));
 
         addToBiome("swamp_dungeons",
                 (context) -> genericDungeonCheck(context)
-                        && (RepurposedStructures.RSAllConfig.RSDungeonsConfig.spawnrate.swampDungeonSpawnrate != 0
+                        && (RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.swampDungeonAttemptsPerChunk != 0
                             && context.getBiome().getCategory() == Category.SWAMP),
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.SWAMP_DUNGEONS));
 
         addToBiome("snow_dungeons",
                 (context) -> genericDungeonCheck(context)
-                        && (RepurposedStructures.RSAllConfig.RSDungeonsConfig.spawnrate.snowDungeonSpawnrate != 0
+                        && (RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.snowDungeonAttemptsPerChunk != 0
                             && context.getBiome().getCategory() == Category.ICY),
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.SNOW_DUNGEONS));
 
         addToBiome("nether_dungeons",
                 (context) -> genericDungeonCheck(context)
-                        && (RepurposedStructures.RSAllConfig.RSDungeonsConfig.spawnrate.netherDungeonSpawnrate != 0
+                        && (RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.netherDungeonAttemptsPerChunk != 0
                         && context.getBiome().getCategory() == Category.NETHER),
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.NETHER_DUNGEONS));
 
         addToBiome("end_dungeons",
                 (context) -> genericDungeonCheck(context)
-                        && (RepurposedStructures.RSAllConfig.RSDungeonsConfig.spawnrate.endDungeonSpawnrate != 0
+                        && (RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.endDungeonAttemptsPerChunk != 0
                             && (context.getBiome().getCategory() == Category.THEEND
                                 && !context.getBiomeKey().getValue().equals(new Identifier("minecraft:the_end"))
                                 && !context.getBiomeKey().getValue().equals(new Identifier("minecraft:small_end_islands")))),
@@ -236,7 +236,7 @@ public class RSAddFeaturesAndStructures {
 
         addToBiome("ocean_dungeons",
                 (context) -> genericDungeonCheck(context)
-                        && (RepurposedStructures.RSAllConfig.RSDungeonsConfig.spawnrate.oceanDungeonSpawnrate != 0
+                        && (RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.oceanDungeonAttemptsPerChunk != 0
                             && context.getBiome().getCategory() == Category.OCEAN)
                         && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                             || RepurposedStructures.RSAllConfig.RSDungeonsConfig.addDungeonsToModdedBiomes),
@@ -269,25 +269,25 @@ public class RSAddFeaturesAndStructures {
 
         addToBiome("badlands_well",
                 (context) -> genericWellCheck(context)
-                        && (RepurposedStructures.RSAllConfig.RSWellsConfig.spawnrate.badlandsWellSpawnrate != 10000
+                        && (RepurposedStructures.RSAllConfig.RSWellsConfig.rarityPerChunk.badlandsWellRarityPerChunk != 10000
                             && context.getBiome().getCategory() == Category.MESA),
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.SURFACE_STRUCTURES, RSConfiguredFeatures.BADLANDS_WELL));
 
         addToBiome("nether_well",
                 (context) -> genericWellCheck(context)
-                        && (RepurposedStructures.RSAllConfig.RSWellsConfig.spawnrate.netherWellSpawnrate != 10000
+                        && (RepurposedStructures.RSAllConfig.RSWellsConfig.rarityPerChunk.netherWellRarityPerChunk != 10000
                             && context.getBiome().getCategory() == Category.NETHER),
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.SURFACE_STRUCTURES, RSConfiguredFeatures.NETHER_WELL));
 
         addToBiome("snow_well",
                 (context) -> genericWellCheck(context)
-                        && (RepurposedStructures.RSAllConfig.RSWellsConfig.spawnrate.snowWellSpawnrate != 10000
+                        && (RepurposedStructures.RSAllConfig.RSWellsConfig.rarityPerChunk.snowWellRarityPerChunk != 10000
                             && (context.getBiome().getCategory() == Category.ICY || context.getBiomeKey().getValue().getPath().contains("snow"))),
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.SURFACE_STRUCTURES, RSConfiguredFeatures.SNOW_WELL));
 
         addToBiome("mossy_stone_well",
                 (context) -> genericWellCheck(context)
-                        && (RepurposedStructures.RSAllConfig.RSWellsConfig.spawnrate.mossyStoneWellSpawnrate != 10000
+                        && (RepurposedStructures.RSAllConfig.RSWellsConfig.rarityPerChunk.mossyStoneWellRarityPerChunk != 10000
                             && (context.getBiome().getCategory() == Category.SWAMP
                                 || context.getBiome().getCategory() == Category.JUNGLE
                                 || context.getBiomeKey().getValue().getPath().contains("dark_forest")
@@ -296,7 +296,7 @@ public class RSAddFeaturesAndStructures {
 
         addToBiome("forest_well",
                 (context) -> genericWellCheck(context)
-                        && (RepurposedStructures.RSAllConfig.RSWellsConfig.spawnrate.forestWellSpawnrate != 10000
+                        && (RepurposedStructures.RSAllConfig.RSWellsConfig.rarityPerChunk.forestWellRarityPerChunk != 10000
                             && (context.getBiome().getCategory() == Category.FOREST
                                 && !(context.getBiomeKey().getValue().getPath().contains("dark_forest")
                                     || context.getBiomeKey().getValue().getPath().contains("dark_oak")))),
@@ -390,7 +390,7 @@ public class RSAddFeaturesAndStructures {
                 (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.STRONGHOLD).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
                         && isBiomeAllowed("stronghold", context.getBiomeKey().getValue())
                         && (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.allowStonebrickStronghold
-                            && RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.stonebrickStrongholdSpawnrate != 1001
+                            && RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.stonebrickStrongholdMaxChunkDistance != 1001
                             && context.getBiome().getCategory() != Category.NETHER
                             && (context.getBiome().getGenerationSettings().hasStructureFeature(StructureFeature.STRONGHOLD)
                                 || (!context.getBiomeKey().getValue().getNamespace().equals("minecraft")
@@ -404,7 +404,7 @@ public class RSAddFeaturesAndStructures {
         addToBiome("nether_stronghold",
                 (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.STRONGHOLD).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
                         && isBiomeAllowed("stronghold", context.getBiomeKey().getValue())
-                        && RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdSpawnrate != 1001
+                        && RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdMaxChunkDistance != 1001
                         && context.getBiome().getCategory() == Category.NETHER
                         && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                             || RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.addNetherStrongholdToModdedBiomes),
@@ -434,7 +434,7 @@ public class RSAddFeaturesAndStructures {
                 (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NETHER_OUTPOST).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
                         && isBiomeAllowed("outpost", context.getBiomeKey().getValue())
                         && context.getBiome().getCategory() == Category.NETHER
-                        && (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.crimsonOutpostSpawnrate != 1001
+                        && (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.crimsonOutpostMaxChunkDistance != 1001
                             && context.getBiomeKey().getValue().getPath().contains("crimson")
                             && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                                 || RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.addCrimsonOutpostToModdedBiomes)),
@@ -444,7 +444,7 @@ public class RSAddFeaturesAndStructures {
                 (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NETHER_OUTPOST).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
                         && isBiomeAllowed("outpost", context.getBiomeKey().getValue())
                         && context.getBiome().getCategory() == Category.NETHER
-                        && (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.warpedOutpostSpawnrate != 1001
+                        && (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.warpedOutpostMaxChunkDistance != 1001
                             && context.getBiomeKey().getValue().getPath().contains("warped")
                             && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                                 || RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.addWarpedOutpostToModdedBiomes)),
@@ -455,7 +455,7 @@ public class RSAddFeaturesAndStructures {
                         && isBiomeAllowed("outpost", context.getBiomeKey().getValue())
                         && context.getBiome().getCategory() == Category.NETHER
                         && (!context.getBiomeKey().getValue().getPath().contains("crimson") && !context.getBiomeKey().getValue().getPath().contains("warped"))
-                        && (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.netherBrickOutpostSpawnrate != 1001
+                        && (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.netherBrickOutpostMaxChunkDistance != 1001
                             && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                                 || RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.addNetherBrickOutpostToModdedBiomes)),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.NETHER_BRICK_OUTPOST));
@@ -470,7 +470,7 @@ public class RSAddFeaturesAndStructures {
         addToBiome("end_shipwreck",
                 (context) -> isBiomeAllowed("shipwreck", context.getBiomeKey().getValue())
                         && context.getBiome().getCategory() == Category.THEEND
-                        && (RepurposedStructures.RSAllConfig.RSShipwrecksConfig.spawnrate.endShipwreckSpawnrate != 1001
+                        && (RepurposedStructures.RSAllConfig.RSShipwrecksConfig.maxChunkDistance.endShipwreckMaxChunkDistance != 1001
                             && (context.getBiomeKey().getValue().equals(new Identifier("minecraft:end_highlands"))
                                 || (!context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                                     && RepurposedStructures.RSAllConfig.RSShipwrecksConfig.blacklist.addEndShipwreckToModdedBiomes))),
@@ -481,7 +481,7 @@ public class RSAddFeaturesAndStructures {
         addToBiome("crimson_shipwreck",
                 (context) -> isBiomeAllowed("shipwreck", context.getBiomeKey().getValue())
                         && context.getBiome().getCategory() == Category.NETHER
-                        && (RepurposedStructures.RSAllConfig.RSShipwrecksConfig.spawnrate.crimsonShipwreckSpawnrate != 1001
+                        && (RepurposedStructures.RSAllConfig.RSShipwrecksConfig.maxChunkDistance.crimsonShipwreckMaxChunkDistance != 1001
                             && context.getBiomeKey().getValue().getPath().contains("crimson")
                             && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                                 || RepurposedStructures.RSAllConfig.RSShipwrecksConfig.blacklist.addCrimsonShipwreckToModdedBiomes)),
@@ -490,7 +490,7 @@ public class RSAddFeaturesAndStructures {
         addToBiome("crimson_shipwreck",
                 (context) -> isBiomeAllowed("shipwreck", context.getBiomeKey().getValue())
                         && context.getBiome().getCategory() == Category.NETHER
-                        && (RepurposedStructures.RSAllConfig.RSShipwrecksConfig.spawnrate.warpedShipwreckSpawnrate != 1001
+                        && (RepurposedStructures.RSAllConfig.RSShipwrecksConfig.maxChunkDistance.warpedShipwreckMaxChunkDistance != 1001
                             && context.getBiomeKey().getValue().getPath().contains("warped")
                             && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                                 || RepurposedStructures.RSAllConfig.RSShipwrecksConfig.blacklist.addWarpedShipwreckToModdedBiomes)),
@@ -501,7 +501,7 @@ public class RSAddFeaturesAndStructures {
                         && isBiomeAllowed("shipwreck", context.getBiomeKey().getValue())
                         && context.getBiome().getCategory() == Category.NETHER
                         && (!context.getBiomeKey().getValue().getPath().contains("crimson") && !context.getBiomeKey().getValue().getPath().contains("warped"))
-                        && (RepurposedStructures.RSAllConfig.RSShipwrecksConfig.spawnrate.netherBricksShipwreckSpawnrate != 1001
+                        && (RepurposedStructures.RSAllConfig.RSShipwrecksConfig.maxChunkDistance.netherBricksShipwreckMaxChunkDistance != 1001
                             && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                                 || RepurposedStructures.RSAllConfig.RSShipwrecksConfig.blacklist.addNetherBricksShipwreckToModdedBiomes)),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.NETHER_BRICKS_SHIPWRECK));
@@ -517,7 +517,7 @@ public class RSAddFeaturesAndStructures {
         addToBiome("jungle_fortress",
                 (context) -> isBiomeAllowed("fortress", context.getBiomeKey().getValue())
                         && context.getBiome().getCategory() == Category.JUNGLE
-                        && (RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.jungleFortressSpawnrate != 1001
+                        && (RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.jungleFortressMaxChunkDistance != 1001
                         && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                             || RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.addJungleFortressToModdedBiomes)),
                 context -> {
@@ -535,7 +535,7 @@ public class RSAddFeaturesAndStructures {
         addToBiome("nether_basalt_temple",
                 (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NETHER_TEMPLE).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
                         && isBiomeAllowed("temple", context.getBiomeKey().getValue())
-                        && (RepurposedStructures.RSAllConfig.RSTemplesConfig.temples.netherBasaltTempleSpawnrate != 1001
+                        && (RepurposedStructures.RSAllConfig.RSTemplesConfig.temples.netherBasaltTempleMaxChunkDistance != 1001
                             && context.getBiome().getCategory() == Category.NETHER
                             && (context.getBiomeKey().getValue().getPath().contains("basalt")
                                 || context.getBiomeKey().getValue().getPath().contains("blackstone"))
@@ -546,7 +546,7 @@ public class RSAddFeaturesAndStructures {
         addToBiome("nether_crimson_temple",
                 (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NETHER_TEMPLE).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
                         && isBiomeAllowed("temple", context.getBiomeKey().getValue())
-                        && (RepurposedStructures.RSAllConfig.RSTemplesConfig.temples.netherCrimsonTempleSpawnrate != 1001
+                        && (RepurposedStructures.RSAllConfig.RSTemplesConfig.temples.netherCrimsonTempleMaxChunkDistance != 1001
                             && context.getBiome().getCategory() == Category.NETHER
                             && context.getBiomeKey().getValue().getPath().contains("crimson")
                             && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
@@ -556,7 +556,7 @@ public class RSAddFeaturesAndStructures {
         addToBiome("nether_warped_temple",
                 (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NETHER_TEMPLE).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
                         && isBiomeAllowed("temple", context.getBiomeKey().getValue())
-                        && (RepurposedStructures.RSAllConfig.RSTemplesConfig.temples.netherWarpedTempleSpawnrate != 1001
+                        && (RepurposedStructures.RSAllConfig.RSTemplesConfig.temples.netherWarpedTempleMaxChunkDistance != 1001
                             && context.getBiome().getCategory() == Category.NETHER
                             && context.getBiomeKey().getValue().getPath().contains("warped")
                             && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
@@ -566,7 +566,7 @@ public class RSAddFeaturesAndStructures {
         addToBiome("nether_soul_temple",
                 (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NETHER_TEMPLE).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
                         && isBiomeAllowed("temple", context.getBiomeKey().getValue())
-                        && (RepurposedStructures.RSAllConfig.RSTemplesConfig.temples.netherSoulTempleSpawnrate != 1001
+                        && (RepurposedStructures.RSAllConfig.RSTemplesConfig.temples.netherSoulTempleMaxChunkDistance != 1001
                             && context.getBiome().getCategory() == Category.NETHER
                             && context.getBiomeKey().getValue().getPath().contains("soul")
                             && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
@@ -581,7 +581,7 @@ public class RSAddFeaturesAndStructures {
                             && !context.getBiomeKey().getValue().getPath().contains("soul")
                             && !(context.getBiomeKey().getValue().getPath().contains("basalt")
                                 || context.getBiomeKey().getValue().getPath().contains("blackstone")))
-                        && (RepurposedStructures.RSAllConfig.RSTemplesConfig.temples.netherWastelandTempleSpawnrate != 1001
+                        && (RepurposedStructures.RSAllConfig.RSTemplesConfig.temples.netherWastelandTempleMaxChunkDistance != 1001
                             && context.getBiome().getCategory() == Category.NETHER
                             && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                                 || RepurposedStructures.RSAllConfig.RSTemplesConfig.temples.addNetherWastelandTempleToModdedBiomes)),
@@ -597,7 +597,7 @@ public class RSAddFeaturesAndStructures {
 
         addToBiome("nether_pyramid",
                 (context) -> isBiomeAllowed("temple", context.getBiomeKey().getValue())
-                        && (RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.netherPyramidSpawnrate != 1001
+                        && (RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.netherPyramidMaxChunkDistance != 1001
                             && context.getBiome().getCategory() == Category.NETHER
                             && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                                 || RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.addNetherPyramidToModdedBiomes)),
@@ -605,7 +605,7 @@ public class RSAddFeaturesAndStructures {
 
         addToBiome("badlands_pyramid",
                 (context) -> isBiomeAllowed("temple", context.getBiomeKey().getValue())
-                        && (RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.badlandsPyramidSpawnrate != 1001
+                        && (RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.badlandsPyramidMaxChunkDistance != 1001
                             && context.getBiome().getCategory() == Category.MESA
                             && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                                 || RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.addBadlandsPyramidToModdedBiomes)),
@@ -621,7 +621,7 @@ public class RSAddFeaturesAndStructures {
 
         addToBiome("grassy_igloo",
                 (context) -> isBiomeAllowed("igloo", context.getBiomeKey().getValue())
-                        && (RepurposedStructures.RSAllConfig.RSMainConfig.igloos.grassyIglooSpawnrate != 1001
+                        && (RepurposedStructures.RSAllConfig.RSMainConfig.igloos.grassyIglooMaxChunkDistance != 1001
                         && (context.getBiome().getCategory() == Category.FOREST || context.getBiome().getCategory() == Category.PLAINS)
                         && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                             || RepurposedStructures.RSAllConfig.RSMainConfig.igloos.addGrassyIglooToModdedBiomes)),
@@ -629,7 +629,7 @@ public class RSAddFeaturesAndStructures {
 
         addToBiome("stone_igloo",
                 (context) -> isBiomeAllowed("igloo", context.getBiomeKey().getValue())
-                        && (RepurposedStructures.RSAllConfig.RSMainConfig.igloos.stoneIglooSpawnrate != 1001
+                        && (RepurposedStructures.RSAllConfig.RSMainConfig.igloos.stoneIglooMaxChunkDistance != 1001
                         && (context.getBiome().getCategory() == Category.TAIGA && context.getBiomeKey().getValue().getPath().contains("giant"))
                         && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                             || RepurposedStructures.RSAllConfig.RSMainConfig.igloos.addStoneIglooToModdedBiomes)),
@@ -645,7 +645,7 @@ public class RSAddFeaturesAndStructures {
         addToBiome("badlands_village",
                 (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.VILLAGE).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
                         && isBiomeAllowed("village", context.getBiomeKey().getValue())
-                        && (RepurposedStructures.RSAllConfig.RSVillagesConfig.badlandsVillageSpawnrate != 1001
+                        && (RepurposedStructures.RSAllConfig.RSVillagesConfig.badlandsVillageMaxChunkDistance != 1001
                         && (context.getBiome().getCategory() == Category.MESA && context.getBiomeKey().getValue().getPath().contains("plateau"))
                         && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                             || RepurposedStructures.RSAllConfig.RSVillagesConfig.addVillagesToModdedBiomes)),
@@ -654,7 +654,7 @@ public class RSAddFeaturesAndStructures {
         addToBiome("birch_village",
                 (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.VILLAGE).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
                         && isBiomeAllowed("village", context.getBiomeKey().getValue())
-                        && (RepurposedStructures.RSAllConfig.RSVillagesConfig.birchVillageSpawnrate != 1001
+                        && (RepurposedStructures.RSAllConfig.RSVillagesConfig.birchVillageMaxChunkDistance != 1001
                         && context.getBiomeKey().getValue().getPath().contains("birch")
                         && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                             || RepurposedStructures.RSAllConfig.RSVillagesConfig.addVillagesToModdedBiomes)),
@@ -663,7 +663,7 @@ public class RSAddFeaturesAndStructures {
         addToBiome("dark_forest_village",
                 (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.VILLAGE).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
                         && isBiomeAllowed("village", context.getBiomeKey().getValue())
-                        && (RepurposedStructures.RSAllConfig.RSVillagesConfig.darkForestVillageSpawnrate != 1001
+                        && (RepurposedStructures.RSAllConfig.RSVillagesConfig.darkForestVillageMaxChunkDistance != 1001
                         && context.getBiomeKey().getValue().getPath().contains("dark_forest")
                         && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                             || RepurposedStructures.RSAllConfig.RSVillagesConfig.addVillagesToModdedBiomes)),
@@ -672,7 +672,7 @@ public class RSAddFeaturesAndStructures {
         addToBiome("jungle_village",
                 (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.VILLAGE).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
                         && isBiomeAllowed("village", context.getBiomeKey().getValue())
-                        && (RepurposedStructures.RSAllConfig.RSVillagesConfig.jungleVillageSpawnrate != 1001
+                        && (RepurposedStructures.RSAllConfig.RSVillagesConfig.jungleVillageMaxChunkDistance != 1001
                         && context.getBiome().getCategory() == Category.JUNGLE
                         && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                             || RepurposedStructures.RSAllConfig.RSVillagesConfig.addVillagesToModdedBiomes)),
@@ -684,7 +684,7 @@ public class RSAddFeaturesAndStructures {
         addToBiome("swamp_village",
                 (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.VILLAGE).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
                         && isBiomeAllowed("village", context.getBiomeKey().getValue())
-                        && (RepurposedStructures.RSAllConfig.RSVillagesConfig.swampVillageSpawnrate != 1001
+                        && (RepurposedStructures.RSAllConfig.RSVillagesConfig.swampVillageMaxChunkDistance != 1001
                         && context.getBiome().getCategory() == Category.SWAMP
                         && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                             || RepurposedStructures.RSAllConfig.RSVillagesConfig.addVillagesToModdedBiomes)),
@@ -697,7 +697,7 @@ public class RSAddFeaturesAndStructures {
         addToBiome("mountains_village",
                 (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.VILLAGE).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
                         && isBiomeAllowed("village", context.getBiomeKey().getValue())
-                        && (RepurposedStructures.RSAllConfig.RSVillagesConfig.mountainsVillageSpawnrate != 1001
+                        && (RepurposedStructures.RSAllConfig.RSVillagesConfig.mountainsVillageMaxChunkDistance != 1001
                         && context.getBiome().getCategory() == Category.EXTREME_HILLS
                         && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                         || RepurposedStructures.RSAllConfig.RSVillagesConfig.addVillagesToModdedBiomes)),
@@ -706,7 +706,7 @@ public class RSAddFeaturesAndStructures {
         addToBiome("giant_taiga_village",
                 (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.VILLAGE).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
                         && isBiomeAllowed("village", context.getBiomeKey().getValue())
-                        && (RepurposedStructures.RSAllConfig.RSVillagesConfig.giantTaigaVillageSpawnrate != 1001
+                        && (RepurposedStructures.RSAllConfig.RSVillagesConfig.giantTaigaVillageMaxChunkDistance != 1001
                         && ((context.getBiomeKey().getValue().equals(new Identifier("minecraft:giant_spruce_taiga"))
                                 || context.getBiomeKey().getValue().equals(new Identifier("minecraft:giant_tree_taiga")))
                             || (!context.getBiomeKey().getValue().getNamespace().equals("minecraft")
@@ -721,7 +721,7 @@ public class RSAddFeaturesAndStructures {
         addToBiome("crimson_village",
                 (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.VILLAGE).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
                         && isBiomeAllowed("village", context.getBiomeKey().getValue())
-                        && (RepurposedStructures.RSAllConfig.RSVillagesConfig.crimsonVillageSpawnrate != 1001
+                        && (RepurposedStructures.RSAllConfig.RSVillagesConfig.crimsonVillageMaxChunkDistance != 1001
                         && (context.getBiome().getCategory() == Category.NETHER && context.getBiomeKey().getValue().getPath().contains("crimson"))
                         && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                             || RepurposedStructures.RSAllConfig.RSVillagesConfig.addVillagesToModdedBiomes)),
@@ -731,7 +731,7 @@ public class RSAddFeaturesAndStructures {
         addToBiome("warped_village",
                 (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.VILLAGE).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
                         && isBiomeAllowed("village", context.getBiomeKey().getValue())
-                        && (RepurposedStructures.RSAllConfig.RSVillagesConfig.warpedVillageSpawnrate != 1001
+                        && (RepurposedStructures.RSAllConfig.RSVillagesConfig.warpedVillageMaxChunkDistance != 1001
                         && (context.getBiome().getCategory() == Category.NETHER && context.getBiomeKey().getValue().getPath().contains("warped"))
                         && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                             || RepurposedStructures.RSAllConfig.RSVillagesConfig.addVillagesToModdedBiomes)),

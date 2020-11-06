@@ -87,7 +87,7 @@ public class RSStrongholdsConfig implements ConfigData
 		@Comment("How rare are Stonebrick-styled Strongholds."
 				+ "\n1 for spawning in most chunks and 1001 for no spawn.")
 		@ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-		public int stonebrickStrongholdSpawnrate = 85;
+		public int stonebrickStrongholdMaxChunkDistance = 85;
 
 		@ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
@@ -104,7 +104,7 @@ public class RSStrongholdsConfig implements ConfigData
 				+ "\n1 for spawning in most chunks and 1001 for no spawn."
 				+ "\nNote: Eyes of Ender will work and show the closest Nether Stronghold too.")
 		@ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-		public int netherStrongholdSpawnrate = 85;
+		public int netherStrongholdMaxChunkDistance = 85;
 
 		@ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
