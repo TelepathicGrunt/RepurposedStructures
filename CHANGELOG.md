@@ -28,9 +28,13 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ##### Fortresses:
 
+- Jungle Fortresses now need to be fully enclosed in a jungle category biome to spawn.
+
 - Increased chance of a hallway having a chest in Jungle Fortresses from
   1/9th chance to 1/5th chance. Nether Fortress is 1/3rd chance for chest 
   in hallway for reference.
+
+- Nerfed Jungle Fortress chest loot a bit
 
 ##### Misc:
 
