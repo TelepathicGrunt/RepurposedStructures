@@ -15,7 +15,7 @@ public class RSStrongholdsConfig
 		public ConfigValueListener<Boolean> lootChests;
 		public ConfigValueListener<Boolean> allowExtraSpawners;
 
-		public ConfigValueListener<Boolean> allowStonebrickStronghold;
+		public ConfigValueListener<Boolean> allowStonebrickStrongholdToVanillaBiomes;
 		public ConfigValueListener<Boolean> addStonebrickStrongholdToModdedBiomes;
 		public ConfigValueListener<Integer> stonebrickStrongholdMaxChunkDistance;
 		public ConfigValueListener<Integer> stonebrickStrongholdMinHeight;
@@ -65,16 +65,18 @@ public class RSStrongholdsConfig
 					.define("lootChestsSH", true));
 
 				builder.push("Stonebrick");
-					allowStonebrickStronghold = subscriber.subscribe(builder
-						.comment("\r\nStonebrick-styled Stronghold replaces vanilla Strongholds in any" +
-								"\nbiome that has it. If off, vanilla Strongholds will generate" +
-								"\nonce again but Nether Strongholds will still be active.\r\n")
-						.translation("repurposedstructures.config.stronghold.allowstonebrickstronghold")
-						.define("allowStonebrickStronghold", true));
+					allowStonebrickStrongholdToVanillaBiomes = subscriber.subscribe(builder
+						.comment("\r\nAdd Stonebrick-styled Stronghold which replaces vanilla Strongholds in any" +
+								"\nvanilla non-Nether biome. If allowStonebrickStrongholdToVanillaBiomes is" +
+								"\noff, vanilla Strongholds will generate again but Repurposed Structures's" +
+								"\nNether Strongholds will still be active.\r\n")
+						.translation("repurposedstructures.config.stronghold.allowstonebrickstrongholdtovanillabiomes")
+						.define("allowStonebrickStrongholdToVanillaBiomes", true));
 
 					addStonebrickStrongholdToModdedBiomes = subscriber.subscribe(builder
-						.comment("\r\nAdd Stonebrick-styled Stronghold to all modded non-Nether" +
-								"\nbiomes that doesn't have vanilla Strongholds.\r\n")
+						.comment("\r\nAdd Stonebrick-styled Stronghold to all modded non-Nether biomes" +
+								"\neven if they have don't have vanilla Strongholds. It will replace" +
+								"\nthe vanilla Strongholds in those biomes if this option is on.\r\n")
 						.translation("repurposedstructures.config.stronghold.addstonebrickstrongholdtomoddedbiomes")
 						.define("addStonebrickStrongholdToModdedBiomes", true));
 

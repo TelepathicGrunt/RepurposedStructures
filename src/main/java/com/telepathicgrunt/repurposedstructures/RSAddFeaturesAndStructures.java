@@ -20,6 +20,7 @@ import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.jigsaw.JigsawPattern;
 import net.minecraft.world.gen.feature.jigsaw.JigsawPiece;
 import net.minecraft.world.gen.feature.structure.Structure;
+import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.settings.StructureSeparationSettings;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
@@ -298,17 +299,22 @@ public class RSAddFeaturesAndStructures {
 
     public static void addStrongholds(BiomeLoadingEvent event) {
 
-        if (RepurposedStructures.RSStrongholdsConfig.allowStonebrickStronghold.get() &&
-                RepurposedStructures.RSStrongholdsConfig.stonebrickStrongholdMaxChunkDistance.get() != 1001 &&
-                event.getCategory() != Category.NETHER &&
-                (event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.STRONGHOLD)) ||
-                        (!event.getName().getNamespace().equals("minecraft") && RepurposedStructures.RSStrongholdsConfig.addStonebrickStrongholdToModdedBiomes.get()))) {
+        if (RepurposedStructures.RSStrongholdsConfig.stonebrickStrongholdMaxChunkDistance.get() != 1001 &&
+            event.getCategory() != Category.NETHER &&
+                ((RepurposedStructures.RSStrongholdsConfig.allowStonebrickStrongholdToVanillaBiomes.get() &&
+                    event.getName().getNamespace().equals("minecraft") &&
+                    event.getGeneration().getStructures().stream().anyMatch(structureFeatureSupplier -> structureFeatureSupplier.get().feature.equals(Structure.STRONGHOLD))) ||
+                (RepurposedStructures.RSStrongholdsConfig.addStonebrickStrongholdToModdedBiomes.get() &&
+                    !event.getName().getNamespace().equals("minecraft"))))
+        {
 
             //replace vanilla stronghold with ours if vanilla's is present
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.STONEBRICK_STRONGHOLD);
 
             event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION)
                     .add(() -> RSConfiguredFeatures.STONEBRICK_STRONGHOLD_CHAINS);
+
+            event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.STRONGHOLD));
         }
 
         else if (RepurposedStructures.RSStrongholdsConfig.netherStrongholdMaxChunkDistance.get() != 1001 && event.getCategory() == Category.NETHER &&
