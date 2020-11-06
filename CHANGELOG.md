@@ -26,6 +26,12 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Fixed addWarpedShipwreckToModdedBiomes config not working.
 
+##### Fortresses:
+
+- Increased chance of a hallway having a chest in Jungle Fortresses from
+  1/9th chance to 1/5th chance. Nether Fortress is 1/3rd chance for chest 
+  in hallway for reference.
+
 ##### Misc:
 
 - Removed logo blur from logo in mod list

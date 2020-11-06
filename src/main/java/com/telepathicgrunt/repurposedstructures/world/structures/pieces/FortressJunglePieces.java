@@ -129,7 +129,7 @@ public class FortressJunglePieces {
             this.fillWithRandomBlocks(world, boundingBox, 1, 3, 4, 1, 4, 4, iblockstate, iblockstate, false, random);
             this.fillWithRandomBlocks(world, boundingBox, 3, 3, 4, 3, 4, 4, iblockstate, iblockstate, false, random);
 
-            if (RepurposedStructures.RSMainConfig.lootChestsJF.get() && random.nextInt(9) == 0 && boundingBox.isVecInside(new BlockPos(this.getXWithOffset(3, 3), this.getYWithOffset(2), this.getZWithOffset(3, 3)))) {
+            if (RepurposedStructures.RSMainConfig.lootChestsJF.get() && random.nextInt(5) == 0 && boundingBox.isVecInside(new BlockPos(this.getXWithOffset(3, 3), this.getYWithOffset(2), this.getZWithOffset(3, 3)))) {
                 this.generateChest(world, boundingBox, random, 3, 2, 3, JF_HALLWAY_CHEST_RL);
             }
 
@@ -196,7 +196,7 @@ public class FortressJunglePieces {
             this.fillWithRandomBlocks(world, boundingBox, 1, 3, 4, 1, 4, 4, iblockstate, iblockstate, false, random);
             this.fillWithRandomBlocks(world, boundingBox, 3, 3, 4, 3, 4, 4, iblockstate, iblockstate, false, random);
 
-            if (RepurposedStructures.RSMainConfig.lootChestsJF.get() && random.nextInt(9) == 0 && boundingBox.isVecInside(new BlockPos(this.getXWithOffset(1, 3), this.getYWithOffset(2), this.getZWithOffset(1, 3)))) {
+            if (RepurposedStructures.RSMainConfig.lootChestsJF.get() && random.nextInt(5) == 0 && boundingBox.isVecInside(new BlockPos(this.getXWithOffset(1, 3), this.getYWithOffset(2), this.getZWithOffset(1, 3)))) {
                 this.generateChest(world, boundingBox, random, 1, 2, 3, JF_HALLWAY_CHEST_RL);
             }
 
