@@ -90,71 +90,61 @@ public class RSAddFeaturesAndStructures {
     public static void addMineshafts() {
 
         addToBiome("birch_mineshaft",
-                (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.MINESHAFT).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
-                        && isBiomeAllowed("mineshaft", context.getBiomeKey().getValue())
+                (context) -> genericMineshaftCheck(context)
                         && (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.birchMineshaftSpawnrate != 0
                             && context.getBiomeKey().getValue().getPath().contains("birch")),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.BIRCH_MINESHAFT));
 
         addToBiome("jungle_mineshaft",
-                (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.MINESHAFT).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
-                        && isBiomeAllowed("mineshaft", context.getBiomeKey().getValue())
+                (context) -> genericMineshaftCheck(context)
                         && (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.jungleMineshaftSpawnrate != 0
                             && context.getBiome().getCategory() == Category.JUNGLE),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.JUNGLE_MINESHAFT));
         
         addToBiome("desert_mineshaft",
-                (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.MINESHAFT).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
-                        && isBiomeAllowed("mineshaft", context.getBiomeKey().getValue())
+                (context) -> genericMineshaftCheck(context)
                         && (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.desertMineshaftSpawnrate != 0 
                             && context.getBiome().getCategory() == Category.DESERT),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.DESERT_MINESHAFT));
         
         addToBiome("stone_mineshaft",
-                (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.MINESHAFT).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
-                        && isBiomeAllowed("mineshaft", context.getBiomeKey().getValue())
+                (context) -> genericMineshaftCheck(context)
                         && (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.stoneMineshaftSpawnrate != 0 
                             && context.getBiome().getCategory() == Category.EXTREME_HILLS),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.STONE_MINESHAFT));
         
         addToBiome("savanna_mineshaft",
-                (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.MINESHAFT).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
-                        && isBiomeAllowed("mineshaft", context.getBiomeKey().getValue())
+                (context) -> genericMineshaftCheck(context)
                         && (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.savannaMineshaftSpawnrate != 0 
                             && context.getBiome().getCategory() == Category.SAVANNA),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.SAVANNA_MINESHAFT));
         
         addToBiome("icy_mineshaft",
-                (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.MINESHAFT).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
-                        && isBiomeAllowed("mineshaft", context.getBiomeKey().getValue())
+                (context) -> genericMineshaftCheck(context)
                         && (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.icyMineshaftSpawnrate != 0 
                             && (context.getBiome().getCategory() == Category.ICY || context.getBiomeKey().getValue().getPath().contains("snowy"))),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.ICY_MINESHAFT));
         
         addToBiome("ocean_mineshaft",
-                (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.MINESHAFT).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
-                        && isBiomeAllowed("mineshaft", context.getBiomeKey().getValue())
+                (context) -> genericMineshaftCheck(context)
                         && (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.oceanMineshaftSpawnrate != 0 
                             && context.getBiome().getCategory() == Category.OCEAN),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.OCEAN_MINESHAFT));
         
         addToBiome("taiga_mineshaft",
-                (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.MINESHAFT).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
-                        && isBiomeAllowed("mineshaft", context.getBiomeKey().getValue())
+                (context) -> genericMineshaftCheck(context)
                         && (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.taigaMineshaftSpawnrate != 0 
                             && context.getBiome().getCategory() == Category.TAIGA),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.TAIGA_MINESHAFT));
         
         addToBiome("swamp_or_dark_forest_mineshaft",
-                (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.MINESHAFT).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
-                        && isBiomeAllowed("mineshaft", context.getBiomeKey().getValue())
+                (context) -> genericMineshaftCheck(context)
                         && (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.swampAndDarkForestMineshaftSpawnrate != 0 
                             && (context.getBiome().getCategory() == Category.SWAMP || context.getBiomeKey().getValue().getPath().contains("dark_forest") || context.getBiomeKey().getValue().getPath().contains("dark_oak"))),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.SWAMP_OR_DARK_FOREST_MINESHAFT));
         
         addToBiome("end_mineshaft",
-                (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.MINESHAFT).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
-                        && isBiomeAllowed("mineshaft", context.getBiomeKey().getValue())
+                (context) -> genericMineshaftCheck(context)
                         && (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.endMineshaftSpawnrate != 0 
                             && context.getBiome().getCategory() == Category.THEEND && !context.getBiomeKey().getValue().equals(new Identifier("minecraft:the_end")) 
                             && (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.misc.barrensIslandsEndMineshafts 
@@ -162,8 +152,7 @@ public class RSAddFeaturesAndStructures {
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.END_MINESHAFT));
         
         addToBiome("nether_mineshaft",
-                (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.MINESHAFT).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
-                        && isBiomeAllowed("mineshaft", context.getBiomeKey().getValue())
+                (context) -> genericMineshaftCheck(context)
                         && (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.netherMineshaftSpawnrate != 0 
                             && context.getBiome().getCategory() == Category.NETHER),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.NETHER_MINESHAFT));
@@ -176,6 +165,13 @@ public class RSAddFeaturesAndStructures {
                 context -> context.getGenerationSettings().removeStructure(StructureFeature.MINESHAFT));
     }
 
+    private static boolean genericMineshaftCheck(BiomeSelectionContext context){
+        return RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.MINESHAFT).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
+                && isBiomeAllowed("mineshaft", context.getBiomeKey().getValue())
+                && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
+                    || RepurposedStructures.RSAllConfig.RSMineshaftsConfig.addMineshaftsToModdedBiomes);
+    }
+
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // DUNGEONS //
@@ -183,64 +179,55 @@ public class RSAddFeaturesAndStructures {
     public static void addDungeons() {
 
         addToBiome("jungle_dungeon",
-                (context) -> RSConfiguredFeatures.RS_DUNGEONS.stream().noneMatch(context::hasBuiltInFeature)
-                        && isBiomeAllowed("dungeon", context.getBiomeKey().getValue())
+                (context) -> genericDungeonCheck(context)
                         && (RepurposedStructures.RSAllConfig.RSDungeonsConfig.spawnrate.jungleDungeonSpawnrate != 0
                             && context.getBiome().getCategory() == Category.JUNGLE),
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.JUNGLE_DUNGEONS));
 
         addToBiome("badlands_dungeon",
-                (context) -> RSConfiguredFeatures.RS_DUNGEONS.stream().noneMatch(context::hasBuiltInFeature)
-                        && isBiomeAllowed("dungeon", context.getBiomeKey().getValue())
+                (context) -> genericDungeonCheck(context)
                         && (RepurposedStructures.RSAllConfig.RSDungeonsConfig.spawnrate.badlandsDungeonSpawnrate != 0
                             && context.getBiome().getCategory() == Category.MESA),
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.BADLANDS_DUNGEONS));
 
         addToBiome("dark_forest_dungeons",
-                (context) -> RSConfiguredFeatures.RS_DUNGEONS.stream().noneMatch(context::hasBuiltInFeature)
-                        && isBiomeAllowed("dungeon", context.getBiomeKey().getValue())
+                (context) -> genericDungeonCheck(context)
                         && (RepurposedStructures.RSAllConfig.RSDungeonsConfig.spawnrate.darkForestDungeonSpawnrate != 0
                             && context.getBiomeKey().getValue().getPath().contains("dark_forest")),
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.DARK_FOREST_DUNGEONS));
 
         addToBiome("desert_dungeons",
-                (context) -> RSConfiguredFeatures.RS_DUNGEONS.stream().noneMatch(context::hasBuiltInFeature)
-                        && isBiomeAllowed("dungeon", context.getBiomeKey().getValue())
+                (context) -> genericDungeonCheck(context)
                         && (RepurposedStructures.RSAllConfig.RSDungeonsConfig.spawnrate.desertDungeonSpawnrate != 0
                             && context.getBiome().getCategory() == Category.DESERT),
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.DESERT_DUNGEONS));
 
         addToBiome("mushroom_dungeons",
-                (context) -> RSConfiguredFeatures.RS_DUNGEONS.stream().noneMatch(context::hasBuiltInFeature)
-                        && isBiomeAllowed("dungeon", context.getBiomeKey().getValue())
+                (context) -> genericDungeonCheck(context)
                         && (RepurposedStructures.RSAllConfig.RSDungeonsConfig.spawnrate.mushroomDungeonSpawnrate != 0
                             && context.getBiome().getCategory() == Category.MUSHROOM),
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.MUSHROOM_DUNGEONS));
 
         addToBiome("swamp_dungeons",
-                (context) -> RSConfiguredFeatures.RS_DUNGEONS.stream().noneMatch(context::hasBuiltInFeature)
-                        && isBiomeAllowed("dungeon", context.getBiomeKey().getValue())
+                (context) -> genericDungeonCheck(context)
                         && (RepurposedStructures.RSAllConfig.RSDungeonsConfig.spawnrate.swampDungeonSpawnrate != 0
                             && context.getBiome().getCategory() == Category.SWAMP),
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.SWAMP_DUNGEONS));
 
         addToBiome("snow_dungeons",
-                (context) -> RSConfiguredFeatures.RS_DUNGEONS.stream().noneMatch(context::hasBuiltInFeature)
-                        && isBiomeAllowed("dungeon", context.getBiomeKey().getValue())
+                (context) -> genericDungeonCheck(context)
                         && (RepurposedStructures.RSAllConfig.RSDungeonsConfig.spawnrate.snowDungeonSpawnrate != 0
                             && context.getBiome().getCategory() == Category.ICY),
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.SNOW_DUNGEONS));
 
         addToBiome("nether_dungeons",
-                (context) -> RSConfiguredFeatures.RS_DUNGEONS.stream().noneMatch(context::hasBuiltInFeature)
-                        && isBiomeAllowed("dungeon", context.getBiomeKey().getValue())
+                (context) -> genericDungeonCheck(context)
                         && (RepurposedStructures.RSAllConfig.RSDungeonsConfig.spawnrate.netherDungeonSpawnrate != 0
                         && context.getBiome().getCategory() == Category.NETHER),
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.NETHER_DUNGEONS));
 
         addToBiome("end_dungeons",
-                (context) -> RSConfiguredFeatures.RS_DUNGEONS.stream().noneMatch(context::hasBuiltInFeature)
-                        && isBiomeAllowed("dungeon", context.getBiomeKey().getValue())
+                (context) -> genericDungeonCheck(context)
                         && (RepurposedStructures.RSAllConfig.RSDungeonsConfig.spawnrate.endDungeonSpawnrate != 0
                             && (context.getBiome().getCategory() == Category.THEEND
                                 && !context.getBiomeKey().getValue().equals(new Identifier("minecraft:the_end"))
@@ -248,10 +235,11 @@ public class RSAddFeaturesAndStructures {
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.END_DUNGEONS));
 
         addToBiome("ocean_dungeons",
-                (context) -> RSConfiguredFeatures.RS_DUNGEONS.stream().noneMatch(context::hasBuiltInFeature)
-                        && isBiomeAllowed("dungeon", context.getBiomeKey().getValue())
+                (context) -> genericDungeonCheck(context)
                         && (RepurposedStructures.RSAllConfig.RSDungeonsConfig.spawnrate.oceanDungeonSpawnrate != 0
-                            && context.getBiome().getCategory() == Category.OCEAN),
+                            && context.getBiome().getCategory() == Category.OCEAN)
+                        && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
+                            || RepurposedStructures.RSAllConfig.RSDungeonsConfig.addDungeonsToModdedBiomes),
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.OCEAN_DUNGEONS));
 
 
@@ -266,6 +254,13 @@ public class RSAddFeaturesAndStructures {
                 context -> context.getGenerationSettings().removeBuiltInFeature(ConfiguredFeatures.MONSTER_ROOM));
     }
 
+    private static boolean genericDungeonCheck(BiomeSelectionContext context){
+        return RSConfiguredFeatures.RS_DUNGEONS.stream().noneMatch(context::hasBuiltInFeature)
+                && isBiomeAllowed("dungeon", context.getBiomeKey().getValue())
+                && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
+                    || RepurposedStructures.RSAllConfig.RSDungeonsConfig.addDungeonsToModdedBiomes);
+    }
+
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // WELLS //
@@ -273,29 +268,25 @@ public class RSAddFeaturesAndStructures {
     public static void addWells() {
 
         addToBiome("badlands_well",
-                (context) -> RSConfiguredFeatures.RS_WELLS.stream().noneMatch(context::hasBuiltInFeature)
-                        && isBiomeAllowed("well", context.getBiomeKey().getValue())
+                (context) -> genericWellCheck(context)
                         && (RepurposedStructures.RSAllConfig.RSWellsConfig.spawnrate.badlandsWellSpawnrate != 10000
                             && context.getBiome().getCategory() == Category.MESA),
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.SURFACE_STRUCTURES, RSConfiguredFeatures.BADLANDS_WELL));
 
         addToBiome("nether_well",
-                (context) -> RSConfiguredFeatures.RS_WELLS.stream().noneMatch(context::hasBuiltInFeature)
-                        && isBiomeAllowed("well", context.getBiomeKey().getValue())
+                (context) -> genericWellCheck(context)
                         && (RepurposedStructures.RSAllConfig.RSWellsConfig.spawnrate.netherWellSpawnrate != 10000
                             && context.getBiome().getCategory() == Category.NETHER),
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.SURFACE_STRUCTURES, RSConfiguredFeatures.NETHER_WELL));
 
         addToBiome("snow_well",
-                (context) -> RSConfiguredFeatures.RS_WELLS.stream().noneMatch(context::hasBuiltInFeature)
-                        && isBiomeAllowed("well", context.getBiomeKey().getValue())
+                (context) -> genericWellCheck(context)
                         && (RepurposedStructures.RSAllConfig.RSWellsConfig.spawnrate.snowWellSpawnrate != 10000
                             && (context.getBiome().getCategory() == Category.ICY || context.getBiomeKey().getValue().getPath().contains("snow"))),
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.SURFACE_STRUCTURES, RSConfiguredFeatures.SNOW_WELL));
 
         addToBiome("mossy_stone_well",
-                (context) -> RSConfiguredFeatures.RS_WELLS.stream().noneMatch(context::hasBuiltInFeature)
-                        && isBiomeAllowed("well", context.getBiomeKey().getValue())
+                (context) -> genericWellCheck(context)
                         && (RepurposedStructures.RSAllConfig.RSWellsConfig.spawnrate.mossyStoneWellSpawnrate != 10000
                             && (context.getBiome().getCategory() == Category.SWAMP
                                 || context.getBiome().getCategory() == Category.JUNGLE
@@ -304,13 +295,19 @@ public class RSAddFeaturesAndStructures {
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.SURFACE_STRUCTURES, RSConfiguredFeatures.MOSSY_STONE_WELL));
 
         addToBiome("forest_well",
-                (context) -> RSConfiguredFeatures.RS_WELLS.stream().noneMatch(context::hasBuiltInFeature)
-                        && isBiomeAllowed("well", context.getBiomeKey().getValue())
+                (context) -> genericWellCheck(context)
                         && (RepurposedStructures.RSAllConfig.RSWellsConfig.spawnrate.forestWellSpawnrate != 10000
                             && (context.getBiome().getCategory() == Category.FOREST
                                 && !(context.getBiomeKey().getValue().getPath().contains("dark_forest")
                                     || context.getBiomeKey().getValue().getPath().contains("dark_oak")))),
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.SURFACE_STRUCTURES, RSConfiguredFeatures.FOREST_WELL));
+    }
+
+    private static boolean genericWellCheck(BiomeSelectionContext context){
+        return RSConfiguredFeatures.RS_WELLS.stream().noneMatch(context::hasBuiltInFeature)
+                && isBiomeAllowed("well", context.getBiomeKey().getValue())
+                && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
+                || RepurposedStructures.RSAllConfig.RSWellsConfig.addWellsToModdedBiomes);
     }
 
 
