@@ -16,6 +16,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Fixed many structures not using the speedy locate method.
 
+- Fixed a bug that could still spawn Repurposed Structures's stuff in superflat.
+
 ##### Strongholds:
 
 - Fixed Strongholds being cutoff by Bedrock.
