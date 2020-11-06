@@ -13,7 +13,6 @@ import java.util.Random;
 
 
 public class BoulderTiny extends Feature<NoFeatureConfig> {
-    private final static int START_RADIUS = 0;
 
     public BoulderTiny(Codec<NoFeatureConfig> configFactory) {
         super(configFactory);
@@ -26,14 +25,14 @@ public class BoulderTiny extends Feature<NoFeatureConfig> {
         Block block = world.getBlockState(blockpos$Mutable).getBlock();
 
         //boulder can only generate on grass/dirt
-        if (block != Blocks.PODZOL && block != Blocks.GRASS_BLOCK && !isSoil(block)) {
+        if (!block.is(Blocks.PODZOL) && !block.is(Blocks.GRASS_BLOCK) && !isSoil(block)) {
             return false;
         }
 
-        for (int currentCount = 0; START_RADIUS >= 0 && currentCount < 3; ++currentCount) {
-            int x = START_RADIUS + random.nextInt(2);
-            int y = START_RADIUS + random.nextInt(2);
-            int z = START_RADIUS + random.nextInt(2);
+        for (int currentCount = 0; currentCount < 3; ++currentCount) {
+            int x = random.nextInt(2);
+            int y = random.nextInt(2);
+            int z = random.nextInt(2);
             float calculatedDistance = (x + y + z) * 0.333F + 0.5F;
 
             for (BlockPos blockpos : BlockPos.getAllInBoxMutable(blockpos$Mutable.add(-x, -y, -z), blockpos$Mutable.add(x, y, z))) {
@@ -69,9 +68,9 @@ public class BoulderTiny extends Feature<NoFeatureConfig> {
                 }
             }
             blockpos$Mutable.move(
-                    -(START_RADIUS + 1) + random.nextInt(2 + START_RADIUS * 2),
+                    -1 + random.nextInt(2),
                     -random.nextInt(2),
-                    -(START_RADIUS + 1) + random.nextInt(2 + START_RADIUS * 2));
+                    -1 + random.nextInt(2));
         }
 
         //finished generating the boulder

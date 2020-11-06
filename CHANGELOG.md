@@ -41,6 +41,10 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Nerfed Jungle Fortress chest loot a bit
 
+##### Miscellaneous:
+
+- Giant Boulders in Giant Tree Taiga biomes will now no longer float on water.
+
 ##### Configs:
 
 - Changed "spawnrate" for dungeon entries to say "attemptsPerChunk" instead.
