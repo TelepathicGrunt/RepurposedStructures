@@ -40,8 +40,14 @@ public class RSMineshaftEndStructure extends RSMineshaftStructure {
             chunkRandom.setLargeFeatureSeed(seed + structureConfig.getSalt(), chunkX, chunkZ);
             double d = (probability / 10000D);
             if(chunkRandom.nextDouble() < d) {
-                int landHeight = chunkGenerator.func_222531_c(chunkX << 4, chunkZ << 4, Heightmap.Type.WORLD_SURFACE_WG);
-                return RepurposedStructures.RSMineshaftsConfig.barrensIslandsEndMineshafts.get() || landHeight > 20;
+                int xPos = chunkX << 4;
+                int zPos = chunkZ << 4;
+                int landHeight = chunkGenerator.func_222531_c(xPos, zPos, Heightmap.Type.WORLD_SURFACE_WG);
+                landHeight = Math.min(landHeight, chunkGenerator.func_222531_c(xPos + 50, zPos, Heightmap.Type.WORLD_SURFACE_WG));
+                landHeight = Math.min(landHeight, chunkGenerator.func_222531_c(xPos, zPos + 50, Heightmap.Type.WORLD_SURFACE_WG));
+                landHeight = Math.min(landHeight, chunkGenerator.func_222531_c(xPos - 50, zPos, Heightmap.Type.WORLD_SURFACE_WG));
+                landHeight = Math.min(landHeight, chunkGenerator.func_222531_c(xPos, zPos - 50, Heightmap.Type.WORLD_SURFACE_WG));
+                return RepurposedStructures.RSMineshaftsConfig.barrensIslandsEndMineshafts.get() || landHeight > 45;
             }
         }
 
