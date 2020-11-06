@@ -28,7 +28,7 @@ import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 import java.util.List;
 
 
-public class ShipwreckNetherStructure extends StructureFeature<DefaultFeatureConfig> {
+public class ShipwreckNetherStructure extends AbstractBaseStructure {
     // Special thanks to cannon_foddr and miguelforge for allowing me to use their nether shipwreck design!
 
     private final Identifier START_POOL;
@@ -53,7 +53,7 @@ public class ShipwreckNetherStructure extends StructureFeature<DefaultFeatureCon
         }
         else{
             ChunkRandom random = new ChunkRandom(seed + (chunkX * (chunkZ * 17)));
-            int height = chunkGenerator.getSeaLevel() + random.nextInt(Math.max(chunkGenerator.getMaxY() - (chunkGenerator.getSeaLevel() + 30), 1));
+            int height = chunkGenerator.getSeaLevel() + random.nextInt(Math.max(chunkGenerator.getWorldHeight() - (chunkGenerator.getSeaLevel() + 30), 1));
             blockPos = new BlockPos(chunkX << 4, height, chunkZ << 4);
         }
 
@@ -116,7 +116,7 @@ public class ShipwreckNetherStructure extends StructureFeature<DefaultFeatureCon
             }
             else{
                 ChunkRandom random = new ChunkRandom(seed + (chunkX * (chunkZ * 17)));
-                placementHeight = placementHeight + random.nextInt(Math.max(chunkGenerator.getMaxY() - (placementHeight + 30), 1));
+                placementHeight = placementHeight + random.nextInt(Math.max(chunkGenerator.getWorldHeight() - (placementHeight + 30), 1));
             }
 
             BlockPos blockpos = new BlockPos(chunkX * 16, placementHeight, chunkZ * 16);

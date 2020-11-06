@@ -424,7 +424,7 @@ public class RSAddFeaturesAndStructures {
                 ModificationPhase.REMOVALS,
                 context -> isBiomeAllowed("stronghold", context.getBiomeKey().getValue())
                         && context.getBiome().getGenerationSettings().hasStructureFeature(RSStructures.STONEBRICK_STRONGHOLD),
-                context -> context.getGenerationSettings().removeBuiltInFeature(ConfiguredFeatures.FOREST_ROCK));
+                context -> context.getGenerationSettings().removeStructure(StructureFeature.STRONGHOLD));
 
     }
 
@@ -459,6 +459,7 @@ public class RSAddFeaturesAndStructures {
                 (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NETHER_OUTPOST).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
                         && isBiomeAllowed("outpost", context.getBiomeKey().getValue())
                         && context.getBiome().getCategory() == Category.NETHER
+                        && (!context.getBiomeKey().getValue().getPath().contains("crimson") && !context.getBiomeKey().getValue().getPath().contains("warped"))
                         && (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.netherBrickOutpostSpawnrate != 1001
                             && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                                 || RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.addNetherBrickOutpostToModdedBiomes)),
@@ -504,6 +505,7 @@ public class RSAddFeaturesAndStructures {
                 (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NETHER_SHIPWRECK).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
                         && isBiomeAllowed("shipwreck", context.getBiomeKey().getValue())
                         && context.getBiome().getCategory() == Category.NETHER
+                        && (!context.getBiomeKey().getValue().getPath().contains("crimson") && !context.getBiomeKey().getValue().getPath().contains("warped"))
                         && (RepurposedStructures.RSAllConfig.RSShipwrecksConfig.spawnrate.netherBricksShipwreckSpawnrate != 1001
                             && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                                 || RepurposedStructures.RSAllConfig.RSShipwrecksConfig.blacklist.addNetherBricksShipwreckToModdedBiomes)),
@@ -579,6 +581,11 @@ public class RSAddFeaturesAndStructures {
         addToBiome("nether_wasteland_temple",
                 (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NETHER_TEMPLE).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
                         && isBiomeAllowed("temple", context.getBiomeKey().getValue())
+                        && (!context.getBiomeKey().getValue().getPath().contains("crimson")
+                            && !context.getBiomeKey().getValue().getPath().contains("warped")
+                            && !context.getBiomeKey().getValue().getPath().contains("soul")
+                            && !(context.getBiomeKey().getValue().getPath().contains("basalt")
+                                || context.getBiomeKey().getValue().getPath().contains("blackstone")))
                         && (RepurposedStructures.RSAllConfig.RSTemplesConfig.temples.netherWastelandTempleSpawnrate != 1001
                             && context.getBiome().getCategory() == Category.NETHER
                             && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")

@@ -23,7 +23,7 @@ import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 
 
-public class PyramidBadlandsStructure extends StructureFeature<DefaultFeatureConfig> {
+public class PyramidBadlandsStructure extends AbstractBaseStructure {
 
     private final Identifier START_POOL;
     public PyramidBadlandsStructure() {

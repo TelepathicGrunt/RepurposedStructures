@@ -17,7 +17,7 @@ import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 
 
-public class PyramidNetherStructure extends StructureFeature<DefaultFeatureConfig> {
+public class PyramidNetherStructure extends AbstractBaseStructure {
     // Special thanks to /r/l-ll-ll-l_IsDisLoss for allowing me to mimic his nether pyramid design!
 
     private final Identifier START_POOL;

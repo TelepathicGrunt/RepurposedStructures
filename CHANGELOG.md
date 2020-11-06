@@ -16,6 +16,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Reworked and cleaned up backend to now 
   use Fabric API's Biome Modification API.
 
+- Fixed many structures not using the speedy locate method.
+
 ##### Strongholds:
 
 - Fixed Strongholds being cutoff by Bedrock.

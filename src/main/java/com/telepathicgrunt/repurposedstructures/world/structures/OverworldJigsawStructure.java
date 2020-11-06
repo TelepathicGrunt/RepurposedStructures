@@ -11,18 +11,15 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.registry.DynamicRegistryManager;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.world.WorldView;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.source.BiomeSource;
 import net.minecraft.world.gen.ChunkRandom;
-import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.chunk.StructureConfig;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 
-public class OverworldJigsawStructure extends StructureFeature<DefaultFeatureConfig> {
+public class OverworldJigsawStructure extends AbstractBaseStructure {
 
     private final Identifier START_POOL;
     private final int STRUCTURE_SIZE;
@@ -50,11 +47,6 @@ public class OverworldJigsawStructure extends StructureFeature<DefaultFeatureCon
     @Override
     public StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
         return OverworldJigsawStructure.MainStart::new;
-    }
-
-    @Override
-    public BlockPos locateStructure(WorldView worldView, StructureAccessor structureAccessor, BlockPos blockPos, int radius, boolean skipExistingChunks, long seed, StructureConfig structureConfig) {
-        return AbstractBaseStructure.locateStructureFast(worldView, structureAccessor, blockPos, radius, skipExistingChunks, seed, structureConfig, this);
     }
 
     public class MainStart extends MarginedStructureStart<DefaultFeatureConfig> {

@@ -23,7 +23,6 @@ public class RepurposedStructures implements ModInitializer {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MODID = "repurposed_structures";
     public static MobSpawnerManager mobSpawnerManager = null;
-    public static boolean yungsBetterMineshaftIsNotOn = true;
 
 	public static RSAllConfig RSAllConfig = null;
     public static final Map<String, List<String>> ALL_BIOME_BLACKLISTS = new HashMap<>();
@@ -34,12 +33,7 @@ public class RepurposedStructures implements ModInitializer {
     @Override
     public void onInitialize() {
         // LoadNbtBlock.instantiateNbtBlock();
-        RSAddFeaturesAndStructures.allowStructureSpawningPerDimension();
-        RSStructureTagMap.setupTags();
-        RSAddFeaturesAndStructures.setupBiomeModifications();
-    }
 
-    public static void initialize() {
         AutoConfig.register(RSAllConfig.class, Toml4jConfigSerializer::new);
         RSAllConfig = AutoConfig.getConfigHolder(RSAllConfig.class).getConfig();
 
@@ -48,10 +42,12 @@ public class RepurposedStructures implements ModInitializer {
         RSPlacements.registerPlacements();
         RSFeatures.registerFeatures();
         RSStructures.registerStructures();
+        RSStructureTagMap.setupTags();
         RSConfiguredFeatures.registerConfiguredFeatures();
         RSConfiguredStructures.registerConfiguredStructures();
 
-        yungsBetterMineshaftIsNotOn = !FabricLoader.INSTANCE.isModLoaded("bettermineshafts");
+        RSAddFeaturesAndStructures.allowStructureSpawningPerDimension();
+        RSAddFeaturesAndStructures.setupBiomeModifications();
     }
 
     /**

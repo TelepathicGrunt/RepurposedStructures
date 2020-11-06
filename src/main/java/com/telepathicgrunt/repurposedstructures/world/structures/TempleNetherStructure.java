@@ -16,7 +16,7 @@ import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 
 
-public class TempleNetherStructure extends StructureFeature<DefaultFeatureConfig> {
+public class TempleNetherStructure extends AbstractBaseStructure {
     private final Identifier START_POOL;
 
     public TempleNetherStructure(Identifier pieceID) {

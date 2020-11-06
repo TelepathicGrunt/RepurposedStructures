@@ -4,7 +4,6 @@
   "package": "com.telepathicgrunt.repurposedstructures.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "BootstrapMixin",
     "StructuresConfigAccessor",
     "ChunkSerializerMixin",
     "DungeonFeatureAccessor",

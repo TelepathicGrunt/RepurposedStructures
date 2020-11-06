@@ -21,7 +21,7 @@ import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 import java.util.List;
 
 
-public class OutpostNetherStructure extends StructureFeature<DefaultFeatureConfig> {
+public class OutpostNetherStructure extends AbstractBaseStructure {
     private final Identifier START_POOL;
     private static final List<SpawnSettings.SpawnEntry> MONSTER_SPAWNS = Lists.newArrayList(new SpawnSettings.SpawnEntry(EntityType.PIGLIN, 10, 1, 1));
 
