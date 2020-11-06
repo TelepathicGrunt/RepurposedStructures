@@ -24,6 +24,11 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Fixed Strongholds being cutoff by Bedrock.
 
+##### Mineshafts:
+
+- End Mineshafts will now be much more buried in the End's islands 
+  if barrensIslandsEndMineshafts config option is turned off.
+
 ##### Shipwrecks:
 
 - Fixed addWarpedShipwreckToModdedBiomes config not working.
