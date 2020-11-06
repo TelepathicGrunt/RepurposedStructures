@@ -109,47 +109,47 @@ public class RSAddFeaturesAndStructures {
 
     public static void addDungeons(BiomeLoadingEvent event) {
 
-        if (RepurposedStructures.RSDungeonsConfig.jungleDungeonSpawnrate.get() != 0 &&
+        if (RepurposedStructures.RSDungeonsConfig.jungleDungeonAttemptsPerChunk.get() != 0 &&
                 event.getCategory() == Category.JUNGLE && dungeonAllowedByNamespaceAndConfig(event.getName())) {
 
             replaceOrAddDungeon(true, event, RSConfiguredFeatures.JUNGLE_DUNGEONS);
         }
-        else if (RepurposedStructures.RSDungeonsConfig.badlandsDungeonSpawnrate.get() != 0 &&
+        else if (RepurposedStructures.RSDungeonsConfig.badlandsDungeonAttemptsPerChunk.get() != 0 &&
                 event.getCategory() == Category.MESA && dungeonAllowedByNamespaceAndConfig(event.getName())) {
 
             replaceOrAddDungeon(true, event, RSConfiguredFeatures.BADLANDS_DUNGEONS);
         }
-        else if (RepurposedStructures.RSDungeonsConfig.darkForestDungeonSpawnrate.get() != 0 &&
+        else if (RepurposedStructures.RSDungeonsConfig.darkForestDungeonAttemptsPerChunk.get() != 0 &&
                 event.getName().getPath().contains("dark_forest") && dungeonAllowedByNamespaceAndConfig(event.getName())) {
 
             replaceOrAddDungeon(true, event, RSConfiguredFeatures.DARK_FOREST_DUNGEONS);
         }
-        else if (RepurposedStructures.RSDungeonsConfig.desertDungeonSpawnrate.get() != 0 &&
+        else if (RepurposedStructures.RSDungeonsConfig.desertDungeonAttemptsPerChunk.get() != 0 &&
                 event.getCategory() == Category.DESERT && dungeonAllowedByNamespaceAndConfig(event.getName())) {
 
             replaceOrAddDungeon(true, event, RSConfiguredFeatures.DESERT_DUNGEONS);
         }
-        else if (RepurposedStructures.RSDungeonsConfig.mushroomDungeonSpawnrate.get() != 0 &&
+        else if (RepurposedStructures.RSDungeonsConfig.mushroomDungeonAttemptsPerChunk.get() != 0 &&
                 event.getCategory() == Category.MUSHROOM && dungeonAllowedByNamespaceAndConfig(event.getName())) {
 
             replaceOrAddDungeon(true, event, RSConfiguredFeatures.MUSHROOM_DUNGEONS);
         }
-        else if (RepurposedStructures.RSDungeonsConfig.swampDungeonSpawnrate.get() != 0 &&
+        else if (RepurposedStructures.RSDungeonsConfig.swampDungeonAttemptsPerChunk.get() != 0 &&
                 event.getCategory() == Category.SWAMP && dungeonAllowedByNamespaceAndConfig(event.getName())) {
 
             replaceOrAddDungeon(true, event, RSConfiguredFeatures.SWAMP_DUNGEONS);
         }
-        else if (RepurposedStructures.RSDungeonsConfig.snowDungeonSpawnrate.get() != 0 &&
+        else if (RepurposedStructures.RSDungeonsConfig.snowDungeonAttemptsPerChunk.get() != 0 &&
                 event.getCategory() == Category.ICY && dungeonAllowedByNamespaceAndConfig(event.getName())) {
 
             replaceOrAddDungeon(true, event, RSConfiguredFeatures.SNOW_DUNGEONS);
         }
-        else if (RepurposedStructures.RSDungeonsConfig.netherDungeonSpawnrate.get() != 0 &&
+        else if (RepurposedStructures.RSDungeonsConfig.netherDungeonAttemptsPerChunk.get() != 0 &&
                 event.getCategory() == Category.NETHER && dungeonAllowedByNamespaceAndConfig(event.getName())) {
 
             replaceOrAddDungeon(false, event, RSConfiguredFeatures.NETHER_DUNGEONS);
         }
-        else if (RepurposedStructures.RSDungeonsConfig.endDungeonSpawnrate.get() != 0 &&
+        else if (RepurposedStructures.RSDungeonsConfig.endDungeonAttemptsPerChunk.get() != 0 &&
                 (event.getCategory() == Category.THEEND &&
                         !event.getName().equals(new ResourceLocation("minecraft:the_end")) &&
                         !event.getName().equals(new ResourceLocation("minecraft:small_end_islands"))) &&
@@ -157,7 +157,7 @@ public class RSAddFeaturesAndStructures {
 
             replaceOrAddDungeon(false, event, RSConfiguredFeatures.END_DUNGEONS);
         }
-        else if (RepurposedStructures.RSDungeonsConfig.oceanDungeonSpawnrate.get() != 0 &&
+        else if (RepurposedStructures.RSDungeonsConfig.oceanDungeonAttemptsPerChunk.get() != 0 &&
                 event.getCategory() == Category.OCEAN && dungeonAllowedByNamespaceAndConfig(event.getName())) {
 
             replaceOrAddDungeon(false, event, RSConfiguredFeatures.OCEAN_DUNGEONS);
@@ -193,25 +193,25 @@ public class RSAddFeaturesAndStructures {
 
     public static void addWells(BiomeLoadingEvent event) {
 
-        if (RepurposedStructures.RSWellsConfig.badlandsWellSpawnrate.get() != 10000 &&
+        if (RepurposedStructures.RSWellsConfig.badlandsWellRarityPerChunk.get() != 10000 &&
                 event.getCategory() == Category.MESA && wellAllowedByNamespaceAndConfig(event.getName())) {
 
             event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES)
                     .add(() -> RSConfiguredFeatures.BADLANDS_WELL);
         }
-        else if (RepurposedStructures.RSWellsConfig.netherWellSpawnrate.get() != 10000 &&
+        else if (RepurposedStructures.RSWellsConfig.netherWellRarityPerChunk.get() != 10000 &&
                 event.getCategory() == Category.NETHER && wellAllowedByNamespaceAndConfig(event.getName())) {
 
             event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES)
                     .add(() -> RSConfiguredFeatures.NETHER_WELL);
         }
-        else if (RepurposedStructures.RSWellsConfig.snowWellSpawnrate.get() != 10000 &&
+        else if (RepurposedStructures.RSWellsConfig.snowWellRarityPerChunk.get() != 10000 &&
                 (event.getCategory() == Category.ICY || event.getName().getPath().contains("snow")) && wellAllowedByNamespaceAndConfig(event.getName())) {
 
             event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES)
                     .add(() -> RSConfiguredFeatures.SNOW_WELL);
         }
-        else if (RepurposedStructures.RSWellsConfig.mossyStoneWellSpawnrate.get() != 10000 &&
+        else if (RepurposedStructures.RSWellsConfig.mossyStoneWellRarityPerChunk.get() != 10000 &&
                 (event.getCategory() == Category.SWAMP || event.getCategory() == Category.JUNGLE ||
                         event.getName().getPath().contains("dark_forest") || event.getName().getPath().contains("dark_oak")) &&
                 wellAllowedByNamespaceAndConfig(event.getName())) {
@@ -219,7 +219,7 @@ public class RSAddFeaturesAndStructures {
             event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES)
                     .add(() -> RSConfiguredFeatures.MOSSY_STONE_WELL);
         }
-        else if (RepurposedStructures.RSWellsConfig.forestWellSpawnrate.get() != 10000 &&
+        else if (RepurposedStructures.RSWellsConfig.forestWellRarityPerChunk.get() != 10000 &&
                 (event.getCategory() == Category.FOREST && !(event.getName().getPath().contains("dark_forest") || event.getName().getPath().contains("dark_oak"))) &&
                 wellAllowedByNamespaceAndConfig(event.getName())) {
 
@@ -299,7 +299,7 @@ public class RSAddFeaturesAndStructures {
     public static void addStrongholds(BiomeLoadingEvent event) {
 
         if (RepurposedStructures.RSStrongholdsConfig.allowStonebrickStronghold.get() &&
-                RepurposedStructures.RSStrongholdsConfig.stonebrickStrongholdSpawnrate.get() != 1001 &&
+                RepurposedStructures.RSStrongholdsConfig.stonebrickStrongholdMaxChunkDistance.get() != 1001 &&
                 event.getCategory() != Category.NETHER &&
                 (event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.STRONGHOLD)) ||
                         (!event.getName().getNamespace().equals("minecraft") && RepurposedStructures.RSStrongholdsConfig.addStonebrickStrongholdToModdedBiomes.get()))) {
@@ -311,7 +311,7 @@ public class RSAddFeaturesAndStructures {
                     .add(() -> RSConfiguredFeatures.STONEBRICK_STRONGHOLD_CHAINS);
         }
 
-        else if (RepurposedStructures.RSStrongholdsConfig.netherStrongholdSpawnrate.get() != 1001 && event.getCategory() == Category.NETHER &&
+        else if (RepurposedStructures.RSStrongholdsConfig.netherStrongholdMaxChunkDistance.get() != 1001 && event.getCategory() == Category.NETHER &&
                 (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSStrongholdsConfig.addNetherStrongholdToModdedBiomes.get())) {
 
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_STRONGHOLD);
@@ -330,17 +330,17 @@ public class RSAddFeaturesAndStructures {
         //Nether based Outposts
         if(event.getCategory() == Category.NETHER)
         {
-            if (RepurposedStructures.RSOutpostsConfig.crimsonOutpostSpawnrate.get() != 1001 &&
+            if (RepurposedStructures.RSOutpostsConfig.crimsonOutpostMaxChunkDistance.get() != 1001 &&
                     event.getName().getPath().contains("crimson") &&
                     (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSOutpostsConfig.addCrimsonOutpostToModdedBiomes.get())) {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.CRIMSON_OUTPOST);
             }
-            else if (RepurposedStructures.RSOutpostsConfig.warpedOutpostSpawnrate.get() != 1001 &&
+            else if (RepurposedStructures.RSOutpostsConfig.warpedOutpostMaxChunkDistance.get() != 1001 &&
                     event.getName().getPath().contains("warped") &&
                     (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSOutpostsConfig.addWarpedOutpostToModdedBiomes.get())) {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.WARPED_OUTPOST);
             }
-            else if (RepurposedStructures.RSOutpostsConfig.netherBrickOutpostSpawnrate.get() != 1001 &&
+            else if (RepurposedStructures.RSOutpostsConfig.netherBrickOutpostMaxChunkDistance.get() != 1001 &&
                     (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSOutpostsConfig.addNetherBrickOutpostToModdedBiomes.get())) {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_BRICK_OUTPOST);
             }
@@ -353,7 +353,7 @@ public class RSAddFeaturesAndStructures {
 
     public static void addShipwrecks(BiomeLoadingEvent event) {
 
-        if (RepurposedStructures.RSShipwrecksConfig.endShipwreckSpawnrate.get() != 1001 &&
+        if (RepurposedStructures.RSShipwrecksConfig.endShipwreckMaxChunkDistance.get() != 1001 &&
                 (event.getName().equals(new ResourceLocation("minecraft:end_highlands")) ||
                 (!event.getName().getNamespace().equals("minecraft") && event.getCategory() == Category.THEEND &&
                 RepurposedStructures.RSShipwrecksConfig.addEndShipwreckToModdedBiomes.get()))) {
@@ -364,21 +364,21 @@ public class RSAddFeaturesAndStructures {
         //Nether based Shipwrecks
         if(event.getCategory() == Category.NETHER)
         {
-            if (RepurposedStructures.RSShipwrecksConfig.crimsonShipwreckSpawnrate.get() != 1001 &&
+            if (RepurposedStructures.RSShipwrecksConfig.crimsonShipwreckMaxChunkDistance.get() != 1001 &&
                     event.getName().getPath().contains("crimson") &&
                     (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSShipwrecksConfig.addCrimsonShipwreckToModdedBiomes.get())) {
 
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.CRIMSON_SHIPWRECK);
             }
 
-            else if (RepurposedStructures.RSShipwrecksConfig.warpedShipwreckSpawnrate.get() != 1001 &&
+            else if (RepurposedStructures.RSShipwrecksConfig.warpedShipwreckMaxChunkDistance.get() != 1001 &&
                     event.getName().getPath().contains("warped") &&
                     (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSShipwrecksConfig.addWarpedShipwreckToModdedBiomes.get())) {
 
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.WARPED_SHIPWRECK);
             }
 
-            else if (RepurposedStructures.RSShipwrecksConfig.netherBricksShipwreckSpawnrate.get() != 1001 &&
+            else if (RepurposedStructures.RSShipwrecksConfig.netherBricksShipwreckMaxChunkDistance.get() != 1001 &&
                     (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSShipwrecksConfig.addNetherBricksShipwreckToModdedBiomes.get())) {
 
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_BRICKS_SHIPWRECK);
@@ -391,7 +391,7 @@ public class RSAddFeaturesAndStructures {
     // JUNGLE FORTRESS //
 
     public static void addJungleFortress(BiomeLoadingEvent event) {
-        if(RepurposedStructures.RSMainConfig.jungleFortressSpawnrate.get() != 1001)
+        if(RepurposedStructures.RSMainConfig.jungleFortressMaxChunkDistance.get() != 1001)
         {
             if ( event.getCategory() == Category.JUNGLE &&
                     (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSMainConfig.addJungleFortressToModdedBiomes.get())) {
@@ -411,27 +411,27 @@ public class RSAddFeaturesAndStructures {
 
     public static void addTemples(BiomeLoadingEvent event) {
 
-        if (RepurposedStructures.RSTemplesConfig.netherBasaltTempleSpawnrate.get() != 1001 &&
+        if (RepurposedStructures.RSTemplesConfig.netherBasaltTempleMaxChunkDistance.get() != 1001 &&
                 event.getCategory() == Category.NETHER && (event.getName().getPath().contains("basalt") || event.getName().getPath().contains("blackstone")) &&
                 (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSTemplesConfig.addNetherBasaltTempleToModdedBiomes.get())) {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_BASALT_TEMPLE);
         }
-        else if (RepurposedStructures.RSTemplesConfig.netherCrimsonTempleSpawnrate.get() != 1001 &&
+        else if (RepurposedStructures.RSTemplesConfig.netherCrimsonTempleMaxChunkDistance.get() != 1001 &&
                 event.getCategory() == Category.NETHER && event.getName().getPath().contains("crimson") &&
                 (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSTemplesConfig.addNetherCrimsonTempleToModdedBiomes.get())) {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_CRIMSON_TEMPLE);
         }
-        else if (RepurposedStructures.RSTemplesConfig.netherWarpedTempleSpawnrate.get() != 1001 &&
+        else if (RepurposedStructures.RSTemplesConfig.netherWarpedTempleMaxChunkDistance.get() != 1001 &&
                 event.getCategory() == Category.NETHER && event.getName().getPath().contains("warped") &&
                 (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSTemplesConfig.addNetherWarpedTempleToModdedBiomes.get())) {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_WARPED_TEMPLE);
         }
-        else if (RepurposedStructures.RSTemplesConfig.netherSoulTempleSpawnrate.get() != 1001 &&
+        else if (RepurposedStructures.RSTemplesConfig.netherSoulTempleMaxChunkDistance.get() != 1001 &&
                 event.getCategory() == Category.NETHER && event.getName().getPath().contains("soul") &&
                 (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSTemplesConfig.addNetherSoulTempleToModdedBiomes.get())) {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_SOUL_TEMPLE);
         }
-        else if (RepurposedStructures.RSTemplesConfig.netherWastelandTempleSpawnrate.get() != 1001 &&
+        else if (RepurposedStructures.RSTemplesConfig.netherWastelandTempleMaxChunkDistance.get() != 1001 &&
                 event.getCategory() == Category.NETHER &&
                 (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSTemplesConfig.addNetherWastelandTempleToModdedBiomes.get())) {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_WASTELAND_TEMPLE);
@@ -443,12 +443,12 @@ public class RSAddFeaturesAndStructures {
 
     public static void addPyramids(BiomeLoadingEvent event) {
 
-        if (RepurposedStructures.RSTemplesConfig.netherPyramidSpawnrate.get() != 1001 && event.getCategory() == Category.NETHER &&
+        if (RepurposedStructures.RSTemplesConfig.netherPyramidMaxChunkDistance.get() != 1001 && event.getCategory() == Category.NETHER &&
                 (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSTemplesConfig.addNetherPyramidToModdedBiomes.get())) {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_PYRAMID);
         }
 
-        if (RepurposedStructures.RSTemplesConfig.badlandsPyramidSpawnrate.get() != 1001 && event.getCategory() == Category.MESA &&
+        if (RepurposedStructures.RSTemplesConfig.badlandsPyramidMaxChunkDistance.get() != 1001 && event.getCategory() == Category.MESA &&
                 (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSTemplesConfig.addBadlandsPyramidToModdedBiomes.get())) {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.BADLANDS_TEMPLE);
         }
@@ -459,14 +459,14 @@ public class RSAddFeaturesAndStructures {
     // IGLOOS //
 
     public static void addIgloos(BiomeLoadingEvent event) {
-        if (RepurposedStructures.RSMainConfig.grassyIglooSpawnrate.get() != 1001) {
+        if (RepurposedStructures.RSMainConfig.grassyIglooMaxChunkDistance.get() != 1001) {
             if ((event.getCategory() == Category.FOREST || event.getCategory() == Category.PLAINS) &&
                     (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSMainConfig.addGrassyIglooToModdedBiomes.get())) {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.GRASSY_IGLOO);
             }
         }
 
-        if (RepurposedStructures.RSMainConfig.stoneIglooSpawnrate.get() != 1001) {
+        if (RepurposedStructures.RSMainConfig.stoneIglooMaxChunkDistance.get() != 1001) {
             if ((event.getCategory() == Category.TAIGA && event.getName().getPath().contains("giant")) &&
                     (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSMainConfig.addStoneIglooToModdedBiomes.get())) {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.STONE_IGLOO);
@@ -481,28 +481,28 @@ public class RSAddFeaturesAndStructures {
     public static void addVillages(BiomeLoadingEvent event) {
         if ((event.getCategory() == Category.MESA && !event.getName().getPath().contains("plateau")) &&
                 (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
-            if (RepurposedStructures.RSVillagesConfig.badlandsVillageSpawnrate.get() != 1001) {
+            if (RepurposedStructures.RSVillagesConfig.badlandsVillageMaxChunkDistance.get() != 1001) {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.BADLANDS_VILLAGE);
             }
         }
 
         else if (event.getName().getPath().contains("birch") && (event.getName().getNamespace().equals("minecraft") ||
                 RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
-            if (RepurposedStructures.RSVillagesConfig.birchVillageSpawnrate.get() != 1001) {
+            if (RepurposedStructures.RSVillagesConfig.birchVillageMaxChunkDistance.get() != 1001) {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.BIRCH_VILLAGE);
             }
         }
 
         else if (event.getName().getPath().contains("dark_forest") && (event.getName().getNamespace().equals("minecraft") ||
                 RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
-            if (RepurposedStructures.RSVillagesConfig.darkForestVillageSpawnrate.get() != 1001) {
+            if (RepurposedStructures.RSVillagesConfig.darkForestVillageMaxChunkDistance.get() != 1001) {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.DARK_FOREST_VILLAGE);
             }
         }
 
         else if (event.getCategory() == Category.JUNGLE && (event.getName().getNamespace().equals("minecraft") ||
                 RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
-            if (RepurposedStructures.RSVillagesConfig.jungleVillageSpawnrate.get() != 1001) {
+            if (RepurposedStructures.RSVillagesConfig.jungleVillageMaxChunkDistance.get() != 1001) {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.JUNGLE_VILLAGE);
                 event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION)
                         .add(() -> RSConfiguredFeatures.JUNGLE_VILLAGE_VINES);
@@ -511,7 +511,7 @@ public class RSAddFeaturesAndStructures {
 
         else if (event.getCategory() == Category.SWAMP && (event.getName().getNamespace().equals("minecraft") ||
                 RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
-            if (RepurposedStructures.RSVillagesConfig.swampVillageSpawnrate.get() != 1001) {
+            if (RepurposedStructures.RSVillagesConfig.swampVillageMaxChunkDistance.get() != 1001) {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.SWAMP_VILLAGE);
                 event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION)
                         .add(() -> RSConfiguredFeatures.SWAMP_VILLAGE_VINES);
@@ -520,7 +520,7 @@ public class RSAddFeaturesAndStructures {
 
         else if (event.getCategory() == Category.EXTREME_HILLS && (event.getName().getNamespace().equals("minecraft") ||
                 RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
-            if (RepurposedStructures.RSVillagesConfig.mountainsVillageSpawnrate.get() != 1001) {
+            if (RepurposedStructures.RSVillagesConfig.mountainsVillageMaxChunkDistance.get() != 1001) {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.MOUNTAINS_VILLAGE);
             }
         }
@@ -529,16 +529,16 @@ public class RSAddFeaturesAndStructures {
                 (!event.getName().getNamespace().equals("minecraft") &&
                   RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get() &&
                 ((event.getName().getPath().contains("giant") && event.getName().getPath().contains("taiga")) || event.getName().getPath().contains("redwood")))) {
-            if (RepurposedStructures.RSVillagesConfig.giantTaigaVillageSpawnrate.get() != 1001) {
+            if (RepurposedStructures.RSVillagesConfig.giantTaigaVillageMaxChunkDistance.get() != 1001) {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.GIANT_TAIGA_VILLAGE);
             }
         }
-        else if (RepurposedStructures.RSVillagesConfig.crimsonVillageSpawnrate.get() != 1001 &&
+        else if (RepurposedStructures.RSVillagesConfig.crimsonVillageMaxChunkDistance.get() != 1001 &&
                 event.getCategory() == Category.NETHER && event.getName().getPath().contains("crimson") &&
                 (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.CRIMSON_VILLAGE);
         }
-        else if (RepurposedStructures.RSVillagesConfig.warpedVillageSpawnrate.get() != 1001 &&
+        else if (RepurposedStructures.RSVillagesConfig.warpedVillageMaxChunkDistance.get() != 1001 &&
                 event.getCategory() == Category.NETHER && event.getName().getPath().contains("warped") &&
                 (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.WARPED_VILLAGE);

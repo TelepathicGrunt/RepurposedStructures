@@ -20,15 +20,15 @@ public class RSMainConfig
 		public ConfigValueListener<Boolean> boulderGiant;
 		public ConfigValueListener<Boolean> hornedSwampTree;
 
-		public ConfigValueListener<Integer> jungleFortressSpawnrate;
-		public ConfigValueListener<Double> silverfishSpawnrateJF;
-		public ConfigValueListener<Boolean> allowSilverfishSpawnerJF;
-		public ConfigValueListener<Boolean> lootChestsJF;
+		public ConfigValueListener<Integer> jungleFortressMaxChunkDistance;
+		public ConfigValueListener<Double> silverfishSpawnrate;
+		public ConfigValueListener<Boolean> allowSilverfishSpawner;
+		public ConfigValueListener<Boolean> lootChests;
 		public ConfigValueListener<Boolean> addJungleFortressToModdedBiomes;
 
-		public ConfigValueListener<Integer> grassyIglooSpawnrate;
+		public ConfigValueListener<Integer> grassyIglooMaxChunkDistance;
 		public ConfigValueListener<Boolean> addGrassyIglooToModdedBiomes;
-		public ConfigValueListener<Integer> stoneIglooSpawnrate;
+		public ConfigValueListener<Integer> stoneIglooMaxChunkDistance;
 		public ConfigValueListener<Boolean> addStoneIglooToModdedBiomes;
 
 		public ConfigValueListener<String> blacklistedDimensions;
@@ -130,12 +130,12 @@ public class RSMainConfig
 	
 				builder.push("Jungle Fortress");
 	
-					jungleFortressSpawnrate = subscriber.subscribe(builder
+					jungleFortressMaxChunkDistance = subscriber.subscribe(builder
 							.comment("\r\n How rare are Jungle Fortresses." 
 								+"\r\n "
 								+"\r\n 1 for spawning in most chunks and 1001 for no spawn.")
-							.translation("repurposedstructures.config.junglefortress.junglefortressspawnrate")
-							.defineInRange("jungleFortressSpawnrate", 32, 1, 1001));
+							.translation("repurposedstructures.config.junglefortress.junglefortressmaxchunkdistance")
+							.defineInRange("jungleFortressMaxChunkDistance", 32, 1, 1001));
 
 					addJungleFortressToModdedBiomes = subscriber.subscribe(builder
 							.comment("\r\n Add Jungle Fortress to modded jungle biomes.")
@@ -150,24 +150,24 @@ public class RSMainConfig
 							.translation("repurposedstructures.config.junglefortress.blacklistedfortressbiomes")
 							.define("blacklistedFortressBiomes", ""));
 
-					silverfishSpawnrateJF = subscriber.subscribe(builder
+					silverfishSpawnrate = subscriber.subscribe(builder
 							.comment("\r\n How often Silverfish Blocks will generate in Jungle Fortress as a percentage."
 								+ "\r\n Note: Mossy Stone Bricks block cannot be infected by Silverfish"
 								+ "\n "
 								+ "\r\n 0 for no Silverfish Blocks and 100 for max spawnrate.")
-							.translation("repurposedstructures.config.junglefortress.silverfishspawnratejf")
-							.defineInRange("silverfishSpawnrateJF", 0.5D, 0, 100));
+							.translation("repurposedstructures.config.junglefortress.silverfishspawnrate")
+							.defineInRange("silverfishSpawnrate", 0.5D, 0, 100));
 					
-					allowSilverfishSpawnerJF = subscriber.subscribe(builder
+					allowSilverfishSpawner = subscriber.subscribe(builder
 							.comment("\r\n Silverfish Mob Spawners generate in Stone Fortresses."
 								+"\r\n If turned off, the spawners will become Skeleton spawners.")
-							.translation("repurposedstructures.config.junglefortress.allowsilverfishspawnerjf")
-							.define("allowSilverfishSpawnerJF", true));
+							.translation("repurposedstructures.config.junglefortress.allowsilverfishspawner")
+							.define("allowSilverfishSpawner", true));
 
-					lootChestsJF = subscriber.subscribe(builder
+					lootChests = subscriber.subscribe(builder
 							.comment("\r\n Controls whether loot chests spawn or not in Jungle Fortresses.")
-						.translation("repurposedstructures.config.junglefortress.lootchestsjf")
-						.define("lootChestsJF", true));
+						.translation("repurposedstructures.config.junglefortress.lootchests")
+						.define("lootChests", true));
 
 
 				builder.pop();
@@ -182,12 +182,12 @@ public class RSMainConfig
 							.translation("repurposedstructures.config.igloo.blacklistedigloobiomes")
 							.define("blacklistedIglooBiomes", ""));
 
-					grassyIglooSpawnrate = subscriber.subscribe(builder
+					grassyIglooMaxChunkDistance = subscriber.subscribe(builder
 						.comment("\r\n How rare are Grassy Igloos in Plains and Forests." 
 							+ "\n "
 							+ "\r\n 1 for spawning in most chunks and 1001 for no spawn.")
-						.translation("repurposedstructures.config.igloo.grassyigloospawnrate")
-						.defineInRange("grassyIglooSpawnrate", 20, 1, 1001));
+						.translation("repurposedstructures.config.igloo.grassyigloomaxchunkdistance")
+						.defineInRange("grassyIglooMaxChunkDistance", 20, 1, 1001));
 	
 					addGrassyIglooToModdedBiomes = subscriber.subscribe(builder
 							.comment("\r\n Add Grassy Igloos to modded biomes that are"
@@ -195,12 +195,12 @@ public class RSMainConfig
 						.translation("repurposedstructures.config.igloo.addgrassyiglootomoddedbiomes")
 						.define("addGrassyIglooToModdedBiomes", true));
 
-					stoneIglooSpawnrate = subscriber.subscribe(builder
+					stoneIglooMaxChunkDistance = subscriber.subscribe(builder
 						.comment("\r\n How rare are Stone Igloos in Giant Tree Taiga biomes." 
 							+ "\n "
 							+ "\r\n 1 for spawning in most chunks and 1001 for no spawn.")
-						.translation("repurposedstructures.config.igloo.stoneigloospawnrate")
-						.defineInRange("stoneIglooSpawnrate", 20, 1, 1001));
+						.translation("repurposedstructures.config.igloo.stoneigloomaxchunkdistance")
+						.defineInRange("stoneIglooMaxChunkDistance", 20, 1, 1001));
 	
 					addStoneIglooToModdedBiomes = subscriber.subscribe(builder
 							.comment("\r\n Add Stone Igloos to modded biomes that are"

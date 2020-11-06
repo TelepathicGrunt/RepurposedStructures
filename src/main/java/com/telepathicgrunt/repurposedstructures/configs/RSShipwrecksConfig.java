@@ -15,10 +15,10 @@ public class RSShipwrecksConfig
 		public ConfigValueListener<Boolean> addNetherBricksShipwreckToModdedBiomes;
 		public ConfigValueListener<Boolean> addCrimsonShipwreckToModdedBiomes;
 		public ConfigValueListener<Boolean> addWarpedShipwreckToModdedBiomes;
-		public ConfigValueListener<Integer> endShipwreckSpawnrate;
-		public ConfigValueListener<Integer> netherBricksShipwreckSpawnrate;
-		public ConfigValueListener<Integer> crimsonShipwreckSpawnrate;
-		public ConfigValueListener<Integer> warpedShipwreckSpawnrate;
+		public ConfigValueListener<Integer> endShipwreckMaxChunkDistance;
+		public ConfigValueListener<Integer> netherBricksShipwreckMaxChunkDistance;
+		public ConfigValueListener<Integer> crimsonShipwreckMaxChunkDistance;
+		public ConfigValueListener<Integer> warpedShipwreckMaxChunkDistance;
 		public ConfigValueListener<String> blacklistedShipwreckBiomes;
 
 		public RSShipwrecksConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
@@ -38,11 +38,11 @@ public class RSShipwrecksConfig
 					.translation("repurposedstructures.config.shipwrecks.addendshipwrecktomoddedbiomes")
 					.define("addEndShipwreckToModdedBiomes", true));
 
-				endShipwreckSpawnrate = subscriber.subscribe(builder
+				endShipwreckMaxChunkDistance = subscriber.subscribe(builder
 					.comment("\r\n How rare are End Shipwreck in End Highlands biomes."
 							+ "\n 1 for spawning in most chunks and 1001 for none.")
-					.translation("repurposedstructures.config.shipwrecks.endshipwreckspawnrate")
-					.defineInRange("endShipwreckSpawnrate", 15, 1, 1001));
+					.translation("repurposedstructures.config.shipwrecks.endshipwreckmaxchunkdistance")
+					.defineInRange("endShipwreckMaxChunkDistance", 15, 1, 1001));
 
 
 				addNetherBricksShipwreckToModdedBiomes = subscriber.subscribe(builder
@@ -50,11 +50,11 @@ public class RSShipwrecksConfig
 					.translation("repurposedstructures.config.shipwrecks.addnetherbricksshipwrecktomoddedbiomes")
 					.define("addNetherBricksShipwreckToModdedBiomes", true));
 
-				netherBricksShipwreckSpawnrate = subscriber.subscribe(builder
+				netherBricksShipwreckMaxChunkDistance = subscriber.subscribe(builder
 					.comment("\r\n How rare are Nether Bricks Shipwreck in any non-warped or non-crimson Nether biome."
 							+ "\n 1 for spawning in most chunks and 1001 for none.")
-					.translation("repurposedstructures.config.shipwrecks.netherbricksshipwreckspawnrate")
-					.defineInRange("netherBricksShipwreckSpawnrate", 51, 1, 1001));
+					.translation("repurposedstructures.config.shipwrecks.netherbricksshipwreckmaxchunkdistance")
+					.defineInRange("netherBricksShipwreckMaxChunkDistance", 51, 1, 1001));
 
 
 				addCrimsonShipwreckToModdedBiomes = subscriber.subscribe(builder
@@ -62,11 +62,11 @@ public class RSShipwrecksConfig
 					.translation("repurposedstructures.config.shipwrecks.addcrimsonshipwrecktomoddedbiomes")
 					.define("addCrimsonShipwreckToModdedBiomes", true));
 
-				crimsonShipwreckSpawnrate = subscriber.subscribe(builder
+				crimsonShipwreckMaxChunkDistance = subscriber.subscribe(builder
 					.comment("\r\n How rare are Crimson Shipwreck in Crimson Nether biomes."
 							+ "\n 1 for spawning in most chunks and 1001 for none.")
-					.translation("repurposedstructures.config.shipwrecks.crimsonshipwreckspawnrate")
-					.defineInRange("crimsonShipwreckSpawnrate", 41, 1, 1001));
+					.translation("repurposedstructures.config.shipwrecks.crimsonshipwreckmaxchunkdistance")
+					.defineInRange("crimsonShipwreckMaxChunkDistance", 41, 1, 1001));
 
 
 				addWarpedShipwreckToModdedBiomes = subscriber.subscribe(builder
@@ -74,11 +74,11 @@ public class RSShipwrecksConfig
 					.translation("repurposedstructures.config.shipwrecks.addwarpedshipwrecktomoddedbiomes")
 					.define("addWarpedShipwreckToModdedBiomes", true));
 
-				warpedShipwreckSpawnrate = subscriber.subscribe(builder
+				warpedShipwreckMaxChunkDistance = subscriber.subscribe(builder
 					.comment("\r\n How rare are Warped Shipwreck in Warped Nether biomes."
 							+ "\n 1 for spawning in most chunks and 1001 for none.")
-					.translation("repurposedstructures.config.shipwrecks.warpedshipwreckspawnrate")
-					.defineInRange("warpedShipwreckSpawnrate", 41, 1, 1001));
+					.translation("repurposedstructures.config.shipwrecks.warpedshipwreckmaxchunkdistance")
+					.defineInRange("warpedShipwreckMaxChunkDistance", 41, 1, 1001));
 
 			builder.pop();
 		}

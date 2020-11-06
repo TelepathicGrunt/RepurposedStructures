@@ -41,6 +41,17 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Nerfed Jungle Fortress chest loot a bit
 
+##### Configs:
+
+- Changed "spawnrate" for dungeon entries to say "attemptsPerChunk" instead.
+
+- Changed "spawnrate" for well entries to say "rarityPerChunk" instead.
+
+- Changed "spawnrate" for majority of structures entries to say "maxChunkDistance" instead.
+
+- Removed "JF" from some Jungle Fortress entries.
+
+
 ##### Misc:
 
 - Removed logo blur from logo in mod list

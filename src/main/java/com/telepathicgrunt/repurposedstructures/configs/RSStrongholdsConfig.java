@@ -17,7 +17,7 @@ public class RSStrongholdsConfig
 
 		public ConfigValueListener<Boolean> allowStonebrickStronghold;
 		public ConfigValueListener<Boolean> addStonebrickStrongholdToModdedBiomes;
-		public ConfigValueListener<Integer> stonebrickStrongholdSpawnrate;
+		public ConfigValueListener<Integer> stonebrickStrongholdMaxChunkDistance;
 		public ConfigValueListener<Integer> stonebrickStrongholdMinHeight;
 		public ConfigValueListener<Integer> stonebrickStrongholdMaxHeight;
 		public ConfigValueListener<Double> silverfishSpawnrate;
@@ -25,7 +25,7 @@ public class RSStrongholdsConfig
 
 		public ConfigValueListener<Boolean> allowNetherStronghold;
 		public ConfigValueListener<Boolean> addNetherStrongholdToModdedBiomes;
-		public ConfigValueListener<Integer> netherStrongholdSpawnrate;
+		public ConfigValueListener<Integer> netherStrongholdMaxChunkDistance;
 		public ConfigValueListener<Integer> netherStrongholdMinHeight;
 		public ConfigValueListener<Integer> netherStrongholdMaxHeight;
 		public ConfigValueListener<Integer> netherStrongholdChainSpawnrate;
@@ -78,12 +78,12 @@ public class RSStrongholdsConfig
 						.translation("repurposedstructures.config.stronghold.addstonebrickstrongholdtomoddedbiomes")
 						.define("addStonebrickStrongholdToModdedBiomes", true));
 
-					stonebrickStrongholdSpawnrate = subscriber.subscribe(builder
+					stonebrickStrongholdMaxChunkDistance = subscriber.subscribe(builder
 							.comment("\r\n How rare are Stonebrick-styled Strongholds."
 									+ "\n "
 									+ "1 for spawning in most chunks and 1001 for no spawn.")
-							.translation("repurposedstructures.config.stronghold.stonebrickstrongholdspawnrate")
-							.defineInRange("stonebrickStrongholdSpawnrate", 85, 1, 1001));
+							.translation("repurposedstructures.config.stronghold.stonebrickstrongholdmaxchunkdistance")
+							.defineInRange("stonebrickStrongholdMaxChunkDistance", 85, 1, 1001));
 
 					silverfishSpawnrate = subscriber.subscribe(builder
 							.comment("\r\n How often Silverfish Blocks will generate in Strongholds as a percentage."
@@ -117,12 +117,12 @@ public class RSStrongholdsConfig
 
 				builder.push("Nether");
 
-					netherStrongholdSpawnrate = subscriber.subscribe(builder
+					netherStrongholdMaxChunkDistance = subscriber.subscribe(builder
 						.comment("\r\n How rare are Nether-styled Strongholds in Nether-category biomes."
 								+ "\n "
 								+ "1 for spawning in most chunks and 1001 for no spawn.")
-						.translation("repurposedstructures.config.stronghold.netherstrongholdspawnrate")
-						.defineInRange("netherStrongholdSpawnrate", 85, 1, 1001));
+						.translation("repurposedstructures.config.stronghold.netherstrongholdmaxChunkDistance")
+						.defineInRange("netherStrongholdMaxChunkDistance", 85, 1, 1001));
 
 					addNetherStrongholdToModdedBiomes  = subscriber.subscribe(builder
 						.comment("\r\nAllow Nether-styled Stronghold to"

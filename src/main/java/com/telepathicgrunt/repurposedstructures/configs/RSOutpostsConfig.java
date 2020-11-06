@@ -13,11 +13,11 @@ public class RSOutpostsConfig
 	{
 		public ConfigValueListener<Boolean> addNetherBrickOutpostToModdedBiomes;
 		public ConfigValueListener<String> blacklistedOutpostBiomes;
-		public ConfigValueListener<Integer> netherBrickOutpostSpawnrate;
+		public ConfigValueListener<Integer> netherBrickOutpostMaxChunkDistance;
 		public ConfigValueListener<Boolean> addWarpedOutpostToModdedBiomes;
-		public ConfigValueListener<Integer> warpedOutpostSpawnrate;
+		public ConfigValueListener<Integer> warpedOutpostMaxChunkDistance;
 		public ConfigValueListener<Boolean> addCrimsonOutpostToModdedBiomes;
-		public ConfigValueListener<Integer> crimsonOutpostSpawnrate;
+		public ConfigValueListener<Integer> crimsonOutpostMaxChunkDistance;
 
 		public RSOutpostsConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
 		{
@@ -38,11 +38,11 @@ public class RSOutpostsConfig
 					.translation("repurposedstructures.config.outposts.addnetherbrickoutposttomoddedbiomes")
 					.define("addNetherBrickOutpostToModdedBiomes", true));
 
-				netherBrickOutpostSpawnrate = subscriber.subscribe(builder
+				netherBrickOutpostMaxChunkDistance = subscriber.subscribe(builder
 					.comment("\r\n Add Nether Brick Outposts to modded Nether biomes"
 							+ "\n that other nether outposts don't fit in.")
-					.translation("repurposedstructures.config.outposts.netherbrickoutpostspawnrate")
-					.defineInRange("netherBrickOutpostSpawnrate", 34, 1, 1001));
+					.translation("repurposedstructures.config.outposts.netherbrickoutpostmaxchunkdistance")
+					.defineInRange("netherBrickOutpostMaxChunkDistance", 34, 1, 1001));
 
 
 				addWarpedOutpostToModdedBiomes = subscriber.subscribe(builder
@@ -51,10 +51,10 @@ public class RSOutpostsConfig
 					.translation("repurposedstructures.config.outposts.addwarpedoutposttomoddedbiomes")
 					.define("addWarpedOutpostToModdedBiomes", true));
 
-				warpedOutpostSpawnrate = subscriber.subscribe(builder
+				warpedOutpostMaxChunkDistance = subscriber.subscribe(builder
 					.comment("\r\n Add Warped Outposts to modded Nether Warped biomes.")
-					.translation("repurposedstructures.config.outposts.warpedoutpostspawnrate")
-					.defineInRange("warpedOutpostSpawnrate", 34, 1, 1001));
+					.translation("repurposedstructures.config.outposts.warpedoutpostmaxchunkdistance")
+					.defineInRange("warpedOutpostMaxChunkDistance", 34, 1, 1001));
 
 
 				addCrimsonOutpostToModdedBiomes = subscriber.subscribe(builder
@@ -63,10 +63,10 @@ public class RSOutpostsConfig
 					.translation("repurposedstructures.config.outposts.addcrimsonoutposttomoddedbiomes")
 					.define("addCrimsonOutpostToModdedBiomes", true));
 
-				crimsonOutpostSpawnrate = subscriber.subscribe(builder
+				crimsonOutpostMaxChunkDistance = subscriber.subscribe(builder
 					.comment("\r\n Add Crimson Outposts to modded Nether Warped biomes.")
 					.translation("repurposedstructures.config.outposts.crimsonoutpostspawnrate")
-					.defineInRange("crimsonOutpostSpawnrate", 34, 1, 1001));
+					.defineInRange("crimsonOutpostMaxChunkDistance", 34, 1, 1001));
 
 			builder.pop();
 		}

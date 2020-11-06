@@ -14,16 +14,16 @@ public class RSDungeonsConfig
 
 		public ConfigValueListener<Boolean> addDungeonsToModdedBiomes;
 		public ConfigValueListener<String> blacklistedDungeonBiomes;
-		public ConfigValueListener<Integer> badlandsDungeonSpawnrate;
-		public ConfigValueListener<Integer> darkForestDungeonSpawnrate;
-		public ConfigValueListener<Integer> desertDungeonSpawnrate;
-		public ConfigValueListener<Integer> jungleDungeonSpawnrate;
-		public ConfigValueListener<Integer> mushroomDungeonSpawnrate;
-		public ConfigValueListener<Integer> snowDungeonSpawnrate;
-		public ConfigValueListener<Integer> swampDungeonSpawnrate;
-		public ConfigValueListener<Integer> endDungeonSpawnrate;
-		public ConfigValueListener<Integer> netherDungeonSpawnrate;
-		public ConfigValueListener<Integer> oceanDungeonSpawnrate;
+		public ConfigValueListener<Integer> badlandsDungeonAttemptsPerChunk;
+		public ConfigValueListener<Integer> darkForestDungeonAttemptsPerChunk;
+		public ConfigValueListener<Integer> desertDungeonAttemptsPerChunk;
+		public ConfigValueListener<Integer> jungleDungeonAttemptsPerChunk;
+		public ConfigValueListener<Integer> mushroomDungeonAttemptsPerChunk;
+		public ConfigValueListener<Integer> snowDungeonAttemptsPerChunk;
+		public ConfigValueListener<Integer> swampDungeonAttemptsPerChunk;
+		public ConfigValueListener<Integer> endDungeonAttemptsPerChunk;
+		public ConfigValueListener<Integer> netherDungeonAttemptsPerChunk;
+		public ConfigValueListener<Integer> oceanDungeonAttemptsPerChunk;
 
 		public ConfigValueListener<Integer> badlandsDungeonMinHeight;
 		public ConfigValueListener<Integer> darkForestDungeonMinHeight;
@@ -64,90 +64,90 @@ public class RSDungeonsConfig
 					.translation("repurposedstructures.config.dungeons.blacklisteddungeonbiomes")
 					.define("blacklistedDungeonBiomes", ""));
 
-				builder.push("Spawnrate");
+				builder.push("AttemptsPerChunk");
         					
-            				badlandsDungeonSpawnrate = subscriber.subscribe(builder
+            				badlandsDungeonAttemptsPerChunk = subscriber.subscribe(builder
             						.comment("\r\n Replace vanilla dungeon in Badlands biomes with Badlands themed dungeon.\r\n"
         							+" How often dungeons will attempt to spawn per chunk.\r\n " 
         							+" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.\r\n"
         							+" Note: Vanilla Dungeons will spawn again when this is set to 0.")
-        					.translation("repurposedstructures.config.dungeons.badlandsdungeonspawnrate")
-        					.defineInRange("badlandsDungeonSpawnrate", 8, 0, 1000));
+        					.translation("repurposedstructures.config.dungeons.badlandsdungeonattemptsperchunk")
+        					.defineInRange("badlandsDungeonAttemptsPerChunk", 8, 0, 1000));
 				
-					darkForestDungeonSpawnrate = subscriber.subscribe(builder
+					darkForestDungeonAttemptsPerChunk = subscriber.subscribe(builder
 							.comment("\r\n Replace vanilla dungeon in Dark Forest biomes with Dark Forest themed dungeon.\r\n"
 								+" How often dungeons will attempt to spawn per chunk.\r\n " 
 								+" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.\r\n"
 								+" Note: Vanilla Dungeons will spawn again when this is set to 0.")
-						.translation("repurposedstructures.config.dungeons.darkforestdungeonspawnrate")
-						.defineInRange("darkForestDungeonSpawnrate", 8, 0, 1000));
+						.translation("repurposedstructures.config.dungeons.darkforestdungeonattemptsperchunk")
+						.defineInRange("darkForestDungeonAttemptsPerChunk", 8, 0, 1000));
 				
-					desertDungeonSpawnrate = subscriber.subscribe(builder
+					desertDungeonAttemptsPerChunk = subscriber.subscribe(builder
 							.comment("\r\n Replace vanilla dungeon in Desert biomes with Desert themed dungeon.\r\n"
 								+" How often dungeons will attempt to spawn per chunk.\r\n " 
 								+" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.\r\n"
 								+" Note: Vanilla Dungeons will spawn again when this is set to 0.")
-						.translation("repurposedstructures.config.dungeons.desertdungeonspawnrate")
-						.defineInRange("desertDungeonSpawnrate", 8, 0, 1000));
+						.translation("repurposedstructures.config.dungeons.desertdungeonattemptsperchunk")
+						.defineInRange("desertDungeonAttemptsPerChunk", 8, 0, 1000));
 				
-					jungleDungeonSpawnrate = subscriber.subscribe(builder
+					jungleDungeonAttemptsPerChunk = subscriber.subscribe(builder
 							.comment("\r\n Replace vanilla dungeon in Jungle biomes with Jungle themed dungeon.\r\n"
 								+" How often dungeons will attempt to spawn per chunk.\r\n " 
 								+" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.\r\n"
 								+" Note: Vanilla Dungeons will spawn again when this is set to 0.")
-						.translation("repurposedstructures.config.dungeons.jungledungeonspawnrate")
-						.defineInRange("jungleDungeonSpawnrate", 8, 0, 1000));
+						.translation("repurposedstructures.config.dungeons.jungledungeonattemptsperchunk")
+						.defineInRange("jungleDungeonAttemptsPerChunk", 8, 0, 1000));
 				
-					mushroomDungeonSpawnrate = subscriber.subscribe(builder
+					mushroomDungeonAttemptsPerChunk = subscriber.subscribe(builder
 							.comment("\r\n Replace vanilla dungeon in Mushroom biomes with Mushroom themed dungeon.\r\n"
 								+" How often dungeons will attempt to spawn per chunk.\r\n " 
 								+" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.\r\n"
 								+" Note: Vanilla Dungeons will spawn again when this is set to 0.")
-						.translation("repurposedstructures.config.dungeons.mushroomdungeonspawnrate")
-						.defineInRange("mushroomDungeonSpawnrate", 8, 0, 1000));
+						.translation("repurposedstructures.config.dungeons.mushroomdungeonattemptsperchunk")
+						.defineInRange("mushroomDungeonAttemptsPerChunk", 8, 0, 1000));
 				
-					snowDungeonSpawnrate = subscriber.subscribe(builder
+					snowDungeonAttemptsPerChunk = subscriber.subscribe(builder
 							.comment("\r\n Replace vanilla dungeon in icy/snow biomes with icy/snow themed dungeon.\r\n"
 								+" How often dungeons will attempt to spawn per chunk.\r\n " 
 								+" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.\r\n"
 								+" Note: Vanilla Dungeons will spawn again when this is set to 0.")
-						.translation("repurposedstructures.config.dungeons.snowdungeonspawnrate")
-						.defineInRange("snowDungeonSpawnrate", 8, 0, 1000));
+						.translation("repurposedstructures.config.dungeons.snowdungeonattemptsperchunk")
+						.defineInRange("snowDungeonAttemptsPerChunk", 8, 0, 1000));
 				
-					swampDungeonSpawnrate = subscriber.subscribe(builder
+					swampDungeonAttemptsPerChunk = subscriber.subscribe(builder
 							.comment("\r\n Replace vanilla dungeon in Swamp biomes with Swamp themed dungeon.\r\n"
 								+" How often dungeons will attempt to spawn per chunk.\r\n " 
 								+" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.\r\n"
 								+" Note: Vanilla Dungeons will spawn again when this is set to 0.")
-						.translation("repurposedstructures.config.dungeons.swampdungeonspawnrate")
-						.defineInRange("swampDungeonSpawnrate", 8, 0, 1000));
+						.translation("repurposedstructures.config.dungeons.swampdungeonattemptsperchunk")
+						.defineInRange("swampDungeonAttemptsPerChunk", 8, 0, 1000));
 				
-					endDungeonSpawnrate = subscriber.subscribe(builder
+					endDungeonAttemptsPerChunk = subscriber.subscribe(builder
 							.comment("\r\n Add End themed dungeon to End biomes outside the Enderdragon island.\r\n"
 								+" How often dungeons will attempt to spawn per chunk.\r\n " 
 								+" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.")
-						.translation("repurposedstructures.config.dungeons.enddungeonspawnrate")
-						.defineInRange("endDungeonSpawnrate", 8, 0, 1000));
+						.translation("repurposedstructures.config.dungeons.enddungeonattemptsperchunk")
+						.defineInRange("endDungeonAttemptsPerChunk", 8, 0, 1000));
 
-					netherDungeonSpawnrate = subscriber.subscribe(builder
+					netherDungeonAttemptsPerChunk = subscriber.subscribe(builder
 							.comment("\r\n Add Nether themed dungeon to Nether biomes.\r\n"
 								+" How often dungeons will attempt to spawn per chunk.\r\n " 
 								+" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.")
-						.translation("repurposedstructures.config.dungeons.netherdungeonspawnrate")
-						.defineInRange("netherDungeonSpawnrate", 8, 0, 1000));
+						.translation("repurposedstructures.config.dungeons.netherdungeonattemptsperchunk")
+						.defineInRange("netherDungeonAttemptsPerChunk", 8, 0, 1000));
 
-					oceanDungeonSpawnrate = subscriber.subscribe(builder
+					oceanDungeonAttemptsPerChunk = subscriber.subscribe(builder
 							.comment("\r\n Add ocean themed dungeon to ocean biomes. These will spawn on"
 								+"\r\n the ocean's floor and inside water filled caves and ravines.\r\n"
 								+"\r\n"
 								+" How often dungeons will attempt to spawn per chunk.\r\n " 
-								+" 0 for no dungeons at all and 1000 for max dungeon spawnrate."
+								+" 0 for no dungeons at all and 1000 for max Dungeon spawnrate."
 								+"\r\n"
 								+"\r\n Note: Vanilla Dungeons will still generate if the biome has "
 								+"\r\n them which is unlike the other modded dungeons from this mod"
 								+"\r\n as those would normally replace the Vanilla Dungeons.")
-						.translation("repurposedstructures.config.dungeons.oceandungeonspawnrate")
-						.defineInRange("oceanDungeonSpawnrate", 6, 0, 1000));
+						.translation("repurposedstructures.config.dungeons.oceandungeonattemptsperchunk")
+						.defineInRange("oceanDungeonAttemptsPerChunk", 6, 0, 1000));
             
 
 				builder.pop();

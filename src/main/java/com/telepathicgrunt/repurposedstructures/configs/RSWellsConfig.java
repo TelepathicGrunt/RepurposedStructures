@@ -14,11 +14,11 @@ public class RSWellsConfig
 	{
 		public ConfigValueListener<Boolean> addWellsToModdedBiomes;
 		public ConfigValueListener<Boolean> canHaveBells;
-		public ConfigValueListener<Integer> badlandsWellSpawnrate;
-		public ConfigValueListener<Integer> netherWellSpawnrate;
-		public ConfigValueListener<Integer> snowWellSpawnrate;
-		public ConfigValueListener<Integer> mossyStoneWellSpawnrate;
-		public ConfigValueListener<Integer> forestWellSpawnrate;
+		public ConfigValueListener<Integer> badlandsWellRarityPerChunk;
+		public ConfigValueListener<Integer> netherWellRarityPerChunk;
+		public ConfigValueListener<Integer> snowWellRarityPerChunk;
+		public ConfigValueListener<Integer> mossyStoneWellRarityPerChunk;
+		public ConfigValueListener<Integer> forestWellRarityPerChunk;
 		public ConfigValueListener<String> blacklistedWellBiomes;
 
 		public RSWellsConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
@@ -44,47 +44,47 @@ public class RSWellsConfig
 					.translation("repurposedstructures.config.smallwells.blacklistedwellbiomes")
 					.define("blacklistedWellBiomes", ""));
 					
-				builder.push("Spawnrate");
+				builder.push("RarityPerChunk");
 	
-					badlandsWellSpawnrate  = subscriber.subscribe(builder
+					badlandsWellRarityPerChunk  = subscriber.subscribe(builder
 							.comment("\r\n Adds Badlands themed wells to Badlands biomes."
 								+ "\r\n This effects how often wells will attempt to spawn per chunk." 
-								+ "\r\n The chance of a well generating at a chunk is 1/spawnrate."
+								+ "\r\n The chance of a well generating at a chunk is 1/rarityPerChunk."
 								+ "\r\n 1 for wells spawning in every chunk and 10000 for no wells.")
-						.translation("repurposedstructures.config.smallwells.badlandswellspawnrate")
-						.defineInRange("badlandsWellSpawnrate", 250, 1, 10000));
+						.translation("repurposedstructures.config.smallwells.badlandswellrarityperchunk")
+						.defineInRange("badlandsWellRarityPerChunk", 250, 1, 10000));
 					
-					netherWellSpawnrate = subscriber.subscribe(builder
+					netherWellRarityPerChunk = subscriber.subscribe(builder
 							.comment("\r\n Adds Nether themed wells to Nether biomes."
 								+ "\r\n This effects how often wells will attempt to spawn per chunk." 
-								+ "\r\n The chance of a well generating at a chunk is 1/spawnrate."
+								+ "\r\n The chance of a well generating at a chunk is 1/rarityPerChunk."
 								+ "\r\n 1 for wells spawning in every chunk and 10000 for no wells.")
-						.translation("repurposedstructures.config.smallwells.netherwellspawnrate")
-						.defineInRange("netherWellSpawnrate", 200, 1, 10000));
+						.translation("repurposedstructures.config.smallwells.netherwellrarityperchunk")
+						.defineInRange("netherWellRarityPerChunk", 200, 1, 10000));
 					
-					snowWellSpawnrate = subscriber.subscribe(builder
+					snowWellRarityPerChunk = subscriber.subscribe(builder
 							.comment("\r\n Adds Snow themed wells to snowy and icy biomes."
 								+ "\r\n This effects how often wells will attempt to spawn per chunk." 
-								+ "\r\n The chance of a well generating at a chunk is 1/spawnrate."
+								+ "\r\n The chance of a well generating at a chunk is 1/rarityPerChunk."
 								+ "\r\n 1 for wells spawning in every chunk and 10000 for no wells.")
-						.translation("repurposedstructures.config.smallwells.snowwellspawnrate")
-						.defineInRange("snowWellSpawnrate", 350, 1, 10000));
+						.translation("repurposedstructures.config.smallwells.snowwellrarityperchunk")
+						.defineInRange("snowWellRarityPerChunk", 350, 1, 10000));
 					
-					mossyStoneWellSpawnrate = subscriber.subscribe(builder
+					mossyStoneWellRarityPerChunk = subscriber.subscribe(builder
 							.comment("\r\n Adds mossy stone themed wells to Jungles, Dark Oak, and Swamp biomes."
 								+ "\r\n This effects how often wells will attempt to spawn per chunk." 
-								+ "\r\n The chance of a well generating at a chunk is 1/spawnrate."
+								+ "\r\n The chance of a well generating at a chunk is 1/rarityPerChunk."
 								+ "\r\n 1 for wells spawning in every chunk and 10000 for no wells.")
-						.translation("repurposedstructures.config.smallwells.mossystonewellspawnrate")
-						.defineInRange("mossyStoneWellSpawnrate", 350, 1, 10000));
+						.translation("repurposedstructures.config.smallwells.mossystonewellrarityperchunk")
+						.defineInRange("mossyStoneWellRarityPerChunk", 350, 1, 10000));
 			
-					forestWellSpawnrate = subscriber.subscribe(builder
+					forestWellRarityPerChunk = subscriber.subscribe(builder
 							.comment("\r\n Adds a wood themed wells to Forest and Birch Forest biomes."
 								+ "\r\n This effects how often wells will attempt to spawn per chunk." 
-								+ "\r\n The chance of a well generating at a chunk is 1/spawnrate."
+								+ "\r\n The chance of a well generating at a chunk is 1/rarityPerChunk."
 								+ "\r\n 1 for wells spawning in every chunk and 10000 for no wells.")
-						.translation("repurposedstructures.config.smallwells.forestwellspawnrate")
-						.defineInRange("forestWellSpawnrate", 350, 1, 10000));
+						.translation("repurposedstructures.config.smallwells.forestwellrarityperchunk")
+						.defineInRange("forestWellRarityPerChunk", 350, 1, 10000));
 
 				builder.pop();
 						

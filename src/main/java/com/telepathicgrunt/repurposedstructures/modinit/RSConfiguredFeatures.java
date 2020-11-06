@@ -24,89 +24,89 @@ public class RSConfiguredFeatures {
                     RepurposedStructures.RSDungeonsConfig.badlandsDungeonMinHeight.get(),
                     0,
                     RepurposedStructures.RSDungeonsConfig.badlandsDungeonMaxHeight.get()))
-            .repeat(RepurposedStructures.RSDungeonsConfig.badlandsDungeonSpawnrate.get()));
+            .repeat(RepurposedStructures.RSDungeonsConfig.badlandsDungeonAttemptsPerChunk.get()));
 
     public static ConfiguredFeature<?, ?> DARK_FOREST_DUNGEONS = RSFeatures.DARK_FOREST_DUNGEONS.get().configure(IFeatureConfig.NO_FEATURE_CONFIG)
             .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.get().configure(new TopSolidRangeConfig(
                     RepurposedStructures.RSDungeonsConfig.darkForestDungeonMinHeight.get(),
                     0,
                     RepurposedStructures.RSDungeonsConfig.darkForestDungeonMaxHeight.get()))
-                    .repeat(RepurposedStructures.RSDungeonsConfig.darkForestDungeonSpawnrate.get()));
+                    .repeat(RepurposedStructures.RSDungeonsConfig.darkForestDungeonAttemptsPerChunk.get()));
 
     public static ConfiguredFeature<?, ?> DESERT_DUNGEONS = RSFeatures.DESERT_DUNGEONS.get().configure(IFeatureConfig.NO_FEATURE_CONFIG)
             .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.get().configure(new TopSolidRangeConfig(
                     RepurposedStructures.RSDungeonsConfig.desertDungeonMinHeight.get(),
                     0,
                     RepurposedStructures.RSDungeonsConfig.desertDungeonMaxHeight.get()))
-                    .repeat(RepurposedStructures.RSDungeonsConfig.desertDungeonSpawnrate.get()));
+                    .repeat(RepurposedStructures.RSDungeonsConfig.desertDungeonAttemptsPerChunk.get()));
 
     public static ConfiguredFeature<?, ?> END_DUNGEONS = RSFeatures.END_DUNGEONS.get().configure(IFeatureConfig.NO_FEATURE_CONFIG)
             .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.get().configure(new TopSolidRangeConfig(
                     RepurposedStructures.RSDungeonsConfig.endDungeonMinHeight.get(),
                     0,
                     RepurposedStructures.RSDungeonsConfig.endDungeonMaxHeight.get()))
-                    .repeat(RepurposedStructures.RSDungeonsConfig.endDungeonSpawnrate.get()));
+                    .repeat(RepurposedStructures.RSDungeonsConfig.endDungeonAttemptsPerChunk.get()));
 
     public static ConfiguredFeature<?, ?> NETHER_DUNGEONS = RSFeatures.NETHER_DUNGEONS.get().configure(IFeatureConfig.NO_FEATURE_CONFIG)
             .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.get().configure(new TopSolidRangeConfig(
                     RepurposedStructures.RSDungeonsConfig.netherDungeonMinHeight.get(),
                     0,
                     RepurposedStructures.RSDungeonsConfig.netherDungeonMaxHeight.get()))
-                    .repeat(RepurposedStructures.RSDungeonsConfig.netherDungeonSpawnrate.get()));
+                    .repeat(RepurposedStructures.RSDungeonsConfig.netherDungeonAttemptsPerChunk.get()));
 
     public static ConfiguredFeature<?, ?> SNOW_DUNGEONS = RSFeatures.SNOW_DUNGEONS.get().configure(IFeatureConfig.NO_FEATURE_CONFIG)
             .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.get().configure(new TopSolidRangeConfig(
                     RepurposedStructures.RSDungeonsConfig.snowDungeonMinHeight.get(),
                     0,
                     RepurposedStructures.RSDungeonsConfig.snowDungeonMaxHeight.get()))
-                    .repeat(RepurposedStructures.RSDungeonsConfig.snowDungeonSpawnrate.get()));
+                    .repeat(RepurposedStructures.RSDungeonsConfig.snowDungeonAttemptsPerChunk.get()));
 
     public static ConfiguredFeature<?, ?> SWAMP_DUNGEONS = RSFeatures.SWAMP_DUNGEONS.get().configure(IFeatureConfig.NO_FEATURE_CONFIG)
             .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.get().configure(new TopSolidRangeConfig(
                     RepurposedStructures.RSDungeonsConfig.swampDungeonMinHeight.get(),
                     0,
                     RepurposedStructures.RSDungeonsConfig.swampDungeonMaxHeight.get()))
-                    .repeat(RepurposedStructures.RSDungeonsConfig.swampDungeonSpawnrate.get()));
+                    .repeat(RepurposedStructures.RSDungeonsConfig.swampDungeonAttemptsPerChunk.get()));
 
     public static ConfiguredFeature<?, ?> MUSHROOM_DUNGEONS = RSFeatures.MUSHROOM_DUNGEONS.get().configure(IFeatureConfig.NO_FEATURE_CONFIG)
             .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.get().configure(new TopSolidRangeConfig(
                     RepurposedStructures.RSDungeonsConfig.mushroomDungeonMinHeight.get(),
                     0,
                     RepurposedStructures.RSDungeonsConfig.mushroomDungeonMaxHeight.get()))
-                    .repeat(RepurposedStructures.RSDungeonsConfig.mushroomDungeonSpawnrate.get()));
+                    .repeat(RepurposedStructures.RSDungeonsConfig.mushroomDungeonAttemptsPerChunk.get()));
 
     public static ConfiguredFeature<?, ?> JUNGLE_DUNGEONS = RSFeatures.JUNGLE_DUNGEONS.get().configure(IFeatureConfig.NO_FEATURE_CONFIG)
             .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.get().configure(new TopSolidRangeConfig(
                     RepurposedStructures.RSDungeonsConfig.jungleDungeonMinHeight.get(),
                     0,
                     RepurposedStructures.RSDungeonsConfig.jungleDungeonMaxHeight.get()))
-                    .repeat(RepurposedStructures.RSDungeonsConfig.jungleDungeonSpawnrate.get()));
+                    .repeat(RepurposedStructures.RSDungeonsConfig.jungleDungeonAttemptsPerChunk.get()));
 
     public static ConfiguredFeature<?, ?> OCEAN_DUNGEONS = RSFeatures.OCEAN_DUNGEONS.get().configure(IFeatureConfig.NO_FEATURE_CONFIG)
             .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.get().configure(new TopSolidRangeConfig(
                     RepurposedStructures.RSDungeonsConfig.oceanDungeonMinHeight.get(),
                     0,
                     RepurposedStructures.RSDungeonsConfig.oceanDungeonMaxHeight.get()))
-                    .repeat(RepurposedStructures.RSDungeonsConfig.oceanDungeonSpawnrate.get()));
+                    .repeat(RepurposedStructures.RSDungeonsConfig.oceanDungeonAttemptsPerChunk.get()));
 
 
     // Wells
 
     public static ConfiguredFeature<?, ?> BADLANDS_WELL = RSFeatures.BADLANDS_WELL.get().configure(IFeatureConfig.NO_FEATURE_CONFIG)
-            .decorate(Features.Placements.SQUARE_HEIGHTMAP).applyChance(RepurposedStructures.RSWellsConfig.badlandsWellSpawnrate.get());
+            .decorate(Features.Placements.SQUARE_HEIGHTMAP).applyChance(RepurposedStructures.RSWellsConfig.badlandsWellRarityPerChunk.get());
 
     public static ConfiguredFeature<?, ?> NETHER_WELL = RSFeatures.NETHER_WELL.get().configure(IFeatureConfig.NO_FEATURE_CONFIG)
-            .decorate(Placement.RANGE.configure(new TopSolidRangeConfig(30, 0, 91))).applyChance(RepurposedStructures.RSWellsConfig.netherWellSpawnrate.get());
+            .decorate(Placement.RANGE.configure(new TopSolidRangeConfig(30, 0, 91))).applyChance(RepurposedStructures.RSWellsConfig.netherWellRarityPerChunk.get());
 
     public static ConfiguredFeature<?, ?> SNOW_WELL = RSFeatures.SNOW_WELL.get().configure(IFeatureConfig.NO_FEATURE_CONFIG)
-            .decorate(Features.Placements.SQUARE_HEIGHTMAP).applyChance(RepurposedStructures.RSWellsConfig.snowWellSpawnrate.get());
+            .decorate(Features.Placements.SQUARE_HEIGHTMAP).applyChance(RepurposedStructures.RSWellsConfig.snowWellRarityPerChunk.get());
 
     public static ConfiguredFeature<?, ?> MOSSY_STONE_WELL = RSFeatures.MOSSY_STONE_WELL.get().configure(IFeatureConfig.NO_FEATURE_CONFIG)
-            .decorate(Features.Placements.SQUARE_HEIGHTMAP).applyChance(RepurposedStructures.RSWellsConfig.mossyStoneWellSpawnrate.get());
+            .decorate(Features.Placements.SQUARE_HEIGHTMAP).applyChance(RepurposedStructures.RSWellsConfig.mossyStoneWellRarityPerChunk.get());
 
     public static ConfiguredFeature<?, ?> FOREST_WELL = RSFeatures.FOREST_WELL.get().configure(IFeatureConfig.NO_FEATURE_CONFIG)
                     .decorate(Features.Placements.SQUARE_HEIGHTMAP)
-                    .applyChance(RepurposedStructures.RSWellsConfig.forestWellSpawnrate.get());
+                    .applyChance(RepurposedStructures.RSWellsConfig.forestWellRarityPerChunk.get());
 
     // Misc
 
