@@ -74,7 +74,7 @@ public class BoulderGiant extends Feature<DefaultFeatureConfig> {
                 if (blockpos.getSquaredDistance(blockpos$Mutable) <= calculatedDistance * calculatedDistance) {
 
                     double noiseValue = noiseGen.noise3_Classic(blockpos.getX() * 0.035D, blockpos.getY() * 0.0075D, blockpos.getZ() * 0.035D);
-                    if(blockpos.getSquaredDistance(blockpos$Mutable) > calculatedDistance * calculatedDistance * 0.55f &&
+                    if(blockpos.getSquaredDistance(blockpos$Mutable) > calculatedDistance * calculatedDistance * 0.65f &&
                             noiseValue > -0.3D && noiseValue < 0.3D){
                         continue; // Rough the surface of the boulders a bit
                     }
