@@ -41,9 +41,9 @@ public class BoulderGiant extends Feature<DefaultFeatureConfig> {
         BlockState blockState = world.getBlockState(blockpos$Mutable);
 
         //Will keeps moving down position until it finds valid ground to generate on while ignoring other boulders
-        while (blockpos$Mutable.getY() >= 6) {
-            if (blockState.getMaterial() == Material.AIR || (blockState.getBlock() != Blocks.GRASS_BLOCK && !isSoil(blockState.getBlock()))) {
-                //block was air or a non-dirt/grass block. Thus move down one.
+        while (blockpos$Mutable.getY() >= 10) {
+            if (!blockState.getBlock().is(Blocks.PODZOL) && !blockState.getBlock().is(Blocks.GRASS_BLOCK) && !isSoil(blockState.getBlock())) {
+                //block was non-dirt/grass block. Thus move down one.
                 blockpos$Mutable.move(Direction.DOWN);
                 blockState = world.getBlockState(blockpos$Mutable);
             } else {
@@ -120,7 +120,7 @@ public class BoulderGiant extends Feature<DefaultFeatureConfig> {
                     random.nextInt(startRadius * 2) - startRadius);
 
             blockpos$Mutable.move(Direction.UP,
-                    world.getTopY(Heightmap.Type.WORLD_SURFACE_WG, blockpos$Mutable.getX(), blockpos$Mutable.getZ())
+                    world.getTopY(Heightmap.Type.OCEAN_FLOOR_WG, blockpos$Mutable.getX(), blockpos$Mutable.getZ())
                             + 1
                             - random.nextInt(2)
                             - blockpos$Mutable.getY());
