@@ -41,7 +41,7 @@ public class RSConfiguredStructures {
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> CRIMSON_OUTPOST = RSStructures.CRIMSON_OUTPOST.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
 
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_PYRAMID = RSStructures.NETHER_PYRAMID.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> BADLANDS_TEMPLE = RSStructures.BADLANDS_TEMPLE.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> BADLANDS_TEMPLE = RSStructures.BADLANDS_PYRAMID.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
 
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> END_SHIPWRECK = RSStructures.END_SHIPWRECK.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_BRICKS_SHIPWRECK = RSStructures.NETHER_BRICKS_SHIPWRECK.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);

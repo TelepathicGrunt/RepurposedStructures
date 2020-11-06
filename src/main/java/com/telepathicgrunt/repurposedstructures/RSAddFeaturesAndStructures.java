@@ -112,42 +112,42 @@ public class RSAddFeaturesAndStructures {
     public static void addDungeons(BiomeLoadingEvent event) {
 
         if (RepurposedStructures.RSDungeonsConfig.jungleDungeonSpawnrate.get() != 0 &&
-                event.getCategory() == Category.JUNGLE && dungeonAllowedByNamespaceAndConfigUA(event.getName())) {
+                event.getCategory() == Category.JUNGLE && dungeonAllowedByNamespaceAndConfig(event.getName())) {
 
             replaceOrAddDungeon(true, event, RSConfiguredFeatures.JUNGLE_DUNGEONS);
         }
         else if (RepurposedStructures.RSDungeonsConfig.badlandsDungeonSpawnrate.get() != 0 &&
-                event.getCategory() == Category.MESA && dungeonAllowedByNamespaceAndConfigUA(event.getName())) {
+                event.getCategory() == Category.MESA && dungeonAllowedByNamespaceAndConfig(event.getName())) {
 
             replaceOrAddDungeon(true, event, RSConfiguredFeatures.BADLANDS_DUNGEONS);
         }
         else if (RepurposedStructures.RSDungeonsConfig.darkForestDungeonSpawnrate.get() != 0 &&
-                event.getName().getPath().contains("dark_forest") && dungeonAllowedByNamespaceAndConfigUA(event.getName())) {
+                event.getName().getPath().contains("dark_forest") && dungeonAllowedByNamespaceAndConfig(event.getName())) {
 
             replaceOrAddDungeon(true, event, RSConfiguredFeatures.DARK_FOREST_DUNGEONS);
         }
         else if (RepurposedStructures.RSDungeonsConfig.desertDungeonSpawnrate.get() != 0 &&
-                event.getCategory() == Category.DESERT && dungeonAllowedByNamespaceAndConfigUA(event.getName())) {
+                event.getCategory() == Category.DESERT && dungeonAllowedByNamespaceAndConfig(event.getName())) {
 
             replaceOrAddDungeon(true, event, RSConfiguredFeatures.DESERT_DUNGEONS);
         }
         else if (RepurposedStructures.RSDungeonsConfig.mushroomDungeonSpawnrate.get() != 0 &&
-                event.getCategory() == Category.MUSHROOM && dungeonAllowedByNamespaceAndConfigUA(event.getName())) {
+                event.getCategory() == Category.MUSHROOM && dungeonAllowedByNamespaceAndConfig(event.getName())) {
 
             replaceOrAddDungeon(true, event, RSConfiguredFeatures.MUSHROOM_DUNGEONS);
         }
         else if (RepurposedStructures.RSDungeonsConfig.swampDungeonSpawnrate.get() != 0 &&
-                event.getCategory() == Category.SWAMP && dungeonAllowedByNamespaceAndConfigUA(event.getName())) {
+                event.getCategory() == Category.SWAMP && dungeonAllowedByNamespaceAndConfig(event.getName())) {
 
             replaceOrAddDungeon(true, event, RSConfiguredFeatures.SWAMP_DUNGEONS);
         }
         else if (RepurposedStructures.RSDungeonsConfig.snowDungeonSpawnrate.get() != 0 &&
-                event.getCategory() == Category.ICY && dungeonAllowedByNamespaceAndConfigUA(event.getName())) {
+                event.getCategory() == Category.ICY && dungeonAllowedByNamespaceAndConfig(event.getName())) {
 
             replaceOrAddDungeon(true, event, RSConfiguredFeatures.SNOW_DUNGEONS);
         }
         else if (RepurposedStructures.RSDungeonsConfig.netherDungeonSpawnrate.get() != 0 &&
-                event.getCategory() == Category.NETHER && dungeonAllowedByNamespaceAndConfigUA(event.getName())) {
+                event.getCategory() == Category.NETHER && dungeonAllowedByNamespaceAndConfig(event.getName())) {
 
             replaceOrAddDungeon(false, event, RSConfiguredFeatures.NETHER_DUNGEONS);
         }
@@ -155,7 +155,7 @@ public class RSAddFeaturesAndStructures {
                 (event.getCategory() == Category.THEEND &&
                         !event.getName().equals(new ResourceLocation("minecraft:the_end")) &&
                         !event.getName().equals(new ResourceLocation("minecraft:small_end_islands"))) &&
-                dungeonAllowedByNamespaceAndConfigUA(event.getName())) {
+                dungeonAllowedByNamespaceAndConfig(event.getName())) {
 
             replaceOrAddDungeon(false, event, RSConfiguredFeatures.END_DUNGEONS);
         }
@@ -180,20 +180,7 @@ public class RSAddFeaturesAndStructures {
         //add given dungeon
         event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).add(() -> rsDungeon);
     }
-
-
-    /**
-     * Will not return true for Ultra Amplified Dimension's biomes as that mod already has the dungeon type.
-     * <p>
-     * And will check if the dungeon is allowed in modded biomes based on config but will always return true for vanilla biomes.
-     */
-    private static boolean dungeonAllowedByNamespaceAndConfigUA(ResourceLocation biomeID) {
-        if (!biomeID.getNamespace().equals("ultra_amplified_dimension")) {
-            return dungeonAllowedByNamespaceAndConfig(biomeID);
-        }
-        return false;
-    }
-
+    
 
     /**
      * Will check if the dungeon is allowed in modded biomes based on config but will always return true for vanilla biomes.
@@ -388,7 +375,7 @@ public class RSAddFeaturesAndStructures {
 
             else if (RepurposedStructures.RSShipwrecksConfig.warpedShipwreckSpawnrate.get() != 1001 &&
                     event.getName().getPath().contains("warped") &&
-                    (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSShipwrecksConfig.addCrimsonShipwreckToModdedBiomes.get())) {
+                    (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSShipwrecksConfig.addWarpedShipwreckToModdedBiomes.get())) {
 
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.WARPED_SHIPWRECK);
             }

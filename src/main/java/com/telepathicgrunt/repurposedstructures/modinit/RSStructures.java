@@ -80,7 +80,7 @@ public class RSStructures {
 
 	//Pyramids
 	public static final RegistryObject<Structure<NoFeatureConfig>> NETHER_PYRAMID = registerStructure("pyramid_nether", () -> (new PyramidNetherStructure(NoFeatureConfig.CODEC)));
-	public static final RegistryObject<Structure<NoFeatureConfig>> BADLANDS_TEMPLE = registerStructure("pyramid_badlands", () -> (new PyramidBadlandsStructure(NoFeatureConfig.CODEC)));
+	public static final RegistryObject<Structure<NoFeatureConfig>> BADLANDS_PYRAMID = registerStructure("pyramid_badlands", () -> (new PyramidBadlandsStructure(NoFeatureConfig.CODEC)));
     
 	//Shipwrecks
 	public static final RegistryObject<Structure<NoFeatureConfig>> END_SHIPWRECK = registerStructure("shipwreck_end", () -> (new ShipwreckEndStructure(NoFeatureConfig.CODEC)));
@@ -103,43 +103,6 @@ public class RSStructures {
     {   
         return STRUCTURE_FEATURES.register(name, structure);
     }
-    
-    //Had to put the Lists in a Lazy because they get called before the Structures are registered - andrew
-    public static Lazy<List<Structure<?>>> OVERWORLD_VILLAGE_LIST = Lazy.of(() -> Arrays.asList(
-            BADLANDS_VILLAGE.get(),
-            BIRCH_VILLAGE.get(),
-            DARK_FOREST_VILLAGE.get(),
-            JUNGLE_VILLAGE.get(),
-            SWAMP_VILLAGE.get(),
-            MOUNTAINS_VILLAGE.get(),
-            GIANT_TAIGA_VILLAGE.get()
-    ));
-    public static Lazy<List<Structure<?>>> NETHER_VILLAGE_LIST = Lazy.of(() -> Arrays.asList(
-            CRIMSON_VILLAGE.get(),
-            WARPED_VILLAGE.get()
-    ));
-    public static  Lazy<List<Structure<?>>> NETHER_OUTPOSTS_LIST = Lazy.of(() -> Arrays.asList(
-            NETHER_BRICK_OUTPOST.get(),
-            WARPED_OUTPOST.get(),
-            CRIMSON_OUTPOST.get()
-    ));
-    public static  Lazy<List<Structure<?>>> NETHER_TEMPLE_LIST = Lazy.of(() -> Arrays.asList(
-            NETHER_WASTELAND_TEMPLE.get(),
-            NETHER_BASALT_TEMPLE.get(),
-            NETHER_WARPED_TEMPLE.get(),
-            NETHER_CRIMSON_TEMPLE.get(),
-            NETHER_SOUL_TEMPLE.get(),
-            NETHER_PYRAMID.get()
-    ));
-    public static  Lazy<List<Structure<?>>> NETHER_SHIPWRECKS_LIST = Lazy.of(() -> Arrays.asList(
-            NETHER_BRICKS_SHIPWRECK.get(),
-            WARPED_SHIPWRECK.get(),
-            CRIMSON_SHIPWRECK.get()
-    ));
-    public static  Lazy<List<Structure<?>>> LARGE_VANILLA_NETHER_STRUCTURE_LIST = Lazy.of(() -> Arrays.asList(
-            Structure.FORTRESS,
-            Structure.BASTION_REMNANT
-    ));
     
 	public static void registerStructures()
 	{
@@ -172,7 +135,7 @@ public class RSStructures {
         registerLandscapeTransformingStructure(new ResourceLocation(RepurposedStructures.MODID, "outpost_warped"), WARPED_OUTPOST.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSOutpostsConfig.warpedOutpostSpawnrate.get(), (int) (RepurposedStructures.RSOutpostsConfig.warpedOutpostSpawnrate.get() * 0.5f), 1928816918));
         registerLandscapeTransformingStructure(new ResourceLocation(RepurposedStructures.MODID, "outpost_crimson"), CRIMSON_OUTPOST.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSOutpostsConfig.crimsonOutpostSpawnrate.get(), (int) (RepurposedStructures.RSOutpostsConfig.crimsonOutpostSpawnrate.get() * 0.5f), 1951425662));
 
-        registerStructure(new ResourceLocation(RepurposedStructures.MODID, "pyramid_badlands"), BADLANDS_TEMPLE.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSTemplesConfig.badlandsPyramidSpawnrate.get(), (int) (RepurposedStructures.RSTemplesConfig.badlandsPyramidSpawnrate.get() * 0.5f), 1718729448));
+        registerStructure(new ResourceLocation(RepurposedStructures.MODID, "pyramid_badlands"), BADLANDS_PYRAMID.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSTemplesConfig.badlandsPyramidSpawnrate.get(), (int) (RepurposedStructures.RSTemplesConfig.badlandsPyramidSpawnrate.get() * 0.5f), 1718729448));
         registerLandscapeTransformingStructure(new ResourceLocation(RepurposedStructures.MODID, "pyramid_nether"), NETHER_PYRAMID.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSTemplesConfig.netherPyramidSpawnrate.get(), (int) (RepurposedStructures.RSTemplesConfig.netherPyramidSpawnrate.get() * 0.5f), 2054372964));
 
         registerStructure(new ResourceLocation(RepurposedStructures.MODID, "shipwreck_end"), END_SHIPWRECK.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSShipwrecksConfig.endShipwreckSpawnrate.get(), (int) (RepurposedStructures.RSShipwrecksConfig.endShipwreckSpawnrate.get() * 0.5f), 1605500075));

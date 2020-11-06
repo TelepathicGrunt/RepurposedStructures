@@ -8,7 +8,21 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
-## (V.2.2.12 Changes) (1.16.3 Minecraft)
+## (V.2.3.0 Changes) (1.16.3 Minecraft)
+
+##### Backend:
+
+- Reworked and cleaned up backend a bit.
+
+- Fixed many structures not using the speedy locate method.
+
+##### Strongholds:
+
+- Fixed Strongholds being cutoff by Bedrock.
+
+##### Shipwrecks:
+
+- Fixed addWarpedShipwreckToModdedBiomes config not working.
 
 ##### Misc:
 

@@ -22,7 +22,7 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
 import java.util.List;
 
 
-public class OutpostNetherStructure extends Structure<NoFeatureConfig> {
+public class OutpostNetherStructure extends AbstractBaseStructure {
     private final ResourceLocation START_POOL;
     private static final List<MobSpawnInfo.Spawners> MONSTER_SPAWNS = Lists.newArrayList(new MobSpawnInfo.Spawners(EntityType.PIGLIN, 10, 1, 1));
 

@@ -97,7 +97,7 @@ public class RSStonebrickStrongholdStructure extends StrongholdStructure {
             // much as possible without hitting bedrock.
             if (this.bounds.maxY > maxYConfig) {
                 int heightDiff = maxYConfig - this.bounds.maxY;
-                offset2 = Math.max(heightDiff, -this.bounds.minY);
+                offset2 = this.bounds.minY + heightDiff < 2 ? 2 - this.bounds.minY : heightDiff;
             }
 
             // Apply the final offsets

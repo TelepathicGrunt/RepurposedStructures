@@ -2,6 +2,7 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.google.common.collect.Iterators;
 import com.google.common.collect.Lists;
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.Direction;
@@ -28,12 +29,11 @@ import net.minecraft.world.gen.settings.StructureSeparationSettings;
 import java.util.List;
 
 
-public class ShipwreckNetherStructure extends Structure<NoFeatureConfig> {
+public class ShipwreckNetherStructure extends AbstractBaseStructure {
     // Special thanks to cannon_foddr and miguelforge for allowing me to use their nether shipwreck design!
 
     private final ResourceLocation START_POOL;
     private final boolean spawnAtSeaLevel;
-    private static List<Structure<?>> AVOID_STRUCTURE_LIST = null;
 
 
     public ShipwreckNetherStructure(ResourceLocation start_pool, boolean spawnAtSeaLevel) {
@@ -45,14 +45,6 @@ public class ShipwreckNetherStructure extends Structure<NoFeatureConfig> {
 
     @Override
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig NoFeatureConfig) {
-        if(AVOID_STRUCTURE_LIST == null){
-            AVOID_STRUCTURE_LIST = Lists.newArrayList(Iterators.concat(
-                    RSStructures.NETHER_OUTPOSTS_LIST.get().iterator(),
-                    RSStructures.NETHER_TEMPLE_LIST.get().iterator(),
-                    RSStructures.NETHER_VILLAGE_LIST.get().iterator(),
-                    RSStructures.LARGE_VANILLA_NETHER_STRUCTURE_LIST.get().iterator()));
-        }
-
 
         // Quick shitty check to see if there some air where the structure wants to spawn.
         // Doesn't account for rotation of structure.
@@ -80,7 +72,7 @@ public class ShipwreckNetherStructure extends Structure<NoFeatureConfig> {
         //cannot be near any other structure
         for (int curChunkX = chunkX - 3; curChunkX <= chunkX + 3; curChunkX++) {
             for (int curChunkZ = chunkZ - 3; curChunkZ <= chunkZ + 3; curChunkZ++) {
-                for(Structure<?> structure : AVOID_STRUCTURE_LIST){
+                for(Structure<?> structure : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE)){
                     StructureSeparationSettings structureConfig = chunkGenerator.getStructuresConfig().getForType(structure);
                     if(structureConfig != null) {
                         ChunkPos chunkPos2 = structure.getStartChunk(structureConfig, seed, chunkRandom, curChunkX, curChunkZ);

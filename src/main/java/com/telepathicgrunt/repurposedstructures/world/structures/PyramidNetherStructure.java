@@ -18,7 +18,7 @@ import net.minecraft.world.gen.feature.structure.VillageConfig;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
 
-public class PyramidNetherStructure extends Structure<NoFeatureConfig> {
+public class PyramidNetherStructure extends AbstractBaseStructure {
     // Special thanks to /r/l-ll-ll-l_IsDisLoss for allowing me to mimic his nether pyramid design!
 
     private final ResourceLocation START_POOL;

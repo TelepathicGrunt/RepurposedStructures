@@ -89,6 +89,7 @@ public class RepurposedStructures
 			RSConfiguredFeatures.registerConfiguredFeatures();
 			RSStructures.registerStructures();
 			RSConfiguredStructures.registerStructureFeatures();
+			RSStructureTagMap.setupTags();
 		});
 	}
 

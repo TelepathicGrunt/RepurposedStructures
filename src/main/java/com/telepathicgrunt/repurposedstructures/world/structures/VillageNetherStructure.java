@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.mojang.serialization.Codec;
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
@@ -30,7 +31,7 @@ public class VillageNetherStructure extends OverworldJigsawStructure {
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig defaultFeatureConfig) {
         for (int curChunkX = chunkX - 10; curChunkX <= chunkX + 10; curChunkX++) {
             for (int curChunkZ = chunkZ - 10; curChunkZ <= chunkZ + 10; curChunkZ++) {
-                for(Structure<?> outpost : RSStructures.NETHER_OUTPOSTS_LIST.get()){
+                for(Structure<?> outpost : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NETHER_OUTPOST)){
                     StructureSeparationSettings structureConfig = chunkGenerator.getStructuresConfig().getForType(outpost);
                     if(structureConfig != null) {
                         ChunkPos chunkPos2 = outpost.getStartChunk(structureConfig, seed, chunkRandom, curChunkX, curChunkZ);

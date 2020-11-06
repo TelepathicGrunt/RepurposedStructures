@@ -3,6 +3,7 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 import com.google.common.collect.Iterators;
 import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
@@ -25,27 +26,19 @@ import java.util.List;
 
 
 public abstract class AbstractNetherStructure extends AbstractBaseStructure {
-    private static List<Structure<?>> AVOID_STRUCTURE_LIST = null;
     public AbstractNetherStructure(Codec<NoFeatureConfig> config) {
         super(config);
     }
 
     @Override
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig defaultFeatureConfig) {
-        if(AVOID_STRUCTURE_LIST == null){
-            AVOID_STRUCTURE_LIST = Lists.newArrayList(Iterators.concat(
-                    RSStructures.NETHER_SHIPWRECKS_LIST.get().iterator(),
-                    RSStructures.NETHER_OUTPOSTS_LIST.get().iterator(),
-                    RSStructures.LARGE_VANILLA_NETHER_STRUCTURE_LIST.get().iterator()));
-            AVOID_STRUCTURE_LIST.add(RSStructures.NETHER_PYRAMID.get());
-        }
 
         // No one can be within 6 chunks of outpost
-        int radius = RSStructures.NETHER_OUTPOSTS_LIST.get().contains(this) ? 6 : 3;
+        int radius = RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NETHER_OUTPOST).contains(this) ? 6 : 3;
         if(this != RSStructures.WARPED_OUTPOST.get() && this != RSStructures.CRIMSON_OUTPOST.get() && this != RSStructures.NETHER_BRICK_OUTPOST.get()){
             for (int curChunkX = chunkX - radius; curChunkX <= chunkX + radius; curChunkX++) {
                 for (int curChunkZ = chunkZ - radius; curChunkZ <= chunkZ + radius; curChunkZ++) {
-                    for(Structure<?> structureFeature : AVOID_STRUCTURE_LIST) {
+                    for(Structure<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE)) {
                         StructureSeparationSettings structureConfig = chunkGenerator.getStructuresConfig().getForType(structureFeature);
                         if(structureConfig != null){
                             ChunkPos chunkPos2 = structureFeature.getStartChunk(structureConfig, seed, chunkRandom, curChunkX, curChunkZ);

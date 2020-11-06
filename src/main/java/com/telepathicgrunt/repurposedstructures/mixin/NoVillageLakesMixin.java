@@ -1,5 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.mixin;
 
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.SectionPos;
@@ -26,7 +27,7 @@ public class NoVillageLakesMixin {
     )
     private void checkForRSVillages(ISeedReader serverWorldAccess, ChunkGenerator chunkGenerator, Random random, BlockPos blockPos, BlockStateFeatureConfig singleStateFeatureConfig, CallbackInfoReturnable<Boolean> cir) {
 
-        for (Structure<?> village : RSStructures.OVERWORLD_VILLAGE_LIST.get()) {
+        for (Structure<?> village : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.OVERWORLD_VILLAGE)) {
             if (serverWorldAccess.getStructures(SectionPos.from(blockPos), village).findAny().isPresent()) {
                 cir.setReturnValue(false);
                 break;

@@ -20,7 +20,7 @@ import net.minecraft.world.gen.feature.structure.*;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
 
-public class PyramidBadlandsStructure extends Structure<NoFeatureConfig> {
+public class PyramidBadlandsStructure extends AbstractBaseStructure {
 
     private final ResourceLocation START_POOL;
     public PyramidBadlandsStructure(Codec<NoFeatureConfig> config) {

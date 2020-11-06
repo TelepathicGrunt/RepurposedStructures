@@ -19,7 +19,7 @@ import net.minecraft.world.gen.feature.structure.*;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 import net.minecraft.world.gen.settings.StructureSeparationSettings;
 
-public class OverworldJigsawStructure extends Structure<NoFeatureConfig> {
+public class OverworldJigsawStructure extends AbstractBaseStructure {
     private final ResourceLocation START_POOL;
     private final int STRUCTURE_SIZE;
 
@@ -46,11 +46,6 @@ public class OverworldJigsawStructure extends Structure<NoFeatureConfig> {
     @Override
     public IStartFactory<NoFeatureConfig> getStartFactory() {
         return OverworldJigsawStructure.MainStart::new;
-    }
-
-    @Override
-    public BlockPos locateStructure(IWorldReader worldView, StructureManager structureAccessor, BlockPos blockPos, int radius, boolean skipExistingChunks, long seed, StructureSeparationSettings structureConfig) {
-        return AbstractBaseStructure.locateStructureFast(worldView, structureAccessor, blockPos, radius, skipExistingChunks, seed, structureConfig, this);
     }
 
     public class MainStart extends MarginedStructureStart<NoFeatureConfig> {
