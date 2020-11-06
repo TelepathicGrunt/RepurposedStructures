@@ -48,15 +48,17 @@ public class RSStrongholdsConfig implements ConfigData
 
 		@ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
-		@Comment("Stonebrick-styled Stronghold replaces vanilla Strongholds" +
-				"\nin any biome. If off, vanilla Strongholds will generate" +
-				"\ninstead but Nether Strongholds will still be active.")
-		public boolean allowStonebrickStronghold = true;
+		@Comment("Add Stonebrick-styled Stronghold which replaces vanilla Strongholds in any" +
+				"\nvanilla non-Nether biome. If allowStonebrickStrongholdToVanillaBiomes is" +
+				"\noff, vanilla Strongholds will generate again but Repurposed Structures's" +
+				"\nNether Strongholds will still be active.")
+		public boolean allowStonebrickStrongholdToVanillaBiomes = true;
 
 		@ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
-		@Comment("Add Stonebrick-styled Stronghold to all modded non-Nether" +
-				"\nbiomes even if they have don't have vanilla Strongholds.")
+		@Comment("Add Stonebrick-styled Stronghold to all modded non-Nether biomes" +
+				"\neven if they have don't have vanilla Strongholds. It will replace" +
+				"\nthe vanilla Strongholds in those biomes if this option is on.")
 		public boolean addStonebrickStrongholdToModdedBiomes = true;
 
 		@ConfigEntry.Gui.Tooltip(count = 0)

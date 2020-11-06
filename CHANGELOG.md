@@ -24,6 +24,11 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Fixed Strongholds being cutoff by Bedrock.
 
+- Added allowStonebrickStrongholdToVanillaBiomes config option for Stonebrick Strongholds. 
+  It now now possible to have Repurposed Structures's Stonebrick Strongholds to only spawn 
+  in modded biomes, or only in vanilla biomes, or both by changing the values of
+  addStonebrickStrongholdToModdedBiomes and allowStonebrickStrongholdToVanillaBiomes.
+
 ##### Mineshafts:
 
 - End Mineshafts will now be much more buried in the End's islands 
@@ -47,7 +52,7 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Giant Boulders in Giant Tree Taiga biomes will now no longer float on water.
 
-##### Configs:
+##### General Configs Changes:
 
 - Changed "spawnrate" for dungeon entries to say "attemptsPerChunk" instead.
 

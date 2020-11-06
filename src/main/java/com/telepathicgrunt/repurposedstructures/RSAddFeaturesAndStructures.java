@@ -307,7 +307,7 @@ public class RSAddFeaturesAndStructures {
         return RSConfiguredFeatures.RS_WELLS.stream().noneMatch(context::hasBuiltInFeature)
                 && isBiomeAllowed("well", context.getBiomeKey().getValue())
                 && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
-                || RepurposedStructures.RSAllConfig.RSWellsConfig.addWellsToModdedBiomes);
+                    || RepurposedStructures.RSAllConfig.RSWellsConfig.addWellsToModdedBiomes);
     }
 
 
@@ -389,12 +389,13 @@ public class RSAddFeaturesAndStructures {
         addToBiome("stonebrick_stronghold",
                 (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.STRONGHOLD).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
                         && isBiomeAllowed("stronghold", context.getBiomeKey().getValue())
-                        && (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.allowStonebrickStronghold
-                            && RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.stonebrickStrongholdMaxChunkDistance != 1001
-                            && context.getBiome().getCategory() != Category.NETHER
-                            && (context.getBiome().getGenerationSettings().hasStructureFeature(StructureFeature.STRONGHOLD)
-                                || (!context.getBiomeKey().getValue().getNamespace().equals("minecraft")
-                                    && RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.addStonebrickStrongholdToModdedBiomes))),
+                        && RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.stonebrickStrongholdMaxChunkDistance != 1001
+                        && context.getBiome().getCategory() != Category.NETHER
+                        && ((RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.allowStonebrickStrongholdToVanillaBiomes
+                                && context.getBiomeKey().getValue().getNamespace().equals("minecraft")
+                                && context.getBiome().getGenerationSettings().hasStructureFeature(StructureFeature.STRONGHOLD))
+                            || ((RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.addStonebrickStrongholdToModdedBiomes
+                                && !context.getBiomeKey().getValue().getNamespace().equals("minecraft")))),
                 context -> {
                         context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.STONEBRICK_STRONGHOLD);
                         context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, RSConfiguredFeatures.STONEBRICK_STRONGHOLD_CHAINS);
