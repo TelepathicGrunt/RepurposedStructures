@@ -2,6 +2,7 @@ package com.telepathicgrunt.repurposedstructures.mixin;
 
 import com.google.common.collect.Iterators;
 import com.google.common.collect.Lists;
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.util.math.BlockPos;
@@ -34,13 +35,13 @@ public class StructureMobSpawningMixin {
     private static List<SpawnSettings.SpawnEntry>  getStructureSpawns(Biome biome, StructureAccessor accessor, SpawnGroup group, BlockPos pos){
         if (group == SpawnGroup.MONSTER) {
 
-            for(StructureFeature<?> outpost : RSStructures.NETHER_OUTPOSTS_LIST){
+            for(StructureFeature<?> outpost : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NETHER_OUTPOST)){
                 if (accessor.getStructureAt(pos, true, outpost).hasChildren()) {
                     return outpost.getMonsterSpawns();
                 }
             }
 
-            for(StructureFeature<?> shipwreck : RSStructures.NETHER_SHIPWRECKS_LIST){
+            for(StructureFeature<?> shipwreck : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NETHER_SHIPWRECK)){
                 if (accessor.getStructureAt(pos, true, shipwreck).hasChildren()) {
                     return Lists.newArrayList(Iterators.concat(biome.getSpawnSettings().getSpawnEntry(SpawnGroup.MONSTER).iterator(), shipwreck.getMonsterSpawns().iterator()));
                 }

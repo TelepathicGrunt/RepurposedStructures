@@ -196,7 +196,7 @@ public class DungeonOcean extends Feature<DefaultFeatureConfig> {
 
                         if (j3 == 1) {
                             world.setBlockState(mutable,
-                                    StructurePiece.method_14916(world, mutable,
+                                    StructurePiece.orientateChest(world, mutable,
                                             Blocks.CHEST.getDefaultState()
                                                     .with(Properties.WATERLOGGED,
                                                             mutable.getY() < chunkGenerator.getSeaLevel())), 3);

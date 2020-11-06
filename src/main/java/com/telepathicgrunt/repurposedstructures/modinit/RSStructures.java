@@ -66,43 +66,6 @@ public class RSStructures {
     public static StructureFeature<DefaultFeatureConfig> CRIMSON_VILLAGE = new VillageNetherStructure(new Identifier(RepurposedStructures.MODID, "village/crimson/town_centers"), 6);
     public static StructureFeature<DefaultFeatureConfig> WARPED_VILLAGE = new VillageNetherStructure(new Identifier(RepurposedStructures.MODID, "village/warped/town_centers"), 6);
 
-    public static List<StructureFeature<DefaultFeatureConfig>> OVERWORLD_VILLAGE_LIST = Arrays.asList(
-            BADLANDS_VILLAGE,
-            BIRCH_VILLAGE,
-            DARK_FOREST_VILLAGE,
-            JUNGLE_VILLAGE,
-            SWAMP_VILLAGE,
-            MOUNTAINS_VILLAGE,
-            GIANT_TAIGA_VILLAGE
-    );
-    public static List<StructureFeature<DefaultFeatureConfig>> NETHER_VILLAGE_LIST = Arrays.asList(
-            CRIMSON_VILLAGE,
-            WARPED_VILLAGE
-    );
-    public static List<StructureFeature<?>> NETHER_OUTPOSTS_LIST = Arrays.asList(
-            NETHER_BRICK_OUTPOST,
-            WARPED_OUTPOST,
-            CRIMSON_OUTPOST
-    );
-    public static List<StructureFeature<?>> NETHER_TEMPLE_LIST = Arrays.asList(
-            NETHER_WASTELAND_TEMPLE,
-            NETHER_BASALT_TEMPLE,
-            NETHER_WARPED_TEMPLE,
-            NETHER_CRIMSON_TEMPLE,
-            NETHER_SOUL_TEMPLE,
-            NETHER_PYRAMID
-    );
-    public static List<StructureFeature<?>> NETHER_SHIPWRECKS_LIST = Arrays.asList(
-            NETHER_BRICKS_SHIPWRECK,
-            WARPED_SHIPWRECK,
-            CRIMSON_SHIPWRECK
-    );
-    public static List<StructureFeature<?>> LARGE_VANILLA_NETHER_STRUCTURE_LIST = Arrays.asList(
-            StructureFeature.FORTRESS,
-            StructureFeature.BASTION_REMNANT
-    );
-
-
     public static void registerStructures() {
 
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "mineshaft_birch"), BIRCH_MINESHAFT).step(GenerationStep.Feature.UNDERGROUND_STRUCTURES).defaultConfig(new StructureConfig(1, 0, 399117345)).superflatFeature(BIRCH_MINESHAFT.configure(FeatureConfig.DEFAULT)).register();
@@ -153,6 +116,7 @@ public class RSStructures {
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "village_warped"), WARPED_VILLAGE).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSVillagesConfig.warpedVillageSpawnrate, (int) (RepurposedStructures.RSAllConfig.RSVillagesConfig.warpedVillageSpawnrate * 0.5f), 1298332136)).superflatFeature(WARPED_VILLAGE.configure(FeatureConfig.DEFAULT)).adjustsSurface().register();
 
         //Next available seed: https://www.google.com/search?q=random+number
+
         RS_STRUCTURES.putAll(StructuresConfig.DEFAULT_STRUCTURES);
         RS_STRUCTURES.keySet().removeIf(key -> key.getName() == null || !key.getName().contains(RepurposedStructures.MODID));
 

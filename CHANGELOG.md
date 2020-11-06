@@ -9,11 +9,21 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 # | Repurposed Structures changelog |
 
 
-## (V.1.6.10 Changes) (1.16.3 Minecraft)
+## (V.1.7.0 Changes) (1.16.3 Minecraft)
+
+##### Backend:
+
+- Reworked and cleaned up backend to now 
+  use Fabric API's Biome Modification API.
 
 ##### Strongholds:
 
 - Fixed Strongholds being cutoff by Bedrock.
+
+##### Outposts:
+
+- Fixed addWarpedShipwreckToModdedBiomes config not working.
+
 
 ## (V.1.6.9 Changes) (1.16.3 Minecraft)
 

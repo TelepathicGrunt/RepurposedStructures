@@ -63,10 +63,10 @@ public class OutpostNetherStructure extends StructureFeature<DefaultFeatureConfi
 
             BlockPos lowestLandPos = getHighestLand(chunkGenerator);
             if (lowestLandPos.getY() >= 108 || lowestLandPos.getY() <= 37) {
-                this.method_14976(this.random, 19, 20);
+                this.randomUpwardTranslation(this.random, 19, 20);
             }
             else {
-                this.method_14976(this.random, lowestLandPos.getY()-15, lowestLandPos.getY()-14);
+                this.randomUpwardTranslation(this.random, lowestLandPos.getY()-15, lowestLandPos.getY()-14);
             }
         }
     }

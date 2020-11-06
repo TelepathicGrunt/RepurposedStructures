@@ -102,7 +102,7 @@ public class FortressJunglePieces {
 
 
         @Override
-        public void placeJigsaw(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
+        public void fillOpenings(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
             this.getNextComponentX((FortressJunglePieces.Start) componentIn, listIn, rand, 0, 1, true);
         }
 
@@ -168,7 +168,7 @@ public class FortressJunglePieces {
 
 
         @Override
-        public void placeJigsaw(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
+        public void fillOpenings(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
             this.getNextComponentZ((FortressJunglePieces.Start) componentIn, listIn, rand, 0, 1, true);
         }
 
@@ -224,7 +224,7 @@ public class FortressJunglePieces {
 
 
         @Override
-        public void placeJigsaw(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
+        public void fillOpenings(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
             this.getNextComponentNormal((FortressJunglePieces.Start) componentIn, listIn, rand, 1, 0, true);
         }
 
@@ -285,7 +285,7 @@ public class FortressJunglePieces {
 
 
         @Override
-        public void placeJigsaw(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
+        public void fillOpenings(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
             int i = 1;
             Direction enumfacing = this.getFacing();
 
@@ -355,7 +355,7 @@ public class FortressJunglePieces {
 
 
         @Override
-        public void placeJigsaw(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
+        public void fillOpenings(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
             this.getNextComponentNormal((FortressJunglePieces.Start) componentIn, listIn, rand, 1, 0, true);
         }
 
@@ -404,7 +404,7 @@ public class FortressJunglePieces {
 
 
         @Override
-        public void placeJigsaw(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
+        public void fillOpenings(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
             this.getNextComponentNormal((FortressJunglePieces.Start) componentIn, listIn, rand, 2, 0, false);
             this.getNextComponentX((FortressJunglePieces.Start) componentIn, listIn, rand, 0, 2, false);
             this.getNextComponentZ((FortressJunglePieces.Start) componentIn, listIn, rand, 0, 2, false);
@@ -465,7 +465,7 @@ public class FortressJunglePieces {
 
 
         @Override
-        public void placeJigsaw(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
+        public void fillOpenings(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
             this.getNextComponentNormal((FortressJunglePieces.Start) componentIn, listIn, rand, 1, 0, true);
             this.getNextComponentX((FortressJunglePieces.Start) componentIn, listIn, rand, 0, 1, true);
             this.getNextComponentZ((FortressJunglePieces.Start) componentIn, listIn, rand, 0, 1, true);
@@ -531,7 +531,7 @@ public class FortressJunglePieces {
 
 
         @Override
-        public void placeJigsaw(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
+        public void fillOpenings(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
             this.getNextComponentNormal((FortressJunglePieces.Start) componentIn, listIn, rand, 8, 3, false);
             this.getNextComponentX((FortressJunglePieces.Start) componentIn, listIn, rand, 3, 8, false);
             this.getNextComponentZ((FortressJunglePieces.Start) componentIn, listIn, rand, 3, 8, false);
@@ -668,7 +668,7 @@ public class FortressJunglePieces {
 
 
         @Override
-        public void placeJigsaw(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
+        public void fillOpenings(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
             this.getNextComponentNormal((FortressJunglePieces.Start) componentIn, listIn, rand, 5, 3, true);
         }
 
@@ -775,7 +775,7 @@ public class FortressJunglePieces {
 
 
         @Override
-        public void placeJigsaw(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
+        public void fillOpenings(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
             this.getNextComponentNormal((FortressJunglePieces.Start) componentIn, listIn, rand, 5, 3, true);
             this.getNextComponentNormal((FortressJunglePieces.Start) componentIn, listIn, rand, 5, 11, true);
         }
@@ -1008,16 +1008,16 @@ public class FortressJunglePieces {
             if (enumfacing != null) {
                 switch (enumfacing) {
                     case NORTH:
-                        return this.generateAndAddPiece(p_74963_1_, p_74963_2_, p_74963_3_, this.boundingBox.minX + p_74963_4_, this.boundingBox.minY + p_74963_5_, this.boundingBox.minZ - 1, enumfacing, this.getLength(), p_74963_6_);
+                        return this.generateAndAddPiece(p_74963_1_, p_74963_2_, p_74963_3_, this.boundingBox.minX + p_74963_4_, this.boundingBox.minY + p_74963_5_, this.boundingBox.minZ - 1, enumfacing, this.getChainLength(), p_74963_6_);
 
                     case SOUTH:
-                        return this.generateAndAddPiece(p_74963_1_, p_74963_2_, p_74963_3_, this.boundingBox.minX + p_74963_4_, this.boundingBox.minY + p_74963_5_, this.boundingBox.maxZ + 1, enumfacing, this.getLength(), p_74963_6_);
+                        return this.generateAndAddPiece(p_74963_1_, p_74963_2_, p_74963_3_, this.boundingBox.minX + p_74963_4_, this.boundingBox.minY + p_74963_5_, this.boundingBox.maxZ + 1, enumfacing, this.getChainLength(), p_74963_6_);
 
                     case WEST:
-                        return this.generateAndAddPiece(p_74963_1_, p_74963_2_, p_74963_3_, this.boundingBox.minX - 1, this.boundingBox.minY + p_74963_5_, this.boundingBox.minZ + p_74963_4_, enumfacing, this.getLength(), p_74963_6_);
+                        return this.generateAndAddPiece(p_74963_1_, p_74963_2_, p_74963_3_, this.boundingBox.minX - 1, this.boundingBox.minY + p_74963_5_, this.boundingBox.minZ + p_74963_4_, enumfacing, this.getChainLength(), p_74963_6_);
 
                     case EAST:
-                        return this.generateAndAddPiece(p_74963_1_, p_74963_2_, p_74963_3_, this.boundingBox.maxX + 1, this.boundingBox.minY + p_74963_5_, this.boundingBox.minZ + p_74963_4_, enumfacing, this.getLength(), p_74963_6_);
+                        return this.generateAndAddPiece(p_74963_1_, p_74963_2_, p_74963_3_, this.boundingBox.maxX + 1, this.boundingBox.minY + p_74963_5_, this.boundingBox.minZ + p_74963_4_, enumfacing, this.getChainLength(), p_74963_6_);
 
                     default:
                         break;
@@ -1035,11 +1035,11 @@ public class FortressJunglePieces {
                 switch (enumfacing) {
                     case NORTH:
                     case SOUTH:
-                        return this.generateAndAddPiece(start, structurePieces, random, this.boundingBox.minX - 1, this.boundingBox.minY + x, this.boundingBox.minZ + z, Direction.WEST, this.getLength(), useSecondaryList);
+                        return this.generateAndAddPiece(start, structurePieces, random, this.boundingBox.minX - 1, this.boundingBox.minY + x, this.boundingBox.minZ + z, Direction.WEST, this.getChainLength(), useSecondaryList);
 
                     case WEST:
                     case EAST:
-                        return this.generateAndAddPiece(start, structurePieces, random, this.boundingBox.minX + z, this.boundingBox.minY + x, this.boundingBox.minZ - 1, Direction.NORTH, this.getLength(), useSecondaryList);
+                        return this.generateAndAddPiece(start, structurePieces, random, this.boundingBox.minX + z, this.boundingBox.minY + x, this.boundingBox.minZ - 1, Direction.NORTH, this.getChainLength(), useSecondaryList);
 
                     default:
                         break;
@@ -1057,11 +1057,11 @@ public class FortressJunglePieces {
                 switch (enumfacing) {
                     case NORTH:
                     case SOUTH:
-                        return this.generateAndAddPiece(start, structurePieces, random, this.boundingBox.maxX + 1, this.boundingBox.minY + x, this.boundingBox.minZ + z, Direction.EAST, this.getLength(), useSecondaryList);
+                        return this.generateAndAddPiece(start, structurePieces, random, this.boundingBox.maxX + 1, this.boundingBox.minY + x, this.boundingBox.minZ + z, Direction.EAST, this.getChainLength(), useSecondaryList);
 
                     case WEST:
                     case EAST:
-                        return this.generateAndAddPiece(start, structurePieces, random, this.boundingBox.minX + z, this.boundingBox.minY + x, this.boundingBox.maxZ + 1, Direction.SOUTH, this.getLength(), useSecondaryList);
+                        return this.generateAndAddPiece(start, structurePieces, random, this.boundingBox.minX + z, this.boundingBox.minY + x, this.boundingBox.maxZ + 1, Direction.SOUTH, this.getChainLength(), useSecondaryList);
 
                     default:
                         break;
@@ -1275,7 +1275,7 @@ public class FortressJunglePieces {
 
 
         @Override
-        public void placeJigsaw(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
+        public void fillOpenings(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
             this.getNextComponentZ((FortressJunglePieces.Start) componentIn, listIn, rand, 6, 2, false);
         }
 
@@ -1365,7 +1365,7 @@ public class FortressJunglePieces {
 
 
         @Override
-        public void placeJigsaw(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
+        public void fillOpenings(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
             this.getNextComponentNormal((FortressJunglePieces.Start) componentIn, listIn, rand, 1, 3, false);
         }
 

@@ -101,7 +101,7 @@ public class RSMineshaftPieces {
 
             if (structuremineshaftpieces$peice != null) {
                 p_189938_1_.add(structuremineshaftpieces$peice);
-                structuremineshaftpieces$peice.placeJigsaw(p_189938_0_, p_189938_1_, p_189938_2_);
+                structuremineshaftpieces$peice.fillOpenings(p_189938_0_, p_189938_1_, p_189938_2_);
             }
 
             return structuremineshaftpieces$peice;
@@ -196,8 +196,8 @@ public class RSMineshaftPieces {
 
 
         @Override
-        public void placeJigsaw(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
-            int i = this.getLength();
+        public void fillOpenings(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
+            int i = this.getChainLength();
             int j = rand.nextInt(4);
             Direction enumfacing = this.getFacing();
 
@@ -301,7 +301,7 @@ public class RSMineshaftPieces {
         @Override
         public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox box, ChunkPos chunkPos, BlockPos blockPos) {
             boolean isOceanType = this.mineShaftType == RSMineshaftPieces.Type.OCEAN;
-            if (isOceanType ? this.isAirInStructureBoundingBox(world, box) : this.method_14937(world, box)) {
+            if (isOceanType ? this.isAirInStructureBoundingBox(world, box) : this.isTouchingLiquid(world, box)) {
                 return false;
             } else {
                 int offsetInSection = this.sectionCount * 5 - 1;
@@ -547,8 +547,8 @@ public class RSMineshaftPieces {
 
 
         @Override
-        public void placeJigsaw(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
-            int i = this.getLength();
+        public void fillOpenings(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
+            int i = this.getChainLength();
 
             switch (this.corridorDirection) {
                 case NORTH:
@@ -599,7 +599,7 @@ public class RSMineshaftPieces {
         @Override
         public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox box, ChunkPos chunkPos, BlockPos blockPos) {
             boolean isOceanType = this.mineShaftType == RSMineshaftPieces.Type.OCEAN;
-            if (isOceanType ? this.isAirInStructureBoundingBox(world, box) : this.method_14937(world, box)) {
+            if (isOceanType ? this.isAirInStructureBoundingBox(world, box) : this.isTouchingLiquid(world, box)) {
                 return false;
             } else {
                 BlockState iblockstate = this.getFloorBlock();
@@ -683,8 +683,8 @@ public class RSMineshaftPieces {
 
 
         @Override
-        public void placeJigsaw(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
-            int i = this.getLength();
+        public void fillOpenings(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
+            int i = this.getChainLength();
             int k = this.boundingBox.getBlockCountY() - 3 - 1;
             if (k <= 0) {
                 k = 1;
@@ -778,7 +778,7 @@ public class RSMineshaftPieces {
                 this.fillWithOutline(world, box, MutableBoundingBox.minX, MutableBoundingBox.maxY - 2, MutableBoundingBox.minZ, MutableBoundingBox.maxX, MutableBoundingBox.maxY, MutableBoundingBox.maxZ, getFillingBlock(), getFillingBlock(), false);
             }
 
-            this.method_14919(world, box, this.boundingBox.minX, this.boundingBox.minY + 4, this.boundingBox.minZ, this.boundingBox.maxX, this.boundingBox.maxY, this.boundingBox.maxZ, getFillingBlock(), false);
+            this.fillHalfEllipsoid(world, box, this.boundingBox.minX, this.boundingBox.minY + 4, this.boundingBox.minZ, this.boundingBox.maxX, this.boundingBox.maxY, this.boundingBox.maxZ, getFillingBlock(), false);
 
             //vines
             if (this.mineShaftType == RSMineshaftPieces.Type.JUNGLE) {
@@ -844,8 +844,8 @@ public class RSMineshaftPieces {
 
 
         @Override
-        public void placeJigsaw(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
-            int i = this.getLength();
+        public void fillOpenings(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
+            int i = this.getChainLength();
             Direction enumfacing = this.getFacing();
 
             if (enumfacing != null) {
@@ -873,7 +873,7 @@ public class RSMineshaftPieces {
         @Override
         public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox box, ChunkPos chunkPos, BlockPos blockPos) {
             boolean isOceanType = this.mineShaftType == RSMineshaftPieces.Type.OCEAN;
-            if (isOceanType ? this.isAirInStructureBoundingBox(world, box) : this.method_14937(world, box)) {
+            if (isOceanType ? this.isAirInStructureBoundingBox(world, box) : this.isTouchingLiquid(world, box)) {
                 return false;
             } else {
                 this.fillWithOutline(world, box, 0, 5, 0, 2, 7, 1, getFillingBlock(), getFillingBlock(), false);

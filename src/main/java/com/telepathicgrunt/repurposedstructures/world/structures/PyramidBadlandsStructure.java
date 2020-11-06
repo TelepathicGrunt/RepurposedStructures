@@ -75,7 +75,7 @@ public class PyramidBadlandsStructure extends StructureFeature<DefaultFeatureCon
             highestLandPos = Math.min(highestLandPos, chunkGenerator.getHeight(blockpos.getX() + maxCorner.getX(), blockpos.getZ(), Heightmap.Type.WORLD_SURFACE_WG));
             highestLandPos = Math.min(highestLandPos, chunkGenerator.getHeight(blockpos.getX(), blockpos.getZ(), Heightmap.Type.WORLD_SURFACE_WG));
 
-            this.method_14976(this.random, highestLandPos-15, highestLandPos-14);
+            this.randomUpwardTranslation(this.random, highestLandPos-15, highestLandPos-14);
         }
     }
 }

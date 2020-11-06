@@ -57,7 +57,7 @@ public class PyramidNetherStructure extends StructureFeature<DefaultFeatureConfi
             this.setBoundingBoxFromChildren();
 
             BlockPos highestLandPos = getHighestLand(chunkGenerator);
-            this.method_14976(this.random, highestLandPos.getY()-16, highestLandPos.getY()-15);
+            this.randomUpwardTranslation(this.random, highestLandPos.getY()-16, highestLandPos.getY()-15);
         }
     }
 }

@@ -57,7 +57,7 @@ public class RSMineshaftStructure extends AbstractBaseStructure {
             RSMineshaftPieces.Room structuremineshaftpiecesua$room = new RSMineshaftPieces.Room(0, this.random, (chunkX << 4) + 2, (chunkZ << 4) + 2, mineshaftType);
             this.children.add(structuremineshaftpiecesua$room);
 
-            structuremineshaftpiecesua$room.placeJigsaw(structuremineshaftpiecesua$room, this.children, this.random);
+            structuremineshaftpiecesua$room.fillOpenings(structuremineshaftpiecesua$room, this.children, this.random);
             this.setBoundingBoxFromChildren();
 
             int minimum = minHeight;

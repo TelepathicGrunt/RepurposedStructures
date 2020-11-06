@@ -70,13 +70,13 @@ public class RSNetherStrongholdStructure extends StrongholdFeature {
             RSStrongholdPieces.prepareStructurePieces();
             RSStrongholdPieces.EntranceStairs strongholdpieces$entrancestairs = new RSStrongholdPieces.EntranceStairs(this.random, (chunkX << 4) + 2, (chunkZ << 4) + 2, RSStrongholdPieces.Type.NETHER);
             this.children.add(strongholdpieces$entrancestairs);
-            strongholdpieces$entrancestairs.placeJigsaw(strongholdpieces$entrancestairs, this.children, this.random);
+            strongholdpieces$entrancestairs.fillOpenings(strongholdpieces$entrancestairs, this.children, this.random);
             List<StructurePiece> list = strongholdpieces$entrancestairs.pendingChildren;
 
             while (!list.isEmpty()) {
                 int i = this.random.nextInt(list.size());
                 StructurePiece structurepiece = list.remove(i);
-                structurepiece.placeJigsaw(strongholdpieces$entrancestairs, this.children, this.random);
+                structurepiece.fillOpenings(strongholdpieces$entrancestairs, this.children, this.random);
             }
 
             if (strongholdpieces$entrancestairs.strongholdPortalRoom == null) {
@@ -89,7 +89,7 @@ public class RSNetherStrongholdStructure extends StrongholdFeature {
                 while (!list.isEmpty()) {
                     int i = this.random.nextInt(list.size());
                     StructurePiece structurepiece = list.remove(i);
-                    structurepiece.placeJigsaw(strongholdpieces$entrancestairs, this.children, this.random);
+                    structurepiece.fillOpenings(strongholdpieces$entrancestairs, this.children, this.random);
                 }
             }
 

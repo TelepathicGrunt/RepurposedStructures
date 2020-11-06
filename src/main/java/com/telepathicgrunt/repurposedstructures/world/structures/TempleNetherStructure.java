@@ -52,10 +52,10 @@ public class TempleNetherStructure extends StructureFeature<DefaultFeatureConfig
 
             BlockPos lowestLandPos = getLowestLand(chunkGenerator);
             if (lowestLandPos.getY() >= 108 || lowestLandPos.getY() <= 33) {
-                this.method_14976(this.random, 16, 17);
+                this.randomUpwardTranslation(this.random, 16, 17);
             }
             else {
-                this.method_14976(this.random, lowestLandPos.getY() - 16, lowestLandPos.getY() - 15);
+                this.randomUpwardTranslation(this.random, lowestLandPos.getY() - 16, lowestLandPos.getY() - 15);
             }
         }
     }

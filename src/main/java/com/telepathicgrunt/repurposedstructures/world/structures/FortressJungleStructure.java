@@ -64,17 +64,17 @@ public class FortressJungleStructure extends AbstractBaseStructure {
             FortressJunglePieces.Start fortresspieces$start = new FortressJunglePieces.Start(this.random, (chunkX << 4) + 2, (chunkZ << 4) + 2);
             this.children.add(fortresspieces$start);
 
-            fortresspieces$start.placeJigsaw(fortresspieces$start, this.children, this.random);
+            fortresspieces$start.fillOpenings(fortresspieces$start, this.children, this.random);
             List<StructurePiece> list = fortresspieces$start.pendingChildren;
 
             while (!list.isEmpty()) {
                 int i = this.random.nextInt(list.size());
                 StructurePiece structurepiece = list.remove(i);
-                structurepiece.placeJigsaw(fortresspieces$start, this.children, this.random);
+                structurepiece.fillOpenings(fortresspieces$start, this.children, this.random);
             }
 
             this.setBoundingBoxFromChildren();
-            this.method_14976(this.random, 55, 60);
+            this.randomUpwardTranslation(this.random, 55, 60);
         }
     }
 }

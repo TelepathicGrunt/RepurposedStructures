@@ -119,7 +119,7 @@ public class DungeonSwamp extends Feature<DefaultFeatureConfig> {
                         }
 
                         if (j3 == 1) {
-                            world.setBlockState(blockpos$Mutable, StructurePiece.method_14916(world, blockpos$Mutable, Blocks.CHEST.getDefaultState()), 2);
+                            world.setBlockState(blockpos$Mutable, StructurePiece.orientateChest(world, blockpos$Mutable, Blocks.CHEST.getDefaultState()), 2);
                             LootableContainerBlockEntity.setLootTable(world, random, blockpos$Mutable, CHEST_LOOT);
 
                             break;

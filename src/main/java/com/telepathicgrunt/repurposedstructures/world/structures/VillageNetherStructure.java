@@ -1,6 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
-import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Material;
 import net.minecraft.structure.StructureManager;
@@ -32,7 +32,7 @@ public class VillageNetherStructure extends OverworldJigsawStructure {
 
         for (int curChunkX = chunkX - 10; curChunkX <= chunkX + 10; curChunkX++) {
             for (int curChunkZ = chunkZ - 10; curChunkZ <= chunkZ + 10; curChunkZ++) {
-                for(StructureFeature<?> outpost : RSStructures.NETHER_OUTPOSTS_LIST){
+                for(StructureFeature<?> outpost : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NETHER_OUTPOST)){
                     StructureConfig structureConfig = chunkGenerator.getStructuresConfig().getForType(outpost);
                     if(structureConfig != null) {
                         ChunkPos chunkPos2 = outpost.getStartChunk(structureConfig, seed, chunkRandom, curChunkX, curChunkZ);
@@ -61,10 +61,10 @@ public class VillageNetherStructure extends OverworldJigsawStructure {
 
             BlockPos lowestLandPos = getHighestLand(chunkGenerator, this.boundingBox);
             if (lowestLandPos.getY() >= 108 || lowestLandPos.getY() <= 33) {
-                this.method_14976(this.random, 20, 21);
+                this.randomUpwardTranslation(this.random, 20, 21);
             }
             else {
-                this.method_14976(this.random, lowestLandPos.getY() - 13, lowestLandPos.getY() - 12);
+                this.randomUpwardTranslation(this.random, lowestLandPos.getY() - 13, lowestLandPos.getY() - 12);
             }
         }
     }

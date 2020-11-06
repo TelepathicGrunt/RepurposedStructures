@@ -56,7 +56,7 @@ public class RSStonebrickStrongholdStructure extends StrongholdFeature {
             RSStrongholdPieces.prepareStructurePieces();
             RSStrongholdPieces.EntranceStairs strongholdpieces$entrancestairs = new RSStrongholdPieces.EntranceStairs(this.random, (chunkX << 4) + 2, (chunkZ << 4) + 2, RSStrongholdPieces.Type.NORMAL);
             this.children.add(strongholdpieces$entrancestairs);
-            strongholdpieces$entrancestairs.placeJigsaw(strongholdpieces$entrancestairs, this.children, this.random);
+            strongholdpieces$entrancestairs.fillOpenings(strongholdpieces$entrancestairs, this.children, this.random);
             List<StructurePiece> list = strongholdpieces$entrancestairs.pendingChildren;
 
             while (!list.isEmpty()) {

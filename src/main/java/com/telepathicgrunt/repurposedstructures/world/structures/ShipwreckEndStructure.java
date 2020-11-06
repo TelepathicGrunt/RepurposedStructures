@@ -93,7 +93,7 @@ public class ShipwreckEndStructure extends AbstractBaseStructure {
             BlockPos blockPos = new BlockPos(this.children.get(0).getBoundingBox().getCenter());
             int highestLandPos = chunkGenerator.getHeight(blockPos.getX(), blockPos.getZ(), Heightmap.Type.WORLD_SURFACE_WG);
             highestLandPos = Math.max(30, highestLandPos);
-            this.method_14976(this.random, highestLandPos-5, highestLandPos-3);
+            this.randomUpwardTranslation(this.random, highestLandPos-5, highestLandPos-3);
         }
     }
 }
