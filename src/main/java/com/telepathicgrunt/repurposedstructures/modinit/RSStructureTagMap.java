@@ -1,6 +1,5 @@
 package com.telepathicgrunt.repurposedstructures.modinit;
 
-import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import net.minecraft.world.gen.feature.StructureFeature;
 
 import java.util.HashMap;

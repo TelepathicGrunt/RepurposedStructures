@@ -226,6 +226,13 @@ public class RSAddFeaturesAndStructures {
                             && context.getBiome().getCategory() == Category.SWAMP),
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.SWAMP_DUNGEONS));
 
+        addToBiome("snow_dungeons",
+                (context) -> RSConfiguredFeatures.RS_DUNGEONS.stream().noneMatch(context::hasBuiltInFeature)
+                        && isBiomeAllowed("dungeon", context.getBiomeKey().getValue())
+                        && (RepurposedStructures.RSAllConfig.RSDungeonsConfig.spawnrate.snowDungeonSpawnrate != 0
+                            && context.getBiome().getCategory() == Category.ICY),
+                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.SNOW_DUNGEONS));
+
         addToBiome("nether_dungeons",
                 (context) -> RSConfiguredFeatures.RS_DUNGEONS.stream().noneMatch(context::hasBuiltInFeature)
                         && isBiomeAllowed("dungeon", context.getBiomeKey().getValue())
@@ -363,9 +370,7 @@ public class RSAddFeaturesAndStructures {
         // Remove vanilla forest rock
         BiomeModifications.create(new Identifier(RepurposedStructures.MODID, "remove_vanilla_boulder")).add(
                 ModificationPhase.REMOVALS,
-                context -> isBiomeAllowed("boulder", context.getBiomeKey().getValue())
-                            && (RepurposedStructures.RSAllConfig.RSMainConfig.misc.boulderGiant
-                                && context.hasBuiltInFeature(RSConfiguredFeatures.BOULDER_GIANT)),
+                context -> context.hasBuiltInFeature(RSConfiguredFeatures.BOULDER_GIANT),
                 context -> context.getGenerationSettings().removeBuiltInFeature(ConfiguredFeatures.FOREST_ROCK));
 
         addToBiome("boulder_tiny",
@@ -468,19 +473,17 @@ public class RSAddFeaturesAndStructures {
 
         addToBiome("end_shipwreck",
                 (context) -> isBiomeAllowed("shipwreck", context.getBiomeKey().getValue())
-                        && context.getBiome().getCategory() == Category.NETHER
+                        && context.getBiome().getCategory() == Category.THEEND
                         && (RepurposedStructures.RSAllConfig.RSShipwrecksConfig.spawnrate.endShipwreckSpawnrate != 1001
                             && (context.getBiomeKey().getValue().equals(new Identifier("minecraft:end_highlands"))
                                 || (!context.getBiomeKey().getValue().getNamespace().equals("minecraft")
-                                    && context.getBiome().getCategory() == Category.THEEND
                                     && RepurposedStructures.RSAllConfig.RSShipwrecksConfig.blacklist.addEndShipwreckToModdedBiomes))),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.END_SHIPWRECK));
 
 
         //Nether based Shipwrecks
         addToBiome("crimson_shipwreck",
-                (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NETHER_OUTPOST).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
-                        && isBiomeAllowed("shipwreck", context.getBiomeKey().getValue())
+                (context) -> isBiomeAllowed("shipwreck", context.getBiomeKey().getValue())
                         && context.getBiome().getCategory() == Category.NETHER
                         && (RepurposedStructures.RSAllConfig.RSShipwrecksConfig.spawnrate.crimsonShipwreckSpawnrate != 1001
                             && context.getBiomeKey().getValue().getPath().contains("crimson")
@@ -489,8 +492,7 @@ public class RSAddFeaturesAndStructures {
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.CRIMSON_SHIPWRECK));
 
         addToBiome("crimson_shipwreck",
-                (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NETHER_OUTPOST).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
-                        && isBiomeAllowed("shipwreck", context.getBiomeKey().getValue())
+                (context) -> isBiomeAllowed("shipwreck", context.getBiomeKey().getValue())
                         && context.getBiome().getCategory() == Category.NETHER
                         && (RepurposedStructures.RSAllConfig.RSShipwrecksConfig.spawnrate.warpedShipwreckSpawnrate != 1001
                             && context.getBiomeKey().getValue().getPath().contains("warped")
@@ -499,7 +501,7 @@ public class RSAddFeaturesAndStructures {
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.WARPED_SHIPWRECK));
 
         addToBiome("nether_bricks_shipwreck",
-                (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NETHER_OUTPOST).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
+                (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NETHER_SHIPWRECK).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
                         && isBiomeAllowed("shipwreck", context.getBiomeKey().getValue())
                         && context.getBiome().getCategory() == Category.NETHER
                         && (RepurposedStructures.RSAllConfig.RSShipwrecksConfig.spawnrate.netherBricksShipwreckSpawnrate != 1001
@@ -517,11 +519,10 @@ public class RSAddFeaturesAndStructures {
 
         addToBiome("jungle_fortress",
                 (context) -> isBiomeAllowed("fortress", context.getBiomeKey().getValue())
-                        && context.getBiome().getCategory() == Category.NETHER
+                        && context.getBiome().getCategory() == Category.JUNGLE
                         && (RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.jungleFortressSpawnrate != 1001
-                        && (context.getBiome().getCategory() == Category.JUNGLE
-                            && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
-                                || RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.addJungleFortressToModdedBiomes))),
+                        && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
+                            || RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.addJungleFortressToModdedBiomes)),
                 context -> {
                     context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.JUNGLE_FORTRESS);
                     context.getGenerationSettings().removeBuiltInFeature(GenerationStep.Feature.VEGETAL_DECORATION, RSConfiguredFeatures.JUNGLE_FORTRESS_VINES);

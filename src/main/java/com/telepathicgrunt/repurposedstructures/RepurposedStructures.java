@@ -64,10 +64,8 @@ public class RepurposedStructures implements ModInitializer {
      * "mineshaft", "outpost", "shipwreck", "stronghold", "temple",
      * "pyramid", "village", "well"
      *
-     * @return - A map of structure/feature type to their biome blacklist
      */
-    public static Map<String, List<String>> getBiomeBlacklists(){
-
+    public static void getBiomeBlacklists(){
         ALL_BIOME_BLACKLISTS.put("dungeon", Arrays.asList(RepurposedStructures.RSAllConfig.RSDungeonsConfig.blacklistedDungeonBiomes.split(",")));
         ALL_BIOME_BLACKLISTS.put("boulder", Arrays.asList(RepurposedStructures.RSAllConfig.RSMainConfig.misc.blacklistedBoulderBiomes.split(",")));
         ALL_BIOME_BLACKLISTS.put("swamp_tree", Arrays.asList(RepurposedStructures.RSAllConfig.RSMainConfig.misc.blacklistedSwampTreeBiomes.split(",")));
@@ -81,7 +79,5 @@ public class RepurposedStructures implements ModInitializer {
         ALL_BIOME_BLACKLISTS.put("pyramid", Arrays.asList(RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.blacklistedPyramidBiomes.split(",")));
         ALL_BIOME_BLACKLISTS.put("village", Arrays.asList(RepurposedStructures.RSAllConfig.RSVillagesConfig.blacklistedVillageBiomes.split(",")));
         ALL_BIOME_BLACKLISTS.put("well", Arrays.asList(RepurposedStructures.RSAllConfig.RSWellsConfig.blacklistedWellBiomes.split(",")));
-
-        return ALL_BIOME_BLACKLISTS;
     }
 }
