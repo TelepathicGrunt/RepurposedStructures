@@ -22,7 +22,7 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Fixed Strongholds being cutoff by Bedrock.
 
-##### Outposts:
+##### Shipwrecks:
 
 - Fixed addWarpedShipwreckToModdedBiomes config not working.
 

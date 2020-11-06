@@ -107,17 +107,17 @@ public class RSNetherStrongholdStructure extends StrongholdFeature {
             int offset2 = 0;
 
             //apply first offset to be able to do some calculations in next few lines
-            this.boundingBox.offset(0, offset - lowestBounds, 0);
+            this.boundingBox.move(0, offset - lowestBounds, 0);
 
             // If the stronghold's max y is over the config's max y, lower the stronghold as
             // much as possible without hitting bedrock.
             if (this.boundingBox.maxY > maxYConfig) {
                 int heightDiff = maxYConfig - this.boundingBox.maxY;
-                offset2 = Math.max(heightDiff, -this.boundingBox.minY);
+                offset2 = this.boundingBox.minY + heightDiff < 2 ? 2 - this.boundingBox.minY : heightDiff;
             }
 
             // Apply the final offsets
-            this.boundingBox.offset(0, offset2, 0);
+            this.boundingBox.move(0, offset2, 0);
             for (StructurePiece structurepiece : this.children) {
                 structurepiece.translate(0, offset + offset2 - lowestBounds, 0);
             }
