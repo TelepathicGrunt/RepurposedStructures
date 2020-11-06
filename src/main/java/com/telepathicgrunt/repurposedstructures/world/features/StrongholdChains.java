@@ -83,7 +83,7 @@ public class StrongholdChains extends Feature<DefaultFeatureConfig> {
         }
 
         //attaches lantern at end at a rare chance
-        if(random.nextFloat() < 0.075f && world.isAir(blockpos$Mutable)){
+        if(blockpos$Mutable.getY() != 3 && random.nextFloat() < 0.075f && world.isAir(blockpos$Mutable)){
             if(world.getBiome(blockpos$Mutable).getCategory() == Biome.Category.NETHER){
                 world.setBlockState(blockpos$Mutable, Blocks.SOUL_LANTERN.getDefaultState().with(LanternBlock.HANGING, true), 2);
             }
