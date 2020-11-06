@@ -18,6 +18,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Fixed many structures not using the speedy locate method.
 
+- Fixed a bug that could still spawn Repurposed Structures's stuff in superflat.
+
 ##### Strongholds:
 
 - Fixed Strongholds being cutoff by Bedrock.
@@ -25,6 +27,7 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Shipwrecks:
 
 - Fixed addWarpedShipwreckToModdedBiomes config not working.
+
 
 
 ## (V.1.6.9 Changes) (1.16.3 Minecraft)

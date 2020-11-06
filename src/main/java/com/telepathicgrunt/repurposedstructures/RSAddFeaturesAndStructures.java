@@ -35,17 +35,15 @@ public class RSAddFeaturesAndStructures {
     public static void allowStructureSpawningPerDimension() {
         // Controls the dimension blacklisting
         ServerWorldEvents.LOAD.register((MinecraftServer minecraftServer, ServerWorld serverWorld)->{
-            if(serverWorld.getChunkManager().getChunkGenerator() instanceof FlatChunkGenerator &&
-                serverWorld.getRegistryKey().equals(World.OVERWORLD)){
-                return;
-            }
 
             //add our structure spacing to all chunkgenerators including modded one and datapack ones.
             List<String> dimensionBlacklist = Arrays.stream(RepurposedStructures.RSAllConfig.RSMainConfig.blacklistedDimensions.split(",")).map(String::trim).collect(Collectors.toList());
 
             // Need temp map as some mods use custom chunk generators with immutable maps in themselves.
             Map<StructureFeature<?>, StructureConfig> tempMap = new HashMap<>(serverWorld.getChunkManager().getChunkGenerator().getStructuresConfig().getStructures());
-            if(dimensionBlacklist.stream().anyMatch(blacklist -> blacklist.equals((serverWorld.getRegistryKey().getValue().toString())))) {
+            if(dimensionBlacklist.stream().anyMatch(blacklist -> blacklist.equals((serverWorld.getRegistryKey().getValue().toString())))
+                    || (serverWorld.getChunkManager().getChunkGenerator() instanceof FlatChunkGenerator && serverWorld.getRegistryKey().equals(World.OVERWORLD)))
+            {
                 // make absolutely sure dimension cannot spawn RS structures
                 tempMap.keySet().removeAll(RSStructures.RS_STRUCTURES.keySet());
             }
