@@ -63,8 +63,8 @@ public class RSStructures {
     
     //Igloos and Fortress
     public static final RegistryObject<Structure<NoFeatureConfig>> JUNGLE_FORTRESS = registerStructure("fortress_jungle", () -> (new FortressJungleStructure(NoFeatureConfig.CODEC)));
-    public static final RegistryObject<Structure<NoFeatureConfig>> GRASSY_IGLOO = registerStructure("igloo_grassy", () -> (new OverworldJigsawStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":igloos/grassy_top"), 3)));
-    public static final RegistryObject<Structure<NoFeatureConfig>> STONE_IGLOO = registerStructure("igloo_stone", () -> (new OverworldJigsawStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":igloos/stone_top"), 3)));
+    public static final RegistryObject<Structure<NoFeatureConfig>> GRASSY_IGLOO = registerStructure("igloo_grassy", () -> (new OverworldJigsawStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":igloos/grassy_top"), 20)));
+    public static final RegistryObject<Structure<NoFeatureConfig>> STONE_IGLOO = registerStructure("igloo_stone", () -> (new OverworldJigsawStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":igloos/stone_top"), 20)));
 
     //Temples
     public static final RegistryObject<Structure<NoFeatureConfig>> NETHER_WASTELAND_TEMPLE = registerStructure("temple_nether_wasteland", () -> (new TempleNetherStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID,"temples/temple_nether_wasteland"))));
