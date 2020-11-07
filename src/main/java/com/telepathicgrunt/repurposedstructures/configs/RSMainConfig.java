@@ -144,7 +144,7 @@ public class RSMainConfig implements ConfigData {
         @ConfigEntry.Gui.PrefixText
         @Comment("Add Grassy Igloos to modded biomes that are"
                 + "\nmost likely grassy fields or temperate forests.")
-        public boolean addGrassyIglooToModdedBiomes = false;
+        public boolean addGrassyIglooToModdedBiomes = true;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
@@ -157,7 +157,7 @@ public class RSMainConfig implements ConfigData {
         @ConfigEntry.Gui.PrefixText
         @Comment("Add Stone Igloos to modded biomes that are"
                 + "\nmost likely Giant Tree Taiga variants.")
-        public boolean addStoneIglooToModdedBiomes = false;
+        public boolean addStoneIglooToModdedBiomes = true;
 
     }
 }

@@ -50,6 +50,11 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Nerfed Jungle Fortress chest loot a bit
 
+##### Igloos:
+
+- Grassy and Stone Igloos are now added to modded 
+  biomes by default unless turned off in config.
+
 ##### Miscellaneous:
 
 - Giant Boulders in Giant Tree Taiga biomes will now no longer float on water.
