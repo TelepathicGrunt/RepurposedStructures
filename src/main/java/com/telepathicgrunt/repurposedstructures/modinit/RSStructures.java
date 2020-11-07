@@ -38,8 +38,8 @@ public class RSStructures {
     public static StructureFeature<DefaultFeatureConfig> NETHER_STRONGHOLD = new RSNetherStrongholdStructure();
 
     public static StructureFeature<DefaultFeatureConfig> JUNGLE_FORTRESS = new FortressJungleStructure();
-    public static StructureFeature<DefaultFeatureConfig> GRASSY_IGLOO = new OverworldJigsawStructure(new Identifier(RepurposedStructures.MODID, "igloos/grassy_top"), 3);
-    public static StructureFeature<DefaultFeatureConfig> STONE_IGLOO = new OverworldJigsawStructure(new Identifier(RepurposedStructures.MODID, "igloos/stone_top"), 3);
+    public static StructureFeature<DefaultFeatureConfig> GRASSY_IGLOO = new OverworldJigsawStructure(new Identifier(RepurposedStructures.MODID, "igloos/grassy_top"), 20);
+    public static StructureFeature<DefaultFeatureConfig> STONE_IGLOO = new OverworldJigsawStructure(new Identifier(RepurposedStructures.MODID, "igloos/stone_top"), 20);
 
     public static StructureFeature<DefaultFeatureConfig> NETHER_WASTELAND_TEMPLE = new TempleNetherStructure(new Identifier(RepurposedStructures.MODID,"temples/temple_nether_wasteland"));
     public static StructureFeature<DefaultFeatureConfig> NETHER_BASALT_TEMPLE = new TempleNetherStructure(new Identifier(RepurposedStructures.MODID,"temples/temple_nether_basalt"));
