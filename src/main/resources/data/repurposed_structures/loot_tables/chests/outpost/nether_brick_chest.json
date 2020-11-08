@@ -25,12 +25,12 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 5,
           "name": "minecraft:netherite_scrap"
         },
         {
           "type": "minecraft:item",
-          "weight": 10,
+          "weight": 15,
           "functions": [
             {
               "function": "minecraft:enchant_with_levels",
@@ -156,7 +156,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 5,
+          "weight": 10,
           "functions": [
             {
               "function": "minecraft:enchant_with_levels",
@@ -172,7 +172,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 5,
+          "weight": 10,
           "functions": [
             {
               "function": "minecraft:enchant_with_levels",
@@ -188,13 +188,13 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 5,
+          "weight": 10,
           "functions": [
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 2.0,
-                "max": 8.0,
+                "min": 8.0,
+                "max": 16.0,
                 "type": "minecraft:uniform"
               }
             }
@@ -239,7 +239,7 @@
               "function": "minecraft:set_count",
               "count": {
                 "min": 2.0,
-                "max": 8.0,
+                "max": 12.0,
                 "type": "minecraft:uniform"
               }
             }
@@ -254,7 +254,7 @@
               "function": "minecraft:set_count",
               "count": {
                 "min": 2.0,
-                "max": 8.0,
+                "max": 12.0,
                 "type": "minecraft:uniform"
               }
             }
