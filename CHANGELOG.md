@@ -49,6 +49,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Grassy and Stone Igloos are now added to modded 
   biomes by default unless turned off in config.
 
+##### Outposts:
+- Buffed Nether Outposts's loot a bit.
+
 ##### Villages:
 - Adjusted some villages pieces to allow Villages to reach workstation as
   Mojang broke the Villager AI with a bug lol.
