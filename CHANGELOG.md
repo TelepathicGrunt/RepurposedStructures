@@ -12,7 +12,6 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ## (V.1.7.0 Changes) (1.16.3 Minecraft)
 
 ##### Backend:
-
 - Reworked and cleaned up backend to now 
   use Fabric API's Biome Modification API.
 
@@ -21,7 +20,6 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Fixed a bug that could still spawn Repurposed Structures's stuff in superflat.
 
 ##### Strongholds:
-
 - Fixed Strongholds being cutoff by Bedrock.
 
 - Added allowStonebrickStrongholdToVanillaBiomes config option for Stonebrick Strongholds. 
@@ -32,16 +30,13 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Fixed Stronghold Chains placing floating lanterns at y = 3.
 
 ##### Mineshafts:
-
 - End Mineshafts will now be much more buried in the End's islands 
   if barrensIslandsEndMineshafts config option is turned off.
 
 ##### Shipwrecks:
-
 - Fixed addWarpedShipwreckToModdedBiomes config not working.
 
 ##### Fortresses:
-  
 - Jungle Fortresses now need to be fully enclosed in a jungle category biome to spawn.
 
 - Increased chance of a hallway having a chest in Jungle Fortresses from
@@ -51,16 +46,22 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Nerfed Jungle Fortress chest loot a bit
 
 ##### Igloos:
-
 - Grassy and Stone Igloos are now added to modded 
   biomes by default unless turned off in config.
 
-##### Miscellaneous:
+##### Villages:
+- Adjusted some villages pieces to allow Villages to reach workstation as
+  Mojang broke the Villager AI with a bug lol.
+  
+- Fix several instances of stairs and fences 
+  being in impossible blockstates in the Villages.
+  
+- Fixed a Dark Oak Village house being fused with a farm for no reason lmao.
 
+##### Miscellaneous:
 - Giant Boulders in Giant Tree Taiga biomes will now no longer float on water.
 
 ##### General Configs Changes:
-
 - Changed "spawnrate" for dungeon entries to say "attemptsPerChunk" instead.
 
 - Changed "spawnrate" for well entries to say "rarityPerChunk" instead.

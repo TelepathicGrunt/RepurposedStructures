@@ -55,7 +55,7 @@ public class LoadNbtBlock extends Block {
         }
 
         // Size of area we will need
-        int columnCount = 3;
+        int columnCount = 5;
         int rowCount = (int) Math.max(Math.ceil(identifiers.size()) / columnCount, 1);
         int spacing = 48;
         BlockPos bounds = new BlockPos(spacing * (rowCount+2), spacing, spacing * columnCount);
@@ -95,7 +95,7 @@ public class LoadNbtBlock extends Block {
                 structureBlockBlockEntity.loadStructure((ServerWorld) world, false); // prepare area
                 structureBlockBlockEntity.loadStructure((ServerWorld) world,true); // load structure
 
-                structureBlockBlockEntity.setStructureName(new Identifier(identifiers.get(pieceIndex-1).toString().replace("village/", ""))); // set identifier
+                structureBlockBlockEntity.setStructureName(new Identifier(identifiers.get(pieceIndex-1).toString())); // set identifier
                 structureBlockBlockEntity.setMode(StructureBlockMode.SAVE);
                 //structureBlockBlockEntity.saveStructure(true); //save structure
                 //structureBlockBlockEntity.setShowAir(true);
