@@ -60,6 +60,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
   being in impossible blockstates in the Villages.
   
 - Fixed a Dark Oak Village house being fused with a farm for no reason lmao.
+  
+- Added a new Badlands Library made by miguelforge!
 
 ##### Miscellaneous:
 - Giant Boulders in Giant Tree Taiga biomes will now no longer float on water.
