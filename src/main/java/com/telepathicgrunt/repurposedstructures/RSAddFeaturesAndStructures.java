@@ -561,17 +561,12 @@ public class RSAddFeaturesAndStructures {
      */
     private static boolean serializeAndCompareFeature(ConfiguredFeature<?, ?> configuredFeature1, ConfiguredFeature<?, ?> configuredFeature2) {
 
-        Optional<JsonElement> configuredFeatureJSON1 = ConfiguredFeature.CODEC.encode(() -> configuredFeature1, JsonOps.INSTANCE, JsonOps.INSTANCE.empty()).get().left();
-        Optional<JsonElement> configuredFeatureJSON2 = ConfiguredFeature.CODEC.encode(() -> configuredFeature2, JsonOps.INSTANCE, JsonOps.INSTANCE.empty()).get().left();
+        Optional<JsonElement> configuredFeatureJSON1 = ConfiguredFeature.field_25833.encode(configuredFeature1, JsonOps.INSTANCE, JsonOps.INSTANCE.empty()).get().left();
+        Optional<JsonElement> configuredFeatureJSON2 = ConfiguredFeature.field_25833.encode(configuredFeature2, JsonOps.INSTANCE, JsonOps.INSTANCE.empty()).get().left();
 
-        // One of the configuredfeatures cannot be serialized which
-        // shouldn't be possible but still good to do a sanity check.
-        if(!configuredFeatureJSON1.isPresent() || !configuredFeatureJSON2.isPresent())
-        {
-            if ((configuredFeature1.config instanceof DecoratedFeatureConfig && configuredFeature2.config instanceof DecoratedFeatureConfig) &&
-                    ((DecoratedFeatureConfig) configuredFeature1.config).feature.get().feature == ((DecoratedFeatureConfig) configuredFeature2.config).feature.get().feature) {
-                return true;
-            }
+        // One of the configuredfeatures cannot be serialized
+        if(!configuredFeatureJSON1.isPresent() || !configuredFeatureJSON2.isPresent()) {
+            return false;
         }
 
         // Compare the JSON to see if it's the same ConfiguredFeature in the end.
