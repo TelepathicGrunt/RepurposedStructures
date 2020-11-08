@@ -165,9 +165,18 @@
       }
     },
     {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:village/badlands/houses/library_1",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
       "weight": 2,
       "element": {
-        "location": "repurposed_structures:village/badlands/houses/library",
+        "location": "repurposed_structures:village/badlands/houses/library_2",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
