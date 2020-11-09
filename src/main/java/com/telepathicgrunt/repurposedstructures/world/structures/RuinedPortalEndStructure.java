@@ -1,10 +1,8 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import net.minecraft.structure.StructureManager;
-import net.minecraft.util.BlockRotation;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockBox;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.registry.DynamicRegistryManager;
 import net.minecraft.world.Heightmap;
@@ -15,9 +13,7 @@ import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
-import java.util.Random;
-
-public class RuinedPortalEndStructure extends OverworldJigsawStructure {
+public class RuinedPortalEndStructure extends GenericJigsawStructure {
 
     public RuinedPortalEndStructure(Identifier poolID, int structureSize, int centerOffset) {
         super(poolID, structureSize, centerOffset);

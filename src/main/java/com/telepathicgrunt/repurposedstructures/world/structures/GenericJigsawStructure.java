@@ -19,13 +19,13 @@ import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 
-public class OverworldJigsawStructure extends AbstractBaseStructure {
+public class GenericJigsawStructure extends AbstractBaseStructure {
 
     private final Identifier START_POOL;
     private final int STRUCTURE_SIZE;
     private final int CENTER_OFFSET;
 
-    public OverworldJigsawStructure(Identifier poolID, int structureSize, int centerOffset) {
+    public GenericJigsawStructure(Identifier poolID, int structureSize, int centerOffset) {
         super(DefaultFeatureConfig.CODEC);
         START_POOL = poolID;
         STRUCTURE_SIZE = structureSize;
@@ -48,7 +48,7 @@ public class OverworldJigsawStructure extends AbstractBaseStructure {
 
     @Override
     public StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
-        return OverworldJigsawStructure.MainStart::new;
+        return GenericJigsawStructure.MainStart::new;
     }
 
     public class MainStart extends MarginedStructureStart<DefaultFeatureConfig> {

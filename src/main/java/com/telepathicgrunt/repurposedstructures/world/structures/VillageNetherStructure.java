@@ -20,7 +20,7 @@ import net.minecraft.world.gen.chunk.StructureConfig;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
-public class VillageNetherStructure extends OverworldJigsawStructure {
+public class VillageNetherStructure extends GenericJigsawStructure {
     // Special thanks to /r/l-ll-ll-l_IsDisLoss for allowing me to use his nether village design!
 
     public VillageNetherStructure(Identifier poolID, int structureSize, int centerOffset) {

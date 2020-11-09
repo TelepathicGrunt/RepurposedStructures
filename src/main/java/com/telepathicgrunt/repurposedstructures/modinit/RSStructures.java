@@ -38,8 +38,8 @@ public class RSStructures {
     public static StructureFeature<DefaultFeatureConfig> NETHER_STRONGHOLD = new RSNetherStrongholdStructure();
 
     public static StructureFeature<DefaultFeatureConfig> JUNGLE_FORTRESS = new FortressJungleStructure();
-    public static StructureFeature<DefaultFeatureConfig> GRASSY_IGLOO = new OverworldJigsawStructure(new Identifier(RepurposedStructures.MODID, "igloos/grassy_top"), 20, 0);
-    public static StructureFeature<DefaultFeatureConfig> STONE_IGLOO = new OverworldJigsawStructure(new Identifier(RepurposedStructures.MODID, "igloos/stone_top"), 20, 0);
+    public static StructureFeature<DefaultFeatureConfig> GRASSY_IGLOO = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "igloos/grassy_top"), 20, 0);
+    public static StructureFeature<DefaultFeatureConfig> STONE_IGLOO = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "igloos/stone_top"), 20, 0);
 
     public static StructureFeature<DefaultFeatureConfig> NETHER_WASTELAND_TEMPLE = new TempleNetherStructure(new Identifier(RepurposedStructures.MODID,"temples/temple_nether_wasteland"));
     public static StructureFeature<DefaultFeatureConfig> NETHER_BASALT_TEMPLE = new TempleNetherStructure(new Identifier(RepurposedStructures.MODID,"temples/temple_nether_basalt"));
@@ -59,13 +59,13 @@ public class RSStructures {
     public static StructureFeature<DefaultFeatureConfig> CRIMSON_SHIPWRECK = new ShipwreckNetherStructure(new Identifier(RepurposedStructures.MODID, "shipwrecks/crimson"), true);
     public static StructureFeature<DefaultFeatureConfig> WARPED_SHIPWRECK = new ShipwreckNetherStructure(new Identifier(RepurposedStructures.MODID, "shipwrecks/warped"), true);
 
-    public static StructureFeature<DefaultFeatureConfig> BADLANDS_VILLAGE = new OverworldJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/badlands/town_centers"), 10, 0);
-    public static StructureFeature<DefaultFeatureConfig> BIRCH_VILLAGE = new OverworldJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/birch/town_centers"), 6, 0);
-    public static StructureFeature<DefaultFeatureConfig> DARK_FOREST_VILLAGE = new OverworldJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/dark_forest/town_centers"), 6, 0);
-    public static StructureFeature<DefaultFeatureConfig> JUNGLE_VILLAGE = new OverworldJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/jungle/town_centers"), 8, 0);
-    public static StructureFeature<DefaultFeatureConfig> SWAMP_VILLAGE = new OverworldJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/swamp/town_centers"), 6, -1);
-    public static StructureFeature<DefaultFeatureConfig> MOUNTAINS_VILLAGE = new OverworldJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/mountains/town_centers"), 6, 0);
-    public static StructureFeature<DefaultFeatureConfig> GIANT_TAIGA_VILLAGE = new OverworldJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/giant_taiga/town_centers"), 6, 0);
+    public static StructureFeature<DefaultFeatureConfig> BADLANDS_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/badlands/town_centers"), 10, 0);
+    public static StructureFeature<DefaultFeatureConfig> BIRCH_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/birch/town_centers"), 6, 0);
+    public static StructureFeature<DefaultFeatureConfig> DARK_FOREST_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/dark_forest/town_centers"), 6, 0);
+    public static StructureFeature<DefaultFeatureConfig> JUNGLE_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/jungle/town_centers"), 8, 0);
+    public static StructureFeature<DefaultFeatureConfig> SWAMP_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/swamp/town_centers"), 6, -1);
+    public static StructureFeature<DefaultFeatureConfig> MOUNTAINS_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/mountains/town_centers"), 6, 0);
+    public static StructureFeature<DefaultFeatureConfig> GIANT_TAIGA_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/giant_taiga/town_centers"), 6, 0);
     public static StructureFeature<DefaultFeatureConfig> CRIMSON_VILLAGE = new VillageNetherStructure(new Identifier(RepurposedStructures.MODID, "village/crimson/town_centers"), 6, 0);
     public static StructureFeature<DefaultFeatureConfig> WARPED_VILLAGE = new VillageNetherStructure(new Identifier(RepurposedStructures.MODID, "village/warped/town_centers"), 6, 0);
 
