@@ -38,8 +38,8 @@ public class RSStructures {
     public static StructureFeature<DefaultFeatureConfig> NETHER_STRONGHOLD = new RSNetherStrongholdStructure();
 
     public static StructureFeature<DefaultFeatureConfig> JUNGLE_FORTRESS = new FortressJungleStructure();
-    public static StructureFeature<DefaultFeatureConfig> GRASSY_IGLOO = new OverworldJigsawStructure(new Identifier(RepurposedStructures.MODID, "igloos/grassy_top"), 20);
-    public static StructureFeature<DefaultFeatureConfig> STONE_IGLOO = new OverworldJigsawStructure(new Identifier(RepurposedStructures.MODID, "igloos/stone_top"), 20);
+    public static StructureFeature<DefaultFeatureConfig> GRASSY_IGLOO = new OverworldJigsawStructure(new Identifier(RepurposedStructures.MODID, "igloos/grassy_top"), 20, 0);
+    public static StructureFeature<DefaultFeatureConfig> STONE_IGLOO = new OverworldJigsawStructure(new Identifier(RepurposedStructures.MODID, "igloos/stone_top"), 20, 0);
 
     public static StructureFeature<DefaultFeatureConfig> NETHER_WASTELAND_TEMPLE = new TempleNetherStructure(new Identifier(RepurposedStructures.MODID,"temples/temple_nether_wasteland"));
     public static StructureFeature<DefaultFeatureConfig> NETHER_BASALT_TEMPLE = new TempleNetherStructure(new Identifier(RepurposedStructures.MODID,"temples/temple_nether_basalt"));
@@ -59,15 +59,17 @@ public class RSStructures {
     public static StructureFeature<DefaultFeatureConfig> CRIMSON_SHIPWRECK = new ShipwreckNetherStructure(new Identifier(RepurposedStructures.MODID, "shipwrecks/crimson"), true);
     public static StructureFeature<DefaultFeatureConfig> WARPED_SHIPWRECK = new ShipwreckNetherStructure(new Identifier(RepurposedStructures.MODID, "shipwrecks/warped"), true);
 
-    public static StructureFeature<DefaultFeatureConfig> BADLANDS_VILLAGE = new OverworldJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/badlands/town_centers"), 10);
-    public static StructureFeature<DefaultFeatureConfig> BIRCH_VILLAGE = new OverworldJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/birch/town_centers"), 6);
-    public static StructureFeature<DefaultFeatureConfig> DARK_FOREST_VILLAGE = new OverworldJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/dark_forest/town_centers"), 6);
-    public static StructureFeature<DefaultFeatureConfig> JUNGLE_VILLAGE = new OverworldJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/jungle/town_centers"), 8);
-    public static StructureFeature<DefaultFeatureConfig> SWAMP_VILLAGE = new VillageSwampStructure(new Identifier(RepurposedStructures.MODID, "village/swamp/town_centers"), 6);
-    public static StructureFeature<DefaultFeatureConfig> MOUNTAINS_VILLAGE = new OverworldJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/mountains/town_centers"), 6);
-    public static StructureFeature<DefaultFeatureConfig> GIANT_TAIGA_VILLAGE = new OverworldJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/giant_taiga/town_centers"), 6);
-    public static StructureFeature<DefaultFeatureConfig> CRIMSON_VILLAGE = new VillageNetherStructure(new Identifier(RepurposedStructures.MODID, "village/crimson/town_centers"), 6);
-    public static StructureFeature<DefaultFeatureConfig> WARPED_VILLAGE = new VillageNetherStructure(new Identifier(RepurposedStructures.MODID, "village/warped/town_centers"), 6);
+    public static StructureFeature<DefaultFeatureConfig> BADLANDS_VILLAGE = new OverworldJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/badlands/town_centers"), 10, 0);
+    public static StructureFeature<DefaultFeatureConfig> BIRCH_VILLAGE = new OverworldJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/birch/town_centers"), 6, 0);
+    public static StructureFeature<DefaultFeatureConfig> DARK_FOREST_VILLAGE = new OverworldJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/dark_forest/town_centers"), 6, 0);
+    public static StructureFeature<DefaultFeatureConfig> JUNGLE_VILLAGE = new OverworldJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/jungle/town_centers"), 8, 0);
+    public static StructureFeature<DefaultFeatureConfig> SWAMP_VILLAGE = new OverworldJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/swamp/town_centers"), 6, -1);
+    public static StructureFeature<DefaultFeatureConfig> MOUNTAINS_VILLAGE = new OverworldJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/mountains/town_centers"), 6, 0);
+    public static StructureFeature<DefaultFeatureConfig> GIANT_TAIGA_VILLAGE = new OverworldJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/giant_taiga/town_centers"), 6, 0);
+    public static StructureFeature<DefaultFeatureConfig> CRIMSON_VILLAGE = new VillageNetherStructure(new Identifier(RepurposedStructures.MODID, "village/crimson/town_centers"), 6, 0);
+    public static StructureFeature<DefaultFeatureConfig> WARPED_VILLAGE = new VillageNetherStructure(new Identifier(RepurposedStructures.MODID, "village/warped/town_centers"), 6, 0);
+
+    public static StructureFeature<DefaultFeatureConfig> RUINED_PORTAL_END = new RuinedPortalEndStructure(new Identifier(RepurposedStructures.MODID, "ruined_portal/end"), 20, -6);
 
     public static void registerStructures() {
 
@@ -117,6 +119,8 @@ public class RSStructures {
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "village_giant_taiga"), GIANT_TAIGA_VILLAGE).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSVillagesConfig.giantTaigaVillageMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSVillagesConfig.giantTaigaVillageMaxChunkDistance * 0.5f), 1559528842)).superflatFeature(GIANT_TAIGA_VILLAGE.configure(FeatureConfig.DEFAULT)).adjustsSurface().register();
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "village_crimson"), CRIMSON_VILLAGE).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSVillagesConfig.crimsonVillageMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSVillagesConfig.crimsonVillageMaxChunkDistance * 0.5f), 1854750198)).superflatFeature(CRIMSON_VILLAGE.configure(FeatureConfig.DEFAULT)).adjustsSurface().register();
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "village_warped"), WARPED_VILLAGE).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSVillagesConfig.warpedVillageMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSVillagesConfig.warpedVillageMaxChunkDistance * 0.5f), 1298332136)).superflatFeature(WARPED_VILLAGE.configure(FeatureConfig.DEFAULT)).adjustsSurface().register();
+
+        FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "ruined_portal_end"), RUINED_PORTAL_END).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSMainConfig.ruinedPortals.ruinedPortalEndMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSMainConfig.ruinedPortals.ruinedPortalEndMaxChunkDistance * 0.5f), 532404086)).superflatFeature(RUINED_PORTAL_END.configure(FeatureConfig.DEFAULT)).register();
 
         //Next available seed: https://www.google.com/search?q=random+number
 

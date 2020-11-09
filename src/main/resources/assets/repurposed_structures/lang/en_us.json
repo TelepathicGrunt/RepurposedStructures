@@ -98,6 +98,8 @@
   "advancements.repurposed_structures.igloos.description": "Go look for a Igloo!",
   "advancements.repurposed_structures.fortresses.title": "Fortresses",
   "advancements.repurposed_structures.fortresses.description": "Go look for a Fortress!",
+  "advancements.repurposed_structures.ruined_portal_end.title": "The Useless Portal",
+  "advancements.repurposed_structures.ruined_portal_end.description": "Find an End themed Ruined Portal!",
   "filled_map.fortress": "Nether Fortress Map",
   "filled_map.bastion_remnant": "Bastion Remnant Map",
   "filled_map.endcity": "End City Map",
@@ -400,5 +402,13 @@
   "text.autoconfig.repurposed_structures-main.option.RSTemplesConfig.temples.blacklistedTempleBiomes.@PrefixText":"\nAdd the ID/resource location of the biome you don't want RS's temples to spawn in. Separate each ID with a comma , Example: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"",
   "text.autoconfig.repurposed_structures-main.option.RSTemplesConfig.pyramids.blacklistedPyramidBiomes.@PrefixText":"\nAdd the ID/resource location of the biome you don't want RS's pyramids to spawn in. Separate each ID with a comma , Example: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"",
   "text.autoconfig.repurposed_structures-main.option.RSVillagesConfig.blacklistedVillageBiomes.@PrefixText":"\nAdd the ID/resource location of the biome you don't want RS's villages to spawn in. Separate each ID with a comma , Example: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"",
-  "text.autoconfig.repurposed_structures-main.option.RSWellsConfig.blacklistedWellBiomes.@PrefixText":"\nAdd the ID/resource location of the biome you don't want RS's wells to spawn in. Separate each ID with a comma , Example: \"minecraft:ice_spikes,awesome_mod:awesome_biome\""
+  "text.autoconfig.repurposed_structures-main.option.RSWellsConfig.blacklistedWellBiomes.@PrefixText":"\nAdd the ID/resource location of the biome you don't want RS's wells to spawn in. Separate each ID with a comma , Example: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"",
+
+  "text.autoconfig.repurposed_structures-main.option.RSMainConfig.ruinedPortals": "Ruined Portals",
+  "text.autoconfig.repurposed_structures-main.option.RSMainConfig.ruinedPortals.ruinedPortalEndMaxChunkDistance": "Ruinedportalendmaxchunkdistance",
+  "text.autoconfig.repurposed_structures-main.option.RSMainConfig.ruinedPortals.addRuinedPortalEndToModdedBiomes": "Addruinedportalendtomoddedbiomes",
+  "text.autoconfig.repurposed_structures-main.option.RSMainConfig.ruinedPortals.ruinedPortalEndMaxChunkDistance.@PrefixText":"How rare are End themed Ruined Portals in End category biomes. 1 for spawning in most chunks and 1001 for none.",
+  "text.autoconfig.repurposed_structures-main.option.RSMainConfig.ruinedPortals.addRuinedPortalEndToModdedBiomes.@PrefixText":"Add End themed ruined portals to modded End category biomes.",
+  "text.autoconfig.repurposed_structures-main.option.RSMainConfig.ruinedPortals.blacklistedRuinedPortalsBiomes.@PrefixText":"\nAdd the ID/resource location of the biome you don't want RS's ruined portals to spawn in. Separate each ID with a comma , Example: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"",
+  "text.autoconfig.repurposed_structures-main.option.RSMainConfig.ruinedPortals.blacklistedRuinedPortalsBiomes": "Blacklisted Ruined Portals Biomes"
 }

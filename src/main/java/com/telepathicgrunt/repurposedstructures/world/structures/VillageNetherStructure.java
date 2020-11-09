@@ -23,8 +23,8 @@ import net.minecraft.world.gen.feature.StructureFeature;
 public class VillageNetherStructure extends OverworldJigsawStructure {
     // Special thanks to /r/l-ll-ll-l_IsDisLoss for allowing me to use his nether village design!
 
-    public VillageNetherStructure(Identifier poolID, int structureSize) {
-        super(poolID, structureSize);
+    public VillageNetherStructure(Identifier poolID, int structureSize, int centerOffset) {
+        super(poolID, structureSize, centerOffset);
     }
 
     @Override

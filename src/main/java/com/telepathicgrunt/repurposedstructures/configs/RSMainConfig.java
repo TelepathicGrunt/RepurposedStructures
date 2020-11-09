@@ -18,6 +18,9 @@ public class RSMainConfig implements ConfigData {
     @ConfigEntry.Gui.CollapsibleObject
     public Igloos igloos = new Igloos();
 
+    @ConfigEntry.Gui.CollapsibleObject
+    public RuinedPortals ruinedPortals = new RuinedPortals();
+
     @ConfigEntry.Gui.Tooltip(count = 0)
     @ConfigEntry.Gui.PrefixText
     @Comment("Add the identifiers for the dimension that you want"
@@ -159,5 +162,30 @@ public class RSMainConfig implements ConfigData {
                 + "\nmost likely Giant Tree Taiga variants.")
         public boolean addStoneIglooToModdedBiomes = true;
 
+    }
+
+    public static class RuinedPortals {
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Add the ID/resource location of the biome you don't want"
+                +"\nRS's ruined portals to spawn in. Separate each ID with a comma ,"
+                +"\n"
+                +"\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
+        public String blacklistedRuinedPortalsBiomes = "";
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Add End themed ruined portals to modded"
+                + "\nEnd category biomes.")
+        public boolean addRuinedPortalEndToModdedBiomes = true;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("How rare are End themed Ruined Portals in"
+                + "\nEnd category biomes. 1 for spawning in most"
+                + "\nchunks and 1001 for none.")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int ruinedPortalEndMaxChunkDistance = 57;
     }
 }

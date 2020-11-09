@@ -23,11 +23,13 @@ public class OverworldJigsawStructure extends AbstractBaseStructure {
 
     private final Identifier START_POOL;
     private final int STRUCTURE_SIZE;
+    private final int CENTER_OFFSET;
 
-    public OverworldJigsawStructure(Identifier poolID, int structureSize) {
+    public OverworldJigsawStructure(Identifier poolID, int structureSize, int centerOffset) {
         super(DefaultFeatureConfig.CODEC);
         START_POOL = poolID;
         STRUCTURE_SIZE = structureSize;
+        CENTER_OFFSET = centerOffset;
         RSStructures.RS_STRUCTURE_START_PIECES.add(START_POOL);
     }
 
@@ -68,6 +70,7 @@ public class OverworldJigsawStructure extends AbstractBaseStructure {
                     true,
                     true);
             this.setBoundingBoxFromChildren();
+            this.children.get(0).translate(0, CENTER_OFFSET, 0);
         }
     }
 }
