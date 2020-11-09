@@ -1,4 +1,4 @@
-# Made for Minecraft v.1.16.3
+# Made for Minecraft v.1.16.4
 
 ## Created by TelepathicGrunt
 
@@ -8,7 +8,7 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
-## (V.2.3.0 Changes) (1.16.3 Minecraft)
+## (V.2.3.0 Changes) (1.16.4 Minecraft)
 
 ##### Backend:
 - Reworked and cleaned up backend a bit.
@@ -53,7 +53,7 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Buffed Nether Outposts's loot a bit.
 
 ##### Villages:
-- Adjusted some villages pieces to allow Villages to reach workstation as
+- Adjusted some villages pieces to allow Villagers to reach workstation as
   Mojang broke the Villager AI with a bug lol.
   
 - Fix several instances of stairs and fences 
