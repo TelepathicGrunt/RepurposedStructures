@@ -17,6 +17,10 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Fixed a bug that could still spawn Repurposed Structures's stuff in superflat.
 
+##### Ruined Portals:
+- End themed Ruined Portals now spawn in the End dimension!
+  Special thanks to miguelforge for creating them!
+
 ##### Strongholds:
 - Fixed Strongholds being cutoff by Bedrock.
 
