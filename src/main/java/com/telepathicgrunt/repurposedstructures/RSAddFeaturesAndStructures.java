@@ -391,6 +391,7 @@ public class RSAddFeaturesAndStructures {
                         && isBiomeAllowed("stronghold", context.getBiomeKey().getValue())
                         && RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.stonebrickStrongholdMaxChunkDistance != 1001
                         && context.getBiome().getCategory() != Category.NETHER
+                        && context.getBiome().getCategory() != Category.THEEND
                         && ((RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.allowStonebrickStrongholdToVanillaBiomes
                         && context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                         && context.getBiome().getGenerationSettings().hasStructureFeature(StructureFeature.STRONGHOLD))
