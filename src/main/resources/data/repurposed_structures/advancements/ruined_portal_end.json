@@ -13,7 +13,7 @@
     "hidden": true
   },
   "rewards": {
-    "experience": 50
+    "experience": 100
   },
   "criteria": {
     "in_ruined_portal_end": {
