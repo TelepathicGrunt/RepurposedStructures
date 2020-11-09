@@ -24,6 +24,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Strongholds:
 - Fixed Strongholds being cutoff by Bedrock.
 
+- Stonebrick Strongholds no longer can be added to End category modded biomes anymore.
+
 - Added allowStonebrickStrongholdToVanillaBiomes config option for Stonebrick Strongholds. 
   It now now possible to have Repurposed Structures's Stonebrick Strongholds to only spawn 
   in modded biomes, or only in vanilla biomes, or both by changing the values of
@@ -72,6 +74,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Changed "spawnrate" for majority of structures entries to say "maxChunkDistance" instead.
 
 - Removed "JF" from some Jungle Fortress entries.
+
+- Biome blacklisting configs now will ignore spaces between entries.
 
 
 ##### Misc:
