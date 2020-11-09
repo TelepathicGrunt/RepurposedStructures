@@ -9,7 +9,6 @@ import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.util.registry.DynamicRegistries;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.world.IWorldReader;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.gen.ChunkGenerator;
@@ -17,16 +16,17 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.jigsaw.JigsawManager;
 import net.minecraft.world.gen.feature.structure.*;
 import net.minecraft.world.gen.feature.template.TemplateManager;
-import net.minecraft.world.gen.settings.StructureSeparationSettings;
 
-public class OverworldJigsawStructure extends AbstractBaseStructure {
+public class GenericJigsawStructure extends AbstractBaseStructure {
     private final ResourceLocation START_POOL;
     private final int STRUCTURE_SIZE;
+    private final int CENTER_OFFSET;
 
-    public OverworldJigsawStructure(Codec<NoFeatureConfig> config, ResourceLocation poolRL, int structureSize) {
+    public GenericJigsawStructure(Codec<NoFeatureConfig> config, ResourceLocation poolRL, int structureSize, int centerOffset) {
         super(config);
         START_POOL = poolRL;
         STRUCTURE_SIZE = structureSize;
+        CENTER_OFFSET = centerOffset;
         RSStructures.RS_STRUCTURE_START_PIECES.add(START_POOL);
     }
 
@@ -45,7 +45,7 @@ public class OverworldJigsawStructure extends AbstractBaseStructure {
 
     @Override
     public IStartFactory<NoFeatureConfig> getStartFactory() {
-        return OverworldJigsawStructure.MainStart::new;
+        return GenericJigsawStructure.MainStart::new;
     }
 
     public class MainStart extends MarginedStructureStart<NoFeatureConfig> {
@@ -70,6 +70,7 @@ public class OverworldJigsawStructure extends AbstractBaseStructure {
                     true,
                     true);
             this.recalculateStructureSize();
+            this.components.get(0).offset(0, CENTER_OFFSET, 0);
         }
     }
 }

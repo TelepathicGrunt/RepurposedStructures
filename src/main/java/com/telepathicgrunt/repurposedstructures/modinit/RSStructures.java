@@ -13,7 +13,6 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.settings.DimensionStructuresSettings;
 import net.minecraft.world.gen.settings.StructureSeparationSettings;
-import net.minecraftforge.common.util.Lazy;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -63,8 +62,8 @@ public class RSStructures {
     
     //Igloos and Fortress
     public static final RegistryObject<Structure<NoFeatureConfig>> JUNGLE_FORTRESS = registerStructure("fortress_jungle", () -> (new FortressJungleStructure(NoFeatureConfig.CODEC)));
-    public static final RegistryObject<Structure<NoFeatureConfig>> GRASSY_IGLOO = registerStructure("igloo_grassy", () -> (new OverworldJigsawStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":igloos/grassy_top"), 20)));
-    public static final RegistryObject<Structure<NoFeatureConfig>> STONE_IGLOO = registerStructure("igloo_stone", () -> (new OverworldJigsawStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":igloos/stone_top"), 20)));
+    public static final RegistryObject<Structure<NoFeatureConfig>> GRASSY_IGLOO = registerStructure("igloo_grassy", () -> (new GenericJigsawStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":igloos/grassy_top"), 20, 0)));
+    public static final RegistryObject<Structure<NoFeatureConfig>> STONE_IGLOO = registerStructure("igloo_stone", () -> (new GenericJigsawStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":igloos/stone_top"), 20, 0)));
 
     //Temples
     public static final RegistryObject<Structure<NoFeatureConfig>> NETHER_WASTELAND_TEMPLE = registerStructure("temple_nether_wasteland", () -> (new TempleNetherStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID,"temples/temple_nether_wasteland"))));
@@ -89,16 +88,19 @@ public class RSStructures {
 	public static final RegistryObject<Structure<NoFeatureConfig>> WARPED_SHIPWRECK = registerStructure("shipwreck_warped", () -> (new ShipwreckNetherStructure(new ResourceLocation(RepurposedStructures.MODID, "shipwrecks/warped"), true)));
 	
 	//Villages
-	public static final RegistryObject<Structure<NoFeatureConfig>> BADLANDS_VILLAGE = registerStructure("village_badlands", () -> (new OverworldJigsawStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/badlands/town_centers"), 10)));
-	public static final RegistryObject<Structure<NoFeatureConfig>> BIRCH_VILLAGE = registerStructure("village_birch", () -> (new OverworldJigsawStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/birch/town_centers"), 6)));
-	public static final RegistryObject<Structure<NoFeatureConfig>> DARK_FOREST_VILLAGE = registerStructure("village_dark_oak", () -> (new OverworldJigsawStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/dark_forest/town_centers"), 6)));
-	public static final RegistryObject<Structure<NoFeatureConfig>> JUNGLE_VILLAGE = registerStructure("village_jungle", () -> (new OverworldJigsawStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/jungle/town_centers"), 8)));
-	public static final RegistryObject<Structure<NoFeatureConfig>> SWAMP_VILLAGE = registerStructure("village_swamp", () -> (new VillageSwampStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/swamp/town_centers"), 6)));
-	public static final RegistryObject<Structure<NoFeatureConfig>> MOUNTAINS_VILLAGE = registerStructure("village_mountains", () -> (new OverworldJigsawStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/mountains/town_centers"), 6)));
-	public static final RegistryObject<Structure<NoFeatureConfig>> GIANT_TAIGA_VILLAGE = registerStructure("village_giant_taiga", () -> (new OverworldJigsawStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/giant_taiga/town_centers"), 6)));
-  	public static final RegistryObject<Structure<NoFeatureConfig>> CRIMSON_VILLAGE = registerStructure("village_crimson", () -> (new VillageNetherStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/crimson/town_centers"), 6)));
-  	public static final RegistryObject<Structure<NoFeatureConfig>> WARPED_VILLAGE = registerStructure("village_warped", () -> (new VillageNetherStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/warped/town_centers"), 6)));
-  
+	public static final RegistryObject<Structure<NoFeatureConfig>> BADLANDS_VILLAGE = registerStructure("village_badlands", () -> (new GenericJigsawStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/badlands/town_centers"), 10, 0)));
+	public static final RegistryObject<Structure<NoFeatureConfig>> BIRCH_VILLAGE = registerStructure("village_birch", () -> (new GenericJigsawStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/birch/town_centers"), 6, 0)));
+	public static final RegistryObject<Structure<NoFeatureConfig>> DARK_FOREST_VILLAGE = registerStructure("village_dark_oak", () -> (new GenericJigsawStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/dark_forest/town_centers"), 6, 0)));
+	public static final RegistryObject<Structure<NoFeatureConfig>> JUNGLE_VILLAGE = registerStructure("village_jungle", () -> (new GenericJigsawStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/jungle/town_centers"), 8, 0)));
+	public static final RegistryObject<Structure<NoFeatureConfig>> SWAMP_VILLAGE = registerStructure("village_swamp", () -> (new RuinedPortalEndStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/swamp/town_centers"), 6, -1)));
+	public static final RegistryObject<Structure<NoFeatureConfig>> MOUNTAINS_VILLAGE = registerStructure("village_mountains", () -> (new GenericJigsawStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/mountains/town_centers"), 6, 0)));
+	public static final RegistryObject<Structure<NoFeatureConfig>> GIANT_TAIGA_VILLAGE = registerStructure("village_giant_taiga", () -> (new GenericJigsawStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/giant_taiga/town_centers"), 6, 0)));
+  	public static final RegistryObject<Structure<NoFeatureConfig>> CRIMSON_VILLAGE = registerStructure("village_crimson", () -> (new VillageNetherStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/crimson/town_centers"), 6, 0)));
+  	public static final RegistryObject<Structure<NoFeatureConfig>> WARPED_VILLAGE = registerStructure("village_warped", () -> (new VillageNetherStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":village/warped/town_centers"), 6, 0)));
+
+  	//Ruined Portals
+    public static final RegistryObject<Structure<NoFeatureConfig>> RUINED_PORTAL_END = registerStructure("ruined_portal_end", () -> (new RuinedPortalEndStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID + ":ruined_portal/end"), 20, -6)));
+
     private static <T extends Structure<?>> RegistryObject<T> registerStructure(String name, Supplier<T> structure)
     {   
         return STRUCTURE_FEATURES.register(name, structure);
@@ -152,6 +154,8 @@ public class RSStructures {
         registerLandscapeTransformingStructure(new ResourceLocation(RepurposedStructures.MODID, "village_giant_taiga"), GIANT_TAIGA_VILLAGE.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSVillagesConfig.giantTaigaVillageMaxChunkDistance.get(), (int) (RepurposedStructures.RSVillagesConfig.giantTaigaVillageMaxChunkDistance.get() * 0.5f), 1559528842));
         registerLandscapeTransformingStructure(new ResourceLocation(RepurposedStructures.MODID, "village_crimson"), CRIMSON_VILLAGE.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSVillagesConfig.crimsonVillageMaxChunkDistance.get(), (int) (RepurposedStructures.RSVillagesConfig.crimsonVillageMaxChunkDistance.get() * 0.5f), 1854750198));
         registerLandscapeTransformingStructure(new ResourceLocation(RepurposedStructures.MODID, "village_warped"), WARPED_VILLAGE.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSVillagesConfig.warpedVillageMaxChunkDistance.get(), (int) (RepurposedStructures.RSVillagesConfig.warpedVillageMaxChunkDistance.get() * 0.5f), 1298332136));
+
+        registerStructure(new ResourceLocation(RepurposedStructures.MODID, "ruined_portal_end"), RUINED_PORTAL_END.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMainConfig.ruinedPortalEndMaxChunkDistance.get(), (int) (RepurposedStructures.RSMainConfig.ruinedPortalEndMaxChunkDistance.get() * 0.5f), 532404086));
 
         //Next available seed: https://www.google.com/search?q=random+number
 

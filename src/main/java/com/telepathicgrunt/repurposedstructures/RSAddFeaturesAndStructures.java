@@ -553,6 +553,19 @@ public class RSAddFeaturesAndStructures {
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // RUINED PORTALS //
+
+    public static void addRuinedPortals(BiomeLoadingEvent event) {
+
+        if (RepurposedStructures.RSMainConfig.ruinedPortalEndMaxChunkDistance.get() != 1001) {
+            if (event.getCategory() == Category.THEEND && !event.getName().equals(new ResourceLocation("minecraft:the_end")) &&
+                    (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSMainConfig.addRuinedPortalEndToModdedBiomes.get())) {
+                event.getGeneration().getStructures().add(() -> RSConfiguredStructures.RUINED_PORTAL_END);
+            }
+        }
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // GENERAL UTILITIES //
 
     /**

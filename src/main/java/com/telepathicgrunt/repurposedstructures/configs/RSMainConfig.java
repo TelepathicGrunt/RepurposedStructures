@@ -31,11 +31,15 @@ public class RSMainConfig
 		public ConfigValueListener<Integer> stoneIglooMaxChunkDistance;
 		public ConfigValueListener<Boolean> addStoneIglooToModdedBiomes;
 
+		public ConfigValueListener<Integer> ruinedPortalEndMaxChunkDistance;
+		public ConfigValueListener<Boolean> addRuinedPortalEndToModdedBiomes;
+
 		public ConfigValueListener<String> blacklistedDimensions;
 		public ConfigValueListener<String> blacklistedSwampTreeBiomes;
 		public ConfigValueListener<String> blacklistedBoulderBiomes;
 		public ConfigValueListener<String> blacklistedFortressBiomes;
 		public ConfigValueListener<String> blacklistedIglooBiomes;
+		public ConfigValueListener<String> blacklistedRuinedPortalsBiomes;
 
 		public RSConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
 		{
@@ -209,7 +213,31 @@ public class RSMainConfig
 						.define("addStoneIglooToModdedBiomes", true));
 					
 				builder.pop();
-				
+
+				builder.push("Ruined Portals");
+
+					blacklistedRuinedPortalsBiomes = subscriber.subscribe(builder
+						.comment("\r\n Add the ID/resource location of the biome you don't want"
+								+"\r\n RS's Ruined Portals to spawn in. Separate each ID with a comma ,"
+								+"\r\n"
+								+"\r\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
+						.translation("repurposedstructures.config.ruinedportals.blacklistedruinedportalsbiomes")
+						.define("blacklistedRuinedPortalsBiomes", ""));
+
+					ruinedPortalEndMaxChunkDistance = subscriber.subscribe(builder
+						.comment("How rare are End themed Ruined Portals in"
+								+ "\nEnd category biomes. 1 for spawning in most"
+								+ "\nchunks and 1001 for none.")
+						.translation("repurposedstructures.config.ruinedPortals.ruinedportalendmaxchunkdistance")
+						.defineInRange("ruinedPortalEndMaxChunkDistance", 57, 1, 1001));
+
+					addRuinedPortalEndToModdedBiomes = subscriber.subscribe(builder
+						.comment("Add End themed ruined portals to modded"
+								+ "\nEnd category biomes.")
+						.translation("repurposedstructures.config.ruinedPortals.addruinedportalendtomoddedbiomes")
+						.define("addRuinedPortalEndToModdedBiomes", true));
+
+				builder.pop();
 			builder.pop();
 		}
 		

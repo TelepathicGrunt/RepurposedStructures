@@ -20,6 +20,7 @@ public class RSStructureTagMap {
         FORTRESS,
         IGLOO,
         OUTPOST,
+        RUINED_PORTAL,
         OVERWORLD,
         NETHER,
         END,
@@ -87,6 +88,8 @@ public class RSStructureTagMap {
         
         addTags(Structure.FORTRESS, Stream.of(STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
         addTags(Structure.BASTION_REMNANT, Stream.of(STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
+
+        addTags(RSStructures.RUINED_PORTAL_END.get(), Stream.of(STRUCTURE_TAGS.RUINED_PORTAL, STRUCTURE_TAGS.END).collect(Collectors.toSet()));
     }
 
 

@@ -2,7 +2,6 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
-import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
 import net.minecraft.tags.BlockTags;
@@ -22,9 +21,9 @@ import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 import net.minecraft.world.gen.settings.StructureSeparationSettings;
 
-public class VillageNetherStructure extends OverworldJigsawStructure {
-    public VillageNetherStructure(Codec<NoFeatureConfig> config, ResourceLocation poolRL, int structureSize) {
-        super(config, poolRL, structureSize);
+public class VillageNetherStructure extends GenericJigsawStructure {
+    public VillageNetherStructure(Codec<NoFeatureConfig> config, ResourceLocation poolRL, int structureSize, int centerOffset) {
+        super(config, poolRL, structureSize, centerOffset);
     }
 
     @Override
