@@ -666,7 +666,8 @@ public class RSAddFeaturesAndStructures {
                 (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.VILLAGE).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
                         && isBiomeAllowed("village", context.getBiomeKey().getValue())
                         && (RepurposedStructures.RSAllConfig.RSVillagesConfig.darkForestVillageMaxChunkDistance != 1001
-                        && context.getBiomeKey().getValue().getPath().contains("dark_forest")
+                        && context.getBiome().getCategory() == Category.FOREST
+                        && context.getBiomeKey().getValue().getPath().contains("dark")
                         && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                         || RepurposedStructures.RSAllConfig.RSVillagesConfig.addVillagesToModdedBiomes)),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.DARK_FOREST_VILLAGE));
