@@ -21,6 +21,7 @@ public class RSVillagesConfig
 		public ConfigValueListener<Integer> giantTaigaVillageMaxChunkDistance;
 		public ConfigValueListener<Integer> crimsonVillageMaxChunkDistance;
 		public ConfigValueListener<Integer> warpedVillageMaxChunkDistance;
+		public ConfigValueListener<Integer> villageOakMaxChunkDistance;
 		public ConfigValueListener<String> blacklistedVillageBiomes;
 
 		public RSVillagesConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
@@ -103,6 +104,11 @@ public class RSVillagesConfig
 						.translation("repurposedstructures.config.villages.warpedvillagemaxchunkdistance")
 						.defineInRange("warpedVillageMaxChunkDistance", 30, 1, 1001));
 
+					villageOakMaxChunkDistance = subscriber.subscribe(builder
+						.comment("How rare are Oak Villages in forest category"
+								+ "\nbiomes that are not birch or dark forest.")
+						.translation("repurposedstructures.config.village.villageoakmaxchunkdistance")
+						.defineInRange("villageOakMaxChunkDistance", 30, 1, 1001));
 				builder.pop();
 					
 			builder.pop();

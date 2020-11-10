@@ -549,6 +549,12 @@ public class RSAddFeaturesAndStructures {
                 (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.WARPED_VILLAGE);
         }
+        else if (RepurposedStructures.RSVillagesConfig.villageOakMaxChunkDistance.get() != 1001) {
+            if ((event.getCategory() == Category.FOREST && !event.getName().getPath().contains("birch") && !event.getName().getPath().contains("dark")) &&
+                    (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
+                event.getGeneration().getStructures().add(() -> RSConfiguredStructures.VILLAGE_OAK);
+            }
+        }
     }
 
 
