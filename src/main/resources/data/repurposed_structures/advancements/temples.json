@@ -5,10 +5,10 @@
       "item": "minecraft:arrow"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.temples.title"
+      "translate": "Temples"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.temples.description"
+      "translate": "Go look for a Temple!"
     },
     "show_toast": false,
     "announce_to_chat": false,

@@ -5,10 +5,10 @@
       "item": "minecraft:acacia_planks"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.mineshaft_savanna.title"
+      "translate": "The Mine is Orange? Always has Been"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.mineshaft_savanna.description"
+      "translate": "Enter a Savanna Mineshaft"
     },
     "hidden": true
   },

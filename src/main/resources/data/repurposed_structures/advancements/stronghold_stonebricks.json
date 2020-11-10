@@ -5,10 +5,10 @@
       "item": "minecraft:ender_eye"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.stronghold_stonebrick.title"
+      "translate": "Eye Spy The Overworld"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.stronghold_stonebrick.description"
+      "translate": "Enter a Stonebrick Stronghold"
     },
     "hidden": true
   },

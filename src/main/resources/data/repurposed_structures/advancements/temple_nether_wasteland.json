@@ -5,10 +5,10 @@
       "item": "minecraft:magma_block"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.temple_nether_wasteland.title"
+      "translate": "Praying in the Wastelands"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.temple_nether_wasteland.description"
+      "translate": "Enter a Nether Wasteland Temple"
     },
     "hidden": true
   },

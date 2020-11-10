@@ -5,10 +5,10 @@
       "item": "minecraft:lily_pad"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.village_swamp.title"
+      "translate": "The Muddy Colony"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.village_swamp.description"
+      "translate": "Enter a Swamp Village"
     },
     "hidden": true
   },

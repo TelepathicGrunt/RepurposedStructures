@@ -5,10 +5,10 @@
       "item": "minecraft:blackstone"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.pyramid_nether.title"
+      "translate": "The Pyramid that Bridges Worlds"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.pyramid_nether.description"
+      "translate": "Enter a Nether Pyramid"
     },
     "hidden": true
   },

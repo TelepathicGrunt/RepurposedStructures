@@ -5,10 +5,10 @@
       "item": "minecraft:warped_stem"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.temple_nether_warped.title"
+      "translate": "Warped Worshipping"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.temple_nether_warped.description"
+      "translate": "Enter a Nether Warped Temple"
     },
     "hidden": true
   },

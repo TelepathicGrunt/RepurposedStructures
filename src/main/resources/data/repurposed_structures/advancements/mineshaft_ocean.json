@@ -5,10 +5,10 @@
       "item": "minecraft:sea_lantern"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.mineshaft_ocean.title"
+      "translate": "Swimming with the Drowned Miners"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.mineshaft_ocean.description"
+      "translate": "Enter a Ocean Mineshaft"
     },
     "hidden": true
   },

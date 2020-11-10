@@ -5,10 +5,10 @@
       "item": "minecraft:soul_sand"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.temple_nether_soul.title"
+      "translate": "Trapped Souls in the Temple"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.temple_nether_soul.description"
+      "translate": "Enter a Nether Soul Temple"
     },
     "hidden": true
   },

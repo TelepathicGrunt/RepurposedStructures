@@ -5,10 +5,10 @@
       "item": "minecraft:birch_wood"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.village_birch.title"
+      "translate": "A Village within the Birch Woods"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.village_birch.description"
+      "translate": "Enter a Birch Village"
     },
     "hidden": true
   },

@@ -5,10 +5,10 @@
       "item": "minecraft:nether_bricks"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.mineshaft_nether.title"
+      "translate": "Smoldering Mines"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.mineshaft_nether.description"
+      "translate": "Enter a Nether Mineshaft"
     },
     "hidden": true
   },

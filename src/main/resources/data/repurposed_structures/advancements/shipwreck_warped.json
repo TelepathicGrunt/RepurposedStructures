@@ -5,10 +5,10 @@
       "item": "minecraft:soul_campfire"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.shipwreck_warped.title"
+      "translate": "Hell's own Ghost Ship"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.shipwreck_warped.description"
+      "translate": "Enter a Warped Shipwreck"
     },
     "hidden": true
   },

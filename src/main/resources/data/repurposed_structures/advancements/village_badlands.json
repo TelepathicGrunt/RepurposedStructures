@@ -5,10 +5,10 @@
       "item": "minecraft:chiseled_red_sandstone"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.village_badlands.title"
+      "translate": "The Wild West Town"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.village_badlands.description"
+      "translate": "Enter a Badlands Village"
     },
     "hidden": true
   },

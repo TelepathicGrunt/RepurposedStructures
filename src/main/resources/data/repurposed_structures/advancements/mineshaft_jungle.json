@@ -5,10 +5,10 @@
       "item": "minecraft:jungle_planks"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.mineshaft_jungle.title"
+      "translate": "Overgrown Shafts"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.mineshaft_jungle.description"
+      "translate": "Enter a Jungle Mineshaft"
     },
     "hidden": true
   },

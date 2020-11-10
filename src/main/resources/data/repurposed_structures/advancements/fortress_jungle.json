@@ -5,10 +5,10 @@
       "item": "minecraft:mossy_stone_bricks"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.fortress_jungle.title"
+      "translate": "Decaying Glory"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.fortress_jungle.description"
+      "translate": "Enter a Jungle Fortress"
     },
     "hidden": true
   },

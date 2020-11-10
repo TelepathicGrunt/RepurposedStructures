@@ -19,6 +19,13 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Fixed a bug that could still spawn Repurposed Structures's stuff in superflat.
 
+##### Advancements:
+- Advancements now have English translations built in so vanilla clients do not 
+  need any en_us.json resource pack anymore! If you want clients to have different
+  translations from each other, put Repurposed_Structures-Translation_Advancements
+  datapack on the server and now each client can make their own en_us.json resourcepack
+  for their own language translations.
+
 ##### Ruined Portals:
 - End themed Ruined Portals now spawn in the End dimension!
   Special thanks to miguelforge for creating them!

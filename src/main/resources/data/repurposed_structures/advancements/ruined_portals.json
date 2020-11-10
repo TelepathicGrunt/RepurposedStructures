@@ -5,10 +5,10 @@
       "item": "minecraft:obsidian"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.ruined_portal.title"
+      "translate": "Ruined Portals"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.ruined_portal.description"
+      "translate": "Go look for a Ruined Portal!"
     },
     "show_toast": false,
     "announce_to_chat": false,

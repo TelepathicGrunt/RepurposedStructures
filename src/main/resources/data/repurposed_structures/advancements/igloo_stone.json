@@ -5,10 +5,10 @@
       "item": "minecraft:cobblestone"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.igloo_stone.title"
+      "translate": "A Cozy Rock"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.igloo_stone.description"
+      "translate": "Enter a Stone Igloo"
     },
     "hidden": true
   },

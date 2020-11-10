@@ -5,10 +5,10 @@
       "item": "minecraft:ice"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.mineshaft_icy.title"
+      "translate": "Frozen in the Deep Hole"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.mineshaft_icy.description"
+      "translate": "Enter a Icy Mineshaft"
     },
     "hidden": true
   },

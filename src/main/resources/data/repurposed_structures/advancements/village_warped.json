@@ -5,10 +5,10 @@
       "item": "minecraft:stripped_warped_stem"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.village_warped.title"
+      "translate": "Twisted Townsfolks"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.village_warped.description"
+      "translate": "Enter a Warped Village"
     },
     "hidden": true
   },

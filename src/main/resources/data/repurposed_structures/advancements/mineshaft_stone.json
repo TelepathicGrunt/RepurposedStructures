@@ -5,10 +5,10 @@
       "item": "minecraft:stone"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.mineshaft_stone.title"
+      "translate": "Petrified Passageway"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.mineshaft_stone.description"
+      "translate": "Enter a Stone Mineshaft"
     },
     "hidden": true
   },

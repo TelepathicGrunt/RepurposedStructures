@@ -5,10 +5,10 @@
       "item": "minecraft:crimson_planks"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.outpost_crimson.title"
+      "translate": "The Overseeing Red Tower"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.outpost_crimson.description"
+      "translate": "Enter a Crimson Outpost"
     },
     "hidden": true
   },
