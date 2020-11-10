@@ -12,6 +12,7 @@
     "StructureMobSpawningMixin",
     "StructurePieceAccessor",
     "StructureProcessorListAccessor",
+    "TemplateManagerMixin",
     "ZombifiedPiglinSpawnerMixin"
   ],
   "client": [

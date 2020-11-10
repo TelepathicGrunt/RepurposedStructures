@@ -80,6 +80,12 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Miscellaneous:
 - Giant Boulders in Giant Tree Taiga biomes will now no longer float on water.
 
+- Removed logo blur from logo in mod list
+
+- Ported Voyager's fix for Java 11+'s ConcurrentModificationException crash when the 
+  game tries to grab multiple structure's pieces from TemplateManager at the same time.
+  Source: https://github.com/modmuss50/Voyager
+
 ##### Configs:
 - Changed "spawnrate" for dungeon entries to say "attemptsPerChunk" instead.
 
@@ -90,10 +96,6 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Removed "JF" from some Jungle Fortress entries.
 
 - Biome blacklisting configs now will ignore spaces between entries.
-
-
-##### Misc:
-- Removed logo blur from logo in mod list
 
 
 ## (V.2.2.11 Changes) (1.16.3 Minecraft)
