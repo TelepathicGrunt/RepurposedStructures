@@ -499,7 +499,7 @@ public class RSAddFeaturesAndStructures {
             }
         }
 
-        else if (event.getName().getPath().contains("dark_forest") && (event.getName().getNamespace().equals("minecraft") ||
+        else if (event.getCategory() == Category.FOREST && event.getName().getPath().contains("dark") && (event.getName().getNamespace().equals("minecraft") ||
                 RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
             if (RepurposedStructures.RSVillagesConfig.darkForestVillageMaxChunkDistance.get() != 1001) {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.DARK_FOREST_VILLAGE);

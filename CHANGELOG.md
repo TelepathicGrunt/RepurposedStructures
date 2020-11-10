@@ -55,6 +55,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Villages:
 - Added Oak Village that spawns in any forest category biome that isn't birch or dark forest!
 
+- Adjusted Dark Villages so they are added to biomes with "dark" in the name and is 
+  forest category instead of only be added to biome with "dark_forest" in name.
+  
 - Adjusted some villages pieces to allow Villagers to reach workstation as
   Mojang broke the Villager AI with a bug lol.
   
