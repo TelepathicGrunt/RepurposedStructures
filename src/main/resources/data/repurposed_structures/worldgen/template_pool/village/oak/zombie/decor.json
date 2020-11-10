@@ -12,7 +12,7 @@
       }
     },
     {
-      "weight": 1,
+      "weight": 3,
       "element": {
         "feature": "minecraft:fancy_oak_bees_005",
         "projection": "rigid",
@@ -20,7 +20,7 @@
       }
     },
     {
-      "weight": 1,
+      "weight": 2,
       "element": {
         "feature": "repurposed_structures:lily_of_the_valley",
         "projection": "rigid",
@@ -33,12 +33,6 @@
         "feature": "minecraft:pile_hay",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
-      }
-    },
-    {
-      "weight": 2,
-      "element": {
-        "element_type": "minecraft:empty_pool_element"
       }
     }
   ]
