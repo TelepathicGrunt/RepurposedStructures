@@ -78,6 +78,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
   in the Villages. Also fixed some random Dirt blocks being in Villages.
   
 - Fixed a Dark Oak Village house being fused with a farm for no reason lmao.
+
+- Reduced chances of Village's Iron Golem spawning inside a tree and dying.
   
 - Added a new Badlands Library made by miguelforge!
 
