@@ -85,4 +85,11 @@ public class RSVillagesConfig implements ConfigData {
             + "\n1 for spawning in most chunks and 1001 for none.")
     @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
     public int warpedVillageMaxChunkDistance = 30;
+
+    @ConfigEntry.Gui.Tooltip(count = 0)
+    @ConfigEntry.Gui.PrefixText
+    @Comment("How rare are Oak Villages in forest category"
+            + "\nbiomes that are not birch or dark forest.")
+    @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+    public int villageOakMaxChunkDistance = 30;
 }

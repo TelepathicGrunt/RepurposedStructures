@@ -27,6 +27,7 @@ public class RepurposedStructures implements ModInitializer {
     public static final Map<String, List<String>> ALL_BIOME_BLACKLISTS = new HashMap<>();
 
     //TODO: make zombie badlands village
+    //TODO: replace cobblestone in oak village
     //TODO NEXT: overworld biome specific outposts
 
     @Override

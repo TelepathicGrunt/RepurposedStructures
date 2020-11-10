@@ -59,6 +59,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Buffed Nether Outposts's loot a bit.
 
 ##### Villages:
+- Added Oak Village that spawns in any forest category biome that isn't birch or dark forest!
+
 - Adjusted some villages pieces to allow Villagers to reach workstation as
   Mojang broke the Villager AI with a bug lol.
   

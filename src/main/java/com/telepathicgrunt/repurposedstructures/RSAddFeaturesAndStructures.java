@@ -738,6 +738,16 @@ public class RSAddFeaturesAndStructures {
                         && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                         || RepurposedStructures.RSAllConfig.RSVillagesConfig.addVillagesToModdedBiomes)),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.WARPED_VILLAGE));
+
+        addToBiome("village_oak",
+                (context) -> isBiomeAllowed("village", context.getBiomeKey().getValue())
+                        && (RepurposedStructures.RSAllConfig.RSVillagesConfig.villageOakMaxChunkDistance != 1001
+                        && context.getBiome().getCategory() == Category.FOREST
+                        && !context.getBiomeKey().getValue().getPath().contains("birch")
+                        && !context.getBiomeKey().getValue().getPath().contains("dark")
+                        && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
+                        || RepurposedStructures.RSAllConfig.RSVillagesConfig.addVillagesToModdedBiomes)),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.VILLAGE_OAK));
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////

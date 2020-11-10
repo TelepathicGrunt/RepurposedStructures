@@ -59,6 +59,7 @@ public class RSConfiguredStructures {
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> GIANT_TAIGA_VILLAGE = RSStructures.GIANT_TAIGA_VILLAGE.configure(FeatureConfig.DEFAULT);
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> CRIMSON_VILLAGE = RSStructures.CRIMSON_VILLAGE.configure(FeatureConfig.DEFAULT);
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> WARPED_VILLAGE = RSStructures.WARPED_VILLAGE.configure(FeatureConfig.DEFAULT);
+    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> VILLAGE_OAK = RSStructures.VILLAGE_OAK.configure(FeatureConfig.DEFAULT);
 
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> RUINED_PORTAL_END = RSStructures.RUINED_PORTAL_END.configure(FeatureConfig.DEFAULT);
 
@@ -111,6 +112,7 @@ public class RSConfiguredStructures {
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "giant_taiga_village"), GIANT_TAIGA_VILLAGE);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "crimson_village"), CRIMSON_VILLAGE);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "warped_village"), WARPED_VILLAGE);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "village_oak"), VILLAGE_OAK);
 
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "ruined_portal_end"), RUINED_PORTAL_END);
     }
