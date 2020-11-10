@@ -56,8 +56,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Adjusted some villages pieces to allow Villagers to reach workstation as
   Mojang broke the Villager AI with a bug lol.
   
-- Fix several instances of stairs and fences 
-  being in impossible blockstates in the Villages.
+- Fix several instances of stairs and fences being in impossible blockstates 
+  in the Villages. Also fixed some random Dirt blocks being in Villages.
   
 - Fixed a Dark Oak Village house being fused with a farm for no reason lmao.
 
