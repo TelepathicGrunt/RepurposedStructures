@@ -5,10 +5,10 @@
       "item": "minecraft:dark_oak_planks"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.mineshaft_swamp_or_dark_forest.title"
+      "translate": "A Dark and Swampy Tunnel"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.mineshaft_swamp_or_dark_forest.description"
+      "translate": "Enter a Swamp or Dark Forest Mineshaft"
     },
     "hidden": true
   },

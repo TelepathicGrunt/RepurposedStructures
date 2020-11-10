@@ -101,6 +101,8 @@
   "advancements.repurposed_structures.ruined_portal.description": "Go look for a Ruined Portal!",
   "advancements.repurposed_structures.ruined_portal_end.title": "The Useless Portal",
   "advancements.repurposed_structures.ruined_portal_end.description": "Find an End themed Ruined Portal!",
+  "advancements.repurposed_structures.village_oak.title": "A Town of the Forest",
+  "advancements.repurposed_structures.village_oak.description": "Enter a Oak Village",
   "filled_map.fortress": "Nether Fortress Map",
   "filled_map.bastion_remnant": "Bastion Remnant Map",
   "filled_map.endcity":"End City Map",

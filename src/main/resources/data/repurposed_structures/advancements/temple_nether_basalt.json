@@ -5,10 +5,10 @@
       "item": "minecraft:basalt"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.temple_nether_basalt.title"
+      "translate": "The Burning Temple"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.temple_nether_basalt.description"
+      "translate": "Enter a Nether Basalt Temple"
     },
     "hidden": true
   },

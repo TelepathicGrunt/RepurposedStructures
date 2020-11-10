@@ -5,10 +5,10 @@
       "item": "minecraft:stone_pickaxe"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.mineshafts.title"
+      "translate": "Mineshafts"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.mineshafts.description"
+      "translate": "Go look for a Mineshaft!"
     },
     "show_toast": false,
     "announce_to_chat": false,

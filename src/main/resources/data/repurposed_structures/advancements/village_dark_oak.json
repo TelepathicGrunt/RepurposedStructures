@@ -5,10 +5,10 @@
       "item": "minecraft:dark_oak_wood"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.village_dark_oak.title"
+      "translate": "The Dark Settlement"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.village_dark_oak.description"
+      "translate": "Enter a Dark Oak Village"
     },
     "hidden": true
   },

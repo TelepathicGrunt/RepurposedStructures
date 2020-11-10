@@ -5,10 +5,10 @@
       "item": "minecraft:campfire"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.shipwreck_crimson.title"
+      "translate": "The Burning Velvet Ship."
     },
     "description": {
-      "translate": "advancements.repurposed_structures.shipwreck_crimson.description"
+      "translate": "Enter a Crimson Shipwreck"
     },
     "hidden": true
   },

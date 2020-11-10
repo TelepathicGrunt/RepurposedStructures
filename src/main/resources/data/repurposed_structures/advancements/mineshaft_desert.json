@@ -5,10 +5,10 @@
       "item": "minecraft:sandstone"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.mineshaft_desert.title"
+      "translate": "A Mine that is Coarse and Rough..."
     },
     "description": {
-      "translate": "advancements.repurposed_structures.mineshaft_desert.description"
+      "translate": "Enter a Desert Mineshaft"
     },
     "hidden": true
   },

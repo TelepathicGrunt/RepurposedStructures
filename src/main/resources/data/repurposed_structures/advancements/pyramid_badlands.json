@@ -5,10 +5,10 @@
       "item": "minecraft:smooth_red_sandstone"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.pyramid_badlands.title"
+      "translate": "Red Pyramid in the Hot Sun"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.pyramid_badlands.description"
+      "translate": "Enter a Badlands Pyramid"
     },
     "hidden": true
   },

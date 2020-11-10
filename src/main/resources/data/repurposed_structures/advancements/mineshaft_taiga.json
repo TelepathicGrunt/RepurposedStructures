@@ -5,10 +5,10 @@
       "item": "minecraft:spruce_planks"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.mineshaft_taiga.title"
+      "translate": "A Spruce Scented Excavation"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.mineshaft_taiga.description"
+      "translate": "Enter a Taiga Mineshaft"
     },
     "hidden": true
   },

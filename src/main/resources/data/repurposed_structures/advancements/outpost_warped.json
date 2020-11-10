@@ -5,10 +5,10 @@
       "item": "minecraft:warped_planks"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.outpost_warped.title"
+      "translate": "A Warped View from an Outpost"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.outpost_warped.description"
+      "translate": "Enter a Warped Outpost"
     },
     "hidden": true
   },

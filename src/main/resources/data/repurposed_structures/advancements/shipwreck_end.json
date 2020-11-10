@@ -5,10 +5,10 @@
       "item": "minecraft:purpur_stairs"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.shipwreck_end.title"
+      "translate": "The Ship that cannot Fly Again"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.shipwreck_end.description"
+      "translate": "Enter a End Shipwreck"
     },
     "hidden": true
   },

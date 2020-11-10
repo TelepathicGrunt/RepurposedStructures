@@ -5,10 +5,10 @@
       "item": "minecraft:grass_block"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.igloo_grassy.title"
+      "translate": "It was a Hobbit-Hole"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.igloo_grassy.description"
+      "translate": "Enter a Grassy Igloo"
     },
     "hidden": true
   },

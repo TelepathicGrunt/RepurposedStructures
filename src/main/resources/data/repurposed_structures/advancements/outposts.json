@@ -5,10 +5,10 @@
       "item": "minecraft:crossbow"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.outposts.title"
+      "translate": "Outposts"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.outposts.description"
+      "translate": "Go look for a Outpost!"
     },
     "show_toast": false,
     "announce_to_chat": false,

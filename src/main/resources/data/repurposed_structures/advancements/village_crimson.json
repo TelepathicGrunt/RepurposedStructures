@@ -5,10 +5,10 @@
       "item": "minecraft:stripped_crimson_stem"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.village_crimson.title"
+      "translate": "The Town in the Red Forest"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.village_crimson.description"
+      "translate": "Enter a Crimson Village"
     },
     "hidden": true
   },

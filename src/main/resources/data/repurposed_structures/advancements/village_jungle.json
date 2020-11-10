@@ -5,10 +5,10 @@
       "item": "minecraft:jungle_wood"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.village_jungle.title"
+      "translate": "The Lost Civilization"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.village_jungle.description"
+      "translate": "Enter a Jungle Village"
     },
     "hidden": true
   },

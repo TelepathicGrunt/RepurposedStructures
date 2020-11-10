@@ -5,10 +5,10 @@
       "item": "minecraft:birch_planks"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.mineshaft_birch.title"
+      "translate": "Birch to Enter the Mine!"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.mineshaft_birch.description"
+      "translate": "Enter a Birch Mineshaft"
     },
     "hidden": true
   },

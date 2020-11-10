@@ -5,10 +5,10 @@
       "item": "minecraft:purpur_block"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.mineshaft_end.title"
+      "translate": "Infested Mines"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.mineshaft_end.description"
+      "translate": "Enter a End Mineshaft"
     },
     "hidden": true
   },

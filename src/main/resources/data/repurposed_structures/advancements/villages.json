@@ -5,10 +5,10 @@
       "item": "minecraft:emerald"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.villages.title"
+      "translate": "Villages"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.villages.description"
+      "translate": "Go look for a Village!"
     },
     "show_toast": false,
     "announce_to_chat": false,

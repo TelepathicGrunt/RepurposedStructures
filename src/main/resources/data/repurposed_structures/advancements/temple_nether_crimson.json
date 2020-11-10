@@ -5,10 +5,10 @@
       "item": "minecraft:crimson_stem"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.temple_nether_crimson.title"
+      "translate": "The Crimson House of Prayer"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.temple_nether_crimson.description"
+      "translate": "Enter a Nether Crimson Temple"
     },
     "hidden": true
   },

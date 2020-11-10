@@ -5,15 +5,15 @@
       "item": "minecraft:crying_obsidian"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.ruined_portal_end.title"
+      "translate": "The Useless Portal"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.ruined_portal_end.description"
+      "translate": "Find an End themed Ruined Portal!"
     },
     "hidden": true
   },
   "rewards": {
-    "experience": 100
+    "experience": 50
   },
   "criteria": {
     "in_ruined_portal_end": {

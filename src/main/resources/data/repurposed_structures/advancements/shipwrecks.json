@@ -5,10 +5,10 @@
       "item": "minecraft:oak_boat"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.shipwrecks.title"
+      "translate": "Shipwrecks"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.shipwrecks.description"
+      "translate": "Go look for a Shipwreck!"
     },
     "show_toast": false,
     "announce_to_chat": false,
