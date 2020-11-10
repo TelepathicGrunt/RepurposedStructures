@@ -31,8 +31,6 @@ public class RepurposedStructures implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        // LoadNbtBlock.instantiateNbtBlock();
-
         AutoConfig.register(RSAllConfig.class, Toml4jConfigSerializer::new);
         RSAllConfig = AutoConfig.getConfigHolder(RSAllConfig.class).getConfig();
 
