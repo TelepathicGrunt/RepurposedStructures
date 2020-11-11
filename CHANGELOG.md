@@ -25,6 +25,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
   translations from each other, put Repurposed_Structures-Translation_Advancements
   datapack on the server and now each client can make their own en_us.json resourcepack
   for their own language translations.
+  
+- Organized advancements into subfolders now so it is cleaner.
 
 ##### Ruined Portals:
 - End themed Ruined Portals now spawn in the End dimension!
