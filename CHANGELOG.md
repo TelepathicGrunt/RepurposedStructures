@@ -17,6 +17,10 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Fixed a bug that could still spawn Repurposed Structures's stuff in superflat.
 
+- Ported Voyager's fix for Java 11+'s ConcurrentModificationException crash when the 
+  game tries to grab multiple structure's pieces from TemplateManager at the same time.
+  Source: https://github.com/modmuss50/Voyager
+
 ##### Advancements:
 - Advancements now have English translations built in so vanilla clients do not 
   need any en_us.json resource pack anymore! If you want clients to have different
@@ -81,10 +85,6 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Giant Boulders in Giant Tree Taiga biomes will now no longer float on water.
 
 - Removed logo blur from logo in mod list
-
-- Ported Voyager's fix for Java 11+'s ConcurrentModificationException crash when the 
-  game tries to grab multiple structure's pieces from TemplateManager at the same time.
-  Source: https://github.com/modmuss50/Voyager
 
 ##### Configs:
 - Changed "spawnrate" for dungeon entries to say "attemptsPerChunk" instead.
