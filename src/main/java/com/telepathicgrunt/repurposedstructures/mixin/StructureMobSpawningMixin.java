@@ -58,6 +58,13 @@ public class StructureMobSpawningMixin {
             if (accessor.getStructureAt(pos, true, RSStructures.END_MINESHAFT).hasChildren()) {
                 return Lists.newArrayList(Iterators.concat(biome.getSpawnSettings().getSpawnEntry(SpawnGroup.MONSTER).iterator(), RSStructures.END_MINESHAFT.getMonsterSpawns().iterator()));
             }
+
+            for(StructureFeature<?> outpost : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.OVERWORLD_OUTPOST)){
+                if (accessor.getStructureAt(pos, true, outpost).hasChildren()) {
+                    // Use vanilla outpost for max mod compat. I think. Might redo this if I receive complaints
+                    return StructureFeature.PILLAGER_OUTPOST.getMonsterSpawns();
+                }
+            }
         }
 
         return null;

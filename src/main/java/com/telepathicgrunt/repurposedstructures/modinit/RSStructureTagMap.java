@@ -11,6 +11,7 @@ import java.util.stream.Stream;
 
 public class RSStructureTagMap {
     public enum STRUCTURE_TAGS {
+        // RS Structrues
         MINESHAFT,
         PYRAMID,
         TEMPLE,
@@ -21,10 +22,15 @@ public class RSStructureTagMap {
         IGLOO,
         OUTPOST,
         RUINED_PORTAL,
+
+        // Dimension based
         OVERWORLD,
         NETHER,
         END,
+
+        // Structure sets to avoid for some structures
         OVERWORLD_VILLAGE,
+        OVERWORLD_OUTPOST,
         NETHER_VILLAGE,
         NETHER_OUTPOST,
         NETHER_TEMPLE,
@@ -75,6 +81,7 @@ public class RSStructureTagMap {
         addTags(RSStructures.CRIMSON_OUTPOST, Stream.of(STRUCTURE_TAGS.OUTPOST, STRUCTURE_TAGS.NETHER, STRUCTURE_TAGS.NETHER_OUTPOST, STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
         addTags(RSStructures.NETHER_BRICK_OUTPOST, Stream.of(STRUCTURE_TAGS.OUTPOST, STRUCTURE_TAGS.NETHER, STRUCTURE_TAGS.NETHER_OUTPOST, STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
         addTags(RSStructures.WARPED_OUTPOST, Stream.of(STRUCTURE_TAGS.OUTPOST, STRUCTURE_TAGS.NETHER, STRUCTURE_TAGS.NETHER_OUTPOST, STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
+        addTags(RSStructures.OUTPOST_BIRCH, Stream.of(STRUCTURE_TAGS.OUTPOST, STRUCTURE_TAGS.OVERWORLD, STRUCTURE_TAGS.OVERWORLD_OUTPOST).collect(Collectors.toSet()));
 
         addTags(RSStructures.BADLANDS_VILLAGE, Stream.of(STRUCTURE_TAGS.VILLAGE, STRUCTURE_TAGS.OVERWORLD, STRUCTURE_TAGS.OVERWORLD_VILLAGE).collect(Collectors.toSet()));
         addTags(RSStructures.BIRCH_VILLAGE, Stream.of(STRUCTURE_TAGS.VILLAGE, STRUCTURE_TAGS.OVERWORLD, STRUCTURE_TAGS.OVERWORLD_VILLAGE).collect(Collectors.toSet()));
@@ -89,6 +96,7 @@ public class RSStructureTagMap {
 
         addTags(StructureFeature.FORTRESS, Stream.of(STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
         addTags(StructureFeature.BASTION_REMNANT, Stream.of(STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
+        addTags(StructureFeature.VILLAGE, Stream.of(STRUCTURE_TAGS.OVERWORLD_VILLAGE).collect(Collectors.toSet()));
 
         addTags(RSStructures.RUINED_PORTAL_END, Stream.of(STRUCTURE_TAGS.RUINED_PORTAL, STRUCTURE_TAGS.END).collect(Collectors.toSet()));
     }

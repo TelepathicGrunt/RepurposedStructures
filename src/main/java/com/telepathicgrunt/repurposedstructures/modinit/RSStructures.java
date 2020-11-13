@@ -16,6 +16,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 
 public class RSStructures {
@@ -38,8 +40,8 @@ public class RSStructures {
     public static StructureFeature<DefaultFeatureConfig> NETHER_STRONGHOLD = new RSNetherStrongholdStructure();
 
     public static StructureFeature<DefaultFeatureConfig> JUNGLE_FORTRESS = new FortressJungleStructure();
-    public static StructureFeature<DefaultFeatureConfig> GRASSY_IGLOO = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "igloos/grassy_top"), 20, 0);
-    public static StructureFeature<DefaultFeatureConfig> STONE_IGLOO = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "igloos/stone_top"), 20, 0);
+    public static StructureFeature<DefaultFeatureConfig> GRASSY_IGLOO = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "igloos/grassy_top"), 20, 0, 0, 0, new HashSet<>());
+    public static StructureFeature<DefaultFeatureConfig> STONE_IGLOO = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "igloos/stone_top"), 20, 0, 0, 0, new HashSet<>());
 
     public static StructureFeature<DefaultFeatureConfig> NETHER_WASTELAND_TEMPLE = new TempleNetherStructure(new Identifier(RepurposedStructures.MODID,"temples/temple_nether_wasteland"));
     public static StructureFeature<DefaultFeatureConfig> NETHER_BASALT_TEMPLE = new TempleNetherStructure(new Identifier(RepurposedStructures.MODID,"temples/temple_nether_basalt"));
@@ -50,6 +52,7 @@ public class RSStructures {
     public static StructureFeature<DefaultFeatureConfig> NETHER_BRICK_OUTPOST = new OutpostNetherStructure(new Identifier(RepurposedStructures.MODID,"outposts/nether_brick/base_plates"));
     public static StructureFeature<DefaultFeatureConfig> WARPED_OUTPOST = new OutpostNetherStructure(new Identifier(RepurposedStructures.MODID,"outposts/warped/base_plates"));
     public static StructureFeature<DefaultFeatureConfig> CRIMSON_OUTPOST = new OutpostNetherStructure(new Identifier(RepurposedStructures.MODID,"outposts/crimson/base_plates"));
+    public static StructureFeature<DefaultFeatureConfig> OUTPOST_BIRCH = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "outposts/birch/base_plates"), 11, 0, 0, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.OVERWORLD_VILLAGE).collect(Collectors.toSet()));
 
     public static StructureFeature<DefaultFeatureConfig> NETHER_PYRAMID = new PyramidNetherStructure();
     public static StructureFeature<DefaultFeatureConfig> BADLANDS_PYRAMID = new PyramidBadlandsStructure();
@@ -59,18 +62,18 @@ public class RSStructures {
     public static StructureFeature<DefaultFeatureConfig> CRIMSON_SHIPWRECK = new ShipwreckNetherStructure(new Identifier(RepurposedStructures.MODID, "shipwrecks/crimson"), true);
     public static StructureFeature<DefaultFeatureConfig> WARPED_SHIPWRECK = new ShipwreckNetherStructure(new Identifier(RepurposedStructures.MODID, "shipwrecks/warped"), true);
 
-    public static StructureFeature<DefaultFeatureConfig> BADLANDS_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/badlands/town_centers"), 10, 0);
-    public static StructureFeature<DefaultFeatureConfig> BIRCH_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/birch/town_centers"), 6, 0);
-    public static StructureFeature<DefaultFeatureConfig> DARK_FOREST_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/dark_forest/town_centers"), 6, 0);
-    public static StructureFeature<DefaultFeatureConfig> JUNGLE_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/jungle/town_centers"), 8, 0);
-    public static StructureFeature<DefaultFeatureConfig> SWAMP_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/swamp/town_centers"), 6, -1);
-    public static StructureFeature<DefaultFeatureConfig> MOUNTAINS_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/mountains/town_centers"), 6, 0);
-    public static StructureFeature<DefaultFeatureConfig> GIANT_TAIGA_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/giant_taiga/town_centers"), 6, 0);
-    public static StructureFeature<DefaultFeatureConfig> CRIMSON_VILLAGE = new VillageNetherStructure(new Identifier(RepurposedStructures.MODID, "village/crimson/town_centers"), 6, 0);
-    public static StructureFeature<DefaultFeatureConfig> WARPED_VILLAGE = new VillageNetherStructure(new Identifier(RepurposedStructures.MODID, "village/warped/town_centers"), 6, 0);
-    public static StructureFeature<DefaultFeatureConfig> VILLAGE_OAK = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/oak/town_centers"), 6, 0);
+    public static StructureFeature<DefaultFeatureConfig> BADLANDS_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/badlands/town_centers"), 10, 0, 0, 0, new HashSet<>());
+    public static StructureFeature<DefaultFeatureConfig> BIRCH_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/birch/town_centers"), 6, 0, 0, 0, new HashSet<>());
+    public static StructureFeature<DefaultFeatureConfig> DARK_FOREST_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/dark_forest/town_centers"), 6, 0, 0, 0, new HashSet<>());
+    public static StructureFeature<DefaultFeatureConfig> JUNGLE_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/jungle/town_centers"), 8, 0, 0, 0, new HashSet<>());
+    public static StructureFeature<DefaultFeatureConfig> SWAMP_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/swamp/town_centers"), 6, -1, 0, 0, new HashSet<>());
+    public static StructureFeature<DefaultFeatureConfig> MOUNTAINS_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/mountains/town_centers"), 6, 0, 0, 0, new HashSet<>());
+    public static StructureFeature<DefaultFeatureConfig> GIANT_TAIGA_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/giant_taiga/town_centers"), 6, 0, 0, 0, new HashSet<>());
+    public static StructureFeature<DefaultFeatureConfig> CRIMSON_VILLAGE = new VillageNetherStructure(new Identifier(RepurposedStructures.MODID, "village/crimson/town_centers"), 6, 0, 0, 0, new HashSet<>());
+    public static StructureFeature<DefaultFeatureConfig> WARPED_VILLAGE = new VillageNetherStructure(new Identifier(RepurposedStructures.MODID, "village/warped/town_centers"), 6, 0, 0, 0, new HashSet<>());
+    public static StructureFeature<DefaultFeatureConfig> VILLAGE_OAK = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/oak/town_centers"), 6, 0, 0, 0, new HashSet<>());
 
-    public static StructureFeature<DefaultFeatureConfig> RUINED_PORTAL_END = new RuinedPortalEndStructure(new Identifier(RepurposedStructures.MODID, "ruined_portal/end"), 20, -6);
+    public static StructureFeature<DefaultFeatureConfig> RUINED_PORTAL_END = new RuinedPortalEndStructure(new Identifier(RepurposedStructures.MODID, "ruined_portal/end"), 20, -6, 0, 0, new HashSet<>());
 
     public static void registerStructures() {
 
@@ -102,6 +105,7 @@ public class RSStructures {
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "outpost_nether_brick"), NETHER_BRICK_OUTPOST).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.netherBrickOutpostMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.netherBrickOutpostMaxChunkDistance * 0.5f), 1305971394)).superflatFeature(NETHER_BRICK_OUTPOST.configure(FeatureConfig.DEFAULT)).adjustsSurface().register();
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "outpost_warped"), WARPED_OUTPOST).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.warpedOutpostMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.warpedOutpostMaxChunkDistance * 0.5f), 1928816918)).superflatFeature(WARPED_OUTPOST.configure(FeatureConfig.DEFAULT)).adjustsSurface().register();
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "outpost_crimson"), CRIMSON_OUTPOST).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.crimsonOutpostMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.crimsonOutpostMaxChunkDistance * 0.5f), 1951425662)).superflatFeature(CRIMSON_OUTPOST.configure(FeatureConfig.DEFAULT)).adjustsSurface().register();
+        FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "outpost_birch"), OUTPOST_BIRCH).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.outpostBirchMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.outpostBirchMaxChunkDistance * 0.5f), 1676743168)).superflatFeature(OUTPOST_BIRCH.configure(FeatureConfig.DEFAULT)).adjustsSurface().register();
 
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "pyramid_badlands"), BADLANDS_PYRAMID).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.badlandsPyramidMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.badlandsPyramidMaxChunkDistance * 0.5f), 1718729448)).superflatFeature(BADLANDS_PYRAMID.configure(FeatureConfig.DEFAULT)).register();
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "pyramid_nether"), NETHER_PYRAMID).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.netherPyramidMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.netherPyramidMaxChunkDistance * 0.5f), 2054372964)).superflatFeature(NETHER_PYRAMID.configure(FeatureConfig.DEFAULT)).adjustsSurface().register();

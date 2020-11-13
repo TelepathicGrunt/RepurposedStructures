@@ -461,6 +461,15 @@ public class RSAddFeaturesAndStructures {
                         && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                         || RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.addNetherBrickOutpostToModdedBiomes)),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.NETHER_BRICK_OUTPOST));
+
+
+        addToBiome("outpost_birch",
+                (context) -> isBiomeAllowed("outpost", context.getBiomeKey().getValue())
+                        && (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.outpostBirchMaxChunkDistance != 1001
+                        && context.getBiomeKey().getValue().getPath().contains("birch")
+                        && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
+                        || RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.addOutpostBirchToModdedBiomes)),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.OUTPOST_BIRCH));
     }
 
 

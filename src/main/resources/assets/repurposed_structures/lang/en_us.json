@@ -58,6 +58,8 @@
   "advancements.repurposed_structures.outpost_crimson.description": "Enter a Crimson Outpost",
   "advancements.repurposed_structures.outpost_warped.title": "A Warped View from an Outpost",
   "advancements.repurposed_structures.outpost_warped.description": "Enter a Warped Outpost",
+  "advancements.repurposed_structures.outpost_birch.title": "Watching over the White Forest",
+  "advancements.repurposed_structures.outpost_birch.description": "Enter a Birch Outpost",
   "advancements.repurposed_structures.pyramid_badlands.title": "Red Pyramid in the Hot Sun",
   "advancements.repurposed_structures.pyramid_badlands.description": "Enter a Badlands Pyramid",
   "advancements.repurposed_structures.pyramid_nether.title": "The Pyramid that Bridges Worlds",
@@ -417,5 +419,10 @@
   "text.autoconfig.repurposed_structures-main.option.RSMainConfig.ruinedPortals.blacklistedRuinedPortalsBiomes": "Blacklisted Ruined Portals Biomes",
 
   "text.autoconfig.repurposed_structures-main.option.RSVillagesConfig.villageOakMaxChunkDistance": "Village Oak Max Chunk Distance",
-  "text.autoconfig.repurposed_structures-main.option.RSVillagesConfig.villageOakMaxChunkDistance.@PrefixText":"How rare are Oak Villages in forest category biomes that are not birch or dark forest."
+  "text.autoconfig.repurposed_structures-main.option.RSVillagesConfig.villageOakMaxChunkDistance.@PrefixText":"How rare are Oak Villages in forest category biomes that are not birch or dark forest.",
+
+  "text.autoconfig.repurposed_structures-main.option.RSOutpostsConfig.outposts.outpostBirchMaxChunkDistance": "Outpost Birch Max Chunk Distance",
+  "text.autoconfig.repurposed_structures-main.option.RSOutpostsConfig.outposts.outpostBirchMaxChunkDistance.@PrefixText":"How rare are Birch Outposts in Birch Forest biomes. 1 for spawning in most chunks and 1001 for none.",
+  "text.autoconfig.repurposed_structures-main.option.RSOutpostsConfig.outposts.addOutpostBirchToModdedBiomes": "Add Outpost Birch To Modded Biomes",
+  "text.autoconfig.repurposed_structures-main.option.RSOutpostsConfig.outposts.addOutpostBirchToModdedBiomes.@PrefixText":"Add Birch Outposts to modded Birch biomes."
 }

@@ -1,5 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import net.minecraft.structure.StructureManager;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockBox;
@@ -13,10 +14,12 @@ import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
+import java.util.Set;
+
 public class RuinedPortalEndStructure extends GenericJigsawStructure {
 
-    public RuinedPortalEndStructure(Identifier poolID, int structureSize, int centerOffset) {
-        super(poolID, structureSize, centerOffset);
+    public RuinedPortalEndStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange, int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet) {
+        super(poolID, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet);
     }
 
     @Override

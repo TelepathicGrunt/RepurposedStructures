@@ -60,5 +60,20 @@ public class RSOutpostsConfig implements ConfigData {
         @ConfigEntry.Gui.PrefixText
         @Comment("Add Crimson Outposts to modded Nether Warped biomes.")
         public boolean addCrimsonOutpostToModdedBiomes = true;
+
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("How rare are Birch Outposts in Birch Forest"
+                + "\nbiomes. 1 for spawning in most chunks and 1001"
+                + "\nfor none.")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int outpostBirchMaxChunkDistance = 35;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Add Birch Outposts to modded Birch biomes.")
+        public boolean addOutpostBirchToModdedBiomes = true;
+
     }
 }

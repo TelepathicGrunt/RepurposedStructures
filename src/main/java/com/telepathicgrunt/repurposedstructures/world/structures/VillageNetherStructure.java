@@ -20,11 +20,13 @@ import net.minecraft.world.gen.chunk.StructureConfig;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
+import java.util.Set;
+
 public class VillageNetherStructure extends GenericJigsawStructure {
     // Special thanks to /r/l-ll-ll-l_IsDisLoss for allowing me to use his nether village design!
 
-    public VillageNetherStructure(Identifier poolID, int structureSize, int centerOffset) {
-        super(poolID, structureSize, centerOffset);
+    public VillageNetherStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange, int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet) {
+        super(poolID, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet);
     }
 
     @Override
