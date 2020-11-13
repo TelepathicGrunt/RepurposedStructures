@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.mojang.serialization.Codec;
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.ChunkPos;
@@ -14,9 +15,11 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
+import java.util.Set;
+
 public class RuinedPortalEndStructure extends GenericJigsawStructure {
-    public RuinedPortalEndStructure(Codec<NoFeatureConfig> config, ResourceLocation poolRL, int structureSize, int centerOffset) {
-        super(config, poolRL, structureSize, centerOffset);
+    public RuinedPortalEndStructure(Codec<NoFeatureConfig> config, ResourceLocation poolRL, int structureSize, int centerOffset, int biomeRange, int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet) {
+        super(config, poolRL, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet);
     }
 
     @Override

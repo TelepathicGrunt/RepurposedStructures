@@ -13,5 +13,10 @@
     "announce_to_chat": false,
     "hidden": true,
     "background": "minecraft:textures/block/green_terracotta.png"
+  },
+  "criteria": {
+    "always": {
+      "trigger": "minecraft:tick"
+    }
   }
 }

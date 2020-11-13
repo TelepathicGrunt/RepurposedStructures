@@ -10,6 +10,12 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ## (V.2.3.0 Changes) (1.16.4 Minecraft)
 
+##### New additions!:
+- End themed Ruined Portals now spawn in the End dimension!
+  Special thanks to miguelforge for creating them!
+
+- Added Oak Village that spawns in any forest category biome that isn't birch or dark forest!
+
 ##### Backend:
 - Reworked and cleaned up backend a bit.
 
@@ -30,10 +36,6 @@ Welcome to the Github! If you are looking for the most recent stable version, th
   
 - Organized advancements into subfolders now so it is cleaner.
   
-##### Ruined Portals:
-- End themed Ruined Portals now spawn in the End dimension!
-  Special thanks to miguelforge for creating them!
-
 ##### Strongholds:
 - Fixed Strongholds being cutoff by Bedrock.
 
@@ -66,8 +68,6 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Buffed Nether Outposts's loot a bit.
 
 ##### Villages:
-- Added Oak Village that spawns in any forest category biome that isn't birch or dark forest!
-
 - Adjusted Dark Villages so they are added to biomes with "dark" in the name and is 
   forest category instead of only be added to biome with "dark_forest" in name.
   
