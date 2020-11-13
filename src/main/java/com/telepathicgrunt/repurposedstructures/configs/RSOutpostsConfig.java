@@ -68,7 +68,7 @@ public class RSOutpostsConfig implements ConfigData {
                 + "\nbiomes. 1 for spawning in most chunks and 1001"
                 + "\nfor none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int outpostBirchMaxChunkDistance = 35;
+        public int outpostBirchMaxChunkDistance = 39;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText

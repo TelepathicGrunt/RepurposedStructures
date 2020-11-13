@@ -86,6 +86,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Reduced chances of Village's Iron Golem spawning inside a tree and dying.
   
 - Added a new Badlands Library made by miguelforge!
+  
+- Nerfed the default spacing config value for all overworld villages.
 
 ##### Miscellaneous:
 - Giant Boulders in Giant Tree Taiga biomes will now no longer float on water.
