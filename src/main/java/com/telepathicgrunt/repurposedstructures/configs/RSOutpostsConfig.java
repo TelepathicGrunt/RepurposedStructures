@@ -18,6 +18,8 @@ public class RSOutpostsConfig
 		public ConfigValueListener<Integer> warpedOutpostMaxChunkDistance;
 		public ConfigValueListener<Boolean> addCrimsonOutpostToModdedBiomes;
 		public ConfigValueListener<Integer> crimsonOutpostMaxChunkDistance;
+		public ConfigValueListener<Integer> outpostBirchMaxChunkDistance;
+		public ConfigValueListener<Boolean> addOutpostBirchToModdedBiomes;
 
 		public RSOutpostsConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
 		{
@@ -67,6 +69,19 @@ public class RSOutpostsConfig
 					.comment("\r\n Add Crimson Outposts to modded Nether Warped biomes.")
 					.translation("repurposedstructures.config.outposts.crimsonoutpostspawnrate")
 					.defineInRange("crimsonOutpostMaxChunkDistance", 34, 1, 1001));
+
+
+				outpostBirchMaxChunkDistance = subscriber.subscribe(builder
+					.comment("How rare are Birch Outposts in Birch Forest"
+							+ "\nbiomes. 1 for spawning in most chunks and 1001"
+							+ "\nfor none.")
+					.translation("repurposedstructures.config.outposts.outpostbirchmaxchunkdistance")
+					.defineInRange("outpostBirchMaxChunkDistance", 47, 1, 1001));
+
+				addOutpostBirchToModdedBiomes = subscriber.subscribe(builder
+					.comment("Add Birch Outposts to modded Birch biomes.")
+					.translation("repurposedstructures.config.outposts.addoutpostbirchtomoddedbiomes")
+					.define("addOutpostBirchToModdedBiomes", true));
 
 			builder.pop();
 		}

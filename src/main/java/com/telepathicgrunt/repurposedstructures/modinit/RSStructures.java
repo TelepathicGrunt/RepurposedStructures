@@ -19,6 +19,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.*;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 
 public class RSStructures {
@@ -76,6 +78,7 @@ public class RSStructures {
     public static final RegistryObject<Structure<NoFeatureConfig>> NETHER_BRICK_OUTPOST = registerStructure("outpost_nether_brick", () -> (new OutpostNetherStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID,"outposts/nether_brick/base_plates"))));
 	public static final RegistryObject<Structure<NoFeatureConfig>> WARPED_OUTPOST = registerStructure("outpost_warped", () -> (new OutpostNetherStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID,"outposts/warped/base_plates"))));
 	public static final RegistryObject<Structure<NoFeatureConfig>> CRIMSON_OUTPOST = registerStructure("outpost_crimson", () -> (new OutpostNetherStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID,"outposts/crimson/base_plates"))));
+    public static final RegistryObject<Structure<NoFeatureConfig>> OUTPOST_BIRCH = registerStructure("outpost_birch", () -> (new GenericJigsawStructure(NoFeatureConfig.CODEC, new ResourceLocation(RepurposedStructures.MODID, "outposts/birch/base_plates"), 11, 0, 0, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.OVERWORLD_VILLAGE).collect(Collectors.toSet()))));
 
 	//Pyramids
 	public static final RegistryObject<Structure<NoFeatureConfig>> NETHER_PYRAMID = registerStructure("pyramid_nether", () -> (new PyramidNetherStructure(NoFeatureConfig.CODEC)));
@@ -137,6 +140,7 @@ public class RSStructures {
         registerLandscapeTransformingStructure(new ResourceLocation(RepurposedStructures.MODID, "outpost_nether_brick"), NETHER_BRICK_OUTPOST.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSOutpostsConfig.netherBrickOutpostMaxChunkDistance.get(), (int) (RepurposedStructures.RSOutpostsConfig.netherBrickOutpostMaxChunkDistance.get() * 0.5f), 1305971394));
         registerLandscapeTransformingStructure(new ResourceLocation(RepurposedStructures.MODID, "outpost_warped"), WARPED_OUTPOST.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSOutpostsConfig.warpedOutpostMaxChunkDistance.get(), (int) (RepurposedStructures.RSOutpostsConfig.warpedOutpostMaxChunkDistance.get() * 0.5f), 1928816918));
         registerLandscapeTransformingStructure(new ResourceLocation(RepurposedStructures.MODID, "outpost_crimson"), CRIMSON_OUTPOST.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSOutpostsConfig.crimsonOutpostMaxChunkDistance.get(), (int) (RepurposedStructures.RSOutpostsConfig.crimsonOutpostMaxChunkDistance.get() * 0.5f), 1951425662));
+        registerLandscapeTransformingStructure(new ResourceLocation(RepurposedStructures.MODID, "outpost_birch"), OUTPOST_BIRCH.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSOutpostsConfig.outpostBirchMaxChunkDistance.get(), (int) (RepurposedStructures.RSOutpostsConfig.outpostBirchMaxChunkDistance.get() * 0.5f), 1676743168));
 
         registerStructure(new ResourceLocation(RepurposedStructures.MODID, "pyramid_badlands"), BADLANDS_PYRAMID.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSTemplesConfig.badlandsPyramidMaxChunkDistance.get(), (int) (RepurposedStructures.RSTemplesConfig.badlandsPyramidMaxChunkDistance.get() * 0.5f), 1718729448));
         registerLandscapeTransformingStructure(new ResourceLocation(RepurposedStructures.MODID, "pyramid_nether"), NETHER_PYRAMID.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSTemplesConfig.netherPyramidMaxChunkDistance.get(), (int) (RepurposedStructures.RSTemplesConfig.netherPyramidMaxChunkDistance.get() * 0.5f), 2054372964));

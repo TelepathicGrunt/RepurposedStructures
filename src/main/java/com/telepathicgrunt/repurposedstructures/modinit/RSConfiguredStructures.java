@@ -39,6 +39,7 @@ public class RSConfiguredStructures {
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_BRICK_OUTPOST = RSStructures.NETHER_BRICK_OUTPOST.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> WARPED_OUTPOST = RSStructures.WARPED_OUTPOST.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> CRIMSON_OUTPOST = RSStructures.CRIMSON_OUTPOST.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> OUTPOST_BIRCH = RSStructures.OUTPOST_BIRCH.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
 
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_PYRAMID = RSStructures.NETHER_PYRAMID.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> BADLANDS_TEMPLE = RSStructures.BADLANDS_PYRAMID.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
@@ -92,6 +93,7 @@ public class RSConfiguredStructures {
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "nether_brick_outpost"), NETHER_BRICK_OUTPOST);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "warped_outpost"), WARPED_OUTPOST);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "crimson_outpost"), CRIMSON_OUTPOST);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "outpost_birch"), OUTPOST_BIRCH);
 
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "nether_pyramid"), NETHER_PYRAMID);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "badlands_temple"), BADLANDS_TEMPLE);

@@ -351,6 +351,14 @@ public class RSAddFeaturesAndStructures {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_BRICK_OUTPOST);
             }
         }
+        else{
+            if (RepurposedStructures.RSOutpostsConfig.outpostBirchMaxChunkDistance.get() != 1001) {
+                if (event.getName().getPath().contains("birch") &&
+                        (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSOutpostsConfig.addOutpostBirchToModdedBiomes.get())) {
+                    event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_BIRCH);
+                }
+            }
+        }
     }
 
 

@@ -1,5 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.modinit;
 
+import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.structure.Structure;
 
 import java.util.HashMap;
@@ -25,6 +26,7 @@ public class RSStructureTagMap {
         NETHER,
         END,
         OVERWORLD_VILLAGE,
+        OVERWORLD_OUTPOST,
         NETHER_VILLAGE,
         NETHER_OUTPOST,
         NETHER_TEMPLE,
@@ -75,6 +77,7 @@ public class RSStructureTagMap {
         addTags(RSStructures.CRIMSON_OUTPOST.get(), Stream.of(STRUCTURE_TAGS.OUTPOST, STRUCTURE_TAGS.NETHER, STRUCTURE_TAGS.NETHER_OUTPOST, STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
         addTags(RSStructures.NETHER_BRICK_OUTPOST.get(), Stream.of(STRUCTURE_TAGS.OUTPOST, STRUCTURE_TAGS.NETHER, STRUCTURE_TAGS.NETHER_OUTPOST, STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
         addTags(RSStructures.WARPED_OUTPOST.get(), Stream.of(STRUCTURE_TAGS.OUTPOST, STRUCTURE_TAGS.NETHER, STRUCTURE_TAGS.NETHER_OUTPOST, STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
+        addTags(RSStructures.OUTPOST_BIRCH.get(), Stream.of(STRUCTURE_TAGS.OUTPOST, STRUCTURE_TAGS.OVERWORLD, STRUCTURE_TAGS.OVERWORLD_OUTPOST).collect(Collectors.toSet()));
 
         addTags(RSStructures.BADLANDS_VILLAGE.get(), Stream.of(STRUCTURE_TAGS.VILLAGE, STRUCTURE_TAGS.OVERWORLD, STRUCTURE_TAGS.OVERWORLD_VILLAGE).collect(Collectors.toSet()));
         addTags(RSStructures.BIRCH_VILLAGE.get(), Stream.of(STRUCTURE_TAGS.VILLAGE, STRUCTURE_TAGS.OVERWORLD, STRUCTURE_TAGS.OVERWORLD_VILLAGE).collect(Collectors.toSet()));
@@ -89,6 +92,7 @@ public class RSStructureTagMap {
 
         addTags(Structure.FORTRESS, Stream.of(STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
         addTags(Structure.BASTION_REMNANT, Stream.of(STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
+        addTags(Structure.VILLAGE, Stream.of(STRUCTURE_TAGS.OVERWORLD_VILLAGE).collect(Collectors.toSet()));
 
         addTags(RSStructures.RUINED_PORTAL_END.get(), Stream.of(STRUCTURE_TAGS.RUINED_PORTAL, STRUCTURE_TAGS.END).collect(Collectors.toSet()));
     }
