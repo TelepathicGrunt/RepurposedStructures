@@ -76,7 +76,7 @@ public class RSOutpostsConfig
 							+ "\nbiomes. 1 for spawning in most chunks and 1001"
 							+ "\nfor none.")
 					.translation("repurposedstructures.config.outposts.outpostbirchmaxchunkdistance")
-					.defineInRange("outpostBirchMaxChunkDistance", 47, 1, 1001));
+					.defineInRange("outpostBirchMaxChunkDistance", 39, 1, 1001));
 
 				addOutpostBirchToModdedBiomes = subscriber.subscribe(builder
 					.comment("Add Birch Outposts to modded Birch biomes.")
