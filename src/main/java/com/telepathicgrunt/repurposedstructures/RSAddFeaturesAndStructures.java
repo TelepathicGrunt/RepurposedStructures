@@ -352,62 +352,55 @@ public class RSAddFeaturesAndStructures {
             }
         }
         else{
-            if (RepurposedStructures.RSOutpostsConfig.outpostBirchMaxChunkDistance.get() != 1001) {
-                if (event.getName().getPath().contains("birch") &&
-                        (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSOutpostsConfig.addOutpostBirchToModdedBiomes.get())) {
-                    event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_BIRCH);
-                    event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.PILLAGER_OUTPOST));
-                }
+            if (RepurposedStructures.RSOutpostsConfig.outpostBirchMaxChunkDistance.get() != 1001 &&
+                event.getName().getPath().contains("birch") &&
+                    (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSOutpostsConfig.addOutpostBirchToModdedBiomes.get())) {
+                event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_BIRCH);
+                event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.PILLAGER_OUTPOST));
             }
 
-            else if (RepurposedStructures.RSOutpostsConfig.outpostJungleMaxChunkDistance.get() != 1001) {
-                if (event.getCategory() == Category.JUNGLE &&
-                        (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSOutpostsConfig.addOutpostJungleToModdedBiomes.get())) {
-                    event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_JUNGLE);
-                    event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.PILLAGER_OUTPOST));
-                }
+            else if (RepurposedStructures.RSOutpostsConfig.outpostJungleMaxChunkDistance.get() != 1001 &&
+                event.getCategory() == Category.JUNGLE &&
+                    (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSOutpostsConfig.addOutpostJungleToModdedBiomes.get())) {
+                event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_JUNGLE);
+                event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.PILLAGER_OUTPOST));
             }
 
-            else if (RepurposedStructures.RSOutpostsConfig.outpostGiantTreeTaigaMaxChunkDistance.get() != 1001) {
-                if ((event.getCategory() == Category.TAIGA &&
-                        (event.getName().getPath().contains("giant") || event.getName().getPath().contains("redwood"))) &&
-                        (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSOutpostsConfig.addOutpostGiantTreeTaigaToModdedBiomes.get())) {
-                    event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_GIANT_TREE_TAIGA);
-                    event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.PILLAGER_OUTPOST));
-                }
+            else if (RepurposedStructures.RSOutpostsConfig.outpostGiantTreeTaigaMaxChunkDistance.get() != 1001 &&
+                (event.getCategory() == Category.TAIGA &&
+                    (event.getName().getPath().contains("giant") || event.getName().getPath().contains("redwood"))) &&
+                    (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSOutpostsConfig.addOutpostGiantTreeTaigaToModdedBiomes.get())) {
+                event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_GIANT_TREE_TAIGA);
+                event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.PILLAGER_OUTPOST));
             }
 
-            else if (RepurposedStructures.RSOutpostsConfig.outpostDesertMaxChunkDistance.get() != 1001) {
-                if (event.getCategory() == Category.DESERT &&
-                        (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSOutpostsConfig.addOutpostDesertToModdedBiomes.get())) {
-                    event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_DESERT);
-                    event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.PILLAGER_OUTPOST));
-                }
+            else if (RepurposedStructures.RSOutpostsConfig.outpostDesertMaxChunkDistance.get() != 1001 &&
+                event.getCategory() == Category.DESERT &&
+                    (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSOutpostsConfig.addOutpostDesertToModdedBiomes.get())) {
+                event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_DESERT);
+                event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.PILLAGER_OUTPOST));
             }
 
-            else if (RepurposedStructures.RSOutpostsConfig.outpostBadlandsMaxChunkDistance.get() != 1001) {
-                if ((event.getCategory() == Category.MESA && !event.getName().getPath().contains("plateau")) &&
-                        (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSOutpostsConfig.addOutpostBadlandsToModdedBiomes.get())) {
-                    event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_BADLANDS);
-                    event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.PILLAGER_OUTPOST));
-                }
+            else if (RepurposedStructures.RSOutpostsConfig.outpostBadlandsMaxChunkDistance.get() != 1001 &&
+                (event.getCategory() == Category.MESA && !event.getName().getPath().contains("plateau")) &&
+                    (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSOutpostsConfig.addOutpostBadlandsToModdedBiomes.get())) {
+                event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_BADLANDS);
+                event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.PILLAGER_OUTPOST));
             }
 
-            else if (RepurposedStructures.RSOutpostsConfig.outpostSnowyMaxChunkDistance.get() != 1001) {
-                if ((event.getName().getPath().contains("snow") ||
-                        (event.getCategory() == Category.ICY && !(event.getName().getPath().contains("ice") || event.getName().getPath().contains("icy")))) &&
-                        (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSOutpostsConfig.addOutpostSnowyToModdedBiomes.get())) {
-                    event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_SNOWY);
-                    event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.PILLAGER_OUTPOST));
-                }
+            else if (RepurposedStructures.RSOutpostsConfig.outpostSnowyMaxChunkDistance.get() != 1001 &&
+                (event.getName().getPath().contains("snow") ||
+                    (event.getCategory() == Category.ICY && !(event.getName().getPath().contains("ice") || event.getName().getPath().contains("icy")))) &&
+                    (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSOutpostsConfig.addOutpostSnowyToModdedBiomes.get())) {
+                event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_SNOWY);
+                event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.PILLAGER_OUTPOST));
             }
 
-            else if (RepurposedStructures.RSOutpostsConfig.outpostIcyMaxChunkDistance.get() != 1001) {
-                if ((event.getCategory() == Category.ICY && (event.getName().getPath().contains("ice") || event.getName().getPath().contains("icy"))) &&
-                        (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSOutpostsConfig.addOutpostIcyToModdedBiomes.get())) {
-                    event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_ICY);
-                    event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.PILLAGER_OUTPOST));
-                }
+            else if (RepurposedStructures.RSOutpostsConfig.outpostIcyMaxChunkDistance.get() != 1001 &&
+                (event.getCategory() == Category.ICY && (event.getName().getPath().contains("ice") || event.getName().getPath().contains("icy"))) &&
+                    (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSOutpostsConfig.addOutpostIcyToModdedBiomes.get())) {
+                event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_ICY);
+                event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.PILLAGER_OUTPOST));
             }
         }
     }
