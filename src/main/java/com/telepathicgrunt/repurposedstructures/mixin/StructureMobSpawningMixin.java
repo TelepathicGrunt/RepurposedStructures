@@ -9,6 +9,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.gen.NoiseChunkGenerator;
+import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.StructureManager;
 import org.spongepowered.asm.mixin.Mixin;
@@ -57,6 +58,13 @@ public class StructureMobSpawningMixin {
 
             if (accessor.getStructureAt(pos, true, RSStructures.END_MINESHAFT.get()).isValid()) {
                 return Lists.newArrayList(Iterators.concat(biome.getSpawnSettings().getSpawnEntry(EntityClassification.MONSTER).iterator(), RSStructures.END_MINESHAFT.get().getSpawnList().iterator()));
+            }
+
+            for(Structure<?> outpost : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.OVERWORLD_OUTPOST)){
+                if (accessor.getStructureAt(pos, true, outpost).isValid()) {
+                    // Use vanilla outpost for max mod compat. I think. Might redo this if I receive complaints
+                    return Structure.PILLAGER_OUTPOST.getDefaultSpawnList();
+                }
             }
         }
 

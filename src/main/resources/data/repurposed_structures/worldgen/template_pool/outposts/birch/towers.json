@@ -14,7 +14,7 @@
     {
       "weight": 1,
       "element": {
-        "location": "repurposed_structures:outposts/birch/watchtower_overgrown",
+        "location": "repurposed_structures:outposts/birch/watchtower_aged",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"

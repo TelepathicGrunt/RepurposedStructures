@@ -14,7 +14,7 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - End themed Ruined Portals now spawn in the End dimension!
   Special thanks to miguelforge for creating them!
 
-- Added Birch Outposts to any biome with "birch" in the name!
+- Added Birch, Jungle, Icy, Snowy, Giant Tree Taiga, Desert, and Badlands Pillager Outposts!
 
 - Added Oak Village that spawns in any forest category biome that isn't birch or dark forest!
 

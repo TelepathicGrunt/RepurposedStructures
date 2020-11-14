@@ -40,6 +40,12 @@ public class RSConfiguredStructures {
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> WARPED_OUTPOST = RSStructures.WARPED_OUTPOST.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> CRIMSON_OUTPOST = RSStructures.CRIMSON_OUTPOST.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> OUTPOST_BIRCH = RSStructures.OUTPOST_BIRCH.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> OUTPOST_JUNGLE = RSStructures.OUTPOST_JUNGLE.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> OUTPOST_GIANT_TREE_TAIGA = RSStructures.OUTPOST_GIANT_TREE_TAIGA.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> OUTPOST_DESERT = RSStructures.OUTPOST_DESERT.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> OUTPOST_BADLANDS = RSStructures.OUTPOST_BADLANDS.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> OUTPOST_SNOWY = RSStructures.OUTPOST_SNOWY.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> OUTPOST_ICY = RSStructures.OUTPOST_ICY.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
 
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_PYRAMID = RSStructures.NETHER_PYRAMID.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> BADLANDS_TEMPLE = RSStructures.BADLANDS_PYRAMID.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
@@ -94,6 +100,12 @@ public class RSConfiguredStructures {
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "warped_outpost"), WARPED_OUTPOST);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "crimson_outpost"), CRIMSON_OUTPOST);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "outpost_birch"), OUTPOST_BIRCH);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "outpost_jungle"), OUTPOST_JUNGLE);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "outpost_giant_tree_taiga"), OUTPOST_GIANT_TREE_TAIGA);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "outpost_desert"), OUTPOST_DESERT);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "outpost_badlands"), OUTPOST_BADLANDS);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "outpost_snowy"), OUTPOST_SNOWY);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "outpost_icy"), OUTPOST_ICY);
 
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "nether_pyramid"), NETHER_PYRAMID);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "badlands_temple"), BADLANDS_TEMPLE);
