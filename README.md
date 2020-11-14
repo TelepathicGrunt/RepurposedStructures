@@ -5,14 +5,8 @@
 <p style="text-align: center;"><span style="font-size: 14px;"><strong><span style="color: #009611;"><a href="https://www.curseforge.com/minecraft/mc-mods/repurposed-structures">https://www.curseforge.com/minecraft/mc-mods/repurposed-structures</a></span></strong></span></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;Added new Nether Ships!!</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>Special thanks to&nbsp;<a href="https://www.curseforge.com/members/miguelforge">miguelforge</a>&nbsp;and&nbsp;<a href="https://www.curseforge.com/members/cannon_foddr">cannon_foddr</a></strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>for creating the ships and letting them be added!</strong></b></span></em></p>
-<p style="text-align: center;">&nbsp;</p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>Also, loottables were organized so if you have a</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>datapack that modified this mod's loottables,</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>you just need to spend a few minutes to fix them.</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>See the new <a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/loot_tables/chests">loottable layout here.</a></strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;More bugfixes and adjustments lol</strong></b></span></em></p>
+<p style="text-align: center;">&nbsp;&nbsp;</p>
 <p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;"><span style="font-size: 18px;"><strong>______________________________________________________________________________</strong></span></p>
@@ -21,7 +15,7 @@
 <p style="text-align: center;"><span style="font-size: 14px;">&nbsp;</span></p>
 <p style="text-align: left;"><span style="font-size: 14px;">&nbsp;<strong> &nbsp; Repurposed Structures is a mod about taking existing vanilla features and structures and creating new variants or modifications to them! Originally, most of the structures and features in this mod was actually made for my Ultra Amplified Dimension mod. but then I realized these features and structures would look great in the Overworld as well so I decided to take those structures and features and split them into their own mod and continue to add MORE biome variants of vanilla structures! And over time, some other people even help contribute more vanilla styled structures!</strong></span></p>
 <p style="text-align: left;">&nbsp;</p>
-<p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; Currently, this mod creates a Nether Fortresses using Stonebrick blocks and spawns it in Jungles, Dungeons and Mineshafts now has more variants to match whatever biome they are in, 9 new biome variants of Villages, 3 new temples variants, 2 new biome variants of Igloos, 3 Nether themed Pillager Outposts, 4 new types of Shipwrecks, Stonebrick and Nether Strongholds has a configurable size and has more Silverfish spawners, Giant Tree/Spruce Taiga Hills biomes has giant ore filled boulders that could have Diamond ore if you are extremely lucky, Taiga Mountain biomes now has tiny boulders, Swamps now has a new 2x2 swamp-like tree, and several new Desert Well variations were made for other biomes (Also, loot for Dungeons and Mineshafts are tailored to their variant as well so start exploring!)</strong></span></p>
+<p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; Currently, this mod creates a Nether Fortresses using Stonebrick blocks and spawns it in Jungles, Dungeons and Mineshafts now has more variants to match whatever biome they are in, 9 new biome variants of Villages, 3 new temples variants, 2 new biome variants of Igloos, 10 new Pillager Outposts, 4 new types of Shipwrecks, Stonebrick and Nether Strongholds has a configurable size and has more Silverfish spawners, Giant Tree/Spruce Taiga Hills biomes has giant ore filled boulders that could have Diamond ore if you are extremely lucky, Taiga Mountain biomes now has tiny boulders, Swamps now has a new 2x2 swamp-like tree, and several new Desert Well variations were made for other biomes (Also, loot for Dungeons and Mineshafts are tailored to their variant as well so start exploring!)</strong></span></p>
 <p style="text-align: left;">&nbsp;</p>
 <p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; If you have trouble finding one of these structures, just start typing `<em>/locate repu</em>` into the chat and you should see my structures pop up! For example, typing `<em>/locate repurposed_structures:fortress_jungle</em>` will find the closest Jungle Fortress to your location. :) All structures can be found easily from anywhere!</strong></span></p>
 <p>&nbsp;</p>
@@ -825,8 +819,8 @@
 <p>&nbsp;</p>
 <p><strong>Furthermore, if you want to change the loot tables that the structures in this mod uses, you can override my loot tables with a data pack! All loot tables are under data.repurposed_structures.loot_tables.chests path and you can find the file names here in order to override them: <a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/loot_tables/chests">https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/loot_tables/chests<br /></a></strong></p>
 <p>&nbsp;</p>
-<p><strong>The mob spawner for all none-nbt based structures can be changed with datapacks as well! You just need to override the json files for the spawners which you can find here:</strong></p>
-<p><strong><a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/rs_spawners">https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/rs_spawners</a></strong></p>
+<p><strong>The mob spawner for all none-nbt based structures can be changed with datapacks as well! You can download the spawner datapack here and change the entries inside the json files to add, remove, or change mob chances in spawners!:</strong></p>
+<p><strong>https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/tag/0.0.5</strong></p>
 <p>&nbsp;<br /><span style="font-size: 12px;"><strong>And some structure pieces such as Wells, Villages, Outposts, Shipwrecks, Pyramids, and Igloos can also be overridden with datapacks. Furthermore, the template pools that holds structure pieces for Villages can also be overridden with datapacks to add your own pieces to the villages! You can find what pieces can be replaced and their filenames here: </strong></span></p>
 <p><span style="font-size: 12px;"><strong><a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/structures">https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/structures</a></strong></span><br /><a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/worldgen"><strong>https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/worldgen</strong></a></p>
 <p>&nbsp;</p>
@@ -839,11 +833,21 @@
 <p>&nbsp;<br /><br /></p>
 <p><strong><a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/download/0.0.1/Repurposed_Structures-Landmark.zip">Landmark Compatibility pack!</a></strong></p>
 <p>Add this datapack to the world's datapack folder to add compatibility between Repurposed Structures and Landmark mod!</p>
-<p>Landmark mod:&nbsp;<a href="https://www.curseforge.com/minecraft/mc-mods/landmark">https://www.curseforge.com/minecraft/mc-mods/landmark</a><br />Download link: <a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/download/0.0.1/Repurposed_Structures-Landmark.zip">Repurposed_Structures-Landmark.zip</a></p>
+<p>Landmark mod:&nbsp;<a href="https://www.curseforge.com/minecraft/mc-mods/landmark">https://www.curseforge.com/minecraft/mc-mods/landmark</a><br />Download link: <a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/download/0.0.4/Repurposed_Structures-Landmark.zip">Repurposed_Structures-Landmark.zip</a></p>
 <p>&nbsp;</p>
-<p><strong><a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/download/0.0.2/Repurposed_Structures-Hidden_Advancements.zip">Hidden Advancement pack!</a></strong></p>
+<p><strong><a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/download/0.0.3/Repurposed_Structures-Hidden_Advancements.zip">Hidden Advancement pack!</a></strong></p>
 <p>Add this datapack to the world's datapack folder to make Repurposed Structures's advancements no longer pop up on screen! The advancement will then only be able to be viewed in the advancements menu and nowhere else.</p>
-<p>Download link: <a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/download/0.0.2/Repurposed_Structures-Hidden_Advancements.zip">https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/download/0.0.2/Repurposed_Structures-Hidden_Advancements.zip</a></p>
+<p>Download link: <a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/download/0.0.3/Repurposed_Structures-Hidden_Advancements.zip">Repurposed_Structures-Hidden_Advancements.zip</a></p>
+<p>&nbsp;</p>
+<p><a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/download/0.0.6/Repurposed_Structures-Disabled_Advancements.zip"><strong>Disabled Advancement pack!</strong></a></p>
+<p>Add this datapack to the world's datapack folder to make Repurposed Structures's advancements never trigger ever! No popup. Nothing in Advancement screen. Use this if you are running this mod serverside and don't want vanilla users to have to download a resourcepack to properly show the advancement names.</p>
+<p>Download link: <a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/download/0.0.6/Repurposed_Structures-Disabled_Advancements.zip">Repurposed_Structures-Disabled_Advancements.zip</a></p>
+<p>&nbsp;</p>
+<p><strong><a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/download/0.0.8/Repurposed_Structures-Translation_Advancements.zip">Translation Advancement pack!</a></strong></p>
+<p>Add this datapack (the .zip file) to the world's datapack folder on a server to allow clients to use their own translation file to change the advancement language. Also here is the en_us.json file for english translations</p>
+<p>Download link:&nbsp;<a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/download/0.0.8/Repurposed_Structures-Translation_Advancements.zip">Repurposed_Structures-Translation_Advancements.zip</a></p>
+<p>English translation file: <a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/download/0.0.8/en_us.json">en_us.json</a></p>
+<p>&nbsp;</p>
 <p><span style="font-size: 18px;"><strong>______________________________________________________________________________</strong></span></p>
 <p>&nbsp;</p>
 <p style="text-align: center;"><span style="font-size: 12px;">For the list of changes in this mod, click the Source tab and check out CHANGELOG.txt file. </span></p>
@@ -865,5 +869,7 @@
 <p><span style="font-size: 14px; color: #009611;"><strong><span style="text-decoration: underline;">*If you find an issue, glitch, or have a suggestion about my mod, let me know! But if you don't have a GitHub account to report in the Issue tab above, just comment what the problem is below and I'll try and get back to you ASAP! :)&nbsp;</span></strong></span></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<p><span style="font-size: 24px; color: #ff9900;"><strong>Discord Link for my channel about my mods! :&nbsp;<a class="anchor-3Z-8Bb anchorUnderlineOnHover-2ESHQB" style="font-size: 24px; color: #ff9900;" tabindex="0" title="https://discord.gg/4eHptfV" role="button" href="https://discord.gg/4eHptfV" target="_blank" rel="noopener noreferrer">https://discord.gg/4eHptfV</a></strong></span></p>
+<p><span style="font-size: 24px;"><strong>Discord Link for my channel about my mods! :&nbsp;</strong></span></p>
+<p><span style="font-size: 24px;"><strong><a class="anchor-3Z-8Bb anchorUnderlineOnHover-2ESHQB" style="font-size: 24px;" tabindex="0" title="https://discord.gg/4eHptfV" role="button" href="https://discord.gg/4eHptfV" target="_blank" rel="noopener noreferrer">https://discord.gg/4eHptfV</a></strong></span></p>
+<p><span style="font-size: 24px;"><strong><a class="anchor-3Z-8Bb anchorUnderlineOnHover-2ESHQB" style="font-size: 24px;" tabindex="0" title="https://discord.gg/4eHptfV" role="button" href="https://discord.gg/4eHptfV" target="_blank" rel="noopener noreferrer"><img src="https://beeimg.com/images/g00282193071.png" alt="discord-logo-png-free-transparent-png-logos-discord-png-logo-300_300 (PNG)  | BeeIMG" width="112" height="112" /></a></strong></span></p>
 <p><span style="font-size: 24px; color: #333399;"><strong>&nbsp;</strong></span></p>

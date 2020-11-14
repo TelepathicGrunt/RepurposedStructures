@@ -9,6 +9,12 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 # | Repurposed Structures changelog |
 
 
+## (V.1.7.1 Changes) (1.16.4 Minecraft)
+
+##### Outposts:
+- Replaced some Birch Logs with Birch Wood in Birch Outposts to make it look better. 
+
+
 ## (V.1.7.0 Changes) (1.16.4 Minecraft)
 
 ##### New additions!:
