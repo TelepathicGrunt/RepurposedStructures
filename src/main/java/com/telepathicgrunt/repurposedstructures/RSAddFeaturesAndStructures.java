@@ -470,6 +470,66 @@ public class RSAddFeaturesAndStructures {
                         && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                         || RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.addOutpostBirchToModdedBiomes)),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.OUTPOST_BIRCH));
+
+
+        addToBiome("outpost_jungle",
+                (context) -> isBiomeAllowed("outpost", context.getBiomeKey().getValue())
+                        && (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.outpostJungleMaxChunkDistance != 1001
+                        && context.getBiome().getCategory() == Category.JUNGLE
+                        && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
+                        || RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.addOutpostJungleToModdedBiomes)),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.OUTPOST_JUNGLE));
+
+        addToBiome("outpost_giant_tree_taiga",
+                (context) -> isBiomeAllowed("outpost", context.getBiomeKey().getValue())
+                        && (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.outpostGiantTreeTaigaMaxChunkDistance != 1001
+                        && (context.getBiome().getCategory() == Category.TAIGA &&
+                                (context.getBiomeKey().getValue().getPath().contains("giant")
+                                || context.getBiomeKey().getValue().getPath().contains("redwood")))
+                        && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
+                        || RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.addOutpostGiantTreeTaigaToModdedBiomes)),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.OUTPOST_GIANT_TREE_TAIGA));
+
+        addToBiome("outpost_desert",
+                (context) -> isBiomeAllowed("outpost", context.getBiomeKey().getValue())
+                        && (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.outpostDesertMaxChunkDistance != 1001
+                        && context.getBiome().getCategory() == Category.DESERT
+                        && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
+                        || RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.addOutpostDesertToModdedBiomes)),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.OUTPOST_DESERT));
+
+        addToBiome("outpost_badlands",
+                (context) -> isBiomeAllowed("outpost", context.getBiomeKey().getValue())
+                        && (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.outpostBadlandsMaxChunkDistance != 1001
+                        && (context.getBiome().getCategory() == Category.MESA && !context.getBiomeKey().getValue().getPath().contains("plateau"))
+                        && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
+                        || RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.addOutpostBadlandsToModdedBiomes)),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.OUTPOST_BADLANDS));
+
+        addToBiome("outpost_snowy",
+                (context) -> isBiomeAllowed("outpost", context.getBiomeKey().getValue())
+                        && (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.outpostSnowyMaxChunkDistance != 1001
+                        && (context.getBiomeKey().getValue().getPath().contains("snow") ||
+                            (context.getBiome().getCategory() == Category.ICY &&
+                                    !(context.getBiomeKey().getValue().getPath().contains("ice") || context.getBiomeKey().getValue().getPath().contains("icy"))))
+                        && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
+                        || RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.addOutpostSnowyToModdedBiomes)),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.OUTPOST_SNOWY));
+
+        addToBiome("outpost_icy",
+                (context) -> isBiomeAllowed("outpost", context.getBiomeKey().getValue())
+                        && (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.outpostIcyMaxChunkDistance != 1001
+                        && (context.getBiome().getCategory() == Category.ICY &&
+                            (context.getBiomeKey().getValue().getPath().contains("ice") || context.getBiomeKey().getValue().getPath().contains("icy")))
+                        && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
+                        || RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.addOutpostIcyToModdedBiomes)),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.OUTPOST_ICY));
+
+        //Remove vanilla outposts from biomes we added our outpost to
+        BiomeModifications.create(new Identifier(RepurposedStructures.MODID, "remove_vanilla_outposts")).add(
+                ModificationPhase.REMOVALS,
+                context -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.OVERWORLD_OUTPOST).stream().anyMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure)),
+                context -> context.getGenerationSettings().removeStructure(StructureFeature.PILLAGER_OUTPOST));
     }
 
 

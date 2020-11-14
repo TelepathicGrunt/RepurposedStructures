@@ -75,5 +75,92 @@ public class RSOutpostsConfig implements ConfigData {
         @Comment("Add Birch Outposts to modded Birch biomes.")
         public boolean addOutpostBirchToModdedBiomes = true;
 
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Add Jungle Outposts to modded Jungle"
+                + "\nbiomes.")
+        public boolean addOutpostJungleToModdedBiomes = true;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("How rare are Jungle Outposts in Jungle"
+                + "\nbiomes. 1 for spawning in most chunks and"
+                + "\n1001 for none.")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int outpostJungleMaxChunkDistance = 39;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Add Giant Tree Taiga Outposts to modded Giant Tree Taiga"
+                + "\nbiomes.")
+        public boolean addOutpostGiantTreeTaigaToModdedBiomes = true;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("How rare are Giant Tree Taiga Outposts in Giant Tree Taiga"
+                + "\nbiomes. 1 for spawning in most chunks and"
+                + "\n1001 for none.")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int outpostGiantTreeTaigaMaxChunkDistance = 37;
+
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Add Desert Outposts to modded Desert"
+                + "\nbiomes.")
+        public boolean addOutpostDesertToModdedBiomes = true;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("How rare are Desert Outposts in Desert"
+                + "\nbiomes. 1 for spawning in most chunks and"
+                + "\n1001 for none.")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int outpostDesertMaxChunkDistance = 39;
+
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Add Badlands Outposts to modded Badlands"
+                + "\nbiomes.")
+        public boolean addOutpostBadlandsToModdedBiomes = true;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("How rare are Badlands Outposts in Badlands"
+                + "\nbiomes. 1 for spawning in most chunks and"
+                + "\n1001 for none.")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int outpostBadlandsMaxChunkDistance = 37;
+
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Add Snowy Outposts to modded snowy biomes.")
+        public boolean addOutpostSnowyToModdedBiomes = true;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("How rare are Snowy Outposts in snowy"
+                + "\nbiomes. 1 for spawning in most chunks and"
+                + "\n1001 for none.")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int outpostSnowyMaxChunkDistance = 39;
+
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Add Icy Outposts to modded icy/extremely"
+                + "\ncold biomes.")
+        public boolean addOutpostIcyToModdedBiomes = true;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("How rare are Icy Outposts in icy/extremely"
+                + "\ncold biomes. 1 for spawning in most chunks"
+                + "\nand 1001 for none.")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int outpostIcyMaxChunkDistance = 37;
+
     }
 }
