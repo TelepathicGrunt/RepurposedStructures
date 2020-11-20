@@ -13,6 +13,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Outposts:
 - Replaced some Birch Logs with Birch Wood in Birch Outposts to make it look better. 
 
+- Overworld Outposts now mesh much better with the surrounding terrain.
+
 
 ## (V.2.3.0 Changes) (1.16.4 Minecraft)
 
