@@ -5,7 +5,20 @@
 <p style="text-align: center;"><span style="font-size: 14px;"><strong><span style="color: #009611;"><a href="https://www.curseforge.com/minecraft/mc-mods/repurposed-structures">https://www.curseforge.com/minecraft/mc-mods/repurposed-structures</a></span></strong></span></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;More bugfixes and adjustments lol</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;7 new Outposts!&nbsp;</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>End themed Ruined Portal!</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>And a massive amount of bugfixes! </strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>(See changelog)</strong></b></span></em></p>
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>NOTE: Newest update changed many </strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>config names so be sure to change the new </strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>config options if you changed them previously.</strong></b></span></em></p>
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>Also, Advancements have English translations by </strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>default&nbsp;</strong></b></span></em><em><span style="font-size: 14px;"><b><strong>for clients when on server. You would need</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>the translation datapack if you want clients to have</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>different languages for advancements. See Datapack</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>section at bottom for more info.</strong></b></span></em></p>
 <p style="text-align: center;">&nbsp;&nbsp;</p>
 <p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;">&nbsp;</p>
@@ -15,9 +28,9 @@
 <p style="text-align: center;"><span style="font-size: 14px;">&nbsp;</span></p>
 <p style="text-align: left;"><span style="font-size: 14px;">&nbsp;<strong> &nbsp; Repurposed Structures is a mod about taking existing vanilla features and structures and creating new variants or modifications to them! Originally, most of the structures and features in this mod was actually made for my Ultra Amplified Dimension mod. but then I realized these features and structures would look great in the Overworld as well so I decided to take those structures and features and split them into their own mod and continue to add MORE biome variants of vanilla structures! And over time, some other people even help contribute more vanilla styled structures!</strong></span></p>
 <p style="text-align: left;">&nbsp;</p>
-<p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; Currently, this mod creates a Nether Fortresses using Stonebrick blocks and spawns it in Jungles, Dungeons and Mineshafts now has more variants to match whatever biome they are in, 9 new biome variants of Villages, 3 new temples variants, 2 new biome variants of Igloos, 10 new Pillager Outposts, 4 new types of Shipwrecks, Stonebrick and Nether Strongholds has a configurable size and has more Silverfish spawners, Giant Tree/Spruce Taiga Hills biomes has giant ore filled boulders that could have Diamond ore if you are extremely lucky, Taiga Mountain biomes now has tiny boulders, Swamps now has a new 2x2 swamp-like tree, and several new Desert Well variations were made for other biomes (Also, loot for Dungeons and Mineshafts are tailored to their variant as well so start exploring!)</strong></span></p>
+<p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; Currently, this mod creates a Nether Fortresses using Stonebrick blocks and spawns it in Jungles, Dungeons and Mineshafts now has more variants to match whatever biome they are in, 9 new biome variants of Villages, 3 new temples variants, 2 new biome variants of Igloos, 10 new Pillager Outposts, 4 new types of Shipwrecks, Nether Strongholds and Stonebrick Strongholds (replaces vanilla Strongholds) have a configurable size and has more Silverfish spawners, Giant Tree/Spruce Taiga Hills biomes has giant ore filled boulders that could have Diamond ore if you are extremely lucky, Taiga Mountain biomes now has tiny boulders, Swamps now has a new 2x2 swamp-like tree, and several new Desert Well variations were made for other biomes (Also, loot for Dungeons and Mineshafts are tailored to their variant as well so start exploring!)</strong></span></p>
 <p style="text-align: left;">&nbsp;</p>
-<p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; If you have trouble finding one of these structures, just start typing `<em>/locate repu</em>` into the chat and you should see my structures pop up! For example, typing `<em>/locate repurposed_structures:fortress_jungle</em>` will find the closest Jungle Fortress to your location. :) All structures can be found easily from anywhere!</strong></span></p>
+<p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; If you have trouble finding one of these structures, just start typing `<em>/locate repu</em>` into the chat and you should see my structures pop up! For example, typing `<em>/locate repurposed_structures:stronghold_stonebrick</em>` will find the closest RS's Stonebrick Stronghold to your location. :) All structures can be found easily from anywhere!</strong></span></p>
 <p>&nbsp;</p>
 <p style="text-align: left;"><span style="font-size: 14px;">&nbsp;</span></p>
 <p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; You can use this mod in a modpack or download and modify the source code. It is all under LGPL (a license) so you can do whatever you want as long as you make your mod's codebase also open sourced. Also, be sure to check out the images page for several screenshots of what the world looks like!&nbsp;And also, the section below this one talks about how to configure everything as I want players to have the ability to change things to their preferences.</strong></span></p>
@@ -206,9 +219,55 @@
 <p><strong>24% : Jungle Temple loot</strong></p>
 </div>
 <p>&nbsp;</p>
+<p><strong>End Ruined Portals</strong></p>
+<div class="spoiler">
+<p><strong>Chest loot</strong></p>
+<p><strong><b>&nbsp;Can contain the following in order from most common to least common</b></strong></p>
+<p><strong><b>&nbsp;- Fire Charge</b></strong></p>
+<p><strong><b>&nbsp;- Obsidian</b></strong></p>
+<p><strong><b>&nbsp;- Crying&nbsp;Obsidian</b></strong></p>
+<p><strong><b>&nbsp;- Flint</b></strong></p>
+<p><strong><b>&nbsp;- Popped Chorus Fruit</b></strong></p>
+<p><strong><b>&nbsp;- Golden Apple</b></strong></p>
+<p><strong><b>&nbsp;- Gold Ingot</b></strong></p>
+<p><strong><b>&nbsp;- Golden Sword (Lvl 15 to 30 for small portal,&nbsp;Lvl 20 to 30 for large portal)</b></strong></p>
+<p><strong><b>&nbsp;- Golden Axe (Lvl 15 to 30 for small portal,&nbsp;Lvl 20 to 30 for large portal)</b></strong></p>
+<p><strong><b>&nbsp;- Golden Hoe (Lvl 15 to 30 for small portal,&nbsp;Lvl 20 to 30 for large portal)</b></strong></p>
+<p><strong><b>&nbsp;- Golden Shovel (Lvl 15 to 30 for small portal,&nbsp;Lvl 20 to 30 for large portal)</b></strong></p>
+<p><strong><b>&nbsp;- Golden Pickaxe (Lvl 15 to 30 for small portal,&nbsp;Lvl 20 to 30 for large portal)</b></strong></p>
+<p>&nbsp;<strong><b>- Golden Boots (Lvl 15 to 30 for small portal,&nbsp;Lvl 20 to 30 for large portal)</b></strong></p>
+<p><strong><b>&nbsp;- Golden Chestplate (Lvl 15 to 30 for small portal,&nbsp;Lvl 20 to 30 for large portal)</b></strong></p>
+<p><strong><b>&nbsp;- Golden Helmet (Lvl 15 to 30 for small portal,&nbsp;Lvl 20 to 30 for large portal)</b></strong></p>
+<p><strong><b>&nbsp;- Golden Leggings (Lvl 15 to 30 for small portal,&nbsp;Lvl 20 to 30 for large portal)</b></strong></p>
+<p><strong><b>&nbsp;- Iron Block</b></strong></p>
+<p><strong><b>&nbsp;- Flint and Steel</b></strong></p>
+<p><strong><b>&nbsp;- Firework Star that is flickering Purple with Magenta Trail and does star shape</b></strong></p>
+<p><strong><b>&nbsp;- Gold Block</b></strong></p>
+<p><strong><b>&nbsp;- Glistering Melon Slice</b></strong></p>
+<p><strong><b>&nbsp;- Gold Horse Armor</b></strong></p>
+<p><strong><b>&nbsp;- Light Weighted Pressure Plate</b></strong></p>
+<p><strong><b>&nbsp;- Golden Carrot</b></strong></p>
+<p><strong><b>&nbsp;- Clock</b></strong></p>
+<p><strong><b>&nbsp;- Firework Star that is flickering Magenta with Purple Trail and does star shape</b></strong></p>
+<p><strong><b>&nbsp;- Gold Nugget</b></strong></p>
+<p><strong><b>&nbsp;- Enchanted Golden Apple</b></strong></p>
+<p><strong><b>&nbsp;- Bell</b></strong></p>
+<p><strong><b>&nbsp;- Dragon Breath</b></strong></p>
+<p><strong><b>&nbsp;- Treasure Map to closest unexplored End City</b></strong><strong><b><br /></b></strong></p>
+</div>
+<p>&nbsp;</p>
 <p><strong>Outposts&nbsp;</strong></p>
 <div class="spoiler">
-<p>&nbsp;<strong>Nether Brick Outpost</strong></p>
+<p><strong>All Overworld Outposts</strong></p>
+<div class="spoiler">
+<p><strong>&nbsp;All Overworld Repurposed Structures Outpost will spawn Pillagers over time. And chest loot is nearly identical to the normal Pillager Outpost loot but some changes has been done to make the loot fit the biome theme they are in.</strong></p>
+<p>&nbsp;</p>
+<p><strong><b>Snowy Outposts can have trapped Snow Golems as well.&nbsp;</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>Some of the "aged" version of the Outpost towers are more unique in their decay or aged looks. This is based on how Vanilla Outpost tower can be either normal or "overgrown" with Mossy Cobblestone.&nbsp;&nbsp;</b></strong></p>
+</div>
+<p>&nbsp;</p>
+<p><strong>Nether Brick Outpost</strong></p>
 <div class="spoiler">
 <p><strong>(Can naturally spawn Piglins over time)</strong></p>
 <p>&nbsp;</p>
@@ -692,7 +751,7 @@
 <p>&nbsp;</p>
 <p><strong>Strongholds</strong></p>
 <div class="spoiler">
-<p>&nbsp;<strong>Stonebrick Stronghold</strong></p>
+<p>&nbsp;<strong>Stonebrick Stronghold&nbsp; (replaces vanilla strongholds)</strong></p>
 <div class="spoiler">
 <p><strong>Chest loot is not changed.</strong></p>
 <p><strong>Corridor Chests has a 33% chance of spawning.</strong></p>
@@ -788,7 +847,7 @@
 <p>&nbsp;</p>
 <p><strong>&nbsp; &nbsp; The config for Jungle Fortresses is fairly straightforward. You can change their spawnrate, how much Stonebrick blocks are infested with SIlverfish, turn on or off the creation of Silverfish spawners, or disable the creation of loot chests. Not much else to it!</strong></p>
 <p>&nbsp;</p>
-<p><strong>&nbsp; &nbsp; Temples, Outposts, Shipwrecks, and Pyramids are just like the Jungle Fortress configs minus the Silverfish stuff lol.</strong></p>
+<p><strong>&nbsp; &nbsp; Temples, Outposts, Ruined Portals, Shipwrecks, and Pyramids are just like the Jungle Fortress configs minus the Silverfish stuff lol.</strong></p>
 <p>&nbsp;</p>
 <p><strong>&nbsp; &nbsp; &nbsp;For Strongholds, the config lets you change the size of the Stronghold, their spawnrates, how many Stonebrick blocks are infested with Silverfish, turn on or off the additional Silverfish spawners, or disable the creation of loot chests. Change how much hanging chains spawns in them. And you can change the maximum and minimum y value that both normal and nether strongholds can start their generation at.&nbsp;</strong></p>
 <p>&nbsp;</p>
@@ -829,7 +888,7 @@
 <p>&nbsp;</p>
 <h2><strong><span style="font-size: 24px; color: #009611;">PRE-MADE DATAPACKS</span></strong></h2>
 <p>&nbsp;</p>
-<p>Since Villages, Temples, Shipwrecks, Wells, and their template pools/processors, you can override all of this with datapacks! That means you can customize the blocks in those structures with other mod's blocks! If you decide to use the datapack below, download it, go into your world's save folder, and put the zipped folder into the datapack folder. Now when you load the game, the datapack should take effect! (Also, you can share mod-compat datapacks you made to me and I'll add it below after I check it out and like it!)</p>
+<p>Since Villages, Temples, Ruined Portals, Outposts, Shipwrecks, Wells uses nbt files, template pools, and/or processors, you can override all of this with datapacks! That means you can customize the blocks in those structures with other mod's blocks! If you decide to use the datapack below, download it, go into your world's save folder, and put the zipped folder into the datapack folder. Now when you load the game, the datapack should take effect! (Also, you can share mod-compat datapacks you made to me and I'll add it below after I check it out and like it!)</p>
 <p>&nbsp;<br /><br /></p>
 <p><strong><a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/download/0.0.1/Repurposed_Structures-Landmark.zip">Landmark Compatibility pack!</a></strong></p>
 <p>Add this datapack to the world's datapack folder to add compatibility between Repurposed Structures and Landmark mod!</p>
@@ -840,7 +899,7 @@
 <p>Download link: <a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/download/0.0.3/Repurposed_Structures-Hidden_Advancements.zip">Repurposed_Structures-Hidden_Advancements.zip</a></p>
 <p>&nbsp;</p>
 <p><a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/download/0.0.6/Repurposed_Structures-Disabled_Advancements.zip"><strong>Disabled Advancement pack!</strong></a></p>
-<p>Add this datapack to the world's datapack folder to make Repurposed Structures's advancements never trigger ever! No popup. Nothing in Advancement screen. Use this if you are running this mod serverside and don't want vanilla users to have to download a resourcepack to properly show the advancement names.</p>
+<p>Add this datapack to the world's datapack folder to make Repurposed Structures's advancements never trigger ever! No popup. Nothing in Advancement screen. Use this if you want no more advancements at all.</p>
 <p>Download link: <a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/download/0.0.6/Repurposed_Structures-Disabled_Advancements.zip">Repurposed_Structures-Disabled_Advancements.zip</a></p>
 <p>&nbsp;</p>
 <p><strong><a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/download/0.0.8/Repurposed_Structures-Translation_Advancements.zip">Translation Advancement pack!</a></strong></p>
@@ -862,7 +921,8 @@
 <p style="text-align: center;"><span style="font-size: 12px;"><br />Special Thanks to&nbsp;<strong>cannon_foddr</strong> for allowing me to use his</span></p>
 <p style="text-align: center;"><span style="font-size: 12px;">Nether Brick Outpost and End/Nether Bricks Shipwreck design!</span></p>
 <p style="text-align: center;"><br />Special Thanks to <strong>miguelforge</strong> for allowing me to</p>
-<p style="text-align: center;">use his Crimson and Warped Shipwreck design!</p>
+<p style="text-align: center;">use his Crimson and Warped Shipwreck design,</p>
+<p style="text-align: center;">his End Ruined Portal design, and more!</p>
 <p>&nbsp;</p>
 <p><strong>Check out Mo' Structures for another cool structure mod that adds non-vanilla looking structures!&nbsp;<a href="https://www.curseforge.com/minecraft/mc-mods/mo-structures">https://www.curseforge.com/minecraft/mc-mods/mo-structures</a></strong></p>
 <p>&nbsp;</p>
