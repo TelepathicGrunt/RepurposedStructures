@@ -141,7 +141,7 @@ public class RSOutpostsConfig
 							+ "\nbiomes. 1 for spawning in most chunks and"
 							+ "\n1001 for none.")
 					.translation("repurposedstructures.config.outposts.outpostbadlandsmaxchunkdistance")
-					.defineInRange("outpostBadlandsMaxChunkDistance", 37, 1, 1001));
+					.defineInRange("outpostBadlandsMaxChunkDistance", 31, 1, 1001));
 
 			addOutpostBadlandsToModdedBiomes = subscriber.subscribe(builder
 					.comment("Add Badlands Outposts to modded Badlands biomes.")
