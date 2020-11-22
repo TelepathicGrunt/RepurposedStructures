@@ -16,6 +16,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Overworld Outposts now mesh much better with the surrounding terrain.
 
+- Lowered default value for outpostBadlandsMaxChunkDistance config entry from 37 to 31
+  so that the Badlands Outpost isn't as extremely rare as it was before.
+
 
 ## (V.1.7.0 Changes) (1.16.4 Minecraft)
 
