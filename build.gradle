@@ -40,12 +40,8 @@ dependencies {
 	// not required, but we want to see our config screen
 	modImplementation "io.github.prospector:modmenu:${project.mod_menu_version}"
 
-	modCompile('com.github.Draylar:angerable-patch:1.0.0'){
-		exclude module: 'fabric-api'
-	}
-	include('com.github.Draylar:angerable-patch:1.0.0'){
-		exclude module: 'fabric-api'
-	}
+	modCompile 'com.github.Draylar:angerable-patch:1.1.0-1.16.4'
+	include 'com.github.Draylar:angerable-patch:1.1.0-1.16.4'
 
 	modRuntime "com.telepathicgrunt.loadnbtblock:loadnbtblock:1.0.0"
 }
