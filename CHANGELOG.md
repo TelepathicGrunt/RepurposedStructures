@@ -8,6 +8,12 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.2.3.2 Changes) (1.16.4 Minecraft)
+
+##### Outposts:
+- Fixed Warped Outposts not having 6 Piglins and a Brute at first spawning.
+
+
 ## (V.2.3.1 Changes) (1.16.4 Minecraft)
 
 ##### Outposts:
