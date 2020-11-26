@@ -24,70 +24,70 @@ public class RSConfiguredFeatures {
                     RepurposedStructures.RSDungeonsConfig.badlandsDungeonMinHeight.get(),
                     0,
                     RepurposedStructures.RSDungeonsConfig.badlandsDungeonMaxHeight.get()))
-            .repeat(RepurposedStructures.RSDungeonsConfig.badlandsDungeonAttemptsPerChunk.get()));
+            .decorate(RSPlacements.RS_UNLIMITED_COUNT.get().configure(new FeatureSpreadConfig(RepurposedStructures.RSDungeonsConfig.badlandsDungeonAttemptsPerChunk.get()))));
 
     public static ConfiguredFeature<?, ?> DARK_FOREST_DUNGEONS = RSFeatures.DARK_FOREST_DUNGEONS.get().configure(IFeatureConfig.NO_FEATURE_CONFIG)
             .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.get().configure(new TopSolidRangeConfig(
                     RepurposedStructures.RSDungeonsConfig.darkForestDungeonMinHeight.get(),
                     0,
                     RepurposedStructures.RSDungeonsConfig.darkForestDungeonMaxHeight.get()))
-                    .repeat(RepurposedStructures.RSDungeonsConfig.darkForestDungeonAttemptsPerChunk.get()));
+            .decorate(RSPlacements.RS_UNLIMITED_COUNT.get().configure(new FeatureSpreadConfig(RepurposedStructures.RSDungeonsConfig.darkForestDungeonAttemptsPerChunk.get()))));
 
     public static ConfiguredFeature<?, ?> DESERT_DUNGEONS = RSFeatures.DESERT_DUNGEONS.get().configure(IFeatureConfig.NO_FEATURE_CONFIG)
             .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.get().configure(new TopSolidRangeConfig(
                     RepurposedStructures.RSDungeonsConfig.desertDungeonMinHeight.get(),
                     0,
                     RepurposedStructures.RSDungeonsConfig.desertDungeonMaxHeight.get()))
-                    .repeat(RepurposedStructures.RSDungeonsConfig.desertDungeonAttemptsPerChunk.get()));
+            .decorate(RSPlacements.RS_UNLIMITED_COUNT.get().configure(new FeatureSpreadConfig(RepurposedStructures.RSDungeonsConfig.desertDungeonAttemptsPerChunk.get()))));
 
     public static ConfiguredFeature<?, ?> END_DUNGEONS = RSFeatures.END_DUNGEONS.get().configure(IFeatureConfig.NO_FEATURE_CONFIG)
             .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.get().configure(new TopSolidRangeConfig(
                     RepurposedStructures.RSDungeonsConfig.endDungeonMinHeight.get(),
                     0,
                     RepurposedStructures.RSDungeonsConfig.endDungeonMaxHeight.get()))
-                    .repeat(RepurposedStructures.RSDungeonsConfig.endDungeonAttemptsPerChunk.get()));
+            .decorate(RSPlacements.RS_UNLIMITED_COUNT.get().configure(new FeatureSpreadConfig(RepurposedStructures.RSDungeonsConfig.endDungeonAttemptsPerChunk.get()))));
 
     public static ConfiguredFeature<?, ?> NETHER_DUNGEONS = RSFeatures.NETHER_DUNGEONS.get().configure(IFeatureConfig.NO_FEATURE_CONFIG)
             .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.get().configure(new TopSolidRangeConfig(
                     RepurposedStructures.RSDungeonsConfig.netherDungeonMinHeight.get(),
                     0,
                     RepurposedStructures.RSDungeonsConfig.netherDungeonMaxHeight.get()))
-                    .repeat(RepurposedStructures.RSDungeonsConfig.netherDungeonAttemptsPerChunk.get()));
+            .decorate(RSPlacements.RS_UNLIMITED_COUNT.get().configure(new FeatureSpreadConfig(RepurposedStructures.RSDungeonsConfig.netherDungeonAttemptsPerChunk.get()))));
 
     public static ConfiguredFeature<?, ?> SNOW_DUNGEONS = RSFeatures.SNOW_DUNGEONS.get().configure(IFeatureConfig.NO_FEATURE_CONFIG)
             .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.get().configure(new TopSolidRangeConfig(
                     RepurposedStructures.RSDungeonsConfig.snowDungeonMinHeight.get(),
                     0,
                     RepurposedStructures.RSDungeonsConfig.snowDungeonMaxHeight.get()))
-                    .repeat(RepurposedStructures.RSDungeonsConfig.snowDungeonAttemptsPerChunk.get()));
+            .decorate(RSPlacements.RS_UNLIMITED_COUNT.get().configure(new FeatureSpreadConfig(RepurposedStructures.RSDungeonsConfig.snowDungeonAttemptsPerChunk.get()))));
 
     public static ConfiguredFeature<?, ?> SWAMP_DUNGEONS = RSFeatures.SWAMP_DUNGEONS.get().configure(IFeatureConfig.NO_FEATURE_CONFIG)
             .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.get().configure(new TopSolidRangeConfig(
                     RepurposedStructures.RSDungeonsConfig.swampDungeonMinHeight.get(),
                     0,
                     RepurposedStructures.RSDungeonsConfig.swampDungeonMaxHeight.get()))
-                    .repeat(RepurposedStructures.RSDungeonsConfig.swampDungeonAttemptsPerChunk.get()));
+            .decorate(RSPlacements.RS_UNLIMITED_COUNT.get().configure(new FeatureSpreadConfig(RepurposedStructures.RSDungeonsConfig.swampDungeonAttemptsPerChunk.get()))));
 
     public static ConfiguredFeature<?, ?> MUSHROOM_DUNGEONS = RSFeatures.MUSHROOM_DUNGEONS.get().configure(IFeatureConfig.NO_FEATURE_CONFIG)
             .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.get().configure(new TopSolidRangeConfig(
                     RepurposedStructures.RSDungeonsConfig.mushroomDungeonMinHeight.get(),
                     0,
                     RepurposedStructures.RSDungeonsConfig.mushroomDungeonMaxHeight.get()))
-                    .repeat(RepurposedStructures.RSDungeonsConfig.mushroomDungeonAttemptsPerChunk.get()));
+            .decorate(RSPlacements.RS_UNLIMITED_COUNT.get().configure(new FeatureSpreadConfig(RepurposedStructures.RSDungeonsConfig.mushroomDungeonAttemptsPerChunk.get()))));
 
     public static ConfiguredFeature<?, ?> JUNGLE_DUNGEONS = RSFeatures.JUNGLE_DUNGEONS.get().configure(IFeatureConfig.NO_FEATURE_CONFIG)
             .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.get().configure(new TopSolidRangeConfig(
                     RepurposedStructures.RSDungeonsConfig.jungleDungeonMinHeight.get(),
                     0,
                     RepurposedStructures.RSDungeonsConfig.jungleDungeonMaxHeight.get()))
-                    .repeat(RepurposedStructures.RSDungeonsConfig.jungleDungeonAttemptsPerChunk.get()));
+            .decorate(RSPlacements.RS_UNLIMITED_COUNT.get().configure(new FeatureSpreadConfig(RepurposedStructures.RSDungeonsConfig.jungleDungeonAttemptsPerChunk.get()))));
 
     public static ConfiguredFeature<?, ?> OCEAN_DUNGEONS = RSFeatures.OCEAN_DUNGEONS.get().configure(IFeatureConfig.NO_FEATURE_CONFIG)
             .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.get().configure(new TopSolidRangeConfig(
                     RepurposedStructures.RSDungeonsConfig.oceanDungeonMinHeight.get(),
                     0,
                     RepurposedStructures.RSDungeonsConfig.oceanDungeonMaxHeight.get()))
-                    .repeat(RepurposedStructures.RSDungeonsConfig.oceanDungeonAttemptsPerChunk.get()));
+            .decorate(RSPlacements.RS_UNLIMITED_COUNT.get().configure(new FeatureSpreadConfig(RepurposedStructures.RSDungeonsConfig.oceanDungeonAttemptsPerChunk.get()))));
 
 
     // Wells
@@ -159,7 +159,7 @@ public class RSConfiguredFeatures {
                     0,
                     Math.max(RepurposedStructures.RSStrongholdsConfig.stonebrickStrongholdMaxHeight.get(),
                                     RepurposedStructures.RSStrongholdsConfig.stonebrickStrongholdMinHeight.get()+1)+15))
-            .repeat(RepurposedStructures.RSStrongholdsConfig.stonebrickStrongholdChainSpawnrate.get()));
+            .decorate(RSPlacements.RS_UNLIMITED_COUNT.get().configure(new FeatureSpreadConfig(RepurposedStructures.RSStrongholdsConfig.stonebrickStrongholdChainSpawnrate.get()))));
 
     public static ConfiguredFeature<?, ?> NETHER_STRONGHOLD_CHAINS = RSFeatures.STRONGHOLD_CHAINS.get().configure(IFeatureConfig.NO_FEATURE_CONFIG)
             .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.get().configure(new TopSolidRangeConfig(
@@ -167,7 +167,7 @@ public class RSConfiguredFeatures {
                     0,
                     Math.max(RepurposedStructures.RSStrongholdsConfig.netherStrongholdMaxHeight.get(),
                                     RepurposedStructures.RSStrongholdsConfig.netherStrongholdMinHeight.get()+1)+15))
-            .repeat(RepurposedStructures.RSStrongholdsConfig.netherStrongholdChainSpawnrate.get()));
+            .decorate(RSPlacements.RS_UNLIMITED_COUNT.get().configure(new FeatureSpreadConfig(RepurposedStructures.RSStrongholdsConfig.netherStrongholdChainSpawnrate.get()))));
 
     public static ConfiguredFeature<?, ?> LILY_OF_THE_VALLEY_FEATURE = Feature.field_26361.configure(
             (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.LILY_OF_THE_VALLEY.getDefaultState()), SimpleBlockPlacer.INSTANCE))

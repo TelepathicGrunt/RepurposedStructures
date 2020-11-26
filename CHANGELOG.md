@@ -8,6 +8,17 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.2.3.3 Changes) (1.16.4 Minecraft)
+
+##### Dungeons:
+- Fixed world not loading due to setting dungeon config spawnrate above 128 due to a Mojang limit. 
+  Now you can set spawnrate above 128 safely!
+
+##### Stronghold:
+- Fixed world not loading due to setting chain config spawnrate above 128 due to a Mojang limit. 
+  Now you can set spawnrate above 128 safely!
+
+
 ## (V.2.3.2 Changes) (1.16.4 Minecraft)
 
 ##### Outposts:
