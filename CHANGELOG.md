@@ -13,6 +13,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Dungeons:
 - Fixed world not loading due to setting dungeon config spawnrate above 128 due to a Mojang limit. 
   Now you can set spawnrate above 128 safely!
+  
+- Improved the looks of Mushroom Dungeons.
 
 ##### Stronghold:
 - Fixed world not loading due to setting chain config spawnrate above 128 due to a Mojang limit. 

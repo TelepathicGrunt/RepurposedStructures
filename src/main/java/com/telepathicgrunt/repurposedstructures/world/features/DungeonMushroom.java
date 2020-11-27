@@ -79,10 +79,10 @@ public class DungeonMushroom extends Feature<NoFeatureConfig> {
                         if (x != xMin && y != -1 && z != zMin && x != xMax && y != 5 && z != zMax) {
                             if (y == 4) {
                                 //ceiling
-                                if (random.nextInt(3) < 2) {
-                                    world.setBlockState(blockpos$Mutable, Blocks.BROWN_MUSHROOM_BLOCK.getDefaultState(), 2);
-                                } else {
+                                if (x == xMin + 1 || x == xMax - 1 || z == zMin + 1 || z == zMax - 1) {
                                     world.setBlockState(blockpos$Mutable, Blocks.MUSHROOM_STEM.getDefaultState(), 2);
+                                } else {
+                                    world.setBlockState(blockpos$Mutable, Blocks.RED_MUSHROOM_BLOCK.getDefaultState(), 2);
                                 }
                             } else {
                                 if (world.getBlockState(blockpos$Mutable).getBlock() != Blocks.CHEST && world.getBlockState(blockpos$Mutable).getBlock() != Blocks.SPAWNER) {
@@ -100,7 +100,9 @@ public class DungeonMushroom extends Feature<NoFeatureConfig> {
                             //floor
                             if (y == -1) {
                                 if (random.nextInt(2) == 0) {
-                                    world.setBlockState(blockpos$Mutable, Blocks.RED_MUSHROOM_BLOCK.getDefaultState(), 2);
+                                    world.setBlockState(blockpos$Mutable, Blocks.BROWN_MUSHROOM_BLOCK.getDefaultState(), 2);
+                                } else if (random.nextInt(3) != 0){
+                                    world.setBlockState(blockpos$Mutable, Blocks.MYCELIUM.getDefaultState(), 2);
                                 } else {
                                     world.setBlockState(blockpos$Mutable, Blocks.GRASS_BLOCK.getDefaultState(), 2);
                                 }
@@ -108,10 +110,11 @@ public class DungeonMushroom extends Feature<NoFeatureConfig> {
 
                             //wall
                             else {
-                                if (random.nextInt(3) < 2) {
-                                    world.setBlockState(blockpos$Mutable, Blocks.RED_MUSHROOM_BLOCK.getDefaultState(), 2);
-                                } else {
+                                if (((x == xMin + 1 || x == xMax - 1 || z == zMin + 1 || z == zMax - 1) && y < 3) ||
+                                    ((x == 0 || z == 0) && y > 1)) {
                                     world.setBlockState(blockpos$Mutable, Blocks.MUSHROOM_STEM.getDefaultState(), 2);
+                                } else {
+                                    world.setBlockState(blockpos$Mutable, Blocks.RED_MUSHROOM_BLOCK.getDefaultState(), 2);
                                 }
                             }
                         }
