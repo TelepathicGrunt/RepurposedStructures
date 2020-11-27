@@ -6,11 +6,7 @@
     },
     {
       "name" : "minecraft:squid",
-      "weight" : 3
-    },
-    {
-      "name" : "minecraft:turtle",
-      "weight" : 1
+      "weight" : 4
     }
   ]
 }

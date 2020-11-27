@@ -6,11 +6,7 @@
     },
     {
       "name" : "minecraft:pufferfish",
-      "weight" : 3
-    },
-    {
-      "name" : "minecraft:turtle",
-      "weight" : 1
+      "weight" : 4
     }
   ]
 }

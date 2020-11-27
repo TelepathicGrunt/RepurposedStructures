@@ -16,6 +16,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
   
 - Improved the looks of Mushroom Dungeons.
 
+- Removed Turtle from Ocean Dungeon Spawners because Turtles Spawners 
+  only spawn Turtles if above sealevel, in light, and on Sand.
+  
 ##### Stronghold:
 - Fixed world not loading due to setting chain config spawnrate above 128 due to a Mojang limit. 
   Now you can set spawnrate above 128 safely!

@@ -98,13 +98,23 @@ public class DungeonMushroom extends Feature<NoFeatureConfig> {
                         else if (world.getBlockState(blockpos$Mutable).getMaterial().isSolid() && world.getBlockState(blockpos$Mutable).getBlock() != Blocks.CHEST && world.getBlockState(blockpos$Mutable).getBlock() != Blocks.SPAWNER) {
 
                             //floor
-                            if (y == -1) {
-                                if (random.nextInt(2) == 0) {
+                            if (x != xMin && x != xMax && z != zMin && z != zMax && y == -1) {
+                                if (random.nextBoolean()) {
                                     world.setBlockState(blockpos$Mutable, Blocks.BROWN_MUSHROOM_BLOCK.getDefaultState(), 2);
                                 } else if (random.nextInt(3) != 0){
                                     world.setBlockState(blockpos$Mutable, Blocks.MYCELIUM.getDefaultState(), 2);
                                 } else {
                                     world.setBlockState(blockpos$Mutable, Blocks.GRASS_BLOCK.getDefaultState(), 2);
+                                }
+
+                                // normal mushrooms
+                                if(random.nextInt(4) == 0 && Blocks.RED_MUSHROOM.getDefaultState().isValidPosition(world, blockpos$Mutable.up())){
+                                    if(random.nextInt(3) != 0){
+                                        world.setBlockState(blockpos$Mutable.up(), Blocks.RED_MUSHROOM.getDefaultState(), 2);
+                                    }
+                                    else{
+                                        world.setBlockState(blockpos$Mutable.up(), Blocks.BROWN_MUSHROOM.getDefaultState(), 2);
+                                    }
                                 }
                             }
 
