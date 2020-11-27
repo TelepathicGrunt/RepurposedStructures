@@ -2,11 +2,7 @@
   "mobs" : [
     {
       "name" : "minecraft:drowned",
-      "weight" : 99
-    },
-    {
-      "name" : "minecraft:turtle",
-      "weight" : 1
+      "weight" : 100
     }
   ]
 }
