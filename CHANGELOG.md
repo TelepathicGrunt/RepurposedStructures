@@ -18,6 +18,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Fixed world not loading due to setting chain config spawnrate above 128 due to a Mojang limit. 
   Now you can set spawnrate above 128 safely!
 
+##### Outposts:
+- Fixed English translation for Giant Tree Taiga Outpost Advancement.
+
 
 ## (V.2.3.2 Changes) (1.16.4 Minecraft)
 
