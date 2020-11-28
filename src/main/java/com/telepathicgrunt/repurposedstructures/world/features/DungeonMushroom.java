@@ -98,7 +98,7 @@ public class DungeonMushroom extends Feature<NoFeatureConfig> {
                         else if (world.getBlockState(blockpos$Mutable).getMaterial().isSolid() && world.getBlockState(blockpos$Mutable).getBlock() != Blocks.CHEST && world.getBlockState(blockpos$Mutable).getBlock() != Blocks.SPAWNER) {
 
                             //floor
-                            if (((x != xMin && x != xMax && z != zMin && z != zMax) || world.getBlockState(blockpos$Mutable.up()).isAir()) && y == -1) {
+                            if (((x != xMin && x != xMax && z != zMin && z != zMax) || !world.getBlockState(blockpos$Mutable.up()).isSolid()) && y == -1) {
                                 if (random.nextBoolean()) {
                                     world.setBlockState(blockpos$Mutable, Blocks.BROWN_MUSHROOM_BLOCK.getDefaultState(), 2);
                                 } else if (random.nextInt(3) != 0){
