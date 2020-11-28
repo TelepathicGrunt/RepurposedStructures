@@ -26,6 +26,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Outposts:
 - Fixed English translation for Giant Tree Taiga Outpost Advancement.
 
+##### Igloos:
+- Fixed missing Ladder block at top of some basements in Grassy and Stone Igloos.
+
 
 ## (V.1.7.2 Changes) (1.16.4 Minecraft)
 
