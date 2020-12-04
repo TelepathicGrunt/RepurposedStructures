@@ -14,6 +14,7 @@ repositories {
 	maven { url 'https://jitpack.io' }
 	maven { url 'http://server.bbkr.space:8081/artifactory/libs-release' }
 	maven { url "https://maven.fabricmc.net" }
+	flatDir { dirs 'deps' }
 }
 
 minecraft {
@@ -42,7 +43,7 @@ dependencies {
 	modCompile 'com.github.Draylar:angerable-patch:1.1.0-1.16.4'
 	include 'com.github.Draylar:angerable-patch:1.1.0-1.16.4'
 
-	implementation 'com.github.TelepathicGrunt:LoadNbtBlock:357c72d'
+	modRuntime "com.telepathicgrunt.loadnbtblock:loadnbtblock:1.0.0"
 }
 
 if (project.use_third_party_mods) {
