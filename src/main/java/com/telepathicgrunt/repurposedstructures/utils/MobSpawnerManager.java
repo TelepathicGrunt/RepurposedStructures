@@ -42,7 +42,7 @@ public class MobSpawnerManager extends JsonReloadListener {
                 RepurposedStructures.LOGGER.error("Couldn't parse spawner mob list {}", fileResourceLocation, e);
             }
         });
-        this.spawnerMap =  builder.build();
+        this.spawnerMap = builder.build();
     }
 
     public EntityType<?> getSpawnerMob(ResourceLocation spawnerJsonEntry, Random random) {
