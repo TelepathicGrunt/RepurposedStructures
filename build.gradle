@@ -43,7 +43,7 @@ dependencies {
 	modCompile 'com.github.Draylar:angerable-patch:1.1.0-1.16.4'
 	include 'com.github.Draylar:angerable-patch:1.1.0-1.16.4'
 
-	modRuntime "com.telepathicgrunt.loadnbtblock:loadnbtblock:1.0.0"
+	modRuntime "com.telepathicgrunt.loadnbtblock:loadnbtblock:1.0.1"
 }
 
 if (project.use_third_party_mods) {
