@@ -87,7 +87,7 @@ public class RepurposedStructures
 		event.enqueueWork(() -> {
 			//Moved the methods bellow into enqueue to make sure they dont cause issues during registration - andrew
 			RSConfiguredFeatures.registerConfiguredFeatures();
-			RSStructures.registerStructures();
+			RSStructures.setupStructures();
 			RSConfiguredStructures.registerStructureFeatures();
 			RSStructureTagMap.setupTags();
 		});
