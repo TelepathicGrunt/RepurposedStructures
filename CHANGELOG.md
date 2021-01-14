@@ -24,6 +24,16 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Villages:
 - Badlands Villages now can spawn in non-plateau Badlands with a terrain check to try and keep them from generating on plateau walls.
 
+- Badlands Villages now only contain Desert clothed Villagers instead of sometimes having Plains clothed Villagers.
+
+- Fixed Birch Villages so they no longer have Oak Stripped Wood, Oak Fence Gate, or Oak Stairs.
+ 
+- Fixed Churches not having doors in Birch, Dark Forest, and Oak Villages.
+
+- Fixed Jungle Villages having Acacia blocks by mistake in the Weaponsmith house and fixed door in Butcher house being the wrong blockstate.
+
+- Mountain Villages farms now have waterlogged Cobblestone Slab instead of Water Blocks to prevent them from turning into ice when too cold.
+
 ##### Wells:
 - Fixed crash if the wells nbt file ever somehow goes missing.
 
