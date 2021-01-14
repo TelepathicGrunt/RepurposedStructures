@@ -38,6 +38,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Igloos:
 - Stony Igloos now uses Spruce Signs and their Villager/Zombie Villager now wears taiga clothing.
 
+- Grassy Igloos basements now use Oak blocks instead of Spruce.
+
 ##### Strongholds:
 - Removed extra space at the end of addNetherStrongholdToModdedBiomes config name. (Will cause config to default back to true unless changed again)
 
