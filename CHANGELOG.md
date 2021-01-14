@@ -16,6 +16,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Outposts:
 - Replaced Dark Oak blocks with Spruce blocks in Snow Outposts
 
+- Changed some blocks for the cages in badlands, Desert, Icy, and Snowy Outposts.  
+
 ##### Strongholds:
 - Nether Strongholds no longer has Cobwebs in libraries and instead, may have fire.
 
