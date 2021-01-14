@@ -26,6 +26,10 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Villages:
 - Badlands Villages now can spawn in Badlands Plateaus with a terrain check to try and keep them from generating on plateau walls.
 
+- Fixed Birch Villages so they no longer have Oak Stripped Wood, Oak Fence Gate, or Oak Stairs.
+ 
+- Fixed Churches not having doors in Birch Villages.
+
 ##### Wells:
 - Fixed crash if the wells nbt file ever somehow goes missing.
 
