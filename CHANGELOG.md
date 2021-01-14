@@ -28,6 +28,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Mineshafts:
 - Fixed mob spawners losing their mob data after doing `/reload` or `/datapack disable vanilla` commands.
 
+##### Igloos:
+- Stony Igloos now uses Spruce Signs and their Villager/Zombie Villager now wears taiga clothing.
+
 ##### Backend:
 - Structure spacing for RS structures set by JSON will now no longer be overwritten. 
   With datapacks, you can make RS structures now spawn more or less frequently as a result.

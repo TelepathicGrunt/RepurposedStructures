@@ -126,11 +126,11 @@ public class RSStrongholdsConfig
 						.translation("repurposedstructures.config.stronghold.netherstrongholdmaxChunkDistance")
 						.defineInRange("netherStrongholdMaxChunkDistance", 85, 1, 1001));
 
-					addNetherStrongholdToModdedBiomes  = subscriber.subscribe(builder
+					addNetherStrongholdToModdedBiomes = subscriber.subscribe(builder
 						.comment("\r\nAllow Nether-styled Stronghold to"
 								+ "\ngenerate in modded Nether biomes.\r\n")
-						.translation("repurposedstructures.config.stronghold.addnetherstrongholdtomoddedbiomes ")
-						.define("addNetherStrongholdToModdedBiomes ", true));
+						.translation("repurposedstructures.config.stronghold.addnetherstrongholdtomoddedbiomes")
+						.define("addNetherStrongholdToModdedBiomes", true));
 
 					allowNetherStronghold = subscriber.subscribe(builder
 						.comment("\r\n Allow Nether-styled Strongholds to spawn in Nether category biomes."
