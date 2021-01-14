@@ -38,7 +38,7 @@ public class MobSpawnerManager extends JsonDataLoader{
                 builder.put(fileIdentifier, spawnerMobEntries);
             }
             catch (Exception e) {
-                RepurposedStructures.LOGGER.error("Couldn't parse spawner mob list {}", fileIdentifier, e);
+                RepurposedStructures.LOGGER.error(" Couldn't parse spawner mob list {}", fileIdentifier, e);
             }
         });
         this.spawnerMap =  builder.build();
@@ -47,7 +47,7 @@ public class MobSpawnerManager extends JsonDataLoader{
     public EntityType<?> getSpawnerMob(Identifier spawnerJsonEntry, Random random) {
         List<MobSpawnerObj> spawnerMobEntries = this.spawnerMap.get(spawnerJsonEntry);
         if(spawnerMobEntries == null){
-            RepurposedStructures.LOGGER.log(Level.ERROR,"***************************************\nFailed to get mob. Please check that "+spawnerJsonEntry+".json is correct or that no other mod is interfering with how vanilla reads data folders. Let TelepathicGrunt know about this too!\n***************************************");
+            RepurposedStructures.LOGGER.log(Level.ERROR,"\n***************************************\nFailed to get mob. Please check that "+spawnerJsonEntry+".json is correct or that no other mod is interfering with how vanilla reads data folders. Let TelepathicGrunt know about this too!\n***************************************");
             return Util.getRandom(DungeonFeatureAccessor.rs_getMOB_SPAWNER_ENTITIES(), random);
         }
 
@@ -65,7 +65,7 @@ public class MobSpawnerManager extends JsonDataLoader{
             }
         }
         catch(Exception e){
-            RepurposedStructures.LOGGER.log(Level.ERROR,"***************************************\nFailed to get mob. Please check that "+spawnerJsonEntry+".json is correct and let Telepathicgrunt (mod author) know he broke the mob spawner code!\n***************************************");
+            RepurposedStructures.LOGGER.log(Level.ERROR,"\n***************************************\nFailed to get mob. Please check that "+spawnerJsonEntry+".json is correct and let Telepathicgrunt (mod author) know he broke the mob spawner code!\n***************************************");
             return EntityType.PIG;
         }
     }
