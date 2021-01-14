@@ -39,7 +39,9 @@ public class WellForest extends WellAbstract {
             // Creates the well centered on our spot
             mutable.move(Direction.DOWN, 5);
             Template template = this.generateTemplate(FOREST_WELL_RL, world, random, mutable);
-            this.handleDataBlocks(FOREST_WELL_ORE_RL, template, world, random, mutable, Blocks.STONE, ORE_CHANCE);
+            if(template != null) {
+                this.handleDataBlocks(FOREST_WELL_ORE_RL, template, world, random, mutable, Blocks.STONE, ORE_CHANCE);
+            }
 
             return true;
         }

@@ -41,16 +41,18 @@ public class WellMossyStone extends WellAbstract {
             // Creates the well centered on our spot
             mutable.move(Direction.DOWN);
             Template template = this.generateTemplate(MOSSY_WELL_RL, world, random, mutable);
-            this.handleDataBlocks(MOSSY_WELL_ORE_RL, template, world, random, mutable, Blocks.COBBLESTONE, ORE_CHANCE);
+            if(template != null) {
+                this.handleDataBlocks(MOSSY_WELL_ORE_RL, template, world, random, mutable, Blocks.COBBLESTONE, ORE_CHANCE);
 
-            // turns some of the stony blocks into mossy versions and waterlogs blocks below sealevel
-            BlockPos offset = new BlockPos(-template.getSize().getX() / 2, 0, -template.getSize().getZ() / 2);
-            BlockPos.stream(template
-                    .getMutableBoundingBox(this.placementsettings, mutable.add(offset)))
-                    .forEach(pos -> mossifyBlocks(world, random, pos));
-            BlockPos.stream(template
-                    .getMutableBoundingBox(this.placementsettings, mutable.add(offset)))
-                    .forEach(pos -> waterlogBlocks(world, pos));
+                // turns some of the stony blocks into mossy versions and waterlogs blocks below sealevel
+                BlockPos offset = new BlockPos(-template.getSize().getX() / 2, 0, -template.getSize().getZ() / 2);
+                BlockPos.stream(template
+                        .getMutableBoundingBox(this.placementsettings, mutable.add(offset)))
+                        .forEach(pos -> mossifyBlocks(world, random, pos));
+                BlockPos.stream(template
+                        .getMutableBoundingBox(this.placementsettings, mutable.add(offset)))
+                        .forEach(pos -> waterlogBlocks(world, pos));
+            }
 
             return true;
         }

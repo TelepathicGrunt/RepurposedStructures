@@ -37,8 +37,9 @@ public class WellSnow extends WellAbstract {
             // Creates the well centered on our spot
             mutable.move(Direction.DOWN);
             Template template = this.generateTemplate(SNOW_WELL_RL, world, random, mutable);
-            this.handleDataBlocks(SNOW_WELL_ORE_RL, template, world, random, mutable, Blocks.STONE, ORE_CHANCE);
-
+            if(template != null) {
+                this.handleDataBlocks(SNOW_WELL_ORE_RL, template, world, random, mutable, Blocks.STONE, ORE_CHANCE);
+            }
             return true;
         }
 
