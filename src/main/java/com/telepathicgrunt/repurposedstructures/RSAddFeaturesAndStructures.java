@@ -41,14 +41,17 @@ public class RSAddFeaturesAndStructures {
 
             // Need temp map as some mods use custom chunk generators with immutable maps in themselves.
             Map<StructureFeature<?>, StructureConfig> tempMap = new HashMap<>(serverWorld.getChunkManager().getChunkGenerator().getStructuresConfig().getStructures());
-            if (dimensionBlacklist.stream().anyMatch(blacklist -> blacklist.equals((serverWorld.getRegistryKey().getValue().toString())))
-                    || (serverWorld.getChunkManager().getChunkGenerator() instanceof FlatChunkGenerator && serverWorld.getRegistryKey().equals(World.OVERWORLD))) {
+            if (dimensionBlacklist.stream().anyMatch(blacklist -> blacklist.equals((serverWorld.getRegistryKey().getValue().toString())))){
                 // make absolutely sure dimension cannot spawn RS structures
+                tempMap.keySet().removeAll(RSStructures.RS_STRUCTURES.keySet());
+            }
+            else if (serverWorld.getChunkManager().getChunkGenerator() instanceof FlatChunkGenerator && serverWorld.getRegistryKey().equals(World.OVERWORLD)) {
+                // make absolutely sure superflat dimension cannot spawn RS structures
                 tempMap.keySet().removeAll(RSStructures.RS_STRUCTURES.keySet());
             }
             else {
                 // make absolutely sure dimension can spawn RS structures
-                tempMap.putAll(RSStructures.RS_STRUCTURES);
+                RSStructures.RS_STRUCTURES.forEach(tempMap::putIfAbsent);
             }
 
             ((StructuresConfigAccessor) serverWorld.getChunkManager().getChunkGenerator().getStructuresConfig()).rs_setStructures(tempMap);

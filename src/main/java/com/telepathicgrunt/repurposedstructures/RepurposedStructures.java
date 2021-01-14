@@ -28,7 +28,6 @@ public class RepurposedStructures implements ModInitializer {
 
     //TODO: make zombie badlands village
     //TODO: replace cobblestone in oak village
-    //TODO NEXT: overworld biome specific outposts
 
     @Override
     public void onInitialize() {
