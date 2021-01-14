@@ -8,6 +8,7 @@
     "EnderEyeStrongholdLocatingMixin",
     "EndermanSpawnerMixin",
     "NoVillageLakesMixin",
+    "PillagerOutpostStructureAccessor",
     "StrongholdGeneratorAccessor",
     "StructureMobSpawningMixin",
     "StructurePieceAccessor",

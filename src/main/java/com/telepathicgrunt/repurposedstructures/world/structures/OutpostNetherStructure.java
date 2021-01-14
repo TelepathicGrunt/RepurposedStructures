@@ -26,8 +26,8 @@ public class OutpostNetherStructure extends AbstractBaseStructure {
     private final ResourceLocation START_POOL;
     private static final List<MobSpawnInfo.Spawners> MONSTER_SPAWNS = Lists.newArrayList(new MobSpawnInfo.Spawners(EntityType.PIGLIN, 10, 1, 1));
 
-    public OutpostNetherStructure(Codec<NoFeatureConfig> config, ResourceLocation pieceRL) {
-        super(config);
+    public OutpostNetherStructure(ResourceLocation pieceRL) {
+        super(NoFeatureConfig.CODEC);
         START_POOL = pieceRL;
         RSStructures.RS_STRUCTURE_START_PIECES.add(START_POOL);
     }
@@ -38,7 +38,7 @@ public class OutpostNetherStructure extends AbstractBaseStructure {
     }
 
     @Override
-    public List<MobSpawnInfo.Spawners> getSpawnList() {
+    public List<MobSpawnInfo.Spawners> getDefaultSpawnList() {
         return MONSTER_SPAWNS;
     }
 

@@ -11,6 +11,7 @@ import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.util.registry.DynamicRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
@@ -20,6 +21,8 @@ import net.minecraft.world.gen.feature.structure.*;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 import net.minecraft.world.gen.settings.StructureSeparationSettings;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 public class GenericJigsawStructure extends AbstractBaseStructure {
@@ -29,9 +32,13 @@ public class GenericJigsawStructure extends AbstractBaseStructure {
     private final int BIOME_RANGE;
     private final int STRUCTURE_BLACKLIST_RANGE;
     private final Set<RSStructureTagMap.STRUCTURE_TAGS> AVOID_STRUCTURES_SET;
+    private final List<MobSpawnInfo.Spawners> MONSTER_SPAWNS;
+    private final List<MobSpawnInfo.Spawners> CREATURE_SPAWNS;
 
-    public GenericJigsawStructure(Codec<NoFeatureConfig> config, ResourceLocation poolRL, int structureSize, int centerOffset, int biomeRange, int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet) {
-        super(config);
+    public GenericJigsawStructure(ResourceLocation poolRL, int structureSize, int centerOffset,
+                                  int biomeRange, int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet)
+    {
+        super(NoFeatureConfig.CODEC);
         START_POOL = poolRL;
         STRUCTURE_SIZE = structureSize;
         CENTER_OFFSET = centerOffset;
@@ -39,6 +46,34 @@ public class GenericJigsawStructure extends AbstractBaseStructure {
         STRUCTURE_BLACKLIST_RANGE = structureBlacklistRange;
         AVOID_STRUCTURES_SET = avoidStructuresSet;
         RSStructures.RS_STRUCTURE_START_PIECES.add(START_POOL);
+        MONSTER_SPAWNS = new ArrayList<>();
+        CREATURE_SPAWNS = new ArrayList<>();
+    }
+
+    public GenericJigsawStructure(ResourceLocation poolID, int structureSize, int centerOffset,
+                                  int biomeRange, int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet,
+                                  List<MobSpawnInfo.Spawners> monster_spawns, List<MobSpawnInfo.Spawners> creature_spawns)
+    {
+        super(NoFeatureConfig.CODEC);
+        START_POOL = poolID;
+        STRUCTURE_SIZE = structureSize;
+        CENTER_OFFSET = centerOffset;
+        BIOME_RANGE = biomeRange;
+        STRUCTURE_BLACKLIST_RANGE = structureBlacklistRange;
+        AVOID_STRUCTURES_SET = avoidStructuresSet;
+        RSStructures.RS_STRUCTURE_START_PIECES.add(START_POOL);
+        MONSTER_SPAWNS = monster_spawns;
+        CREATURE_SPAWNS = creature_spawns;
+    }
+
+    @Override
+    public List<MobSpawnInfo.Spawners> getDefaultSpawnList() {
+        return MONSTER_SPAWNS;
+    }
+
+    @Override
+    public List<MobSpawnInfo.Spawners> getDefaultCreatureSpawnList() {
+        return CREATURE_SPAWNS;
     }
 
     @Override

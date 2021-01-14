@@ -8,6 +8,15 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.2.3.4 Changes) (1.16.4 Minecraft)
+
+##### Outposts:
+- Overworld Outposts now spawn Pillagers over time. 
+
+##### Backend:
+- Redid code on how mobs spawn over time are added to RS structures to be cleaner and less likely I forget to add mob spawns later. 
+
+
 ## (V.2.3.3 Changes) (1.16.4 Minecraft)
 
 ##### Dungeons:

@@ -50,7 +50,7 @@ public class FortressJungleStructure extends AbstractBaseStructure {
             Lists.newArrayList(new MobSpawnInfo.Spawners(EntityType.WITHER_SKELETON, 27, 1, 1));
 
     @Override
-    public List<MobSpawnInfo.Spawners> getSpawnList() {
+    public List<MobSpawnInfo.Spawners> getDefaultSpawnList() {
         return MONSTER_SPAWNS;
     }
 

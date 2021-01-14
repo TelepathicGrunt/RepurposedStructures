@@ -22,6 +22,15 @@ import java.util.List;
 @Mixin(NoiseChunkGenerator.class)
 public class StructureMobSpawningMixin {
 
+    /**
+     * This is needed so we can do structure spawns appended to biome spawns instead of replacing biome spawns.
+     * Forge's hook only replaces biome spawns so by tagging a structure with APPEND_WITH_NATURAL_MOBS, we run this
+     * mixin instead which runs before Forge's hook. I asked if they could do appending in the PR and they said "no".
+     * Heh. I remember when Forge kept saying they have all the hooks for everyone's "use case". My ass.
+     *
+     * @author TelepathicGrunt
+     * @reason Return list of structure mob spawn combined with biome's mob spawn.
+     */
     @Inject(
             method = "getEntitySpawnList(Lnet/minecraft/world/biome/Biome;Lnet/minecraft/world/gen/feature/structure/StructureManager;Lnet/minecraft/entity/EntityClassification;Lnet/minecraft/util/math/BlockPos;)Ljava/util/List;",
             at = @At(value = "HEAD"),
@@ -34,36 +43,19 @@ public class StructureMobSpawningMixin {
 
 
     private static List<MobSpawnInfo.Spawners>  getStructureSpawns(Biome biome, StructureManager accessor, EntityClassification group, BlockPos pos){
-        if (group == EntityClassification.MONSTER) {
 
-            for(Structure<?> outpost : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NETHER_OUTPOST)){
-                if (accessor.getStructureAt(pos, true, outpost).isValid()) {
-                    return outpost.getSpawnList();
+        if(group == EntityClassification.MONSTER){
+            for(Structure<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.APPEND_WITH_NATURAL_MOBS)){
+                if (!structureFeature.getDefaultSpawnList().isEmpty() && accessor.getStructureAt(pos, true, structureFeature).isValid()) {
+                    return Lists.newArrayList(Iterators.concat(biome.getSpawnSettings().getSpawnEntry(EntityClassification.MONSTER).iterator(), structureFeature.getDefaultSpawnList().iterator()));
                 }
             }
+        }
 
-            for(Structure<?> shipwreck : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NETHER_SHIPWRECK)){
-                if (accessor.getStructureAt(pos, true, shipwreck).isValid()) {
-                    return Lists.newArrayList(Iterators.concat(biome.getSpawnSettings().getSpawnEntry(EntityClassification.MONSTER).iterator(), shipwreck.getSpawnList().iterator()));
-                }
-            }
-
-            if (accessor.getStructureAt(pos, true, RSStructures.NETHER_STRONGHOLD.get()).isValid()) {
-                return RSStructures.NETHER_STRONGHOLD.get().getSpawnList();
-            }
-
-            if (accessor.getStructureAt(pos, true, RSStructures.JUNGLE_FORTRESS.get()).isValid()) {
-                return Lists.newArrayList(Iterators.concat(biome.getSpawnSettings().getSpawnEntry(EntityClassification.MONSTER).iterator(), RSStructures.JUNGLE_FORTRESS.get().getSpawnList().iterator()));
-            }
-
-            if (accessor.getStructureAt(pos, true, RSStructures.END_MINESHAFT.get()).isValid()) {
-                return Lists.newArrayList(Iterators.concat(biome.getSpawnSettings().getSpawnEntry(EntityClassification.MONSTER).iterator(), RSStructures.END_MINESHAFT.get().getSpawnList().iterator()));
-            }
-
-            for(Structure<?> outpost : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.OVERWORLD_OUTPOST)){
-                if (accessor.getStructureAt(pos, true, outpost).isValid()) {
-                    // Use vanilla outpost for max mod compat. I think. Might redo this if I receive complaints
-                    return Structure.PILLAGER_OUTPOST.getDefaultSpawnList();
+        else if(group == EntityClassification.CREATURE){
+            for(Structure<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.APPEND_WITH_NATURAL_MOBS)){
+                if (!structureFeature.getDefaultCreatureSpawnList().isEmpty() && accessor.getStructureAt(pos, true, structureFeature).isValid()) {
+                    return Lists.newArrayList(Iterators.concat(biome.getSpawnSettings().getSpawnEntry(EntityClassification.CREATURE).iterator(), structureFeature.getDefaultCreatureSpawnList().iterator()));
                 }
             }
         }

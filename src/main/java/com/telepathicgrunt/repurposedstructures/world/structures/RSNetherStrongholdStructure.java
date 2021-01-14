@@ -52,7 +52,7 @@ public class RSNetherStrongholdStructure extends StrongholdStructure {
     }
 
     @Override
-    public List<MobSpawnInfo.Spawners> getSpawnList() {
+    public List<MobSpawnInfo.Spawners> getDefaultSpawnList() {
         return MONSTER_SPAWNS;
     }
 

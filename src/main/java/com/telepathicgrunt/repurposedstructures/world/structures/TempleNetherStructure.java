@@ -21,8 +21,8 @@ public class TempleNetherStructure extends Structure<NoFeatureConfig> {
 
     private final ResourceLocation START_POOL;
 
-    public TempleNetherStructure(Codec<NoFeatureConfig> config, ResourceLocation pieceRL) {
-        super(config);
+    public TempleNetherStructure(ResourceLocation pieceRL) {
+        super(NoFeatureConfig.CODEC);
         START_POOL = pieceRL;
         RSStructures.RS_STRUCTURE_START_PIECES.add(START_POOL);
     }

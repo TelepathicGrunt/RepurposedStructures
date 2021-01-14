@@ -18,8 +18,8 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
 import java.util.Set;
 
 public class RuinedPortalEndStructure extends GenericJigsawStructure {
-    public RuinedPortalEndStructure(Codec<NoFeatureConfig> config, ResourceLocation poolRL, int structureSize, int centerOffset, int biomeRange, int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet) {
-        super(config, poolRL, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet);
+    public RuinedPortalEndStructure(ResourceLocation poolRL, int structureSize, int centerOffset, int biomeRange, int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet) {
+        super(poolRL, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet);
     }
 
     @Override

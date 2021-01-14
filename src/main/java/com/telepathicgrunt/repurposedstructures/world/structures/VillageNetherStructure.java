@@ -24,8 +24,8 @@ import net.minecraft.world.gen.settings.StructureSeparationSettings;
 import java.util.Set;
 
 public class VillageNetherStructure extends GenericJigsawStructure {
-    public VillageNetherStructure(Codec<NoFeatureConfig> config, ResourceLocation poolRL, int structureSize, int centerOffset, int biomeRange, int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet) {
-        super(config, poolRL, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet);
+    public VillageNetherStructure(ResourceLocation poolRL, int structureSize, int centerOffset, int biomeRange, int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet) {
+        super(poolRL, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet);
     }
 
     @Override
