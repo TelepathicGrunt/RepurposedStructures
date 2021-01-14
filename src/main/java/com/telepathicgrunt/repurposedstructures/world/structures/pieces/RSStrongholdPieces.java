@@ -105,7 +105,7 @@ public class RSStrongholdPieces {
             }
         });
 
-        for(StrongholdPieces.PieceWeight piece : StrongholdGeneratorAccessor.getPIECE_WEIGHTS()){
+        for(StrongholdPieces.PieceWeight piece : StrongholdGeneratorAccessor.rs_getPIECE_WEIGHTS()){
             try {
                 if(!piece.pieceClass.getEnclosingClass().getName().contains(StrongholdPieces.class.getName()))
                 {
@@ -1625,12 +1625,12 @@ public class RSStrongholdPieces {
             block = getBlockOfCorrectType(block);
             BlockPos blockPos = new BlockPos(this.getXWithOffset(x, z), this.getYWithOffset(y), this.getZWithOffset(x, z));
             if (blockBox.isVecInside(blockPos)) {
-                if (((StructurePieceAccessor)this).getMirror() != Mirror.NONE) {
-                    block = block.mirror(((StructurePieceAccessor)this).getMirror());
+                if (((StructurePieceAccessor)this).rs_getMirror() != Mirror.NONE) {
+                    block = block.mirror(((StructurePieceAccessor)this).rs_getMirror());
                 }
 
-                if (((StructurePieceAccessor)this).getRotation() != Rotation.NONE) {
-                    block = block.rotate(((StructurePieceAccessor)this).getRotation());
+                if (((StructurePieceAccessor)this).rs_getRotation() != Rotation.NONE) {
+                    block = block.rotate(((StructurePieceAccessor)this).rs_getRotation());
                 }
 
                 world.setBlockState(blockPos, block, 2);
@@ -1639,7 +1639,7 @@ public class RSStrongholdPieces {
                     world.getPendingFluidTicks().scheduleTick(blockPos, fluidState.getFluid(), 0);
                 }
 
-                if (((StructurePieceAccessor)this).getBLOCKS_NEEDING_POST_PROCESSING().contains(block.getBlock())) {
+                if (((StructurePieceAccessor)this).rs_getBLOCKS_NEEDING_POST_PROCESSING().contains(block.getBlock())) {
                     world.getChunk(blockPos).markBlockForPostprocessing(blockPos);
                 }
             }

@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 public interface StrongholdGeneratorAccessor {
 
     @Accessor("PIECE_WEIGHTS")
-    static StrongholdPieces.PieceWeight[] getPIECE_WEIGHTS() {
+    static StrongholdPieces.PieceWeight[] rs_getPIECE_WEIGHTS() {
         throw new UnsupportedOperationException();
     }
 }

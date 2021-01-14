@@ -13,11 +13,11 @@ import java.util.Set;
 public interface StructurePieceAccessor {
 
     @Accessor("mirror")
-    Mirror getMirror();
+    Mirror rs_getMirror();
 
     @Accessor("rotation")
-    Rotation getRotation();
+    Rotation rs_getRotation();
 
     @Accessor("BLOCKS_NEEDING_POSTPROCESSING")
-    Set<Block> getBLOCKS_NEEDING_POST_PROCESSING();
+    Set<Block> rs_getBLOCKS_NEEDING_POST_PROCESSING();
 }
