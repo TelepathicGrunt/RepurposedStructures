@@ -15,6 +15,7 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome.Category;
+import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.chunk.FlatChunkGenerator;
 import net.minecraft.world.gen.chunk.StructureConfig;
@@ -143,15 +144,19 @@ public class RSAddFeaturesAndStructures {
         addToBiome("swamp_or_dark_forest_mineshaft",
                 (context) -> genericMineshaftCheck(context)
                         && (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.swampAndDarkForestMineshaftSpawnrate != 0
-                        && (context.getBiome().getCategory() == Category.SWAMP || context.getBiomeKey().getValue().getPath().contains("dark_forest") || context.getBiomeKey().getValue().getPath().contains("dark_oak"))),
+                        && (context.getBiome().getCategory() == Category.SWAMP ||
+                            (context.getBiome().getCategory() == Category.FOREST &&
+                                (context.getBiomeKey().getValue().getPath().contains("dark") || context.getBiomeKey().getValue().getPath().contains("spooky") ||
+                                context.getBiomeKey().getValue().getPath().contains("dead") || context.getBiomeKey().getValue().getPath().contains("haunted"))))),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.SWAMP_OR_DARK_FOREST_MINESHAFT));
 
         addToBiome("end_mineshaft",
                 (context) -> genericMineshaftCheck(context)
                         && (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.endMineshaftSpawnrate != 0
-                        && context.getBiome().getCategory() == Category.THEEND && !context.getBiomeKey().getValue().equals(new Identifier("minecraft:the_end"))
+                        && context.getBiome().getCategory() == Category.THEEND && !context.getBiomeKey().getValue().equals(BiomeKeys.THE_END.getValue())
                         && (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.misc.barrensIslandsEndMineshafts
-                        || (!context.getBiomeKey().getValue().equals(new Identifier("minecraft:end_barrens")) && !context.getBiomeKey().getValue().equals(new Identifier("minecraft:small_end_islands"))))),
+                        || (!context.getBiomeKey().getValue().equals(BiomeKeys.END_BARRENS.getValue()) &&
+                            !context.getBiomeKey().getValue().equals(BiomeKeys.SMALL_END_ISLANDS.getValue())))),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.END_MINESHAFT));
 
         addToBiome("nether_mineshaft",
@@ -196,7 +201,9 @@ public class RSAddFeaturesAndStructures {
         addToBiome("dark_forest_dungeons",
                 (context) -> genericDungeonCheck(context)
                         && (RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.darkForestDungeonAttemptsPerChunk != 0
-                        && context.getBiomeKey().getValue().getPath().contains("dark_forest")),
+                        && context.getBiome().getCategory() == Category.FOREST
+                        && (context.getBiomeKey().getValue().getPath().contains("dark") || context.getBiomeKey().getValue().getPath().contains("spooky") ||
+                            context.getBiomeKey().getValue().getPath().contains("dead") || context.getBiomeKey().getValue().getPath().contains("haunted"))),
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.DARK_FOREST_DUNGEONS));
 
         addToBiome("desert_dungeons",
@@ -233,8 +240,8 @@ public class RSAddFeaturesAndStructures {
                 (context) -> genericDungeonCheck(context)
                         && (RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.endDungeonAttemptsPerChunk != 0
                         && (context.getBiome().getCategory() == Category.THEEND
-                        && !context.getBiomeKey().getValue().equals(new Identifier("minecraft:the_end"))
-                        && !context.getBiomeKey().getValue().equals(new Identifier("minecraft:small_end_islands")))),
+                        && !context.getBiomeKey().getValue().equals(BiomeKeys.THE_END.getValue())
+                        && !context.getBiomeKey().getValue().equals(BiomeKeys.SMALL_END_ISLANDS.getValue()))),
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.END_DUNGEONS));
 
         addToBiome("ocean_dungeons",
@@ -293,16 +300,17 @@ public class RSAddFeaturesAndStructures {
                         && (RepurposedStructures.RSAllConfig.RSWellsConfig.rarityPerChunk.mossyStoneWellRarityPerChunk != 10000
                         && (context.getBiome().getCategory() == Category.SWAMP
                         || context.getBiome().getCategory() == Category.JUNGLE
-                        || context.getBiomeKey().getValue().getPath().contains("dark_forest")
-                        || context.getBiomeKey().getValue().getPath().contains("dark_oak"))),
+                        || (context.getBiome().getCategory() == Category.FOREST &&
+                            (context.getBiomeKey().getValue().getPath().contains("dark") || context.getBiomeKey().getValue().getPath().contains("spooky") ||
+                            context.getBiomeKey().getValue().getPath().contains("dead") || context.getBiomeKey().getValue().getPath().contains("haunted"))))),
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.SURFACE_STRUCTURES, RSConfiguredFeatures.MOSSY_STONE_WELL));
 
         addToBiome("forest_well",
                 (context) -> genericWellCheck(context)
                         && (RepurposedStructures.RSAllConfig.RSWellsConfig.rarityPerChunk.forestWellRarityPerChunk != 10000
                         && (context.getBiome().getCategory() == Category.FOREST
-                        && !(context.getBiomeKey().getValue().getPath().contains("dark_forest")
-                        || context.getBiomeKey().getValue().getPath().contains("dark_oak")))),
+                        && !(context.getBiomeKey().getValue().getPath().contains("dark") || context.getBiomeKey().getValue().getPath().contains("spooky") ||
+                            context.getBiomeKey().getValue().getPath().contains("dead") || context.getBiomeKey().getValue().getPath().contains("haunted")))),
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.SURFACE_STRUCTURES, RSConfiguredFeatures.FOREST_WELL));
     }
 
@@ -325,7 +333,7 @@ public class RSAddFeaturesAndStructures {
                 (context) -> RSConfiguredFeatures.RS_WELLS.stream().noneMatch(context::hasBuiltInFeature)
                         && isBiomeAllowed("swamp_tree", context.getBiomeKey().getValue())
                         && (RepurposedStructures.RSAllConfig.RSMainConfig.misc.hornedSwampTree
-                        && (context.getBiomeKey().getValue().equals(new Identifier("minecraft:swamp"))
+                        && (context.getBiomeKey().getValue().equals(BiomeKeys.SWAMP.getValue())
                         || (RepurposedStructures.RSAllConfig.RSMainConfig.misc.addSwampTreeToModdedBiomes
                         && context.getBiome().getCategory() == Category.SWAMP
                         && !context.getBiomeKey().getValue().getNamespace().equals("minecraft")))),
@@ -337,13 +345,13 @@ public class RSAddFeaturesAndStructures {
                 (context) -> RSConfiguredFeatures.RS_WELLS.stream().noneMatch(context::hasBuiltInFeature)
                         && isBiomeAllowed("swamp_tree", context.getBiomeKey().getValue())
                         && (RepurposedStructures.RSAllConfig.RSMainConfig.misc.hornedSwampTree
-                        && (context.getBiomeKey().getValue().equals(new Identifier("minecraft:swamp_hills")))),
+                        && (context.getBiomeKey().getValue().equals(BiomeKeys.SWAMP_HILLS.getValue()))),
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.VEGETAL_DECORATION, RSConfiguredFeatures.HORNED_SWAMP_TREE_COMMON));
 
         // Remove vanilla swamp tree from Swamp Hills biomes
         BiomeModifications.create(new Identifier(RepurposedStructures.MODID, "remove_vanilla_swamp_trees")).add(
                 ModificationPhase.REMOVALS,
-                context -> context.getBiomeKey().getValue().equals(new Identifier("minecraft:swamp_hills"))
+                context -> context.getBiomeKey().getValue().equals(BiomeKeys.SWAMP_HILLS.getValue())
                         && context.hasBuiltInFeature(RSConfiguredFeatures.HORNED_SWAMP_TREE_COMMON),
                 context -> context.getGenerationSettings().removeBuiltInFeature(ConfiguredFeatures.SWAMP_TREE));
     }
@@ -356,8 +364,8 @@ public class RSAddFeaturesAndStructures {
         addToBiome("boulder_giant",
                 (context) -> isBiomeAllowed("boulder", context.getBiomeKey().getValue())
                         && (RepurposedStructures.RSAllConfig.RSMainConfig.misc.boulderGiant
-                        && ((context.getBiomeKey().getValue().equals(new Identifier("minecraft:giant_spruce_taiga_hills"))
-                        || context.getBiomeKey().getValue().equals(new Identifier("minecraft:giant_tree_taiga_hills")))
+                        && ((context.getBiomeKey().getValue().equals(BiomeKeys.GIANT_SPRUCE_TAIGA_HILLS.getValue())
+                        || context.getBiomeKey().getValue().equals(BiomeKeys.GIANT_TREE_TAIGA_HILLS.getValue()))
                         || (RepurposedStructures.RSAllConfig.RSMainConfig.misc.addBoulderToModdedBiomes
                         && !context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                         && ((context.getBiomeKey().getValue().getPath().contains("giant")
@@ -374,8 +382,8 @@ public class RSAddFeaturesAndStructures {
         addToBiome("boulder_tiny",
                 (context) -> isBiomeAllowed("boulder", context.getBiomeKey().getValue())
                         && (RepurposedStructures.RSAllConfig.RSMainConfig.misc.boulderTiny
-                        && ((context.getBiomeKey().getValue().equals(new Identifier("minecraft:snowy_taiga_mountains"))
-                        || context.getBiomeKey().getValue().equals(new Identifier("minecraft:taiga_mountains")))
+                        && ((context.getBiomeKey().getValue().equals(BiomeKeys.SNOWY_TAIGA_MOUNTAINS.getValue())
+                        || context.getBiomeKey().getValue().equals(BiomeKeys.TAIGA_MOUNTAINS.getValue()))
                         || (RepurposedStructures.RSAllConfig.RSMainConfig.misc.addBoulderToModdedBiomes
                         && !context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                         && context.getBiomeKey().getValue().getPath().contains("taiga")
@@ -440,7 +448,7 @@ public class RSAddFeaturesAndStructures {
                         && isBiomeAllowed("outpost", context.getBiomeKey().getValue())
                         && context.getBiome().getCategory() == Category.NETHER
                         && (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.crimsonOutpostMaxChunkDistance != 1001
-                        && context.getBiomeKey().getValue().getPath().contains("crimson")
+                        && (context.getBiomeKey().getValue().getPath().contains("crimson") || context.getBiomeKey().getValue().getPath().contains("red_"))
                         && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                         || RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.addCrimsonOutpostToModdedBiomes)),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.CRIMSON_OUTPOST));
@@ -450,7 +458,7 @@ public class RSAddFeaturesAndStructures {
                         && isBiomeAllowed("outpost", context.getBiomeKey().getValue())
                         && context.getBiome().getCategory() == Category.NETHER
                         && (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.warpedOutpostMaxChunkDistance != 1001
-                        && context.getBiomeKey().getValue().getPath().contains("warped")
+                        && (context.getBiomeKey().getValue().getPath().contains("warped") || context.getBiomeKey().getValue().getPath().contains("blue"))
                         && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                         || RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.addWarpedOutpostToModdedBiomes)),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.WARPED_OUTPOST));
@@ -459,7 +467,8 @@ public class RSAddFeaturesAndStructures {
                 (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NETHER_OUTPOST).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
                         && isBiomeAllowed("outpost", context.getBiomeKey().getValue())
                         && context.getBiome().getCategory() == Category.NETHER
-                        && (!context.getBiomeKey().getValue().getPath().contains("crimson") && !context.getBiomeKey().getValue().getPath().contains("warped"))
+                        && (!(context.getBiomeKey().getValue().getPath().contains("crimson") || context.getBiomeKey().getValue().getPath().contains("red_")) &&
+                            !(context.getBiomeKey().getValue().getPath().contains("warped") || context.getBiomeKey().getValue().getPath().contains("blue")))
                         && (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.netherBrickOutpostMaxChunkDistance != 1001
                         && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                         || RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.addNetherBrickOutpostToModdedBiomes)),
@@ -514,7 +523,8 @@ public class RSAddFeaturesAndStructures {
                         && (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.outpostSnowyMaxChunkDistance != 1001
                         && (context.getBiomeKey().getValue().getPath().contains("snow") ||
                             (context.getBiome().getCategory() == Category.ICY &&
-                                    !(context.getBiomeKey().getValue().getPath().contains("ice") || context.getBiomeKey().getValue().getPath().contains("icy"))))
+                                    !(context.getBiomeKey().getValue().getPath().contains("ice") || context.getBiomeKey().getValue().getPath().contains("icy") ||
+                                    context.getBiomeKey().getValue().getPath().contains("glacier") || context.getBiomeKey().getValue().getPath().contains("frozen"))))
                         && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                         || RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.addOutpostSnowyToModdedBiomes)),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.OUTPOST_SNOWY));
@@ -523,7 +533,8 @@ public class RSAddFeaturesAndStructures {
                 (context) -> isBiomeAllowed("outpost", context.getBiomeKey().getValue())
                         && (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.outpostIcyMaxChunkDistance != 1001
                         && (context.getBiome().getCategory() == Category.ICY &&
-                            (context.getBiomeKey().getValue().getPath().contains("ice") || context.getBiomeKey().getValue().getPath().contains("icy")))
+                            (context.getBiomeKey().getValue().getPath().contains("ice") || context.getBiomeKey().getValue().getPath().contains("icy") ||
+                            context.getBiomeKey().getValue().getPath().contains("glacier") || context.getBiomeKey().getValue().getPath().contains("frozen")))
                         && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                         || RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.addOutpostIcyToModdedBiomes)),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.OUTPOST_ICY));
@@ -545,7 +556,7 @@ public class RSAddFeaturesAndStructures {
                 (context) -> isBiomeAllowed("shipwreck", context.getBiomeKey().getValue())
                         && context.getBiome().getCategory() == Category.THEEND
                         && (RepurposedStructures.RSAllConfig.RSShipwrecksConfig.maxChunkDistance.endShipwreckMaxChunkDistance != 1001
-                        && (context.getBiomeKey().getValue().equals(new Identifier("minecraft:end_highlands"))
+                        && (context.getBiomeKey().equals(BiomeKeys.END_HIGHLANDS)
                         || (!context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                         && RepurposedStructures.RSAllConfig.RSShipwrecksConfig.blacklist.addEndShipwreckToModdedBiomes))),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.END_SHIPWRECK));
@@ -556,16 +567,16 @@ public class RSAddFeaturesAndStructures {
                 (context) -> isBiomeAllowed("shipwreck", context.getBiomeKey().getValue())
                         && context.getBiome().getCategory() == Category.NETHER
                         && (RepurposedStructures.RSAllConfig.RSShipwrecksConfig.maxChunkDistance.crimsonShipwreckMaxChunkDistance != 1001
-                        && context.getBiomeKey().getValue().getPath().contains("crimson")
+                        && (context.getBiomeKey().getValue().getPath().contains("crimson") || context.getBiomeKey().getValue().getPath().contains("red_"))
                         && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                         || RepurposedStructures.RSAllConfig.RSShipwrecksConfig.blacklist.addCrimsonShipwreckToModdedBiomes)),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.CRIMSON_SHIPWRECK));
 
-        addToBiome("crimson_shipwreck",
+        addToBiome("warped_shipwreck",
                 (context) -> isBiomeAllowed("shipwreck", context.getBiomeKey().getValue())
                         && context.getBiome().getCategory() == Category.NETHER
                         && (RepurposedStructures.RSAllConfig.RSShipwrecksConfig.maxChunkDistance.warpedShipwreckMaxChunkDistance != 1001
-                        && context.getBiomeKey().getValue().getPath().contains("warped")
+                        && (context.getBiomeKey().getValue().getPath().contains("warped") || context.getBiomeKey().getValue().getPath().contains("blue"))
                         && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                         || RepurposedStructures.RSAllConfig.RSShipwrecksConfig.blacklist.addWarpedShipwreckToModdedBiomes)),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.WARPED_SHIPWRECK));
@@ -574,7 +585,8 @@ public class RSAddFeaturesAndStructures {
                 (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NETHER_SHIPWRECK).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
                         && isBiomeAllowed("shipwreck", context.getBiomeKey().getValue())
                         && context.getBiome().getCategory() == Category.NETHER
-                        && (!context.getBiomeKey().getValue().getPath().contains("crimson") && !context.getBiomeKey().getValue().getPath().contains("warped"))
+                        && (!(context.getBiomeKey().getValue().getPath().contains("crimson") || context.getBiomeKey().getValue().getPath().contains("red_")) &&
+                            !(context.getBiomeKey().getValue().getPath().contains("warped") || context.getBiomeKey().getValue().getPath().contains("blue")))
                         && (RepurposedStructures.RSAllConfig.RSShipwrecksConfig.maxChunkDistance.netherBricksShipwreckMaxChunkDistance != 1001
                         && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                         || RepurposedStructures.RSAllConfig.RSShipwrecksConfig.blacklist.addNetherBricksShipwreckToModdedBiomes)),
@@ -622,7 +634,7 @@ public class RSAddFeaturesAndStructures {
                         && isBiomeAllowed("temple", context.getBiomeKey().getValue())
                         && (RepurposedStructures.RSAllConfig.RSTemplesConfig.temples.netherCrimsonTempleMaxChunkDistance != 1001
                         && context.getBiome().getCategory() == Category.NETHER
-                        && context.getBiomeKey().getValue().getPath().contains("crimson")
+                        && (context.getBiomeKey().getValue().getPath().contains("crimson") || context.getBiomeKey().getValue().getPath().contains("red_"))
                         && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                         || RepurposedStructures.RSAllConfig.RSTemplesConfig.temples.addNetherCrimsonTempleToModdedBiomes)),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.NETHER_CRIMSON_TEMPLE));
@@ -632,7 +644,7 @@ public class RSAddFeaturesAndStructures {
                         && isBiomeAllowed("temple", context.getBiomeKey().getValue())
                         && (RepurposedStructures.RSAllConfig.RSTemplesConfig.temples.netherWarpedTempleMaxChunkDistance != 1001
                         && context.getBiome().getCategory() == Category.NETHER
-                        && context.getBiomeKey().getValue().getPath().contains("warped")
+                        && (context.getBiomeKey().getValue().getPath().contains("warped") || context.getBiomeKey().getValue().getPath().contains("blue"))
                         && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                         || RepurposedStructures.RSAllConfig.RSTemplesConfig.temples.addNetherWarpedTempleToModdedBiomes)),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.NETHER_WARPED_TEMPLE));
@@ -650,8 +662,8 @@ public class RSAddFeaturesAndStructures {
         addToBiome("nether_wasteland_temple",
                 (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NETHER_TEMPLE).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
                         && isBiomeAllowed("temple", context.getBiomeKey().getValue())
-                        && (!context.getBiomeKey().getValue().getPath().contains("crimson")
-                        && !context.getBiomeKey().getValue().getPath().contains("warped")
+                        && (!(context.getBiomeKey().getValue().getPath().contains("crimson") || context.getBiomeKey().getValue().getPath().contains("red_"))
+                        && !(context.getBiomeKey().getValue().getPath().contains("warped") || context.getBiomeKey().getValue().getPath().contains("blue"))
                         && !context.getBiomeKey().getValue().getPath().contains("soul")
                         && !(context.getBiomeKey().getValue().getPath().contains("basalt")
                         || context.getBiomeKey().getValue().getPath().contains("blackstone")))
@@ -739,7 +751,8 @@ public class RSAddFeaturesAndStructures {
                         && isBiomeAllowed("village", context.getBiomeKey().getValue())
                         && (RepurposedStructures.RSAllConfig.RSVillagesConfig.darkForestVillageMaxChunkDistance != 1001
                         && context.getBiome().getCategory() == Category.FOREST
-                        && context.getBiomeKey().getValue().getPath().contains("dark")
+                        && (context.getBiomeKey().getValue().getPath().contains("dark") || context.getBiomeKey().getValue().getPath().contains("spooky") ||
+                            context.getBiomeKey().getValue().getPath().contains("dead") || context.getBiomeKey().getValue().getPath().contains("haunted"))
                         && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                         || RepurposedStructures.RSAllConfig.RSVillagesConfig.addVillagesToModdedBiomes)),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.DARK_FOREST_VILLAGE));
@@ -782,8 +795,8 @@ public class RSAddFeaturesAndStructures {
                 (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.VILLAGE).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
                         && isBiomeAllowed("village", context.getBiomeKey().getValue())
                         && (RepurposedStructures.RSAllConfig.RSVillagesConfig.giantTaigaVillageMaxChunkDistance != 1001
-                        && ((context.getBiomeKey().getValue().equals(new Identifier("minecraft:giant_spruce_taiga"))
-                        || context.getBiomeKey().getValue().equals(new Identifier("minecraft:giant_tree_taiga")))
+                        && ((context.getBiomeKey().getValue().equals(BiomeKeys.GIANT_SPRUCE_TAIGA.getValue())
+                        || context.getBiomeKey().getValue().equals(BiomeKeys.GIANT_TREE_TAIGA.getValue()))
                         || (!context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                         && RepurposedStructures.RSAllConfig.RSVillagesConfig.addVillagesToModdedBiomes
                         && ((context.getBiomeKey().getValue().getPath().contains("giant")
@@ -797,7 +810,8 @@ public class RSAddFeaturesAndStructures {
                 (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.VILLAGE).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
                         && isBiomeAllowed("village", context.getBiomeKey().getValue())
                         && (RepurposedStructures.RSAllConfig.RSVillagesConfig.crimsonVillageMaxChunkDistance != 1001
-                        && (context.getBiome().getCategory() == Category.NETHER && context.getBiomeKey().getValue().getPath().contains("crimson"))
+                        && (context.getBiome().getCategory() == Category.NETHER &&
+                            (context.getBiomeKey().getValue().getPath().contains("crimson") || context.getBiomeKey().getValue().getPath().contains("red_")))
                         && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                         || RepurposedStructures.RSAllConfig.RSVillagesConfig.addVillagesToModdedBiomes)),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.CRIMSON_VILLAGE));
@@ -807,7 +821,8 @@ public class RSAddFeaturesAndStructures {
                 (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.VILLAGE).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
                         && isBiomeAllowed("village", context.getBiomeKey().getValue())
                         && (RepurposedStructures.RSAllConfig.RSVillagesConfig.warpedVillageMaxChunkDistance != 1001
-                        && (context.getBiome().getCategory() == Category.NETHER && context.getBiomeKey().getValue().getPath().contains("warped"))
+                        && (context.getBiome().getCategory() == Category.NETHER &&
+                            (context.getBiomeKey().getValue().getPath().contains("warped") || context.getBiomeKey().getValue().getPath().contains("blue")))
                         && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                         || RepurposedStructures.RSAllConfig.RSVillagesConfig.addVillagesToModdedBiomes)),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.WARPED_VILLAGE));
@@ -817,7 +832,8 @@ public class RSAddFeaturesAndStructures {
                         && (RepurposedStructures.RSAllConfig.RSVillagesConfig.villageOakMaxChunkDistance != 1001
                         && context.getBiome().getCategory() == Category.FOREST
                         && !context.getBiomeKey().getValue().getPath().contains("birch")
-                        && !context.getBiomeKey().getValue().getPath().contains("dark")
+                        && !(context.getBiomeKey().getValue().getPath().contains("dark") || context.getBiomeKey().getValue().getPath().contains("spooky") ||
+                            context.getBiomeKey().getValue().getPath().contains("dead") || context.getBiomeKey().getValue().getPath().contains("haunted"))
                         && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                         || RepurposedStructures.RSAllConfig.RSVillagesConfig.addVillagesToModdedBiomes)),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.VILLAGE_OAK));
@@ -831,7 +847,7 @@ public class RSAddFeaturesAndStructures {
                 (context) -> isBiomeAllowed("ruined_portals", context.getBiomeKey().getValue())
                         && (RepurposedStructures.RSAllConfig.RSMainConfig.ruinedPortals.ruinedPortalEndMaxChunkDistance != 1001
                         && context.getBiome().getCategory() == Category.THEEND
-                        && !context.getBiomeKey().getValue().equals(new Identifier("minecraft:the_end"))
+                        && !context.getBiomeKey().getValue().equals(BiomeKeys.THE_END.getValue())
                         && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                         || RepurposedStructures.RSAllConfig.RSMainConfig.ruinedPortals.addRuinedPortalEndToModdedBiomes)),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.RUINED_PORTAL_END));

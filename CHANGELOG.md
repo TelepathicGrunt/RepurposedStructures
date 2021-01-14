@@ -10,6 +10,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ## (V.1.7.4 Changes) (1.16.4 Minecraft)
 
+##### General:
+- Improved biome targeting so some structures types get the right biome better.
+
 ##### Villages:
 - Badlands Villages now can spawn in non-plateau Badlands with a terrain check to try and keep them from generating on plateau walls.
 
