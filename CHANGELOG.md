@@ -13,6 +13,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### General:
 - Improved biome targeting so some structures types get the right biome better.
 
+##### Outposts:
+- Replaced Dark Oak blocks with Spruce blocks in Snow Outposts
+
 ##### Villages:
 - Badlands Villages now can spawn in non-plateau Badlands with a terrain check to try and keep them from generating on plateau walls.
 
