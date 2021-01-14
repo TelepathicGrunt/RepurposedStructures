@@ -13,6 +13,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Villages:
 - Badlands Villages now can spawn in non-plateau Badlands with a terrain check to try and keep them from generating on plateau walls.
 
+##### Wells:
+- Fixed crash if the wells nbt file ever somehow goes missing.
+
 ##### Backend:
 - Redid code on how mobs spawn over time are added to RS structures to be cleaner and less likely I forget to add mob spawns later. 
 

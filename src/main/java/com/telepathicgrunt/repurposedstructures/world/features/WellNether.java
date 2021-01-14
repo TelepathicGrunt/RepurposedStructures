@@ -64,7 +64,9 @@ public class WellNether extends WellAbstract {
                 // Creates the well centered on our spot
                 mutable.move(Direction.DOWN);
                 Structure template = this.generateTemplate(NETHER_WELL_RL, world, random, mutable);
-                this.handleDataBlocks(NETHER_WELL_ORE_RL, template, world, random, mutable, Blocks.NETHERRACK, 0);
+                if(template != null) {
+                    this.handleDataBlocks(NETHER_WELL_ORE_RL, template, world, random, mutable, Blocks.NETHERRACK, 0);
+                }
 
                 return true;
             }

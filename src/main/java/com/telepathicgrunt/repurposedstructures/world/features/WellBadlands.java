@@ -39,7 +39,9 @@ public class WellBadlands extends WellAbstract {
             //Creates the well centered on our spot
             mutable.move(Direction.DOWN);
             Structure template = this.generateTemplate(BADLANDS_WELL_RL, world, random, mutable);
-            this.handleDataBlocks(BADLANDS_WELL_ORE_RL, template, world, random, mutable, Blocks.STONE, ORE_CHANCE);
+            if(template != null){
+                this.handleDataBlocks(BADLANDS_WELL_ORE_RL, template, world, random, mutable, Blocks.STONE, ORE_CHANCE);
+            }
 
             return true;
         }
