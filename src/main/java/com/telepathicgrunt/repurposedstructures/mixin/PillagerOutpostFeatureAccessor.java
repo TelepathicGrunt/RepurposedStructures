@@ -10,7 +10,7 @@ import java.util.List;
 @Mixin(PillagerOutpostFeature.class)
 public interface PillagerOutpostFeatureAccessor {
     @Accessor("MONSTER_SPAWNS")
-    static List<SpawnSettings.SpawnEntry> getMONSTER_SPAWNS() {
+    static List<SpawnSettings.SpawnEntry> rs_getMONSTER_SPAWNS() {
         throw new UnsupportedOperationException();
     }
 }

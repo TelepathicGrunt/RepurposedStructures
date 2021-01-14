@@ -13,6 +13,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Backend:
 - Redid code on how mobs spawn over time are added to RS structures to be cleaner and less likely I forget to add mob spawns later. 
 
+-Prefixed all my accessor and invoker mixins due to this bug in mixins that could cause a crash with other mods for same named mixins.
+ https://github.com/SpongePowered/Mixin/issues/430
+
 
 ## (V.1.7.3 Changes) (1.16.4 Minecraft)
 

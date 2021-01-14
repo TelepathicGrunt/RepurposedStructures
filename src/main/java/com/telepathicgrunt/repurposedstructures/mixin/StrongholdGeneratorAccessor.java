@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 public interface StrongholdGeneratorAccessor {
 
     @Accessor("ALL_PIECES")
-    static StrongholdGenerator.PieceData[] getALL_PIECES() {
+    static StrongholdGenerator.PieceData[] rs_getALL_PIECES() {
         throw new UnsupportedOperationException();
     }
 }

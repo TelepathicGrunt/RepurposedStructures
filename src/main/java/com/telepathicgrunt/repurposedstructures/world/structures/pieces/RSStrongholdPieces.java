@@ -105,7 +105,7 @@ public class RSStrongholdPieces {
             }
         });
 
-        for(StrongholdGenerator.PieceData piece : StrongholdGeneratorAccessor.getALL_PIECES()){
+        for(StrongholdGenerator.PieceData piece : StrongholdGeneratorAccessor.rs_getALL_PIECES()){
             try {
                 if(!piece.pieceType.getEnclosingClass().getName().contains(StrongholdGenerator.class.getName()))
                 {
@@ -1627,12 +1627,12 @@ public class RSStrongholdPieces {
             block = getBlockOfCorrectType(block);
             BlockPos blockPos = new BlockPos(this.applyXTransform(x, z), this.applyYTransform(y), this.applyZTransform(x, z));
             if (blockBox.contains(blockPos)) {
-                if (((StructurePieceAccessor)this).getMirror() != BlockMirror.NONE) {
-                    block = block.mirror(((StructurePieceAccessor)this).getMirror());
+                if (((StructurePieceAccessor)this).rs_getMirror() != BlockMirror.NONE) {
+                    block = block.mirror(((StructurePieceAccessor)this).rs_getMirror());
                 }
 
-                if (((StructurePieceAccessor)this).getRotation() != BlockRotation.NONE) {
-                    block = block.rotate(((StructurePieceAccessor)this).getRotation());
+                if (((StructurePieceAccessor)this).rs_getRotation() != BlockRotation.NONE) {
+                    block = block.rotate(((StructurePieceAccessor)this).rs_getRotation());
                 }
 
                 world.setBlockState(blockPos, block, 2);
@@ -1641,7 +1641,7 @@ public class RSStrongholdPieces {
                     world.getFluidTickScheduler().schedule(blockPos, fluidState.getFluid(), 0);
                 }
 
-                if (((StructurePieceAccessor)this).getBLOCKS_NEEDING_POST_PROCESSING().contains(block.getBlock())) {
+                if (((StructurePieceAccessor)this).rs_getBLOCKS_NEEDING_POST_PROCESSING().contains(block.getBlock())) {
                     world.getChunk(blockPos).markBlockForPostProcessing(blockPos);
                 }
             }

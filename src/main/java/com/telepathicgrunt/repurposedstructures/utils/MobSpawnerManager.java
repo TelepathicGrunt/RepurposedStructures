@@ -48,7 +48,7 @@ public class MobSpawnerManager extends JsonDataLoader{
         List<MobSpawnerObj> spawnerMobEntries = this.spawnerMap.get(spawnerJsonEntry);
         if(spawnerMobEntries == null){
             RepurposedStructures.LOGGER.log(Level.ERROR,"***************************************\nFailed to get mob. Please check that "+spawnerJsonEntry+".json is correct or that no other mod is interfering with how vanilla reads data folders. Let TelepathicGrunt know about this too!\n***************************************");
-            return Util.getRandom(DungeonFeatureAccessor.getMOB_SPAWNER_ENTITIES(), random);
+            return Util.getRandom(DungeonFeatureAccessor.rs_getMOB_SPAWNER_ENTITIES(), random);
         }
 
         int totalWeight = spawnerMobEntries.stream().mapToInt(mobEntry -> mobEntry.weight).sum();

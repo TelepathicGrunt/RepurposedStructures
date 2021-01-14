@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 public interface StructureProcessorListAccessor {
 
     @Invoker("register")
-    static StructureProcessorList invokeRegister(String id, ImmutableList<StructureProcessor> processorList) {
+    static StructureProcessorList rs_invokeRegister(String id, ImmutableList<StructureProcessor> processorList) {
         throw new UnsupportedOperationException();
     }
 }

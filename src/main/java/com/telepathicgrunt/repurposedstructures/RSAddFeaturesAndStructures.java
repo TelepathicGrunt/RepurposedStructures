@@ -51,7 +51,7 @@ public class RSAddFeaturesAndStructures {
                 tempMap.putAll(RSStructures.RS_STRUCTURES);
             }
 
-            ((StructuresConfigAccessor) serverWorld.getChunkManager().getChunkGenerator().getStructuresConfig()).setStructures(tempMap);
+            ((StructuresConfigAccessor) serverWorld.getChunkManager().getChunkGenerator().getStructuresConfig()).rs_setStructures(tempMap);
         });
     }
 

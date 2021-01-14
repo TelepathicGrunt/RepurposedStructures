@@ -12,5 +12,5 @@ import java.util.Map;
 public interface StructuresConfigAccessor {
 
     @Accessor("structures")
-    void setStructures(Map<StructureFeature<?>, StructureConfig> structuresSpacingMap);
+    void rs_setStructures(Map<StructureFeature<?>, StructureConfig> structuresSpacingMap);
 }
