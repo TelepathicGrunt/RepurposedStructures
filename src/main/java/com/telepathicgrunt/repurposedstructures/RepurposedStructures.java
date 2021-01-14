@@ -21,7 +21,7 @@ import java.util.Map;
 public class RepurposedStructures implements ModInitializer {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MODID = "repurposed_structures";
-    public static MobSpawnerManager mobSpawnerManager = null;
+    public static MobSpawnerManager mobSpawnerManager = new MobSpawnerManager();
 
 	public static RSAllConfig RSAllConfig = null;
     public static final Map<String, List<String>> ALL_BIOME_BLACKLISTS = new HashMap<>();
