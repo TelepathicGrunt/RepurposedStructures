@@ -47,7 +47,7 @@ public class RepurposedStructures
 	public static RSVillagesConfigValues RSVillagesConfig = null;
 	public static RSTemplesConfigValues RSTemplesConfig = null;
 	public static RSShipwrecksConfigValues RSShipwrecksConfig = null;
-	public static MobSpawnerManager mobSpawnerManager = null;
+	public static MobSpawnerManager mobSpawnerManager = new MobSpawnerManager();
 	public static boolean yungsBetterMineshaftIsNotOn = true;
 
 	public RepurposedStructures()
@@ -95,7 +95,6 @@ public class RepurposedStructures
 
 	public void registerDatapackListener(final AddReloadListenerEvent event) {
 		//loads the RS specific json files for mob spawner chances
-		RepurposedStructures.mobSpawnerManager = new MobSpawnerManager();
 		event.addListener(RepurposedStructures.mobSpawnerManager);
 	}
 
