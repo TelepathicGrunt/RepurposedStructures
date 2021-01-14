@@ -10,6 +10,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ## (V.2.3.4 Changes) (1.16.4 Minecraft)
 
+##### General:
+- Improved biome targeting so some structures types get the right biome better.
+
 ##### Outposts:
 - Overworld Outposts now spawn Pillagers over time. 
 
@@ -19,7 +22,16 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Wells:
 - Fixed crash if the wells nbt file ever somehow goes missing.
 
+##### Dungeons:
+- Fixed mob spawners losing their mob data after doing `/reload` or `/datapack disable vanilla` commands.
+
+##### Mineshafts:
+- Fixed mob spawners losing their mob data after doing `/reload` or `/datapack disable vanilla` commands.
+
 ##### Backend:
+- Structure spacing for RS structures set by JSON will now no longer be overwritten. 
+  With datapacks, you can make RS structures now spawn more or less frequently as a result.
+
 - Redid code on how mobs spawn over time are added to RS structures to be cleaner and less likely I forget to add mob spawns later. 
 
 -Prefixed all my accessor and invoker mixins due to this bug in mixins that could cause a crash with other mods for same named mixins.

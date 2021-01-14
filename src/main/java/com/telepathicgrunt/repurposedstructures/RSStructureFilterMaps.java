@@ -3,6 +3,7 @@ package com.telepathicgrunt.repurposedstructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredStructures;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome.Category;
+import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 
@@ -51,13 +52,17 @@ public class RSStructureFilterMaps {
 
         MINESHAFT_TYPE_AND_CONDITIONS.put(RSConfiguredStructures.SWAMP_OR_DARK_FOREST_MINESHAFT, (event) ->
                 (RepurposedStructures.RSMineshaftsConfig.swampAndDarkForestMineshaftSpawnrate.get() != 0 &&
-                        (event.getCategory() == Category.SWAMP || event.getName().getPath().contains("dark_forest") || event.getName().getPath().contains("dark_oak"))));
+                        (event.getCategory() == Category.SWAMP ||
+                        (event.getCategory() == Category.FOREST &&
+                            (event.getName().getPath().contains("dark") || event.getName().getPath().contains("spooky") ||
+                            event.getName().getPath().contains("dead") || event.getName().getPath().contains("haunted"))))));
 
         MINESHAFT_TYPE_AND_CONDITIONS.put(RSConfiguredStructures.END_MINESHAFT, (event) ->
                 (RepurposedStructures.RSMineshaftsConfig.endMineshaftSpawnrate.get() != 0 &&
-                        event.getCategory() == Category.THEEND && !event.getName().equals(new ResourceLocation("minecraft:the_end")) &&
+                        event.getCategory() == Category.THEEND && !event.getName().equals(Biomes.THE_END.getValue()) &&
                         (RepurposedStructures.RSMineshaftsConfig.barrensIslandsEndMineshafts.get() ||
-                                (!event.getName().equals(new ResourceLocation("minecraft:end_barrens")) && !event.getName().equals(new ResourceLocation("minecraft:small_end_islands"))))));
+                                (!event.getName().equals(Biomes.END_BARRENS.getValue()) &&
+                                !event.getName().equals(Biomes.SMALL_END_ISLANDS.getValue())))));
 
         MINESHAFT_TYPE_AND_CONDITIONS.put(RSConfiguredStructures.NETHER_MINESHAFT, (event) ->
                 (RepurposedStructures.RSMineshaftsConfig.netherMineshaftSpawnrate.get() != 0 && event.getCategory() == Category.NETHER));

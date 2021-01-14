@@ -11,6 +11,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome.Category;
+import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.FlatChunkGenerator;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
@@ -124,7 +125,10 @@ public class RSAddFeaturesAndStructures {
             replaceOrAddDungeon(true, event, RSConfiguredFeatures.BADLANDS_DUNGEONS);
         }
         else if (RepurposedStructures.RSDungeonsConfig.darkForestDungeonAttemptsPerChunk.get() != 0 &&
-                event.getName().getPath().contains("dark_forest") && dungeonAllowedByNamespaceAndConfig(event.getName())) {
+                (event.getCategory() == Category.FOREST &&
+                    (event.getName().getPath().contains("dark") || event.getName().getPath().contains("spooky") ||
+                    event.getName().getPath().contains("dead") || event.getName().getPath().contains("haunted"))) &&
+                dungeonAllowedByNamespaceAndConfig(event.getName())) {
 
             replaceOrAddDungeon(true, event, RSConfiguredFeatures.DARK_FOREST_DUNGEONS);
         }
@@ -155,8 +159,8 @@ public class RSAddFeaturesAndStructures {
         }
         else if (RepurposedStructures.RSDungeonsConfig.endDungeonAttemptsPerChunk.get() != 0 &&
                 (event.getCategory() == Category.THEEND &&
-                        !event.getName().equals(new ResourceLocation("minecraft:the_end")) &&
-                        !event.getName().equals(new ResourceLocation("minecraft:small_end_islands"))) &&
+                        !event.getName().equals(Biomes.THE_END.getValue()) &&
+                        !event.getName().equals(Biomes.SMALL_END_ISLANDS.getValue())) &&
                 dungeonAllowedByNamespaceAndConfig(event.getName())) {
 
             replaceOrAddDungeon(false, event, RSConfiguredFeatures.END_DUNGEONS);
@@ -210,21 +214,27 @@ public class RSAddFeaturesAndStructures {
                     .add(() -> RSConfiguredFeatures.NETHER_WELL);
         }
         else if (RepurposedStructures.RSWellsConfig.snowWellRarityPerChunk.get() != 10000 &&
-                (event.getCategory() == Category.ICY || event.getName().getPath().contains("snow")) && wellAllowedByNamespaceAndConfig(event.getName())) {
+                (event.getCategory() == Category.ICY || event.getName().getPath().contains("snow")) &&
+                wellAllowedByNamespaceAndConfig(event.getName())) {
 
             event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES)
                     .add(() -> RSConfiguredFeatures.SNOW_WELL);
         }
         else if (RepurposedStructures.RSWellsConfig.mossyStoneWellRarityPerChunk.get() != 10000 &&
-                (event.getCategory() == Category.SWAMP || event.getCategory() == Category.JUNGLE ||
-                        event.getName().getPath().contains("dark_forest") || event.getName().getPath().contains("dark_oak")) &&
+                (event.getCategory() == Category.SWAMP ||
+                event.getCategory() == Category.JUNGLE ||
+                (event.getCategory() == Category.FOREST &&
+                    (event.getName().getPath().contains("dark") || event.getName().getPath().contains("spooky") ||
+                    event.getName().getPath().contains("dead") || event.getName().getPath().contains("haunted")))) &&
                 wellAllowedByNamespaceAndConfig(event.getName())) {
 
             event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES)
                     .add(() -> RSConfiguredFeatures.MOSSY_STONE_WELL);
         }
         else if (RepurposedStructures.RSWellsConfig.forestWellRarityPerChunk.get() != 10000 &&
-                (event.getCategory() == Category.FOREST && !(event.getName().getPath().contains("dark_forest") || event.getName().getPath().contains("dark_oak"))) &&
+                (event.getCategory() == Category.FOREST &&
+                        !(event.getName().getPath().contains("dark") || event.getName().getPath().contains("spooky") ||
+                        event.getName().getPath().contains("dead") || event.getName().getPath().contains("haunted"))) &&
                 wellAllowedByNamespaceAndConfig(event.getName())) {
 
             event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES)
@@ -245,7 +255,7 @@ public class RSAddFeaturesAndStructures {
 
         // Exists in vanilla Swamp and can be in modded swamp biomes
         if (RepurposedStructures.RSMainConfig.hornedSwampTree.get() &&
-                (event.getName().equals(new ResourceLocation("minecraft:swamp")) ||
+                (event.getName().equals(Biomes.SWAMP.getValue()) ||
                 (RepurposedStructures.RSMainConfig.addLargeSwampTreeModdedBiomes.get() &&
                         event.getCategory() == Category.SWAMP &&
                         !event.getName().getNamespace().equals("ultra_amplified_dimension") &&
@@ -257,7 +267,7 @@ public class RSAddFeaturesAndStructures {
 
         // Only exists in vanilla Swamp Hills biomes
         else if (RepurposedStructures.RSMainConfig.hornedSwampTree.get() &&
-                (event.getName().equals(new ResourceLocation("minecraft:swamp_hills")))) {
+                (event.getName().equals(Biomes.SWAMP_HILLS.getValue()))) {
 
             // replace the swamp tree with our own
             event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION)
@@ -275,7 +285,7 @@ public class RSAddFeaturesAndStructures {
     public static void addBoulderFeatures(BiomeLoadingEvent event) {
 
         if (RepurposedStructures.RSMainConfig.boulderGiant.get() && !event.getName().getNamespace().equals("ultra_amplified_dimension") &&
-                ((event.getName().equals(new ResourceLocation("minecraft:giant_spruce_taiga_hills")) || event.getName().equals(new ResourceLocation("minecraft:giant_tree_taiga_hills"))) ||
+                ((event.getName().equals(Biomes.GIANT_SPRUCE_TAIGA_HILLS.getValue()) || event.getName().equals(Biomes.GIANT_TREE_TAIGA_HILLS.getValue())) ||
                         (RepurposedStructures.RSMainConfig.addGiantBouldersModdedBiomes.get() && !event.getName().getNamespace().equals("minecraft") &&
                                 ((event.getName().getPath().contains("giant") && event.getName().getPath().contains("taiga")) || event.getName().getPath().contains("redwood"))))) {
 
@@ -288,7 +298,7 @@ public class RSAddFeaturesAndStructures {
                     .add(() -> RSConfiguredFeatures.BOULDER_GIANT);
         }
         else if (RepurposedStructures.RSMainConfig.boulderTiny.get() && !event.getName().getNamespace().equals("ultra_amplified_dimension") &&
-                ((event.getName().equals(new ResourceLocation("minecraft:snowy_taiga_mountains")) || event.getName().equals(new ResourceLocation("minecraft:taiga_mountains"))) ||
+                ((event.getName().equals(Biomes.SNOWY_TAIGA_MOUNTAINS.getValue()) || event.getName().equals(Biomes.TAIGA_MOUNTAINS.getValue())) ||
                         (RepurposedStructures.RSMainConfig.addTinyBouldersModdedBiomes.get() && !event.getName().getNamespace().equals("minecraft") &&
                                 event.getName().getPath().contains("taiga") && (event.getName().getPath().contains("mountain") || event.getName().getPath().contains("hill"))))) {
 
@@ -340,12 +350,12 @@ public class RSAddFeaturesAndStructures {
         if(event.getCategory() == Category.NETHER)
         {
             if (RepurposedStructures.RSOutpostsConfig.crimsonOutpostMaxChunkDistance.get() != 1001 &&
-                    event.getName().getPath().contains("crimson") &&
+                    (event.getName().getPath().contains("crimson") || event.getName().getPath().contains("red_")) &&
                     (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSOutpostsConfig.addCrimsonOutpostToModdedBiomes.get())) {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.CRIMSON_OUTPOST);
             }
             else if (RepurposedStructures.RSOutpostsConfig.warpedOutpostMaxChunkDistance.get() != 1001 &&
-                    event.getName().getPath().contains("warped") &&
+                    (event.getName().getPath().contains("warped") || event.getName().getPath().contains("blue")) &&
                     (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSOutpostsConfig.addWarpedOutpostToModdedBiomes.get())) {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.WARPED_OUTPOST);
             }
@@ -393,14 +403,18 @@ public class RSAddFeaturesAndStructures {
 
             else if (RepurposedStructures.RSOutpostsConfig.outpostSnowyMaxChunkDistance.get() != 1001 &&
                 (event.getName().getPath().contains("snow") ||
-                    (event.getCategory() == Category.ICY && !(event.getName().getPath().contains("ice") || event.getName().getPath().contains("icy")))) &&
+                    (event.getCategory() == Category.ICY &&
+                            !(event.getName().getPath().contains("ice") || event.getName().getPath().contains("icy") ||
+                            event.getName().getPath().contains("glacier") || event.getName().getPath().contains("frozen")))) &&
                     (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSOutpostsConfig.addOutpostSnowyToModdedBiomes.get())) {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_SNOWY);
                 event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.PILLAGER_OUTPOST));
             }
 
             else if (RepurposedStructures.RSOutpostsConfig.outpostIcyMaxChunkDistance.get() != 1001 &&
-                (event.getCategory() == Category.ICY && (event.getName().getPath().contains("ice") || event.getName().getPath().contains("icy"))) &&
+                (event.getCategory() == Category.ICY &&
+                        (event.getName().getPath().contains("ice") || event.getName().getPath().contains("icy") ||
+                        event.getName().getPath().contains("glacier") || event.getName().getPath().contains("frozen"))) &&
                     (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSOutpostsConfig.addOutpostIcyToModdedBiomes.get())) {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_ICY);
                 event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.PILLAGER_OUTPOST));
@@ -415,7 +429,7 @@ public class RSAddFeaturesAndStructures {
     public static void addShipwrecks(BiomeLoadingEvent event) {
 
         if (RepurposedStructures.RSShipwrecksConfig.endShipwreckMaxChunkDistance.get() != 1001 &&
-                (event.getName().equals(new ResourceLocation("minecraft:end_highlands")) ||
+                (event.getName().equals(Biomes.END_MIDLANDS.getValue()) ||
                 (!event.getName().getNamespace().equals("minecraft") && event.getCategory() == Category.THEEND &&
                 RepurposedStructures.RSShipwrecksConfig.addEndShipwreckToModdedBiomes.get()))) {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.END_SHIPWRECK);
@@ -426,14 +440,14 @@ public class RSAddFeaturesAndStructures {
         if(event.getCategory() == Category.NETHER)
         {
             if (RepurposedStructures.RSShipwrecksConfig.crimsonShipwreckMaxChunkDistance.get() != 1001 &&
-                    event.getName().getPath().contains("crimson") &&
+                    (event.getName().getPath().contains("crimson") || event.getName().getPath().contains("red_")) &&
                     (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSShipwrecksConfig.addCrimsonShipwreckToModdedBiomes.get())) {
 
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.CRIMSON_SHIPWRECK);
             }
 
             else if (RepurposedStructures.RSShipwrecksConfig.warpedShipwreckMaxChunkDistance.get() != 1001 &&
-                    event.getName().getPath().contains("warped") &&
+                    (event.getName().getPath().contains("warped") || event.getName().getPath().contains("blue")) &&
                     (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSShipwrecksConfig.addWarpedShipwreckToModdedBiomes.get())) {
 
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.WARPED_SHIPWRECK);
@@ -478,12 +492,13 @@ public class RSAddFeaturesAndStructures {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_BASALT_TEMPLE);
         }
         else if (RepurposedStructures.RSTemplesConfig.netherCrimsonTempleMaxChunkDistance.get() != 1001 &&
-                event.getCategory() == Category.NETHER && event.getName().getPath().contains("crimson") &&
+                event.getCategory() == Category.NETHER &&
+                (event.getName().getPath().contains("crimson") || event.getName().getPath().contains("red_")) &&
                 (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSTemplesConfig.addNetherCrimsonTempleToModdedBiomes.get())) {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_CRIMSON_TEMPLE);
         }
         else if (RepurposedStructures.RSTemplesConfig.netherWarpedTempleMaxChunkDistance.get() != 1001 &&
-                event.getCategory() == Category.NETHER && event.getName().getPath().contains("warped") &&
+                event.getCategory() == Category.NETHER && (event.getName().getPath().contains("warped") || event.getName().getPath().contains("blue")) &&
                 (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSTemplesConfig.addNetherWarpedTempleToModdedBiomes.get())) {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_WARPED_TEMPLE);
         }
@@ -554,7 +569,10 @@ public class RSAddFeaturesAndStructures {
             }
         }
 
-        else if (event.getCategory() == Category.FOREST && event.getName().getPath().contains("dark") && (event.getName().getNamespace().equals("minecraft") ||
+        else if (event.getCategory() == Category.FOREST &&
+                (event.getName().getPath().contains("dark") || event.getName().getPath().contains("spooky") ||
+                event.getName().getPath().contains("dead") || event.getName().getPath().contains("haunted")) &&
+                (event.getName().getNamespace().equals("minecraft") ||
                 RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
             if (RepurposedStructures.RSVillagesConfig.darkForestVillageMaxChunkDistance.get() != 1001) {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.DARK_FOREST_VILLAGE);
@@ -586,26 +604,31 @@ public class RSAddFeaturesAndStructures {
             }
         }
 
-        else if ((event.getName().equals(new ResourceLocation("minecraft:giant_spruce_taiga")) || event.getName().equals(new ResourceLocation("minecraft:giant_tree_taiga"))) ||
+        else if ((event.getName().equals(Biomes.GIANT_SPRUCE_TAIGA.getValue()) || event.getName().equals(Biomes.GIANT_TREE_TAIGA.getValue())) ||
                 (!event.getName().getNamespace().equals("minecraft") &&
                   RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get() &&
-                ((event.getName().getPath().contains("giant") && event.getName().getPath().contains("taiga")) || event.getName().getPath().contains("redwood")))) {
+                event.getCategory() == Category.TAIGA &&
+                (event.getName().getPath().contains("giant") || event.getName().getPath().contains("redwood")))){
             if (RepurposedStructures.RSVillagesConfig.giantTaigaVillageMaxChunkDistance.get() != 1001) {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.GIANT_TAIGA_VILLAGE);
             }
         }
         else if (RepurposedStructures.RSVillagesConfig.crimsonVillageMaxChunkDistance.get() != 1001 &&
-                event.getCategory() == Category.NETHER && event.getName().getPath().contains("crimson") &&
+                event.getCategory() == Category.NETHER &&
+                (event.getName().getPath().contains("crimson") || event.getName().getPath().contains("red_")) &&
                 (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.CRIMSON_VILLAGE);
         }
         else if (RepurposedStructures.RSVillagesConfig.warpedVillageMaxChunkDistance.get() != 1001 &&
-                event.getCategory() == Category.NETHER && event.getName().getPath().contains("warped") &&
+                event.getCategory() == Category.NETHER &&
+                (event.getName().getPath().contains("warped") || event.getName().getPath().contains("blue")) &&
                 (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.WARPED_VILLAGE);
         }
         else if (RepurposedStructures.RSVillagesConfig.villageOakMaxChunkDistance.get() != 1001) {
-            if ((event.getCategory() == Category.FOREST && !event.getName().getPath().contains("birch") && !event.getName().getPath().contains("dark")) &&
+            if ((event.getCategory() == Category.FOREST && !event.getName().getPath().contains("birch") &&
+                    !(event.getName().getPath().contains("dark") || event.getName().getPath().contains("spooky") ||
+                        event.getName().getPath().contains("dead") || event.getName().getPath().contains("haunted"))) &&
                     (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.VILLAGE_OAK);
             }
@@ -619,7 +642,7 @@ public class RSAddFeaturesAndStructures {
     public static void addRuinedPortals(BiomeLoadingEvent event) {
 
         if (RepurposedStructures.RSMainConfig.ruinedPortalEndMaxChunkDistance.get() != 1001) {
-            if (event.getCategory() == Category.THEEND && !event.getName().equals(new ResourceLocation("minecraft:the_end")) &&
+            if (event.getCategory() == Category.THEEND && !event.getName().equals(Biomes.THE_END.getValue()) &&
                     (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSMainConfig.addRuinedPortalEndToModdedBiomes.get())) {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.RUINED_PORTAL_END);
             }
