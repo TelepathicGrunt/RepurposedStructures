@@ -1,10 +1,14 @@
 package com.telepathicgrunt.repurposedstructures.modinit;
 
+import com.google.common.collect.ImmutableList;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.mixin.PillagerOutpostFeatureAccessor;
 import com.telepathicgrunt.repurposedstructures.world.structures.*;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.RSMineshaftPieces;
 import net.fabricmc.fabric.api.structure.v1.FabricStructureBuilder;
+import net.minecraft.entity.EntityType;
 import net.minecraft.util.Identifier;
+import net.minecraft.world.biome.SpawnSettings;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.chunk.StructureConfig;
 import net.minecraft.world.gen.chunk.StructuresConfig;
@@ -53,13 +57,13 @@ public class RSStructures {
     public static StructureFeature<DefaultFeatureConfig> NETHER_BRICK_OUTPOST = new OutpostNetherStructure(new Identifier(RepurposedStructures.MODID,"outposts/nether_brick/base_plates"));
     public static StructureFeature<DefaultFeatureConfig> WARPED_OUTPOST = new OutpostNetherStructure(new Identifier(RepurposedStructures.MODID,"outposts/warped/base_plates"));
     public static StructureFeature<DefaultFeatureConfig> CRIMSON_OUTPOST = new OutpostNetherStructure(new Identifier(RepurposedStructures.MODID,"outposts/crimson/base_plates"));
-    public static StructureFeature<DefaultFeatureConfig> OUTPOST_BIRCH = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "outposts/birch/base_plates"), 11, 0, 0, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.OVERWORLD_VILLAGE).collect(Collectors.toSet()));
-    public static StructureFeature<DefaultFeatureConfig> OUTPOST_JUNGLE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "outposts/jungle/base_plates"), 11, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.OVERWORLD_VILLAGE).collect(Collectors.toSet()));
-    public static StructureFeature<DefaultFeatureConfig> OUTPOST_GIANT_TREE_TAIGA = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "outposts/giant_tree_taiga/base_plates"), 11, 0, 0, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.OVERWORLD_VILLAGE).collect(Collectors.toSet()));
-    public static StructureFeature<DefaultFeatureConfig> OUTPOST_DESERT = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "outposts/desert/base_plates"), 11, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.OVERWORLD_VILLAGE).collect(Collectors.toSet()));
-    public static StructureFeature<DefaultFeatureConfig> OUTPOST_BADLANDS = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "outposts/badlands/base_plates"), 11, 0, 0, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.OVERWORLD_VILLAGE).collect(Collectors.toSet()));
-    public static StructureFeature<DefaultFeatureConfig> OUTPOST_SNOWY = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "outposts/snowy/base_plates"), 11, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.OVERWORLD_VILLAGE).collect(Collectors.toSet()));
-    public static StructureFeature<DefaultFeatureConfig> OUTPOST_ICY = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "outposts/icy/base_plates"), 11, 0, 0, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.OVERWORLD_VILLAGE).collect(Collectors.toSet()));
+    public static StructureFeature<DefaultFeatureConfig> OUTPOST_BIRCH = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "outposts/birch/base_plates"), 11, 0, 0, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.OVERWORLD_VILLAGE).collect(Collectors.toSet()), PillagerOutpostFeatureAccessor.getMONSTER_SPAWNS(), ImmutableList.of());
+    public static StructureFeature<DefaultFeatureConfig> OUTPOST_JUNGLE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "outposts/jungle/base_plates"), 11, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.OVERWORLD_VILLAGE).collect(Collectors.toSet()), PillagerOutpostFeatureAccessor.getMONSTER_SPAWNS(), ImmutableList.of());
+    public static StructureFeature<DefaultFeatureConfig> OUTPOST_GIANT_TREE_TAIGA = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "outposts/giant_tree_taiga/base_plates"), 11, 0, 0, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.OVERWORLD_VILLAGE).collect(Collectors.toSet()), PillagerOutpostFeatureAccessor.getMONSTER_SPAWNS(), ImmutableList.of());
+    public static StructureFeature<DefaultFeatureConfig> OUTPOST_DESERT = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "outposts/desert/base_plates"), 11, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.OVERWORLD_VILLAGE).collect(Collectors.toSet()), PillagerOutpostFeatureAccessor.getMONSTER_SPAWNS(), ImmutableList.of());
+    public static StructureFeature<DefaultFeatureConfig> OUTPOST_BADLANDS = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "outposts/badlands/base_plates"), 11, 0, 0, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.OVERWORLD_VILLAGE).collect(Collectors.toSet()), PillagerOutpostFeatureAccessor.getMONSTER_SPAWNS(), ImmutableList.of());
+    public static StructureFeature<DefaultFeatureConfig> OUTPOST_SNOWY = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "outposts/snowy/base_plates"), 11, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.OVERWORLD_VILLAGE).collect(Collectors.toSet()), PillagerOutpostFeatureAccessor.getMONSTER_SPAWNS(), ImmutableList.of());
+    public static StructureFeature<DefaultFeatureConfig> OUTPOST_ICY = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "outposts/icy/base_plates"), 11, 0, 0, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.OVERWORLD_VILLAGE).collect(Collectors.toSet()), PillagerOutpostFeatureAccessor.getMONSTER_SPAWNS(), ImmutableList.of());
 
     public static StructureFeature<DefaultFeatureConfig> NETHER_PYRAMID = new PyramidNetherStructure();
     public static StructureFeature<DefaultFeatureConfig> BADLANDS_PYRAMID = new PyramidBadlandsStructure();

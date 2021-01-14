@@ -33,36 +33,30 @@ public class StructureMobSpawningMixin {
 
 
     private static List<SpawnSettings.SpawnEntry>  getStructureSpawns(Biome biome, StructureAccessor accessor, SpawnGroup group, BlockPos pos){
-        if (group == SpawnGroup.MONSTER) {
-
-            for(StructureFeature<?> outpost : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NETHER_OUTPOST)){
-                if (accessor.getStructureAt(pos, true, outpost).hasChildren()) {
-                    return outpost.getMonsterSpawns();
+        if(group == SpawnGroup.MONSTER){
+            for(StructureFeature<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.APPEND_WITH_NATURAL_MOBS)){
+                if (!structureFeature.getMonsterSpawns().isEmpty() && accessor.getStructureAt(pos, true, structureFeature).hasChildren()) {
+                    return Lists.newArrayList(Iterators.concat(biome.getSpawnSettings().getSpawnEntry(SpawnGroup.MONSTER).iterator(), structureFeature.getMonsterSpawns().iterator()));
                 }
             }
 
-            for(StructureFeature<?> shipwreck : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NETHER_SHIPWRECK)){
-                if (accessor.getStructureAt(pos, true, shipwreck).hasChildren()) {
-                    return Lists.newArrayList(Iterators.concat(biome.getSpawnSettings().getSpawnEntry(SpawnGroup.MONSTER).iterator(), shipwreck.getMonsterSpawns().iterator()));
+            for(StructureFeature<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.REPLACE_NATURAL_MOBS)){
+                if (!structureFeature.getMonsterSpawns().isEmpty() && accessor.getStructureAt(pos, true, structureFeature).hasChildren()) {
+                    return structureFeature.getMonsterSpawns();
+                }
+            }
+        }
+
+        else if(group == SpawnGroup.CREATURE){
+            for(StructureFeature<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.APPEND_WITH_NATURAL_MOBS)){
+                if (!structureFeature.getCreatureSpawns().isEmpty() && accessor.getStructureAt(pos, true, structureFeature).hasChildren()) {
+                    return Lists.newArrayList(Iterators.concat(biome.getSpawnSettings().getSpawnEntry(SpawnGroup.CREATURE).iterator(), structureFeature.getMonsterSpawns().iterator()));
                 }
             }
 
-            if (accessor.getStructureAt(pos, true, RSStructures.NETHER_STRONGHOLD).hasChildren()) {
-                return RSStructures.NETHER_STRONGHOLD.getMonsterSpawns();
-            }
-
-            if (accessor.getStructureAt(pos, true, RSStructures.JUNGLE_FORTRESS).hasChildren()) {
-                return Lists.newArrayList(Iterators.concat(biome.getSpawnSettings().getSpawnEntry(SpawnGroup.MONSTER).iterator(), RSStructures.JUNGLE_FORTRESS.getMonsterSpawns().iterator()));
-            }
-
-            if (accessor.getStructureAt(pos, true, RSStructures.END_MINESHAFT).hasChildren()) {
-                return Lists.newArrayList(Iterators.concat(biome.getSpawnSettings().getSpawnEntry(SpawnGroup.MONSTER).iterator(), RSStructures.END_MINESHAFT.getMonsterSpawns().iterator()));
-            }
-
-            for(StructureFeature<?> outpost : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.OVERWORLD_OUTPOST)){
-                if (accessor.getStructureAt(pos, true, outpost).hasChildren()) {
-                    // Use vanilla outpost for max mod compat. I think. Might redo this if I receive complaints
-                    return StructureFeature.PILLAGER_OUTPOST.getMonsterSpawns();
+            for(StructureFeature<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.REPLACE_NATURAL_MOBS)){
+                if (!structureFeature.getCreatureSpawns().isEmpty() && accessor.getStructureAt(pos, true, structureFeature).hasChildren()) {
+                    return structureFeature.getCreatureSpawns();
                 }
             }
         }
