@@ -70,7 +70,7 @@ public class RSStructures {
     public static StructureFeature<DefaultFeatureConfig> CRIMSON_SHIPWRECK = new ShipwreckNetherStructure(new Identifier(RepurposedStructures.MODID, "shipwrecks/crimson"), true);
     public static StructureFeature<DefaultFeatureConfig> WARPED_SHIPWRECK = new ShipwreckNetherStructure(new Identifier(RepurposedStructures.MODID, "shipwrecks/warped"), true);
 
-    public static StructureFeature<DefaultFeatureConfig> BADLANDS_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/badlands/town_centers"), 10, 0, 1, 0, new HashSet<>());
+    public static StructureFeature<DefaultFeatureConfig> BADLANDS_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/badlands/town_centers"), 10, 0, 1, 0, new HashSet<>(), 20, 2);
     public static StructureFeature<DefaultFeatureConfig> BIRCH_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/birch/town_centers"), 6, 0, 1, 0, new HashSet<>());
     public static StructureFeature<DefaultFeatureConfig> DARK_FOREST_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/dark_forest/town_centers"), 6, 0, 1, 0, new HashSet<>());
     public static StructureFeature<DefaultFeatureConfig> JUNGLE_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/jungle/town_centers"), 8, 0, 1, 0, new HashSet<>());

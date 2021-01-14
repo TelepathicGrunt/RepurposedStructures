@@ -10,10 +10,9 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
-import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.DynamicRegistryManager;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.world.BlockView;
+import net.minecraft.world.Heightmap;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.SpawnSettings;
 import net.minecraft.world.biome.source.BiomeSource;
@@ -30,28 +29,54 @@ import java.util.Set;
 
 public class GenericJigsawStructure extends AbstractBaseStructure {
 
-    private final Identifier START_POOL;
-    private final int STRUCTURE_SIZE;
-    private final int CENTER_OFFSET;
-    private final int BIOME_RANGE;
-    private final int STRUCTURE_BLACKLIST_RANGE;
-    private final Set<RSStructureTagMap.STRUCTURE_TAGS> AVOID_STRUCTURES_SET;
-    private final List<SpawnSettings.SpawnEntry> MONSTER_SPAWNS;
-    private final List<SpawnSettings.SpawnEntry> CREATURE_SPAWNS;
+    private final Identifier startPool;
+    private final int structureSize;
+    private final int centerOffset;
+    private final int biomeRange;
+    private final int structureBlacklistRange;
+    private final Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet;
+    private final List<SpawnSettings.SpawnEntry> monsterSpawns;
+    private final List<SpawnSettings.SpawnEntry> creatureSpawns;
+    private final int allowTerrainHeightRange;
+    private final int terrainHeightRadius;
 
     public GenericJigsawStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange,
                                   int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet)
     {
         super(DefaultFeatureConfig.CODEC);
-        START_POOL = poolID;
-        STRUCTURE_SIZE = structureSize;
-        CENTER_OFFSET = centerOffset;
-        BIOME_RANGE = biomeRange;
-        STRUCTURE_BLACKLIST_RANGE = structureBlacklistRange;
-        AVOID_STRUCTURES_SET = avoidStructuresSet;
-        RSStructures.RS_STRUCTURE_START_PIECES.add(START_POOL);
-        MONSTER_SPAWNS = new ArrayList<>();
-        CREATURE_SPAWNS = new ArrayList<>();
+
+        this.startPool = poolID;
+        this.structureSize = structureSize;
+        this.centerOffset = centerOffset;
+        this.biomeRange = biomeRange;
+        this.structureBlacklistRange = structureBlacklistRange;
+        this.avoidStructuresSet = avoidStructuresSet;
+        this.monsterSpawns = new ArrayList<>();
+        this.creatureSpawns = new ArrayList<>();
+        this.allowTerrainHeightRange = -1;
+        this.terrainHeightRadius = 0;
+
+        RSStructures.RS_STRUCTURE_START_PIECES.add(startPool);
+    }
+
+    public GenericJigsawStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange,
+                                  int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet,
+                                  int allowTerrainHeightRange, int terrainHeightRadius)
+    {
+        super(DefaultFeatureConfig.CODEC);
+
+        this.startPool = poolID;
+        this.structureSize = structureSize;
+        this.centerOffset = centerOffset;
+        this.biomeRange = biomeRange;
+        this.structureBlacklistRange = structureBlacklistRange;
+        this.avoidStructuresSet = avoidStructuresSet;
+        this.monsterSpawns = new ArrayList<>();
+        this.creatureSpawns = new ArrayList<>();
+        this.allowTerrainHeightRange = allowTerrainHeightRange;
+        this.terrainHeightRadius = terrainHeightRadius;
+
+        RSStructures.RS_STRUCTURE_START_PIECES.add(startPool);
     }
 
     public GenericJigsawStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange,
@@ -59,32 +84,36 @@ public class GenericJigsawStructure extends AbstractBaseStructure {
                                   List<SpawnSettings.SpawnEntry> monster_spawns, List<SpawnSettings.SpawnEntry> creature_spawns)
     {
         super(DefaultFeatureConfig.CODEC);
-        START_POOL = poolID;
-        STRUCTURE_SIZE = structureSize;
-        CENTER_OFFSET = centerOffset;
-        BIOME_RANGE = biomeRange;
-        STRUCTURE_BLACKLIST_RANGE = structureBlacklistRange;
-        AVOID_STRUCTURES_SET = avoidStructuresSet;
-        RSStructures.RS_STRUCTURE_START_PIECES.add(START_POOL);
-        MONSTER_SPAWNS = monster_spawns;
-        CREATURE_SPAWNS = creature_spawns;
+
+        this.startPool = poolID;
+        this.structureSize = structureSize;
+        this.centerOffset = centerOffset;
+        this.biomeRange = biomeRange;
+        this.structureBlacklistRange = structureBlacklistRange;
+        this.avoidStructuresSet = avoidStructuresSet;
+        this.monsterSpawns = monster_spawns;
+        this.creatureSpawns = creature_spawns;
+        this. allowTerrainHeightRange = -1;
+        this.terrainHeightRadius = 0;
+
+        RSStructures.RS_STRUCTURE_START_PIECES.add(startPool);
     }
 
 
     @Override
     public List<SpawnSettings.SpawnEntry> getMonsterSpawns() {
-        return MONSTER_SPAWNS;
+        return monsterSpawns;
     }
 
     @Override
     public List<SpawnSettings.SpawnEntry> getCreatureSpawns() {
-        return CREATURE_SPAWNS;
+        return creatureSpawns;
     }
 
     @Override
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig defaultFeatureConfig) {
-         for (int curChunkX = chunkX - BIOME_RANGE; curChunkX <= chunkX + BIOME_RANGE; curChunkX++) {
-            for (int curChunkZ = chunkZ - BIOME_RANGE; curChunkZ <= chunkZ + BIOME_RANGE; curChunkZ++) {
+         for (int curChunkX = chunkX - biomeRange; curChunkX <= chunkX + biomeRange; curChunkX++) {
+            for (int curChunkZ = chunkZ - biomeRange; curChunkZ <= chunkZ + biomeRange; curChunkZ++) {
                 if (!biomeSource.getBiomeForNoiseGen(curChunkX << 2, 60, curChunkZ << 2).getGenerationSettings().hasStructureFeature(this)) {
                     return false;
                 }
@@ -92,9 +121,9 @@ public class GenericJigsawStructure extends AbstractBaseStructure {
         }
 
         //cannot be near other specified structure
-        for (int curChunkX = chunkX - STRUCTURE_BLACKLIST_RANGE; curChunkX <= chunkX + STRUCTURE_BLACKLIST_RANGE; curChunkX++) {
-            for (int curChunkZ = chunkZ - STRUCTURE_BLACKLIST_RANGE; curChunkZ <= chunkZ + STRUCTURE_BLACKLIST_RANGE; curChunkZ++) {
-                for(RSStructureTagMap.STRUCTURE_TAGS tag : AVOID_STRUCTURES_SET){
+        for (int curChunkX = chunkX - structureBlacklistRange; curChunkX <= chunkX + structureBlacklistRange; curChunkX++) {
+            for (int curChunkZ = chunkZ - structureBlacklistRange; curChunkZ <= chunkZ + structureBlacklistRange; curChunkZ++) {
+                for(RSStructureTagMap.STRUCTURE_TAGS tag : avoidStructuresSet){
                     for(StructureFeature<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(tag)){
                         StructureConfig structureConfig = chunkGenerator.getStructuresConfig().getForType(structureFeature);
                         if(structureConfig != null){
@@ -106,6 +135,21 @@ public class GenericJigsawStructure extends AbstractBaseStructure {
                     }
                 }
             }
+        }
+
+        if(allowTerrainHeightRange != -1){
+            int maxTerrainHeight = Integer.MIN_VALUE;
+            int minTerrainHeight = Integer.MAX_VALUE;
+
+            for (int curChunkX = chunkX - terrainHeightRadius; curChunkX <= chunkX + terrainHeightRadius; curChunkX++) {
+                for (int curChunkZ = chunkZ - terrainHeightRadius; curChunkZ <= chunkZ + terrainHeightRadius; curChunkZ++) {
+                    int height = chunkGenerator.getHeight((curChunkX << 4) + 7, (curChunkZ << 4) + 7, Heightmap.Type.WORLD_SURFACE_WG);
+                    maxTerrainHeight = Math.max(maxTerrainHeight, height);
+                    minTerrainHeight = Math.min(minTerrainHeight, height);
+                }
+            }
+
+            return maxTerrainHeight - minTerrainHeight <= allowTerrainHeightRange;
         }
 
         return true;
@@ -125,7 +169,7 @@ public class GenericJigsawStructure extends AbstractBaseStructure {
             BlockPos blockpos = new BlockPos(chunkX * 16, 0, chunkZ * 16);
             StructurePoolBasedGenerator.method_30419(
                     dynamicRegistryManager,
-                    new StructurePoolFeatureConfig(() -> dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN).get(START_POOL), STRUCTURE_SIZE),
+                    new StructurePoolFeatureConfig(() -> dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN).get(startPool), structureSize),
                     PoolStructurePiece::new,
                     chunkGenerator,
                     structureManager,
@@ -135,7 +179,7 @@ public class GenericJigsawStructure extends AbstractBaseStructure {
                     true,
                     true);
             this.setBoundingBoxFromChildren();
-            this.children.get(0).translate(0, CENTER_OFFSET, 0);
+            this.children.get(0).translate(0, centerOffset, 0);
         }
     }
 }

@@ -717,7 +717,7 @@ public class RSAddFeaturesAndStructures {
                 (context) -> RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.VILLAGE).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure))
                         && isBiomeAllowed("village", context.getBiomeKey().getValue())
                         && (RepurposedStructures.RSAllConfig.RSVillagesConfig.badlandsVillageMaxChunkDistance != 1001
-                        && (context.getBiome().getCategory() == Category.MESA && context.getBiomeKey().getValue().getPath().contains("plateau"))
+                        && context.getBiome().getCategory() == Category.MESA
                         && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
                         || RepurposedStructures.RSAllConfig.RSVillagesConfig.addVillagesToModdedBiomes)),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.BADLANDS_VILLAGE));
