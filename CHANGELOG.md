@@ -18,6 +18,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Replaced Dark Oak blocks with Spruce blocks in Snow Outposts
 
+##### Strongholds:
+- Nether Strongholds no longer has Cobwebs in libraries and instead, may have fire.
+
 ##### Villages:
 - Badlands Villages now can spawn in Badlands Plateaus with a terrain check to try and keep them from generating on plateau walls.
 
