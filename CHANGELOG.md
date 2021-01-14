@@ -16,6 +16,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Outposts:
 - Overworld Outposts now spawn Pillagers over time. 
 
+- Replaced Dark Oak blocks with Spruce blocks in Snow Outposts
+
 ##### Villages:
 - Badlands Villages now can spawn in Badlands Plateaus with a terrain check to try and keep them from generating on plateau walls.
 
@@ -30,6 +32,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ##### Igloos:
 - Stony Igloos now uses Spruce Signs and their Villager/Zombie Villager now wears taiga clothing.
+
+##### Strongholds:
+- Removed extra space at the end of addNetherStrongholdToModdedBiomes config name. (Will cause config to default back to true unless changed again)
 
 ##### Backend:
 - Structure spacing for RS structures set by JSON will now no longer be overwritten. 
