@@ -537,7 +537,7 @@ public class RSAddFeaturesAndStructures {
     // VILLAGES //
 
     public static void addVillages(BiomeLoadingEvent event) {
-        if ((event.getCategory() == Category.MESA && !event.getName().getPath().contains("plateau")) &&
+        if (event.getCategory() == Category.MESA &&
                 (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
             if (RepurposedStructures.RSVillagesConfig.badlandsVillageMaxChunkDistance.get() != 1001) {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.BADLANDS_VILLAGE);

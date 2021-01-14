@@ -98,7 +98,7 @@ public class RSStructures {
 	public static final RegistryObject<Structure<NoFeatureConfig>> WARPED_SHIPWRECK = addToStructureMaps("shipwreck_warped", () -> (new ShipwreckNetherStructure(new ResourceLocation(RepurposedStructures.MODID, "shipwrecks/warped"), true)));
 	
 	//Villages
-	public static final RegistryObject<Structure<NoFeatureConfig>> BADLANDS_VILLAGE = addToStructureMaps("village_badlands", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "village/badlands/town_centers"), 10, 0, 1, 0, new HashSet<>())));
+	public static final RegistryObject<Structure<NoFeatureConfig>> BADLANDS_VILLAGE = addToStructureMaps("village_badlands", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "village/badlands/town_centers"), 10, 0, 1, 0, new HashSet<>(), 20, 2)));
 	public static final RegistryObject<Structure<NoFeatureConfig>> BIRCH_VILLAGE = addToStructureMaps("village_birch", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "village/birch/town_centers"), 6, 0, 1, 0, new HashSet<>())));
 	public static final RegistryObject<Structure<NoFeatureConfig>> DARK_FOREST_VILLAGE = addToStructureMaps("village_dark_oak", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "village/dark_forest/town_centers"), 6, 0, 1, 0, new HashSet<>())));
 	public static final RegistryObject<Structure<NoFeatureConfig>> JUNGLE_VILLAGE = addToStructureMaps("village_jungle", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "village/jungle/town_centers"), 8, 0, 1, 0, new HashSet<>())));
