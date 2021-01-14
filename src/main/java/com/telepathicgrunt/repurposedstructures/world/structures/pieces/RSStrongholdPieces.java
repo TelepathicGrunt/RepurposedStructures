@@ -638,7 +638,12 @@ public class RSStrongholdPieces {
             RSStrongholdPieces.Stones randomStrongholdBlocks = new RSStrongholdPieces.Stones(this.strongholdType);
             this.fillWithOutline(world, structureBoundingBoxIn, 0, 0, 0, 13, i - 1, 14, false, random, randomStrongholdBlocks);
             this.placeDoor(world, random, structureBoundingBoxIn, this.entryDoor, 4, 1, 0);
-            this.fillWithOutlineUnderSeaLevel(world, structureBoundingBoxIn, random, 0.07F, 2, 1, 1, 11, 4, 13, Blocks.COBWEB.getDefaultState(), Blocks.COBWEB.getDefaultState(), false, false);
+            if (this.strongholdType == Type.NORMAL) {
+                this.fillWithOutlineUnderSeaLevel(world, structureBoundingBoxIn, random, 0.07F, 2, 1, 1, 11, 4, 13, Blocks.COBWEB.getDefaultState(), Blocks.COBWEB.getDefaultState(), false, false);
+            }
+            else if (this.strongholdType == Type.NETHER) {
+                this.fillWithOutlineUnderSeaLevel(world, structureBoundingBoxIn, random, 0.04F, 2, 1, 1, 11, 1, 13, Blocks.FIRE.getDefaultState(), Blocks.FIRE.getDefaultState(), false, false);
+            }
 
 
             for (int l = 1; l <= 13; ++l) {
