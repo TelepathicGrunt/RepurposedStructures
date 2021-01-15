@@ -19,6 +19,11 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Changed some blocks for the cages in badlands, Desert, Icy, and Snowy Outposts.  
 
 ##### Strongholds:
+- Strongholds now will fit much better between the min and max y set in the config. 
+  Rooms too low or too high will now be deleted (though the Portal Room will never be deleted).
+  As a result, you may find a few rooms or hallways cutoff from the rest of the stronghold but that was
+  a sacrifice I was willing to make to fix Strongholds sometimes spawning way aboveground than they should.
+  
 - Nether Strongholds no longer has Cobwebs in libraries and instead, may have fire.
 
 ##### Villages:

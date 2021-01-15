@@ -98,29 +98,7 @@ public class RSNetherStrongholdStructure extends StrongholdFeature {
             int maxYConfig = RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdMaxHeight;
             int minYConfig = RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdMinHeight;
 
-
-            int minimum = minYConfig;
-            int maximum = Math.max(maxYConfig, minimum) + 1;
-
-            // Sets stronghold's bottom most y to a random range between min and max y config.
-            int offset = this.random.nextInt(maximum - minimum) + minimum;
-            int offset2 = 0;
-
-            //apply first offset to be able to do some calculations in next few lines
-            this.boundingBox.move(0, offset - lowestBounds, 0);
-
-            // If the stronghold's max y is over the config's max y, lower the stronghold as
-            // much as possible without hitting bedrock.
-            if (this.boundingBox.maxY > maxYConfig) {
-                int heightDiff = maxYConfig - this.boundingBox.maxY;
-                offset2 = this.boundingBox.minY + heightDiff < 2 ? 2 - this.boundingBox.minY : heightDiff;
-            }
-
-            // Apply the final offsets
-            this.boundingBox.move(0, offset2, 0);
-            for (StructurePiece structurepiece : this.children) {
-                structurepiece.translate(0, offset + offset2 - lowestBounds, 0);
-            }
+            RSStonebrickStrongholdStructure.offsetStronghold(lowestBounds, maxYConfig, minYConfig, this.random, this.children, this.boundingBox, strongholdpieces$entrancestairs.strongholdPortalRoom);
         }
     }
 }
