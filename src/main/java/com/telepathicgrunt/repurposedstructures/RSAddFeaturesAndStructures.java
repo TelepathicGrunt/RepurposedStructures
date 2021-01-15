@@ -5,6 +5,7 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredFeatures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
+import it.unimi.dsi.fastutil.objects.Reference2ObjectOpenHashMap;
 import net.fabricmc.fabric.api.biome.v1.BiomeModificationContext;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
@@ -52,7 +53,16 @@ public class RSAddFeaturesAndStructures {
             }
             else {
                 // make absolutely sure dimension can spawn RS structures
-                RSStructures.RS_STRUCTURES.forEach(tempMap::putIfAbsent);
+                Map<StructureFeature<?>, StructureConfig> spacingToAdd = new Reference2ObjectOpenHashMap<>();
+                spacingToAdd.putAll(RSStructures.RS_STRUCTURES);
+
+                // Do not spawn strongholds in end.
+                if(serverWorld.getRegistryKey().equals(World.END)){
+                    spacingToAdd.remove(RSStructures.STONEBRICK_STRONGHOLD);
+                    spacingToAdd.remove(RSStructures.NETHER_STRONGHOLD);
+                }
+
+                spacingToAdd.forEach(tempMap::putIfAbsent);
             }
 
             ((StructuresConfigAccessor) serverWorld.getChunkManager().getChunkGenerator().getStructuresConfig()).rs_setStructures(tempMap);

@@ -26,6 +26,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
   
 - Nether Strongholds no longer has Cobwebs in libraries and instead, may have fire.
 
+- Strongholds will now not spawn in the End Dimension even when you add non-End category biomes to the dimension. With a datapack, you can
+  add the RS stronghold spacing to the End Noise Setting and to the End category biomes to force the Stronghold to spawn in that dimension.
+
 ##### Villages:
 - Badlands Villages now can spawn in non-plateau Badlands with a terrain check to try and keep them from generating on plateau walls.
 
