@@ -44,6 +44,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Mountain Villages farms now have waterlogged Cobblestone Slab instead of Water Blocks to prevent them from turning into ice when too cold.
 
+- Removed extra space at the end of addNetherStrongholdToModdedBiomes config name. (Will cause config to default back to true unless changed again)
+
 ##### Wells:
 - Fixed crash if the wells nbt file ever somehow goes missing.
 
@@ -58,8 +60,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Grassy Igloos basements now use Oak blocks instead of Spruce.
 
-##### Strongholds:
-- Removed extra space at the end of addNetherStrongholdToModdedBiomes config name. (Will cause config to default back to true unless changed again)
+##### Fortresses:
+- Added Drowned to Jungle Fortresses possible mob spawns to help populate the water filled hallways below sealevel.
 
 ##### Backend:
 - Structure spacing for RS structures set by JSON will now no longer be overwritten. 
