@@ -5,6 +5,7 @@ import com.mojang.serialization.JsonOps;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredFeatures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
+import it.unimi.dsi.fastutil.objects.Reference2ObjectOpenHashMap;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
@@ -54,7 +55,16 @@ public class RSAddFeaturesAndStructures {
             }
             else{
                 // make absolutely sure dimension can spawn RS structures
-                RSStructures.RS_STRUCTURES.forEach(tempMap::putIfAbsent);
+                Map<Structure<?>, StructureSeparationSettings> spacingToAdd = new Reference2ObjectOpenHashMap<>();
+                spacingToAdd.putAll(RSStructures.RS_STRUCTURES);
+
+                // Do not spawn strongholds in end.
+                if(serverWorld.getRegistryKey().equals(World.END)){
+                    spacingToAdd.remove(RSStructures.STONEBRICK_STRONGHOLD.get());
+                    spacingToAdd.remove(RSStructures.NETHER_STRONGHOLD.get());
+                }
+
+                spacingToAdd.forEach(tempMap::putIfAbsent);
             }
             serverWorld.getChunkProvider().generator.getStructuresConfig().structures = tempMap;
 
