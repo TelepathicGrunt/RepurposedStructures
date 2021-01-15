@@ -56,6 +56,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Grassy Igloos basements now use Oak blocks instead of Spruce.
 
+##### Fortresses:
+- Added Drowned to Jungle Fortresses possible mob spawns to help populate the water filled hallways below sealevel.
+
 ##### Backend:
 - Structure spacing for RS structures set by JSON will now no longer be overwritten. 
   With datapacks, you can make RS structures now spawn more or less frequently as a result.

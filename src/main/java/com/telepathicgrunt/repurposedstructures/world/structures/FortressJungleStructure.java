@@ -46,7 +46,10 @@ public class FortressJungleStructure extends AbstractBaseStructure {
     }
 
     private static final List<SpawnSettings.SpawnEntry> MONSTER_SPAWNS =
-            Lists.newArrayList(new SpawnSettings.SpawnEntry(EntityType.WITHER_SKELETON, 27, 1, 1));
+            Lists.newArrayList(
+                    new SpawnSettings.SpawnEntry(EntityType.WITHER_SKELETON, 27, 1, 1),
+                    new SpawnSettings.SpawnEntry(EntityType.DROWNED, 27, 1, 4)
+            );
 
     @Override
     public List<SpawnSettings.SpawnEntry> getMonsterSpawns() {
