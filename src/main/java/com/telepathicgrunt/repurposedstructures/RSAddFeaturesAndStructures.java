@@ -5,6 +5,7 @@ import com.mojang.serialization.JsonOps;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredFeatures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
+import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
 import it.unimi.dsi.fastutil.objects.Reference2ObjectOpenHashMap;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
@@ -103,8 +104,8 @@ public class RSAddFeaturesAndStructures {
     // and their conditions to see if they should be added to the biome
     private static boolean attemptToAddMineshaft(BiomeLoadingEvent event, StructureFeature<?,?> configuredStructureFeature, Predicate<BiomeLoadingEvent> predicate){
         if (predicate.test(event) &&
-                (event.getName().getNamespace().equals("minecraft") ||
-                        RepurposedStructures.RSMineshaftsConfig.addMineshaftsToModdedBiomes.get()))
+            (BiomeSelection.hasNamespace(event, "minecraft") ||
+            RepurposedStructures.RSMineshaftsConfig.addMineshaftsToModdedBiomes.get()))
         {
             // replace vanilla mineshaft with our own (only removes vanilla mineshaft if it exists)
             // Do not remove when yungs is on. They need the mineshaft to replace it.
@@ -124,60 +125,75 @@ public class RSAddFeaturesAndStructures {
 
     public static void addDungeons(BiomeLoadingEvent event) {
 
-        if (RepurposedStructures.RSDungeonsConfig.jungleDungeonAttemptsPerChunk.get() != 0 &&
-                event.getCategory() == Category.JUNGLE && dungeonAllowedByNamespaceAndConfig(event.getName())) {
-
+        if (BiomeSelection.haveCategories(event, Category.JUNGLE) &&
+                RepurposedStructures.RSDungeonsConfig.jungleDungeonAttemptsPerChunk.get() != 0 &&
+                dungeonAllowedByNamespaceAndConfig(event))
+        {
             replaceOrAddDungeon(true, event, RSConfiguredFeatures.JUNGLE_DUNGEONS);
         }
-        else if (RepurposedStructures.RSDungeonsConfig.badlandsDungeonAttemptsPerChunk.get() != 0 &&
-                event.getCategory() == Category.MESA && dungeonAllowedByNamespaceAndConfig(event.getName())) {
-
+        
+        else if (BiomeSelection.haveCategories(event, Category.MESA) &&
+                RepurposedStructures.RSDungeonsConfig.badlandsDungeonAttemptsPerChunk.get() != 0 &&
+                dungeonAllowedByNamespaceAndConfig(event))
+        {
             replaceOrAddDungeon(true, event, RSConfiguredFeatures.BADLANDS_DUNGEONS);
         }
-        else if (RepurposedStructures.RSDungeonsConfig.darkForestDungeonAttemptsPerChunk.get() != 0 &&
-                (event.getCategory() == Category.FOREST &&
-                    (event.getName().getPath().contains("dark") || event.getName().getPath().contains("spooky") ||
-                    event.getName().getPath().contains("dead") || event.getName().getPath().contains("haunted"))) &&
-                dungeonAllowedByNamespaceAndConfig(event.getName())) {
-
+        
+        else if (BiomeSelection.haveCategories(event, Category.FOREST) &&
+                BiomeSelection.hasName(event, "dark", "spooky", "dead", "haunted") &&
+                RepurposedStructures.RSDungeonsConfig.darkForestDungeonAttemptsPerChunk.get() != 0 &&
+                dungeonAllowedByNamespaceAndConfig(event))
+        {
             replaceOrAddDungeon(true, event, RSConfiguredFeatures.DARK_FOREST_DUNGEONS);
         }
-        else if (RepurposedStructures.RSDungeonsConfig.desertDungeonAttemptsPerChunk.get() != 0 &&
-                event.getCategory() == Category.DESERT && dungeonAllowedByNamespaceAndConfig(event.getName())) {
-
+        
+        else if (BiomeSelection.haveCategories(event, Category.DESERT) &&
+                RepurposedStructures.RSDungeonsConfig.desertDungeonAttemptsPerChunk.get() != 0 &&
+                dungeonAllowedByNamespaceAndConfig(event))
+        {
             replaceOrAddDungeon(true, event, RSConfiguredFeatures.DESERT_DUNGEONS);
         }
-        else if (RepurposedStructures.RSDungeonsConfig.mushroomDungeonAttemptsPerChunk.get() != 0 &&
-                event.getCategory() == Category.MUSHROOM && dungeonAllowedByNamespaceAndConfig(event.getName())) {
-
+        
+        else if (BiomeSelection.haveCategories(event, Category.MUSHROOM) &&
+                RepurposedStructures.RSDungeonsConfig.mushroomDungeonAttemptsPerChunk.get() != 0 &&
+                dungeonAllowedByNamespaceAndConfig(event))
+        {
             replaceOrAddDungeon(true, event, RSConfiguredFeatures.MUSHROOM_DUNGEONS);
         }
-        else if (RepurposedStructures.RSDungeonsConfig.swampDungeonAttemptsPerChunk.get() != 0 &&
-                event.getCategory() == Category.SWAMP && dungeonAllowedByNamespaceAndConfig(event.getName())) {
-
+        
+        else if (BiomeSelection.haveCategories(event, Category.SWAMP) &&
+                RepurposedStructures.RSDungeonsConfig.swampDungeonAttemptsPerChunk.get() != 0 &&
+                dungeonAllowedByNamespaceAndConfig(event)) 
+        {
             replaceOrAddDungeon(true, event, RSConfiguredFeatures.SWAMP_DUNGEONS);
         }
-        else if (RepurposedStructures.RSDungeonsConfig.snowDungeonAttemptsPerChunk.get() != 0 &&
-                event.getCategory() == Category.ICY && dungeonAllowedByNamespaceAndConfig(event.getName())) {
-
+        
+        else if (BiomeSelection.haveCategories(event, Category.ICY) &&
+                RepurposedStructures.RSDungeonsConfig.snowDungeonAttemptsPerChunk.get() != 0 &&
+                dungeonAllowedByNamespaceAndConfig(event)) 
+        {
             replaceOrAddDungeon(true, event, RSConfiguredFeatures.SNOW_DUNGEONS);
         }
-        else if (RepurposedStructures.RSDungeonsConfig.netherDungeonAttemptsPerChunk.get() != 0 &&
-                event.getCategory() == Category.NETHER && dungeonAllowedByNamespaceAndConfig(event.getName())) {
-
+        
+        else if (BiomeSelection.haveCategories(event, Category.NETHER) &&
+                RepurposedStructures.RSDungeonsConfig.netherDungeonAttemptsPerChunk.get() != 0 &&
+                dungeonAllowedByNamespaceAndConfig(event)) 
+        {
             replaceOrAddDungeon(false, event, RSConfiguredFeatures.NETHER_DUNGEONS);
         }
+        
         else if (RepurposedStructures.RSDungeonsConfig.endDungeonAttemptsPerChunk.get() != 0 &&
-                (event.getCategory() == Category.THEEND &&
-                        !event.getName().equals(Biomes.THE_END.getValue()) &&
-                        !event.getName().equals(Biomes.SMALL_END_ISLANDS.getValue())) &&
-                dungeonAllowedByNamespaceAndConfig(event.getName())) {
-
+                BiomeSelection.haveCategories(event, Category.THEEND) &&
+                !BiomeSelection.isBiome(event, Biomes.THE_END, Biomes.SMALL_END_ISLANDS) &&
+                dungeonAllowedByNamespaceAndConfig(event)) 
+        {
             replaceOrAddDungeon(false, event, RSConfiguredFeatures.END_DUNGEONS);
         }
-        else if (RepurposedStructures.RSDungeonsConfig.oceanDungeonAttemptsPerChunk.get() != 0 &&
-                event.getCategory() == Category.OCEAN && dungeonAllowedByNamespaceAndConfig(event.getName())) {
-
+        
+        else if (BiomeSelection.haveCategories(event, Category.OCEAN) &&
+                RepurposedStructures.RSDungeonsConfig.oceanDungeonAttemptsPerChunk.get() != 0 &&
+                dungeonAllowedByNamespaceAndConfig(event)) 
+        {
             replaceOrAddDungeon(false, event, RSConfiguredFeatures.OCEAN_DUNGEONS);
         }
     }
@@ -201,8 +217,8 @@ public class RSAddFeaturesAndStructures {
     /**
      * Will check if the dungeon is allowed in modded biomes based on config but will always return true for vanilla biomes.
      */
-    private static boolean dungeonAllowedByNamespaceAndConfig(ResourceLocation biomeID) {
-        return biomeID.getNamespace().equals("minecraft") || RepurposedStructures.RSDungeonsConfig.addDungeonsToModdedBiomes.get();
+    private static boolean dungeonAllowedByNamespaceAndConfig(BiomeLoadingEvent event) {
+        return BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSDungeonsConfig.addDungeonsToModdedBiomes.get();
     }
 
 
@@ -211,41 +227,43 @@ public class RSAddFeaturesAndStructures {
 
     public static void addWells(BiomeLoadingEvent event) {
 
-        if (RepurposedStructures.RSWellsConfig.badlandsWellRarityPerChunk.get() != 10000 &&
-                event.getCategory() == Category.MESA && wellAllowedByNamespaceAndConfig(event.getName())) {
-
+        if (BiomeSelection.haveCategories(event, Category.MESA) &&
+            RepurposedStructures.RSWellsConfig.badlandsWellRarityPerChunk.get() != 10000 &&
+            wellAllowedByNamespaceAndConfig(event))
+        {
             event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES)
                     .add(() -> RSConfiguredFeatures.BADLANDS_WELL);
         }
-        else if (RepurposedStructures.RSWellsConfig.netherWellRarityPerChunk.get() != 10000 &&
-                event.getCategory() == Category.NETHER && wellAllowedByNamespaceAndConfig(event.getName())) {
+        
+        else if (BiomeSelection.haveCategories(event, Category.NETHER) &&
+                RepurposedStructures.RSWellsConfig.netherWellRarityPerChunk.get() != 10000 &&
+                wellAllowedByNamespaceAndConfig(event)) {
 
             event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES)
                     .add(() -> RSConfiguredFeatures.NETHER_WELL);
         }
-        else if (RepurposedStructures.RSWellsConfig.snowWellRarityPerChunk.get() != 10000 &&
-                (event.getCategory() == Category.ICY || event.getName().getPath().contains("snow")) &&
-                wellAllowedByNamespaceAndConfig(event.getName())) {
 
+        else if ((BiomeSelection.haveCategories(event, Category.ICY) || BiomeSelection.hasName(event, "snow")) &&
+                RepurposedStructures.RSWellsConfig.snowWellRarityPerChunk.get() != 10000 &&
+                wellAllowedByNamespaceAndConfig(event))
+        {
             event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES)
                     .add(() -> RSConfiguredFeatures.SNOW_WELL);
         }
-        else if (RepurposedStructures.RSWellsConfig.mossyStoneWellRarityPerChunk.get() != 10000 &&
-                (event.getCategory() == Category.SWAMP ||
-                event.getCategory() == Category.JUNGLE ||
-                (event.getCategory() == Category.FOREST &&
-                    (event.getName().getPath().contains("dark") || event.getName().getPath().contains("spooky") ||
-                    event.getName().getPath().contains("dead") || event.getName().getPath().contains("haunted")))) &&
-                wellAllowedByNamespaceAndConfig(event.getName())) {
 
+        else if ((BiomeSelection.haveCategories(event, Category.SWAMP, Category.JUNGLE) ||
+                (BiomeSelection.haveCategories(event, Category.FOREST) && BiomeSelection.hasName(event, "dark", "spooky", "dead", "haunted"))) &&
+                RepurposedStructures.RSWellsConfig.mossyStoneWellRarityPerChunk.get() != 10000 &&
+                wellAllowedByNamespaceAndConfig(event))
+        {
             event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES)
                     .add(() -> RSConfiguredFeatures.MOSSY_STONE_WELL);
         }
-        else if (RepurposedStructures.RSWellsConfig.forestWellRarityPerChunk.get() != 10000 &&
-                (event.getCategory() == Category.FOREST &&
-                        !(event.getName().getPath().contains("dark") || event.getName().getPath().contains("spooky") ||
-                        event.getName().getPath().contains("dead") || event.getName().getPath().contains("haunted"))) &&
-                wellAllowedByNamespaceAndConfig(event.getName())) {
+
+        else if (BiomeSelection.haveCategories(event, Category.FOREST) && !(BiomeSelection.hasName(event, "dark", "spooky", "dead", "haunted")) &&
+                RepurposedStructures.RSWellsConfig.forestWellRarityPerChunk.get() != 10000 &&
+                wellAllowedByNamespaceAndConfig(event))
+        {
 
             event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES)
                     .add(() -> RSConfiguredFeatures.FOREST_WELL);
@@ -253,8 +271,8 @@ public class RSAddFeaturesAndStructures {
     }
 
 
-    private static boolean wellAllowedByNamespaceAndConfig(ResourceLocation biomeID) {
-        return biomeID.getNamespace().equals("minecraft") || RepurposedStructures.RSWellsConfig.addWellsToModdedBiomes.get();
+    private static boolean wellAllowedByNamespaceAndConfig(BiomeLoadingEvent event) {
+        return BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSWellsConfig.addWellsToModdedBiomes.get();
     }
 
 
@@ -265,20 +283,18 @@ public class RSAddFeaturesAndStructures {
 
         // Exists in vanilla Swamp and can be in modded swamp biomes
         if (RepurposedStructures.RSMainConfig.hornedSwampTree.get() &&
-                (event.getName().equals(Biomes.SWAMP.getValue()) ||
-                (RepurposedStructures.RSMainConfig.addLargeSwampTreeModdedBiomes.get() &&
-                        event.getCategory() == Category.SWAMP &&
-                        !event.getName().getNamespace().equals("ultra_amplified_dimension") &&
-                        !event.getName().getNamespace().equals("minecraft")))){
-
+            (BiomeSelection.isBiome(event, Biomes.SWAMP) ||
+            (RepurposedStructures.RSMainConfig.addLargeSwampTreeModdedBiomes.get() &&
+                !BiomeSelection.hasNamespace(event, "minecraft") &&
+                BiomeSelection.haveCategories(event, Category.SWAMP))))
+        {
             event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION)
                     .add(() -> RSConfiguredFeatures.HORNED_SWAMP_TREE_UNCOMMON);
         }
 
         // Only exists in vanilla Swamp Hills biomes
-        else if (RepurposedStructures.RSMainConfig.hornedSwampTree.get() &&
-                (event.getName().equals(Biomes.SWAMP_HILLS.getValue()))) {
-
+        else if (RepurposedStructures.RSMainConfig.hornedSwampTree.get() && BiomeSelection.isBiome(event, Biomes.SWAMP_HILLS)) 
+        {
             // replace the swamp tree with our own
             event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION)
                     .removeIf(configuredFeature -> configuredFeature.get().config instanceof DecoratedFeatureConfig &&
@@ -294,11 +310,14 @@ public class RSAddFeaturesAndStructures {
 
     public static void addBoulderFeatures(BiomeLoadingEvent event) {
 
-        if (RepurposedStructures.RSMainConfig.boulderGiant.get() && !event.getName().getNamespace().equals("ultra_amplified_dimension") &&
-                ((event.getName().equals(Biomes.GIANT_SPRUCE_TAIGA_HILLS.getValue()) || event.getName().equals(Biomes.GIANT_TREE_TAIGA_HILLS.getValue())) ||
-                        (RepurposedStructures.RSMainConfig.addGiantBouldersModdedBiomes.get() && !event.getName().getNamespace().equals("minecraft") &&
-                                ((event.getName().getPath().contains("giant") && event.getName().getPath().contains("taiga")) || event.getName().getPath().contains("redwood"))))) {
-
+        if (RepurposedStructures.RSMainConfig.boulderGiant.get() && 
+            !BiomeSelection.hasNamespace(event, "ultra_amplified_dimension") &&
+            (BiomeSelection.isBiome(event, Biomes.GIANT_SPRUCE_TAIGA_HILLS, Biomes.GIANT_TREE_TAIGA_HILLS) ||
+                (RepurposedStructures.RSMainConfig.addGiantBouldersModdedBiomes.get() && 
+                    !BiomeSelection.hasNamespace(event, "minecraft") &&
+                    BiomeSelection.haveCategories(event, Category.TAIGA) && 
+                    BiomeSelection.hasName(event, "giant", "redwood")))) 
+        {
             // replace the boulders with our own
             event.getGeneration().getFeatures(GenerationStage.Decoration.LOCAL_MODIFICATIONS)
                     .removeIf(configuredFeature -> configuredFeature.get().config instanceof DecoratedFeatureConfig &&
@@ -307,11 +326,15 @@ public class RSAddFeaturesAndStructures {
             event.getGeneration().getFeatures(GenerationStage.Decoration.LOCAL_MODIFICATIONS)
                     .add(() -> RSConfiguredFeatures.BOULDER_GIANT);
         }
-        else if (RepurposedStructures.RSMainConfig.boulderTiny.get() && !event.getName().getNamespace().equals("ultra_amplified_dimension") &&
-                ((event.getName().equals(Biomes.SNOWY_TAIGA_MOUNTAINS.getValue()) || event.getName().equals(Biomes.TAIGA_MOUNTAINS.getValue())) ||
-                        (RepurposedStructures.RSMainConfig.addTinyBouldersModdedBiomes.get() && !event.getName().getNamespace().equals("minecraft") &&
-                                event.getName().getPath().contains("taiga") && (event.getName().getPath().contains("mountain") || event.getName().getPath().contains("hill"))))) {
-
+        
+        else if (RepurposedStructures.RSMainConfig.boulderTiny.get() && 
+                !BiomeSelection.hasNamespace(event, "ultra_amplified_dimension") &&
+                (BiomeSelection.isBiome(event, Biomes.SNOWY_TAIGA_MOUNTAINS, Biomes.TAIGA_MOUNTAINS) ||
+                    (RepurposedStructures.RSMainConfig.addTinyBouldersModdedBiomes.get() && 
+                        !BiomeSelection.hasNamespace(event, "minecraft") &&
+                        BiomeSelection.haveCategories(event, Category.TAIGA) && 
+                        BiomeSelection.hasName(event, "mountain", "hill"))))
+        {
             event.getGeneration().getFeatures(GenerationStage.Decoration.LOCAL_MODIFICATIONS)
                     .add(() -> RSConfiguredFeatures.BOULDER_TINY);
         }
@@ -323,14 +346,13 @@ public class RSAddFeaturesAndStructures {
     public static void addStrongholds(BiomeLoadingEvent event) {
 
         if (RepurposedStructures.RSStrongholdsConfig.stonebrickStrongholdMaxChunkDistance.get() != 1001 &&
-            event.getCategory() != Category.NETHER && event.getCategory() != Category.THEEND &&
-                ((RepurposedStructures.RSStrongholdsConfig.allowStonebrickStrongholdToVanillaBiomes.get() &&
-                    event.getName().getNamespace().equals("minecraft") &&
-                    event.getGeneration().getStructures().stream().anyMatch(structureFeatureSupplier -> structureFeatureSupplier.get().feature.equals(Structure.STRONGHOLD))) ||
-                (RepurposedStructures.RSStrongholdsConfig.addStonebrickStrongholdToModdedBiomes.get() &&
-                    !event.getName().getNamespace().equals("minecraft"))))
+            !BiomeSelection.haveCategories(event, Category.NETHER, Category.THEEND) &&
+            ((RepurposedStructures.RSStrongholdsConfig.allowStonebrickStrongholdToVanillaBiomes.get() &&
+                BiomeSelection.hasNamespace(event, "minecraft") &&
+                BiomeSelection.hasStructure(event, Structure.STRONGHOLD)) ||
+            (RepurposedStructures.RSStrongholdsConfig.addStonebrickStrongholdToModdedBiomes.get() &&
+                !BiomeSelection.hasNamespace(event, "minecraft"))))
         {
-
             //replace vanilla stronghold with ours if vanilla's is present
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.STONEBRICK_STRONGHOLD);
 
@@ -340,9 +362,11 @@ public class RSAddFeaturesAndStructures {
             event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.STRONGHOLD));
         }
 
-        else if (RepurposedStructures.RSStrongholdsConfig.netherStrongholdMaxChunkDistance.get() != 1001 && event.getCategory() == Category.NETHER &&
-                (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSStrongholdsConfig.addNetherStrongholdToModdedBiomes.get())) {
-
+        else if (RepurposedStructures.RSStrongholdsConfig.netherStrongholdMaxChunkDistance.get() != 1001 &&
+                BiomeSelection.haveCategories(event, Category.NETHER) &&
+                (BiomeSelection.hasNamespace(event, "minecraft") ||
+                    RepurposedStructures.RSStrongholdsConfig.addNetherStrongholdToModdedBiomes.get()))
+        {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_STRONGHOLD);
 
             event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION)
@@ -357,75 +381,82 @@ public class RSAddFeaturesAndStructures {
     public static void addOutposts(BiomeLoadingEvent event) {
 
         //Nether based Outposts
-        if(event.getCategory() == Category.NETHER)
+        if(BiomeSelection.haveCategories(event, Category.NETHER))
         {
-            if (RepurposedStructures.RSOutpostsConfig.crimsonOutpostMaxChunkDistance.get() != 1001 &&
-                    (event.getName().getPath().contains("crimson") || event.getName().getPath().contains("red_")) &&
-                    (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSOutpostsConfig.addCrimsonOutpostToModdedBiomes.get())) {
+            if (BiomeSelection.hasName(event, "crimson", "red_") &&
+                RepurposedStructures.RSOutpostsConfig.crimsonOutpostMaxChunkDistance.get() != 1001 &&
+                (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSOutpostsConfig.addCrimsonOutpostToModdedBiomes.get()))
+            {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.CRIMSON_OUTPOST);
             }
-            else if (RepurposedStructures.RSOutpostsConfig.warpedOutpostMaxChunkDistance.get() != 1001 &&
-                    (event.getName().getPath().contains("warped") || event.getName().getPath().contains("blue")) &&
-                    (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSOutpostsConfig.addWarpedOutpostToModdedBiomes.get())) {
+
+            else if (BiomeSelection.hasName(event, "warped", "blue") &&
+                    RepurposedStructures.RSOutpostsConfig.warpedOutpostMaxChunkDistance.get() != 1001 &&
+                    (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSOutpostsConfig.addWarpedOutpostToModdedBiomes.get()))
+            {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.WARPED_OUTPOST);
             }
+
             else if (RepurposedStructures.RSOutpostsConfig.netherBrickOutpostMaxChunkDistance.get() != 1001 &&
-                    (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSOutpostsConfig.addNetherBrickOutpostToModdedBiomes.get())) {
+                    (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSOutpostsConfig.addNetherBrickOutpostToModdedBiomes.get()))
+            {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_BRICK_OUTPOST);
             }
         }
         else{
-            if (RepurposedStructures.RSOutpostsConfig.outpostBirchMaxChunkDistance.get() != 1001 &&
-                event.getName().getPath().contains("birch") &&
-                    (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSOutpostsConfig.addOutpostBirchToModdedBiomes.get())) {
+            if (BiomeSelection.hasName(event, "birch") &&
+                RepurposedStructures.RSOutpostsConfig.outpostBirchMaxChunkDistance.get() != 1001 &&
+                (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSOutpostsConfig.addOutpostBirchToModdedBiomes.get()))
+            {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_BIRCH);
                 event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.PILLAGER_OUTPOST));
             }
 
-            else if (RepurposedStructures.RSOutpostsConfig.outpostJungleMaxChunkDistance.get() != 1001 &&
-                event.getCategory() == Category.JUNGLE &&
-                    (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSOutpostsConfig.addOutpostJungleToModdedBiomes.get())) {
+            else if (BiomeSelection.haveCategories(event, Category.JUNGLE) &&
+                    RepurposedStructures.RSOutpostsConfig.outpostJungleMaxChunkDistance.get() != 1001 &&
+                    (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSOutpostsConfig.addOutpostJungleToModdedBiomes.get()))
+            {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_JUNGLE);
                 event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.PILLAGER_OUTPOST));
             }
 
-            else if (RepurposedStructures.RSOutpostsConfig.outpostGiantTreeTaigaMaxChunkDistance.get() != 1001 &&
-                (event.getCategory() == Category.TAIGA &&
-                    (event.getName().getPath().contains("giant") || event.getName().getPath().contains("redwood"))) &&
-                    (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSOutpostsConfig.addOutpostGiantTreeTaigaToModdedBiomes.get())) {
+            else if (BiomeSelection.haveCategories(event, Category.TAIGA) && BiomeSelection.hasName(event, "giant", "redwood") &&
+                    RepurposedStructures.RSOutpostsConfig.outpostGiantTreeTaigaMaxChunkDistance.get() != 1001 &&
+                    (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSOutpostsConfig.addOutpostGiantTreeTaigaToModdedBiomes.get()))
+            {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_GIANT_TREE_TAIGA);
                 event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.PILLAGER_OUTPOST));
             }
 
-            else if (RepurposedStructures.RSOutpostsConfig.outpostDesertMaxChunkDistance.get() != 1001 &&
-                event.getCategory() == Category.DESERT &&
-                    (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSOutpostsConfig.addOutpostDesertToModdedBiomes.get())) {
+            else if (BiomeSelection.haveCategories(event, Category.DESERT) &&
+                    RepurposedStructures.RSOutpostsConfig.outpostDesertMaxChunkDistance.get() != 1001 &&
+                    (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSOutpostsConfig.addOutpostDesertToModdedBiomes.get()))
+            {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_DESERT);
                 event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.PILLAGER_OUTPOST));
             }
 
-            else if (RepurposedStructures.RSOutpostsConfig.outpostBadlandsMaxChunkDistance.get() != 1001 &&
-                (event.getCategory() == Category.MESA && !event.getName().getPath().contains("plateau")) &&
-                    (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSOutpostsConfig.addOutpostBadlandsToModdedBiomes.get())) {
+            else if (BiomeSelection.haveCategories(event, Category.MESA) && !BiomeSelection.hasName(event, "plateau") &&
+                    RepurposedStructures.RSOutpostsConfig.outpostBadlandsMaxChunkDistance.get() != 1001 &&
+                    (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSOutpostsConfig.addOutpostBadlandsToModdedBiomes.get()))
+            {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_BADLANDS);
                 event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.PILLAGER_OUTPOST));
             }
 
-            else if (RepurposedStructures.RSOutpostsConfig.outpostSnowyMaxChunkDistance.get() != 1001 &&
-                (event.getName().getPath().contains("snow") ||
-                    (event.getCategory() == Category.ICY &&
-                            !(event.getName().getPath().contains("ice") || event.getName().getPath().contains("icy") ||
-                            event.getName().getPath().contains("glacier") || event.getName().getPath().contains("frozen")))) &&
-                    (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSOutpostsConfig.addOutpostSnowyToModdedBiomes.get())) {
+            else if ((BiomeSelection.hasName(event, "snow") ||
+                        (BiomeSelection.haveCategories(event, Category.ICY) && !BiomeSelection.hasName(event, "ice", "icy", "glacier", "frozen"))) &&
+                    RepurposedStructures.RSOutpostsConfig.outpostSnowyMaxChunkDistance.get() != 1001 &&
+                    (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSOutpostsConfig.addOutpostSnowyToModdedBiomes.get()))
+            {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_SNOWY);
                 event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.PILLAGER_OUTPOST));
             }
 
-            else if (RepurposedStructures.RSOutpostsConfig.outpostIcyMaxChunkDistance.get() != 1001 &&
-                (event.getCategory() == Category.ICY &&
-                        (event.getName().getPath().contains("ice") || event.getName().getPath().contains("icy") ||
-                        event.getName().getPath().contains("glacier") || event.getName().getPath().contains("frozen"))) &&
-                    (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSOutpostsConfig.addOutpostIcyToModdedBiomes.get())) {
+            else if (BiomeSelection.haveCategories(event, Category.ICY) && BiomeSelection.hasName(event, "ice", "icy", "glacier", "frozen") &&
+                    RepurposedStructures.RSOutpostsConfig.outpostIcyMaxChunkDistance.get() != 1001 &&
+                    (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSOutpostsConfig.addOutpostIcyToModdedBiomes.get()))
+            {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_ICY);
                 event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.PILLAGER_OUTPOST));
             }
@@ -439,33 +470,34 @@ public class RSAddFeaturesAndStructures {
     public static void addShipwrecks(BiomeLoadingEvent event) {
 
         if (RepurposedStructures.RSShipwrecksConfig.endShipwreckMaxChunkDistance.get() != 1001 &&
-                (event.getName().equals(Biomes.END_MIDLANDS.getValue()) ||
-                (!event.getName().getNamespace().equals("minecraft") && event.getCategory() == Category.THEEND &&
-                RepurposedStructures.RSShipwrecksConfig.addEndShipwreckToModdedBiomes.get()))) {
+            (BiomeSelection.isBiome(event, Biomes.END_MIDLANDS) ||
+                (RepurposedStructures.RSShipwrecksConfig.addEndShipwreckToModdedBiomes.get() &&
+                    !BiomeSelection.hasNamespace(event, "minecraft") &&
+                    BiomeSelection.haveCategories(event, Category.THEEND))))
+        {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.END_SHIPWRECK);
         }
 
-
         //Nether based Shipwrecks
-        if(event.getCategory() == Category.NETHER)
+        if(BiomeSelection.haveCategories(event, Category.NETHER))
         {
-            if (RepurposedStructures.RSShipwrecksConfig.crimsonShipwreckMaxChunkDistance.get() != 1001 &&
-                    (event.getName().getPath().contains("crimson") || event.getName().getPath().contains("red_")) &&
-                    (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSShipwrecksConfig.addCrimsonShipwreckToModdedBiomes.get())) {
-
+            if (BiomeSelection.hasName(event, "crimson", "red_") &&
+                RepurposedStructures.RSShipwrecksConfig.crimsonShipwreckMaxChunkDistance.get() != 1001 &&
+                (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSShipwrecksConfig.addCrimsonShipwreckToModdedBiomes.get()))
+            {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.CRIMSON_SHIPWRECK);
             }
 
-            else if (RepurposedStructures.RSShipwrecksConfig.warpedShipwreckMaxChunkDistance.get() != 1001 &&
-                    (event.getName().getPath().contains("warped") || event.getName().getPath().contains("blue")) &&
-                    (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSShipwrecksConfig.addWarpedShipwreckToModdedBiomes.get())) {
-
+            else if (BiomeSelection.hasName(event, "warped", "blue") &&
+                    RepurposedStructures.RSShipwrecksConfig.warpedShipwreckMaxChunkDistance.get() != 1001 &&
+                    (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSShipwrecksConfig.addWarpedShipwreckToModdedBiomes.get()))
+            {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.WARPED_SHIPWRECK);
             }
 
             else if (RepurposedStructures.RSShipwrecksConfig.netherBricksShipwreckMaxChunkDistance.get() != 1001 &&
-                    (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSShipwrecksConfig.addNetherBricksShipwreckToModdedBiomes.get())) {
-
+                    (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSShipwrecksConfig.addNetherBricksShipwreckToModdedBiomes.get()))
+            {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_BRICKS_SHIPWRECK);
             }
         }
@@ -478,10 +510,12 @@ public class RSAddFeaturesAndStructures {
     public static void addJungleFortress(BiomeLoadingEvent event) {
         if(RepurposedStructures.RSMainConfig.jungleFortressMaxChunkDistance.get() != 1001)
         {
-            if ( event.getCategory() == Category.JUNGLE &&
-                    (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSMainConfig.addJungleFortressToModdedBiomes.get())) {
+            if (BiomeSelection.haveCategories(event, Category.JUNGLE) &&
+                (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSMainConfig.addJungleFortressToModdedBiomes.get()))
+            {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.JUNGLE_FORTRESS);
             }
+
             event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION)
                     .add(() -> RSConfiguredFeatures.JUNGLE_FORTRESS_VINES);
 
@@ -496,31 +530,40 @@ public class RSAddFeaturesAndStructures {
 
     public static void addTemples(BiomeLoadingEvent event) {
 
-        if (RepurposedStructures.RSTemplesConfig.netherBasaltTempleMaxChunkDistance.get() != 1001 &&
-                event.getCategory() == Category.NETHER && (event.getName().getPath().contains("basalt") || event.getName().getPath().contains("blackstone")) &&
-                (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSTemplesConfig.addNetherBasaltTempleToModdedBiomes.get())) {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_BASALT_TEMPLE);
-        }
-        else if (RepurposedStructures.RSTemplesConfig.netherCrimsonTempleMaxChunkDistance.get() != 1001 &&
-                event.getCategory() == Category.NETHER &&
-                (event.getName().getPath().contains("crimson") || event.getName().getPath().contains("red_")) &&
-                (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSTemplesConfig.addNetherCrimsonTempleToModdedBiomes.get())) {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_CRIMSON_TEMPLE);
-        }
-        else if (RepurposedStructures.RSTemplesConfig.netherWarpedTempleMaxChunkDistance.get() != 1001 &&
-                event.getCategory() == Category.NETHER && (event.getName().getPath().contains("warped") || event.getName().getPath().contains("blue")) &&
-                (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSTemplesConfig.addNetherWarpedTempleToModdedBiomes.get())) {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_WARPED_TEMPLE);
-        }
-        else if (RepurposedStructures.RSTemplesConfig.netherSoulTempleMaxChunkDistance.get() != 1001 &&
-                event.getCategory() == Category.NETHER && event.getName().getPath().contains("soul") &&
-                (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSTemplesConfig.addNetherSoulTempleToModdedBiomes.get())) {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_SOUL_TEMPLE);
-        }
-        else if (RepurposedStructures.RSTemplesConfig.netherWastelandTempleMaxChunkDistance.get() != 1001 &&
-                event.getCategory() == Category.NETHER &&
-                (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSTemplesConfig.addNetherWastelandTempleToModdedBiomes.get())) {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_WASTELAND_TEMPLE);
+        if(BiomeSelection.haveCategories(event, Category.NETHER)){
+            if (BiomeSelection.hasName(event, "basalt", "blackstone") &&
+                RepurposedStructures.RSTemplesConfig.netherBasaltTempleMaxChunkDistance.get() != 1001 &&
+                (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSTemplesConfig.addNetherBasaltTempleToModdedBiomes.get()))
+            {
+                event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_BASALT_TEMPLE);
+            }
+
+            else if (BiomeSelection.hasName(event, "crimson", "red_") &&
+                    RepurposedStructures.RSTemplesConfig.netherCrimsonTempleMaxChunkDistance.get() != 1001 &&
+                    (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSTemplesConfig.addNetherCrimsonTempleToModdedBiomes.get()))
+            {
+                event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_CRIMSON_TEMPLE);
+            }
+
+            else if (BiomeSelection.hasName(event, "warped", "blue") &&
+                    RepurposedStructures.RSTemplesConfig.netherWarpedTempleMaxChunkDistance.get() != 1001 &&
+                    (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSTemplesConfig.addNetherWarpedTempleToModdedBiomes.get()))
+            {
+                event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_WARPED_TEMPLE);
+            }
+
+            else if (BiomeSelection.hasName(event, "soul") &&
+                    RepurposedStructures.RSTemplesConfig.netherSoulTempleMaxChunkDistance.get() != 1001 &&
+                    (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSTemplesConfig.addNetherSoulTempleToModdedBiomes.get()))
+            {
+                event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_SOUL_TEMPLE);
+            }
+
+            else if (RepurposedStructures.RSTemplesConfig.netherWastelandTempleMaxChunkDistance.get() != 1001 &&
+                    (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSTemplesConfig.addNetherWastelandTempleToModdedBiomes.get()))
+            {
+                event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_WASTELAND_TEMPLE);
+            }
         }
     }
 
@@ -529,13 +572,17 @@ public class RSAddFeaturesAndStructures {
 
     public static void addPyramids(BiomeLoadingEvent event) {
 
-        if (RepurposedStructures.RSTemplesConfig.netherPyramidMaxChunkDistance.get() != 1001 && event.getCategory() == Category.NETHER &&
-                (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSTemplesConfig.addNetherPyramidToModdedBiomes.get())) {
+        if (BiomeSelection.haveCategories(event, Category.NETHER) &&
+            RepurposedStructures.RSTemplesConfig.netherPyramidMaxChunkDistance.get() != 1001 &&
+            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSTemplesConfig.addNetherPyramidToModdedBiomes.get()))
+        {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_PYRAMID);
         }
 
-        if (RepurposedStructures.RSTemplesConfig.badlandsPyramidMaxChunkDistance.get() != 1001 && event.getCategory() == Category.MESA &&
-                (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSTemplesConfig.addBadlandsPyramidToModdedBiomes.get())) {
+        if (BiomeSelection.haveCategories(event, Category.MESA) &&
+            RepurposedStructures.RSTemplesConfig.badlandsPyramidMaxChunkDistance.get() != 1001 &&
+            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSTemplesConfig.addBadlandsPyramidToModdedBiomes.get()))
+        {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.BADLANDS_TEMPLE);
         }
     }
@@ -545,18 +592,18 @@ public class RSAddFeaturesAndStructures {
     // IGLOOS //
 
     public static void addIgloos(BiomeLoadingEvent event) {
-        if (RepurposedStructures.RSMainConfig.grassyIglooMaxChunkDistance.get() != 1001) {
-            if ((event.getCategory() == Category.FOREST || event.getCategory() == Category.PLAINS) &&
-                    (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSMainConfig.addGrassyIglooToModdedBiomes.get())) {
-                event.getGeneration().getStructures().add(() -> RSConfiguredStructures.GRASSY_IGLOO);
-            }
+        if (BiomeSelection.haveCategories(event, Category.FOREST, Category.PLAINS) &&
+            RepurposedStructures.RSMainConfig.grassyIglooMaxChunkDistance.get() != 1001 &&
+            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSMainConfig.addGrassyIglooToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.GRASSY_IGLOO);
         }
 
-        if (RepurposedStructures.RSMainConfig.stoneIglooMaxChunkDistance.get() != 1001) {
-            if ((event.getCategory() == Category.TAIGA && event.getName().getPath().contains("giant")) &&
-                    (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSMainConfig.addStoneIglooToModdedBiomes.get())) {
-                event.getGeneration().getStructures().add(() -> RSConfiguredStructures.STONE_IGLOO);
-            }
+        else if (BiomeSelection.haveCategories(event, Category.TAIGA) && BiomeSelection.hasName(event, "giant", "redwood") &&
+                RepurposedStructures.RSMainConfig.stoneIglooMaxChunkDistance.get() != 1001 &&
+                (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSMainConfig.addStoneIglooToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.STONE_IGLOO);
         }
     }
 
@@ -565,83 +612,81 @@ public class RSAddFeaturesAndStructures {
     // VILLAGES //
 
     public static void addVillages(BiomeLoadingEvent event) {
-        if (event.getCategory() == Category.MESA &&
-                (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
-            if (RepurposedStructures.RSVillagesConfig.badlandsVillageMaxChunkDistance.get() != 1001) {
-                event.getGeneration().getStructures().add(() -> RSConfiguredStructures.BADLANDS_VILLAGE);
-            }
+        if (BiomeSelection.haveCategories(event, Category.MESA) &&
+            RepurposedStructures.RSVillagesConfig.badlandsVillageMaxChunkDistance.get() != 1001 &&
+            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.BADLANDS_VILLAGE);
         }
 
-        else if (event.getName().getPath().contains("birch") && (event.getName().getNamespace().equals("minecraft") ||
-                RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
-            if (RepurposedStructures.RSVillagesConfig.birchVillageMaxChunkDistance.get() != 1001) {
-                event.getGeneration().getStructures().add(() -> RSConfiguredStructures.BIRCH_VILLAGE);
-            }
+        else if (BiomeSelection.hasName(event, "birch") &&
+                RepurposedStructures.RSVillagesConfig.birchVillageMaxChunkDistance.get() != 1001 &&
+                (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.BIRCH_VILLAGE);
         }
 
-        else if (event.getCategory() == Category.FOREST &&
-                (event.getName().getPath().contains("dark") || event.getName().getPath().contains("spooky") ||
-                event.getName().getPath().contains("dead") || event.getName().getPath().contains("haunted")) &&
-                (event.getName().getNamespace().equals("minecraft") ||
-                RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
-            if (RepurposedStructures.RSVillagesConfig.darkForestVillageMaxChunkDistance.get() != 1001) {
-                event.getGeneration().getStructures().add(() -> RSConfiguredStructures.DARK_FOREST_VILLAGE);
-            }
+        else if (BiomeSelection.haveCategories(event, Category.FOREST) && BiomeSelection.hasName(event, "dark", "spooky", "dead", "haunted") &&
+                RepurposedStructures.RSVillagesConfig.darkForestVillageMaxChunkDistance.get() != 1001 &&
+                (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.DARK_FOREST_VILLAGE);
         }
 
-        else if (event.getCategory() == Category.JUNGLE && (event.getName().getNamespace().equals("minecraft") ||
-                RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
-            if (RepurposedStructures.RSVillagesConfig.jungleVillageMaxChunkDistance.get() != 1001) {
-                event.getGeneration().getStructures().add(() -> RSConfiguredStructures.JUNGLE_VILLAGE);
-                event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION)
-                        .add(() -> RSConfiguredFeatures.JUNGLE_VILLAGE_VINES);
-            }
+        else if (BiomeSelection.haveCategories(event, Category.JUNGLE) &&
+                RepurposedStructures.RSVillagesConfig.jungleVillageMaxChunkDistance.get() != 1001 &&
+                (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.JUNGLE_VILLAGE);
+            event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> RSConfiguredFeatures.JUNGLE_VILLAGE_VINES);
         }
 
-        else if (event.getCategory() == Category.SWAMP && (event.getName().getNamespace().equals("minecraft") ||
-                RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
-            if (RepurposedStructures.RSVillagesConfig.swampVillageMaxChunkDistance.get() != 1001) {
-                event.getGeneration().getStructures().add(() -> RSConfiguredStructures.SWAMP_VILLAGE);
-                event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION)
-                        .add(() -> RSConfiguredFeatures.SWAMP_VILLAGE_VINES);
-            }
+        else if (BiomeSelection.haveCategories(event, Category.SWAMP) &&
+                RepurposedStructures.RSVillagesConfig.swampVillageMaxChunkDistance.get() != 1001 &&
+                (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.SWAMP_VILLAGE);
+            event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> RSConfiguredFeatures.SWAMP_VILLAGE_VINES);
         }
 
-        else if (event.getCategory() == Category.EXTREME_HILLS && (event.getName().getNamespace().equals("minecraft") ||
-                RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
-            if (RepurposedStructures.RSVillagesConfig.mountainsVillageMaxChunkDistance.get() != 1001) {
-                event.getGeneration().getStructures().add(() -> RSConfiguredStructures.MOUNTAINS_VILLAGE);
-            }
+        else if (BiomeSelection.haveCategories(event, Category.EXTREME_HILLS) &&
+                RepurposedStructures.RSVillagesConfig.mountainsVillageMaxChunkDistance.get() != 1001 &&
+                (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.MOUNTAINS_VILLAGE);
         }
 
-        else if ((event.getName().equals(Biomes.GIANT_SPRUCE_TAIGA.getValue()) || event.getName().equals(Biomes.GIANT_TREE_TAIGA.getValue())) ||
-                (!event.getName().getNamespace().equals("minecraft") &&
-                  RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get() &&
-                event.getCategory() == Category.TAIGA &&
-                (event.getName().getPath().contains("giant") || event.getName().getPath().contains("redwood")))){
+        else if (BiomeSelection.isBiome(event, Biomes.GIANT_SPRUCE_TAIGA, Biomes.GIANT_TREE_TAIGA) ||
+                (RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get() &&
+                    !BiomeSelection.hasNamespace(event, "minecraft") &&
+                    BiomeSelection.haveCategories(event, Category.TAIGA) &&
+                    BiomeSelection.hasName(event, "giant", "redwood")))
+        {
             if (RepurposedStructures.RSVillagesConfig.giantTaigaVillageMaxChunkDistance.get() != 1001) {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.GIANT_TAIGA_VILLAGE);
             }
         }
-        else if (RepurposedStructures.RSVillagesConfig.crimsonVillageMaxChunkDistance.get() != 1001 &&
-                event.getCategory() == Category.NETHER &&
-                (event.getName().getPath().contains("crimson") || event.getName().getPath().contains("red_")) &&
-                (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
+
+        else if (BiomeSelection.haveCategories(event, Category.NETHER) && BiomeSelection.hasName(event, "crimson", "red_") &&
+                RepurposedStructures.RSVillagesConfig.crimsonVillageMaxChunkDistance.get() != 1001 &&
+                (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get()))
+        {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.CRIMSON_VILLAGE);
         }
-        else if (RepurposedStructures.RSVillagesConfig.warpedVillageMaxChunkDistance.get() != 1001 &&
-                event.getCategory() == Category.NETHER &&
-                (event.getName().getPath().contains("warped") || event.getName().getPath().contains("blue")) &&
-                (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
+
+        else if (BiomeSelection.haveCategories(event, Category.NETHER) &&
+                BiomeSelection.hasName(event, "warped", "blue") &&
+                RepurposedStructures.RSVillagesConfig.warpedVillageMaxChunkDistance.get() != 1001 &&
+                (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get()))
+        {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.WARPED_VILLAGE);
         }
-        else if (RepurposedStructures.RSVillagesConfig.villageOakMaxChunkDistance.get() != 1001) {
-            if ((event.getCategory() == Category.FOREST && !event.getName().getPath().contains("birch") &&
-                    !(event.getName().getPath().contains("dark") || event.getName().getPath().contains("spooky") ||
-                        event.getName().getPath().contains("dead") || event.getName().getPath().contains("haunted"))) &&
-                    (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get())) {
-                event.getGeneration().getStructures().add(() -> RSConfiguredStructures.VILLAGE_OAK);
-            }
+
+        else if ((BiomeSelection.haveCategories(event, Category.FOREST) && !BiomeSelection.hasName(event, "birch", "dark", "spooky", "dead", "haunted")) &&
+                RepurposedStructures.RSVillagesConfig.villageOakMaxChunkDistance.get() != 1001 &&
+                (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.VILLAGE_OAK);
         }
     }
 
@@ -651,11 +696,11 @@ public class RSAddFeaturesAndStructures {
 
     public static void addRuinedPortals(BiomeLoadingEvent event) {
 
-        if (RepurposedStructures.RSMainConfig.ruinedPortalEndMaxChunkDistance.get() != 1001) {
-            if (event.getCategory() == Category.THEEND && !event.getName().equals(Biomes.THE_END.getValue()) &&
-                    (event.getName().getNamespace().equals("minecraft") || RepurposedStructures.RSMainConfig.addRuinedPortalEndToModdedBiomes.get())) {
-                event.getGeneration().getStructures().add(() -> RSConfiguredStructures.RUINED_PORTAL_END);
-            }
+        if (BiomeSelection.haveCategories(event, Category.THEEND) && !BiomeSelection.isBiome(event, Biomes.THE_END) &&
+            RepurposedStructures.RSMainConfig.ruinedPortalEndMaxChunkDistance.get() != 1001 &&
+            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSMainConfig.addRuinedPortalEndToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.RUINED_PORTAL_END);
         }
     }
 

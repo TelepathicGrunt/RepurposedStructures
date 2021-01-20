@@ -8,6 +8,11 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.2.4.0 Changes) (1.16.4 Minecraft)
+
+##### General:
+- Cleaned up biome selection code backend a lot and adjusted some biome selections conditions for a few structures. 
+
 ## (V.2.3.4 Changes) (1.16.4 Minecraft)
 
 ##### General:
