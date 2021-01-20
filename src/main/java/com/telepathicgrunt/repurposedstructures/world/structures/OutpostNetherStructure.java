@@ -1,7 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.google.common.collect.Lists;
-import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.ResourceLocation;

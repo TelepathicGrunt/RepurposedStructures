@@ -1,6 +1,5 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
-import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;

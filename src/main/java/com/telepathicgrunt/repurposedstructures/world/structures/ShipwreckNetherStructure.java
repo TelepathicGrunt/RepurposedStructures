@@ -1,6 +1,5 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
-import com.google.common.collect.Iterators;
 import com.google.common.collect.Lists;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;

@@ -16,7 +16,10 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.jigsaw.JigsawManager;
-import net.minecraft.world.gen.feature.structure.*;
+import net.minecraft.world.gen.feature.structure.AbstractVillagePiece;
+import net.minecraft.world.gen.feature.structure.MarginedStructureStart;
+import net.minecraft.world.gen.feature.structure.Structure;
+import net.minecraft.world.gen.feature.structure.VillageConfig;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 import net.minecraft.world.gen.settings.StructureSeparationSettings;
 
@@ -37,48 +40,22 @@ public class GenericJigsawStructure extends AbstractBaseStructure {
     private final int terrainHeightRadius;
 
 
-    public GenericJigsawStructure(ResourceLocation poolRL, int structureSize, int centerOffset,
-                                  int biomeRange, int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet)
-    {
-        super(NoFeatureConfig.CODEC);
-
-        this.startPool = poolRL;
-        this.structureSize = structureSize;
-        this.centerOffset = centerOffset;
-        this.biomeRange = biomeRange;
-        this.structureBlacklistRange = structureBlacklistRange;
-        this.structureTagsSet = avoidStructuresSet;
-        this.monsterSpawns = new ArrayList<>();
-        this.creatureSpawns = new ArrayList<>();
-        this.allowTerrainHeightRange = -1;
-        this.terrainHeightRadius = 0;
-
-        RSStructures.RS_STRUCTURE_START_PIECES.add(startPool);
+    public GenericJigsawStructure(ResourceLocation poolRL, int structureSize, int centerOffset, int biomeRange, int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet) {
+        this(poolRL, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet, -1, 0);
     }
 
-    public GenericJigsawStructure(ResourceLocation poolRL, int structureSize, int centerOffset,
-                                  int biomeRange, int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet,
-                                  int allowTerrainHeightRange, int terrainHeightRadius)
-    {
-        super(NoFeatureConfig.CODEC);
+    public GenericJigsawStructure(ResourceLocation poolRL, int structureSize, int centerOffset, int biomeRange, int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet, int allowTerrainHeightRange, int terrainHeightRadius) {
+        this(poolRL, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet, allowTerrainHeightRange, terrainHeightRadius, new ArrayList<>(), new ArrayList<>());
+    }
 
-        this.startPool = poolRL;
-        this.structureSize = structureSize;
-        this.centerOffset = centerOffset;
-        this.biomeRange = biomeRange;
-        this.structureBlacklistRange = structureBlacklistRange;
-        this.structureTagsSet = avoidStructuresSet;
-        this.monsterSpawns = new ArrayList<>();
-        this.creatureSpawns = new ArrayList<>();
-        this.allowTerrainHeightRange = allowTerrainHeightRange;
-        this.terrainHeightRadius = terrainHeightRadius;
-
-        RSStructures.RS_STRUCTURE_START_PIECES.add(startPool);
+    public GenericJigsawStructure(ResourceLocation poolID, int structureSize, int centerOffset, int biomeRange, int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet, List<MobSpawnInfo.Spawners> monsterSpawns, List<MobSpawnInfo.Spawners> creatureSpawns) {
+        this(poolID, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet, -1, 0, monsterSpawns, creatureSpawns);
     }
 
     public GenericJigsawStructure(ResourceLocation poolID, int structureSize, int centerOffset,
                                   int biomeRange, int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet,
-                                  List<MobSpawnInfo.Spawners> monster_spawns, List<MobSpawnInfo.Spawners> creature_spawns)
+                                  int allowTerrainHeightRange, int terrainHeightRadius,
+                                  List<MobSpawnInfo.Spawners> monsterSpawns, List<MobSpawnInfo.Spawners> creatureSpawns)
     {
         super(NoFeatureConfig.CODEC);
 
@@ -88,10 +65,10 @@ public class GenericJigsawStructure extends AbstractBaseStructure {
         this.biomeRange = biomeRange;
         this.structureBlacklistRange = structureBlacklistRange;
         this.structureTagsSet = avoidStructuresSet;
-        this.monsterSpawns = monster_spawns;
-        this.creatureSpawns = creature_spawns;
-        this. allowTerrainHeightRange = -1;
-        this.terrainHeightRadius = 0;
+        this.monsterSpawns = monsterSpawns;
+        this.creatureSpawns = creatureSpawns;
+        this.allowTerrainHeightRange = allowTerrainHeightRange;
+        this.terrainHeightRadius = terrainHeightRadius;
 
         RSStructures.RS_STRUCTURE_START_PIECES.add(startPool);
     }

@@ -1,7 +1,5 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
-import com.google.common.collect.Iterators;
-import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
@@ -21,8 +19,6 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.MarginedStructureStart;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.settings.StructureSeparationSettings;
-
-import java.util.List;
 
 
 public abstract class AbstractNetherStructure extends AbstractBaseStructure {
