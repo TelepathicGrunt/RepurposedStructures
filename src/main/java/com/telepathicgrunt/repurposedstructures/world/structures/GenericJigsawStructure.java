@@ -24,6 +24,7 @@ import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -40,28 +41,22 @@ public class GenericJigsawStructure extends AbstractBaseStructure {
     private final int allowTerrainHeightRange;
     private final int terrainHeightRadius;
 
-    public GenericJigsawStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange,
-                                  int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet)
-    {
-        super(DefaultFeatureConfig.CODEC);
+    public GenericJigsawStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange, int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet) {
+        this(poolID, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet, -1, 0);
+    }
 
-        this.startPool = poolID;
-        this.structureSize = structureSize;
-        this.centerOffset = centerOffset;
-        this.biomeRange = biomeRange;
-        this.structureBlacklistRange = structureBlacklistRange;
-        this.avoidStructuresSet = avoidStructuresSet;
-        this.monsterSpawns = new ArrayList<>();
-        this.creatureSpawns = new ArrayList<>();
-        this.allowTerrainHeightRange = -1;
-        this.terrainHeightRadius = 0;
+    public GenericJigsawStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange, int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet, int allowTerrainHeightRange, int terrainHeightRadius) {
+        this(poolID, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet, allowTerrainHeightRange, terrainHeightRadius, new ArrayList<>(), new ArrayList<>());
+    }
 
-        RSStructures.RS_STRUCTURE_START_PIECES.add(startPool);
+    public GenericJigsawStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange, int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet, List<SpawnSettings.SpawnEntry> monsterSpawns, List<SpawnSettings.SpawnEntry> creatureSpawns) {
+        this(poolID, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet, -1, 0, monsterSpawns, creatureSpawns);
     }
 
     public GenericJigsawStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange,
                                   int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet,
-                                  int allowTerrainHeightRange, int terrainHeightRadius)
+                                  int allowTerrainHeightRange, int terrainHeightRadius,
+                                  List<SpawnSettings.SpawnEntry> monsterSpawns, List<SpawnSettings.SpawnEntry> creatureSpawns)
     {
         super(DefaultFeatureConfig.CODEC);
 
@@ -71,30 +66,10 @@ public class GenericJigsawStructure extends AbstractBaseStructure {
         this.biomeRange = biomeRange;
         this.structureBlacklistRange = structureBlacklistRange;
         this.avoidStructuresSet = avoidStructuresSet;
-        this.monsterSpawns = new ArrayList<>();
-        this.creatureSpawns = new ArrayList<>();
+        this.monsterSpawns = monsterSpawns;
+        this.creatureSpawns = creatureSpawns;
         this.allowTerrainHeightRange = allowTerrainHeightRange;
         this.terrainHeightRadius = terrainHeightRadius;
-
-        RSStructures.RS_STRUCTURE_START_PIECES.add(startPool);
-    }
-
-    public GenericJigsawStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange,
-                                  int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet,
-                                  List<SpawnSettings.SpawnEntry> monster_spawns, List<SpawnSettings.SpawnEntry> creature_spawns)
-    {
-        super(DefaultFeatureConfig.CODEC);
-
-        this.startPool = poolID;
-        this.structureSize = structureSize;
-        this.centerOffset = centerOffset;
-        this.biomeRange = biomeRange;
-        this.structureBlacklistRange = structureBlacklistRange;
-        this.avoidStructuresSet = avoidStructuresSet;
-        this.monsterSpawns = monster_spawns;
-        this.creatureSpawns = creature_spawns;
-        this. allowTerrainHeightRange = -1;
-        this.terrainHeightRadius = 0;
 
         RSStructures.RS_STRUCTURE_START_PIECES.add(startPool);
     }

@@ -7,19 +7,20 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
 import it.unimi.dsi.fastutil.objects.Reference2ObjectOpenHashMap;
-import net.fabricmc.fabric.api.biome.v1.*;
+import net.fabricmc.fabric.api.biome.v1.BiomeModificationContext;
+import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
+import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
+import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerWorldEvents;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.chunk.FlatChunkGenerator;
 import net.minecraft.world.gen.chunk.StructureConfig;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.ConfiguredFeatures;
 import net.minecraft.world.gen.feature.StructureFeature;
 
@@ -356,6 +357,7 @@ public class RSAddFeaturesAndStructures {
 
         addToBiome("boulder_giant",
                 (context) -> BiomeSelection.isBiomeAllowed(context, "boulder")
+                        && !BiomeSelection.hasNamespace(context, "ultra_amplified_dimension")
                         && RepurposedStructures.RSAllConfig.RSMainConfig.misc.boulderGiant
                         && (BiomeSelection.isBiome(context, BiomeKeys.GIANT_SPRUCE_TAIGA_HILLS, BiomeKeys.GIANT_TREE_TAIGA_HILLS)
                             || (RepurposedStructures.RSAllConfig.RSMainConfig.misc.addBoulderToModdedBiomes
@@ -372,6 +374,7 @@ public class RSAddFeaturesAndStructures {
 
         addToBiome("boulder_tiny",
                 (context) -> BiomeSelection.isBiomeAllowed(context, "boulder")
+                        && !BiomeSelection.hasNamespace(context, "ultra_amplified_dimension")
                         && RepurposedStructures.RSAllConfig.RSMainConfig.misc.boulderTiny
                         && (BiomeSelection.isBiome(context, BiomeKeys.SNOWY_TAIGA_MOUNTAINS, BiomeKeys.TAIGA_MOUNTAINS)
                             || (RepurposedStructures.RSAllConfig.RSMainConfig.misc.addBoulderToModdedBiomes
