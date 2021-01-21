@@ -22,6 +22,7 @@ public class RSStructureTagMap {
         IGLOO,
         OUTPOST,
         RUINED_PORTAL,
+        RUINS,
 
         // Dimension based
         OVERWORLD,

@@ -88,6 +88,7 @@ public class RSAddFeaturesAndStructures {
         addIgloos();
         addVillages();
         addRuinedPortals();
+        addRuins();
     }
 
     // Helper method to help reduce amount of code we need to write for adding structures to biomes
@@ -796,8 +797,21 @@ public class RSAddFeaturesAndStructures {
                 (context) -> BiomeSelection.haveCategories(context, Category.THEEND)
                         && !BiomeSelection.isBiome(context, BiomeKeys.THE_END)
                         && RepurposedStructures.RSAllConfig.RSMainConfig.ruinedPortals.ruinedPortalEndMaxChunkDistance != 1001
-                        && BiomeSelection.isBiomeAllowed(context, "ruined_portals")
+                        && BiomeSelection.isBiomeAllowed(context, "ruined_portal")
                         && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSMainConfig.ruinedPortals.addRuinedPortalEndToModdedBiomes),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.RUINED_PORTAL_END));
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // RUINS //
+
+    public static void addRuins() {
+        addToBiome("ruins_nether",
+                (context) -> BiomeSelection.isBiomeAllowed(context, "ruin")
+                        && RepurposedStructures.RSAllConfig.RSMainConfig.ruins.ruinsNetherMaxChunkDistance != 1001
+                        && BiomeSelection.haveCategories(context, Category.NETHER)
+                        && (context.getBiomeKey().getValue().getNamespace().equals("minecraft")
+                        || RepurposedStructures.RSAllConfig.RSMainConfig.ruins.addRuinsNetherToModdedBiomes),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.RUINS_NETHER));
     }
 }

@@ -9,6 +9,16 @@ import me.sargunvohra.mcmods.autoconfig1u.shadowed.blue.endless.jankson.Comment;
 @Config(name = "Main")
 public class RSMainConfig implements ConfigData {
 
+    @ConfigEntry.Gui.Tooltip(count = 0)
+    @ConfigEntry.Gui.PrefixText
+    @Comment("Add the identifiers for the dimension that you want"
+            +"\n no Repurposed Structures structure to spawn in."
+            +"\n Separate multiple entries with a comma."
+            +"\n"
+            +"\nExample: \"minecraft:the_end,awesome_mod:awesome_dimension\"")
+    public String blacklistedDimensions = "the_bumblezone:the_bumblezone";
+
+
     @ConfigEntry.Gui.CollapsibleObject
     public Misc misc = new Misc();
 
@@ -21,15 +31,8 @@ public class RSMainConfig implements ConfigData {
     @ConfigEntry.Gui.CollapsibleObject
     public RuinedPortals ruinedPortals = new RuinedPortals();
 
-    @ConfigEntry.Gui.Tooltip(count = 0)
-    @ConfigEntry.Gui.PrefixText
-    @Comment("Add the identifiers for the dimension that you want"
-            +"\n no Repurposed Structures structure to spawn in."
-            +"\n Separate multiple entries with a comma."
-            +"\n"
-            +"\nExample: \"minecraft:the_end,awesome_mod:awesome_dimension\"")
-    public String blacklistedDimensions = "the_bumblezone:the_bumblezone";
-
+    @ConfigEntry.Gui.CollapsibleObject
+    public Ruins ruins = new Ruins();
     public static class Misc {
         @ConfigEntry.Gui.Tooltip
         @Comment("Add RS swamp trees to modded biomes of same categories/type.")
@@ -188,4 +191,30 @@ public class RSMainConfig implements ConfigData {
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
         public int ruinedPortalEndMaxChunkDistance = 57;
     }
+
+
+    public static class Ruins {
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Add the ID/resource location of the biome you don't want"
+                +"\nRS's Ruins to spawn in. Separate each ID with a comma ,"
+                +"\n"
+                +"\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
+        public String blacklistedRuinsBiomes = "";
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Add Nether Ruins to modded End category biomes.")
+        public boolean addRuinsNetherToModdedBiomes = true;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("How rare are Nether Ruins in"
+                + "\nNether category biomes. 1 for spawning in most"
+                + "\nchunks and 1001 for none.")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int ruinsNetherMaxChunkDistance = 35;
+    }
+
 }

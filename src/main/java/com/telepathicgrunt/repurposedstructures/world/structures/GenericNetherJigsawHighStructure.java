@@ -1,6 +1,5 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
-import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import net.minecraft.structure.PoolStructurePiece;
 import net.minecraft.structure.StructureManager;
@@ -17,19 +16,25 @@ import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 
 
-public class PyramidNetherStructure extends AbstractBaseStructure {
-    // Special thanks to /r/l-ll-ll-l_IsDisLoss for allowing me to mimic his nether pyramid design!
+public class GenericNetherJigsawHighStructure extends AbstractBaseStructure {
 
-    private final Identifier START_POOL;
-    public PyramidNetherStructure() {
+    private final Identifier startPool;
+    private final int size;
+    private final int heightOffset;
+    private final int lavaOffset;
+
+    public GenericNetherJigsawHighStructure(Identifier poolID, int size, int heightOffset, int lavaOffset) {
         super(DefaultFeatureConfig.CODEC);
-        START_POOL = new Identifier(RepurposedStructures.MODID, "temples/pyramid_nether");
-        RSStructures.RS_STRUCTURE_START_PIECES.add(START_POOL);
+        this.startPool = poolID;
+        this.size = size;
+        this.heightOffset = heightOffset;
+        this.lavaOffset = lavaOffset;
+        RSStructures.RS_STRUCTURE_START_PIECES.add(startPool);
     }
 
     @Override
     public StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
-        return PyramidNetherStructure.Start::new;
+        return GenericNetherJigsawHighStructure.Start::new;
     }
 
     public class Start extends AbstractNetherStructure.AbstractStart {
@@ -40,10 +45,10 @@ public class PyramidNetherStructure extends AbstractBaseStructure {
 
         @Override
         public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
-            BlockPos blockpos = new BlockPos(chunkX * 16, 35, chunkZ * 16);
+            BlockPos blockpos = new BlockPos(chunkX << 4, 0, chunkZ << 4);
             StructurePoolBasedGenerator.method_30419(
                     dynamicRegistryManager,
-                    new StructurePoolFeatureConfig(() -> dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN).get(START_POOL), 1),
+                    new StructurePoolFeatureConfig(() -> dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN).get(startPool), size),
                     PoolStructurePiece::new,
                     chunkGenerator,
                     structureManager,
@@ -52,12 +57,13 @@ public class PyramidNetherStructure extends AbstractBaseStructure {
                     random,
                     true,
                     false);
-            //PyramidFloorPiece.func_207617_a(structureManager, blockpos, this.children.get(0).getRotation(), this.children, random, Blocks.BLACKSTONE, defaultFeatureConfig);
-            //this.children.get(1).getBoundingBox().encompass(this.children.get(0).getBoundingBox());
             this.setBoundingBoxFromChildren();
 
+            // Needed because the offsetting method offsets the bounds but the structure piece
+            // is actually 10 blocks higher than the bound's minimum Y. Wack.
+            int boundOffset = -10;
             BlockPos highestLandPos = getHighestLand(chunkGenerator);
-            this.randomUpwardTranslation(this.random, highestLandPos.getY()-16, highestLandPos.getY()-15);
+            this.randomUpwardTranslation(this.random, Math.max((highestLandPos.getY() + heightOffset) - 1, 29 + lavaOffset) + boundOffset, Math.max(highestLandPos.getY() + heightOffset, 30 + lavaOffset) + boundOffset);
         }
     }
 }

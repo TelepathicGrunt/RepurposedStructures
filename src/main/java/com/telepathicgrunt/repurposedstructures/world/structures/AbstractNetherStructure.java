@@ -57,7 +57,7 @@ public abstract class AbstractNetherStructure extends AbstractBaseStructure {
             BlockPos.Mutable mutable = new BlockPos.Mutable().set(this.boundingBox.getCenter().getX(), 108, this.boundingBox.getCenter().getZ());
             BlockView blockView = chunkGenerator.getColumnSample(mutable.getX(), mutable.getZ());
             BlockState currentBlockstate;
-            while(mutable.getY() > 33){
+            while(mutable.getY() > 30){
                 currentBlockstate = blockView.getBlockState(mutable);
                 if(!currentBlockstate.isSolidBlock(blockView, mutable)){
                     mutable.move(Direction.DOWN);

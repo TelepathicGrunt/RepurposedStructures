@@ -62,7 +62,8 @@ public class RSStructures {
     public static StructureFeature<DefaultFeatureConfig> OUTPOST_SNOWY = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "outposts/snowy/base_plates"), 11, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.OVERWORLD_VILLAGE).collect(Collectors.toSet()), PillagerOutpostFeatureAccessor.rs_getMONSTER_SPAWNS(), ImmutableList.of());
     public static StructureFeature<DefaultFeatureConfig> OUTPOST_ICY = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "outposts/icy/base_plates"), 11, 0, 0, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.OVERWORLD_VILLAGE).collect(Collectors.toSet()), PillagerOutpostFeatureAccessor.rs_getMONSTER_SPAWNS(), ImmutableList.of());
 
-    public static StructureFeature<DefaultFeatureConfig> NETHER_PYRAMID = new PyramidNetherStructure();
+    // Special thanks to /r/l-ll-ll-l_IsDisLoss for allowing me to mimic his nether pyramid design!
+    public static StructureFeature<DefaultFeatureConfig> NETHER_PYRAMID = new GenericNetherJigsawHighStructure(new Identifier(RepurposedStructures.MODID, "temples/pyramid_nether"), 1, -4, 0);
     public static StructureFeature<DefaultFeatureConfig> BADLANDS_PYRAMID = new PyramidBadlandsStructure();
 
     public static StructureFeature<DefaultFeatureConfig> END_SHIPWRECK = new ShipwreckEndStructure();
@@ -82,6 +83,7 @@ public class RSStructures {
     public static StructureFeature<DefaultFeatureConfig> VILLAGE_OAK = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/oak/town_centers"), 6, 0, 1, 0, new HashSet<>());
 
     public static StructureFeature<DefaultFeatureConfig> RUINED_PORTAL_END = new RuinedPortalEndStructure(new Identifier(RepurposedStructures.MODID, "ruined_portal/end"), 20, -6, 0, 0, new HashSet<>());
+    public static StructureFeature<DefaultFeatureConfig> RUINS_NETHER = new GenericNetherJigsawHighStructure(new Identifier(RepurposedStructures.MODID, "ruins/nether/start_pool"), 1, -4, -1);
 
     public static void registerStructures() {
 
@@ -141,6 +143,7 @@ public class RSStructures {
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "village_oak"), VILLAGE_OAK).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSVillagesConfig.villageOakMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSVillagesConfig.villageOakMaxChunkDistance * 0.5f), 2112891039)).superflatFeature(VILLAGE_OAK.configure(FeatureConfig.DEFAULT)).adjustsSurface().register();
 
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "ruined_portal_end"), RUINED_PORTAL_END).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSMainConfig.ruinedPortals.ruinedPortalEndMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSMainConfig.ruinedPortals.ruinedPortalEndMaxChunkDistance * 0.5f), 532404086)).superflatFeature(RUINED_PORTAL_END.configure(FeatureConfig.DEFAULT)).register();
+        FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "ruins_nether"), RUINS_NETHER).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSMainConfig.ruins.ruinsNetherMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSMainConfig.ruins.ruinsNetherMaxChunkDistance * 0.5f), 1336047555)).superflatFeature(RUINS_NETHER.configure(FeatureConfig.DEFAULT)).adjustsSurface().register();
 
         //Next available seed: https://www.google.com/search?q=random+number
 
