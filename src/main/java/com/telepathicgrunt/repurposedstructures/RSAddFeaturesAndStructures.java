@@ -496,7 +496,6 @@ public class RSAddFeaturesAndStructures {
 
         addToBiome("outpost_badlands",
                 (context) -> BiomeSelection.haveCategories(context, Category.MESA)
-                        && !BiomeSelection.hasName(context, "plateau")
                         && RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.outpostBadlandsMaxChunkDistance != 1001
                         && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.OVERWORLD_OUTPOST)
                         && BiomeSelection.isBiomeAllowed(context, "outpost")
@@ -587,8 +586,8 @@ public class RSAddFeaturesAndStructures {
                         && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.addJungleFortressToModdedBiomes),
                 context -> {
                     context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.JUNGLE_FORTRESS);
-                    context.getGenerationSettings().removeBuiltInFeature(GenerationStep.Feature.VEGETAL_DECORATION, RSConfiguredFeatures.JUNGLE_FORTRESS_VINES);
-                    context.getGenerationSettings().removeBuiltInFeature(GenerationStep.Feature.VEGETAL_DECORATION, RSConfiguredFeatures.FORTRESS_BREAKAGE);
+                    context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.VEGETAL_DECORATION, RSConfiguredFeatures.JUNGLE_FORTRESS_VINES);
+                    context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.VEGETAL_DECORATION, RSConfiguredFeatures.FORTRESS_BREAKAGE);
                 });
     }
 

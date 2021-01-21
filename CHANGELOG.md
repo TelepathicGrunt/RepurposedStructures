@@ -13,6 +13,12 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### General:
 - Cleaned up biome selection code backend a lot and adjusted some biome selections conditions for a few structures. 
 
+##### Outposts:
+- Badlands Outposts can spawn on Badland's Plateaus now using a special heightmap check to not spawn it on plateau walls.
+
+##### Fortresses:
+- Fixed Jungle Fortresses not getting extra vines or breakage.
+
 
 ## (V.1.7.4 Changes) (1.16.4 Minecraft)
 
