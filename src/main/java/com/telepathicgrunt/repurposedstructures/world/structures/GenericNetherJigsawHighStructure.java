@@ -63,7 +63,9 @@ public class GenericNetherJigsawHighStructure extends AbstractBaseStructure {
             // is actually 10 blocks higher than the bound's minimum Y. Wack.
             int boundOffset = -10;
             BlockPos highestLandPos = getHighestLand(chunkGenerator);
-            this.randomUpwardTranslation(this.random, Math.max((highestLandPos.getY() + heightOffset) - 1, 29 + lavaOffset) + boundOffset, Math.max(highestLandPos.getY() + heightOffset, 30 + lavaOffset) + boundOffset);
+            this.randomUpwardTranslation(this.random,
+                    Math.max((highestLandPos.getY() + heightOffset) - 1, 29 + lavaOffset) + boundOffset,
+                    Math.max(highestLandPos.getY() + heightOffset, 30 + lavaOffset) + boundOffset);
         }
     }
 }
