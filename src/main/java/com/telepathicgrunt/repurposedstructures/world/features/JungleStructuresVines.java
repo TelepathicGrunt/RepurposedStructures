@@ -5,7 +5,9 @@ import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.modinit.RSFeatures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.SectionPos;
 import net.minecraft.world.ISeedReader;
@@ -50,8 +52,19 @@ public class JungleStructuresVines extends Feature<NoFeatureConfig> {
         //Place vines and can replace Stone Bricks if it has air below.
         if (FORTRESS_BLOCKS_SET.contains(world.getBlockState(position).getBlock()) && world.isAirBlock(position.down())) {
             if (world.getStructures(SectionPos.from(position), RSStructures.JUNGLE_FORTRESS.get()).findAny().isPresent()) {
+
                 world.setBlockState(position, Blocks.AIR.getDefaultState(), 3);
                 RSFeatures.SHORT_VINES.get().generate(world, chunkGenerator, random, position, NoFeatureConfig.NO_FEATURE_CONFIG);
+
+                //make sure we dont cause floating vine by scheduling a tick update so vine breaks itself
+                for(Direction facing : Direction.Plane.HORIZONTAL){
+                    BlockPos offset = position.offset(facing);
+                    BlockState state = world.getBlockState(offset);
+                    if(!state.isValidPosition(world, offset)){
+                        world.getPendingBlockTicks().scheduleTick(offset, state.getBlock(), 0);
+                    }
+                }
+
                 return true;
             }
         }

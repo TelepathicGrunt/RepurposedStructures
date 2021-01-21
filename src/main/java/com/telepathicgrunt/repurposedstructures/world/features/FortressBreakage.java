@@ -31,6 +31,7 @@ public class FortressBreakage extends Feature<NoFeatureConfig> {
         } else {
             return blockState.getMaterial() == Material.ROCK ||
                     blockState.getMaterial() == Material.EARTH ||
+                    blockState.isIn(Blocks.VINE) ||
                     blockState.isIn(Blocks.INFESTED_CHISELED_STONE_BRICKS) ||
                     blockState.isIn(Blocks.INFESTED_CRACKED_STONE_BRICKS) ||
                     blockState.isIn(Blocks.INFESTED_STONE_BRICKS) ||

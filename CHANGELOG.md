@@ -16,9 +16,14 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Outposts:
 - Badlands Outposts can spawn on Badland's Plateaus now using a special heightmap check to not spawn it on plateau walls.
 
+##### Fortresses:
+- Attempt to reduce the amount of floating Vines in Jungle Fortress.
+
 ##### Strongholds:
 - Lowered netherStrongholdMinHeight config default value to 10.
 
+##### Villages:
+- Fixed Swamp Villages bypassing surrounding biome check that would've prevented it from spawning on biome edges.
 
 ## (V.2.3.4 Changes) (1.16.4 Minecraft)
 
