@@ -13,6 +13,13 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### General:
 - Cleaned up biome selection code backend a lot and adjusted some biome selections conditions for a few structures. 
 
+##### Outposts:
+- Badlands Outposts can spawn on Badland's Plateaus now using a special heightmap check to not spawn it on plateau walls.
+
+##### Strongholds:
+- Lowered netherStrongholdMinHeight config default value to 10.
+
+
 ## (V.2.3.4 Changes) (1.16.4 Minecraft)
 
 ##### General:

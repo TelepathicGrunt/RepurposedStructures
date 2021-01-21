@@ -435,7 +435,7 @@ public class RSAddFeaturesAndStructures {
                 event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.PILLAGER_OUTPOST));
             }
 
-            else if (BiomeSelection.haveCategories(event, Category.MESA) && !BiomeSelection.hasName(event, "plateau") &&
+            else if (BiomeSelection.haveCategories(event, Category.MESA) &&
                     RepurposedStructures.RSOutpostsConfig.outpostBadlandsMaxChunkDistance.get() != 1001 &&
                     (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSOutpostsConfig.addOutpostBadlandsToModdedBiomes.get()))
             {
