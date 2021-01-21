@@ -6,6 +6,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkSectionPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.WorldAccess;
@@ -30,7 +31,6 @@ public class FortressBreakage extends Feature<DefaultFeatureConfig> {
         } else {
             return blockState.getMaterial() == Material.STONE ||
                     blockState.getMaterial() == Material.SOIL ||
-                    blockState.isOf(Blocks.VINE) ||
                     blockState.isOf(Blocks.INFESTED_CHISELED_STONE_BRICKS) ||
                     blockState.isOf(Blocks.INFESTED_CRACKED_STONE_BRICKS) ||
                     blockState.isOf(Blocks.INFESTED_STONE_BRICKS) ||
@@ -144,9 +144,16 @@ public class FortressBreakage extends Feature<DefaultFeatureConfig> {
                                         if (!bitSet.get(am)) {
                                             bitSet.set(am);
                                             mutable.set(ag, ai, ak);
-                                            if (FORTRESS_BLOCKS.test(world.getBlockState(mutable))) {
+                                            BlockState state = world.getBlockState(mutable);
+                                            if (FORTRESS_BLOCKS.test(state)) {
                                                 world.setBlockState(mutable, Blocks.AIR.getDefaultState(), 2);
                                                 ++j;
+                                            }
+
+                                            // no floating vines
+                                            while(state.getMaterial() == Material.REPLACEABLE_PLANT){
+                                                world.setBlockState(mutable, Blocks.AIR.getDefaultState(), 3);
+                                                state = world.getBlockState(mutable.move(Direction.DOWN));
                                             }
                                         }
                                     }
