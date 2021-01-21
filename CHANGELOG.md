@@ -19,6 +19,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Fortresses:
 - Fixed Jungle Fortresses not getting extra vines or breakage.
 
+##### Strongholds:
+- Lowered netherStrongholdMinHeight config default value to 10.
+
 
 ## (V.1.7.4 Changes) (1.16.4 Minecraft)
 

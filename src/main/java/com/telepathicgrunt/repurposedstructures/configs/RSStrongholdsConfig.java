@@ -119,7 +119,7 @@ public class RSStrongholdsConfig implements ConfigData
 		@Comment("Min Y height that the starting point can spawn at."
 				+"\nDefault is 30.")
 		@ConfigEntry.BoundedDiscrete(min = 0, max = 255)
-		public int netherStrongholdMinHeight = 33;
+		public int netherStrongholdMinHeight = 10;
 
 		@ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
