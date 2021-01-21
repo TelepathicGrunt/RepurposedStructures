@@ -7,6 +7,7 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.material.Material;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.SectionPos;
@@ -60,7 +61,7 @@ public class JungleStructuresVines extends Feature<NoFeatureConfig> {
                 for(Direction facing : Direction.Plane.HORIZONTAL){
                     BlockPos offset = position.offset(facing);
                     BlockState state = world.getBlockState(offset);
-                    if(!state.isValidPosition(world, offset)){
+                    if(state.getMaterial() == Material.TALL_PLANTS){
                         world.getPendingBlockTicks().scheduleTick(offset, state.getBlock(), 0);
                     }
                 }
