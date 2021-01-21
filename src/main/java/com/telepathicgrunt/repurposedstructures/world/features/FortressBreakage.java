@@ -30,6 +30,7 @@ public class FortressBreakage extends Feature<DefaultFeatureConfig> {
         } else {
             return blockState.getMaterial() == Material.STONE ||
                     blockState.getMaterial() == Material.SOIL ||
+                    blockState.isOf(Blocks.VINE) ||
                     blockState.isOf(Blocks.INFESTED_CHISELED_STONE_BRICKS) ||
                     blockState.isOf(Blocks.INFESTED_CRACKED_STONE_BRICKS) ||
                     blockState.isOf(Blocks.INFESTED_STONE_BRICKS) ||
