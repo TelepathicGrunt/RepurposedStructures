@@ -40,29 +40,34 @@ public class JungleStructuresVines extends Feature<NoFeatureConfig> {
 
     @Override
     public boolean generate(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
+
+        BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(position);
         //Place vines without replacing blocks.
-        if (world.isAirBlock(position))
+        if (world.isAirBlock(mutable))
         {
-            if(world.getStructures(SectionPos.from(position), RSStructures.JUNGLE_VILLAGE.get()).findAny().isPresent() ||
-                    world.getStructures(SectionPos.from(position), RSStructures.JUNGLE_FORTRESS.get()).findAny().isPresent())
+            if(world.getStructures(SectionPos.from(mutable), RSStructures.JUNGLE_VILLAGE.get()).findAny().isPresent() ||
+                    world.getStructures(SectionPos.from(mutable), RSStructures.JUNGLE_FORTRESS.get()).findAny().isPresent())
             {
-                RSFeatures.SHORT_VINES.get().generate(world, chunkGenerator, random, position, NoFeatureConfig.NO_FEATURE_CONFIG);
+                RSFeatures.SHORT_VINES.get().generate(world, chunkGenerator, random, mutable, NoFeatureConfig.NO_FEATURE_CONFIG);
                 return true;
             }
         }
         //Place vines and can replace Stone Bricks if it has air below.
-        if (FORTRESS_BLOCKS_SET.contains(world.getBlockState(position).getBlock()) && world.isAirBlock(position.down())) {
-            if (world.getStructures(SectionPos.from(position), RSStructures.JUNGLE_FORTRESS.get()).findAny().isPresent()) {
+        if (FORTRESS_BLOCKS_SET.contains(world.getBlockState(mutable).getBlock()) && world.isAirBlock(mutable.move(Direction.DOWN))) {
+            if (world.getStructures(SectionPos.from(mutable.move(Direction.UP)), RSStructures.JUNGLE_FORTRESS.get()).findAny().isPresent()) {
 
-                world.setBlockState(position, Blocks.AIR.getDefaultState(), 3);
-                RSFeatures.SHORT_VINES.get().generate(world, chunkGenerator, random, position, NoFeatureConfig.NO_FEATURE_CONFIG);
+                world.setBlockState(mutable, Blocks.AIR.getDefaultState(), 3);
+                RSFeatures.SHORT_VINES.get().generate(world, chunkGenerator, random, mutable, NoFeatureConfig.NO_FEATURE_CONFIG);
 
                 //make sure we dont cause floating vine by scheduling a tick update so vine breaks itself
                 for(Direction facing : Direction.Plane.HORIZONTAL){
-                    BlockPos offset = position.offset(facing);
-                    BlockState state = world.getBlockState(offset);
-                    if(state.getMaterial() == Material.TALL_PLANTS){
-                        world.getPendingBlockTicks().scheduleTick(offset, state.getBlock(), 0);
+                    mutable.setPos(position).move(facing);
+                    BlockState state = world.getBlockState(mutable);
+
+                    // no floating vines
+                    while(state.getMaterial() == Material.TALL_PLANTS){
+                        world.setBlockState(mutable, Blocks.AIR.getDefaultState(), 3);
+                        state = world.getBlockState(mutable.move(Direction.DOWN));
                     }
                 }
 

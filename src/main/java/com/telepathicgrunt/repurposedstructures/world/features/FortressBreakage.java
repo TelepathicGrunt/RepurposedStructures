@@ -5,6 +5,7 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.material.Material;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.SectionPos;
@@ -31,7 +32,6 @@ public class FortressBreakage extends Feature<NoFeatureConfig> {
         } else {
             return blockState.getMaterial() == Material.ROCK ||
                     blockState.getMaterial() == Material.EARTH ||
-                    blockState.isIn(Blocks.VINE) ||
                     blockState.isIn(Blocks.INFESTED_CHISELED_STONE_BRICKS) ||
                     blockState.isIn(Blocks.INFESTED_CRACKED_STONE_BRICKS) ||
                     blockState.isIn(Blocks.INFESTED_STONE_BRICKS) ||
@@ -145,9 +145,16 @@ public class FortressBreakage extends Feature<NoFeatureConfig> {
                                         if (!bitSet.get(am)) {
                                             bitSet.set(am);
                                             mutable.setPos(xx, yy, zz);
-                                            if (FORTRESS_BLOCKS.test(world.getBlockState(mutable))) {
+                                            BlockState state = world.getBlockState(mutable);
+                                            if (FORTRESS_BLOCKS.test(state)) {
                                                 world.setBlockState(mutable, Blocks.AIR.getDefaultState(), 2);
                                                 ++j;
+                                            }
+
+                                            // no floating vines
+                                            while(state.getMaterial() == Material.TALL_PLANTS){
+                                                world.setBlockState(mutable, Blocks.AIR.getDefaultState(), 3);
+                                                state = world.getBlockState(mutable.move(Direction.DOWN));
                                             }
                                         }
                                     }
