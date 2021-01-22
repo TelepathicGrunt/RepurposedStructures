@@ -60,11 +60,11 @@ public class RSStructures {
     public static final RegistryObject<Structure<NoFeatureConfig>> TAIGA_MINESHAFT = addToStructureMaps("mineshaft_taiga", () -> (new RSMineshaftStructure(RSMineshaftPieces.Type.TAIGA, RepurposedStructures.RSMineshaftsConfig.taigaMineshaftSpawnrate.get(),RepurposedStructures.RSMineshaftsConfig.taigaMineshaftMaxHeight.get(),RepurposedStructures.RSMineshaftsConfig.taigaMineshaftMinHeight.get())));
 
     //Strongholds
-    public static final RegistryObject<Structure<NoFeatureConfig>> STONEBRICK_STRONGHOLD = addToStructureMaps("stronghold_stonebrick", () -> (new RSStonebrickStrongholdStructure(NoFeatureConfig.CODEC)));
-    public static final RegistryObject<Structure<NoFeatureConfig>> NETHER_STRONGHOLD = addToStructureMaps("stronghold_nether", () -> (new RSNetherStrongholdStructure(NoFeatureConfig.CODEC)));
+    public static final RegistryObject<Structure<NoFeatureConfig>> STONEBRICK_STRONGHOLD = addToStructureMaps("stronghold_stonebrick", RSStonebrickStrongholdStructure::new);
+    public static final RegistryObject<Structure<NoFeatureConfig>> NETHER_STRONGHOLD = addToStructureMaps("stronghold_nether", RSNetherStrongholdStructure::new);
     
     //Igloos and Fortress
-    public static final RegistryObject<Structure<NoFeatureConfig>> JUNGLE_FORTRESS = addToStructureMaps("fortress_jungle", () -> (new FortressJungleStructure(NoFeatureConfig.CODEC)));
+    public static final RegistryObject<Structure<NoFeatureConfig>> JUNGLE_FORTRESS = addToStructureMaps("fortress_jungle", FortressJungleStructure::new);
     public static final RegistryObject<Structure<NoFeatureConfig>> GRASSY_IGLOO = addToStructureMaps("igloo_grassy", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "igloos/grassy_top"), 20, 0, 0, 0, new HashSet<>())));
     public static final RegistryObject<Structure<NoFeatureConfig>> STONE_IGLOO = addToStructureMaps("igloo_stone", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "igloos/stone_top"), 20, 0, 0, 0, new HashSet<>())));
 
@@ -88,11 +88,11 @@ public class RSStructures {
     public static final RegistryObject<Structure<NoFeatureConfig>> OUTPOST_ICY = addToStructureMaps("outpost_icy", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "outposts/icy/base_plates"), 11, 0, 0, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.OVERWORLD_VILLAGE).collect(Collectors.toSet()), PillagerOutpostStructureAccessor.rs_getPILLAGE_OUTPOST_ENEMIES(), ImmutableList.of())));
 
 	//Pyramids
-	public static final RegistryObject<Structure<NoFeatureConfig>> NETHER_PYRAMID = addToStructureMaps("pyramid_nether", () -> (new PyramidNetherStructure(NoFeatureConfig.CODEC)));
-	public static final RegistryObject<Structure<NoFeatureConfig>> BADLANDS_PYRAMID = addToStructureMaps("pyramid_badlands", () -> (new PyramidBadlandsStructure(NoFeatureConfig.CODEC)));
+	public static final RegistryObject<Structure<NoFeatureConfig>> NETHER_PYRAMID = addToStructureMaps("pyramid_nether", () -> (new GenericNetherJigsawHighStructure(new ResourceLocation(RepurposedStructures.MODID + ":temples/pyramid_nether"), 1, -4, 0)));
+	public static final RegistryObject<Structure<NoFeatureConfig>> BADLANDS_PYRAMID = addToStructureMaps("pyramid_badlands", PyramidBadlandsStructure::new);
     
 	//Shipwrecks
-	public static final RegistryObject<Structure<NoFeatureConfig>> END_SHIPWRECK = addToStructureMaps("shipwreck_end", () -> (new ShipwreckEndStructure(NoFeatureConfig.CODEC)));
+	public static final RegistryObject<Structure<NoFeatureConfig>> END_SHIPWRECK = addToStructureMaps("shipwreck_end", ShipwreckEndStructure::new);
 	public static final RegistryObject<Structure<NoFeatureConfig>> NETHER_BRICKS_SHIPWRECK = addToStructureMaps("shipwreck_nether_bricks", () -> (new ShipwreckNetherStructure(new ResourceLocation(RepurposedStructures.MODID, "shipwrecks/nether_bricks"), false)));
 	public static final RegistryObject<Structure<NoFeatureConfig>> CRIMSON_SHIPWRECK = addToStructureMaps("shipwreck_crimson", () -> (new ShipwreckNetherStructure(new ResourceLocation(RepurposedStructures.MODID, "shipwrecks/crimson"), true)));
 	public static final RegistryObject<Structure<NoFeatureConfig>> WARPED_SHIPWRECK = addToStructureMaps("shipwreck_warped", () -> (new ShipwreckNetherStructure(new ResourceLocation(RepurposedStructures.MODID, "shipwrecks/warped"), true)));
@@ -111,6 +111,9 @@ public class RSStructures {
 
   	//Ruined Portals
     public static final RegistryObject<Structure<NoFeatureConfig>> RUINED_PORTAL_END = addToStructureMaps("ruined_portal_end", () -> (new RuinedPortalEndStructure(new ResourceLocation(RepurposedStructures.MODID, "ruined_portal/end"), 20, -6, 0, 0, new HashSet<>())));
+
+    //Ruins
+    public static final RegistryObject<Structure<NoFeatureConfig>> RUINS_NETHER = addToStructureMaps("ruins_nether", () -> (new GenericNetherJigsawHighStructure(new ResourceLocation(RepurposedStructures.MODID, "ruins/nether/start_pool"), 1, -4, -1)));
 
     private static <T extends Structure<?>> RegistryObject<T> addToStructureMaps(String name, Supplier<T> structure)
     {   
@@ -175,6 +178,7 @@ public class RSStructures {
         addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "village_oak"), VILLAGE_OAK.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSVillagesConfig.villageOakMaxChunkDistance.get(), (int) (RepurposedStructures.RSVillagesConfig.villageOakMaxChunkDistance.get() * 0.5f), 2112891039));
 
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "ruined_portal_end"), RUINED_PORTAL_END.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMainConfig.ruinedPortalEndMaxChunkDistance.get(), (int) (RepurposedStructures.RSMainConfig.ruinedPortalEndMaxChunkDistance.get() * 0.5f), 532404086));
+        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "ruins_nether"), RUINS_NETHER.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMainConfig.ruinsNetherMaxChunkDistance.get(), (int) (RepurposedStructures.RSMainConfig.ruinsNetherMaxChunkDistance.get() * 0.5f), 1336047555));
 
         //Next available seed: https://www.google.com/search?q=random+number
 

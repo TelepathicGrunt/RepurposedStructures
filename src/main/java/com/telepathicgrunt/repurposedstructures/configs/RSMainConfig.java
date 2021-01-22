@@ -34,12 +34,16 @@ public class RSMainConfig
 		public ConfigValueListener<Integer> ruinedPortalEndMaxChunkDistance;
 		public ConfigValueListener<Boolean> addRuinedPortalEndToModdedBiomes;
 
+		public ConfigValueListener<Integer> ruinsNetherMaxChunkDistance;
+		public ConfigValueListener<Boolean> addRuinsNetherToModdedBiomes;
+
 		public ConfigValueListener<String> blacklistedDimensions;
 		public ConfigValueListener<String> blacklistedSwampTreeBiomes;
 		public ConfigValueListener<String> blacklistedBoulderBiomes;
 		public ConfigValueListener<String> blacklistedFortressBiomes;
 		public ConfigValueListener<String> blacklistedIglooBiomes;
 		public ConfigValueListener<String> blacklistedRuinedPortalsBiomes;
+		public ConfigValueListener<String> blacklistedRuinsBiomes;
 
 		public RSConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
 		{
@@ -232,10 +236,32 @@ public class RSMainConfig
 						.defineInRange("ruinedPortalEndMaxChunkDistance", 57, 1, 1001));
 
 					addRuinedPortalEndToModdedBiomes = subscriber.subscribe(builder
-						.comment("Add End themed ruined portals to modded"
-								+ "\nEnd category biomes.")
+						.comment("Add End themed ruined portals to modded End category biomes.")
 						.translation("repurposedstructures.config.ruinedPortals.addruinedportalendtomoddedbiomes")
 						.define("addRuinedPortalEndToModdedBiomes", true));
+
+				builder.pop();
+
+				builder.push("Ruined Portals");
+
+					blacklistedRuinsBiomes = subscriber.subscribe(builder
+							.comment("\r\n Add the ID/resource location of the biome you don't want"
+									+"\r\n RS's Ruins to spawn in. Separate each ID with a comma ,"
+									+"\r\n"
+									+"\r\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
+							.translation("repurposedstructures.config.ruinedportals.blacklistedruinsbiomes")
+							.define("blacklistedRuinsBiomes", ""));
+
+					ruinsNetherMaxChunkDistance = subscriber.subscribe(builder
+							.comment("How rare are Nether Ruins. 1 for spawning in most"
+									+ "\nchunks and 1001 for none.")
+							.translation("repurposedstructures.config.ruins.ruinsnethermaxchunkdistance")
+							.defineInRange("ruinsNetherMaxChunkDistance", 35, 1, 1001));
+
+					addRuinsNetherToModdedBiomes = subscriber.subscribe(builder
+							.comment("Add Nether Ruins to modded Nether category biomes.")
+							.translation("repurposedstructures.config.ruins.addruinsnethertomoddedbiomes")
+							.define("addRuinsNetherToModdedBiomes", true));
 
 				builder.pop();
 			builder.pop();

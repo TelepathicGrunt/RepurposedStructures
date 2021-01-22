@@ -30,8 +30,8 @@ public class ShipwreckEndStructure extends AbstractBaseStructure {
     // Special thanks to cannon_foddr for allowing me to use his End Shipwreck design!
 
     private final ResourceLocation START_POOL;
-    public ShipwreckEndStructure(Codec<NoFeatureConfig> config) {
-        super(config);
+    public ShipwreckEndStructure() {
+        super(NoFeatureConfig.CODEC);
         START_POOL = new ResourceLocation(RepurposedStructures.MODID + ":shipwrecks/end");
         RSStructures.RS_STRUCTURE_START_PIECES.add(START_POOL);
     }

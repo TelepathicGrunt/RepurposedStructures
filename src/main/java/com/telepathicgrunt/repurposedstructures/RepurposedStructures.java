@@ -140,6 +140,8 @@ public class RepurposedStructures
 			RSAddFeaturesAndStructures.addStrongholds(event);
 		if(isBiomeAllowed("ruinedPortal", event.getName(), allBiomeBlacklists))
 			RSAddFeaturesAndStructures.addRuinedPortals(event);
+		if(isBiomeAllowed("ruin", event.getName(), allBiomeBlacklists))
+			RSAddFeaturesAndStructures.addRuins(event);
 	}
     
     private static boolean isBiomeAllowed(String structureType, ResourceLocation biomeID, Map<String, List<String>> allBiomeBlacklists){
@@ -175,6 +177,7 @@ public class RepurposedStructures
 		allBiomeBlacklists.put("village", Arrays.asList(RepurposedStructures.RSVillagesConfig.blacklistedVillageBiomes.get().replace(" ", "").split(",")));
 		allBiomeBlacklists.put("well", Arrays.asList(RepurposedStructures.RSWellsConfig.blacklistedWellBiomes.get().replace(" ", "").split(",")));
 		allBiomeBlacklists.put("ruinedPortal", Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedRuinedPortalsBiomes.get().replace(" ", "").split(",")));
+		allBiomeBlacklists.put("ruin", Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedRuinsBiomes.get().replace(" ", "").split(",")));
 
 		return allBiomeBlacklists;
 	}

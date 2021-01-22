@@ -23,8 +23,8 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
 public class PyramidBadlandsStructure extends AbstractBaseStructure {
 
     private final ResourceLocation START_POOL;
-    public PyramidBadlandsStructure(Codec<NoFeatureConfig> config) {
-        super(config);
+    public PyramidBadlandsStructure() {
+        super(NoFeatureConfig.CODEC);
         START_POOL = new ResourceLocation(RepurposedStructures.MODID + ":temples/pyramid_badlands");
         RSStructures.RS_STRUCTURE_START_PIECES.add(START_POOL);
     }

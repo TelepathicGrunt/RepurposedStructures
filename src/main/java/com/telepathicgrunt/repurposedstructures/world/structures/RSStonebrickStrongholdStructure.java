@@ -23,8 +23,8 @@ import java.util.Random;
 
 
 public class RSStonebrickStrongholdStructure extends StrongholdStructure {
-    public RSStonebrickStrongholdStructure(Codec<NoFeatureConfig> config) {
-        super(config);
+    public RSStonebrickStrongholdStructure() {
+        super(NoFeatureConfig.CODEC);
     }
 
     @Override

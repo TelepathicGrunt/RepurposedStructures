@@ -23,8 +23,8 @@ import java.util.List;
 
 
 public class FortressJungleStructure extends AbstractBaseStructure {
-    public FortressJungleStructure(Codec<NoFeatureConfig> codec) {
-        super(codec);
+    public FortressJungleStructure() {
+        super(NoFeatureConfig.CODEC);
     }
 
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long l, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig NoFeatureConfig) {

@@ -704,6 +704,17 @@ public class RSAddFeaturesAndStructures {
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // RUINS //
+
+    public static void addRuins(BiomeLoadingEvent event) {
+        if (BiomeSelection.haveCategories(event, Category.NETHER) &&
+            RepurposedStructures.RSMainConfig.ruinsNetherMaxChunkDistance.get() != 1001 &&
+            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSMainConfig.addRuinsNetherToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.RUINS_NETHER);
+        }
+    }
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // GENERAL UTILITIES //
 
     /**

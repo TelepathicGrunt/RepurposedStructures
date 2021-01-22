@@ -32,8 +32,8 @@ public class RSNetherStrongholdStructure extends StrongholdStructure {
                     new MobSpawnInfo.Spawners(EntityType.SKELETON, 2, 5, 5),
                     new MobSpawnInfo.Spawners(EntityType.MAGMA_CUBE, 3, 4, 4));
 
-    public RSNetherStrongholdStructure(Codec<NoFeatureConfig> config) {
-        super(config);
+    public RSNetherStrongholdStructure() {
+        super(NoFeatureConfig.CODEC);
     }
 
     @Override

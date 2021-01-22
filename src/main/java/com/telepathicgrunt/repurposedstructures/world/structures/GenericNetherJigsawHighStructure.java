@@ -18,19 +18,25 @@ import net.minecraft.world.gen.feature.structure.VillageConfig;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
 
-public class PyramidNetherStructure extends AbstractBaseStructure {
+public class GenericNetherJigsawHighStructure extends AbstractBaseStructure {
     // Special thanks to /r/l-ll-ll-l_IsDisLoss for allowing me to mimic his nether pyramid design!
 
-    private final ResourceLocation START_POOL;
-    public PyramidNetherStructure(Codec<NoFeatureConfig> config) {
-        super(config);
-        START_POOL = new ResourceLocation(RepurposedStructures.MODID + ":temples/pyramid_nether");
-        RSStructures.RS_STRUCTURE_START_PIECES.add(START_POOL);
+    private final ResourceLocation startPool;
+    private final int size;
+    private final int heightOffset;
+    private final int lavaOffset;
+    public GenericNetherJigsawHighStructure(ResourceLocation poolRL, int size, int heightOffset, int lavaOffset) {
+        super(NoFeatureConfig.CODEC);
+        startPool = poolRL;
+        this.size = size;
+        this.heightOffset = heightOffset;
+        this.lavaOffset = lavaOffset;
+        RSStructures.RS_STRUCTURE_START_PIECES.add(startPool);
     }
 
     @Override
     public Structure.IStartFactory<NoFeatureConfig> getStartFactory() {
-        return PyramidNetherStructure.Start::new;
+        return GenericNetherJigsawHighStructure.Start::new;
     }
 
     public class Start extends AbstractNetherStructure.AbstractStart {
@@ -40,12 +46,12 @@ public class PyramidNetherStructure extends AbstractBaseStructure {
 
         @Override
         public void init(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
-            BlockPos blockPos = new BlockPos(chunkX * 16, 35, chunkZ * 16);
+            BlockPos blockPos = new BlockPos(chunkX << 4, 0, chunkZ << 4);
             JigsawManager.method_30419(
                     dynamicRegistryManager,
                     new VillageConfig(() -> dynamicRegistryManager.get(
-                            Registry.TEMPLATE_POOL_WORLDGEN).getOrDefault(START_POOL),
-                            1),
+                            Registry.TEMPLATE_POOL_WORLDGEN).getOrDefault(startPool),
+                            size),
                     AbstractVillagePiece::new,
                     chunkGenerator,
                     structureManager,
@@ -54,12 +60,15 @@ public class PyramidNetherStructure extends AbstractBaseStructure {
                     this.rand,
                     true,
                     false);
-            //PyramidFloorPiece.func_207617_a(structureManager, blockpos, this.components.get(0).getRotation(), this.components, random, Blocks.field_235406_np_, NoFeatureConfig);
-            //this.components.get(1).getBoundingBox().encompass(this.components.get(0).getBoundingBox());
             this.recalculateStructureSize();
 
+            // Needed because the offsetting method offsets the bounds but the structure piece
+            // is actually 10 blocks higher than the bound's minimum Y. Wack.
+            int boundOffset = -10;
             BlockPos highestLandPos = getHighestLand(chunkGenerator);
-            this.func_214626_a(this.rand, highestLandPos.getY()-16, highestLandPos.getY()-15);
+            this.func_214626_a(this.rand,
+                    Math.max((highestLandPos.getY() + heightOffset) - 1, 29 + lavaOffset) + boundOffset,
+                    Math.max(highestLandPos.getY() + heightOffset, 30 + lavaOffset) + boundOffset);
         }
     }
 }
