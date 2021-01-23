@@ -45,6 +45,7 @@ dependencies {
 
 	modRuntime "com.telepathicgrunt.loadnbtblock:loadnbtblock:1.0.1"
 	modRuntime "com.telepathicgrunt.structure_void_toggle:structure_void_toggle-1.16.5:2.0.0"
+	modRuntime "com.telepathicgrunt.blame:blame-1.16.4:2.4.0"
 }
 
 if (project.use_third_party_mods) {

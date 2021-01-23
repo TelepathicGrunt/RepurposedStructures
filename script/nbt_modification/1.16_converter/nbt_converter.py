@@ -290,7 +290,8 @@ originalBiome = ""
 newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {
-    "minecraft:village/plains/villagers":"minecraft:village/desert/villagers"
+    "minecraft:village/desert":"minecraft:village/desert/zombie",
+    "repurposed_structures:village/badlands":"repurposed_structures:village/badlands/zombie"
 }
 conversion_exact_dict = {
 }
