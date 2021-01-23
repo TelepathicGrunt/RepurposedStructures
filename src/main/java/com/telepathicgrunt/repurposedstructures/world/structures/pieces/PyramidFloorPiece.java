@@ -1,5 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.structures.pieces;
 
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePieces;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -55,7 +56,7 @@ public class PyramidFloorPiece {
 
 
         private void func_207614_a(StructureManager templateManager) {
-            Structure template = templateManager.getStructureOrBlank(new Identifier("empty"));
+            Structure template = templateManager.getStructureOrBlank(new Identifier(RepurposedStructures.MODID, "temples/pyramid_badlands_body"));
             StructurePlacementData placementsettings = (new StructurePlacementData()).setRotation(this.rotation).setPosition(new BlockPos(21,16,21)).setMirror(BlockMirror.NONE).addProcessor(BlockIgnoreStructureProcessor.IGNORE_STRUCTURE_BLOCKS);
             this.setStructureData(template, this.pos, placementsettings);
         }
