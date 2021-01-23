@@ -1,0 +1,31 @@
+{
+  "parent": "repurposed_structures:temples",
+  "display": {
+    "icon": {
+      "item": "minecraft:magma_block"
+    },
+    "title": {
+      "translate": "Praying in the Wastelands"
+    },
+    "description": {
+      "translate": "Enter a Nether Wasteland Temple"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 50
+  },
+  "criteria": {
+    "in_temple_nether_wasteland": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:temple_nether_wasteland"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_temple_nether_wasteland"
+    ]
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "parent": "repurposed_structures:villages",
+  "display": {
+    "icon": {
+      "item": "minecraft:stripped_crimson_stem"
+    },
+    "title": {
+      "translate": "The Town in the Red Forest"
+    },
+    "description": {
+      "translate": "Enter a Crimson Village"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 20
+  },
+  "criteria": {
+    "in_village_crimson": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "in_village_crimson"
+    ]
+  ]
+}

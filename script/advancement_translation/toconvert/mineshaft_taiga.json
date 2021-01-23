@@ -1,0 +1,31 @@
+{
+  "parent": "repurposed_structures:mineshafts",
+  "display": {
+    "icon": {
+      "item": "minecraft:spruce_planks"
+    },
+    "title": {
+      "translate": "advancements.repurposed_structures.mineshaft_taiga.title"
+    },
+    "description": {
+      "translate": "advancements.repurposed_structures.mineshaft_taiga.description"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 20
+  },
+  "criteria": {
+    "in_mineshaft_taiga": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:mineshaft_taiga"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_mineshaft_taiga"
+    ]
+  ]
+}

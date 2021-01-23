@@ -1,0 +1,31 @@
+{
+  "parent": "repurposed_structures:pyramids",
+  "display": {
+    "icon": {
+      "item": "minecraft:smooth_red_sandstone"
+    },
+    "title": {
+      "translate": "advancements.repurposed_structures.pyramid_badlands.title"
+    },
+    "description": {
+      "translate": "advancements.repurposed_structures.pyramid_badlands.description"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 20
+  },
+  "criteria": {
+    "in_pyramid_badlands": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:pyramid_badlands"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_pyramid_badlands"
+    ]
+  ]
+}

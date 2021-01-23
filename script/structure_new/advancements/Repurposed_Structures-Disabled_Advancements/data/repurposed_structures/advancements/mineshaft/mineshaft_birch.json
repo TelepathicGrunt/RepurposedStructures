@@ -1,0 +1,28 @@
+{
+  "parent": "repurposed_structures:mineshafts",
+  "display": {
+    "icon": {
+      "item": "minecraft:birch_planks"
+    },
+    "title": {
+      "translate": "Birch to Enter the Mine!"
+    },
+    "description": {
+      "translate": "Enter a Birch Mineshaft"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 20
+  },
+  "criteria": {
+    "in_mineshaft_birch": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "in_mineshaft_birch"
+    ]
+  ]
+}

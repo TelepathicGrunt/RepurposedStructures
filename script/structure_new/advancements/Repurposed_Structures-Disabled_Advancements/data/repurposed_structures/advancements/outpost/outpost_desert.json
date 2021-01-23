@@ -1,0 +1,29 @@
+
+{
+  "parent": "repurposed_structures:outposts",
+  "display": {
+    "icon": {
+      "item": "minecraft:chiseled_sandstone"
+    },
+    "title": {
+      "text": "Tower under the Desert Sun"
+    },
+    "description": {
+      "text": "Enter a Desert Outpost"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 50
+  },
+  "criteria": {
+    "in_outpost_desert": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "in_outpost_desert"
+    ]
+  ]
+}

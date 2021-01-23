@@ -1,0 +1,31 @@
+{
+  "parent": "repurposed_structures:strongholds",
+  "display": {
+    "icon": {
+      "item": "minecraft:ender_eye"
+    },
+    "title": {
+      "translate": "advancements.repurposed_structures.stronghold_stonebrick.title"
+    },
+    "description": {
+      "translate": "advancements.repurposed_structures.stronghold_stonebrick.description"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 100
+  },
+  "criteria": {
+    "in_stronghold_stonebrick": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:stronghold_stonebrick"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_stronghold_stonebrick"
+    ]
+  ]
+}

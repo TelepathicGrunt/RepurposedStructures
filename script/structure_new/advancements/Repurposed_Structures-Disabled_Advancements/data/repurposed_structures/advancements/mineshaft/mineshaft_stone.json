@@ -1,0 +1,28 @@
+{
+  "parent": "repurposed_structures:mineshafts",
+  "display": {
+    "icon": {
+      "item": "minecraft:stone"
+    },
+    "title": {
+      "translate": "Petrified Passageway"
+    },
+    "description": {
+      "translate": "Enter a Stone Mineshaft"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 20
+  },
+  "criteria": {
+    "in_mineshaft_stone": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "in_mineshaft_stone"
+    ]
+  ]
+}

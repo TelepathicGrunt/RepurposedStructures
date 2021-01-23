@@ -1,0 +1,28 @@
+{
+  "parent": "repurposed_structures:mineshafts",
+  "display": {
+    "icon": {
+      "item": "minecraft:ice"
+    },
+    "title": {
+      "translate": "Frozen in the Deep Hole"
+    },
+    "description": {
+      "translate": "Enter a Icy Mineshaft"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 20
+  },
+  "criteria": {
+    "in_mineshaft_icy": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "in_mineshaft_icy"
+    ]
+  ]
+}

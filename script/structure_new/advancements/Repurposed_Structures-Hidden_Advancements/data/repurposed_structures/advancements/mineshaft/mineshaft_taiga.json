@@ -1,0 +1,33 @@
+{
+  "parent": "repurposed_structures:mineshafts",
+  "display": {
+    "icon": {
+      "item": "minecraft:spruce_planks"
+    },
+    "title": {
+      "translate": "A Spruce Scented Excavation"
+    },
+    "description": {
+      "translate": "Enter a Taiga Mineshaft"
+    },
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 20
+  },
+  "criteria": {
+    "in_mineshaft_taiga": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:mineshaft_taiga"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_mineshaft_taiga"
+    ]
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "parent": "repurposed_structures:igloos",
+  "display": {
+    "icon": {
+      "item": "minecraft:cobblestone"
+    },
+    "title": {
+      "translate": "advancements.repurposed_structures.igloo_stone.title"
+    },
+    "description": {
+      "translate": "advancements.repurposed_structures.igloo_stone.description"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 20
+  },
+  "criteria": {
+    "in_igloo_stone": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:igloo_stone"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_igloo_stone"
+    ]
+  ]
+}

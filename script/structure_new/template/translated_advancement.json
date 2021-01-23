@@ -1,0 +1,31 @@
+{
+  "parent": "repurposed_structures:$1",
+  "display": {
+    "icon": {
+      "item": "$2"
+    },
+    "title": {
+      "text": "$3"
+    },
+    "description": {
+      "text": "$4"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": $5
+  },
+  "criteria": {
+    "in_$6": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "$6
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_$6"
+    ]
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "parent": "repurposed_structures:villages",
+  "display": {
+    "icon": {
+      "item": "minecraft:chiseled_stone_bricks"
+    },
+    "title": {
+      "translate": "The Folks Living at Heights"
+    },
+    "description": {
+      "translate": "Enter a Mountains Village"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 20
+  },
+  "criteria": {
+    "in_village_mountains": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "in_village_mountains"
+    ]
+  ]
+}

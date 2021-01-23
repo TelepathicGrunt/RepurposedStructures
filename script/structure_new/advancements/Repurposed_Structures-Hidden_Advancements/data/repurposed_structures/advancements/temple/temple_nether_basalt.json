@@ -1,0 +1,33 @@
+{
+  "parent": "repurposed_structures:temples",
+  "display": {
+    "icon": {
+      "item": "minecraft:basalt"
+    },
+    "title": {
+      "translate": "The Burning Temple"
+    },
+    "description": {
+      "translate": "Enter a Nether Basalt Temple"
+    },
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 50
+  },
+  "criteria": {
+    "in_temple_nether_basalt": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:temple_nether_basalt"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_temple_nether_basalt"
+    ]
+  ]
+}

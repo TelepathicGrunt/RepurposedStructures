@@ -1,0 +1,28 @@
+{
+  "parent": "repurposed_structures:villages",
+  "display": {
+    "icon": {
+      "item": "minecraft:spruce_wood"
+    },
+    "title": {
+      "translate": "Rocky Houses Among the Giant Trees"
+    },
+    "description": {
+      "translate": "Enter a Giant Taiga Village"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 20
+  },
+  "criteria": {
+    "in_village_giant_taiga": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "in_village_giant_taiga"
+    ]
+  ]
+}

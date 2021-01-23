@@ -1,0 +1,34 @@
+{
+  "parent": "repurposed_structures:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:ender_eye"
+    },
+    "title": {
+      "translate": "Strongholds"
+    },
+    "description": {
+      "translate": "Go look for a Stronghold!"
+    },
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "always": {
+      "trigger": "minecraft:tick",
+      "conditions": {
+        "condition": "minecraft:time_check",
+        "value": {
+          "min": 0,
+          "max": 2147483646
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "always"
+    ]
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "parent": "repurposed_structures:strongholds",
+  "display": {
+    "icon": {
+      "item": "minecraft:ender_eye"
+    },
+    "title": {
+      "translate": "Eye Spy The Nether"
+    },
+    "description": {
+      "translate": "Enter a Nether Stronghold"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 100
+  },
+  "criteria": {
+    "in_stronghold_nether": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:stronghold_nether"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_stronghold_nether"
+    ]
+  ]
+}

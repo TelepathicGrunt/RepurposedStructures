@@ -1,0 +1,31 @@
+{
+  "parent": "repurposed_structures:outposts",
+  "display": {
+    "icon": {
+      "item": "minecraft:warped_planks"
+    },
+    "title": {
+      "translate": "advancements.repurposed_structures.outpost_warped.title"
+    },
+    "description": {
+      "translate": "advancements.repurposed_structures.outpost_warped.description"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 50
+  },
+  "criteria": {
+    "in_outpost_warped": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:outpost_warped"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_outpost_warped"
+    ]
+  ]
+}

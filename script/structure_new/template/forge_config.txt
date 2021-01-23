@@ -1,0 +1,12 @@
+		public ConfigValueListener<Integer> $1;
+		public ConfigValueListener<Boolean> $6;
+
+                $1 = subscriber.subscribe(builder
+                    .comment($3)
+                    .translation("repurposedstructures.config.$4.$2")
+                    .defineInRange("$1", $5, 1, 1001));
+
+                $6 = subscriber.subscribe(builder
+                    .comment($8)
+                    .translation("repurposedstructures.config.$4.$7")
+                    .define("$6", true));

@@ -1,0 +1,1 @@
+    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> $1 = RSStructures.$1.configure(FeatureConfig.DEFAULT);

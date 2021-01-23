@@ -1,0 +1,6 @@
+        if ( &&
+            RepurposedStructures.$1.$2.get() != 1001 &&
+            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.$1.$3.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.$4);
+        }

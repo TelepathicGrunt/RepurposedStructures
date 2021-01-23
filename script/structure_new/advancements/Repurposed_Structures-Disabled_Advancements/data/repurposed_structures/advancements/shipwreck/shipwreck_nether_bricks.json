@@ -1,0 +1,28 @@
+{
+  "parent": "repurposed_structures:shipwrecks",
+  "display": {
+    "icon": {
+      "item": "minecraft:wither_skeleton_skull"
+    },
+    "title": {
+      "translate": "The Hovering Withering Vessel"
+    },
+    "description": {
+      "translate": "Enter a Nether Bricks Shipwreck"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 150
+  },
+  "criteria": {
+    "in_shipwreck_nether_bricks": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "in_shipwreck_nether_bricks"
+    ]
+  ]
+}

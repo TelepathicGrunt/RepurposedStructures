@@ -1,0 +1,1 @@
+        FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "$1"), $2).step(GenerationStep.Feature.$3).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.$4.$5.$6, (int) (RepurposedStructures.RSAllConfig.$4.$5.$6 * 0.5f), $7)).superflatFeature($2.configure(FeatureConfig.DEFAULT))$8.register();

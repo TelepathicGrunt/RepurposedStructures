@@ -1,0 +1,32 @@
+
+{
+  "parent": "repurposed_structures:outposts",
+  "display": {
+    "icon": {
+      "item": "minecraft:chiseled_red_sandstone"
+    },
+    "title": {
+      "translate": "advancements.repurposed_structures.outpost_badlands.title"
+    },
+    "description": {
+      "translate": "advancements.repurposed_structures.outpost_badlands.description"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 50
+  },
+  "criteria": {
+    "in_outpost_badlands": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:outpost_badlands"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_outpost_badlands"
+    ]
+  ]
+}

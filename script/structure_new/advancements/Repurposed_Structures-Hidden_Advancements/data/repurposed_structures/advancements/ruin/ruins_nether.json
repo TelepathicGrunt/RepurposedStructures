@@ -1,0 +1,34 @@
+
+{
+  "parent": "repurposed_structures:ruins",
+  "display": {
+    "icon": {
+      "item": "minecraft:cracked_polished_blackstone_bricks"
+    },
+    "title": {
+      "text": "Ruined Nether History"
+    },
+    "description": {
+      "text": "Enter a Nether Ruins"
+    },
+    "show_toast": false
+    "announce_to_chat": false
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 50
+  },
+  "criteria": {
+    "in_ruins_nether": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:ruins_nether"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_ruins_nether"
+    ]
+  ]
+}

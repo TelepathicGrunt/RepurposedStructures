@@ -1,0 +1,28 @@
+{
+  "parent": "repurposed_structures:outposts",
+  "display": {
+    "icon": {
+      "item": "minecraft:birch_log"
+    },
+    "title": {
+      "translate": "advancements.repurposed_structures.outpost_birch.title"
+    },
+    "description": {
+      "translate": "advancements.repurposed_structures.outpost_birch.description"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 50
+  },
+  "criteria": {
+    "in_outpost_birch": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "in_outpost_birch"
+    ]
+  ]
+}

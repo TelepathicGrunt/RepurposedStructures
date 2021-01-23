@@ -1,0 +1,28 @@
+{
+  "parent": "repurposed_structures:villages",
+  "display": {
+    "icon": {
+      "item": "minecraft:birch_wood"
+    },
+    "title": {
+      "translate": "A Village within the Birch Woods"
+    },
+    "description": {
+      "translate": "Enter a Birch Village"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 20
+  },
+  "criteria": {
+    "in_village_birch": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "in_village_birch"
+    ]
+  ]
+}

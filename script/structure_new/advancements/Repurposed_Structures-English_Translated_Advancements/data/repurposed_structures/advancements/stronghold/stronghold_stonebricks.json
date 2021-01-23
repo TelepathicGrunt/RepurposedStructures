@@ -1,0 +1,31 @@
+{
+  "parent": "repurposed_structures:strongholds",
+  "display": {
+    "icon": {
+      "item": "minecraft:ender_eye"
+    },
+    "title": {
+      "translate": "Eye Spy The Overworld"
+    },
+    "description": {
+      "translate": "Enter a Stonebrick Stronghold"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 100
+  },
+  "criteria": {
+    "in_stronghold_stonebrick": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:stronghold_stonebrick"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_stronghold_stonebrick"
+    ]
+  ]
+}

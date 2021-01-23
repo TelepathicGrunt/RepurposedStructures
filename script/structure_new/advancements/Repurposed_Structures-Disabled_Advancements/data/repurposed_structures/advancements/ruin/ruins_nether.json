@@ -1,0 +1,29 @@
+
+{
+  "parent": "repurposed_structures:ruins",
+  "display": {
+    "icon": {
+      "item": "minecraft:cracked_polished_blackstone_bricks"
+    },
+    "title": {
+      "text": "Ruined Nether History"
+    },
+    "description": {
+      "text": "Enter a Nether Ruins"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 50
+  },
+  "criteria": {
+    "in_ruins_nether": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "in_ruins_nether"
+    ]
+  ]
+}

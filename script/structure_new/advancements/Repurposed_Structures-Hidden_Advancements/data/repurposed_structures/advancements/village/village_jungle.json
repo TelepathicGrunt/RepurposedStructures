@@ -1,0 +1,33 @@
+{
+  "parent": "repurposed_structures:villages",
+  "display": {
+    "icon": {
+      "item": "minecraft:jungle_wood"
+    },
+    "title": {
+      "translate": "The Lost Civilization"
+    },
+    "description": {
+      "translate": "Enter a Jungle Village"
+    },
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 20
+  },
+  "criteria": {
+    "in_village_jungle": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:village_jungle"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_village_jungle"
+    ]
+  ]
+}

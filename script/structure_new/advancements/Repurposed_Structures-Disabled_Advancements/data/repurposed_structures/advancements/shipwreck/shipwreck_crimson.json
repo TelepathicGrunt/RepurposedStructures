@@ -1,0 +1,28 @@
+{
+  "parent": "repurposed_structures:shipwrecks",
+  "display": {
+    "icon": {
+      "item": "minecraft:campfire"
+    },
+    "title": {
+      "translate": "The Burning Velvet Ship."
+    },
+    "description": {
+      "translate": "Enter a Crimson Shipwreck"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 110
+  },
+  "criteria": {
+    "in_shipwreck_crimson": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "in_shipwreck_crimson"
+    ]
+  ]
+}

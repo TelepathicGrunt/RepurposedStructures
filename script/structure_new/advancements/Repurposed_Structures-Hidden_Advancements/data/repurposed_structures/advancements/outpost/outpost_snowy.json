@@ -1,0 +1,34 @@
+
+{
+  "parent": "repurposed_structures:outposts",
+  "display": {
+    "icon": {
+      "item": "minecraft:snow_block"
+    },
+    "title": {
+      "text": "Anti-snowmen Watchtower"
+    },
+    "description": {
+      "text": "Enter a Snowy Outpost"
+    },
+    "show_toast": false
+    "announce_to_chat": false
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 50
+  },
+  "criteria": {
+    "in_outpost_snowy": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:outpost_snowy"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_outpost_snowy"
+    ]
+  ]
+}

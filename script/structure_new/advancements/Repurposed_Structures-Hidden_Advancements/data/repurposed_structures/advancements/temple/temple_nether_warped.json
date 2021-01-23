@@ -1,0 +1,33 @@
+{
+  "parent": "repurposed_structures:temples",
+  "display": {
+    "icon": {
+      "item": "minecraft:warped_stem"
+    },
+    "title": {
+      "translate": "Warped Worshipping"
+    },
+    "description": {
+      "translate": "Enter a Nether Warped Temple"
+    },
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 50
+  },
+  "criteria": {
+    "in_temple_nether_warped": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:temple_nether_warped"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_temple_nether_warped"
+    ]
+  ]
+}

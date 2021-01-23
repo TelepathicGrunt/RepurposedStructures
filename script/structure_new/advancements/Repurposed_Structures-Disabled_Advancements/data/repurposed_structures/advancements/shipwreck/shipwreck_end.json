@@ -1,0 +1,28 @@
+{
+  "parent": "repurposed_structures:shipwrecks",
+  "display": {
+    "icon": {
+      "item": "minecraft:purpur_stairs"
+    },
+    "title": {
+      "translate": "The Ship that cannot Fly Again"
+    },
+    "description": {
+      "translate": "Enter a End Shipwreck"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 60
+  },
+  "criteria": {
+    "in_shipwreck_end": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "in_shipwreck_end"
+    ]
+  ]
+}

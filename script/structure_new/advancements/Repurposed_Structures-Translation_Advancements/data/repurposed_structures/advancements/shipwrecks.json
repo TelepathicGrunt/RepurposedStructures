@@ -1,0 +1,22 @@
+{
+  "parent": "repurposed_structures:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:oak_boat"
+    },
+    "title": {
+      "translate": "advancements.repurposed_structures.shipwrecks.title"
+    },
+    "description": {
+      "translate": "advancements.repurposed_structures.shipwrecks.description"
+    },
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "always": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

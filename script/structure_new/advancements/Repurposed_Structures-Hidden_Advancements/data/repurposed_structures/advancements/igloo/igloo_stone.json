@@ -1,0 +1,33 @@
+{
+  "parent": "repurposed_structures:igloos",
+  "display": {
+    "icon": {
+      "item": "minecraft:cobblestone"
+    },
+    "title": {
+      "translate": "A Cozy Rock"
+    },
+    "description": {
+      "translate": "Enter a Stone Igloo"
+    },
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 20
+  },
+  "criteria": {
+    "in_igloo_stone": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:igloo_stone"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_igloo_stone"
+    ]
+  ]
+}

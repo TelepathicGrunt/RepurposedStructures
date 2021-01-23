@@ -1,0 +1,28 @@
+{
+  "parent": "repurposed_structures:igloos",
+  "display": {
+    "icon": {
+      "item": "minecraft:grass_block"
+    },
+    "title": {
+      "translate": "It was a Hobbit-Hole"
+    },
+    "description": {
+      "translate": "Enter a Grassy Igloo"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 20
+  },
+  "criteria": {
+    "in_igloo_grassy": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "in_igloo_grassy"
+    ]
+  ]
+}

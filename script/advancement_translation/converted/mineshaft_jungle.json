@@ -1,0 +1,31 @@
+{
+  "parent": "repurposed_structures:mineshafts",
+  "display": {
+    "icon": {
+      "item": "minecraft:jungle_planks"
+    },
+    "title": {
+      "translate": "Overgrown Shafts"
+    },
+    "description": {
+      "translate": "Enter a Jungle Mineshaft"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 20
+  },
+  "criteria": {
+    "in_mineshaft_jungle": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:mineshaft_jungle"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_mineshaft_jungle"
+    ]
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "parent": "repurposed_structures:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:cracked_polished_blackstone_bricks"
+    },
+    "title": {
+      "translate": "Ruins"
+    },
+    "description": {
+      "translate": "Go look for a Ruins!"
+    },
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "impossible": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
