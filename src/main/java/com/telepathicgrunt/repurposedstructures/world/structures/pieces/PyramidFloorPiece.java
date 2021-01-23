@@ -55,7 +55,7 @@ public class PyramidFloorPiece {
 
 
         private void func_207614_a(StructureManager templateManager) {
-            Structure template = templateManager.getStructureOrBlank(new Identifier("blank"));
+            Structure template = templateManager.getStructureOrBlank(new Identifier("empty"));
             StructurePlacementData placementsettings = (new StructurePlacementData()).setRotation(this.rotation).setPosition(new BlockPos(21,16,21)).setMirror(BlockMirror.NONE).addProcessor(BlockIgnoreStructureProcessor.IGNORE_STRUCTURE_BLOCKS);
             this.setStructureData(template, this.pos, placementsettings);
         }
