@@ -345,10 +345,10 @@ public class RSAddFeaturesAndStructures {
     public static void addStrongholds(BiomeLoadingEvent event) {
 
         if (RepurposedStructures.RSStrongholdsConfig.stonebrickStrongholdMaxChunkDistance.get() != 1001 &&
-            !BiomeSelection.haveCategories(event, Category.NETHER, Category.THEEND) &&
+            !BiomeSelection.haveCategories(event, Category.NETHER, Category.THEEND, Category.NONE) &&
             ((RepurposedStructures.RSStrongholdsConfig.allowStonebrickStrongholdToVanillaBiomes.get() &&
                 BiomeSelection.hasNamespace(event, "minecraft") &&
-                BiomeSelection.hasStructure(event, Structure.STRONGHOLD)) ||
+                !BiomeSelection.haveCategories(event, Category.RIVER)) ||
             (RepurposedStructures.RSStrongholdsConfig.addStonebrickStrongholdToModdedBiomes.get() &&
                 !BiomeSelection.hasNamespace(event, "minecraft"))))
         {
