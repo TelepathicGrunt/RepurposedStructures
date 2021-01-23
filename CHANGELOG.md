@@ -27,6 +27,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Replaced a lot of Cobblestone with wood in Oak Villages to make them more distinct from Plains Villages.
 
+- Added zombie variant of Badlands Villages.
+
 ##### General:
 - Cleaned up biome selection code backend a lot and adjusted some biome selections conditions for a few structures. 
 

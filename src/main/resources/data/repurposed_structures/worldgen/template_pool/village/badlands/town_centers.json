@@ -10,6 +10,15 @@
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/badlands/zombie/town_centers/center_1",
+        "processors": "repurposed_structures:village/badlands/zombify_decor",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
     }
   ]
 }
