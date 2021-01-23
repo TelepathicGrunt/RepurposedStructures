@@ -390,13 +390,13 @@ public class RSAddFeaturesAndStructures {
 
     public static void addStrongholds() {
         addToBiome("stonebrick_stronghold",
-                (context) -> !BiomeSelection.haveCategories(context, Category.NETHER, Category.THEEND)
+                (context) -> !BiomeSelection.haveCategories(context, Category.NETHER, Category.THEEND, Category.NONE)
                         && RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.stonebrickStrongholdMaxChunkDistance != 1001
                         && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.STRONGHOLD)
                         && BiomeSelection.isBiomeAllowed(context, "stronghold")
                         && ((RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.allowStonebrickStrongholdToVanillaBiomes
                             && BiomeSelection.hasNamespace(context, "minecraft")
-                            && context.getBiome().getGenerationSettings().hasStructureFeature(StructureFeature.STRONGHOLD))
+                            && !BiomeSelection.haveCategories(context, Category.RIVER))
                         || (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.addStonebrickStrongholdToModdedBiomes
                             && !BiomeSelection.hasNamespace(context, "minecraft"))),
                 context -> {
