@@ -26,9 +26,6 @@ public class RepurposedStructures implements ModInitializer {
 	public static RSAllConfig RSAllConfig = null;
     public static final Map<String, List<String>> ALL_BIOME_BLACKLISTS = new HashMap<>();
 
-    //TODO: make zombie badlands village
-    //TODO: replace cobblestone in oak village
-
     @Override
     public void onInitialize() {
         AutoConfig.register(RSAllConfig.class, Toml4jConfigSerializer::new);

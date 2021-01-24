@@ -16,6 +16,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Outposts:
 - Badlands Outposts can spawn on Badland's Plateaus now using a special heightmap check to not spawn it on plateau walls.
 
+- Removed Forge's gravity attribute from Brute in Nether Bricks Outpost to reduce logspam.
+
 ##### Fortresses:
 - Fixed Jungle Fortresses not getting extra vines or breakage.
 
@@ -30,6 +32,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Replaced a lot of Cobblestone with wood in Oak Villages to make them more distinct from Plains Villages.
 
 - Added zombie variant of Badlands Villages.
+
+- Removed Forge's gravity attribute from Brute in Crimson and Warped Villages to reduce logspam.
 
 ##### General:
 - Cleaned up biome selection code backend a lot and adjusted some biome selections conditions for a few structures. 
