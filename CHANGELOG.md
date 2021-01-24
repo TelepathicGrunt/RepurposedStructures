@@ -16,6 +16,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Outposts:
 - Added Taiga Outposts to non-snowy and non-giant Taiga biomes!
 
+- Added Oak Outposts to non-birch and non-dark Forest biomes!
+
 - Badlands Outposts can spawn on Badland's Plateaus now using a special heightmap check to not spawn it on plateau walls.
 
 - Removed Forge's gravity attribute from Brute in Nether Bricks Outpost to reduce logspam.

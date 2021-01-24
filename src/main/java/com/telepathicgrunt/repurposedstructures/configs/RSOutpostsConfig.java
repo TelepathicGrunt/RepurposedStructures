@@ -68,7 +68,7 @@ public class RSOutpostsConfig implements ConfigData {
                 + "\nbiomes. 1 for spawning in most chunks and 1001"
                 + "\nfor none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int outpostBirchMaxChunkDistance = 39;
+        public int outpostBirchMaxChunkDistance = 43;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
@@ -87,7 +87,7 @@ public class RSOutpostsConfig implements ConfigData {
                 + "\nbiomes. 1 for spawning in most chunks and"
                 + "\n1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int outpostJungleMaxChunkDistance = 39;
+        public int outpostJungleMaxChunkDistance = 43;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
@@ -101,7 +101,7 @@ public class RSOutpostsConfig implements ConfigData {
                 + "\nbiomes. 1 for spawning in most chunks and"
                 + "\n1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int outpostGiantTreeTaigaMaxChunkDistance = 37;
+        public int outpostGiantTreeTaigaMaxChunkDistance = 39;
 
 
         @ConfigEntry.Gui.Tooltip(count = 0)
@@ -131,7 +131,7 @@ public class RSOutpostsConfig implements ConfigData {
                 + "\nbiomes. 1 for spawning in most chunks and"
                 + "\n1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int outpostBadlandsMaxChunkDistance = 31;
+        public int outpostBadlandsMaxChunkDistance = 39;
 
 
         @ConfigEntry.Gui.Tooltip(count = 0)
@@ -176,5 +176,20 @@ public class RSOutpostsConfig implements ConfigData {
                 + "\nchunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
         public int outpostTaigaMaxChunkDistance = 39;
+
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Add Oak Outposts to modded forest biomes that are"
+                + "\nnot birch or dark forest.")
+        public boolean addOutpostOakToModdedBiomes = true;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("How rare are Oak Outposts in forest biomes that"
+                + "\nare not birch or dark forest. 1 for spawning in"
+                + "\nmost chunks and 1001 for none.")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int outpostOakMaxChunkDistance = 43;
     }
 }

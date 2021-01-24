@@ -1,0 +1,1 @@
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> OUTPOST_OAK = RSStructures.OUTPOST_OAK.configure(IFeatureConfig.NO_FEATURE_CONFIG);

@@ -1,6 +1,6 @@
         addToBiome("$1",
-                (context) -> BiomeSelection.isBiomeAllowed(context, "$2")
+                (context) -> 
+						&& BiomeSelection.isBiomeAllowed(context, "$2")
                         && RepurposedStructures.RSAllConfig.$3.$2.$4 != 1001
-                        && 
                         && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.$3.$2.$5),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.$6));

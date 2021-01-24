@@ -1,0 +1,79 @@
+--------------FABRIC-------------
+
+    public static StructureFeature<DefaultFeatureConfig> OUTPOST_OAK = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "outposts/oak/base_plates"), 11, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.).collect(Collectors.toSet()));
+
+        FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "outpost_oak"), OUTPOST_OAK).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.outpostOakMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.outpostOakMaxChunkDistance * 0.5f), 698118385)).superflatFeature(OUTPOST_OAK.configure(FeatureConfig.DEFAULT)).adjustsSurface().register();
+
+    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> OUTPOST_OAK = RSStructures.OUTPOST_OAK.configure(FeatureConfig.DEFAULT);
+
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "outpost_oak"), OUTPOST_OAK);
+
+        addTags(RSStructures.OUTPOST_OAK, Stream.of(STRUCTURE_TAGS.REPLACE_NATURAL_MOBS, STRUCTURE_TAGS.OUTPOST, STRUCTURE_TAGS.OVERWORLD, STRUCTURE_TAGS.OVERWORLD_OUTPOST).collect(Collectors.toSet()));
+
+        addToBiome("outpost_oak",
+                (context) -> BiomeSelection.isBiomeAllowed(context, "outposts")
+                        && RepurposedStructures.RSAllConfig.RSOutpostsConfig.outpost.outpostOakMaxChunkDistance != 1001
+                        && 
+                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSOutpostsConfig.outpost.addOutpostOakToModdedBiomes),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.OUTPOST_OAK));
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Add Oak Outposts to modded forest biomes that are"
+                + "\nnot birch or dark forest.")
+        public boolean addOutpostOakToModdedBiomes = true;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("How rare are Oak Outposts in forest biomes that"
+                + "\nare not birch or dark forest. 1 for spawning in"
+                + "\nmost chunks and 1001 for none.")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int outpostOakMaxChunkDistance = 43;
+
+  "advancements.repurposed_structures.outpost_oak.title": "Oak Post",
+  "advancements.repurposed_structures.outpost_oak.description": "Enter a Oak Outpost",
+
+  "text.autoconfig.repurposed_structures-main.option.RSOutpostsConfig.outposts.outpostOakMaxChunkDistance": "Outpost Oak Max Chunk Distance",
+  "text.autoconfig.repurposed_structures-main.option.RSOutpostsConfig.outposts.outpostOakMaxChunkDistance.@PrefixText": "How rare are Oak Outposts in forest biomes that are not birch or dark forest. 1 for spawning in most chunks and 1001 for none. ",
+  "text.autoconfig.repurposed_structures-main.option.RSOutpostsConfig.outposts.addOutpostOakToModdedBiomes": "Add Outpost Oak To Modded Biomes",
+  "text.autoconfig.repurposed_structures-main.option.RSOutpostsConfig.outposts.addOutpostOakToModdedBiomes.@PrefixText": "Add Oak Outposts to modded forest biomes that are not birch or dark forest.",
+
+
+--------------FORGE-------------
+
+        public static final RegistryObject<Structure<NoFeatureConfig>> OUTPOST_OAK = registerStructure("outpost_oak", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "outposts/oak/base_plates"), 11, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.).collect(Collectors.toSet()));
+
+        registerLandscapeTransformingStructure(new ResourceLocation(RepurposedStructures.MODID, "outpost_oak"), OUTPOST_OAK.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSOutpostsConfig.outpostOakMaxChunkDistance.get(), (int) (RepurposedStructures.RSOutpostsConfig.outpostOakMaxChunkDistance.get() * 0.5f), 698118385));
+    
+
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> OUTPOST_OAK = RSStructures.OUTPOST_OAK.configure(IFeatureConfig.NO_FEATURE_CONFIG);
+
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "outpost_oak"), OUTPOST_OAK);
+
+        addTags(RSStructures.OUTPOST_OAK, Stream.of(STRUCTURE_TAGS.REPLACE_NATURAL_MOBS, STRUCTURE_TAGS.OUTPOST, STRUCTURE_TAGS.OVERWORLD, STRUCTURE_TAGS.OVERWORLD_OUTPOST).collect(Collectors.toSet()));
+
+        if ( &&
+            RepurposedStructures.outpostOakMaxChunkDistance.RSOutpostsConfig.get() != 1001 &&
+            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.outpostOakMaxChunkDistance.addOutpostOakToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_OAK);
+        }
+
+		public ConfigValueListener<Integer> outpostOakMaxChunkDistance;
+		public ConfigValueListener<Boolean> addOutpostOakToModdedBiomes;
+
+                outpostOakMaxChunkDistance = subscriber.subscribe(builder
+                    .comment("Add Oak Outposts to modded forest biomes that are"
+                + "\nnot birch or dark forest.")
+                    .translation("repurposedstructures.config.outposts.outpostoakmaxchunkdistance")
+                    .defineInRange("outpostOakMaxChunkDistance", 43, 1, 1001));
+
+                addOutpostOakToModdedBiomes = subscriber.subscribe(builder
+                    .comment("Add Oak Outposts to modded forest biomes that are"
+                + "\nnot birch or dark forest.")
+                    .translation("repurposedstructures.config.outposts.addoutpostoaktomoddedbiomes")
+                    .define("addOutpostOakToModdedBiomes", true));
+
+  "advancements.repurposed_structures.outpost_oak.title": "Oak Post",
+  "advancements.repurposed_structures.outpost_oak.description": "Enter a Oak Outpost"

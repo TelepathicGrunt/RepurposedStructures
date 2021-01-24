@@ -39,7 +39,8 @@ originalBiome = ""
 newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {
-    "minecraft:birch":"minecraft:oak"
+    "birch":"oak",
+    "dark_oak_planks":"oak_wood"
 }
 conversion_exact_dict = {
 }

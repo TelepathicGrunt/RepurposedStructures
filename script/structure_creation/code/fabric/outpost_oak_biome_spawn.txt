@@ -1,0 +1,6 @@
+        addToBiome("outpost_oak",
+                (context) -> BiomeSelection.isBiomeAllowed(context, "outposts")
+                        && RepurposedStructures.RSAllConfig.RSOutpostsConfig.outpost.outpostOakMaxChunkDistance != 1001
+                        && 
+                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSOutpostsConfig.outpost.addOutpostOakToModdedBiomes),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.OUTPOST_OAK));

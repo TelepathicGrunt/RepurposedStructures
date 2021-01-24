@@ -1,0 +1,14 @@
+		public ConfigValueListener<Integer> outpostOakMaxChunkDistance;
+		public ConfigValueListener<Boolean> addOutpostOakToModdedBiomes;
+
+                outpostOakMaxChunkDistance = subscriber.subscribe(builder
+                    .comment("Add Oak Outposts to modded forest biomes that are"
+                + "\nnot birch or dark forest.")
+                    .translation("repurposedstructures.config.outposts.outpostoakmaxchunkdistance")
+                    .defineInRange("outpostOakMaxChunkDistance", 43, 1, 1001));
+
+                addOutpostOakToModdedBiomes = subscriber.subscribe(builder
+                    .comment("Add Oak Outposts to modded forest biomes that are"
+                + "\nnot birch or dark forest.")
+                    .translation("repurposedstructures.config.outposts.addoutpostoaktomoddedbiomes")
+                    .define("addOutpostOakToModdedBiomes", true));

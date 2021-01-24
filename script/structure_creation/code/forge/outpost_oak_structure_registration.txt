@@ -1,0 +1,2 @@
+        registerLandscapeTransformingStructure(new ResourceLocation(RepurposedStructures.MODID, "outpost_oak"), OUTPOST_OAK.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSOutpostsConfig.outpostOakMaxChunkDistance.get(), (int) (RepurposedStructures.RSOutpostsConfig.outpostOakMaxChunkDistance.get() * 0.5f), 698118385));
+    

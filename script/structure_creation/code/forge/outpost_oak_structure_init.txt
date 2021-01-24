@@ -1,0 +1,1 @@
+        public static final RegistryObject<Structure<NoFeatureConfig>> OUTPOST_OAK = registerStructure("outpost_oak", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "outposts/oak/base_plates"), 11, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.).collect(Collectors.toSet()));

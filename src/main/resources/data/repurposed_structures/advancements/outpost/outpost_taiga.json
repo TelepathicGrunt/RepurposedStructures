@@ -1,0 +1,31 @@
+{
+  "parent": "repurposed_structures:outpost_taiga",
+  "display": {
+    "icon": {
+      "item": "minecraft:spruce_log"
+    },
+    "title": {
+      "text": "Pine Tower"
+    },
+    "description": {
+      "text": "Enter a Taiga Outpost"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 50
+  },
+  "criteria": {
+    "in_outpost_taiga": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "outpost_taiga
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_outpost_taiga"
+    ]
+  ]
+}

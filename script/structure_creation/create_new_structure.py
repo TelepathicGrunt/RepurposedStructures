@@ -117,7 +117,7 @@ while restart:
         file.write(file_content)
 
     with open(os.path.join('template', 'fabric_biome_spawn.txt'), "r") as file:
-        file_content = file.read().replace("$1", structure_registry_name).replace("$2", config_subcategory[:-1]).replace("$3", config_category) \
+        file_content = file.read().replace("$1", structure_registry_name).replace("$2", config_subcategory).replace("$3", config_category) \
                                 .replace("$4", config_spawnrate_entry).replace("$5", config_modded_biome_entry).replace("$6", structure_variable_name)
     with open(os.path.join('code', 'fabric', structure_registry_name+'_biome_spawn.txt'), "w") as file:
         raw_output += "\n\n" + file_content
