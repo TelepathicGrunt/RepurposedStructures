@@ -33,7 +33,7 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Slightly adjusted Stonebrick Strongholds so they now won't be added to None-category biomes.
 
 ##### Villages:
-- Replaced a lot of Cobblestone with wood in Oak Villages to make them more distinct from Plains Villages.
+- Replaced a lot of Cobblestone with wood in Oak Villages to make them more distinct from Plains Villages and made Path Blocks more common.
 
 - Added zombie variant of Badlands Villages.
 
