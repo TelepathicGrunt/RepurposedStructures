@@ -1,0 +1,23 @@
+outpost_oak
+11
+outposts/oak/base_plates
+1
+5
+OVERWORLD_VILLAGE
+exit
+surface_structures
+RSOutpostsConfig
+outposts
+Add Oak Outposts to modded forest biomes that are not birch or dark forest.
+How rare are Oak Outposts in forest biomes that are not birch or dark forest. 1 for spawning in most chunks and 1001 for none. 
+43
+y
+REPLACE_NATURAL_MOBS
+OUTPOST
+OVERWORLD
+OVERWORLD_OUTPOST
+exit
+Oak Post
+Enter a Oak Outpost
+minecraft:oak_log
+50

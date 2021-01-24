@@ -19,7 +19,7 @@
     "in_outpost_oak": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "outpost_oak
+        "feature": "outpost_oak"
       }
     }
   },

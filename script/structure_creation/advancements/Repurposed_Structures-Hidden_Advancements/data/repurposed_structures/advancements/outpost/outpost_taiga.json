@@ -21,7 +21,7 @@
     "in_outpost_taiga": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "outpost_taiga
+        "feature": "outpost_taiga"
       }
     }
   },

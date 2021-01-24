@@ -91,7 +91,13 @@ processResources {
 			File file = it
 			jsonMinified++
 			def oldLength = file.length()
-			file.text = JsonOutput.toJson(new JsonSlurper().parse(file))
+			try{
+				file.text = JsonOutput.toJson(new JsonSlurper().parse(file))
+			}
+			catch(Exception e){
+				System.out.println("Parsing JSON error in " + file.path)
+				throw e
+			}
 			jsonBytesSaved += oldLength - file.length()
 		}
 

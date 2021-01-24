@@ -21,7 +21,7 @@
     "in_$1": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "$1
+        "feature": "$1"
       }
     }
   },
