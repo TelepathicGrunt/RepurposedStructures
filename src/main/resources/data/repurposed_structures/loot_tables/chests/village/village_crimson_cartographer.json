@@ -9,7 +9,7 @@
           "functions": [
             {
               "function": "minecraft:exploration_map",
-              "destination": "fortress",
+              "destination": "fortresses",
               "decoration": "banner_red",
               "zoom": 2,
               "skip_existing_chunks": true

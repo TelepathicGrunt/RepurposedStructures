@@ -46,6 +46,8 @@ public class RSConfiguredStructures {
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> OUTPOST_BADLANDS = RSStructures.OUTPOST_BADLANDS.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> OUTPOST_SNOWY = RSStructures.OUTPOST_SNOWY.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> OUTPOST_ICY = RSStructures.OUTPOST_ICY.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> OUTPOST_TAIGA = RSStructures.OUTPOST_TAIGA.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> OUTPOST_OAK = RSStructures.OUTPOST_OAK.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
 
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_PYRAMID = RSStructures.NETHER_PYRAMID.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> BADLANDS_TEMPLE = RSStructures.BADLANDS_PYRAMID.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
@@ -107,6 +109,8 @@ public class RSConfiguredStructures {
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "outpost_badlands"), OUTPOST_BADLANDS);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "outpost_snowy"), OUTPOST_SNOWY);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "outpost_icy"), OUTPOST_ICY);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "outpost_taiga"), OUTPOST_TAIGA);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "outpost_oak"), OUTPOST_OAK);
 
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "nether_pyramid"), NETHER_PYRAMID);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "badlands_temple"), BADLANDS_TEMPLE);

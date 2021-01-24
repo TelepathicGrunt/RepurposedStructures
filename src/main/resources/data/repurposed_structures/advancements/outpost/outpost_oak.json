@@ -1,0 +1,31 @@
+{
+  "parent": "repurposed_structures:outpost_oak",
+  "display": {
+    "icon": {
+      "item": "minecraft:oak_log"
+    },
+    "title": {
+      "text": "Oak Post"
+    },
+    "description": {
+      "text": "Enter a Oak Outpost"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 50
+  },
+  "criteria": {
+    "in_outpost_oak": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "outpost_oak"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_outpost_oak"
+    ]
+  ]
+}

@@ -14,7 +14,13 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Added Nether Ruins to all Nether biomes! They are a great source of maps to undiscovered Bastion Remnants!
 
 ##### Outposts:
+- Added Taiga Outposts to non-snowy and non-giant Taiga biomes!
+
+- Added Oak Outposts to non-birch and non-dark Forest biomes!
+
 - Badlands Outposts can spawn on Badland's Plateaus now using a special heightmap check to not spawn it on plateau walls.
+
+- Set default config for all Outposts to be slightly more rare to compensate for Outposts spawning in more biomes.
 
 ##### Fortresses:
 - Attempt to reduce the amount of floating Vines in Jungle Fortress.
@@ -27,7 +33,7 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Villages:
 - Fixed Swamp Villages bypassing surrounding biome check that would've prevented it from spawning on biome edges.
 
-- Replaced a lot of Cobblestone with wood in Oak Villages to make them more distinct from Plains Villages.
+- Replaced a lot of Cobblestone with wood in Oak Villages to make them more distinct from Plains Villages and made Path Blocks more common.
 
 - Added zombie variant of Badlands Villages.
 

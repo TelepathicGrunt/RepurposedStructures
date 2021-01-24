@@ -24,7 +24,7 @@
           },
           "input_predicate": {
             "block": "minecraft:grass_path",
-            "probability": 0.6,
+            "probability": 0.75,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {

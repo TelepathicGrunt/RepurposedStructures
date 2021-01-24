@@ -459,6 +459,24 @@ public class RSAddFeaturesAndStructures {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_ICY);
                 event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.PILLAGER_OUTPOST));
             }
+
+            else if (BiomeSelection.haveCategories(event, Category.TAIGA) &&
+                    !BiomeSelection.hasName(event, "giant", "redwood", "snow", "ice", "icy", "glacier", "frozen") &&
+                    RepurposedStructures.RSOutpostsConfig.outpostTaigaMaxChunkDistance.get() != 1001 &&
+                    (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSOutpostsConfig.addOutpostTaigaToModdedBiomes.get()))
+            {
+                event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_TAIGA);
+                event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.PILLAGER_OUTPOST));
+            }
+
+            else if (BiomeSelection.haveCategories(event, Category.FOREST) &&
+                    !(BiomeSelection.hasName(event, "birch", "dark", "spooky", "dead", "haunted")) &&
+                    RepurposedStructures.RSOutpostsConfig.outpostOakMaxChunkDistance.get() != 1001 &&
+                    (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSOutpostsConfig.addOutpostOakToModdedBiomes.get()))
+            {
+                event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_OAK);
+                event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.PILLAGER_OUTPOST));
+            }
         }
     }
 
