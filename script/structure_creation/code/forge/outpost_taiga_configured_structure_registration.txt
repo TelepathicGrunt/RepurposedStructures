@@ -1,0 +1,1 @@
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "outpost_taiga"), OUTPOST_TAIGA);

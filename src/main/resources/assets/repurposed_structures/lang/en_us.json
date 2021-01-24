@@ -468,5 +468,13 @@
   "text.autoconfig.repurposed_structures-main.option.RSWellsConfig.rarityPerChunk.netherWellRarityPerChunk": "Nether Well",
   "text.autoconfig.repurposed_structures-main.option.RSWellsConfig.rarityPerChunk.netherWellRarityPerChunk.@PrefixText": "\nAdds Nether themed wells to Nether biomes.",
   "text.autoconfig.repurposed_structures-main.option.RSWellsConfig.rarityPerChunk.snowWellRarityPerChunk": "Snow Well",
-  "text.autoconfig.repurposed_structures-main.option.RSWellsConfig.rarityPerChunk.snowWellRarityPerChunk.@PrefixText": "\nAdds Snow themed wells to snowy and icy biomes."
+  "text.autoconfig.repurposed_structures-main.option.RSWellsConfig.rarityPerChunk.snowWellRarityPerChunk.@PrefixText": "\nAdds Snow themed wells to snowy and icy biomes.",
+
+  "advancements.repurposed_structures.outpost_taiga.title": "Pine Tower",
+  "advancements.repurposed_structures.outpost_taiga.description": "Enter a Taiga Outpost",
+
+  "text.autoconfig.repurposed_structures-main.option.RSOutpostsConfig.outposts.outpostTaigaMaxChunkDistance": "Outpost Taiga Max Chunk Distance",
+  "text.autoconfig.repurposed_structures-main.option.RSOutpostsConfig.outposts.outpostTaigaMaxChunkDistance.@PrefixText": "How rare are Taiga Outposts in non-snowy and non-giant taiga biomes. 1 for spawning in most chunks and 1001 for none. ",
+  "text.autoconfig.repurposed_structures-main.option.RSOutpostsConfig.outposts.addOutpostTaigaToModdedBiomes": "Add Outpost Taiga To Modded Biomes",
+  "text.autoconfig.repurposed_structures-main.option.RSOutpostsConfig.outposts.addOutpostTaigaToModdedBiomes.@PrefixText": "Add Taiga Outposts to modded non-snowy and non-giant taiga biomes."
 }

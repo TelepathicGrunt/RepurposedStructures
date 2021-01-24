@@ -1,0 +1,1 @@
+    public static StructureFeature<DefaultFeatureConfig> OUTPOST_TAIGA = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "outposts/taiga/base_plates"), 11, 0, 1, 5, Stream.of(STRUCTURE_TAGS.).collect(Collectors.toSet()));

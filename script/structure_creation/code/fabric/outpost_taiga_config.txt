@@ -1,0 +1,13 @@
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Add Taiga Outposts to modded non-snowy and"
+                + "\nnon-giant taiga biomes.")
+        public boolean addOutpostTaigaToModdedBiomes = true;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("How rare are Taiga Outposts in non-snowy and"
+                + "\nnon-giant taiga biomes. 1 for spawning in most"
+                + "\nchunks and 1001 for none.")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int outpostTaigaMaxChunkDistance = 39;

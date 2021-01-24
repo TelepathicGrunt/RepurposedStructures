@@ -1,0 +1,1 @@
+    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> OUTPOST_TAIGA = RSStructures.OUTPOST_TAIGA.configure(FeatureConfig.DEFAULT);

@@ -14,6 +14,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Added Nether Ruins to all Nether biomes! They are a great source of maps to undiscovered Bastion Remnants!
 
 ##### Outposts:
+- Added Taiga Outposts to non-snowy and non-giant Taiga biomes!
+
 - Badlands Outposts can spawn on Badland's Plateaus now using a special heightmap check to not spawn it on plateau walls.
 
 - Removed Forge's gravity attribute from Brute in Nether Bricks Outpost to reduce logspam.

@@ -522,6 +522,15 @@ public class RSAddFeaturesAndStructures {
                         && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.addOutpostIcyToModdedBiomes),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.OUTPOST_ICY));
 
+        addToBiome("outpost_taiga",
+                (context) -> BiomeSelection.isBiomeAllowed(context, "outpost")
+                        && RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.outpostTaigaMaxChunkDistance != 1001
+                        && BiomeSelection.haveCategories(context, Category.TAIGA)
+                        && !BiomeSelection.hasName(context, "giant", "redwood", "snow", "ice", "icy", "glacier", "frozen")
+                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.addOutpostTaigaToModdedBiomes),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.OUTPOST_TAIGA));
+
+
         //Remove vanilla outposts from biomes we added our outpost to
         BiomeModifications.create(new Identifier(RepurposedStructures.MODID, "remove_vanilla_outposts")).add(
                 ModificationPhase.REMOVALS,

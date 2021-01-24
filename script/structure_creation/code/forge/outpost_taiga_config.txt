@@ -1,0 +1,14 @@
+		public ConfigValueListener<Integer> outpostTaigaMaxChunkDistance;
+		public ConfigValueListener<Boolean> addOutpostTaigaToModdedBiomes;
+
+                outpostTaigaMaxChunkDistance = subscriber.subscribe(builder
+                    .comment("Add Taiga Outposts to modded non-snowy and"
+                + "\nnon-giant taiga biomes.")
+                    .translation("repurposedstructures.config.outposts.outposttaigamaxchunkdistance")
+                    .defineInRange("outpostTaigaMaxChunkDistance", 39, 1, 1001));
+
+                addOutpostTaigaToModdedBiomes = subscriber.subscribe(builder
+                    .comment("Add Taiga Outposts to modded non-snowy and"
+                + "\nnon-giant taiga biomes.")
+                    .translation("repurposedstructures.config.outposts.addoutposttaigatomoddedbiomes")
+                    .define("addOutpostTaigaToModdedBiomes", true));

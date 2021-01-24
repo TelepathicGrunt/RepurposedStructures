@@ -48,6 +48,7 @@ public class RSConfiguredStructures {
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> OUTPOST_BADLANDS = RSStructures.OUTPOST_BADLANDS.configure(FeatureConfig.DEFAULT);
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> OUTPOST_SNOWY = RSStructures.OUTPOST_SNOWY.configure(FeatureConfig.DEFAULT);
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> OUTPOST_ICY = RSStructures.OUTPOST_ICY.configure(FeatureConfig.DEFAULT);
+    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> OUTPOST_TAIGA = RSStructures.OUTPOST_TAIGA.configure(FeatureConfig.DEFAULT);
 
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> NETHER_PYRAMID = RSStructures.NETHER_PYRAMID.configure(FeatureConfig.DEFAULT);
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> BADLANDS_PYRAMID = RSStructures.BADLANDS_PYRAMID.configure(FeatureConfig.DEFAULT);
@@ -109,7 +110,8 @@ public class RSConfiguredStructures {
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "outpost_badlands"), OUTPOST_BADLANDS);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "outpost_snowy"), OUTPOST_SNOWY);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "outpost_icy"), OUTPOST_ICY);
-        
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "outpost_taiga"), OUTPOST_TAIGA);
+
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "nether_pyramid"), NETHER_PYRAMID);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "badlands_temple"), BADLANDS_PYRAMID);
 

@@ -1,0 +1,2 @@
+        registerLandscapeTransformingStructure(new ResourceLocation(RepurposedStructures.MODID, "outpost_taiga"), OUTPOST_TAIGA.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSOutpostsConfig.outpostTaigaMaxChunkDistance.get(), (int) (RepurposedStructures.RSOutpostsConfig.outpostTaigaMaxChunkDistance.get() * 0.5f), 272805097));
+    

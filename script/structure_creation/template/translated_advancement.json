@@ -16,16 +16,16 @@
     "experience": $5
   },
   "criteria": {
-    "in_$6": {
+    "in_$1": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "$6
+        "feature": "$1
       }
     }
   },
   "requirements": [
     [
-      "in_$6"
+      "in_$1"
     ]
   ]
 }

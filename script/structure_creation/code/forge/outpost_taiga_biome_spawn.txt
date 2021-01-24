@@ -1,0 +1,6 @@
+        if ( &&
+            RepurposedStructures.outpostTaigaMaxChunkDistance.RSOutpostsConfig.get() != 1001 &&
+            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.outpostTaigaMaxChunkDistance.addOutpostTaigaToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_TAIGA);
+        }
