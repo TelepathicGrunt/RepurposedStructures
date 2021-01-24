@@ -64,16 +64,17 @@ public class RSOutpostsConfig implements ConfigData {
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
+        @Comment("Add Birch Outposts to modded Birch biomes.")
+        public boolean addOutpostBirchToModdedBiomes = true;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
         @Comment("How rare are Birch Outposts in Birch Forest"
                 + "\nbiomes. 1 for spawning in most chunks and 1001"
                 + "\nfor none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
         public int outpostBirchMaxChunkDistance = 43;
 
-        @ConfigEntry.Gui.Tooltip(count = 0)
-        @ConfigEntry.Gui.PrefixText
-        @Comment("Add Birch Outposts to modded Birch biomes.")
-        public boolean addOutpostBirchToModdedBiomes = true;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
@@ -89,6 +90,7 @@ public class RSOutpostsConfig implements ConfigData {
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
         public int outpostJungleMaxChunkDistance = 43;
 
+
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
         @Comment("Add Giant Tree Taiga Outposts to modded Giant Tree Taiga"
@@ -101,7 +103,7 @@ public class RSOutpostsConfig implements ConfigData {
                 + "\nbiomes. 1 for spawning in most chunks and"
                 + "\n1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int outpostGiantTreeTaigaMaxChunkDistance = 39;
+        public int outpostGiantTreeTaigaMaxChunkDistance = 43;
 
 
         @ConfigEntry.Gui.Tooltip(count = 0)
@@ -116,7 +118,7 @@ public class RSOutpostsConfig implements ConfigData {
                 + "\nbiomes. 1 for spawning in most chunks and"
                 + "\n1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int outpostDesertMaxChunkDistance = 39;
+        public int outpostDesertMaxChunkDistance = 43;
 
 
         @ConfigEntry.Gui.Tooltip(count = 0)
@@ -131,7 +133,7 @@ public class RSOutpostsConfig implements ConfigData {
                 + "\nbiomes. 1 for spawning in most chunks and"
                 + "\n1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int outpostBadlandsMaxChunkDistance = 39;
+        public int outpostBadlandsMaxChunkDistance = 41;
 
 
         @ConfigEntry.Gui.Tooltip(count = 0)
@@ -145,7 +147,7 @@ public class RSOutpostsConfig implements ConfigData {
                 + "\nbiomes. 1 for spawning in most chunks and"
                 + "\n1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int outpostSnowyMaxChunkDistance = 39;
+        public int outpostSnowyMaxChunkDistance = 43;
 
 
         @ConfigEntry.Gui.Tooltip(count = 0)
@@ -160,7 +162,7 @@ public class RSOutpostsConfig implements ConfigData {
                 + "\ncold biomes. 1 for spawning in most chunks"
                 + "\nand 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int outpostIcyMaxChunkDistance = 37;
+        public int outpostIcyMaxChunkDistance = 41;
 
 
         @ConfigEntry.Gui.Tooltip(count = 0)
@@ -175,7 +177,7 @@ public class RSOutpostsConfig implements ConfigData {
                 + "\nnon-giant taiga biomes. 1 for spawning in most"
                 + "\nchunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int outpostTaigaMaxChunkDistance = 39;
+        public int outpostTaigaMaxChunkDistance = 43;
 
 
         @ConfigEntry.Gui.Tooltip(count = 0)

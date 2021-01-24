@@ -22,6 +22,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Removed Forge's gravity attribute from Brute in Nether Bricks Outpost to reduce logspam.
 
+- Set default config for all Outposts to be slightly more rare to compensate for Outposts spawning in more biomes.
+
 ##### Fortresses:
 - Fixed Jungle Fortresses not getting extra vines or breakage.
 
