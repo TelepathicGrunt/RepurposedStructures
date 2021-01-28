@@ -25,7 +25,7 @@ import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 import java.util.Random;
 
 
-public class ShipwreckEndStructure extends AbstractBaseStructure {
+public class ShipwreckEndStructure extends AbstractBaseStructure<DefaultFeatureConfig> {
     // Special thanks to cannon_foddr for allowing me to use his End Shipwreck design!
 
     private final Identifier START_POOL;

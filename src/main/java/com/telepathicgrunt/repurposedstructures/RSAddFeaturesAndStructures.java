@@ -581,7 +581,17 @@ public class RSAddFeaturesAndStructures {
 
         addToBiome("nether_bricks_shipwreck",
                 (context) -> BiomeSelection.haveCategories(context, Category.NETHER)
+                        && BiomeSelection.hasName(context, "soul")
                         && !BiomeSelection.hasName(context, "crimson", "red_", "warped", "blue")
+                        && RepurposedStructures.RSAllConfig.RSShipwrecksConfig.maxChunkDistance.netherBricksShipwreckMaxChunkDistance != 1001
+                        && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.NETHER_SHIPWRECK)
+                        && BiomeSelection.isBiomeAllowed(context, "shipwrecks")
+                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSShipwrecksConfig.blacklist.addNetherBricksShipwreckToModdedBiomes),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.NETHER_BRICKS_SHIPWRECK_FLYING));
+
+        addToBiome("nether_bricks_shipwreck_flying",
+                (context) -> BiomeSelection.haveCategories(context, Category.NETHER)
+                        && !BiomeSelection.hasName(context, "crimson", "red_", "warped", "blue", "soul")
                         && RepurposedStructures.RSAllConfig.RSShipwrecksConfig.maxChunkDistance.netherBricksShipwreckMaxChunkDistance != 1001
                         && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.NETHER_SHIPWRECK)
                         && BiomeSelection.isBiomeAllowed(context, "shipwrecks")

@@ -1,5 +1,5 @@
 {
-  "parent": "repurposed_structures:outpost_taiga",
+  "parent": "repurposed_structures:outposts",
   "display": {
     "icon": {
       "item": "minecraft:spruce_log"
@@ -21,7 +21,7 @@
     "in_outpost_taiga": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "outpost_taiga"
+        "feature": "repurposed_structures:outpost_taiga"
       }
     }
   },

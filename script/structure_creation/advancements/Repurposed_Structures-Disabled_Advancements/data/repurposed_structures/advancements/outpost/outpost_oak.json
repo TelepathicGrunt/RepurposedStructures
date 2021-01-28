@@ -1,5 +1,5 @@
 {
-  "parent": "repurposed_structures:outpost_oak",
+  "parent": "repurposed_structures:outposts",
   "display": {
     "icon": {
       "item": "minecraft:oak_log"

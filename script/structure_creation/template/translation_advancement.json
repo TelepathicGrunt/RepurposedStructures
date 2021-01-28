@@ -1,5 +1,5 @@
 {
-  "parent": "repurposed_structures:$1",
+  "parent": "repurposed_structures:$6",
   "display": {
     "icon": {
       "item": "$2"
@@ -19,7 +19,7 @@
     "in_$1": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "$1"
+        "feature": "repurposed_structures:$1"
       }
     }
   },

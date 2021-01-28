@@ -21,7 +21,7 @@ import net.minecraft.world.gen.feature.StructureFeature;
 import java.util.List;
 
 
-public class FortressJungleStructure extends AbstractBaseStructure {
+public class FortressJungleStructure extends AbstractBaseStructure<DefaultFeatureConfig> {
     public FortressJungleStructure() {
         super(DefaultFeatureConfig.CODEC);
     }

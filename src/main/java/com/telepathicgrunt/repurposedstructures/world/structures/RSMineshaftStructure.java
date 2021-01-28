@@ -16,7 +16,7 @@ import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
 
-public class RSMineshaftStructure extends AbstractBaseStructure {
+public class RSMineshaftStructure extends AbstractBaseStructure<DefaultFeatureConfig> {
 
     protected final double probability;
     protected final int maxHeight;

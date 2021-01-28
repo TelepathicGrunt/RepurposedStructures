@@ -20,7 +20,7 @@ import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
 
-public abstract class AbstractNetherStructure extends AbstractBaseStructure {
+public abstract class AbstractNetherStructure extends AbstractBaseStructure<DefaultFeatureConfig> {
 
     public AbstractNetherStructure(Codec<DefaultFeatureConfig> config) {
         super(config);

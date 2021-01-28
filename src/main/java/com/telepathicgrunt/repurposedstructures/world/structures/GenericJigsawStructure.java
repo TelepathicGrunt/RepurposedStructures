@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-public class GenericJigsawStructure extends AbstractBaseStructure {
+public class GenericJigsawStructure extends AbstractBaseStructure<DefaultFeatureConfig> {
 
     private final Identifier startPool;
     private final int structureSize;

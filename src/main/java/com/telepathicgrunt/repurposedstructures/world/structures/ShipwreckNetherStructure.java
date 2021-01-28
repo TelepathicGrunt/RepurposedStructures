@@ -3,7 +3,9 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 import com.google.common.collect.Lists;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
+import com.telepathicgrunt.repurposedstructures.world.structures.configs.NetherShipwreckConfig;
 import net.minecraft.entity.EntityType;
+import net.minecraft.structure.MarginedStructureStart;
 import net.minecraft.structure.PoolStructurePiece;
 import net.minecraft.structure.StructureManager;
 import net.minecraft.structure.pool.StructurePoolBasedGenerator;
@@ -21,34 +23,33 @@ import net.minecraft.world.biome.source.BiomeSource;
 import net.minecraft.world.gen.ChunkRandom;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.chunk.StructureConfig;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 
 import java.util.List;
 
 
-public class ShipwreckNetherStructure extends AbstractBaseStructure {
+public class ShipwreckNetherStructure extends AbstractBaseStructure<NetherShipwreckConfig> {
     // Special thanks to cannon_foddr and miguelforge for allowing me to use their nether shipwreck design!
 
-    private final Identifier START_POOL;
-    private final boolean spawnAtSeaLevel;
+    private final Identifier startPool;
+    private final int sealevelOffset;
 
 
-    public ShipwreckNetherStructure(Identifier start_pool, boolean spawnAtSeaLevel) {
-        super(DefaultFeatureConfig.CODEC);
-        this.spawnAtSeaLevel = spawnAtSeaLevel;
-        START_POOL = start_pool;
-        RSStructures.RS_STRUCTURE_START_PIECES.add(start_pool);
+    public ShipwreckNetherStructure(Identifier startPool, int sealevelOffset) {
+        super(NetherShipwreckConfig.CODEC);
+        this.startPool = startPool;
+        this.sealevelOffset = sealevelOffset;
+        RSStructures.RS_STRUCTURE_START_PIECES.add(startPool);
     }
 
     @Override
-    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig defaultFeatureConfig) {
+    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NetherShipwreckConfig config) {
 
         // Quick shitty check to see if there some air where the structure wants to spawn.
         // Doesn't account for rotation of structure.
         BlockPos blockPos;
-        if(spawnAtSeaLevel){
+        if(!config.isFlying){
             blockPos = new BlockPos(chunkX << 4, chunkGenerator.getSeaLevel() + 1, chunkZ << 4);
         }
         else{
@@ -83,7 +84,7 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure {
             }
         }
 
-        return super.shouldStartAt(chunkGenerator, biomeSource, seed, chunkRandom, chunkX, chunkZ, biome, chunkPos, defaultFeatureConfig);
+        return super.shouldStartAt(chunkGenerator, biomeSource, seed, chunkRandom, chunkX, chunkZ, biome, chunkPos, config);
     }
 
     private static final List<SpawnSettings.SpawnEntry> MONSTER_SPAWNS =
@@ -95,24 +96,24 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure {
     }
 
     @Override
-    public StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
+    public StructureStartFactory<NetherShipwreckConfig> getStructureStartFactory() {
         return ShipwreckNetherStructure.Start::new;
     }
 
-    public class Start extends AbstractNetherStructure.AbstractStart {
+    public class Start extends MarginedStructureStart<NetherShipwreckConfig> {
         private final long seed;
 
-        public Start(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
+        public Start(StructureFeature<NetherShipwreckConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
             seed = seedIn;
         }
 
         @Override
-        public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
+        public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, NetherShipwreckConfig config) {
             int placementHeight = chunkGenerator.getSeaLevel();
 
-            if(spawnAtSeaLevel){
-                placementHeight = placementHeight - 4;
+            if(!config.isFlying){
+                placementHeight = placementHeight + sealevelOffset;
             }
             else{
                 ChunkRandom random = new ChunkRandom(seed + (chunkX * (chunkZ * 17)));
@@ -122,7 +123,7 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure {
             BlockPos blockpos = new BlockPos(chunkX * 16, placementHeight, chunkZ * 16);
             StructurePoolBasedGenerator.method_30419(
                     dynamicRegistryManager,
-                    new StructurePoolFeatureConfig(() -> dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN).get(START_POOL), 1),
+                    new StructurePoolFeatureConfig(() -> dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN).get(startPool), 1),
                     PoolStructurePiece::new,
                     chunkGenerator,
                     structureManager,

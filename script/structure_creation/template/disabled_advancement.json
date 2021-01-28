@@ -1,5 +1,5 @@
 {
-  "parent": "repurposed_structures:$1",
+  "parent": "repurposed_structures:$6",
   "display": {
     "icon": {
       "item": "$2"

@@ -16,7 +16,7 @@ import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 
 
-public class GenericNetherJigsawHighStructure extends AbstractBaseStructure {
+public class GenericNetherJigsawHighStructure extends AbstractBaseStructure<DefaultFeatureConfig> {
 
     private final Identifier startPool;
     private final int size;
