@@ -2,7 +2,6 @@ package com.telepathicgrunt.repurposedstructures.world.structures.configs;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.world.gen.feature.IFeatureConfig;
-import net.minecraft.world.gen.feature.structure.ShipwreckConfig;
 
 public class NetherShipwreckConfig implements IFeatureConfig {
     

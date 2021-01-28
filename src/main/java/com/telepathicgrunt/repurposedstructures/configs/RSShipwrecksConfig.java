@@ -3,10 +3,7 @@ package com.telepathicgrunt.repurposedstructures.configs;
 import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
 import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper.ConfigValueListener;
 import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.fml.common.Mod;
 
-
-@Mod.EventBusSubscriber
 public class RSShipwrecksConfig
 {
 	public static class RSShipwrecksConfigValues
