@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-public class GenericJigsawStructure extends AbstractBaseStructure {
+public class GenericJigsawStructure extends AbstractBaseStructure<NoFeatureConfig> {
     private final ResourceLocation startPool;
     private final int structureSize;
     private final int centerOffset;

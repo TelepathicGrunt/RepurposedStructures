@@ -16,7 +16,7 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
 import net.minecraft.world.gen.settings.StructureSeparationSettings;
 
 
-public class RSMineshaftStructure extends AbstractBaseStructure {
+public class RSMineshaftStructure extends AbstractBaseStructure<NoFeatureConfig> {
     protected final double probability;
     protected final int maxHeight;
     protected final int minHeight;

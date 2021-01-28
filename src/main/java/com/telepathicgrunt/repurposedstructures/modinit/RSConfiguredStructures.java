@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.modinit;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.world.structures.configs.NetherShipwreckConfig;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
@@ -53,9 +54,10 @@ public class RSConfiguredStructures {
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> BADLANDS_TEMPLE = RSStructures.BADLANDS_PYRAMID.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
 
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> END_SHIPWRECK = RSStructures.END_SHIPWRECK.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_BRICKS_SHIPWRECK = RSStructures.NETHER_BRICKS_SHIPWRECK.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> CRIMSON_SHIPWRECK = RSStructures.CRIMSON_SHIPWRECK.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> WARPED_SHIPWRECK = RSStructures.WARPED_SHIPWRECK.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NetherShipwreckConfig, ? extends Structure<NetherShipwreckConfig>> NETHER_BRICKS_SHIPWRECK_FLYING = RSStructures.NETHER_BRICKS_SHIPWRECK.get().configure(new NetherShipwreckConfig(true));
+    public static StructureFeature<NetherShipwreckConfig, ? extends Structure<NetherShipwreckConfig>> NETHER_BRICKS_SHIPWRECK = RSStructures.NETHER_BRICKS_SHIPWRECK.get().configure(new NetherShipwreckConfig(false));
+    public static StructureFeature<NetherShipwreckConfig, ? extends Structure<NetherShipwreckConfig>> CRIMSON_SHIPWRECK = RSStructures.CRIMSON_SHIPWRECK.get().configure( new NetherShipwreckConfig(false));
+    public static StructureFeature<NetherShipwreckConfig, ? extends Structure<NetherShipwreckConfig>> WARPED_SHIPWRECK = RSStructures.WARPED_SHIPWRECK.get().configure(new NetherShipwreckConfig(false));
 
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> BADLANDS_VILLAGE = RSStructures.BADLANDS_VILLAGE.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> BIRCH_VILLAGE = RSStructures.BIRCH_VILLAGE.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
@@ -116,7 +118,7 @@ public class RSConfiguredStructures {
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "badlands_temple"), BADLANDS_TEMPLE);
 
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "end_shipwreck"), END_SHIPWRECK);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "nether_bricks_shipwreck"), NETHER_BRICKS_SHIPWRECK);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "nether_bricks_shipwreck"), NETHER_BRICKS_SHIPWRECK_FLYING);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "crimson_shipwreck"), CRIMSON_SHIPWRECK);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "warped_shipwreck"), WARPED_SHIPWRECK);
 

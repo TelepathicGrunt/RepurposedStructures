@@ -515,7 +515,12 @@ public class RSAddFeaturesAndStructures {
             else if (RepurposedStructures.RSShipwrecksConfig.netherBricksShipwreckMaxChunkDistance.get() != 1001 &&
                     (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSShipwrecksConfig.addNetherBricksShipwreckToModdedBiomes.get()))
             {
-                event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_BRICKS_SHIPWRECK);
+                if(BiomeSelection.hasName(event, "soul")){
+                    event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_BRICKS_SHIPWRECK_FLYING);
+                }
+                else{
+                    event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_BRICKS_SHIPWRECK);
+                }
             }
         }
     }

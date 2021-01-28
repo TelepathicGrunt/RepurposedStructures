@@ -5,6 +5,7 @@ import com.google.common.collect.ImmutableMap;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.mixin.PillagerOutpostStructureAccessor;
 import com.telepathicgrunt.repurposedstructures.world.structures.*;
+import com.telepathicgrunt.repurposedstructures.world.structures.configs.NetherShipwreckConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.RSMineshaftPieces;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.gen.FlatGenerationSettings;
@@ -95,9 +96,9 @@ public class RSStructures {
     
 	//Shipwrecks
 	public static final RegistryObject<Structure<NoFeatureConfig>> END_SHIPWRECK = addToStructureMaps("shipwreck_end", ShipwreckEndStructure::new);
-	public static final RegistryObject<Structure<NoFeatureConfig>> NETHER_BRICKS_SHIPWRECK = addToStructureMaps("shipwreck_nether_bricks", () -> (new ShipwreckNetherStructure(new ResourceLocation(RepurposedStructures.MODID, "shipwrecks/nether_bricks"), false)));
-	public static final RegistryObject<Structure<NoFeatureConfig>> CRIMSON_SHIPWRECK = addToStructureMaps("shipwreck_crimson", () -> (new ShipwreckNetherStructure(new ResourceLocation(RepurposedStructures.MODID, "shipwrecks/crimson"), true)));
-	public static final RegistryObject<Structure<NoFeatureConfig>> WARPED_SHIPWRECK = addToStructureMaps("shipwreck_warped", () -> (new ShipwreckNetherStructure(new ResourceLocation(RepurposedStructures.MODID, "shipwrecks/warped"), true)));
+	public static final RegistryObject<Structure<NetherShipwreckConfig>> NETHER_BRICKS_SHIPWRECK = addToStructureMaps("shipwreck_nether_bricks", () -> (new ShipwreckNetherStructure(new ResourceLocation(RepurposedStructures.MODID, "shipwrecks/nether_bricks"), -3)));
+	public static final RegistryObject<Structure<NetherShipwreckConfig>> CRIMSON_SHIPWRECK = addToStructureMaps("shipwreck_crimson", () -> (new ShipwreckNetherStructure(new ResourceLocation(RepurposedStructures.MODID, "shipwrecks/crimson"), -4)));
+	public static final RegistryObject<Structure<NetherShipwreckConfig>> WARPED_SHIPWRECK = addToStructureMaps("shipwreck_warped", () -> (new ShipwreckNetherStructure(new ResourceLocation(RepurposedStructures.MODID, "shipwrecks/warped"), -4)));
 	
 	//Villages
 	public static final RegistryObject<Structure<NoFeatureConfig>> BADLANDS_VILLAGE = addToStructureMaps("village_badlands", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "village/badlands/town_centers"), 10, 0, 1, 0, new HashSet<>(), 20, 2)));
@@ -166,9 +167,9 @@ public class RSStructures {
         addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "pyramid_nether"), NETHER_PYRAMID.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSTemplesConfig.netherPyramidMaxChunkDistance.get(), (int) (RepurposedStructures.RSTemplesConfig.netherPyramidMaxChunkDistance.get() * 0.5f), 2054372964));
 
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "shipwreck_end"), END_SHIPWRECK.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSShipwrecksConfig.endShipwreckMaxChunkDistance.get(), (int) (RepurposedStructures.RSShipwrecksConfig.endShipwreckMaxChunkDistance.get() * 0.5f), 1605500075));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "shipwreck_nether_bricks"), NETHER_BRICKS_SHIPWRECK.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSShipwrecksConfig.netherBricksShipwreckMaxChunkDistance.get(), (int) (RepurposedStructures.RSShipwrecksConfig.netherBricksShipwreckMaxChunkDistance.get() * 0.5f), 2073308006));
-        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "shipwreck_crimson"), CRIMSON_SHIPWRECK.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSShipwrecksConfig.crimsonShipwreckMaxChunkDistance.get(), (int) (RepurposedStructures.RSShipwrecksConfig.crimsonShipwreckMaxChunkDistance.get() * 0.5f), 1019716871));
-        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "shipwreck_warped"), WARPED_SHIPWRECK.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSShipwrecksConfig.warpedShipwreckMaxChunkDistance.get(), (int) (RepurposedStructures.RSShipwrecksConfig.warpedShipwreckMaxChunkDistance.get() * 0.5f), 2072979641));
+        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "shipwreck_nether_bricks"), NETHER_BRICKS_SHIPWRECK.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSShipwrecksConfig.netherBricksShipwreckMaxChunkDistance.get(), (int) (RepurposedStructures.RSShipwrecksConfig.netherBricksShipwreckMaxChunkDistance.get() * 0.5f), 2073308006), new NetherShipwreckConfig(true));
+        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "shipwreck_crimson"), CRIMSON_SHIPWRECK.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSShipwrecksConfig.crimsonShipwreckMaxChunkDistance.get(), (int) (RepurposedStructures.RSShipwrecksConfig.crimsonShipwreckMaxChunkDistance.get() * 0.5f), 1019716871), new NetherShipwreckConfig(false));
+        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "shipwreck_warped"), WARPED_SHIPWRECK.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSShipwrecksConfig.warpedShipwreckMaxChunkDistance.get(), (int) (RepurposedStructures.RSShipwrecksConfig.warpedShipwreckMaxChunkDistance.get() * 0.5f), 2072979641), new NetherShipwreckConfig(false));
 
         addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "village_badlands"), BADLANDS_VILLAGE.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSVillagesConfig.badlandsVillageMaxChunkDistance.get(), (int) (RepurposedStructures.RSVillagesConfig.badlandsVillageMaxChunkDistance.get() * 0.5f), 1319707555));
         addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "village_birch"), BIRCH_VILLAGE.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSVillagesConfig.birchVillageMaxChunkDistance.get(), (int) (RepurposedStructures.RSVillagesConfig.birchVillageMaxChunkDistance.get() * 0.5f), 1102567365));
@@ -189,11 +190,30 @@ public class RSStructures {
         //registers the structure pieces.
         RSStructurePieces.registerStructurePieces();
     }
-    
-	public static <F extends Structure<NoFeatureConfig>> void addToTerraformingAndStructureMaps(ResourceLocation resourceLocation, F structure, GenerationStage.Decoration stage, StructureSeparationSettings StructureSeparationSettings)
+
+    public static <C extends IFeatureConfig, F extends Structure<C>> void addToTerraformingAndStructureMaps(ResourceLocation resourceLocation, F structure, GenerationStage.Decoration stage, StructureSeparationSettings StructureSeparationSettings, C config)
+    {
+        Structure.JIGSAW_STRUCTURES = ImmutableList.<Structure<?>>builder().addAll(Structure.JIGSAW_STRUCTURES).add(structure).build();
+        addToStructureMaps(resourceLocation, structure, stage, StructureSeparationSettings, config);
+    }
+
+    public static <F extends Structure<NoFeatureConfig>> void addToTerraformingAndStructureMaps(ResourceLocation resourceLocation, F structure, GenerationStage.Decoration stage, StructureSeparationSettings StructureSeparationSettings)
     {
         Structure.JIGSAW_STRUCTURES = ImmutableList.<Structure<?>>builder().addAll(Structure.JIGSAW_STRUCTURES).add(structure).build();
         addToStructureMaps(resourceLocation, structure, stage, StructureSeparationSettings);
+    }
+
+    public static <C extends IFeatureConfig, F extends Structure<C>> void addToStructureMaps(ResourceLocation resourceLocation, F structure, GenerationStage.Decoration stage, StructureSeparationSettings structureSeparationSettings, C config)
+    {
+        Structure.STRUCTURES.put(resourceLocation.toString().toLowerCase(Locale.ROOT), structure);
+
+        // This is only for myself. Others should override func_236396_f_() in
+        // their structure's class to return their generation stage instead.
+        Structure.STRUCTURE_TO_GENERATION_STEP.put(structure, stage);
+
+        DimensionStructuresSettings.DEFAULT_STRUCTURES = ImmutableMap.<Structure<?>, StructureSeparationSettings>builder().putAll(DimensionStructuresSettings.DEFAULT_STRUCTURES).put(structure, structureSeparationSettings).build();
+        FlatGenerationSettings.STRUCTURES.put(structure, structure.configure(config));
+        RS_STRUCTURES.put(structure, structureSeparationSettings);
     }
 
 	public static <F extends Structure<NoFeatureConfig>> void addToStructureMaps(ResourceLocation resourceLocation, F structure, GenerationStage.Decoration stage, StructureSeparationSettings structureSeparationSettings)

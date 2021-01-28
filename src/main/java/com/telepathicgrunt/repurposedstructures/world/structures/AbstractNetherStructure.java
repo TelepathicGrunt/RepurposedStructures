@@ -21,7 +21,7 @@ import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.settings.StructureSeparationSettings;
 
 
-public abstract class AbstractNetherStructure extends AbstractBaseStructure {
+public abstract class AbstractNetherStructure extends AbstractBaseStructure<NoFeatureConfig> {
     public AbstractNetherStructure(Codec<NoFeatureConfig> config) {
         super(config);
     }

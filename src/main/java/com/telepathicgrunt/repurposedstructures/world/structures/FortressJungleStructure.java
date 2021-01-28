@@ -22,7 +22,7 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
 import java.util.List;
 
 
-public class FortressJungleStructure extends AbstractBaseStructure {
+public class FortressJungleStructure extends AbstractBaseStructure<NoFeatureConfig> {
     public FortressJungleStructure() {
         super(NoFeatureConfig.CODEC);
     }

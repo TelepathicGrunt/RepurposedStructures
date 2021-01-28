@@ -18,7 +18,7 @@ import net.minecraft.world.gen.feature.structure.VillageConfig;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
 
-public class GenericNetherJigsawHighStructure extends AbstractBaseStructure {
+public class GenericNetherJigsawHighStructure extends AbstractBaseStructure<NoFeatureConfig> {
     // Special thanks to /r/l-ll-ll-l_IsDisLoss for allowing me to mimic his nether pyramid design!
 
     private final ResourceLocation startPool;

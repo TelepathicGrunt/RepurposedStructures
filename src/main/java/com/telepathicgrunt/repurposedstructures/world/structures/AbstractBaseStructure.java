@@ -8,13 +8,14 @@ import net.minecraft.util.math.SectionPos;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.chunk.ChunkStatus;
 import net.minecraft.world.chunk.IChunk;
+import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.StructureManager;
 import net.minecraft.world.gen.feature.structure.StructureStart;
 import net.minecraft.world.gen.settings.StructureSeparationSettings;
 
-public abstract class AbstractBaseStructure extends Structure<NoFeatureConfig> {
+public abstract class AbstractBaseStructure <C extends IFeatureConfig> extends Structure<C> {
     /**
      * --------------------------------------------------------------------------
      * |															        	|
@@ -32,7 +33,7 @@ public abstract class AbstractBaseStructure extends Structure<NoFeatureConfig> {
      * Good luck and have fun modding!
      */
 
-    public AbstractBaseStructure(Codec<NoFeatureConfig> codec) {
+    public AbstractBaseStructure(Codec<C> codec) {
         super(codec);
     }
 
@@ -41,7 +42,7 @@ public abstract class AbstractBaseStructure extends Structure<NoFeatureConfig> {
         return locateStructureFast(worldView, structureAccessor, blockPos, radius, skipExistingChunks, seed, structureConfig, this);
     }
 
-    public static BlockPos locateStructureFast(IWorldReader worldView, StructureManager structureAccessor, BlockPos blockPos, int radius, boolean skipExistingChunks, long seed, StructureSeparationSettings structureConfig, Structure<NoFeatureConfig> structure) {
+    public static <C extends IFeatureConfig> BlockPos locateStructureFast(IWorldReader worldView, StructureManager structureAccessor, BlockPos blockPos, int radius, boolean skipExistingChunks, long seed, StructureSeparationSettings structureConfig, Structure<C> structure) {
         int spacing = structureConfig.getSpacing();
         int chunkX = blockPos.getX() >> 4;
         int chunkZ = blockPos.getZ() >> 4;

@@ -25,6 +25,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Fortresses:
 - Attempt to reduce the amount of floating Vines in Jungle Fortress.
 
+##### Shipwrecks:
+- Nether Bricks Shipwrecks will only be flying in any biome with "soul" in the name.
+
 ##### Strongholds:
 - Lowered netherStrongholdMinHeight config default value to 10.
 
