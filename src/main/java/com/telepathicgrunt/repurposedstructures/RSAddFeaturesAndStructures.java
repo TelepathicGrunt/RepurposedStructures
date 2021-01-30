@@ -67,20 +67,6 @@ public class RSAddFeaturesAndStructures {
                 spacingToAdd.forEach(tempMap::putIfAbsent);
             }
             serverWorld.getChunkProvider().generator.getStructuresConfig().structures = tempMap;
-
-            // Load up the nbt files for several structures at startup instead of during worldgen.
-            // (Yes ik this fires multiple times but this event is the closest to what I need
-            //  before actual worldgen and after dynamicregistries are made... I think?)
-            for(ResourceLocation identifier : RSStructures.RS_STRUCTURE_START_PIECES){
-                JigsawPattern structurePool = serverWorld.getRegistryManager().get(Registry.TEMPLATE_POOL_WORLDGEN).getOrDefault(identifier);
-                if(structurePool != null){
-                    List<JigsawPiece> elements = structurePool.getShuffledPieces(new Random());
-                    for(JigsawPiece element: elements){
-                        // This loads the structure piece to nbt
-                        element.getBoundingBox(serverWorld.getStructureTemplateManager(), new BlockPos(0,0,0), Rotation.NONE);
-                    }
-                }
-            }
         }
     }
 
