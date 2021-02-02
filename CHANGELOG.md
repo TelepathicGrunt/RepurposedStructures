@@ -18,8 +18,11 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Tried to fixed Vines being improperly placed in Jungle and SwampAndDark Mineshafts and also added Leaves blocks to them for a more overgrown look.
 
-- Fixed Nether Mineshaft Room piece so there is no more floating lava if it carves into lava.
+- Changed Nether Mineshafts so they now carve into lava but places blocks to prevent floating lava. Tunnels should be less disconnected now.
 
+- Moved Nether Mineshafts from UNDERGROUND_STRUCTURES to VEGETAL_DECORATION stage to allow Ancient Debris to be exposed in Mineshafts.
+  As a bonus, Basalt Delta's Basalt will not clog up Mineshafts anymore too!
+  
 ##### Outposts:
 - Added Taiga Outposts to non-snowy and non-giant Taiga biomes!
 
