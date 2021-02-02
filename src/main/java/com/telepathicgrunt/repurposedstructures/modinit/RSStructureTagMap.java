@@ -62,6 +62,8 @@ public class RSStructureTagMap {
         addTags(RSStructures.SWAMP_OR_DARK_FOREST_MINESHAFT.get(), Stream.of(STRUCTURE_TAGS.MINESHAFT, STRUCTURE_TAGS.OVERWORLD).collect(Collectors.toSet()));
         addTags(RSStructures.TAIGA_MINESHAFT.get(), Stream.of(STRUCTURE_TAGS.MINESHAFT, STRUCTURE_TAGS.OVERWORLD).collect(Collectors.toSet()));
         addTags(RSStructures.NETHER_MINESHAFT.get(), Stream.of(STRUCTURE_TAGS.MINESHAFT, STRUCTURE_TAGS.NETHER).collect(Collectors.toSet()));
+        addTags(RSStructures.CRIMSON_MINESHAFT.get(), Stream.of(STRUCTURE_TAGS.MINESHAFT, STRUCTURE_TAGS.NETHER).collect(Collectors.toSet()));
+        addTags(RSStructures.WARPED_MINESHAFT.get(), Stream.of(STRUCTURE_TAGS.MINESHAFT, STRUCTURE_TAGS.NETHER).collect(Collectors.toSet()));
         addTags(RSStructures.END_MINESHAFT.get(), Stream.of(STRUCTURE_TAGS.APPEND_WITH_NATURAL_MOBS, STRUCTURE_TAGS.MINESHAFT, STRUCTURE_TAGS.END).collect(Collectors.toSet()));
 
         addTags(RSStructures.GRASSY_IGLOO.get(), Stream.of(STRUCTURE_TAGS.IGLOO, STRUCTURE_TAGS.OVERWORLD).collect(Collectors.toSet()));

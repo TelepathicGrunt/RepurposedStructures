@@ -67,6 +67,17 @@ public class RSStructureFilterMaps {
 
         MINESHAFT_TYPE_AND_CONDITIONS.put(RSConfiguredStructures.NETHER_MINESHAFT, (event) ->
                 RepurposedStructures.RSMineshaftsConfig.netherMineshaftSpawnrate.get() != 0 &&
+                !BiomeSelection.hasName(event, "crimson", "_red", "warped", "blue") &&
+                BiomeSelection.haveCategories(event, Category.NETHER));
+
+        MINESHAFT_TYPE_AND_CONDITIONS.put(RSConfiguredStructures.CRIMSON_MINESHAFT, (event) ->
+                RepurposedStructures.RSMineshaftsConfig.crimsonMineshaftSpawnrate.get() != 0 &&
+                BiomeSelection.hasName(event, "crimson", "_red") &&
+                BiomeSelection.haveCategories(event, Category.NETHER));
+
+        MINESHAFT_TYPE_AND_CONDITIONS.put(RSConfiguredStructures.WARPED_MINESHAFT, (event) ->
+                RepurposedStructures.RSMineshaftsConfig.warpedMineshaftSpawnrate.get() != 0 &&
+                BiomeSelection.hasName(event, "warped", "blue") &&
                 BiomeSelection.haveCategories(event, Category.NETHER));
     }
 }

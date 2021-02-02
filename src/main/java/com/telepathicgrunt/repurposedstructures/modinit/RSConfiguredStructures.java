@@ -16,6 +16,8 @@ public class RSConfiguredStructures {
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> DESERT_MINESHAFT = RSStructures.DESERT_MINESHAFT.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> END_MINESHAFT = RSStructures.END_MINESHAFT.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_MINESHAFT = RSStructures.NETHER_MINESHAFT.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> CRIMSON_MINESHAFT = RSStructures.CRIMSON_MINESHAFT.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> WARPED_MINESHAFT = RSStructures.WARPED_MINESHAFT.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> ICY_MINESHAFT = RSStructures.ICY_MINESHAFT.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> JUNGLE_MINESHAFT = RSStructures.JUNGLE_MINESHAFT.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> OCEAN_MINESHAFT = RSStructures.OCEAN_MINESHAFT.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
@@ -80,6 +82,8 @@ public class RSConfiguredStructures {
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "desert_mineshaft"), DESERT_MINESHAFT);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "end_mineshaft"), END_MINESHAFT);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "nether_mineshaft"), NETHER_MINESHAFT);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "crimson_mineshaft"), CRIMSON_MINESHAFT);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "warped_mineshaft"), WARPED_MINESHAFT);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "icy_mineshaft"), ICY_MINESHAFT);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "jungle_mineshaft"), JUNGLE_MINESHAFT);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "ocean_mineshaft"), OCEAN_MINESHAFT);

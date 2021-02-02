@@ -23,6 +23,8 @@ public class RSMineshaftsConfig
 		public ConfigValueListener<Integer> swampAndDarkForestMineshaftSpawnrate;
 		public ConfigValueListener<Integer> endMineshaftSpawnrate;
 		public ConfigValueListener<Integer> netherMineshaftSpawnrate;
+		public ConfigValueListener<Integer> crimsonMineshaftSpawnrate;
+		public ConfigValueListener<Integer> warpedMineshaftSpawnrate;
 
 		public ConfigValueListener<Integer> birchMineshaftMinHeight;
 		public ConfigValueListener<Integer> jungleMineshaftMinHeight;
@@ -35,6 +37,8 @@ public class RSMineshaftsConfig
 		public ConfigValueListener<Integer> swampAndDarkForestMineshaftMinHeight;
 		public ConfigValueListener<Integer> endMineshaftMinHeight;
 		public ConfigValueListener<Integer> netherMineshaftMinHeight;
+		public ConfigValueListener<Integer> crimsonMineshaftMinHeight;
+		public ConfigValueListener<Integer> warpedMineshaftMinHeight;
 		
 		public ConfigValueListener<Integer> birchMineshaftMaxHeight;
 		public ConfigValueListener<Integer> jungleMineshaftMaxHeight;
@@ -47,6 +51,8 @@ public class RSMineshaftsConfig
 		public ConfigValueListener<Integer> swampAndDarkForestMineshaftMaxHeight;
 		public ConfigValueListener<Integer> endMineshaftMaxHeight;
 		public ConfigValueListener<Integer> netherMineshaftMaxHeight;
+		public ConfigValueListener<Integer> crimsonMineshaftMaxHeight;
+		public ConfigValueListener<Integer> warpedMineshaftMaxHeight;
 
 		public ConfigValueListener<Boolean> barrensIslandsEndMineshafts;
 
@@ -147,13 +153,27 @@ public class RSMineshaftsConfig
 								+ "0 for no Mineshafts and 1000 for max spawnrate.")
 						.translation("repurposedstructures.config.mineshaft.endmineshaftspawnrate")
 						.defineInRange("endMineshaftSpawnrate", 40, 0, 1000));
-					
+
 					netherMineshaftSpawnrate = subscriber.subscribe(builder
-							.comment("\r\n Controls how often Mineshafts will spawn.\r\n " 
-								+"\r\n Add Nether themed Mineshafts to Nether biomes."
+						.comment("\r\n Controls how often Mineshafts will spawn.\r\n "
+								+"\r\n Add Nether themed Mineshafts to non-crimson and non-warped Nether biomes."
 								+ "0 for no Mineshafts and 1000 for max spawnrate.")
 						.translation("repurposedstructures.config.mineshaft.nethermineshaftspawnrate")
 						.defineInRange("netherMineshaftSpawnrate", 40, 0, 1000));
+
+					crimsonMineshaftSpawnrate = subscriber.subscribe(builder
+						.comment("\r\n Controls how often Mineshafts will spawn.\r\n "
+								+"\r\n Add Crimson themed Mineshafts to Crimson Nether biomes."
+								+ "0 for no Mineshafts and 1000 for max spawnrate.")
+						.translation("repurposedstructures.config.mineshaft.crimsonmineshaftspawnrate")
+						.defineInRange("crimsonMineshaftSpawnrate", 40, 0, 1000));
+
+					warpedMineshaftSpawnrate = subscriber.subscribe(builder
+						.comment("\r\n Controls how often Mineshafts will spawn.\r\n "
+								+"\r\n Add Warped themed Mineshafts to Warped Nether biomes."
+								+ "0 for no Mineshafts and 1000 for max spawnrate.")
+						.translation("repurposedstructures.config.mineshaft.warpedmineshaftspawnrate")
+						.defineInRange("warpedMineshaftSpawnrate", 40, 0, 1000));
 
 				builder.pop();
 
@@ -230,9 +250,21 @@ public class RSMineshaftsConfig
 
 					netherMineshaftMinHeight = subscriber.subscribe(builder
 						.comment("\r\n Minimum Y height that this mineshaft can spawn at. Default is 8.\r\n"
-							+" Note: The mineshaft will spawn between min and max y height set in config.\r\n")
+								+" Note: The mineshaft will spawn between min and max y height set in config.\r\n")
 						.translation("repurposedstructures.config.mineshaft.nethermineshaftminheight")
 						.defineInRange("netherMineshaftMinHeight", 8, 5, 255));
+
+					crimsonMineshaftMinHeight = subscriber.subscribe(builder
+						.comment("\r\n Minimum Y height that this mineshaft can spawn at. Default is 8.\r\n"
+								+" Note: The mineshaft will spawn between min and max y height set in config.\r\n")
+						.translation("repurposedstructures.config.mineshaft.crimsonmineshaftminheight")
+						.defineInRange("crimsonMineshaftMinHeight", 8, 5, 255));
+
+					warpedMineshaftMinHeight = subscriber.subscribe(builder
+						.comment("\r\n Minimum Y height that this mineshaft can spawn at. Default is 8.\r\n"
+								+" Note: The mineshaft will spawn between min and max y height set in config.\r\n")
+						.translation("repurposedstructures.config.mineshaft.warpedmineshaftminheight")
+						.defineInRange("warpedMineshaftMinHeight", 8, 5, 255));
 
 				builder.pop();
 
@@ -322,6 +354,20 @@ public class RSMineshaftsConfig
 							+" Setting this to below min height config will make mineshaft spawn only at min height.")
 						.translation("repurposedstructures.config.mineshaft.nethermineshaftmaxheight")
 						.defineInRange("netherMineshaftMaxHeight", 13, 5, 255));
+
+					crimsonMineshaftMaxHeight = subscriber.subscribe(builder
+						.comment("\r\n Minimum Y height that this mineshaft can spawn at. Default is 13.\r\n"
+								+" Note: The mineshaft will spawn between min and max y height set in config.\r\n"
+								+" Setting this to below min height config will make mineshaft spawn only at min height.")
+						.translation("repurposedstructures.config.mineshaft.crimsonmineshaftmaxheight")
+						.defineInRange("crimsonMineshaftMaxHeight", 13, 5, 255));
+
+					warpedMineshaftMaxHeight = subscriber.subscribe(builder
+						.comment("\r\n Minimum Y height that this mineshaft can spawn at. Default is 13.\r\n"
+								+" Note: The mineshaft will spawn between min and max y height set in config.\r\n"
+								+" Setting this to below min height config will make mineshaft spawn only at min height.")
+						.translation("repurposedstructures.config.mineshaft.warpedmineshaftmaxheight")
+						.defineInRange("warpedMineshaftMaxHeight", 13, 5, 255));
 
 				builder.pop();
 
