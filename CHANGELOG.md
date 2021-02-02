@@ -13,6 +13,13 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Ruins:
 - Added Nether Ruins to all Nether biomes! They are a great source of maps to undiscovered Bastion Remnants!
 
+##### Mineshafts:
+- Added Crimson and Warped Mineshafts!
+
+- Tried to fixed Vines being improperly placed in Jungle and SwampAndDark Mineshafts and also added Leaves blocks to them for a more overgrown look.
+
+- Fixed Nether Mineshaft Room piece so there is no more floating lava if it carves into lava.
+
 ##### Outposts:
 - Added Taiga Outposts to non-snowy and non-giant Taiga biomes!
 
