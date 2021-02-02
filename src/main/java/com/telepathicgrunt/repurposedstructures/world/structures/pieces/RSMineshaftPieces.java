@@ -306,7 +306,8 @@ public class RSMineshaftPieces {
         @Override
         public boolean generate(ISeedReader world, StructureManager structureAccessor, ChunkGenerator chunkGenerator, Random random, MutableBoundingBox box, ChunkPos chunkPos, BlockPos blockPos) {
             boolean isOceanType = this.mineShaftType == Type.OCEAN;
-            if (isOceanType ? this.isAirInStructureBoundingBox(world, box) : this.isLiquidInStructureBoundingBox(world, box)) {
+            boolean isNetherType = this.mineShaftType == Type.NETHER || this.mineShaftType == Type.CRIMSON || this.mineShaftType == Type.WARPED;
+            if (!isNetherType && (isOceanType ? this.isAirInStructureBoundingBox(world, box) : this.isLiquidInStructureBoundingBox(world, box))) {
                 return false;
             } else {
                 int offsetInSection = this.sectionCount * 5 - 1;
@@ -314,8 +315,25 @@ public class RSMineshaftPieces {
                 this.fillWithBlocks(world, box, 0, 0, 0, 2, 1, offsetInSection, getFillingBlock(), getFillingBlock(), false);
                 this.generateMaybeBox(world, box, random, 0.8F, 0, 2, 0, 2, 2, offsetInSection, getFillingBlock(), getFillingBlock(), false, false);
 
+                // prevent floating lava
+                if (isNetherType) {
+                    BlockState liquidReplacementBlock = getFloorBlock();
+
+                    if(this.mineShaftType == Type.CRIMSON){
+                        liquidReplacementBlock = Blocks.CRIMSON_HYPHAE.getDefaultState();
+                    }
+                    else if(this.mineShaftType == Type.WARPED){
+                        liquidReplacementBlock = Blocks.WARPED_HYPHAE.getDefaultState();
+                    }
+
+                    replaceFloatingLiquids(world, box, -1, -1, -1, 3, 3, offsetInSection + 1, liquidReplacementBlock);
+                }
+
                 if (this.attemptSpawnerCreation) {
-                    if (isOceanType || this.mineShaftType == Type.NETHER || this.mineShaftType == Type.CRIMSON || this.mineShaftType == Type.WARPED || this.mineShaftType == Type.END) {
+                    if (isOceanType || this.mineShaftType == Type.NETHER || this.mineShaftType == Type.CRIMSON || this.mineShaftType == Type.WARPED) {
+                        this.generateMaybeBox(world, box, random, 0.6F, 0, 0, 0, 2, 0, offsetInSection, getDecorativeBlock(random), getDecorativeBlock(random), false, true);
+                    }
+                    else if(this.mineShaftType == Type.END){
                         this.generateMaybeBox(world, box, random, 0.6F, 0, 0, 0, 2, 0, offsetInSection, getDecorativeBlock(random), getDecorativeBlock(random), false, true);
 
                         // can only place chorus fruit on end stone
@@ -326,8 +344,8 @@ public class RSMineshaftPieces {
                                 }
                             }
                         }
-
-                    } else {
+                    }
+                    else {
                         this.generateMaybeBox(world, box, random, 0.6F, 0, 0, 0, 2, 1, offsetInSection, getDecorativeBlock(random), getFillingBlock(), false, true);
                     }
                 }
@@ -633,7 +651,8 @@ public class RSMineshaftPieces {
         @Override
         public boolean generate(ISeedReader world, StructureManager structureAccessor, ChunkGenerator chunkGenerator, Random random, MutableBoundingBox box, ChunkPos chunkPos, BlockPos blockPos) {
             boolean isOceanType = this.mineShaftType == Type.OCEAN;
-            if (isOceanType ? this.isAirInStructureBoundingBox(world, box) : this.isLiquidInStructureBoundingBox(world, box)) {
+            boolean isNetherType = this.mineShaftType == Type.NETHER || this.mineShaftType == Type.CRIMSON || this.mineShaftType == Type.WARPED;
+            if (!isNetherType && (isOceanType ? this.isAirInStructureBoundingBox(world, box) : this.isLiquidInStructureBoundingBox(world, box))) {
                 return false;
             } else {
                 BlockState iblockstate = this.getFloorBlock();
@@ -647,6 +666,25 @@ public class RSMineshaftPieces {
                 } else {
                     this.fillWithBlocks(world, box, this.boundingBox.minX + 1, this.boundingBox.minY, this.boundingBox.minZ, this.boundingBox.maxX - 1, this.boundingBox.maxY, this.boundingBox.maxZ, getFillingBlock(), getFillingBlock(), false);
                     this.fillWithBlocks(world, box, this.boundingBox.minX, this.boundingBox.minY, this.boundingBox.minZ + 1, this.boundingBox.maxX, this.boundingBox.maxY, this.boundingBox.maxZ - 1, getFillingBlock(), getFillingBlock(), false);
+                }
+
+                // prevent floating lava
+                if (isNetherType) {
+                    BlockState liquidReplacementBlock = getFloorBlock();
+
+                    if(this.mineShaftType == Type.CRIMSON){
+                        liquidReplacementBlock = Blocks.CRIMSON_HYPHAE.getDefaultState();
+                    }
+                    else if(this.mineShaftType == Type.WARPED){
+                        liquidReplacementBlock = Blocks.WARPED_HYPHAE.getDefaultState();
+                    }
+
+                    if (this.isMultipleFloors) {
+                        replaceFloatingLiquids(world, box, this.boundingBox.minX - 1, this.boundingBox.minY - 1, this.boundingBox.minZ - 1, this.boundingBox.maxX + 1, this.boundingBox.maxY + 1, this.boundingBox.maxZ + 1, liquidReplacementBlock);
+                    }
+                    else {
+                        replaceFloatingLiquids(world, box, this.boundingBox.minX - 1, this.boundingBox.minY - 1, this.boundingBox.minZ - 1, this.boundingBox.maxX + 1, this.boundingBox.maxY + 1, this.boundingBox.maxZ + 1, liquidReplacementBlock);
+                    }
                 }
 
                 this.placeSupportPillar(world, box, this.boundingBox.minX + 1, this.boundingBox.minY, this.boundingBox.minZ + 1, this.boundingBox.maxY, isOceanType);
@@ -948,7 +986,8 @@ public class RSMineshaftPieces {
         @Override
         public boolean generate(ISeedReader world, StructureManager structureAccessor, ChunkGenerator chunkGenerator, Random random, MutableBoundingBox box, ChunkPos chunkPos, BlockPos blockPos) {
             boolean isOceanType = this.mineShaftType == Type.OCEAN;
-            if (isOceanType ? this.isAirInStructureBoundingBox(world, box) : this.isLiquidInStructureBoundingBox(world, box)) {
+            boolean isNetherType = this.mineShaftType == Type.NETHER || this.mineShaftType == Type.CRIMSON || this.mineShaftType == Type.WARPED;
+            if (!isNetherType && (isOceanType ? this.isAirInStructureBoundingBox(world, box) : this.isLiquidInStructureBoundingBox(world, box))) {
                 return false;
             } else {
                 this.fillWithBlocks(world, box, 0, 5, 0, 2, 7, 1, getFillingBlock(), getFillingBlock(), false);
@@ -956,6 +995,25 @@ public class RSMineshaftPieces {
 
                 for (int i = 0; i < 5; ++i) {
                     this.fillWithBlocks(world, box, 0, 5 - i - (i < 4 ? 1 : 0), 2 + i, 2, 7 - i, 2 + i, getFillingBlock(), getFillingBlock(), false);
+                }
+
+                // prevent floating lava
+                if (isNetherType) {
+                    BlockState liquidReplacementBlock = getFloorBlock();
+
+                    if(this.mineShaftType == Type.CRIMSON){
+                        liquidReplacementBlock = Blocks.CRIMSON_HYPHAE.getDefaultState();
+                    }
+                    else if(this.mineShaftType == Type.WARPED){
+                        liquidReplacementBlock = Blocks.WARPED_HYPHAE.getDefaultState();
+                    }
+
+                    replaceFloatingLiquids(world, box, -1, 4, -1, 3, 8, 3, liquidReplacementBlock);
+                    replaceFloatingLiquids(world, box, -1, -1, 6, 3, 3, 9, liquidReplacementBlock);
+
+                    for (int i = 0; i < 5; ++i) {
+                        replaceFloatingLiquids(world, box, -1, 5 - i - (i < 4 ? 1 : 0) - 1, 1 + i, 3, 8 - i, 3 + i, liquidReplacementBlock);
+                    }
                 }
 
                 if (this.mineShaftType == Type.JUNGLE) {
@@ -1190,9 +1248,9 @@ public class RSMineshaftPieces {
         }
 
         protected void replaceFloatingLiquids(ISeedReader world, MutableBoundingBox box, int minX, int minY, int minZ, int maxX, int maxY, int maxZ, BlockState mainBlock) {
-            for(int y = minY; y <= maxY; ++y) {
-                for(int x = minX; x <= maxX; ++x) {
-                    for(int z = minZ; z <= maxZ; ++z) {
+            for(int y = minY; y <= maxY; y++) {
+                for(int x = minX; x <= maxX; x++) {
+                    for(int z = minZ; z <= maxZ; z++) {
                         if (!this.getBlockStateFromPos(world, x, y, z, box).getFluidState().isEmpty()) {
                             if(this.getBlockStateFromPos(world, x + 1, y, z, box).isAir() ||
                                 this.getBlockStateFromPos(world, x, y + 1, z, box).isAir() ||
