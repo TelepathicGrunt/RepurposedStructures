@@ -43,6 +43,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Slightly adjusted Stonebrick Strongholds so they now won't be added to None-category biomes.
 
+##### Temples:
+- Moved Nether Basalt Temple from UNDERGROUND_STRUCTURES to VEGETAL_DECORATION stage to prevent Basalt Delta's Basalt features from clogging up the insides.
+
 ##### Villages:
 - Fixed Swamp Villages bypassing surrounding biome check that would've prevented it from spawning on biome edges.
 
