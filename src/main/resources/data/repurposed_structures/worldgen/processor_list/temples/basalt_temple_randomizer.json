@@ -8,7 +8,7 @@
           },
           "input_predicate": {
             "block": "minecraft:blackstone",
-            "probability": 0.013,
+            "probability": 0.065,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -21,7 +21,7 @@
           },
           "input_predicate": {
             "block": "minecraft:blackstone",
-            "probability": 0.014,
+            "probability": 0.055,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -34,7 +34,7 @@
           },
           "input_predicate": {
             "block": "minecraft:blackstone",
-            "probability": 0.015,
+            "probability": 0.05,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -50,7 +50,7 @@
           },
           "input_predicate": {
             "block": "minecraft:blackstone",
-            "probability": 0.02,
+            "probability": 0.085,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -63,7 +63,7 @@
           },
           "input_predicate": {
             "block": "minecraft:blackstone",
-            "probability": 0.01,
+            "probability": 0.012,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {

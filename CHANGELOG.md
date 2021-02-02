@@ -46,6 +46,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Temples:
 - Moved Nether Basalt Temple from UNDERGROUND_STRUCTURES to VEGETAL_DECORATION stage to prevent Basalt Delta's Basalt features from clogging up the insides.
 
+- Adjusted Nether Basalt Temple's processor to randomize the temple's blocks a bit better.
+
 ##### Villages:
 - Fixed Swamp Villages bypassing surrounding biome check that would've prevented it from spawning on biome edges.
 
