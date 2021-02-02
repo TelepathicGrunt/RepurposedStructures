@@ -134,11 +134,27 @@ public class RSMineshaftsConfig implements ConfigData {
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
-        @Comment("Add Nether themed Mineshafts to Nether biomes."
+        @Comment("Add Nether themed Mineshafts to non-crimson and non-warped Nether biomes."
                 + "\nHow often Mineshafts will spawn."
                 + "\n0 for no Mineshafts and 1000 for max spawnrate.")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
         public int netherMineshaftSpawnrate = 40;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Add Crimson themed Mineshafts to Crimson Nether biomes."
+                + "\nHow often Mineshafts will spawn."
+                + "\n0 for no Mineshafts and 1000 for max spawnrate.")
+        @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
+        public int crimsonMineshaftSpawnrate = 40;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Add Warped themed Mineshafts to Warped Nether biomes."
+                + "\nHow often Mineshafts will spawn."
+                + "\n0 for no Mineshafts and 1000 for max spawnrate.")
+        @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
+        public int warpedMineshaftSpawnrate = 40;
     }
 
 
@@ -199,6 +215,16 @@ public class RSMineshaftsConfig implements ConfigData {
         @Comment("Min Y height of Mineshaft. Default is 8.")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int netherMineshaftMinHeight = 8;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @Comment("Min Y height of Mineshaft. Default is 8.")
+        @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
+        public int crimsonMineshaftMinHeight = 8;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @Comment("Min Y height of Mineshaft. Default is 8.")
+        @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
+        public int warpedMineshaftMinHeight = 8;
     }
 
 
@@ -270,6 +296,18 @@ public class RSMineshaftsConfig implements ConfigData {
                 + "\nIf below min height, this will be read as min.")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int netherMineshaftMaxHeight = 13;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @Comment("Max Y height of Mineshaft. Default is 13."
+                + "\nIf below min height, this will be read as min.")
+        @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
+        public int crimsonMineshaftMaxHeight = 13;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @Comment("Max Y height of Mineshaft. Default is 13."
+                + "\nIf below min height, this will be read as min.")
+        @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
+        public int warpedMineshaftMaxHeight = 13;
     }
 
     public static class Misc {

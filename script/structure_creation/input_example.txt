@@ -21,3 +21,5 @@ Oak Post
 Enter a Oak Outpost
 minecraft:oak_log
 50
+
+---

@@ -1,0 +1,31 @@
+{
+  "parent": "repurposed_structures:mineshafts",
+  "display": {
+    "icon": {
+      "item": "minecraft:warped_nylium"
+    },
+    "title": {
+      "translate": "advancements.repurposed_structures.mineshaft_warped.title"
+    },
+    "description": {
+      "translate": "advancements.repurposed_structures.mineshaft_warped.description"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 20
+  },
+  "criteria": {
+    "in_mineshaft_warped": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:mineshaft_warped"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_mineshaft_warped"
+    ]
+  ]
+}

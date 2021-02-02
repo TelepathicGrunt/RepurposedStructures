@@ -7,17 +7,17 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
 import it.unimi.dsi.fastutil.objects.Reference2ObjectOpenHashMap;
-import net.fabricmc.fabric.api.biome.v1.BiomeModificationContext;
-import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
-import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
-import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
+import net.fabricmc.fabric.api.biome.v1.*;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerWorldEvents;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SpawnGroup;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.biome.BiomeKeys;
+import net.minecraft.world.biome.SpawnSettings;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.chunk.FlatChunkGenerator;
 import net.minecraft.world.gen.chunk.StructureConfig;
@@ -168,8 +168,23 @@ public class RSAddFeaturesAndStructures {
         addToBiome("nether_mineshaft",
                 (context) -> genericMineshaftCheck(context)
                         && (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.netherMineshaftSpawnrate != 0
+                        && !BiomeSelection.hasName(context, "crimson", "_red", "warped", "blue")
                         && BiomeSelection.haveCategories(context, Category.NETHER)),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.NETHER_MINESHAFT));
+
+        addToBiome("crimson_mineshaft",
+                (context) -> genericMineshaftCheck(context)
+                        && (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.crimsonMineshaftSpawnrate != 0
+                        && BiomeSelection.hasName(context, "crimson", "_red")
+                        && BiomeSelection.haveCategories(context, Category.NETHER)),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.CRIMSON_MINESHAFT));
+
+        addToBiome("warped_mineshaft",
+                (context) -> genericMineshaftCheck(context)
+                        && (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.warpedMineshaftSpawnrate != 0
+                        && BiomeSelection.hasName(context, "warped", "blue")
+                        && BiomeSelection.haveCategories(context, Category.NETHER)),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.WARPED_MINESHAFT));
 
 
         //Remove vanilla mineshafts from biomes we added our mineshafts to
@@ -345,6 +360,10 @@ public class RSAddFeaturesAndStructures {
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.VEGETAL_DECORATION, RSConfiguredFeatures.HORNED_SWAMP_TREE_COMMON));
 
         // Remove vanilla swamp tree from Swamp Hills biomes
+        BiomeModifications.create(new Identifier(RepurposedStructures.MODID, "mob")).add(
+                ModificationPhase.ADDITIONS,
+                BiomeSelectors.includeByKey(),
+                context -> context.getSpawnSettings().addSpawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.COW, 23, 1, 2)));
         BiomeModifications.create(new Identifier(RepurposedStructures.MODID, "remove_vanilla_swamp_trees")).add(
                 ModificationPhase.REMOVALS,
                 context -> BiomeSelection.isBiome(context, BiomeKeys.SWAMP_HILLS) && context.hasBuiltInFeature(RSConfiguredFeatures.HORNED_SWAMP_TREE_COMMON),
