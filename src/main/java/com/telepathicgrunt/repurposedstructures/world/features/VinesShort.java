@@ -6,6 +6,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.VineBlock;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
@@ -33,10 +34,19 @@ public class VinesShort extends Feature<NoFeatureConfig> {
         BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().setPos(position);
         BlockState currentBlockstate;
         BlockState aboveBlockstate;
+        ChunkPos currentChunkPos = new ChunkPos(position);
 
         for (; blockpos$Mutable.getY() > 15 && length < random.nextInt(3) + 4; blockpos$Mutable.move(Direction.DOWN)) {
             if (world.isAirBlock(blockpos$Mutable)) {
                 for (Direction direction : Direction.Plane.HORIZONTAL) {
+
+                    // Attempt to prevent floating vines in jungle fortress
+                    ChunkPos facingChunkPos = new ChunkPos(blockpos$Mutable.move(direction));
+                    blockpos$Mutable.move(direction.getOpposite());
+                    if(!currentChunkPos.equals(facingChunkPos)){
+                        break;
+                    }
+
                     currentBlockstate = Blocks.VINE.getDefaultState().with(VineBlock.getPropertyFor(direction), Boolean.TRUE);
                     aboveBlockstate = world.getBlockState(blockpos$Mutable.up());
 
@@ -44,7 +54,6 @@ public class VinesShort extends Feature<NoFeatureConfig> {
                         //places topmost vine that can face upward
                         //tick scheduled so it can break if block it was attached to was removed later in worldgen
                         world.setBlockState(blockpos$Mutable, currentBlockstate.with(VineBlock.UP, aboveBlockstate.isSolid()), 2);
-                        world.getPendingBlockTicks().scheduleTick(blockpos$Mutable, currentBlockstate.getBlock(),3);
                         length++;
                         break;
                     }
@@ -52,7 +61,6 @@ public class VinesShort extends Feature<NoFeatureConfig> {
                         //places rest of the vine as long as vine is above
                         //tick scheduled so it can break if block it was attached to was removed later in worldgen
                         world.setBlockState(blockpos$Mutable, aboveBlockstate.with(VineBlock.UP, false), 2);
-                        world.getPendingBlockTicks().scheduleTick(blockpos$Mutable, aboveBlockstate.getBlock(),3);
                         length++;
                         break;
                     }

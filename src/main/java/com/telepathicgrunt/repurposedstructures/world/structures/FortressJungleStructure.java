@@ -47,8 +47,7 @@ public class FortressJungleStructure extends AbstractBaseStructure<NoFeatureConf
 
     private static final List<MobSpawnInfo.Spawners> MONSTER_SPAWNS =
             Lists.newArrayList(
-                    new MobSpawnInfo.Spawners(EntityType.WITHER_SKELETON, 27, 1, 1),
-                    new MobSpawnInfo.Spawners(EntityType.DROWNED, 27, 1, 4)
+                    new MobSpawnInfo.Spawners(EntityType.WITHER_SKELETON, 27, 1, 1)
             );
 
     @Override
