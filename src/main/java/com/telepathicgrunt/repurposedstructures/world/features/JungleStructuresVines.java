@@ -42,8 +42,7 @@ public class JungleStructuresVines extends Feature<DefaultFeatureConfig> {
 
         BlockPos.Mutable mutable = new BlockPos.Mutable().set(position);
         //Place vines without replacing blocks.
-        if (world.isAir(mutable))
-        {
+        if (world.isAir(mutable)) {
             if(world.getStructures(ChunkSectionPos.from(mutable), RSStructures.JUNGLE_VILLAGE).findAny().isPresent() ||
                     world.getStructures(ChunkSectionPos.from(mutable), RSStructures.JUNGLE_FORTRESS).findAny().isPresent())
             {
@@ -51,6 +50,7 @@ public class JungleStructuresVines extends Feature<DefaultFeatureConfig> {
                 return true;
             }
         }
+
         //Place vines and can replace Stone Bricks if it has air below.
         if (FORTRESS_BLOCKS_SET.contains(world.getBlockState(mutable).getBlock()) && world.isAir(mutable.move(Direction.DOWN))) {
             if (world.getStructures(ChunkSectionPos.from(mutable.move(Direction.UP)), RSStructures.JUNGLE_FORTRESS).findAny().isPresent()) {

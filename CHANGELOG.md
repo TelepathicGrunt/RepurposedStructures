@@ -39,6 +39,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Attempt to reduce the amount of floating Vines in Jungle Fortress.
 
+- Fixed Drowned not spawning in flooded Jungle Fortresses by removing them from the mob-spawning-over-time list and now just directly
+  spawns some Drowned on fortress creation. These Drowned will not despawn and will sometimes have Iron or Chainmail armor.
+
 ##### Shipwrecks:
 - Nether Bricks Shipwrecks will only be flying in any biome with "soul" in the name.
 

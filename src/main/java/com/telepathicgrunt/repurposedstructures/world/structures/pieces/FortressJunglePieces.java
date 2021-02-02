@@ -6,7 +6,12 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePieces;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.MobSpawnerBlockEntity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.SpawnReason;
+import net.minecraft.entity.mob.DrownedEntity;
 import net.minecraft.fluid.Fluids;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.state.property.Properties;
 import net.minecraft.structure.StructureManager;
@@ -1202,6 +1207,28 @@ public class FortressJunglePieces {
                             if(world.getBlockState(blockPos).getMaterial() == Material.AIR){
                                 this.addBlock(world, Blocks.WATER.getDefaultState(), x, y, z, boundingboxIn);
                                 world.getFluidTickScheduler().schedule(blockPos, Fluids.WATER, 0);
+
+                                if(world.getRandom().nextFloat() < 0.005f && !world.getBlockState(blockPos.up()).isOpaque()){
+                                    DrownedEntity drowned = EntityType.DROWNED.create(world.toServerWorld());
+                                    drowned.setPersistent();
+
+                                    if(world.getRandom().nextFloat() < 0.4f){
+                                        drowned.equipStack(EquipmentSlot.HEAD, world.getRandom().nextFloat() < 0.4f ? Items.IRON_HELMET.getDefaultStack() : Items.CHAINMAIL_HELMET.getDefaultStack());
+                                    }
+                                    if(world.getRandom().nextFloat() < 0.4f){
+                                        drowned.equipStack(EquipmentSlot.CHEST, world.getRandom().nextFloat() < 0.4f ? Items.IRON_CHESTPLATE.getDefaultStack() : Items.CHAINMAIL_CHESTPLATE.getDefaultStack());
+                                    }
+                                    if(world.getRandom().nextFloat() < 0.4f){
+                                        drowned.equipStack(EquipmentSlot.LEGS, world.getRandom().nextFloat() < 0.4f ? Items.IRON_LEGGINGS.getDefaultStack() : Items.CHAINMAIL_LEGGINGS.getDefaultStack());
+                                    }
+                                    if(world.getRandom().nextFloat() < 0.4f){
+                                        drowned.equipStack(EquipmentSlot.FEET, world.getRandom().nextFloat() < 0.4f ? Items.IRON_BOOTS.getDefaultStack() : Items.CHAINMAIL_BOOTS.getDefaultStack());
+                                    }
+
+                                    drowned.refreshPositionAndAngles((double)blockPos.getX() + 0.5D, blockPos.getY(), (double)blockPos.getZ() + 0.5D, 0.0F, 0.0F);
+                                    drowned.initialize(world, world.getLocalDifficulty(blockPos), SpawnReason.STRUCTURE, null, null);
+                                    world.spawnEntityAndPassengers(drowned);
+                                }
                             }
                             else if(world.getBlockState(blockPos).getProperties().contains(Properties.WATERLOGGED)){
                                 world.setBlockState(blockPos, world.getBlockState(blockPos).with(Properties.WATERLOGGED, true),3);
