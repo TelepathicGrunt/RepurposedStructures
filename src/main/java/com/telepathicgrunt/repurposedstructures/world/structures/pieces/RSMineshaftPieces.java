@@ -803,15 +803,20 @@ public class RSMineshaftPieces {
 
             if (this.mineShaftType == Type.NETHER) {
                 flooring = Blocks.SOUL_SAND.getDefaultState();
-            } else if (this.mineShaftType == Type.CRIMSON) {
+            }
+            else if (this.mineShaftType == Type.CRIMSON) {
                 flooring = Blocks.CRIMSON_NYLIUM.getDefaultState();
-            }  else if (this.mineShaftType == Type.WARPED) {
+            }
+            else if (this.mineShaftType == Type.WARPED) {
                 flooring = Blocks.WARPED_NYLIUM.getDefaultState();
-            }  else if (this.mineShaftType == Type.END) {
+            }
+            else if (this.mineShaftType == Type.END) {
                 flooring = Blocks.END_STONE_BRICKS.getDefaultState();
-            } else if (this.mineShaftType == Type.OCEAN) {
+            }
+            else if (this.mineShaftType == Type.OCEAN) {
                 flooring = Blocks.CLAY.getDefaultState();
-            } else {
+            }
+            else {
                 flooring = getFloorBlock().getMaterial() == Material.WOOD ? Blocks.COARSE_DIRT.getDefaultState() : getFloorBlock();
             }
 
