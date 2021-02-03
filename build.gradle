@@ -12,7 +12,7 @@ group = project.maven_group
 
 repositories {
 	maven { url 'https://jitpack.io' }
-	maven { url 'http://server.bbkr.space:8081/artifactory/libs-release' }
+	maven { url 'https://server.bbkr.space' }
 	maven { url "https://maven.fabricmc.net" }
 	flatDir { dirs 'deps' }
 }
