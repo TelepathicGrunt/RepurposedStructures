@@ -85,7 +85,7 @@ public class RepurposedStructures
 	public void setup(final FMLCommonSetupEvent event)
 	{
 		event.enqueueWork(() -> {
-			//Moved the methods bellow into enqueue to make sure they dont cause issues during registration - andrew
+			//Moved the methods below into enqueue to make sure they dont cause issues during registration - andrew
 			RSConfiguredFeatures.registerConfiguredFeatures();
 			RSStructures.setupStructures();
 			RSConfiguredStructures.registerStructureFeatures();
