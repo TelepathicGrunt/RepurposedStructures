@@ -131,19 +131,19 @@ public class RSConfiguredFeatures {
             new TwoLayersFeatureSize(1, 0, 1))).build();
 
     public static ConfiguredFeature<?, ?> HORNED_SWAMP_TREE_UNCOMMON = RSFeatures.HORNED_SWAMP_TREE.configure(TREE_FEATURE_CONFIG)
-            .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(0, 0.7F, 1))
-                    .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP));
+            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP)
+            .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(0, 0.7F, 1)));
 
     public static ConfiguredFeature<?, ?> HORNED_SWAMP_TREE_COMMON = RSFeatures.HORNED_SWAMP_TREE.configure(TREE_FEATURE_CONFIG)
-            .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(5, 0.8F, 1))
-            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP));
+            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP)
+            .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(5, 0.8F, 1)));
 
     public static ConfiguredFeature<?, ?> BOULDER_GIANT = RSFeatures.BOULDER_GIANT.configure(FeatureConfig.DEFAULT)
+            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP)
             .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(
                     (int) RepurposedStructures.RSAllConfig.RSMainConfig.misc.giantBouldersPerChunk, // Intentional cast. Need to floor to whole number
                     (float) (RepurposedStructures.RSAllConfig.RSMainConfig.misc.giantBouldersPerChunk - ((int)RepurposedStructures.RSAllConfig.RSMainConfig.misc.giantBouldersPerChunk)),
-                    1))
-                    .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP));
+                    1)));
 
     public static ConfiguredFeature<?, ?> BOULDER_TINY = RSFeatures.BOULDER_TINY.configure(FeatureConfig.DEFAULT)
             .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP)
@@ -151,19 +151,20 @@ public class RSConfiguredFeatures {
 
     public static ConfiguredFeature<?, ?> SWAMP_VILLAGE_VINES = RSFeatures.SWAMP_VILLAGE_VINES.configure(FeatureConfig.DEFAULT)
             .decorate(RSPlacements.RS_VINE_PLACEMENT.configure(new RangeDecoratorConfig(30, 0,8))
-                    .repeat(16));
+            .repeat(16));
 
     public static ConfiguredFeature<?, ?> JUNGLE_VILLAGE_VINES = RSFeatures.JUNGLE_STRUCTURES_VINES.configure(FeatureConfig.DEFAULT)
             .decorate(RSPlacements.RS_VINE_PLACEMENT.configure(new RangeDecoratorConfig(30, 0, 8))
-                    .repeat(16));
+            .repeat(16));
+
     public static ConfiguredFeature<?, ?> JUNGLE_FORTRESS_VINES = RSFeatures.JUNGLE_STRUCTURES_VINES.configure(FeatureConfig.DEFAULT)
             .decorate(RSPlacements.RS_VINE_PLACEMENT.configure(new RangeDecoratorConfig(40, 0, 2))
-                    .repeat(20));
+            .repeat(20));
 
 
     public static ConfiguredFeature<?, ?> FORTRESS_BREAKAGE = RSFeatures.FORTRESS_BREAKAGE.configure(FeatureConfig.DEFAULT)
             .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP)
-                    .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(1, 0.2F, 1)));
+            .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(1, 0.2F, 1)));
 
     public static ConfiguredFeature<?, ?> STONEBRICK_STRONGHOLD_CHAINS = RSFeatures.STRONGHOLD_CHAINS.configure(FeatureConfig.DEFAULT)
             .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(
