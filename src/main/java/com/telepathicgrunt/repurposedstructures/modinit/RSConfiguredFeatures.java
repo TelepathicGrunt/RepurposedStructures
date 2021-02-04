@@ -118,19 +118,19 @@ public class RSConfiguredFeatures {
             new TwoLayerFeature(1, 0, 1))).build();
 
     public static ConfiguredFeature<?, ?> HORNED_SWAMP_TREE_UNCOMMON = RSFeatures.HORNED_SWAMP_TREE.get().configure(TREE_FEATURE_CONFIG)
-            .decorate(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, 0.7F, 1))
-            .decorate(Features.Placements.SQUARE_HEIGHTMAP));
+            .decorate(Features.Placements.SQUARE_HEIGHTMAP)
+            .decorate(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, 0.7F, 1)));
 
     public static ConfiguredFeature<?, ?> HORNED_SWAMP_TREE_COMMON = RSFeatures.HORNED_SWAMP_TREE.get().configure(TREE_FEATURE_CONFIG)
-            .decorate(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(5, 0.8F, 1))
-            .decorate(Features.Placements.SQUARE_HEIGHTMAP));
+            .decorate(Features.Placements.SQUARE_HEIGHTMAP)
+            .decorate(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(5, 0.8F, 1)));
 
     public static ConfiguredFeature<?, ?> BOULDER_GIANT = RSFeatures.BOULDER_GIANT.get().configure(IFeatureConfig.NO_FEATURE_CONFIG)
+            .decorate(Features.Placements.SQUARE_HEIGHTMAP)
             .decorate(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(
                     (int) RepurposedStructures.RSMainConfig.giantBouldersPerChunk.get().doubleValue(), // Intentional cast. Need to floor to whole number
                     (float) (RepurposedStructures.RSMainConfig.giantBouldersPerChunk.get() - ((int)RepurposedStructures.RSMainConfig.giantBouldersPerChunk.get().doubleValue())),
-                    1))
-            .decorate(Features.Placements.SQUARE_HEIGHTMAP));
+                    1)));
 
     public static ConfiguredFeature<?, ?> BOULDER_TINY = RSFeatures.BOULDER_TINY.get().configure(IFeatureConfig.NO_FEATURE_CONFIG)
             .decorate(Features.Placements.SQUARE_HEIGHTMAP)
@@ -150,8 +150,8 @@ public class RSConfiguredFeatures {
 
 
     public static ConfiguredFeature<?, ?> FORTRESS_BREAKAGE = RSFeatures.FORTRESS_BREAKAGE.get().configure(IFeatureConfig.NO_FEATURE_CONFIG)
-            .decorate(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(1, 0.2F, 1))
-            .decorate(Features.Placements.SQUARE_HEIGHTMAP));
+            .decorate(Features.Placements.SQUARE_HEIGHTMAP)
+            .decorate(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(1, 0.2F, 1)));
 
     public static ConfiguredFeature<?, ?> STONEBRICK_STRONGHOLD_CHAINS = RSFeatures.STRONGHOLD_CHAINS.get().configure(IFeatureConfig.NO_FEATURE_CONFIG)
             .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.get().configure(new TopSolidRangeConfig(
