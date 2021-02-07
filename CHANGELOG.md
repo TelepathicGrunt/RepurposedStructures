@@ -10,6 +10,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ## (V.1.8.0 Changes) (1.16.4 Minecraft)
 
+##### Cities:
+- Added extremely rare Nether Cities to all Nether biomes! Beware of the Blazes! Maps to this city are very rare but can be found in Nether Ruins or Crimson/Warped Cartographer chests. 
+
 ##### Ruins:
 - Added Nether Ruins to all Nether biomes! They are a great source of maps to undiscovered Bastion Remnants!
 
@@ -54,6 +57,14 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Moved Nether Basalt Temple from UNDERGROUND_STRUCTURES to VEGETAL_DECORATION stage to prevent Basalt Delta's Basalt features from clogging up the insides.
 
 - Adjusted Nether Basalt Temple's processor to randomize the temple's blocks a bit better.
+
+- Nerfed Golden Swords enchantment level range from 20-39 to 10-30 in all chest's loottable for temples.
+
+##### Pyramids:
+- Nerfed Golden Swords enchantment level range from 20-39 to 10-30 in chest's loottable for Nether Pyramids.
+
+##### Dungeons:
+- Nerfed all golden tools and armor enchantment level range from 15-30 to 5-25 in Nether Dungeon chest's loottable.
 
 ##### Villages:
 - Replaced a lot of Cobblestone with wood in Oak Villages to make them more distinct from Plains Villages and made Path Blocks more common.

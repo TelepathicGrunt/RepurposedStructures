@@ -1,0 +1,6 @@
+        if ( &&
+            RepurposedStructures.RSMainConfig.cityNetherMaxChunkDistance.get() != 1001 &&
+            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSMainConfig.addCityNetherToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.CITY_NETHER);
+        }

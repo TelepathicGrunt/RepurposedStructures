@@ -23,3 +23,25 @@ minecraft:oak_log
 50
 
 ---
+city_nether
+5
+cities/nether/start_pool
+0
+4
+GENERIC_AVOID_NETHER_STRUCTURE
+exit
+surface_structures
+RSMainConfig
+cities
+Add Nether Cities to modded Nether biomes.
+How rare are Nether Cities in Nether biomes. 1 for spawning in most chunks and 1001 for none. 
+130
+y
+REPLACE_NATURAL_MOBS
+NETHER
+GENERIC_AVOID_NETHER_STRUCTURE
+exit
+Blazing Cities
+Enter a Nether City
+minecraft:fire
+500

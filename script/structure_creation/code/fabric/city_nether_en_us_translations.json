@@ -1,0 +1,7 @@
+  "advancements.repurposed_structures.city_nether.title": "Blazing Cities",
+  "advancements.repurposed_structures.city_nether.description": "Enter a Nether City",
+
+  "text.autoconfig.repurposed_structures-main.option.RSMainConfig.cities.cityNetherMaxChunkDistance": "City Nether Max Chunk Distance",
+  "text.autoconfig.repurposed_structures-main.option.RSMainConfig.cities.cityNetherMaxChunkDistance.@PrefixText": "How rare are Nether Cities in Nether biomes. 1 for spawning in most chunks and 1001 for none. ",
+  "text.autoconfig.repurposed_structures-main.option.RSMainConfig.cities.addCityNetherToModdedBiomes": "Add City Nether To Modded Biomes",
+  "text.autoconfig.repurposed_structures-main.option.RSMainConfig.cities.addCityNetherToModdedBiomes.@PrefixText": "Add Nether Cities to modded Nether biomes.",

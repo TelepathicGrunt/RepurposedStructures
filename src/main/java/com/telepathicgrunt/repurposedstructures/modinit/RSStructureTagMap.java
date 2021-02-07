@@ -116,6 +116,7 @@ public class RSStructureTagMap {
         addTags(RSStructures.JUNGLE_FORTRESS, Stream.of(STRUCTURE_TAGS.APPEND_WITH_NATURAL_MOBS, STRUCTURE_TAGS.FORTRESS, STRUCTURE_TAGS.OVERWORLD).collect(Collectors.toSet()));
         addTags(RSStructures.RUINED_PORTAL_END, Stream.of(STRUCTURE_TAGS.RUINED_PORTAL, STRUCTURE_TAGS.END).collect(Collectors.toSet()));
         addTags(RSStructures.RUINS_NETHER, Stream.of(STRUCTURE_TAGS.RUINS, STRUCTURE_TAGS.NETHER).collect(Collectors.toSet()));
+        addTags(RSStructures.CITY_NETHER, Stream.of(STRUCTURE_TAGS.REPLACE_NATURAL_MOBS, STRUCTURE_TAGS.NETHER, STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
     }
 
 

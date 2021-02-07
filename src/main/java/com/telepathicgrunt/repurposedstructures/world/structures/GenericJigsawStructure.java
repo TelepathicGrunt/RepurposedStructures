@@ -29,16 +29,16 @@ import java.util.Set;
 
 public class GenericJigsawStructure extends AbstractBaseStructure<DefaultFeatureConfig> {
 
-    private final Identifier startPool;
-    private final int structureSize;
-    private final int centerOffset;
-    private final int biomeRange;
-    private final int structureBlacklistRange;
-    private final Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet;
-    private final List<SpawnSettings.SpawnEntry> monsterSpawns;
-    private final List<SpawnSettings.SpawnEntry> creatureSpawns;
-    private final int allowTerrainHeightRange;
-    private final int terrainHeightRadius;
+    protected final Identifier startPool;
+    protected final int structureSize;
+    protected final int centerOffset;
+    protected final int biomeRange;
+    protected final int structureBlacklistRange;
+    protected final Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet;
+    protected final List<SpawnSettings.SpawnEntry> monsterSpawns;
+    protected final List<SpawnSettings.SpawnEntry> creatureSpawns;
+    protected final int allowTerrainHeightRange;
+    protected final int terrainHeightRadius;
 
     public GenericJigsawStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange, int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet) {
         this(poolID, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet, -1, 0);
@@ -97,6 +97,8 @@ public class GenericJigsawStructure extends AbstractBaseStructure<DefaultFeature
         //cannot be near other specified structure
         for (int curChunkX = chunkX - structureBlacklistRange; curChunkX <= chunkX + structureBlacklistRange; curChunkX++) {
             for (int curChunkZ = chunkZ - structureBlacklistRange; curChunkZ <= chunkZ + structureBlacklistRange; curChunkZ++) {
+                if(curChunkX == chunkX && curChunkZ == chunkZ) continue; // Prevent detecting the structure itself and thus, never spawning if structure is in its own blacklist
+
                 for(RSStructureTagMap.STRUCTURE_TAGS tag : avoidStructuresSet){
                     for(StructureFeature<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(tag)){
                         StructureConfig structureConfig = chunkGenerator.getStructuresConfig().getForType(structureFeature);

@@ -89,6 +89,7 @@ public class RSAddFeaturesAndStructures {
         addVillages();
         addRuinedPortals();
         addRuins();
+        addCities();
     }
 
     // Helper method to help reduce amount of code we need to write for adding structures to biomes
@@ -857,5 +858,17 @@ public class RSAddFeaturesAndStructures {
                         && BiomeSelection.haveCategories(context, Category.NETHER)
                         && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSMainConfig.ruins.addRuinsNetherToModdedBiomes),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.RUINS_NETHER));
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // CITIES //
+
+    public static void addCities() {
+        addToBiome("city_nether",
+                (context) -> BiomeSelection.isBiomeAllowed(context, "cities")
+                        && RepurposedStructures.RSAllConfig.RSMainConfig.cities.cityNetherMaxChunkDistance != 1001
+                        && BiomeSelection.haveCategories(context, Category.NETHER)
+                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSMainConfig.cities.addCityNetherToModdedBiomes),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.CITY_NETHER));
     }
 }

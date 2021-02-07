@@ -1,7 +1,7 @@
 package com.telepathicgrunt.repurposedstructures;
 
 import com.telepathicgrunt.repurposedstructures.configs.RSAllConfig;
-import com.telepathicgrunt.repurposedstructures.misc.VillagerTrades;
+import com.telepathicgrunt.repurposedstructures.misc.MobMapTrades;
 import com.telepathicgrunt.repurposedstructures.modinit.*;
 import com.telepathicgrunt.repurposedstructures.utils.MobSpawnerManager;
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
@@ -31,7 +31,7 @@ public class RepurposedStructures implements ModInitializer {
         AutoConfig.register(RSAllConfig.class, Toml4jConfigSerializer::new);
         RSAllConfig = AutoConfig.getConfigHolder(RSAllConfig.class).getConfig();
 
-        ServerStartCallback.EVENT.register(minecraftServer -> VillagerTrades.addMapTrades());
+        ServerStartCallback.EVENT.register(minecraftServer -> MobMapTrades.addMapTrades());
 
         RSPlacements.registerPlacements();
         RSFeatures.registerFeatures();
@@ -71,5 +71,6 @@ public class RepurposedStructures implements ModInitializer {
         ALL_BIOME_BLACKLISTS.put("wells", Arrays.asList(RepurposedStructures.RSAllConfig.RSWellsConfig.blacklistedWellBiomes.replace(" ", "").split(",")));
         ALL_BIOME_BLACKLISTS.put("ruined_portals", Arrays.asList(RepurposedStructures.RSAllConfig.RSMainConfig.ruinedPortals.blacklistedRuinedPortalsBiomes.replace(" ", "").split(",")));
         ALL_BIOME_BLACKLISTS.put("ruins", Arrays.asList(RepurposedStructures.RSAllConfig.RSMainConfig.ruins.blacklistedRuinsBiomes.replace(" ", "").split(",")));
+        ALL_BIOME_BLACKLISTS.put("cities", Arrays.asList(RepurposedStructures.RSAllConfig.RSMainConfig.cities.blacklistedCitiesBiomes.replace(" ", "").split(",")));
     }
 }

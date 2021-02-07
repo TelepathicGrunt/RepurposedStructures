@@ -33,6 +33,10 @@ public class RSMainConfig implements ConfigData {
 
     @ConfigEntry.Gui.CollapsibleObject
     public Ruins ruins = new Ruins();
+
+    @ConfigEntry.Gui.CollapsibleObject
+    public Cities cities = new Cities();
+
     public static class Misc {
         @ConfigEntry.Gui.Tooltip
         @Comment("Add RS swamp trees to modded biomes of same categories/type.")
@@ -217,4 +221,26 @@ public class RSMainConfig implements ConfigData {
         public int ruinsNetherMaxChunkDistance = 35;
     }
 
+    public static class Cities {
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Add the ID/resource location of the biome you don't want"
+                +"\nRS's cities to spawn in. Separate each ID with a comma ,"
+                +"\n"
+                +"\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
+        public String blacklistedCitiesBiomes = "";
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Add Nether Cities to modded Nether biomes.")
+        public boolean addCityNetherToModdedBiomes = true;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("How rare are Nether Cities in Nether biomes. 1"
+                + "\nfor spawning in most chunks and 1001 for none.")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int cityNetherMaxChunkDistance = 160;
+    }
 }

@@ -1,0 +1,129 @@
+{
+  "name": "repurposed_structures:cities/nether/bridge",
+  "fallback": "repurposed_structures:cities/nether/no_stair_room",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:cities/nether/bridge_piece_0",
+        "processors": "repurposed_structures:cities/nether_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:cities/nether/bridge_piece_1",
+        "processors": "repurposed_structures:cities/nether_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:cities/nether/bridge_piece_2",
+        "processors": "repurposed_structures:cities/nether_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:cities/nether/bridge_piece_3",
+        "processors": "repurposed_structures:cities/nether_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:cities/nether/bridge_piece_4",
+        "processors": "repurposed_structures:cities/nether_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:cities/nether/bridge_piece_5",
+        "processors": "repurposed_structures:cities/nether_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:cities/nether/bridge_piece_6",
+        "processors": "repurposed_structures:cities/nether_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:cities/nether/bridge_piece_7",
+        "processors": "repurposed_structures:cities/nether_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:cities/nether/bridge_piece_8",
+        "processors": "repurposed_structures:cities/nether_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:cities/nether/bridge_piece_9",
+        "processors": "repurposed_structures:cities/nether_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:cities/nether/bridge_piece_10",
+        "processors": "repurposed_structures:cities/nether_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:cities/nether/bridge_piece_11",
+        "processors": "repurposed_structures:cities/nether_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:cities/nether/bridge_piece_12",
+        "processors": "repurposed_structures:cities/nether_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      }
+    }
+  ]
+}

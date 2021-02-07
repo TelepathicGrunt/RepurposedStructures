@@ -1,0 +1,1 @@
+        public static final RegistryObject<Structure<NoFeatureConfig>> CITY_NETHER = addToStructureMaps("city_nether", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "cities/nether/start_pool"), 5, 0, 0, 4, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.).collect(Collectors.toSet()))));

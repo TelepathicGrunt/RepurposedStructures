@@ -33,6 +33,8 @@ public abstract class AbstractNetherStructure extends AbstractBaseStructure<Defa
         int radius = RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NETHER_OUTPOST).contains(this) ? 6 : 3;
         for (int curChunkX = chunkX - radius; curChunkX <= chunkX + radius; curChunkX++) {
             for (int curChunkZ = chunkZ - radius; curChunkZ <= chunkZ + radius; curChunkZ++) {
+                if(curChunkX == chunkX && curChunkZ == chunkZ) continue; // Prevent detecting the structure itself and thus, never spawning if structure is in its own blacklist
+
                 for(StructureFeature<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE)) {
                     StructureConfig structureConfig = chunkGenerator.getStructuresConfig().getForType(structureFeature);
                     if(structureConfig != null) {

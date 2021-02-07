@@ -1,0 +1,12 @@
+		public ConfigValueListener<Integer> cityNetherMaxChunkDistance;
+		public ConfigValueListener<Boolean> addCityNetherToModdedBiomes;
+
+                cityNetherMaxChunkDistance = subscriber.subscribe(builder
+                    .comment("Add Nether Cities to modded Nether biomes.")
+                    .translation("repurposedstructures.config.cities.citynethermaxchunkdistance")
+                    .defineInRange("cityNetherMaxChunkDistance", 130, 1, 1001));
+
+                addCityNetherToModdedBiomes = subscriber.subscribe(builder
+                    .comment("Add Nether Cities to modded Nether biomes.")
+                    .translation("repurposedstructures.config.cities.addcitynethertomoddedbiomes")
+                    .define("addCityNetherToModdedBiomes", true));

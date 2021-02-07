@@ -7,7 +7,9 @@ import com.telepathicgrunt.repurposedstructures.world.structures.*;
 import com.telepathicgrunt.repurposedstructures.world.structures.configs.NetherShipwreckConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.RSMineshaftPieces;
 import net.fabricmc.fabric.api.structure.v1.FabricStructureBuilder;
+import net.minecraft.entity.EntityType;
 import net.minecraft.util.Identifier;
+import net.minecraft.world.biome.SpawnSettings;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.chunk.StructureConfig;
 import net.minecraft.world.gen.chunk.StructuresConfig;
@@ -91,6 +93,8 @@ public class RSStructures {
 
     public static StructureFeature<DefaultFeatureConfig> RUINS_NETHER = new GenericNetherJigsawHighStructure(new Identifier(RepurposedStructures.MODID, "ruins/nether/start_pool"), 1, -4, -1);
 
+    public static StructureFeature<DefaultFeatureConfig> CITY_NETHER = new CityNetherStructure(new Identifier(RepurposedStructures.MODID, "cities/nether/start_pool"), 5, 0, 0, 4, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()), ImmutableList.of(new SpawnSettings.SpawnEntry(EntityType.BLAZE, 120, 1, 4), new SpawnSettings.SpawnEntry(EntityType.WITHER_SKELETON, 10, 2, 3)), ImmutableList.of());
+
     public static void registerStructures() {
 
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "mineshaft_birch"), BIRCH_MINESHAFT).step(GenerationStep.Feature.UNDERGROUND_STRUCTURES).defaultConfig(new StructureConfig(1, 0, 399117345)).superflatFeature(BIRCH_MINESHAFT.configure(FeatureConfig.DEFAULT)).register();
@@ -155,7 +159,7 @@ public class RSStructures {
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "ruined_portal_end"), RUINED_PORTAL_END).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSMainConfig.ruinedPortals.ruinedPortalEndMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSMainConfig.ruinedPortals.ruinedPortalEndMaxChunkDistance * 0.5f), 532404086)).superflatFeature(RUINED_PORTAL_END.configure(FeatureConfig.DEFAULT)).register();
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "ruins_nether"), RUINS_NETHER).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSMainConfig.ruins.ruinsNetherMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSMainConfig.ruins.ruinsNetherMaxChunkDistance * 0.5f), 1336047555)).superflatFeature(RUINS_NETHER.configure(FeatureConfig.DEFAULT)).adjustsSurface().register();
 
-        //Next available seed: https://www.google.com/search?q=random+number
+        FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "city_nether"), CITY_NETHER).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSMainConfig.cities.cityNetherMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSMainConfig.cities.cityNetherMaxChunkDistance * 0.5f), 2082652405)).superflatFeature(CITY_NETHER.configure(FeatureConfig.DEFAULT)).adjustsSurface().register();
 
         RS_STRUCTURES.putAll(StructuresConfig.DEFAULT_STRUCTURES);
         RS_STRUCTURES.keySet().removeIf(key -> key.getName() == null || !key.getName().contains(RepurposedStructures.MODID));

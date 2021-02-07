@@ -1,0 +1,1 @@
+    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> CITY_NETHER = RSStructures.CITY_NETHER.configure(FeatureConfig.DEFAULT);

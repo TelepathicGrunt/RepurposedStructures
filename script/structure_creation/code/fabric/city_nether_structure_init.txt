@@ -1,0 +1,1 @@
+    public static StructureFeature<DefaultFeatureConfig> CITY_NETHER = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "cities/nether/start_pool"), 5, 0, 0, 4, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.).collect(Collectors.toSet()));
