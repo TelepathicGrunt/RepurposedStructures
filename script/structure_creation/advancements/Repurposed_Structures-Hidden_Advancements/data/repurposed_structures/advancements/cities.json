@@ -1,0 +1,22 @@
+{
+  "parent": "repurposed_structures:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:red_wall_banner"
+    },
+    "title": {
+      "translate": "Cities"
+    },
+    "description": {
+      "translate": "Go look for a Cities!"
+    },
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "always": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}
