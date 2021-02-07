@@ -3,8 +3,8 @@
 	"pools": [
 		{
 			"rolls": {
-				"min": 2.0,
-				"max": 5.0,
+				"min": 3.0,
+				"max": 7.0,
 				"type": "minecraft:uniform"
 			},
 			"entries": [
@@ -25,22 +25,7 @@
 				},
 				{
 					"type": "minecraft:item",
-					"weight": 15,
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"min": 3.0,
-								"max": 15.0,
-								"type": "minecraft:uniform"
-							}
-						}
-					],
-					"name": "minecraft:fire_charge"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 15,
+					"weight": 18,
 					"functions": [
 						{
 							"function": "minecraft:set_count",
@@ -55,7 +40,7 @@
 				},
 				{
 					"type": "minecraft:item",
-					"weight": 15,
+					"weight": 18,
 					"functions": [
 						{
 							"function": "minecraft:set_count",
@@ -67,6 +52,21 @@
 						}
 					],
 					"name": "minecraft:blaze_rod"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 15,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 3.0,
+								"max": 15.0,
+								"type": "minecraft:uniform"
+							}
+						}
+					],
+					"name": "minecraft:fire_charge"
 				},
 				{
 					"type": "minecraft:item",
@@ -332,7 +332,7 @@
 			"entries": [
 				{
 					"type": "minecraft:item",
-					"weight": 10,
+					"weight": 4,
 					"functions": [
 						{
 							"function": "minecraft:set_count",
@@ -344,6 +344,36 @@
 						}
 					],
 					"name": "minecraft:fire_charge"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 3,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 1.0,
+								"max": 8.0,
+								"type": "minecraft:uniform"
+							}
+						}
+					],
+					"name": "minecraft:magma_cream"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 3,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 1.0,
+								"max": 6.0,
+								"type": "minecraft:uniform"
+							}
+						}
+					],
+					"name": "minecraft:blaze_rod"
 				},
 				{
 					"type": "minecraft:item",
