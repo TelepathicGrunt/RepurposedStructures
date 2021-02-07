@@ -2,7 +2,7 @@
   "parent": "repurposed_structures:root",
   "display": {
     "icon": {
-      "item": "minecraft:red_wall_banner"
+      "item": "minecraft:red_banner"
     },
     "title": {
       "translate": "Cities"

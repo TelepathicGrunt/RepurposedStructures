@@ -2,7 +2,7 @@
   "parent": "repurposed_structures:cities",
   "display": {
     "icon": {
-      "item": "minecraft:fire"
+      "item": "minecraft:red_banner"
     },
     "title": {
       "text": "Blazing Cities"
