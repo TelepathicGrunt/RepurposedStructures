@@ -34,6 +34,9 @@ public class RSMainConfig
 		public ConfigValueListener<Integer> ruinsNetherMaxChunkDistance;
 		public ConfigValueListener<Boolean> addRuinsNetherToModdedBiomes;
 
+		public ConfigValueListener<Integer> citiesNetherMaxChunkDistance;
+		public ConfigValueListener<Boolean> addCitiesNetherToModdedBiomes;
+
 		public ConfigValueListener<String> blacklistedDimensions;
 		public ConfigValueListener<String> blacklistedSwampTreeBiomes;
 		public ConfigValueListener<String> blacklistedBoulderBiomes;
@@ -41,6 +44,7 @@ public class RSMainConfig
 		public ConfigValueListener<String> blacklistedIglooBiomes;
 		public ConfigValueListener<String> blacklistedRuinedPortalsBiomes;
 		public ConfigValueListener<String> blacklistedRuinsBiomes;
+		public ConfigValueListener<String> blacklistedCitiesBiomes;
 
 		public RSConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
 		{
@@ -239,14 +243,14 @@ public class RSMainConfig
 
 				builder.pop();
 
-				builder.push("Ruined Portals");
+				builder.push("Ruins");
 
 					blacklistedRuinsBiomes = subscriber.subscribe(builder
 							.comment("\r\n Add the ID/resource location of the biome you don't want"
 									+"\r\n RS's Ruins to spawn in. Separate each ID with a comma ,"
 									+"\r\n"
 									+"\r\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
-							.translation("repurposedstructures.config.ruinedportals.blacklistedruinsbiomes")
+							.translation("repurposedstructures.config.ruins.blacklistedruinsbiomes")
 							.define("blacklistedRuinsBiomes", ""));
 
 					ruinsNetherMaxChunkDistance = subscriber.subscribe(builder
@@ -261,8 +265,32 @@ public class RSMainConfig
 							.define("addRuinsNetherToModdedBiomes", true));
 
 				builder.pop();
+
+
+				builder.push("Cities");
+
+					blacklistedCitiesBiomes = subscriber.subscribe(builder
+							.comment("\r\n Add the ID/resource location of the biome you don't want"
+									+"\r\n RS's Cities to spawn in. Separate each ID with a comma ,"
+									+"\r\n"
+									+"\r\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
+							.translation("repurposedstructures.config.cities.blacklistedruinsbiomes")
+							.define("blacklistedCitiesBiomes", ""));
+
+					citiesNetherMaxChunkDistance = subscriber.subscribe(builder
+							.comment("How rare are Nether Cities. 1 for spawning in most"
+									+ "\nchunks and 1001 for none.")
+							.translation("repurposedstructures.config.cities.citiesnethermaxchunkdistance")
+							.defineInRange("citiesNetherMaxChunkDistance", 160, 1, 1001));
+
+					addCitiesNetherToModdedBiomes = subscriber.subscribe(builder
+							.comment("Add Nether Cities to modded Nether category biomes.")
+							.translation("repurposedstructures.config.cities.addcitiesnethertomoddedbiomes")
+							.define("addCitiesNetherToModdedBiomes", true));
+
+				builder.pop();
+
 			builder.pop();
 		}
-		
 	}
 }

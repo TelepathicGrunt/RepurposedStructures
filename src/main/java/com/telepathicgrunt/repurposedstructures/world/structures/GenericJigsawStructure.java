@@ -28,17 +28,16 @@ import java.util.List;
 import java.util.Set;
 
 public class GenericJigsawStructure extends AbstractBaseStructure<NoFeatureConfig> {
-    private final ResourceLocation startPool;
-    private final int structureSize;
-    private final int centerOffset;
-    private final int biomeRange;
-    private final int structureBlacklistRange;
-    private final Set<RSStructureTagMap.STRUCTURE_TAGS> structureTagsSet;
-    private final List<MobSpawnInfo.Spawners> monsterSpawns;
-    private final List<MobSpawnInfo.Spawners> creatureSpawns;
-    private final int allowTerrainHeightRange;
-    private final int terrainHeightRadius;
-
+    protected final ResourceLocation startPool;
+    protected final int structureSize;
+    protected final int centerOffset;
+    protected final int biomeRange;
+    protected final int structureBlacklistRange;
+    protected final Set<RSStructureTagMap.STRUCTURE_TAGS> structureTagsSet;
+    protected final List<MobSpawnInfo.Spawners> monsterSpawns;
+    protected final List<MobSpawnInfo.Spawners> creatureSpawns;
+    protected final int allowTerrainHeightRange;
+    protected final int terrainHeightRadius;
 
     public GenericJigsawStructure(ResourceLocation poolRL, int structureSize, int centerOffset, int biomeRange, int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet) {
         this(poolRL, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet, -1, 0);
@@ -84,7 +83,7 @@ public class GenericJigsawStructure extends AbstractBaseStructure<NoFeatureConfi
     }
 
     @Override
-    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig NoFeatureConfig) {
+    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig noFeatureConfig) {
          for (int curChunkX = chunkX - biomeRange; curChunkX <= chunkX + biomeRange; curChunkX++) {
             for (int curChunkZ = chunkZ - biomeRange; curChunkZ <= chunkZ + biomeRange; curChunkZ++) {
                 if (!biomeSource.getBiomeForNoiseGen(curChunkX << 2, 60, curChunkZ << 2).getGenerationSettings().hasStructureFeature(this)) {
@@ -96,6 +95,8 @@ public class GenericJigsawStructure extends AbstractBaseStructure<NoFeatureConfi
         //cannot be near other specified structure
         for (int curChunkX = chunkX - structureBlacklistRange; curChunkX <= chunkX + structureBlacklistRange; curChunkX++) {
             for (int curChunkZ = chunkZ - structureBlacklistRange; curChunkZ <= chunkZ + structureBlacklistRange; curChunkZ++) {
+                if(curChunkX == chunkX && curChunkZ == chunkZ) continue; // Prevent detecting the structure itself and thus, never spawning if structure is in its own blacklist
+
                 for(RSStructureTagMap.STRUCTURE_TAGS tag : structureTagsSet){
                     for(Structure<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(tag)){
                         StructureSeparationSettings structureConfig = chunkGenerator.getStructuresConfig().getForType(structureFeature);

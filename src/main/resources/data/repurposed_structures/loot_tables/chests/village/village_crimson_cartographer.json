@@ -6,6 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
+          "weight": 25,
           "functions": [
             {
               "function": "minecraft:exploration_map",
@@ -19,12 +20,27 @@
         },
         {
           "type": "minecraft:item",
+          "weight": 25,
           "functions": [
             {
               "function": "minecraft:exploration_map",
               "destination": "bastion_remnant",
               "decoration": "banner_black",
               "zoom": 2,
+              "skip_existing_chunks": true
+            }
+          ],
+          "name": "minecraft:map"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:exploration_map",
+              "destination": "repurposed_structures:city_nether",
+              "decoration": "banner_gray",
+              "zoom": 4,
               "skip_existing_chunks": true
             }
           ],

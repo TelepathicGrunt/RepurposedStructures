@@ -7,7 +7,9 @@ import com.telepathicgrunt.repurposedstructures.mixin.PillagerOutpostStructureAc
 import com.telepathicgrunt.repurposedstructures.world.structures.*;
 import com.telepathicgrunt.repurposedstructures.world.structures.configs.NetherShipwreckConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.RSMineshaftPieces;
+import net.minecraft.entity.EntityType;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.gen.FlatGenerationSettings;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.IFeatureConfig;
@@ -120,6 +122,9 @@ public class RSStructures {
     //Ruins
     public static final RegistryObject<Structure<NoFeatureConfig>> RUINS_NETHER = addToStructureMaps("ruins_nether", () -> (new GenericNetherJigsawHighStructure(new ResourceLocation(RepurposedStructures.MODID, "ruins/nether/start_pool"), 1, -4, -1)));
 
+    //Cities
+    public static final RegistryObject<Structure<NoFeatureConfig>> CITY_NETHER = addToStructureMaps("city_nether", () -> (new CityNetherStructure(new ResourceLocation(RepurposedStructures.MODID, "cities/nether/start_pool"), 5, 0, 0, 4, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()), ImmutableList.of(new MobSpawnInfo.Spawners(EntityType.BLAZE, 120, 1, 4), new MobSpawnInfo.Spawners(EntityType.WITHER_SKELETON, 10, 2, 3)), ImmutableList.of())));
+
     private static <T extends Structure<?>> RegistryObject<T> addToStructureMaps(String name, Supplier<T> structure)
     {   
         return STRUCTURE_FEATURES.register(name, structure);
@@ -188,6 +193,7 @@ public class RSStructures {
 
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "ruined_portal_end"), RUINED_PORTAL_END.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMainConfig.ruinedPortalEndMaxChunkDistance.get(), (int) (RepurposedStructures.RSMainConfig.ruinedPortalEndMaxChunkDistance.get() * 0.5f), 532404086));
         addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "ruins_nether"), RUINS_NETHER.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMainConfig.ruinsNetherMaxChunkDistance.get(), (int) (RepurposedStructures.RSMainConfig.ruinsNetherMaxChunkDistance.get() * 0.5f), 1336047555));
+        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "city_nether"), CITY_NETHER.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMainConfig.citiesNetherMaxChunkDistance.get(), (int) (RepurposedStructures.RSMainConfig.citiesNetherMaxChunkDistance.get() * 0.5f), 2082652405));
 
         //Next available seed: https://www.google.com/search?q=random+number
 

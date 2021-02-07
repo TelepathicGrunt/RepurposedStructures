@@ -1,0 +1,42 @@
+{
+  "name": "repurposed_structures:cities/nether/no_stair_room",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:cities/nether/large_room_ns",
+        "processors": "repurposed_structures:cities/nether_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:cities/nether/medium_room_ns",
+        "processors": "repurposed_structures:cities/nether_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:cities/nether/tiny_room_ns",
+        "processors": "repurposed_structures:cities/nether_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:cities/nether/bridge_end",
+        "processors": "repurposed_structures:cities/nether_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

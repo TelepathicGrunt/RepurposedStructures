@@ -717,12 +717,25 @@ public class RSAddFeaturesAndStructures {
 
     public static void addRuins(BiomeLoadingEvent event) {
         if (BiomeSelection.haveCategories(event, Category.NETHER) &&
-            RepurposedStructures.RSMainConfig.ruinsNetherMaxChunkDistance.get() != 1001 &&
-            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSMainConfig.addRuinsNetherToModdedBiomes.get()))
+                RepurposedStructures.RSMainConfig.ruinsNetherMaxChunkDistance.get() != 1001 &&
+                (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSMainConfig.addRuinsNetherToModdedBiomes.get()))
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.RUINS_NETHER);
         }
     }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // CITIES //
+
+    public static void addCities(BiomeLoadingEvent event) {
+        if (BiomeSelection.haveCategories(event, Category.NETHER) &&
+            RepurposedStructures.RSMainConfig.citiesNetherMaxChunkDistance.get() != 1001 &&
+            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSMainConfig.addCitiesNetherToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.CITY_NETHER);
+        }
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // GENERAL UTILITIES //
 

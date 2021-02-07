@@ -10,7 +10,7 @@ import com.telepathicgrunt.repurposedstructures.configs.RSStrongholdsConfig.RSSt
 import com.telepathicgrunt.repurposedstructures.configs.RSTemplesConfig.RSTemplesConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSVillagesConfig.RSVillagesConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSWellsConfig.RSWellsConfigValues;
-import com.telepathicgrunt.repurposedstructures.misc.VillagerTradesModification;
+import com.telepathicgrunt.repurposedstructures.misc.MobMapTrades;
 import com.telepathicgrunt.repurposedstructures.modinit.*;
 import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
 import com.telepathicgrunt.repurposedstructures.utils.MobSpawnerManager;
@@ -59,7 +59,7 @@ public class RepurposedStructures
 		forgeBus.addListener(this::biomeModification);
 		forgeBus.addListener(this::registerDatapackListener);
 		forgeBus.addListener(RSAddFeaturesAndStructures::addDimensionalSpacing);
-		forgeBus.addListener(VillagerTradesModification::onVillagerTradesEvent);
+		forgeBus.addListener(MobMapTrades::onVillagerTradesEvent);
 
 		modEventBus.addListener(this::setup);
 		RSFeatures.FEATURES.register(modEventBus);
@@ -142,6 +142,8 @@ public class RepurposedStructures
 			RSAddFeaturesAndStructures.addRuinedPortals(event);
 		if(isBiomeAllowed("ruins", event.getName(), allBiomeBlacklists))
 			RSAddFeaturesAndStructures.addRuins(event);
+		if(isBiomeAllowed("cities", event.getName(), allBiomeBlacklists))
+			RSAddFeaturesAndStructures.addCities(event);
 	}
     
     private static boolean isBiomeAllowed(String structureType, ResourceLocation biomeID, Map<String, List<String>> allBiomeBlacklists){
@@ -178,6 +180,7 @@ public class RepurposedStructures
 		allBiomeBlacklists.put("wells", Arrays.asList(RepurposedStructures.RSWellsConfig.blacklistedWellBiomes.get().replace(" ", "").split(",")));
 		allBiomeBlacklists.put("ruinedPortals", Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedRuinedPortalsBiomes.get().replace(" ", "").split(",")));
 		allBiomeBlacklists.put("ruins", Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedRuinsBiomes.get().replace(" ", "").split(",")));
+		allBiomeBlacklists.put("cities", Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedCitiesBiomes.get().replace(" ", "").split(",")));
 
 		return allBiomeBlacklists;
 	}

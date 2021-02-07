@@ -131,5 +131,8 @@
   "filled_map.bastion_remnant": "Bastion Remnant Map",
   "filled_map.endcity": "End City Map",
   "filled_map.fortress": "Nether Fortress Map",
-  "filled_map.repurposed_structures:fortress_jungle": "Jungle Fortress Map"
+  "filled_map.repurposed_structures:fortress_jungle": "Jungle Fortress Map",
+  "advancements.repurposed_structures.city_nether.title": "Blazing Cities",
+  "advancements.repurposed_structures.city_nether.description": "Enter a Nether City",
+  "filled_map.repurposed_structures:ctiy_nether": "Nether City Map"
 }

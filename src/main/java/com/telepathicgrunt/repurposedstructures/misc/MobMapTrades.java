@@ -6,7 +6,7 @@ import net.minecraft.entity.merchant.villager.VillagerTrades;
 import net.minecraft.world.storage.MapDecoration;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 
-public class VillagerTradesModification {
+public class MobMapTrades {
 
     public static void onVillagerTradesEvent(VillagerTradesEvent event)
     {

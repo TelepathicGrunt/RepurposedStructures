@@ -30,17 +30,18 @@ public abstract class AbstractNetherStructure extends AbstractBaseStructure<NoFe
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig defaultFeatureConfig) {
 
         // No one can be within 6 chunks of outpost
-        int radius = RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NETHER_OUTPOST).contains(this) ? 6 : 3;
-        if(this != RSStructures.WARPED_OUTPOST.get() && this != RSStructures.CRIMSON_OUTPOST.get() && this != RSStructures.NETHER_BRICK_OUTPOST.get()){
-            for (int curChunkX = chunkX - radius; curChunkX <= chunkX + radius; curChunkX++) {
-                for (int curChunkZ = chunkZ - radius; curChunkZ <= chunkZ + radius; curChunkZ++) {
-                    for(Structure<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE)) {
-                        StructureSeparationSettings structureConfig = chunkGenerator.getStructuresConfig().getForType(structureFeature);
-                        if(structureConfig != null){
-                            ChunkPos chunkPos2 = structureFeature.getStartChunk(structureConfig, seed, chunkRandom, curChunkX, curChunkZ);
-                            if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
-                                return false;
-                            }
+        boolean isNetherOutpost = RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NETHER_OUTPOST).contains(this);
+        int radius = isNetherOutpost ? 6 : 3;
+        for (int curChunkX = chunkX - radius; curChunkX <= chunkX + radius; curChunkX++) {
+            for (int curChunkZ = chunkZ - radius; curChunkZ <= chunkZ + radius; curChunkZ++) {
+                if(curChunkX == chunkX && curChunkZ == chunkZ) continue; // Prevent detecting the structure itself and thus, never spawning if structure is in its own blacklist
+
+                for(Structure<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE)) {
+                    StructureSeparationSettings structureConfig = chunkGenerator.getStructuresConfig().getForType(structureFeature);
+                    if(structureConfig != null){
+                        ChunkPos chunkPos2 = structureFeature.getStartChunk(structureConfig, seed, chunkRandom, curChunkX, curChunkZ);
+                        if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
+                            return false;
                         }
                     }
                 }
