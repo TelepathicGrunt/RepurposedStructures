@@ -1,0 +1,22 @@
+{
+  "parent": "repurposed_structures:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:dark_oak_stairs"
+    },
+    "title": {
+      "translate": "advancements.repurposed_structures.mansions.title"
+    },
+    "description": {
+      "translate": "advancements.repurposed_structures.mansions.description"
+    },
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "impossible": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

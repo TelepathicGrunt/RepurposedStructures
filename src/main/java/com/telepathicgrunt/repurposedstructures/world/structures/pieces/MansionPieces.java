@@ -964,7 +964,7 @@ public class MansionPieces{
         private final MANSIONTYPE type;
 
         public enum MANSIONTYPE {
-            BIRCH(Blocks.COBBLESTONE.getDefaultState()),
+            BIRCH(Blocks.DARK_OAK_WOOD.getDefaultState()),
             OAK(Blocks.COBBLESTONE.getDefaultState()),
             TAIGA(Blocks.COBBLESTONE.getDefaultState()),
             SNOWY(Blocks.SNOW_BLOCK.getDefaultState()),
@@ -1008,7 +1008,7 @@ public class MansionPieces{
 
         private void setupPlacement(StructureManager structureManager) {
             Structure structure = structureManager.getStructureOrBlank(new Identifier(RepurposedStructures.MODID, "mansions/" + this.type.name().toLowerCase() + "/" + this.template));
-            StructurePlacementData structurePlacementData = (new StructurePlacementData()).setIgnoreEntities(true).setRotation(this.rotation).setMirror(this.mirror).addProcessor(BlockIgnoreStructureProcessor.IGNORE_STRUCTURE_BLOCKS);
+            StructurePlacementData structurePlacementData = (new StructurePlacementData()).setIgnoreEntities(false).setRotation(this.rotation).setMirror(this.mirror).addProcessor(BlockIgnoreStructureProcessor.IGNORE_STRUCTURE_BLOCKS);
             this.setStructureData(structure, this.pos, structurePlacementData);
         }
 

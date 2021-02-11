@@ -16,6 +16,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Ruins:
 - Added Nether Ruins to all Nether biomes! They are a great source of maps to undiscovered Bastion Remnants!
 
+##### Mansions:
+- Added Birch Mansions! They are rarer than vanilla mansion to try and not crowd out the world.
+
 ##### Mineshafts:
 - Added Crimson and Warped Mineshafts!
 
@@ -75,6 +78,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ##### General:
 - Cleaned up biome selection code backend a lot and adjusted some biome selections conditions for a few structures. 
+
+- Fixed structure pieces being registered under minecraft's namespace.
 
 - Cleaned up en_us.json file to be nearly alphabetical. 
 

@@ -37,6 +37,6 @@ public class RSMansionsConfig implements ConfigData {
         @Comment("How rare are Birch Mansions in Birch biomes. 1"
                 + "\nfor spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int mansionBirchMaxChunkDistance = 100;
+        public int mansionBirchMaxChunkDistance = 120;
     }
 }

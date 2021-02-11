@@ -74,13 +74,11 @@ public class MansionStructure extends AbstractBaseStructure<DefaultFeatureConfig
             int q = chunkGenerator.getHeightInGround(m + k, n, Heightmap.Type.WORLD_SURFACE_WG);
             int r = chunkGenerator.getHeightInGround(m + k, n + l, Heightmap.Type.WORLD_SURFACE_WG);
             int s = Math.min(Math.min(o, p), Math.min(q, r));
-            if (s >= 60) {
-                BlockPos blockPos = new BlockPos(i * 16 + 8, s + 1, j * 16 + 8);
-                List<MansionPieces.Piece> list = Lists.newLinkedList();
-                MansionPieces.createMansionLayout(structureManager, blockPos, blockRotation, list, this.random, type);
-                this.children.addAll(list);
-                this.setBoundingBoxFromChildren();
-            }
+            BlockPos blockPos = new BlockPos(i * 16 + 8, s + 1, j * 16 + 8);
+            List<MansionPieces.Piece> list = Lists.newLinkedList();
+            MansionPieces.createMansionLayout(structureManager, blockPos, blockRotation, list, this.random, type);
+            this.children.addAll(list);
+            this.setBoundingBoxFromChildren();
         }
 
         public void generateStructure(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox box, ChunkPos chunkPos) {

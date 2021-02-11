@@ -515,5 +515,10 @@
   "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.mansionBirchMaxChunkDistance": "Mansion Birch Max Chunk Distance",
   "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.mansionBirchMaxChunkDistance.@PrefixText": "How rare are Birch Mansions in Birch biomes. 1 for spawning in most chunks and 1001 for none. ",
   "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.addMansionBirchToModdedBiomes": "Add Mansion Birch To Modded Biomes",
-  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.addMansionBirchToModdedBiomes.@PrefixText": "Add Birch Mansions to modded Birch biomes."
+  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.addMansionBirchToModdedBiomes.@PrefixText": "Add Birch Mansions to modded Birch biomes.",
+
+  "advancements.repurposed_structures.mansions.title": "Mansions",
+  "advancements.repurposed_structures.mansions.description": "Go look for a Mansion!",
+  "advancements.repurposed_structures.ruins.title": "Ruins",
+  "advancements.repurposed_structures.ruins.description": "Go look for a Ruins!"
 }
