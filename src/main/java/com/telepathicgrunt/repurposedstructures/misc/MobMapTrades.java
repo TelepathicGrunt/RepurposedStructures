@@ -20,12 +20,12 @@ public class MobMapTrades {
         // Level 3 trades
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 3, factories -> {
             factories.add(new TradeOffers.SellMapFactory(13, RSStructures.JUNGLE_FORTRESS, MapIcon.Type.BANNER_GREEN, 12, 5));
-            factories.add(new TradeOffers.SellMapFactory(14, RSStructures.MANSION_BIRCH, MapIcon.Type.MANSION, 12, 10));
         });
 
         // Level 4 trades
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 4, factories -> {
             factories.add(new TradeOffers.SellMapFactory(14, RSStructures.JUNGLE_FORTRESS, MapIcon.Type.BANNER_GREEN, 12, 10));
+            factories.add(new TradeOffers.SellMapFactory(14, RSStructures.MANSION_BIRCH, MapIcon.Type.MANSION, 12, 10));
         });
 
         // Piglins

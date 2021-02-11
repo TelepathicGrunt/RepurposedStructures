@@ -18,6 +18,7 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ##### Mansions:
 - Added Birch Mansions! They are rarer than vanilla mansion to try and not crowd out the world.
+  Cartographers may sell the mansion maps in Level 4 trades!
 
 ##### Mineshafts:
 - Added Crimson and Warped Mineshafts!
