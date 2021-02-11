@@ -739,6 +739,18 @@ public class RSAddFeaturesAndStructures {
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // CITIES //
+
+    public static void addMansions(BiomeLoadingEvent event) {
+        if (BiomeSelection.hasName(event, "birch")  &&
+            RepurposedStructures.RSMansionsConfig.mansionBirchMaxChunkDistance.get() != 1001 &&
+            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSMansionsConfig.addMansionBirchToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.MANSION_BIRCH);
+        }
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // GENERAL UTILITIES //
 
     /**

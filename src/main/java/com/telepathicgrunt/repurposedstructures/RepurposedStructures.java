@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import com.telepathicgrunt.repurposedstructures.configs.RSDungeonsConfig.RSDungeonsConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSMainConfig;
 import com.telepathicgrunt.repurposedstructures.configs.RSMainConfig.RSConfigValues;
+import com.telepathicgrunt.repurposedstructures.configs.RSMansionsConfig;
 import com.telepathicgrunt.repurposedstructures.configs.RSMineshaftsConfig.RSMineshaftsConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSOutpostsConfig.RSOutpostsConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSShipwrecksConfig.RSShipwrecksConfigValues;
@@ -11,6 +12,7 @@ import com.telepathicgrunt.repurposedstructures.configs.RSStrongholdsConfig.RSSt
 import com.telepathicgrunt.repurposedstructures.configs.RSTemplesConfig.RSTemplesConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSVillagesConfig.RSVillagesConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSWellsConfig.RSWellsConfigValues;
+import com.telepathicgrunt.repurposedstructures.configs.RSMansionsConfig.RSMansionsConfigValues;
 import com.telepathicgrunt.repurposedstructures.misc.MobMapTrades;
 import com.telepathicgrunt.repurposedstructures.modinit.*;
 import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
@@ -51,6 +53,7 @@ public class RepurposedStructures
 	public static RSVillagesConfigValues RSVillagesConfig = null;
 	public static RSTemplesConfigValues RSTemplesConfig = null;
 	public static RSShipwrecksConfigValues RSShipwrecksConfig = null;
+	public static RSMansionsConfigValues RSMansionsConfig = null;
 	public static MobSpawnerManager mobSpawnerManager = new MobSpawnerManager();
 	public static boolean yungsBetterMineshaftIsNotOn = true;
 
@@ -79,6 +82,7 @@ public class RepurposedStructures
 		RSOutpostsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSOutpostsConfigValues::new, "repurposed_structures-outposts.toml");
 		RSTemplesConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSTemplesConfigValues::new, "repurposed_structures-temples.toml");
 		RSVillagesConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSVillagesConfigValues::new, "repurposed_structures-villages.toml");
+		RSMansionsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSMansionsConfigValues::new, "repurposed_structures-mansions.toml");
 
 		yungsBetterMineshaftIsNotOn = !ModList.get().isLoaded("bettermineshafts");
 	}
@@ -161,6 +165,8 @@ public class RepurposedStructures
 			RSAddFeaturesAndStructures.addRuins(event);
 		if(isBiomeAllowed("cities", event.getName(), allBiomeBlacklists))
 			RSAddFeaturesAndStructures.addCities(event);
+		if(isBiomeAllowed("mansions", event.getName(), allBiomeBlacklists))
+			RSAddFeaturesAndStructures.addMansions(event);
 	}
     
     private static boolean isBiomeAllowed(String structureType, ResourceLocation biomeID, Map<String, List<String>> allBiomeBlacklists){
@@ -198,6 +204,7 @@ public class RepurposedStructures
 		allBiomeBlacklists.put("ruinedPortals", Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedRuinedPortalsBiomes.get().replace(" ", "").split(",")));
 		allBiomeBlacklists.put("ruins", Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedRuinsBiomes.get().replace(" ", "").split(",")));
 		allBiomeBlacklists.put("cities", Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedCitiesBiomes.get().replace(" ", "").split(",")));
+		allBiomeBlacklists.put("mansions", Arrays.asList(RepurposedStructures.RSMansionsConfig.blacklistedMansionBiomes.get().replace(" ", "").split(",")));
 
 		return allBiomeBlacklists;
 	}

@@ -10,8 +10,15 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ## (V.2.4.0 Changes) (1.16.4 Minecraft)
 
+##### Cities:
+- Added extremely rare Nether Cities to all Nether biomes! Beware of the Blazes! Maps to this city are very rare but can be found in Nether Ruins or Crimson/Warped Cartographer chests. 
+
 ##### Ruins:
 - Added Nether Ruins to all Nether biomes! They are a great source of maps to undiscovered Bastion Remnants!
+
+##### Mansions:
+- Added Birch Mansions! They are rarer than vanilla mansion to try and not crowd out the world.
+  Cartographers may sell the mansion maps in Level 4 trades!
 
 ##### Mineshafts:
 - Added Crimson and Warped Mineshafts!
@@ -38,6 +45,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Fixed Drowned not spawning in flooded Jungle Fortresses by removing them from the mob-spawning-over-time list and now just directly
   spawns some Drowned on fortress creation. These Drowned will not despawn and will sometimes have Iron or Chainmail armor.
 
+- Fixed Fortress maps being sold in Level 4 and 5 trades by Cartographer instead of 3 and 4.
+
 ##### Shipwrecks:
 - Nether Bricks Shipwrecks will only be flying in any biome with "soul" in the name.
 
@@ -60,6 +69,10 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ##### General:
 - Cleaned up biome selection code backend a lot and adjusted some biome selections conditions for a few structures. 
+
+- Fixed structure pieces being registered under minecraft's namespace. 
+  You may see a bit of logspam about unknown piece ID in existing worlds but this will not break your world.
+  It means old structure on edges of unexplored chunks might be cutoff. Just ignore the logspam.
 
 - Cleaned up en_us.json file to be nearly alphabetical. 
 

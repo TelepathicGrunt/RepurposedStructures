@@ -24,6 +24,7 @@ public class RSStructureTagMap {
         OUTPOST,
         RUINED_PORTAL,
         RUINS,
+        MANSION,
         
         // Structure sets to avoid for some structures
         OVERWORLD_OUTPOST,
@@ -114,6 +115,8 @@ public class RSStructureTagMap {
         addTags(RSStructures.RUINED_PORTAL_END.get(), Stream.of(STRUCTURE_TAGS.RUINED_PORTAL).collect(Collectors.toSet()));
         addTags(RSStructures.RUINS_NETHER.get(), Stream.of(STRUCTURE_TAGS.RUINS).collect(Collectors.toSet()));
         addTags(RSStructures.CITY_NETHER.get(), Stream.of(STRUCTURE_TAGS.REPLACE_NATURAL_MOBS, STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
+
+        addTags(RSStructures.MANSION_BIRCH.get(), Stream.of(STRUCTURE_TAGS.MANSION, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
     }
 
 
