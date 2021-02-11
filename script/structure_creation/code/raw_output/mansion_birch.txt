@@ -1,0 +1,75 @@
+--------------FABRIC-------------
+
+    public static StructureFeature<DefaultFeatureConfig> MANSION_BIRCH = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "0"), 0, 0, 0, 0, new HashSet<>());
+
+        FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "mansion_birch"), MANSION_BIRCH).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSMansionConfig.mansions.mansionBirchMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSMansionConfig.mansions.mansionBirchMaxChunkDistance * 0.5f), 182367035)).superflatFeature(MANSION_BIRCH.configure(FeatureConfig.DEFAULT)).adjustsSurface().register();
+
+    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> MANSION_BIRCH = RSStructures.MANSION_BIRCH.configure(FeatureConfig.DEFAULT);
+
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "mansion_birch"), MANSION_BIRCH);
+
+        addTags(RSStructures.MANSION_BIRCH, Stream.of(STRUCTURE_TAGS.OVERWORLD, STRUCTURE_TAGS.MANSION, STRUCTURE_TAGS.OVERWORLD_MANSION).collect(Collectors.toSet()));
+
+        addToBiome("mansion_birch",
+                (context) -> 
+						&& BiomeSelection.isBiomeAllowed(context, "mansions")
+                        && RepurposedStructures.RSAllConfig.RSMansionConfig.mansions.mansionBirchMaxChunkDistance != 1001
+                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSMansionConfig.mansions.addMansionBirchToModdedBiomes),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.MANSION_BIRCH));
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Add Birch Mansions to modded Birch biomes.")
+        public boolean addMansionBirchToModdedBiomes = true;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("How rare are Birch Mansions in Birch biomes. 1"
+                + "\nfor spawning in most chunks and 1001 for none.")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int mansionBirchMaxChunkDistance = 100;
+
+  "advancements.repurposed_structures.mansion_birch.title": "The White Mansion",
+  "advancements.repurposed_structures.mansion_birch.description": "Enter a Birch Mansion",
+
+  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.mansionBirchMaxChunkDistance": "Mansion Birch Max Chunk Distance",
+  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.mansionBirchMaxChunkDistance.@PrefixText": "How rare are Birch Mansions in Birch biomes. 1 for spawning in most chunks and 1001 for none. ",
+  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.addMansionBirchToModdedBiomes": "Add Mansion Birch To Modded Biomes",
+  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.addMansionBirchToModdedBiomes.@PrefixText": "Add Birch Mansions to modded Birch biomes.",
+
+
+--------------FORGE-------------
+
+        public static final RegistryObject<Structure<NoFeatureConfig>> MANSION_BIRCH = addToStructureMaps("mansion_birch", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "0"), 0, 0, 0, 0, new HashSet<>())));
+
+        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mansion_birch"), MANSION_BIRCH.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMansionConfig.mansionBirchMaxChunkDistance.get(), (int) (RepurposedStructures.RSMansionConfig.mansionBirchMaxChunkDistance.get() * 0.5f), 182367035));
+    
+
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> MANSION_BIRCH = RSStructures.MANSION_BIRCH.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
+
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "mansion_birch"), MANSION_BIRCH);
+
+        addTags(RSStructures.MANSION_BIRCHget(), Stream.of(STRUCTURE_TAGS.OVERWORLD, STRUCTURE_TAGS.MANSION, STRUCTURE_TAGS.OVERWORLD_MANSION).collect(Collectors.toSet()));
+
+        if ( &&
+            RepurposedStructures.RSMansionConfig.mansionBirchMaxChunkDistance.get() != 1001 &&
+            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSMansionConfig.addMansionBirchToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.MANSION_BIRCH);
+        }
+
+		public ConfigValueListener<Integer> mansionBirchMaxChunkDistance;
+		public ConfigValueListener<Boolean> addMansionBirchToModdedBiomes;
+
+                mansionBirchMaxChunkDistance = subscriber.subscribe(builder
+                    .comment("Add Birch Mansions to modded Birch biomes.")
+                    .translation("repurposedstructures.config.mansions.mansionbirchmaxchunkdistance")
+                    .defineInRange("mansionBirchMaxChunkDistance", 100, 1, 1001));
+
+                addMansionBirchToModdedBiomes = subscriber.subscribe(builder
+                    .comment("Add Birch Mansions to modded Birch biomes.")
+                    .translation("repurposedstructures.config.mansions.addmansionbirchtomoddedbiomes")
+                    .define("addMansionBirchToModdedBiomes", true));
+
+  "advancements.repurposed_structures.mansion_birch.title": "The White Mansion",
+  "advancements.repurposed_structures.mansion_birch.description": "Enter a Birch Mansion"

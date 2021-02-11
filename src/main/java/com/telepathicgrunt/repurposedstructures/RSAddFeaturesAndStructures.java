@@ -90,6 +90,7 @@ public class RSAddFeaturesAndStructures {
         addRuinedPortals();
         addRuins();
         addCities();
+        addMansions();
     }
 
     // Helper method to help reduce amount of code we need to write for adding structures to biomes
@@ -870,5 +871,17 @@ public class RSAddFeaturesAndStructures {
                         && BiomeSelection.haveCategories(context, Category.NETHER)
                         && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSMainConfig.cities.addCityNetherToModdedBiomes),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.CITY_NETHER));
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MANSIONS //
+
+    public static void addMansions() {
+        addToBiome("mansion_birch",
+                (context) -> BiomeSelection.hasName(context, "birch")
+                        && BiomeSelection.isBiomeAllowed(context, "mansions")
+                        && RepurposedStructures.RSAllConfig.RSMansionsConfig.maxChunkDistance.mansionBirchMaxChunkDistance != 1001
+                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSMansionsConfig.blacklist.addMansionBirchToModdedBiomes),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.MANSION_BIRCH));
     }
 }

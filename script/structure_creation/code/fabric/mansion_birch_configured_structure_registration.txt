@@ -1,0 +1,1 @@
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "mansion_birch"), MANSION_BIRCH);

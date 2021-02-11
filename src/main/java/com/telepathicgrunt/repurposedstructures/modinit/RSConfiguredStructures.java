@@ -78,6 +78,8 @@ public class RSConfiguredStructures {
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> RUINS_NETHER = RSStructures.RUINS_NETHER.configure(FeatureConfig.DEFAULT);
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> CITY_NETHER = RSStructures.CITY_NETHER.configure(FeatureConfig.DEFAULT);
 
+    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> MANSION_BIRCH = RSStructures.MANSION_BIRCH.configure(FeatureConfig.DEFAULT);
+
     public static void registerConfiguredStructures() {
         MutableRegistry<ConfiguredStructureFeature<?, ?>> registry = (MutableRegistry<ConfiguredStructureFeature<?, ?>>) BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE;
 
@@ -144,5 +146,7 @@ public class RSConfiguredStructures {
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "ruined_portal_end"), RUINED_PORTAL_END);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "ruins_nether"), RUINS_NETHER);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "city_nether"), CITY_NETHER);
+
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "mansion_birch"), MANSION_BIRCH);
     }
 }

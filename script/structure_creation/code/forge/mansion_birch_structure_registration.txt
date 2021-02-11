@@ -1,0 +1,2 @@
+        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mansion_birch"), MANSION_BIRCH.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMansionConfig.mansionBirchMaxChunkDistance.get(), (int) (RepurposedStructures.RSMansionConfig.mansionBirchMaxChunkDistance.get() * 0.5f), 182367035));
+    

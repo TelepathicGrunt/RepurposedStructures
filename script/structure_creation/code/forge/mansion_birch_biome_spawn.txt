@@ -1,0 +1,6 @@
+        if ( &&
+            RepurposedStructures.RSMansionConfig.mansionBirchMaxChunkDistance.get() != 1001 &&
+            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSMansionConfig.addMansionBirchToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.MANSION_BIRCH);
+        }

@@ -495,12 +495,25 @@
   "advancements.repurposed_structures.city_nether.title": "Blazing Cities",
   "advancements.repurposed_structures.city_nether.description": "Enter a Nether City",
 
-  "filled_map.repurposed_structures:ctiy_nether": "Nether City Map",
+  "filled_map.repurposed_structures:city_nether": "Nether City Map",
   "text.autoconfig.repurposed_structures-main.option.RSMainConfig.cities.cityNetherMaxChunkDistance": "City Nether Max Chunk Distance",
   "text.autoconfig.repurposed_structures-main.option.RSMainConfig.cities.cityNetherMaxChunkDistance.@PrefixText": "How rare are Nether Cities in Nether biomes. 1 for spawning in most chunks and 1001 for none. ",
   "text.autoconfig.repurposed_structures-main.option.RSMainConfig.cities.addCityNetherToModdedBiomes": "Add City Nether To Modded Biomes",
   "text.autoconfig.repurposed_structures-main.option.RSMainConfig.cities.addCityNetherToModdedBiomes.@PrefixText": "Add Nether Cities to modded Nether biomes.",
   "text.autoconfig.repurposed_structures-main.option.RSMainConfig.cities": "Cities",
   "text.autoconfig.repurposed_structures-main.option.RSMainConfig.cities.blacklistedCitiesBiomes": "Blacklisted Cities Biomes",
-  "text.autoconfig.repurposed_structures-main.option.RSMainConfig.cities.blacklistedCitiesBiomes.@PrefixText": "\nAdd the ID/resource location of the biome you don't want RS's cities to spawn in. Separate each ID with a comma , Example: \"minecraft:ice_spikes,awesome_mod:awesome_biome\""
+  "text.autoconfig.repurposed_structures-main.option.RSMainConfig.cities.blacklistedCitiesBiomes.@PrefixText": "\nAdd the ID/resource location of the biome you don't want RS's cities to spawn in. Separate each ID with a comma , Example: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"",
+
+
+  "advancements.repurposed_structures.mansion_birch.title": "The White Mansion",
+  "advancements.repurposed_structures.mansion_birch.description": "Enter a Birch Mansion",
+
+  "filled_map.repurposed_structures:mansion_birch": "Birch Mansion Map",
+  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions": "Mansions",
+  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.blacklistedMansionBiomes": "Blacklisted Mansions Biomes",
+  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.blacklistedMansionBiomes.@PrefixText": "\nAdd the ID/resource location of the biome you don't want RS's mansions to spawn in. Separate each ID with a comma , Example: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"",
+  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.mansionBirchMaxChunkDistance": "Mansion Birch Max Chunk Distance",
+  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.mansionBirchMaxChunkDistance.@PrefixText": "How rare are Birch Mansions in Birch biomes. 1 for spawning in most chunks and 1001 for none. ",
+  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.addMansionBirchToModdedBiomes": "Add Mansion Birch To Modded Biomes",
+  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.addMansionBirchToModdedBiomes.@PrefixText": "Add Birch Mansions to modded Birch biomes."
 }

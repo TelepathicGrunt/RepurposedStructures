@@ -7,7 +7,7 @@
     "ChunkSerializerMixin",
     "DungeonFeatureAccessor",
     "EnderEyeStrongholdLocatingMixin",
-    "NoVillageLakesMixin",
+    "NoLakesInStructuresMixin",
     "PillagerOutpostFeatureAccessor",
     "ServerResourceManagerMixin",
     "StrongholdGeneratorAccessor",

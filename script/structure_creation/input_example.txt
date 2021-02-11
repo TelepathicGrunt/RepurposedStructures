@@ -23,25 +23,24 @@ minecraft:oak_log
 50
 
 ---
-city_nether
-5
-cities/nether/start_pool
+mansion_birch
 0
-4
-GENERIC_AVOID_NETHER_STRUCTURE
+0
+0
+0
 exit
 surface_structures
-RSMainConfig
-cities
-Add Nether Cities to modded Nether biomes.
-How rare are Nether Cities in Nether biomes. 1 for spawning in most chunks and 1001 for none. 
-130
+RSMansionConfig
+mansions
+Add Birch Mansions to modded Birch biomes.
+How rare are Birch Mansions in Birch biomes. 1 for spawning in most chunks and 1001 for none. 
+100
 y
-REPLACE_NATURAL_MOBS
-NETHER
-GENERIC_AVOID_NETHER_STRUCTURE
+OVERWORLD
+MANSION
+OVERWORLD_MANSION
 exit
-Blazing Cities
-Enter a Nether City
-minecraft:fire
+The White Mansion
+Enter a Birch Mansion
+minecraft:birch_stairs
 500

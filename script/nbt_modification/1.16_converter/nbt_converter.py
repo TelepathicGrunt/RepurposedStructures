@@ -38,16 +38,12 @@ blockPalette = {""}
 originalBiome = ""
 newBiome = ""
 string_blacklist = []
-conversion_partial_dict = {}
+conversion_partial_dict = {
+    "dark_oak":"birch",
+    "birch":"dark_oak",
+    "dark_forest":"birch"
+}
 conversion_exact_dict = {
-    "minecraft:purpur_pillar":"minecraft:crimson_hyphae",
-    "minecraft:purpur_stairs":"minecraft:nether_brick_stairs",
-    "minecraft:purpur_pillar":"minecraft:crimson_hyphae",
-    "minecraft:purpur_block":"minecraft:red_nether_bricks",
-    "minecraft:purpur_slab":"minecraft:polished_blackstone_brick_slab",
-    "minecraft:end_stone_bricks":"minecraft:polished_blackstone_bricks",
-    "minecraft:magenta_stained_glass":"minecraft:red_stained_glass",
-    "minecraft:magenta_wall_banner":"minecraft:red_wall_banner"
 }
 
 #-------------------------------------------------------------------------------------------

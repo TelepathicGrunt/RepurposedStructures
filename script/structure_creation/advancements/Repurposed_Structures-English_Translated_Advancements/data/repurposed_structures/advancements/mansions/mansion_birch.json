@@ -1,0 +1,31 @@
+{
+  "parent": "repurposed_structures:mansions",
+  "display": {
+    "icon": {
+      "item": "minecraft:birch_stairs"
+    },
+    "title": {
+      "text": "The White Mansion"
+    },
+    "description": {
+      "text": "Enter a Birch Mansion"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 500
+  },
+  "criteria": {
+    "in_mansion_birch": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:mansion_birch"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_mansion_birch"
+    ]
+  ]
+}

@@ -1,10 +1,9 @@
 package com.telepathicgrunt.repurposedstructures.modinit;
 
-import com.telepathicgrunt.repurposedstructures.world.structures.pieces.FortressJunglePieces;
-import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PyramidFloorPiece;
-import com.telepathicgrunt.repurposedstructures.world.structures.pieces.RSMineshaftPieces;
-import com.telepathicgrunt.repurposedstructures.world.structures.pieces.RSStrongholdPieces;
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.world.structures.pieces.*;
 import net.minecraft.structure.StructurePieceType;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 
@@ -42,6 +41,7 @@ public class RSStructurePieces {
     public static StructurePieceType STRONGHOLD_STAIRS_STRAIGHT = RSStrongholdPieces.StairsStraight::new;
     public static StructurePieceType STRONGHOLD_ENTRANCE_STAIRS = RSStrongholdPieces.EntranceStairs::new;
     public static StructurePieceType PYRAMID_FLOOR_PIECE = PyramidFloorPiece.Piece::new;
+    public static StructurePieceType MANSION_PIECE = MansionPieces.Piece::new;
 
     public static void registerStructurePieces() {
         Registry.register(Registry.STRUCTURE_PIECE, "mineshaft_room_rs", MINESHAFT_ROOM_RS);
@@ -77,6 +77,7 @@ public class RSStructurePieces {
         Registry.register(Registry.STRUCTURE_PIECE, "stronghold_stairs_straight", STRONGHOLD_STAIRS_STRAIGHT);
         Registry.register(Registry.STRUCTURE_PIECE, "stronghold_entrance_stairs", STRONGHOLD_ENTRANCE_STAIRS);
         Registry.register(Registry.STRUCTURE_PIECE, "pyramid_floor_piece", PYRAMID_FLOOR_PIECE);
+        Registry.register(Registry.STRUCTURE_PIECE, new Identifier(RepurposedStructures.MODID, "mansion_piece"), PYRAMID_FLOOR_PIECE);
     }
 
 }

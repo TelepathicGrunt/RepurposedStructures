@@ -1,0 +1,12 @@
+		public ConfigValueListener<Integer> mansionBirchMaxChunkDistance;
+		public ConfigValueListener<Boolean> addMansionBirchToModdedBiomes;
+
+                mansionBirchMaxChunkDistance = subscriber.subscribe(builder
+                    .comment("Add Birch Mansions to modded Birch biomes.")
+                    .translation("repurposedstructures.config.mansions.mansionbirchmaxchunkdistance")
+                    .defineInRange("mansionBirchMaxChunkDistance", 100, 1, 1001));
+
+                addMansionBirchToModdedBiomes = subscriber.subscribe(builder
+                    .comment("Add Birch Mansions to modded Birch biomes.")
+                    .translation("repurposedstructures.config.mansions.addmansionbirchtomoddedbiomes")
+                    .define("addMansionBirchToModdedBiomes", true));

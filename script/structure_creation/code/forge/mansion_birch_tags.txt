@@ -1,0 +1,1 @@
+        addTags(RSStructures.MANSION_BIRCHget(), Stream.of(STRUCTURE_TAGS.OVERWORLD, STRUCTURE_TAGS.MANSION, STRUCTURE_TAGS.OVERWORLD_MANSION).collect(Collectors.toSet()));
