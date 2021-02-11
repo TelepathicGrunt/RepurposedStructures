@@ -17,7 +17,7 @@ import java.util.Random;
 
 
 @Mixin(LakesFeature.class)
-public class NoVillageLakesMixin {
+public class NoLakesInStructuresMixin {
 
     @Inject(
             method = "generate",
@@ -26,8 +26,8 @@ public class NoVillageLakesMixin {
     )
     private void checkForRSVillages(ISeedReader serverWorldAccess, ChunkGenerator chunkGenerator, Random random, BlockPos blockPos, BlockStateFeatureConfig singleStateFeatureConfig, CallbackInfoReturnable<Boolean> cir) {
 
-        for (Structure<?> village : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.OVERWORLD_VILLAGE)) {
-            if (serverWorldAccess.getStructures(SectionPos.from(blockPos), village).findAny().isPresent()) {
+        for (Structure<?> structure : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NO_LAKES)) {
+            if (serverWorldAccess.getStructures(SectionPos.from(blockPos), structure).findAny().isPresent()) {
                 cir.setReturnValue(false);
                 break;
             }

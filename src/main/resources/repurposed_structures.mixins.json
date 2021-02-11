@@ -8,7 +8,7 @@
     "DungeonFeatureAccessor",
     "EnderEyeStrongholdLocatingMixin",
     "EndermanSpawnerMixin",
-    "NoVillageLakesMixin",
+    "NoLakesInStructuresMixin",
     "PillagerOutpostStructureAccessor",
     "StrongholdGeneratorAccessor",
     "StructureMobSpawningMixin",
