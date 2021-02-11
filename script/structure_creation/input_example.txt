@@ -40,7 +40,7 @@ OVERWORLD
 MANSION
 OVERWORLD_MANSION
 exit
-The White Mansion
+The White Chocolate Mansion
 Enter a Birch Mansion
 minecraft:birch_stairs
 500
