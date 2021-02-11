@@ -39,6 +39,8 @@ originalBiome = ""
 newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {
+    "dark_oak_log":"birch_wood",
+    "dark_oak_logs":"birch_wood",
     "dark_oak":"birch",
     "birch":"dark_oak",
     "dark_forest":"birch"
