@@ -77,7 +77,7 @@ public class RSStructurePieces {
         Registry.register(Registry.STRUCTURE_PIECE, new Identifier(RepurposedStructures.MODID, "stronghold_stairs_straight"), STRONGHOLD_STAIRS_STRAIGHT);
         Registry.register(Registry.STRUCTURE_PIECE, new Identifier(RepurposedStructures.MODID, "stronghold_entrance_stairs"), STRONGHOLD_ENTRANCE_STAIRS);
         Registry.register(Registry.STRUCTURE_PIECE, new Identifier(RepurposedStructures.MODID, "pyramid_floor_piece"), PYRAMID_FLOOR_PIECE);
-        Registry.register(Registry.STRUCTURE_PIECE, new Identifier(RepurposedStructures.MODID, "mansion_piece"), PYRAMID_FLOOR_PIECE);
+        Registry.register(Registry.STRUCTURE_PIECE, new Identifier(RepurposedStructures.MODID, "mansion_piece"), MANSION_PIECE);
     }
 
 }
