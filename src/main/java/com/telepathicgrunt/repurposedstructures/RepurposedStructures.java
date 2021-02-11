@@ -1,5 +1,6 @@
 package com.telepathicgrunt.repurposedstructures;
 
+import com.google.common.collect.ImmutableMap;
 import com.telepathicgrunt.repurposedstructures.configs.RSDungeonsConfig.RSDungeonsConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSMainConfig;
 import com.telepathicgrunt.repurposedstructures.configs.RSMainConfig.RSConfigValues;
@@ -15,6 +16,9 @@ import com.telepathicgrunt.repurposedstructures.modinit.*;
 import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
 import com.telepathicgrunt.repurposedstructures.utils.MobSpawnerManager;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.registry.WorldGenRegistries;
+import net.minecraft.world.gen.feature.structure.Structure;
+import net.minecraft.world.gen.settings.StructureSeparationSettings;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.AddReloadListenerEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
@@ -90,6 +94,19 @@ public class RepurposedStructures
 			RSStructures.setupStructures();
 			RSConfiguredStructures.registerStructureFeatures();
 			RSStructureTagMap.setupTags();
+
+			// Workaround for Terraforged
+			WorldGenRegistries.CHUNK_GENERATOR_SETTINGS.getEntries().forEach(settings -> {
+				Map<Structure<?>, StructureSeparationSettings> structureMap = settings.getValue().getStructuresConfig().getStructures();
+				if(structureMap instanceof ImmutableMap){
+					Map<Structure<?>, StructureSeparationSettings> tempMap = new HashMap<>(structureMap);
+					tempMap.putAll(RSStructures.RS_STRUCTURES);
+					settings.getValue().getStructuresConfig().structures = tempMap;
+				}
+				else{
+					structureMap.putAll(RSStructures.RS_STRUCTURES);
+				}
+			});
 		});
 	}
 

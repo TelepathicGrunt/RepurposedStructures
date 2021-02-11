@@ -56,7 +56,7 @@ dependencies {
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
 
-    //implementation fg.deobf("ignored:TerraForged-1.16.4:0.2.3")
+    //implementation fg.deobf("ignored:TerraForged-1.16.4:0.2.5")
 }
 
 
