@@ -38,10 +38,6 @@ public class RSMainConfig implements ConfigData {
     public Cities cities = new Cities();
 
     public static class Misc {
-        @ConfigEntry.Gui.Tooltip
-        @Comment("Add RS swamp trees to modded biomes of same categories/type.")
-        public boolean addSwampTreeToModdedBiomes = true;
-
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
         @Comment("Add RS boulders to modded biomes of same categories/type " +
@@ -51,24 +47,10 @@ public class RSMainConfig implements ConfigData {
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
         @Comment("Add the ID/resource location of the biome you don't want"
-                +"\nRS's swamp trees to spawn in. Separate each ID with a comma ,"
-                +"\n"
-                +"\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
-        public String blacklistedSwampTreeBiomes = "";
-
-        @ConfigEntry.Gui.Tooltip(count = 0)
-        @ConfigEntry.Gui.PrefixText
-        @Comment("Add the ID/resource location of the biome you don't want"
                 +"\nRS's boulders to spawn in. Separate each ID with a comma ,"
                 +"\n"
                 +"\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
         public String blacklistedBoulderBiomes = "";
-
-        @ConfigEntry.Gui.Tooltip(count = 0)
-        @ConfigEntry.Gui.PrefixText
-        @Comment("Adds large tree somewhat uncommonly to Swamp biome"
-                +"\nand replaces all vanilla trees in Swamp Hills biome.")
-        public boolean hornedSwampTree = true;
 
         @ConfigEntry.Gui.Tooltip
         @Comment("Adds tiny boulders to normal/snowy Taiga Mountains biomes.")

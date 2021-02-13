@@ -47,18 +47,10 @@ public class RepurposedStructures implements ModInitializer {
     /**
      * Grabs and parses the Biome blacklist from configs and stores it into
      * a map of structure/feature type to their specific blacklist.
-     *
-     * The structure/feature types are:
-     *
-     * "dungeons", "boulders", "swamp_trees", "fortresses", "igloos",
-     * "mineshafts", "outposts", "shipwrecks", "strongholds", "temples",
-     * "pyramids", "villages", "wells"
-     *
      */
     public static void getBiomeBlacklists(){
         ALL_BIOME_BLACKLISTS.put("dungeons", Arrays.asList(RepurposedStructures.RSAllConfig.RSDungeonsConfig.blacklistedDungeonBiomes.replace(" ", "").split(",")));
         ALL_BIOME_BLACKLISTS.put("boulders", Arrays.asList(RepurposedStructures.RSAllConfig.RSMainConfig.misc.blacklistedBoulderBiomes.replace(" ", "").split(",")));
-        ALL_BIOME_BLACKLISTS.put("swamp_trees", Arrays.asList(RepurposedStructures.RSAllConfig.RSMainConfig.misc.blacklistedSwampTreeBiomes.replace(" ", "").split(",")));
         ALL_BIOME_BLACKLISTS.put("fortresses", Arrays.asList(RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.blacklistedFortressBiomes.replace(" ", "").split(",")));
         ALL_BIOME_BLACKLISTS.put("igloos", Arrays.asList(RepurposedStructures.RSAllConfig.RSMainConfig.igloos.blacklistedIglooBiomes.replace(" ", "").split(",")));
         ALL_BIOME_BLACKLISTS.put("mineshafts", Arrays.asList(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.blacklistedMineshaftBiomes.replace(" ", "").split(",")));

@@ -2,8 +2,9 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.google.common.collect.Lists;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.MansionPieces;
-import net.minecraft.block.Blocks;
-import net.minecraft.structure.*;
+import net.minecraft.structure.StructureManager;
+import net.minecraft.structure.StructurePiece;
+import net.minecraft.structure.StructureStart;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;

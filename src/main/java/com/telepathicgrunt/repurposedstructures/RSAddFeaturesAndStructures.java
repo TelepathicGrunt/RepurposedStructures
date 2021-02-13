@@ -7,17 +7,17 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
 import it.unimi.dsi.fastutil.objects.Reference2ObjectOpenHashMap;
-import net.fabricmc.fabric.api.biome.v1.*;
+import net.fabricmc.fabric.api.biome.v1.BiomeModificationContext;
+import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
+import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
+import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerWorldEvents;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnGroup;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.biome.BiomeKeys;
-import net.minecraft.world.biome.SpawnSettings;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.chunk.FlatChunkGenerator;
 import net.minecraft.world.gen.chunk.StructureConfig;
@@ -77,7 +77,6 @@ public class RSAddFeaturesAndStructures {
         addMineshafts();
         addDungeons();
         addWells();
-        addSwampTreeFeatures();
         addBoulderFeatures();
         addStrongholds();
         addOutposts();
@@ -332,44 +331,6 @@ public class RSAddFeaturesAndStructures {
         return RSConfiguredFeatures.RS_WELLS.stream().noneMatch(context::hasBuiltInFeature)
                 && BiomeSelection.isBiomeAllowed(context, "wells")
                 && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSWellsConfig.addWellsToModdedBiomes);
-    }
-
-
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // SWAMP TREE FEATURES //
-
-
-    public static void addSwampTreeFeatures() {
-
-        // Exists in vanilla Swamp and can be in modded swamp biomes
-        addToBiome("horned_swamp_tree_uncommon",
-                (context) -> context.hasBuiltInFeature(ConfiguredFeatures.SWAMP_TREE)
-                        && BiomeSelection.isBiomeAllowed(context, "swamp_trees")
-                        && RepurposedStructures.RSAllConfig.RSMainConfig.misc.hornedSwampTree
-                        && (BiomeSelection.isBiome(context, BiomeKeys.SWAMP)
-                            || (RepurposedStructures.RSAllConfig.RSMainConfig.misc.addSwampTreeToModdedBiomes
-                                && BiomeSelection.haveCategories(context, Category.SWAMP)
-                                && !BiomeSelection.hasNamespace(context, "minecraft"))),
-                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.VEGETAL_DECORATION, RSConfiguredFeatures.HORNED_SWAMP_TREE_UNCOMMON));
-
-
-        // Only exists in vanilla Swamp Hills biomes
-        addToBiome("horned_swamp_tree_common",
-                (context) -> context.hasBuiltInFeature(ConfiguredFeatures.SWAMP_TREE)
-                        && BiomeSelection.isBiomeAllowed(context, "swamp_trees")
-                        && RepurposedStructures.RSAllConfig.RSMainConfig.misc.hornedSwampTree
-                        && BiomeSelection.isBiome(context, BiomeKeys.SWAMP_HILLS),
-                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.VEGETAL_DECORATION, RSConfiguredFeatures.HORNED_SWAMP_TREE_COMMON));
-
-        // Remove vanilla swamp tree from Swamp Hills biomes
-        BiomeModifications.create(new Identifier(RepurposedStructures.MODID, "mob")).add(
-                ModificationPhase.ADDITIONS,
-                BiomeSelectors.includeByKey(),
-                context -> context.getSpawnSettings().addSpawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.COW, 23, 1, 2)));
-        BiomeModifications.create(new Identifier(RepurposedStructures.MODID, "remove_vanilla_swamp_trees")).add(
-                ModificationPhase.REMOVALS,
-                context -> BiomeSelection.isBiome(context, BiomeKeys.SWAMP_HILLS) && context.hasBuiltInFeature(RSConfiguredFeatures.HORNED_SWAMP_TREE_COMMON),
-                context -> context.getGenerationSettings().removeBuiltInFeature(ConfiguredFeatures.SWAMP_TREE));
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -6,7 +6,6 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.TreeFeatureConfig;
 
 
 public class RSFeatures {
@@ -31,7 +30,6 @@ public class RSFeatures {
 
     public static Feature<DefaultFeatureConfig> BOULDER_GIANT = new BoulderGiant();
     public static Feature<DefaultFeatureConfig> BOULDER_TINY = new BoulderTiny();
-    public static Feature<TreeFeatureConfig> HORNED_SWAMP_TREE = new TreeSwampHorned();
     public static Feature<DefaultFeatureConfig> SHORT_VINES = new VinesShort();
     public static Feature<DefaultFeatureConfig> SWAMP_VILLAGE_VINES = new SwampVillageVines();
     public static Feature<DefaultFeatureConfig> JUNGLE_STRUCTURES_VINES = new JungleStructuresVines();
@@ -58,7 +56,6 @@ public class RSFeatures {
 
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "boulder_giant"), BOULDER_GIANT);
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "boulder_tiny"), BOULDER_TINY);
-        Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "horned_swamp_tree"), HORNED_SWAMP_TREE);
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "short_vines"), SHORT_VINES);
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "swamp_village_vines"), SWAMP_VILLAGE_VINES);
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "jungle_structures_vines"), JUNGLE_STRUCTURES_VINES);

@@ -6,16 +6,12 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.CountConfig;
-import net.minecraft.world.gen.UniformIntDistribution;
 import net.minecraft.world.gen.decorator.CountExtraDecoratorConfig;
 import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
 import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
-import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
 import net.minecraft.world.gen.placer.SimpleBlockPlacer;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
-import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -123,21 +119,6 @@ public class RSConfiguredFeatures {
 
     // Misc
 
-    private static final TreeFeatureConfig TREE_FEATURE_CONFIG = (new TreeFeatureConfig.Builder(
-            new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState()),
-            new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState()),
-            new BlobFoliagePlacer(UniformIntDistribution.of(3), UniformIntDistribution.of(0), 3),
-            new StraightTrunkPlacer(5, 3, 0),
-            new TwoLayersFeatureSize(1, 0, 1))).build();
-
-    public static ConfiguredFeature<?, ?> HORNED_SWAMP_TREE_UNCOMMON = RSFeatures.HORNED_SWAMP_TREE.configure(TREE_FEATURE_CONFIG)
-            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP)
-            .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(0, 0.7F, 1)));
-
-    public static ConfiguredFeature<?, ?> HORNED_SWAMP_TREE_COMMON = RSFeatures.HORNED_SWAMP_TREE.configure(TREE_FEATURE_CONFIG)
-            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP)
-            .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(5, 0.8F, 1)));
-
     public static ConfiguredFeature<?, ?> BOULDER_GIANT = RSFeatures.BOULDER_GIANT.configure(FeatureConfig.DEFAULT)
             .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP)
             .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(
@@ -217,8 +198,6 @@ public class RSConfiguredFeatures {
 
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "boulder_giant"), BOULDER_GIANT);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "boulder_tiny"), BOULDER_TINY);
-        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "horned_swamp_tree_uncommon"), HORNED_SWAMP_TREE_UNCOMMON);
-        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "horned_swamp_tree_common"), HORNED_SWAMP_TREE_COMMON);
 
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "swamp_village_vines"), SWAMP_VILLAGE_VINES);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "jungle_fortress_vines"), JUNGLE_FORTRESS_VINES);
