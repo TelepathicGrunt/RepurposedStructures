@@ -78,7 +78,10 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Removed Forge's gravity attribute from Brute in Crimson and Warped Villages to reduce logspam.
 
 ##### Misc:
-- Deleted 2x2 Swamp Trees. They didn't fit this mod at all. They still exist in Ultra Amplified Dimension mod!
+- Deleted 2x2 Swamp Trees. They didn't fit this mod at all. They still exist in Ultra Amplified Dimension mod
+
+- Made Structure Blocks name field now hold 128 characters like Jigsaw Blocks instead of 64 characters.
+  Now loading up Repurposed Structures's village pieces are much easier.
 
 ##### General:
 - Cleaned up biome selection code backend a lot and adjusted some biome selections conditions for a few structures. 
