@@ -11,6 +11,7 @@
     "NoLakesInStructuresMixin",
     "PillagerOutpostStructureAccessor",
     "StrongholdGeneratorAccessor",
+    "StructureBlockScreen",
     "StructureMobSpawningMixin",
     "StructurePieceAccessor",
     "StructureProcessorListAccessor",
