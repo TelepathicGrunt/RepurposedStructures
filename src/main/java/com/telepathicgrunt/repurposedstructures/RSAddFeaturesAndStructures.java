@@ -262,36 +262,6 @@ public class RSAddFeaturesAndStructures {
         return BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSWellsConfig.addWellsToModdedBiomes.get();
     }
 
-
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // SWAMP TREE FEATURES //
-
-    public static void addSwampTreeFeatures(BiomeLoadingEvent event) {
-
-        // Exists in vanilla Swamp and can be in modded swamp biomes
-        if (RepurposedStructures.RSMainConfig.hornedSwampTree.get() &&
-            (BiomeSelection.isBiome(event, Biomes.SWAMP) ||
-            (RepurposedStructures.RSMainConfig.addLargeSwampTreeModdedBiomes.get() &&
-                !BiomeSelection.hasNamespace(event, "minecraft") &&
-                BiomeSelection.haveCategories(event, Category.SWAMP))))
-        {
-            event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION)
-                    .add(() -> RSConfiguredFeatures.HORNED_SWAMP_TREE_UNCOMMON);
-        }
-
-        // Only exists in vanilla Swamp Hills biomes
-        else if (RepurposedStructures.RSMainConfig.hornedSwampTree.get() && BiomeSelection.isBiome(event, Biomes.SWAMP_HILLS)) 
-        {
-            // replace the swamp tree with our own
-            event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION)
-                    .removeIf(configuredFeature -> configuredFeature.get().config instanceof DecoratedFeatureConfig &&
-                            serializeAndCompareFeature(configuredFeature.get(), Features.SWAMP_TREE));
-
-            event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION)
-                    .add(() -> RSConfiguredFeatures.HORNED_SWAMP_TREE_COMMON);
-        }
-    }
-
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // BOULDER FEATURES //
 

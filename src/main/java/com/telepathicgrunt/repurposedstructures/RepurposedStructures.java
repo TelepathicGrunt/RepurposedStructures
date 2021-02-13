@@ -4,7 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import com.telepathicgrunt.repurposedstructures.configs.RSDungeonsConfig.RSDungeonsConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSMainConfig;
 import com.telepathicgrunt.repurposedstructures.configs.RSMainConfig.RSConfigValues;
-import com.telepathicgrunt.repurposedstructures.configs.RSMansionsConfig;
+import com.telepathicgrunt.repurposedstructures.configs.RSMansionsConfig.RSMansionsConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSMineshaftsConfig.RSMineshaftsConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSOutpostsConfig.RSOutpostsConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSShipwrecksConfig.RSShipwrecksConfigValues;
@@ -12,7 +12,6 @@ import com.telepathicgrunt.repurposedstructures.configs.RSStrongholdsConfig.RSSt
 import com.telepathicgrunt.repurposedstructures.configs.RSTemplesConfig.RSTemplesConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSVillagesConfig.RSVillagesConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSWellsConfig.RSWellsConfigValues;
-import com.telepathicgrunt.repurposedstructures.configs.RSMansionsConfig.RSMansionsConfigValues;
 import com.telepathicgrunt.repurposedstructures.misc.MobMapTrades;
 import com.telepathicgrunt.repurposedstructures.modinit.*;
 import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
@@ -141,8 +140,6 @@ public class RepurposedStructures
 			RSAddFeaturesAndStructures.addDungeons(event);
 		if(isBiomeAllowed("wells", event.getName(), allBiomeBlacklists))
 			RSAddFeaturesAndStructures.addWells(event);
-		if(isBiomeAllowed("swamp_trees", event.getName(), allBiomeBlacklists))
-			RSAddFeaturesAndStructures.addSwampTreeFeatures(event);
 		if(isBiomeAllowed("boulders", event.getName(), allBiomeBlacklists))
 			RSAddFeaturesAndStructures.addBoulderFeatures(event);
 		if(isBiomeAllowed("temples", event.getName(), allBiomeBlacklists))
@@ -177,12 +174,6 @@ public class RepurposedStructures
 	 * Grabs and parses the Biome blacklist from configs and stores it into
 	 * a map of structure/feature type to their specific blacklist.
 	 *
-	 * The structure/feature types are:
-	 *
-	 * "dungeon", "boulder", "swamp_tree", "fortress", "igloo",
-	 * "mineshaft", "outpost", "shipwreck", "stronghold", "temple",
-	 * "pyramid", "village", "well"
-	 *
 	 * @return - A map of structure/feature type to their biome blacklist
 	 */
 	public static Map<String, List<String>> getBiomeBlacklists(){
@@ -190,7 +181,6 @@ public class RepurposedStructures
 
 		allBiomeBlacklists.put("dungeons", Arrays.asList(RepurposedStructures.RSDungeonsConfig.blacklistedDungeonBiomes.get().replace(" ", "").split(",")));
 		allBiomeBlacklists.put("boulders", Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedBoulderBiomes.get().replace(" ", "").split(",")));
-		allBiomeBlacklists.put("swamp_trees", Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedSwampTreeBiomes.get().replace(" ", "").split(",")));
 		allBiomeBlacklists.put("fortresses", Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedFortressBiomes.get().replace(" ", "").split(",")));
 		allBiomeBlacklists.put("igloos", Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedIglooBiomes.get().replace(" ", "").split(",")));
 		allBiomeBlacklists.put("mineshafts", Arrays.asList(RepurposedStructures.RSMineshaftsConfig.blacklistedMineshaftBiomes.get().replace(" ", "").split(",")));

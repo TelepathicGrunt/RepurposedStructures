@@ -8,14 +8,12 @@ public class RSMainConfig
 {
 	public static class RSConfigValues
 	{
-		public ConfigValueListener<Boolean> addLargeSwampTreeModdedBiomes;
 		public ConfigValueListener<Boolean> addGiantBouldersModdedBiomes;
 		public ConfigValueListener<Double> giantBouldersPerChunk;
 		public ConfigValueListener<Integer> diamondChanceInGiantBoulders;
 		public ConfigValueListener<Boolean> addTinyBouldersModdedBiomes;
 		public ConfigValueListener<Boolean> boulderTiny;
 		public ConfigValueListener<Boolean> boulderGiant;
-		public ConfigValueListener<Boolean> hornedSwampTree;
 
 		public ConfigValueListener<Integer> jungleFortressMaxChunkDistance;
 		public ConfigValueListener<Double> silverfishSpawnrate;
@@ -38,7 +36,6 @@ public class RSMainConfig
 		public ConfigValueListener<Boolean> addCitiesNetherToModdedBiomes;
 
 		public ConfigValueListener<String> blacklistedDimensions;
-		public ConfigValueListener<String> blacklistedSwampTreeBiomes;
 		public ConfigValueListener<String> blacklistedBoulderBiomes;
 		public ConfigValueListener<String> blacklistedFortressBiomes;
 		public ConfigValueListener<String> blacklistedIglooBiomes;
@@ -66,23 +63,10 @@ public class RSMainConfig
 			
 				builder.push("Misc");
 
-					addLargeSwampTreeModdedBiomes = subscriber.subscribe(builder
-							.comment("\r\n Add 2x2 Swamp Trees to modded swamp biomes.")
-						.translation("repurposedstructures.config.misc.addlargeswamptreemoddedbiomes")
-						.define("addLargeSwampTreeModdedBiomes", true));
-					
 					addGiantBouldersModdedBiomes = subscriber.subscribe(builder
 						.comment("\r\n Adds giant boulders to modded Giant Tree Taiga (or Redwood) biomes.")
 					.translation("repurposedstructures.config.misc.addgiantbouldersmoddedbiomes")
 					.define("addGiantBouldersModdedBiomes", false));
-
-					blacklistedSwampTreeBiomes = subscriber.subscribe(builder
-							.comment("\r\n Add the ID/resource location of the biome you don't want"
-									+"\r\n RS's 2x2 Swamp trees to spawn in. Separate each ID with a comma ,"
-									+"\r\n"
-									+"\r\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
-							.translation("repurposedstructures.config.misc.blacklistedswamptreebiomes")
-							.define("blacklistedSwampTreeBiomes", ""));
 
 					blacklistedBoulderBiomes = subscriber.subscribe(builder
 						.comment("\r\n Add the ID/resource location of the biome you don't want"
@@ -124,12 +108,6 @@ public class RSMainConfig
 								+"\r\n rarely, can also have Diamond Ores.")
 						.translation("repurposedstructures.config.misc.netherdungeons")
 						.define("boulderGiant", true));
-					
-					hornedSwampTree = subscriber.subscribe(builder
-							.comment("\r\n Adds a large tree somewhat uncommonly to Swamp biome and replaces"
-								+"\r\n all vanilla trees in Swamp Hills biome with the larger tree.")
-						.translation("repurposedstructures.config.misc.hornedswamptree")
-						.define("hornedSwampTree", true));
 					
 				builder.pop();
 				

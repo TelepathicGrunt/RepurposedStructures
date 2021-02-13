@@ -67,6 +67,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Added zombie variant of Badlands Villages.
 
+##### Misc:
+- Deleted 2x2 Swamp Trees. They didn't fit this mod at all. They still exist in Ultra Amplified Dimension mod!
+
 ##### General:
 - Cleaned up biome selection code backend a lot and adjusted some biome selections conditions for a few structures. 
 

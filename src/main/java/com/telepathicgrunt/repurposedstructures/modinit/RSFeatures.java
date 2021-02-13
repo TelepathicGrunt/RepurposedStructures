@@ -2,7 +2,6 @@ package com.telepathicgrunt.repurposedstructures.modinit;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.features.*;
-import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraftforge.fml.RegistryObject;
@@ -33,7 +32,6 @@ public class RSFeatures {
 
   	public static final RegistryObject<Feature<NoFeatureConfig>> BOULDER_GIANT = createFeature("boulder_giant", () -> new BoulderGiant(NoFeatureConfig.CODEC));
   	public static final RegistryObject<Feature<NoFeatureConfig>> BOULDER_TINY = createFeature("boulder_tiny", () -> new BoulderTiny(NoFeatureConfig.CODEC));
-  	public static final RegistryObject<Feature<BaseTreeFeatureConfig>> HORNED_SWAMP_TREE = createFeature("horned_swamp_tree", () -> new TreeSwampHorned(BaseTreeFeatureConfig.CODEC));
   	public static final RegistryObject<Feature<NoFeatureConfig>> SHORT_VINES = createFeature("short_vines", () -> new VinesShort(NoFeatureConfig.CODEC));
   	public static final RegistryObject<Feature<NoFeatureConfig>> SWAMP_VILLAGE_VINES = createFeature("swamp_village_vines", () -> new SwampVillageVines(NoFeatureConfig.CODEC));
   	public static final RegistryObject<Feature<NoFeatureConfig>> JUNGLE_STRUCTURES_VINES = createFeature("jungle_structures_vines", () -> new JungleStructuresVines(NoFeatureConfig.CODEC));

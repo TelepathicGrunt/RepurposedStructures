@@ -8,11 +8,9 @@ import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.gen.foliageplacer.BlobFoliagePlacer;
 import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.placement.TopSolidRangeConfig;
-import net.minecraft.world.gen.trunkplacer.StraightTrunkPlacer;
 
 
 public class RSConfiguredFeatures {
@@ -109,22 +107,6 @@ public class RSConfiguredFeatures {
                     .applyChance(RepurposedStructures.RSWellsConfig.forestWellRarityPerChunk.get());
 
     // Misc
-
-    private static final BaseTreeFeatureConfig TREE_FEATURE_CONFIG = (new BaseTreeFeatureConfig.Builder(
-            new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState()),
-            new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState()),
-            new BlobFoliagePlacer(FeatureSpread.of(3), FeatureSpread.of(0), 3),
-            new StraightTrunkPlacer(5, 3, 0),
-            new TwoLayerFeature(1, 0, 1))).build();
-
-    public static ConfiguredFeature<?, ?> HORNED_SWAMP_TREE_UNCOMMON = RSFeatures.HORNED_SWAMP_TREE.get().configure(TREE_FEATURE_CONFIG)
-            .decorate(Features.Placements.SQUARE_HEIGHTMAP)
-            .decorate(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, 0.7F, 1)));
-
-    public static ConfiguredFeature<?, ?> HORNED_SWAMP_TREE_COMMON = RSFeatures.HORNED_SWAMP_TREE.get().configure(TREE_FEATURE_CONFIG)
-            .decorate(Features.Placements.SQUARE_HEIGHTMAP)
-            .decorate(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(5, 0.8F, 1)));
-
     public static ConfiguredFeature<?, ?> BOULDER_GIANT = RSFeatures.BOULDER_GIANT.get().configure(IFeatureConfig.NO_FEATURE_CONFIG)
             .decorate(Features.Placements.SQUARE_HEIGHTMAP)
             .decorate(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(
@@ -201,8 +183,6 @@ public class RSConfiguredFeatures {
 
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "boulder_giant"), BOULDER_GIANT);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "boulder_tiny"), BOULDER_TINY);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "horned_swamp_tree_uncommon"), HORNED_SWAMP_TREE_UNCOMMON);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "horned_swamp_tree_common"), HORNED_SWAMP_TREE_COMMON);
 
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "swamp_village_vines"), SWAMP_VILLAGE_VINES);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "jungle_fortress_vines"), JUNGLE_FORTRESS_VINES);
