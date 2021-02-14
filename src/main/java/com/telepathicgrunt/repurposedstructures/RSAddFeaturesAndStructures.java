@@ -11,6 +11,7 @@ import it.unimi.dsi.fastutil.objects.Reference2ObjectOpenHashMap;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.FlatChunkGenerator;
@@ -741,7 +742,7 @@ public class RSAddFeaturesAndStructures {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.MANSION_SAVANNA);
         }
 
-        else if (BiomeSelection.haveCategories(event, Category.TAIGA) &&
+        else if (BiomeSelection.haveCategories(event, Category.TAIGA) && event.getClimate().precipitation != Biome.RainType.SNOW &&
                 !BiomeSelection.hasName(event, "giant", "redwood", "snow", "ice", "icy", "glacier", "frozen")  &&
                 RepurposedStructures.RSMansionsConfig.mansionTaigaMaxChunkDistance.get() != 1001 &&
                 (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSMansionsConfig.addMansionTaigaToModdedBiomes.get()))
@@ -754,6 +755,13 @@ public class RSAddFeaturesAndStructures {
                 (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSMansionsConfig.addMansionDesertToModdedBiomes.get()))
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.MANSION_DESERT);
+        }
+
+        else if ((BiomeSelection.haveCategories(event, Category.ICY) || (BiomeSelection.haveCategories(event, Category.TAIGA) && event.getClimate().precipitation == Biome.RainType.SNOW)) &&
+        RepurposedStructures.RSMansionsConfig.mansionSnowyMaxChunkDistance.get() != 1001 &&
+                (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSMansionsConfig.addMansionSnowyToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.MANSION_SNOWY);
         }
     }
 

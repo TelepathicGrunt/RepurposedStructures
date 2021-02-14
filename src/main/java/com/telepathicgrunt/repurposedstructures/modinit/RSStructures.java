@@ -133,6 +133,7 @@ public class RSStructures {
     public static final RegistryObject<Structure<NoFeatureConfig>> MANSION_SAVANNA = addToStructureMaps("mansion_savanna", () -> (new MansionStructure(MansionPieces.MansionTemplate.MANSIONTYPE.SAVANNA)));
     public static final RegistryObject<Structure<NoFeatureConfig>> MANSION_TAIGA = addToStructureMaps("mansion_taiga", () -> (new MansionStructure(MansionPieces.MansionTemplate.MANSIONTYPE.TAIGA)));
     public static final RegistryObject<Structure<NoFeatureConfig>> MANSION_DESERT = addToStructureMaps("mansion_desert", () -> (new MansionStructure(MansionPieces.MansionTemplate.MANSIONTYPE.DESERT)));
+    public static final RegistryObject<Structure<NoFeatureConfig>> MANSION_SNOWY = addToStructureMaps("mansion_snowy", () -> (new MansionStructure(MansionPieces.MansionTemplate.MANSIONTYPE.SNOWY)));
 
     private static <T extends Structure<?>> RegistryObject<T> addToStructureMaps(String name, Supplier<T> structure)
     {   
@@ -210,7 +211,7 @@ public class RSStructures {
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mansion_savanna"), MANSION_SAVANNA.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMansionsConfig.mansionSavannaMaxChunkDistance.get(), (int) (RepurposedStructures.RSMansionsConfig.mansionSavannaMaxChunkDistance.get() * 0.5f), 2024558925));
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mansion_taiga"), MANSION_TAIGA.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMansionsConfig.mansionTaigaMaxChunkDistance.get(), (int) (RepurposedStructures.RSMansionsConfig.mansionTaigaMaxChunkDistance.get() * 0.5f), 418506505));
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mansion_desert"), MANSION_DESERT.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMansionsConfig.mansionDesertMaxChunkDistance.get(), (int) (RepurposedStructures.RSMansionsConfig.mansionDesertMaxChunkDistance.get() * 0.5f), 724317387));
-
+        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mansion_snowy"), MANSION_SNOWY.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMansionsConfig.mansionSnowyMaxChunkDistance.get(), (int) (RepurposedStructures.RSMansionsConfig.mansionSnowyMaxChunkDistance.get() * 0.5f), 1115107889));
 
         //Next available seed: https://www.google.com/search?q=random+number
 
