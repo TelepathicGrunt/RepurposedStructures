@@ -102,6 +102,7 @@ public class RSStructures {
     public static StructureFeature<DefaultFeatureConfig> MANSION_SAVANNA = new MansionStructure(MansionPieces.Piece.MANSIONTYPE.SAVANNA);
     public static StructureFeature<DefaultFeatureConfig> MANSION_TAIGA = new MansionStructure(MansionPieces.Piece.MANSIONTYPE.TAIGA);
     public static StructureFeature<DefaultFeatureConfig> MANSION_DESERT = new MansionStructure(MansionPieces.Piece.MANSIONTYPE.DESERT);
+    public static StructureFeature<DefaultFeatureConfig> MANSION_SNOWY = new MansionStructure(MansionPieces.Piece.MANSIONTYPE.SNOWY);
 
     public static void registerStructures() {
 
@@ -175,6 +176,7 @@ public class RSStructures {
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "mansion_savanna"), MANSION_SAVANNA).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSMansionsConfig.maxChunkDistance.mansionSavannaMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSMansionsConfig.maxChunkDistance.mansionSavannaMaxChunkDistance * 0.5f), 2024558925)).superflatFeature(MANSION_SAVANNA.configure(FeatureConfig.DEFAULT)).register();
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "mansion_taiga"), MANSION_TAIGA).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSMansionsConfig.maxChunkDistance.mansionTaigaMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSMansionsConfig.maxChunkDistance.mansionTaigaMaxChunkDistance * 0.5f), 418506505)).superflatFeature(MANSION_TAIGA.configure(FeatureConfig.DEFAULT)).register();
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "mansion_desert"), MANSION_DESERT).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSMansionsConfig.maxChunkDistance.mansionDesertMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSMansionsConfig.maxChunkDistance.mansionDesertMaxChunkDistance * 0.5f), 724317387)).superflatFeature(MANSION_DESERT.configure(FeatureConfig.DEFAULT)).register();
+        FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "mansion_snowy"), MANSION_SNOWY).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSMansionsConfig.maxChunkDistance.mansionSnowyMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSMansionsConfig.maxChunkDistance.mansionSnowyMaxChunkDistance * 0.5f), 1115107889)).superflatFeature(MANSION_SNOWY.configure(FeatureConfig.DEFAULT)).register();
 
         RS_STRUCTURES.putAll(StructuresConfig.DEFAULT_STRUCTURES);
         RS_STRUCTURES.keySet().removeIf(key -> key.getName() == null || !key.getName().contains(RepurposedStructures.MODID));

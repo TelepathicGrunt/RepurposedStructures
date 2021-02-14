@@ -1,0 +1,1 @@
+    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> MANSION_SNOWY = RSStructures.MANSION_SNOWY.configure(FeatureConfig.DEFAULT);

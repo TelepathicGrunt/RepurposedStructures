@@ -1,0 +1,6 @@
+        addToBiome("mansion_snowy",
+                (context) -> 
+						&& BiomeSelection.isBiomeAllowed(context, "mansions")
+                        && RepurposedStructures.RSAllConfig.RSMansionsConfig.maxChunkDistance.mansionSnowyMaxChunkDistance != 1001
+                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSMansionsConfig.blacklist.addMansionSnowyToModdedBiomes),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.MANSION_SNOWY));

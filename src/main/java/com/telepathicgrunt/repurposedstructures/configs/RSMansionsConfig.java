@@ -56,6 +56,11 @@ public class RSMansionsConfig implements ConfigData {
         @Comment("Add Desert Mansions to modded Desert biomes.")
         public boolean addMansionDesertToModdedBiomes = true;
 
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Add Snowy Mansions to modded Snowy biomes.")
+        public boolean addMansionSnowyToModdedBiomes = true;
+
     }
 
     public static class MaxChunkDistance {
@@ -103,6 +108,13 @@ public class RSMansionsConfig implements ConfigData {
                 + "\nfor spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
         public int mansionDesertMaxChunkDistance = 130;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("How rare are Snowy Mansions in Snowy biomes. 1"
+                + "\nfor spawning in most chunks and 1001 for none.")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int mansionSnowyMaxChunkDistance = 130;
 
     }
 }

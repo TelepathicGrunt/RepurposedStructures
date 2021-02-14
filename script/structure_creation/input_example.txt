@@ -23,7 +23,7 @@ minecraft:oak_log
 50
 
 ---
-mansion_desert
+mansion_snowy
 0
 0
 0
@@ -32,14 +32,14 @@ exit
 surface_structures
 RSMansionsConfig
 mansions
-Add Desert Mansions to modded Desert biomes.
-How rare are Desert Mansions in Desert biomes. 1 for spawning in most chunks and 1001 for none. 
+Add Snowy Mansions to modded Snowy biomes.
+How rare are Snowy Mansions in Snowy biomes. 1 for spawning in most chunks and 1001 for none. 
 130
 n
 MANSION
 NO_LAKES
 exit
-The Mansion under the Hot Desert Sun
-Enter a Desert Mansion
-minecraft:sandstone_stairs
+Igloo? Nah! Snowy Mansion wins! 
+Enter a Snowy Mansion
+minecraft:snow_block
 500

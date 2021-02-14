@@ -16,6 +16,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.gen.GenerationStep;
@@ -869,7 +870,7 @@ public class RSAddFeaturesAndStructures {
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.MANSION_SAVANNA));
 
         addToBiome("mansion_taiga",
-                (context) -> BiomeSelection.haveCategories(context, Category.TAIGA)
+                (context) -> BiomeSelection.haveCategories(context, Category.TAIGA) && context.getBiome().getPrecipitation() != Biome.Precipitation.SNOW
                         && !BiomeSelection.hasName(context, "giant", "redwood", "snow", "ice", "icy", "glacier", "frozen")
                         && BiomeSelection.isBiomeAllowed(context, "mansions")
                         && RepurposedStructures.RSAllConfig.RSMansionsConfig.maxChunkDistance.mansionTaigaMaxChunkDistance != 1001
@@ -883,5 +884,11 @@ public class RSAddFeaturesAndStructures {
                         && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSMansionsConfig.blacklist.addMansionDesertToModdedBiomes),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.MANSION_DESERT));
 
+        addToBiome("mansion_snowy",
+                (context) -> (BiomeSelection.haveCategories(context, Category.ICY) || (BiomeSelection.haveCategories(context, Category.TAIGA) && context.getBiome().getPrecipitation() == Biome.Precipitation.SNOW))
+                        && BiomeSelection.isBiomeAllowed(context, "mansions")
+                        && RepurposedStructures.RSAllConfig.RSMansionsConfig.maxChunkDistance.mansionSnowyMaxChunkDistance != 1001
+                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSMansionsConfig.blacklist.addMansionSnowyToModdedBiomes),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.MANSION_SNOWY));
     }
 }

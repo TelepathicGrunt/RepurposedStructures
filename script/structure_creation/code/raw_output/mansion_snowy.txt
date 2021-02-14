@@ -1,0 +1,75 @@
+--------------FABRIC-------------
+
+    public static StructureFeature<DefaultFeatureConfig> MANSION_SNOWY = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "0"), 0, 0, 0, 0, new HashSet<>());
+
+        FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "mansion_snowy"), MANSION_SNOWY).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSMansionsConfig.maxChunkDistance.mansionSnowyMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSMansionsConfig.maxChunkDistance.mansionSnowyMaxChunkDistance * 0.5f), 1115107889)).superflatFeature(MANSION_SNOWY.configure(FeatureConfig.DEFAULT)).register();
+
+    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> MANSION_SNOWY = RSStructures.MANSION_SNOWY.configure(FeatureConfig.DEFAULT);
+
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "mansion_snowy"), MANSION_SNOWY);
+
+        addTags(RSStructures.MANSION_SNOWY, Stream.of(STRUCTURE_TAGS.MANSION, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
+
+        addToBiome("mansion_snowy",
+                (context) -> 
+						&& BiomeSelection.isBiomeAllowed(context, "mansions")
+                        && RepurposedStructures.RSAllConfig.RSMansionsConfig.maxChunkDistance.mansionSnowyMaxChunkDistance != 1001
+                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSMansionsConfig.blacklist.addMansionSnowyToModdedBiomes),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.MANSION_SNOWY));
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Add Snowy Mansions to modded Snowy biomes.")
+        public boolean addMansionSnowyToModdedBiomes = true;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("How rare are Snowy Mansions in Snowy biomes. 1"
+                + "\nfor spawning in most chunks and 1001 for none.")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int mansionSnowyMaxChunkDistance = 130;
+
+  "advancements.repurposed_structures.mansion_snowy.title": "Igloo? Nah! Snowy Mansion wins! ",
+  "advancements.repurposed_structures.mansion_snowy.description": "Enter a Snowy Mansion",
+
+  "text.autoconfig.repurposed_structures-main.option.RSMansionsConfig.maxChunkDistance.mansionSnowyMaxChunkDistance": "Mansion Snowy Max Chunk Distance",
+  "text.autoconfig.repurposed_structures-main.option.RSMansionsConfig.maxChunkDistance.mansionSnowyMaxChunkDistance.@PrefixText": "How rare are Snowy Mansions in Snowy biomes. 1 for spawning in most chunks and 1001 for none. ",
+  "text.autoconfig.repurposed_structures-main.option.RSMansionsConfig.blacklist.addMansionSnowyToModdedBiomes": "Add Mansion Snowy To Modded Biomes",
+  "text.autoconfig.repurposed_structures-main.option.RSMansionsConfig.blacklist.addMansionSnowyToModdedBiomes.@PrefixText": "Add Snowy Mansions to modded Snowy biomes.",
+
+
+--------------FORGE-------------
+
+        public static final RegistryObject<Structure<NoFeatureConfig>> MANSION_SNOWY = addToStructureMaps("mansion_snowy", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "0"), 0, 0, 0, 0, new HashSet<>())));
+
+        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mansion_snowy"), MANSION_SNOWY.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMansionsConfig.mansionSnowyMaxChunkDistance.get(), (int) (RepurposedStructures.RSMansionsConfig.mansionSnowyMaxChunkDistance.get() * 0.5f), 1115107889));
+    
+
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> MANSION_SNOWY = RSStructures.MANSION_SNOWY.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
+
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "mansion_snowy"), MANSION_SNOWY);
+
+        addTags(RSStructures.MANSION_SNOWY.get(), Stream.of(STRUCTURE_TAGS.MANSION, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
+
+        if ( &&
+            RepurposedStructures.RSMansionsConfig.mansionSnowyMaxChunkDistance.get() != 1001 &&
+            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSMansionsConfig.addMansionSnowyToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.MANSION_SNOWY);
+        }
+
+		public ConfigValueListener<Integer> mansionSnowyMaxChunkDistance;
+		public ConfigValueListener<Boolean> addMansionSnowyToModdedBiomes;
+
+                mansionSnowyMaxChunkDistance = subscriber.subscribe(builder
+                    .comment("Add Snowy Mansions to modded Snowy biomes.")
+                    .translation("repurposedstructures.config.mansions.mansionsnowymaxchunkdistance")
+                    .defineInRange("mansionSnowyMaxChunkDistance", 130, 1, 1001));
+
+                addMansionSnowyToModdedBiomes = subscriber.subscribe(builder
+                    .comment("Add Snowy Mansions to modded Snowy biomes.")
+                    .translation("repurposedstructures.config.mansions.addmansionsnowytomoddedbiomes")
+                    .define("addMansionSnowyToModdedBiomes", true));
+
+  "advancements.repurposed_structures.mansion_snowy.title": "Igloo? Nah! Snowy Mansion wins! ",
+  "advancements.repurposed_structures.mansion_snowy.description": "Enter a Snowy Mansion"
