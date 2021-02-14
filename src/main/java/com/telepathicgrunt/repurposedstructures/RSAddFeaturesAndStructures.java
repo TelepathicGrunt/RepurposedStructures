@@ -718,6 +718,36 @@ public class RSAddFeaturesAndStructures {
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.MANSION_BIRCH);
         }
+
+        else if (BiomeSelection.haveCategories(event, Category.JUNGLE) &&
+                RepurposedStructures.RSMansionsConfig.mansionJungleMaxChunkDistance.get() != 1001 &&
+                (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSMansionsConfig.addMansionJungleToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.MANSION_JUNGLE);
+        }
+
+        else if ((BiomeSelection.haveCategories(event, Category.FOREST) && !BiomeSelection.hasName(event, "birch", "dark", "spooky", "dead", "haunted")) &&
+                RepurposedStructures.RSMansionsConfig.mansionOakMaxChunkDistance.get() != 1001 &&
+                (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSMansionsConfig.addMansionOakToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.MANSION_OAK);
+        }
+
+        else if (BiomeSelection.haveCategories(event, Category.SAVANNA) &&
+                !BiomeSelection.isBiome(event, Biomes.SAVANNA_PLATEAU) &&
+                RepurposedStructures.RSMansionsConfig.mansionSavannaMaxChunkDistance.get() != 1001 &&
+                (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSMansionsConfig.addMansionSavannaToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.MANSION_SAVANNA);
+        }
+
+        else if (BiomeSelection.haveCategories(event, Category.TAIGA) &&
+                !BiomeSelection.hasName(event, "giant", "redwood", "snow", "ice", "icy", "glacier", "frozen")  &&
+                RepurposedStructures.RSMansionsConfig.mansionTaigaMaxChunkDistance.get() != 1001 &&
+                (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSMansionsConfig.addMansionTaigaToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.MANSION_TAIGA);
+        }
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////

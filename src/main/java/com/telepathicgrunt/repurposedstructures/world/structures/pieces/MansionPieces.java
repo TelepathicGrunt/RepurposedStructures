@@ -936,12 +936,12 @@ public class MansionPieces  {
 
         public enum MANSIONTYPE {
             BIRCH(Blocks.DARK_OAK_WOOD.getDefaultState()),
-            OAK(Blocks.COBBLESTONE.getDefaultState()),
+            OAK(Blocks.DARK_OAK_WOOD.getDefaultState()),
             TAIGA(Blocks.COBBLESTONE.getDefaultState()),
             SNOWY(Blocks.SNOW_BLOCK.getDefaultState()),
             DESERT(Blocks.SANDSTONE.getDefaultState()),
             JUNGLE(Blocks.MOSSY_COBBLESTONE.getDefaultState()),
-            SAVANNA(Blocks.COBBLESTONE.getDefaultState());
+            SAVANNA(Blocks.DARK_OAK_WOOD.getDefaultState());
 
             private final BlockState foundationBlock;
 

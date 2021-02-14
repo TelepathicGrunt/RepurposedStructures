@@ -128,6 +128,10 @@ public class RSStructures {
 
     //Mansions
     public static final RegistryObject<Structure<NoFeatureConfig>> MANSION_BIRCH = addToStructureMaps("mansion_birch", () -> (new MansionStructure(MansionPieces.MansionTemplate.MANSIONTYPE.BIRCH)));
+    public static final RegistryObject<Structure<NoFeatureConfig>> MANSION_JUNGLE = addToStructureMaps("mansion_jungle", () -> (new MansionStructure(MansionPieces.MansionTemplate.MANSIONTYPE.JUNGLE)));
+    public static final RegistryObject<Structure<NoFeatureConfig>> MANSION_OAK = addToStructureMaps("mansion_oak", () -> (new MansionStructure(MansionPieces.MansionTemplate.MANSIONTYPE.OAK)));
+    public static final RegistryObject<Structure<NoFeatureConfig>> MANSION_SAVANNA = addToStructureMaps("mansion_savanna", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "0"), 0, 0, 0, 0, new HashSet<>())));
+    public static final RegistryObject<Structure<NoFeatureConfig>> MANSION_TAIGA = addToStructureMaps("mansion_taiga", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "0"), 0, 0, 0, 0, new HashSet<>())));
 
     private static <T extends Structure<?>> RegistryObject<T> addToStructureMaps(String name, Supplier<T> structure)
     {   
@@ -200,6 +204,11 @@ public class RSStructures {
         addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "city_nether"), CITY_NETHER.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMainConfig.citiesNetherMaxChunkDistance.get(), (int) (RepurposedStructures.RSMainConfig.citiesNetherMaxChunkDistance.get() * 0.5f), 2082652405));
 
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mansion_birch"), MANSION_BIRCH.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMansionsConfig.mansionBirchMaxChunkDistance.get(), (int) (RepurposedStructures.RSMansionsConfig.mansionBirchMaxChunkDistance.get() * 0.5f), 182367035));
+        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mansion_jungle"), MANSION_JUNGLE.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMansionsConfig.mansionJungleMaxChunkDistance.get(), (int) (RepurposedStructures.RSMansionsConfig.mansionJungleMaxChunkDistance.get() * 0.5f), 1267916621));
+        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mansion_oak"), MANSION_OAK.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMansionsConfig.mansionOakMaxChunkDistance.get(), (int) (RepurposedStructures.RSMansionsConfig.mansionOakMaxChunkDistance.get() * 0.5f), 147853731));
+        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mansion_savanna"), MANSION_SAVANNA.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMansionsConfig.mansionSavannaMaxChunkDistance.get(), (int) (RepurposedStructures.RSMansionsConfig.mansionSavannaMaxChunkDistance.get() * 0.5f), 2024558925));
+        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mansion_taiga"), MANSION_TAIGA.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMansionsConfig.mansionTaigaMaxChunkDistance.get(), (int) (RepurposedStructures.RSMansionsConfig.mansionTaigaMaxChunkDistance.get() * 0.5f), 418506505));
+
 
         //Next available seed: https://www.google.com/search?q=random+number
 
