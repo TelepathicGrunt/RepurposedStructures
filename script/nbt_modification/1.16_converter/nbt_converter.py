@@ -39,11 +39,9 @@ originalBiome = ""
 newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {
-    "red_carpet":"orange_carpet",
-    "cobblestone":"dark_oak"
+    "repurposed_structures:mansion/":"repurposed_structures:chests/mansion/"
 }
 conversion_exact_dict = {
-    "minecraft:cobblestone":"minecraft:cobblestone"
 }
 
 #-------------------------------------------------------------------------------------------

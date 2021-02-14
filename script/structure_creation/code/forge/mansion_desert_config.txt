@@ -1,0 +1,12 @@
+		public ConfigValueListener<Integer> mansionDesertMaxChunkDistance;
+		public ConfigValueListener<Boolean> addMansionDesertToModdedBiomes;
+
+                mansionDesertMaxChunkDistance = subscriber.subscribe(builder
+                    .comment("Add Desert Mansions to modded Desert biomes.")
+                    .translation("repurposedstructures.config.mansions.mansiondesertmaxchunkdistance")
+                    .defineInRange("mansionDesertMaxChunkDistance", 130, 1, 1001));
+
+                addMansionDesertToModdedBiomes = subscriber.subscribe(builder
+                    .comment("Add Desert Mansions to modded Desert biomes.")
+                    .translation("repurposedstructures.config.mansions.addmansiondeserttomoddedbiomes")
+                    .define("addMansionDesertToModdedBiomes", true));

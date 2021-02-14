@@ -23,23 +23,23 @@ minecraft:oak_log
 50
 
 ---
-mansion_savanna
+mansion_desert
 0
 0
 0
 0
 exit
 surface_structures
-RSMansionConfig
+RSMansionsConfig
 mansions
-Add Savanna Mansions to modded Savanna biomes.
-How rare are Savanna Mansions in Savanna biomes. 1 for spawning in most chunks and 1001 for none. 
+Add Desert Mansions to modded Desert biomes.
+How rare are Desert Mansions in Desert biomes. 1 for spawning in most chunks and 1001 for none. 
 130
 n
 MANSION
 NO_LAKES
 exit
-Savanna's Chateau
-Enter a Savanna Mansion
-minecraft:acacia_stairs
+The Mansion under the Hot Desert Sun
+Enter a Desert Mansion
+minecraft:sandstone_stairs
 500

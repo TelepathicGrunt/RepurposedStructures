@@ -1,7 +1,7 @@
   "advancements.repurposed_structures.$1.title": "$2",
   "advancements.repurposed_structures.$1.description": "$3",
 
-  "text.autoconfig.repurposed_structures-main.option.$4.$5.$6": "$8",
-  "text.autoconfig.repurposed_structures-main.option.$4.$5.$6.@PrefixText": "$9",
-  "text.autoconfig.repurposed_structures-main.option.$4.$5.$7": "$A",
-  "text.autoconfig.repurposed_structures-main.option.$4.$5.$7.@PrefixText": "$B",
+  "text.autoconfig.repurposed_structures-main.option.$4.maxChunkDistance.$6": "$8",
+  "text.autoconfig.repurposed_structures-main.option.$4.maxChunkDistance.$6.@PrefixText": "$9",
+  "text.autoconfig.repurposed_structures-main.option.$4.blacklist.$7": "$A",
+  "text.autoconfig.repurposed_structures-main.option.$4.blacklist.$7.@PrefixText": "$B",

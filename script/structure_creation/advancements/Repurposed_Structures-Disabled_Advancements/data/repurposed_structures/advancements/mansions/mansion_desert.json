@@ -1,0 +1,28 @@
+{
+  "parent": "repurposed_structures:mansions",
+  "display": {
+    "icon": {
+      "item": "minecraft:sandstone_stairs"
+    },
+    "title": {
+      "text": "The Mansion under the Hot Desert Sun"
+    },
+    "description": {
+      "text": "Enter a Desert Mansion"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 500
+  },
+  "criteria": {
+    "in_mansion_desert": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "in_mansion_desert"
+    ]
+  ]
+}

@@ -1,0 +1,1 @@
+    public static StructureFeature<DefaultFeatureConfig> MANSION_DESERT = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "0"), 0, 0, 0, 0, new HashSet<>());

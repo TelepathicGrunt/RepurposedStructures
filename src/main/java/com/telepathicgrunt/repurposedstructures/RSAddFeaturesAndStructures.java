@@ -876,5 +876,12 @@ public class RSAddFeaturesAndStructures {
                         && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSMansionsConfig.blacklist.addMansionTaigaToModdedBiomes),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.MANSION_TAIGA));
 
+        addToBiome("mansion_desert",
+                (context) -> BiomeSelection.haveCategories(context, Category.DESERT)
+                        && BiomeSelection.isBiomeAllowed(context, "mansions")
+                        && RepurposedStructures.RSAllConfig.RSMansionsConfig.maxChunkDistance.mansionDesertMaxChunkDistance != 1001
+                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSMansionsConfig.blacklist.addMansionDesertToModdedBiomes),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.MANSION_DESERT));
+
     }
 }
