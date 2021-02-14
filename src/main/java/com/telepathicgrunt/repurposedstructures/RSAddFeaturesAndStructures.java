@@ -748,6 +748,13 @@ public class RSAddFeaturesAndStructures {
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.MANSION_TAIGA);
         }
+
+        else if (BiomeSelection.haveCategories(event, Category.DESERT) &&
+                RepurposedStructures.RSMansionsConfig.mansionDesertMaxChunkDistance.get() != 1001 &&
+                (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSMansionsConfig.addMansionDesertToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.MANSION_DESERT);
+        }
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////

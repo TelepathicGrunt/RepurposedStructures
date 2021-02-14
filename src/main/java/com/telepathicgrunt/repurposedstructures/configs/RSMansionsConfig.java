@@ -18,6 +18,8 @@ public class RSMansionsConfig
 		public ConfigValueListener<Boolean> addMansionSavannaToModdedBiomes;
 		public ConfigValueListener<Integer> mansionTaigaMaxChunkDistance;
 		public ConfigValueListener<Boolean> addMansionTaigaToModdedBiomes;
+		public ConfigValueListener<Integer> mansionDesertMaxChunkDistance;
+		public ConfigValueListener<Boolean> addMansionDesertToModdedBiomes;
 		public ConfigValueListener<String> blacklistedMansionBiomes;
 
 		public RSMansionsConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
@@ -83,6 +85,16 @@ public class RSMansionsConfig
 						.comment("Add Taiga Mansions to modded non-snowy Taiga biomes.")
 						.translation("repurposedstructures.config.mansions.addmansiontaigatomoddedbiomes")
 						.define("addMansionTaigaToModdedBiomes", true));
+
+				mansionDesertMaxChunkDistance = subscriber.subscribe(builder
+						.comment("Add Desert Mansions to modded Desert biomes.")
+						.translation("repurposedstructures.config.mansions.mansiondesertmaxchunkdistance")
+						.defineInRange("mansionDesertMaxChunkDistance", 130, 1, 1001));
+
+				addMansionDesertToModdedBiomes = subscriber.subscribe(builder
+						.comment("Add Desert Mansions to modded Desert biomes.")
+						.translation("repurposedstructures.config.mansions.addmansiondeserttomoddedbiomes")
+						.define("addMansionDesertToModdedBiomes", true));
 
 			builder.pop();
 		}
