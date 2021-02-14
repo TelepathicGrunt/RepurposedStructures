@@ -1,0 +1,75 @@
+--------------FABRIC-------------
+
+    public static StructureFeature<DefaultFeatureConfig> MANSION_SAVANNA = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "0"), 0, 0, 0, 0, new HashSet<>());
+
+        FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "mansion_savanna"), MANSION_SAVANNA).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSMansionConfig.mansions.mansionSavannaMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSMansionConfig.mansions.mansionSavannaMaxChunkDistance * 0.5f), 2024558925)).superflatFeature(MANSION_SAVANNA.configure(FeatureConfig.DEFAULT)).register();
+
+    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> MANSION_SAVANNA = RSStructures.MANSION_SAVANNA.configure(FeatureConfig.DEFAULT);
+
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "mansion_savanna"), MANSION_SAVANNA);
+
+        addTags(RSStructures.MANSION_SAVANNA, Stream.of(STRUCTURE_TAGS.MANSION, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
+
+        addToBiome("mansion_savanna",
+                (context) -> 
+						&& BiomeSelection.isBiomeAllowed(context, "mansions")
+                        && RepurposedStructures.RSAllConfig.RSMansionConfig.mansions.mansionSavannaMaxChunkDistance != 1001
+                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSMansionConfig.mansions.addMansionSavannaToModdedBiomes),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.MANSION_SAVANNA));
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Add Savanna Mansions to modded Savanna biomes.")
+        public boolean addMansionSavannaToModdedBiomes = true;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("How rare are Savanna Mansions in Savanna biomes."
+                + "\n1 for spawning in most chunks and 1001 for none.")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int mansionSavannaMaxChunkDistance = 130;
+
+  "advancements.repurposed_structures.mansion_savanna.title": "Savanna's Chateau",
+  "advancements.repurposed_structures.mansion_savanna.description": "Enter a Savanna Mansion",
+
+  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.mansionSavannaMaxChunkDistance": "Mansion Savanna Max Chunk Distance",
+  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.mansionSavannaMaxChunkDistance.@PrefixText": "How rare are Savanna Mansions in Savanna biomes. 1 for spawning in most chunks and 1001 for none. ",
+  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.addMansionSavannaToModdedBiomes": "Add Mansion Savanna To Modded Biomes",
+  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.addMansionSavannaToModdedBiomes.@PrefixText": "Add Savanna Mansions to modded Savanna biomes.",
+
+
+--------------FORGE-------------
+
+        public static final RegistryObject<Structure<NoFeatureConfig>> MANSION_SAVANNA = addToStructureMaps("mansion_savanna", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "0"), 0, 0, 0, 0, new HashSet<>())));
+
+        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mansion_savanna"), MANSION_SAVANNA.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMansionConfig.mansionSavannaMaxChunkDistance.get(), (int) (RepurposedStructures.RSMansionConfig.mansionSavannaMaxChunkDistance.get() * 0.5f), 2024558925));
+    
+
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> MANSION_SAVANNA = RSStructures.MANSION_SAVANNA.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
+
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "mansion_savanna"), MANSION_SAVANNA);
+
+        addTags(RSStructures.MANSION_SAVANNAget(), Stream.of(STRUCTURE_TAGS.MANSION, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
+
+        if ( &&
+            RepurposedStructures.RSMansionConfig.mansionSavannaMaxChunkDistance.get() != 1001 &&
+            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSMansionConfig.addMansionSavannaToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.MANSION_SAVANNA);
+        }
+
+		public ConfigValueListener<Integer> mansionSavannaMaxChunkDistance;
+		public ConfigValueListener<Boolean> addMansionSavannaToModdedBiomes;
+
+                mansionSavannaMaxChunkDistance = subscriber.subscribe(builder
+                    .comment("Add Savanna Mansions to modded Savanna biomes.")
+                    .translation("repurposedstructures.config.mansions.mansionsavannamaxchunkdistance")
+                    .defineInRange("mansionSavannaMaxChunkDistance", 130, 1, 1001));
+
+                addMansionSavannaToModdedBiomes = subscriber.subscribe(builder
+                    .comment("Add Savanna Mansions to modded Savanna biomes.")
+                    .translation("repurposedstructures.config.mansions.addmansionsavannatomoddedbiomes")
+                    .define("addMansionSavannaToModdedBiomes", true));
+
+  "advancements.repurposed_structures.mansion_savanna.title": "Savanna's Chateau",
+  "advancements.repurposed_structures.mansion_savanna.description": "Enter a Savanna Mansion"

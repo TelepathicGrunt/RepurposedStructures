@@ -1,0 +1,1 @@
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "mansion_jungle"), MANSION_JUNGLE);

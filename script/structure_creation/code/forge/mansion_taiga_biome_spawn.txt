@@ -1,0 +1,6 @@
+        if ( &&
+            RepurposedStructures.RSMansionConfig.mansionTaigaMaxChunkDistance.get() != 1001 &&
+            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSMansionConfig.addMansionTaigaToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.MANSION_TAIGA);
+        }

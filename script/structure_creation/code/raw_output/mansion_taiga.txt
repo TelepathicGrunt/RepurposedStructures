@@ -1,0 +1,79 @@
+--------------FABRIC-------------
+
+    public static StructureFeature<DefaultFeatureConfig> MANSION_TAIGA = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "0"), 0, 0, 0, 0, new HashSet<>());
+
+        FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "mansion_taiga"), MANSION_TAIGA).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSMansionConfig.mansions.mansionTaigaMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSMansionConfig.mansions.mansionTaigaMaxChunkDistance * 0.5f), 418506505)).superflatFeature(MANSION_TAIGA.configure(FeatureConfig.DEFAULT)).register();
+
+    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> MANSION_TAIGA = RSStructures.MANSION_TAIGA.configure(FeatureConfig.DEFAULT);
+
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "mansion_taiga"), MANSION_TAIGA);
+
+        addTags(RSStructures.MANSION_TAIGA, Stream.of(STRUCTURE_TAGS.MANSION, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
+
+        addToBiome("mansion_taiga",
+                (context) -> 
+						&& BiomeSelection.isBiomeAllowed(context, "mansions")
+                        && RepurposedStructures.RSAllConfig.RSMansionConfig.mansions.mansionTaigaMaxChunkDistance != 1001
+                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSMansionConfig.mansions.addMansionTaigaToModdedBiomes),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.MANSION_TAIGA));
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Add Taiga Mansions to modded non-snowy Taiga"
+                + "\nbiomes.")
+        public boolean addMansionTaigaToModdedBiomes = true;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("How rare are Taiga Mansions in non-snowy Taiga"
+                + "\nbiomes. 1 for spawning in most chunks and 1001 for"
+                + "\nnone.")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int mansionTaigaMaxChunkDistance = 130;
+
+  "advancements.repurposed_structures.mansion_taiga.title": "Pine Manor",
+  "advancements.repurposed_structures.mansion_taiga.description": "Enter a Taiga Mansion",
+
+  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.mansionTaigaMaxChunkDistance": "Mansion Taiga Max Chunk Distance",
+  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.mansionTaigaMaxChunkDistance.@PrefixText": "How rare are Taiga Mansions in non-snowy Taiga biomes. 1 for spawning in most chunks and 1001 for none. ",
+  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.addMansionTaigaToModdedBiomes": "Add Mansion Taiga To Modded Biomes",
+  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.addMansionTaigaToModdedBiomes.@PrefixText": "Add Taiga Mansions to modded non-snowy Taiga biomes.",
+
+
+--------------FORGE-------------
+
+        public static final RegistryObject<Structure<NoFeatureConfig>> MANSION_TAIGA = addToStructureMaps("mansion_taiga", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "0"), 0, 0, 0, 0, new HashSet<>())));
+
+        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mansion_taiga"), MANSION_TAIGA.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMansionConfig.mansionTaigaMaxChunkDistance.get(), (int) (RepurposedStructures.RSMansionConfig.mansionTaigaMaxChunkDistance.get() * 0.5f), 418506505));
+    
+
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> MANSION_TAIGA = RSStructures.MANSION_TAIGA.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
+
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "mansion_taiga"), MANSION_TAIGA);
+
+        addTags(RSStructures.MANSION_TAIGAget(), Stream.of(STRUCTURE_TAGS.MANSION, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
+
+        if ( &&
+            RepurposedStructures.RSMansionConfig.mansionTaigaMaxChunkDistance.get() != 1001 &&
+            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSMansionConfig.addMansionTaigaToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.MANSION_TAIGA);
+        }
+
+		public ConfigValueListener<Integer> mansionTaigaMaxChunkDistance;
+		public ConfigValueListener<Boolean> addMansionTaigaToModdedBiomes;
+
+                mansionTaigaMaxChunkDistance = subscriber.subscribe(builder
+                    .comment("Add Taiga Mansions to modded non-snowy Taiga"
+                + "\nbiomes.")
+                    .translation("repurposedstructures.config.mansions.mansiontaigamaxchunkdistance")
+                    .defineInRange("mansionTaigaMaxChunkDistance", 130, 1, 1001));
+
+                addMansionTaigaToModdedBiomes = subscriber.subscribe(builder
+                    .comment("Add Taiga Mansions to modded non-snowy Taiga"
+                + "\nbiomes.")
+                    .translation("repurposedstructures.config.mansions.addmansiontaigatomoddedbiomes")
+                    .define("addMansionTaigaToModdedBiomes", true));
+
+  "advancements.repurposed_structures.mansion_taiga.title": "Pine Manor",
+  "advancements.repurposed_structures.mansion_taiga.description": "Enter a Taiga Mansion"

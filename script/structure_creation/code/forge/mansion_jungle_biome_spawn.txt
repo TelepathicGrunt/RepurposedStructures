@@ -1,0 +1,6 @@
+        if ( &&
+            RepurposedStructures.RSMansionConfig.mansionJungleMaxChunkDistance.get() != 1001 &&
+            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSMansionConfig.addMansionJungleToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.MANSION_JUNGLE);
+        }

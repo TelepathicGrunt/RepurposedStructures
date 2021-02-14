@@ -1,0 +1,1 @@
+    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> MANSION_TAIGA = RSStructures.MANSION_TAIGA.configure(FeatureConfig.DEFAULT);

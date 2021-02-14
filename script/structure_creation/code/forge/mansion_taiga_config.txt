@@ -1,0 +1,14 @@
+		public ConfigValueListener<Integer> mansionTaigaMaxChunkDistance;
+		public ConfigValueListener<Boolean> addMansionTaigaToModdedBiomes;
+
+                mansionTaigaMaxChunkDistance = subscriber.subscribe(builder
+                    .comment("Add Taiga Mansions to modded non-snowy Taiga"
+                + "\nbiomes.")
+                    .translation("repurposedstructures.config.mansions.mansiontaigamaxchunkdistance")
+                    .defineInRange("mansionTaigaMaxChunkDistance", 130, 1, 1001));
+
+                addMansionTaigaToModdedBiomes = subscriber.subscribe(builder
+                    .comment("Add Taiga Mansions to modded non-snowy Taiga"
+                + "\nbiomes.")
+                    .translation("repurposedstructures.config.mansions.addmansiontaigatomoddedbiomes")
+                    .define("addMansionTaigaToModdedBiomes", true));

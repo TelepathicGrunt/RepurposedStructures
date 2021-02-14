@@ -1,0 +1,28 @@
+{
+  "parent": "repurposed_structures:mansions",
+  "display": {
+    "icon": {
+      "item": "minecraft:jungle_stairs"
+    },
+    "title": {
+      "text": "Jungly Chateau"
+    },
+    "description": {
+      "text": "Enter a Jungle Mansion"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 500
+  },
+  "criteria": {
+    "in_mansion_jungle": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "in_mansion_jungle"
+    ]
+  ]
+}

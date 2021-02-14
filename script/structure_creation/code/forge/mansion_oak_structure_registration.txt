@@ -1,0 +1,2 @@
+        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mansion_oak"), MANSION_OAK.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMansionConfig.mansionOakMaxChunkDistance.get(), (int) (RepurposedStructures.RSMansionConfig.mansionOakMaxChunkDistance.get() * 0.5f), 147853731));
+    

@@ -1,0 +1,2 @@
+        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mansion_taiga"), MANSION_TAIGA.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMansionConfig.mansionTaigaMaxChunkDistance.get(), (int) (RepurposedStructures.RSMansionConfig.mansionTaigaMaxChunkDistance.get() * 0.5f), 418506505));
+    

@@ -1,0 +1,28 @@
+{
+  "parent": "repurposed_structures:mansions",
+  "display": {
+    "icon": {
+      "item": "minecraft:acacia_stairs"
+    },
+    "title": {
+      "text": "Savanna's Chateau"
+    },
+    "description": {
+      "text": "Enter a Savanna Mansion"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 500
+  },
+  "criteria": {
+    "in_mansion_savanna": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "in_mansion_savanna"
+    ]
+  ]
+}

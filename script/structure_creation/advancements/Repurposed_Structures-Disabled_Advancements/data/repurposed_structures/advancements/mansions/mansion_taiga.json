@@ -1,0 +1,28 @@
+{
+  "parent": "repurposed_structures:mansions",
+  "display": {
+    "icon": {
+      "item": "minecraft:taiga_stairs"
+    },
+    "title": {
+      "text": "Pine Manor"
+    },
+    "description": {
+      "text": "Enter a Taiga Mansion"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 500
+  },
+  "criteria": {
+    "in_mansion_taiga": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "in_mansion_taiga"
+    ]
+  ]
+}

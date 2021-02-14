@@ -1,0 +1,75 @@
+--------------FABRIC-------------
+
+    public static StructureFeature<DefaultFeatureConfig> MANSION_JUNGLE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "0"), 0, 0, 0, 0, new HashSet<>());
+
+        FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "mansion_jungle"), MANSION_JUNGLE).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSMansionConfig.mansions.mansionJungleMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSMansionConfig.mansions.mansionJungleMaxChunkDistance * 0.5f), 1267916621)).superflatFeature(MANSION_JUNGLE.configure(FeatureConfig.DEFAULT)).register();
+
+    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> MANSION_JUNGLE = RSStructures.MANSION_JUNGLE.configure(FeatureConfig.DEFAULT);
+
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "mansion_jungle"), MANSION_JUNGLE);
+
+        addTags(RSStructures.MANSION_JUNGLE, Stream.of(STRUCTURE_TAGS.MANSION, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
+
+        addToBiome("mansion_jungle",
+                (context) -> 
+						&& BiomeSelection.isBiomeAllowed(context, "mansions")
+                        && RepurposedStructures.RSAllConfig.RSMansionConfig.mansions.mansionJungleMaxChunkDistance != 1001
+                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSMansionConfig.mansions.addMansionJungleToModdedBiomes),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.MANSION_JUNGLE));
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Add Jungle Mansions to modded Jungle biomes.")
+        public boolean addMansionJungleToModdedBiomes = true;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("How rare are Jungle Mansions in Jungle biomes. 1"
+                + "\nfor spawning in most chunks and 1001 for none.")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int mansionJungleMaxChunkDistance = 130;
+
+  "advancements.repurposed_structures.mansion_jungle.title": "Jungly Chateau",
+  "advancements.repurposed_structures.mansion_jungle.description": "Enter a Jungle Mansion",
+
+  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.mansionJungleMaxChunkDistance": "Mansion Jungle Max Chunk Distance",
+  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.mansionJungleMaxChunkDistance.@PrefixText": "How rare are Jungle Mansions in Jungle biomes. 1 for spawning in most chunks and 1001 for none. ",
+  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.addMansionJungleToModdedBiomes": "Add Mansion Jungle To Modded Biomes",
+  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.addMansionJungleToModdedBiomes.@PrefixText": "Add Jungle Mansions to modded Jungle biomes.",
+
+
+--------------FORGE-------------
+
+        public static final RegistryObject<Structure<NoFeatureConfig>> MANSION_JUNGLE = addToStructureMaps("mansion_jungle", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "0"), 0, 0, 0, 0, new HashSet<>())));
+
+        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mansion_jungle"), MANSION_JUNGLE.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMansionConfig.mansionJungleMaxChunkDistance.get(), (int) (RepurposedStructures.RSMansionConfig.mansionJungleMaxChunkDistance.get() * 0.5f), 1267916621));
+    
+
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> MANSION_JUNGLE = RSStructures.MANSION_JUNGLE.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
+
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "mansion_jungle"), MANSION_JUNGLE);
+
+        addTags(RSStructures.MANSION_JUNGLEget(), Stream.of(STRUCTURE_TAGS.MANSION, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
+
+        if ( &&
+            RepurposedStructures.RSMansionConfig.mansionJungleMaxChunkDistance.get() != 1001 &&
+            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSMansionConfig.addMansionJungleToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.MANSION_JUNGLE);
+        }
+
+		public ConfigValueListener<Integer> mansionJungleMaxChunkDistance;
+		public ConfigValueListener<Boolean> addMansionJungleToModdedBiomes;
+
+                mansionJungleMaxChunkDistance = subscriber.subscribe(builder
+                    .comment("Add Jungle Mansions to modded Jungle biomes.")
+                    .translation("repurposedstructures.config.mansions.mansionjunglemaxchunkdistance")
+                    .defineInRange("mansionJungleMaxChunkDistance", 130, 1, 1001));
+
+                addMansionJungleToModdedBiomes = subscriber.subscribe(builder
+                    .comment("Add Jungle Mansions to modded Jungle biomes.")
+                    .translation("repurposedstructures.config.mansions.addmansionjungletomoddedbiomes")
+                    .define("addMansionJungleToModdedBiomes", true));
+
+  "advancements.repurposed_structures.mansion_jungle.title": "Jungly Chateau",
+  "advancements.repurposed_structures.mansion_jungle.description": "Enter a Jungle Mansion"

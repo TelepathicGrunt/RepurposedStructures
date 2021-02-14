@@ -1,0 +1,1 @@
+        public static final RegistryObject<Structure<NoFeatureConfig>> MANSION_JUNGLE = addToStructureMaps("mansion_jungle", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "0"), 0, 0, 0, 0, new HashSet<>())));

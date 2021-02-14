@@ -1,0 +1,6 @@
+        if ( &&
+            RepurposedStructures.RSMansionConfig.mansionOakMaxChunkDistance.get() != 1001 &&
+            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSMansionConfig.addMansionOakToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.MANSION_OAK);
+        }

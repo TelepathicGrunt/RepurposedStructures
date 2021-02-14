@@ -1,0 +1,6 @@
+        if ( &&
+            RepurposedStructures.RSMansionConfig.mansionSavannaMaxChunkDistance.get() != 1001 &&
+            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSMansionConfig.addMansionSavannaToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.MANSION_SAVANNA);
+        }

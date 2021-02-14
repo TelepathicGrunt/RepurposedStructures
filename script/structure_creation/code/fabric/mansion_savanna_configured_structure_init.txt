@@ -1,0 +1,1 @@
+    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> MANSION_SAVANNA = RSStructures.MANSION_SAVANNA.configure(FeatureConfig.DEFAULT);

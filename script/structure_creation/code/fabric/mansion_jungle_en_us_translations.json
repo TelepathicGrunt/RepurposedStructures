@@ -1,0 +1,7 @@
+  "advancements.repurposed_structures.mansion_jungle.title": "Jungly Chateau",
+  "advancements.repurposed_structures.mansion_jungle.description": "Enter a Jungle Mansion",
+
+  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.mansionJungleMaxChunkDistance": "Mansion Jungle Max Chunk Distance",
+  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.mansionJungleMaxChunkDistance.@PrefixText": "How rare are Jungle Mansions in Jungle biomes. 1 for spawning in most chunks and 1001 for none. ",
+  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.addMansionJungleToModdedBiomes": "Add Mansion Jungle To Modded Biomes",
+  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.addMansionJungleToModdedBiomes.@PrefixText": "Add Jungle Mansions to modded Jungle biomes.",

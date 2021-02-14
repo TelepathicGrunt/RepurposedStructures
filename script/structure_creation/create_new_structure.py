@@ -173,7 +173,7 @@ while restart:
         file.write(file_content)
 
     with open(os.path.join('template', 'tags.txt'), "r") as file:
-        file_content = file.read().replace("$1", structure_variable_name+"get()").replace("$2", innate_tags)
+        file_content = file.read().replace("$1", structure_variable_name+".get()").replace("$2", innate_tags)
     with open(os.path.join('code', 'forge', structure_registry_name+'_tags.txt'), "w") as file:
         raw_output += "\n\n" + file_content
         file.write(file_content)

@@ -8,8 +8,8 @@ exit
 surface_structures
 RSOutpostsConfig
 outposts
-Add Oak Outposts to modded forest biomes that are not birch or dark forest.
-How rare are Oak Outposts in forest biomes that are not birch or dark forest. 1 for spawning in most chunks and 1001 for none. 
+Add Oak Outposts to modded forest biomes that are not taiga or dark forest.
+How rare are Oak Outposts in forest biomes that are not taiga or dark forest. 1 for spawning in most chunks and 1001 for none. 
 43
 y
 REPLACE_NATURAL_MOBS
@@ -23,7 +23,7 @@ minecraft:oak_log
 50
 
 ---
-mansion_birch
+mansion_savanna
 0
 0
 0
@@ -32,15 +32,14 @@ exit
 surface_structures
 RSMansionConfig
 mansions
-Add Birch Mansions to modded Birch biomes.
-How rare are Birch Mansions in Birch biomes. 1 for spawning in most chunks and 1001 for none. 
-100
-y
-OVERWORLD
+Add Savanna Mansions to modded Savanna biomes.
+How rare are Savanna Mansions in Savanna biomes. 1 for spawning in most chunks and 1001 for none. 
+130
+n
 MANSION
-OVERWORLD_MANSION
+NO_LAKES
 exit
-The White Chocolate Mansion
-Enter a Birch Mansion
-minecraft:birch_stairs
+Savanna's Chateau
+Enter a Savanna Mansion
+minecraft:acacia_stairs
 500

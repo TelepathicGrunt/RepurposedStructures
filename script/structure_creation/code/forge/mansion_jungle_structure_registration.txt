@@ -1,0 +1,2 @@
+        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mansion_jungle"), MANSION_JUNGLE.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMansionConfig.mansionJungleMaxChunkDistance.get(), (int) (RepurposedStructures.RSMansionConfig.mansionJungleMaxChunkDistance.get() * 0.5f), 1267916621));
+    

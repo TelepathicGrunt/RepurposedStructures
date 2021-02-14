@@ -79,6 +79,10 @@ public class RSConfiguredStructures {
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> CITY_NETHER = RSStructures.CITY_NETHER.configure(FeatureConfig.DEFAULT);
 
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> MANSION_BIRCH = RSStructures.MANSION_BIRCH.configure(FeatureConfig.DEFAULT);
+    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> MANSION_JUNGLE = RSStructures.MANSION_JUNGLE.configure(FeatureConfig.DEFAULT);
+    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> MANSION_OAK = RSStructures.MANSION_OAK.configure(FeatureConfig.DEFAULT);
+    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> MANSION_SAVANNA = RSStructures.MANSION_SAVANNA.configure(FeatureConfig.DEFAULT);
+    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> MANSION_TAIGA = RSStructures.MANSION_TAIGA.configure(FeatureConfig.DEFAULT);
 
     public static void registerConfiguredStructures() {
         MutableRegistry<ConfiguredStructureFeature<?, ?>> registry = (MutableRegistry<ConfiguredStructureFeature<?, ?>>) BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE;
@@ -148,5 +152,9 @@ public class RSConfiguredStructures {
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "city_nether"), CITY_NETHER);
 
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "mansion_birch"), MANSION_BIRCH);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "mansion_jungle"), MANSION_JUNGLE);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "mansion_oak"), MANSION_OAK);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "mansion_savanna"), MANSION_SAVANNA);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "mansion_taiga"), MANSION_TAIGA);
     }
 }

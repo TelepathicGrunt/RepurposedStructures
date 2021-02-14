@@ -1,0 +1,6 @@
+        addToBiome("mansion_savanna",
+                (context) -> 
+						&& BiomeSelection.isBiomeAllowed(context, "mansions")
+                        && RepurposedStructures.RSAllConfig.RSMansionConfig.mansions.mansionSavannaMaxChunkDistance != 1001
+                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSMansionConfig.mansions.addMansionSavannaToModdedBiomes),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.MANSION_SAVANNA));
