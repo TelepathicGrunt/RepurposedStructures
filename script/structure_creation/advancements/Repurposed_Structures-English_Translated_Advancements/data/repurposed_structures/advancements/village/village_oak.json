@@ -2,7 +2,7 @@
   "parent": "repurposed_structures:villages",
   "display": {
     "icon": {
-      "item": "oak_wood"
+      "item": "minecraft:oak_wood"
     },
     "title": {
       "translate": "A Town of the Forest"

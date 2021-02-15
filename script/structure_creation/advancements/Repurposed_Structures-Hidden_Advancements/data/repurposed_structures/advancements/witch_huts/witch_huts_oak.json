@@ -1,33 +1,33 @@
 {
-  "parent": "repurposed_structures:mansions",
+  "parent": "repurposed_structures:witch_huts",
   "display": {
     "icon": {
-      "item": "minecraft:spruce_stairs"
+      "item": "minecraft:oak_fence"
     },
     "title": {
-      "text": "Pine Manor"
+      "text": "No forest is safe from Witches! Not even Oak!"
     },
     "description": {
-      "text": "Enter a Taiga Mansion"
+      "text": "Enter a Oak Witch Hut"
     },
     "show_toast": false,
     "announce_to_chat": false,
     "hidden": true
   },
   "rewards": {
-    "experience": 500
+    "experience": 20
   },
   "criteria": {
-    "in_mansion_taiga": {
+    "in_witch_huts_oak": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:mansion_taiga"
+        "feature": "repurposed_structures:witch_huts_oak"
       }
     }
   },
   "requirements": [
     [
-      "in_mansion_taiga"
+      "in_witch_huts_oak"
     ]
   ]
 }

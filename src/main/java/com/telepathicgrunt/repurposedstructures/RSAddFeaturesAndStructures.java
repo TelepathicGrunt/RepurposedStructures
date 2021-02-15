@@ -91,6 +91,7 @@ public class RSAddFeaturesAndStructures {
         addRuins();
         addCities();
         addMansions();
+        addWitchHuts();
     }
 
     // Helper method to help reduce amount of code we need to write for adding structures to biomes
@@ -891,4 +892,18 @@ public class RSAddFeaturesAndStructures {
                         && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSMansionsConfig.blacklist.addMansionSnowyToModdedBiomes),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.MANSION_SNOWY));
     }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // WITCH_HUTS //
+
+    public static void addWitchHuts() {
+        addToBiome("witch_huts_oak",
+                (context) -> BiomeSelection.haveCategories(context, Category.FOREST)
+                        && !(BiomeSelection.hasName(context, "birch", "dark", "spooky", "dead", "haunted"))
+                        && BiomeSelection.isBiomeAllowed(context, "witch_huts")
+                        && RepurposedStructures.RSAllConfig.RSWitchHutsConfig.maxChunkDistance.witchHutsOakMaxChunkDistance != 1001
+                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSWitchHutsConfig.blacklist.addWitchHutsOakToModdedBiomes),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.WITCH_HUTS_OAK));
+    }
+
 }

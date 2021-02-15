@@ -1,0 +1,31 @@
+{
+  "parent": "repurposed_structures:witch_huts",
+  "display": {
+    "icon": {
+      "item": "minecraft:oak_fence"
+    },
+    "title": {
+      "text": "advancements.repurposed_structures.witch_huts_oak.title"
+    },
+    "description": {
+      "text": "advancements.repurposed_structures.witch_huts_oak.description"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 20
+  },
+  "criteria": {
+    "in_witch_huts_oak": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:witch_huts_oak"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_witch_huts_oak"
+    ]
+  ]
+}

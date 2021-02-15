@@ -65,5 +65,6 @@ public class RepurposedStructures implements ModInitializer {
         ALL_BIOME_BLACKLISTS.put("ruins", Arrays.asList(RepurposedStructures.RSAllConfig.RSMainConfig.ruins.blacklistedRuinsBiomes.replace(" ", "").split(",")));
         ALL_BIOME_BLACKLISTS.put("cities", Arrays.asList(RepurposedStructures.RSAllConfig.RSMainConfig.cities.blacklistedCitiesBiomes.replace(" ", "").split(",")));
         ALL_BIOME_BLACKLISTS.put("mansions", Arrays.asList(RepurposedStructures.RSAllConfig.RSMansionsConfig.blacklist.blacklistedMansionBiomes.replace(" ", "").split(",")));
+        ALL_BIOME_BLACKLISTS.put("witch_huts", Arrays.asList(RepurposedStructures.RSAllConfig.RSWitchHutsConfig.blacklist.blacklistedWitchHutsBiomes.replace(" ", "").split(",")));
     }
 }

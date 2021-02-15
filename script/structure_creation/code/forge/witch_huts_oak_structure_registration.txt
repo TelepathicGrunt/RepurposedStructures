@@ -1,0 +1,2 @@
+        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "witch_huts_oak"), WITCH_HUTS_OAK.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSWitchHutsConfig.witchHutsOakMaxChunkDistance.get(), (int) (RepurposedStructures.RSWitchHutsConfig.witchHutsOakMaxChunkDistance.get() * 0.5f), 741641348));
+    

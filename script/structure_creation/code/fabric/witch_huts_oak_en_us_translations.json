@@ -1,0 +1,7 @@
+  "advancements.repurposed_structures.witch_huts_oak.title": "No forest is safe from Witches! Not even Oak!",
+  "advancements.repurposed_structures.witch_huts_oak.description": "Enter a Oak Witch Hut",
+
+  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.maxChunkDistance.witchHutsOakMaxChunkDistance": "Witch Huts Oak Max Chunk Distance",
+  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.maxChunkDistance.witchHutsOakMaxChunkDistance.@PrefixText": "How rare are Oak Witch Huts in Forest biomes that are not birch or dark oak. 1 for spawning in most chunks and 1001 for none. ",
+  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.blacklist.addWitchHutsOakToModdedBiomes": "Add Witch Huts Oak To Modded Biomes",
+  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.blacklist.addWitchHutsOakToModdedBiomes.@PrefixText": "Add Oak Witch Huts to modded Forest biomes that are not birch or dark oak.",

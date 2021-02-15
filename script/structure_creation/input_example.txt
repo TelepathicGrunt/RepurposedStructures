@@ -23,23 +23,23 @@ minecraft:oak_log
 50
 
 ---
-mansion_snowy
+witch_huts_oak
 0
 0
 0
 0
 exit
 surface_structures
-RSMansionsConfig
-mansions
-Add Snowy Mansions to modded Snowy biomes.
-How rare are Snowy Mansions in Snowy biomes. 1 for spawning in most chunks and 1001 for none. 
-130
+RSWitchHutsConfig
+witch_huts
+Add Oak Witch Huts to modded Forest biomes that are not birch or dark oak.
+How rare are Oak Witch Huts in Forest biomes that are not birch or dark oak. 1 for spawning in most chunks and 1001 for none. 
+48
 n
-MANSION
+WITCH_HUTS
 NO_LAKES
 exit
-Igloo? Nah! Snowy Mansion wins! 
-Enter a Snowy Mansion
-minecraft:snow_block
-500
+No forest is safe from Witches! Not even Oak!
+Enter a Oak Witch Hut
+minecraft:oak_fence
+20

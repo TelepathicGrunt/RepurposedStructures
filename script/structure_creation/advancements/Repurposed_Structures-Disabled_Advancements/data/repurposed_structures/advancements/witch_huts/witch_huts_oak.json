@@ -1,0 +1,28 @@
+{
+  "parent": "repurposed_structures:witch_huts",
+  "display": {
+    "icon": {
+      "item": "minecraft:oak_fence"
+    },
+    "title": {
+      "text": "No forest is safe from Witches! Not even Oak!"
+    },
+    "description": {
+      "text": "Enter a Oak Witch Hut"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 20
+  },
+  "criteria": {
+    "in_witch_huts_oak": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "in_witch_huts_oak"
+    ]
+  ]
+}

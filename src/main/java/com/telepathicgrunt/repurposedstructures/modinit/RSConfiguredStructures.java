@@ -86,6 +86,8 @@ public class RSConfiguredStructures {
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> MANSION_DESERT = RSStructures.MANSION_DESERT.configure(FeatureConfig.DEFAULT);
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> MANSION_SNOWY = RSStructures.MANSION_SNOWY.configure(FeatureConfig.DEFAULT);
 
+    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> WITCH_HUTS_OAK = RSStructures.WITCH_HUTS_OAK.configure(FeatureConfig.DEFAULT);
+
     public static void registerConfiguredStructures() {
         MutableRegistry<ConfiguredStructureFeature<?, ?>> registry = (MutableRegistry<ConfiguredStructureFeature<?, ?>>) BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE;
 
@@ -160,5 +162,7 @@ public class RSConfiguredStructures {
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "mansion_taiga"), MANSION_TAIGA);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "mansion_desert"), MANSION_DESERT);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "mansion_snowy"), MANSION_SNOWY);
+
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "witch_huts_oak"), WITCH_HUTS_OAK);
     }
 }

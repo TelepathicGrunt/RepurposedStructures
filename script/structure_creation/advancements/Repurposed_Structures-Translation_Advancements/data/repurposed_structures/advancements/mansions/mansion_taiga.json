@@ -2,7 +2,7 @@
   "parent": "repurposed_structures:mansions",
   "display": {
     "icon": {
-      "item": "minecraft:taiga_stairs"
+      "item": "minecraft:spruce_stairs"
     },
     "title": {
       "text": "advancements.repurposed_structures.mansion_taiga.title"

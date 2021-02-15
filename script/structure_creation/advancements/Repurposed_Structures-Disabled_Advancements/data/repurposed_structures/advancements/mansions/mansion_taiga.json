@@ -2,7 +2,7 @@
   "parent": "repurposed_structures:mansions",
   "display": {
     "icon": {
-      "item": "minecraft:taiga_stairs"
+      "item": "minecraft:spruce_stairs"
     },
     "title": {
       "text": "Pine Manor"

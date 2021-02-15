@@ -47,4 +47,8 @@ public class RSAllConfig implements ConfigData {
     @ConfigEntry.Category("Mansions")
     @ConfigEntry.Gui.TransitiveObject
     public RSMansionsConfig RSMansionsConfig = new RSMansionsConfig();
+
+    @ConfigEntry.Category("WitchHuts")
+    @ConfigEntry.Gui.TransitiveObject
+    public RSWitchHutsConfig RSWitchHutsConfig = new RSWitchHutsConfig();
 }
