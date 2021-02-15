@@ -23,26 +23,26 @@ minecraft:oak_log
 50
 
 ---
-witch_huts_oak
+witch_huts_taiga
 11
-repurposed_structures:witch_huts/oak
+repurposed_structures:witch_huts/taiga
 0
 0
 exit
 surface_structures
 RSWitchHutsConfig
 witch_huts
-Add Oak Witch Huts to modded Forest biomes that are not birch or dark oak.
-How rare are Oak Witch Huts in Forest biomes that are not birch or dark oak. 1 for spawning in most chunks and 1001 for none. 
+Add Taiga Witch Huts to modded Taiga biomes.
+How rare are Taiga Witch Huts in Taiga biomes. 1 for spawning in most chunks and 1001 for none. 
 48
 n
 WITCH_HUTS
 NO_LAKES
 REPLACE_NATURAL_MOBS
 exit
-No forest is safe from Witches! Not even Oak!
-Enter a Oak Witch Hut
-minecraft:oak_fence
+Spooky Taiga Hut
+Enter a Taiga Witch Hut
+minecraft:spruce_fence
 20
 y
 C:\Users\MSI Laptop\Documents\ModdingWorkspace\RepurposedStructures-Fabric\src

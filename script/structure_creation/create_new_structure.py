@@ -201,7 +201,7 @@ while restart:
         raw_output += "\n\n" + file_content
         file.write(file_content)
         if bool(inject_into_code):
-            insertLine(os.path.join(fabric_src, 'main','java','com','telepathicgrunt','repurposedstructures','modinit','RSStructures.java'), \
+            insertLine(os.path.join(forge_src, 'main','java','com','telepathicgrunt','repurposedstructures','modinit','RSStructures.java'), \
                 "regexpos1", file_content)
 
     with open(os.path.join('template', 'forge_structure_registration.txt'), "r") as file:
@@ -212,7 +212,7 @@ while restart:
         raw_output += "\n\n" + file_content
         file.write(file_content)
         if bool(inject_into_code):
-            insertLine(os.path.join(fabric_src, 'main','java','com','telepathicgrunt','repurposedstructures','modinit','RSStructures.java'), \
+            insertLine(os.path.join(forge_src, 'main','java','com','telepathicgrunt','repurposedstructures','modinit','RSStructures.java'), \
                 "regexpos2", file_content)
 
     with open(os.path.join('template', 'forge_configured_structure_init.txt'), "r") as file:
@@ -221,7 +221,7 @@ while restart:
         raw_output += "\n\n" + file_content
         file.write(file_content)
         if bool(inject_into_code):
-            insertLine(os.path.join(fabric_src, 'main','java','com','telepathicgrunt','repurposedstructures','modinit','RSStructures.java'), \
+            insertLine(os.path.join(forge_src, 'main','java','com','telepathicgrunt','repurposedstructures','modinit','RSConfiguredStructures.java'), \
                 "regexpos1", file_content)
 
     with open(os.path.join('template', 'forge_configured_structure_registration.txt'), "r") as file:
@@ -230,7 +230,7 @@ while restart:
         raw_output += "\n\n" + file_content
         file.write(file_content)
         if bool(inject_into_code):
-            insertLine(os.path.join(fabric_src, 'main','java','com','telepathicgrunt','repurposedstructures','modinit','RSConfiguredStructures.java'), \
+            insertLine(os.path.join(forge_src, 'main','java','com','telepathicgrunt','repurposedstructures','modinit','RSConfiguredStructures.java'), \
                 "regexpos2", file_content)
 
     with open(os.path.join('template', 'tags.txt'), "r") as file:
@@ -239,7 +239,7 @@ while restart:
         raw_output += "\n\n" + file_content
         file.write(file_content)
         if bool(inject_into_code):
-            insertLine(os.path.join(fabric_src, 'main','java','com','telepathicgrunt','repurposedstructures','modinit','RSStructureTagMap.java'), \
+            insertLine(os.path.join(forge_src, 'main','java','com','telepathicgrunt','repurposedstructures','modinit','RSStructureTagMap.java'), \
                 "regexpos1", file_content)
 
     with open(os.path.join('template', 'forge_biome_spawn.txt'), "r") as file:
@@ -261,7 +261,7 @@ while restart:
         raw_output += "\n\n" + file_content
         file.write(file_content)
         if bool(inject_into_code):
-            directory = os.path.join(fabric_src, 'main','java','com','telepathicgrunt','repurposedstructures','configs')
+            directory = os.path.join(forge_src, 'main','java','com','telepathicgrunt','repurposedstructures','configs')
             for filename in os.listdir(directory):
                 with open(os.path.join(directory, filename), 'r+') as f:
                     if "regexpos1" in f.read():
