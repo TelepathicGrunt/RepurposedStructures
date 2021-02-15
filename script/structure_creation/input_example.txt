@@ -1,6 +1,6 @@
 test
 11
-repurposed_structures:witch_huts/giant_tree_taiga
+witch_huts/giant_tree_taiga
 0
 0
 exit
