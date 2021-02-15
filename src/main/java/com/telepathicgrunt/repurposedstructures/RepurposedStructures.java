@@ -12,6 +12,8 @@ import com.telepathicgrunt.repurposedstructures.configs.RSStrongholdsConfig.RSSt
 import com.telepathicgrunt.repurposedstructures.configs.RSTemplesConfig.RSTemplesConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSVillagesConfig.RSVillagesConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSWellsConfig.RSWellsConfigValues;
+import com.telepathicgrunt.repurposedstructures.configs.RSWitchHutsConfig.RSWitchHutsConfigValues;
+import com.telepathicgrunt.repurposedstructures.configs.RSWitchHutsConfig;
 import com.telepathicgrunt.repurposedstructures.misc.MobMapTrades;
 import com.telepathicgrunt.repurposedstructures.modinit.*;
 import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
@@ -53,6 +55,7 @@ public class RepurposedStructures
 	public static RSTemplesConfigValues RSTemplesConfig = null;
 	public static RSShipwrecksConfigValues RSShipwrecksConfig = null;
 	public static RSMansionsConfigValues RSMansionsConfig = null;
+	public static RSWitchHutsConfigValues RSWitchHutsConfig = null;
 	public static MobSpawnerManager mobSpawnerManager = new MobSpawnerManager();
 	public static boolean yungsBetterMineshaftIsNotOn = true;
 
@@ -82,6 +85,7 @@ public class RepurposedStructures
 		RSTemplesConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSTemplesConfigValues::new, "repurposed_structures-temples.toml");
 		RSVillagesConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSVillagesConfigValues::new, "repurposed_structures-villages.toml");
 		RSMansionsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSMansionsConfigValues::new, "repurposed_structures-mansions.toml");
+		RSWitchHutsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSWitchHutsConfigValues::new, "repurposed_structures-witch_huts.toml");
 
 		yungsBetterMineshaftIsNotOn = !ModList.get().isLoaded("bettermineshafts");
 	}
@@ -94,6 +98,7 @@ public class RepurposedStructures
 		event.enqueueWork(() -> {
 			//Moved the methods below into enqueue to make sure they dont cause issues during registration - andrew
 			RSConfiguredFeatures.registerConfiguredFeatures();
+			RSProcessors.registerProcessors();
 			RSStructures.setupStructures();
 			RSConfiguredStructures.registerStructureFeatures();
 			RSStructureTagMap.setupTags();
@@ -164,6 +169,8 @@ public class RepurposedStructures
 			RSAddFeaturesAndStructures.addCities(event);
 		if(isBiomeAllowed("mansions", event.getName(), allBiomeBlacklists))
 			RSAddFeaturesAndStructures.addMansions(event);
+		if(isBiomeAllowed("witch_huts", event.getName(), allBiomeBlacklists))
+			RSAddFeaturesAndStructures.addWitchHuts(event);
 	}
     
     private static boolean isBiomeAllowed(String structureType, ResourceLocation biomeID, Map<String, List<String>> allBiomeBlacklists){
@@ -195,6 +202,7 @@ public class RepurposedStructures
 		allBiomeBlacklists.put("ruins", Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedRuinsBiomes.get().replace(" ", "").split(",")));
 		allBiomeBlacklists.put("cities", Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedCitiesBiomes.get().replace(" ", "").split(",")));
 		allBiomeBlacklists.put("mansions", Arrays.asList(RepurposedStructures.RSMansionsConfig.blacklistedMansionBiomes.get().replace(" ", "").split(",")));
+		allBiomeBlacklists.put("witch_huts", Arrays.asList(RepurposedStructures.RSWitchHutsConfig.blacklistedWitchHutBiomes.get().replace(" ", "").split(",")));
 
 		return allBiomeBlacklists;
 	}

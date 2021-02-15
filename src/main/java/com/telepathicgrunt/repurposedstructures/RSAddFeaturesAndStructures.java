@@ -710,7 +710,7 @@ public class RSAddFeaturesAndStructures {
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // CITIES //
+    // MANSIONS //
 
     public static void addMansions(BiomeLoadingEvent event) {
         if (BiomeSelection.hasName(event, "birch")  &&
@@ -758,11 +758,25 @@ public class RSAddFeaturesAndStructures {
         }
 
         else if ((BiomeSelection.haveCategories(event, Category.ICY) || (BiomeSelection.haveCategories(event, Category.TAIGA) && event.getClimate().precipitation == Biome.RainType.SNOW)) &&
-        RepurposedStructures.RSMansionsConfig.mansionSnowyMaxChunkDistance.get() != 1001 &&
+                RepurposedStructures.RSMansionsConfig.mansionSnowyMaxChunkDistance.get() != 1001 &&
                 (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSMansionsConfig.addMansionSnowyToModdedBiomes.get()))
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.MANSION_SNOWY);
         }
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // WITCH HUTS //
+
+    public static void addWitchHuts(BiomeLoadingEvent event) {
+        if ((BiomeSelection.haveCategories(event, Category.FOREST) && !BiomeSelection.hasName(event, "birch", "dark", "spooky", "dead", "haunted")) &&
+                RepurposedStructures.RSWitchHutsConfig.witchHutsOakMaxChunkDistance.get() != 1001 &&
+                (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSWitchHutsConfig.addWitchHutsOakToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.WITCH_HUTS_OAK);
+        }
+
+        // regexpos1
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////

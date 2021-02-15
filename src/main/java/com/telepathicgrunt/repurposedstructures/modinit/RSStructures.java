@@ -135,6 +135,10 @@ public class RSStructures {
     public static final RegistryObject<Structure<NoFeatureConfig>> MANSION_DESERT = addToStructureMaps("mansion_desert", () -> (new MansionStructure(MansionPieces.MansionTemplate.MANSIONTYPE.DESERT)));
     public static final RegistryObject<Structure<NoFeatureConfig>> MANSION_SNOWY = addToStructureMaps("mansion_snowy", () -> (new MansionStructure(MansionPieces.MansionTemplate.MANSIONTYPE.SNOWY)));
 
+    //Witch Huts
+    public static final RegistryObject<Structure<NoFeatureConfig>> WITCH_HUTS_OAK = addToStructureMaps("witch_huts_oak", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "witch_huts/oak_start_pool"), 11, 0, 0, 0, new HashSet<>(), ImmutableList.of(new  MobSpawnInfo.Spawners(EntityType.WITCH, 1, 1, 1)), ImmutableList.of(new  MobSpawnInfo.Spawners(EntityType.CAT, 1, 1, 1)))));
+    // regexpos1
+
     private static <T extends Structure<?>> RegistryObject<T> addToStructureMaps(String name, Supplier<T> structure)
     {   
         return STRUCTURE_FEATURES.register(name, structure);
@@ -213,7 +217,8 @@ public class RSStructures {
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mansion_desert"), MANSION_DESERT.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMansionsConfig.mansionDesertMaxChunkDistance.get(), (int) (RepurposedStructures.RSMansionsConfig.mansionDesertMaxChunkDistance.get() * 0.5f), 724317387));
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mansion_snowy"), MANSION_SNOWY.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMansionsConfig.mansionSnowyMaxChunkDistance.get(), (int) (RepurposedStructures.RSMansionsConfig.mansionSnowyMaxChunkDistance.get() * 0.5f), 1115107889));
 
-        //Next available seed: https://www.google.com/search?q=random+number
+        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "witch_huts_oak"), WITCH_HUTS_OAK.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSWitchHutsConfig.witchHutsOakMaxChunkDistance.get(), (int) (RepurposedStructures.RSWitchHutsConfig.witchHutsOakMaxChunkDistance.get() * 0.5f), 741641348));
+        // regexpos2
 
         //registers the structure pieces.
         RSStructurePieces.registerStructurePieces();
