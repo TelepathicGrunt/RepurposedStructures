@@ -29,6 +29,22 @@ def bend(w, s):
             new_lst[i] = line
     return "\"\n                + \"\\n".join(new_lst) + "\"" #insert new line characters
 
+# how to insert before a line in a file: https://stackoverflow.com/a/44338469
+def insertLine(filepath, string_match, string_content):
+    contents = []
+    with open(filepath, "r") as codefile:
+        contents = codefile.readlines()
+        if string_match in contents[-1]:  # Handle last line to prevent IndexError
+            contents.append(string_content)
+        else:
+            for index, line in enumerate(contents):
+                if string_match in line and string_content not in contents[index + 1]:
+                    contents.insert(index, string_content + "\n")
+                    break
+    with open(filepath, "w") as codefile:
+        codefile.writelines(contents)
+
+
 #--------------------------------------------------------------------------------------------
 
 restart = True
@@ -76,8 +92,11 @@ while restart:
     advancement_icon = input("\nadvancement icon\n")
     advancement_exp = str(input("\nadvancement exp\n"))
     inject_into_code = input("\nInject generated code into codebase directly? (y/n)\n")
-        
-
+    fabric_src = ""
+    forge_src = ""
+    if bool(inject_into_code):
+        fabric_src = str(input("\nFabric src filepath\n"))
+        forge_src = str(input("\Forge src filepath\n"))
 
     #-------------------------------------------------------------------------------------------
     file_content = ""
@@ -89,8 +108,10 @@ while restart:
                                 .replace("$6", ("new HashSet<>()", "Stream.of("+avoid_tags+").collect(Collectors.toSet())")[bool(avoid_tags)])
     with open(os.path.join('code', 'fabric', structure_registry_name+'_structure_init.txt'), "w") as file:
         raw_output += "\n\n" + file_content
-
         file.write(file_content)
+        if bool(inject_into_code):
+            insertLine(os.path.join(fabric_src, 'main','java','com','telepathicgrunt','repurposedstructures','modinit','RSStructures.java'), \
+                "regexpos1", file_content)
 
     with open(os.path.join('template', 'fabric_structure_registration.txt'), "r") as file:
         file_content = file.read().replace("$1", structure_registry_name).replace("$2", structure_variable_name).replace("$3", generation_step)  \
@@ -99,24 +120,37 @@ while restart:
     with open(os.path.join('code', 'fabric', structure_registry_name+'_structure_registration.txt'), "w") as file:
         raw_output += "\n\n" + file_content
         file.write(file_content)
+        if bool(inject_into_code):
+            insertLine(os.path.join(fabric_src, 'main','java','com','telepathicgrunt','repurposedstructures','modinit','RSStructures.java'), \
+                "regexpos2", file_content)
 
     with open(os.path.join('template', 'fabric_configured_structure_init.txt'), "r") as file:
         file_content = file.read().replace("$1", structure_variable_name)
     with open(os.path.join('code', 'fabric', structure_registry_name+'_configured_structure_init.txt'), "w") as file:
         raw_output += "\n\n" + file_content
         file.write(file_content)
+        if bool(inject_into_code):
+            insertLine(os.path.join(fabric_src, 'main','java','com','telepathicgrunt','repurposedstructures','modinit','RSConfiguredStructures.java'), \
+                "regexpos1", file_content)
 
     with open(os.path.join('template', 'fabric_configured_structure_registration.txt'), "r") as file:
         file_content = file.read().replace("$1", structure_registry_name).replace("$2", structure_variable_name)
     with open(os.path.join('code', 'fabric', structure_registry_name+'_configured_structure_registration.txt'), "w") as file:
         raw_output += "\n\n" + file_content
         file.write(file_content)
+        if bool(inject_into_code):
+            insertLine(os.path.join(fabric_src, 'main','java','com','telepathicgrunt','repurposedstructures','modinit','RSConfiguredStructures.java'), \
+                "regexpos2", file_content)
 
     with open(os.path.join('template', 'tags.txt'), "r") as file:
         file_content = file.read().replace("$1", structure_variable_name).replace("$2", innate_tags)
     with open(os.path.join('code', 'fabric', structure_registry_name+'_tags.txt'), "w") as file:
         raw_output += "\n\n" + file_content
         file.write(file_content)
+        if bool(inject_into_code):
+            insertLine(os.path.join(fabric_src, 'main','java','com','telepathicgrunt','repurposedstructures','modinit','RSStructureTagMap.java'), \
+                "regexpos1", file_content)
+
 
     with open(os.path.join('template', 'fabric_biome_spawn.txt'), "r") as file:
         file_content = file.read().replace("$1", structure_registry_name).replace("$2", config_subcategory).replace("$3", config_category) \
@@ -124,6 +158,9 @@ while restart:
     with open(os.path.join('code', 'fabric', structure_registry_name+'_biome_spawn.txt'), "w") as file:
         raw_output += "\n\n" + file_content
         file.write(file_content)
+        if bool(inject_into_code):
+            insertLine(os.path.join(fabric_src, 'main','java','com','telepathicgrunt','repurposedstructures','RSAddFeaturesAndStructures.java'), \
+                "regexpos1", file_content)
 
     with open(os.path.join('template', 'fabric_config.txt'), "r") as file:
         file_content = file.read().replace("$1", bend(50, config_modded_biome_comment)).replace("$2", config_modded_biome_entry) \
@@ -131,6 +168,14 @@ while restart:
     with open(os.path.join('code', 'fabric', structure_registry_name+'_config.txt'), "w") as file:
         raw_output += "\n\n" + file_content
         file.write(file_content)
+        if bool(inject_into_code):
+            directory = os.path.join(fabric_src, 'main','java','com','telepathicgrunt','repurposedstructures','configs')
+            for filename in os.listdir(directory):
+                with open(os.path.join(directory, filename), 'r+') as f:
+                    if "regexpos1" in f.read():
+                        insertLine(os.path.join(directory, filename), \
+                            "regexpos1", file_content)
+
 
     with open(os.path.join('template', 'fabric_en_us_translations.json'), "r") as file:
         file_content = file.read().replace("$1", structure_registry_name).replace("$2", advancement_title).replace("$3", advancement_description) \
@@ -141,7 +186,9 @@ while restart:
     with open(os.path.join('code', 'fabric', structure_registry_name+'_en_us_translations.json'), "w") as file:
         raw_output += "\n\n" + file_content
         file.write(file_content)
-
+        if bool(inject_into_code):
+            insertLine(os.path.join(fabric_src, 'main','resources','assets','repurposed_structures','lang','en_us.json'), \
+                "}", file_content)
 
     raw_output += "\n\n--------------FORGE-------------"
 
@@ -153,6 +200,9 @@ while restart:
     with open(os.path.join('code', 'forge', structure_registry_name+'_structure_init.txt'), "w") as file:
         raw_output += "\n\n" + file_content
         file.write(file_content)
+        if bool(inject_into_code):
+            insertLine(os.path.join(fabric_src, 'main','java','com','telepathicgrunt','repurposedstructures','modinit','RSStructures.java'), \
+                "regexpos1", file_content)
 
     with open(os.path.join('template', 'forge_structure_registration.txt'), "r") as file:
         file_content = file.read().replace("$1", ("addToStructureMaps", "addToTerraformingAndStructureMaps")[adjusts_surface == 'y']) \
@@ -161,24 +211,36 @@ while restart:
     with open(os.path.join('code', 'forge', structure_registry_name+'_structure_registration.txt'), "w") as file:
         raw_output += "\n\n" + file_content
         file.write(file_content)
+        if bool(inject_into_code):
+            insertLine(os.path.join(fabric_src, 'main','java','com','telepathicgrunt','repurposedstructures','modinit','RSStructures.java'), \
+                "regexpos2", file_content)
 
     with open(os.path.join('template', 'forge_configured_structure_init.txt'), "r") as file:
         file_content = file.read().replace("$1", structure_variable_name)
     with open(os.path.join('code', 'forge', structure_registry_name+'_configured_structure_init.txt'), "w") as file:
         raw_output += "\n\n" + file_content
         file.write(file_content)
+        if bool(inject_into_code):
+            insertLine(os.path.join(fabric_src, 'main','java','com','telepathicgrunt','repurposedstructures','modinit','RSStructures.java'), \
+                "regexpos1", file_content)
 
     with open(os.path.join('template', 'forge_configured_structure_registration.txt'), "r") as file:
         file_content = file.read().replace("$1", structure_registry_name).replace("$2", structure_variable_name)
     with open(os.path.join('code', 'forge', structure_registry_name+'_configured_structure_registration.txt'), "w") as file:
         raw_output += "\n\n" + file_content
         file.write(file_content)
+        if bool(inject_into_code):
+            insertLine(os.path.join(fabric_src, 'main','java','com','telepathicgrunt','repurposedstructures','modinit','RSConfiguredStructures.java'), \
+                "regexpos2", file_content)
 
     with open(os.path.join('template', 'tags.txt'), "r") as file:
         file_content = file.read().replace("$1", structure_variable_name+".get()").replace("$2", innate_tags)
     with open(os.path.join('code', 'forge', structure_registry_name+'_tags.txt'), "w") as file:
         raw_output += "\n\n" + file_content
         file.write(file_content)
+        if bool(inject_into_code):
+            insertLine(os.path.join(fabric_src, 'main','java','com','telepathicgrunt','repurposedstructures','modinit','RSStructureTagMap.java'), \
+                "regexpos1", file_content)
 
     with open(os.path.join('template', 'forge_biome_spawn.txt'), "r") as file:
         file_content = file.read().replace("$1", config_spawnrate_entry).replace("$2", config_category) \
@@ -186,6 +248,9 @@ while restart:
     with open(os.path.join('code', 'forge', structure_registry_name+'_biome_spawn.txt'), "w") as file:
         raw_output += "\n\n" + file_content
         file.write(file_content)
+        if bool(inject_into_code):
+            insertLine(os.path.join(forge_src, 'main','java','com','telepathicgrunt','repurposedstructures','RSAddFeaturesAndStructures.java'), \
+                "regexpos1", file_content)
 
     with open(os.path.join('template', 'forge_config.txt'), "r") as file:
         file_content = file.read().replace("$1", config_spawnrate_entry).replace("$2", config_spawnrate_entry.lower()) \
@@ -195,12 +260,25 @@ while restart:
     with open(os.path.join('code', 'forge', structure_registry_name+'_config.txt'), "w") as file:
         raw_output += "\n\n" + file_content
         file.write(file_content)
+        if bool(inject_into_code):
+            directory = os.path.join(fabric_src, 'main','java','com','telepathicgrunt','repurposedstructures','configs')
+            for filename in os.listdir(directory):
+                with open(os.path.join(directory, filename), 'r+') as f:
+                    if "regexpos1" in f.read():
+                        insertLine(os.path.join(directory, filename), \
+                            "regexpos1", file_content[:2])
+                    if "regexpos2" in f.read():
+                        insertLine(os.path.join(directory, filename), \
+                            "regexpos2", file_content[2:])
 
     with open(os.path.join('template', 'forge_en_us_translations.json'), "r") as file:
         file_content = file.read().replace("$1", structure_registry_name).replace("$2", advancement_title).replace("$3", advancement_description)
     with open(os.path.join('code', 'forge', structure_registry_name+'_en_us_translations.json'), "w") as file:
         raw_output += "\n\n" + file_content
         file.write(file_content)
+        if bool(inject_into_code):
+            insertLine(os.path.join(forge_src, 'main','resources','assets','repurposed_structures','lang','en_us.json'), \
+                "}", file_content)
 
 
     #  --------------ADVANCEMENTS--------------

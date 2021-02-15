@@ -44,3 +44,6 @@ No forest is safe from Witches! Not even Oak!
 Enter a Oak Witch Hut
 minecraft:oak_fence
 20
+y
+C:\Users\MSI Laptop\Documents\ModdingWorkspace\RepurposedStructures-Fabric\src
+C:\Users\MSI Laptop\Documents\ModdingWorkspace\RepurposedStructures\src
