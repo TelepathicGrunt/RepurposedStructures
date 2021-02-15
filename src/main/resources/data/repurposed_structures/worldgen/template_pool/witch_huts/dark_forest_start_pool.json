@@ -1,11 +1,11 @@
 {
-  "name": "repurposed_structures:witch_huts/oak_start_pool",
+  "name": "repurposed_structures:witch_huts/dark_forest_start_pool",
   "fallback": "minecraft:empty",
   "elements": [
     {
       "weight": 1,
       "element": {
-        "location": "repurposed_structures:witch_huts/oak",
+        "location": "repurposed_structures:witch_huts/dark_forest",
         "processors": "repurposed_structures:witch_huts/pillar_maker",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"

@@ -143,5 +143,13 @@
   "advancements.repurposed_structures.city_nether.description": "Enter a Nether City",
   "filled_map.repurposed_structures:city_nether": "Nether City Map",
   "advancements.repurposed_structures.witch_huts_taiga.title": "Spooky Taiga Hut",
-  "advancements.repurposed_structures.witch_huts_taiga.description": "Enter a Taiga Witch Hut"
+  "advancements.repurposed_structures.witch_huts_taiga.description": "Enter a Taiga Witch Hut",
+
+  "advancements.repurposed_structures.witch_huts_birch.title": "Spooky Birch Hut",
+  "advancements.repurposed_structures.witch_huts_birch.description": "Enter a Birch Witch Hut",
+
+  "advancements.repurposed_structures.witch_huts_dark_forest.title": "Spooky Dark Forest Hut",
+  "advancements.repurposed_structures.witch_huts_dark_forest.description": "Enter a Dark Forest Witch Hut",
+  "advancements.repurposed_structures.witch_huts_giant_tree_taiga.title": "The Witch of the Giant Trees",
+  "advancements.repurposed_structures.witch_huts_giant_tree_taiga.description": "Enter a Giant Tree Taiga Witch Hut"
 }
