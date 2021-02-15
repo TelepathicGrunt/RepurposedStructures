@@ -10,7 +10,9 @@ public class RSWitchHutsConfig
 	{
 		public ConfigValueListener<Integer> witchHutsOakMaxChunkDistance;
 		public ConfigValueListener<Boolean> addWitchHutsOakToModdedBiomes;
-
+		public ConfigValueListener<Integer> witchHutsTaigaMaxChunkDistance;
+		public ConfigValueListener<Boolean> addWitchHutsTaigaToModdedBiomes;
+		// regexpos1
 		public ConfigValueListener<String> blacklistedWitchHutBiomes;
 
 		public RSWitchHutsConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
@@ -35,7 +37,16 @@ public class RSWitchHutsConfig
 						.translation("repurposedstructures.config.witch_huts.addwitchhutsoaktomoddedbiomes")
 						.define("addWitchHutsOakToModdedBiomes", true));
 
-			// regexpos1
+				witchHutsTaigaMaxChunkDistance = subscriber.subscribe(builder
+						.comment("Add Taiga Witch Huts to modded Taiga biomes.")
+						.translation("repurposedstructures.config.witch_huts.witchhutstaigamaxchunkdistance")
+						.defineInRange("witchHutsTaigaMaxChunkDistance", 48, 1, 1001));
+
+				addWitchHutsTaigaToModdedBiomes = subscriber.subscribe(builder
+						.comment("Add Taiga Witch Huts to modded Taiga biomes.")
+						.translation("repurposedstructures.config.witch_huts.addwitchhutstaigatomoddedbiomes")
+						.define("addWitchHutsTaigaToModdedBiomes", true));
+			// regexpos2
 			builder.pop();
 		}
 	}

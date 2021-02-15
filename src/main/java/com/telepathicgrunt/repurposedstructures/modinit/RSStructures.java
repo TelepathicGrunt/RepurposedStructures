@@ -137,6 +137,7 @@ public class RSStructures {
 
     //Witch Huts
     public static final RegistryObject<Structure<NoFeatureConfig>> WITCH_HUTS_OAK = addToStructureMaps("witch_huts_oak", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "witch_huts/oak_start_pool"), 11, 0, 0, 0, new HashSet<>(), ImmutableList.of(new  MobSpawnInfo.Spawners(EntityType.WITCH, 1, 1, 1)), ImmutableList.of(new  MobSpawnInfo.Spawners(EntityType.CAT, 1, 1, 1)))));
+    public static final RegistryObject<Structure<NoFeatureConfig>> WITCH_HUTS_TAIGA = addToStructureMaps("witch_huts_taiga", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "repurposed_structures:witch_huts/taiga"), 11, 0, 0, 0, new HashSet<>())));
     // regexpos1
 
     private static <T extends Structure<?>> RegistryObject<T> addToStructureMaps(String name, Supplier<T> structure)
@@ -218,6 +219,8 @@ public class RSStructures {
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mansion_snowy"), MANSION_SNOWY.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMansionsConfig.mansionSnowyMaxChunkDistance.get(), (int) (RepurposedStructures.RSMansionsConfig.mansionSnowyMaxChunkDistance.get() * 0.5f), 1115107889));
 
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "witch_huts_oak"), WITCH_HUTS_OAK.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSWitchHutsConfig.witchHutsOakMaxChunkDistance.get(), (int) (RepurposedStructures.RSWitchHutsConfig.witchHutsOakMaxChunkDistance.get() * 0.5f), 741641348));
+        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "witch_huts_taiga"), WITCH_HUTS_TAIGA.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSWitchHutsConfig.witchHutsTaigaMaxChunkDistance.get(), (int) (RepurposedStructures.RSWitchHutsConfig.witchHutsTaigaMaxChunkDistance.get() * 0.5f), 1925189659));
+    
         // regexpos2
 
         //registers the structure pieces.

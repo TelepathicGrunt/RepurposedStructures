@@ -141,5 +141,7 @@
   "filled_map.repurposed_structures:fortress_jungle": "Jungle Fortress Map",
   "advancements.repurposed_structures.city_nether.title": "Blazing Cities",
   "advancements.repurposed_structures.city_nether.description": "Enter a Nether City",
-  "filled_map.repurposed_structures:city_nether": "Nether City Map"
+  "filled_map.repurposed_structures:city_nether": "Nether City Map",
+  "advancements.repurposed_structures.witch_huts_taiga.title": "Spooky Taiga Hut",
+  "advancements.repurposed_structures.witch_huts_taiga.description": "Enter a Taiga Witch Hut"
 }
