@@ -122,7 +122,7 @@ public class RSMainConfig
 								+"\r\n "
 								+"\r\n 1 for spawning in most chunks and 1001 for no spawn.")
 							.translation("repurposedstructures.config.junglefortress.junglefortressmaxchunkdistance")
-							.defineInRange("jungleFortressMaxChunkDistance", 32, 1, 1001));
+							.defineInRange("jungleFortressMaxChunkDistance", 50, 1, 1001));
 
 					addJungleFortressToModdedBiomes = subscriber.subscribe(builder
 							.comment("\r\n Add Jungle Fortress to modded jungle biomes.")

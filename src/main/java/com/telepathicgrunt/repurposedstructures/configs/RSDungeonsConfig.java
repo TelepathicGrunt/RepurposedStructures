@@ -63,7 +63,7 @@ public class RSDungeonsConfig
 
 				builder.push("AttemptsPerChunk");
         					
-            				badlandsDungeonAttemptsPerChunk = subscriber.subscribe(builder
+					badlandsDungeonAttemptsPerChunk = subscriber.subscribe(builder
             						.comment("\r\n Replace vanilla dungeon in Badlands biomes with Badlands themed dungeon.\r\n"
         							+" How often dungeons will attempt to spawn per chunk.\r\n " 
         							+" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.\r\n"
@@ -144,7 +144,7 @@ public class RSDungeonsConfig
 								+"\r\n them which is unlike the other modded dungeons from this mod"
 								+"\r\n as those would normally replace the Vanilla Dungeons.")
 						.translation("repurposedstructures.config.dungeons.oceandungeonattemptsperchunk")
-						.defineInRange("oceanDungeonAttemptsPerChunk", 6, 0, 1000));
+						.defineInRange("oceanDungeonAttemptsPerChunk", 5, 0, 1000));
             
 
 				builder.pop();

@@ -137,7 +137,7 @@ public class RSTemplesConfig
 					.comment("\r\n How rare are Badlands Pyramid in non-plateau Badlands biomes."
 							+ "\n 1 for spawning in most chunks and 1001 for none.")
 					.translation("repurposedstructures.config.temples.badlandspyramidmaxchunkdistance")
-					.defineInRange("badlandsPyramidMaxChunkDistance", 20, 1, 1001));
+					.defineInRange("badlandsPyramidMaxChunkDistance", 25, 1, 1001));
 
 			builder.pop();
 		}
