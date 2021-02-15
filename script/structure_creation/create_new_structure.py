@@ -177,13 +177,14 @@ while restart:
             for filename in os.listdir(directory):
                 with open(os.path.join(directory, filename), 'r+') as f:
                     tempRead = f.read()
-                    f.seek(0)
                     if "regexpos1" in tempRead:
+                        f.seek(0)
                         insertLine(os.path.join(directory, filename), \
-                            "regexpos1", file_content[:5])
+                            "regexpos1", file_content.rsplit(";\n")[0] + ";")
                     if "regexpos2" in tempRead:
+                        f.seek(0)
                         insertLine(os.path.join(directory, filename), \
-                            "regexpos2", file_content[5:])
+                            "regexpos2", file_content.rsplit(";\n")[1] + ";")
 
 
     with open(os.path.join('template', 'fabric_en_us_translations.json'), "r") as file:
@@ -274,13 +275,19 @@ while restart:
             for filename in os.listdir(directory):
                 with open(os.path.join(directory, filename), 'r+') as f:
                     tempRead = f.read()
-                    f.seek(0)
                     if "regexpos1" in tempRead:
+                        f.seek(0)
+                        groups = file_content.split(';')
+                        result = ';'.join(groups[:2])
+                        result = result + ";"
                         insertLine(os.path.join(directory, filename), \
-                            "regexpos1", file_content[:2])
+                            "regexpos1", result)
                     if "regexpos2" in tempRead:
+                        f.seek(0)
+                        groups = file_content.split(';')
+                        result = ';'.join(groups[2:])
                         insertLine(os.path.join(directory, filename), \
-                            "regexpos2", file_content[2:])
+                            "regexpos2", result[2:])
 
     with open(os.path.join('template', 'forge_en_us_translations.json'), "r") as file:
         file_content = file.read().replace("$1", structure_registry_name).replace("$2", advancement_title).replace("$3", advancement_description)
