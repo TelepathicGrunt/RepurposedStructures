@@ -1,0 +1,12 @@
+		public ConfigValueListener<Integer> witchHutsBirchMaxChunkDistance;
+		public ConfigValueListener<Boolean> addWitchHutsBirchToModdedBiomes;
+
+                witchHutsBirchMaxChunkDistance = subscriber.subscribe(builder
+                    .comment("Add Birch Witch Huts to modded Birch biomes.")
+                    .translation("repurposedstructures.config.witch_huts.witchhutsbirchmaxchunkdistance")
+                    .defineInRange("witchHutsBirchMaxChunkDistance", 48, 1, 1001));
+
+                addWitchHutsBirchToModdedBiomes = subscriber.subscribe(builder
+                    .comment("Add Birch Witch Huts to modded Birch biomes.")
+                    .translation("repurposedstructures.config.witch_huts.addwitchhutsbirchtomoddedbiomes")
+                    .define("addWitchHutsBirchToModdedBiomes", true));

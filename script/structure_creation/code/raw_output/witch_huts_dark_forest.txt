@@ -1,0 +1,79 @@
+--------------FABRIC-------------
+
+    public static StructureFeature<DefaultFeatureConfig> WITCH_HUTS_DARK_FOREST = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "repurposed_structures:witch_huts/dark_forest"), 11, 0, 0, 0, new HashSet<>());
+
+        FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "witch_huts_dark_forest"), WITCH_HUTS_DARK_FOREST).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSWitchHutsConfig.maxChunkDistance.witchHutsDarkForestMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSWitchHutsConfig.maxChunkDistance.witchHutsDarkForestMaxChunkDistance * 0.5f), 165100151)).superflatFeature(WITCH_HUTS_DARK_FOREST.configure(FeatureConfig.DEFAULT)).register();
+
+    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> WITCH_HUTS_DARK_FOREST = RSStructures.WITCH_HUTS_DARK_FOREST.configure(FeatureConfig.DEFAULT);
+
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "witch_huts_dark_forest"), WITCH_HUTS_DARK_FOREST);
+
+        addTags(RSStructures.WITCH_HUTS_DARK_FOREST, Stream.of(STRUCTURE_TAGS.WITCH_HUTS, STRUCTURE_TAGS.NO_LAKES, STRUCTURE_TAGS.REPLACE_NATURAL_MOBS).collect(Collectors.toSet()));
+
+        addToBiome("witch_huts_dark_forest",
+                (context) -> 
+						&& BiomeSelection.isBiomeAllowed(context, "witch_huts")
+                        && RepurposedStructures.RSAllConfig.RSWitchHutsConfig.maxChunkDistance.witchHutsDarkForestMaxChunkDistance != 1001
+                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSWitchHutsConfig.blacklist.addWitchHutsDarkForestToModdedBiomes),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.WITCH_HUTS_DARK_FOREST));
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Add Dark Forest Witch Huts to modded Dark Forest"
+                + "\nbiomes.")
+        public boolean addWitchHutsDarkForestToModdedBiomes = true;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("How rare are Dark Forest Witch Huts in Dark"
+                + "\nForest biomes. 1 for spawning in most chunks and"
+                + "\n1001 for none.")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int witchHutsDarkForestMaxChunkDistance = 48;
+
+  "advancements.repurposed_structures.witch_huts_dark_forest.title": "Spooky Dark Forest Hut",
+  "advancements.repurposed_structures.witch_huts_dark_forest.description": "Enter a Dark Forest Witch Hut",
+
+  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.maxChunkDistance.witchHutsDarkForestMaxChunkDistance": "Witch Huts Dark Forest Max Chunk Distance",
+  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.maxChunkDistance.witchHutsDarkForestMaxChunkDistance.@PrefixText": "How rare are Dark Forest Witch Huts in Dark Forest biomes. 1 for spawning in most chunks and 1001 for none. ",
+  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.blacklist.addWitchHutsDarkForestToModdedBiomes": "Add Witch Huts Dark Forest To Modded Biomes",
+  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.blacklist.addWitchHutsDarkForestToModdedBiomes.@PrefixText": "Add Dark Forest Witch Huts to modded Dark Forest biomes.",
+
+
+--------------FORGE-------------
+
+    public static final RegistryObject<Structure<NoFeatureConfig>> WITCH_HUTS_DARK_FOREST = addToStructureMaps("witch_huts_dark_forest", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "repurposed_structures:witch_huts/dark_forest"), 11, 0, 0, 0, new HashSet<>())));
+
+        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "witch_huts_dark_forest"), WITCH_HUTS_DARK_FOREST.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSWitchHutsConfig.witchHutsDarkForestMaxChunkDistance.get(), (int) (RepurposedStructures.RSWitchHutsConfig.witchHutsDarkForestMaxChunkDistance.get() * 0.5f), 165100151));
+    
+
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> WITCH_HUTS_DARK_FOREST = RSStructures.WITCH_HUTS_DARK_FOREST.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
+
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "witch_huts_dark_forest"), WITCH_HUTS_DARK_FOREST);
+
+        addTags(RSStructures.WITCH_HUTS_DARK_FOREST.get(), Stream.of(STRUCTURE_TAGS.WITCH_HUTS, STRUCTURE_TAGS.NO_LAKES, STRUCTURE_TAGS.REPLACE_NATURAL_MOBS).collect(Collectors.toSet()));
+
+        if ( &&
+            RepurposedStructures.RSWitchHutsConfig.witchHutsDarkForestMaxChunkDistance.get() != 1001 &&
+            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSWitchHutsConfig.addWitchHutsDarkForestToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.WITCH_HUTS_DARK_FOREST);
+        }
+
+		public ConfigValueListener<Integer> witchHutsDarkForestMaxChunkDistance;
+		public ConfigValueListener<Boolean> addWitchHutsDarkForestToModdedBiomes;
+
+                witchHutsDarkForestMaxChunkDistance = subscriber.subscribe(builder
+                    .comment("Add Dark Forest Witch Huts to modded Dark Forest"
+                + "\nbiomes.")
+                    .translation("repurposedstructures.config.witch_huts.witchhutsdarkforestmaxchunkdistance")
+                    .defineInRange("witchHutsDarkForestMaxChunkDistance", 48, 1, 1001));
+
+                addWitchHutsDarkForestToModdedBiomes = subscriber.subscribe(builder
+                    .comment("Add Dark Forest Witch Huts to modded Dark Forest"
+                + "\nbiomes.")
+                    .translation("repurposedstructures.config.witch_huts.addwitchhutsdarkforesttomoddedbiomes")
+                    .define("addWitchHutsDarkForestToModdedBiomes", true));
+
+  "advancements.repurposed_structures.witch_huts_dark_forest.title": "Spooky Dark Forest Hut",
+  "advancements.repurposed_structures.witch_huts_dark_forest.description": "Enter a Dark Forest Witch Hut"

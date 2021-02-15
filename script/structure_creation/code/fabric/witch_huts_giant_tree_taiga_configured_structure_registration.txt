@@ -1,0 +1,1 @@
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "witch_huts_giant_tree_taiga"), WITCH_HUTS_GIANT_TREE_TAIGA);

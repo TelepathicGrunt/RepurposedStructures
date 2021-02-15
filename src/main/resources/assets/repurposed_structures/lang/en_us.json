@@ -543,8 +543,8 @@
   "text.autoconfig.repurposed_structures-main.option.RSMansionsConfig.maxChunkDistance.mansionSnowyMaxChunkDistance.@PrefixText": "How rare are Snowy Mansions in Snowy biomes. 1 for spawning in most chunks and 1001 for none. ",
   "text.autoconfig.repurposed_structures-main.option.RSMansionsConfig.blacklist.addMansionSnowyToModdedBiomes": "Add Mansion Snowy To Modded Biomes",
   "text.autoconfig.repurposed_structures-main.option.RSMansionsConfig.blacklist.addMansionSnowyToModdedBiomes.@PrefixText": "Add Snowy Mansions to modded Snowy biomes.",
-  "advancements.repurposed_structures.witchhuts.title": "Witch Huts",
-  "advancements.repurposed_structures.witchhuts.description": "Go look for a Witch Hut!",
+  "advancements.repurposed_structures.witch_huts.title": "Witch Huts",
+  "advancements.repurposed_structures.witch_huts.description": "Go look for a Witch Hut!",
   "advancements.repurposed_structures.witch_huts_oak.title": "No forest is safe from Witches! Not even Oak!",
   "advancements.repurposed_structures.witch_huts_oak.description": "Enter a Oak Witch Hut",
   "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.maxChunkDistance.witchHutsOakMaxChunkDistance": "Witch Huts Oak Max Chunk Distance",
@@ -556,5 +556,28 @@
   "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.maxChunkDistance.witchHutsTaigaMaxChunkDistance": "Witch Huts Taiga Max Chunk Distance",
   "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.maxChunkDistance.witchHutsTaigaMaxChunkDistance.@PrefixText": "How rare are Taiga Witch Huts in Taiga biomes. 1 for spawning in most chunks and 1001 for none. ",
   "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.blacklist.addWitchHutsTaigaToModdedBiomes": "Add Witch Huts Taiga To Modded Biomes",
-  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.blacklist.addWitchHutsTaigaToModdedBiomes.@PrefixText": "Add Taiga Witch Huts to modded Taiga biomes."
+  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.blacklist.addWitchHutsTaigaToModdedBiomes.@PrefixText": "Add Taiga Witch Huts to modded Taiga biomes.",
+
+  "advancements.repurposed_structures.witch_huts_birch.title": "Spooky Birch Hut",
+  "advancements.repurposed_structures.witch_huts_birch.description": "Enter a Birch Witch Hut",
+
+  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.maxChunkDistance.witchHutsBirchMaxChunkDistance": "Witch Huts Birch Max Chunk Distance",
+  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.maxChunkDistance.witchHutsBirchMaxChunkDistance.@PrefixText": "How rare are Birch Witch Huts in Birch biomes. 1 for spawning in most chunks and 1001 for none. ",
+  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.blacklist.addWitchHutsBirchToModdedBiomes": "Add Witch Huts Birch To Modded Biomes",
+  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.blacklist.addWitchHutsBirchToModdedBiomes.@PrefixText": "Add Birch Witch Huts to modded Birch biomes.",
+
+  "advancements.repurposed_structures.witch_huts_dark_forest.title": "Spooky Dark Forest Hut",
+  "advancements.repurposed_structures.witch_huts_dark_forest.description": "Enter a Dark Forest Witch Hut",
+
+  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.maxChunkDistance.witchHutsDarkForestMaxChunkDistance": "Witch Huts Dark Forest Max Chunk Distance",
+  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.maxChunkDistance.witchHutsDarkForestMaxChunkDistance.@PrefixText": "How rare are Dark Forest Witch Huts in Dark Forest biomes. 1 for spawning in most chunks and 1001 for none. ",
+  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.blacklist.addWitchHutsDarkForestToModdedBiomes": "Add Witch Huts Dark Forest To Modded Biomes",
+  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.blacklist.addWitchHutsDarkForestToModdedBiomes.@PrefixText": "Add Dark Forest Witch Huts to modded Dark Forest biomes.",
+  "advancements.repurposed_structures.witch_huts_giant_tree_taiga.title": "The Witch of the Giant Trees",
+  "advancements.repurposed_structures.witch_huts_giant_tree_taiga.description": "Enter a Giant Tree Taiga Witch Hut",
+
+  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.maxChunkDistance.witchHutsGiantTreeTaigaMaxChunkDistance": "Witch Huts Giant Tree Taiga Max Chunk Distance",
+  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.maxChunkDistance.witchHutsGiantTreeTaigaMaxChunkDistance.@PrefixText": "How rare are Giant Tree Taiga Witch Huts in Giant Tree Taiga biomes. 1 for spawning in most chunks and 1001 for none. ",
+  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.blacklist.addWitchHutsGiantTreeTaigaToModdedBiomes": "Add Witch Huts Giant Tree Taiga To Modded Biomes",
+  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.blacklist.addWitchHutsGiantTreeTaigaToModdedBiomes.@PrefixText": "Add Giant Tree Taiga Witch Huts to modded Giant Tree Taiga biomes."
 }

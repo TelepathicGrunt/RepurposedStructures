@@ -1,0 +1,28 @@
+{
+  "parent": "repurposed_structures:witch_huts",
+  "display": {
+    "icon": {
+      "item": "minecraft:dark_oak_fence"
+    },
+    "title": {
+      "text": "Spooky Dark Forest Hut"
+    },
+    "description": {
+      "text": "Enter a Dark Forest Witch Hut"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 20
+  },
+  "criteria": {
+    "in_witch_huts_dark_forest": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "in_witch_huts_dark_forest"
+    ]
+  ]
+}

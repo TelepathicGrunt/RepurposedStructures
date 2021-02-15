@@ -1,0 +1,75 @@
+--------------FABRIC-------------
+
+    public static StructureFeature<DefaultFeatureConfig> WITCH_HUTS_BIRCH = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "repurposed_structures:witch_huts/birch"), 11, 0, 0, 0, new HashSet<>());
+
+        FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "witch_huts_birch"), WITCH_HUTS_BIRCH).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSWitchHutsConfig.maxChunkDistance.witchHutsBirchMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSWitchHutsConfig.maxChunkDistance.witchHutsBirchMaxChunkDistance * 0.5f), 904634508)).superflatFeature(WITCH_HUTS_BIRCH.configure(FeatureConfig.DEFAULT)).register();
+
+    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> WITCH_HUTS_BIRCH = RSStructures.WITCH_HUTS_BIRCH.configure(FeatureConfig.DEFAULT);
+
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "witch_huts_birch"), WITCH_HUTS_BIRCH);
+
+        addTags(RSStructures.WITCH_HUTS_BIRCH, Stream.of(STRUCTURE_TAGS.WITCH_HUTS, STRUCTURE_TAGS.NO_LAKES, STRUCTURE_TAGS.REPLACE_NATURAL_MOBS).collect(Collectors.toSet()));
+
+        addToBiome("witch_huts_birch",
+                (context) -> 
+						&& BiomeSelection.isBiomeAllowed(context, "witch_huts")
+                        && RepurposedStructures.RSAllConfig.RSWitchHutsConfig.maxChunkDistance.witchHutsBirchMaxChunkDistance != 1001
+                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSWitchHutsConfig.blacklist.addWitchHutsBirchToModdedBiomes),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.WITCH_HUTS_BIRCH));
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Add Birch Witch Huts to modded Birch biomes.")
+        public boolean addWitchHutsBirchToModdedBiomes = true;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("How rare are Birch Witch Huts in Birch biomes. 1"
+                + "\nfor spawning in most chunks and 1001 for none.")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int witchHutsBirchMaxChunkDistance = 48;
+
+  "advancements.repurposed_structures.witch_huts_birch.title": "Spooky Birch Hut",
+  "advancements.repurposed_structures.witch_huts_birch.description": "Enter a Birch Witch Hut",
+
+  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.maxChunkDistance.witchHutsBirchMaxChunkDistance": "Witch Huts Birch Max Chunk Distance",
+  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.maxChunkDistance.witchHutsBirchMaxChunkDistance.@PrefixText": "How rare are Birch Witch Huts in Birch biomes. 1 for spawning in most chunks and 1001 for none. ",
+  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.blacklist.addWitchHutsBirchToModdedBiomes": "Add Witch Huts Birch To Modded Biomes",
+  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.blacklist.addWitchHutsBirchToModdedBiomes.@PrefixText": "Add Birch Witch Huts to modded Birch biomes.",
+
+
+--------------FORGE-------------
+
+    public static final RegistryObject<Structure<NoFeatureConfig>> WITCH_HUTS_BIRCH = addToStructureMaps("witch_huts_birch", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "repurposed_structures:witch_huts/birch"), 11, 0, 0, 0, new HashSet<>())));
+
+        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "witch_huts_birch"), WITCH_HUTS_BIRCH.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSWitchHutsConfig.witchHutsBirchMaxChunkDistance.get(), (int) (RepurposedStructures.RSWitchHutsConfig.witchHutsBirchMaxChunkDistance.get() * 0.5f), 904634508));
+    
+
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> WITCH_HUTS_BIRCH = RSStructures.WITCH_HUTS_BIRCH.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
+
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "witch_huts_birch"), WITCH_HUTS_BIRCH);
+
+        addTags(RSStructures.WITCH_HUTS_BIRCH.get(), Stream.of(STRUCTURE_TAGS.WITCH_HUTS, STRUCTURE_TAGS.NO_LAKES, STRUCTURE_TAGS.REPLACE_NATURAL_MOBS).collect(Collectors.toSet()));
+
+        if ( &&
+            RepurposedStructures.RSWitchHutsConfig.witchHutsBirchMaxChunkDistance.get() != 1001 &&
+            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSWitchHutsConfig.addWitchHutsBirchToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.WITCH_HUTS_BIRCH);
+        }
+
+		public ConfigValueListener<Integer> witchHutsBirchMaxChunkDistance;
+		public ConfigValueListener<Boolean> addWitchHutsBirchToModdedBiomes;
+
+                witchHutsBirchMaxChunkDistance = subscriber.subscribe(builder
+                    .comment("Add Birch Witch Huts to modded Birch biomes.")
+                    .translation("repurposedstructures.config.witch_huts.witchhutsbirchmaxchunkdistance")
+                    .defineInRange("witchHutsBirchMaxChunkDistance", 48, 1, 1001));
+
+                addWitchHutsBirchToModdedBiomes = subscriber.subscribe(builder
+                    .comment("Add Birch Witch Huts to modded Birch biomes.")
+                    .translation("repurposedstructures.config.witch_huts.addwitchhutsbirchtomoddedbiomes")
+                    .define("addWitchHutsBirchToModdedBiomes", true));
+
+  "advancements.repurposed_structures.witch_huts_birch.title": "Spooky Birch Hut",
+  "advancements.repurposed_structures.witch_huts_birch.description": "Enter a Birch Witch Hut"

@@ -1,0 +1,14 @@
+		public ConfigValueListener<Integer> witchHutsDarkForestMaxChunkDistance;
+		public ConfigValueListener<Boolean> addWitchHutsDarkForestToModdedBiomes;
+
+                witchHutsDarkForestMaxChunkDistance = subscriber.subscribe(builder
+                    .comment("Add Dark Forest Witch Huts to modded Dark Forest"
+                + "\nbiomes.")
+                    .translation("repurposedstructures.config.witch_huts.witchhutsdarkforestmaxchunkdistance")
+                    .defineInRange("witchHutsDarkForestMaxChunkDistance", 48, 1, 1001));
+
+                addWitchHutsDarkForestToModdedBiomes = subscriber.subscribe(builder
+                    .comment("Add Dark Forest Witch Huts to modded Dark Forest"
+                + "\nbiomes.")
+                    .translation("repurposedstructures.config.witch_huts.addwitchhutsdarkforesttomoddedbiomes")
+                    .define("addWitchHutsDarkForestToModdedBiomes", true));

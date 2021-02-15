@@ -34,6 +34,23 @@ public class RSWitchHutsConfig implements ConfigData {
         @ConfigEntry.Gui.PrefixText
         @Comment("Add Taiga Witch Huts to modded Taiga biomes.")
         public boolean addWitchHutsTaigaToModdedBiomes = true;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Add Birch Witch Huts to modded Birch biomes.")
+        public boolean addWitchHutsBirchToModdedBiomes = true;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Add Dark Forest Witch Huts to modded Dark Forest"
+                + "\nbiomes.")
+        public boolean addWitchHutsDarkForestToModdedBiomes = true;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Add Giant Tree Taiga Witch Huts to modded Giant"
+                + "\nTree Taiga biomes.")
+        public boolean addWitchHutsGiantTreeTaigaToModdedBiomes = true;
         // regexpos1
     }
 
@@ -53,6 +70,29 @@ public class RSWitchHutsConfig implements ConfigData {
                 + "\nfor spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
         public int witchHutsTaigaMaxChunkDistance = 48;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("How rare are Birch Witch Huts in Birch biomes. 1"
+                + "\nfor spawning in most chunks and 1001 for none.")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int witchHutsBirchMaxChunkDistance = 48;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("How rare are Dark Forest Witch Huts in Dark"
+                + "\nForest biomes. 1 for spawning in most chunks and"
+                + "\n1001 for none.")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int witchHutsDarkForestMaxChunkDistance = 48;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("How rare are Giant Tree Taiga Witch Huts in Giant"
+                + "\nTree Taiga biomes. 1 for spawning in most chunks"
+                + "\nand 1001 for none.")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int witchHutsGiantTreeTaigaMaxChunkDistance = 48;
         // regexpos2
     }
 }

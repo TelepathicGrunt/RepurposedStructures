@@ -1,0 +1,28 @@
+{
+  "parent": "repurposed_structures:witch_huts",
+  "display": {
+    "icon": {
+      "item": "minecraft:birch_fence"
+    },
+    "title": {
+      "text": "Spooky Birch Hut"
+    },
+    "description": {
+      "text": "Enter a Birch Witch Hut"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 20
+  },
+  "criteria": {
+    "in_witch_huts_birch": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "in_witch_huts_birch"
+    ]
+  ]
+}

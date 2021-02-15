@@ -1,0 +1,1 @@
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> WITCH_HUTS_BIRCH = RSStructures.WITCH_HUTS_BIRCH.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);

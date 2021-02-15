@@ -1,2 +1,1 @@
         $1(new ResourceLocation(RepurposedStructures.MODID, "$2"), $3.get(), GenerationStage.Decoration.$4, new StructureSeparationSettings(RepurposedStructures.$5.$6.get(), (int) (RepurposedStructures.$5.$6.get() * 0.5f), $7));
-    

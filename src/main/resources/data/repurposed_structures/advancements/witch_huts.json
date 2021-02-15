@@ -1,0 +1,22 @@
+{
+  "parent": "repurposed_structures:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:dark_oak_fence"
+    },
+    "title": {
+      "translate": "Witch Huts"
+    },
+    "description": {
+      "translate": "Go look for a Witch Hut!"
+    },
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "always": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

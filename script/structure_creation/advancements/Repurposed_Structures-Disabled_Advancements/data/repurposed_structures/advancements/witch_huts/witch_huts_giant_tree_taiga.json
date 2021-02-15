@@ -1,0 +1,28 @@
+{
+  "parent": "repurposed_structures:witch_huts",
+  "display": {
+    "icon": {
+      "item": "minecraft:cobblestone_wall"
+    },
+    "title": {
+      "text": "The Witch of the Giant Trees"
+    },
+    "description": {
+      "text": "Enter a Giant Tree Taiga Witch Hut"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 20
+  },
+  "criteria": {
+    "in_witch_huts_giant_tree_taiga": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "in_witch_huts_giant_tree_taiga"
+    ]
+  ]
+}

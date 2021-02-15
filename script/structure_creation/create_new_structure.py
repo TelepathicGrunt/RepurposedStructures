@@ -36,9 +36,10 @@ def insertLine(filepath, string_match, string_content):
         contents = codefile.readlines()
         if string_match in contents[-1]:  # Handle last line to prevent IndexError
             try:
-                contents.insert(contents.count-1, string_content)
+                contents.insert(len(contents)-1, string_content)
             except:
-                print("Failed to append to end of file")
+                e = sys.exc_info()[0]
+                print("Failed to append to end of file:  %s" % e )
         else:
             for index, line in enumerate(contents):
                 if string_match in line and string_content not in contents[index + 1]:
@@ -194,7 +195,7 @@ while restart:
         file.write(file_content)
         if bool(inject_into_code):
             insertLine(os.path.join(fabric_src, 'main','resources','assets','repurposed_structures','lang','en_us.json'), \
-                "}", "\n" + file_content)
+                "}", ",\n" + file_content)
 
     raw_output += "\n\n--------------FORGE-------------"
 
@@ -284,7 +285,7 @@ while restart:
         file.write(file_content)
         if bool(inject_into_code):
             insertLine(os.path.join(forge_src, 'main','resources','assets','repurposed_structures','lang','en_us.json'), \
-                "}", "\n" + file_content)
+                "}", ",\n" + file_content)
 
 
     #  --------------ADVANCEMENTS--------------
