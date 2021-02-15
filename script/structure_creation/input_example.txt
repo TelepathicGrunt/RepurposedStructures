@@ -24,8 +24,8 @@ minecraft:oak_log
 
 ---
 witch_huts_oak
-0
-0
+11
+repurposed_structures:witch_huts/oak
 0
 0
 exit
@@ -38,6 +38,7 @@ How rare are Oak Witch Huts in Forest biomes that are not birch or dark oak. 1 f
 n
 WITCH_HUTS
 NO_LAKES
+REPLACE_NATURAL_MOBS
 exit
 No forest is safe from Witches! Not even Oak!
 Enter a Oak Witch Hut

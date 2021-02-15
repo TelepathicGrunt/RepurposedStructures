@@ -1,7 +1,0 @@
-  "advancements.repurposed_structures.mansion_taiga.title": "Pine Manor",
-  "advancements.repurposed_structures.mansion_taiga.description": "Enter a Taiga Mansion",
-
-  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.mansionTaigaMaxChunkDistance": "Mansion Taiga Max Chunk Distance",
-  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.mansionTaigaMaxChunkDistance.@PrefixText": "How rare are Taiga Mansions in non-snowy Taiga biomes. 1 for spawning in most chunks and 1001 for none. ",
-  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.addMansionTaigaToModdedBiomes": "Add Mansion Taiga To Modded Biomes",
-  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.addMansionTaigaToModdedBiomes.@PrefixText": "Add Taiga Mansions to modded non-snowy Taiga biomes.",

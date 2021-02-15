@@ -1,7 +1,0 @@
-  "advancements.repurposed_structures.mansion_birch.title": "The White Chocolate Mansion",
-  "advancements.repurposed_structures.mansion_birch.description": "Enter a Birch Mansion",
-
-  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.mansionBirchMaxChunkDistance": "Mansion Birch Max Chunk Distance",
-  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.mansionBirchMaxChunkDistance.@PrefixText": "How rare are Birch Mansions in Birch biomes. 1 for spawning in most chunks and 1001 for none. ",
-  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.addMansionBirchToModdedBiomes": "Add Mansion Birch To Modded Biomes",
-  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.addMansionBirchToModdedBiomes.@PrefixText": "Add Birch Mansions to modded Birch biomes.",

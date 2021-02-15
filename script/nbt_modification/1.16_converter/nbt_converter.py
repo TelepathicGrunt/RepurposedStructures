@@ -35,37 +35,14 @@ conversion_exact_dict = {
 
 blockPalette = {""}
 
-originalBiome = "savanna"
-newBiome = "snowy"
+originalBiome = "oak"
+newBiome = "dark_oak"
 string_blacklist = []
 conversion_partial_dict = {
-    "orange_carpet":"white_carpet",
-    "white_carpet":"light_gray_carpet",
-    "acacia":"dark_oak",
-    ":oak":":dark_oak"
+    "oak":"dark_oak",
 }
 conversion_exact_dict = {
-    "minecraft:oak_planks":"minecraft:packed_ice",
-    "minecraft:acacia_planks":"minecraft:snow_block",
-    "minecraft:acacia_wood":"minecraft:packed_ice",
-    "minecraft:potted_dandelion":"minecraft:potted_spruce_sapling",
-    "minecraft:potted_poppy":"minecraft:potted_spruce_sapling",
-    "minecraft:potted_red_tulip":"minecraft:potted_spruce_sapling",
-    "minecraft:potted_oxeye_daisy":"minecraft:potted_spruce_sapling",
-    "minecraft:dark_oak_wood":"minecraft:ice",
-    "minecraft:dark_oak_log":"minecraft:blue_ice",
-    "minecraft:cobblestone":"minecraft:ice",
-    "minecraft:oak_fence":"minecraft:diorite_wall",
-    "minecraft:dark_oak_fence":"minecraft:diorite_wall",
-    "minecraft:acacia_fence":"minecraft:diorite_wall",
-    "minecraft:acacia_wood":"minecraft:ice",
-    "minecraft:acacia_log":"minecraft:blue_ice",
-    "minecraft:oak_stairs":"minecraft:polished_diorite_stairs",
-    "minecraft:dark_oak_stairs":"minecraft:polished_diorite_stairs",
-    "minecraft:acacia_stairs":"minecraft:polished_diorite_stairs",
-    "minecraft:oak_slab":"minecraft:polished_diorite_slab",
-    "minecraft:dark_oak_slab":"minecraft:polished_diorite_slab",
-    "minecraft:acacia_slab":"minecraft:polished_diorite_slab",
+    "minecraft:potted_lily_of_the_valley":"minecraft:potted_brown_mushroom",
 }
 
 #-------------------------------------------------------------------------------------------

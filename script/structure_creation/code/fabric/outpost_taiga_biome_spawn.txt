@@ -1,6 +1,0 @@
-        addToBiome(outpost_taiga,
-                (context) -> BiomeSelection.isBiomeAllowed(context, "outposts")
-                        && RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.outpostTaigaMaxChunkDistance != 1001
-                        && 
-                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.addOutpostTaigaToModdedBiomes),
-                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.OUTPOST_TAIGA));

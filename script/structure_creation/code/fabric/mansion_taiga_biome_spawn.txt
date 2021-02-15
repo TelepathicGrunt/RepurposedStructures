@@ -1,6 +1,0 @@
-        addToBiome("mansion_taiga",
-                (context) -> 
-						&& BiomeSelection.isBiomeAllowed(context, "mansions")
-                        && RepurposedStructures.RSAllConfig.RSMansionConfig.mansions.mansionTaigaMaxChunkDistance != 1001
-                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSMansionConfig.mansions.addMansionTaigaToModdedBiomes),
-                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.MANSION_TAIGA));

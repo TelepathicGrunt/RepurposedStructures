@@ -904,6 +904,8 @@ public class RSAddFeaturesAndStructures {
                         && RepurposedStructures.RSAllConfig.RSWitchHutsConfig.maxChunkDistance.witchHutsOakMaxChunkDistance != 1001
                         && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSWitchHutsConfig.blacklist.addWitchHutsOakToModdedBiomes),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.WITCH_HUTS_OAK));
+
+        // regexpos1
     }
 
 }

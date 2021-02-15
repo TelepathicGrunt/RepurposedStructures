@@ -1,7 +1,0 @@
-  "advancements.repurposed_structures.mansion_savanna.title": "Savanna's Chateau",
-  "advancements.repurposed_structures.mansion_savanna.description": "Enter a Savanna Mansion",
-
-  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.mansionSavannaMaxChunkDistance": "Mansion Savanna Max Chunk Distance",
-  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.mansionSavannaMaxChunkDistance.@PrefixText": "How rare are Savanna Mansions in Savanna biomes. 1 for spawning in most chunks and 1001 for none. ",
-  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.addMansionSavannaToModdedBiomes": "Add Mansion Savanna To Modded Biomes",
-  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.addMansionSavannaToModdedBiomes.@PrefixText": "Add Savanna Mansions to modded Savanna biomes.",

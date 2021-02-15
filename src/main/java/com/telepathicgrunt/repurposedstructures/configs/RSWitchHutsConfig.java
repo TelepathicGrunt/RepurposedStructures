@@ -29,6 +29,8 @@ public class RSWitchHutsConfig implements ConfigData {
         @Comment("Add Oak Witch Huts to modded Forest biomes that"
                 + "\nare not birch or dark oak.")
         public boolean addWitchHutsOakToModdedBiomes = true;
+
+        // regexpos1
     }
 
     public static class MaxChunkDistance {
@@ -40,5 +42,7 @@ public class RSWitchHutsConfig implements ConfigData {
                 + "\nchunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
         public int witchHutsOakMaxChunkDistance = 48;
+
+        // regexpos2
     }
 }

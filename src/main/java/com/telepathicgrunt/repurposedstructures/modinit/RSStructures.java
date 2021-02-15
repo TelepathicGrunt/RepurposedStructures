@@ -105,6 +105,7 @@ public class RSStructures {
     public static StructureFeature<DefaultFeatureConfig> MANSION_SNOWY = new MansionStructure(MansionPieces.Piece.MANSIONTYPE.SNOWY);
 
     public static StructureFeature<DefaultFeatureConfig> WITCH_HUTS_OAK = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "witch_huts/oak_start_pool"), 11, 0, 0, 0, new HashSet<>(), ImmutableList.of(new SpawnSettings.SpawnEntry(EntityType.WITCH, 1, 1, 1)), ImmutableList.of(new SpawnSettings.SpawnEntry(EntityType.CAT, 1, 1, 1)));
+    // regexpos1
 
     public static void registerStructures() {
 
@@ -181,6 +182,7 @@ public class RSStructures {
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "mansion_snowy"), MANSION_SNOWY).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSMansionsConfig.maxChunkDistance.mansionSnowyMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSMansionsConfig.maxChunkDistance.mansionSnowyMaxChunkDistance * 0.5f), 1115107889)).superflatFeature(MANSION_SNOWY.configure(FeatureConfig.DEFAULT)).register();
 
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "witch_huts_oak"), WITCH_HUTS_OAK).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSWitchHutsConfig.maxChunkDistance.witchHutsOakMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSWitchHutsConfig.maxChunkDistance.witchHutsOakMaxChunkDistance * 0.5f), 741641348)).superflatFeature(WITCH_HUTS_OAK.configure(FeatureConfig.DEFAULT)).register();
+        // regexpos2
 
         RS_STRUCTURES.putAll(StructuresConfig.DEFAULT_STRUCTURES);
         RS_STRUCTURES.keySet().removeIf(key -> key.getName() == null || !key.getName().contains(RepurposedStructures.MODID));

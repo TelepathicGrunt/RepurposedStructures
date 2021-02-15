@@ -1,7 +1,0 @@
-  "advancements.repurposed_structures.mansion_oak.title": "A foresty Oak Mansion",
-  "advancements.repurposed_structures.mansion_oak.description": "Enter an Oak Mansion",
-
-  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.mansionOakMaxChunkDistance": "Mansion Oak Max Chunk Distance",
-  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.mansionOakMaxChunkDistance.@PrefixText": "How rare are Oak Mansions in in forest category biomes that are not birch or dark forest. 1 for spawning in most chunks and 1001 for none. ",
-  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.addMansionOakToModdedBiomes": "Add Mansion Oak To Modded Biomes",
-  "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.addMansionOakToModdedBiomes.@PrefixText": "Add Oak Mansions to modded forest category biomes that are not birch or dark forest.",

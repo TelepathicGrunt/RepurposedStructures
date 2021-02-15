@@ -1,1 +1,0 @@
-    public static StructureFeature<DefaultFeatureConfig> OUTPOST_OAK = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "outposts/oak/base_plates"), 11, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.).collect(Collectors.toSet()));

@@ -1,7 +1,0 @@
-  "advancements.repurposed_structures.mansion_snowy.title": "Igloo? Nah! Snowy Mansion wins! ",
-  "advancements.repurposed_structures.mansion_snowy.description": "Enter a Snowy Mansion",
-
-  "text.autoconfig.repurposed_structures-main.option.RSMansionsConfig.maxChunkDistance.mansionSnowyMaxChunkDistance": "Mansion Snowy Max Chunk Distance",
-  "text.autoconfig.repurposed_structures-main.option.RSMansionsConfig.maxChunkDistance.mansionSnowyMaxChunkDistance.@PrefixText": "How rare are Snowy Mansions in Snowy biomes. 1 for spawning in most chunks and 1001 for none. ",
-  "text.autoconfig.repurposed_structures-main.option.RSMansionsConfig.blacklist.addMansionSnowyToModdedBiomes": "Add Mansion Snowy To Modded Biomes",
-  "text.autoconfig.repurposed_structures-main.option.RSMansionsConfig.blacklist.addMansionSnowyToModdedBiomes.@PrefixText": "Add Snowy Mansions to modded Snowy biomes.",

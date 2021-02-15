@@ -1,7 +1,0 @@
-  "advancements.repurposed_structures.outpost_oak.title": "Oak Post",
-  "advancements.repurposed_structures.outpost_oak.description": "Enter a Oak Outpost",
-
-  "text.autoconfig.repurposed_structures-main.option.RSOutpostsConfig.outposts.outpostOakMaxChunkDistance": "Outpost Oak Max Chunk Distance",
-  "text.autoconfig.repurposed_structures-main.option.RSOutpostsConfig.outposts.outpostOakMaxChunkDistance.@PrefixText": "How rare are Oak Outposts in forest biomes that are not birch or dark forest. 1 for spawning in most chunks and 1001 for none. ",
-  "text.autoconfig.repurposed_structures-main.option.RSOutpostsConfig.outposts.addOutpostOakToModdedBiomes": "Add Outpost Oak To Modded Biomes",
-  "text.autoconfig.repurposed_structures-main.option.RSOutpostsConfig.outposts.addOutpostOakToModdedBiomes.@PrefixText": "Add Oak Outposts to modded forest biomes that are not birch or dark forest.",

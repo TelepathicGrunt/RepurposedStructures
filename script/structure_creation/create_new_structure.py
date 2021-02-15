@@ -75,6 +75,7 @@ while restart:
     advancement_description = input("\nadvancement description\n")
     advancement_icon = input("\nadvancement icon\n")
     advancement_exp = str(input("\nadvancement exp\n"))
+    inject_into_code = input("\nInject generated code into codebase directly? (y/n)\n")
         
 
 
@@ -88,6 +89,7 @@ while restart:
                                 .replace("$6", ("new HashSet<>()", "Stream.of("+avoid_tags+").collect(Collectors.toSet())")[bool(avoid_tags)])
     with open(os.path.join('code', 'fabric', structure_registry_name+'_structure_init.txt'), "w") as file:
         raw_output += "\n\n" + file_content
+
         file.write(file_content)
 
     with open(os.path.join('template', 'fabric_structure_registration.txt'), "r") as file:

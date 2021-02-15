@@ -1,6 +1,0 @@
-        addToBiome("city_nether",
-                (context) -> 
-						&& BiomeSelection.isBiomeAllowed(context, "cities")
-                        && RepurposedStructures.RSAllConfig.RSMainConfig.cities.cityNetherMaxChunkDistance != 1001
-                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSMainConfig.cities.addCityNetherToModdedBiomes),
-                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.CITY_NETHER));
