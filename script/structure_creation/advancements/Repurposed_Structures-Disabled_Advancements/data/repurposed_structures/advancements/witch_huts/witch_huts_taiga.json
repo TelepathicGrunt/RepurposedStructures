@@ -1,0 +1,28 @@
+{
+  "parent": "repurposed_structures:witch_huts",
+  "display": {
+    "icon": {
+      "item": "minecraft:spruce_fence"
+    },
+    "title": {
+      "text": "Spooky Taiga Hut"
+    },
+    "description": {
+      "text": "Enter a Taiga Witch Hut"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 20
+  },
+  "criteria": {
+    "in_witch_huts_taiga": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "in_witch_huts_taiga"
+    ]
+  ]
+}

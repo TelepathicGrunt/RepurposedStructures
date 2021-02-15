@@ -1,0 +1,12 @@
+		public ConfigValueListener<Integer> witchHutsTaigaMaxChunkDistance;
+		public ConfigValueListener<Boolean> addWitchHutsTaigaToModdedBiomes;
+
+                witchHutsTaigaMaxChunkDistance = subscriber.subscribe(builder
+                    .comment("Add Taiga Witch Huts to modded Taiga biomes.")
+                    .translation("repurposedstructures.config.witch_huts.witchhutstaigamaxchunkdistance")
+                    .defineInRange("witchHutsTaigaMaxChunkDistance", 48, 1, 1001));
+
+                addWitchHutsTaigaToModdedBiomes = subscriber.subscribe(builder
+                    .comment("Add Taiga Witch Huts to modded Taiga biomes.")
+                    .translation("repurposedstructures.config.witch_huts.addwitchhutstaigatomoddedbiomes")
+                    .define("addWitchHutsTaigaToModdedBiomes", true));

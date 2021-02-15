@@ -1,0 +1,31 @@
+{
+  "parent": "repurposed_structures:witch_huts",
+  "display": {
+    "icon": {
+      "item": "minecraft:spruce_fence"
+    },
+    "title": {
+      "text": "advancements.repurposed_structures.witch_huts_taiga.title"
+    },
+    "description": {
+      "text": "advancements.repurposed_structures.witch_huts_taiga.description"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 20
+  },
+  "criteria": {
+    "in_witch_huts_taiga": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:witch_huts_taiga"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_witch_huts_taiga"
+    ]
+  ]
+}

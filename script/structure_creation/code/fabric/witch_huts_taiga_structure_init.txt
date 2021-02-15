@@ -1,0 +1,1 @@
+    public static StructureFeature<DefaultFeatureConfig> WITCH_HUTS_TAIGA = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "repurposed_structures:witch_huts/taiga"), 11, 0, 0, 0, new HashSet<>());

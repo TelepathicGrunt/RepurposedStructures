@@ -35,7 +35,10 @@ def insertLine(filepath, string_match, string_content):
     with open(filepath, "r") as codefile:
         contents = codefile.readlines()
         if string_match in contents[-1]:  # Handle last line to prevent IndexError
-            contents.append(string_content)
+            try:
+                contents.insert(contents.count-1, string_content)
+            except:
+                print("Failed to append to end of file")
         else:
             for index, line in enumerate(contents):
                 if string_match in line and string_content not in contents[index + 1]:
@@ -174,7 +177,10 @@ while restart:
                 with open(os.path.join(directory, filename), 'r+') as f:
                     if "regexpos1" in f.read():
                         insertLine(os.path.join(directory, filename), \
-                            "regexpos1", file_content)
+                            "regexpos1", file_content[:5])
+                    if "regexpos2" in f.read():
+                        insertLine(os.path.join(directory, filename), \
+                            "regexpos2", file_content[5:])
 
 
     with open(os.path.join('template', 'fabric_en_us_translations.json'), "r") as file:
@@ -188,7 +194,7 @@ while restart:
         file.write(file_content)
         if bool(inject_into_code):
             insertLine(os.path.join(fabric_src, 'main','resources','assets','repurposed_structures','lang','en_us.json'), \
-                "}", file_content)
+                "}", "\n" + file_content)
 
     raw_output += "\n\n--------------FORGE-------------"
 
@@ -278,7 +284,7 @@ while restart:
         file.write(file_content)
         if bool(inject_into_code):
             insertLine(os.path.join(forge_src, 'main','resources','assets','repurposed_structures','lang','en_us.json'), \
-                "}", file_content)
+                "}", "\n" + file_content)
 
 
     #  --------------ADVANCEMENTS--------------

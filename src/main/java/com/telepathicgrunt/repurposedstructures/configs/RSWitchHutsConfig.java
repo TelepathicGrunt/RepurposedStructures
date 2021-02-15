@@ -30,6 +30,10 @@ public class RSWitchHutsConfig implements ConfigData {
                 + "\nare not birch or dark oak.")
         public boolean addWitchHutsOakToModdedBiomes = true;
 
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Add Taiga Witch Huts to modded Taiga biomes.")
+        public boolean addWitchHutsTaigaToModdedBiomes = true;
         // regexpos1
     }
 
@@ -43,6 +47,12 @@ public class RSWitchHutsConfig implements ConfigData {
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
         public int witchHutsOakMaxChunkDistance = 48;
 
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("How rare are Taiga Witch Huts in Taiga biomes. 1"
+                + "\nfor spawning in most chunks and 1001 for none.")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int witchHutsTaigaMaxChunkDistance = 48;
         // regexpos2
     }
 }

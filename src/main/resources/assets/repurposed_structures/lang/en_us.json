@@ -131,7 +131,6 @@
   "filled_map.endcity": "End City Map",
   "filled_map.fortress": "Nether Fortress Map",
   "filled_map.repurposed_structures:fortress_jungle": "Jungle Fortress Map",
-
   "text.autoconfig.repurposed_structures-main.title": "Repurposed Structures Config Menu",
   "text.autoconfig.repurposed_structures-main.category.Dungeons": "Dungeons Configs",
   "text.autoconfig.repurposed_structures-main.category.Main": "Main Configs",
@@ -142,7 +141,6 @@
   "text.autoconfig.repurposed_structures-main.category.Temples": "Temple Configs",
   "text.autoconfig.repurposed_structures-main.category.Villages": "Villages Configs",
   "text.autoconfig.repurposed_structures-main.category.Wells": "Wells Configs",
-
   "text.autoconfig.repurposed_structures-main.option.RSDungeonsConfig.addDungeonsToModdedBiomes": "Add Dungeons to Modded Biomes",
   "text.autoconfig.repurposed_structures-main.option.RSDungeonsConfig.addDungeonsToModdedBiomes.@PrefixText": "\nAdd RS dungeons to modded biomes of same categories/type.",
   "text.autoconfig.repurposed_structures-main.option.RSDungeonsConfig.attemptsPerChunk": "Attempts Per Chunks",
@@ -485,10 +483,8 @@
   "text.autoconfig.repurposed_structures-main.option.RSWellsConfig.rarityPerChunk.netherWellRarityPerChunk.@PrefixText": "\nAdds Nether themed wells to Nether biomes.",
   "text.autoconfig.repurposed_structures-main.option.RSWellsConfig.rarityPerChunk.snowWellRarityPerChunk": "Snow Well",
   "text.autoconfig.repurposed_structures-main.option.RSWellsConfig.rarityPerChunk.snowWellRarityPerChunk.@PrefixText": "\nAdds Snow themed wells to snowy and icy biomes.",
-
   "advancements.repurposed_structures.city_nether.title": "Blazing Cities",
   "advancements.repurposed_structures.city_nether.description": "Enter a Nether City",
-
   "filled_map.repurposed_structures:city_nether": "Nether City Map",
   "text.autoconfig.repurposed_structures-main.option.RSMainConfig.cities.cityNetherMaxChunkDistance": "City Nether Max Chunk Distance",
   "text.autoconfig.repurposed_structures-main.option.RSMainConfig.cities.cityNetherMaxChunkDistance.@PrefixText": "How rare are Nether Cities in Nether biomes. 1 for spawning in most chunks and 1001 for none. ",
@@ -497,11 +493,8 @@
   "text.autoconfig.repurposed_structures-main.option.RSMainConfig.cities": "Cities",
   "text.autoconfig.repurposed_structures-main.option.RSMainConfig.cities.blacklistedCitiesBiomes": "Blacklisted Cities Biomes",
   "text.autoconfig.repurposed_structures-main.option.RSMainConfig.cities.blacklistedCitiesBiomes.@PrefixText": "\nAdd the ID/resource location of the biome you don't want RS's cities to spawn in. Separate each ID with a comma , Example: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"",
-
-
   "advancements.repurposed_structures.mansion_birch.title": "The White Chocolate Mansion",
   "advancements.repurposed_structures.mansion_birch.description": "Enter a Birch Mansion",
-
   "filled_map.repurposed_structures:mansion_birch": "Birch Mansion Map",
   "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions": "Mansions",
   "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.mansions.blacklistedMansionBiomes": "Blacklisted Mansions Biomes",
@@ -510,67 +503,58 @@
   "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.maxChunkDistance.mansionBirchMaxChunkDistance.@PrefixText": "How rare are Birch Mansions in Birch biomes. 1 for spawning in most chunks and 1001 for none. ",
   "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.blacklist.addMansionBirchToModdedBiomes": "Add Mansion Birch To Modded Biomes",
   "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.blacklist.addMansionBirchToModdedBiomes.@PrefixText": "Add Birch Mansions to modded Birch biomes.",
-
   "advancements.repurposed_structures.mansions.title": "Mansions",
   "advancements.repurposed_structures.mansions.description": "Go look for a Mansion!",
   "advancements.repurposed_structures.ruins.title": "Ruins",
   "advancements.repurposed_structures.ruins.description": "Go look for a Ruins!",
   "advancements.repurposed_structures.mansion_jungle.title": "Jungly Chateau",
   "advancements.repurposed_structures.mansion_jungle.description": "Enter a Jungle Mansion",
-
   "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.maxChunkDistance.mansionJungleMaxChunkDistance": "Mansion Jungle Max Chunk Distance",
   "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.maxChunkDistance.mansionJungleMaxChunkDistance.@PrefixText": "How rare are Jungle Mansions in Jungle biomes. 1 for spawning in most chunks and 1001 for none. ",
   "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.blacklist.addMansionJungleToModdedBiomes": "Add Mansion Jungle To Modded Biomes",
   "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.blacklist.addMansionJungleToModdedBiomes.@PrefixText": "Add Jungle Mansions to modded Jungle biomes.",
-
   "advancements.repurposed_structures.mansion_oak.title": "A foresty Oak Mansion",
   "advancements.repurposed_structures.mansion_oak.description": "Enter an Oak Mansion",
-
   "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.maxChunkDistance.mansionOakMaxChunkDistance": "Mansion Oak Max Chunk Distance",
   "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.maxChunkDistance.mansionOakMaxChunkDistance.@PrefixText": "How rare are Oak Mansions in in forest category biomes that are not birch or dark forest. 1 for spawning in most chunks and 1001 for none. ",
   "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.blacklist.addMansionOakToModdedBiomes": "Add Mansion Oak To Modded Biomes",
   "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.blacklist.addMansionOakToModdedBiomes.@PrefixText": "Add Oak Mansions to modded forest category biomes that are not birch or dark forest.",
-
   "advancements.repurposed_structures.mansion_savanna.title": "Savanna's Chateau",
   "advancements.repurposed_structures.mansion_savanna.description": "Enter a Savanna Mansion",
-
   "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.maxChunkDistance.mansionSavannaMaxChunkDistance": "Mansion Savanna Max Chunk Distance",
   "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.maxChunkDistance.mansionSavannaMaxChunkDistance.@PrefixText": "How rare are Savanna Mansions in Savanna biomes. 1 for spawning in most chunks and 1001 for none. ",
   "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.blacklist.addMansionSavannaToModdedBiomes": "Add Mansion Savanna To Modded Biomes",
   "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.blacklist.addMansionSavannaToModdedBiomes.@PrefixText": "Add Savanna Mansions to modded Savanna biomes.",
-
   "advancements.repurposed_structures.mansion_taiga.title": "Pine Manor",
   "advancements.repurposed_structures.mansion_taiga.description": "Enter a Taiga Mansion",
-
   "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.maxChunkDistance.mansionTaigaMaxChunkDistance": "Mansion Taiga Max Chunk Distance",
   "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.maxChunkDistance.mansionTaigaMaxChunkDistance.@PrefixText": "How rare are Taiga Mansions in non-snowy Taiga biomes. 1 for spawning in most chunks and 1001 for none. ",
   "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.blacklist.addMansionTaigaToModdedBiomes": "Add Mansion Taiga To Modded Biomes",
   "text.autoconfig.repurposed_structures-main.option.RSMansionConfig.blacklist.addMansionTaigaToModdedBiomes.@PrefixText": "Add Taiga Mansions to modded non-snowy Taiga biomes.",
-
   "advancements.repurposed_structures.mansion_desert.title": "The Mansion under the Hot Desert Sun",
   "advancements.repurposed_structures.mansion_desert.description": "Enter a Desert Mansion",
-
   "text.autoconfig.repurposed_structures-main.option.RSMansionsConfig.maxChunkDistance.mansionDesertMaxChunkDistance": "Mansion Desert Max Chunk Distance",
   "text.autoconfig.repurposed_structures-main.option.RSMansionsConfig.maxChunkDistance.mansionDesertMaxChunkDistance.@PrefixText": "How rare are Desert Mansions in Desert biomes. 1 for spawning in most chunks and 1001 for none. ",
   "text.autoconfig.repurposed_structures-main.option.RSMansionsConfig.blacklist.addMansionDesertToModdedBiomes": "Add Mansion Desert To Modded Biomes",
   "text.autoconfig.repurposed_structures-main.option.RSMansionsConfig.blacklist.addMansionDesertToModdedBiomes.@PrefixText": "Add Desert Mansions to modded Desert biomes.",
-
   "advancements.repurposed_structures.mansion_snowy.title": "Igloo? Nah! Snowy Mansion wins! ",
   "advancements.repurposed_structures.mansion_snowy.description": "Enter a Snowy Mansion",
-
   "text.autoconfig.repurposed_structures-main.option.RSMansionsConfig.maxChunkDistance.mansionSnowyMaxChunkDistance": "Mansion Snowy Max Chunk Distance",
   "text.autoconfig.repurposed_structures-main.option.RSMansionsConfig.maxChunkDistance.mansionSnowyMaxChunkDistance.@PrefixText": "How rare are Snowy Mansions in Snowy biomes. 1 for spawning in most chunks and 1001 for none. ",
   "text.autoconfig.repurposed_structures-main.option.RSMansionsConfig.blacklist.addMansionSnowyToModdedBiomes": "Add Mansion Snowy To Modded Biomes",
   "text.autoconfig.repurposed_structures-main.option.RSMansionsConfig.blacklist.addMansionSnowyToModdedBiomes.@PrefixText": "Add Snowy Mansions to modded Snowy biomes.",
-
   "advancements.repurposed_structures.witchhuts.title": "Witch Huts",
   "advancements.repurposed_structures.witchhuts.description": "Go look for a Witch Hut!",
-
   "advancements.repurposed_structures.witch_huts_oak.title": "No forest is safe from Witches! Not even Oak!",
   "advancements.repurposed_structures.witch_huts_oak.description": "Enter a Oak Witch Hut",
-
   "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.maxChunkDistance.witchHutsOakMaxChunkDistance": "Witch Huts Oak Max Chunk Distance",
   "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.maxChunkDistance.witchHutsOakMaxChunkDistance.@PrefixText": "How rare are Oak Witch Huts in Forest biomes that are not birch or dark oak. 1 for spawning in most chunks and 1001 for none. ",
   "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.blacklist.addWitchHutsOakToModdedBiomes": "Add Witch Huts Oak To Modded Biomes",
-  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.blacklist.addWitchHutsOakToModdedBiomes.@PrefixText": "Add Oak Witch Huts to modded Forest biomes that are not birch or dark oak."
+  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.blacklist.addWitchHutsOakToModdedBiomes.@PrefixText": "Add Oak Witch Huts to modded Forest biomes that are not birch or dark oak.",
+  "advancements.repurposed_structures.witch_huts_taiga.title": "Spooky Taiga Hut",
+  "advancements.repurposed_structures.witch_huts_taiga.description": "Enter a Taiga Witch Hut",
+  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.maxChunkDistance.witchHutsTaigaMaxChunkDistance": "Witch Huts Taiga Max Chunk Distance",
+  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.maxChunkDistance.witchHutsTaigaMaxChunkDistance.@PrefixText": "How rare are Taiga Witch Huts in Taiga biomes. 1 for spawning in most chunks and 1001 for none. ",
+  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.blacklist.addWitchHutsTaigaToModdedBiomes": "Add Witch Huts Taiga To Modded Biomes",
+  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.blacklist.addWitchHutsTaigaToModdedBiomes.@PrefixText": "Add Taiga Witch Huts to modded Taiga biomes."
 }

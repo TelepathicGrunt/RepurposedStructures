@@ -905,6 +905,13 @@ public class RSAddFeaturesAndStructures {
                         && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSWitchHutsConfig.blacklist.addWitchHutsOakToModdedBiomes),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.WITCH_HUTS_OAK));
 
+        addToBiome("witch_huts_taiga",
+                (context) -> BiomeSelection.haveCategories(context, Category.TAIGA)
+                        && !BiomeSelection.hasName(event, "giant", "redwood")
+						&& BiomeSelection.isBiomeAllowed(context, "witch_huts")
+                        && RepurposedStructures.RSAllConfig.RSWitchHutsConfig.maxChunkDistance.witchHutsTaigaMaxChunkDistance != 1001
+                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSWitchHutsConfig.blacklist.addWitchHutsTaigaToModdedBiomes),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.WITCH_HUTS_TAIGA));
         // regexpos1
     }
 
