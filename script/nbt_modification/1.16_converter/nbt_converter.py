@@ -7,28 +7,13 @@ import sys
 # https://pypi.org/project/Python-NBT/
 
 '''
-//mansion
-
 string_blacklist = ["minecraft:village/taiga/villagers"]
 conversion_partial_dict = {
     
 }
 conversion_exact_dict = {
     "minecraft:polished_andesite" : "minecraft:smooth_sandstone",
-    "minecraft:light_gray_wool" : "minecraft:light_gray_terracotta",
-    "minecraft:coarse_dirt" : "minecraft:sand",
-    "minecraft:cobblestone_wall" : "minecraft:stone_brick_wall",
-    "minecraft:cobblestone" : "minecraft:stone_bricks",
-    "minecraft:blue_orchid" : "minecraft:dandelion",
-    "minecraft:pumpkin" : "minecraft:cobblestone",
-    "minecraft:stripped_spruce_log" : "minecraft:cobblestone",
-    "minecraft:pumpkin_stem" : "minecraft:wheat",
-    "minecraft:white_bed":"minecraft:gray_bed",
-    "minecraft:blue_bed":"minecraft:green_bed",
-    "minecraft:red_bed":"minecraft:gray_bed",
-    "minecraft:glass_pane":"minecraft:gray_stained_glass_pane"
 }
-
 '''
 
 #--------------------------------------------------------------------------------------------
@@ -39,10 +24,10 @@ originalBiome = "oak"
 newBiome = "dark_oak"
 string_blacklist = []
 conversion_partial_dict = {
-    "oak":"dark_oak",
+    "spruce_stairs":"dark_oak_stairs",
+    "stripped_spruce_log":"dark_oak_log",
 }
 conversion_exact_dict = {
-    "minecraft:potted_lily_of_the_valley":"minecraft:potted_brown_mushroom",
 }
 
 #-------------------------------------------------------------------------------------------
