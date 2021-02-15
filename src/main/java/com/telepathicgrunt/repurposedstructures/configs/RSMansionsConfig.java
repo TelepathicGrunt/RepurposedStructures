@@ -70,14 +70,14 @@ public class RSMansionsConfig implements ConfigData {
         @Comment("How rare are Birch Mansions in Birch biomes. 1"
                 + "\nfor spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int mansionBirchMaxChunkDistance = 130;
+        public int mansionBirchMaxChunkDistance = 140;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
         @Comment("How rare are Jungle Mansions in Jungle biomes. 1"
                 + "\nfor spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int mansionJungleMaxChunkDistance = 130;
+        public int mansionJungleMaxChunkDistance = 140;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
@@ -85,14 +85,14 @@ public class RSMansionsConfig implements ConfigData {
                 + "\nbiomes that are not birch or dark forest. 1 for"
                 + "\nspawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int mansionOakMaxChunkDistance = 130;
+        public int mansionOakMaxChunkDistance = 140;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
         @Comment("How rare are Savanna Mansions in Savanna biomes."
                 + "\n1 for spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int mansionSavannaMaxChunkDistance = 130;
+        public int mansionSavannaMaxChunkDistance = 140;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
@@ -100,21 +100,21 @@ public class RSMansionsConfig implements ConfigData {
                 + "\nbiomes. 1 for spawning in most chunks and 1001 for"
                 + "\nnone.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int mansionTaigaMaxChunkDistance = 130;
+        public int mansionTaigaMaxChunkDistance = 140;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
         @Comment("How rare are Desert Mansions in Desert biomes. 1"
                 + "\nfor spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int mansionDesertMaxChunkDistance = 130;
+        public int mansionDesertMaxChunkDistance = 140;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
         @Comment("How rare are Snowy Mansions in Snowy biomes. 1"
                 + "\nfor spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int mansionSnowyMaxChunkDistance = 130;
+        public int mansionSnowyMaxChunkDistance = 140;
 
     }
 }

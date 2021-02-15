@@ -87,7 +87,7 @@ public class RSMainConfig implements ConfigData {
         @Comment("How rare are Jungle Fortresses."
                 + "\n1 for spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int jungleFortressMaxChunkDistance = 32;
+        public int jungleFortressMaxChunkDistance = 50;
 
         @ConfigEntry.Gui.Tooltip
         @Comment("Add Jungle Fortress to modded jungle biomes.")

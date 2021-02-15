@@ -20,6 +20,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Added Birch Mansions! They are rarer than vanilla mansion to try and not crowd out the world.
   Cartographers may sell the mansion maps in Level 4 trades!
 
+##### Witch Huts:
+- Added Birch, Taiga, Giant Tree Taiga, Dark Forest, and Oak Witch Huts! They spawn Witches and Cats over time!
+
 ##### Mineshafts:
 - Added Crimson and Warped Mineshafts!
 
@@ -41,6 +44,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Set default config for all Outposts to be slightly more rare to compensate for Outposts spawning in more biomes.
 
+- Bumped default spawnrate of Birch, Jungle, Giant Tree Taiga, Desert, Badlands, Snowy, Oak, Taiga Outposts from 41/43 to 50 to make them slightly more rare.
+
 ##### Fortresses:
 - Fixed Jungle Fortresses not getting extra vines or breakage.
 
@@ -48,6 +53,13 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Fixed Drowned not spawning in flooded Jungle Fortresses by removing them from the mob-spawning-over-time list and now just directly
   spawns some Drowned on fortress creation. These Drowned will not despawn and will sometimes have Iron or Chainmail armor.
+
+- Bumped default config spawnrate of Jungle Fortresses from 32 to 50 to make them more rare.
+
+- Nerfed Jungle Fortress loottables to pick less loot and diamond gear gets lower enchantment levels
+
+##### Pyramids:
+- Bumped default config spawnrate of Badlands Pyramids from 20 to 25 to make them a bit more rare.
 
 ##### Shipwrecks:
 - Nether Bricks Shipwrecks will only be flying in any biome with "soul" in the name.
@@ -70,12 +82,18 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Dungeons:
 - Nerfed all golden tools and armor enchantment level range from 15-30 to 5-25 in Nether Dungeon chest's loottable.
 
+- Lowered default config spawnrate for Ocean Dungeons from 6 to 5.
+
 ##### Villages:
 - Replaced a lot of Cobblestone with wood in Oak Villages to make them more distinct from Plains Villages and made Path Blocks more common.
 
 - Added zombie variant of Badlands Villages.
 
 - Removed Forge's gravity attribute from Brute in Crimson and Warped Villages to reduce logspam.
+
+- Bumped default config spawnrate of Birch, Oak, Dark Forest, Jungle, Swamp, Mountains, and Giant Tree Taiga Villages from 29/31/33 to 38 to make them more rare.
+
+- Bumped default config spawnrate of Badlands Villages from 23 to 30 to make them more rare.
 
 ##### Misc:
 - Deleted 2x2 Swamp Trees. They didn't fit this mod at all. They still exist in Ultra Amplified Dimension mod
