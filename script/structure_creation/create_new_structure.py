@@ -176,10 +176,12 @@ while restart:
             directory = os.path.join(fabric_src, 'main','java','com','telepathicgrunt','repurposedstructures','configs')
             for filename in os.listdir(directory):
                 with open(os.path.join(directory, filename), 'r+') as f:
-                    if "regexpos1" in f.read():
+                    tempRead = f.read()
+                    f.seek(0)
+                    if "regexpos1" in tempRead:
                         insertLine(os.path.join(directory, filename), \
                             "regexpos1", file_content[:5])
-                    if "regexpos2" in f.read():
+                    if "regexpos2" in tempRead:
                         insertLine(os.path.join(directory, filename), \
                             "regexpos2", file_content[5:])
 
@@ -271,10 +273,12 @@ while restart:
             directory = os.path.join(forge_src, 'main','java','com','telepathicgrunt','repurposedstructures','configs')
             for filename in os.listdir(directory):
                 with open(os.path.join(directory, filename), 'r+') as f:
-                    if "regexpos1" in f.read():
+                    tempRead = f.read()
+                    f.seek(0)
+                    if "regexpos1" in tempRead:
                         insertLine(os.path.join(directory, filename), \
                             "regexpos1", file_content[:2])
-                    if "regexpos2" in f.read():
+                    if "regexpos2" in tempRead:
                         insertLine(os.path.join(directory, filename), \
                             "regexpos2", file_content[2:])
 
@@ -289,8 +293,6 @@ while restart:
 
 
     #  --------------ADVANCEMENTS--------------
-
-    #[:-1]
 
     with open(os.path.join('template', 'translated_advancement.json'), "r") as file:
         file_content = file.read().replace("$1", structure_registry_name).replace("$2", advancement_icon).replace("$3", advancement_title) \

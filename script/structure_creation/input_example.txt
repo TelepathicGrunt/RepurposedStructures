@@ -1,4 +1,4 @@
-witch_huts_giant_tree_taiga
+test
 11
 repurposed_structures:witch_huts/giant_tree_taiga
 0
