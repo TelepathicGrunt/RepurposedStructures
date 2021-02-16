@@ -55,7 +55,7 @@ public class MansionStructure extends AbstractBaseStructure<DefaultFeatureConfig
         }
 
         @Override
-        public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, int i, int j, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
+        public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
             BlockRotation blockRotation = BlockRotation.random(this.random);
             int k = 5;
             int l = 5;
@@ -68,14 +68,14 @@ public class MansionStructure extends AbstractBaseStructure<DefaultFeatureConfig
                 l = -5;
             }
 
-            int m = (i << 4) + 7;
-            int n = (j << 4) + 7;
+            int m = (chunkX << 4) + 7;
+            int n = (chunkZ << 4) + 7;
             int o = chunkGenerator.getHeightInGround(m, n, Heightmap.Type.WORLD_SURFACE_WG);
             int p = chunkGenerator.getHeightInGround(m, n + l, Heightmap.Type.WORLD_SURFACE_WG);
             int q = chunkGenerator.getHeightInGround(m + k, n, Heightmap.Type.WORLD_SURFACE_WG);
             int r = chunkGenerator.getHeightInGround(m + k, n + l, Heightmap.Type.WORLD_SURFACE_WG);
             int s = Math.min(Math.min(o, p), Math.min(q, r));
-            BlockPos blockPos = new BlockPos(i * 16 + 8, s + 1, j * 16 + 8);
+            BlockPos blockPos = new BlockPos(chunkX * 16 + 8, s + 1, chunkZ * 16 + 8);
             List<MansionPieces.Piece> list = Lists.newLinkedList();
             MansionPieces.createMansionLayout(structureManager, blockPos, blockRotation, list, this.random, type);
             this.children.addAll(list);
