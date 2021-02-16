@@ -18,7 +18,6 @@ public class RSWitchHutsConfig
 		public ConfigValueListener<Boolean> addWitchHutsBirchToModdedBiomes;
 		public ConfigValueListener<Integer> witchHutsDarkForestMaxChunkDistance;
 		public ConfigValueListener<Boolean> addWitchHutsDarkForestToModdedBiomes;
-		// regexpos1
 		public ConfigValueListener<String> blacklistedWitchHutBiomes;
 
 		public RSWitchHutsConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
@@ -86,7 +85,7 @@ public class RSWitchHutsConfig
 								+ "\nbiomes.")
 						.translation("repurposedstructures.config.witch_huts.addwitchhutsdarkforesttomoddedbiomes")
 						.define("addWitchHutsDarkForestToModdedBiomes", true));
-			// regexpos2
+
 			builder.pop();
 		}
 	}

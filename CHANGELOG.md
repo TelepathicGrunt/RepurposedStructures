@@ -44,6 +44,17 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Bumped default spawnrate of Birch, Jungle, Giant Tree Taiga, Desert, Badlands, Snowy, Oak, Taiga Outposts from 41/43 to 50 to make them slightly more rare.
 
+##### Pyramids:
+- Added Snowy Pyramids to snowy biomes!
+
+- Bumped default config spawnrate of Badlands Pyramids from 20 to 25 to make them a bit more rare.
+
+- Badlands Pyramids now properly create pillar of Red Sandstone in parity to vanilla's Desert Temple.
+
+- Rounded the bottom of Nether Pyramids so they look better even when the Nether's caves and ravines carves out the land from under the pyramid.
+
+- Nerfed Golden Swords enchantment level range from 20-39 to 10-30 in chest's loottable for Nether Pyramids.
+
 ##### Fortresses:
 - Attempt to reduce the amount of floating Vines in Jungle Fortress.
 
@@ -74,15 +85,6 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Badlands Pyramids now properly create pillar of Red Sandstone in parity to vanilla's Desert Temple.
 
 - Rounded the bottom of Nether Pyramids so they look better even when the Nether's caves and ravines carves out the land from under the pyramid.
-
-##### Pyramids:
-- Bumped default config spawnrate of Badlands Pyramids from 20 to 25 to make them a bit more rare.
-
-- Badlands Pyramids now properly create pillar of Red Sandstone in parity to vanilla's Desert Temple.
-
-- Rounded the bottom of Nether Pyramids so they look better even when the Nether's caves and ravines carves out the land from under the pyramid.
-
-- Nerfed Golden Swords enchantment level range from 20-39 to 10-30 in chest's loottable for Nether Pyramids.
 
 ##### Villages:
 - Fixed Swamp Villages bypassing surrounding biome check that would've prevented it from spawning on biome edges.

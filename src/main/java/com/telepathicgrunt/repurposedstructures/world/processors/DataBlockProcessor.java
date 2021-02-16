@@ -17,6 +17,9 @@ import net.minecraft.world.gen.feature.template.Template;
 
 import static java.lang.Integer.parseInt;
 
+/**
+ * POOL ENTRY MUST BE USING legacy_single_pool_element OR ELSE THE STRUCTURE BLOCK IS REMOVED BEFORE THIS PROCESSOR RUNS.
+ */
 public class DataBlockProcessor extends StructureProcessor {
 
     private enum DATA_PROCESSOR_MODE {
@@ -38,7 +41,6 @@ public class DataBlockProcessor extends StructureProcessor {
             String string = structureBlockInfo2Global.nbt.getString("metadata");
 
             try {
-
                 // Pillar mode activated
                 if(string.contains(DATA_PROCESSOR_MODE.PILLARS.symbol)){
                     String[] splitString = string.split(DATA_PROCESSOR_MODE.PILLARS.symbol);

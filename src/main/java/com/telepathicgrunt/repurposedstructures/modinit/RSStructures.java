@@ -98,8 +98,9 @@ public class RSStructures {
 	//Pyramids
 	public static final RegistryObject<Structure<NoFeatureConfig>> NETHER_PYRAMID = addToStructureMaps("pyramid_nether", () -> (new GenericNetherJigsawHighStructure(new ResourceLocation(RepurposedStructures.MODID, ":temples/pyramid_nether"), 1, -4, 0)));
 	public static final RegistryObject<Structure<NoFeatureConfig>> BADLANDS_PYRAMID = addToStructureMaps("pyramid_badlands", () -> (new BuriableStructure(new ResourceLocation(RepurposedStructures.MODID, "temples/pyramid_badlands"))));
-    
-	//Shipwrecks
+    public static final RegistryObject<Structure<NoFeatureConfig>> PYRAMID_SNOWY = addToStructureMaps("pyramid_snowy", () -> (new BuriableStructure(new ResourceLocation(RepurposedStructures.MODID, "temples/pyramid_snowy"))));
+
+    //Shipwrecks
 	public static final RegistryObject<Structure<NoFeatureConfig>> END_SHIPWRECK = addToStructureMaps("shipwreck_end", ShipwreckEndStructure::new);
 	public static final RegistryObject<Structure<NetherShipwreckConfig>> NETHER_BRICKS_SHIPWRECK = addToStructureMaps("shipwreck_nether_bricks", () -> (new ShipwreckNetherStructure(new ResourceLocation(RepurposedStructures.MODID, "shipwrecks/nether_bricks"), -3)));
 	public static final RegistryObject<Structure<NetherShipwreckConfig>> CRIMSON_SHIPWRECK = addToStructureMaps("shipwreck_crimson", () -> (new ShipwreckNetherStructure(new ResourceLocation(RepurposedStructures.MODID, "shipwrecks/crimson"), -4)));
@@ -192,6 +193,7 @@ public class RSStructures {
 
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "pyramid_badlands"), BADLANDS_PYRAMID.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSTemplesConfig.badlandsPyramidMaxChunkDistance.get(), (int) (RepurposedStructures.RSTemplesConfig.badlandsPyramidMaxChunkDistance.get() * 0.5f), 1718729448));
         addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "pyramid_nether"), NETHER_PYRAMID.get(), GenerationStage.Decoration.VEGETAL_DECORATION, new StructureSeparationSettings(RepurposedStructures.RSTemplesConfig.netherPyramidMaxChunkDistance.get(), (int) (RepurposedStructures.RSTemplesConfig.netherPyramidMaxChunkDistance.get() * 0.5f), 2054372964));
+        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "pyramid_snowy"), PYRAMID_SNOWY.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSTemplesConfig.pyramidSnowyMaxChunkDistance.get(), (int) (RepurposedStructures.RSTemplesConfig.pyramidSnowyMaxChunkDistance.get() * 0.5f), 1630533493));
 
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "shipwreck_end"), END_SHIPWRECK.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSShipwrecksConfig.endShipwreckMaxChunkDistance.get(), (int) (RepurposedStructures.RSShipwrecksConfig.endShipwreckMaxChunkDistance.get() * 0.5f), 1605500075));
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "shipwreck_nether_bricks"), NETHER_BRICKS_SHIPWRECK.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSShipwrecksConfig.netherBricksShipwreckMaxChunkDistance.get(), (int) (RepurposedStructures.RSShipwrecksConfig.netherBricksShipwreckMaxChunkDistance.get() * 0.5f), 2073308006), new NetherShipwreckConfig(true));

@@ -33,6 +33,9 @@
         }
       ],
       "processor_type": "minecraft:rule"
+    },
+    {
+      "processor_type": "repurposed_structures:air_processors"
     }
   ]
 }
