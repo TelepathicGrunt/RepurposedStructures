@@ -146,7 +146,7 @@ public class RSTemplesConfig
                 pyramidSnowyMaxChunkDistance = subscriber.subscribe(builder
                     .comment("Add Snowy Pyramid to modded snowy biomes.")
                     .translation("repurposedstructures.config.pyramids.pyramidsnowymaxchunkdistance")
-                    .defineInRange("pyramidSnowyMaxChunkDistance", 48, 1, 1001));
+                    .defineInRange("pyramidSnowyMaxChunkDistance", 37, 1, 1001));
 
                 addPyramidSnowyToModdedBiomes = subscriber.subscribe(builder
                     .comment("Add Snowy Pyramid to modded snowy biomes.")
