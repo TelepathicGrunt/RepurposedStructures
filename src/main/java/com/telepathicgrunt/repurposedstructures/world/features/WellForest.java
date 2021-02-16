@@ -18,7 +18,7 @@ import java.util.Random;
 public class WellForest extends WellAbstract {
     private static final float ORE_CHANCE = 0.3f;
     private static final ResourceLocation FOREST_WELL_ORE_RL = new ResourceLocation("repurposed_structures:forest_well_ores");
-    private static final ResourceLocation FOREST_WELL_RL = new ResourceLocation(RepurposedStructures.MODID, ":wells/forest");
+    private static final ResourceLocation FOREST_WELL_RL = new ResourceLocation(RepurposedStructures.MODID, "wells/forest");
 
     public WellForest(Codec<NoFeatureConfig> config) {
         super(config);

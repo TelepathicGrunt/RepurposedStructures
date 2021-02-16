@@ -18,8 +18,8 @@ import java.util.Random;
 
 public class WellBadlands extends WellAbstract {
     private static final float ORE_CHANCE = 0.15f;
-    private static final ResourceLocation BADLANDS_WELL_ORE_RL = new ResourceLocation(RepurposedStructures.MODID, ":badlands_well_ores");
-    private static final ResourceLocation BADLANDS_WELL_RL = new ResourceLocation(RepurposedStructures.MODID, ":wells/badlands");
+    private static final ResourceLocation BADLANDS_WELL_ORE_RL = new ResourceLocation(RepurposedStructures.MODID, "badlands_well_ores");
+    private static final ResourceLocation BADLANDS_WELL_RL = new ResourceLocation(RepurposedStructures.MODID, "wells/badlands");
 
     public WellBadlands(Codec<NoFeatureConfig> config) {
         super(config);

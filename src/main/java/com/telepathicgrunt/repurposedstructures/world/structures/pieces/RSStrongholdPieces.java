@@ -46,10 +46,10 @@ public class RSStrongholdPieces {
     }
     
     private static final ResourceLocation NETHER_STRONGHOLD_BOOKSHELF_RL = new ResourceLocation("repurposed_structures:nether_stronghold_bookshelves");
-    private static final ResourceLocation STONEBRICK_SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID, ":stronghold_stonebrick");
-    private static final ResourceLocation STONEBRICK_PORTAL_SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID, ":stronghold_stonebrick_portal_room");
-    private static final ResourceLocation NETHER_SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID, ":stronghold_nether");
-    private static final ResourceLocation NETHER_PORTAL_SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID, ":stronghold_nether_portal_room");
+    private static final ResourceLocation STONEBRICK_SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID, "stronghold_stonebrick");
+    private static final ResourceLocation STONEBRICK_PORTAL_SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID, "stronghold_stonebrick_portal_room");
+    private static final ResourceLocation NETHER_SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID, "stronghold_nether");
+    private static final ResourceLocation NETHER_PORTAL_SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID, "stronghold_nether_portal_room");
 
     private static final List<RSStrongholdPieces.PieceWeight> PIECE_WEIGHTS = new ArrayList<RSStrongholdPieces.PieceWeight>();
 
@@ -1667,7 +1667,7 @@ public class RSStrongholdPieces {
 
         protected ResourceLocation getHallwayChestLoot() {
             if (this.strongholdType == Type.NETHER) {
-                return new ResourceLocation(RepurposedStructures.MODID, ":chests/stronghold/nether_hallway");
+                return new ResourceLocation(RepurposedStructures.MODID, "chests/stronghold/nether_hallway");
             } else {
                 return LootTables.CHESTS_STRONGHOLD_CORRIDOR;
             }
@@ -1676,7 +1676,7 @@ public class RSStrongholdPieces {
 
         protected ResourceLocation getStorageChestLoot() {
             if (this.strongholdType == Type.NETHER) {
-                return new ResourceLocation(RepurposedStructures.MODID, ":chests/stronghold/nether_storage_room");
+                return new ResourceLocation(RepurposedStructures.MODID, "chests/stronghold/nether_storage_room");
             } else {
                 return LootTables.CHESTS_STRONGHOLD_CORRIDOR;
             }

@@ -27,8 +27,8 @@ import java.util.Random;
 
 public class DungeonDarkForest extends Feature<NoFeatureConfig> {
     private static final Logger LOGGER = LogManager.getLogger();
-    private static final ResourceLocation CHEST_LOOT = new ResourceLocation(RepurposedStructures.MODID, ":chests/dungeon/dark_forest");
-    private static final ResourceLocation SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID, ":dungeon_dark_forest");
+    private static final ResourceLocation CHEST_LOOT = new ResourceLocation(RepurposedStructures.MODID, "chests/dungeon/dark_forest");
+    private static final ResourceLocation SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID, "dungeon_dark_forest");
     private static final BlockState CAVE_AIR = Blocks.CAVE_AIR.getDefaultState();
     private static final BlockState LEAVES = Blocks.DARK_OAK_LEAVES.getDefaultState().with(LeavesBlock.DISTANCE, 1);
     private static final BlockState LOGS = Blocks.DARK_OAK_LOG.getDefaultState();

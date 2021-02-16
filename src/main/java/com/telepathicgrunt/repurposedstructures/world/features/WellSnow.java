@@ -18,7 +18,7 @@ import java.util.Random;
 public class WellSnow extends WellAbstract {
     private static final float ORE_CHANCE = 0.3f;
     private static final ResourceLocation SNOW_WELL_ORE_RL = new ResourceLocation("repurposed_structures:snow_well_ores");
-    private static final ResourceLocation SNOW_WELL_RL = new ResourceLocation(RepurposedStructures.MODID, ":wells/snow");
+    private static final ResourceLocation SNOW_WELL_RL = new ResourceLocation(RepurposedStructures.MODID, "wells/snow");
 
     public WellSnow(Codec<NoFeatureConfig> config) {
         super(config);

@@ -30,8 +30,8 @@ public class DungeonEnd extends Feature<NoFeatureConfig> {
 
     private static final Logger LOGGER = LogManager.getLogger();
     private static final BlockState CAVE_AIR = Blocks.CAVE_AIR.getDefaultState();
-    private static final ResourceLocation CHEST_LOOT = new ResourceLocation(RepurposedStructures.MODID, ":chests/dungeon/end");
-    private static final ResourceLocation SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID, ":dungeon_end");
+    private static final ResourceLocation CHEST_LOOT = new ResourceLocation(RepurposedStructures.MODID, "chests/dungeon/end");
+    private static final ResourceLocation SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID, "dungeon_end");
 
 
     //only the mob spawner chance and what blocks the wall cannot replace was changed. Everything else is just the normal dungeon code.

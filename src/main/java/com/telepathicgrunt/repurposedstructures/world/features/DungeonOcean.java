@@ -42,13 +42,13 @@ public class DungeonOcean extends Feature<NoFeatureConfig> {
     private static final BlockState DARK_PRISMARINE_STAIRS = Blocks.DARK_PRISMARINE_STAIRS.getDefaultState();
     private static final BlockState DARK_PRISMARINE = Blocks.DARK_PRISMARINE.getDefaultState();
     private static final BlockState MAGMA_BLOCK = Blocks.MAGMA_BLOCK.getDefaultState();
-    private static final ResourceLocation CHEST_LOOT = new ResourceLocation(RepurposedStructures.MODID, ":chests/dungeon/ocean");
-    private static final ResourceLocation FROZEN_SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID, ":dungeon_ocean_frozen");
-    private static final ResourceLocation COLD_SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID, ":dungeon_ocean_cold");
-    private static final ResourceLocation NEUTRAL_SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID, ":dungeon_ocean_neutral");
-    private static final ResourceLocation LUKEWARM_SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID, ":dungeon_ocean_lukewarm");
-    private static final ResourceLocation WARM_SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID, ":dungeon_ocean_warm");
-    private static final ResourceLocation MISC_SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID, ":dungeon_ocean_misc");
+    private static final ResourceLocation CHEST_LOOT = new ResourceLocation(RepurposedStructures.MODID, "chests/dungeon/ocean");
+    private static final ResourceLocation FROZEN_SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID, "dungeon_ocean_frozen");
+    private static final ResourceLocation COLD_SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID, "dungeon_ocean_cold");
+    private static final ResourceLocation NEUTRAL_SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID, "dungeon_ocean_neutral");
+    private static final ResourceLocation LUKEWARM_SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID, "dungeon_ocean_lukewarm");
+    private static final ResourceLocation WARM_SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID, "dungeon_ocean_warm");
+    private static final ResourceLocation MISC_SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID, "dungeon_ocean_misc");
 
 
     // only the mob spawner chance and what blocks the wall cannot replace was changed. Everything else is just the normal dungeon code.
