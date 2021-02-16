@@ -1,0 +1,6 @@
+        if ( &&
+            RepurposedStructures.RSTemplesConfig.pyramidSnowyMaxChunkDistance.get() != 1001 &&
+            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSTemplesConfig.addPyramidSnowyToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.PYRAMID_SNOWY);
+        }

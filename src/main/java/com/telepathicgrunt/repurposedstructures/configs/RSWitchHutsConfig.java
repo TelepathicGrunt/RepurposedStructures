@@ -51,7 +51,6 @@ public class RSWitchHutsConfig implements ConfigData {
         @Comment("Add Giant Tree Taiga Witch Huts to modded Giant"
                 + "\nTree Taiga biomes.")
         public boolean addWitchHutsGiantTreeTaigaToModdedBiomes = true;
-        // regexpos1
     }
 
     public static class MaxChunkDistance {
@@ -93,6 +92,5 @@ public class RSWitchHutsConfig implements ConfigData {
                 + "\nand 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
         public int witchHutsGiantTreeTaigaMaxChunkDistance = 48;
-        // regexpos2
     }
 }

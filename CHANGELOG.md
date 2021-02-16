@@ -33,6 +33,17 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Moved Nether Mineshafts from UNDERGROUND_STRUCTURES to VEGETAL_DECORATION stage to allow Ancient Debris to be exposed in Mineshafts.
   As a bonus, Basalt Delta's Basalt will not clog up Mineshafts anymore too!
   
+##### Pyramids:
+- Added Snowy Pyramids to snowy biomes!
+
+- Bumped default config spawnrate of Badlands Pyramids from 20 to 25 to make them a bit more rare.
+
+- Badlands Pyramids now properly create pillar of Red Sandstone in parity to vanilla's Desert Temple.
+
+- Rounded the bottom of Nether Pyramids so they look better even when the Nether's caves and ravines carves out the land from under the pyramid.
+
+- Nerfed Golden Swords enchantment level range from 20-39 to 10-30 in chest's loottable for Nether Pyramids.
+
 ##### Outposts:
 - Added Taiga Outposts to non-snowy and non-giant Taiga biomes!
 
@@ -72,15 +83,6 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Adjusted Nether Basalt Temple's processor to randomize the temple's blocks a bit better.
 
 - Nerfed Golden Swords enchantment level range from 20-39 to 10-30 in all chest's loottable for temples.
-
-##### Pyramids:
-- Bumped default config spawnrate of Badlands Pyramids from 20 to 25 to make them a bit more rare.
-
-- Badlands Pyramids now properly create pillar of Red Sandstone in parity to vanilla's Desert Temple.
-
-- Rounded the bottom of Nether Pyramids so they look better even when the Nether's caves and ravines carves out the land from under the pyramid.
-
-- Nerfed Golden Swords enchantment level range from 20-39 to 10-30 in chest's loottable for Nether Pyramids.
 
 ##### Dungeons:
 - Nerfed all golden tools and armor enchantment level range from 15-30 to 5-25 in Nether Dungeon chest's loottable.

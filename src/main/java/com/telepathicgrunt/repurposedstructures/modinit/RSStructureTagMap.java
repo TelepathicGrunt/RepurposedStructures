@@ -129,6 +129,7 @@ public class RSStructureTagMap {
         addTags(RSStructures.WITCH_HUTS_BIRCH, Stream.of(STRUCTURE_TAGS.WITCH_HUTS, STRUCTURE_TAGS.NO_LAKES, STRUCTURE_TAGS.REPLACE_NATURAL_MOBS).collect(Collectors.toSet()));
         addTags(RSStructures.WITCH_HUTS_DARK_FOREST, Stream.of(STRUCTURE_TAGS.WITCH_HUTS, STRUCTURE_TAGS.NO_LAKES, STRUCTURE_TAGS.REPLACE_NATURAL_MOBS).collect(Collectors.toSet()));
         addTags(RSStructures.WITCH_HUTS_GIANT_TREE_TAIGA, Stream.of(STRUCTURE_TAGS.WITCH_HUTS, STRUCTURE_TAGS.NO_LAKES, STRUCTURE_TAGS.REPLACE_NATURAL_MOBS).collect(Collectors.toSet()));
+        addTags(RSStructures.PYRAMID_SNOWY, Stream.of(STRUCTURE_TAGS.PYRAMID).collect(Collectors.toSet()));
         // regexpos1
     }
 

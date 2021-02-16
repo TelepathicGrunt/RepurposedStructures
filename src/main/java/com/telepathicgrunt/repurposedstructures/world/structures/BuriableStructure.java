@@ -51,7 +51,7 @@ public class BuriableStructure extends AbstractBaseStructure<DefaultFeatureConfi
                     blockpos,
                     this.children,
                     random,
-                    true,
+                    false,
                     false);
             this.setBoundingBoxFromChildren();
 

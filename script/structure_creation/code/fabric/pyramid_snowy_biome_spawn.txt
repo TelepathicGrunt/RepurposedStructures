@@ -1,0 +1,6 @@
+        addToBiome("pyramid_snowy",
+                (context) -> 
+						&& BiomeSelection.isBiomeAllowed(context, "pyramids")
+                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.maxChunkDistance.pyramidSnowyMaxChunkDistance != 1001
+                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSTemplesConfig.blacklist.addPyramidSnowyToModdedBiomes),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.PYRAMID_SNOWY));

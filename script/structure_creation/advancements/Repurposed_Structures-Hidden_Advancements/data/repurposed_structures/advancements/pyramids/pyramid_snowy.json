@@ -1,0 +1,33 @@
+{
+  "parent": "repurposed_structures:pyramids",
+  "display": {
+    "icon": {
+      "item": "minecraft:snow_block"
+    },
+    "title": {
+      "text": "Pyramids are just bigger igloos!"
+    },
+    "description": {
+      "text": "Enter a Snowy Pyramid"
+    },
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 20
+  },
+  "criteria": {
+    "in_pyramid_snowy": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:pyramid_snowy"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_pyramid_snowy"
+    ]
+  ]
+}

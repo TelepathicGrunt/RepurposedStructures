@@ -91,6 +91,7 @@ public class RSConfiguredStructures {
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> WITCH_HUTS_BIRCH = RSStructures.WITCH_HUTS_BIRCH.configure(FeatureConfig.DEFAULT);
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> WITCH_HUTS_DARK_FOREST = RSStructures.WITCH_HUTS_DARK_FOREST.configure(FeatureConfig.DEFAULT);
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> WITCH_HUTS_GIANT_TREE_TAIGA = RSStructures.WITCH_HUTS_GIANT_TREE_TAIGA.configure(FeatureConfig.DEFAULT);
+    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> PYRAMID_SNOWY = RSStructures.PYRAMID_SNOWY.configure(FeatureConfig.DEFAULT);
     // regexpos1
 
     public static void registerConfiguredStructures() {
@@ -173,6 +174,7 @@ public class RSConfiguredStructures {
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "witch_huts_birch"), WITCH_HUTS_BIRCH);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "witch_huts_dark_forest"), WITCH_HUTS_DARK_FOREST);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "witch_huts_giant_tree_taiga"), WITCH_HUTS_GIANT_TREE_TAIGA);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "pyramid_snowy"), PYRAMID_SNOWY);
         // regexpos2
     }
 }

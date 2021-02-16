@@ -17,6 +17,9 @@ import net.minecraft.world.WorldView;
 
 import static java.lang.Integer.parseInt;
 
+/**
+ * POOL ENTRY MUST BE USING legacy_single_pool_element OR ELSE THE STRUCTURE BLOCK IS REMOVED BEFORE THIS PROCESSOR RUNS.
+ */
 public class DataBlockProcessor extends StructureProcessor {
 
     private enum DATA_PROCESSOR_MODE {

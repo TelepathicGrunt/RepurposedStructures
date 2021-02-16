@@ -20,14 +20,19 @@ conversion_exact_dict = {
 
 blockPalette = {""}
 
-originalBiome = "oak"
-newBiome = "dark_oak"
+originalBiome = "badlands"
+newBiome = "snowy"
 string_blacklist = []
 conversion_partial_dict = {
-    "spruce_stairs":"dark_oak_stairs",
-    "stripped_spruce_log":"dark_oak_log",
 }
 conversion_exact_dict = {
+    "minecraft:red_sandstone":"minecraft:snow_block",
+    "minecraft:cut_red_sandstone":"minecraft:packed_ice",
+    "minecraft:chiseled_red_sandstone":"minecraft:ice",
+    "minecraft:red_terracotta":"minecraft:light_blue_terracotta",
+    "minecraft:brown_terracotta":"minecraft:blue_terracotta",
+    "minecraft:orange_terracotta":"minecraft:white_terracotta",
+    "minecraft:black_terracotta":"minecraft:blue_ice",
 }
 
 #-------------------------------------------------------------------------------------------

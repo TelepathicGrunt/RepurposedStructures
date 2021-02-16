@@ -73,6 +73,7 @@ public class RSStructures {
     // Special thanks to /r/l-ll-ll-l_IsDisLoss for allowing me to mimic his nether pyramid design!
     public static StructureFeature<DefaultFeatureConfig> NETHER_PYRAMID = new GenericNetherJigsawHighStructure(new Identifier(RepurposedStructures.MODID, "temples/pyramid_nether"), 1, -4, 0);
     public static StructureFeature<DefaultFeatureConfig> BADLANDS_PYRAMID = new BuriableStructure(new Identifier(RepurposedStructures.MODID, "temples/pyramid_badlands"));
+    public static StructureFeature<DefaultFeatureConfig> PYRAMID_SNOWY = new BuriableStructure(new Identifier(RepurposedStructures.MODID, "temples/pyramid_snowy"));
 
     public static StructureFeature<DefaultFeatureConfig> END_SHIPWRECK = new ShipwreckEndStructure();
     public static StructureFeature<NetherShipwreckConfig> NETHER_BRICKS_SHIPWRECK = new ShipwreckNetherStructure(new Identifier(RepurposedStructures.MODID, "shipwrecks/nether_bricks"), -3);
@@ -109,7 +110,7 @@ public class RSStructures {
     public static StructureFeature<DefaultFeatureConfig> WITCH_HUTS_BIRCH = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "witch_huts/birch_start_pool"), 11, 0, 0, 0, new HashSet<>(), ImmutableList.of(new SpawnSettings.SpawnEntry(EntityType.WITCH, 1, 1, 1)), ImmutableList.of(new SpawnSettings.SpawnEntry(EntityType.CAT, 1, 1, 1)));
     public static StructureFeature<DefaultFeatureConfig> WITCH_HUTS_DARK_FOREST = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "witch_huts/dark_forest_start_pool"), 11, 0, 0, 0, new HashSet<>(), ImmutableList.of(new SpawnSettings.SpawnEntry(EntityType.WITCH, 1, 1, 1)), ImmutableList.of(new SpawnSettings.SpawnEntry(EntityType.CAT, 1, 1, 1)));
     public static StructureFeature<DefaultFeatureConfig> WITCH_HUTS_GIANT_TREE_TAIGA = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "witch_huts/giant_tree_taiga_start_pool"), 11, 0, 0, 0, new HashSet<>(), ImmutableList.of(new SpawnSettings.SpawnEntry(EntityType.WITCH, 1, 1, 1)), ImmutableList.of(new SpawnSettings.SpawnEntry(EntityType.CAT, 1, 1, 1)));
-    // regexpos1
+     // regexpos1
 
     public static void registerStructures() {
 
@@ -155,6 +156,7 @@ public class RSStructures {
 
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "pyramid_badlands"), BADLANDS_PYRAMID).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.badlandsPyramidMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.badlandsPyramidMaxChunkDistance * 0.5f), 1718729448)).superflatFeature(BADLANDS_PYRAMID.configure(FeatureConfig.DEFAULT)).register();
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "pyramid_nether"), NETHER_PYRAMID).step(GenerationStep.Feature.VEGETAL_DECORATION).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.netherPyramidMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.netherPyramidMaxChunkDistance * 0.5f), 2054372964)).superflatFeature(NETHER_PYRAMID.configure(FeatureConfig.DEFAULT)).adjustsSurface().register();
+        FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "pyramid_snowy"), PYRAMID_SNOWY).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidSnowyMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidSnowyMaxChunkDistance * 0.5f), 1630533493)).superflatFeature(PYRAMID_SNOWY.configure(FeatureConfig.DEFAULT)).register();
 
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "shipwreck_end"), END_SHIPWRECK).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSShipwrecksConfig.maxChunkDistance.endShipwreckMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSShipwrecksConfig.maxChunkDistance.endShipwreckMaxChunkDistance * 0.5f), 1605500075)).superflatFeature(END_SHIPWRECK.configure(FeatureConfig.DEFAULT)).register();
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "shipwreck_nether_bricks"), NETHER_BRICKS_SHIPWRECK).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSShipwrecksConfig.maxChunkDistance.netherBricksShipwreckMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSShipwrecksConfig.maxChunkDistance.netherBricksShipwreckMaxChunkDistance * 0.5f), 2073308006)).superflatFeature(NETHER_BRICKS_SHIPWRECK.configure(new NetherShipwreckConfig(true))).register();

@@ -1,0 +1,1 @@
+        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "pyramid_snowy"), PYRAMID_SNOWY.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSTemplesConfig.pyramidSnowyMaxChunkDistance.get(), (int) (RepurposedStructures.RSTemplesConfig.pyramidSnowyMaxChunkDistance.get() * 0.5f), 1630533493));

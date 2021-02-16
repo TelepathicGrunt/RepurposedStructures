@@ -1,0 +1,1 @@
+    public static StructureFeature<DefaultFeatureConfig> PYRAMID_SNOWY = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "temples/pyramid_badlands"), 11, 0, 0, 0, new HashSet<>());
