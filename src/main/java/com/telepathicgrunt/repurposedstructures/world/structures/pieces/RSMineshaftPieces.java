@@ -39,8 +39,8 @@ public class RSMineshaftPieces {
     private static final Identifier DESERT_CHEST_ID =  new Identifier(RepurposedStructures.MODID, "chests/mineshaft/desert");
     private static final Identifier END_CHEST_ID =  new Identifier(RepurposedStructures.MODID, "chests/mineshaft/end");
     private static final Identifier NETHER_CHEST_ID =  new Identifier(RepurposedStructures.MODID, "chests/mineshaft/nether");
-    private static final Identifier CRIMSON_CHEST_ID =  new Identifier(RepurposedStructures.MODID + ":chests/mineshaft/crimson");
-    private static final Identifier WARPED_CHEST_ID =  new Identifier(RepurposedStructures.MODID + ":chests/mineshaft/warped");
+    private static final Identifier CRIMSON_CHEST_ID =  new Identifier(RepurposedStructures.MODID, "chests/mineshaft/crimson");
+    private static final Identifier WARPED_CHEST_ID =  new Identifier(RepurposedStructures.MODID, "chests/mineshaft/warped");
     private static final Identifier OCEAN_CHEST_ID =  new Identifier(RepurposedStructures.MODID, "chests/mineshaft/ocean");
     private static final Identifier STONE_CHEST_ID =  new Identifier(RepurposedStructures.MODID, "chests/mineshaft/stone");
     private static final Identifier SAVANNA_CHEST_ID =  new Identifier(RepurposedStructures.MODID, "chests/mineshaft/savanna");
@@ -57,8 +57,8 @@ public class RSMineshaftPieces {
     private static final Identifier END_SPAWNER_ID = new Identifier(RepurposedStructures.MODID, "mineshaft_end");
     private static final Identifier NETHER_SPAWNER_ID = new Identifier(RepurposedStructures.MODID, "mineshaft_nether");
     private static final Identifier OCEAN_SPAWNER_ID = new Identifier(RepurposedStructures.MODID, "mineshaft_ocean");
-    private static final Identifier CRIMSON_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":mineshaft_crimson");
-    private static final Identifier WARPED_SPAWNER_ID = new Identifier(RepurposedStructures.MODID + ":mineshaft_warped");
+    private static final Identifier CRIMSON_SPAWNER_ID = new Identifier(RepurposedStructures.MODID, "mineshaft_crimson");
+    private static final Identifier WARPED_SPAWNER_ID = new Identifier(RepurposedStructures.MODID, "mineshaft_warped");
 
 
     public enum Type {

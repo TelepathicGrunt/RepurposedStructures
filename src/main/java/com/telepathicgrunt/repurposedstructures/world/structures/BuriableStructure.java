@@ -1,12 +1,8 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
-import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
-import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PyramidFloorPiece;
-import net.minecraft.block.Blocks;
 import net.minecraft.structure.PoolStructurePiece;
 import net.minecraft.structure.StructureManager;
-import net.minecraft.structure.StructurePiece;
 import net.minecraft.structure.StructureStart;
 import net.minecraft.structure.pool.StructurePoolBasedGenerator;
 import net.minecraft.util.BlockRotation;
@@ -23,18 +19,18 @@ import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 
 
-public class PyramidBadlandsStructure extends AbstractBaseStructure<DefaultFeatureConfig> {
+public class BuriableStructure extends AbstractBaseStructure<DefaultFeatureConfig> {
 
-    private final Identifier START_POOL;
-    public PyramidBadlandsStructure() {
+    private final Identifier startPool;
+    public BuriableStructure(Identifier startPool) {
         super(DefaultFeatureConfig.CODEC);
-        START_POOL = new Identifier(RepurposedStructures.MODID, "temples/pyramid_badlands");
-        RSStructures.RS_STRUCTURE_START_PIECES.add(START_POOL);
+        this.startPool = startPool;
+        RSStructures.RS_STRUCTURE_START_PIECES.add(this.startPool);
     }
 
     @Override
     public StructureFeature.StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
-        return PyramidBadlandsStructure.Start::new;
+        return BuriableStructure.Start::new;
     }
 
     public class Start extends StructureStart<DefaultFeatureConfig> {
@@ -48,7 +44,7 @@ public class PyramidBadlandsStructure extends AbstractBaseStructure<DefaultFeatu
             BlockPos blockpos = new BlockPos(chunkX * 16, 62, chunkZ * 16);
             StructurePoolBasedGenerator.method_30419(
                     dynamicRegistryManager,
-                    new StructurePoolFeatureConfig(() -> dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN).get(START_POOL), 1),
+                    new StructurePoolFeatureConfig(() -> dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN).get(startPool), 1),
                     PoolStructurePiece::new,
                     chunkGenerator,
                     structureManager,
@@ -57,14 +53,6 @@ public class PyramidBadlandsStructure extends AbstractBaseStructure<DefaultFeatu
                     random,
                     true,
                     false);
-            PyramidFloorPiece.func_207617_a(structureManager, blockpos, this.children.get(0).getRotation(), this.children, random, Blocks.RED_SANDSTONE, defaultFeatureConfig);
-
-            //put the floor placing before the pit.
-            StructurePiece temp = this.children.get(1);
-            this.children.remove(1);
-            this.children.add(temp);
-
-            this.children.get(1).getBoundingBox().encompass(this.children.get(0).getBoundingBox());
             this.setBoundingBoxFromChildren();
 
             BlockRotation rotation = this.children.get(0).getRotation();

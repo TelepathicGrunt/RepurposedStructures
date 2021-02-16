@@ -58,9 +58,6 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Nerfed Jungle Fortress loottables to pick less loot and diamond gear gets lower enchantment levels
 
-##### Pyramids:
-- Bumped default config spawnrate of Badlands Pyramids from 20 to 25 to make them a bit more rare.
-
 ##### Shipwrecks:
 - Nether Bricks Shipwrecks will only be flying in any biome with "soul" in the name.
 
@@ -70,13 +67,19 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Slightly adjusted Stonebrick Strongholds so they now won't be added to None-category biomes.
 
 ##### Temples:
-- Moved Nether Basalt Temple from UNDERGROUND_STRUCTURES to VEGETAL_DECORATION stage to prevent Basalt Delta's Basalt features from clogging up the insides.
+- Moved Nether Basalt Temple from SURFACE_STRUCTURES to VEGETAL_DECORATION stage to prevent Basalt Delta's Basalt features from clogging up the insides.
 
 - Adjusted Nether Basalt Temple's processor to randomize the temple's blocks a bit better.
 
 - Nerfed Golden Swords enchantment level range from 20-39 to 10-30 in all chest's loottable for temples.
 
 ##### Pyramids:
+- Bumped default config spawnrate of Badlands Pyramids from 20 to 25 to make them a bit more rare.
+
+- Badlands Pyramids now properly create pillar of Red Sandstone in parity to vanilla's Desert Temple.
+
+- Rounded the bottom of Nether Pyramids so they look better even when the Nether's caves and ravines carves out the land from under the pyramid.
+
 - Nerfed Golden Swords enchantment level range from 20-39 to 10-30 in chest's loottable for Nether Pyramids.
 
 ##### Dungeons:

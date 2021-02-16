@@ -38,7 +38,6 @@ public class DataBlockProcessor extends StructureProcessor {
             String string = structureBlockInfo2Global.tag.getString("metadata");
 
             try {
-
                 // Pillar mode activated
                 if(string.contains(DATA_PROCESSOR_MODE.PILLARS.symbol)){
                     String[] splitString = string.split(DATA_PROCESSOR_MODE.PILLARS.symbol);
@@ -50,7 +49,7 @@ public class DataBlockProcessor extends StructureProcessor {
                     BlockState replacementState = blockArgumentParser.getBlockState();
                     BlockState currentBlock = worldView.getBlockState(structureBlockInfo2Global.pos);
                     BlockPos.Mutable currentPos = new BlockPos.Mutable().set(structureBlockInfo2Global.pos);
-                    int depth = splitString.length > 2 ? parseInt(splitString[2]) : 256;
+                    int depth = splitString.length > 2 ? parseInt(splitString[2]) + 1 : 256;
 
                     // Creates the pillars in the world that replaces air and liquids
                     while((currentBlock.isAir() || currentBlock.getMaterial().isLiquid()) &&
