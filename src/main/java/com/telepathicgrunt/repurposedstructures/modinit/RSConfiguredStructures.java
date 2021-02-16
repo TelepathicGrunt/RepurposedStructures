@@ -167,11 +167,11 @@ public class RSConfiguredStructures {
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "mansion_desert"), MANSION_DESERT);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "mansion_snowy"), MANSION_SNOWY);
 
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "witch_huts_oak"), WITCH_HUTS_OAK);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "witch_huts_taiga"), WITCH_HUTS_TAIGA);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "witch_huts_birch"), WITCH_HUTS_BIRCH);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "witch_huts_dark_forest"), WITCH_HUTS_DARK_FOREST);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "witch_huts_giant_tree_taiga"), WITCH_HUTS_GIANT_TREE_TAIGA);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "witch_hut_oak"), WITCH_HUTS_OAK);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "witch_hut_taiga"), WITCH_HUTS_TAIGA);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "witch_hut_birch"), WITCH_HUTS_BIRCH);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "witch_hut_dark_forest"), WITCH_HUTS_DARK_FOREST);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "witch_hut_giant_tree_taiga"), WITCH_HUTS_GIANT_TREE_TAIGA);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "pyramid_snowy"), PYRAMID_SNOWY);
         // regexpos2
     }
