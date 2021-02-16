@@ -73,7 +73,7 @@ public class MansionStructure extends AbstractBaseStructure<NoFeatureConfig> {
             }
 
             int k = (chunkX << 4) + 7;
-            int l = (chunkX << 4) + 7;
+            int l = (chunkZ << 4) + 7;
             int i1 = chunkGenerator.func_222531_c(k, l, Heightmap.Type.WORLD_SURFACE_WG);
             int j1 = chunkGenerator.func_222531_c(k, l + j, Heightmap.Type.WORLD_SURFACE_WG);
             int k1 = chunkGenerator.func_222531_c(k + i, l, Heightmap.Type.WORLD_SURFACE_WG);
