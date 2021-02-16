@@ -127,16 +127,18 @@ public class RSTemplesConfig implements ConfigData {
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
-        @Comment("Add Snowy Pyramid to modded snowy biomes.")
-        public boolean addPyramidSnowyToModdedBiomes = true;
-        // regexpos1
+        @Comment("How rare are Snowy Pyramid in snowy biomes."
+                + "\n1 for spawning in most chunks and 1001 for none.")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int pyramidSnowyMaxChunkDistance = 37;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
-        @Comment("How rare are Snowy Pyramid in snowy biomes. 1 for"
-                + "\nspawning in most chunks and 1001 for none.")
-        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int pyramidSnowyMaxChunkDistance = 48;
+        @Comment("Add Snowy Pyramid to modded snowy biomes.")
+        public boolean addPyramidSnowyToModdedBiomes = true;
+
         // regexpos2
+
+        // regexpos1
     }
 }
