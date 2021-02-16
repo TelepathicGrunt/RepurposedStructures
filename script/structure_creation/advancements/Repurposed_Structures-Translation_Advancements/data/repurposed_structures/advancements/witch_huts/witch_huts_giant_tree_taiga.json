@@ -16,16 +16,16 @@
     "experience": 20
   },
   "criteria": {
-    "in_witch_huts_giant_tree_taiga": {
+    "in_witch_hut_giant_tree_taiga": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:witch_huts_giant_tree_taiga"
+        "feature": "repurposed_structures:witch_hut_giant_tree_taiga"
       }
     }
   },
   "requirements": [
     [
-      "in_witch_huts_giant_tree_taiga"
+      "in_witch_hut_giant_tree_taiga"
     ]
   ]
 }

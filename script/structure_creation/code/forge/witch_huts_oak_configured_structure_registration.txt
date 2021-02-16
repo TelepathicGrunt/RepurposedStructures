@@ -1,1 +1,1 @@
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "witch_huts_oak"), WITCH_HUTS_OAK);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "witch_hut_oak"), WITCH_HUTS_OAK);

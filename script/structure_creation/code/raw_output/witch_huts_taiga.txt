@@ -2,15 +2,15 @@
 
     public static StructureFeature<DefaultFeatureConfig> WITCH_HUTS_TAIGA = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "repurposed_structures:witch_huts/taiga"), 11, 0, 0, 0, new HashSet<>());
 
-        FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "witch_huts_taiga"), WITCH_HUTS_TAIGA).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSWitchHutsConfig.maxChunkDistance.witchHutsTaigaMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSWitchHutsConfig.maxChunkDistance.witchHutsTaigaMaxChunkDistance * 0.5f), 1925189659)).superflatFeature(WITCH_HUTS_TAIGA.configure(FeatureConfig.DEFAULT)).register();
+        FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "witch_hut_taiga"), WITCH_HUTS_TAIGA).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSWitchHutsConfig.maxChunkDistance.witchHutsTaigaMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSWitchHutsConfig.maxChunkDistance.witchHutsTaigaMaxChunkDistance * 0.5f), 1925189659)).superflatFeature(WITCH_HUTS_TAIGA.configure(FeatureConfig.DEFAULT)).register();
 
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> WITCH_HUTS_TAIGA = RSStructures.WITCH_HUTS_TAIGA.configure(FeatureConfig.DEFAULT);
 
-        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "witch_huts_taiga"), WITCH_HUTS_TAIGA);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "witch_hut_taiga"), WITCH_HUTS_TAIGA);
 
         addTags(RSStructures.WITCH_HUTS_TAIGA, Stream.of(STRUCTURE_TAGS.WITCH_HUTS, STRUCTURE_TAGS.NO_LAKES, STRUCTURE_TAGS.REPLACE_NATURAL_MOBS).collect(Collectors.toSet()));
 
-        addToBiome("witch_huts_taiga",
+        addToBiome("witch_hut_taiga",
                 (context) -> 
 						&& BiomeSelection.isBiomeAllowed(context, "witch_huts")
                         && RepurposedStructures.RSAllConfig.RSWitchHutsConfig.maxChunkDistance.witchHutsTaigaMaxChunkDistance != 1001
@@ -40,14 +40,14 @@
 
 --------------FORGE-------------
 
-        public static final RegistryObject<Structure<NoFeatureConfig>> WITCH_HUTS_TAIGA = addToStructureMaps("witch_huts_taiga", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "repurposed_structures:witch_huts/taiga"), 11, 0, 0, 0, new HashSet<>())));
+        public static final RegistryObject<Structure<NoFeatureConfig>> WITCH_HUTS_TAIGA = addToStructureMaps("witch_hut_taiga", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "repurposed_structures:witch_huts/taiga"), 11, 0, 0, 0, new HashSet<>())));
 
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "witch_huts_taiga"), WITCH_HUTS_TAIGA.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSWitchHutsConfig.witchHutsTaigaMaxChunkDistance.get(), (int) (RepurposedStructures.RSWitchHutsConfig.witchHutsTaigaMaxChunkDistance.get() * 0.5f), 1925189659));
+        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "witch_hut_taiga"), WITCH_HUTS_TAIGA.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSWitchHutsConfig.witchHutsTaigaMaxChunkDistance.get(), (int) (RepurposedStructures.RSWitchHutsConfig.witchHutsTaigaMaxChunkDistance.get() * 0.5f), 1925189659));
     
 
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> WITCH_HUTS_TAIGA = RSStructures.WITCH_HUTS_TAIGA.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
 
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "witch_huts_taiga"), WITCH_HUTS_TAIGA);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "witch_hut_taiga"), WITCH_HUTS_TAIGA);
 
         addTags(RSStructures.WITCH_HUTS_TAIGA.get(), Stream.of(STRUCTURE_TAGS.WITCH_HUTS, STRUCTURE_TAGS.NO_LAKES, STRUCTURE_TAGS.REPLACE_NATURAL_MOBS).collect(Collectors.toSet()));
 

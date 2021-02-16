@@ -18,16 +18,16 @@
     "experience": 20
   },
   "criteria": {
-    "in_witch_huts_oak": {
+    "in_witch_hut_oak": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:witch_huts_oak"
+        "feature": "repurposed_structures:witch_hut_oak"
       }
     }
   },
   "requirements": [
     [
-      "in_witch_huts_oak"
+      "in_witch_hut_oak"
     ]
   ]
 }

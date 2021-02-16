@@ -1,1 +1,1 @@
-        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "witch_huts_taiga"), WITCH_HUTS_TAIGA);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "witch_hut_taiga"), WITCH_HUTS_TAIGA);

@@ -1,4 +1,4 @@
-        addToBiome("witch_huts_oak",
+        addToBiome("witch_hut_oak",
                 (context) -> 
 						&& BiomeSelection.isBiomeAllowed(context, "witch_huts")
                         && RepurposedStructures.RSAllConfig.RSWitchHutsConfig.maxChunkDistance.witchHutsOakMaxChunkDistance != 1001

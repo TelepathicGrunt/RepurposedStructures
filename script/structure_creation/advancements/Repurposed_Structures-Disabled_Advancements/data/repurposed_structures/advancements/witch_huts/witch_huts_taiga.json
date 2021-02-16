@@ -16,13 +16,13 @@
     "experience": 20
   },
   "criteria": {
-    "in_witch_huts_taiga": {
+    "in_witch_hut_taiga": {
       "trigger": "minecraft:impossible"
     }
   },
   "requirements": [
     [
-      "in_witch_huts_taiga"
+      "in_witch_hut_taiga"
     ]
   ]
 }

@@ -903,7 +903,7 @@ public class RSAddFeaturesAndStructures {
     // WITCH_HUTS //
 
     public static void addWitchHuts() {
-        addToBiome("witch_huts_oak",
+        addToBiome("witch_hut_oak",
                 (context) -> BiomeSelection.haveCategories(context, Category.FOREST)
                         && !(BiomeSelection.hasName(context, "birch", "dark", "spooky", "dead", "haunted"))
                         && BiomeSelection.isBiomeAllowed(context, "witch_huts")
@@ -911,7 +911,7 @@ public class RSAddFeaturesAndStructures {
                         && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSWitchHutsConfig.blacklist.addWitchHutsOakToModdedBiomes),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.WITCH_HUTS_OAK));
 
-        addToBiome("witch_huts_taiga",
+        addToBiome("witch_hut_taiga",
                 (context) -> BiomeSelection.haveCategories(context, Category.TAIGA)
                         && !BiomeSelection.hasName(context, "giant", "redwood")
 						&& BiomeSelection.isBiomeAllowed(context, "witch_huts")
@@ -919,14 +919,14 @@ public class RSAddFeaturesAndStructures {
                         && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSWitchHutsConfig.blacklist.addWitchHutsTaigaToModdedBiomes),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.WITCH_HUTS_TAIGA));
 
-        addToBiome("witch_huts_birch",
+        addToBiome("witch_hut_birch",
                 (context) -> BiomeSelection.hasName(context, "birch")
 						&& BiomeSelection.isBiomeAllowed(context, "witch_huts")
                         && RepurposedStructures.RSAllConfig.RSWitchHutsConfig.maxChunkDistance.witchHutsBirchMaxChunkDistance != 1001
                         && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSWitchHutsConfig.blacklist.addWitchHutsBirchToModdedBiomes),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.WITCH_HUTS_BIRCH));
 
-        addToBiome("witch_huts_dark_forest",
+        addToBiome("witch_hut_dark_forest",
                 (context) -> BiomeSelection.haveCategories(context, Category.FOREST)
                         && BiomeSelection.hasName(context, "dark", "spooky", "dead", "haunted")
 						&& BiomeSelection.isBiomeAllowed(context, "witch_huts")
@@ -934,7 +934,7 @@ public class RSAddFeaturesAndStructures {
                         && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSWitchHutsConfig.blacklist.addWitchHutsDarkForestToModdedBiomes),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.WITCH_HUTS_DARK_FOREST));
 
-        addToBiome("witch_huts_giant_tree_taiga",
+        addToBiome("witch_hut_giant_tree_taiga",
                 (context) -> BiomeSelection.haveCategories(context, Category.TAIGA)
                         && BiomeSelection.hasName(context, "giant", "redwood")
 						&& BiomeSelection.isBiomeAllowed(context, "witch_huts")
