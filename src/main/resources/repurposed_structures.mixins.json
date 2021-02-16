@@ -7,7 +7,6 @@
     "ChunkGeneratorAccessor",
     "DungeonFeatureAccessor",
     "EnderEyeStrongholdLocatingMixin",
-    "EndermanSpawnerMixin",
     "NoLakesInStructuresMixin",
     "PillagerOutpostStructureAccessor",
     "StrongholdGeneratorAccessor",
@@ -15,8 +14,7 @@
     "StructureMobSpawningMixin",
     "StructurePieceAccessor",
     "StructureProcessorListAccessor",
-    "TemplateManagerMixin",
-    "ZombifiedPiglinSpawnerMixin"
+    "TemplateManagerMixin"
   ],
   "client": [
   ],
