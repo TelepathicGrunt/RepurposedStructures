@@ -40,7 +40,6 @@ public class RSStructurePieces {
     public static IStructurePieceType STRONGHOLD_STAIRS = RSStrongholdPieces.Stairs::new;
     public static IStructurePieceType STRONGHOLD_STAIRS_STRAIGHT = RSStrongholdPieces.StairsStraight::new;
     public static IStructurePieceType STRONGHOLD_ENTRANCE_STAIRS = RSStrongholdPieces.EntranceStairs::new;
-    public static IStructurePieceType PYRAMID_FLOOR_PIECE = PyramidFloorPiece.Piece::new;
     public static IStructurePieceType MANSION_PIECE = MansionPieces.MansionTemplate::new;
 
     public static void registerStructurePieces() {
@@ -76,7 +75,6 @@ public class RSStructurePieces {
         Registry.register(Registry.STRUCTURE_PIECE, new ResourceLocation(RepurposedStructures.MODID, "stronghold_stairs"), STRONGHOLD_STAIRS);
         Registry.register(Registry.STRUCTURE_PIECE, new ResourceLocation(RepurposedStructures.MODID, "stronghold_stairs_straight"), STRONGHOLD_STAIRS_STRAIGHT);
         Registry.register(Registry.STRUCTURE_PIECE, new ResourceLocation(RepurposedStructures.MODID, "stronghold_entrance_stairs"), STRONGHOLD_ENTRANCE_STAIRS);
-        Registry.register(Registry.STRUCTURE_PIECE, new ResourceLocation(RepurposedStructures.MODID, "pyramid_floor_piece"), PYRAMID_FLOOR_PIECE);
         Registry.register(Registry.STRUCTURE_PIECE, new ResourceLocation(RepurposedStructures.MODID, "mansion_piece"), MANSION_PIECE);
     }
 }

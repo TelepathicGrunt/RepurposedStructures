@@ -35,8 +35,8 @@ public class DungeonDesert extends Feature<NoFeatureConfig> {
     private static final BlockState CREEPER_SANDSTONE = Blocks.CHISELED_SANDSTONE.getDefaultState();
     private static final BlockState SLAB_BOTTOM = Blocks.SANDSTONE_SLAB.getDefaultState();
     private static final BlockState SLAB_TOP = Blocks.SANDSTONE_SLAB.getDefaultState().with(SlabBlock.TYPE, SlabType.TOP);
-    private static final ResourceLocation CHEST_LOOT = new ResourceLocation(RepurposedStructures.MODID + ":chests/dungeon/desert");
-    private static final ResourceLocation SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID + ":dungeon_desert");
+    private static final ResourceLocation CHEST_LOOT = new ResourceLocation(RepurposedStructures.MODID, ":chests/dungeon/desert");
+    private static final ResourceLocation SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID, ":dungeon_desert");
 
 
     //only the mob spawner chance and what blocks the wall cannot replace was changed. Everything else is just the normal dungeon code.

@@ -1,9 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
-import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
-import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PyramidFloorPiece;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
@@ -15,22 +12,25 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.jigsaw.JigsawManager;
-import net.minecraft.world.gen.feature.structure.*;
+import net.minecraft.world.gen.feature.structure.AbstractVillagePiece;
+import net.minecraft.world.gen.feature.structure.Structure;
+import net.minecraft.world.gen.feature.structure.StructureStart;
+import net.minecraft.world.gen.feature.structure.VillageConfig;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
 
-public class PyramidBadlandsStructure extends AbstractBaseStructure<NoFeatureConfig> {
+public class BuriableStructure extends AbstractBaseStructure<NoFeatureConfig> {
 
-    private final ResourceLocation START_POOL;
-    public PyramidBadlandsStructure() {
+    private final ResourceLocation startPool;
+    public BuriableStructure(ResourceLocation startPool) {
         super(NoFeatureConfig.CODEC);
-        START_POOL = new ResourceLocation(RepurposedStructures.MODID + ":temples/pyramid_badlands");
-        RSStructures.RS_STRUCTURE_START_PIECES.add(START_POOL);
+        this.startPool = startPool;
+        RSStructures.RS_STRUCTURE_START_PIECES.add(startPool);
     }
 
     @Override
     public Structure.IStartFactory<NoFeatureConfig> getStartFactory() {
-        return PyramidBadlandsStructure.Start::new;
+        return BuriableStructure.Start::new;
     }
 
     public class Start extends StructureStart<NoFeatureConfig> {
@@ -44,7 +44,7 @@ public class PyramidBadlandsStructure extends AbstractBaseStructure<NoFeatureCon
             JigsawManager.method_30419(
                     dynamicRegistryManager,
                     new VillageConfig(() -> dynamicRegistryManager.get(
-                            Registry.TEMPLATE_POOL_WORLDGEN).getOrDefault(START_POOL),
+                            Registry.TEMPLATE_POOL_WORLDGEN).getOrDefault(startPool),
                             1),
                     AbstractVillagePiece::new,
                     chunkGenerator,
@@ -54,12 +54,6 @@ public class PyramidBadlandsStructure extends AbstractBaseStructure<NoFeatureCon
                     this.rand,
                     true,
                     false);
-            PyramidFloorPiece.func_207617_a(structureManager, blockPos, this.components.get(0).getRotation(), this.components, rand, Blocks.RED_SANDSTONE, NoFeatureConfig);
-
-            //put the floor placing before the pit.
-            StructurePiece temp = this.components.get(1);
-            this.components.remove(1);
-            this.components.add(temp);
 
             this.components.get(1).getBoundingBox().expandTo(this.components.get(0).getBoundingBox());
             this.recalculateStructureSize();

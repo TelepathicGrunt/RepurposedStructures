@@ -25,7 +25,7 @@ public class WellNether extends WellAbstract {
     private static final float COMMON_ORE_CHANCE = 0.5f;
     private static final float RARE_ORE_CHANCE = 0.08f;
     private static final ResourceLocation NETHER_WELL_ORE_RL = new ResourceLocation("repurposed_structures:nether_well_ores");
-    private static final ResourceLocation NETHER_WELL_RL = new ResourceLocation(RepurposedStructures.MODID + ":wells/nether");
+    private static final ResourceLocation NETHER_WELL_RL = new ResourceLocation(RepurposedStructures.MODID, ":wells/nether");
 
 
     public WellNether(Codec<NoFeatureConfig> config) {

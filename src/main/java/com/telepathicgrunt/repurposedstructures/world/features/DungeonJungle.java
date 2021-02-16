@@ -36,8 +36,8 @@ public class DungeonJungle extends Feature<NoFeatureConfig> {
     private static final BlockState LOGS = Blocks.JUNGLE_LOG.getDefaultState();
     private static final BlockState SIDEWAYS_LOGS = Blocks.JUNGLE_LOG.getDefaultState().with(BlockStateProperties.AXIS, Direction.Axis.X);
     private static final BlockState PLANKS = Blocks.JUNGLE_PLANKS.getDefaultState();
-    private static final ResourceLocation CHEST_LOOT = new ResourceLocation(RepurposedStructures.MODID + ":chests/dungeon/jungle");
-    private static final ResourceLocation SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID + ":dungeon_jungle");
+    private static final ResourceLocation CHEST_LOOT = new ResourceLocation(RepurposedStructures.MODID, ":chests/dungeon/jungle");
+    private static final ResourceLocation SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID, ":dungeon_jungle");
 
 
     // only the mob spawner chance and what blocks the wall cannot replace was changed. Everything else is just the normal dungeon code.

@@ -50,7 +50,7 @@ public class DataBlockProcessor extends StructureProcessor {
                     BlockState replacementState = blockArgumentParser.getState();
                     BlockState currentBlock = worldView.getBlockState(structureBlockInfo2Global.pos);
                     BlockPos.Mutable currentPos = new BlockPos.Mutable().setPos(structureBlockInfo2Global.pos);
-                    int depth = splitString.length > 2 ? parseInt(splitString[2]) : 256;
+                    int depth = splitString.length > 2 ? parseInt(splitString[2]) + 1 : 256;
 
                     // Creates the pillars in the world that replaces air and liquids
                     while((currentBlock.isAir() || currentBlock.getMaterial().isLiquid()) &&

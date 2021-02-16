@@ -20,7 +20,7 @@ import java.util.Random;
 public class WellMossyStone extends WellAbstract {
     private static final float ORE_CHANCE = 0.12f;
     private static final ResourceLocation MOSSY_WELL_ORE_RL = new ResourceLocation("repurposed_structures:mossy_well_ores");
-    private static final ResourceLocation MOSSY_WELL_RL = new ResourceLocation(RepurposedStructures.MODID + ":wells/mossy");
+    private static final ResourceLocation MOSSY_WELL_RL = new ResourceLocation(RepurposedStructures.MODID, ":wells/mossy");
 
     public WellMossyStone(Codec<NoFeatureConfig> config) {
         super(config);

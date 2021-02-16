@@ -33,12 +33,12 @@ import java.util.*;
 
 
 public class FortressJunglePieces {
-    private static final ResourceLocation JF_HALLWAY_CHEST_RL = new ResourceLocation(RepurposedStructures.MODID + ":chests/fortress/jungle_hallway_chest");
-    private static final ResourceLocation JF_SHRINE_CHEST_RL = new ResourceLocation(RepurposedStructures.MODID + ":chests/fortress/jungle_shrine_chest");
-    private static final ResourceLocation JF_CENTER_CHEST_RL = new ResourceLocation(RepurposedStructures.MODID + ":chests/fortress/jungle_center_chest");
+    private static final ResourceLocation JF_HALLWAY_CHEST_RL = new ResourceLocation(RepurposedStructures.MODID, ":chests/fortress/jungle_hallway_chest");
+    private static final ResourceLocation JF_SHRINE_CHEST_RL = new ResourceLocation(RepurposedStructures.MODID, ":chests/fortress/jungle_shrine_chest");
+    private static final ResourceLocation JF_CENTER_CHEST_RL = new ResourceLocation(RepurposedStructures.MODID, ":chests/fortress/jungle_center_chest");
     private static final ResourceLocation JF_PLANT_TAG_RL = new ResourceLocation("repurposed_structures:jungle_fortress_staircase_plants");
     private static final ResourceLocation JF_SOIL_TAG_RL = new ResourceLocation("repurposed_structures:jungle_fortress_staircase_soils");
-    private static final ResourceLocation SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID + ":fortress_jungle");
+    private static final ResourceLocation SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID, ":fortress_jungle");
 
     private static final Map<BlockState, BlockState> INFESTED_STONE_LOOKUP;
 
