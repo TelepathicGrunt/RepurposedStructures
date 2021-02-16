@@ -96,7 +96,7 @@ public class RSStructures {
     public static final RegistryObject<Structure<NoFeatureConfig>> OUTPOST_OAK = addToStructureMaps("outpost_oak", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "outposts/oak/base_plates"), 11, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.VILLAGE).collect(Collectors.toSet()), PillagerOutpostStructureAccessor.rs_getPILLAGE_OUTPOST_ENEMIES(), ImmutableList.of())));
 
 	//Pyramids
-	public static final RegistryObject<Structure<NoFeatureConfig>> NETHER_PYRAMID = addToStructureMaps("pyramid_nether", () -> (new GenericNetherJigsawHighStructure(new ResourceLocation(RepurposedStructures.MODID, ":temples/pyramid_nether"), 1, -4, 0)));
+	public static final RegistryObject<Structure<NoFeatureConfig>> NETHER_PYRAMID = addToStructureMaps("pyramid_nether", () -> (new GenericNetherJigsawHighStructure(new ResourceLocation(RepurposedStructures.MODID, "temples/pyramid_nether"), 1, -4, 0)));
 	public static final RegistryObject<Structure<NoFeatureConfig>> BADLANDS_PYRAMID = addToStructureMaps("pyramid_badlands", () -> (new BuriableStructure(new ResourceLocation(RepurposedStructures.MODID, "temples/pyramid_badlands"))));
     public static final RegistryObject<Structure<NoFeatureConfig>> PYRAMID_SNOWY = addToStructureMaps("pyramid_snowy", () -> (new BuriableStructure(new ResourceLocation(RepurposedStructures.MODID, "temples/pyramid_snowy"))));
 
