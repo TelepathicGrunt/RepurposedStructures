@@ -10,6 +10,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ## (V.1.8.0 Changes) (1.16.4 Minecraft)
 
+##### Dependencies:
+- Cloth and AutoConfigu are no longer packaged with this mod to cut down on file size. Download those two lib mods separately. 
+
 ##### Cities:
 - Added extremely rare Nether Cities to all Nether biomes! Beware of the Blazes! Maps to this city are very rare but can be found in Nether Ruins or Crimson/Warped Cartographer chests. 
 
@@ -57,6 +60,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Bumped default spawnrate of Birch, Jungle, Giant Tree Taiga, Desert, Badlands, Snowy, Oak, Taiga Outposts from 41/43 to 50 to make them slightly more rare.
 
+- Fixed all Outposts spawning too close to vanilla villages.
+
 ##### Fortresses:
 - Fixed Jungle Fortresses not getting extra vines or breakage.
 
@@ -67,7 +72,7 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Bumped default config spawnrate of Jungle Fortresses from 32 to 50 to make them more rare.
 
-- Nerfed Jungle Fortress loottables to pick less loot and diamond gear gets lower enchantment levels
+- Nerfed Jungle Fortress loottables to pick less loot and diamond armor is removed. Leather armor is added instead.
 
 ##### Shipwrecks:
 - Nether Bricks Shipwrecks will only be flying in any biome with "soul" in the name.

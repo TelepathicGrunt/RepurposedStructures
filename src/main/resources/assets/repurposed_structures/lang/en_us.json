@@ -431,7 +431,7 @@
   "text.autoconfig.repurposed_structures-main.option.RSOutpostsConfig.outposts.outpostOakMaxChunkDistance": "Outpost Oak Max Chunk Distance",
   "text.autoconfig.repurposed_structures-main.option.RSOutpostsConfig.outposts.outpostOakMaxChunkDistance.@PrefixText": "\nHow rare are Oak Outposts in forest biomes that are not birch or dark forest. 1 for spawning in most chunks and 1001 for none. ",
   "text.autoconfig.repurposed_structures-main.option.RSOutpostsConfig.outposts.outpostSnowyMaxChunkDistance": "Outpost Snowy Max Chunk Distance",
-  "text.autoconfig.repurposed_structures-main.option.RSOutpostsConfig.outposts.outpostSnowyMaxChunkDistance.@PrefixText": "\nH\now rare are Snowy Outposts in snowy biomes. 1 for spawning in most chunks and 1001 for none.",
+  "text.autoconfig.repurposed_structures-main.option.RSOutpostsConfig.outposts.outpostSnowyMaxChunkDistance.@PrefixText": "\nHow rare are Snowy Outposts in snowy biomes. 1 for spawning in most chunks and 1001 for none.",
   "text.autoconfig.repurposed_structures-main.option.RSOutpostsConfig.outposts.outpostTaigaMaxChunkDistance": "Outpost Taiga Max Chunk Distance",
   "text.autoconfig.repurposed_structures-main.option.RSOutpostsConfig.outposts.outpostTaigaMaxChunkDistance.@PrefixText": "\nHow rare are Taiga Outposts in non-snowy and non-giant taiga biomes. 1 for spawning in most chunks and 1001 for none. ",
   "text.autoconfig.repurposed_structures-main.option.RSOutpostsConfig.outposts.warpedOutpostMaxChunkDistance": "Warped Outpost Max Chunk Distance",

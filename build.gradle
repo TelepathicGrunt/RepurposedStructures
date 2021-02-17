@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '0.4-SNAPSHOT'
+	id 'fabric-loom' version '0.5-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -12,7 +12,7 @@ group = project.maven_group
 
 repositories {
 	maven { url 'https://jitpack.io' }
-	maven { url 'https://server.bbkr.space' }
+	maven { url "https://maven.shedaniel.me/" }
 	maven { url "https://maven.fabricmc.net" }
 	flatDir { dirs 'deps' }
 }
@@ -25,14 +25,12 @@ dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-	modImplementation "me.shedaniel.cloth:config-2:${project.cloth_config_version}"
-	include "me.shedaniel.cloth:config-2:${project.cloth_config_version}"
-
 	modImplementation "me.sargunvohra.mcmods:autoconfig1u:${project.auto_config_version}"
-	include "me.sargunvohra.mcmods:autoconfig1u:${project.auto_config_version}"
+	modImplementation ("me.shedaniel.cloth:config-2:${project.cloth_config_version}"){
+		exclude(group: "net.fabricmc.fabric-api")
+	}
 
 	implementation 'com.github.modmuss50:Voyager:1.0.0'
 	include 'com.github.modmuss50:Voyager:1.0.0'

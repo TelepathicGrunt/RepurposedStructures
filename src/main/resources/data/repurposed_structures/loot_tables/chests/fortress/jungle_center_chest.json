@@ -206,7 +206,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 3,
           "functions": [
             {
               "function": "minecraft:enchant_with_levels",
@@ -218,11 +218,11 @@
               "treasure": true
             }
           ],
-          "name": "minecraft:diamond_boots"
+          "name": "minecraft:leather_boots"
         },
         {
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 3,
           "functions": [
             {
               "function": "minecraft:enchant_with_levels",
@@ -234,11 +234,11 @@
               "treasure": true
             }
           ],
-          "name": "minecraft:diamond_chestplate"
+          "name": "minecraft:leather_chestplate"
         },
         {
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 3,
           "functions": [
             {
               "function": "minecraft:enchant_with_levels",
@@ -250,11 +250,11 @@
               "treasure": true
             }
           ],
-          "name": "minecraft:diamond_leggings"
+          "name": "minecraft:leather_leggings"
         },
         {
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 3,
           "functions": [
             {
               "function": "minecraft:enchant_with_levels",
@@ -266,7 +266,7 @@
               "treasure": true
             }
           ],
-          "name": "minecraft:diamond_helmet"
+          "name": "minecraft:leather_helmet"
         },
         {
           "type": "minecraft:item",
@@ -275,7 +275,7 @@
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
-                "min": -10.0,
+                "min": -15.0,
                 "max": 15.0,
                 "type": "minecraft:uniform"
               },
@@ -291,7 +291,7 @@
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
-                "min": -10.0,
+                "min": -15.0,
                 "max": 15.0,
                 "type": "minecraft:uniform"
               },
@@ -307,7 +307,7 @@
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
-                "min": 0.0,
+                "min": -15.0,
                 "max": 25.0,
                 "type": "minecraft:uniform"
               },
@@ -323,7 +323,7 @@
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
-                "min": 0.0,
+                "min": -15.0,
                 "max": 25.0,
                 "type": "minecraft:uniform"
               },
@@ -339,7 +339,7 @@
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
-                "min": 0.0,
+                "min": -15.0,
                 "max": 25.0,
                 "type": "minecraft:uniform"
               },
@@ -350,12 +350,12 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 2,
+          "weight": 1,
           "functions": [
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
-                "min": 0.0,
+                "min": -15.0,
                 "max": 25.0,
                 "type": "minecraft:uniform"
               },
@@ -366,12 +366,12 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 2,
+          "weight": 1,
           "functions": [
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
-                "min": 0.0,
+                "min": -15.0,
                 "max": 25.0,
                 "type": "minecraft:uniform"
               },
@@ -382,12 +382,12 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 2,
+          "weight": 1,
           "functions": [
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
-                "min": 0.0,
+                "min": -15.0,
                 "max": 25.0,
                 "type": "minecraft:uniform"
               },
@@ -398,12 +398,12 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 2,
+          "weight": 1,
           "functions": [
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
-                "min": 0.0,
+                "min": -15.0,
                 "max": 25.0,
                 "type": "minecraft:uniform"
               },
@@ -414,12 +414,12 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 3,
+          "weight": 2,
           "functions": [
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
-                "min": 0.0,
+                "min": -15.0,
                 "max": 25.0,
                 "type": "minecraft:uniform"
               },
@@ -430,12 +430,12 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 3,
+          "weight": 2,
           "functions": [
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
-                "min": 0.0,
+                "min": -15.0,
                 "max": 25.0,
                 "type": "minecraft:uniform"
               },
@@ -446,12 +446,12 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 3,
+          "weight": 2,
           "functions": [
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
-                "min": 0.0,
+                "min": -15.0,
                 "max": 25.0,
                 "type": "minecraft:uniform"
               },
@@ -462,12 +462,12 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 3,
+          "weight": 2,
           "functions": [
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
-                "min": 0.0,
+                "min": -15.0,
                 "max": 25.0,
                 "type": "minecraft:uniform"
               },
@@ -483,7 +483,7 @@
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
-                "min": 0.0,
+                "min": -15.0,
                 "max": 25.0,
                 "type": "minecraft:uniform"
               },
@@ -499,7 +499,7 @@
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
-                "min": 0.0,
+                "min": -15.0,
                 "max": 25.0,
                 "type": "minecraft:uniform"
               },
@@ -515,7 +515,7 @@
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
-                "min": 0.0,
+                "min": -15.0,
                 "max": 25.0,
                 "type": "minecraft:uniform"
               },
