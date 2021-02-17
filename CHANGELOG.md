@@ -14,7 +14,7 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Added extremely rare Nether Cities to all Nether biomes! Beware of the Blazes! Maps to this city are very rare but can be found in Nether Ruins or Crimson/Warped Cartographer chests. 
 
 ##### Ruins:
-- Added Nether Ruins to all Nether biomes! They are a great source of maps to undiscovered Bastion Remnants!
+- Added Nether Ruins to all Nether biomes! They are a great source of maps to undiscovered Bastion Remnants! Special thanks to miguelforge for the design!
 
 ##### Mansions:
 - Added Birch Mansions! They are rarer than vanilla mansion to try and not crowd out the world.
