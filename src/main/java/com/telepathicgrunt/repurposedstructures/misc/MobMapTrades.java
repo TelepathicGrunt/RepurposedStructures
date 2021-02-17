@@ -18,6 +18,12 @@ public class MobMapTrades {
             //level 4 trades
             event.getTrades().get(4).add(new VillagerTrades.EmeraldForMapTrade(14, RSStructures.JUNGLE_FORTRESS.get(), MapDecoration.Type.BANNER_GREEN, 12, 10));
             event.getTrades().get(4).add(new VillagerTrades.EmeraldForMapTrade(14, RSStructures.MANSION_BIRCH.get(), MapDecoration.Type.BANNER_GREEN, 12, 10));
+            event.getTrades().get(4).add(new VillagerTrades.EmeraldForMapTrade(14, RSStructures.MANSION_DESERT.get(), MapDecoration.Type.BANNER_GREEN, 12, 10));
+            event.getTrades().get(4).add(new VillagerTrades.EmeraldForMapTrade(14, RSStructures.MANSION_JUNGLE.get(), MapDecoration.Type.BANNER_GREEN, 12, 10));
+            event.getTrades().get(4).add(new VillagerTrades.EmeraldForMapTrade(14, RSStructures.MANSION_OAK.get(), MapDecoration.Type.BANNER_GREEN, 12, 10));
+            event.getTrades().get(4).add(new VillagerTrades.EmeraldForMapTrade(14, RSStructures.MANSION_SAVANNA.get(), MapDecoration.Type.BANNER_GREEN, 12, 10));
+            event.getTrades().get(4).add(new VillagerTrades.EmeraldForMapTrade(14, RSStructures.MANSION_SNOWY.get(), MapDecoration.Type.BANNER_GREEN, 12, 10));
+            event.getTrades().get(4).add(new VillagerTrades.EmeraldForMapTrade(14, RSStructures.MANSION_TAIGA.get(), MapDecoration.Type.BANNER_GREEN, 12, 10));
         }
     }
 }
