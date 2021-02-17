@@ -20,9 +20,12 @@ public class MobMapTrades {
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 4, factories -> {
             factories.add(new TradeOffers.SellMapFactory(14, RSStructures.JUNGLE_FORTRESS, MapIcon.Type.BANNER_GREEN, 12, 10));
             factories.add(new TradeOffers.SellMapFactory(14, RSStructures.MANSION_BIRCH, MapIcon.Type.MANSION, 12, 10));
+            factories.add(new TradeOffers.SellMapFactory(14, RSStructures.MANSION_DESERT, MapIcon.Type.MANSION, 12, 10));
+            factories.add(new TradeOffers.SellMapFactory(14, RSStructures.MANSION_JUNGLE, MapIcon.Type.MANSION, 12, 10));
+            factories.add(new TradeOffers.SellMapFactory(14, RSStructures.MANSION_OAK, MapIcon.Type.MANSION, 12, 10));
+            factories.add(new TradeOffers.SellMapFactory(14, RSStructures.MANSION_SAVANNA, MapIcon.Type.MANSION, 12, 10));
+            factories.add(new TradeOffers.SellMapFactory(14, RSStructures.MANSION_SNOWY, MapIcon.Type.MANSION, 12, 10));
+            factories.add(new TradeOffers.SellMapFactory(14, RSStructures.MANSION_TAIGA, MapIcon.Type.MANSION, 12, 10));
         });
-
-        // Piglins
-        // .......
     }
 }
