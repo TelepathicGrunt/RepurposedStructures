@@ -89,6 +89,10 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Nerfed Golden Swords enchantment level range from 20-39 to 10-30 in all chest's loottable for temples.
 
+- Badlands Pyramids now properly create pillar of Red Sandstone in parity to vanilla's Desert Temple.
+
+- Rounded the bottom of Nether Pyramids so they look better even when the Nether's caves and ravines carves out the land from under the pyramid.
+
 ##### Dungeons:
 - Nerfed all golden tools and armor enchantment level range from 15-30 to 5-25 in Nether Dungeon chest's loottable.
 
