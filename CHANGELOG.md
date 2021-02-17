@@ -44,6 +44,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Bumped default spawnrate of Birch, Jungle, Giant Tree Taiga, Desert, Badlands, Snowy, Oak, Taiga Outposts from 41/43 to 50 to make them slightly more rare.
 
+- Fixed all Outposts spawning too close to vanilla villages.
+
 ##### Pyramids:
 - Added Snowy Pyramids to snowy biomes!
 
@@ -65,7 +67,7 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Bumped default spawnrate of Jungle Fortresses from 32 to 50 to make them more rare.
 
-- Nerfed Jungle Fortress loottables to pick less loot and diamond gear gets lower enchantment levels
+- Nerfed Jungle Fortress loottables to pick less loot and diamond armor is removed. Leather armor is added instead.
 
 ##### Shipwrecks:
 - Nether Bricks Shipwrecks will only be flying in any biome with "soul" in the name.
@@ -114,7 +116,7 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Fixed structure pieces being registered under minecraft's namespace. 
   You may see a bit of logspam about unknown piece ID in existing worlds but this will not break your world.
   It means old structure on edges of unexplored chunks might be cutoff. Just ignore the logspam.
-
+  
 - Cleaned up en_us.json file to be nearly alphabetical. 
 
 

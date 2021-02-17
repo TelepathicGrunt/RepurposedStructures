@@ -26,6 +26,7 @@ public class RSStructureTagMap {
         RUINS,
         MANSION,
         WITCH_HUTS,
+        CITIES,
         
         // Structure sets to avoid for some structures
         OVERWORLD_OUTPOST,
@@ -110,12 +111,12 @@ public class RSStructureTagMap {
 
         addTags(Structure.FORTRESS, Stream.of(STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
         addTags(Structure.BASTION_REMNANT, Stream.of(STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
-        addTags(Structure.VILLAGE, Stream.of(STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
+        addTags(Structure.VILLAGE, Stream.of(STRUCTURE_TAGS.VILLAGE).collect(Collectors.toSet()));
 
         addTags(RSStructures.JUNGLE_FORTRESS.get(), Stream.of(STRUCTURE_TAGS.APPEND_WITH_NATURAL_MOBS, STRUCTURE_TAGS.FORTRESS).collect(Collectors.toSet()));
         addTags(RSStructures.RUINED_PORTAL_END.get(), Stream.of(STRUCTURE_TAGS.RUINED_PORTAL).collect(Collectors.toSet()));
         addTags(RSStructures.RUINS_NETHER.get(), Stream.of(STRUCTURE_TAGS.RUINS).collect(Collectors.toSet()));
-        addTags(RSStructures.CITY_NETHER.get(), Stream.of(STRUCTURE_TAGS.REPLACE_NATURAL_MOBS, STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
+        addTags(RSStructures.CITY_NETHER.get(), Stream.of(STRUCTURE_TAGS.CITIES, STRUCTURE_TAGS.REPLACE_NATURAL_MOBS, STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
 
         addTags(RSStructures.MANSION_BIRCH.get(), Stream.of(STRUCTURE_TAGS.MANSION, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
         addTags(RSStructures.MANSION_JUNGLE.get(), Stream.of(STRUCTURE_TAGS.MANSION, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
