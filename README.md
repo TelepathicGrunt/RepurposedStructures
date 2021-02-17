@@ -1,26 +1,12 @@
 <p><img src="https://i.imgur.com/lD8Pa6U.png" alt="Picture that shows the title of this mod with a Stonebrick Fortress during sunset behind the text" width="1519" height="516" /></p>
-<h2 style="text-align: center;"><strong><span style="font-size: 36px; color: #009611;">CURRENTLY FOR 1.16.3 MC</span></strong></h2>
+<h2 style="text-align: center;"><strong><span style="font-size: 36px; color: #009611;">CURRENTLY FOR 1.16.5 MC</span></strong></h2>
 <p style="text-align: center;"><span style="font-size: 14px;"><strong><span style="color: #009611;">Works serverside too so vanilla clients can connect!</span></strong></span></p>
-<h2 style="text-align: center;"><span style="font-size: 14px;"><strong><span style="color: #009611;">CLICK HERE FOR 1.16.3 FORGE VERSION:&nbsp;</span></strong></span></h2>
+<h2 style="text-align: center;"><span style="font-size: 14px;"><strong><span style="color: #009611;">CLICK HERE FOR 1.16.5 FORGE VERSION:&nbsp;</span></strong></span></h2>
 <p style="text-align: center;"><span style="font-size: 14px;"><strong><span style="color: #009611;"><a href="https://www.curseforge.com/minecraft/mc-mods/repurposed-structures">https://www.curseforge.com/minecraft/mc-mods/repurposed-structures</a></span></strong></span></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;7 new Outposts!&nbsp;</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>End themed Ruined Portal!</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>And a massive amount of bugfixes! </strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>(See changelog)</strong></b></span></em></p>
-<p style="text-align: center;">&nbsp;</p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>NOTE: Newest update changed many </strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>config names so be sure to change the new </strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>config options if you changed them previously.</strong></b></span></em></p>
-<p style="text-align: center;">&nbsp;</p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>Also, Advancements have English translations by </strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>default&nbsp;</strong></b></span></em><em><span style="font-size: 14px;"><b><strong>for clients when on server. You would need</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>the translation datapack if you want clients to have</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>different languages for advancements. See Datapack</strong></b></span></em></p>
-<p style="text-align: center;"><em><span style="font-size: 14px;"><b><strong>section at bottom for more info.</strong></b></span></em></p>
-<p style="text-align: center;">&nbsp;&nbsp;</p>
-<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;Added Mansions, Nether City, <br />Nether Ruins, Witch Huts, and Snowy Pyramid!<br />Plus a massive amount of bugfixes!<br />Check out the changelog for more info.<br />Also, report any bugs or issue you find!</strong></b></span></em></p>
+<p style="text-align: center;">&nbsp;&nbsp;&nbsp;</p>
 <p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;"><span style="font-size: 18px;"><strong>______________________________________________________________________________</strong></span></p>
 <p style="text-align: center;">&nbsp;</p>
@@ -28,9 +14,9 @@
 <p style="text-align: center;"><span style="font-size: 14px;">&nbsp;</span></p>
 <p style="text-align: left;"><span style="font-size: 14px;">&nbsp;<strong> &nbsp; Repurposed Structures is a mod about taking existing vanilla features and structures and creating new variants or modifications to them! Originally, most of the structures and features in this mod was actually made for my Ultra Amplified Dimension mod. but then I realized these features and structures would look great in the Overworld as well so I decided to take those structures and features and split them into their own mod and continue to add MORE biome variants of vanilla structures! And over time, some other people even help contribute more vanilla styled structures!</strong></span></p>
 <p style="text-align: left;">&nbsp;</p>
-<p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; Currently, this mod creates a Nether Fortresses using Stonebrick blocks and spawns it in Jungles, Dungeons and Mineshafts now has more variants to match whatever biome they are in, 9 new biome variants of Villages, 3 new temples variants, 2 new biome variants of Igloos, 10 new Pillager Outposts, 4 new types of Shipwrecks, Nether Strongholds and Stonebrick Strongholds (replaces vanilla Strongholds) have a configurable size and has more Silverfish spawners, Giant Tree/Spruce Taiga Hills biomes has giant ore filled boulders that could have Diamond ore if you are extremely lucky, Taiga Mountain biomes now has tiny boulders, Swamps now has a new 2x2 swamp-like tree, and several new Desert Well variations were made for other biomes (Also, loot for Dungeons and Mineshafts are tailored to their variant as well so start exploring!)</strong></span></p>
+<p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; Currently, this mod creates a Nether Fortresses using Stonebrick blocks and spawns it in Jungles, Dungeons and Mineshafts now has more variants to match whatever biome they are in, 10 new biome variants of Villages, 7 new temples variants, 2 new biome variants of Igloos, 12 new Pillager Outposts, 4 new types of Shipwrecks, a Nether themed Ocean Ruins, a Nether themed End City, 7 new Mansion types, 5 new Witch Huts types, Nether Strongholds and Stonebrick Strongholds (replaces vanilla Strongholds) have a configurable size and has more Silverfish spawners, Giant Tree/Spruce Taiga Hills biomes has giant ore filled boulders that could have Diamond ore if you are extremely lucky, Taiga Mountain biomes now has tiny boulders, and several new Desert Well variations were made for other biomes (Also, loot for Dungeons and Mineshafts are tailored to their variant as well so start exploring!)</strong></span></p>
 <p style="text-align: left;">&nbsp;</p>
-<p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; If you have trouble finding one of these structures, just start typing `<em>/locate repu</em>` into the chat and you should see my structures pop up! For example, typing `<em>/locate repurposed_structures:stronghold_stonebrick</em>` will find the closest RS's Stonebrick Stronghold to your location. :) All structures can be found easily from anywhere!</strong></span></p>
+<p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; If you have trouble finding one of these structures, just start typing `<em>/locate repu</em>` into the chat and you should see my structures pop up! For example, typing `<span style="color: #993300; font-size: 18px;"><em>/locate repurposed_structures:stronghold_stonebrick</em></span>` will find the closest RS's Stonebrick Stronghold to your location. :) All structures can be found easily from anywhere!</strong></span></p>
 <p>&nbsp;</p>
 <p style="text-align: left;"><span style="font-size: 14px;">&nbsp;</span></p>
 <p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; You can use this mod in a modpack or download and modify the source code. It is all under LGPL (a license) so you can do whatever you want as long as you make your mod's codebase also open sourced. Also, be sure to check out the images page for several screenshots of what the world looks like!&nbsp;And also, the section below this one talks about how to configure everything as I want players to have the ability to change things to their preferences.</strong></span></p>
@@ -38,22 +24,25 @@
 <p style="text-align: left;">&nbsp;</p>
 <p style="text-align: left;"><span style="text-decoration: underline; font-size: 18px;"><strong>Extra Details about everything in this mod!</strong></span></p>
 <p>&nbsp;</p>
+<div class="spoiler">
 <p><strong><b>Village Variants</b></strong></p>
 <div class="spoiler">
 <p><strong><b>Note: Some village houses will have custom loot to match their biome better but nothing too crazy for balance reasons. The Nether based villages are full of fully armored Piglins and have fully unique chest loot.</b></strong></p>
 <p>&nbsp;</p>
 <p><strong><b>-Badlands</b></strong></p>
-<p><strong><b><br />-Jungle</b></strong></p>
 <p>&nbsp;</p>
-<p><strong><b>-Giant Taiga</b></strong></p>
+<p><strong><b>-Birch</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>-Dark Forest</b></strong></p>
+<p><strong><b><br />-Jungle</b></strong></p>
 <p>&nbsp;</p>
 <p><strong><b>-Swamp</b></strong></p>
 <p>&nbsp;</p>
-<p><strong><b>-Dark Forest</b></strong></p>
-<p>&nbsp;</p>
 <p><strong><b>-Mountains</b></strong></p>
 <p>&nbsp;</p>
-<p><strong><b>-Birch</b></strong></p>
+<p><strong><b>-Giant Taiga</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>-Oak</b></strong></p>
 <p><strong><b>&nbsp;</b></strong></p>
 <p><strong><b>-Crimson</b></strong></p>
 <p>&nbsp;</p>
@@ -194,29 +183,221 @@
 <p>&nbsp;</p>
 <p><strong>Mineshafts</strong></p>
 <div class="spoiler">
-<p><strong><b>Icy Mineshafts has Stray Spawners</b></strong></p>
+<p><strong><b>All other Mineshafts has Cave Spider Spawner unless otherwise specified. And chest loot is specifically tailored to every Mineshaft with some having very unique loot and others having loot that's barely different.</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>-Birch Mineshafts</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>-Desert Mineshafts</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>-Jungle Mineshafts</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>-Savanna Mineshafts</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>-Stone Mineshafts</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>-Taiga Mineshafts</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>-Swamp Or Dark Forest Mineshafts</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>-Icy Mineshafts (has Stray Spawners)</b></strong></p>
 <p><strong>&nbsp;</strong></p>
-<p><strong>Ocean Mineshafts has Drowned Spawners</strong></p>
+<p><strong>-Ocean Mineshafts (has Drowned Spawners)</strong></p>
 <p>&nbsp;</p>
-<p><strong>Nether Mineshafts has Blaze Spawners</strong></p>
+<p><strong>-Nether Mineshafts (has Blaze Spawners)</strong></p>
 <p>&nbsp;</p>
-<p><strong>End Mineshafts has Endermite Spawners (Will also naturally spawn Endermites over time)<br /><br />All other Mineshafts has Cave Spider Spawner. And chest loot is specifically tailored to every Mineshaft with some having very unique loot and others having loot that's barely different.</strong></p>
+<p><strong>-Warped Mineshafts (has Blaze Spawners)</strong></p>
+<p>&nbsp;</p>
+<p><strong>-Crimson Mineshafts (has Blaze Spawners)</strong></p>
+<p>&nbsp;</p>
+<p><strong>-End Mineshafts (has Endermite Spawners) and will also naturally spawn Endermites over time)</strong></p>
+</div>
+<p>&nbsp;</p>
+<p><strong>Mansions</strong></p>
+<div class="spoiler">
+<p><strong><b>Chest loot is using a barely modified Woodland Mansion chest loot with most changes being the food. Mansion spawnrates are set to be very rare by default as to not clutter your world. This can be changed in configs.</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>Cartographers may sell maps to these mansions in their level 4 trades</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>-Birch Mansion</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>-Taiga Mansion</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>-Jungle Mansion</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>-Oak Mansion</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>-Savanna Mansion</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>-Desert Mansion</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>-Snowy Mansion</b></strong></p>
+</div>
+<p>&nbsp;</p>
+<p><strong>Nether City (Nether themed End City without the ship)</strong></p>
+<div class="spoiler">
+<p><strong>Will spawn Blazes and Wither Skeletons very rarely inside the city over time.&nbsp;</strong></p>
+<p>&nbsp;</p>
+<p><strong>Chest loot</strong></p>
+<p><strong><b>&nbsp;Can contain the following in order from most common to least common</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>-Magma Block</b></strong></p>
+<p><strong><b>-Magma Cream</b></strong></p>
+<p><strong><b>-Blaze Rod</b></strong></p>
+<p><strong><b>-Fire Charge</b></strong></p>
+<p><strong><b>-Gold Ingot</b></strong></p>
+<p><strong><b>-Golden Sword (lvl 35-45 enchanted)</b></strong></p>
+<p><strong><b>-Golden Axe (lvl 35-45 enchanted)</b></strong></p>
+<p><strong><b>-Golden Hoe (lvl 35-45 enchanted)</b></strong></p>
+<p><strong><b>-Golden Shovel (lvl 35-45 enchanted)</b></strong></p>
+<p><strong><b>-Golden Pickaxe (lvl 35-45 enchanted)</b></strong></p>
+<p><strong><b>-Golden Boots (lvl 35-45 enchanted)</b></strong></p>
+<p><strong><b>-Golden Helmet (lvl 35-45 enchanted)</b></strong></p>
+<p><strong><b>-Golden Leggings (lvl 35-45 enchanted)</b></strong></p>
+<p><strong><b>-Flint and Steel</b></strong></p>
+<p><strong><b>-Firework Star that is flickering Black with Red Trail and does cone shape</b></strong></p>
+<p><strong><b>-Firework Star that is flickering Red with Black Trail and does cone shape</b></strong></p>
+<p><strong><b>-Golden Horse Armor</b></strong></p>
+<p><strong><b>-Gold Ingot</b></strong></p>
+<p><strong><b>-Gold Nugget</b></strong></p>
+<p><strong><b>-Bastion Remnant Treasure Map</b></strong></p>
+</div>
+<p>&nbsp;</p>
+<p><strong>Nether Ruins</strong></p>
+<div class="spoiler">
+<p><strong>Chest loot</strong></p>
+<p><strong><b>&nbsp;Can contain the following in order from most common to least common</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>-Warped Fungus on a Stick</b></strong></p>
+<p><strong><b>-Book</b></strong></p>
+<p><strong><b>-Gold Nugget</b></strong></p>
+<p><strong><b>-Leather Helmet</b></strong></p>
+<p><strong><b>-Leather Chestplate</b></strong></p>
+<p><strong><b>-Leather Leggings</b></strong></p>
+<p><strong><b>-Leather Boots</b></strong></p>
+<p><strong><b>-Coal</b></strong></p>
+<p><strong><b>-Rotten Flesh</b></strong></p>
+<p><strong><b>-Golden Apple</b></strong></p>
+<p><strong><b>-Magma Cream</b></strong></p>
+<p><strong><b>-Ghast Tear</b></strong></p>
+<p><strong><b>-Bastion Remnant Treasure Map</b></strong></p>
+<p><strong><b>-Golden Axe</b></strong></p>
+<p><strong><b>-Quartz</b></strong></p>
+<p><strong><b>-Golden Helmet</b></strong></p>
+<p><strong><b>-Golden Chestplate</b></strong></p>
+<p><strong><b>-Nether City Treasure Map</b></strong></p>
 </div>
 <p>&nbsp;</p>
 <p><strong>Jungle Fortress</strong></p>
 <div class="spoiler">
-<p><strong>(Can naturally spawn Wither Skeletons over time but it is extremely rare)</strong></p>
+<p><strong>(Can naturally spawn Wither Skeletons over time but it is extremely rare. May spawn Drowned upon first generation with some armor in the flooded hallways)</strong></p>
+<p>&nbsp;</p>
+<p><strong>Will have 2 Silverfish Mob Spawners.</strong></p>
+<p>&nbsp;</p>
+<p><strong>Chest loot</strong></p>
+<p><strong><b>&nbsp;Can contain the following in order from most common to least common</b></strong></p>
 <p>&nbsp;</p>
 <p><strong>Spawner Chests</strong></p>
-<p><strong>100% : End City loot</strong></p>
-<p>&nbsp;</p>
-<p><strong>2 Mob Spawners</strong></p>
-<p><strong>100% : Silverfish</strong></p>
+<p><strong><b>&nbsp;- Iron Ingot</b></strong></p>
+<p><strong><b>&nbsp;- Gold ingot</b></strong></p>
+<p><strong><b>&nbsp;- Emerald</b></strong></p>
+<p><strong><b>&nbsp;- Iron Bars</b></strong></p>
+<p><strong><b>&nbsp;- Cobweb</b></strong></p>
+<p><strong><b>&nbsp;- Bone</b></strong></p>
+<p><strong><b>&nbsp;- Vine</b></strong></p>
+<p><strong><b>&nbsp;- Cocoa Beans</b></strong></p>
+<p><strong><b>&nbsp;- Saddle</b></strong></p>
+<p><strong><b>&nbsp;- Leather Helmet</b></strong></p>
+<p><strong><b>&nbsp;- Leather Chestplate</b></strong></p>
+<p><strong><b>&nbsp;- Leather Leggings</b></strong></p>
+<p><strong><b>&nbsp;- Leather Boots</b></strong></p>
+<p><strong><b>&nbsp;- Stone Bricks</b></strong></p>
+<p><strong><b>&nbsp;- Mossy Stone Bricks</b></strong></p>
+<p><strong><b>&nbsp;- Iron Sword</b></strong></p>
+<p><strong><b>&nbsp;- Chainmail Helmet</b></strong></p>
+<p><strong><b>&nbsp;- Chainmail Chestplate</b></strong></p>
+<p><strong><b>&nbsp;- Chainmail Leggings</b></strong></p>
+<p><strong><b>&nbsp;- Chainmail Boots</b></strong></p>
+<p><strong><b>&nbsp;- Iron Pickaxe</b></strong></p>
+<p><strong><b>&nbsp;- Iron Shovel</b></strong></p>
+<p><strong><b>&nbsp;- Diamonds</b></strong></p>
+<p><strong><b>&nbsp;- Diamond Sword</b></strong></p>
+<p><strong><b>&nbsp;- Iron Helmet</b></strong></p>
+<p><strong><b>&nbsp;- Iron Chestplate</b></strong></p>
+<p><strong><b>&nbsp;- Iron Leggings</b></strong></p>
+<p><strong><b>&nbsp;- Iron Boots</b></strong></p>
+<p><strong><b>&nbsp;- Diamond Pickaxe</b></strong></p>
+<p><strong><b>&nbsp;- Diamond Shovel</b></strong></p>
 <p><span style="font-size: 1.2rem;">&nbsp;</span></p>
 <p><strong>Hallway Chests</strong></p>
-<p><strong>38% : Village Weaponsmith loot</strong></p>
-<p><strong>38% : Village Armorer loot</strong></p>
-<p><strong>24% : Jungle Temple loot</strong></p>
+<p><strong><b>&nbsp;- Stone Sword</b></strong></p>
+<p><strong><b>&nbsp;- Iron Ingot</b></strong></p>
+<p><strong><b>&nbsp;- Cobweb</b></strong></p>
+<p><strong><b>&nbsp;- Bone</b></strong></p>
+<p><strong><b>&nbsp;- Vine</b></strong></p>
+<p><strong><b>&nbsp;- Cocoa Beans</b></strong></p>
+<p><strong><b>&nbsp;- Iron Bars</b></strong></p>
+<p><strong><b>&nbsp;- Leather Helmet</b></strong></p>
+<p><strong><b>&nbsp;- Leather Chestplate</b></strong></p>
+<p><strong><b>&nbsp;- Leather Leggings</b></strong></p>
+<p><strong><b>&nbsp;- Leather Boots</b></strong></p>
+<p><strong><b>&nbsp;- Chainmail Helmet</b></strong></p>
+<p><strong><b>&nbsp;- Chainmail Chestplate</b></strong></p>
+<p><strong><b>&nbsp;- Chainmail Leggings</b></strong></p>
+<p><strong><b>&nbsp;- Chainmail Boots</b></strong></p>
+<p><strong><b>&nbsp;- Iron Sword</b></strong></p>
+<p><strong><b>&nbsp;- Stone Bricks</b></strong></p>
+<p><strong><b>&nbsp;- Mossy Stone Bricks</b></strong></p>
+<p><strong><b>&nbsp;- Emerald</b></strong></p>
+<p><strong><b>&nbsp;- Bread</b></strong></p>
+<p><strong><b>&nbsp;- Bamboo</b></strong></p>
+<p><strong><b>&nbsp;- Stone Pickaxe</b></strong></p>
+<p><strong><b>&nbsp;- Stone Shovel</b></strong></p>
+<p><strong><b>&nbsp;- Iron Helmet</b></strong></p>
+<p><strong><b>&nbsp;- Iron Chestplate</b></strong></p>
+<p><strong><b>&nbsp;- Iron Leggings</b></strong></p>
+<p><strong><b>&nbsp;- Iron Boots</b></strong></p>
+<p><strong><b>&nbsp;- Chain</b></strong></p>
+<p><strong><b>&nbsp;- Saddle</b></strong></p>
+<p><strong><b>&nbsp;- Iron Pickaxe</b></strong></p>
+<p><strong><b>&nbsp;- Iron Shovel</b></strong></p>
+<p><strong><b>&nbsp;- Diamonds</b></strong></p>
+<p>&nbsp;</p>
+<p><strong>Central Room Chests</strong></p>
+<p><strong><b>&nbsp;- Gold Ingot</b></strong></p>
+<p><strong><b>&nbsp;- Iron Ingot</b></strong></p>
+<p><strong><b>&nbsp;- Cobweb</b></strong></p>
+<p><strong><b>&nbsp;- Bone</b></strong></p>
+<p><strong><b>&nbsp;- Vine</b></strong></p>
+<p><strong><b>&nbsp;- Chain</b></strong></p>
+<p><strong><b>&nbsp;- Stone Bricks</b></strong></p>
+<p><strong><b>&nbsp;- Saddle</b></strong></p>
+<p><strong><b>&nbsp;- Bread</b></strong></p>
+<p><strong><b>&nbsp;- Bamboo</b></strong></p>
+<p><strong><b>&nbsp;- Cocoa Beans</b></strong></p>
+<p><strong><b>&nbsp;- Emerald</b></strong></p>
+<p><strong><b>&nbsp;- Iron Bars</b></strong></p>
+<p><strong><b>&nbsp;- Stone Sword</b></strong></p>
+<p><strong><b>&nbsp;- Stone Pickaxe</b></strong></p>
+<p><strong><b>&nbsp;- Stone Shovel</b></strong></p>
+<p><strong><b>&nbsp;- Diamonds</b></strong></p>
+<p><strong><b>&nbsp;- Leather Helmet</b></strong></p>
+<p><strong><b>&nbsp;- Leather Chestplate</b></strong></p>
+<p><strong><b>&nbsp;- Leather Leggings</b></strong></p>
+<p><strong><b>&nbsp;- Leather Boots</b></strong></p>
+<p><strong><b>&nbsp;- Iron Sword</b></strong></p>
+<p><strong><b>&nbsp;- Iron Pickaxe</b></strong></p>
+<p><strong><b>&nbsp;- Iron Shovel</b></strong></p>
+<p><strong><b>&nbsp;- Chainmail Helmet</b></strong></p>
+<p><strong><b>&nbsp;- Chainmail Chestplate</b></strong></p>
+<p><strong><b>&nbsp;- Chainmail Leggings</b></strong></p>
+<p><strong><b>&nbsp;- Chainmail Boots</b></strong></p>
+<p><strong><b>&nbsp;- Diamond Sword</b></strong></p>
+<p><strong><b>&nbsp;- Iron Helmet</b></strong></p>
+<p><strong><b>&nbsp;- Iron Chestplate</b></strong></p>
+<p><strong><b>&nbsp;- Iron Leggings</b></strong></p>
+<p><strong><b>&nbsp;- Iron Boots</b></strong></p>
+<p><strong><b>&nbsp;- Diamond Pickaxe</b></strong></p>
+<p><strong><b>&nbsp;- Diamond Shovel</b></strong></p>
 </div>
 <p>&nbsp;</p>
 <p><strong>End Ruined Portals</strong></p>
@@ -262,9 +443,29 @@
 <div class="spoiler">
 <p><strong>&nbsp;All Overworld Repurposed Structures Outpost will spawn Pillagers over time. And chest loot is nearly identical to the normal Pillager Outpost loot but some changes has been done to make the loot fit the biome theme they are in.</strong></p>
 <p>&nbsp;</p>
-<p><strong><b>Snowy Outposts can have trapped Snow Golems as well.&nbsp;</b></strong></p>
+<p>&nbsp;</p>
 <p>&nbsp;</p>
 <p><strong><b>Some of the "aged" version of the Outpost towers are more unique in their decay or aged looks. This is based on how Vanilla Outpost tower can be either normal or "overgrown" with Mossy Cobblestone.&nbsp;&nbsp;</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>-Birch Outposts </b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>-Desert Outposts </b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>-Jungle Outposts </b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>-Giant Tree Taiga Outposts </b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>-Stone Mineshafts</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>-Badlands Mineshafts</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>-Taiga Outposts</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>-Oak Mineshafts</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>-Icy Mineshafts</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>-Snowy Outposts (can have trapped Snow Golems as well)</b></strong></p>
 </div>
 <p>&nbsp;</p>
 <p><strong>Nether Brick Outpost</strong></p>
@@ -500,7 +701,6 @@
 <div class="spoiler">
 <p><strong>Chests loot</strong></p>
 <p><strong><b>Can contain the following in order from most common to least common:</b></strong></p>
-<p>&nbsp;</p>
 <p><strong><b>&nbsp;- Redstone</b></strong></p>
 <p><strong><b>&nbsp;- Lvl 30 Enchanted Stone Swords</b></strong></p>
 <p><strong><b>&nbsp;- Quartz</b></strong></p>
@@ -516,8 +716,15 @@
 <p><strong><b>&nbsp;- Gold Blocks</b></strong></p>
 <p><strong><b>&nbsp;- Quartz Blocks</b></strong></p>
 <p><strong><b>&nbsp;- Netherite Scraps</b></strong></p>
-<p>&nbsp;</p>
 <p><strong>Has two hidden Zombified Piglin spawners&nbsp;</strong></p>
+</div>
+<p>&nbsp;</p>
+<p><strong>Snowy Pyramid loot</strong></p>
+<div class="spoiler">
+<p><strong>Chests loot</strong></p>
+<p><strong>Uses barely modified Desert Temple loot. (Has Snow Balls, Ice, and&nbsp;Lapis Lazuli instead)</strong></p>
+<p>&nbsp;</p>
+<p><strong>Has two hidden Stray spawners&nbsp;</strong></p>
 </div>
 </div>
 <p>&nbsp;</p>
@@ -777,6 +984,21 @@
 </div>
 </div>
 <p>&nbsp;</p>
+<p><strong>Witch Huts</strong></p>
+<div class="spoiler">
+<p><strong><b>Will spawn Witches and Cats over time like vanilla Witch Huts.</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>- Oak</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>-Taiga</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>- Birch</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>- Dark Forest</b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>- Giant Tree Taiga</b></strong></p>
+</div>
+<p>&nbsp;</p>
 <p><strong>Grassy Igloo and Stone Igloo loot</strong></p>
 <div class="spoiler">
 <p><strong><b>The basement's chest and Brewing Stand uses the normal Igloo's.</b></strong></p>
@@ -834,11 +1056,16 @@
 <p><strong><b>Each of the 5 blocks inside has a 8% chance of being a Chiseled Quartz block and a 50% chance of being a Quartz Ore</b></strong></p>
 </div>
 </div>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 <p><strong>&nbsp;</strong></p>
 <p><span style="font-size: 18px;"><strong>______________________________________________________________________________</strong></span></p>
 <p><span style="font-size: 18px;">&nbsp;</span></p>
 <h2><strong><span style="font-size: 24px; color: #009611;">HOW CAN I CONFIGURE THIS MOD?</span></strong></h2>
 <p><span style="font-size: 14px;">&nbsp;</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; You can configure this mod with either datapacks or the configs! See the "PRE-MADE DATAPACKS" section further down for already made datapacks that do stuff such as turning off advancements!&nbsp;</span></p>
+<p>&nbsp;</p>
 <p><span style="font-size: 14px;">&nbsp;&nbsp;<strong> &nbsp;You can change the configs by using Mod Menu mod with this mod. Just go into my mod in the list and click the gear. Just be sure to restart you game when you're finished changing configs! If you want to find this mod's config file directly, go into the config folder that is above the mods folder and there will be 1 config file for this mod. Then exit/restart Minecraft for all changes to take effect. Do note that the config will affect this mod for all worlds so keep that in mind!</strong></span></p>
 <p>&nbsp;</p>
 <p><strong>&nbsp; &nbsp; Right now, there are lots of config options. The big ones that you may be interested in are the <span style="font-size: 14px;">add____ToModdedBiomes</span> config entries. Turning this on will make the config add the features or structures to any modded biomes with the correct category. For example, if you turn on <span style="font-size: 14px;">addMineshaftsToModdedBiomes</span> and you have a mod that adds a new kind of Desert biome in any dimension, then that biome will now spawn Desert themed Mineshafts in it!</strong></p>
@@ -851,37 +1078,20 @@
 <p>&nbsp;</p>
 <p><strong>&nbsp; &nbsp; &nbsp;For Strongholds, the config lets you change the size of the Stronghold, their spawnrates, how many Stonebrick blocks are infested with Silverfish, turn on or off the additional Silverfish spawners, or disable the creation of loot chests. Change how much hanging chains spawns in them. And you can change the maximum and minimum y value that both normal and nether strongholds can start their generation at.&nbsp;</strong></p>
 <p>&nbsp;</p>
-<p><strong>&nbsp; &nbsp; &nbsp;And lastly, the rest of the features (2x2 swamp tree and boulders) can be enabled/disabled individually.&nbsp;&nbsp;</strong></p>
+<p><strong>&nbsp; &nbsp; &nbsp;And lastly, the rest of the features like boulders can be enabled/disabled individually.&nbsp;&nbsp;</strong></p>
 <p>&nbsp;</p>
 <p>----</p>
 <p>&nbsp;</p>
-<p><strong>This mod also uses tags so you can make datapack to customize this mod further!&nbsp;All the tags are under data.repurposed_structures.tags.blocks and you can specify more than one block. The json files you can override are the following:</strong></p>
-<div class="spoiler">
-<p><strong><span style="font-size: 14px;">badlands_well_ores.json</span> - will randomly pick blocks when generating a rare block in the well.</strong></p>
+<p><strong>This mod also uses tags so you can make datapack to customize this mod further!&nbsp;All the tags are under data.repurposed_structures.tags.blocks and you can specify more than one block. The json tag files you can override can be found at:<br /><a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/tags/blocks">https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/tags/blocks</a> <br /></strong></p>
 <p>&nbsp;</p>
-<p><strong><span style="font-size: 14px;">forest_well_ores.json</span> - will randomly pick blocks when generating a rare block in the well.</strong></p>
-<p>&nbsp;</p>
-<p><strong><span style="font-size: 14px;">mossy_well_ores.json</span> - will randomly pick blocks when generating a rare block in the well.</strong></p>
-<p>&nbsp;</p>
-<p><strong><span style="font-size: 14px;">nether_well_ores.json&nbsp;</span>- will randomly pick blocks when generating a rare block in the well.</strong></p>
-<p>&nbsp;</p>
-<p><strong><span style="font-size: 14px;">snow_well_ores.json</span>&nbsp;- will randomly pick blocks when generating a rare block in the well.</strong></p>
-<p>&nbsp;</p>
-<p><strong><span style="font-size: 14px;">jungle_fortress_staircase_plants.json</span> - will randomly pick blocks for the staircase room and if it has an age property, a random age will be given to the block.&nbsp;</strong></p>
-<p>&nbsp;</p>
-<p><strong><span style="font-size: 14px;">jungle_fortress_staircase_soils.json</span> - will randomly pick blocks for the staircase room to go under the plants.</strong></p>
-<p>&nbsp;</p>
-<p><strong><span style="font-size: 14px;">nether_stronghold_bookshelves.json</span> - will randomly pick blocks to use for the bookshelves in Nether strongholds.</strong></p>
-<p><span style="font-size: 14px;"><strong><br />Source:</strong></span></p>
-<strong><a style="font-size: 14px;" href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/tags/blocks">https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/tags/blocks</a></strong></div>
-<p><strong>&nbsp;</strong></p>
-<p>&nbsp;</p>
-<p><strong>Furthermore, if you want to change the loot tables that the structures in this mod uses, you can override my loot tables with a data pack! All loot tables are under data.repurposed_structures.loot_tables.chests path and you can find the file names here in order to override them: <a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/loot_tables/chests">https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/loot_tables/chests<br /></a></strong></p>
+<p><strong>Furthermore, if you want to change the loot tables that the structures in this mod uses, you can override my loot tables with a data pack! All loot tables are under data.repurposed_structures.loot_tables.chests path. Here's a datapack with the default loottables:&nbsp;<a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/tag/0.0.11">Repurposed_Structures-Loottables</a></strong></p>
 <p>&nbsp;</p>
 <p><strong>The mob spawner for all none-nbt based structures can be changed with datapacks as well! You can download the spawner datapack here and change the entries inside the json files to add, remove, or change mob chances in spawners!:</strong></p>
-<p><strong>https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/tag/0.0.5</strong></p>
+<p><a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/tag/0.0.5">Repurposed_Structures-Mob_Spawners</a></p>
 <p>&nbsp;<br /><span style="font-size: 12px;"><strong>And some structure pieces such as Wells, Villages, Outposts, Shipwrecks, Pyramids, and Igloos can also be overridden with datapacks. Furthermore, the template pools that holds structure pieces for Villages can also be overridden with datapacks to add your own pieces to the villages! You can find what pieces can be replaced and their filenames here: </strong></span></p>
 <p><span style="font-size: 12px;"><strong><a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/structures">https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/structures</a></strong></span><br /><a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/worldgen"><strong>https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/worldgen</strong></a></p>
+<p>&nbsp;</p>
+<p><strong>And here's a flat world of all the pieces of my nbt-based structures. Use this to make editing and overriding structure pieces easier with datapacks:&nbsp;<br /><a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/tag/0.0.10">Repurposed Structures - pieces world</a></strong></p>
 <p>&nbsp;</p>
 <p><span style="font-size: 14px;"><strong>Let me know if you think of a new config option that you would need and I will try and add it! :)&nbsp;</strong></span></p>
 <p><span style="font-size: 18px;"><strong>______________________________________________________________________________</strong></span></p>
@@ -892,20 +1102,25 @@
 <p>&nbsp;<br /><br /></p>
 <p><strong><a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/download/0.0.1/Repurposed_Structures-Landmark.zip">Landmark Compatibility pack!</a></strong></p>
 <p>Add this datapack to the world's datapack folder to add compatibility between Repurposed Structures and Landmark mod!</p>
-<p>Landmark mod:&nbsp;<a href="https://www.curseforge.com/minecraft/mc-mods/landmark">https://www.curseforge.com/minecraft/mc-mods/landmark</a><br />Download link: <a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/download/0.0.4/Repurposed_Structures-Landmark.zip">Repurposed_Structures-Landmark.zip</a></p>
+<p>Landmark mod:&nbsp;<a href="https://www.curseforge.com/minecraft/mc-mods/landmark">https://www.curseforge.com/minecraft/mc-mods/landmark</a><br />Download link: <a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/tag/0.0.4">Repurposed_Structures-Landmark</a></p>
 <p>&nbsp;</p>
 <p><strong><a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/download/0.0.3/Repurposed_Structures-Hidden_Advancements.zip">Hidden Advancement pack!</a></strong></p>
 <p>Add this datapack to the world's datapack folder to make Repurposed Structures's advancements no longer pop up on screen! The advancement will then only be able to be viewed in the advancements menu and nowhere else.</p>
-<p>Download link: <a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/download/0.0.3/Repurposed_Structures-Hidden_Advancements.zip">Repurposed_Structures-Hidden_Advancements.zip</a></p>
+<p>Download link: <a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/tag/0.0.3">Repurposed_Structures-Hidden_Advancements</a></p>
 <p>&nbsp;</p>
 <p><a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/download/0.0.6/Repurposed_Structures-Disabled_Advancements.zip"><strong>Disabled Advancement pack!</strong></a></p>
 <p>Add this datapack to the world's datapack folder to make Repurposed Structures's advancements never trigger ever! No popup. Nothing in Advancement screen. Use this if you want no more advancements at all.</p>
-<p>Download link: <a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/download/0.0.6/Repurposed_Structures-Disabled_Advancements.zip">Repurposed_Structures-Disabled_Advancements.zip</a></p>
+<p>Download link: <a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/tag/0.0.6">Repurposed_Structures-Disabled_Advancements</a></p>
 <p>&nbsp;</p>
 <p><strong><a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/download/0.0.8/Repurposed_Structures-Translation_Advancements.zip">Translation Advancement pack!</a></strong></p>
 <p>Add this datapack (the .zip file) to the world's datapack folder on a server to allow clients to use their own translation file to change the advancement language. Also here is the en_us.json file for english translations</p>
-<p>Download link:&nbsp;<a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/download/0.0.8/Repurposed_Structures-Translation_Advancements.zip">Repurposed_Structures-Translation_Advancements.zip</a></p>
+<p>Download link:&nbsp;<a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/tag/0.0.8">Repurposed_Structures-Translation_Advancements</a></p>
 <p>English translation file: <a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/download/0.0.8/en_us.json">en_us.json</a></p>
+<p>&nbsp;</p>
+<p><strong><a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/download/0.0.12/Repurposed_Structures-Vanilla_Loottables.zip">Vanilla Loottable pack!</a></strong></p>
+<p>Add this datapack (the .zip file) to the world's datapack folder to make all&nbsp;RS structure's loottables to use the same loottable as the vanilla structures that they are based upon. For example, Nether Pyramids now uses vanilla Desert Temple loottable. This can be helpful for doing mod compat quickly with other loot-based mods that are hardcoded to add to vanilla loottables.</p>
+<p>Download link:&nbsp;<a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/tag/0.0.12">Repurposed_Structures-Vanilla_Loottables</a></p>
+<p>&nbsp;</p>
 <p>&nbsp;</p>
 <p><span style="font-size: 18px;"><strong>______________________________________________________________________________</strong></span></p>
 <p>&nbsp;</p>
@@ -922,7 +1137,8 @@
 <p style="text-align: center;"><span style="font-size: 12px;">Nether Brick Outpost and End/Nether Bricks Shipwreck design!</span></p>
 <p style="text-align: center;"><br />Special Thanks to <strong>miguelforge</strong> for allowing me to</p>
 <p style="text-align: center;">use his Crimson and Warped Shipwreck design,</p>
-<p style="text-align: center;">his End Ruined Portal design, and more!</p>
+<p style="text-align: center;">his End Ruined Portal design,</p>
+<p style="text-align: center;">his Nether Ruins design, and more!</p>
 <p>&nbsp;</p>
 <p><strong>Check out Mo' Structures for another cool structure mod that adds non-vanilla looking structures!&nbsp;<a href="https://www.curseforge.com/minecraft/mc-mods/mo-structures">https://www.curseforge.com/minecraft/mc-mods/mo-structures</a></strong></p>
 <p>&nbsp;</p>
@@ -930,6 +1146,6 @@
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p><span style="font-size: 24px;"><strong>Discord Link for my channel about my mods! :&nbsp;</strong></span></p>
-<p><span style="font-size: 24px;"><strong><a class="anchor-3Z-8Bb anchorUnderlineOnHover-2ESHQB" style="font-size: 24px;" tabindex="0" title="https://discord.gg/4eHptfV" role="button" href="https://discord.gg/4eHptfV" target="_blank" rel="noopener noreferrer">https://discord.gg/4eHptfV</a></strong></span></p>
-<p><span style="font-size: 24px;"><strong><a class="anchor-3Z-8Bb anchorUnderlineOnHover-2ESHQB" style="font-size: 24px;" tabindex="0" title="https://discord.gg/4eHptfV" role="button" href="https://discord.gg/4eHptfV" target="_blank" rel="noopener noreferrer"><img src="https://beeimg.com/images/g00282193071.png" alt="discord-logo-png-free-transparent-png-logos-discord-png-logo-300_300 (PNG)  | BeeIMG" width="112" height="112" /></a></strong></span></p>
+<p><span style="font-size: 24px;"><strong><a class="anchor-3Z-8Bb anchorUnderlineOnHover-2ESHQB" style="font-size: 24px;" tabindex="0" title="https://discord.gg/SM7WBT6FGu" role="button" href="https://discord.gg/SM7WBT6FGu" target="_blank" rel="noopener noreferrer">https://discord.gg/SM7WBT6FGu</a></strong></span></p>
+<p><span style="font-size: 24px;"><strong><a class="anchor-3Z-8Bb anchorUnderlineOnHover-2ESHQB" style="font-size: 24px;" tabindex="0" title="https://discord.gg/SM7WBT6FGu" role="button" href="https://discord.gg/SM7WBT6FGu" target="_blank" rel="noopener noreferrer"><img src="https://beeimg.com/images/g00282193071.png" alt="discord-logo-png-free-transparent-png-logos-discord-png-logo-300_300 (PNG)  | BeeIMG" width="112" height="112" /></a></strong></span></p>
 <p><span style="font-size: 24px; color: #333399;"><strong>&nbsp;</strong></span></p>
