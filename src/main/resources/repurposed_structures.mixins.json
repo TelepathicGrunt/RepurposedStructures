@@ -12,13 +12,13 @@
     "PillagerOutpostFeatureAccessor",
     "ServerResourceManagerMixin",
     "StrongholdGeneratorAccessor",
-    "StructureBlockScreenMixin",
     "StructureMobSpawningMixin",
     "StructurePieceAccessor",
     "StructureProcessorListAccessor",
     "StructuresConfigAccessor"
   ],
   "client": [
+    "StructureBlockScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1

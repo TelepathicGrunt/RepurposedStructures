@@ -13,6 +13,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Witch Huts:
 - Fixed Taiga Witch Hut Advancement triggering on world entering.
 
+##### Misc:
+- Moved StructureBlockScreenMixin so it only applies client side. Oops. It is not suppose to run on servers.
 
 ## (V.1.8.0 Changes) (1.16.4 Minecraft)
 
