@@ -8,6 +8,12 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.2.4.1 Changes) (1.16.4 Minecraft)
+
+##### Misc:
+- Moved StructureBlockScreen mixin so it only applies client side. Oops. It is not suppose to run on servers.
+
+
 ## (V.2.4.0 Changes) (1.16.4 Minecraft)
 
 ##### Cities:

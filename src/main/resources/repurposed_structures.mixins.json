@@ -10,13 +10,13 @@
     "NoLakesInStructuresMixin",
     "PillagerOutpostStructureAccessor",
     "StrongholdGeneratorAccessor",
-    "StructureBlockScreen",
     "StructureMobSpawningMixin",
     "StructurePieceAccessor",
     "StructureProcessorListAccessor",
     "TemplateManagerMixin"
   ],
   "client": [
+    "StructureBlockScreen"
   ],
   "injectors": {
     "defaultRequire": 1
