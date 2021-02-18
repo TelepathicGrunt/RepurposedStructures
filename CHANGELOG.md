@@ -8,6 +8,12 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.1.8.1 Changes) (1.16.4 Minecraft)
+
+##### Witch Huts:
+- Fixed Taiga Witch Hut Advancement triggering on world entering.
+
+
 ## (V.1.8.0 Changes) (1.16.4 Minecraft)
 
 ##### Dependencies:

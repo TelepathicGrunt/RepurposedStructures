@@ -19,7 +19,7 @@
     "in_witch_huts_taiga": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:witch_huts_taiga"
+        "feature": "repurposed_structures:witch_hut_taiga"
       }
     }
   },
