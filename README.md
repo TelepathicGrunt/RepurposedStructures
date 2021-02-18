@@ -4,17 +4,14 @@
 <h2 style="text-align: center;"><span style="font-size: 14px;"><strong><span style="color: #009611;">CLICK HERE FOR FABRIC 1.16.5 MC PORT:&nbsp;</span></strong></span></h2>
 <p style="text-align: center;"><span style="font-size: 14px;"><strong><span style="color: #009611;"><a href="https://www.curseforge.com/minecraft/mc-mods/repurposed-structures-fabric">https://www.curseforge.com/minecraft/mc-mods/repurposed-structures-fabric</a></span></strong></span></p>
 <p>&nbsp;</p>
-<p>&nbsp;</p>
-<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;Added Mansions, Nether City, <br /> Nether Ruins, Witch Huts, and Snowy Pyramid!<br />Plus a massive amount of bugfixes!<br />Check out the changelog for more info.<br />Also, report any bugs or issue you find!</strong></b></span></em></p>
-<p style="text-align: center;">&nbsp;&nbsp;&nbsp;</p>
-<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;Added Mansions, Nether City, <br /> Nether Ruins, Witch Huts, and Snowy Pyramid!<br />Added Taiga and Oak Outposts!<br />Plus a massive amount of bugfixes!<br />Check out the changelog for more info.<br />Also, report any bugs or issue you find!</strong></b></span></em>&nbsp;</p>
 <p style="text-align: center;"><span style="font-size: 18px;"><strong>____________________________________________________________________________</strong></span></p>
 <p style="text-align: center;">&nbsp;</p>
 <h2 style="text-align: left;"><span style="color: #009611; font-size: 24px;"><strong>WHAT IS REPURPOSED STRUCTURES?</strong></span></h2>
 <p style="text-align: center;"><span style="font-size: 14px;">&nbsp;</span></p>
 <p style="text-align: left;"><span style="font-size: 14px;">&nbsp;<strong> &nbsp; Repurposed Structures is a mod about taking existing vanilla features and structures and creating new variants or modifications to them! Originally, most of the structures and features in this mod was actually made for my Ultra Amplified Dimension mod. but then I realized these features and structures would look great in the Overworld as well so I decided to take those structures and features and split them into their own mod and continue to add MORE biome variants of vanilla structures! And over time, some other people even help contribute more vanilla styled structures!</strong></span></p>
 <p style="text-align: left;">&nbsp;</p>
-<p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; Currently, this mod creates a Nether Fortresses using Stonebrick blocks and spawns it in Jungles, Dungeons and Mineshafts now has more variants to match whatever biome they are in, 10 new biome variants of Villages, 7 new temples variants, 2 new biome variants of Igloos, 12 new Pillager Outposts, 4 new types of Shipwrecks, a Nether themed Ocean Ruins, a Nether themed End City, 7 new Mansion types, 5 new Witch Huts types, Nether Strongholds and Stonebrick Strongholds (replaces vanilla Strongholds) have a configurable size and has more Silverfish spawners, Giant Tree/Spruce Taiga Hills biomes has giant ore filled boulders that could have Diamond ore if you are extremely lucky, Taiga Mountain biomes now has tiny boulders, and several new Desert Well variations were made for other biomes (Also, loot for Dungeons and Mineshafts are tailored to their variant as well so start exploring!)</strong></span></p>
+<p style="font-size: 14px;"><strong>&nbsp; &nbsp; Currently, this mod has:<br />- Jungle Fortresses which are Nether Fortresses using Stonebrick blocks and spawns in Jungles!<br />- 9 Dungeons variants<br />- 13 new Mineshaft types <br />- 10 new biome variants of Villages<br />- 7 new temples variants<br />- 2 new biome variants of Igloos<br />- 12 new Pillager Outposts<br />- 4 new types of Shipwrecks<br />- 7 new Mansion types<br />- 5 new Witch Huts types<br />- A Nether themed Ocean Ruins<br />- A Nether themed End City<br />- A Nether Strongholds<br />- Stonebrick Strongholds (replaces vanilla Strongholds by default as these are larger and Silverfish infested)<br />- Giant Tree/Spruce Taiga Hills&nbsp;biomes has giant boulders that could have ores if you are lucky<br />- Taiga Mountain biomes now has tiny boulders<br />- Several new Desert Well variations were made for other biomes&nbsp;</strong></p>
 <p style="text-align: left;">&nbsp;</p>
 <p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; If you have trouble finding one of these structures, just start typing `<em>/locate repu</em>` into the chat and you should see my structures pop up! For example, typing `<span style="font-size: 18px; color: #993300;"><em>/locate repurposed_structures:stronghold_stonebrick</em></span>` will find the closest RS's Stonebrick Stronghold to your location. :) All structures can be found easily from anywhere!</strong></span></p>
 <p>&nbsp;</p>
@@ -29,24 +26,17 @@
 <div class="spoiler">
 <p><strong><b>Note: Some village houses will have custom loot to match their biome better but nothing too crazy for balance reasons. The Nether based villages are full of fully armored Piglins and have fully unique chest loot.</b></strong></p>
 <p>&nbsp;</p>
-<p><strong><b>-Badlands</b></strong></p>
+<p><strong><b>Variants:</b></strong></p>
 <p>&nbsp;</p>
-<p><strong><b>-Birch</b></strong></p>
-<p>&nbsp;</p>
-<p><strong><b>-Dark Forest</b></strong></p>
-<p><strong><b><br />-Jungle</b></strong></p>
-<p>&nbsp;</p>
-<p><strong><b>-Swamp</b></strong></p>
-<p>&nbsp;</p>
-<p><strong><b>-Mountains</b></strong></p>
-<p>&nbsp;</p>
-<p><strong><b>-Giant Taiga</b></strong></p>
-<p>&nbsp;</p>
-<p><strong><b>-Oak</b></strong></p>
-<p><strong><b>&nbsp;</b></strong></p>
-<p><strong><b>-Crimson</b></strong></p>
-<p>&nbsp;</p>
-<p><strong><b>-Warped</b></strong></p>
+<p><strong><b>-Badlands Village</b></strong></p>
+<p><strong><b>-Birch Village</b></strong></p>
+<p><strong><b>-Dark Forest Village</b></strong><strong><b><br />-Jungle Village</b></strong></p>
+<p><strong><b>-Swamp Village</b></strong></p>
+<p><strong><b>-Mountains Village</b></strong></p>
+<p><strong><b>-Giant Taiga Village</b></strong></p>
+<p><strong><b>-Oak Village</b></strong></p>
+<p><strong><b>-Crimson Village</b></strong></p>
+<p><strong><b>-Warped Village</b></strong></p>
 </div>
 <p>&nbsp;</p>
 <p><strong>Dungeons</strong></p>
@@ -185,30 +175,20 @@
 <div class="spoiler">
 <p><strong><b>All other Mineshafts has Cave Spider Spawner unless otherwise specified. And chest loot is specifically tailored to every Mineshaft with some having very unique loot and others having loot that's barely different.</b></strong></p>
 <p>&nbsp;</p>
+<p><strong><b>Variants:</b></strong></p>
+<p>&nbsp;</p>
 <p><strong><b>-Birch Mineshafts</b></strong></p>
-<p>&nbsp;</p>
 <p><strong><b>-Desert Mineshafts</b></strong></p>
-<p>&nbsp;</p>
 <p><strong><b>-Jungle Mineshafts</b></strong></p>
-<p>&nbsp;</p>
 <p><strong><b>-Savanna Mineshafts</b></strong></p>
-<p>&nbsp;</p>
 <p><strong><b>-Stone Mineshafts</b></strong></p>
-<p>&nbsp;</p>
 <p><strong><b>-Taiga Mineshafts</b></strong></p>
-<p>&nbsp;</p>
 <p><strong><b>-Swamp Or Dark Forest Mineshafts</b></strong></p>
-<p>&nbsp;</p>
 <p><strong><b>-Icy Mineshafts (has Stray Spawners)</b></strong></p>
-<p><strong>&nbsp;</strong></p>
 <p><strong>-Ocean Mineshafts (has Drowned Spawners)</strong></p>
-<p>&nbsp;</p>
 <p><strong>-Nether Mineshafts (has Blaze Spawners)</strong></p>
-<p>&nbsp;</p>
 <p><strong>-Warped Mineshafts (has Blaze Spawners)</strong></p>
-<p>&nbsp;</p>
 <p><strong>-Crimson Mineshafts (has Blaze Spawners)</strong></p>
-<p>&nbsp;</p>
 <p><strong>-End Mineshafts (has Endermite Spawners) and will also naturally spawn Endermites over time)</strong></p>
 </div>
 <p>&nbsp;</p>
@@ -218,24 +198,22 @@
 <p>&nbsp;</p>
 <p><strong><b>Cartographers may sell maps to these mansions in their level 4 trades</b></strong></p>
 <p>&nbsp;</p>
+<p><strong><b>Variants:</b></strong></p>
+<p>&nbsp;</p>
 <p><strong><b>-Birch Mansion</b></strong></p>
-<p>&nbsp;</p>
 <p><strong><b>-Taiga Mansion</b></strong></p>
-<p>&nbsp;</p>
 <p><strong><b>-Jungle Mansion</b></strong></p>
-<p>&nbsp;</p>
 <p><strong><b>-Oak Mansion</b></strong></p>
-<p>&nbsp;</p>
 <p><strong><b>-Savanna Mansion</b></strong></p>
-<p>&nbsp;</p>
 <p><strong><b>-Desert Mansion</b></strong></p>
-<p>&nbsp;</p>
 <p><strong><b>-Snowy Mansion</b></strong></p>
 </div>
 <p>&nbsp;</p>
 <p><strong>Nether City (Nether themed End City without the ship)</strong></p>
 <div class="spoiler">
 <p><strong>Will spawn Blazes and Wither Skeletons very rarely inside the city over time.&nbsp;</strong></p>
+<p>&nbsp;</p>
+<p><strong>Maps to Nether Cities can be found in Nether Ruins or very rarely, in chest in Cartographer buildings in Warped/Crimson Villages.</strong></p>
 <p>&nbsp;</p>
 <p><strong>Chest loot</strong></p>
 <p><strong><b>&nbsp;Can contain the following in order from most common to least common</b></strong></p>
@@ -443,28 +421,19 @@
 <div class="spoiler">
 <p><strong>&nbsp;All Overworld Repurposed Structures Outpost will spawn Pillagers over time. And chest loot is nearly identical to the normal Pillager Outpost loot but some changes has been done to make the loot fit the biome theme they are in.</strong></p>
 <p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
 <p><strong><b>Some of the "aged" version of the Outpost towers are more unique in their decay or aged looks. This is based on how Vanilla Outpost tower can be either normal or "overgrown" with Mossy Cobblestone.&nbsp;&nbsp;</b></strong></p>
 <p>&nbsp;</p>
+<p><strong><b>Overworld Variants:</b></strong></p>
+<p>&nbsp;</p>
 <p><strong><b>-Birch Outposts </b></strong></p>
-<p>&nbsp;</p>
 <p><strong><b>-Desert Outposts </b></strong></p>
-<p>&nbsp;</p>
 <p><strong><b>-Jungle Outposts </b></strong></p>
-<p>&nbsp;</p>
 <p><strong><b>-Giant Tree Taiga Outposts </b></strong></p>
-<p>&nbsp;</p>
 <p><strong><b>-Stone Mineshafts</b></strong></p>
-<p>&nbsp;</p>
 <p><strong><b>-Badlands Mineshafts</b></strong></p>
-<p>&nbsp;</p>
 <p><strong><b>-Taiga Outposts</b></strong></p>
-<p>&nbsp;</p>
 <p><strong><b>-Oak Mineshafts</b></strong></p>
-<p>&nbsp;</p>
 <p><strong><b>-Icy Mineshafts</b></strong></p>
-<p>&nbsp;</p>
 <p><strong><b>-Snowy Outposts (can have trapped Snow Golems as well)</b></strong></p>
 </div>
 <p>&nbsp;</p>
@@ -988,15 +957,13 @@
 <div class="spoiler">
 <p><strong><b>Will spawn Witches and Cats over time like vanilla Witch Huts.</b></strong></p>
 <p>&nbsp;</p>
-<p><strong><b>- Oak</b></strong></p>
+<p><strong><b>Variants:</b></strong></p>
 <p>&nbsp;</p>
-<p><strong><b>-Taiga</b></strong></p>
-<p>&nbsp;</p>
-<p><strong><b>- Birch</b></strong></p>
-<p>&nbsp;</p>
-<p><strong><b>- Dark Forest</b></strong></p>
-<p>&nbsp;</p>
-<p><strong><b>- Giant Tree Taiga</b></strong></p>
+<p><strong><b>- Oak Witch Hut</b></strong></p>
+<p><strong><b>-Taiga Witch Hut</b></strong></p>
+<p><strong><b>- Birch Witch Hut</b></strong></p>
+<p><strong><b>- Dark Forest Witch Hut</b></strong></p>
+<p><strong><b>- Giant Tree Taiga Witch Hut</b></strong></p>
 </div>
 <p>&nbsp;</p>
 <p><strong>Grassy Igloo and Stone Igloo loot</strong></p>
@@ -1057,7 +1024,6 @@
 </div>
 </div>
 </div>
-<p>&nbsp;</p>
 <p><strong>&nbsp;</strong></p>
 <p><span style="font-size: 18px;"><strong>______________________________________________________________________________</strong></span></p>
 <p><span style="font-size: 18px;">&nbsp;</span></p>
@@ -1069,15 +1035,9 @@
 <p>&nbsp;</p>
 <p><strong>&nbsp; &nbsp; Right now, there are lots of config options. The big ones that you may be interested in are the <span style="font-size: 14px;">add____ToModdedBiomes</span> config entries. Turning this on will make the config add the features or structures to any modded biomes with the correct category. For example, if you turn on <span style="font-size: 14px;">addMineshaftsToModdedBiomes</span> and you have a mod that adds a new kind of Desert biome in any dimension, then that biome will now spawn Desert themed Mineshafts in it!</strong></p>
 <p>&nbsp;</p>
-<p><strong>&nbsp; &nbsp; For Dungeons, Villages Wells, Igloos, and Mineshafts, you can turn on and off each specific biome variant or change their overall spawnrates as well. For Mineshafts, you can turn on or off the spawning of chests too if you want to stop chests from spawning for whatever reason. Also, you can change the maximum and minimum y value that dungeons and mineshafts can start their generation at!</strong></p>
+<p><strong>&nbsp; &nbsp; For all structures, you can change their spawnrates and what biomes they should be blacklisted from. You can even blacklist dimensions as well! Also, for Dungeons and Mineshafts, you can change the maximum and minimum y value that they can start their generation at! Check out the config. It should be clear what you can do and I included comments in the config to describe what the configs do.</strong></p>
 <p>&nbsp;</p>
-<p><strong>&nbsp; &nbsp; The config for Jungle Fortresses is fairly straightforward. You can change their spawnrate, how much Stonebrick blocks are infested with SIlverfish, turn on or off the creation of Silverfish spawners, or disable the creation of loot chests. Not much else to it!</strong></p>
-<p>&nbsp;</p>
-<p><strong>&nbsp; &nbsp; Temples, Outposts, Ruined Portals, Shipwrecks, and Pyramids are just like the Jungle Fortress configs minus the Silverfish stuff lol.</strong></p>
-<p>&nbsp;</p>
-<p><strong>&nbsp; &nbsp; &nbsp;For Strongholds, the config lets you change the size of the Stronghold, their spawnrates, how many Stonebrick blocks are infested with Silverfish, turn on or off the additional Silverfish spawners, or disable the creation of loot chests. Change how much hanging chains spawns in them. And you can change the maximum and minimum y value that both normal and nether strongholds can start their generation at.&nbsp;</strong></p>
-<p>&nbsp;</p>
-<p><strong>&nbsp; &nbsp; &nbsp;And lastly, the rest of the features like boulders can be enabled/disabled individually.&nbsp;&nbsp;</strong></p>
+<p><strong>&nbsp; &nbsp; For Strongholds, the config lets you change the size of the Stronghold, their spawnrates, how many Stonebrick blocks are infested with Silverfish, turn on or off the additional Silverfish spawners, or disable the creation of loot chests. Change how much hanging chains spawns in them. And you can change the maximum and minimum y value that both normal and nether strongholds can start their generation at.&nbsp;</strong></p>
 <p>&nbsp;</p>
 <p>----</p>
 <p>&nbsp;</p>
