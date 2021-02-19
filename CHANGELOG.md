@@ -21,6 +21,11 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Witch Huts:
 - Fixed Taiga Witch Hut Advancement triggering on world entering.
 
+##### Outposts:
+- Adjusted looks of Crimson and Warped Outposts so their aged tower variants are different. Also renamed tower_glowing piece to tower_aged for both.
+
+- Added aged variant for Nether Bricks Outpost.
+
 ##### Misc:
 - Moved StructureBlockScreenMixin so it only applies client side. Oops. It is not suppose to run on servers.
 

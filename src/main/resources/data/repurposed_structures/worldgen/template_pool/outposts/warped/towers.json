@@ -5,7 +5,7 @@
     {
       "weight": 1,
       "element": {
-        "location": "repurposed_structures:outposts/warped/tower",
+        "location": "repurposed_structures:outposts/warped/tower_aged",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
@@ -14,7 +14,7 @@
     {
       "weight": 1,
       "element": {
-        "location": "repurposed_structures:outposts/warped/tower_glowing",
+        "location": "repurposed_structures:outposts/warped/tower",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"

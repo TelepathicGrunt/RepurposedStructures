@@ -5,7 +5,7 @@
     {
       "weight": 1,
       "element": {
-        "location": "repurposed_structures:outposts/crimson/tower",
+        "location": "repurposed_structures:outposts/crimson/tower_aged",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
@@ -14,7 +14,7 @@
     {
       "weight": 1,
       "element": {
-        "location": "repurposed_structures:outposts/crimson/tower_glowing",
+        "location": "repurposed_structures:outposts/crimson/tower",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
