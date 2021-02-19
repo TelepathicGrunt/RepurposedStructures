@@ -31,6 +31,12 @@ public class RSStrongholdsConfig implements ConfigData
 
 	@ConfigEntry.Gui.Tooltip(count = 0)
 	@ConfigEntry.Gui.PrefixText
+	@Comment("Makes vanilla Strongholds no longer spawn at all. Will not affect"
+			+"\nRepurposed Structures's own Stonebrick Stronghold.")
+	public boolean turnOffVanillaStrongholds = true;
+
+	@ConfigEntry.Gui.Tooltip(count = 0)
+	@ConfigEntry.Gui.PrefixText
 	@Comment("Add the ID/resource location of the biome you don't want"
 			+"\nRS's strongholds to spawn in. Separate each ID with a comma ,"
 			+"\n"
@@ -49,9 +55,9 @@ public class RSStrongholdsConfig implements ConfigData
 		@ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
 		@Comment("Add Stonebrick-styled Stronghold which replaces vanilla Strongholds in any" +
-				"\nvanilla non-Nether biome. If allowStonebrickStrongholdToVanillaBiomes is" +
-				"\noff, vanilla Strongholds will generate again but Repurposed Structures's" +
-				"\nNether Strongholds will still be active.")
+				"\nvanilla non-Nether biome. This option does not affect Nether Strongholds." +
+				"\nIf this is set to true and turnOffVanillaStrongholds is off, RS's Stonebrick" +
+				"\nStrongholds will still be added to vanilla biomes.")
 		public boolean allowStonebrickStrongholdToVanillaBiomes = true;
 
 		@ConfigEntry.Gui.Tooltip(count = 0)

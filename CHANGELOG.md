@@ -1,4 +1,4 @@
-# Made for Minecraft v.1.16.4
+# Made for Minecraft v.1.16.5
 
 ## Created by TelepathicGrunt
 
@@ -8,7 +8,15 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
-## (V.1.8.1 Changes) (1.16.4 Minecraft)
+## (V.1.8.2 Changes) (1.16.5 Minecraft)
+
+##### Cities:
+- made Nether Cities more rare by default and have Netherite Scraps and Netherite Ingot in their chests.
+
+##### Strongholds:
+- Added turnOffVanillaStrongholds config option to let people be able to turn off vanilla Strongholds to only have Nether Strongholds easier.
+
+## (V.1.8.1 Changes) (1.16.5 Minecraft)
 
 ##### Witch Huts:
 - Fixed Taiga Witch Hut Advancement triggering on world entering.
@@ -16,7 +24,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Misc:
 - Moved StructureBlockScreenMixin so it only applies client side. Oops. It is not suppose to run on servers.
 
-## (V.1.8.0 Changes) (1.16.4 Minecraft)
+
+## (V.1.8.0 Changes) (1.16.5 Minecraft)
 
 ##### Dependencies:
 - Cloth and AutoConfigu are no longer packaged with this mod to cut down on file size. Download those two lib mods separately. 

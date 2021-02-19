@@ -66,7 +66,10 @@ public class RSAddFeaturesAndStructures {
 
                 spacingToAdd.forEach(tempMap::putIfAbsent);
             }
-
+            // Vanilla stronghold removal based on config. Useful for people who want just Nether Strongholds spawning only.
+            if(RepurposedStructures.RSAllConfig.RSStrongholdsConfig.turnOffVanillaStrongholds){
+                tempMap.remove(StructureFeature.STRONGHOLD);
+            }
             ((StructuresConfigAccessor) serverWorld.getChunkManager().getChunkGenerator().getStructuresConfig()).rs_setStructures(tempMap);
         });
     }

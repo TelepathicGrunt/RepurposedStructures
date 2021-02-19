@@ -223,6 +223,6 @@ public class RSMainConfig implements ConfigData {
         @Comment("How rare are Nether Cities in Nether biomes. 1"
                 + "\nfor spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int cityNetherMaxChunkDistance = 160;
+        public int cityNetherMaxChunkDistance = 200;
     }
 }
