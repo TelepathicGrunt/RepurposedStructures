@@ -13,6 +13,11 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Cities:
 - made Nether Cities more rare by default and have Netherite Scraps and Netherite Ingot in their chests.
 
+##### Outposts:
+- Adjusted looks of Crimson and Warped Outposts so their aged tower variants are different. Also renamed tower_glowing piece to tower_aged for both.
+
+- Added aged variant for Nether Bricks Outpost.
+
 ##### Strongholds:
 - Added turnOffVanillaStrongholds config option to let people be able to turn off vanilla Strongholds to only have Nether Strongholds easier.
 
