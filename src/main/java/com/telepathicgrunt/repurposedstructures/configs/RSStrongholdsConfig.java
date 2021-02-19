@@ -12,6 +12,7 @@ public class RSStrongholdsConfig
 		public ConfigValueListener<Boolean> lootChests;
 		public ConfigValueListener<Boolean> allowExtraSpawners;
 
+		public ConfigValueListener<Boolean> turnOffVanillaStrongholds;
 		public ConfigValueListener<Boolean> allowStonebrickStrongholdToVanillaBiomes;
 		public ConfigValueListener<Boolean> addStonebrickStrongholdToModdedBiomes;
 		public ConfigValueListener<Integer> stonebrickStrongholdMaxChunkDistance;
@@ -61,12 +62,19 @@ public class RSStrongholdsConfig
 					.translation("repurposedstructures.config.stronghold.lootchestssh")
 					.define("lootChestsSH", true));
 
-				builder.push("Stonebrick");
+			turnOffVanillaStrongholds = subscriber.subscribe(builder
+					.comment("\r\nMakes vanilla Strongholds no longer spawn at all. Will not affect" +
+							"\nRepurposed Structures's own Stonebrick Stronghold.\r\n")
+					.translation("repurposedstructures.config.stronghold.turnoffvanillastrongholds")
+					.define("turnOffVanillaStrongholds", false));
+
+
+			builder.push("Stonebrick");
 					allowStonebrickStrongholdToVanillaBiomes = subscriber.subscribe(builder
 						.comment("\r\nAdd Stonebrick-styled Stronghold which replaces vanilla Strongholds in any" +
-								"\nvanilla non-Nether biome. If allowStonebrickStrongholdToVanillaBiomes is" +
-								"\noff, vanilla Strongholds will generate again but Repurposed Structures's" +
-								"\nNether Strongholds will still be active.\r\n")
+								"\nvanilla non-Nether biome. This option does not affect Nether Strongholds." +
+								"\nIf this is set to true and turnOffVanillaStrongholds is off, RS's Stonebrick" +
+								"\nStrongholds will still be added to vanilla biomes.\r\n")
 						.translation("repurposedstructures.config.stronghold.allowstonebrickstrongholdtovanillabiomes")
 						.define("allowStonebrickStrongholdToVanillaBiomes", true));
 

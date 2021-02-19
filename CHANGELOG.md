@@ -1,4 +1,4 @@
-# Made for Minecraft v.1.16.4
+# Made for Minecraft v.1.16.5
 
 ## Created by TelepathicGrunt
 
@@ -8,13 +8,22 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
-## (V.2.4.1 Changes) (1.16.4 Minecraft)
+## (V.2.4.2 Changes) (1.16.5 Minecraft)
+
+##### Cities:
+- made Nether Cities more rare by default and have Netherite Scraps and Netherite Ingot in their chests.
+
+##### Strongholds:
+- Added turnOffVanillaStrongholds config option to let people be able to turn off vanilla Strongholds to only have Nether Strongholds easier.
+
+
+## (V.2.4.1 Changes) (1.16.5 Minecraft)
 
 ##### Misc:
 - Moved StructureBlockScreen mixin so it only applies client side. Oops. It is not suppose to run on servers.
 
 
-## (V.2.4.0 Changes) (1.16.4 Minecraft)
+## (V.2.4.0 Changes) (1.16.5 Minecraft)
 
 ##### Cities:
 - Added extremely rare Nether Cities to all Nether biomes! Beware of the Blazes! Maps to this city are very rare but can be found in Nether Ruins or Crimson/Warped Cartographer chests. 
