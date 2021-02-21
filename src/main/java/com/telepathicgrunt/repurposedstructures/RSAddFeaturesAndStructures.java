@@ -378,7 +378,7 @@ public class RSAddFeaturesAndStructures {
     public static void addStrongholds() {
         addToBiome("stonebrick_stronghold",
                 (context) -> !BiomeSelection.haveCategories(context, Category.NETHER, Category.THEEND) &&
-                        (!BiomeSelection.haveCategories(context, Category.NONE) && !context.getBiomeKey().equals(BiomeKeys.STONE_SHORE))
+                        (!BiomeSelection.haveCategories(context, Category.NONE) || context.getBiomeKey().equals(BiomeKeys.STONE_SHORE))
                         && RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.stonebrickStrongholdMaxChunkDistance != 1001
                         && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.STRONGHOLD)
                         && BiomeSelection.isBiomeAllowed(context, "strongholds")
