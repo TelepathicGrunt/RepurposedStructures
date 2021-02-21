@@ -46,7 +46,7 @@ public class RSMineshaftEndStructure extends RSMineshaftStructure {
                 landHeight = Math.min(landHeight, chunkGenerator.getHeightInGround(xPos, zPos + 50, Heightmap.Type.WORLD_SURFACE_WG));
                 landHeight = Math.min(landHeight, chunkGenerator.getHeightInGround(xPos - 50, zPos, Heightmap.Type.WORLD_SURFACE_WG));
                 landHeight = Math.min(landHeight, chunkGenerator.getHeightInGround(xPos, zPos - 50, Heightmap.Type.WORLD_SURFACE_WG));
-                return RepurposedStructures.RSAllConfig.RSMineshaftsConfig.misc.barrensIslandsEndMineshafts || landHeight >= Math.max(chunkGenerator.getWorldHeight(), 45);
+                return RepurposedStructures.RSAllConfig.RSMineshaftsConfig.misc.barrensIslandsEndMineshafts || landHeight >= Math.min(chunkGenerator.getWorldHeight(), 45);
             }
         }
         return false;

@@ -11,7 +11,7 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ## (V.1.8.2 Changes) (1.16.5 Minecraft)
 
 ##### Cities:
-- made Nether Cities more rare by default and have Netherite Scraps and Netherite Ingot in their chests.
+- made Nether Cities have Netherite Scraps and Netherite Ingot in their chests.
 
 ##### Strongholds:
 - Added turnOffVanillaStrongholds config option to let people be able to turn off vanilla Strongholds to only have Nether Strongholds easier.

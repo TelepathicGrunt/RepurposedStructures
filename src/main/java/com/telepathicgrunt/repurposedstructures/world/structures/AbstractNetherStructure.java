@@ -57,7 +57,7 @@ public abstract class AbstractNetherStructure extends AbstractBaseStructure<Defa
 
 
         public BlockPos getHighestLand(ChunkGenerator chunkGenerator){
-            BlockPos.Mutable mutable = new BlockPos.Mutable().set(this.boundingBox.getCenter().getX(), chunkGenerator.getWorldHeight(), this.boundingBox.getCenter().getZ());
+            BlockPos.Mutable mutable = new BlockPos.Mutable().set(this.boundingBox.getCenter().getX(), chunkGenerator.getWorldHeight() - 20, this.boundingBox.getCenter().getZ());
             BlockView blockView = chunkGenerator.getColumnSample(mutable.getX(), mutable.getZ());
             BlockState currentBlockstate;
             while(mutable.getY() > chunkGenerator.getSeaLevel() - 2){

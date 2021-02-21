@@ -76,7 +76,7 @@ public class VillageNetherStructure extends GenericJigsawStructure {
     //Helper methods//
 
     public static BlockPos getHighestLand(ChunkGenerator chunkGenerator, BlockBox boundingBox) {
-        BlockPos.Mutable mutable = new BlockPos.Mutable().set(boundingBox.getCenter().getX(), chunkGenerator.getWorldHeight(), boundingBox.getCenter().getZ());
+        BlockPos.Mutable mutable = new BlockPos.Mutable().set(boundingBox.getCenter().getX(), chunkGenerator.getWorldHeight() - 20, boundingBox.getCenter().getZ());
         BlockView blockView = chunkGenerator.getColumnSample(mutable.getX(), mutable.getZ());
         BlockState currentBlockstate;
         while (mutable.getY() > chunkGenerator.getSeaLevel() + 1) {
