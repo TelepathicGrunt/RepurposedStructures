@@ -16,6 +16,7 @@ import net.minecraft.world.Heightmap;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.SpawnSettings;
 import net.minecraft.world.biome.source.BiomeSource;
+import net.minecraft.world.biome.source.CheckerboardBiomeSource;
 import net.minecraft.world.gen.ChunkRandom;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.chunk.StructureConfig;
@@ -86,10 +87,12 @@ public class GenericJigsawStructure extends AbstractBaseStructure<DefaultFeature
 
     @Override
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig defaultFeatureConfig) {
-         for (int curChunkX = chunkX - biomeRange; curChunkX <= chunkX + biomeRange; curChunkX++) {
-            for (int curChunkZ = chunkZ - biomeRange; curChunkZ <= chunkZ + biomeRange; curChunkZ++) {
-                if (!biomeSource.getBiomeForNoiseGen(curChunkX << 2, 60, curChunkZ << 2).getGenerationSettings().hasStructureFeature(this)) {
-                    return false;
+        if(!(biomeSource instanceof CheckerboardBiomeSource)) {
+            for (int curChunkX = chunkX - biomeRange; curChunkX <= chunkX + biomeRange; curChunkX++) {
+                for (int curChunkZ = chunkZ - biomeRange; curChunkZ <= chunkZ + biomeRange; curChunkZ++) {
+                    if (!biomeSource.getBiomeForNoiseGen(curChunkX << 2, 64, curChunkZ << 2).getGenerationSettings().hasStructureFeature(this)) {
+                        return false;
+                    }
                 }
             }
         }
@@ -102,7 +105,7 @@ public class GenericJigsawStructure extends AbstractBaseStructure<DefaultFeature
                 for(RSStructureTagMap.STRUCTURE_TAGS tag : avoidStructuresSet){
                     for(StructureFeature<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(tag)){
                         StructureConfig structureConfig = chunkGenerator.getStructuresConfig().getForType(structureFeature);
-                        if(structureConfig != null){
+                        if(structureConfig != null && structureConfig.getSpacing() > 8){
                             ChunkPos chunkPos2 = structureFeature.getStartChunk(structureConfig, seed, chunkRandom, curChunkX, curChunkZ);
                             if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
                                 return false;

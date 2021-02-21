@@ -76,7 +76,7 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NetherShipwr
 
                 for(StructureFeature<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE)){
                     StructureConfig structureConfig = chunkGenerator.getStructuresConfig().getForType(structureFeature);
-                    if(structureConfig != null){
+                    if(structureConfig != null && structureConfig.getSpacing() > 8){
                         ChunkPos chunkPos2 = structureFeature.getStartChunk(structureConfig, seed, chunkRandom, curChunkX, curChunkZ);
                         if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
                             return false;

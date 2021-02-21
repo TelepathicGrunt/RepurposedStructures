@@ -38,7 +38,7 @@ public class VillageNetherStructure extends GenericJigsawStructure {
 
                 for(StructureFeature<?> outpost : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NETHER_OUTPOST)){
                     StructureConfig structureConfig = chunkGenerator.getStructuresConfig().getForType(outpost);
-                    if(structureConfig != null) {
+                    if(structureConfig != null && structureConfig.getSpacing() > 8) {
                         ChunkPos chunkPos2 = outpost.getStartChunk(structureConfig, seed, chunkRandom, curChunkX, curChunkZ);
                         if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
                             return false;
@@ -64,8 +64,8 @@ public class VillageNetherStructure extends GenericJigsawStructure {
             super.init(dynamicRegistryManager, chunkGenerator, structureManager, chunkX, chunkZ, biome, defaultFeatureConfig);
 
             BlockPos lowestLandPos = getHighestLand(chunkGenerator, this.boundingBox);
-            if (lowestLandPos.getY() >= 108 || lowestLandPos.getY() <= 33) {
-                this.randomUpwardTranslation(this.random, 20, 21);
+            if (lowestLandPos.getY() >= chunkGenerator.getWorldHeight() || lowestLandPos.getY() <= chunkGenerator.getSeaLevel() + 1) {
+                this.randomUpwardTranslation(this.random, chunkGenerator.getSeaLevel() - 12, chunkGenerator.getSeaLevel() - 11);
             }
             else {
                 this.randomUpwardTranslation(this.random, lowestLandPos.getY() - 13, lowestLandPos.getY() - 12);
@@ -76,10 +76,10 @@ public class VillageNetherStructure extends GenericJigsawStructure {
     //Helper methods//
 
     public static BlockPos getHighestLand(ChunkGenerator chunkGenerator, BlockBox boundingBox) {
-        BlockPos.Mutable mutable = new BlockPos.Mutable().set(boundingBox.getCenter().getX(), 108, boundingBox.getCenter().getZ());
+        BlockPos.Mutable mutable = new BlockPos.Mutable().set(boundingBox.getCenter().getX(), chunkGenerator.getWorldHeight(), boundingBox.getCenter().getZ());
         BlockView blockView = chunkGenerator.getColumnSample(mutable.getX(), mutable.getZ());
         BlockState currentBlockstate;
-        while (mutable.getY() > 33) {
+        while (mutable.getY() > chunkGenerator.getSeaLevel() + 1) {
             currentBlockstate = blockView.getBlockState(mutable);
             if (!currentBlockstate.isSolidBlock(blockView, mutable)) {
                 mutable.move(Direction.DOWN);

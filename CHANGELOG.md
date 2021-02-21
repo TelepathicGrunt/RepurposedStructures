@@ -16,6 +16,17 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Strongholds:
 - Added turnOffVanillaStrongholds config option to let people be able to turn off vanilla Strongholds to only have Nether Strongholds easier.
 
+##### General:
+- Made all the checks I have for separating some structures from other kinds of structures now ignore those checks if the structure spacing is set super low in configs.
+  Now if you make all outposts spawn in every chunk by config, Repurposed Structures villages will still be able to spawn.
+  
+- Made all hardcoded nether height structures now uses the chunk generator's maximum height. 
+  So if you use a datapack to expand the Nether's roof, these structures should automatically now use the increased range!
+  Some checks for Nether sealevel now uses the chunk generator's sealevel instead of a hardcoded value.
+  
+- Made all structures that checks surrounding biomes for valid biomes before spawning will now ignore that check if Checkered Biome Provider is used.
+
+
 ## (V.1.8.1 Changes) (1.16.5 Minecraft)
 
 ##### Witch Huts:

@@ -43,7 +43,7 @@ public class ShipwreckEndStructure extends AbstractBaseStructure<DefaultFeatureC
 
     @Override
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, int x, int z, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig defaultFeatureConfig) {
-        return getGenerationHeight(x, z, chunkGenerator) >= 20;
+        return getGenerationHeight(x, z, chunkGenerator) >= Math.min(chunkGenerator.getWorldHeight(), 20);
     }
 
     private static int getGenerationHeight(int chunkX, int chunkZ, ChunkGenerator chunkGenerator) {
@@ -76,7 +76,7 @@ public class ShipwreckEndStructure extends AbstractBaseStructure<DefaultFeatureC
 
         @Override
         public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
-            BlockPos blockpos = new BlockPos(chunkX * 16, 62, chunkZ * 16);
+            BlockPos blockpos = new BlockPos(chunkX * 16, 64, chunkZ * 16);
             StructurePoolBasedGenerator.method_30419(
                     dynamicRegistryManager,
                     new StructurePoolFeatureConfig(() -> dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN).get(START_POOL), 1),

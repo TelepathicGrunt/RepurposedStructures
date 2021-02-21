@@ -38,7 +38,7 @@ public abstract class AbstractNetherStructure extends AbstractBaseStructure<Defa
 
                 for(StructureFeature<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE)) {
                     StructureConfig structureConfig = chunkGenerator.getStructuresConfig().getForType(structureFeature);
-                    if(structureConfig != null) {
+                    if(structureConfig != null && structureConfig.getSpacing() > 8) {
                         ChunkPos chunkPos2 = structureFeature.getStartChunk(structureConfig, seed, chunkRandom, curChunkX, curChunkZ);
                         if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
                             return false;
@@ -57,10 +57,10 @@ public abstract class AbstractNetherStructure extends AbstractBaseStructure<Defa
 
 
         public BlockPos getHighestLand(ChunkGenerator chunkGenerator){
-            BlockPos.Mutable mutable = new BlockPos.Mutable().set(this.boundingBox.getCenter().getX(), 108, this.boundingBox.getCenter().getZ());
+            BlockPos.Mutable mutable = new BlockPos.Mutable().set(this.boundingBox.getCenter().getX(), chunkGenerator.getWorldHeight(), this.boundingBox.getCenter().getZ());
             BlockView blockView = chunkGenerator.getColumnSample(mutable.getX(), mutable.getZ());
             BlockState currentBlockstate;
-            while(mutable.getY() > 30){
+            while(mutable.getY() > chunkGenerator.getSeaLevel() - 2){
                 currentBlockstate = blockView.getBlockState(mutable);
                 if(!currentBlockstate.isSolidBlock(blockView, mutable)){
                     mutable.move(Direction.DOWN);
@@ -78,10 +78,10 @@ public abstract class AbstractNetherStructure extends AbstractBaseStructure<Defa
         }
 
         public BlockPos getLowestLand(ChunkGenerator chunkGenerator){
-            BlockPos.Mutable mutable = new BlockPos.Mutable().set(this.boundingBox.getCenter().getX(), 35, this.boundingBox.getCenter().getZ());
+            BlockPos.Mutable mutable = new BlockPos.Mutable().set(this.boundingBox.getCenter().getX(), chunkGenerator.getSeaLevel() + 3, this.boundingBox.getCenter().getZ());
             BlockView blockView = chunkGenerator.getColumnSample(mutable.getX(), mutable.getZ());
             BlockState currentBlockstate = blockView.getBlockState(mutable);
-            while (mutable.getY() <= 108) {
+            while (mutable.getY() <= chunkGenerator.getWorldHeight()) {
 
                 if(blockView.getBlockState(mutable).getMaterial() != Material.AIR &&
                         blockView.getBlockState(mutable.up()).getMaterial() == Material.AIR &&
