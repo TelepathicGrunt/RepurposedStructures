@@ -16,6 +16,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Strongholds:
 - Added turnOffVanillaStrongholds config option to let people be able to turn off vanilla Strongholds to only have Nether Strongholds easier.
 
+- Fixed Stone Shores still having Vanilla Strongholds instead of Repurposed Structures which was causing false positives with /locate stronghold and Eyes of Ender as a result.
+
 ##### General:
 - Made all the checks I have for separating some structures from other kinds of structures now ignore those checks if the structure spacing is set super low in configs.
   Now if you make all outposts spawn in every chunk by config, Repurposed Structures villages will still be able to spawn.
