@@ -11,6 +11,7 @@ import net.minecraft.util.registry.DynamicRegistries;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.provider.BiomeProvider;
+import net.minecraft.world.biome.provider.CheckerboardBiomeProvider;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
@@ -38,10 +39,12 @@ public class MansionStructure extends AbstractBaseStructure<NoFeatureConfig> {
     }
 
     @Override
-    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeProvider biomeProvider, long seed, SharedSeedRandom random, int chunkX, int chunkZ, Biome biome1, ChunkPos chunkPos, NoFeatureConfig config) {
-        for(Biome biome2 : biomeProvider.getBiomesInArea(chunkX * 16 + 9, chunkGenerator.getSeaLevel(), chunkZ * 16 + 9, 32)) {
-            if (!biome2.getGenerationSettings().hasStructureFeature(this)) {
-                return false;
+    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom random, int chunkX, int chunkZ, Biome biome1, ChunkPos chunkPos, NoFeatureConfig config) {
+        if(!(biomeSource instanceof CheckerboardBiomeProvider)) {
+            for (Biome biome2 : biomeSource.getBiomesInArea(chunkX * 16 + 9, chunkGenerator.getSeaLevel(), chunkZ * 16 + 9, 32)) {
+                if (!biome2.getGenerationSettings().hasStructureFeature(this)) {
+                    return false;
+                }
             }
         }
 
@@ -78,8 +81,8 @@ public class MansionStructure extends AbstractBaseStructure<NoFeatureConfig> {
             int j1 = chunkGenerator.func_222531_c(k, l + j, Heightmap.Type.WORLD_SURFACE_WG);
             int k1 = chunkGenerator.func_222531_c(k + i, l, Heightmap.Type.WORLD_SURFACE_WG);
             int l1 = chunkGenerator.func_222531_c(k + i, l + j, Heightmap.Type.WORLD_SURFACE_WG);
-            int i2 = Math.min(Math.min(i1, j1), Math.min(k1, l1));
-            BlockPos blockpos = new BlockPos(chunkX * 16 + 8, i2 + 1, chunkZ * 16 + 8);
+            int y = Math.min(Math.min(i1, j1), Math.min(k1, l1));
+            BlockPos blockpos = new BlockPos(chunkX * 16 + 8, y + 1, chunkZ * 16 + 8);
             List<MansionPieces.MansionTemplate> list = Lists.newLinkedList();
             MansionPieces.generateMansion(structureManager, blockpos, rotation, list, this.rand, type);
             this.components.addAll(list);

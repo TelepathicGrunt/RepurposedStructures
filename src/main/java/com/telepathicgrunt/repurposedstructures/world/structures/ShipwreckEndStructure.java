@@ -42,7 +42,7 @@ public class ShipwreckEndStructure extends AbstractBaseStructure<NoFeatureConfig
 
     @Override
     protected boolean shouldStartAt(ChunkGenerator generator, BiomeProvider biomeProvider, long seed, SharedSeedRandom random, int x, int z, Biome biome, ChunkPos chunkPos, NoFeatureConfig config) {
-        return getYPosForStructure(x, z, generator) >= 20;
+        return getYPosForStructure(x, z, generator) >= Math.min(generator.getMaxY(), 20);
     }
 
     private static int getYPosForStructure(int x, int z, ChunkGenerator generator) {
@@ -75,7 +75,7 @@ public class ShipwreckEndStructure extends AbstractBaseStructure<NoFeatureConfig
 
         @Override
         public void init(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
-            BlockPos blockPos = new BlockPos(chunkX * 16, 62, chunkZ * 16);
+            BlockPos blockPos = new BlockPos(chunkX * 16, 64, chunkZ * 16);
             JigsawManager.method_30419(
                     dynamicRegistryManager,
                     new VillageConfig(() -> dynamicRegistryManager.get(

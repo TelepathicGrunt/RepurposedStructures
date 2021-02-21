@@ -38,7 +38,7 @@ public class TempleNetherStructure extends Structure<NoFeatureConfig> {
 
         public void init(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int x, int z, Biome biome, NoFeatureConfig NoFeatureConfig) {
 
-            BlockPos blockPos = new BlockPos(x * 16, 35, z * 16);
+            BlockPos blockPos = new BlockPos(x * 16, chunkGenerator.getSeaLevel() + 3, z * 16);
             JigsawManager.method_30419(
                     dynamicRegistryManager,
                     new VillageConfig(() -> dynamicRegistryManager.get(
@@ -55,8 +55,8 @@ public class TempleNetherStructure extends Structure<NoFeatureConfig> {
             this.recalculateStructureSize();
 
             BlockPos lowestLandPos = getLowestLand(chunkGenerator);
-            if (lowestLandPos.getY() >= 108 || lowestLandPos.getY() <= 33) {
-                this.func_214626_a(this.rand, 16, 17);
+            if (lowestLandPos.getY() >= chunkGenerator.getMaxY() - 20 || lowestLandPos.getY() <= chunkGenerator.getSeaLevel() + 1) {
+                this.func_214626_a(this.rand, chunkGenerator.getSeaLevel() - 16, chunkGenerator.getSeaLevel() - 15);
             }
             else {
                 this.func_214626_a(this.rand, lowestLandPos.getY() - 16, lowestLandPos.getY() - 15);

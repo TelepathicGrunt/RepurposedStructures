@@ -65,8 +65,8 @@ public class GenericNetherJigsawHighStructure extends AbstractBaseStructure<NoFe
             int boundOffset = -10;
             BlockPos highestLandPos = getHighestLand(chunkGenerator);
             this.func_214626_a(this.rand,
-                    Math.max((highestLandPos.getY() + heightOffset) - 1, 29 + lavaOffset) + boundOffset,
-                    Math.max(highestLandPos.getY() + heightOffset, 30 + lavaOffset) + boundOffset);
+                    Math.max((highestLandPos.getY() + heightOffset) - 1, (chunkGenerator.getSeaLevel() - 3) + lavaOffset) + boundOffset,
+                    Math.max(highestLandPos.getY() + heightOffset, (chunkGenerator.getSeaLevel() - 2) + lavaOffset) + boundOffset);
         }
     }
 }

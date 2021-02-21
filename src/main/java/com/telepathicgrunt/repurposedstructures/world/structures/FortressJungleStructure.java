@@ -11,6 +11,7 @@ import net.minecraft.util.registry.DynamicRegistries;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.biome.provider.BiomeProvider;
+import net.minecraft.world.biome.provider.CheckerboardBiomeProvider;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.Structure;
@@ -27,14 +28,17 @@ public class FortressJungleStructure extends AbstractBaseStructure<NoFeatureConf
     }
 
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long l, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig NoFeatureConfig) {
-        int radius = 4;
-        for (int curChunkX = chunkX - radius; curChunkX <= chunkX + radius; curChunkX += radius) {
-            for (int curChunkZ = chunkZ - radius; curChunkZ <= chunkZ + radius; curChunkZ += radius) {
-                if (!biomeSource.getBiomeForNoiseGen(curChunkX << 2, 60, curChunkZ << 2).getGenerationSettings().hasStructureFeature(RSStructures.JUNGLE_FORTRESS.get())) {
-                    return false;
+        if(!(biomeSource instanceof CheckerboardBiomeProvider)){
+            int radius = 4;
+            for (int curChunkX = chunkX - radius; curChunkX <= chunkX + radius; curChunkX += radius) {
+                for (int curChunkZ = chunkZ - radius; curChunkZ <= chunkZ + radius; curChunkZ += radius) {
+                    if (!biomeSource.getBiomeForNoiseGen(curChunkX << 2, 64, curChunkZ << 2).getGenerationSettings().hasStructureFeature(RSStructures.JUNGLE_FORTRESS.get())) {
+                        return false;
+                    }
                 }
             }
         }
+
 
         return true;
     }
@@ -77,7 +81,7 @@ public class FortressJungleStructure extends AbstractBaseStructure<NoFeatureConf
             }
 
             this.recalculateStructureSize();
-            this.func_214626_a(this.rand, 55, 60);
+            this.func_214626_a(this.rand, chunkGenerator.getSeaLevel() - 9, chunkGenerator.getSeaLevel() - 4);
         }
     }
 }

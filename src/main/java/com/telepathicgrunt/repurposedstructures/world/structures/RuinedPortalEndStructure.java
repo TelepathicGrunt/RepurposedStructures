@@ -23,7 +23,7 @@ public class RuinedPortalEndStructure extends GenericJigsawStructure {
 
     @Override
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig noFeatureConfig) {
-        return getTerrainHeight(chunkX, chunkZ, chunkGenerator) >= 50;
+        return getTerrainHeight(chunkX, chunkZ, chunkGenerator) >= Math.min(chunkGenerator.getMaxY(), 50);
     }
 
     // must be on land

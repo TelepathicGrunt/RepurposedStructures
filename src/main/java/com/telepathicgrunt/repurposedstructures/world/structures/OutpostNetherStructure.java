@@ -65,11 +65,11 @@ public class OutpostNetherStructure extends AbstractBaseStructure<NoFeatureConfi
             this.recalculateStructureSize();
 
             BlockPos lowestLandPos = getHighestLand(chunkGenerator);
-            if (lowestLandPos.getY() >= 108 || lowestLandPos.getY() <= 37) {
-                this.func_214626_a(this.rand, 19, 20);
+            if (lowestLandPos.getY() >= chunkGenerator.getMaxY() - 20 || lowestLandPos.getY() <= chunkGenerator.getSeaLevel() + 5) {
+                this.func_214626_a(this.rand, chunkGenerator.getSeaLevel() - 13, chunkGenerator.getSeaLevel() - 12);
             }
             else {
-                this.func_214626_a(this.rand, lowestLandPos.getY()-15, lowestLandPos.getY()-14);
+                this.func_214626_a(this.rand, lowestLandPos.getY() - 15, lowestLandPos.getY() - 14);
             }
         }
     }
