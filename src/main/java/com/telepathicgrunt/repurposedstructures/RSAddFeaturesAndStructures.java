@@ -309,7 +309,7 @@ public class RSAddFeaturesAndStructures {
 
         if (RepurposedStructures.RSStrongholdsConfig.stonebrickStrongholdMaxChunkDistance.get() != 1001 &&
             !BiomeSelection.haveCategories(event, Category.NETHER, Category.THEEND) &&
-            (!BiomeSelection.haveCategories(event, Category.NONE) && !event.getName().equals(Biomes.STONE_SHORE.getValue())) &&
+            (!BiomeSelection.haveCategories(event, Category.NONE) || event.getName().equals(Biomes.STONE_SHORE.getValue())) &&
             ((RepurposedStructures.RSStrongholdsConfig.allowStonebrickStrongholdToVanillaBiomes.get() &&
                 BiomeSelection.hasNamespace(event, "minecraft") &&
                 !BiomeSelection.haveCategories(event, Category.RIVER)) ||
