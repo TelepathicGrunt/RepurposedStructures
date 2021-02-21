@@ -8,20 +8,26 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
-## (V.2.4.2 Changes) (1.16.5 Minecraft)
+## (V.2.4.2 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)
 
 ##### Cities:
-- made Nether Cities more rare by default and have Netherite Scraps and Netherite Ingot in their chests.
+- made Nether Cities have Netherite Scraps and Netherite Ingot in their chests.
 
 ##### Outposts:
 - Adjusted looks of Crimson and Warped Outposts so their aged tower variants are different. Also renamed tower_glowing piece to tower_aged for both.
 
 - Added aged variant for Nether Bricks Outpost.
 
+##### Pyramids:
+- Fixed pyramid not having pillar of their blocks below their pits when there is space below.
+
 ##### Strongholds:
 - Added turnOffVanillaStrongholds config option to let people be able to turn off vanilla Strongholds to only have Nether Strongholds easier.
 
 - Fixed Stone Shores still having Vanilla Strongholds instead of Repurposed Structures's which was causing false positives with /locate stronghold and Eyes of Ender as a result.
+
+##### Villages:
+- Fixed Zombie Badlands Village having 2 Birch Village houses by mistake.
 
 ##### Mod Compat:
 - Adjusted Stronghold removal code to not conflict with Yung's Better Stronghold mod when he releases it!
@@ -37,13 +43,13 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Made all structures that checks surrounding biomes for valid biomes before spawning will now ignore that check if Checkered Biome Provider is used.
 
 
-## (V.2.4.1 Changes) (1.16.5 Minecraft)
+## (V.2.4.1 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)
 
 ##### Misc:
 - Moved StructureBlockScreen mixin so it only applies client side. Oops. It is not suppose to run on servers.
 
 
-## (V.2.4.0 Changes) (1.16.5 Minecraft)
+## (V.2.4.0 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)
 
 ##### Cities:
 - Added extremely rare Nether Cities to all Nether biomes! Beware of the Blazes! Maps to this city are very rare but can be found in Nether Ruins or Crimson/Warped Cartographer chests. 
