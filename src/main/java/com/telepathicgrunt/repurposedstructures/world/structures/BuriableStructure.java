@@ -40,7 +40,7 @@ public class BuriableStructure extends AbstractBaseStructure<NoFeatureConfig> {
 
         @Override
         public void init(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
-            BlockPos blockPos = new BlockPos(chunkX * 16, 64, chunkZ * 16);
+            BlockPos blockPos = new BlockPos(chunkX * 16, chunkGenerator.getSeaLevel(), chunkZ * 16);
             JigsawManager.method_30419(
                     dynamicRegistryManager,
                     new VillageConfig(() -> dynamicRegistryManager.get(
