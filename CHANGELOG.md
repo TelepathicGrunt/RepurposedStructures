@@ -21,6 +21,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Strongholds:
 - Added turnOffVanillaStrongholds config option to let people be able to turn off vanilla Strongholds to only have Nether Strongholds easier.
 
+##### Mod Compat:
+- Adjusted Stronghold removal code to not conflict with Yung's Better Stronghold mod when he releases it!
+
 
 ## (V.2.4.1 Changes) (1.16.5 Minecraft)
 

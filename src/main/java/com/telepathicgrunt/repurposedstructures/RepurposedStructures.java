@@ -57,7 +57,9 @@ public class RepurposedStructures
 	public static RSMansionsConfigValues RSMansionsConfig = null;
 	public static RSWitchHutsConfigValues RSWitchHutsConfig = null;
 	public static MobSpawnerManager mobSpawnerManager = new MobSpawnerManager();
+
 	public static boolean yungsBetterMineshaftIsNotOn = true;
+	public static boolean yungsBetterStrongholdsIsNotOn = true;
 
 	public RepurposedStructures()
 	{
@@ -88,6 +90,7 @@ public class RepurposedStructures
 		RSWitchHutsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSWitchHutsConfigValues::new, "repurposed_structures-witch_huts.toml");
 
 		yungsBetterMineshaftIsNotOn = !ModList.get().isLoaded("bettermineshafts");
+		yungsBetterStrongholdsIsNotOn = !ModList.get().isLoaded("betterstrongholds");
 	}
 
 	/*

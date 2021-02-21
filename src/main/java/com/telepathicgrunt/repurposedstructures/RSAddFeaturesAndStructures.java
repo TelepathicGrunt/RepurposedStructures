@@ -70,7 +70,7 @@ public class RSAddFeaturesAndStructures {
                 spacingToAdd.forEach(tempMap::putIfAbsent);
             }
             // Vanilla stronghold removal based on config. Useful for people who want just Nether Strongholds spawning only.
-            if(RepurposedStructures.RSStrongholdsConfig.turnOffVanillaStrongholds.get()){
+            if(RepurposedStructures.RSStrongholdsConfig.turnOffVanillaStrongholds.get() && RepurposedStructures.yungsBetterStrongholdsIsNotOn){
                 tempMap.remove(Structure.STRONGHOLD);
             }
             serverWorld.getChunkProvider().generator.getStructuresConfig().structures = tempMap;
@@ -321,7 +321,9 @@ public class RSAddFeaturesAndStructures {
             event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION)
                     .add(() -> RSConfiguredFeatures.STONEBRICK_STRONGHOLD_CHAINS);
 
-            event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.STRONGHOLD));
+            if(RepurposedStructures.yungsBetterStrongholdsIsNotOn){
+                event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.STRONGHOLD));
+            }
         }
 
         else if (RepurposedStructures.RSStrongholdsConfig.netherStrongholdMaxChunkDistance.get() != 1001 &&
