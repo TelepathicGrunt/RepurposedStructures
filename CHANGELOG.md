@@ -21,7 +21,7 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Strongholds:
 - Added turnOffVanillaStrongholds config option to let people be able to turn off vanilla Strongholds to only have Nether Strongholds easier.
 
-- Fixed Stone Shores still having Vanilla Strongholds instead of Repurposed Structures which was causing false positives with /locate stronghold and Eyes of Ender as a result.
+- Fixed Stone Shores still having Vanilla Strongholds instead of Repurposed Structures's which was causing false positives with /locate stronghold and Eyes of Ender as a result.
 
 ##### Mod Compat:
 - Adjusted Stronghold removal code to not conflict with Yung's Better Stronghold mod when he releases it!
