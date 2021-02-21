@@ -13,10 +13,21 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Cities:
 - made Nether Cities have Netherite Scraps and Netherite Ingot in their chests.
 
+##### Outposts:
+- Adjusted looks of Crimson and Warped Outposts so their aged tower variants are different. Also renamed tower_glowing piece to tower_aged for both.
+
+- Added aged variant for Nether Bricks Outpost.
+
+##### Pyramids:
+- Fixed pyramid not having pillar of their blocks below their pits when there is space below.
+
 ##### Strongholds:
 - Added turnOffVanillaStrongholds config option to let people be able to turn off vanilla Strongholds to only have Nether Strongholds easier.
 
 - Fixed Stone Shores still having Vanilla Strongholds instead of Repurposed Structures's which was causing false positives with /locate stronghold and Eyes of Ender as a result.
+
+##### Villages:
+- Fixed Zombie Badlands Village having 2 Birch Village houses by mistake.
 
 ##### General:
 - Made all the checks I have for separating some structures from other kinds of structures now ignore those checks if the structure spacing is set super low in configs.
