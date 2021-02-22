@@ -979,7 +979,7 @@ public class MansionPieces  {
 
         private void loadTemplate(TemplateManager templateManager) {
             Template template = templateManager.getTemplateDefaulted(new ResourceLocation(RepurposedStructures.MODID, "mansions/" + type.name().toLowerCase() + "/" + this.templateName));
-            PlacementSettings placementsettings = (new PlacementSettings()).setIgnoreEntities(true).setRotation(this.rotation).setMirror(this.mirror).addProcessor(BlockIgnoreStructureProcessor.STRUCTURE_BLOCK);
+            PlacementSettings placementsettings = (new PlacementSettings()).setIgnoreEntities(false).setRotation(this.rotation).setMirror(this.mirror).addProcessor(BlockIgnoreStructureProcessor.STRUCTURE_BLOCK);
             this.setup(template, this.templatePosition, placementsettings);
         }
 
