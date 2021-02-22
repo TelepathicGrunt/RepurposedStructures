@@ -13,6 +13,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Pyramids:
 - Made Badlands Pyramid rarer by default in configs.
 
+##### Villages:
+- Made Giant Tree Taiga a bit less messy and fixed several pieces not having its Stone Pressure Plates randomly replaced. 
+
 
 ## (V.2.4.2 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)
 
