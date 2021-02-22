@@ -5,10 +5,10 @@
       "item": "minecraft:spruce_log"
     },
     "title": {
-      "text": "advancements.repurposed_structures.outpost_taiga.title"
+      "translate": "advancements.repurposed_structures.outpost_taiga.title"
     },
     "description": {
-      "text": "advancements.repurposed_structures.outpost_taiga.description"
+      "translate": "advancements.repurposed_structures.outpost_taiga.description"
     },
     "hidden": true
   },

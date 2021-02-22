@@ -5,10 +5,10 @@
       "item": "minecraft:sandstone_stairs"
     },
     "title": {
-      "text": "advancements.repurposed_structures.mansion_desert.title"
+      "translate": "advancements.repurposed_structures.mansion_desert.title"
     },
     "description": {
-      "text": "advancements.repurposed_structures.mansion_desert.description"
+      "translate": "advancements.repurposed_structures.mansion_desert.description"
     },
     "hidden": true
   },

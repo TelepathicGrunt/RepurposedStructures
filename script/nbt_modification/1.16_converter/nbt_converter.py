@@ -26,18 +26,6 @@ conversion_exact_dict = {
     "minecraft:potted_red_mushroom":"minecraft:potted_red_mushroom",
     "minecraft:lantern":"minecraft:lantern"
 }
-
-'''
-
-#--------------------------------------------------------------------------------------------
-
-blockPalette = {""}
-
-originalBiome = ""
-newBiome = ""
-string_blacklist = []
-conversion_partial_dict = {
-}
 conversion_exact_dict = {
     "minecraft:chests/pillager_outpost":"repurposed_structures:chests/outpost/badlands_chest",
     "minecraft:dark_oak_log":"minecraft:chiseled_red_sandstone",
@@ -53,6 +41,35 @@ conversion_exact_dict = {
     "minecraft:potted_brown_mushroom":"minecraft:potted_dead_bush",
     "minecraft:potted_red_mushroom":"minecraft:potted_cactus",
     "minecraft:lantern":"minecraft:lantern"
+}
+
+'''
+
+#--------------------------------------------------------------------------------------------
+
+blockPalette = {""}
+
+originalBiome = "pillager_outpost"
+newBiome = "snowy"
+string_blacklist = []
+conversion_partial_dict = {
+}
+conversion_exact_dict = {
+    "minecraft:chests/pillager_outpost":"repurposed_structures:chests/outpost/snowy_chest",
+    "minecraft:dark_oak_log":"minecraft:snow_block",
+    "minecraft:dark_oak_planks":"minecraft:snow_block",
+    "minecraft:dark_oak_slab":"minecraft:diorite_slab",
+    "minecraft:dark_oak_stairs":"minecraft:diorite_stairs",
+    "minecraft:birch_planks":"minecraft:snow_block",
+    "minecraft:cobblestone":"minecraft:diorite",
+    "minecraft:cobblestone_stairs":"minecraft:diorite_stairs",
+    "minecraft:cobblestone_slab":"minecraft:diorite_slab",
+    "minecraft:mossy_cobblestone":"minecraft:diorite",
+    "minecraft:mossy_cobblestone_stairs":"minecraft:spruce_stairs",
+    "minecraft:mossy_cobblestone_slab":"minecraft:spruce_slab",
+    "minecraft:potted_dead_bush":"minecraft:potted_spruce_sapling",
+    "minecraft:potted_brown_mushroom":"minecraft:potted_spruce_sapling",
+    "minecraft:potted_red_mushroom":"minecraft:potted_spruce_sapling"
 }
 
 #-------------------------------------------------------------------------------------------

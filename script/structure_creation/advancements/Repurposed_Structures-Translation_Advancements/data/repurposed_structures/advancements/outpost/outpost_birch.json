@@ -5,10 +5,10 @@
       "item": "minecraft:birch_log"
     },
     "title": {
-      "text": "Watching over the White Forest"
+      "translate": "advancements.repurposed_structures.birch.title"
     },
     "description": {
-      "text": "Enter a Birch Outpost"
+      "translate": "advancements.repurposed_structures.birch.description"
     },
     "hidden": true
   },

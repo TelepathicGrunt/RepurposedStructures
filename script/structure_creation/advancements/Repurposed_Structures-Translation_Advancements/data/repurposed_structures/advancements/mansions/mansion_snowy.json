@@ -5,10 +5,10 @@
       "item": "minecraft:snow_block"
     },
     "title": {
-      "text": "advancements.repurposed_structures.mansion_snowy.title"
+      "translate": "advancements.repurposed_structures.mansion_snowy.title"
     },
     "description": {
-      "text": "advancements.repurposed_structures.mansion_snowy.description"
+      "translate": "advancements.repurposed_structures.mansion_snowy.description"
     },
     "hidden": true
   },

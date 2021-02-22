@@ -5,10 +5,10 @@
       "item": "minecraft:dark_oak_fence"
     },
     "title": {
-      "text": "advancements.repurposed_structures.witch_huts_dark_forest.title"
+      "translate": "advancements.repurposed_structures.witch_huts_dark_forest.title"
     },
     "description": {
-      "text": "advancements.repurposed_structures.witch_huts_dark_forest.description"
+      "translate": "advancements.repurposed_structures.witch_huts_dark_forest.description"
     },
     "hidden": true
   },

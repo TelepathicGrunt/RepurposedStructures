@@ -5,10 +5,10 @@
       "item": "minecraft:red_banner"
     },
     "title": {
-      "translate": "Cities"
+      "translate": "advancements.repurposed_structures.cities.title"
     },
     "description": {
-      "translate": "Go look for a Cities!"
+      "translate": "advancements.repurposed_structures.cities.description"
     },
     "show_toast": false,
     "announce_to_chat": false,

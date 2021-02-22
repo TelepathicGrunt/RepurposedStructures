@@ -5,10 +5,10 @@
       "item": "minecraft:jungle_stairs"
     },
     "title": {
-      "text": "advancements.repurposed_structures.mansion_jungle.title"
+      "translate": "advancements.repurposed_structures.mansion_jungle.title"
     },
     "description": {
-      "text": "advancements.repurposed_structures.mansion_jungle.description"
+      "translate": "advancements.repurposed_structures.mansion_jungle.description"
     },
     "hidden": true
   },
