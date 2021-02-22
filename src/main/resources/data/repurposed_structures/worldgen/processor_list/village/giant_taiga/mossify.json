@@ -130,7 +130,7 @@
           },
           "input_predicate": {
             "block": "minecraft:stone_pressure_plate",
-            "probability": 0.1,
+            "probability": 0.02,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -147,7 +147,7 @@
           },
           "input_predicate": {
             "block": "minecraft:stone_pressure_plate",
-            "probability": 0.1,
+            "probability": 0.02,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -160,7 +160,7 @@
           },
           "input_predicate": {
             "block": "minecraft:stone_pressure_plate",
-            "probability": 0.75,
+            "probability": 0.98,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {

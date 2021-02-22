@@ -35,7 +35,7 @@
           },
           "input_predicate": {
             "block": "minecraft:grass_path",
-            "probability": 0.1,
+            "probability": 0.3,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -48,7 +48,7 @@
           },
           "input_predicate": {
             "block": "minecraft:grass_path",
-            "probability": 0.4,
+            "probability": 0.75,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -64,7 +64,7 @@
           },
           "input_predicate": {
             "block": "minecraft:grass_path",
-            "probability": 0.8,
+            "probability": 0.5,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
