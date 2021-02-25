@@ -13,7 +13,6 @@ import com.telepathicgrunt.repurposedstructures.configs.RSTemplesConfig.RSTemple
 import com.telepathicgrunt.repurposedstructures.configs.RSVillagesConfig.RSVillagesConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSWellsConfig.RSWellsConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSWitchHutsConfig.RSWitchHutsConfigValues;
-import com.telepathicgrunt.repurposedstructures.configs.RSWitchHutsConfig;
 import com.telepathicgrunt.repurposedstructures.misc.MobMapTrades;
 import com.telepathicgrunt.repurposedstructures.modinit.*;
 import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;

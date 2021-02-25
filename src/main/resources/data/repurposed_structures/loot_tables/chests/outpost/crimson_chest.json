@@ -9,184 +9,303 @@
       },
       "entries": [
         {
-          "type": "minecraft:item",
-          "weight": 2,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1.0,
-                "max": 3.0,
-                "type": "minecraft:uniform"
-              }
-            }
-          ],
-          "name": "minecraft:gold_block"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 5,
-          "name": "minecraft:netherite_scrap"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 15,
-          "functions": [
-            {
-              "function": "minecraft:enchant_with_levels",
-              "levels": {
-                "min": 10.0,
-                "max": 25.0,
-                "type": "minecraft:uniform"
-              },
-              "treasure": true
-            }
-          ],
-          "name": "minecraft:golden_sword"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 5,
-          "functions": [
-            {
-              "function": "minecraft:enchant_with_levels",
-              "levels": {
-                "min": 10.0,
-                "max": 25.0,
-                "type": "minecraft:uniform"
-              },
-              "treasure": true
-            }
-          ],
-          "name": "minecraft:golden_helmet"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 5,
-          "functions": [
-            {
-              "function": "minecraft:enchant_with_levels",
-              "levels": {
-                "min": 10.0,
-                "max": 25.0,
-                "type": "minecraft:uniform"
-              },
-              "treasure": true
-            }
-          ],
-          "name": "minecraft:golden_boots"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 5,
-          "functions": [
-            {
-              "function": "minecraft:enchant_with_levels",
-              "levels": {
-                "min": 10.0,
-                "max": 25.0,
-                "type": "minecraft:uniform"
-              },
-              "treasure": true
-            }
-          ],
-          "name": "minecraft:golden_chestplate"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 5,
-          "functions": [
-            {
-              "function": "minecraft:enchant_with_levels",
-              "levels": {
-                "min": 10.0,
-                "max": 25.0,
-                "type": "minecraft:uniform"
-              },
-              "treasure": true
-            }
-          ],
-          "name": "minecraft:golden_leggings"
-        },
-        {
+          "name": "minecraft:stone_sword",
           "type": "minecraft:item",
           "weight": 20,
           "functions": [
             {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.4,
+                "max": 1
+              }
+            },
+            {
               "function": "minecraft:enchant_with_levels",
               "levels": {
-                "min": 20.0,
+                "min": 10.0,
                 "max": 35.0,
                 "type": "minecraft:uniform"
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:stone_sword"
+          ]
         },
         {
+          "name": "minecraft:golden_sword",
           "type": "minecraft:item",
-          "weight": 5,
+          "weight": 15,
           "functions": [
             {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 2.0,
-                "max": 9.0,
-                "type": "minecraft:uniform"
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.1,
+                "max": 0.8
               }
-            }
-          ],
-          "name": "minecraft:gold_ingot"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 5,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 2.0,
-                "max": 5.0,
-                "type": "minecraft:uniform"
-              }
-            }
-          ],
-          "name": "minecraft:gold_nugget"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 10,
-          "functions": [
+            },
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
-                "min": 10.0,
+                "min": 5.0,
                 "max": 25.0,
                 "type": "minecraft:uniform"
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:crossbow"
+          ]
         },
         {
+          "name": "minecraft:golden_helmet",
           "type": "minecraft:item",
-          "weight": 10,
+          "weight": 5,
           "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.1,
+                "max": 0.8
+              }
+            },
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
-                "min": 10.0,
+                "min": 5.0,
                 "max": 25.0,
                 "type": "minecraft:uniform"
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:bow"
+          ]
         },
         {
+          "name": "minecraft:golden_chestplate",
+          "type": "minecraft:item",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.1,
+                "max": 0.8
+              }
+            },
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "min": 5.0,
+                "max": 25.0,
+                "type": "minecraft:uniform"
+              },
+              "treasure": true
+            }
+          ]
+        },
+        {
+          "name": "minecraft:golden_leggings",
+          "type": "minecraft:item",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.1,
+                "max": 0.8
+              }
+            },
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "min": 5.0,
+                "max": 25.0,
+                "type": "minecraft:uniform"
+              },
+              "treasure": true
+            }
+          ]
+        },
+        {
+          "name": "minecraft:golden_boots",
+          "type": "minecraft:item",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.1,
+                "max": 0.8
+              }
+            },
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "min": 5.0,
+                "max": 25.0,
+                "type": "minecraft:uniform"
+              },
+              "treasure": true
+            }
+          ]
+        },
+        {
+          "name": "minecraft:crossbow",
+          "type": "minecraft:item",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.1,
+                "max": 0.8
+              }
+            },
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "min": 5.0,
+                "max": 25.0,
+                "type": "minecraft:uniform"
+              },
+              "treasure": true
+            }
+          ]
+        },
+        {
+          "name": "minecraft:bow",
+          "type": "minecraft:item",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.1,
+                "max": 0.8
+              }
+            },
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "min": 5.0,
+                "max": 25.0,
+                "type": "minecraft:uniform"
+              },
+              "treasure": true
+            }
+          ]
+        },
+        {
+          "name": "minecraft:stone_sword",
+          "type": "minecraft:item",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ]
+        },
+        {
+          "name": "minecraft:golden_sword",
+          "type": "minecraft:item",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.5,
+                "max": 1
+              }
+            }
+          ]
+        },
+        {
+          "name": "minecraft:golden_helmet",
+          "type": "minecraft:item",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.5,
+                "max": 1
+              }
+            }
+          ]
+        },
+        {
+          "name": "minecraft:golden_chestplate",
+          "type": "minecraft:item",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.5,
+                "max": 1
+              }
+            }
+          ]
+        },
+        {
+          "name": "minecraft:golden_leggings",
+          "type": "minecraft:item",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.5,
+                "max": 1
+              }
+            }
+          ]
+        },
+        {
+          "name": "minecraft:golden_boots",
+          "type": "minecraft:item",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.5,
+                "max": 1
+              }
+            }
+          ]
+        },
+        {
+          "name": "minecraft:crossbow",
+          "type": "minecraft:item",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.5,
+                "max": 1
+              }
+            }
+          ]
+        },
+        {
+          "name": "minecraft:bow",
+          "type": "minecraft:item",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.5,
+                "max": 1
+              }
+            }
+          ]
+        },
+        {
+          "name": "minecraft:arrow",
           "type": "minecraft:item",
           "weight": 8,
           "functions": [
@@ -198,12 +317,62 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:arrow"
+          ]
         },
         {
+          "name": "minecraft:netherite_scrap",
+          "type": "minecraft:item",
+          "weight": 5
+        },
+        {
+          "name": "minecraft:gold_block",
+          "type": "minecraft:item",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 3.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ]
+        },
+        {
+          "name": "minecraft:gold_ingot",
           "type": "minecraft:item",
           "weight": 7,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2.0,
+                "max": 9.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ]
+        },
+        {
+          "name": "minecraft:gold_nugget",
+          "type": "minecraft:item",
+          "weight": 7,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2.0,
+                "max": 5.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ]
+        },
+        {
+          "name": "minecraft:crimson_fungus",
+          "type": "minecraft:item",
+          "weight": 9,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -213,12 +382,12 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:crimson_fungus"
+          ]
         },
         {
+          "name": "minecraft:nether_wart_block",
           "type": "minecraft:item",
-          "weight": 7,
+          "weight": 9,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -228,10 +397,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:nether_wart_block"
+          ]
         },
         {
+          "name": "minecraft:cooked_porkchop",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -243,10 +412,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:cooked_porkchop"
+          ]
         },
         {
+          "name": "minecraft:porkchop",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -258,8 +427,7 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:porkchop"
+          ]
         }
       ]
     }
