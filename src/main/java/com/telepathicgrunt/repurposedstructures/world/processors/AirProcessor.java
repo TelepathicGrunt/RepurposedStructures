@@ -1,21 +1,14 @@
 package com.telepathicgrunt.repurposedstructures.world.processors;
 
-import com.mojang.brigadier.StringReader;
-import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.command.argument.BlockArgumentParser;
 import net.minecraft.structure.Structure;
 import net.minecraft.structure.StructurePlacementData;
 import net.minecraft.structure.processor.StructureProcessor;
 import net.minecraft.structure.processor.StructureProcessorType;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
 import net.minecraft.world.WorldView;
-
-import static java.lang.Integer.parseInt;
 
 /**
  * FOR ELEMENTS USING legacy_single_pool_element AND WANTS AIR TO REPLACE TERRAIN.
