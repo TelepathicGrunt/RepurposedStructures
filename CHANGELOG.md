@@ -10,6 +10,12 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ## (V.1.8.3 Changes) (1.16.5 Minecraft)
 
+##### Strongholds:
+- So uh, I just learned that removing the Vanilla Stronghold from all biomes doesn't actually stop it from spawning.
+  To fix this, turnOffVanillaStrongholds config value is now set to true by default and it will now correcty make 
+  Vanilla Strongholds no longer spawn anymore. Repurposed Structure's Stonebrick Stronghold will take its place properly.
+  (Yes Eyes of Ender will find RS's Strongholds)
+
 ##### Outposts:
 - Nerfed the enchantment range of armor and weapons in Crimson, Warped, and Nether Bricks Outpost's loot. 
   Armor and Weapons will be damaged now to encourage fusing gears together to repair and strengthen enchantments.

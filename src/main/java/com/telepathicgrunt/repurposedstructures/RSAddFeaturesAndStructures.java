@@ -66,10 +66,6 @@ public class RSAddFeaturesAndStructures {
 
                 spacingToAdd.forEach(tempMap::putIfAbsent);
             }
-            // Vanilla stronghold removal based on config. Useful for people who want just Nether Strongholds spawning only.
-            if(RepurposedStructures.RSAllConfig.RSStrongholdsConfig.turnOffVanillaStrongholds){
-                tempMap.remove(StructureFeature.STRONGHOLD);
-            }
             ((StructuresConfigAccessor) serverWorld.getChunkManager().getChunkGenerator().getStructuresConfig()).rs_setStructures(tempMap);
         });
     }
@@ -377,16 +373,12 @@ public class RSAddFeaturesAndStructures {
 
     public static void addStrongholds() {
         addToBiome("stonebrick_stronghold",
-                (context) -> !BiomeSelection.haveCategories(context, Category.NETHER, Category.THEEND) &&
-                        (!BiomeSelection.haveCategories(context, Category.NONE) || context.getBiomeKey().equals(BiomeKeys.STONE_SHORE))
+                (context) -> BiomeSelection.hasStructure(context, StructureFeature.STRONGHOLD)
                         && RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.stonebrickStrongholdMaxChunkDistance != 1001
                         && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.STRONGHOLD)
                         && BiomeSelection.isBiomeAllowed(context, "strongholds")
-                        && ((RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.allowStonebrickStrongholdToVanillaBiomes
-                            && BiomeSelection.hasNamespace(context, "minecraft")
-                            && !BiomeSelection.haveCategories(context, Category.RIVER))
-                        || (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.addStonebrickStrongholdToModdedBiomes
-                            && !BiomeSelection.hasNamespace(context, "minecraft"))),
+                        && ((RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.allowStonebrickStrongholdToVanillaBiomes && BiomeSelection.hasNamespace(context, "minecraft"))
+                        || (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.addStonebrickStrongholdToModdedBiomes && !BiomeSelection.hasNamespace(context, "minecraft"))),
                 context -> {
                     context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.STONEBRICK_STRONGHOLD);
                     context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, RSConfiguredFeatures.STONEBRICK_STRONGHOLD_CHAINS);
@@ -403,15 +395,6 @@ public class RSAddFeaturesAndStructures {
                     context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.NETHER_STRONGHOLD);
                     context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, RSConfiguredFeatures.NETHER_STRONGHOLD_CHAINS);
                 });
-
-
-        // Remove vanilla stronghold from biomes we added stonebrick stronghold to
-        BiomeModifications.create(new Identifier(RepurposedStructures.MODID, "remove_vanilla_stronghold")).add(
-                ModificationPhase.REMOVALS,
-                context -> BiomeSelection.isBiomeAllowed(context, "strongholds")
-                        && BiomeSelection.hasStructure(context, RSStructures.STONEBRICK_STRONGHOLD),
-                context -> context.getGenerationSettings().removeStructure(StructureFeature.STRONGHOLD));
-
     }
 
 
