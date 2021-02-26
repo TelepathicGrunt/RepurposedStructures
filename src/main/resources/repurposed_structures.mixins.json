@@ -5,6 +5,7 @@
   "refmap": "repurposed_structures.refmap.json",
   "mixins": [
     "ChunkGeneratorAccessor",
+    "ChunkGeneratorMixin",
     "DungeonFeatureAccessor",
     "EnderEyeStrongholdLocatingMixin",
     "NoLakesInStructuresMixin",

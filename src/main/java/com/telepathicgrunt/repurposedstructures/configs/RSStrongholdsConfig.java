@@ -62,12 +62,12 @@ public class RSStrongholdsConfig
 					.translation("repurposedstructures.config.stronghold.lootchestssh")
 					.define("lootChestsSH", true));
 
-			turnOffVanillaStrongholds = subscriber.subscribe(builder
+				turnOffVanillaStrongholds = subscriber.subscribe(builder
 					.comment("\r\nMakes vanilla Strongholds no longer spawn at all." +
 							"\nWill not affect Repurposed Structures's own Stonebrick Stronghold." +
 							"\nIf BetterStrongholds mod is on, this config has no effect as is treated as false.\r\n")
 					.translation("repurposedstructures.config.stronghold.turnoffvanillastrongholds")
-					.define("turnOffVanillaStrongholds", false));
+					.define("turnOffVanillaStrongholds", true));
 
 
 			builder.push("Stonebrick");

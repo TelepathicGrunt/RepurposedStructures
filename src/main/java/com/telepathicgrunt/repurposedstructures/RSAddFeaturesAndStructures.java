@@ -69,10 +69,6 @@ public class RSAddFeaturesAndStructures {
 
                 spacingToAdd.forEach(tempMap::putIfAbsent);
             }
-            // Vanilla stronghold removal based on config. Useful for people who want just Nether Strongholds spawning only.
-            if(RepurposedStructures.RSStrongholdsConfig.turnOffVanillaStrongholds.get() && RepurposedStructures.yungsBetterStrongholdsIsNotOn){
-                tempMap.remove(Structure.STRONGHOLD);
-            }
             serverWorld.getChunkProvider().generator.getStructuresConfig().structures = tempMap;
         }
     }
@@ -306,25 +302,14 @@ public class RSAddFeaturesAndStructures {
     // STRONGHOLDS //
 
     public static void addStrongholds(BiomeLoadingEvent event) {
-
         if (RepurposedStructures.RSStrongholdsConfig.stonebrickStrongholdMaxChunkDistance.get() != 1001 &&
-            !BiomeSelection.haveCategories(event, Category.NETHER, Category.THEEND) &&
-            (!BiomeSelection.haveCategories(event, Category.NONE) || event.getName().equals(Biomes.STONE_SHORE.getValue())) &&
-            ((RepurposedStructures.RSStrongholdsConfig.allowStonebrickStrongholdToVanillaBiomes.get() &&
-                BiomeSelection.hasNamespace(event, "minecraft") &&
-                !BiomeSelection.haveCategories(event, Category.RIVER)) ||
-            (RepurposedStructures.RSStrongholdsConfig.addStonebrickStrongholdToModdedBiomes.get() &&
-                !BiomeSelection.hasNamespace(event, "minecraft"))))
+            BiomeSelection.hasStructure(event, Structure.STRONGHOLD) &&
+            ((RepurposedStructures.RSStrongholdsConfig.allowStonebrickStrongholdToVanillaBiomes.get() && BiomeSelection.hasNamespace(event, "minecraft")) ||
+            (RepurposedStructures.RSStrongholdsConfig.addStonebrickStrongholdToModdedBiomes.get() && !BiomeSelection.hasNamespace(event, "minecraft"))))
         {
             //replace vanilla stronghold with ours if vanilla's is present
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.STONEBRICK_STRONGHOLD);
-
-            event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION)
-                    .add(() -> RSConfiguredFeatures.STONEBRICK_STRONGHOLD_CHAINS);
-
-            if(RepurposedStructures.yungsBetterStrongholdsIsNotOn){
-                event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.STRONGHOLD));
-            }
+            event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION).add(() -> RSConfiguredFeatures.STONEBRICK_STRONGHOLD_CHAINS);
         }
 
         else if (RepurposedStructures.RSStrongholdsConfig.netherStrongholdMaxChunkDistance.get() != 1001 &&
@@ -333,9 +318,7 @@ public class RSAddFeaturesAndStructures {
                     RepurposedStructures.RSStrongholdsConfig.addNetherStrongholdToModdedBiomes.get()))
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_STRONGHOLD);
-
-            event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION)
-                    .add(() -> RSConfiguredFeatures.NETHER_STRONGHOLD_CHAINS);
+            event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION).add(() -> RSConfiguredFeatures.NETHER_STRONGHOLD_CHAINS);
         }
     }
 
