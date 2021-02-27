@@ -5,10 +5,10 @@
       "item": "minecraft:oak_stairs"
     },
     "title": {
-      "text": "advancements.repurposed_structures.mansion_oak.title"
+      "translate": "advancements.repurposed_structures.mansion_oak.title"
     },
     "description": {
-      "text": "advancements.repurposed_structures.mansion_oak.description"
+      "translate": "advancements.repurposed_structures.mansion_oak.description"
     },
     "hidden": true
   },

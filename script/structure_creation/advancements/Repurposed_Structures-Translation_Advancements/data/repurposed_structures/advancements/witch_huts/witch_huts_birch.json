@@ -5,10 +5,10 @@
       "item": "minecraft:birch_fence"
     },
     "title": {
-      "text": "advancements.repurposed_structures.witch_huts_birch.title"
+      "translate": "advancements.repurposed_structures.witch_huts_birch.title"
     },
     "description": {
-      "text": "advancements.repurposed_structures.witch_huts_birch.description"
+      "translate": "advancements.repurposed_structures.witch_huts_birch.description"
     },
     "hidden": true
   },

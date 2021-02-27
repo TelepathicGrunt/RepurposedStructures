@@ -5,10 +5,10 @@
       "item": "minecraft:acacia_stairs"
     },
     "title": {
-      "text": "advancements.repurposed_structures.mansion_savanna.title"
+      "translate": "advancements.repurposed_structures.mansion_savanna.title"
     },
     "description": {
-      "text": "advancements.repurposed_structures.mansion_savanna.description"
+      "translate": "advancements.repurposed_structures.mansion_savanna.description"
     },
     "hidden": true
   },

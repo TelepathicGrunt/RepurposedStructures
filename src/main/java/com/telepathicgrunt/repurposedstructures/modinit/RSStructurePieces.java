@@ -1,7 +1,10 @@
 package com.telepathicgrunt.repurposedstructures.modinit;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.world.structures.pieces.*;
+import com.telepathicgrunt.repurposedstructures.world.structures.pieces.FortressJunglePieces;
+import com.telepathicgrunt.repurposedstructures.world.structures.pieces.MansionPieces;
+import com.telepathicgrunt.repurposedstructures.world.structures.pieces.RSMineshaftPieces;
+import com.telepathicgrunt.repurposedstructures.world.structures.pieces.RSStrongholdPieces;
 import net.minecraft.structure.StructurePieceType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;

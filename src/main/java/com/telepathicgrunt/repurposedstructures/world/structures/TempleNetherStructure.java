@@ -36,7 +36,7 @@ public class TempleNetherStructure extends AbstractBaseStructure<DefaultFeatureC
         }
 
         public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, int x, int z, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
-            BlockPos blockPos = new BlockPos(x * 16, 35, z * 16);
+            BlockPos blockPos = new BlockPos(x * 16, chunkGenerator.getSeaLevel() + 3, z * 16);
             StructurePoolBasedGenerator.method_30419(
                     dynamicRegistryManager,
                     new StructurePoolFeatureConfig(() -> dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN).get(START_POOL), 1),
@@ -51,8 +51,8 @@ public class TempleNetherStructure extends AbstractBaseStructure<DefaultFeatureC
             this.setBoundingBoxFromChildren();
 
             BlockPos lowestLandPos = getLowestLand(chunkGenerator);
-            if (lowestLandPos.getY() >= 108 || lowestLandPos.getY() <= 33) {
-                this.randomUpwardTranslation(this.random, 16, 17);
+            if (lowestLandPos.getY() >= chunkGenerator.getWorldHeight() || lowestLandPos.getY() <= chunkGenerator.getSeaLevel() + 1) {
+                this.randomUpwardTranslation(this.random, chunkGenerator.getSeaLevel() - 16, chunkGenerator.getSeaLevel() - 15);
             }
             else {
                 this.randomUpwardTranslation(this.random, lowestLandPos.getY() - 16, lowestLandPos.getY() - 15);

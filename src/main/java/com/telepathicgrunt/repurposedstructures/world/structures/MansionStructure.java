@@ -14,6 +14,7 @@ import net.minecraft.world.Heightmap;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.source.BiomeSource;
+import net.minecraft.world.biome.source.CheckerboardBiomeSource;
 import net.minecraft.world.gen.ChunkRandom;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
@@ -40,8 +41,12 @@ public class MansionStructure extends AbstractBaseStructure<DefaultFeatureConfig
 
     @Override
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long l, ChunkRandom chunkRandom, int i, int j, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig defaultFeatureConfig) {
-        Set<Biome> set = biomeSource.getBiomesInArea(i * 16 + 9, chunkGenerator.getSeaLevel(), j * 16 + 9, 32);
-        return set.stream().allMatch(biome1 -> biome1.getGenerationSettings().hasStructureFeature(this));
+        if(!(biomeSource instanceof CheckerboardBiomeSource)) {
+            Set<Biome> set = biomeSource.getBiomesInArea(i * 16 + 9, chunkGenerator.getSeaLevel(), j * 16 + 9, 32);
+            return set.stream().allMatch(biome1 -> biome1.getGenerationSettings().hasStructureFeature(this));
+        }
+
+        return true;
     }
 
     @Override
@@ -74,8 +79,8 @@ public class MansionStructure extends AbstractBaseStructure<DefaultFeatureConfig
             int p = chunkGenerator.getHeightInGround(m, n + l, Heightmap.Type.WORLD_SURFACE_WG);
             int q = chunkGenerator.getHeightInGround(m + k, n, Heightmap.Type.WORLD_SURFACE_WG);
             int r = chunkGenerator.getHeightInGround(m + k, n + l, Heightmap.Type.WORLD_SURFACE_WG);
-            int s = Math.min(Math.min(o, p), Math.min(q, r));
-            BlockPos blockPos = new BlockPos(chunkX * 16 + 8, s + 1, chunkZ * 16 + 8);
+            int y = Math.min(Math.min(o, p), Math.min(q, r));
+            BlockPos blockPos = new BlockPos(chunkX * 16 + 8, y + 1, chunkZ * 16 + 8);
             List<MansionPieces.Piece> list = Lists.newLinkedList();
             MansionPieces.createMansionLayout(structureManager, blockPos, blockRotation, list, this.random, type);
             this.children.addAll(list);

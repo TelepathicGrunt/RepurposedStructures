@@ -5,10 +5,10 @@
       "item": "minecraft:red_banner"
     },
     "title": {
-      "text": "advancements.repurposed_structures.city_nether.title"
+      "translate": "advancements.repurposed_structures.city_nether.title"
     },
     "description": {
-      "text": "advancements.repurposed_structures.city_nether.description"
+      "translate": "advancements.repurposed_structures.city_nether.description"
     },
     "hidden": true
   },

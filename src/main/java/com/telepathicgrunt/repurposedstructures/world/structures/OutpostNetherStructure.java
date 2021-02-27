@@ -62,11 +62,11 @@ public class OutpostNetherStructure extends AbstractBaseStructure<DefaultFeature
             this.setBoundingBoxFromChildren();
 
             BlockPos lowestLandPos = getHighestLand(chunkGenerator);
-            if (lowestLandPos.getY() >= 108 || lowestLandPos.getY() <= 37) {
-                this.randomUpwardTranslation(this.random, 19, 20);
+            if (lowestLandPos.getY() >= chunkGenerator.getWorldHeight() || lowestLandPos.getY() <= chunkGenerator.getSeaLevel() + 5) {
+                this.randomUpwardTranslation(this.random, chunkGenerator.getSeaLevel() - 13, chunkGenerator.getSeaLevel() - 12);
             }
             else {
-                this.randomUpwardTranslation(this.random, lowestLandPos.getY()-15, lowestLandPos.getY()-14);
+                this.randomUpwardTranslation(this.random, lowestLandPos.getY() - 15, lowestLandPos.getY() - 14);
             }
         }
     }

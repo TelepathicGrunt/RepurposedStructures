@@ -13,6 +13,7 @@ import net.minecraft.util.registry.DynamicRegistryManager;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.SpawnSettings;
 import net.minecraft.world.biome.source.BiomeSource;
+import net.minecraft.world.biome.source.CheckerboardBiomeSource;
 import net.minecraft.world.gen.ChunkRandom;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
@@ -27,11 +28,13 @@ public class FortressJungleStructure extends AbstractBaseStructure<DefaultFeatur
     }
 
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long l, ChunkRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig defaultFeatureConfig) {
-        int radius = 4;
-        for (int curChunkX = chunkX - radius; curChunkX <= chunkX + radius; curChunkX += radius) {
-            for (int curChunkZ = chunkZ - radius; curChunkZ <= chunkZ + radius; curChunkZ += radius) {
-                if (!biomeSource.getBiomeForNoiseGen(curChunkX << 2, 60, curChunkZ << 2).getGenerationSettings().hasStructureFeature(RSStructures.JUNGLE_FORTRESS)) {
-                    return false;
+        if(!(biomeSource instanceof CheckerboardBiomeSource)){
+            int radius = 4;
+            for (int curChunkX = chunkX - radius; curChunkX <= chunkX + radius; curChunkX += radius) {
+                for (int curChunkZ = chunkZ - radius; curChunkZ <= chunkZ + radius; curChunkZ += radius) {
+                    if (!biomeSource.getBiomeForNoiseGen(curChunkX << 2, 64, curChunkZ << 2).getGenerationSettings().hasStructureFeature(RSStructures.JUNGLE_FORTRESS)) {
+                        return false;
+                    }
                 }
             }
         }
@@ -77,7 +80,7 @@ public class FortressJungleStructure extends AbstractBaseStructure<DefaultFeatur
             }
 
             this.setBoundingBoxFromChildren();
-            this.randomUpwardTranslation(this.random, 55, 60);
+            this.randomUpwardTranslation(this.random, chunkGenerator.getSeaLevel() - 12, chunkGenerator.getSeaLevel() - 7);
         }
     }
 }

@@ -48,7 +48,7 @@
           },
           "input_predicate": {
             "block": "minecraft:grass_path",
-            "probability": 0.4,
+            "probability": 0.92,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -64,7 +64,7 @@
           },
           "input_predicate": {
             "block": "minecraft:grass_path",
-            "probability": 0.8,
+            "probability": 0.5,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -185,6 +185,54 @@
           "input_predicate": {
             "block": "minecraft:dirt",
             "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "powered": "false",
+              "facing": "north",
+              "face": "floor"
+            },
+            "Name": "minecraft:stone_button"
+          },
+          "input_predicate": {
+            "block": "minecraft:stone_pressure_plate",
+            "probability": 0.02,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "waterlogged": "false",
+              "type": "bottom"
+            },
+            "Name": "minecraft:cobblestone_slab"
+          },
+          "input_predicate": {
+            "block": "minecraft:stone_pressure_plate",
+            "probability": 0.02,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:air"
+          },
+          "input_predicate": {
+            "block": "minecraft:stone_pressure_plate",
+            "probability": 0.98,
+            "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"

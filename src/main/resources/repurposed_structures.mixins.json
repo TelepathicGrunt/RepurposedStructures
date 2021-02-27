@@ -5,10 +5,12 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "CatEntityMixin",
+    "ChunkGeneratorMixin",
     "ChunkSerializerMixin",
     "DungeonFeatureAccessor",
     "EnderEyeStrongholdLocatingMixin",
     "NoLakesInStructuresMixin",
+    "NoLavaFallsInStructuresMixin",
     "PillagerOutpostFeatureAccessor",
     "ServerResourceManagerMixin",
     "StrongholdGeneratorAccessor",

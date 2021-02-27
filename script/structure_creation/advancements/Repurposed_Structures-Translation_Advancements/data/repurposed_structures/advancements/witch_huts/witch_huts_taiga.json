@@ -5,10 +5,10 @@
       "item": "minecraft:spruce_fence"
     },
     "title": {
-      "text": "advancements.repurposed_structures.witch_huts_taiga.title"
+      "translate": "advancements.repurposed_structures.witch_huts_taiga.title"
     },
     "description": {
-      "text": "advancements.repurposed_structures.witch_huts_taiga.description"
+      "translate": "advancements.repurposed_structures.witch_huts_taiga.description"
     },
     "hidden": true
   },

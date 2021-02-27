@@ -5,10 +5,10 @@
       "item": "minecraft:oak_log"
     },
     "title": {
-      "text": "advancements.repurposed_structures.outpost_oak.title"
+      "translate": "advancements.repurposed_structures.outpost_oak.title"
     },
     "description": {
-      "text": "advancements.repurposed_structures.outpost_oak.description"
+      "translate": "advancements.repurposed_structures.outpost_oak.description"
     },
     "hidden": true
   },

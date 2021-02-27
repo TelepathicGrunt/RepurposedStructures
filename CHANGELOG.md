@@ -1,4 +1,4 @@
-# Made for Minecraft v.1.16.4
+# Made for Minecraft v.1.16.5
 
 ## Created by TelepathicGrunt
 
@@ -8,15 +8,92 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
-## (V.1.8.1 Changes) (1.16.4 Minecraft)
+## (V.1.8.3 Changes) (1.16.5 Minecraft)
+
+##### Strongholds:
+- So uh, I just learned that removing the Vanilla Stronghold from all biomes doesn't actually stop it from spawning.
+  To fix this, turnOffVanillaStrongholds config value is now set to true by default and it will now correctly make 
+  Vanilla Strongholds no longer spawn anymore. Repurposed Structures's Stonebrick Stronghold will take its place properly.
+  (Yes Eyes of Ender will find RS's Strongholds as well)
+  
+- Moved RS Strongholds from UNDERGROUND_STRUCTURES generation stage to STRONGHOLDS. 
+  Will prevent some features/structures from breaking strongholds.
+
+##### Outposts:
+- Nerfed the enchantment range of armor and weapons in Crimson, Warped, and Nether Bricks Outpost's loot. 
+  Armor and Weapons will be damaged now to encourage fusing gears together to repair and strengthen enchantments.
+
+- All Overworld Repurposed Structures Outposts now generates with 8 Pillagers (Vanilla spawns with none btw)
+  All 8 Pillagers will not despawn and 1 of the Pillager has a Raid Banner.
+  These outposts will still spawn additional Pillagers over time.
+  
+- Crimson, Warped, and Nether Bricks Outpost Chest blocks now faces the correct direction.
+
+##### Mansions:
+- Fixed logspam from Snowy Mansions about Diorite Walls having wrong properties.
+
+##### Fortresses:
+- Lowered Jungle Fortresses a bit to increase the chances of flooded hallways.
+
+##### Pyramids:
+- Made Badlands Pyramid rarer by default in configs.
+
+##### Villages:
+- Made Giant Tree Taiga a bit less messy and fixed several pieces not having its Stone Pressure Plates randomly replaced. 
+
+- Jungle Villages will now try not to spawn too close to Jungle Fortresses.
+
+##### Mineshafts:
+- Lavafalls will no longer spawn in Icy Mineshafts!
+
+
+## (V.1.8.2 Changes) (1.16.5 Minecraft)
+
+##### Cities:
+- made Nether Cities have Netherite Scraps and Netherite Ingot in their chests.
+
+##### Outposts:
+- Adjusted looks of Crimson and Warped Outposts so their aged tower variants are different. Also renamed tower_glowing piece to tower_aged for both.
+
+- Added aged variant for Nether Bricks Outpost.
+
+##### Pyramids:
+- Fixed pyramid not having pillar of their blocks below their pits when there is space below.
+
+##### Strongholds:
+- Added turnOffVanillaStrongholds config option to let people be able to turn off vanilla Strongholds to only have Nether Strongholds easier.
+
+- Fixed Stone Shores still having Vanilla Strongholds instead of Repurposed Structures's which was causing false positives with /locate stronghold and Eyes of Ender as a result.
+
+##### Villages:
+- Fixed Zombie Badlands Village having 2 Birch Village houses by mistake.
+
+##### General:
+- Made all the checks I have for separating some structures from other kinds of structures now ignore those checks if the structure spacing is set super low in configs.
+  Now if you make all outposts spawn in every chunk by config, Repurposed Structures villages will still be able to spawn.
+  
+- Made all hardcoded nether height structures now uses the chunk generator's maximum height. 
+  So if you use a datapack to expand the Nether's roof, these structures should automatically now use the increased range!
+  Some checks for Nether sealevel now uses the chunk generator's sealevel instead of a hardcoded value.
+  
+- Made all structures that checks surrounding biomes for valid biomes before spawning will now ignore that check if Checkered Biome Provider is used.
+
+
+## (V.1.8.1 Changes) (1.16.5 Minecraft)
 
 ##### Witch Huts:
 - Fixed Taiga Witch Hut Advancement triggering on world entering.
 
+##### Outposts:
+- Adjusted looks of Crimson and Warped Outposts so their aged tower variants are different. Also renamed tower_glowing piece to tower_aged for both.
+
+- Added aged variant for Nether Bricks Outpost.
+
 ##### Misc:
 - Moved StructureBlockScreenMixin so it only applies client side. Oops. It is not suppose to run on servers.
 
-## (V.1.8.0 Changes) (1.16.4 Minecraft)
+
+## (V.1.8.0 Changes) (1.16.5 Minecraft)
 
 ##### Dependencies:
 - Cloth and AutoConfigu are no longer packaged with this mod to cut down on file size. Download those two lib mods separately. 
