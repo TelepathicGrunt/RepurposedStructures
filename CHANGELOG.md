@@ -25,6 +25,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Nerfed the enchantment range of armor and weapons in Crimson, Warped, and Nether Bricks Outpost's loot. 
   Armor and Weapons will be damaged now to encourage fusing gears together to repair and strengthen enchantments.
 
+##### Mansions:
+- Fixed logspam from Snowy Mansions about Diorite Walls having wrong properties.
+
 
 ## (V.2.4.3 Changes) (1.16.5 Minecraft)
 
