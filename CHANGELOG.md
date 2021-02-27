@@ -41,6 +41,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Villages:
 - Made Giant Tree Taiga a bit less messy and fixed several pieces not having its Stone Pressure Plates randomly replaced. 
 
+- Jungle Villages will now try not to spawn too close to Jungle Fortresses.
+
 ##### Mineshafts:
 - Lavafalls will no longer spawn in Icy Mineshafts!
 
