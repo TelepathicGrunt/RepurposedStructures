@@ -8,7 +8,7 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
-## (V.2.4.4 Changes) (1.16.5 Minecraft)
+## (V.2.4.4 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)
 
 ##### Strongholds:
 - So uh, I just learned that removing the Vanilla Stronghold from all biomes doesn't actually stop it from spawning.
