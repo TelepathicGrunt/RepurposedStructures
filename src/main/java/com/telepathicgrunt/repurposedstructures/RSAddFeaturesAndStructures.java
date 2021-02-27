@@ -381,7 +381,7 @@ public class RSAddFeaturesAndStructures {
                         || (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.addStonebrickStrongholdToModdedBiomes && !BiomeSelection.hasNamespace(context, "minecraft"))),
                 context -> {
                     context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.STONEBRICK_STRONGHOLD);
-                    context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, RSConfiguredFeatures.STONEBRICK_STRONGHOLD_CHAINS);
+                    context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.STRONGHOLDS, RSConfiguredFeatures.STONEBRICK_STRONGHOLD_CHAINS);
                 });
 
 
@@ -393,7 +393,7 @@ public class RSAddFeaturesAndStructures {
                         && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.addNetherStrongholdToModdedBiomes),
                 context -> {
                     context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.NETHER_STRONGHOLD);
-                    context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, RSConfiguredFeatures.NETHER_STRONGHOLD_CHAINS);
+                    context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.STRONGHOLDS, RSConfiguredFeatures.NETHER_STRONGHOLD_CHAINS);
                 });
     }
 
