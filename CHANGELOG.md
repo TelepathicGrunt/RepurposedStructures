@@ -32,6 +32,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Villages:
 - Made Giant Tree Taiga a bit less messy and fixed several pieces not having its Stone Pressure Plates randomly replaced. 
 
+##### Mineshafts:
+- Lavafalls will no longer spawn in Icy Mineshafts!
+
 
 ## (V.1.8.2 Changes) (1.16.5 Minecraft)
 
