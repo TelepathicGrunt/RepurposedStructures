@@ -80,7 +80,7 @@ public class FortressJungleStructure extends AbstractBaseStructure<DefaultFeatur
             }
 
             this.setBoundingBoxFromChildren();
-            this.randomUpwardTranslation(this.random, chunkGenerator.getSeaLevel() - 9, chunkGenerator.getSeaLevel() - 4);
+            this.randomUpwardTranslation(this.random, chunkGenerator.getSeaLevel() - 15, chunkGenerator.getSeaLevel() - 10);
         }
     }
 }

@@ -32,6 +32,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Mansions:
 - Fixed logspam from Snowy Mansions about Diorite Walls having wrong properties.
 
+##### Fortresses:
+- Lowered Jungle Fortresses a bit to increase the chances of flooded hallways.
+
 ##### Pyramids:
 - Made Badlands Pyramid rarer by default in configs.
 
