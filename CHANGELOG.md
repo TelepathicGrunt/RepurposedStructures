@@ -37,6 +37,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Fortresses:
 - Lowered Jungle Fortresses a bit to increase the chances of flooded hallways.
 
+##### Villages:
+- Jungle Villages will now try not to spawn too close to Jungle Fortresses.
+
 ##### Mineshafts:
 - Lavafalls will no longer spawn in Icy Mineshafts!
 
