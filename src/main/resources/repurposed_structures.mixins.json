@@ -9,6 +9,7 @@
     "DungeonFeatureAccessor",
     "EnderEyeStrongholdLocatingMixin",
     "NoLakesInStructuresMixin",
+    "NoLavaFallsInStructuresMixin",
     "PillagerOutpostStructureAccessor",
     "StrongholdGeneratorAccessor",
     "StructureMobSpawningMixin",

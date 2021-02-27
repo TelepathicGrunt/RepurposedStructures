@@ -28,6 +28,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Mansions:
 - Fixed logspam from Snowy Mansions about Diorite Walls having wrong properties.
 
+##### Mineshafts:
+- Lavafalls will no longer spawn in Icy Mineshafts!
+
 
 ## (V.2.4.3 Changes) (1.16.5 Minecraft)
 
