@@ -36,17 +36,17 @@ public class RSStructures {
      * |			LOOKING FOR A TUTORIAL ON HOW TO DO STRUCTURES	    		|
      * |																        |
      * --------------------------------------------------------------------------
-     *
+     * <p>
      * Don't worry, I actually have a structure tutorial
      * mod already setup for you to check out! It's full
      * of comments on what does what and how to make structures.
-     *
+     * <p>
      * Here's the link! https://github.com/TelepathicGrunt/StructureTutorialMod
-     *
+     * <p>
      * Good luck and have fun modding!
      */
 
-	public static final DeferredRegister<Structure<?>> STRUCTURE_FEATURES = DeferredRegister.create(ForgeRegistries.STRUCTURE_FEATURES, RepurposedStructures.MODID);
+    public static final DeferredRegister<Structure<?>> STRUCTURE_FEATURES = DeferredRegister.create(ForgeRegistries.STRUCTURE_FEATURES, RepurposedStructures.MODID);
     public static final Map<Structure<?>, StructureSeparationSettings> RS_STRUCTURES = new HashMap<>();
     public static final Set<ResourceLocation> RS_STRUCTURE_START_PIECES = new HashSet<>();
 
@@ -68,23 +68,23 @@ public class RSStructures {
     //Strongholds
     public static final RegistryObject<Structure<NoFeatureConfig>> STONEBRICK_STRONGHOLD = addToStructureMaps("stronghold_stonebrick", RSStonebrickStrongholdStructure::new);
     public static final RegistryObject<Structure<NoFeatureConfig>> NETHER_STRONGHOLD = addToStructureMaps("stronghold_nether", RSNetherStrongholdStructure::new);
-    
+
     //Igloos and Fortress
     public static final RegistryObject<Structure<NoFeatureConfig>> JUNGLE_FORTRESS = addToStructureMaps("fortress_jungle", FortressJungleStructure::new);
     public static final RegistryObject<Structure<NoFeatureConfig>> GRASSY_IGLOO = addToStructureMaps("igloo_grassy", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "igloos/grassy_top"), 20, 0, 0, 0, new HashSet<>())));
     public static final RegistryObject<Structure<NoFeatureConfig>> STONE_IGLOO = addToStructureMaps("igloo_stone", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "igloos/stone_top"), 20, 0, 0, 0, new HashSet<>())));
 
     //Temples
-    public static final RegistryObject<Structure<NoFeatureConfig>> NETHER_WASTELAND_TEMPLE = addToStructureMaps("temple_nether_wasteland", () -> (new TempleNetherStructure(new ResourceLocation(RepurposedStructures.MODID,"temples/temple_nether_wasteland"))));
-    public static final RegistryObject<Structure<NoFeatureConfig>> NETHER_BASALT_TEMPLE = addToStructureMaps("temple_nether_basalt", () -> (new TempleNetherStructure(new ResourceLocation(RepurposedStructures.MODID,"temples/temple_nether_basalt"))));
-    public static final RegistryObject<Structure<NoFeatureConfig>> NETHER_WARPED_TEMPLE = addToStructureMaps("temple_nether_warped", () -> (new TempleNetherStructure(new ResourceLocation(RepurposedStructures.MODID,"temples/temple_nether_warped"))));
-    public static final RegistryObject<Structure<NoFeatureConfig>> NETHER_CRIMSON_TEMPLE = addToStructureMaps("temple_nether_crimson", () -> (new TempleNetherStructure(new ResourceLocation(RepurposedStructures.MODID,"temples/temple_nether_crimson"))));
-    public static final RegistryObject<Structure<NoFeatureConfig>> NETHER_SOUL_TEMPLE = addToStructureMaps("temple_nether_soul", () -> (new TempleNetherStructure(new ResourceLocation(RepurposedStructures.MODID,"temples/temple_nether_soul"))));
+    public static final RegistryObject<Structure<NoFeatureConfig>> NETHER_WASTELAND_TEMPLE = addToStructureMaps("temple_nether_wasteland", () -> (new TempleNetherStructure(new ResourceLocation(RepurposedStructures.MODID, "temples/temple_nether_wasteland"))));
+    public static final RegistryObject<Structure<NoFeatureConfig>> NETHER_BASALT_TEMPLE = addToStructureMaps("temple_nether_basalt", () -> (new TempleNetherStructure(new ResourceLocation(RepurposedStructures.MODID, "temples/temple_nether_basalt"))));
+    public static final RegistryObject<Structure<NoFeatureConfig>> NETHER_WARPED_TEMPLE = addToStructureMaps("temple_nether_warped", () -> (new TempleNetherStructure(new ResourceLocation(RepurposedStructures.MODID, "temples/temple_nether_warped"))));
+    public static final RegistryObject<Structure<NoFeatureConfig>> NETHER_CRIMSON_TEMPLE = addToStructureMaps("temple_nether_crimson", () -> (new TempleNetherStructure(new ResourceLocation(RepurposedStructures.MODID, "temples/temple_nether_crimson"))));
+    public static final RegistryObject<Structure<NoFeatureConfig>> NETHER_SOUL_TEMPLE = addToStructureMaps("temple_nether_soul", () -> (new TempleNetherStructure(new ResourceLocation(RepurposedStructures.MODID, "temples/temple_nether_soul"))));
 
     //Outposts
-    public static final RegistryObject<Structure<NoFeatureConfig>> NETHER_BRICK_OUTPOST = addToStructureMaps("outpost_nether_brick", () -> (new OutpostNetherStructure(new ResourceLocation(RepurposedStructures.MODID,"outposts/nether_brick/base_plates"))));
-	public static final RegistryObject<Structure<NoFeatureConfig>> WARPED_OUTPOST = addToStructureMaps("outpost_warped", () -> (new OutpostNetherStructure(new ResourceLocation(RepurposedStructures.MODID,"outposts/warped/base_plates"))));
-	public static final RegistryObject<Structure<NoFeatureConfig>> CRIMSON_OUTPOST = addToStructureMaps("outpost_crimson", () -> (new OutpostNetherStructure(new ResourceLocation(RepurposedStructures.MODID,"outposts/crimson/base_plates"))));
+    public static final RegistryObject<Structure<NoFeatureConfig>> NETHER_BRICK_OUTPOST = addToStructureMaps("outpost_nether_brick", () -> (new OutpostNetherStructure(new ResourceLocation(RepurposedStructures.MODID, "outposts/nether_brick/base_plates"))));
+    public static final RegistryObject<Structure<NoFeatureConfig>> WARPED_OUTPOST = addToStructureMaps("outpost_warped", () -> (new OutpostNetherStructure(new ResourceLocation(RepurposedStructures.MODID, "outposts/warped/base_plates"))));
+    public static final RegistryObject<Structure<NoFeatureConfig>> CRIMSON_OUTPOST = addToStructureMaps("outpost_crimson", () -> (new OutpostNetherStructure(new ResourceLocation(RepurposedStructures.MODID, "outposts/crimson/base_plates"))));
     public static final RegistryObject<Structure<NoFeatureConfig>> OUTPOST_BIRCH = addToStructureMaps("outpost_birch", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "outposts/birch/base_plates"), 11, 0, 0, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.VILLAGE).collect(Collectors.toSet()), PillagerOutpostStructureAccessor.rs_getPILLAGE_OUTPOST_ENEMIES(), ImmutableList.of())));
     public static final RegistryObject<Structure<NoFeatureConfig>> OUTPOST_JUNGLE = addToStructureMaps("outpost_jungle", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "outposts/jungle/base_plates"), 11, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.VILLAGE).collect(Collectors.toSet()), PillagerOutpostStructureAccessor.rs_getPILLAGE_OUTPOST_ENEMIES(), ImmutableList.of())));
     public static final RegistryObject<Structure<NoFeatureConfig>> OUTPOST_GIANT_TREE_TAIGA = addToStructureMaps("outpost_giant_tree_taiga", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "outposts/giant_tree_taiga/base_plates"), 11, 0, 0, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.VILLAGE).collect(Collectors.toSet()), PillagerOutpostStructureAccessor.rs_getPILLAGE_OUTPOST_ENEMIES(), ImmutableList.of())));
@@ -95,30 +95,30 @@ public class RSStructures {
     public static final RegistryObject<Structure<NoFeatureConfig>> OUTPOST_TAIGA = addToStructureMaps("outpost_taiga", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "outposts/taiga/base_plates"), 11, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.VILLAGE).collect(Collectors.toSet()), PillagerOutpostStructureAccessor.rs_getPILLAGE_OUTPOST_ENEMIES(), ImmutableList.of())));
     public static final RegistryObject<Structure<NoFeatureConfig>> OUTPOST_OAK = addToStructureMaps("outpost_oak", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "outposts/oak/base_plates"), 11, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.VILLAGE).collect(Collectors.toSet()), PillagerOutpostStructureAccessor.rs_getPILLAGE_OUTPOST_ENEMIES(), ImmutableList.of())));
 
-	//Pyramids
-	public static final RegistryObject<Structure<NoFeatureConfig>> NETHER_PYRAMID = addToStructureMaps("pyramid_nether", () -> (new GenericNetherJigsawHighStructure(new ResourceLocation(RepurposedStructures.MODID, "temples/pyramid_nether"), 1, -4, 0)));
-	public static final RegistryObject<Structure<NoFeatureConfig>> BADLANDS_PYRAMID = addToStructureMaps("pyramid_badlands", () -> (new BuriableStructure(new ResourceLocation(RepurposedStructures.MODID, "temples/pyramid_badlands"))));
+    //Pyramids
+    public static final RegistryObject<Structure<NoFeatureConfig>> NETHER_PYRAMID = addToStructureMaps("pyramid_nether", () -> (new GenericNetherJigsawHighStructure(new ResourceLocation(RepurposedStructures.MODID, "temples/pyramid_nether"), 1, -4, 0)));
+    public static final RegistryObject<Structure<NoFeatureConfig>> BADLANDS_PYRAMID = addToStructureMaps("pyramid_badlands", () -> (new BuriableStructure(new ResourceLocation(RepurposedStructures.MODID, "temples/pyramid_badlands"))));
     public static final RegistryObject<Structure<NoFeatureConfig>> PYRAMID_SNOWY = addToStructureMaps("pyramid_snowy", () -> (new BuriableStructure(new ResourceLocation(RepurposedStructures.MODID, "temples/pyramid_snowy"))));
 
     //Shipwrecks
-	public static final RegistryObject<Structure<NoFeatureConfig>> END_SHIPWRECK = addToStructureMaps("shipwreck_end", ShipwreckEndStructure::new);
-	public static final RegistryObject<Structure<NetherShipwreckConfig>> NETHER_BRICKS_SHIPWRECK = addToStructureMaps("shipwreck_nether_bricks", () -> (new ShipwreckNetherStructure(new ResourceLocation(RepurposedStructures.MODID, "shipwrecks/nether_bricks"), -3)));
-	public static final RegistryObject<Structure<NetherShipwreckConfig>> CRIMSON_SHIPWRECK = addToStructureMaps("shipwreck_crimson", () -> (new ShipwreckNetherStructure(new ResourceLocation(RepurposedStructures.MODID, "shipwrecks/crimson"), -4)));
-	public static final RegistryObject<Structure<NetherShipwreckConfig>> WARPED_SHIPWRECK = addToStructureMaps("shipwreck_warped", () -> (new ShipwreckNetherStructure(new ResourceLocation(RepurposedStructures.MODID, "shipwrecks/warped"), -4)));
-	
-	//Villages
-	public static final RegistryObject<Structure<NoFeatureConfig>> BADLANDS_VILLAGE = addToStructureMaps("village_badlands", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "village/badlands/town_centers"), 10, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.MANSION).collect(Collectors.toSet()), 20, 2)));
-	public static final RegistryObject<Structure<NoFeatureConfig>> BIRCH_VILLAGE = addToStructureMaps("village_birch", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "village/birch/town_centers"), 6, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.MANSION).collect(Collectors.toSet()))));
-	public static final RegistryObject<Structure<NoFeatureConfig>> DARK_FOREST_VILLAGE = addToStructureMaps("village_dark_oak", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "village/dark_forest/town_centers"), 6, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.MANSION).collect(Collectors.toSet()))));
-	public static final RegistryObject<Structure<NoFeatureConfig>> JUNGLE_VILLAGE = addToStructureMaps("village_jungle", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "village/jungle/town_centers"), 8, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.MANSION).collect(Collectors.toSet()))));
-	public static final RegistryObject<Structure<NoFeatureConfig>> SWAMP_VILLAGE = addToStructureMaps("village_swamp", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "village/swamp/town_centers"), 6, -1, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.MANSION).collect(Collectors.toSet()))));
-	public static final RegistryObject<Structure<NoFeatureConfig>> MOUNTAINS_VILLAGE = addToStructureMaps("village_mountains", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "village/mountains/town_centers"), 6, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.MANSION).collect(Collectors.toSet()))));
-	public static final RegistryObject<Structure<NoFeatureConfig>> GIANT_TAIGA_VILLAGE = addToStructureMaps("village_giant_taiga", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "village/giant_taiga/town_centers"), 6, 1, 0, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.MANSION).collect(Collectors.toSet()))));
-  	public static final RegistryObject<Structure<NoFeatureConfig>> CRIMSON_VILLAGE = addToStructureMaps("village_crimson", () -> (new VillageNetherStructure(new ResourceLocation(RepurposedStructures.MODID, "village/crimson/town_centers"), 6, 0, 1, 0, new HashSet<>())));
-  	public static final RegistryObject<Structure<NoFeatureConfig>> WARPED_VILLAGE = addToStructureMaps("village_warped", () -> (new VillageNetherStructure(new ResourceLocation(RepurposedStructures.MODID, "village/warped/town_centers"), 6, 0, 1, 0, new HashSet<>())));
+    public static final RegistryObject<Structure<NoFeatureConfig>> END_SHIPWRECK = addToStructureMaps("shipwreck_end", ShipwreckEndStructure::new);
+    public static final RegistryObject<Structure<NetherShipwreckConfig>> NETHER_BRICKS_SHIPWRECK = addToStructureMaps("shipwreck_nether_bricks", () -> (new ShipwreckNetherStructure(new ResourceLocation(RepurposedStructures.MODID, "shipwrecks/nether_bricks"), -3)));
+    public static final RegistryObject<Structure<NetherShipwreckConfig>> CRIMSON_SHIPWRECK = addToStructureMaps("shipwreck_crimson", () -> (new ShipwreckNetherStructure(new ResourceLocation(RepurposedStructures.MODID, "shipwrecks/crimson"), -4)));
+    public static final RegistryObject<Structure<NetherShipwreckConfig>> WARPED_SHIPWRECK = addToStructureMaps("shipwreck_warped", () -> (new ShipwreckNetherStructure(new ResourceLocation(RepurposedStructures.MODID, "shipwrecks/warped"), -4)));
+
+    //Villages
+    public static final RegistryObject<Structure<NoFeatureConfig>> BADLANDS_VILLAGE = addToStructureMaps("village_badlands", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "village/badlands/town_centers"), 10, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.MANSION).collect(Collectors.toSet()), 20, 2)));
+    public static final RegistryObject<Structure<NoFeatureConfig>> BIRCH_VILLAGE = addToStructureMaps("village_birch", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "village/birch/town_centers"), 6, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.MANSION).collect(Collectors.toSet()))));
+    public static final RegistryObject<Structure<NoFeatureConfig>> DARK_FOREST_VILLAGE = addToStructureMaps("village_dark_oak", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "village/dark_forest/town_centers"), 6, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.MANSION).collect(Collectors.toSet()))));
+    public static final RegistryObject<Structure<NoFeatureConfig>> JUNGLE_VILLAGE = addToStructureMaps("village_jungle", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "village/jungle/town_centers"), 8, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.MANSION).collect(Collectors.toSet()))));
+    public static final RegistryObject<Structure<NoFeatureConfig>> SWAMP_VILLAGE = addToStructureMaps("village_swamp", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "village/swamp/town_centers"), 6, -1, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.MANSION).collect(Collectors.toSet()))));
+    public static final RegistryObject<Structure<NoFeatureConfig>> MOUNTAINS_VILLAGE = addToStructureMaps("village_mountains", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "village/mountains/town_centers"), 6, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.MANSION).collect(Collectors.toSet()))));
+    public static final RegistryObject<Structure<NoFeatureConfig>> GIANT_TAIGA_VILLAGE = addToStructureMaps("village_giant_taiga", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "village/giant_taiga/town_centers"), 6, 1, 0, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.MANSION).collect(Collectors.toSet()))));
+    public static final RegistryObject<Structure<NoFeatureConfig>> CRIMSON_VILLAGE = addToStructureMaps("village_crimson", () -> (new VillageNetherStructure(new ResourceLocation(RepurposedStructures.MODID, "village/crimson/town_centers"), 6, 0, 1, 0, new HashSet<>())));
+    public static final RegistryObject<Structure<NoFeatureConfig>> WARPED_VILLAGE = addToStructureMaps("village_warped", () -> (new VillageNetherStructure(new ResourceLocation(RepurposedStructures.MODID, "village/warped/town_centers"), 6, 0, 1, 0, new HashSet<>())));
     public static final RegistryObject<Structure<NoFeatureConfig>> VILLAGE_OAK = addToStructureMaps("village_oak", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "village/oak/town_centers"), 6, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.MANSION).collect(Collectors.toSet()))));
 
-  	//Ruined Portals
+    //Ruined Portals
     public static final RegistryObject<Structure<NoFeatureConfig>> RUINED_PORTAL_END = addToStructureMaps("ruined_portal_end", () -> (new RuinedPortalEndStructure(new ResourceLocation(RepurposedStructures.MODID, "ruined_portal/end"), 20, -6, 0, 0, new HashSet<>())));
 
     //Ruins
@@ -137,20 +137,18 @@ public class RSStructures {
     public static final RegistryObject<Structure<NoFeatureConfig>> MANSION_SNOWY = addToStructureMaps("mansion_snowy", () -> (new MansionStructure(MansionPieces.MansionTemplate.MANSIONTYPE.SNOWY)));
 
     //Witch Huts
-    public static final RegistryObject<Structure<NoFeatureConfig>> WITCH_HUTS_OAK = addToStructureMaps("witch_hut_oak", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "witch_huts/oak_start_pool"), 11, 0, 0, 0, new HashSet<>(), ImmutableList.of(new  MobSpawnInfo.Spawners(EntityType.WITCH, 1, 1, 1)), ImmutableList.of(new  MobSpawnInfo.Spawners(EntityType.CAT, 1, 1, 1)))));
-    public static final RegistryObject<Structure<NoFeatureConfig>> WITCH_HUTS_TAIGA = addToStructureMaps("witch_hut_taiga", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "witch_huts/taiga_start_pool"), 11, 0, 0, 0, new HashSet<>(), ImmutableList.of(new  MobSpawnInfo.Spawners(EntityType.WITCH, 1, 1, 1)), ImmutableList.of(new  MobSpawnInfo.Spawners(EntityType.CAT, 1, 1, 1)))));
-    public static final RegistryObject<Structure<NoFeatureConfig>> WITCH_HUTS_BIRCH = addToStructureMaps("witch_hut_birch", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "witch_huts/birch_start_pool"), 11, 0, 0, 0, new HashSet<>(), ImmutableList.of(new  MobSpawnInfo.Spawners(EntityType.WITCH, 1, 1, 1)), ImmutableList.of(new  MobSpawnInfo.Spawners(EntityType.CAT, 1, 1, 1)))));
-    public static final RegistryObject<Structure<NoFeatureConfig>> WITCH_HUTS_DARK_FOREST = addToStructureMaps("witch_hut_dark_forest", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "witch_huts/dark_forest_start_pool"), 11, 0, 0, 0, new HashSet<>(), ImmutableList.of(new  MobSpawnInfo.Spawners(EntityType.WITCH, 1, 1, 1)), ImmutableList.of(new  MobSpawnInfo.Spawners(EntityType.CAT, 1, 1, 1)))));
-    public static final RegistryObject<Structure<NoFeatureConfig>> WITCH_HUTS_GIANT_TREE_TAIGA = addToStructureMaps("witch_hut_giant_tree_taiga", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "witch_huts/giant_tree_taiga_start_pool"), 11, 0, 0, 0, new HashSet<>(), ImmutableList.of(new  MobSpawnInfo.Spawners(EntityType.WITCH, 1, 1, 1)), ImmutableList.of(new  MobSpawnInfo.Spawners(EntityType.CAT, 1, 1, 1)))));
+    public static final RegistryObject<Structure<NoFeatureConfig>> WITCH_HUTS_OAK = addToStructureMaps("witch_hut_oak", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "witch_huts/oak_start_pool"), 11, 0, 0, 0, new HashSet<>(), ImmutableList.of(new MobSpawnInfo.Spawners(EntityType.WITCH, 1, 1, 1)), ImmutableList.of(new MobSpawnInfo.Spawners(EntityType.CAT, 1, 1, 1)))));
+    public static final RegistryObject<Structure<NoFeatureConfig>> WITCH_HUTS_TAIGA = addToStructureMaps("witch_hut_taiga", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "witch_huts/taiga_start_pool"), 11, 0, 0, 0, new HashSet<>(), ImmutableList.of(new MobSpawnInfo.Spawners(EntityType.WITCH, 1, 1, 1)), ImmutableList.of(new MobSpawnInfo.Spawners(EntityType.CAT, 1, 1, 1)))));
+    public static final RegistryObject<Structure<NoFeatureConfig>> WITCH_HUTS_BIRCH = addToStructureMaps("witch_hut_birch", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "witch_huts/birch_start_pool"), 11, 0, 0, 0, new HashSet<>(), ImmutableList.of(new MobSpawnInfo.Spawners(EntityType.WITCH, 1, 1, 1)), ImmutableList.of(new MobSpawnInfo.Spawners(EntityType.CAT, 1, 1, 1)))));
+    public static final RegistryObject<Structure<NoFeatureConfig>> WITCH_HUTS_DARK_FOREST = addToStructureMaps("witch_hut_dark_forest", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "witch_huts/dark_forest_start_pool"), 11, 0, 0, 0, new HashSet<>(), ImmutableList.of(new MobSpawnInfo.Spawners(EntityType.WITCH, 1, 1, 1)), ImmutableList.of(new MobSpawnInfo.Spawners(EntityType.CAT, 1, 1, 1)))));
+    public static final RegistryObject<Structure<NoFeatureConfig>> WITCH_HUTS_GIANT_TREE_TAIGA = addToStructureMaps("witch_hut_giant_tree_taiga", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "witch_huts/giant_tree_taiga_start_pool"), 11, 0, 0, 0, new HashSet<>(), ImmutableList.of(new MobSpawnInfo.Spawners(EntityType.WITCH, 1, 1, 1)), ImmutableList.of(new MobSpawnInfo.Spawners(EntityType.CAT, 1, 1, 1)))));
     // regexpos1
 
-    private static <T extends Structure<?>> RegistryObject<T> addToStructureMaps(String name, Supplier<T> structure)
-    {   
+    private static <T extends Structure<?>> RegistryObject<T> addToStructureMaps(String name, Supplier<T> structure) {
         return STRUCTURE_FEATURES.register(name, structure);
     }
-    
-	public static void setupStructures()
-	{
+
+    public static void setupStructures() {
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_birch"), BIRCH_MINESHAFT.get(), GenerationStage.Decoration.UNDERGROUND_STRUCTURES, new StructureSeparationSettings(1, 0, 399117345));
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_desert"), DESERT_MINESHAFT.get(), GenerationStage.Decoration.UNDERGROUND_STRUCTURES, new StructureSeparationSettings(1, 0, 1990612785));
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_end"), END_MINESHAFT.get(), GenerationStage.Decoration.UNDERGROUND_STRUCTURES, new StructureSeparationSettings(1, 0, 2057488602));
@@ -165,8 +163,8 @@ public class RSStructures {
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_swamp_or_dark_forest"), SWAMP_OR_DARK_FOREST_MINESHAFT.get(), GenerationStage.Decoration.UNDERGROUND_STRUCTURES, new StructureSeparationSettings(1, 0, 2037177700));
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_taiga"), TAIGA_MINESHAFT.get(), GenerationStage.Decoration.UNDERGROUND_STRUCTURES, new StructureSeparationSettings(1, 0, 1383003172));
 
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "stronghold_stonebrick"), STONEBRICK_STRONGHOLD.get(), GenerationStage.Decoration.UNDERGROUND_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSStrongholdsConfig.stonebrickStrongholdMaxChunkDistance.get(), (int) (RepurposedStructures.RSStrongholdsConfig.stonebrickStrongholdMaxChunkDistance.get() * 0.5f), 1098192663));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "stronghold_nether"), NETHER_STRONGHOLD.get(), GenerationStage.Decoration.UNDERGROUND_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSStrongholdsConfig.netherStrongholdMaxChunkDistance.get(), (int) (RepurposedStructures.RSStrongholdsConfig.netherStrongholdMaxChunkDistance.get() * 0.5f), 1731422513));
+        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "stronghold_stonebrick"), STONEBRICK_STRONGHOLD.get(), GenerationStage.Decoration.STRONGHOLDS, new StructureSeparationSettings(RepurposedStructures.RSStrongholdsConfig.stonebrickStrongholdMaxChunkDistance.get(), (int) (RepurposedStructures.RSStrongholdsConfig.stonebrickStrongholdMaxChunkDistance.get() * 0.5f), 1098192663));
+        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "stronghold_nether"), NETHER_STRONGHOLD.get(), GenerationStage.Decoration.STRONGHOLDS, new StructureSeparationSettings(RepurposedStructures.RSStrongholdsConfig.netherStrongholdMaxChunkDistance.get(), (int) (RepurposedStructures.RSStrongholdsConfig.netherStrongholdMaxChunkDistance.get() * 0.5f), 1731422513));
 
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "fortress_jungle"), JUNGLE_FORTRESS.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMainConfig.jungleFortressMaxChunkDistance.get(), (int) (RepurposedStructures.RSMainConfig.jungleFortressMaxChunkDistance.get() * 0.5f), 1464189157));
         addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "igloo_grassy"), GRASSY_IGLOO.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMainConfig.grassyIglooMaxChunkDistance.get(), (int) (RepurposedStructures.RSMainConfig.grassyIglooMaxChunkDistance.get() * 0.5f), 1460835582));
@@ -234,20 +232,17 @@ public class RSStructures {
         RSStructurePieces.registerStructurePieces();
     }
 
-    public static <C extends IFeatureConfig, F extends Structure<C>> void addToTerraformingAndStructureMaps(ResourceLocation resourceLocation, F structure, GenerationStage.Decoration stage, StructureSeparationSettings StructureSeparationSettings, C config)
-    {
+    public static <C extends IFeatureConfig, F extends Structure<C>> void addToTerraformingAndStructureMaps(ResourceLocation resourceLocation, F structure, GenerationStage.Decoration stage, StructureSeparationSettings StructureSeparationSettings, C config) {
         Structure.JIGSAW_STRUCTURES = ImmutableList.<Structure<?>>builder().addAll(Structure.JIGSAW_STRUCTURES).add(structure).build();
         addToStructureMaps(resourceLocation, structure, stage, StructureSeparationSettings, config);
     }
 
-    public static <F extends Structure<NoFeatureConfig>> void addToTerraformingAndStructureMaps(ResourceLocation resourceLocation, F structure, GenerationStage.Decoration stage, StructureSeparationSettings StructureSeparationSettings)
-    {
+    public static <F extends Structure<NoFeatureConfig>> void addToTerraformingAndStructureMaps(ResourceLocation resourceLocation, F structure, GenerationStage.Decoration stage, StructureSeparationSettings StructureSeparationSettings) {
         Structure.JIGSAW_STRUCTURES = ImmutableList.<Structure<?>>builder().addAll(Structure.JIGSAW_STRUCTURES).add(structure).build();
         addToStructureMaps(resourceLocation, structure, stage, StructureSeparationSettings);
     }
 
-    public static <C extends IFeatureConfig, F extends Structure<C>> void addToStructureMaps(ResourceLocation resourceLocation, F structure, GenerationStage.Decoration stage, StructureSeparationSettings structureSeparationSettings, C config)
-    {
+    public static <C extends IFeatureConfig, F extends Structure<C>> void addToStructureMaps(ResourceLocation resourceLocation, F structure, GenerationStage.Decoration stage, StructureSeparationSettings structureSeparationSettings, C config) {
         Structure.STRUCTURES.put(resourceLocation.toString().toLowerCase(Locale.ROOT), structure);
 
         // This is only for myself. Others should override func_236396_f_() in
@@ -259,16 +254,15 @@ public class RSStructures {
         RS_STRUCTURES.put(structure, structureSeparationSettings);
     }
 
-	public static <F extends Structure<NoFeatureConfig>> void addToStructureMaps(ResourceLocation resourceLocation, F structure, GenerationStage.Decoration stage, StructureSeparationSettings structureSeparationSettings)
-	{
-		Structure.STRUCTURES.put(resourceLocation.toString().toLowerCase(Locale.ROOT), structure);
+    public static <F extends Structure<NoFeatureConfig>> void addToStructureMaps(ResourceLocation resourceLocation, F structure, GenerationStage.Decoration stage, StructureSeparationSettings structureSeparationSettings) {
+        Structure.STRUCTURES.put(resourceLocation.toString().toLowerCase(Locale.ROOT), structure);
 
-		// This is only for myself. Others should override func_236396_f_() in
+        // This is only for myself. Others should override func_236396_f_() in
         // their structure's class to return their generation stage instead.
-		Structure.STRUCTURE_TO_GENERATION_STEP.put(structure, stage);
+        Structure.STRUCTURE_TO_GENERATION_STEP.put(structure, stage);
 
-		DimensionStructuresSettings.DEFAULT_STRUCTURES = ImmutableMap.<Structure<?>, StructureSeparationSettings>builder().putAll(DimensionStructuresSettings.DEFAULT_STRUCTURES).put(structure, structureSeparationSettings).build();
-		FlatGenerationSettings.STRUCTURES.put(structure, structure.configure(IFeatureConfig.NO_FEATURE_CONFIG));
-		RS_STRUCTURES.put(structure, structureSeparationSettings);
-	}
+        DimensionStructuresSettings.DEFAULT_STRUCTURES = ImmutableMap.<Structure<?>, StructureSeparationSettings>builder().putAll(DimensionStructuresSettings.DEFAULT_STRUCTURES).put(structure, structureSeparationSettings).build();
+        FlatGenerationSettings.STRUCTURES.put(structure, structure.configure(IFeatureConfig.NO_FEATURE_CONFIG));
+        RS_STRUCTURES.put(structure, structureSeparationSettings);
+    }
 }

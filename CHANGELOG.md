@@ -15,7 +15,10 @@ Welcome to the Github! If you are looking for the most recent stable version, th
   To fix this, turnOffVanillaStrongholds config value is now set to true by default and it will now correcty make 
   Vanilla Strongholds no longer spawn anymore. Repurposed Structure's Stonebrick Stronghold will take its place properly .
   (Yes Eyes of Ender will find RS's Strongholds)
-
+  
+- Moved RS Strongholds from UNDERGROUND_STRUCTURES generation stage to STRONGHOLDS. 
+  Will prevent some features/structures from breaking strongholds.
+  
 ##### Outposts:
 - Nerfed the enchantment range of armor and weapons in Crimson, Warped, and Nether Bricks Outpost's loot. 
   Armor and Weapons will be damaged now to encourage fusing gears together to repair and strengthen enchantments.
