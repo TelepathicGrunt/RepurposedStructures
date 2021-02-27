@@ -19,11 +19,11 @@ public class AirProcessor extends StructureProcessor {
     public static final Codec<AirProcessor> CODEC = Codec.unit(() -> INSTANCE);
     private AirProcessor() { }
 
-    public Template.BlockInfo process(IWorldReader worldView, BlockPos pos, BlockPos blockPos, Template.BlockInfo structureBlockInfoRelative, Template.BlockInfo structureBlockInfo2Global, PlacementSettings structurePlacementData) {
-        if (structureBlockInfo2Global.state.isIn(Blocks.AIR)) {
-            worldView.getChunk(structureBlockInfo2Global.pos).setBlockState(structureBlockInfo2Global.pos, Blocks.AIR.getDefaultState(), false);
+    public Template.BlockInfo process(IWorldReader worldView, BlockPos pos, BlockPos blockPos, Template.BlockInfo structureBlockInfoLocal, Template.BlockInfo structureBlockInfoWorld, PlacementSettings structurePlacementData) {
+        if (structureBlockInfoWorld.state.isIn(Blocks.AIR)) {
+            worldView.getChunk(structureBlockInfoWorld.pos).setBlockState(structureBlockInfoWorld.pos, Blocks.AIR.getDefaultState(), false);
         }
-        return structureBlockInfo2Global;
+        return structureBlockInfoWorld;
     }
 
     protected IStructureProcessorType<?> getType() {
