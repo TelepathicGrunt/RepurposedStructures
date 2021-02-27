@@ -25,6 +25,12 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Nerfed the enchantment range of armor and weapons in Crimson, Warped, and Nether Bricks Outpost's loot. 
   Armor and Weapons will be damaged now to encourage fusing gears together to repair and strengthen enchantments.
 
+- All Overworld Repurposed Structures Outposts now generates with 8 Pillagers (Vanilla spawns with none btw)
+  All 8 Pillagers will not despawn and 1 of the Pillager has a Raid Banner.
+  These outposts will still spawn additional Pillagers over time.
+  
+- Crimson, Warped, and Nether Bricks Outpost Chest blocks now faces the correct direction.
+
 ##### Mansions:
 - Fixed logspam from Snowy Mansions about Diorite Walls having wrong properties.
 
