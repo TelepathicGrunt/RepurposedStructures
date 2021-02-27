@@ -81,7 +81,7 @@ public class FortressJungleStructure extends AbstractBaseStructure<NoFeatureConf
             }
 
             this.recalculateStructureSize();
-            this.func_214626_a(this.rand, chunkGenerator.getSeaLevel() - 9, chunkGenerator.getSeaLevel() - 4);
+            this.func_214626_a(this.rand, chunkGenerator.getSeaLevel() - 15, chunkGenerator.getSeaLevel() - 10);
         }
     }
 }
