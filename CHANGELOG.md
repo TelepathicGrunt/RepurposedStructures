@@ -12,9 +12,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ##### Strongholds:
 - So uh, I just learned that removing the Vanilla Stronghold from all biomes doesn't actually stop it from spawning.
-  To fix this, turnOffVanillaStrongholds config value is now set to true by default and it will now correcty make 
-  Vanilla Strongholds no longer spawn anymore. Repurposed Structure's Stonebrick Stronghold will take its place properly .
-  (Yes Eyes of Ender will find RS's Strongholds)
+  To fix this, turnOffVanillaStrongholds config value is now set to true by default and it will now correctly make 
+  Vanilla Strongholds no longer spawn anymore. Repurposed Structures's Stonebrick Stronghold will take its place properly.
+  (Yes Eyes of Ender will find RS's Strongholds as well)
   
 - Moved RS Strongholds from UNDERGROUND_STRUCTURES generation stage to STRONGHOLDS. 
   Will prevent some features/structures from breaking strongholds.
