@@ -309,7 +309,7 @@ public class RSAddFeaturesAndStructures {
         {
             //replace vanilla stronghold with ours if vanilla's is present
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.STONEBRICK_STRONGHOLD);
-            event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION).add(() -> RSConfiguredFeatures.STONEBRICK_STRONGHOLD_CHAINS);
+            event.getGeneration().getFeatures(GenerationStage.Decoration.STRONGHOLDS).add(() -> RSConfiguredFeatures.STONEBRICK_STRONGHOLD_CHAINS);
         }
 
         else if (RepurposedStructures.RSStrongholdsConfig.netherStrongholdMaxChunkDistance.get() != 1001 &&
@@ -318,7 +318,7 @@ public class RSAddFeaturesAndStructures {
                     RepurposedStructures.RSStrongholdsConfig.addNetherStrongholdToModdedBiomes.get()))
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_STRONGHOLD);
-            event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION).add(() -> RSConfiguredFeatures.NETHER_STRONGHOLD_CHAINS);
+            event.getGeneration().getFeatures(GenerationStage.Decoration.STRONGHOLDS).add(() -> RSConfiguredFeatures.NETHER_STRONGHOLD_CHAINS);
         }
     }
 
