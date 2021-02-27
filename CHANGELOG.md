@@ -19,6 +19,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Moved RS Strongholds from UNDERGROUND_STRUCTURES generation stage to STRONGHOLDS. 
   Will prevent some features/structures from breaking strongholds.
   
+- Fixed Nether Stronghold Libraries having floating fire.
+
 ##### Outposts:
 - Nerfed the enchantment range of armor and weapons in Crimson, Warped, and Nether Bricks Outpost's loot. 
   Armor and Weapons will be damaged now to encourage fusing gears together to repair and strengthen enchantments.

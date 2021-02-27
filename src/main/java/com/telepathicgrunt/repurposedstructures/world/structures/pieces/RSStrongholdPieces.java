@@ -642,7 +642,7 @@ public class RSStrongholdPieces {
                 this.generateMaybeBox(world, structureBoundingBoxIn, random, 0.07F, 2, 1, 1, 11, 4, 13, Blocks.COBWEB.getDefaultState(), Blocks.COBWEB.getDefaultState(), false, false);
             }
             else if (this.strongholdType == Type.NETHER) {
-                this.generateMaybeBox(world, structureBoundingBoxIn, random, 0.04F, 2, 1, 1, 11, 4, 13, Blocks.FIRE.getDefaultState(), Blocks.FIRE.getDefaultState(), false, false);
+                this.generateMaybeBox(world, structureBoundingBoxIn, random, 0.04F, 2, 1, 1, 11, 1, 13, Blocks.FIRE.getDefaultState(), Blocks.FIRE.getDefaultState(), false, false);
             }
 
             for (int l = 1; l <= 13; ++l) {
