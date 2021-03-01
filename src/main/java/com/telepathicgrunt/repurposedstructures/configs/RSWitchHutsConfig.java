@@ -25,64 +25,60 @@ public class RSWitchHutsConfig
 			builder.push("Witch Huts");
 
 				blacklistedWitchHutBiomes = subscriber.subscribe(builder
-						.comment("\r\n Add the ID/resource location of the biome you don't want"
-								+"\r\n RS's witch huts to spawn in. Separate each ID with a comma ,"
-								+"\r\n"
-								+"\r\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
+						.comment("\n Add the ID/resource location of the biome you don't want"
+								+"\n RS's witch huts to spawn in. Separate each ID with a comma ,"
+								+"\n"
+								+"\n Example: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
 						.translation("repurposedstructures.config.witch_hut.blacklistedwitchhutbiomes")
-						.define("blacklistedWitchHutBiomes", ""));
+						.define("blacklistedWitchHutBiomes", " "));
 
 				witchHutsOakMaxChunkDistance = subscriber.subscribe(builder
-						.comment("Add Oak Witch Huts to modded Forest biomes that are not birch or dark oak.")
+						.comment("\n Add Oak Witch Huts to modded Forest biomes that are not birch or dark oak.")
 						.translation("repurposedstructures.config.witch_huts.witchhutsoakmaxchunkdistance")
 						.defineInRange("witchHutsOakMaxChunkDistance", 48, 1, 1001));
 
 				addWitchHutsOakToModdedBiomes = subscriber.subscribe(builder
-						.comment("Add Oak Witch Huts to modded Forest biomes that are not birch or dark oak.")
+						.comment("\n Add Oak Witch Huts to modded Forest biomes that are not birch or dark oak.")
 						.translation("repurposedstructures.config.witch_huts.addwitchhutsoaktomoddedbiomes")
 						.define("addWitchHutsOakToModdedBiomes", true));
 
 				witchHutsTaigaMaxChunkDistance = subscriber.subscribe(builder
-						.comment("Add Taiga Witch Huts to modded Taiga biomes.")
+						.comment("\n Add Taiga Witch Huts to modded Taiga biomes.")
 						.translation("repurposedstructures.config.witch_huts.witchhutstaigamaxchunkdistance")
 						.defineInRange("witchHutsTaigaMaxChunkDistance", 48, 1, 1001));
 
 				addWitchHutsTaigaToModdedBiomes = subscriber.subscribe(builder
-						.comment("Add Taiga Witch Huts to modded Taiga biomes.")
+						.comment("\n Add Taiga Witch Huts to modded Taiga biomes.")
 						.translation("repurposedstructures.config.witch_huts.addwitchhutstaigatomoddedbiomes")
 						.define("addWitchHutsTaigaToModdedBiomes", true));
 
 				witchHutsGiantTreeTaigaMaxChunkDistance = subscriber.subscribe(builder
-						.comment("Add Giant Tree Taiga Witch Huts to modded Giant"
-								+ "\nTree Taiga biomes.")
+						.comment("\n Add Giant Tree Taiga Witch Huts to modded Giant Tree Taiga biomes.")
 						.translation("repurposedstructures.config.witch_huts.witchhutsgianttreetaigamaxchunkdistance")
 						.defineInRange("witchHutsGiantTreeTaigaMaxChunkDistance", 48, 1, 1001));
 
 				addWitchHutsGiantTreeTaigaToModdedBiomes = subscriber.subscribe(builder
-						.comment("Add Giant Tree Taiga Witch Huts to modded Giant"
-								+ "\nTree Taiga biomes.")
+						.comment("\n Add Giant Tree Taiga Witch Huts to modded Giant Tree Taiga biomes.")
 						.translation("repurposedstructures.config.witch_huts.addwitchhutsgianttreetaigatomoddedbiomes")
 						.define("addWitchHutsGiantTreeTaigaToModdedBiomes", true));
 
 				witchHutsBirchMaxChunkDistance = subscriber.subscribe(builder
-						.comment("Add Birch Witch Huts to modded Birch biomes.")
+						.comment("\n Add Birch Witch Huts to modded Birch biomes.")
 						.translation("repurposedstructures.config.witch_huts.witchhutsbirchmaxchunkdistance")
 						.defineInRange("witchHutsBirchMaxChunkDistance", 48, 1, 1001));
 
 				addWitchHutsBirchToModdedBiomes = subscriber.subscribe(builder
-						.comment("Add Birch Witch Huts to modded Birch biomes.")
+						.comment("\n Add Birch Witch Huts to modded Birch biomes.")
 						.translation("repurposedstructures.config.witch_huts.addwitchhutsbirchtomoddedbiomes")
 						.define("addWitchHutsBirchToModdedBiomes", true));
 
 				witchHutsDarkForestMaxChunkDistance = subscriber.subscribe(builder
-						.comment("Add Dark Forest Witch Huts to modded Dark Forest"
-								+ "\nbiomes.")
+						.comment("\n Add Dark Forest Witch Huts to modded Dark Forest biomes.")
 						.translation("repurposedstructures.config.witch_huts.witchhutsdarkforestmaxchunkdistance")
 						.defineInRange("witchHutsDarkForestMaxChunkDistance", 48, 1, 1001));
 
 				addWitchHutsDarkForestToModdedBiomes = subscriber.subscribe(builder
-						.comment("Add Dark Forest Witch Huts to modded Dark Forest"
-								+ "\nbiomes.")
+						.comment("\n Add Dark Forest Witch Huts to modded Dark Forest biomes.")
 						.translation("repurposedstructures.config.witch_huts.addwitchhutsdarkforesttomoddedbiomes")
 						.define("addWitchHutsDarkForestToModdedBiomes", true));
 

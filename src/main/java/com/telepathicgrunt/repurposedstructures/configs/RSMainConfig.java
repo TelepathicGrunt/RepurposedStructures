@@ -49,11 +49,11 @@ public class RSMainConfig
 			builder.push("Mod-wide Impacting Options");
 
 				blacklistedDimensions = subscriber.subscribe(builder
-						.comment("\r\n Add the identifier for the dimension that you want"
-								+"\r\n no Repurposed Structures structure to spawn in."
-								+"\r\n Separate multiple entries with a comma."
-								+"\r\n"
-								+"\r\nExample: \"minecraft:the_end,awesome_mod:awesome_dimension\"")
+						.comment("\n Add the identifier for the dimension that you want"
+								+"\n no Repurposed Structures structure to spawn in."
+								+"\n Separate multiple entries with a comma."
+								+"\n"
+								+"\n Example: \"minecraft:the_end,awesome_mod:awesome_dimension\"")
 						.translation("repurposedstructures.config.all.blacklisteddimensions")
 						.define("blacklistedDimensions", "the_bumblezone:the_bumblezone"));
 
@@ -64,27 +64,27 @@ public class RSMainConfig
 				builder.push("Misc");
 
 					addGiantBouldersModdedBiomes = subscriber.subscribe(builder
-						.comment("\r\n Adds giant boulders to modded Giant Tree Taiga (or Redwood) biomes.")
+						.comment("\n Adds giant boulders to modded Giant Tree Taiga (or Redwood) biomes.")
 					.translation("repurposedstructures.config.misc.addgiantbouldersmoddedbiomes")
 					.define("addGiantBouldersModdedBiomes", false));
 
 					blacklistedBoulderBiomes = subscriber.subscribe(builder
-						.comment("\r\n Add the ID/resource location of the biome you don't want"
-								+"\r\n RS's boulders to spawn in. Separate each ID with a comma ,"
-								+"\r\n"
-								+"\r\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
+						.comment("\n Add the ID/resource location of the biome you don't want"
+								+"\n RS's boulders to spawn in. Separate each ID with a comma ,"
+								+"\n"
+								+"\n Example: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
 						.translation("repurposedstructures.config.misc.blacklistedboulderbiomes")
-						.define("blacklistedBoulderBiomes", ""));
+						.define("blacklistedBoulderBiomes", " "));
 
 
 
 					giantBouldersPerChunk = subscriber.subscribe(builder
-					.comment("\r\n How many Giant Boulders per chunk. (Can be decimal too)")
+					.comment("\n How many Giant Boulders per chunk. (Can be decimal too)")
 					.translation("repurposedstructures.config.misc.giantbouldersperchunk")
 					.defineInRange("giantBouldersPerChunk", 0.5D, 0, 100));
 
 					diamondChanceInGiantBoulders = subscriber.subscribe(builder
-					.comment("\r\n 1 out of ___ chance of Diamond Ore when placing"
+					.comment("\n 1 out of ___ chance of Diamond Ore when placing"
 							+ "\n a block in giant Boulders. Lower number = more common."
 							+ "\n Enter 0 to disable Diamond Ores completely.")
 					.translation("repurposedstructures.config.misc.diamondchanceingiantboulders")
@@ -92,20 +92,20 @@ public class RSMainConfig
 
 
 					addTinyBouldersModdedBiomes = subscriber.subscribe(builder
-						.comment("\r\n Adds tiny boulders to modded Taiga biomes.")
+						.comment("\n Adds tiny boulders to modded Taiga biomes.")
 					.translation("repurposedstructures.config.misc.addtinybouldersmoddedbiomes")
 					.define("addTinyBouldersModdedBiomes", false));
 
 					boulderTiny = subscriber.subscribe(builder
-							.comment("\r\n Adds tiny boulders to Taiga Mountains and Snowy Taiga Mountains biomes "
-								+"\r\n that can contain small amounts of Coal and Iron ores.")
+							.comment("\n Adds tiny boulders to Taiga Mountains and Snowy Taiga Mountains biomes "
+								+"\n that can contain small amounts of Coal and Iron ores.")
 						.translation("repurposedstructures.config.misc.bouldertiny")
 						.define("boulderTiny", true));
 					
 					boulderGiant = subscriber.subscribe(builder
-							.comment("\r\n Replaces boulders in Giant Tree Taiga Hills and Giant Spruce Taiga Hills"
-								+"\r\n biomes with a larger boulder that can contain Coal, Iron, and extremely"
-								+"\r\n rarely, can also have Diamond Ores.")
+							.comment("\n Replaces boulders in Giant Tree Taiga Hills and Giant Spruce Taiga Hills"
+								+"\n biomes with a larger boulder that can contain Coal, Iron, and extremely"
+								+"\n rarely, can also have Diamond Ores.")
 						.translation("repurposedstructures.config.misc.netherdungeons")
 						.define("boulderGiant", true));
 					
@@ -118,41 +118,39 @@ public class RSMainConfig
 				builder.push("Jungle Fortress");
 	
 					jungleFortressMaxChunkDistance = subscriber.subscribe(builder
-							.comment("\r\n How rare are Jungle Fortresses." 
-								+"\r\n "
-								+"\r\n 1 for spawning in most chunks and 1001 for no spawn.")
+							.comment("\n How rare are Jungle Fortresses."
+								+"\n 1 for spawning in most chunks and 1001 for no spawn.")
 							.translation("repurposedstructures.config.junglefortress.junglefortressmaxchunkdistance")
 							.defineInRange("jungleFortressMaxChunkDistance", 50, 1, 1001));
 
 					addJungleFortressToModdedBiomes = subscriber.subscribe(builder
-							.comment("\r\n Add Jungle Fortress to modded jungle biomes.")
+							.comment("\n Add Jungle Fortress to modded jungle biomes.")
 							.translation("repurposedstructures.config.junglefortress.addjunglefortresstomoddedbiomes")
 							.define("addJungleFortressToModdedBiomes", true));
 
 					blacklistedFortressBiomes = subscriber.subscribe(builder
-							.comment("\r\n Add the ID/resource location of the biome you don't want"
-									+"\r\n RS's Jungle Fortresses to spawn in. Separate each ID with a comma ,"
-									+"\r\n"
-									+"\r\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
+							.comment("\n Add the ID/resource location of the biome you don't want"
+									+"\n RS's Jungle Fortresses to spawn in. Separate each ID with a comma ,"
+									+"\n"
+									+"\n Example: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
 							.translation("repurposedstructures.config.junglefortress.blacklistedfortressbiomes")
-							.define("blacklistedFortressBiomes", ""));
+							.define("blacklistedFortressBiomes", " "));
 
 					silverfishSpawnrate = subscriber.subscribe(builder
-							.comment("\r\n How often Silverfish Blocks will generate in Jungle Fortress as a percentage."
-								+ "\r\n Note: Mossy Stone Bricks block cannot be infected by Silverfish"
-								+ "\n "
-								+ "\r\n 0 for no Silverfish Blocks and 100 for max spawnrate.")
+							.comment("\n How often Silverfish Blocks will generate in Jungle Fortress as a percentage."
+								+ "\n Note: Mossy Stone Bricks block cannot be infected by Silverfish"
+								+ "\n 0 for no Silverfish Blocks and 100 for max spawnrate.")
 							.translation("repurposedstructures.config.junglefortress.silverfishspawnrate")
 							.defineInRange("silverfishSpawnrate", 0.5D, 0, 100));
 					
 					allowSilverfishSpawner = subscriber.subscribe(builder
-							.comment("\r\n Silverfish Mob Spawners generate in Stone Fortresses."
-								+"\r\n If turned off, the spawners will become Skeleton spawners.")
+							.comment("\n Silverfish Mob Spawners generate in Stone Fortresses."
+								+"\n If turned off, the spawners will become Skeleton spawners.")
 							.translation("repurposedstructures.config.junglefortress.allowsilverfishspawner")
 							.define("allowSilverfishSpawner", true));
 
 					lootChests = subscriber.subscribe(builder
-							.comment("\r\n Controls whether loot chests spawn or not in Jungle Fortresses.")
+							.comment("\n Controls whether loot chests spawn or not in Jungle Fortresses.")
 						.translation("repurposedstructures.config.junglefortress.lootchests")
 						.define("lootChests", true));
 
@@ -162,36 +160,32 @@ public class RSMainConfig
 				builder.push("Igloos");
 
 					blacklistedIglooBiomes = subscriber.subscribe(builder
-							.comment("\r\n Add the ID/resource location of the biome you don't want"
-									+"\r\n RS's Igloos to spawn in. Separate each ID with a comma ,"
-									+"\r\n"
-									+"\r\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
+							.comment("\n Add the ID/resource location of the biome you don't want"
+									+"\n RS's Igloos to spawn in. Separate each ID with a comma ,"
+									+"\n"
+									+"\n Example: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
 							.translation("repurposedstructures.config.igloo.blacklistedigloobiomes")
-							.define("blacklistedIglooBiomes", ""));
+							.define("blacklistedIglooBiomes", " "));
 
 					grassyIglooMaxChunkDistance = subscriber.subscribe(builder
-						.comment("\r\n How rare are Grassy Igloos in Plains and Forests." 
-							+ "\n "
-							+ "\r\n 1 for spawning in most chunks and 1001 for no spawn.")
+						.comment("\n How rare are Grassy Igloos in Plains and Forests."
+							+ "\n 1 for spawning in most chunks and 1001 for no spawn.")
 						.translation("repurposedstructures.config.igloo.grassyigloomaxchunkdistance")
 						.defineInRange("grassyIglooMaxChunkDistance", 20, 1, 1001));
 	
 					addGrassyIglooToModdedBiomes = subscriber.subscribe(builder
-							.comment("\r\n Add Grassy Igloos to modded biomes that are"
-								+"\r\n most likely grassy fields or temperate forests.")
+							.comment("\n Add Grassy Igloos to modded biomes that are most likely grassy fields or temperate forests.")
 						.translation("repurposedstructures.config.igloo.addgrassyiglootomoddedbiomes")
 						.define("addGrassyIglooToModdedBiomes", true));
 
 					stoneIglooMaxChunkDistance = subscriber.subscribe(builder
-						.comment("\r\n How rare are Stone Igloos in Giant Tree Taiga biomes." 
-							+ "\n "
-							+ "\r\n 1 for spawning in most chunks and 1001 for no spawn.")
+						.comment("\n How rare are Stone Igloos in Giant Tree Taiga biomes."
+							+ "\n 1 for spawning in most chunks and 1001 for no spawn.")
 						.translation("repurposedstructures.config.igloo.stoneigloomaxchunkdistance")
 						.defineInRange("stoneIglooMaxChunkDistance", 20, 1, 1001));
 	
 					addStoneIglooToModdedBiomes = subscriber.subscribe(builder
-							.comment("\r\n Add Stone Igloos to modded biomes that are"
-								+"\r\n most likely Giant Tree Taiga variants.")
+							.comment("\n Add Stone Igloos to modded biomes that are most likely Giant Tree Taiga variants.")
 						.translation("repurposedstructures.config.igloo.addstoneiglootomoddedbiomes")
 						.define("addStoneIglooToModdedBiomes", true));
 					
@@ -200,22 +194,21 @@ public class RSMainConfig
 				builder.push("Ruined Portals");
 
 					blacklistedRuinedPortalsBiomes = subscriber.subscribe(builder
-						.comment("\r\n Add the ID/resource location of the biome you don't want"
-								+"\r\n RS's Ruined Portals to spawn in. Separate each ID with a comma ,"
-								+"\r\n"
-								+"\r\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
+						.comment("\n Add the ID/resource location of the biome you don't want"
+								+"\n RS's Ruined Portals to spawn in. Separate each ID with a comma ,"
+								+"\n"
+								+"\n Example: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
 						.translation("repurposedstructures.config.ruinedportals.blacklistedruinedportalsbiomes")
-						.define("blacklistedRuinedPortalsBiomes", ""));
+						.define("blacklistedRuinedPortalsBiomes", " "));
 
 					ruinedPortalEndMaxChunkDistance = subscriber.subscribe(builder
-						.comment("How rare are End themed Ruined Portals in"
-								+ "\nEnd category biomes. 1 for spawning in most"
-								+ "\nchunks and 1001 for none.")
+						.comment("\n How rare are End themed Ruined Portals in End category biomes. 1 for spawning in most"
+								+ "\n chunks and 1001 for none.")
 						.translation("repurposedstructures.config.ruinedPortals.ruinedportalendmaxchunkdistance")
 						.defineInRange("ruinedPortalEndMaxChunkDistance", 57, 1, 1001));
 
 					addRuinedPortalEndToModdedBiomes = subscriber.subscribe(builder
-						.comment("Add End themed ruined portals to modded End category biomes.")
+						.comment("\n Add End themed ruined portals to modded End category biomes.")
 						.translation("repurposedstructures.config.ruinedPortals.addruinedportalendtomoddedbiomes")
 						.define("addRuinedPortalEndToModdedBiomes", true));
 
@@ -224,21 +217,20 @@ public class RSMainConfig
 				builder.push("Ruins");
 
 					blacklistedRuinsBiomes = subscriber.subscribe(builder
-							.comment("\r\n Add the ID/resource location of the biome you don't want"
-									+"\r\n RS's Ruins to spawn in. Separate each ID with a comma ,"
-									+"\r\n"
-									+"\r\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
+							.comment("\n Add the ID/resource location of the biome you don't want"
+									+"\n RS's Ruins to spawn in. Separate each ID with a comma ,"
+									+"\n"
+									+"\n Example: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
 							.translation("repurposedstructures.config.ruins.blacklistedruinsbiomes")
-							.define("blacklistedRuinsBiomes", ""));
+							.define("blacklistedRuinsBiomes", " "));
 
 					ruinsNetherMaxChunkDistance = subscriber.subscribe(builder
-							.comment("How rare are Nether Ruins. 1 for spawning in most"
-									+ "\nchunks and 1001 for none.")
+							.comment("\n How rare are Nether Ruins. 1 for spawning in most chunks and 1001 for none.")
 							.translation("repurposedstructures.config.ruins.ruinsnethermaxchunkdistance")
 							.defineInRange("ruinsNetherMaxChunkDistance", 35, 1, 1001));
 
 					addRuinsNetherToModdedBiomes = subscriber.subscribe(builder
-							.comment("Add Nether Ruins to modded Nether category biomes.")
+							.comment("\n Add Nether Ruins to modded Nether category biomes.")
 							.translation("repurposedstructures.config.ruins.addruinsnethertomoddedbiomes")
 							.define("addRuinsNetherToModdedBiomes", true));
 
@@ -248,21 +240,20 @@ public class RSMainConfig
 				builder.push("Cities");
 
 					blacklistedCitiesBiomes = subscriber.subscribe(builder
-							.comment("\r\n Add the ID/resource location of the biome you don't want"
-									+"\r\n RS's Cities to spawn in. Separate each ID with a comma ,"
-									+"\r\n"
-									+"\r\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
+							.comment("\n Add the ID/resource location of the biome you don't want"
+									+"\n RS's Cities to spawn in. Separate each ID with a comma ,"
+									+"\n"
+									+"\n Example: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
 							.translation("repurposedstructures.config.cities.blacklistedruinsbiomes")
-							.define("blacklistedCitiesBiomes", ""));
+							.define("blacklistedCitiesBiomes", " "));
 
 					citiesNetherMaxChunkDistance = subscriber.subscribe(builder
-							.comment("How rare are Nether Cities. 1 for spawning in most"
-									+ "\nchunks and 1001 for none.")
+							.comment("\n How rare are Nether Cities. 1 for spawning in most chunks and 1001 for none.")
 							.translation("repurposedstructures.config.cities.citiesnethermaxchunkdistance")
 							.defineInRange("citiesNetherMaxChunkDistance", 160, 1, 1001));
 
 					addCitiesNetherToModdedBiomes = subscriber.subscribe(builder
-							.comment("Add Nether Cities to modded Nether category biomes.")
+							.comment("\n Add Nether Cities to modded Nether category biomes.")
 							.translation("repurposedstructures.config.cities.addcitiesnethertomoddedbiomes")
 							.define("addCitiesNetherToModdedBiomes", true));
 
