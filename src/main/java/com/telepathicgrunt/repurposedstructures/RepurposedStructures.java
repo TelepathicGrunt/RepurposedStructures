@@ -16,6 +16,7 @@ import com.telepathicgrunt.repurposedstructures.configs.RSWitchHutsConfig.RSWitc
 import com.telepathicgrunt.repurposedstructures.misc.MobMapTrades;
 import com.telepathicgrunt.repurposedstructures.modinit.*;
 import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
+import com.telepathicgrunt.repurposedstructures.utils.LogSpamFiltering;
 import com.telepathicgrunt.repurposedstructures.utils.MobSpawnerManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.WorldGenRegistries;
@@ -90,6 +91,15 @@ public class RepurposedStructures
 
 		yungsBetterMineshaftIsNotOn = !ModList.get().isLoaded("bettermineshafts");
 		yungsBetterStrongholdsIsNotOn = !ModList.get().isLoaded("betterstrongholds");
+
+
+		// Silences logspam due to me changing my piece's namespace from minecraft to my modid.
+		Logger rootLogger = LogManager.getRootLogger();
+		if (rootLogger instanceof org.apache.logging.log4j.core.Logger) {
+			((org.apache.logging.log4j.core.Logger) rootLogger).addFilter(new LogSpamFiltering());
+		} else {
+			LOGGER.error("Registration failed with unexpected class: {}", rootLogger.getClass());
+		}
 	}
 
 	/*
