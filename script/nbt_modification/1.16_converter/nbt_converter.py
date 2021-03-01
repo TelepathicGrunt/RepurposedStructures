@@ -49,14 +49,14 @@ conversion_exact_dict = {
 
 blockPalette = {""}
 
-originalBiome = "savage"
-newBiome = "nether_brick"
+originalBiome = ""
+newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {
 }
 conversion_exact_dict = {
-    "minecraft:pillager_outpost/towers":"repurposed_structures:outposts/"+newBiome+"/towers",
-    "minecraft:pillager_outpost/feature_plates":"repurposed_structures:outposts/"+newBiome+"/plates"
+    "minecraft:brown_terracotta":"environmental:mud",
+    "minecraft:gray_terracotta":"environmental:mud_bricks"
 }
 
 #-------------------------------------------------------------------------------------------

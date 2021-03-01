@@ -35,10 +35,10 @@ public class DataBlockProcessor extends StructureProcessor {
     public static final Codec<DataBlockProcessor> CODEC = Codec.unit(() -> INSTANCE);
     private DataBlockProcessor() { }
 
-    public Structure.StructureBlockInfo process(WorldView worldView, BlockPos pos, BlockPos blockPos, Structure.StructureBlockInfo structureBlockInfoRelative, Structure.StructureBlockInfo structureBlockInfo2Global, StructurePlacementData structurePlacementData) {
-        BlockState blockState = structureBlockInfo2Global.state;
+    public Structure.StructureBlockInfo process(WorldView worldView, BlockPos pos, BlockPos blockPos, Structure.StructureBlockInfo structureBlockInfoLocal, Structure.StructureBlockInfo structureBlockInfoWorld, StructurePlacementData structurePlacementData) {
+        BlockState blockState = structureBlockInfoWorld.state;
         if (blockState.isOf(Blocks.STRUCTURE_BLOCK)) {
-            String string = structureBlockInfo2Global.tag.getString("metadata");
+            String string = structureBlockInfoWorld.tag.getString("metadata");
 
             try {
                 // Pillar mode activated
@@ -50,15 +50,15 @@ public class DataBlockProcessor extends StructureProcessor {
                     BlockArgumentParser blockArgumentParser = new BlockArgumentParser(new StringReader(splitString[1]), false);
                     blockArgumentParser.parse(true);
                     BlockState replacementState = blockArgumentParser.getBlockState();
-                    BlockState currentBlock = worldView.getBlockState(structureBlockInfo2Global.pos);
-                    BlockPos.Mutable currentPos = new BlockPos.Mutable().set(structureBlockInfo2Global.pos);
+                    BlockState currentBlock = worldView.getBlockState(structureBlockInfoWorld.pos);
+                    BlockPos.Mutable currentPos = new BlockPos.Mutable().set(structureBlockInfoWorld.pos);
                     int depth = splitString.length > 2 ? parseInt(splitString[2]) + 1 : 256;
 
                     // Creates the pillars in the world that replaces air and liquids
                     while((currentBlock.isAir() || currentBlock.getMaterial().isLiquid()) &&
-                            currentPos.getY() <= worldView.getHeight() &&
+                            currentPos.getY() <= worldView.getDimension().getLogicalHeight() &&
                             currentPos.getY() >= 0 &&
-                            currentPos.isWithinDistance(structureBlockInfo2Global.pos, depth)
+                            currentPos.isWithinDistance(structureBlockInfoWorld.pos, depth)
                     ){
                         worldView.getChunk(currentPos).setBlockState(currentPos, replacementState, false);
                         currentPos.move(direction);
@@ -66,14 +66,14 @@ public class DataBlockProcessor extends StructureProcessor {
                     }
 
                     // Replaces the data block itself
-                    return replacementState.isOf(Blocks.STRUCTURE_VOID) ? null : new Structure.StructureBlockInfo(structureBlockInfo2Global.pos, replacementState, null);
+                    return replacementState.isOf(Blocks.STRUCTURE_VOID) ? null : new Structure.StructureBlockInfo(structureBlockInfoWorld.pos, replacementState, null);
                 }
             }
             catch (CommandSyntaxException var11) {
                 throw new RuntimeException(var11);
             }
         }
-        return structureBlockInfo2Global;
+        return structureBlockInfoWorld;
     }
 
     protected StructureProcessorType<?> getType() {
