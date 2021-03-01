@@ -52,7 +52,7 @@ public class LogSpamFiltering extends AbstractFilter {
     @Override
     public Result filter(LogEvent event) {
         Message message = event.getMessage();
-        if (message.getFormat().equals("Unknown structure piece id: {}") && SILENCED_PIECES.contains((Identifier)message.getParameters()[0])) {
+        if (message != null && "Unknown structure piece id: {}".equals(message.getFormat()) && SILENCED_PIECES.contains((Identifier)message.getParameters()[0])) {
             return Result.DENY;
         } else {
             return Result.NEUTRAL;
