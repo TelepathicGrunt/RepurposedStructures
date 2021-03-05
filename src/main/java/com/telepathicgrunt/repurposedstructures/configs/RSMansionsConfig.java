@@ -29,10 +29,9 @@ public class RSMansionsConfig
 			builder.push("Mansions");
 
 				blacklistedMansionBiomes = subscriber.subscribe(builder
-						.comment("\n Add the ID/resource location of the biome you don't want"
-								+"\n RS's mansions to spawn in. Separate each ID with a comma ,"
-								+"\n"
-								+"\n Example: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
+						.comment("\n Add the ID/resource location of the biome you don't want",
+								" RS's mansions to spawn in. Separate each ID with a comma ,",
+								"   Example: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
 						.translation("repurposedstructures.config.mansions.blacklistedmansionbiomes")
 						.define("blacklistedMansionBiomes", " "));
 

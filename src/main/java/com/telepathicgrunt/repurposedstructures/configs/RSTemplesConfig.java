@@ -41,10 +41,9 @@ public class RSTemplesConfig
 			builder.push("Temples");
 
 				blacklistedTempleBiomes = subscriber.subscribe(builder
-					.comment("\n Add the ID/resource location of the biome you don't want"
-							+"\n temples to spawn in. Separate each ID with a comma ,"
-							+"\n"
-							+"\n Example: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
+					.comment("\n Add the ID/resource location of the biome you don't want",
+							" temples to spawn in. Separate each ID with a comma ,",
+							"   Example: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
 					.translation("repurposedstructures.config.temples.blacklistedtemplebiomes")
 					.define("blacklistedTempleBiomes", " "));
 
@@ -54,8 +53,8 @@ public class RSTemplesConfig
 					.define("addNetherWastelandTempleToModdedBiomes", true));
 
 				netherWastelandTempleMaxChunkDistance = subscriber.subscribe(builder
-					.comment("\n How rare are Nether Temples in Nether Wastelands."
-							+ "\n 1 for spawning in most chunks and 1001 for none.")
+					.comment("\n How rare are Nether Temples in Nether Wastelands.",
+							 " 1 for spawning in most chunks and 1001 for none.")
 					.translation("repurposedstructures.config.temples.netherwastelandtemplemaxchunkdistance")
 					.defineInRange("netherWastelandTempleMaxChunkDistance", 27, 1, 1001));
 
@@ -66,8 +65,8 @@ public class RSTemplesConfig
 					.define("addNetherBasaltTempleToModdedBiomes", true));
 
 				netherBasaltTempleMaxChunkDistance = subscriber.subscribe(builder
-					.comment("\n How rare are Nether Basalt Temples in Nether Basalt Delta biomes."
-							+ "\n 1 for spawning in most chunks and 1001 for none.")
+					.comment("\n How rare are Nether Basalt Temples in Nether Basalt Delta biomes.",
+							 " 1 for spawning in most chunks and 1001 for none.")
 					.translation("repurposedstructures.config.temples.netherbasalttemplemaxchunkdistance")
 					.defineInRange("netherBasaltTempleMaxChunkDistance", 27, 1, 1001));
 
@@ -78,8 +77,8 @@ public class RSTemplesConfig
 					.define("addNetherCrimsonTempleToModdedBiomes", true));
 
 				netherCrimsonTempleMaxChunkDistance = subscriber.subscribe(builder
-					.comment("\n How rare are Nether Crimson Temples in Nether Crimson Forest."
-							+ "\n 1 for spawning in most chunks and 1001 for none.")
+					.comment("\n How rare are Nether Crimson Temples in Nether Crimson Forest.",
+							 " 1 for spawning in most chunks and 1001 for none.")
 					.translation("repurposedstructures.config.temples.nethercrimsontemplemaxchunkdistance")
 					.defineInRange("netherCrimsonTempleMaxChunkDistance", 27, 1, 1001));
 
@@ -90,8 +89,8 @@ public class RSTemplesConfig
 					.define("addNetherWarpedTempleToModdedBiomes", true));
 
 				netherWarpedTempleMaxChunkDistance = subscriber.subscribe(builder
-					.comment("\n How rare are Nether Crimson Temples in Nether Warped Forest."
-							+ "\n 1 for spawning in most chunks and 1001 for none.")
+					.comment("\n How rare are Nether Crimson Temples in Nether Warped Forest.",
+							 " 1 for spawning in most chunks and 1001 for none.")
 					.translation("repurposedstructures.config.temples.netherwarpedtemplemaxchunkdistance")
 					.defineInRange("netherWarpedTempleMaxChunkDistance", 27, 1, 1001));
 
@@ -102,8 +101,8 @@ public class RSTemplesConfig
 					.define("addNetherSoulTempleToModdedBiomes", true));
 
 				netherSoulTempleMaxChunkDistance = subscriber.subscribe(builder
-					.comment("\n How rare are Nether Soul Temples in Nether Soul Sand Valley."
-							+ "\n 1 for spawning in most chunks and 1001 for none.")
+					.comment("\n How rare are Nether Soul Temples in Nether Soul Sand Valley.",
+							 " 1 for spawning in most chunks and 1001 for none.")
 					.translation("repurposedstructures.config.temples.nethersoultemplemaxchunkdistance")
 					.defineInRange("netherSoulTempleMaxChunkDistance", 27, 1, 1001));
 
@@ -117,16 +116,15 @@ public class RSTemplesConfig
 					.define("addNetherPyramidToModdedBiomes", true));
 
 				blacklistedPyramidBiomes = subscriber.subscribe(builder
-					.comment("\n Add the ID/resource location of the biome you don't want"
-							+"\n pyramids to spawn in. Separate each ID with a comma ,"
-							+"\n"
-							+"\n Example: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
+					.comment("\n Add the ID/resource location of the biome you don't want",
+							" pyramids to spawn in. Separate each ID with a comma ,",
+							"   Example: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
 					.translation("repurposedstructures.config.temples.blacklistedpyramidbiomes")
 					.define("blacklistedPyramidBiomes", " "));
 
 				netherPyramidMaxChunkDistance = subscriber.subscribe(builder
-					.comment("\n How rare are Nether Pyramids in Nether."
-							+ "\n 1 for spawning in most chunks and 1001 for none.")
+					.comment("\n How rare are Nether Pyramids in Nether.",
+							 " 1 for spawning in most chunks and 1001 for none.")
 					.translation("repurposedstructures.config.temples.netherpyramidmaxchunkdistance")
 					.defineInRange("netherPyramidMaxChunkDistance", 37, 1, 1001));
 
@@ -137,8 +135,8 @@ public class RSTemplesConfig
 					.define("addBadlandsPyramidToModdedBiomes", true));
 
 				badlandsPyramidMaxChunkDistance = subscriber.subscribe(builder
-					.comment("\n How rare are Badlands Pyramid in non-plateau Badlands biomes."
-							+ "\n 1 for spawning in most chunks and 1001 for none.")
+					.comment("\n How rare are Badlands Pyramid in non-plateau Badlands biomes.",
+							 " 1 for spawning in most chunks and 1001 for none.")
 					.translation("repurposedstructures.config.temples.badlandspyramidmaxchunkdistance")
 					.defineInRange("badlandsPyramidMaxChunkDistance", 37, 1, 1001));
 

@@ -38,31 +38,30 @@ public class RSOutpostsConfig
 		{
 
 			blacklistedOutpostBiomes = subscriber.subscribe(builder
-					.comment("\n Add the ID/resource location of the biome you don't want"
-							+"\n RS's outposts to spawn in. Separate each ID with a comma ,"
-							+"\n"
-							+"\n Example: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
+					.comment("\n Add the ID/resource location of the biome you don't want",
+							" RS's outposts to spawn in. Separate each ID with a comma ,",
+							"   Example: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
 					.translation("repurposedstructures.config.outposts.blacklistedOutpostBiomes")
 					.define("blacklistedOutpostBiomes", " "));
 
 			builder.push("Outposts");
 
 				addNetherBrickOutpostToModdedBiomes = subscriber.subscribe(builder
-						.comment("\n How rare are Nether Brick Outposts in non-warped Nether biomes."
-								+ "\n 1 for spawning in most chunks and 1001 for none.")
+						.comment("\n How rare are Nether Brick Outposts in non-warped Nether biomes.",
+								 " 1 for spawning in most chunks and 1001 for none.")
 						.translation("repurposedstructures.config.outposts.addnetherbrickoutposttomoddedbiomes")
 						.define("addNetherBrickOutpostToModdedBiomes", true));
 
 				netherBrickOutpostMaxChunkDistance = subscriber.subscribe(builder
-						.comment("\n Add Nether Brick Outposts to modded Nether biomes"
-								+ "\n that other nether outposts don't fit in.")
+						.comment("\n Add Nether Brick Outposts to modded Nether biomes",
+								 " that other nether outposts don't fit in.")
 						.translation("repurposedstructures.config.outposts.netherbrickoutpostmaxchunkdistance")
 						.defineInRange("netherBrickOutpostMaxChunkDistance", 34, 1, 1001));
 
 
 				addWarpedOutpostToModdedBiomes = subscriber.subscribe(builder
-						.comment("\n How rare are Warped Outposts in Warped Nether biomes."
-								+ "\n 1 for spawning in most chunks and 1001 for none.")
+						.comment("\n How rare are Warped Outposts in Warped Nether biomes.",
+								 " 1 for spawning in most chunks and 1001 for none.")
 						.translation("repurposedstructures.config.outposts.addwarpedoutposttomoddedbiomes")
 						.define("addWarpedOutpostToModdedBiomes", true));
 
@@ -73,8 +72,8 @@ public class RSOutpostsConfig
 
 
 				addCrimsonOutpostToModdedBiomes = subscriber.subscribe(builder
-						.comment("\n How rare are Crimson Outposts in Warped Nether biomes."
-								+ "\n 1 for spawning in most chunks and 1001 for none.")
+						.comment("\n How rare are Crimson Outposts in Warped Nether biomes.",
+								 " 1 for spawning in most chunks and 1001 for none.")
 						.translation("repurposedstructures.config.outposts.addcrimsonoutposttomoddedbiomes")
 						.define("addCrimsonOutpostToModdedBiomes", true));
 
@@ -85,8 +84,8 @@ public class RSOutpostsConfig
 
 
 				outpostBirchMaxChunkDistance = subscriber.subscribe(builder
-						.comment("\n How rare are Birch Outposts in Birch Forest biomes."
-								+ "\n 1 for spawning in most chunks and 1001 for none.")
+						.comment("\n How rare are Birch Outposts in Birch Forest biomes.",
+								 " 1 for spawning in most chunks and 1001 for none.")
 						.translation("repurposedstructures.config.outposts.outpostbirchmaxchunkdistance")
 						.defineInRange("outpostBirchMaxChunkDistance", 45, 1, 1001));
 
@@ -97,8 +96,8 @@ public class RSOutpostsConfig
 
 
 				outpostJungleMaxChunkDistance = subscriber.subscribe(builder
-						.comment("\n How rare are Jungle Outposts in Jungle biomes."
-								+ "\n 1 for spawning in most chunks and 1001 for none.")
+						.comment("\n How rare are Jungle Outposts in Jungle biomes.",
+								 " 1 for spawning in most chunks and 1001 for none.")
 						.translation("repurposedstructures.config.outposts.outpostjunglemaxchunkdistance")
 						.defineInRange("outpostJungleMaxChunkDistance", 45, 1, 1001));
 
@@ -109,8 +108,8 @@ public class RSOutpostsConfig
 
 
 				outpostGiantTreeTaigaMaxChunkDistance = subscriber.subscribe(builder
-						.comment("\n How rare are Giant Tree Taiga Outposts in Giant Tree Taiga biomes."
-								+ "\n 1 for spawning in most chunks and 1001 for none.")
+						.comment("\n How rare are Giant Tree Taiga Outposts in Giant Tree Taiga biomes.",
+								 " 1 for spawning in most chunks and 1001 for none.")
 						.translation("repurposedstructures.config.outposts.outpostgianttreetaigamaxchunkdistance")
 						.defineInRange("outpostGiantTreeTaigaMaxChunkDistance", 45, 1, 1001));
 
@@ -122,8 +121,8 @@ public class RSOutpostsConfig
 
 
 				outpostDesertMaxChunkDistance = subscriber.subscribe(builder
-						.comment("\n How rare are Desert Outposts in Desert biomes."
-								+ "\n 1 for spawning in most chunks and 1001 for none.")
+						.comment("\n How rare are Desert Outposts in Desert biomes.",
+								 " 1 for spawning in most chunks and 1001 for none.")
 						.translation("repurposedstructures.config.outposts.outpostdesertmaxchunkdistance")
 						.defineInRange("outpostDesertMaxChunkDistance", 45, 1, 1001));
 
@@ -135,8 +134,8 @@ public class RSOutpostsConfig
 
 
 				outpostBadlandsMaxChunkDistance = subscriber.subscribe(builder
-						.comment("\n How rare are Badlands Outposts in Badlands biomes."
-								+ "\n 1 for spawning in most chunks and 1001 for none.")
+						.comment("\n How rare are Badlands Outposts in Badlands biomes.",
+								 " 1 for spawning in most chunks and 1001 for none.")
 						.translation("repurposedstructures.config.outposts.outpostbadlandsmaxchunkdistance")
 						.defineInRange("outpostBadlandsMaxChunkDistance", 45, 1, 1001));
 
@@ -148,8 +147,8 @@ public class RSOutpostsConfig
 
 
 				outpostSnowyMaxChunkDistance = subscriber.subscribe(builder
-						.comment("\n How rare are Snowy Outposts in snowy biomes."
-								+ "\n 1 for spawning in most chunks and 1001 for none.")
+						.comment("\n How rare are Snowy Outposts in snowy biomes.",
+								 " 1 for spawning in most chunks and 1001 for none.")
 						.translation("repurposedstructures.config.outposts.outpostsnowymaxchunkdistance")
 						.defineInRange("outpostSnowyMaxChunkDistance", 45, 1, 1001));
 
@@ -161,8 +160,8 @@ public class RSOutpostsConfig
 
 
 				outpostIcyMaxChunkDistance = subscriber.subscribe(builder
-						.comment("\n How rare are Icy Outposts in icy/extremely cold biomes."
-								+ "\n 1 for spawning in most chunks and 1001 for none.")
+						.comment("\n How rare are Icy Outposts in icy/extremely cold biomes.",
+								 " 1 for spawning in most chunks and 1001 for none.")
 						.translation("repurposedstructures.config.outposts.outposticymaxchunkdistance")
 						.defineInRange("outpostIcyMaxChunkDistance", 41, 1, 1001));
 

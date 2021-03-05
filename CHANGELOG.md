@@ -8,6 +8,15 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.2.4.7 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)
+
+##### Config:
+- Cleaned up config even more to be neater. Mineshaft spawnrate config comments is a bit more clear now.
+
+##### Fortresses:
+- Stopped scheduling duplicate fluid ticks for water in Jungle Fortresses. Also fixed a rare possible crash.
+
+
 ## (V.2.4.6 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)
 
 ##### General:
