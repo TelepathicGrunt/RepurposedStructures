@@ -1202,7 +1202,7 @@ public class FortressJunglePieces {
                     for (int z = zMin; z <= zMax; ++z) {
                         blockPos = new BlockPos.Mutable(this.applyXTransform(x, z), this.applyYTransform(y), this.applyZTransform(x, z));
 
-                        if (blockPos.getY() < world.getSeaLevel())
+                        if (blockPos.getY() < world.getSeaLevel() && boundingboxIn.contains(blockPos))
                         {
                             if(world.getBlockState(blockPos).getMaterial() == Material.AIR){
                                 this.addBlock(world, Blocks.WATER.getDefaultState(), x, y, z, boundingboxIn);
