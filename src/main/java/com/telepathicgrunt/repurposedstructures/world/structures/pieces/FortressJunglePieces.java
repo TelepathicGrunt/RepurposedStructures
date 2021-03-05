@@ -1213,7 +1213,7 @@ public class FortressJunglePieces {
                     for (int z = zMin; z <= zMax; ++z) {
                         blockPos = new BlockPos.Mutable(this.getXWithOffset(x, z), this.getYWithOffset(y), this.getZWithOffset(x, z));
 
-                        if (blockPos.getY() < world.getSeaLevel())
+                        if (blockPos.getY() < world.getSeaLevel() && boundingboxIn.isVecInside(blockPos))
                         {
                             if(world.getBlockState(blockPos).getMaterial() == Material.AIR){
                                 this.setBlockState(world, Blocks.WATER.getDefaultState(), x, y, z, boundingboxIn);
