@@ -4,6 +4,7 @@ import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
+import net.minecraft.block.ShulkerBoxBlock;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.LootableContainerBlockEntity;
 import net.minecraft.block.entity.MobSpawnerBlockEntity;
@@ -43,7 +44,7 @@ public class DungeonEnd extends Feature<DefaultFeatureConfig> {
         int randZRange = random.nextInt(2) + 2;
         int zMin = -randZRange - 1;
         int zMax = randZRange + 1;
-        int validOpeneings = 0;
+        int validOpenings = 0;
         int ceilingOpenings = 0;
         BlockPos newPosition = new BlockPos(position.getX(), random.nextInt(world.getTopY(Heightmap.Type.WORLD_SURFACE, position.getX(), position.getZ()) + 5), position.getZ());
         BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().set(newPosition);
@@ -64,20 +65,21 @@ public class DungeonEnd extends Feature<DefaultFeatureConfig> {
                     }
 
                     if ((x == xMin || x == xMax || z == zMin || z == zMax) && y == 0 && world.isAir(blockpos$Mutable) && world.isAir(blockpos$Mutable.up())) {
-                        ++validOpeneings;
+                        ++validOpenings;
                     }
                 }
             }
         }
 
-        if (validOpeneings >= 1 && validOpeneings <= 14 && ceilingOpenings < 14) {
+        if (validOpenings >= 1 && validOpenings <= 14 && ceilingOpenings < 14) {
             for (int x = xMin; x <= xMax; ++x) {
                 for (int y = 3; y >= -1; --y) {
                     for (int z = zMin; z <= zMax; ++z) {
                         blockpos$Mutable.set(newPosition).move(x, y, z);
+                        BlockState state = world.getBlockState(blockpos$Mutable);
 
                         if (x != xMin && y != -1 && z != zMin && x != xMax && y != 4 && z != zMax) {
-                            if (world.getBlockState(blockpos$Mutable).getBlock() != Blocks.CHEST && world.getBlockState(blockpos$Mutable).getBlock() != Blocks.SPAWNER) {
+                            if (isNotSpecialBlock(state)) {
                                 world.setBlockState(blockpos$Mutable, CAVE_AIR, 2);
                             }
                         } else if (blockpos$Mutable.getY() >= 0 && !world.getBlockState(blockpos$Mutable.down()).getMaterial().isSolid()) {
@@ -85,52 +87,62 @@ public class DungeonEnd extends Feature<DefaultFeatureConfig> {
                         }
 
                         //made sure the dungeon wall cannot replace other dungeon's mob spawner now.
-                        else if (world.getBlockState(blockpos$Mutable).getMaterial().isSolid() && world.getBlockState(blockpos$Mutable).getBlock() != Blocks.CHEST && world.getBlockState(blockpos$Mutable).getBlock() != Blocks.SPAWNER) {
+                        else if (world.getBlockState(blockpos$Mutable).getMaterial().isSolid() && isNotSpecialBlock(state)) {
                             world.setBlockState(blockpos$Mutable, Blocks.END_STONE_BRICKS.getDefaultState(), 2);
                         }
                     }
                 }
             }
 
-            for (int j4 = 0; j4 < random.nextInt(4); ++j4) {
-                int x = newPosition.getX() + random.nextInt(randXRange * 2 + 1) - randXRange;
-                int y = newPosition.getY();
-                int z = newPosition.getZ() + random.nextInt(randZRange * 2 + 1) - randZRange;
-                blockpos$Mutable.set(x, y, z);
+            for (int boxInstance = 0; boxInstance < 2; ++boxInstance) {
+                for (int boxAttempts = 0; boxAttempts < random.nextInt(4); ++boxAttempts) {
+                    int x = newPosition.getX() + random.nextInt(randXRange * 2 + 1) - randXRange;
+                    int y = newPosition.getY();
+                    int z = newPosition.getZ() + random.nextInt(randZRange * 2 + 1) - randZRange;
+                    blockpos$Mutable.set(x, y, z);
 
-                if (world.isAir(blockpos$Mutable)) {
-                    int j3 = 0;
+                    if (world.isAir(blockpos$Mutable)) {
+                        int j3 = 0;
 
-                    for (Direction Direction : Direction.Type.HORIZONTAL) {
-                        if (world.getBlockState(blockpos$Mutable.offset(Direction)).getMaterial().isSolid()) {
-                            ++j3;
+                        for (Direction Direction : Direction.Type.HORIZONTAL) {
+                            if (world.getBlockState(blockpos$Mutable.offset(Direction)).getMaterial().isSolid()) {
+                                ++j3;
+                            }
                         }
-                    }
 
-                    if (j3 == 1) {
-                        world.setBlockState(blockpos$Mutable, Blocks.SHULKER_BOX.getDefaultState(), 2);
-                        LootableContainerBlockEntity.setLootTable(world, random, blockpos$Mutable, CHEST_LOOT);
-
-                        break;
+                        if (j3 == 1) {
+                            world.setBlockState(blockpos$Mutable, Blocks.SHULKER_BOX.getDefaultState(), 2);
+                            LootableContainerBlockEntity.setLootTable(world, random, blockpos$Mutable, CHEST_LOOT);
+                            setSpawner(world, random, blockpos$Mutable.down());
+                            break;
+                        }
                     }
                 }
             }
 
             world.setBlockState(newPosition, Blocks.END_PORTAL_FRAME.getDefaultState().with(Properties.EYE, true), 2);
-            world.setBlockState(position.down(), Blocks.AIR.getDefaultState(), 2);
-            world.setBlockState(newPosition.down(), Blocks.SPAWNER.getDefaultState(), 2);
-            BlockEntity tileentity = world.getBlockEntity(newPosition.down());
-
-            if (tileentity instanceof MobSpawnerBlockEntity) {
-                ((MobSpawnerBlockEntity) tileentity).getLogic()
-                        .setEntityId(RepurposedStructures.mobSpawnerManager.getSpawnerMob(SPAWNER_ID, random));
-            } else {
-                LOGGER.error("Failed to fetch mob spawner entity at ({}, {}, {})", new Object[]{Integer.valueOf(newPosition.getX()), Integer.valueOf(newPosition.down().getY()), Integer.valueOf(newPosition.getZ())});
-            }
+            setSpawner(world, random, newPosition.down());
 
             return true;
         } else {
             return false;
         }
+    }
+
+    private void setSpawner(StructureWorldAccess world, Random random, BlockPos newPosition) {
+        world.setBlockState(newPosition, Blocks.AIR.getDefaultState(), 2);
+        world.setBlockState(newPosition, Blocks.SPAWNER.getDefaultState(), 2);
+        BlockEntity blockEntity = world.getBlockEntity(newPosition);
+
+        if (blockEntity instanceof MobSpawnerBlockEntity) {
+            ((MobSpawnerBlockEntity) blockEntity).getLogic()
+                    .setEntityId(RepurposedStructures.mobSpawnerManager.getSpawnerMob(SPAWNER_ID, random));
+        } else {
+            LOGGER.error("Failed to fetch mob spawner entity at ({}, {}, {})", new Object[]{newPosition.getX(), newPosition.getY(), newPosition.getZ()});
+        }
+    }
+
+    private boolean isNotSpecialBlock(BlockState state){
+        return state.getBlock() != Blocks.CHEST && !(state.getBlock() instanceof ShulkerBoxBlock) && state.getBlock() != Blocks.SPAWNER;
     }
 }
