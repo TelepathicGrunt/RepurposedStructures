@@ -1206,7 +1206,6 @@ public class FortressJunglePieces {
                         {
                             if(world.getBlockState(blockPos).getMaterial() == Material.AIR){
                                 this.addBlock(world, Blocks.WATER.getDefaultState(), x, y, z, boundingboxIn);
-                                world.getFluidTickScheduler().schedule(blockPos, Fluids.WATER, 0);
 
                                 if(world.getRandom().nextFloat() < 0.005f && !world.getBlockState(blockPos.up()).isOpaque()){
                                     DrownedEntity drowned = EntityType.DROWNED.create(world.toServerWorld());
