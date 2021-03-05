@@ -1202,11 +1202,10 @@ public class FortressJunglePieces {
                     for (int z = zMin; z <= zMax; ++z) {
                         blockPos = new BlockPos.Mutable(this.applyXTransform(x, z), this.applyYTransform(y), this.applyZTransform(x, z));
 
-                        if (blockPos.getY() < world.getSeaLevel())
+                        if (blockPos.getY() < world.getSeaLevel() && boundingboxIn.contains(blockPos))
                         {
                             if(world.getBlockState(blockPos).getMaterial() == Material.AIR){
                                 this.addBlock(world, Blocks.WATER.getDefaultState(), x, y, z, boundingboxIn);
-                                world.getFluidTickScheduler().schedule(blockPos, Fluids.WATER, 0);
 
                                 if(world.getRandom().nextFloat() < 0.005f && !world.getBlockState(blockPos.up()).isOpaque()){
                                     DrownedEntity drowned = EntityType.DROWNED.create(world.toServerWorld());
