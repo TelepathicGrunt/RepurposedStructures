@@ -5,10 +5,10 @@
       "item": "minecraft:ender_eye"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.strongholds.title"
+      "translate": "Strongholds"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.strongholds.description"
+      "translate": "Go look for a Stronghold!"
     },
     "show_toast": false,
     "announce_to_chat": false,

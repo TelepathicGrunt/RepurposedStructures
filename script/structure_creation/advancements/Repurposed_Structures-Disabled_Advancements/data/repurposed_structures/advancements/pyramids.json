@@ -5,10 +5,10 @@
       "item": "minecraft:tnt"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.pyramids.title"
+      "translate": "Pyramids"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.pyramids.description"
+      "translate": "Go look for a Pyramid!"
     },
     "show_toast": false,
     "announce_to_chat": false,

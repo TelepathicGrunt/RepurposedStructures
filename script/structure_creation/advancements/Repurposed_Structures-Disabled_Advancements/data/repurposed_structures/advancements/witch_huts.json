@@ -5,10 +5,10 @@
       "item": "minecraft:dark_oak_fence"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.witch_huts.title"
+      "translate": "Witch Huts"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.witch_huts.description"
+      "translate": "Go look for a Witch Hut!"
     },
     "show_toast": false,
     "announce_to_chat": false,

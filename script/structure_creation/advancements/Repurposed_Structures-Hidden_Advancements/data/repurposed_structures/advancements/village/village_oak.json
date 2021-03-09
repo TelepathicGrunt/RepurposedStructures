@@ -5,10 +5,10 @@
       "item": "minecraft:oak_wood"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.village_oak.title"
+      "translate": "A Town of the Forest"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.village_oak.description"
+      "translate": "Enter a Oak Village"
     },
     "show_toast": false,
     "announce_to_chat": false,
