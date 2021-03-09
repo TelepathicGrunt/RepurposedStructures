@@ -1,2 +1,0 @@
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mansion_savanna"), MANSION_SAVANNA.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMansionConfig.mansionSavannaMaxChunkDistance.get(), (int) (RepurposedStructures.RSMansionConfig.mansionSavannaMaxChunkDistance.get() * 0.5f), 2024558925));
-    

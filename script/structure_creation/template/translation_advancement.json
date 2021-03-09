@@ -5,10 +5,10 @@
       "item": "$2"
     },
     "title": {
-      "text": "advancements.repurposed_structures.$1.title"
+      "text": "$3"
     },
     "description": {
-      "text": "advancements.repurposed_structures.$1.description"
+      "text": "$4"
     },
     "hidden": true
   },

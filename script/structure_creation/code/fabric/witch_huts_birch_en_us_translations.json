@@ -1,7 +1,0 @@
-  "advancements.repurposed_structures.witch_huts_birch.title": "Spooky Birch Hut",
-  "advancements.repurposed_structures.witch_huts_birch.description": "Enter a Birch Witch Hut",
-
-  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.maxChunkDistance.witchHutsBirchMaxChunkDistance": "Witch Huts Birch Max Chunk Distance",
-  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.maxChunkDistance.witchHutsBirchMaxChunkDistance.@PrefixText": "How rare are Birch Witch Huts in Birch biomes. 1 for spawning in most chunks and 1001 for none. ",
-  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.blacklist.addWitchHutsBirchToModdedBiomes": "Add Witch Huts Birch To Modded Biomes",
-  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.blacklist.addWitchHutsBirchToModdedBiomes.@PrefixText": "Add Birch Witch Huts to modded Birch biomes.",

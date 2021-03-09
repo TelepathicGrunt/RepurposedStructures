@@ -8,6 +8,12 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.1.8.7 Changes) (1.16.5 Minecraft)
+
+##### Language:
+- Fixed bundled lang files that were missing map translations for 5 mansions.
+
+
 ## (V.1.8.6 Changes) (1.16.5 Minecraft)
 
 ##### Fortresses:

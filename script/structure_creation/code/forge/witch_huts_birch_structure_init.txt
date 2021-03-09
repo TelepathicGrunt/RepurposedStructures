@@ -1,1 +1,0 @@
-    public static final RegistryObject<Structure<NoFeatureConfig>> WITCH_HUTS_BIRCH = addToStructureMaps("witch_huts_birch", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "repurposed_structures:witch_huts/birch"), 11, 0, 0, 0, new HashSet<>())));

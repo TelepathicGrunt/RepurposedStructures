@@ -1,1 +1,0 @@
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> MANSION_JUNGLE = RSStructures.MANSION_JUNGLE.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);

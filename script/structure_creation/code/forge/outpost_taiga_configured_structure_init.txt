@@ -1,1 +1,0 @@
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> OUTPOST_TAIGA = RSStructures.OUTPOST_TAIGA.configure(IFeatureConfig.NO_FEATURE_CONFIG);

@@ -187,19 +187,6 @@ while restart:
                             "regexpos2", file_content.rsplit(";\n")[1] + ";")
 
 
-    with open(os.path.join('template', 'fabric_en_us_translations.json'), "r") as file:
-        file_content = file.read().replace("$1", structure_registry_name).replace("$2", advancement_title).replace("$3", advancement_description) \
-                                .replace("$4", config_category).replace("$5", config_subcategory).replace("$6", config_spawnrate_entry) \
-                                .replace("$7", config_modded_biome_entry).replace("$9", config_spawnrate_comment).replace("$B", config_modded_biome_comment) \
-                                .replace("$8", config_spawnrate_entry[0].upper()+re.sub('([A-Z])', r' \1', config_spawnrate_entry)[1:]) \
-                                .replace("$A", config_modded_biome_entry[0].upper()+re.sub('([A-Z])', r' \1', config_modded_biome_entry)[1:])
-    with open(os.path.join('code', 'fabric', structure_registry_name+'_en_us_translations.json'), "w") as file:
-        raw_output += "\n\n" + file_content
-        file.write(file_content)
-        if bool(inject_into_code):
-            insertLine(os.path.join(fabric_src, 'main','resources','assets','repurposed_structures','lang','en_us.json'), \
-                "}", ",\n" + file_content)
-
     raw_output += "\n\n--------------FORGE-------------"
 
    
@@ -288,15 +275,6 @@ while restart:
                         result = ';'.join(groups[2:])
                         insertLine(os.path.join(directory, filename), \
                             "regexpos2", result[2:])
-
-    with open(os.path.join('template', 'forge_en_us_translations.json'), "r") as file:
-        file_content = file.read().replace("$1", structure_registry_name).replace("$2", advancement_title).replace("$3", advancement_description)
-    with open(os.path.join('code', 'forge', structure_registry_name+'_en_us_translations.json'), "w") as file:
-        raw_output += "\n\n" + file_content
-        file.write(file_content)
-        if bool(inject_into_code):
-            insertLine(os.path.join(forge_src, 'main','resources','assets','repurposed_structures','lang','en_us.json'), \
-                "}", ",\n" + file_content)
 
 
     #  --------------ADVANCEMENTS--------------

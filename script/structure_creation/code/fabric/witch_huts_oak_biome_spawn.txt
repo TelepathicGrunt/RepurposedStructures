@@ -1,6 +1,0 @@
-        addToBiome("witch_hut_oak",
-                (context) -> 
-						&& BiomeSelection.isBiomeAllowed(context, "witch_huts")
-                        && RepurposedStructures.RSAllConfig.RSWitchHutsConfig.maxChunkDistance.witchHutsOakMaxChunkDistance != 1001
-                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSWitchHutsConfig.blacklist.addWitchHutsOakToModdedBiomes),
-                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.WITCH_HUTS_OAK));
