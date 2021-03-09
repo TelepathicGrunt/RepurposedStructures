@@ -5,10 +5,10 @@
       "item": "minecraft:snow_block"
     },
     "title": {
-      "text": "Igloo? Nah! Snowy Mansion wins! "
+      "translate": "Igloo? Nah! Snowy Mansion wins!"
     },
     "description": {
-      "text": "Enter a Snowy Mansion"
+      "translate": "Enter a Snowy Mansion"
     },
     "hidden": true
   },

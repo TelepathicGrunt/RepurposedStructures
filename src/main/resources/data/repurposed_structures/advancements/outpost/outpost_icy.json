@@ -6,10 +6,10 @@
       "item": "minecraft:packed_ice"
     },
     "title": {
-      "text": "Watchtower Pillager on Ice!"
+      "translate": "Watchtower Pillager on Ice!"
     },
     "description": {
-      "text": "Enter an Icy Outpost"
+      "translate": "Enter an Icy Outpost"
     },
     "hidden": true
   },

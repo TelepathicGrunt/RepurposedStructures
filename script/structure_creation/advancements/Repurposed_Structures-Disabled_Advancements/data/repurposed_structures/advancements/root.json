@@ -4,10 +4,10 @@
       "item": "minecraft:filled_map"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.root.title"
+      "translate": "Repurposed Structures"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.root.description"
+      "translate": "Start exploring for structures!"
     },
     "show_toast": false,
     "announce_to_chat": false,

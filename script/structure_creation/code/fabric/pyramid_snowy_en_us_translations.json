@@ -1,8 +1,0 @@
-  "advancements.repurposed_structures.pyramid_snowy.title": "Pyramids are just bigger igloos!",
-  "advancements.repurposed_structures.pyramid_snowy.description": "Enter a Snowy Pyramid",
-
-  "text.autoconfig.repurposed_structures-main.option.RSTemplesConfig.maxChunkDistance.pyramidSnowyMaxChunkDistance": "Pyramid Snowy Max Chunk Distance",
-  "text.autoconfig.repurposed_structures-main.option.RSTemplesConfig.maxChunkDistance.pyramidSnowyMaxChunkDistance.@PrefixText": "How rare are Snowy Pyramid in snowy biomes. 1 for spawning in most chunks and 1001 for none. ",
-  "text.autoconfig.repurposed_structures-main.option.RSTemplesConfig.blacklist.addPyramidSnowyToModdedBiomes": "Add Pyramid Snowy To Modded Biomes",
-  "text.autoconfig.repurposed_structures-main.option.RSTemplesConfig.blacklist.addPyramidSnowyToModdedBiomes.@PrefixText": "Add Snowy Pyramid to modded snowy biomes."
-  

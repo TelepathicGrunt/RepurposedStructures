@@ -1,7 +1,0 @@
-  "advancements.repurposed_structures.witch_huts_taiga.title": "Spooky Taiga Hut",
-  "advancements.repurposed_structures.witch_huts_taiga.description": "Enter a Taiga Witch Hut",
-
-  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.maxChunkDistance.witchHutsTaigaMaxChunkDistance": "Witch Huts Taiga Max Chunk Distance",
-  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.maxChunkDistance.witchHutsTaigaMaxChunkDistance.@PrefixText": "How rare are Taiga Witch Huts in Taiga biomes. 1 for spawning in most chunks and 1001 for none. ",
-  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.blacklist.addWitchHutsTaigaToModdedBiomes": "Add Witch Huts Taiga To Modded Biomes",
-  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.blacklist.addWitchHutsTaigaToModdedBiomes.@PrefixText": "Add Taiga Witch Huts to modded Taiga biomes.",

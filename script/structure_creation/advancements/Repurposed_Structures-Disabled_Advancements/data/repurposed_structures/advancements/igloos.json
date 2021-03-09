@@ -5,10 +5,10 @@
       "item": "minecraft:red_bed"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.igloos.title"
+      "translate": "Igloos"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.igloos.description"
+      "translate": "Go look for a Igloo!"
     },
     "show_toast": false,
     "announce_to_chat": false,

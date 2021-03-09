@@ -1,7 +1,0 @@
-  "advancements.repurposed_structures.witch_huts_dark_forest.title": "Spooky Dark Forest Hut",
-  "advancements.repurposed_structures.witch_huts_dark_forest.description": "Enter a Dark Forest Witch Hut",
-
-  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.maxChunkDistance.witchHutsDarkForestMaxChunkDistance": "Witch Huts Dark Forest Max Chunk Distance",
-  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.maxChunkDistance.witchHutsDarkForestMaxChunkDistance.@PrefixText": "How rare are Dark Forest Witch Huts in Dark Forest biomes. 1 for spawning in most chunks and 1001 for none. ",
-  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.blacklist.addWitchHutsDarkForestToModdedBiomes": "Add Witch Huts Dark Forest To Modded Biomes",
-  "text.autoconfig.repurposed_structures-main.option.RSWitchHutsConfig.blacklist.addWitchHutsDarkForestToModdedBiomes.@PrefixText": "Add Dark Forest Witch Huts to modded Dark Forest biomes.",

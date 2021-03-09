@@ -1,2 +1,0 @@
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mansion_desert"), MANSION_DESERT.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMansionsConfig.mansionDesertMaxChunkDistance.get(), (int) (RepurposedStructures.RSMansionsConfig.mansionDesertMaxChunkDistance.get() * 0.5f), 724317387));
-    

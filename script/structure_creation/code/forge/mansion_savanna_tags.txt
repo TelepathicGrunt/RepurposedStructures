@@ -1,1 +1,0 @@
-        addTags(RSStructures.MANSION_SAVANNAget(), Stream.of(STRUCTURE_TAGS.MANSION, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));

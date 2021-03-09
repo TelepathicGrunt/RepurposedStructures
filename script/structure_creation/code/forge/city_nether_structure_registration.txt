@@ -1,2 +1,0 @@
-        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "city_nether"), CITY_NETHER.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMainConfig.cityNetherMaxChunkDistance.get(), (int) (RepurposedStructures.RSMainConfig.cityNetherMaxChunkDistance.get() * 0.5f), 2082652405));
-    

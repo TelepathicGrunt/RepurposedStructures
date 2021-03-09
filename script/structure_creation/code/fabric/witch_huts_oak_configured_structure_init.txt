@@ -1,1 +1,0 @@
-    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> WITCH_HUTS_OAK = RSStructures.WITCH_HUTS_OAK.configure(FeatureConfig.DEFAULT);

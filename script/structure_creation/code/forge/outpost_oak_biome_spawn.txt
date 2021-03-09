@@ -1,6 +1,0 @@
-        if ( &&
-            RepurposedStructures.outpostOakMaxChunkDistance.RSOutpostsConfig.get() != 1001 &&
-            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.outpostOakMaxChunkDistance.addOutpostOakToModdedBiomes.get()))
-        {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_OAK);
-        }

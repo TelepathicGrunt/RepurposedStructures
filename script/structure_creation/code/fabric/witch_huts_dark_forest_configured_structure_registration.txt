@@ -1,1 +1,0 @@
-        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "witch_huts_dark_forest"), WITCH_HUTS_DARK_FOREST);

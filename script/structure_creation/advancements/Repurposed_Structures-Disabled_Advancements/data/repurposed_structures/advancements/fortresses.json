@@ -5,10 +5,10 @@
       "item": "minecraft:iron_bars"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.fortresses.title"
+      "translate": "Fortresses"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.fortresses.description"
+      "translate": "Go look for a Fortress!"
     },
     "show_toast": false,
     "announce_to_chat": false,

@@ -1,2 +1,0 @@
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mansion_snowy"), MANSION_SNOWY.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMansionsConfig.mansionSnowyMaxChunkDistance.get(), (int) (RepurposedStructures.RSMansionsConfig.mansionSnowyMaxChunkDistance.get() * 0.5f), 1115107889));
-    

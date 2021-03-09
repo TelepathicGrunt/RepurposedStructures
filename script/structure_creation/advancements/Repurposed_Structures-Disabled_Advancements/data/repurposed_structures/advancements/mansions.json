@@ -5,10 +5,10 @@
       "item": "minecraft:dark_oak_stairs"
     },
     "title": {
-      "translate": "advancements.repurposed_structures.mansions.title"
+      "translate": "Mansions"
     },
     "description": {
-      "translate": "advancements.repurposed_structures.mansions.description"
+      "translate": "Go look for a Mansion!"
     },
     "show_toast": false,
     "announce_to_chat": false,

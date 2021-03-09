@@ -1,2 +1,0 @@
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "witch_huts_birch"), WITCH_HUTS_BIRCH.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSWitchHutsConfig.witchHutsBirchMaxChunkDistance.get(), (int) (RepurposedStructures.RSWitchHutsConfig.witchHutsBirchMaxChunkDistance.get() * 0.5f), 904634508));
-    
