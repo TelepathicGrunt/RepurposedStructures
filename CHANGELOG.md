@@ -8,6 +8,18 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.2.4.8 Changes) (1.16.5 Minecraft)
+
+##### Language:
+- Fixed bundled lang files that were missing map translations for 5 mansions.
+
+- Changed how translations are done for this mod and now you no longer need the translation datapack. 
+  Just a resourcepack for your translations to take effect! This mod is now bundled with Spanish and Chinese translations files.
+  The trick is that the English translations are now the keys for the other language files in order to make them work.
+  
+- Spanish translation provided by 16N1C0! Special thanks to them!
+
+
 ## (V.2.4.7 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)
 
 ##### Config:
