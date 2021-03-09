@@ -5,10 +5,10 @@
       "item": "minecraft:birch_fence"
     },
     "title": {
-      "text": "Spooky Birch Hut"
+      "translate": "Spooky Birch Hut"
     },
     "description": {
-      "text": "Enter a Birch Witch Hut"
+      "translate": "Enter a Birch Witch Hut"
     },
     "hidden": true
   },

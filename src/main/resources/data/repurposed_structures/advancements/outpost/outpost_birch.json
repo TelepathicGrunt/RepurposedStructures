@@ -5,10 +5,10 @@
       "item": "minecraft:birch_log"
     },
     "title": {
-      "text": "Watching over the White Forest"
+      "translate": "Watching over the White Forest"
     },
     "description": {
-      "text": "Enter a Birch Outpost"
+      "translate": "Enter a Birch Outpost"
     },
     "hidden": true
   },
