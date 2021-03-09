@@ -5,10 +5,10 @@
       "item": "minecraft:spruce_fence"
     },
     "title": {
-      "text": "Spooky Taiga Hut"
+      "translate": "Spooky Taiga Hut"
     },
     "description": {
-      "text": "Enter a Taiga Witch Hut"
+      "translate": "Enter a Taiga Witch Hut"
     },
     "hidden": true
   },
@@ -16,7 +16,7 @@
     "experience": 20
   },
   "criteria": {
-    "in_witch_huts_taiga": {
+    "in_witch_hut_taiga": {
       "trigger": "minecraft:location",
       "conditions": {
         "feature": "repurposed_structures:witch_hut_taiga"
@@ -25,7 +25,7 @@
   },
   "requirements": [
     [
-      "in_witch_huts_taiga"
+      "in_witch_hut_taiga"
     ]
   ]
 }

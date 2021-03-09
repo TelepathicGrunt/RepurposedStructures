@@ -10,6 +10,10 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ## (V.1.8.7 Changes) (1.16.5 Minecraft)
 
+##### Major:
+- I'm sorry everyone. The config API dependency I use now has migrated to Cloth Config API.
+  Download link is here: https://www.curseforge.com/minecraft/mc-mods/cloth-config
+
 ##### Language:
 - Fixed bundled lang files that were missing map translations for 5 mansions.
 

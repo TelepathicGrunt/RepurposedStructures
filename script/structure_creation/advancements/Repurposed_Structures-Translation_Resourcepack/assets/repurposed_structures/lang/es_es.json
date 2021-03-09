@@ -1,6 +1,8 @@
 {
     "Enter a Nether City": "Entrar a una ciudad del Nether",
     "Blazing Cities": "Ciudades en llamas",
+    "Go look for a City!": "¡Ve a buscar una ciudad!",
+    "Cities": "Ciudades",
     "Enter a Jungle Fortress": "Entrar en una fortaleza de la jungla",
     "Decaying Glory": "Gloria decadente",
     "Go look for a Fortress!": "¡Ve a buscar una fortaleza!",
@@ -167,9 +169,9 @@
     "filled_map.repurposed_structures:city_nether": "Mapa de ciudad del Nether",
     "filled_map.repurposed_structures:fortress_jungle": "Mapa de fortaleza de la jungla",
     "filled_map.repurposed_structures:mansion_birch": "Mapa de la mansión de abedul",
-    "filled_map.repurposed_structures:mansion_desert": "Desert Mansion Map",
-    "filled_map.repurposed_structures:mansion_jungle": "Jungle Mansion Map",
-    "filled_map.repurposed_structures:mansion_oak": "Oak Mansion Map",
-    "filled_map.repurposed_structures:mansion_snowy": "Snowy Mansion Map",
-    "filled_map.repurposed_structures:mansion_taiga": "Taiga Mansion Map"
+    "filled_map.repurposed_structures:mansion_desert": "Mapa de la mansión del desierto",
+    "filled_map.repurposed_structures:mansion_jungle": "Mapa de la mansión de la jungla",
+    "filled_map.repurposed_structures:mansion_oak": "Mapa de la mansión de roble",
+    "filled_map.repurposed_structures:mansion_snowy": "Mapa de la mansión nevada",
+    "filled_map.repurposed_structures:mansion_taiga": "Mapa de la mansión de abeto"
 }
