@@ -8,6 +8,13 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+
+## (V.1.8.8 Changes) (1.16.5 Minecraft)
+
+##### Language:
+- Fixed some Spanish translations being cut-off.
+
+
 ## (V.1.8.7 Changes) (1.16.5 Minecraft)
 
 ##### Major:
