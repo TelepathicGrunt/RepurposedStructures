@@ -1,0 +1,9 @@
+{
+  "type": "repurposed_structures:import_structure_modded_loot",
+  "conditions": [
+    {
+      "condition": "repurposed_structures:detect_rs_loot_tables",
+      "blacklisted_loot_tables": []
+    }
+  ]
+}

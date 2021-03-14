@@ -1,0 +1,24 @@
+package com.telepathicgrunt.repurposedstructures.modinit;
+
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.misc.DetectRSLootTables;
+import com.telepathicgrunt.repurposedstructures.misc.StructureModdedLootImporter;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.registry.Registry;
+import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
+import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+
+public class RSGlobalLootModifier {
+
+    public static final DeferredRegister<GlobalLootModifierSerializer<?>> GLM = DeferredRegister.create(ForgeRegistries.LOOT_MODIFIER_SERIALIZERS, RepurposedStructures.MODID);
+
+    public static final RegistryObject<StructureModdedLootImporter.Serializer> STRUCTURE_MODDED_LOOT_IMPORTER = GLM.register("dungeon_loot", StructureModdedLootImporter.Serializer::new);
+
+    public static void registerLootData()
+    {
+        // Ignore the event itself: this is done only not to statically initialize our custom LootConditionType
+        Registry.register(Registry.LOOT_CONDITION_TYPE, new ResourceLocation(RepurposedStructures.MODID, "detect_rs_loot_tables"), DetectRSLootTables.DETECT_RS_LOOT_TABLES);
+    }
+}

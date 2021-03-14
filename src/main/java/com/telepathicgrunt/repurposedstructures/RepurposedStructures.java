@@ -76,6 +76,7 @@ public class RepurposedStructures
 		RSFeatures.FEATURES.register(modEventBus);
 		RSStructures.STRUCTURE_FEATURES.register(modEventBus);
 		RSPlacements.DECORATORS.register(modEventBus);
+		RSGlobalLootModifier.GLM.register(modEventBus);
 
 		RSMainConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSConfigValues::new, "repurposed_structures-common.toml");
 		RSDungeonsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSDungeonsConfigValues::new, "repurposed_structures-dungeons.toml");
@@ -114,6 +115,7 @@ public class RepurposedStructures
 			RSStructures.setupStructures();
 			RSConfiguredStructures.registerStructureFeatures();
 			RSStructureTagMap.setupTags();
+			RSGlobalLootModifier.registerLootData();
 
 			// Workaround for Terraforged
 			WorldGenRegistries.CHUNK_GENERATOR_SETTINGS.getEntries().forEach(settings -> {
