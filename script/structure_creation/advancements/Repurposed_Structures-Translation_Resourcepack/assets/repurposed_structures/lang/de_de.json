@@ -158,12 +158,12 @@
 	"filled_map.fortress": "Netherfestung-Karte",
 	"filled_map.bastion_remnant": "Bastionsruine-Karte",
 	"filled_map.endcity": "Endsiedlung-Karte",
-	"filled_map.repurposed_structures:fortress_jungle": "Dschungeltempel-Karte"
+	"filled_map.repurposed_structures:fortress_jungle": "Dschungeltempel-Karte",
     "filled_map.repurposed_structures:city_nether": "Nether Stadtplan",
     "filled_map.repurposed_structures:mansion_birch": "Birkenvilla Karte",
     "filled_map.repurposed_structures:mansion_desert": "Wüstenvilla Karte",
     "filled_map.repurposed_structures:mansion_jungle": "Dschungel-Herrenhaus-Karte",
     "filled_map.repurposed_structures:mansion_oak": "Eiche Herrenhaus Karte",
     "filled_map.repurposed_structures:mansion_snowy": "Schneebedecktvilla Karte",
-    "filled_map.repurposed_structures:mansion_taiga": "Taiga Herrenhaus Karte",
+    "filled_map.repurposed_structures:mansion_taiga": "Taiga Herrenhaus Karte"
 }
