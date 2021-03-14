@@ -1,7 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.utils;
 
 import com.google.common.collect.ImmutableSet;
-import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.util.ResourceLocation;
 import org.apache.logging.log4j.core.Filter;
 import org.apache.logging.log4j.core.LogEvent;

@@ -39,6 +39,8 @@ minecraft {
         client {
             workingDirectory project.file('run')
             arg "-mixin.config="+archivesBaseName+".mixins.json"
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            property 'forge.logging.console.level', 'debug'
             mods { repurposed_structures { source sourceSets.main } }
         }
 

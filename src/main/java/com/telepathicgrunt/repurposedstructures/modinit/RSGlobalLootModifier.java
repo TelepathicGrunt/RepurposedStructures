@@ -18,7 +18,6 @@ public class RSGlobalLootModifier {
 
     public static void registerLootData()
     {
-        // Ignore the event itself: this is done only not to statically initialize our custom LootConditionType
         Registry.register(Registry.LOOT_CONDITION_TYPE, new ResourceLocation(RepurposedStructures.MODID, "detect_rs_loot_tables"), DetectRSLootTables.DETECT_RS_LOOT_TABLES);
     }
 }
