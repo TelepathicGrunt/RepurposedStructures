@@ -14,6 +14,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Language:
 - Fixed some Spanish translations being cut-off.
 
+- Added German translations by elloellie and partially Google Translate! Special thanks to them!
+
 
 ## (V.1.8.7 Changes) (1.16.5 Minecraft)
 
