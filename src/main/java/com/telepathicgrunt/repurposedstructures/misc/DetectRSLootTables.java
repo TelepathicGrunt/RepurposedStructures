@@ -78,7 +78,7 @@ public class DetectRSLootTables implements ILootCondition
         public DetectRSLootTables fromJson(JsonObject object, JsonDeserializationContext ctx)
         {
             List<String> unconvertedLootTableStrings = gson.fromJson(
-                    JSONUtils.getJsonArray(object, "blacklisted_loot_tables").getAsString(), type);
+                    JSONUtils.getJsonArray(object, "blacklisted_loot_tables"), type);
 
             Set<ResourceLocation> convertedLootTableStrings = unconvertedLootTableStrings.stream()
                     .map(ResourceLocation::new).collect(Collectors.toSet());

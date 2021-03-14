@@ -11,6 +11,10 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ## (V.2.4.9 Changes) (1.16.5 Minecraft)
 
+##### Loot Tables:
+- Added a Global Loot Modifier that now will import modded items from vanilla structure's loot tables
+  into Repurposed Structures's own loot tables. (Snowy Pyramid gets all modded items that vanilla Desert Temple can have) 
+
 ##### Language:
 - Fixed some Spanish translations being cut-off.
 

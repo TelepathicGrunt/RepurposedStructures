@@ -14,7 +14,7 @@ public class RSGlobalLootModifier {
 
     public static final DeferredRegister<GlobalLootModifierSerializer<?>> GLM = DeferredRegister.create(ForgeRegistries.LOOT_MODIFIER_SERIALIZERS, RepurposedStructures.MODID);
 
-    public static final RegistryObject<StructureModdedLootImporter.Serializer> STRUCTURE_MODDED_LOOT_IMPORTER = GLM.register("dungeon_loot", StructureModdedLootImporter.Serializer::new);
+    public static final RegistryObject<StructureModdedLootImporter.Serializer> STRUCTURE_MODDED_LOOT_IMPORTER = GLM.register("import_structure_modded_loot", StructureModdedLootImporter.Serializer::new);
 
     public static void registerLootData()
     {
