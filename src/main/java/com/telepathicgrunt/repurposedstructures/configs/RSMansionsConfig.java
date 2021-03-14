@@ -36,7 +36,8 @@ public class RSMansionsConfig
 						.define("blacklistedMansionBiomes", " "));
 
 				mansionBirchMaxChunkDistance = subscriber.subscribe(builder
-						.comment("\n Add Birch Mansions to modded Birch biomes.")
+						.comment("\n Add Birch Mansions to modded Birch biomes.",
+								" 1 for spawning in most chunks and 1001 for none.")
 						.translation("repurposedstructures.config.mansions.mansionbirchmaxchunkdistance")
 						.defineInRange("mansionBirchMaxChunkDistance", 140, 1, 1001));
 
@@ -46,7 +47,8 @@ public class RSMansionsConfig
 						.define("addMansionBirchToModdedBiomes", true));
 
 				mansionJungleMaxChunkDistance = subscriber.subscribe(builder
-						.comment("\n Add Jungle Mansions to modded Jungle biomes.")
+						.comment("\n Add Jungle Mansions to modded Jungle biomes.",
+								" 1 for spawning in most chunks and 1001 for none.")
 						.translation("repurposedstructures.config.mansions.mansionjunglemaxchunkdistance")
 						.defineInRange("mansionJungleMaxChunkDistance", 140, 1, 1001));
 
@@ -56,7 +58,8 @@ public class RSMansionsConfig
 						.define("addMansionJungleToModdedBiomes", true));
 
 				mansionOakMaxChunkDistance = subscriber.subscribe(builder
-						.comment("\n Add Oak Mansions to modded forest category biomes that are not birch or dark forest.")
+						.comment("\n Add Oak Mansions to modded forest category biomes that are not birch or dark forest.",
+								" 1 for spawning in most chunks and 1001 for none.")
 						.translation("repurposedstructures.config.mansions.mansionoakmaxchunkdistance")
 						.defineInRange("mansionOakMaxChunkDistance", 140, 1, 1001));
 
@@ -66,7 +69,8 @@ public class RSMansionsConfig
 						.define("addMansionOakToModdedBiomes", true));
 
 				mansionSavannaMaxChunkDistance = subscriber.subscribe(builder
-						.comment("\n Add Savanna Mansions to modded Savanna biomes.")
+						.comment("\n Add Savanna Mansions to modded Savanna biomes.",
+								" 1 for spawning in most chunks and 1001 for none.")
 						.translation("repurposedstructures.config.mansions.mansionsavannamaxchunkdistance")
 						.defineInRange("mansionSavannaMaxChunkDistance", 140, 1, 1001));
 
@@ -76,7 +80,8 @@ public class RSMansionsConfig
 						.define("addMansionSavannaToModdedBiomes", true));
 
 				mansionTaigaMaxChunkDistance = subscriber.subscribe(builder
-						.comment("\n Add Taiga Mansions to modded non-snowy Taiga biomes.")
+						.comment("\n Add Taiga Mansions to modded non-snowy Taiga biomes.",
+								" 1 for spawning in most chunks and 1001 for none.")
 						.translation("repurposedstructures.config.mansions.mansiontaigamaxchunkdistance")
 						.defineInRange("mansionTaigaMaxChunkDistance", 140, 1, 1001));
 
@@ -86,7 +91,8 @@ public class RSMansionsConfig
 						.define("addMansionTaigaToModdedBiomes", true));
 
 				mansionDesertMaxChunkDistance = subscriber.subscribe(builder
-						.comment("\n Add Desert Mansions to modded Desert biomes.")
+						.comment("\n Add Desert Mansions to modded Desert biomes.",
+								" 1 for spawning in most chunks and 1001 for none.")
 						.translation("repurposedstructures.config.mansions.mansiondesertmaxchunkdistance")
 						.defineInRange("mansionDesertMaxChunkDistance", 140, 1, 1001));
 
@@ -96,7 +102,8 @@ public class RSMansionsConfig
 						.define("addMansionDesertToModdedBiomes", true));
 
 				mansionSnowyMaxChunkDistance = subscriber.subscribe(builder
-						.comment("\n Add Snowy Mansions to modded Snowy biomes.")
+						.comment("\n Add Snowy Mansions to modded Snowy biomes.",
+								" 1 for spawning in most chunks and 1001 for none.")
 						.translation("repurposedstructures.config.mansions.mansionsnowymaxchunkdistance")
 						.defineInRange("mansionSnowyMaxChunkDistance", 140, 1, 1001));
 

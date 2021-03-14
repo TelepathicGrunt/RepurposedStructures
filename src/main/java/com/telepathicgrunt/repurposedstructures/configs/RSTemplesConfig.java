@@ -141,7 +141,8 @@ public class RSTemplesConfig
 					.defineInRange("badlandsPyramidMaxChunkDistance", 37, 1, 1001));
 
                 pyramidSnowyMaxChunkDistance = subscriber.subscribe(builder
-                    .comment("\n Add Snowy Pyramid to modded snowy biomes.")
+                    .comment("\n Add Snowy Pyramid to modded snowy biomes.",
+							" 1 for spawning in most chunks and 1001 for none.")
                     .translation("repurposedstructures.config.pyramids.pyramidsnowymaxchunkdistance")
                     .defineInRange("pyramidSnowyMaxChunkDistance", 37, 1, 1001));
 

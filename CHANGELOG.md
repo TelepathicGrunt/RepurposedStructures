@@ -16,6 +16,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Added German translations by elloellie and partially Google Translate! Special thanks to them!
 
+##### Config:
+- Fixed some config comments missing the phrase: '1 for spawning in most chunks and 1001 for none.'
+
 
 ## (V.2.4.8 Changes) (1.16.5 Minecraft)
 
