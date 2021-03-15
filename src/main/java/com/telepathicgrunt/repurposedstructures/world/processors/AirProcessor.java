@@ -21,7 +21,7 @@ public class AirProcessor extends StructureProcessor {
 
     public Template.BlockInfo process(IWorldReader worldView, BlockPos pos, BlockPos blockPos, Template.BlockInfo structureBlockInfoLocal, Template.BlockInfo structureBlockInfoWorld, PlacementSettings structurePlacementData) {
         if (structureBlockInfoWorld.state.isIn(Blocks.AIR)) {
-            structureBlockInfoWorld = new Template.BlockInfo(structureBlockInfoWorld.pos, Blocks.AIR.getDefaultState(), structureBlockInfoWorld.nbt);
+            worldView.getChunk(structureBlockInfoWorld.pos).setBlockState(structureBlockInfoWorld.pos, Blocks.AIR.getDefaultState(), false);
         }
         return structureBlockInfoWorld;
     }
