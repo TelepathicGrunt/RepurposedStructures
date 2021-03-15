@@ -9,7 +9,7 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 # | Repurposed Structures changelog |
 
 
-## (V.2.5.0 Changes) (1.16.5 Minecraft)
+## (V.2.5.0 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)
 
 ##### Loot Tables:
 - Added a Global Loot Modifier that now will import modded items from vanilla structure's loot tables
@@ -24,7 +24,7 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Fixed some config comments missing the phrase: '1 for spawning in most chunks and 1001 for none.'
 
 
-## (V.2.4.8 Changes) (1.16.5 Minecraft)
+## (V.2.4.8 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)
 
 ##### Language:
 - Fixed bundled lang files that were missing map translations for 5 mansions.
