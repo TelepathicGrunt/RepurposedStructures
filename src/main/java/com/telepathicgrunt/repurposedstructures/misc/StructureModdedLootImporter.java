@@ -185,12 +185,17 @@ public class StructureModdedLootImporter {
 
     private static boolean isInBlacklist(Identifier lootTableID){
         if(BLACKLISTED_LOOTTABLES == null){
-            BLACKLISTED_LOOTTABLES =
-                    Arrays.stream(RepurposedStructures.RSAllConfig.RSDungeonsConfig.blacklistedDungeonBiomes
-                    .replace(" ", "")
-                    .split(","))
-                    .map(Identifier::new)
-                    .collect(Collectors.toSet());
+            String cleanedBlacklist = RepurposedStructures.RSAllConfig.RSDungeonsConfig.blacklistedDungeonBiomes.replace(" ", "");
+
+            if(cleanedBlacklist.equals("")){
+                BLACKLISTED_LOOTTABLES = new HashSet<>(); // make empty set instead of ["minecraft:"].
+            }
+            else {
+                BLACKLISTED_LOOTTABLES =
+                        Arrays.stream(cleanedBlacklist.split(","))
+                            .map(Identifier::new)
+                            .collect(Collectors.toSet());
+            }
         }
 
         return BLACKLISTED_LOOTTABLES.contains(lootTableID);
