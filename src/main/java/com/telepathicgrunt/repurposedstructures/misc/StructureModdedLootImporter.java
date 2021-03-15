@@ -13,15 +13,15 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class StructureModdedLootImporter {
 
     // Cache the reverse lookup for what loottable goes with what identifier
     private static final Map<LootTable, Identifier> REVERSED_TABLES = new HashMap<>();
+
+    private static Set<Identifier> BLACKLISTED_LOOTTABLES;
 
     // Need to map loottables by hand to the vanilla structure that our structure is based on. (usually...)
     private static final Map<Identifier, Identifier> TABLE_IMPORTS = createMap();
@@ -124,6 +124,8 @@ public class StructureModdedLootImporter {
         return tableMap;
     }
 
+
+
     public static List<ItemStack> checkAndGetModifiedLoot(LootContext context, LootTable currentLootTable, List<ItemStack> originalLoot){
         if(RepurposedStructures.RSAllConfig.RSMainConfig.importModdedItems)
         {
@@ -140,7 +142,10 @@ public class StructureModdedLootImporter {
                             .orElse(null) // null should be ever returned as otherwise, that would be concerning...
             );
 
-            if(lootTableID != null && lootTableID.getNamespace().equals(RepurposedStructures.MODID)){
+            if(lootTableID != null &&
+                lootTableID.getNamespace().equals(RepurposedStructures.MODID) &&
+                !isInBlacklist(lootTableID))
+            {
                 return StructureModdedLootImporter.modifyLootTables(context, lootTableID, originalLoot);
             }
         }
@@ -176,5 +181,18 @@ public class StructureModdedLootImporter {
         ((BuilderAccessor)newContextBuilder).rs_setDrops(((LootContextAccessor)oldLootContext).rs_getDrops());
         ((BuilderAccessor)newContextBuilder).rs_setParameters(((LootContextAccessor)oldLootContext).rs_getParameters());
         return newContextBuilder.build(LootContextTypes.CHEST);
+    }
+
+    private static boolean isInBlacklist(Identifier lootTableID){
+        if(BLACKLISTED_LOOTTABLES == null){
+            BLACKLISTED_LOOTTABLES =
+                    Arrays.stream(RepurposedStructures.RSAllConfig.RSDungeonsConfig.blacklistedDungeonBiomes
+                    .replace(" ", "")
+                    .split(","))
+                    .map(Identifier::new)
+                    .collect(Collectors.toSet());
+        }
+
+        return BLACKLISTED_LOOTTABLES.contains(lootTableID);
     }
 }

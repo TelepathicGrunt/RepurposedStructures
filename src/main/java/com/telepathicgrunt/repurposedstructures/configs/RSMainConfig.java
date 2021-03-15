@@ -23,6 +23,13 @@ public class RSMainConfig implements ConfigData {
             +"\nExample: Snowy Pyramid gets all modded items that vanilla Desert Temple can have")
     public boolean importModdedItems = true;
 
+    @ConfigEntry.Gui.Tooltip(count = 0)
+    @ConfigEntry.Gui.PrefixText
+    @Comment("Add the identifiers for Repurposed Structures's loottable you want to"
+            +"\n turn off the automatic modded item importing code for. "
+            +"\n Separate multiple entries with a comma."
+            +"\nExample: \"repurposed_structures:chests/mansion/birch,repurposed_structures:chests/mineshaft/jungle\"")
+    public String blacklistedRSLoottablesFromImportingModdedItems = "";
 
 
     @ConfigEntry.Gui.CollapsibleObject
