@@ -8,6 +8,22 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+
+## (V.1.9.0 Changes) (1.16.5 Minecraft)
+
+##### Loot Tables:
+- Added code that now will import modded items from vanilla structure's loot tables into Repurposed Structures's own loot tables. 
+(Snowy Pyramid gets all modded items that vanilla Desert Temple can have) 
+
+##### Language:
+- Fixed some Spanish translations being cut-off.
+
+- Added German translations by elloellie and partially Google Translate! Special thanks to them!
+
+##### Config:
+- Fixed some config comments missing the phrase: '1 for spawning in most chunks and 1001 for none.'
+
+
 ## (V.1.8.7 Changes) (1.16.5 Minecraft)
 
 ##### Major:
