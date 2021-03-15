@@ -14,9 +14,15 @@ public class RSMainConfig implements ConfigData {
     @Comment("Add the identifiers for the dimension that you want"
             +"\n no Repurposed Structures structure to spawn in."
             +"\n Separate multiple entries with a comma."
-            +"\n"
             +"\nExample: \"minecraft:the_end,awesome_mod:awesome_dimension\"")
     public String blacklistedDimensions = "the_bumblezone:the_bumblezone";
+
+    @ConfigEntry.Gui.Tooltip(count = 0)
+    @ConfigEntry.Gui.PrefixText
+    @Comment("Adds modded loot from vanilla structure's loot tables and injects them into Repurposed Structure's loot tables."
+            +"\nExample: Snowy Pyramid gets all modded items that vanilla Desert Temple can have")
+    public boolean importModdedItems = true;
+
 
 
     @ConfigEntry.Gui.CollapsibleObject
