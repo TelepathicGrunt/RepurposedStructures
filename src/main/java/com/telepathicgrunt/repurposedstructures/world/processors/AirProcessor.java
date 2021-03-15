@@ -21,7 +21,7 @@ public class AirProcessor extends StructureProcessor {
 
     public Structure.StructureBlockInfo process(WorldView worldView, BlockPos pos, BlockPos blockPos, Structure.StructureBlockInfo structureBlockInfoLocal, Structure.StructureBlockInfo structureBlockInfoWorld, StructurePlacementData structurePlacementData) {
         if (structureBlockInfoWorld.state.isOf(Blocks.AIR)) {
-            structureBlockInfoWorld = new Structure.StructureBlockInfo(structureBlockInfoWorld.pos, Blocks.AIR.getDefaultState(), structureBlockInfoWorld.tag);
+            worldView.getChunk(structureBlockInfoWorld.pos).setBlockState(structureBlockInfoWorld.pos, Blocks.AIR.getDefaultState(), false);
         }
         return structureBlockInfoWorld;
     }
