@@ -13,12 +13,13 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.settings.StructureSeparationSettings;
+import net.minecraftforge.common.util.Lazy;
 
 import java.util.List;
 
 
 public class RSMineshaftEndStructure extends RSMineshaftStructure {
-    public RSMineshaftEndStructure(RSMineshaftPieces.Type mineshaftType, double probability, int maxHeight, int minHeight) {
+    public RSMineshaftEndStructure(RSMineshaftPieces.Type mineshaftType, Lazy<Double> probability, Lazy<Integer> maxHeight, Lazy<Integer> minHeight) {
         super(mineshaftType, probability, maxHeight, minHeight);
     }
 
@@ -37,7 +38,7 @@ public class RSMineshaftEndStructure extends RSMineshaftStructure {
         StructureSeparationSettings structureConfig = chunkGenerator.getStructuresConfig().getForType(this);
         if(structureConfig != null){
             chunkRandom.setLargeFeatureSeed(seed + structureConfig.getSalt(), chunkX, chunkZ);
-            double d = (probability / 10000D);
+            double d = (probability.get() / 10000D);
             if(chunkRandom.nextDouble() < d) {
                 int xPos = chunkX << 4;
                 int zPos = chunkZ << 4;

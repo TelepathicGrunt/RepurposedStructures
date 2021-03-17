@@ -14,15 +14,16 @@ import net.minecraft.world.gen.feature.structure.StructurePiece;
 import net.minecraft.world.gen.feature.structure.StructureStart;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 import net.minecraft.world.gen.settings.StructureSeparationSettings;
+import net.minecraftforge.common.util.Lazy;
 
 
 public class RSMineshaftStructure extends AbstractBaseStructure<NoFeatureConfig> {
-    protected final double probability;
-    protected final int maxHeight;
-    protected final int minHeight;
+    protected final Lazy<Double> probability;
+    protected final Lazy<Integer> maxHeight;
+    protected final Lazy<Integer> minHeight;
     protected final RSMineshaftPieces.Type mineshaftType;
 
-    public RSMineshaftStructure(RSMineshaftPieces.Type mineshaftType, double probability, int maxHeight, int minHeight) {
+    public RSMineshaftStructure(RSMineshaftPieces.Type mineshaftType, Lazy<Double> probability, Lazy<Integer> maxHeight, Lazy<Integer> minHeight) {
         super(NoFeatureConfig.CODEC);
         this.probability = probability;
         this.maxHeight = maxHeight;
@@ -35,7 +36,7 @@ public class RSMineshaftStructure extends AbstractBaseStructure<NoFeatureConfig>
         StructureSeparationSettings structureConfig = chunkGenerator.getStructuresConfig().getForType(this);
         if(structureConfig != null) {
             chunkRandom.setLargeFeatureSeed(seed + structureConfig.getSalt(), x, z);
-            double d = (probability / 10000D);
+            double d = (probability.get() / 10000D);
             return chunkRandom.nextDouble() < d;
         }
         return false;
@@ -59,8 +60,8 @@ public class RSMineshaftStructure extends AbstractBaseStructure<NoFeatureConfig>
             structuremineshaftpiecesua$room.buildComponent(structuremineshaftpiecesua$room, this.components, this.rand);
             this.recalculateStructureSize();
 
-            int minimum = minHeight;
-            int maximum = Math.max(maxHeight, minimum) + 1;
+            int minimum = minHeight.get();
+            int maximum = Math.max(maxHeight.get(), minimum) + 1;
 
             int offset = this.rand.nextInt(maximum - minimum) + minimum;
             this.bounds.offset(0, offset - 50, 0);

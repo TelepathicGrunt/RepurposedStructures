@@ -9,6 +9,15 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 # | Repurposed Structures changelog |
 
 
+## (V.2.5.1 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)
+
+##### Mineshafts:
+- Fixed all Mineshaft height and spawnrate configs so they now actually work. 
+  Apparently they were broken for months but no one told me lol.
+
+- Changed Mineshaft spawnrate from int to double. Meaning you can do 55.34 instead of just 55.
+
+
 ## (V.2.5.0 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)
 
 ##### Loot Tables:
