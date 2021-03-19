@@ -19,6 +19,7 @@ public class AirProcessor extends StructureProcessor {
     public static final Codec<AirProcessor> CODEC = Codec.unit(() -> INSTANCE);
     private AirProcessor() { }
 
+    @Override
     public Template.BlockInfo process(IWorldReader worldView, BlockPos pos, BlockPos blockPos, Template.BlockInfo structureBlockInfoLocal, Template.BlockInfo structureBlockInfoWorld, PlacementSettings structurePlacementData) {
         if (structureBlockInfoWorld.state.isIn(Blocks.AIR)) {
             worldView.getChunk(structureBlockInfoWorld.pos).setBlockState(structureBlockInfoWorld.pos, Blocks.AIR.getDefaultState(), false);
@@ -26,6 +27,7 @@ public class AirProcessor extends StructureProcessor {
         return structureBlockInfoWorld;
     }
 
+    @Override
     protected IStructureProcessorType<?> getType() {
         return RSProcessors.AIR_PROCESSORS;
     }

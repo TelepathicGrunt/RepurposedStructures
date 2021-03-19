@@ -26,6 +26,7 @@ public class WaterloggingFixProcessor extends StructureProcessor {
     public static final Codec<WaterloggingFixProcessor> CODEC = Codec.unit(() -> INSTANCE);
     private WaterloggingFixProcessor() { }
 
+    @Override
     public Template.BlockInfo process(IWorldReader worldReader, BlockPos pos, BlockPos pos2, Template.BlockInfo infoIn1, Template.BlockInfo infoIn2, PlacementSettings settings, @Nullable Template template) {
 
         // Workaround for https://bugs.mojang.com/browse/MC-130584
@@ -54,6 +55,7 @@ public class WaterloggingFixProcessor extends StructureProcessor {
         return infoIn2;
     }
 
+    @Override
     protected IStructureProcessorType<?> getType() {
         return RSProcessors.WATER_FIX_PROCESSORS;
     }
