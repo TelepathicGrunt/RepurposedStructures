@@ -9,6 +9,17 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 # | Repurposed Structures changelog |
 
 
+## (V.1.9.1 Changes) (1.16.5 Minecraft)
+
+##### Pyramids:
+- Fixed https://bugs.mojang.com/browse/MC-130584 by using a special processor.
+  This means this mod's pyramid's chests will no longer be waterlogged if their pits replaces water in the world.
+
+##### Igloos:
+- Fixed https://bugs.mojang.com/browse/MC-130584 by using a special processor.
+  This means this mod's igloo's chests, ladders, and other blocks will no longer be waterlogged if their basement places water in the world.
+
+
 ## (V.1.9.0 Changes) (1.16.5 Minecraft)
 
 ##### Loot Tables:

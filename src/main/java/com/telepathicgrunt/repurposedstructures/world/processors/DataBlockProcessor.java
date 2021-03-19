@@ -35,6 +35,7 @@ public class DataBlockProcessor extends StructureProcessor {
     public static final Codec<DataBlockProcessor> CODEC = Codec.unit(() -> INSTANCE);
     private DataBlockProcessor() { }
 
+    @Override
     public Structure.StructureBlockInfo process(WorldView worldView, BlockPos pos, BlockPos blockPos, Structure.StructureBlockInfo structureBlockInfoLocal, Structure.StructureBlockInfo structureBlockInfoWorld, StructurePlacementData structurePlacementData) {
         BlockState blockState = structureBlockInfoWorld.state;
         if (blockState.isOf(Blocks.STRUCTURE_BLOCK)) {
@@ -76,6 +77,7 @@ public class DataBlockProcessor extends StructureProcessor {
         return structureBlockInfoWorld;
     }
 
+    @Override
     protected StructureProcessorType<?> getType() {
         return RSProcessors.DATA_BLOCK_PROCESSORS;
     }

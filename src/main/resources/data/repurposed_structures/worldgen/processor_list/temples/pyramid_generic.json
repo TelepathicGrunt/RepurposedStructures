@@ -5,6 +5,9 @@
     },
     {
       "processor_type": "repurposed_structures:air_processors"
+    },
+    {
+      "processor_type": "repurposed_structures:water_fix_processors"
     }
   ]
 }
