@@ -32,22 +32,24 @@ public class WaterloggingFixProcessor extends StructureProcessor {
         // Workaround for https://bugs.mojang.com/browse/MC-130584
         // Due to a hardcoded field in Templates, any waterloggable blocks in structures replacing water in the world will become waterlogged.
         // Idea of workaround is detect if we are placing a waterloggable block and if so, remove the water in the world instead.
-        ChunkPos currentChunk = new ChunkPos(infoIn2.pos);
+        ChunkPos currentChunkPos = new ChunkPos(infoIn2.pos);
         if(infoIn2.state.getBlock() instanceof IWaterLoggable){
+            IChunk currentChunk = worldReader.getChunk(currentChunkPos.x, currentChunkPos.z);
             if(worldReader.getFluidState(infoIn2.pos).isTagged(FluidTags.WATER)){
-                worldReader.getChunk(currentChunk.x, currentChunk.z).setBlockState(infoIn2.pos, Blocks.AIR.getDefaultState(), false);
+                currentChunk.setBlockState(infoIn2.pos, Blocks.STONE.getDefaultState(), false);
             }
 
-            // Needed was waterloggable blocks will get waterlogged from neighboring chunk's water too.
+            // Remove water in adjacent blocks across chunk boundaries and above/below as well
             BlockPos.Mutable mutable = new BlockPos.Mutable();
-            for(Direction direction : Direction.Plane.HORIZONTAL){
+            for (Direction direction : Direction.values()) {
                 mutable.setPos(infoIn2.pos).move(direction);
+                if (currentChunkPos.x != mutable.getX() >> 4 || currentChunkPos.z != mutable.getZ() >> 4) {
+                    currentChunk = worldReader.getChunk(mutable);
+                    currentChunkPos = new ChunkPos(mutable);
+                }
 
-                if(currentChunk.x != mutable.getX() >> 4 || currentChunk.z != mutable.getZ() >> 4){
-                    IChunk sideChunk = worldReader.getChunk(mutable);
-                    if(sideChunk.getFluidState(mutable).isTagged(FluidTags.WATER)) {
-                        sideChunk.setBlockState(mutable, Blocks.DIRT.getDefaultState(), false);
-                    }
+                if (currentChunk.getFluidState(mutable).isTagged(FluidTags.WATER)) {
+                    currentChunk.setBlockState(mutable, Blocks.STONE.getDefaultState(), false);
                 }
             }
         }
