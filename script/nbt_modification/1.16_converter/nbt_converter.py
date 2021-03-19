@@ -9,38 +9,9 @@ import sys
 '''
 string_blacklist = ["minecraft:village/taiga/villagers"]
 conversion_partial_dict = {
-    
 }
 conversion_exact_dict = {
-    "minecraft:chests/pillager_outpost":"repurposed_structures:chests/outpost/badlands_chest",
-    "minecraft:dark_oak_log":"minecraft:chiseled_red_sandstone",
-    "minecraft:dark_oak_planks":"minecraft:smooth_red_sandstone",
-    "minecraft:dark_oak_fence":"minecraft:dark_oak_fence",
-    "minecraft:dark_oak_slab":"minecraft:dark_oak_slab",
-    "minecraft:dark_oak_stairs":"minecraft:dark_oak_stairs",
-    "minecraft:birch_planks":"minecraft:terracotta",
-    "minecraft:cobblestone":"minecraft:cut_red_sandstone",
-    "minecraft:cobblestone_stairs":"minecraft:cut_red_sandstone",
-    "minecraft:potted_dead_bush":"minecraft:potted_dead_bush",
-    "minecraft:potted_brown_mushroom":"minecraft:potted_brown_mushroom",
-    "minecraft:potted_red_mushroom":"minecraft:potted_red_mushroom",
-    "minecraft:lantern":"minecraft:lantern"
-}
-conversion_exact_dict = {
-    "minecraft:chests/pillager_outpost":"repurposed_structures:chests/outpost/badlands_chest",
-    "minecraft:dark_oak_log":"minecraft:chiseled_red_sandstone",
-    "minecraft:dark_oak_planks":"minecraft:red_sandstone",
-    "minecraft:dark_oak_fence":"minecraft:dark_oak_fence",
-    "minecraft:dark_oak_slab":"minecraft:red_sandstone_slab",
-    "minecraft:dark_oak_stairs":"minecraft:red_sandstone_stairs",
-    "minecraft:birch_planks":"minecraft:terracotta",
-    "minecraft:cobblestone":"minecraft:red_sandstone",
-    "minecraft:cobblestone_stairs":"minecraft:red_sandstone_stairs",
-    "minecraft:cobblestone_slab":"minecraft:red_sandstone_slab",
-    "minecraft:potted_dead_bush":"minecraft:potted_dead_bush",
-    "minecraft:potted_brown_mushroom":"minecraft:potted_dead_bush",
-    "minecraft:potted_red_mushroom":"minecraft:potted_cactus",
-    "minecraft:lantern":"minecraft:lantern"
+    "minecraft:chests/pillager_outpost":"repurposed_structures:chests/outpost/badlands_chest"
 }
 
 '''
@@ -49,14 +20,19 @@ conversion_exact_dict = {
 
 blockPalette = {""}
 
-originalBiome = ""
-newBiome = ""
+originalBiome = "plains"
+newBiome = "crimson"
 string_blacklist = []
 conversion_partial_dict = {
+    "minecraft:village/plains/villagers":"minecraft:village/crimson/villagers",
+    "petrified_oak_slab":"crimson_slab",
+    "dark_oak":"crimson",
+    "birch":"crimson",
+    "oak":"crimson",
+    "jungle":"crimson",
+    "glass_pane":"red_stained_glass_pane"
 }
 conversion_exact_dict = {
-    "minecraft:brown_terracotta":"environmental:mud",
-    "minecraft:gray_terracotta":"environmental:mud_bricks"
 }
 
 #-------------------------------------------------------------------------------------------
