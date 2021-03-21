@@ -523,9 +523,10 @@ public class RSAddFeaturesAndStructures {
     public static void addShipwrecks() {
 
         addToBiome("end_shipwreck",
-                (context) -> (BiomeSelection.isBiome(context, BiomeKeys.END_HIGHLANDS)
-                            || (RepurposedStructures.RSAllConfig.RSShipwrecksConfig.blacklist.addEndShipwreckToModdedBiomes
-                                && BiomeSelection.haveCategories(context, Category.THEEND)))
+                (context) -> (BiomeSelection.hasNamespace(context, "minecraft") ||
+                            RepurposedStructures.RSAllConfig.RSShipwrecksConfig.blacklist.addEndShipwreckToModdedBiomes)
+                        && BiomeSelection.haveCategories(context, Category.THEEND)
+                        && !BiomeSelection.isBiome(context, BiomeKeys.THE_END, BiomeKeys.SMALL_END_ISLANDS, BiomeKeys.END_BARRENS)
                         && RepurposedStructures.RSAllConfig.RSShipwrecksConfig.maxChunkDistance.endShipwreckMaxChunkDistance != 1001
                         && BiomeSelection.isBiomeAllowed(context, "shipwrecks"),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.END_SHIPWRECK));
