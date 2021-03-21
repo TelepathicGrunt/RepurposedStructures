@@ -2,6 +2,7 @@ package com.telepathicgrunt.repurposedstructures.modinit;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.features.*;
+import com.telepathicgrunt.repurposedstructures.world.features.configs.NbtDungeonConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraftforge.fml.RegistryObject;
@@ -12,6 +13,8 @@ import java.util.function.Supplier;
 
 public class RSFeatures {
 	public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, RepurposedStructures.MODID);
+
+	public static final RegistryObject<Feature<NbtDungeonConfig>> test = createFeature("test", () -> new NbtDungeon(NbtDungeonConfig.CODEC));
 
 	public static final RegistryObject<Feature<NoFeatureConfig>> BADLANDS_DUNGEONS = createFeature("dungeons_badlands", () -> new DungeonBadlands(NoFeatureConfig.CODEC));
 	public static final RegistryObject<Feature<NoFeatureConfig>> DARK_FOREST_DUNGEONS = createFeature("dungeons_dark_forest", () -> new DungeonDarkForest(NoFeatureConfig.CODEC));

@@ -16,6 +16,7 @@
     "StructureMobSpawningMixin",
     "StructurePieceAccessor",
     "StructureProcessorListAccessor",
+    "TemplateInvoker",
     "TemplateManagerMixin"
   ],
   "client": [

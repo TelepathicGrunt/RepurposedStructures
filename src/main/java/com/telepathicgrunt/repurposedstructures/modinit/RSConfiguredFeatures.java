@@ -1,6 +1,9 @@
 package com.telepathicgrunt.repurposedstructures.modinit;
 
+import com.google.common.collect.ImmutableList;
+import com.mojang.datafixers.util.Pair;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.world.features.configs.NbtDungeonConfig;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
@@ -12,10 +15,35 @@ import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.placement.TopSolidRangeConfig;
 
+import java.util.Optional;
+
 
 public class RSConfiguredFeatures {
 
     // Dungeons
+
+    private static final NbtDungeonConfig BADLANDS_DUNGEON_CONFIG = getDefaultNbtDungeonConfig("badlands");
+
+    private static NbtDungeonConfig getDefaultNbtDungeonConfig(String dungeonType){
+        return new NbtDungeonConfig(
+                false,1, 14, 2,
+                false, Optional.empty(), 0, Blocks.CHEST.getDefaultState(),
+                new ResourceLocation(RepurposedStructures.MODID, "chests/dungeon/"+dungeonType),
+                new ResourceLocation(RepurposedStructures.MODID, "dungeon_"+dungeonType),
+                new ResourceLocation(RepurposedStructures.MODID, "dungeons/"+dungeonType),
+                ImmutableList.of(
+                        Pair.of(new ResourceLocation(RepurposedStructures.MODID, "dungeons/"+dungeonType+"_1"), 1),
+                        Pair.of(new ResourceLocation(RepurposedStructures.MODID, "dungeons/"+dungeonType+"_2"), 1),
+                        Pair.of(new ResourceLocation(RepurposedStructures.MODID, "dungeons/"+dungeonType+"_3"), 1)
+                ));
+    }
+
+    public static ConfiguredFeature<?, ?> test = RSFeatures.test.get().configure(BADLANDS_DUNGEON_CONFIG)
+            .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.get().configure(new TopSolidRangeConfig(
+                    RepurposedStructures.RSDungeonsConfig.badlandsDungeonMinHeight.get(),
+                    0,
+                    RepurposedStructures.RSDungeonsConfig.badlandsDungeonMaxHeight.get()))
+                    .decorate(RSPlacements.RS_UNLIMITED_COUNT.get().configure(new FeatureSpreadConfig(RepurposedStructures.RSDungeonsConfig.badlandsDungeonAttemptsPerChunk.get()))));
 
     public static ConfiguredFeature<?, ?> BADLANDS_DUNGEONS = RSFeatures.BADLANDS_DUNGEONS.get().configure(IFeatureConfig.NO_FEATURE_CONFIG)
             .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.get().configure(new TopSolidRangeConfig(

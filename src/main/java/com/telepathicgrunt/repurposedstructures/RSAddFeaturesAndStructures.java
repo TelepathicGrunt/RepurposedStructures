@@ -124,7 +124,7 @@ public class RSAddFeaturesAndStructures {
                 RepurposedStructures.RSDungeonsConfig.badlandsDungeonAttemptsPerChunk.get() != 0 &&
                 dungeonAllowedByNamespaceAndConfig(event))
         {
-            replaceOrAddDungeon(true, event, RSConfiguredFeatures.BADLANDS_DUNGEONS);
+            replaceOrAddDungeon(true, event, RSConfiguredFeatures.test);
         }
         
         else if (BiomeSelection.haveCategories(event, Category.FOREST) &&
