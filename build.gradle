@@ -24,7 +24,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = "${mc_version}-${mod_version}"
+version = "${mc_version}-${mod_version}-forge"
 group = "com.telepathicgrunt.repurposed_structures"
 archivesBaseName = "repurposed_structures"
 

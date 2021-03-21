@@ -436,10 +436,10 @@ public class RSAddFeaturesAndStructures {
     public static void addShipwrecks(BiomeLoadingEvent event) {
 
         if (RepurposedStructures.RSShipwrecksConfig.endShipwreckMaxChunkDistance.get() != 1001 &&
-            (BiomeSelection.isBiome(event, Biomes.END_MIDLANDS) ||
-                (RepurposedStructures.RSShipwrecksConfig.addEndShipwreckToModdedBiomes.get() &&
-                    !BiomeSelection.hasNamespace(event, "minecraft") &&
-                    BiomeSelection.haveCategories(event, Category.THEEND))))
+            BiomeSelection.haveCategories(event, Category.THEEND) &&
+           !BiomeSelection.isBiome(event, Biomes.THE_END, Biomes.SMALL_END_ISLANDS, Biomes.END_BARRENS) &&
+            (BiomeSelection.hasNamespace(event, "minecraft") ||
+                RepurposedStructures.RSShipwrecksConfig.addEndShipwreckToModdedBiomes.get()))
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.END_SHIPWRECK);
         }
