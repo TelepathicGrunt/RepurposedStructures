@@ -3,10 +3,8 @@ package com.telepathicgrunt.repurposedstructures.utils;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.StructureWorldAccess;
-import net.minecraft.world.biome.Biome;
 
 import java.util.HashMap;
 import java.util.List;
