@@ -21,7 +21,8 @@
     "StructureMobSpawningMixin",
     "StructurePieceAccessor",
     "StructureProcessorListAccessor",
-    "StructuresConfigAccessor"
+    "StructuresConfigAccessor",
+    "TemplateInvoker"
   ],
   "client": [
     "StructureBlockScreenMixin"

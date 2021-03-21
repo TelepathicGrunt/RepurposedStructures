@@ -1,0 +1,61 @@
+{
+  "processors": [
+    {
+      "rules": [
+        {
+          "output_state": {
+            "Name": "minecraft:mossy_cobblestone"
+          },
+          "input_predicate": {
+            "block": "minecraft:mossy_stone_bricks",
+            "probability": 0.125,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:mossy_cobblestone"
+          },
+          "input_predicate": {
+            "block": "minecraft:grass_block",
+            "probability": 0.0833333,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:mossy_stone_bricks"
+          },
+          "input_predicate": {
+            "block": "minecraft:grass_block",
+            "probability": 0.1666666,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:mossy_stone_bricks"
+          },
+          "input_predicate": {
+            "block": "minecraft:mossy_cobblestone",
+            "probability": 0.6666666,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        }
+      ],
+      "processor_type": "minecraft:rule"
+    }
+  ]
+}

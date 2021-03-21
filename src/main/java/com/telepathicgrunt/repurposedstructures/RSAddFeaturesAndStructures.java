@@ -218,7 +218,7 @@ public class RSAddFeaturesAndStructures {
                 (context) -> genericDungeonCheck(context)
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.badlandsDungeonAttemptsPerChunk != 0
                         && BiomeSelection.haveCategories(context, Category.MESA),
-                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.BADLANDS_DUNGEONS));
+                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.test));
 
         addToBiome("dark_forest_dungeons",
                 (context) -> genericDungeonCheck(context)

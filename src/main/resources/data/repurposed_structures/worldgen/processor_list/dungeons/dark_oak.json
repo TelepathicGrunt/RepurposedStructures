@@ -1,0 +1,92 @@
+{
+  "processors": [
+    {
+      "rules": [
+        {
+          "output_state": {
+            "Properties": {
+              "axis": "y"
+            },
+            "Name": "minecraft:dark_oak_log"
+          },
+          "input_predicate": {
+            "block": "minecraft:dark_oak_planks",
+            "probability": 0.0666666,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "persistent": "true",
+              "distance": "1"
+            },
+            "Name": "minecraft:dark_oak_leaves"
+          },
+          "input_predicate": {
+            "block": "minecraft:dark_oak_planks",
+            "probability": 0.1333333,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "persistent": "true",
+              "distance": "1"
+            },
+            "Name": "minecraft:dark_oak_leaves"
+          },
+          "input_predicate": {
+            "block": "minecraft:dark_oak_log",
+            "probability": 0.6666666,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "axis": "x"
+            },
+            "Name": "minecraft:dark_oak_log"
+          },
+          "input_predicate": {
+            "block": "minecraft:dark_oak_leaves",
+            "probability": 0.3333333,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "persistent": "true",
+              "distance": "1"
+            },
+            "Name": "minecraft:dark_oak_leaves"
+          },
+          "input_predicate": {
+            "block": "minecraft:dark_oak_leaves",
+            "probability": 1,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        }
+      ],
+      "processor_type": "minecraft:rule"
+    }
+  ]
+}

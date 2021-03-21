@@ -1,0 +1,147 @@
+{
+  "processors": [
+    {
+      "rules": [
+        {
+          "output_state": {
+            "Name": "minecraft:packed_ice"
+          },
+          "input_predicate": {
+            "block": "minecraft:snow_block",
+            "probability": 0.08,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:ice"
+          },
+          "input_predicate": {
+            "block": "minecraft:snow_block",
+            "probability": 0.08,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "layers": "1"
+            },
+            "Name": "minecraft:snow"
+          },
+          "input_predicate": {
+            "block": "minecraft:snow",
+            "probability": 0.03,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "layers": "2"
+            },
+            "Name": "minecraft:snow"
+          },
+          "input_predicate": {
+            "block": "minecraft:snow",
+            "probability": 0.03,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "layers": "3"
+            },
+            "Name": "minecraft:snow"
+          },
+          "input_predicate": {
+            "block": "minecraft:snow",
+            "probability": 0.03,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "layers": "4"
+            },
+            "Name": "minecraft:snow"
+          },
+          "input_predicate": {
+            "block": "minecraft:snow",
+            "probability": 0.03,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "layers": "5"
+            },
+            "Name": "minecraft:snow"
+          },
+          "input_predicate": {
+            "block": "minecraft:snow",
+            "probability": 0.03,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "layers": "6"
+            },
+            "Name": "minecraft:snow"
+          },
+          "input_predicate": {
+            "block": "minecraft:snow",
+            "probability": 0.03,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "layers": "7"
+            },
+            "Name": "minecraft:snow"
+          },
+          "input_predicate": {
+            "block": "minecraft:snow",
+            "probability": 0.03,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        }
+      ],
+      "processor_type": "minecraft:rule"
+    }
+  ]
+}

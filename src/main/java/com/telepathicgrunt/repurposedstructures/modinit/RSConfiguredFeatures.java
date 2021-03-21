@@ -1,6 +1,9 @@
 package com.telepathicgrunt.repurposedstructures.modinit;
 
+import com.google.common.collect.ImmutableList;
+import com.mojang.datafixers.util.Pair;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.world.configs.NbtDungeonConfig;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
@@ -15,11 +18,34 @@ import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 public class RSConfiguredFeatures {
 
     // Dungeons
+    private static final NbtDungeonConfig BADLANDS_DUNGEON_CONFIG = getDefaultNbtDungeonConfig("badlands");
+
+    private static NbtDungeonConfig getDefaultNbtDungeonConfig(String dungeonType){
+        return new NbtDungeonConfig(
+                false,1, 14, 2,
+                false, Optional.empty(), 0, Blocks.CHEST.getDefaultState(),
+                new Identifier(RepurposedStructures.MODID, "chests/dungeon/"+dungeonType),
+                new Identifier(RepurposedStructures.MODID, "dungeon_"+dungeonType),
+                new Identifier(RepurposedStructures.MODID, "dungeons/"+dungeonType),
+                ImmutableList.of(
+                        Pair.of(new Identifier(RepurposedStructures.MODID, "dungeons/"+dungeonType+"_1"), 1),
+                        Pair.of(new Identifier(RepurposedStructures.MODID, "dungeons/"+dungeonType+"_2"), 1),
+                        Pair.of(new Identifier(RepurposedStructures.MODID, "dungeons/"+dungeonType+"_3"), 1)
+                ));
+    }
+
+    public static ConfiguredFeature<?, ?> test = RSFeatures.test.configure(BADLANDS_DUNGEON_CONFIG)
+            .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(
+                    RepurposedStructures.RSAllConfig.RSDungeonsConfig.minHeight.badlandsDungeonMinHeight,
+                    0,
+                    RepurposedStructures.RSAllConfig.RSDungeonsConfig.maxHeight.badlandsDungeonMaxHeight))
+                    .decorate(RSPlacements.RS_UNLIMITED_COUNT.configure(new CountConfig(RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.badlandsDungeonAttemptsPerChunk))));
 
     public static ConfiguredFeature<?, ?> BADLANDS_DUNGEONS = RSFeatures.BADLANDS_DUNGEONS.configure(FeatureConfig.DEFAULT)
             .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(
@@ -178,6 +204,7 @@ public class RSConfiguredFeatures {
 
     public static void registerConfiguredFeatures() {
         Registry<ConfiguredFeature<?, ?>> registry = BuiltinRegistries.CONFIGURED_FEATURE;
+        RS_DUNGEONS.add(Registry.register(registry, new Identifier(RepurposedStructures.MODID, "test"), test));
 
         RS_DUNGEONS.add(Registry.register(registry, new Identifier(RepurposedStructures.MODID, "dungeons_badlands"), BADLANDS_DUNGEONS));
         RS_DUNGEONS.add(Registry.register(registry, new Identifier(RepurposedStructures.MODID, "dungeons_dark_forest"), DARK_FOREST_DUNGEONS));

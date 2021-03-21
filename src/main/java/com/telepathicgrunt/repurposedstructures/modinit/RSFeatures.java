@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.modinit;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.world.configs.NbtDungeonConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -11,6 +12,7 @@ import net.minecraft.world.gen.feature.Feature;
 public class RSFeatures {
 
     //Static instance of our structure so we can reference it and add it to biomes easily.
+    public static Feature<NbtDungeonConfig> test = new NbtDungeon(NbtDungeonConfig.CODEC);
     public static Feature<DefaultFeatureConfig> BADLANDS_DUNGEONS = new DungeonBadlands();
     public static Feature<DefaultFeatureConfig> DARK_FOREST_DUNGEONS = new DungeonDarkForest();
     public static Feature<DefaultFeatureConfig> DESERT_DUNGEONS = new DungeonDesert();
@@ -37,6 +39,8 @@ public class RSFeatures {
     public static Feature<DefaultFeatureConfig> STRONGHOLD_CHAINS = new StrongholdChains();
 
     public static void registerFeatures() {
+        Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "test"), test);
+
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "dungeons_badlands"), BADLANDS_DUNGEONS);
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "dungeons_dark_forest"), DARK_FOREST_DUNGEONS);
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "dungeons_desert"), DESERT_DUNGEONS);
