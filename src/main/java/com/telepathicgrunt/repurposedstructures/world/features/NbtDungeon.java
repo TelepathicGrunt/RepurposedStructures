@@ -75,16 +75,16 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
         BlockPos.Mutable mutable = new BlockPos.Mutable().set(position);
         Chunk cachedChunk = world.getChunk(mutable);
 
-        int xMin = -halfLengths.getX() + 1;
-        int xMax = halfLengths.getX() - 1;
-        int zMin = -halfLengths.getZ() + 1;
-        int zMax = halfLengths.getZ() - 1;
+        int xMin = -halfLengths.getX();
+        int xMax = halfLengths.getX();
+        int zMin = -halfLengths.getZ();
+        int zMax = halfLengths.getZ();
         int validOpenings = 0;
         int ceilingOpenings = 0;
         int ceiling = template.getSize().getY();
 
-        for (int x = xMin - 1; x <= xMax + 1; ++x) {
-            for (int z = zMin - 1; z <= zMax + 1; ++z) {
+        for (int x = xMin; x <= xMax; ++x) {
+            for (int z = zMin; z <= zMax; ++z) {
                 for (int y = -2; y <= ceiling + 1; ++y) {
                     mutable.set(position).move(x, y, z);
                     if(mutable.getX() >> 4 != cachedChunk.getPos().x || mutable.getZ() >> 4 != cachedChunk.getPos().z)
@@ -98,7 +98,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                     }
                     // Floor must be complete
                     else if(!GeneralUtils.isFullCube(world, mutable, state)){
-                        if (y == -1) {
+                        if (y == -1 && !state.getMaterial().isSolid()) {
                             return false;
                         }
                         else if(state.isIn(BlockTags.LEAVES)){

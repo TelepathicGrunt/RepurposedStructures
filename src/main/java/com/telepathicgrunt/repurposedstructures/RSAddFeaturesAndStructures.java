@@ -218,7 +218,7 @@ public class RSAddFeaturesAndStructures {
                 (context) -> genericDungeonCheck(context)
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.badlandsDungeonAttemptsPerChunk != 0
                         && BiomeSelection.haveCategories(context, Category.MESA),
-                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.test));
+                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.BADLANDS_DUNGEONS));
 
         addToBiome("dark_forest_dungeons",
                 (context) -> genericDungeonCheck(context)
@@ -251,11 +251,12 @@ public class RSAddFeaturesAndStructures {
                         && BiomeSelection.haveCategories(context, Category.ICY),
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.SNOW_DUNGEONS));
 
-        addToBiome("nether_dungeons",
+        addToBiome("nether_dungeons_high",
                 (context) -> genericDungeonCheck(context)
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.netherDungeonAttemptsPerChunk != 0
                         && BiomeSelection.haveCategories(context, Category.NETHER),
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.NETHER_DUNGEONS));
+
 
         addToBiome("end_dungeons",
                 (context) -> genericDungeonCheck(context)
