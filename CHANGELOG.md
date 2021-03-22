@@ -18,6 +18,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Nether Dungeons no long spawn attached to lava pockets underground.
 
+- Bumped up the config default spawnrates for Nether and End Dungeons from 8 to 12.
+
 ##### Shipwrecks:
 - Fixed End Shipwrecks spawning so they no longer can spawn on the Enderdragon island.
 

@@ -95,14 +95,14 @@ public class RSDungeonsConfig implements ConfigData {
                 + "\nSpawn attempts per chunk."
                 + "\n0 for no Dungeons at all and 1000 for max spawnrate.")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int endDungeonAttemptsPerChunk = 8;
+        public int endDungeonAttemptsPerChunk = 12;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @Comment("Add Nether themed dungeon to Nether biomes."
                 + "\nSpawn attempts per chunk."
                 + "\n0 for no Dungeons at all and 1000 for max spawnrate.")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int netherDungeonAttemptsPerChunk = 8;
+        public int netherDungeonAttemptsPerChunk = 12;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
     @ConfigEntry.Gui.PrefixText

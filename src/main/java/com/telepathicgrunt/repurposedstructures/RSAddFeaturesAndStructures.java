@@ -251,7 +251,7 @@ public class RSAddFeaturesAndStructures {
                         && BiomeSelection.haveCategories(context, Category.ICY),
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.SNOW_DUNGEONS));
 
-        addToBiome("nether_dungeons_high",
+        addToBiome("nether_dungeons",
                 (context) -> genericDungeonCheck(context)
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.netherDungeonAttemptsPerChunk != 0
                         && BiomeSelection.haveCategories(context, Category.NETHER),
