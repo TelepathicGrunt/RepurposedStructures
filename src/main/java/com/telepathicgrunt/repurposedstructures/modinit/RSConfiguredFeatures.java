@@ -4,8 +4,13 @@ import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.NbtDungeonConfig;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.StairsBlock;
+import net.minecraft.block.WallBlock;
+import net.minecraft.block.enums.WallShape;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.CountConfig;
@@ -41,6 +46,31 @@ public class RSConfiguredFeatures {
                         Pair.of(new Identifier(RepurposedStructures.MODID, "dungeons/"+dungeonType+"_1"), 1),
                         Pair.of(new Identifier(RepurposedStructures.MODID, "dungeons/"+dungeonType+"_2"), 1),
                         Pair.of(new Identifier(RepurposedStructures.MODID, "dungeons/"+dungeonType+"_3"), 1)
+                ));
+    }
+
+    private static final List<BlockState> UNREPLACEABLE_OCEAN_DUNGEON_BLOCKS = ImmutableList.of(
+            Blocks.DARK_PRISMARINE.getDefaultState(),
+            Blocks.DARK_PRISMARINE_STAIRS.getDefaultState().with(StairsBlock.WATERLOGGED, true).with(StairsBlock.FACING, Direction.SOUTH),
+            Blocks.DARK_PRISMARINE_STAIRS.getDefaultState().with(StairsBlock.WATERLOGGED, true).with(StairsBlock.FACING, Direction.NORTH),
+            Blocks.DARK_PRISMARINE_STAIRS.getDefaultState().with(StairsBlock.WATERLOGGED, true).with(StairsBlock.FACING, Direction.EAST),
+            Blocks.DARK_PRISMARINE_STAIRS.getDefaultState().with(StairsBlock.WATERLOGGED, true).with(StairsBlock.FACING, Direction.WEST),
+            Blocks.PRISMARINE_WALL.getDefaultState().with(WallBlock.WATERLOGGED, true).with(WallBlock.UP, true),
+            Blocks.PRISMARINE_WALL.getDefaultState().with(WallBlock.WATERLOGGED, true).with(WallBlock.UP, true)
+                    .with(WallBlock.WEST_SHAPE, WallShape.LOW).with(WallBlock.EAST_SHAPE, WallShape.LOW).with(WallBlock.NORTH_SHAPE, WallShape.LOW).with(WallBlock.SOUTH_SHAPE, WallShape.LOW)
+    );
+    private static NbtDungeonConfig getOceanNbtDungeonConfig(String spawnerType){
+        return new NbtDungeonConfig(
+                false,1, 55, 2,
+                true, Optional.of(UNREPLACEABLE_OCEAN_DUNGEON_BLOCKS),
+                -2, Blocks.CHEST.getDefaultState(),
+                new Identifier(RepurposedStructures.MODID, "chests/dungeon/ocean"),
+                new Identifier(RepurposedStructures.MODID, "dungeon_"+spawnerType),
+                new Identifier(RepurposedStructures.MODID, "dungeons/ocean"),
+                ImmutableList.of(
+                        Pair.of(new Identifier(RepurposedStructures.MODID, "dungeons/ocean_1"), 1),
+                        Pair.of(new Identifier(RepurposedStructures.MODID, "dungeons/ocean_2"), 1),
+                        Pair.of(new Identifier(RepurposedStructures.MODID, "dungeons/ocean_3"), 1)
                 ));
     }
 
@@ -143,11 +173,35 @@ public class RSConfiguredFeatures {
                     Pair.of(new Identifier(RepurposedStructures.MODID, "dungeons/ocean_2"), 1),
                     Pair.of(new Identifier(RepurposedStructures.MODID, "dungeons/ocean_3"), 1)
                 ));
-    public static ConfiguredFeature<?, ?> OCEAN_DUNGEONS = RSFeatures.OCEAN_DUNGEONS.configure(OCEAN_DUNGEON_CONFIG)
+    public static ConfiguredFeature<?, ?> OCEAN_NEUTRAL_DUNGEONS = RSFeatures.OCEAN_DUNGEONS.configure(getOceanNbtDungeonConfig("ocean_neutral"))
             .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(
                     RepurposedStructures.RSAllConfig.RSDungeonsConfig.minHeight.oceanDungeonMinHeight, 0,
                     RepurposedStructures.RSAllConfig.RSDungeonsConfig.maxHeight.oceanDungeonMaxHeight))
             .decorate(RSPlacements.RS_UNLIMITED_COUNT.configure(new CountConfig(RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.oceanDungeonAttemptsPerChunk))));
+
+    public static ConfiguredFeature<?, ?> OCEAN_COLD_DUNGEONS = RSFeatures.OCEAN_DUNGEONS.configure(getOceanNbtDungeonConfig("ocean_cold"))
+            .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(
+                    RepurposedStructures.RSAllConfig.RSDungeonsConfig.minHeight.oceanDungeonMinHeight, 0,
+                    RepurposedStructures.RSAllConfig.RSDungeonsConfig.maxHeight.oceanDungeonMaxHeight))
+                    .decorate(RSPlacements.RS_UNLIMITED_COUNT.configure(new CountConfig(RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.oceanDungeonAttemptsPerChunk))));
+
+    public static ConfiguredFeature<?, ?> OCEAN_FROZEN_DUNGEONS = RSFeatures.OCEAN_DUNGEONS.configure(getOceanNbtDungeonConfig("ocean_frozen"))
+            .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(
+                    RepurposedStructures.RSAllConfig.RSDungeonsConfig.minHeight.oceanDungeonMinHeight, 0,
+                    RepurposedStructures.RSAllConfig.RSDungeonsConfig.maxHeight.oceanDungeonMaxHeight))
+                    .decorate(RSPlacements.RS_UNLIMITED_COUNT.configure(new CountConfig(RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.oceanDungeonAttemptsPerChunk))));
+
+    public static ConfiguredFeature<?, ?> OCEAN_LUKEWARM_DUNGEONS = RSFeatures.OCEAN_DUNGEONS.configure(getOceanNbtDungeonConfig("ocean_lukewarm"))
+            .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(
+                    RepurposedStructures.RSAllConfig.RSDungeonsConfig.minHeight.oceanDungeonMinHeight, 0,
+                    RepurposedStructures.RSAllConfig.RSDungeonsConfig.maxHeight.oceanDungeonMaxHeight))
+                    .decorate(RSPlacements.RS_UNLIMITED_COUNT.configure(new CountConfig(RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.oceanDungeonAttemptsPerChunk))));
+
+    public static ConfiguredFeature<?, ?> OCEAN_WARM_DUNGEONS = RSFeatures.OCEAN_DUNGEONS.configure(getOceanNbtDungeonConfig("ocean_warm"))
+            .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(
+                    RepurposedStructures.RSAllConfig.RSDungeonsConfig.minHeight.oceanDungeonMinHeight, 0,
+                    RepurposedStructures.RSAllConfig.RSDungeonsConfig.maxHeight.oceanDungeonMaxHeight))
+                    .decorate(RSPlacements.RS_UNLIMITED_COUNT.configure(new CountConfig(RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.oceanDungeonAttemptsPerChunk))));
 
 
     // Wells
@@ -244,7 +298,11 @@ public class RSConfiguredFeatures {
         RS_DUNGEONS.add(Registry.register(registry, new Identifier(RepurposedStructures.MODID, "dungeons_mushroom_high"), MUSHROOM_HIGH_DUNGEONS));
         RS_DUNGEONS.add(Registry.register(registry, new Identifier(RepurposedStructures.MODID, "dungeons_mushroom_low"), MUSHROOM_LOW_DUNGEONS));
         RS_DUNGEONS.add(Registry.register(registry, new Identifier(RepurposedStructures.MODID, "dungeons_jungle"), JUNGLE_DUNGEONS));
-        RS_DUNGEONS.add(Registry.register(registry, new Identifier(RepurposedStructures.MODID, "dungeons_ocean"), OCEAN_DUNGEONS));
+        RS_DUNGEONS.add(Registry.register(registry, new Identifier(RepurposedStructures.MODID, "dungeons_neutral_ocean"), OCEAN_NEUTRAL_DUNGEONS));
+        RS_DUNGEONS.add(Registry.register(registry, new Identifier(RepurposedStructures.MODID, "dungeons_lukewarm_ocean"), OCEAN_LUKEWARM_DUNGEONS));
+        RS_DUNGEONS.add(Registry.register(registry, new Identifier(RepurposedStructures.MODID, "dungeons_frozen_ocean"), OCEAN_FROZEN_DUNGEONS));
+        RS_DUNGEONS.add(Registry.register(registry, new Identifier(RepurposedStructures.MODID, "dungeons_cold_ocean"), OCEAN_COLD_DUNGEONS));
+        RS_DUNGEONS.add(Registry.register(registry, new Identifier(RepurposedStructures.MODID, "dungeons_warm_ocean"), OCEAN_WARM_DUNGEONS));
 
         RS_WELLS.add(Registry.register(registry, new Identifier(RepurposedStructures.MODID, "well_badlands"), BADLANDS_WELL));
         RS_WELLS.add(Registry.register(registry, new Identifier(RepurposedStructures.MODID, "well_nether"), NETHER_WELL));

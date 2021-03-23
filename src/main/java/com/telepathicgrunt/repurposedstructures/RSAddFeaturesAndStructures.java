@@ -270,19 +270,57 @@ public class RSAddFeaturesAndStructures {
                         && !BiomeSelection.isBiome(context, BiomeKeys.THE_END, BiomeKeys.SMALL_END_ISLANDS),
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.END_DUNGEONS));
 
-        addToBiome("ocean_dungeons",
+        addToBiome("ocean_neutral_dungeons",
                 (context) -> genericDungeonCheck(context)
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.oceanDungeonAttemptsPerChunk != 0
                         && BiomeSelection.haveCategories(context, Category.OCEAN)
+                        && (!BiomeSelection.hasName(context, "cold", "frozen", "snow", "ice", "warm", "hot", "tropic", "lukewarm") || // Thanks to vanilla oceans all being same temperature...
+                            (!BiomeSelection.hasNamespace(context, "minecraft") && context.getBiome().getTemperature() >= 0.5f && context.getBiome().getTemperature() < 0.9f))
                         && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSDungeonsConfig.addDungeonsToModdedBiomes),
-                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.OCEAN_DUNGEONS));
+                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.OCEAN_NEUTRAL_DUNGEONS));
+
+        addToBiome("ocean_cold_dungeons",
+                (context) -> genericDungeonCheck(context)
+                        && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.oceanDungeonAttemptsPerChunk != 0
+                        && BiomeSelection.haveCategories(context, Category.OCEAN)
+                        && (BiomeSelection.hasName(context, "cold") || // Thanks to vanilla oceans all being same temperature...
+                        (!BiomeSelection.hasNamespace(context, "minecraft") && context.getBiome().getTemperature() >= 0.0f && context.getBiome().getTemperature() < 0.5f))
+                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSDungeonsConfig.addDungeonsToModdedBiomes),
+                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.OCEAN_COLD_DUNGEONS));
+
+        addToBiome("ocean_frozen_dungeons",
+                (context) -> genericDungeonCheck(context)
+                        && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.oceanDungeonAttemptsPerChunk != 0
+                        && BiomeSelection.haveCategories(context, Category.OCEAN)
+                        && (BiomeSelection.hasName(context, "frozen", "snow", "ice") || // Thanks to vanilla oceans all being same temperature...
+                        (!BiomeSelection.hasNamespace(context, "minecraft") && context.getBiome().getTemperature() < 0f))
+                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSDungeonsConfig.addDungeonsToModdedBiomes),
+                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.OCEAN_FROZEN_DUNGEONS));
+
+        addToBiome("ocean_lukewarm_dungeons",
+                (context) -> genericDungeonCheck(context)
+                        && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.oceanDungeonAttemptsPerChunk != 0
+                        && BiomeSelection.haveCategories(context, Category.OCEAN)
+                        && (BiomeSelection.hasName(context, "lukewarm") || // Thanks to vanilla oceans all being same temperature...
+                        (!BiomeSelection.hasNamespace(context, "minecraft") && context.getBiome().getTemperature() >= 0.9f && context.getBiome().getTemperature() < 1.5f))
+                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSDungeonsConfig.addDungeonsToModdedBiomes),
+                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.OCEAN_LUKEWARM_DUNGEONS));
+
+        addToBiome("ocean_warm_dungeons",
+                (context) -> genericDungeonCheck(context)
+                        && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.oceanDungeonAttemptsPerChunk != 0
+                        && BiomeSelection.haveCategories(context, Category.OCEAN)
+                        && (BiomeSelection.hasName(context, "warm", "hot", "tropic") || // Thanks to vanilla oceans all being same temperature...
+                        (!BiomeSelection.hasNamespace(context, "minecraft") && context.getBiome().getTemperature() >= 1.5f))
+                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSDungeonsConfig.addDungeonsToModdedBiomes),
+                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.OCEAN_WARM_DUNGEONS));
 
 
         //Remove vanilla dungeons from non-ocean/nether/end biomes we added our dungeons to
         BiomeModifications.create(new Identifier(RepurposedStructures.MODID, "remove_vanilla_dungeons")).add(
                 ModificationPhase.REMOVALS,
                 context -> RSConfiguredFeatures.RS_DUNGEONS.stream().anyMatch(dungeon ->
-                        dungeon != RSConfiguredFeatures.OCEAN_DUNGEONS &&
+                        dungeon != RSConfiguredFeatures.OCEAN_NEUTRAL_DUNGEONS &&
                         dungeon != RSConfiguredFeatures.NETHER_DUNGEONS &&
                         dungeon != RSConfiguredFeatures.END_DUNGEONS &&
                         context.hasBuiltInFeature(dungeon)),
