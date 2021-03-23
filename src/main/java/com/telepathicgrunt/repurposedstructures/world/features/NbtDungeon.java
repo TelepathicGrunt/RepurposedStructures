@@ -94,7 +94,9 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                     BlockState state = cachedChunk.getBlockState(mutable);
 
                     // Dungeons cannot touch fluids if set to air mode and reverse if opposite
-                    if(config.airRequirementIsNowWater ? state.isAir() : !state.getFluidState().isEmpty()){
+                    if(config.airRequirementIsNowWater ?
+                            state.isAir() || state.getFluidState().isIn(FluidTags.LAVA) :
+                            !state.getFluidState().isEmpty()){
                         return false;
                     }
                     // Floor must be complete
@@ -379,21 +381,28 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
             template$blockinfo.tag.putInt("x", blockpos.getX());
             template$blockinfo.tag.putInt("y", blockpos.getY());
             template$blockinfo.tag.putInt("z", blockpos.getZ());
-            blockEntity.fromTag(template$blockinfo.state, template$blockinfo.tag);
-            blockEntity.applyMirror(placementIn.getMirror());
-            blockEntity.applyRotation(placementIn.getRotation());
 
             if (blockEntity instanceof MobSpawnerBlockEntity) {
-                EntityType<?> entity = RepurposedStructures.mobSpawnerManager.getSpawnerMob(config.rsSpawnerResourcelocation, random);
+                // Remove spawn potentials or else the spawner reverts back to default mob
+                template$blockinfo.tag.remove("SpawnPotentials");
+                blockEntity.fromTag(template$blockinfo.state, template$blockinfo.tag);
+                blockEntity.applyMirror(placementIn.getMirror());
+                blockEntity.applyRotation(placementIn.getRotation());
 
+                EntityType<?> entity = RepurposedStructures.mobSpawnerManager.getSpawnerMob(config.rsSpawnerResourcelocation, random);
                 if(entity != null){
                     ((MobSpawnerBlockEntity) blockEntity).getLogic().setEntityId(entity);
                 }
                 else{
                     RepurposedStructures.LOGGER.log(Level.WARN, "EntityType in a dungeon does not exist in registry!");
                 }
+                return;
             }
-            else if(blockEntity instanceof LootableContainerBlockEntity){
+
+            blockEntity.fromTag(template$blockinfo.state, template$blockinfo.tag);
+            blockEntity.applyMirror(placementIn.getMirror());
+            blockEntity.applyRotation(placementIn.getRotation());
+            if(blockEntity instanceof LootableContainerBlockEntity){
                 if(blockstate.isOf(Blocks.CHEST)){
                     world.setBlockState(blockpos, StructurePiece.orientateChest(world, blockpos, Blocks.CHEST.getDefaultState()), 2);
                 }
