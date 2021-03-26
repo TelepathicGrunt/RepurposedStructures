@@ -240,7 +240,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                                         ((MobSpawnerBlockEntity) blockEntity).getLogic().setEntityId(entity);
                                     }
                                     else{
-                                        RepurposedStructures.LOGGER.log(Level.WARN, "EntityType in a dungeon does not exist in registry!");
+                                        RepurposedStructures.LOGGER.log(Level.WARN, "EntityType in a dungeon does not exist in registry! : {}", config.rsSpawnerResourcelocation);
                                     }
                                 }
                             }
