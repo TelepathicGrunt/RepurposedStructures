@@ -71,17 +71,17 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
         BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(position);
         IChunk cachedChunk = world.getChunk(mutable);
 
-        int xMin = -halfLengths.getX() + 1;
-        int xMax = halfLengths.getX() - 1;
-        int zMin = -halfLengths.getZ() + 1;
-        int zMax = halfLengths.getZ() - 1;
-        int validOpenings = 0;
+        int xMin = -halfLengths.getX();
+        int xMax = halfLengths.getX();
+        int zMin = -halfLengths.getZ();
+        int zMax = halfLengths.getZ();
+        int wallOpenings = 0;
         int ceilingOpenings = 0;
         int ceiling = template.getSize().getY();
 
-        for (int x = xMin - 1; x <= xMax + 1; ++x) {
-            for (int z = zMin - 1; z <= zMax + 1; ++z) {
-                for (int y = -2; y <= ceiling + 1; ++y) {
+        for (int x = xMin; x <= xMax; ++x) {
+            for (int z = zMin; z <= zMax; ++z) {
+                for (int y = 0; y <= ceiling; ++y) {
                     mutable.setPos(position).move(x, y, z);
                     if(mutable.getX() >> 4 != cachedChunk.getPos().x || mutable.getZ() >> 4 != cachedChunk.getPos().z)
                         cachedChunk = world.getChunk(mutable);
@@ -89,12 +89,12 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                     BlockState state = cachedChunk.getBlockState(mutable);
 
                     // Dungeons cannot touch fluids if set to air mode and reverse if opposite
-                    if(config.airRequirementIsNowWater ? state.isAir() : !state.getFluidState().isEmpty()){
+                    if(config.airRequirementIsNowWater ? state.isAir() || state.getFluidState().isTagged(FluidTags.LAVA) : !state.getFluidState().isEmpty()){
                         return false;
                     }
                     // Floor must be complete
                     else if(!GeneralUtils.isFullCube(world, mutable, state)){
-                        if (y == -1) {
+                        if (y == 0 && !state.getMaterial().isSolid()) {
                             return false;
                         }
                         else if(state.isIn(BlockTags.LEAVES)){
@@ -106,36 +106,35 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                     }
 
                     // Check only along wall bottoms for openings
-                    if ((x == xMin || x == xMax || z == zMin || z == zMax) && y == 0 && isValidNonSolidBlock(config, state))
+                    if ((x == xMin || x == xMax || z == zMin || z == zMax) && y == 1 && isValidNonSolidBlock(config, state))
                     {
-                        BlockState aboveState = cachedChunk.getBlockState(mutable.move(Direction.UP));
+                        BlockState aboveState = cachedChunk.getBlockState(mutable);
                         if(config.airRequirementIsNowWater ?
                                 !aboveState.getFluidState().isEmpty() :
                                 aboveState.isAir())
                         {
-                            validOpenings++;
+                            wallOpenings++;
                         }
-                        mutable.move(Direction.DOWN);
                     }
 
                     // Too much open space. Quit
-                    if(validOpenings > config.maxAirSpace || ceilingOpenings >= config.maxAirSpace){
+                    if(wallOpenings > config.maxAirSpace || ceilingOpenings > config.maxAirSpace){
                         return false;
                     }
                 }
             }
         }
 
-        // offset the dungeon such as ocean dungeons down 1
-        position = position.up(config.structureYOffset);
-
         // Check if we meet minimum for open space.
-        if (validOpenings >= config.minAirSpace) {
+        if (wallOpenings >= config.minAirSpace) {
+            // offset the dungeon such as ocean dungeons down 1
+            position = position.up(config.structureYOffset);
+
             //UltraAmplifiedDimension.LOGGER.log(Level.INFO, nbtRL + " at X: "+position.getX() +", "+position.getY()+", "+position.getZ());
             PlacementSettings placementsettings = (new PlacementSettings()).setRotation(rotation).setCenterOffset(halfLengths).setIgnoreEntities(false);
             Optional<StructureProcessorList> processor = world.getWorld().getServer().getRegistryManager().get(Registry.PROCESSOR_LIST_WORLDGEN).getOrEmpty(config.processor);
             processor.orElse(ProcessorLists.EMPTY).getList().forEach(placementsettings::addProcessor); // add all processors
-            addBlocksToWorld(template, world, chunkGenerator, mutable.setPos(position).move(-halfLengths.getX(), -1, -halfLengths.getZ()), placementsettings, 2, random, config);
+            addBlocksToWorld(template, world, chunkGenerator, mutable.setPos(position).move(-halfLengths.getX(), 0, -halfLengths.getZ()), placementsettings, 2, random, config);
             spawnLootBlocks(world, random, position, config, fullLengths, halfLengths, mutable);
             return true;
         }
@@ -223,9 +222,26 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                             world.setBlockState(mutable, lootBlock, 2);
                             LockableLootTileEntity.setLootTable(world, random, mutable, config.chestResourceLocation);
 
-                            BlockState blockBelow = world.getBlockState(mutable.down());
-                            if(blockBelow.contains(SlabBlock.TYPE)){
-                                world.setBlockState(mutable.down(), blockBelow.with(SlabBlock.TYPE, SlabType.DOUBLE), 3);
+                            mutable.move(Direction.DOWN);
+                            if(lootBlock.getBlock() == Blocks.SHULKER_BOX){
+                                world.setBlockState(mutable, Blocks.SPAWNER.getDefaultState(), 2);
+                                TileEntity blockEntity = world.getTileEntity(mutable);
+                                if (blockEntity instanceof MobSpawnerTileEntity) {
+                                    EntityType<?> entity = RepurposedStructures.mobSpawnerManager.getSpawnerMob(config.rsSpawnerResourcelocation, random);
+
+                                    if(entity != null){
+                                        ((MobSpawnerTileEntity) blockEntity).getSpawnerBaseLogic().setEntityType(entity);
+                                    }
+                                    else{
+                                        RepurposedStructures.LOGGER.log(Level.WARN, "EntityType in a dungeon does not exist in registry! : {}", config.rsSpawnerResourcelocation);
+                                    }
+                                }
+                            }
+                            else {
+                                BlockState blockBelow = world.getBlockState(mutable);
+                                if (blockBelow.contains(SlabBlock.TYPE)) {
+                                    world.setBlockState(mutable, blockBelow.with(SlabBlock.TYPE, SlabType.DOUBLE), 3);
+                                }
                             }
 
                             currentChestCount++;
@@ -346,26 +362,34 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
     }
 
     private void setBlockEntity(IServerWorld world, PlacementSettings placementIn, Random random, NbtDungeonConfig config, Template.BlockInfo template$blockinfo, BlockPos blockpos, BlockState blockstate) {
-        TileEntity blockentity1 = world.getTileEntity(blockpos);
-        if (blockentity1 != null) {
+        TileEntity blockentity = world.getTileEntity(blockpos);
+        if (blockentity != null) {
             template$blockinfo.nbt.putInt("x", blockpos.getX());
             template$blockinfo.nbt.putInt("y", blockpos.getY());
             template$blockinfo.nbt.putInt("z", blockpos.getZ());
-            blockentity1.fromTag(template$blockinfo.state, template$blockinfo.nbt);
-            blockentity1.mirror(placementIn.getMirror());
-            blockentity1.rotate(placementIn.getRotation());
 
-            if (blockentity1 instanceof MobSpawnerTileEntity) {
+            if (blockentity instanceof MobSpawnerTileEntity) {
+                // Remove spawn potentials or else the spawner reverts back to default mob
+                template$blockinfo.nbt.remove("SpawnPotentials");
+
+                blockentity.fromTag(template$blockinfo.state, template$blockinfo.nbt);
+                blockentity.mirror(placementIn.getMirror());
+                blockentity.rotate(placementIn.getRotation());
+
                 EntityType<?> entity = RepurposedStructures.mobSpawnerManager.getSpawnerMob(config.rsSpawnerResourcelocation, random);
-
                 if(entity != null){
-                    ((MobSpawnerTileEntity)blockentity1).getSpawnerBaseLogic().setEntityType(entity);
+                    ((MobSpawnerTileEntity)blockentity).getSpawnerBaseLogic().setEntityType(entity);
                 }
                 else{
                     RepurposedStructures.LOGGER.log(Level.WARN, "EntityType in a dungeon does not exist in registry!");
                 }
+                return;
             }
-            else if(blockentity1 instanceof LockableLootTileEntity){
+
+            blockentity.fromTag(template$blockinfo.state, template$blockinfo.nbt);
+            blockentity.mirror(placementIn.getMirror());
+            blockentity.rotate(placementIn.getRotation());
+            if(blockentity instanceof LockableLootTileEntity){
                 if(blockstate.isIn(Blocks.CHEST)){
                     world.setBlockState(blockpos, StructurePiece.func_197528_a(world, blockpos, Blocks.CHEST.getDefaultState()), 2);
                 }
