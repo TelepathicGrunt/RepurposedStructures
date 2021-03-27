@@ -59,13 +59,20 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
         }
         Rotation rotation = Rotation.randomRotation(random);
 
-        // Rotated blockpos for the nbt's sizes to be used later. Ignore Y
+        // For proper offsetting the dungeon so it rotate properly around position parameter.
+        BlockPos halfLengths = new BlockPos(
+                template.getSize().getX() / 2,
+                template.getSize().getY() / 2,
+                template.getSize().getZ() / 2);
+
+        // Rotated blockpos for the nbt's sizes to be used later.
         BlockPos fullLengths = new BlockPos(
                 Math.abs(template.getSize().rotate(rotation).getX()),
                 Math.abs(template.getSize().rotate(rotation).getY()),
                 Math.abs(template.getSize().rotate(rotation).getZ()));
 
-        BlockPos halfLengths = new BlockPos(
+        // For post processing spawners and chests for rotated dungeon.
+        BlockPos halfLengthsRotated = new BlockPos(
                 fullLengths.getX() / 2,
                 fullLengths.getY() / 2,
                 fullLengths.getZ() / 2);
@@ -73,17 +80,17 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
         BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(position);
         IChunk cachedChunk = world.getChunk(mutable);
 
-        int xMin = -halfLengths.getX();
-        int xMax = halfLengths.getX();
-        int zMin = -halfLengths.getZ();
-        int zMax = halfLengths.getZ();
+        int xMin = -halfLengthsRotated.getX();
+        int xMax = halfLengthsRotated.getX();
+        int zMin = -halfLengthsRotated.getZ();
+        int zMax = halfLengthsRotated.getZ();
         int wallOpenings = 0;
         int ceilingOpenings = 0;
         int ceiling = template.getSize().getY();
 
-        for (int x = xMin; x <= xMax; ++x) {
-            for (int z = zMin; z <= zMax; ++z) {
-                for (int y = 0; y <= ceiling; ++y) {
+        for (int x = xMin; x <= xMax; x++) {
+            for (int z = zMin; z <= zMax; z++) {
+                for (int y = 0; y <= ceiling; y++) {
                     mutable.setPos(position).move(x, y, z);
                     if(mutable.getX() >> 4 != cachedChunk.getPos().x || mutable.getZ() >> 4 != cachedChunk.getPos().z)
                         cachedChunk = world.getChunk(mutable);
@@ -137,7 +144,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
             Optional<StructureProcessorList> processor = world.getWorld().getServer().getRegistryManager().get(Registry.PROCESSOR_LIST_WORLDGEN).getOrEmpty(config.processor);
             processor.orElse(ProcessorLists.EMPTY).getList().forEach(placementsettings::addProcessor); // add all processors
             addBlocksToWorld(template, world, chunkGenerator, mutable.setPos(position).move(-halfLengths.getX(), 0, -halfLengths.getZ()), placementsettings, 2, random, config);
-            spawnLootBlocks(world, random, position, config, fullLengths, halfLengths, mutable);
+            spawnLootBlocks(world, random, position, config, fullLengths, halfLengthsRotated, mutable);
             return true;
         }
 
