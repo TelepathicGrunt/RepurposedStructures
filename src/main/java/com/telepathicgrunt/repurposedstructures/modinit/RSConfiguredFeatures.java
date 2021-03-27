@@ -29,6 +29,9 @@ import java.util.Optional;
 public class RSConfiguredFeatures {
 
     // Dungeons
+
+    // Need this field so we can test to make sure we do not add the dungeons to biomes that
+    // we already added an RS dungeon to. (Due to BiomeModification API running separately for each feature)
     public static List<ConfiguredFeature<?, ?>> RS_DUNGEONS = new ArrayList<>();
 
     private static NbtDungeonConfig getDefaultNbtDungeonConfig(String dungeonType){

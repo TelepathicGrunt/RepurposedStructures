@@ -270,6 +270,8 @@ public class RSAddFeaturesAndStructures {
                         && !BiomeSelection.isBiome(context, BiomeKeys.THE_END, BiomeKeys.SMALL_END_ISLANDS),
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.END_DUNGEONS));
 
+        // Have to do this abomination to get neutral ocean dungeons only in biomes that the other ocean dungeon types won't touch.
+        // All due to BiomeModification API being per feature instead of an event like Forge's Biome Modification event.
         addToBiome("ocean_neutral_dungeons",
                 (context) -> genericDungeonCheck(context)
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.oceanDungeonAttemptsPerChunk != 0
