@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures;
 
 import com.google.common.collect.ImmutableMap;
+import com.mojang.datafixers.util.Pair;
 import com.telepathicgrunt.repurposedstructures.biome_injection.*;
 import com.telepathicgrunt.repurposedstructures.configs.RSDungeonsConfig.RSDungeonsConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSMainConfig;
@@ -46,6 +47,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 
@@ -149,7 +151,7 @@ public class RepurposedStructures
 	public void biomeModification(final BiomeLoadingEvent event) {
 		//Gets blacklisted biome IDs for each structure type
 		//Done here so the map can be garbage collected later
-		Map<String, List<String>> allBiomeBlacklists = RepurposedStructures.getBiomeBlacklists();
+		Map<String, Pair<List<String>, Consumer<BiomeLoadingEvent>>> allBiomeBlacklists = RepurposedStructures.getBiomeBlacklists();
 
 		//Add our structures and features
 		RepurposedStructures.addFeaturesAndStructuresToBiomes(event, allBiomeBlacklists);
@@ -199,49 +201,18 @@ public class RepurposedStructures
 
 	/*
      * Here, we will use this to add our structures/features to all biomes.
-     *
-     * TODO: move the logic into the map itself.
      */
-	public static void addFeaturesAndStructuresToBiomes(BiomeLoadingEvent event, Map<String, List<String>> allBiomeBlacklists) {
+	public static void addFeaturesAndStructuresToBiomes(BiomeLoadingEvent event, Map<String, Pair<List<String>, Consumer<BiomeLoadingEvent>>> allBiomeBlacklists) {
 
-		if(isBiomeAllowed("mineshafts", event.getName(), allBiomeBlacklists))
-			Mineshafts.addMineshafts(event);
-		if(isBiomeAllowed("fortresses", event.getName(), allBiomeBlacklists))
-			Fortresses.addJungleFortress(event);
-		if(isBiomeAllowed("dungeons", event.getName(), allBiomeBlacklists))
-			Dungeons.addDungeons(event);
-		if(isBiomeAllowed("wells", event.getName(), allBiomeBlacklists))
-			Wells.addWells(event);
-		if(isBiomeAllowed("boulders", event.getName(), allBiomeBlacklists))
-			Boulders.addBoulderFeatures(event);
-		if(isBiomeAllowed("temples", event.getName(), allBiomeBlacklists))
-			Temples.addTemples(event);
-		if(isBiomeAllowed("pyramids", event.getName(), allBiomeBlacklists))
-			Pyramids.addPyramids(event);
-		if(isBiomeAllowed("igloos", event.getName(), allBiomeBlacklists))
-			Igloos.addIgloos(event);
-		if(isBiomeAllowed("outposts", event.getName(), allBiomeBlacklists))
-			Outposts.addOutposts(event);
-		if(isBiomeAllowed("shipwrecks", event.getName(), allBiomeBlacklists))
-			Shipwrecks.addShipwrecks(event);
-		if(isBiomeAllowed("villages", event.getName(), allBiomeBlacklists))
-			Villages.addVillages(event);
-		if(isBiomeAllowed("strongholds", event.getName(), allBiomeBlacklists))
-			Strongholds.addStrongholds(event);
-		if(isBiomeAllowed("ruinedPortals", event.getName(), allBiomeBlacklists))
-			RuinedPortals.addRuinedPortals(event);
-		if(isBiomeAllowed("ruins", event.getName(), allBiomeBlacklists))
-			Ruins.addRuins(event);
-		if(isBiomeAllowed("cities", event.getName(), allBiomeBlacklists))
-			Cities.addCities(event);
-		if(isBiomeAllowed("mansions", event.getName(), allBiomeBlacklists))
-			Mansions.addMansions(event);
-		if(isBiomeAllowed("witch_huts", event.getName(), allBiomeBlacklists))
-			WitchHuts.addWitchHuts(event);
+		for(Map.Entry<String, Pair<List<String>, Consumer<BiomeLoadingEvent>>> entry : allBiomeBlacklists.entrySet()){
+			if(isBiomeAllowed(entry.getKey(), event.getName(), allBiomeBlacklists)){
+				entry.getValue().getSecond().accept(event);
+			}
+		}
 	}
     
-    private static boolean isBiomeAllowed(String structureType, ResourceLocation biomeID, Map<String, List<String>> allBiomeBlacklists){
-    	return allBiomeBlacklists.get(structureType).stream().noneMatch(blacklistedBiome -> blacklistedBiome.equals(biomeID.toString()));
+    private static boolean isBiomeAllowed(String structureType, ResourceLocation biomeID, Map<String, Pair<List<String>, Consumer<BiomeLoadingEvent>>> allBiomeBlacklists){
+    	return allBiomeBlacklists.get(structureType).getFirst().stream().noneMatch(blacklistedBiome -> blacklistedBiome.equals(biomeID.toString()));
 	}
 
 	/**
@@ -250,26 +221,26 @@ public class RepurposedStructures
 	 *
 	 * @return - A map of structure/feature type to their biome blacklist
 	 */
-	public static Map<String, List<String>> getBiomeBlacklists(){
-		Map<String, List<String>> allBiomeBlacklists = new HashMap<>();
+	public static Map<String, Pair<List<String>, Consumer<BiomeLoadingEvent>>> getBiomeBlacklists(){
+		Map<String, Pair<List<String>, Consumer<BiomeLoadingEvent>>> allBiomeBlacklists = new HashMap<>();
 
-		allBiomeBlacklists.put("dungeons", Arrays.asList(RepurposedStructures.RSDungeonsConfig.blacklistedDungeonBiomes.get().replace(" ", "").split(",")));
-		allBiomeBlacklists.put("boulders", Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedBoulderBiomes.get().replace(" ", "").split(",")));
-		allBiomeBlacklists.put("fortresses", Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedFortressBiomes.get().replace(" ", "").split(",")));
-		allBiomeBlacklists.put("igloos", Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedIglooBiomes.get().replace(" ", "").split(",")));
-		allBiomeBlacklists.put("mineshafts", Arrays.asList(RepurposedStructures.RSMineshaftsConfig.blacklistedMineshaftBiomes.get().replace(" ", "").split(",")));
-		allBiomeBlacklists.put("outposts", Arrays.asList(RepurposedStructures.RSOutpostsConfig.blacklistedOutpostBiomes.get().replace(" ", "").split(",")));
-		allBiomeBlacklists.put("shipwrecks", Arrays.asList(RepurposedStructures.RSShipwrecksConfig.blacklistedShipwreckBiomes.get().replace(" ", "").split(",")));
-		allBiomeBlacklists.put("strongholds", Arrays.asList(RepurposedStructures.RSStrongholdsConfig.blacklistedStrongholdBiomes.get().replace(" ", "").split(",")));
-		allBiomeBlacklists.put("temples", Arrays.asList(RepurposedStructures.RSTemplesConfig.blacklistedTempleBiomes.get().replace(" ", "").split(",")));
-		allBiomeBlacklists.put("pyramids", Arrays.asList(RepurposedStructures.RSTemplesConfig.blacklistedPyramidBiomes.get().replace(" ", "").split(",")));
-		allBiomeBlacklists.put("villages", Arrays.asList(RepurposedStructures.RSVillagesConfig.blacklistedVillageBiomes.get().replace(" ", "").split(",")));
-		allBiomeBlacklists.put("wells", Arrays.asList(RepurposedStructures.RSWellsConfig.blacklistedWellBiomes.get().replace(" ", "").split(",")));
-		allBiomeBlacklists.put("ruinedPortals", Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedRuinedPortalsBiomes.get().replace(" ", "").split(",")));
-		allBiomeBlacklists.put("ruins", Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedRuinsBiomes.get().replace(" ", "").split(",")));
-		allBiomeBlacklists.put("cities", Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedCitiesBiomes.get().replace(" ", "").split(",")));
-		allBiomeBlacklists.put("mansions", Arrays.asList(RepurposedStructures.RSMansionsConfig.blacklistedMansionBiomes.get().replace(" ", "").split(",")));
-		allBiomeBlacklists.put("witch_huts", Arrays.asList(RepurposedStructures.RSWitchHutsConfig.blacklistedWitchHutBiomes.get().replace(" ", "").split(",")));
+		allBiomeBlacklists.put("dungeons", Pair.of(Arrays.asList(RepurposedStructures.RSDungeonsConfig.blacklistedDungeonBiomes.get().replace(" ", "").split(",")), Dungeons::addDungeons));
+		allBiomeBlacklists.put("boulders", Pair.of(Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedBoulderBiomes.get().replace(" ", "").split(",")), Boulders::addBoulderFeatures));
+		allBiomeBlacklists.put("fortresses", Pair.of(Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedFortressBiomes.get().replace(" ", "").split(",")), Fortresses::addJungleFortress));
+		allBiomeBlacklists.put("igloos", Pair.of(Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedIglooBiomes.get().replace(" ", "").split(",")), Igloos::addIgloos));
+		allBiomeBlacklists.put("mineshafts", Pair.of(Arrays.asList(RepurposedStructures.RSMineshaftsConfig.blacklistedMineshaftBiomes.get().replace(" ", "").split(",")), Mineshafts::addMineshafts));
+		allBiomeBlacklists.put("outposts", Pair.of(Arrays.asList(RepurposedStructures.RSOutpostsConfig.blacklistedOutpostBiomes.get().replace(" ", "").split(",")), Outposts::addOutposts));
+		allBiomeBlacklists.put("shipwrecks", Pair.of(Arrays.asList(RepurposedStructures.RSShipwrecksConfig.blacklistedShipwreckBiomes.get().replace(" ", "").split(",")), Shipwrecks::addShipwrecks));
+		allBiomeBlacklists.put("strongholds", Pair.of(Arrays.asList(RepurposedStructures.RSStrongholdsConfig.blacklistedStrongholdBiomes.get().replace(" ", "").split(",")), Strongholds::addStrongholds));
+		allBiomeBlacklists.put("temples", Pair.of(Arrays.asList(RepurposedStructures.RSTemplesConfig.blacklistedTempleBiomes.get().replace(" ", "").split(",")), Temples::addTemples));
+		allBiomeBlacklists.put("pyramids", Pair.of(Arrays.asList(RepurposedStructures.RSTemplesConfig.blacklistedPyramidBiomes.get().replace(" ", "").split(",")), Pyramids::addPyramids));
+		allBiomeBlacklists.put("villages", Pair.of(Arrays.asList(RepurposedStructures.RSVillagesConfig.blacklistedVillageBiomes.get().replace(" ", "").split(",")), Villages::addVillages));
+		allBiomeBlacklists.put("wells", Pair.of(Arrays.asList(RepurposedStructures.RSWellsConfig.blacklistedWellBiomes.get().replace(" ", "").split(",")), Wells::addWells));
+		allBiomeBlacklists.put("ruinedPortals", Pair.of(Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedRuinedPortalsBiomes.get().replace(" ", "").split(",")), RuinedPortals::addRuinedPortals));
+		allBiomeBlacklists.put("ruins", Pair.of(Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedRuinsBiomes.get().replace(" ", "").split(",")), Ruins::addRuins));
+		allBiomeBlacklists.put("cities", Pair.of(Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedCitiesBiomes.get().replace(" ", "").split(",")), Cities::addCities));
+		allBiomeBlacklists.put("mansions", Pair.of(Arrays.asList(RepurposedStructures.RSMansionsConfig.blacklistedMansionBiomes.get().replace(" ", "").split(",")), Mansions::addMansions));
+		allBiomeBlacklists.put("witch_huts", Pair.of(Arrays.asList(RepurposedStructures.RSWitchHutsConfig.blacklistedWitchHutBiomes.get().replace(" ", "").split(",")), WitchHuts::addWitchHuts));
 
 		return allBiomeBlacklists;
 	}

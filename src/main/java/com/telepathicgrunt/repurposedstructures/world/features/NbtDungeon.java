@@ -35,7 +35,6 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.structure.StructurePiece;
 import net.minecraft.world.gen.feature.template.*;
-import org.apache.logging.log4j.Level;
 
 import java.util.Iterator;
 import java.util.List;

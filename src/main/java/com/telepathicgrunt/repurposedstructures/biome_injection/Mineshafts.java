@@ -44,13 +44,11 @@ public class Mineshafts {
         return false; // continue to next mineshaft type
     }
 
+
     // Was originally going to make all structures use maps like below but then Fabric came out with Biome Modification API
     // which is incompatible with maps like below. So now Mineshafts are stuck using this legacy map.
-
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // MINESHAFTS //
-
     public static final Map<StructureFeature<?, ?>, Predicate<BiomeLoadingEvent>> MINESHAFT_TYPE_AND_CONDITIONS = new HashMap<>();
+
     static {
         MINESHAFT_TYPE_AND_CONDITIONS.put(RSConfiguredStructures.BIRCH_MINESHAFT, (event) ->
                 RepurposedStructures.RSMineshaftsConfig.birchMineshaftSpawnrate.get() != 0 &&
