@@ -8,7 +8,7 @@
           },
           "input_predicate": {
             "block": "minecraft:snow_block",
-            "probability": 0.08,
+            "probability": 0.075,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -21,7 +21,20 @@
           },
           "input_predicate": {
             "block": "minecraft:snow_block",
-            "probability": 0.08,
+            "probability": 0.075,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:blue_ice"
+          },
+          "input_predicate": {
+            "block": "minecraft:snow_block",
+            "probability": 0.01,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -37,7 +50,7 @@
           },
           "input_predicate": {
             "block": "minecraft:snow",
-            "probability": 0.03,
+            "probability": 0.01,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -53,7 +66,7 @@
           },
           "input_predicate": {
             "block": "minecraft:snow",
-            "probability": 0.03,
+            "probability": 0.01,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -69,7 +82,7 @@
           },
           "input_predicate": {
             "block": "minecraft:snow",
-            "probability": 0.03,
+            "probability": 0.01,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -85,7 +98,7 @@
           },
           "input_predicate": {
             "block": "minecraft:snow",
-            "probability": 0.03,
+            "probability": 0.01,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -101,7 +114,7 @@
           },
           "input_predicate": {
             "block": "minecraft:snow",
-            "probability": 0.03,
+            "probability": 0.01,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -117,7 +130,7 @@
           },
           "input_predicate": {
             "block": "minecraft:snow",
-            "probability": 0.03,
+            "probability": 0.01,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -133,7 +146,7 @@
           },
           "input_predicate": {
             "block": "minecraft:snow",
-            "probability": 0.03,
+            "probability": 0.01,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
