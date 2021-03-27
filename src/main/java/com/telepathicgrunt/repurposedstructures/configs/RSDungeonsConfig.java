@@ -123,14 +123,14 @@ public class RSDungeonsConfig
 								" How often dungeons will attempt to spawn per chunk.",
 								" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.")
 						.translation("repurposedstructures.config.dungeons.enddungeonattemptsperchunk")
-						.defineInRange("endDungeonAttemptsPerChunk", 8, 0, 1000));
+						.defineInRange("endDungeonAttemptsPerChunk", 12, 0, 1000));
 
 					netherDungeonAttemptsPerChunk = subscriber.subscribe(builder
 							.comment("\n Add Nether themed dungeon to Nether biomes.",
 								" How often dungeons will attempt to spawn per chunk.",
 								" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.")
 						.translation("repurposedstructures.config.dungeons.netherdungeonattemptsperchunk")
-						.defineInRange("netherDungeonAttemptsPerChunk", 8, 0, 1000));
+						.defineInRange("netherDungeonAttemptsPerChunk", 12, 0, 1000));
 
 					oceanDungeonAttemptsPerChunk = subscriber.subscribe(builder
 							.comment("\n Add ocean themed dungeon to ocean biomes. These will spawn on",
