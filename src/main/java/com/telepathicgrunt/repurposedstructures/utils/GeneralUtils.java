@@ -6,16 +6,15 @@ import net.fabricmc.fabric.api.biome.v1.BiomeModificationContext;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
 import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
+import net.minecraft.block.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
+import net.minecraft.world.BlockView;
+import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.StructureWorldAccess;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
@@ -43,12 +42,38 @@ public class GeneralUtils {
     //////////////////////////////
     private static final Map<BlockState, Boolean> IS_FULLCUBE_MAP = new HashMap<>();
 
-    public static boolean isFullCube(StructureWorldAccess world, BlockPos pos, BlockState state){
+    public static boolean isFullCube(ServerWorldAccess world, BlockPos pos, BlockState state){
         if(!IS_FULLCUBE_MAP.containsKey(state)){
             boolean isFullCube = Block.isShapeFullCube(state.getCullingShape(world, pos));
             IS_FULLCUBE_MAP.put(state, isFullCube);
         }
         return IS_FULLCUBE_MAP.get(state);
+    }
+
+    //////////////////////////////
+
+    // Helper method to make chests always face away from walls
+    public static BlockState orientateChest(ServerWorldAccess blockView, BlockPos blockPos, BlockState blockState) {
+        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        Direction wallDirection = blockState.get(HorizontalFacingBlock.FACING);
+
+        for(Direction facing : Direction.Type.HORIZONTAL) {
+            mutable.set(blockPos).move(facing);
+
+            // Checks if wall is in this side
+            if (isFullCube(blockView, mutable, blockView.getBlockState(mutable))) {
+                wallDirection = facing;
+
+                // Exit early if facing open space opposite of wall
+                mutable.move(facing.getOpposite(), 2);
+                if(!blockView.getBlockState(mutable).getMaterial().isSolid()){
+                    break;
+                }
+            }
+        }
+
+        // Make chest face away from wall
+        return blockState.with(HorizontalFacingBlock.FACING, wallDirection.getOpposite());
     }
 
     //////////////////////////////
