@@ -1,15 +1,15 @@
 package com.telepathicgrunt.repurposedstructures.utils;
 
+import com.google.gson.JsonElement;
 import com.mojang.datafixers.util.Pair;
+import com.mojang.serialization.JsonOps;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public class GeneralUtils {
 
@@ -42,4 +42,27 @@ public class GeneralUtils {
         }
         return IS_FULLCUBE_MAP.get(state);
     }
+
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // GENERAL UTILITIES //
+
+    /**
+     * Will serialize (if possible) both features and check if they are the same feature.
+     * If cannot serialize, compare the feature itself to see if it is the same.
+     */
+    public static boolean serializeAndCompareFeature(ConfiguredFeature<?, ?> configuredFeature1, ConfiguredFeature<?, ?> configuredFeature2) {
+
+        Optional<JsonElement> configuredFeatureJSON1 = ConfiguredFeature.field_25833.encode(configuredFeature1, JsonOps.INSTANCE, JsonOps.INSTANCE.empty()).get().left();
+        Optional<JsonElement> configuredFeatureJSON2 = ConfiguredFeature.field_25833.encode(configuredFeature2, JsonOps.INSTANCE, JsonOps.INSTANCE.empty()).get().left();
+
+        // One of the configuredfeatures cannot be serialized
+        if(!configuredFeatureJSON1.isPresent() || !configuredFeatureJSON2.isPresent()) {
+            return false;
+        }
+
+        // Compare the JSON to see if it's the same ConfiguredFeature in the end.
+        return configuredFeatureJSON1.equals(configuredFeatureJSON2);
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures;
 
 import com.google.common.collect.ImmutableMap;
+import com.telepathicgrunt.repurposedstructures.biome_injection.*;
 import com.telepathicgrunt.repurposedstructures.configs.RSDungeonsConfig.RSDungeonsConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSMainConfig;
 import com.telepathicgrunt.repurposedstructures.configs.RSMainConfig.RSConfigValues;
@@ -14,17 +15,24 @@ import com.telepathicgrunt.repurposedstructures.configs.RSVillagesConfig.RSVilla
 import com.telepathicgrunt.repurposedstructures.configs.RSWellsConfig.RSWellsConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSWitchHutsConfig.RSWitchHutsConfigValues;
 import com.telepathicgrunt.repurposedstructures.misc.MobMapTrades;
+import com.telepathicgrunt.repurposedstructures.mixin.ChunkGeneratorAccessor;
 import com.telepathicgrunt.repurposedstructures.modinit.*;
 import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
 import com.telepathicgrunt.repurposedstructures.utils.LogSpamFiltering;
 import com.telepathicgrunt.repurposedstructures.utils.MobSpawnerManager;
+import it.unimi.dsi.fastutil.objects.Reference2ObjectOpenHashMap;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
+import net.minecraft.world.World;
+import net.minecraft.world.gen.FlatChunkGenerator;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.settings.StructureSeparationSettings;
+import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.AddReloadListenerEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
+import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
@@ -38,6 +46,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 
 @Mod(RepurposedStructures.MODID)
@@ -81,7 +90,7 @@ public class RepurposedStructures
 
 		forgeBus.addListener(this::biomeModification);
 		forgeBus.addListener(this::registerDatapackListener);
-		forgeBus.addListener(RSAddFeaturesAndStructures::addDimensionalSpacing);
+		forgeBus.addListener(this::addDimensionalSpacing);
 		forgeBus.addListener(MobMapTrades::onVillagerTradesEvent);
 
 		modEventBus.addListener(this::setup);
@@ -146,45 +155,89 @@ public class RepurposedStructures
 		RepurposedStructures.addFeaturesAndStructuresToBiomes(event, allBiomeBlacklists);
 	}
 
-    /*
+	public void addDimensionalSpacing(final WorldEvent.Load event) {
+		//add our structure spacing to all chunkgenerators including modded one and datapack ones.
+		List<String> dimensionBlacklist = Arrays.stream(RepurposedStructures.RSMainConfig.blacklistedDimensions.get().split(",")).map(String::trim).collect(Collectors.toList());
+
+		if (event.getWorld() instanceof ServerWorld){
+			ServerWorld serverWorld = (ServerWorld) event.getWorld();
+
+			// Workaround for Terraforged. Not thrilled they take control over my structure's configs but nothing I can do about that without breaking structure gen/locating or ASM into Terraforged.
+			// They took the stance of locking down their ChunkGenerator and breaking mods that modifies the structure configs in it due to a perceived idea that malicious mods exist to mess with other structure's spacings... Dont ask me. I dont even know anymore.
+			ResourceLocation cgRL = Registry.CHUNK_GENERATOR.getKey(((ChunkGeneratorAccessor)serverWorld.getChunkProvider().generator).rs_getCodec());
+			if(cgRL != null && cgRL.getNamespace().equals("terraforged")) return;
+
+
+			// Need temp map as some mods use custom chunk generators with immutable maps in themselves.
+			Map<Structure<?>, StructureSeparationSettings> tempMap = new HashMap<>(serverWorld.getChunkProvider().generator.getStructuresConfig().getStructures());
+			if(dimensionBlacklist.stream().anyMatch(blacklist -> blacklist.equals((serverWorld.getRegistryKey().getValue().toString()))))
+			{
+				// make absolutely sure dimension cannot spawn RS structures
+				tempMap.keySet().removeAll(RSStructures.RS_STRUCTURES.keySet());
+			}
+			else if (serverWorld.getChunkProvider().getChunkGenerator() instanceof FlatChunkGenerator && serverWorld.getRegistryKey().equals(World.OVERWORLD)) {
+				// Make absolutely sure superflat dimension cannot spawn RS structures as it is glitchy and weird.
+				// Also, users don't like structures in superflat worlds.
+				tempMap.keySet().removeAll(RSStructures.RS_STRUCTURES.keySet());
+			}
+			else{
+				// make absolutely sure dimension can spawn RS structures
+				Map<Structure<?>, StructureSeparationSettings> spacingToAdd = new Reference2ObjectOpenHashMap<>();
+				spacingToAdd.putAll(RSStructures.RS_STRUCTURES);
+
+				// Do not spawn strongholds in end.
+				if(serverWorld.getRegistryKey().equals(World.END)){
+					spacingToAdd.remove(RSStructures.STONEBRICK_STRONGHOLD.get());
+					spacingToAdd.remove(RSStructures.NETHER_STRONGHOLD.get());
+				}
+
+				spacingToAdd.forEach(tempMap::putIfAbsent);
+			}
+			serverWorld.getChunkProvider().generator.getStructuresConfig().structures = tempMap;
+		}
+	}
+
+	/*
      * Here, we will use this to add our structures/features to all biomes.
+     *
+     * TODO: move the logic into the map itself.
      */
 	public static void addFeaturesAndStructuresToBiomes(BiomeLoadingEvent event, Map<String, List<String>> allBiomeBlacklists) {
 
 		if(isBiomeAllowed("mineshafts", event.getName(), allBiomeBlacklists))
-			RSAddFeaturesAndStructures.addMineshafts(event);
+			Mineshafts.addMineshafts(event);
 		if(isBiomeAllowed("fortresses", event.getName(), allBiomeBlacklists))
-			RSAddFeaturesAndStructures.addJungleFortress(event);
+			Fortresses.addJungleFortress(event);
 		if(isBiomeAllowed("dungeons", event.getName(), allBiomeBlacklists))
-			RSAddFeaturesAndStructures.addDungeons(event);
+			Dungeons.addDungeons(event);
 		if(isBiomeAllowed("wells", event.getName(), allBiomeBlacklists))
-			RSAddFeaturesAndStructures.addWells(event);
+			Wells.addWells(event);
 		if(isBiomeAllowed("boulders", event.getName(), allBiomeBlacklists))
-			RSAddFeaturesAndStructures.addBoulderFeatures(event);
+			Boulders.addBoulderFeatures(event);
 		if(isBiomeAllowed("temples", event.getName(), allBiomeBlacklists))
-			RSAddFeaturesAndStructures.addTemples(event);
+			Temples.addTemples(event);
 		if(isBiomeAllowed("pyramids", event.getName(), allBiomeBlacklists))
-			RSAddFeaturesAndStructures.addPyramids(event);
+			Pyramids.addPyramids(event);
 		if(isBiomeAllowed("igloos", event.getName(), allBiomeBlacklists))
-			RSAddFeaturesAndStructures.addIgloos(event);
+			Igloos.addIgloos(event);
 		if(isBiomeAllowed("outposts", event.getName(), allBiomeBlacklists))
-			RSAddFeaturesAndStructures.addOutposts(event);
+			Outposts.addOutposts(event);
 		if(isBiomeAllowed("shipwrecks", event.getName(), allBiomeBlacklists))
-			RSAddFeaturesAndStructures.addShipwrecks(event);
+			Shipwrecks.addShipwrecks(event);
 		if(isBiomeAllowed("villages", event.getName(), allBiomeBlacklists))
-			RSAddFeaturesAndStructures.addVillages(event);
+			Villages.addVillages(event);
 		if(isBiomeAllowed("strongholds", event.getName(), allBiomeBlacklists))
-			RSAddFeaturesAndStructures.addStrongholds(event);
+			Strongholds.addStrongholds(event);
 		if(isBiomeAllowed("ruinedPortals", event.getName(), allBiomeBlacklists))
-			RSAddFeaturesAndStructures.addRuinedPortals(event);
+			RuinedPortals.addRuinedPortals(event);
 		if(isBiomeAllowed("ruins", event.getName(), allBiomeBlacklists))
-			RSAddFeaturesAndStructures.addRuins(event);
+			Ruins.addRuins(event);
 		if(isBiomeAllowed("cities", event.getName(), allBiomeBlacklists))
-			RSAddFeaturesAndStructures.addCities(event);
+			Cities.addCities(event);
 		if(isBiomeAllowed("mansions", event.getName(), allBiomeBlacklists))
-			RSAddFeaturesAndStructures.addMansions(event);
+			Mansions.addMansions(event);
 		if(isBiomeAllowed("witch_huts", event.getName(), allBiomeBlacklists))
-			RSAddFeaturesAndStructures.addWitchHuts(event);
+			WitchHuts.addWitchHuts(event);
 	}
     
     private static boolean isBiomeAllowed(String structureType, ResourceLocation biomeID, Map<String, List<String>> allBiomeBlacklists){
