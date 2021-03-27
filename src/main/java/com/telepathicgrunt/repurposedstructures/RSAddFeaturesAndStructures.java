@@ -124,7 +124,7 @@ public class RSAddFeaturesAndStructures {
                 RepurposedStructures.RSDungeonsConfig.badlandsDungeonAttemptsPerChunk.get() != 0 &&
                 dungeonAllowedByNamespaceAndConfig(event))
         {
-            replaceOrAddDungeon(true, event, RSConfiguredFeatures.test);
+            replaceOrAddDungeon(true, event, RSConfiguredFeatures.BADLANDS_DUNGEONS);
         }
         
         else if (BiomeSelection.haveCategories(event, Category.FOREST) &&
@@ -146,7 +146,10 @@ public class RSAddFeaturesAndStructures {
                 RepurposedStructures.RSDungeonsConfig.mushroomDungeonAttemptsPerChunk.get() != 0 &&
                 dungeonAllowedByNamespaceAndConfig(event))
         {
-            replaceOrAddDungeon(true, event, RSConfiguredFeatures.MUSHROOM_DUNGEONS);
+            if(RepurposedStructures.RSDungeonsConfig.mushroomDungeonMaxHeight.get() > 62)
+                replaceOrAddDungeon(true, event, RSConfiguredFeatures.MUSHROOM_HIGH_DUNGEONS);
+            if(RepurposedStructures.RSDungeonsConfig.mushroomDungeonMinHeight.get() <= 62)
+                replaceOrAddDungeon(true, event, RSConfiguredFeatures.MUSHROOM_LOW_DUNGEONS);
         }
         
         else if (BiomeSelection.haveCategories(event, Category.SWAMP) &&
@@ -177,12 +180,39 @@ public class RSAddFeaturesAndStructures {
         {
             replaceOrAddDungeon(false, event, RSConfiguredFeatures.END_DUNGEONS);
         }
-        
+
         else if (BiomeSelection.haveCategories(event, Category.OCEAN) &&
                 RepurposedStructures.RSDungeonsConfig.oceanDungeonAttemptsPerChunk.get() != 0 &&
                 dungeonAllowedByNamespaceAndConfig(event)) 
         {
-            replaceOrAddDungeon(false, event, RSConfiguredFeatures.OCEAN_DUNGEONS);
+            // Thanks to vanilla oceans all being same temperature, we have to use the has Namespace to correctly get them.
+            if(BiomeSelection.hasName(event, "lukewarm") ||
+                (!BiomeSelection.hasNamespace(event, "minecraft") &&
+                event.getClimate().temperature >= 0.9f && event.getClimate().temperature < 1.5f))
+            {
+                replaceOrAddDungeon(false, event, RSConfiguredFeatures.OCEAN_LUKEWARM_DUNGEONS);
+            }
+            else if(BiomeSelection.hasName(event, "lukewarm") ||
+                    (!BiomeSelection.hasNamespace(event, "minecraft") &&
+                    event.getClimate().temperature >= 1.5f))
+            {
+                replaceOrAddDungeon(false, event, RSConfiguredFeatures.OCEAN_WARM_DUNGEONS);
+            }
+            else if(BiomeSelection.hasName(event, "cold") ||
+                    (!BiomeSelection.hasNamespace(event, "minecraft") &&
+                    event.getClimate().temperature >= 0.0f && event.getClimate().temperature < 0.5f))
+            {
+                replaceOrAddDungeon(false, event, RSConfiguredFeatures.OCEAN_COLD_DUNGEONS);
+            }
+            else if(BiomeSelection.hasName(event, "frozen", "snow", "ice") ||
+                    (!BiomeSelection.hasNamespace(event, "minecraft") &&
+                    event.getClimate().temperature >= 0.9f && event.getClimate().temperature < 1.5f))
+            {
+                replaceOrAddDungeon(false, event, RSConfiguredFeatures.OCEAN_FROZEN_DUNGEONS);
+            }
+            else{
+                replaceOrAddDungeon(false, event, RSConfiguredFeatures.OCEAN_NEUTRAL_DUNGEONS);
+            }
         }
     }
 

@@ -1,8 +1,0 @@
-{
-  "mobs" : [
-    {
-      "name" : "minecraft:drowned",
-      "weight" : 100
-    }
-  ]
-}

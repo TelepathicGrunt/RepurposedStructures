@@ -7,7 +7,7 @@
             "Name": "minecraft:nether_bricks"
           },
           "input_predicate": {
-            "block": "minecraft:nether_bricks_slab",
+            "block": "minecraft:nether_brick_slab",
             "probability": 0.25,
             "predicate_type": "minecraft:random_block_match"
           },
