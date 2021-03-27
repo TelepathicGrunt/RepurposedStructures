@@ -1,8 +1,14 @@
 package com.telepathicgrunt.repurposedstructures.utils;
 
 import com.mojang.datafixers.util.Pair;
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import net.fabricmc.fabric.api.biome.v1.BiomeModificationContext;
+import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
+import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
+import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.StructureWorldAccess;
 
@@ -10,6 +16,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 public class GeneralUtils {
 
@@ -41,5 +49,13 @@ public class GeneralUtils {
             IS_FULLCUBE_MAP.put(state, isFullCube);
         }
         return IS_FULLCUBE_MAP.get(state);
+    }
+
+    //////////////////////////////
+
+    // Helper method to help reduce amount of code we need to write for adding structures to biomes
+    @SuppressWarnings("deprecation")
+    public static void addToBiome(String modificationName, Predicate<BiomeSelectionContext> selectorPredicate, Consumer<BiomeModificationContext> biomeAdditionConsumer) {
+        BiomeModifications.create(new Identifier(RepurposedStructures.MODID, modificationName)).add(ModificationPhase.ADDITIONS, selectorPredicate, biomeAdditionConsumer);
     }
 }

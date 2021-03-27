@@ -163,8 +163,14 @@ while restart:
         raw_output += "\n\n" + file_content
         file.write(file_content)
         if bool(inject_into_code):
-            insertLine(os.path.join(fabric_src, 'main','java','com','telepathicgrunt','repurposedstructures','RSAddFeaturesAndStructures.java'), \
-                "regexpos1", file_content)
+            directory = os.path.join(fabric_src, 'main','java','com','telepathicgrunt','repurposedstructures','biome_injection')
+            for filename in os.listdir(directory):
+                with open(os.path.join(directory, filename), 'r+') as f:
+                    tempRead = f.read()
+                    if "regexpos1" in tempRead:
+                        f.seek(0)
+                        insertLine(os.path.join(directory, filename), \
+                            "regexpos1", file_content)
 
     with open(os.path.join('template', 'fabric_config.txt'), "r") as file:
         file_content = file.read().replace("$1", bend(50, config_modded_biome_comment)).replace("$2", config_modded_biome_entry) \
@@ -246,8 +252,14 @@ while restart:
         raw_output += "\n\n" + file_content
         file.write(file_content)
         if bool(inject_into_code):
-            insertLine(os.path.join(forge_src, 'main','java','com','telepathicgrunt','repurposedstructures','RSAddFeaturesAndStructures.java'), \
-                "regexpos1", file_content)
+            directory = os.path.join(fabric_src, 'main','java','com','telepathicgrunt','repurposedstructures','biome_injection')
+            for filename in os.listdir(directory):
+                with open(os.path.join(directory, filename), 'r+') as f:
+                    tempRead = f.read()
+                    if "regexpos1" in tempRead:
+                        f.seek(0)
+                        insertLine(os.path.join(directory, filename), \
+                            "regexpos1", file_content)
 
     with open(os.path.join('template', 'forge_config.txt'), "r") as file:
         file_content = file.read().replace("$1", config_spawnrate_entry).replace("$2", config_spawnrate_entry.lower()) \
