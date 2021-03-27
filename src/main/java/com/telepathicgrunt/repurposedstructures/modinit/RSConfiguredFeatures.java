@@ -31,7 +31,7 @@ public class RSConfiguredFeatures {
 
     private static NbtDungeonConfig getNbtDungeonConfig(String dungeonType, String spawnerType){
         return new NbtDungeonConfig(
-                false,1, 16, 2,
+                false,1, 14, 2,
                 false, Optional.empty(), 0, Blocks.CHEST.getDefaultState(),
                 new ResourceLocation(RepurposedStructures.MODID, "chests/dungeon/"+dungeonType),
                 new ResourceLocation(RepurposedStructures.MODID, "dungeon_"+spawnerType),
