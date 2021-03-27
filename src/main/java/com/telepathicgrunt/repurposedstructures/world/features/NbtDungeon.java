@@ -54,7 +54,11 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
         ResourceLocation nbtRL = GeneralUtils.getRandomEntry(config.nbtResourcelocationsAndWeights, random);
 
         TemplateManager structureManager = world.getWorld().getStructureTemplateManager();
-        Template template = structureManager.getTemplateDefaulted(nbtRL);
+        Template template = structureManager.getTemplate(nbtRL);
+        if(template == null){
+            RepurposedStructures.LOGGER.error("Identifier to the specified nbt file was not found! : {}", nbtRL);
+            return false;
+        }
         Rotation rotation = Rotation.randomRotation(random);
 
         // Rotated blockpos for the nbt's sizes to be used later. Ignore Y
@@ -233,7 +237,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                                         ((MobSpawnerTileEntity) blockEntity).getSpawnerBaseLogic().setEntityType(entity);
                                     }
                                     else{
-                                        RepurposedStructures.LOGGER.log(Level.WARN, "EntityType in a dungeon does not exist in registry! : {}", config.rsSpawnerResourcelocation);
+                                        RepurposedStructures.LOGGER.warn("EntityType in a dungeon does not exist in registry! : {}", config.rsSpawnerResourcelocation);
                                     }
                                 }
                             }
@@ -381,7 +385,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                     ((MobSpawnerTileEntity)blockentity).getSpawnerBaseLogic().setEntityType(entity);
                 }
                 else{
-                    RepurposedStructures.LOGGER.log(Level.WARN, "EntityType in a dungeon does not exist in registry!");
+                    RepurposedStructures.LOGGER.warn("EntityType in a dungeon does not exist in registry!");
                 }
                 return;
             }
