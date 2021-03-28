@@ -4,6 +4,8 @@ import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.IWaterLoggable;
+import net.minecraft.loot.conditions.BlockStateProperty;
+import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
@@ -31,8 +33,9 @@ public class WaterloggingFixProcessor extends StructureProcessor {
         // Workaround for https://bugs.mojang.com/browse/MC-130584
         // Due to a hardcoded field in Templates, any waterloggable blocks in structures replacing water in the world will become waterlogged.
         // Idea of workaround is detect if we are placing a waterloggable block and if so, remove the water in the world instead.
+        // ONLY RUN THIS IF STRUCTURE BLOCK IS A DRY WATERLOGGABLE BLOCK
         ChunkPos currentChunkPos = new ChunkPos(infoIn2.pos);
-        if(infoIn2.state.getBlock() instanceof IWaterLoggable){
+        if(infoIn2.state.getBlock() instanceof IWaterLoggable && !infoIn2.state.get(BlockStateProperties.WATERLOGGED)){
             IChunk currentChunk = worldReader.getChunk(currentChunkPos.x, currentChunkPos.z);
             if(worldReader.getFluidState(infoIn2.pos).isTagged(FluidTags.WATER)){
                 currentChunk.setBlockState(infoIn2.pos, Blocks.STONE.getDefaultState(), false);
