@@ -20,8 +20,7 @@ import net.minecraft.world.chunk.Chunk;
  */
 public class WaterloggingFixProcessor extends StructureProcessor {
 
-    public static final WaterloggingFixProcessor INSTANCE = new WaterloggingFixProcessor();
-    public static final Codec<WaterloggingFixProcessor> CODEC = Codec.unit(() -> INSTANCE);
+    public static final Codec<WaterloggingFixProcessor> CODEC = Codec.unit(WaterloggingFixProcessor::new);
     private WaterloggingFixProcessor() { }
 
     @Override

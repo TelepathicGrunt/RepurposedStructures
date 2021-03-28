@@ -384,6 +384,14 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                 if (!placementIn.shouldIgnoreEntities()) {
                     structureAccessor.rs_invokeSpawnEntities(world, pos, placementIn.getMirror(), placementIn.getRotation(), placementIn.getPosition(), placementIn.getBoundingBox(), placementIn.method_27265());
                 }
+
+                // Post-processors
+                // For all processors that are sensitive to neighboring blocks such as vines.
+                // Post processors will place the blocks themselves so we will not do anything with the return of Structure.process
+                placementIn.clearProcessors();
+                Optional<StructureProcessorList> postProcessor = world.toServerWorld().getServer().getRegistryManager().get(Registry.PROCESSOR_LIST_WORLDGEN).getOrEmpty(config.postProcessor);
+                postProcessor.orElse(StructureProcessorLists.EMPTY).getList().forEach(placementIn::addProcessor); // add all post processors
+                Structure.process(world, pos, pos, placementIn, list);
             }
         }
     }
@@ -522,5 +530,4 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
             world.setBlockState(pos, blockBelow.with(SlabBlock.TYPE, SlabType.DOUBLE), 3);
         }
     }
-
 }

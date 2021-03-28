@@ -1,0 +1,8 @@
+{
+  "processors": [
+    {
+      "probability": 0.2,
+      "processor_type": "repurposed_structures:wall_vine_post_processor"
+    }
+  ]
+}

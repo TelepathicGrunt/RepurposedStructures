@@ -26,6 +26,7 @@ public class NbtDungeonConfig implements FeatureConfig {
             Identifier.CODEC.fieldOf("chest_loottable_resourcelocation").forGetter(nbtDungeonConfig -> nbtDungeonConfig.chestResourceLocation),
             Identifier.CODEC.fieldOf("rs_spawner_resourcelocation").forGetter(nbtDungeonConfig -> nbtDungeonConfig.rsSpawnerResourcelocation),
             Identifier.CODEC.fieldOf("processors").forGetter(nbtDungeonConfig -> nbtDungeonConfig.processor),
+            Identifier.CODEC.fieldOf("post_processors").orElse(new Identifier("minecraft:empty")).forGetter(nbtDungeonConfig -> nbtDungeonConfig.postProcessor),
             Codec.mapPair(Identifier.CODEC.fieldOf("resourcelocation"), Codec.intRange(1, Integer.MAX_VALUE).fieldOf("weight")).codec().listOf().fieldOf("dungeon_nbt_entries").forGetter(nbtFeatureConfig -> nbtFeatureConfig.nbtResourcelocationsAndWeights)
     ).apply(configInstance, NbtDungeonConfig::new))
             .comapFlatMap((nbtDungeonConfig) -> nbtDungeonConfig.maxAirSpace <= nbtDungeonConfig.minAirSpace ?
@@ -39,6 +40,7 @@ public class NbtDungeonConfig implements FeatureConfig {
     public final List<Pair<Identifier, Integer>> nbtResourcelocationsAndWeights;
     public final Identifier rsSpawnerResourcelocation;
     public final Identifier processor;
+    public final Identifier postProcessor;
     public final boolean airRequirementIsNowWater;
     public final Optional<List<BlockState>> blocksToAlwaysPlace;
     public final int structureYOffset;
@@ -48,7 +50,7 @@ public class NbtDungeonConfig implements FeatureConfig {
                             int maxNumOfChests, boolean airRequirementIsNowWater,
                             Optional<List<BlockState>> blocksToAlwaysPlace, int structureYOffset,
                             BlockState lootBlock, Identifier chestResourceLocation,
-                            Identifier rsSpawnerResourcelocation, Identifier processor,
+                            Identifier rsSpawnerResourcelocation, Identifier processor, Identifier postProcessor,
                             List<Pair<Identifier, Integer>> nbtResourcelocationsAndWeights)
     {
         this.replaceAir = replaceAir;
@@ -59,6 +61,7 @@ public class NbtDungeonConfig implements FeatureConfig {
         this.nbtResourcelocationsAndWeights = nbtResourcelocationsAndWeights;
         this.rsSpawnerResourcelocation = rsSpawnerResourcelocation;
         this.processor = processor;
+        this.postProcessor = postProcessor;
         this.airRequirementIsNowWater = airRequirementIsNowWater;
         this.blocksToAlwaysPlace = blocksToAlwaysPlace;
         this.structureYOffset = structureYOffset;

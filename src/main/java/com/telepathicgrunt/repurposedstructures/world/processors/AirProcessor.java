@@ -15,13 +15,12 @@ import net.minecraft.world.WorldView;
  */
 public class AirProcessor extends StructureProcessor {
 
-    public static final AirProcessor INSTANCE = new AirProcessor();
-    public static final Codec<AirProcessor> CODEC = Codec.unit(() -> INSTANCE);
+    public static final Codec<AirProcessor> CODEC = Codec.unit(AirProcessor::new);
     private AirProcessor() { }
 
     @Override
     public Structure.StructureBlockInfo process(WorldView worldView, BlockPos pos, BlockPos blockPos, Structure.StructureBlockInfo structureBlockInfoLocal, Structure.StructureBlockInfo structureBlockInfoWorld, StructurePlacementData structurePlacementData) {
-        if (structureBlockInfoWorld.state.isOf(Blocks.AIR)) {
+        if (structureBlockInfoWorld.state.isAir()) {
             worldView.getChunk(structureBlockInfoWorld.pos).setBlockState(structureBlockInfoWorld.pos, Blocks.AIR.getDefaultState(), false);
         }
         return structureBlockInfoWorld;

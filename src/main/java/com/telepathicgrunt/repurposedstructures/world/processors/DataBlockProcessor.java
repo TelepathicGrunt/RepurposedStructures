@@ -31,8 +31,7 @@ public class DataBlockProcessor extends StructureProcessor {
         }
     }
 
-    public static final DataBlockProcessor INSTANCE = new DataBlockProcessor();
-    public static final Codec<DataBlockProcessor> CODEC = Codec.unit(() -> INSTANCE);
+    public static final Codec<DataBlockProcessor> CODEC = Codec.unit(DataBlockProcessor::new);
     private DataBlockProcessor() { }
 
     @Override
