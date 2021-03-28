@@ -62,8 +62,19 @@ public class Dungeons {
         GeneralUtils.addToBiome("snow_dungeons",
                 (context) -> genericDungeonCheck(context)
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.snowDungeonAttemptsPerChunk != 0
-                        && BiomeSelection.haveCategories(context, Category.ICY),
+                        && BiomeSelection.haveCategories(context, Category.ICY)
+                        // inverted icy check
+                        && !(BiomeSelection.hasName(context, "icy", "ice", "frozen") ||
+                            (context.getBiome().getTemperature() < 0 && !BiomeSelection.hasName(context, "snow"))),
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.SNOW_DUNGEONS));
+
+        GeneralUtils.addToBiome("icy_dungeons",
+                (context) -> genericDungeonCheck(context)
+                        && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.icyDungeonAttemptsPerChunk != 0
+                        && BiomeSelection.haveCategories(context, Category.ICY)
+                        && (BiomeSelection.hasName(context, "icy", "ice", "frozen") ||
+                            (context.getBiome().getTemperature() < 0 && !BiomeSelection.hasName(context, "snow"))),
+                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.ICY_DUNGEONS));
 
         GeneralUtils.addToBiome("nether_dungeons",
                 (context) -> genericDungeonCheck(context)

@@ -134,6 +134,13 @@ public class RSConfiguredFeatures {
                     RepurposedStructures.RSAllConfig.RSDungeonsConfig.maxHeight.snowDungeonMaxHeight))
             .decorate(RSPlacements.RS_UNLIMITED_COUNT.configure(new CountConfig(RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.snowDungeonAttemptsPerChunk))));
 
+    private static final NbtDungeonConfig ICY_DUNGEON_CONFIG = getDefaultNbtDungeonConfig("icy", EMPTY_ID);
+    public static ConfiguredFeature<?, ?> ICY_DUNGEONS = RSFeatures.ICY_DUNGEONS.configure(ICY_DUNGEON_CONFIG)
+            .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(
+                    RepurposedStructures.RSAllConfig.RSDungeonsConfig.minHeight.icyDungeonMinHeight, 0,
+                    RepurposedStructures.RSAllConfig.RSDungeonsConfig.maxHeight.icyDungeonMaxHeight))
+                    .decorate(RSPlacements.RS_UNLIMITED_COUNT.configure(new CountConfig(RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.icyDungeonAttemptsPerChunk))));
+
     private static final NbtDungeonConfig SWAMP_DUNGEON_CONFIG = getDefaultNbtDungeonConfig("swamp", EMPTY_ID);
     public static ConfiguredFeature<?, ?> SWAMP_DUNGEONS = RSFeatures.SWAMP_DUNGEONS.configure(SWAMP_DUNGEON_CONFIG)
             .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(
@@ -303,6 +310,7 @@ public class RSConfiguredFeatures {
         RS_DUNGEONS.add(Registry.register(registry, new Identifier(RepurposedStructures.MODID, "dungeons_end"), END_DUNGEONS));
         RS_DUNGEONS.add(Registry.register(registry, new Identifier(RepurposedStructures.MODID, "dungeons_nether"), NETHER_DUNGEONS));
         RS_DUNGEONS.add(Registry.register(registry, new Identifier(RepurposedStructures.MODID, "dungeons_snow"), SNOW_DUNGEONS));
+        RS_DUNGEONS.add(Registry.register(registry, new Identifier(RepurposedStructures.MODID, "dungeons_icy"), ICY_DUNGEONS));
         RS_DUNGEONS.add(Registry.register(registry, new Identifier(RepurposedStructures.MODID, "dungeons_swamp"), SWAMP_DUNGEONS));
         RS_DUNGEONS.add(Registry.register(registry, new Identifier(RepurposedStructures.MODID, "dungeons_mushroom_high"), MUSHROOM_HIGH_DUNGEONS));
         RS_DUNGEONS.add(Registry.register(registry, new Identifier(RepurposedStructures.MODID, "dungeons_mushroom_low"), MUSHROOM_LOW_DUNGEONS));

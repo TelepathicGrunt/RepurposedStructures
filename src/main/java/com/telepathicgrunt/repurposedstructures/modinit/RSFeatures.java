@@ -18,6 +18,7 @@ public class RSFeatures {
     public static Feature<NbtDungeonConfig> END_DUNGEONS = new NbtDungeon(NbtDungeonConfig.CODEC);
     public static Feature<NbtDungeonConfig> NETHER_DUNGEONS = new NbtDungeon(NbtDungeonConfig.CODEC);
     public static Feature<NbtDungeonConfig> SNOW_DUNGEONS = new NbtDungeon(NbtDungeonConfig.CODEC);
+    public static Feature<NbtDungeonConfig> ICY_DUNGEONS = new NbtDungeon(NbtDungeonConfig.CODEC);
     public static Feature<NbtDungeonConfig> SWAMP_DUNGEONS = new NbtDungeon(NbtDungeonConfig.CODEC);
     public static Feature<NbtDungeonConfig> MUSHROOM_DUNGEONS = new NbtDungeon(NbtDungeonConfig.CODEC);
     public static Feature<NbtDungeonConfig> JUNGLE_DUNGEONS = new NbtDungeon(NbtDungeonConfig.CODEC);
@@ -44,6 +45,7 @@ public class RSFeatures {
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "dungeons_end"), END_DUNGEONS);
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "dungeons_nether"), NETHER_DUNGEONS);
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "dungeons_snow"), SNOW_DUNGEONS);
+        Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "dungeons_icy"), ICY_DUNGEONS);
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "dungeons_swamp"), SWAMP_DUNGEONS);
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "dungeons_mushroom"), MUSHROOM_DUNGEONS);
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "dungeons_jungle"), JUNGLE_DUNGEONS);
