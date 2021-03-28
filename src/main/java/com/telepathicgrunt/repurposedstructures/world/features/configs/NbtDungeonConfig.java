@@ -26,6 +26,7 @@ public class NbtDungeonConfig implements IFeatureConfig {
             ResourceLocation.CODEC.fieldOf("chest_loottable_resourcelocation").forGetter(nbtDungeonConfig -> nbtDungeonConfig.chestResourceLocation),
             ResourceLocation.CODEC.fieldOf("rs_spawner_resourcelocation").forGetter(nbtDungeonConfig -> nbtDungeonConfig.rsSpawnerResourcelocation),
             ResourceLocation.CODEC.fieldOf("processors").forGetter(nbtDungeonConfig -> nbtDungeonConfig.processor),
+            ResourceLocation.CODEC.fieldOf("post_processors").orElse(new ResourceLocation("minecraft:empty")).forGetter(nbtDungeonConfig -> nbtDungeonConfig.postProcessor),
             Codec.mapPair(ResourceLocation.CODEC.fieldOf("resourcelocation"), Codec.intRange(1, Integer.MAX_VALUE).fieldOf("weight")).codec().listOf().fieldOf("dungeon_nbt_entries").forGetter(nbtFeatureConfig -> nbtFeatureConfig.nbtResourcelocationsAndWeights)
     ).apply(configInstance, NbtDungeonConfig::new))
             .comapFlatMap((nbtDungeonConfig) -> nbtDungeonConfig.maxAirSpace <= nbtDungeonConfig.minAirSpace ?
@@ -39,6 +40,7 @@ public class NbtDungeonConfig implements IFeatureConfig {
     public final List<Pair<ResourceLocation, Integer>> nbtResourcelocationsAndWeights;
     public final ResourceLocation rsSpawnerResourcelocation;
     public final ResourceLocation processor;
+    public final ResourceLocation postProcessor;
     public final boolean airRequirementIsNowWater;
     public final Optional<List<BlockState>> blocksToAlwaysPlace;
     public final int structureYOffset;
@@ -48,7 +50,7 @@ public class NbtDungeonConfig implements IFeatureConfig {
                             int maxNumOfChests, boolean airRequirementIsNowWater,
                             Optional<List<BlockState>> blocksToAlwaysPlace, int structureYOffset,
                             BlockState lootBlock, ResourceLocation chestResourceLocation,
-                            ResourceLocation rsSpawnerResourcelocation, ResourceLocation processor,
+                            ResourceLocation rsSpawnerResourcelocation, ResourceLocation processor, ResourceLocation postProcessor,
                             List<Pair<ResourceLocation, Integer>> nbtResourcelocationsAndWeights)
     {
         this.replaceAir = replaceAir;
@@ -59,6 +61,7 @@ public class NbtDungeonConfig implements IFeatureConfig {
         this.nbtResourcelocationsAndWeights = nbtResourcelocationsAndWeights;
         this.rsSpawnerResourcelocation = rsSpawnerResourcelocation;
         this.processor = processor;
+        this.postProcessor = postProcessor;
         this.airRequirementIsNowWater = airRequirementIsNowWater;
         this.blocksToAlwaysPlace = blocksToAlwaysPlace;
         this.structureYOffset = structureYOffset;

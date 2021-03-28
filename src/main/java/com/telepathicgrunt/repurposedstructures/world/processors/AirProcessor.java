@@ -15,13 +15,12 @@ import net.minecraft.world.gen.feature.template.Template;
  */
 public class AirProcessor extends StructureProcessor {
 
-    public static final AirProcessor INSTANCE = new AirProcessor();
-    public static final Codec<AirProcessor> CODEC = Codec.unit(() -> INSTANCE);
+    public static final Codec<AirProcessor> CODEC = Codec.unit(AirProcessor::new);
     private AirProcessor() { }
 
     @Override
     public Template.BlockInfo process(IWorldReader worldView, BlockPos pos, BlockPos blockPos, Template.BlockInfo structureBlockInfoLocal, Template.BlockInfo structureBlockInfoWorld, PlacementSettings structurePlacementData) {
-        if (structureBlockInfoWorld.state.isIn(Blocks.AIR)) {
+        if (structureBlockInfoWorld.state.isAir()) {
             worldView.getChunk(structureBlockInfoWorld.pos).setBlockState(structureBlockInfoWorld.pos, Blocks.AIR.getDefaultState(), false);
         }
         return structureBlockInfoWorld;
