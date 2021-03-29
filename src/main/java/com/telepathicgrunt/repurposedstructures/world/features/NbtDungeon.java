@@ -229,7 +229,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                                                 .with(ChestBlock.CHEST_TYPE, chestTyping ? ChestType.LEFT : ChestType.RIGHT),
                                             2);
 
-                                    LootableContainerBlockEntity.setLootTable(world, random, mutable, config.chestResourceLocation);
+                                    LootableContainerBlockEntity.setLootTable(world, random, mutable, config.chestResourcelocation);
                                     SolidifyBlock(world, mutable.down());
 
                                     currentChestCount++;
@@ -254,7 +254,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
 
                             // Set chest to face away from wall.
                             world.setBlockState(mutable, lootBlock, 2);
-                            LootableContainerBlockEntity.setLootTable(world, random, mutable, config.chestResourceLocation);
+                            LootableContainerBlockEntity.setLootTable(world, random, mutable, config.chestResourcelocation);
                             mutable.move(Direction.DOWN);
                             if(lootBlock.getBlock() == Blocks.SHULKER_BOX){
                                 world.setBlockState(mutable, Blocks.SPAWNER.getDefaultState(), 2);
@@ -423,7 +423,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                 if(blockstate.isOf(Blocks.CHEST)){
                     world.setBlockState(blockpos, GeneralUtils.orientateChest(world, blockpos, Blocks.CHEST.getDefaultState()), 2);
                 }
-                LootableContainerBlockEntity.setLootTable(world, random, blockpos, config.chestResourceLocation);
+                LootableContainerBlockEntity.setLootTable(world, random, blockpos, config.chestResourcelocation);
             }
         }
     }

@@ -8,7 +8,6 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.VineBlock;
 import net.minecraft.structure.Structure;
 import net.minecraft.structure.StructurePlacementData;
-import net.minecraft.structure.processor.BlockRotStructureProcessor;
 import net.minecraft.structure.processor.StructureProcessor;
 import net.minecraft.structure.processor.StructureProcessorType;
 import net.minecraft.util.math.BlockPos;

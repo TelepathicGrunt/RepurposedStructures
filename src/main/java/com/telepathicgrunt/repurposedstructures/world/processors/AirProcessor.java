@@ -2,7 +2,6 @@ package com.telepathicgrunt.repurposedstructures.world.processors;
 
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
-import net.minecraft.block.Blocks;
 import net.minecraft.structure.Structure;
 import net.minecraft.structure.StructurePlacementData;
 import net.minecraft.structure.processor.StructureProcessor;
