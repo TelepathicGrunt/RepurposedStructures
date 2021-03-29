@@ -1,9 +1,11 @@
 package com.telepathicgrunt.repurposedstructures.world.features.configs;
 
+import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.ResourceLocation;
@@ -66,5 +68,45 @@ public class NbtDungeonConfig implements IFeatureConfig {
         this.blocksToAlwaysPlace = blocksToAlwaysPlace;
         this.structureYOffset = structureYOffset;
         this.lootBlock = lootBlock;
+    }
+
+    public NbtDungeonConfig(String dungeonType, ResourceLocation postProcessor){
+        this(dungeonType, dungeonType, postProcessor);
+    }
+
+    public NbtDungeonConfig(String dungeonType, String spawnerType, ResourceLocation postProcessor){
+        this(dungeonType, spawnerType, postProcessor, 14, false, Optional.empty(), 0);
+    }
+
+    public NbtDungeonConfig(String dungeonType, String spawnerType, ResourceLocation postProcessor,
+                            int maxAirSpace, boolean airRequirementIsNowWater,
+                            Optional<List<BlockState>> blocksToAlwaysPlace, int structureYOffset){
+        this(false,1, maxAirSpace, 2,
+                airRequirementIsNowWater, blocksToAlwaysPlace,
+                structureYOffset, Blocks.CHEST.getDefaultState(),
+                new ResourceLocation(RepurposedStructures.MODID, "chests/dungeon/"+dungeonType),
+                new ResourceLocation(RepurposedStructures.MODID, "dungeon_"+spawnerType),
+                new ResourceLocation(RepurposedStructures.MODID, "dungeons/"+dungeonType),
+                postProcessor,
+                ImmutableList.of(
+                        Pair.of(new ResourceLocation(RepurposedStructures.MODID, "dungeons/"+dungeonType+"_1"), 1),
+                        Pair.of(new ResourceLocation(RepurposedStructures.MODID, "dungeons/"+dungeonType+"_2"), 1),
+                        Pair.of(new ResourceLocation(RepurposedStructures.MODID, "dungeons/"+dungeonType+"_3"), 1)
+                ));
+    }
+
+    public NbtDungeonConfig(String dungeonType, ResourceLocation postProcessor,
+                            int maxAirSpace, BlockState lootBlock){
+        this(false, 1, maxAirSpace, 2,
+                false, Optional.empty(), 0, lootBlock,
+                new ResourceLocation(RepurposedStructures.MODID, "chests/dungeon/"+dungeonType),
+                new ResourceLocation(RepurposedStructures.MODID, "dungeon_"+dungeonType),
+                new ResourceLocation(RepurposedStructures.MODID, "dungeons/"+dungeonType),
+                postProcessor,
+                ImmutableList.of(
+                        Pair.of(new ResourceLocation(RepurposedStructures.MODID, "dungeons/"+dungeonType+"_1"), 1),
+                        Pair.of(new ResourceLocation(RepurposedStructures.MODID, "dungeons/"+dungeonType+"_2"), 1),
+                        Pair.of(new ResourceLocation(RepurposedStructures.MODID, "dungeons/"+dungeonType+"_3"), 1)
+                ));
     }
 }

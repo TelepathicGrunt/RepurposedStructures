@@ -4,7 +4,6 @@ import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.IWaterLoggable;
-import net.minecraft.loot.conditions.BlockStateProperty;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.Direction;
