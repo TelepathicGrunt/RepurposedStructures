@@ -17,7 +17,6 @@ public class Strongholds {
             ((RepurposedStructures.RSStrongholdsConfig.allowStonebrickStrongholdToVanillaBiomes.get() && BiomeSelection.hasNamespace(event, "minecraft")) ||
             (RepurposedStructures.RSStrongholdsConfig.addStonebrickStrongholdToModdedBiomes.get() && !BiomeSelection.hasNamespace(event, "minecraft"))))
         {
-            //replace vanilla stronghold with ours if vanilla's is present
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.STONEBRICK_STRONGHOLD);
             event.getGeneration().getFeatures(GenerationStage.Decoration.STRONGHOLDS).add(() -> RSConfiguredFeatures.STONEBRICK_STRONGHOLD_CHAINS);
         }

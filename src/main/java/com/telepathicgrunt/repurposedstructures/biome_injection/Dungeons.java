@@ -59,6 +59,15 @@ public class Dungeons {
         {
             replaceOrAddDungeon(true, event, RSConfiguredFeatures.SWAMP_DUNGEONS);
         }
+
+        else if (BiomeSelection.haveCategories(event, Category.ICY) &&
+                (BiomeSelection.hasName(event, "icy", "ice", "frozen") ||
+                    (event.getClimate().temperature < 0 && !BiomeSelection.hasName(event, "snow"))) &&
+                RepurposedStructures.RSDungeonsConfig.icyDungeonAttemptsPerChunk.get() != 0 &&
+                dungeonAllowedByNamespaceAndConfig(event))
+        {
+            replaceOrAddDungeon(true, event, RSConfiguredFeatures.ICY_DUNGEONS);
+        }
         
         else if (BiomeSelection.haveCategories(event, Category.ICY) &&
                 RepurposedStructures.RSDungeonsConfig.snowDungeonAttemptsPerChunk.get() != 0 &&

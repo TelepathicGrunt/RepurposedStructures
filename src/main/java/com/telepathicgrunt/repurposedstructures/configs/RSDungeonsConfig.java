@@ -17,6 +17,7 @@ public class RSDungeonsConfig
 		public ConfigValueListener<Integer> jungleDungeonAttemptsPerChunk;
 		public ConfigValueListener<Integer> mushroomDungeonAttemptsPerChunk;
 		public ConfigValueListener<Integer> snowDungeonAttemptsPerChunk;
+		public ConfigValueListener<Integer> icyDungeonAttemptsPerChunk;
 		public ConfigValueListener<Integer> swampDungeonAttemptsPerChunk;
 		public ConfigValueListener<Integer> endDungeonAttemptsPerChunk;
 		public ConfigValueListener<Integer> netherDungeonAttemptsPerChunk;
@@ -28,6 +29,7 @@ public class RSDungeonsConfig
 		public ConfigValueListener<Integer> jungleDungeonMinHeight;
 		public ConfigValueListener<Integer> mushroomDungeonMinHeight;
 		public ConfigValueListener<Integer> snowDungeonMinHeight;
+		public ConfigValueListener<Integer> icyDungeonMinHeight;
 		public ConfigValueListener<Integer> swampDungeonMinHeight;
 		public ConfigValueListener<Integer> endDungeonMinHeight;
 		public ConfigValueListener<Integer> netherDungeonMinHeight;
@@ -39,6 +41,7 @@ public class RSDungeonsConfig
 		public ConfigValueListener<Integer> jungleDungeonMaxHeight;
 		public ConfigValueListener<Integer> mushroomDungeonMaxHeight;
 		public ConfigValueListener<Integer> snowDungeonMaxHeight;
+		public ConfigValueListener<Integer> icyDungeonMaxHeight;
 		public ConfigValueListener<Integer> swampDungeonMaxHeight;
 		public ConfigValueListener<Integer> endDungeonMaxHeight;
 		public ConfigValueListener<Integer> netherDungeonMaxHeight;
@@ -101,15 +104,24 @@ public class RSDungeonsConfig
 								" Note: Vanilla Dungeons will spawn again when this is set to 0.")
 						.translation("repurposedstructures.config.dungeons.mushroomdungeonattemptsperchunk")
 						.defineInRange("mushroomDungeonAttemptsPerChunk", 8, 0, 1000));
-				
+
 					snowDungeonAttemptsPerChunk = subscriber.subscribe(builder
-							.comment("\n Replace vanilla dungeon in icy/snow biomes with icy/snow themed dungeon.",
+							.comment("\n Replace vanilla dungeon in snow biomes with snow themed dungeon.",
 								" How often dungeons will attempt to spawn per chunk.",
 								" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.",
 								" Note: Vanilla Dungeons will spawn again when this is set to 0.")
 						.translation("repurposedstructures.config.dungeons.snowdungeonattemptsperchunk")
 						.defineInRange("snowDungeonAttemptsPerChunk", 8, 0, 1000));
-				
+
+					icyDungeonAttemptsPerChunk = subscriber.subscribe(builder
+						.comment("\n Replaces vanilla dungeon in icy biomes with ice themed dungeons. ",
+								"\n (targets non-ocean biomes that are super cold or has frozen/ice/icy in name)",
+								" How often dungeons will attempt to spawn per chunk.",
+								" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.",
+								" Note: Vanilla Dungeons will spawn again when this is set to 0.")
+						.translation("repurposedstructures.config.dungeons.snowdungeonattemptsperchunk")
+						.defineInRange("snowDungeonAttemptsPerChunk", 8, 0, 1000));
+
 					swampDungeonAttemptsPerChunk = subscriber.subscribe(builder
 							.comment("\n Replace vanilla dungeon in Swamp biomes with Swamp themed dungeon.",
 								" How often dungeons will attempt to spawn per chunk.",
@@ -184,6 +196,12 @@ public class RSDungeonsConfig
 						.translation("repurposedstructures.config.dungeons.snowdungeonminheight")
 						.defineInRange("snowDungeonMinHeight", 2, 2, 255));
 
+					icyDungeonMinHeight = subscriber.subscribe(builder
+							.comment("\n Minimum Y height that this dungeon can spawn at. Default is 2.",
+								" Note: The dungeon will spawn between min and max y height set in config.")
+						.translation("repurposedstructures.config.dungeons.icydungeonminheight")
+						.defineInRange("icyDungeonMinHeight", 2, 2, 255));
+
 					swampDungeonMinHeight = subscriber.subscribe(builder
 							.comment("\n Minimum Y height that this dungeon can spawn at. Default is 2.",
 								" Note: The dungeon will spawn between min and max y height set in config.")
@@ -254,6 +272,13 @@ public class RSDungeonsConfig
 								" Setting this to below min height config will make dungeon spawn only at min height.")
 						.translation("repurposedstructures.config.dungeons.snowdungeonmaxheight")
 						.defineInRange("snowDungeonMaxHeight", 255, 2, 255));
+
+					icyDungeonMaxHeight = subscriber.subscribe(builder
+							.comment("\n Maximum Y height that this dungeon can spawn at. Default is 255.",
+								" Note: The dungeon will spawn between min and max y height set in config.",
+								" Setting this to below min height config will make dungeon spawn only at min height.")
+						.translation("repurposedstructures.config.dungeons.icydungeonmaxheight")
+						.defineInRange("icyDungeonMaxHeight", 255, 2, 255));
 
 					swampDungeonMaxHeight = subscriber.subscribe(builder
 							.comment("\n Maximum Y height that this dungeon can spawn at. Default is 255.",

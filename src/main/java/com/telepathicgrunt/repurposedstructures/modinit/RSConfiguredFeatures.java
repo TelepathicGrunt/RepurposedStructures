@@ -125,6 +125,13 @@ public class RSConfiguredFeatures {
                     RepurposedStructures.RSDungeonsConfig.snowDungeonMaxHeight.get()))
                     .decorate(RSPlacements.RS_UNLIMITED_COUNT.get().configure(new FeatureSpreadConfig(RepurposedStructures.RSDungeonsConfig.snowDungeonAttemptsPerChunk.get()))));
 
+    private static final NbtDungeonConfig ICY_DUNGEON_CONFIG = getDefaultNbtDungeonConfig("icy", EMPTY_ID);
+    public static ConfiguredFeature<?, ?> ICY_DUNGEONS = RSFeatures.ICY_DUNGEONS.get().configure(ICY_DUNGEON_CONFIG)
+            .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.get().configure(new TopSolidRangeConfig(
+                    RepurposedStructures.RSDungeonsConfig.icyDungeonMinHeight.get(), 0,
+                    RepurposedStructures.RSDungeonsConfig.icyDungeonMaxHeight.get()))
+                    .decorate(RSPlacements.RS_UNLIMITED_COUNT.get().configure(new FeatureSpreadConfig(RepurposedStructures.RSDungeonsConfig.icyDungeonAttemptsPerChunk.get()))));
+
     private static final NbtDungeonConfig SWAMP_DUNGEON_CONFIG = getDefaultNbtDungeonConfig("swamp", EMPTY_ID);
     public static ConfiguredFeature<?, ?> SWAMP_DUNGEONS = RSFeatures.SWAMP_DUNGEONS.get().configure(SWAMP_DUNGEON_CONFIG)
             .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.get().configure(new TopSolidRangeConfig(
@@ -161,18 +168,6 @@ public class RSConfiguredFeatures {
                     RepurposedStructures.RSDungeonsConfig.jungleDungeonMaxHeight.get()))
                     .decorate(RSPlacements.RS_UNLIMITED_COUNT.get().configure(new FeatureSpreadConfig(RepurposedStructures.RSDungeonsConfig.jungleDungeonAttemptsPerChunk.get()))));
 
-    private static final NbtDungeonConfig OCEAN_DUNGEON_CONFIG = new NbtDungeonConfig(
-            false,1, 55, 2,
-            true, Optional.empty(), -2, Blocks.CHEST.getDefaultState(),
-            new ResourceLocation(RepurposedStructures.MODID, "chests/dungeon/ocean"),
-            new ResourceLocation(RepurposedStructures.MODID, "dungeon_ocean_neutral"),
-            new ResourceLocation(RepurposedStructures.MODID, "dungeons/ocean"),
-            EMPTY_ID,
-            ImmutableList.of(
-                    Pair.of(new ResourceLocation(RepurposedStructures.MODID, "dungeons/ocean_1"), 1),
-                    Pair.of(new ResourceLocation(RepurposedStructures.MODID, "dungeons/ocean_2"), 1),
-                    Pair.of(new ResourceLocation(RepurposedStructures.MODID, "dungeons/ocean_3"), 1)
-            ));
     public static ConfiguredFeature<?, ?> OCEAN_NEUTRAL_DUNGEONS = RSFeatures.OCEAN_DUNGEONS.get().configure(getOceanNbtDungeonConfig("ocean_neutral", EMPTY_ID))
             .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.get().configure(new TopSolidRangeConfig(
                     RepurposedStructures.RSDungeonsConfig.oceanDungeonMinHeight.get(), 0,
@@ -286,6 +281,7 @@ public class RSConfiguredFeatures {
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dungeons_end"), END_DUNGEONS);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dungeons_nether"), NETHER_DUNGEONS);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dungeons_snow"), SNOW_DUNGEONS);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dungeons_icy"), ICY_DUNGEONS);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dungeons_swamp"), SWAMP_DUNGEONS);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dungeons_mushroom"), MUSHROOM_HIGH_DUNGEONS);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dungeons_mushroom_high"), MUSHROOM_LOW_DUNGEONS);

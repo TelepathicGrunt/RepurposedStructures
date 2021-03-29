@@ -10,6 +10,20 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ## (V.2.6.0 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)
 
+##### Dungeons:
+- All Dungeons now use nbt files. You can override the looks of dungeons with a datapack!
+
+- Icy dungeon is now actually icy and spawns only in non-ocean biomes that are super cold or has frozen/ice in the name.
+  Loot and spawner mobs have been adjusted as well.
+
+- Snow Dungeon is now added and will spawn in all snowy biomes!
+
+- Nether Dungeons at any height now has the 1% chance of a Wither Skeleton Spawner.
+
+- Nether Dungeons no long spawn attached to lava pockets underground.
+
+- Bumped up the config default spawnrates for Nether and End Dungeons from 8 to 12.
+
 ##### Shipwrecks:
 - Fixed End Shipwrecks spawning so they no longer can spawn on the Enderdragon island.
 

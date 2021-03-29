@@ -20,6 +20,7 @@ public class RSFeatures {
 	public static final RegistryObject<Feature<NbtDungeonConfig>> END_DUNGEONS = createFeature("dungeons_end", () -> new NbtDungeon(NbtDungeonConfig.CODEC));
 	public static final RegistryObject<Feature<NbtDungeonConfig>> NETHER_DUNGEONS = createFeature("dungeons_nether", () -> new NbtDungeon(NbtDungeonConfig.CODEC));
 	public static final RegistryObject<Feature<NbtDungeonConfig>> SNOW_DUNGEONS = createFeature("dungeons_snow", () -> new NbtDungeon(NbtDungeonConfig.CODEC));
+	public static final RegistryObject<Feature<NbtDungeonConfig>> ICY_DUNGEONS = createFeature("dungeons_icy", () -> new NbtDungeon(NbtDungeonConfig.CODEC));
 	public static final RegistryObject<Feature<NbtDungeonConfig>> SWAMP_DUNGEONS = createFeature("dungeons_swamp", () -> new NbtDungeon(NbtDungeonConfig.CODEC));
 	public static final RegistryObject<Feature<NbtDungeonConfig>> MUSHROOM_DUNGEONS = createFeature("dungeons_mushroom", () -> new NbtDungeon(NbtDungeonConfig.CODEC));
 	public static final RegistryObject<Feature<NbtDungeonConfig>> JUNGLE_DUNGEONS = createFeature("dungeons_jungle", () -> new NbtDungeon(NbtDungeonConfig.CODEC));
