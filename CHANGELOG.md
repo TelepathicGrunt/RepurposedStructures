@@ -11,6 +11,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ## (V.1.9.1 Changes) (1.16.5 Minecraft)
 
+##### Loot Tables:
+- Fixed blacklistedRSLoottablesFromImportingModdedItems config entry not actually being read.
+
 ##### Dungeons:
 - All Dungeons now use nbt files. You can override the looks of dungeons with a datapack!
   
@@ -37,6 +40,11 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Igloos:
 - Fixed https://bugs.mojang.com/browse/MC-130584 by using a special processor.
   This means this mod's igloo's chests, ladders, and other blocks will no longer be waterlogged if their basement places water in the world.
+
+##### Cities:
+- Change Nether City's default config spawnrate from 160 to 140 to make them slightly more common.
+
+- Made large room with chests in Nether Cities now a bit more common.
 
 
 ## (V.1.9.0 Changes) (1.16.5 Minecraft)

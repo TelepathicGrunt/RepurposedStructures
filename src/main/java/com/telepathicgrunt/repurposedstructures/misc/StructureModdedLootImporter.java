@@ -185,7 +185,7 @@ public class StructureModdedLootImporter {
 
     private static boolean isInBlacklist(Identifier lootTableID){
         if(BLACKLISTED_LOOTTABLES == null){
-            String cleanedBlacklist = RepurposedStructures.RSAllConfig.RSDungeonsConfig.blacklistedDungeonBiomes.replace(" ", "");
+            String cleanedBlacklist = RepurposedStructures.RSAllConfig.RSMainConfig.blacklistedRSLoottablesFromImportingModdedItems.replace(" ", "");
 
             if(cleanedBlacklist.equals("")){
                 BLACKLISTED_LOOTTABLES = new HashSet<>(); // make empty set instead of ["minecraft:"].
