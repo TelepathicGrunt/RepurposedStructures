@@ -3,7 +3,7 @@
   "fallback": "repurposed_structures:cities/nether/no_stair_room",
   "elements": [
     {
-      "weight": 5,
+      "weight": 7,
       "element": {
         "location": "repurposed_structures:cities/nether/large_room_s",
         "processors": "repurposed_structures:cities/nether_randomize",
@@ -21,7 +21,7 @@
       }
     },
     {
-      "weight": 5,
+      "weight": 4,
       "element": {
         "location": "repurposed_structures:cities/nether/medium_room_s",
         "processors": "repurposed_structures:cities/nether_randomize",
