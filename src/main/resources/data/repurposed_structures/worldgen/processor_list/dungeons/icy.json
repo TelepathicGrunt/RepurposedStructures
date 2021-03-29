@@ -8,7 +8,7 @@
           },
           "input_predicate": {
             "block": "minecraft:blue_ice",
-            "probability": 0.6,
+            "probability": 0.5,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -21,7 +21,7 @@
           },
           "input_predicate": {
             "block": "minecraft:blue_ice",
-            "probability": 0.6,
+            "probability": 0.5,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -34,7 +34,7 @@
           },
           "input_predicate": {
             "block": "minecraft:blue_ice",
-            "probability": 0.1,
+            "probability": 0.12,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {

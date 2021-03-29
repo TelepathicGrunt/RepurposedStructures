@@ -15,6 +15,7 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - All Dungeons now use nbt files. You can override the looks of dungeons with a datapack!
   
 - Icy dungeon is now actually icy and spawns only in non-ocean biomes that are super cold or has frozen/ice in the name.
+  Loot and spawner mobs have been adjusted as well.
 
 - Snow Dungeon is now added and will spawn in all snowy biomes!
 

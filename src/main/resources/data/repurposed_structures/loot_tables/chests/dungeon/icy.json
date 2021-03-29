@@ -25,12 +25,12 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 25,
+          "weight": 5,
           "name": "minecraft:music_disc_strad"
         },
         {
           "type": "minecraft:item",
-          "weight": 5,
+          "weight": 25,
           "name": "minecraft:music_disc_wait"
         },
         {
@@ -90,7 +90,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "weight": 12,
+          "weight": 10,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -105,7 +105,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 5,
+          "weight": 13,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -120,23 +120,18 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 20,
-          "name": "minecraft:cookie"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 20,
+          "weight": 28,
           "functions": [
             {
               "function": "minecraft:set_count",
               "count": {
                 "min": 1.0,
-                "max": 4.0,
+                "max": 3.0,
                 "type": "minecraft:uniform"
               }
             }
           ],
-          "name": "minecraft:sweet_berries"
+          "name": "minecraft:cookie"
         },
         {
           "type": "minecraft:item",
@@ -145,7 +140,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 5,
+          "weight": 9,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -164,7 +159,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 5,
+          "weight": 9,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -194,7 +189,7 @@
               }
             }
           ],
-          "name": "minecraft:white_dye"
+          "name": "minecraft:light_blue_dye"
         },
         {
           "type": "minecraft:item",
@@ -259,7 +254,7 @@
               }
             }
           ],
-          "name": "minecraft:snowball"
+          "name": "minecraft:ice"
         },
         {
           "type": "minecraft:item",
@@ -274,7 +269,7 @@
               }
             }
           ],
-          "name": "minecraft:snow_block"
+          "name": "minecraft:packed_ice"
         },
         {
           "type": "minecraft:item",
@@ -289,7 +284,7 @@
               }
             }
           ],
-          "name": "minecraft:ice"
+          "name": "minecraft:blue_ice"
         },
         {
           "type": "minecraft:item",

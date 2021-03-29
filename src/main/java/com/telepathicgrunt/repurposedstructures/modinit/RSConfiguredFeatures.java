@@ -177,18 +177,6 @@ public class RSConfiguredFeatures {
                     RepurposedStructures.RSAllConfig.RSDungeonsConfig.maxHeight.jungleDungeonMaxHeight))
             .decorate(RSPlacements.RS_UNLIMITED_COUNT.configure(new CountConfig(RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.jungleDungeonAttemptsPerChunk))));
 
-    private static final NbtDungeonConfig OCEAN_DUNGEON_CONFIG = new NbtDungeonConfig(
-                false,1, 55, 2,
-                true, Optional.empty(), -2, Blocks.CHEST.getDefaultState(),
-                new Identifier(RepurposedStructures.MODID, "chests/dungeon/ocean"),
-                new Identifier(RepurposedStructures.MODID, "dungeon_ocean_neutral"),
-                new Identifier(RepurposedStructures.MODID, "dungeons/ocean"),
-                EMPTY_ID,
-                ImmutableList.of(
-                    Pair.of(new Identifier(RepurposedStructures.MODID, "dungeons/ocean_1"), 1),
-                    Pair.of(new Identifier(RepurposedStructures.MODID, "dungeons/ocean_2"), 1),
-                    Pair.of(new Identifier(RepurposedStructures.MODID, "dungeons/ocean_3"), 1)
-                ));
     public static ConfiguredFeature<?, ?> OCEAN_NEUTRAL_DUNGEONS = RSFeatures.OCEAN_DUNGEONS.configure(getOceanNbtDungeonConfig("ocean_neutral", EMPTY_ID))
             .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(
                     RepurposedStructures.RSAllConfig.RSDungeonsConfig.minHeight.oceanDungeonMinHeight, 0,
