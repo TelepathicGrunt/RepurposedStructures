@@ -76,11 +76,12 @@ public class Dungeons {
                             (context.getBiome().getTemperature() < 0 && !BiomeSelection.hasName(context, "snow"))),
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.ICY_DUNGEONS));
 
+        // Vegetal to match Nether Mineshafts
         GeneralUtils.addToBiome("nether_dungeons",
                 (context) -> genericDungeonCheck(context)
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.netherDungeonAttemptsPerChunk != 0
                         && BiomeSelection.haveCategories(context, Category.NETHER),
-                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.NETHER_DUNGEONS));
+                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.VEGETAL_DECORATION, RSConfiguredFeatures.NETHER_DUNGEONS));
 
 
         GeneralUtils.addToBiome("end_dungeons",

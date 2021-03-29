@@ -23,7 +23,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Nether Dungeons no long spawn attached to lava pockets underground.
 
-- Bumped up the config default spawnrates for Nether and End Dungeons from 8 to 12.
+- Nether Dungeons are in Vegetal Generation Stage now to be able to spawn in Nether Mineshafts again and not be filled with Basalt as much.
+
+- Bumped up the config default spawnrates for Nether and End Dungeons from 8 to 12. Slightly restricted the spawn condition for overworld dungeons.
 
 ##### Shipwrecks:
 - Fixed End Shipwrecks spawning so they no longer can spawn on the Enderdragon island.
