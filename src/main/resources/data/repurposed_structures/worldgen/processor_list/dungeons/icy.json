@@ -4,20 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:snow_block"
-          },
-          "input_predicate": {
-            "block": "minecraft:blue_ice",
-            "probability": 0.2,
-            "predicate_type": "minecraft:random_block_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          }
-        },
-        {
-          "output_state": {
-            "Name": "minecraft:snow_block"
+            "Name": "minecraft:ice"
           },
           "input_predicate": {
             "block": "minecraft:blue_ice",
@@ -34,7 +21,7 @@
           },
           "input_predicate": {
             "block": "minecraft:blue_ice",
-            "probability": 0.1,
+            "probability": 0.6,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -46,8 +33,34 @@
             "Name": "minecraft:snow_block"
           },
           "input_predicate": {
-            "block": "minecraft:ice",
-            "probability": 0.2,
+            "block": "minecraft:blue_ice",
+            "probability": 0.1,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:ice"
+          },
+          "input_predicate": {
+            "block": "minecraft:packed_ice",
+            "probability": 0.3,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:cave_air"
+          },
+          "input_predicate": {
+            "block": "minecraft:packed_ice",
+            "probability": 0.35,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -60,8 +73,20 @@
           },
           "input_predicate": {
             "block": "minecraft:ice",
-            "probability": 0.1,
+            "probability": 0.3,
             "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:cave_air"
+          },
+          "input_predicate": {
+            "block": "minecraft:air",
+            "predicate_type": "minecraft:block_match"
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
