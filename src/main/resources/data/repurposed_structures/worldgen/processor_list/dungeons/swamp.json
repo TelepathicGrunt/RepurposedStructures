@@ -53,6 +53,18 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:cave_air"
+          },
+          "input_predicate": {
+            "block": "minecraft:air",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
         }
       ],
       "processor_type": "minecraft:rule"
