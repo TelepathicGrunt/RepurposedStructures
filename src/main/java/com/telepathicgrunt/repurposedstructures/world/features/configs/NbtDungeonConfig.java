@@ -75,7 +75,7 @@ public class NbtDungeonConfig implements IFeatureConfig {
     }
 
     public NbtDungeonConfig(String dungeonType, String spawnerType, ResourceLocation postProcessor){
-        this(dungeonType, spawnerType, postProcessor, 14, false, Optional.empty(), 0);
+        this(dungeonType, spawnerType, postProcessor, 13, false, Optional.empty(), 0);
     }
 
     public NbtDungeonConfig(String dungeonType, String spawnerType, ResourceLocation postProcessor,
