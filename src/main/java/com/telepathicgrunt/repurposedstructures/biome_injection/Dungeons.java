@@ -80,7 +80,8 @@ public class Dungeons {
                 RepurposedStructures.RSDungeonsConfig.netherDungeonAttemptsPerChunk.get() != 0 &&
                 dungeonAllowedByNamespaceAndConfig(event)) 
         {
-            replaceOrAddDungeon(false, event, RSConfiguredFeatures.NETHER_DUNGEONS);
+            // Vegetal to match Nether Mineshafts
+            event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> RSConfiguredFeatures.NETHER_DUNGEONS);
         }
         
         else if (RepurposedStructures.RSDungeonsConfig.endDungeonAttemptsPerChunk.get() != 0 &&
