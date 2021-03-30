@@ -90,7 +90,7 @@ public class RSStrongholdsConfig
 							.comment("\n How rare are Stonebrick-styled Strongholds.",
 									 " 1 for spawning in most chunks and 1001 for no spawn.")
 							.translation("repurposedstructures.config.stronghold.stonebrickstrongholdmaxchunkdistance")
-							.defineInRange("stonebrickStrongholdMaxChunkDistance", 85, 1, 1001));
+							.defineInRange("stonebrickStrongholdMaxChunkDistance", 110, 1, 1001));
 
 					silverfishSpawnrate = subscriber.subscribe(builder
 							.comment("\n How often Silverfish Blocks will generate in Strongholds as a percentage.",

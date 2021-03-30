@@ -3,14 +3,34 @@ package com.telepathicgrunt.repurposedstructures.utils;
 import com.google.gson.JsonElement;
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.JsonOps;
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalBlock;
 import net.minecraft.block.LeavesBlock;
 import net.minecraft.util.Direction;
+import net.minecraft.util.Hand;
+import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
+import net.minecraft.util.math.SectionPos;
 import net.minecraft.world.IServerWorld;
+import net.minecraft.world.chunk.ChunkStatus;
+import net.minecraft.world.chunk.IChunk;
+import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraft.world.gen.feature.IFeatureConfig;
+import net.minecraft.world.gen.feature.structure.Structure;
+import net.minecraft.world.gen.feature.structure.StructureStart;
+import net.minecraft.world.gen.settings.StructureSeparationSettings;
+import net.minecraft.world.server.ServerWorld;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.RegistryObject;
 
 import java.util.*;
 
@@ -92,4 +112,66 @@ public class GeneralUtils {
         return configuredFeatureJSON1.equals(configuredFeatureJSON2);
     }
 
+    //////////////////////////////////////////////
+
+    public static <T extends IFeatureConfig> void registerStructureDebugging(RegistryObject<Structure<T>> structure){
+        MinecraftForge.EVENT_BUS.addListener(
+                (PlayerInteractEvent.RightClickBlock event) -> {
+                    if(!event.getWorld().isRemote() && event.getHand() == Hand.MAIN_HAND){
+                        RepurposedStructures.LOGGER.info("Started search");
+
+                        ServerWorld serverWorld = (ServerWorld) event.getWorld();
+                        ChunkGenerator chunkGenerator = serverWorld.getChunkProvider().getChunkGenerator();
+                        StructureSeparationSettings structureseparationsettings = chunkGenerator.getStructuresConfig().getForType(RSStructures.STONEBRICK_STRONGHOLD.get());
+                        Structure<?> structureToFind = structure.get();
+                        List<Pair<BlockPos, Integer>> structureStarts = new ArrayList<>();
+
+                        int spacing = structureseparationsettings.getSpacing();
+                        int startX = 0;
+                        int startZ = 0;
+                        int currentRadius = 0;
+                        int maxRadius = 20;
+
+                        for(SharedSeedRandom sharedseedrandom = new SharedSeedRandom(); currentRadius <= maxRadius; ++currentRadius) {
+                            for(int xRadius = -currentRadius; xRadius <= currentRadius; ++xRadius) {
+                                boolean onXEdge = xRadius == -currentRadius || xRadius == currentRadius;
+
+                                for(int zRadius = -currentRadius; zRadius <= currentRadius; ++zRadius) {
+                                    boolean onZEdge = zRadius == -currentRadius || zRadius == currentRadius;
+                                    if (onXEdge || onZEdge) {
+                                        int k1 = startX + spacing * xRadius;
+                                        int l1 = startZ + spacing * zRadius;
+                                        ChunkPos chunkpos = structureToFind.getStartChunk(structureseparationsettings, serverWorld.getSeed(), sharedseedrandom, k1, l1);
+                                        IChunk ichunk = serverWorld.getChunk(chunkpos.x, chunkpos.z, ChunkStatus.STRUCTURE_STARTS);
+                                        StructureStart<?> structurestart = serverWorld.getStructureAccessor().getStructureStart(SectionPos.from(ichunk.getPos(), 0), structureToFind, ichunk);
+                                        if (structurestart != null && structurestart.isValid()) {
+                                            BlockPos pos = structurestart.getPos();
+                                            structureStarts.add(Pair.of(pos, (int)Math.sqrt((pos.getX() * pos.getX()) + (pos.getZ() * pos.getZ()))));
+                                        }
+
+                                        if (currentRadius == 0) {
+                                            break;
+                                        }
+                                    }
+                                    else{
+                                        zRadius = currentRadius - 1;
+                                    }
+                                }
+
+                                if (currentRadius == 0) {
+                                    break;
+                                }
+                            }
+                        }
+
+                        structureStarts.sort(Comparator.comparingInt(Pair::getSecond));
+                        structureStarts.forEach(pair -> RepurposedStructures.LOGGER.info(
+                                "position: {} - distance: {}", pair.getFirst(), pair.getSecond()
+                        ));
+
+                        boolean breakpointHere = true;
+                    }
+                }
+        );
+    }
 }

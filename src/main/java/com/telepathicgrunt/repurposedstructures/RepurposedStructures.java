@@ -18,22 +18,28 @@ import com.telepathicgrunt.repurposedstructures.configs.RSWitchHutsConfig.RSWitc
 import com.telepathicgrunt.repurposedstructures.misc.MobMapTrades;
 import com.telepathicgrunt.repurposedstructures.mixin.ChunkGeneratorAccessor;
 import com.telepathicgrunt.repurposedstructures.modinit.*;
-import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
-import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
-import com.telepathicgrunt.repurposedstructures.utils.LogSpamFiltering;
-import com.telepathicgrunt.repurposedstructures.utils.MobSpawnerManager;
+import com.telepathicgrunt.repurposedstructures.utils.*;
 import it.unimi.dsi.fastutil.objects.Reference2ObjectOpenHashMap;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SharedSeedRandom;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
+import net.minecraft.util.math.SectionPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.World;
+import net.minecraft.world.chunk.ChunkStatus;
+import net.minecraft.world.chunk.IChunk;
+import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.FlatChunkGenerator;
 import net.minecraft.world.gen.feature.structure.Structure;
+import net.minecraft.world.gen.feature.structure.StructureStart;
 import net.minecraft.world.gen.settings.StructureSeparationSettings;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.AddReloadListenerEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -45,10 +51,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
@@ -96,6 +99,7 @@ public class RepurposedStructures
 		forgeBus.addListener(this::registerDatapackListener);
 		forgeBus.addListener(this::addDimensionalSpacing);
 		forgeBus.addListener(MobMapTrades::onVillagerTradesEvent);
+		GeneralUtils.registerStructureDebugging(RSStructures.STONEBRICK_STRONGHOLD);
 
 		modEventBus.addListener(this::setup);
 		RSFeatures.FEATURES.register(modEventBus);

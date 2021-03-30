@@ -6,6 +6,7 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.util.registry.DynamicRegistries;
 import net.minecraft.world.IWorldReader;
@@ -26,9 +27,31 @@ public class RSStonebrickStrongholdStructure extends StrongholdStructure {
         super(NoFeatureConfig.CODEC);
     }
 
+    // Thickness of rings:      1,536  (96 chunks)
+    // Distance between rings:  1,536  (96 chunks)
+    // Distance to first ring:  1,280  (80 chunks)
+    // Vanilla has 8 rings
+
     @Override
-    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int x, int z, Biome biome, ChunkPos chunkPos, NoFeatureConfig featureConfig) {
-        return (x * x) + (z * z) > 10000;
+    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int xChunk, int zChunk, Biome biome, ChunkPos chunkPos, NoFeatureConfig featureConfig) {
+        int ringThickness = 96;
+        int distanceToFirstRing = 80;
+
+        int chunkDistance = (int) Math.sqrt((xChunk * xChunk) + (zChunk * zChunk));
+
+        // Offset the distance so that the first ring is closer to spawn
+        int shiftedChunkDistance = Math.max(chunkDistance + (ringThickness - distanceToFirstRing), 0);
+
+        // Determine which ring we are in.
+        // non-stronghold rings are even number ringSection
+        // stronghold rings are odd number ringSection.
+        int ringSection = shiftedChunkDistance / ringThickness;
+
+        // Would mimic vanilla's 8 ring result
+        // if(ringSection > 16) return false;
+
+        // Only spawn strongholds on odd number sections
+        return ringSection % 2 == 1;
     }
 
     @Override
