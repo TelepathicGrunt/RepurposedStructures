@@ -38,12 +38,18 @@ Welcome to the Github! If you are looking for the most recent stable version, th
   This means this mod's igloo's chests, ladders, and other blocks will no longer be waterlogged if their basement places water in the world.
 
 ##### Shipwrecks:
-- Hard nerfed the Netherite loot from Nether Bricks Shipwrecks and added more Wither Skeletons upon first generation.
+- Hard nerfed the Netherite loot from Nether Bricks Shipwrecks.
+
+- In Nether Bricks Shipwrecks, they now have more Wither Skeletons upon first generation and 1 Wither Skeleton with an enchanted bow.
+
+- Adjusted the stairway in Nether Bricks Shipwrecks so that Wither Skeletons can walk though them.
 
 ##### Cities:
 - Change Nether City's default config spawnrate from 160 to 120 to make them more common and less traveling to reach.
 
 - Made large room with double chest in Nether Cities now a bit more common and have 3 Wither Skeletons defending it now.
+
+- Added Wither Skeleton with enchanted bow to Nether Cities's tiny tower top pieces.
   
 - Buffed Nether City loot a bit to have higher chance of Netherite loot and more chests.
 
