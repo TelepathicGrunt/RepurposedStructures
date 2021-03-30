@@ -55,6 +55,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Removed random stray Red Nether Bricks block in one of the Nether City's stair piece.
 
+##### Strongholds:
+- Stonebrick Strongholds will not spawn at all if Yung's Better Strongholds is on.
+
 
 ## (V.2.5.1 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)
 

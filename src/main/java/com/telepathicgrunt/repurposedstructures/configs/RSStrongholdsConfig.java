@@ -61,26 +61,28 @@ public class RSStrongholdsConfig
 					.define("lootChestsSH", true));
 
 				turnOffVanillaStrongholds = subscriber.subscribe(builder
-					.comment("\n Makes vanilla Strongholds no longer spawn at all." +
-							" Will not affect Repurposed Structures's own Stonebrick Stronghold." +
-							" If BetterStrongholds mod is on, this config has no effect as is treated as false.")
+					.comment("\n Makes vanilla Strongholds no longer spawn at all.",
+							" Will not affect Repurposed Structures's own Stonebrick Stronghold.",
+							" If Yung's Better Strongholds mod is on, this config has no effect as is treated as false.")
 					.translation("repurposedstructures.config.stronghold.turnoffvanillastrongholds")
 					.define("turnOffVanillaStrongholds", true));
 
 
 			builder.push("Stonebrick");
 					allowStonebrickStrongholdToVanillaBiomes = subscriber.subscribe(builder
-						.comment("\n Add Stonebrick-styled Stronghold which replaces vanilla Strongholds in any" +
-								" vanilla non-Nether biome. This option does not affect Nether Strongholds." +
-								" If this is set to true and turnOffVanillaStrongholds is off, RS's Stonebrick" +
-								" Strongholds will still be added to vanilla biomes.")
+						.comment("\n Add Stonebrick-styled Stronghold which replaces vanilla Strongholds in any",
+								" vanilla non-Nether biome. This option does not affect Nether Strongholds.",
+								" If this is set to true and turnOffVanillaStrongholds is off, RS's Stonebrick",
+								" Strongholds will still be added to vanilla biomes.",
+								" If Yung's Better Strongholds mod is on, this config has no effect as is treated as false.")
 						.translation("repurposedstructures.config.stronghold.allowstonebrickstrongholdtovanillabiomes")
 						.define("allowStonebrickStrongholdToVanillaBiomes", true));
 
 					addStonebrickStrongholdToModdedBiomes = subscriber.subscribe(builder
-						.comment("\n Add Stonebrick-styled Stronghold to all modded non-Nether biomes" +
-								" even if they have don't have vanilla Strongholds. It will replace" +
-								" the vanilla Strongholds in those biomes if this option is on.")
+						.comment("\n Add Stonebrick-styled Stronghold to all modded non-Nether biomes",
+								" even if they have don't have vanilla Strongholds. It will replace",
+								" the vanilla Strongholds in those biomes if this option is on.",
+								" If Yung's Better Strongholds mod is on, this config has no effect as is treated as false.")
 						.translation("repurposedstructures.config.stronghold.addstonebrickstrongholdtomoddedbiomes")
 						.define("addStonebrickStrongholdToModdedBiomes", true));
 

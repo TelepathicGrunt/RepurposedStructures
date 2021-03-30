@@ -12,7 +12,8 @@ import net.minecraftforge.event.world.BiomeLoadingEvent;
 public class Strongholds {
 
     public static void addStrongholds(BiomeLoadingEvent event) {
-        if (RepurposedStructures.RSStrongholdsConfig.stonebrickStrongholdMaxChunkDistance.get() != 1001 &&
+        if (RepurposedStructures.yungsBetterStrongholdsIsNotOn &&
+            RepurposedStructures.RSStrongholdsConfig.stonebrickStrongholdMaxChunkDistance.get() != 1001 &&
             BiomeSelection.hasStructure(event, Structure.STRONGHOLD) &&
             ((RepurposedStructures.RSStrongholdsConfig.allowStonebrickStrongholdToVanillaBiomes.get() && BiomeSelection.hasNamespace(event, "minecraft")) ||
             (RepurposedStructures.RSStrongholdsConfig.addStonebrickStrongholdToModdedBiomes.get() && !BiomeSelection.hasNamespace(event, "minecraft"))))
