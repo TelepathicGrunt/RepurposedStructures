@@ -22,7 +22,8 @@
     "StructurePieceAccessor",
     "StructureProcessorListAccessor",
     "StructuresConfigAccessor",
-    "TemplateInvoker"
+    "TemplateInvoker",
+    "VanillaLayeredBiomeSourceAccessor"
   ],
   "client": [
     "StructureBlockScreenMixin"

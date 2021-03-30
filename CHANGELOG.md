@@ -59,6 +59,10 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Removed random stray Red Nether Bricks block in one of the Nether City's stair piece.
 
+##### Strongholds:
+- Stronebrick Strongholds now will spawn in ocean biomes like vanilla Strongholds do.
+  There's a weird quirk with how vanilla Stronghold will spawn in biomes that doesn't have the Stronghold added to it which I am trying to copy here.
+
 
 ## (V.1.9.0 Changes) (1.16.5 Minecraft)
 
