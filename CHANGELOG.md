@@ -41,11 +41,13 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Hard nerfed the Netherite loot from Nether Bricks Shipwrecks and added more Wither Skeletons upon first generation.
 
 ##### Cities:
-- Change Nether City's default config spawnrate from 160 to 140 to make them slightly more common.
+- Change Nether City's default config spawnrate from 160 to 120 to make them more common and less traveling to reach.
+
+- Made large room with double chest in Nether Cities now a bit more common and have 3 Wither Skeletons defending it now.
   
-- Made large room with chests in Nether Cities now a bit more common.
-  
-- Buffed Nether City loot a bit to have higher chance of Netherite loot.
+- Buffed Nether City loot a bit to have higher chance of Netherite loot and more chests.
+
+- Removed random stray Red Nether Bricks block in one of the Nether City's stair piece.
 
 
 ## (V.2.5.1 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)

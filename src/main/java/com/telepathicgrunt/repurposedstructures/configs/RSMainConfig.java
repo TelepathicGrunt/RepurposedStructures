@@ -243,7 +243,7 @@ public class RSMainConfig
 					citiesNetherMaxChunkDistance = subscriber.subscribe(builder
 							.comment("\n How rare are Nether Cities. 1 for spawning in most chunks and 1001 for none.")
 							.translation("repurposedstructures.config.cities.citiesnethermaxchunkdistance")
-							.defineInRange("citiesNetherMaxChunkDistance", 140, 1, 1001));
+							.defineInRange("citiesNetherMaxChunkDistance", 120, 1, 1001));
 
 					addCitiesNetherToModdedBiomes = subscriber.subscribe(builder
 							.comment("\n Add Nether Cities to modded Nether category biomes.")
