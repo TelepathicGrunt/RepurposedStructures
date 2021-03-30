@@ -37,10 +37,15 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Fixed https://bugs.mojang.com/browse/MC-130584 by using a special processor.
   This means this mod's igloo's chests, ladders, and other blocks will no longer be waterlogged if their basement places water in the world.
 
+##### Shipwrecks:
+- Hard nerfed the Netherite loot from Nether Bricks Shipwrecks and added more Wither Skeletons upon first generation.
+
 ##### Cities:
 - Change Nether City's default config spawnrate from 160 to 140 to make them slightly more common.
   
 - Made large room with chests in Nether Cities now a bit more common.
+  
+- Buffed Nether City loot a bit to have higher chance of Netherite loot.
 
 
 ## (V.2.5.1 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)
