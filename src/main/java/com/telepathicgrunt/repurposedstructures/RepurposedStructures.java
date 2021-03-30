@@ -18,6 +18,7 @@ import com.telepathicgrunt.repurposedstructures.configs.RSWitchHutsConfig.RSWitc
 import com.telepathicgrunt.repurposedstructures.misc.MobMapTrades;
 import com.telepathicgrunt.repurposedstructures.mixin.ChunkGeneratorAccessor;
 import com.telepathicgrunt.repurposedstructures.modinit.*;
+import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
 import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
 import com.telepathicgrunt.repurposedstructures.utils.LogSpamFiltering;
 import com.telepathicgrunt.repurposedstructures.utils.MobSpawnerManager;
@@ -30,6 +31,7 @@ import net.minecraft.world.gen.FlatChunkGenerator;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.settings.StructureSeparationSettings;
 import net.minecraft.world.server.ServerWorld;
+import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.AddReloadListenerEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
@@ -127,6 +129,7 @@ public class RepurposedStructures
 			RSConfiguredStructures.registerStructureFeatures();
 			RSStructureTagMap.setupTags();
 			RSGlobalLootModifier.registerLootData();
+			BiomeSelection.setupOverworldBiomesSet();
 
 			// Workaround for Terraforged
 			WorldGenRegistries.CHUNK_GENERATOR_SETTINGS.getEntries().forEach(settings -> {

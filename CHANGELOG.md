@@ -57,6 +57,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ##### Strongholds:
 - Stonebrick Strongholds will not spawn at all if Yung's Better Strongholds is on.
+  
+- Stronebrick Strongholds now will spawn in ocean biomes like vanilla Strongholds do. 
+  There's a weird quirk with how vanilla Stronghold will spawn in biomes that doesn't have the Stronghold added to it which I am trying to copy here.
 
 
 ## (V.2.5.1 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)

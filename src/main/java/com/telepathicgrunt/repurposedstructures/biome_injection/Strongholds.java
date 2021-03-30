@@ -14,10 +14,11 @@ public class Strongholds {
     public static void addStrongholds(BiomeLoadingEvent event) {
         if (RepurposedStructures.yungsBetterStrongholdsIsNotOn &&
             RepurposedStructures.RSStrongholdsConfig.stonebrickStrongholdMaxChunkDistance.get() != 1001 &&
-            BiomeSelection.hasStructure(event, Structure.STRONGHOLD) &&
+            (BiomeSelection.hasStructure(event, Structure.STRONGHOLD) || BiomeSelection.isOverworldBiome(event)) &&
             ((RepurposedStructures.RSStrongholdsConfig.allowStonebrickStrongholdToVanillaBiomes.get() && BiomeSelection.hasNamespace(event, "minecraft")) ||
             (RepurposedStructures.RSStrongholdsConfig.addStonebrickStrongholdToModdedBiomes.get() && !BiomeSelection.hasNamespace(event, "minecraft"))))
         {
+
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.STONEBRICK_STRONGHOLD);
             event.getGeneration().getFeatures(GenerationStage.Decoration.STRONGHOLDS).add(() -> RSConfiguredFeatures.STONEBRICK_STRONGHOLD_CHAINS);
         }
