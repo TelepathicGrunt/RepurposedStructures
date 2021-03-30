@@ -95,7 +95,7 @@ public class RSStrongholdsConfig implements ConfigData
 		@Comment("How rare are Stonebrick-styled Strongholds."
 				+ "\n1 for spawning in most chunks and 1001 for no spawn.")
 		@ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-		public int stonebrickStrongholdMaxChunkDistance = 85;
+		public int stonebrickStrongholdMaxChunkDistance = 110;
 
 		@ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText

@@ -60,6 +60,13 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Removed random stray Red Nether Bricks block in one of the Nether City's stair piece.
 
 ##### Strongholds:
+- Repurposed Structure's Stonebrick Strongholds will now generate only in rings around world origin like Vanilla stronghold's do.
+  The rings of valid spots that RS Stonebrick Strongholds can spawn in are the same size and distance from spawn as vanilla's.
+  However, there are an unlimited number of rings for RS's Stonebrick Stronghold beyond the 8 rings that Vanilla's does.
+  See here for what I mean about rings: https://minecraft.fandom.com/wiki/Stronghold#Generation
+
+- Bumped Stonebrick Stronghold's default config spawnrate from 85 to 110.
+  
 - Stronebrick Strongholds now will spawn in ocean biomes like vanilla Strongholds do.
   There's a weird quirk with how vanilla Stronghold will spawn in biomes that doesn't have the Stronghold added to it which I am trying to copy here.
 
