@@ -14,6 +14,7 @@ import net.minecraft.world.gen.feature.template.IStructureProcessorType;
 import net.minecraft.world.gen.feature.template.PlacementSettings;
 import net.minecraft.world.gen.feature.template.StructureProcessor;
 import net.minecraft.world.gen.feature.template.Template;
+import net.minecraftforge.fml.server.ServerLifecycleHooks;
 
 import static java.lang.Integer.parseInt;
 
@@ -38,27 +39,28 @@ public class DataBlockProcessor extends StructureProcessor {
     public Template.BlockInfo process(IWorldReader worldView, BlockPos pos, BlockPos blockPos, Template.BlockInfo structureBlockInfoLocal, Template.BlockInfo structureBlockInfoWorld, PlacementSettings structurePlacementData) {
         BlockState blockState = structureBlockInfoWorld.state;
         if (blockState.isIn(Blocks.STRUCTURE_BLOCK)) {
-            String string = structureBlockInfoWorld.nbt.getString("metadata");
+            String metadata = structureBlockInfoWorld.nbt.getString("metadata");
+            BlockPos worldPos = structureBlockInfoWorld.pos;
 
             try {
                 // Pillar mode activated
-                if(string.contains(DATA_PROCESSOR_MODE.PILLARS.symbol)){
-                    String[] splitString = string.split(DATA_PROCESSOR_MODE.PILLARS.symbol);
+                if(metadata.contains(DATA_PROCESSOR_MODE.PILLARS.symbol)){
+                    String[] splitString = metadata.split(DATA_PROCESSOR_MODE.PILLARS.symbol);
 
                     // Parses the data block's name field to get direction, blockstate, and depth
                     Direction direction = Direction.valueOf(splitString[0].toUpperCase());
                     BlockStateParser blockArgumentParser = new BlockStateParser(new StringReader(splitString[1]), false);
                     blockArgumentParser.parse(true);
                     BlockState replacementState = blockArgumentParser.getState();
-                    BlockState currentBlock = worldView.getBlockState(structureBlockInfoWorld.pos);
-                    BlockPos.Mutable currentPos = new BlockPos.Mutable().setPos(structureBlockInfoWorld.pos);
+                    BlockState currentBlock = worldView.getBlockState(worldPos);
+                    BlockPos.Mutable currentPos = new BlockPos.Mutable().setPos(worldPos);
                     int depth = splitString.length > 2 ? parseInt(splitString[2]) + 1 : 256;
 
                     // Creates the pillars in the world that replaces air and liquids
                     while((currentBlock.isAir() || currentBlock.getMaterial().isLiquid()) &&
                             currentPos.getY() <= worldView.getDimension().getLogicalHeight() &&
                             currentPos.getY() >= 0 &&
-                            currentPos.withinDistance(structureBlockInfoWorld.pos, depth)
+                            currentPos.withinDistance(worldPos, depth)
                     ){
                         worldView.getChunk(currentPos).setBlockState(currentPos, replacementState, false);
                         currentPos.move(direction);
@@ -66,7 +68,7 @@ public class DataBlockProcessor extends StructureProcessor {
                     }
 
                     // Replaces the data block itself
-                    return replacementState.isIn(Blocks.STRUCTURE_VOID) ? null : new Template.BlockInfo(structureBlockInfoWorld.pos, replacementState, null);
+                    return replacementState.isIn(Blocks.STRUCTURE_VOID) ? null : new Template.BlockInfo(worldPos, replacementState, null);
                 }
             }
             catch (CommandSyntaxException var11) {

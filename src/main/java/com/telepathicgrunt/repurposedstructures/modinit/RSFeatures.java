@@ -38,7 +38,9 @@ public class RSFeatures {
   	public static final RegistryObject<Feature<NoFeatureConfig>> SWAMP_VILLAGE_VINES = createFeature("swamp_village_vines", () -> new SwampVillageVines(NoFeatureConfig.CODEC));
   	public static final RegistryObject<Feature<NoFeatureConfig>> JUNGLE_STRUCTURES_VINES = createFeature("jungle_structures_vines", () -> new JungleStructuresVines(NoFeatureConfig.CODEC));
   	public static final RegistryObject<Feature<NoFeatureConfig>> FORTRESS_BREAKAGE = createFeature("fortress_breakage", () -> new FortressBreakage(NoFeatureConfig.CODEC));
-  	public static final RegistryObject<Feature<NoFeatureConfig>> STRONGHOLD_CHAINS = createFeature("stronghold_chains", () -> new StrongholdChains(NoFeatureConfig.CODEC));
+	public static final RegistryObject<Feature<NoFeatureConfig>> STRONGHOLD_CHAINS = createFeature("stronghold_chains", () -> new StrongholdChains(NoFeatureConfig.CODEC));
+
+	public static final RegistryObject<Feature<NoFeatureConfig>> WITHER_SKELETON_WITH_BOW = createFeature("wither_skeleton_with_bow", () -> new WitherSkeletonWithBow(NoFeatureConfig.CODEC));
 	
 	private static <F extends Feature<?>> RegistryObject<F> createFeature(String name, Supplier<F> feature)
     {
