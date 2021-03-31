@@ -3,7 +3,7 @@
 	"pools": [
 		{
 			"rolls": {
-				"min": 3.0,
+				"min": 4.0,
 				"max": 7.0,
 				"type": "minecraft:uniform"
 			},
@@ -76,7 +76,7 @@
 							"function": "minecraft:set_count",
 							"count": {
 								"min": 1.0,
-								"max": 4.0,
+								"max": 2.0,
 								"type": "minecraft:uniform"
 							}
 						}
@@ -367,8 +367,8 @@
 						{
 							"function": "minecraft:set_count",
 							"count": {
-								"min": 1.0,
-								"max": 8.0,
+								"min": 3.0,
+								"max": 9.0,
 								"type": "minecraft:uniform"
 							}
 						}
@@ -382,7 +382,7 @@
 						{
 							"function": "minecraft:set_count",
 							"count": {
-								"min": 1.0,
+								"min": 2.0,
 								"max": 6.0,
 								"type": "minecraft:uniform"
 							}
@@ -397,23 +397,8 @@
 						{
 							"function": "minecraft:set_count",
 							"count": {
-								"min": 1.0,
-								"max": 2.0,
-								"type": "minecraft:uniform"
-							}
-						}
-					],
-					"name": "minecraft:netherite_ingot"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 2,
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"min": 1.0,
-								"max": 3.0,
+								"min": 2.0,
+								"max": 6.0,
 								"type": "minecraft:uniform"
 							}
 						}
@@ -428,6 +413,21 @@
 							"function": "minecraft:set_count",
 							"count": {
 								"min": 1.0,
+								"max": 4.0,
+								"type": "minecraft:uniform"
+							}
+						}
+					],
+					"name": "minecraft:netherite_ingot"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 2,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 5.0,
 								"max": 10.0,
 								"type": "minecraft:uniform"
 							}

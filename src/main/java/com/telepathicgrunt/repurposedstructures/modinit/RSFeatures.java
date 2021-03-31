@@ -38,6 +38,8 @@ public class RSFeatures {
     public static Feature<DefaultFeatureConfig> FORTRESS_BREAKAGE = new FortressBreakage();
     public static Feature<DefaultFeatureConfig> STRONGHOLD_CHAINS = new StrongholdChains();
 
+    public static Feature<DefaultFeatureConfig> WITHER_SKELETON_WITH_BOW = new WitherSkeletonWithBow();
+
     public static void registerFeatures() {
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "dungeons_badlands"), BADLANDS_DUNGEONS);
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "dungeons_dark_forest"), DARK_FOREST_DUNGEONS);
@@ -64,5 +66,7 @@ public class RSFeatures {
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "jungle_structures_vines"), JUNGLE_STRUCTURES_VINES);
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "fortress_breakage"), FORTRESS_BREAKAGE);
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "stronghold_chains"), STRONGHOLD_CHAINS);
+
+        Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "wither_skeleton_with_bow"), WITHER_SKELETON_WITH_BOW);
     }
 }

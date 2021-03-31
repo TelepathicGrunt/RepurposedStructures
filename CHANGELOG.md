@@ -44,9 +44,11 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Shipwrecks:
 - Hard nerfed the Netherite loot from Nether Bricks Shipwrecks.
 
-- In Nether Bricks Shipwrecks, they now have more Wither Skeletons upon first generation and 1 Wither Skeleton with an enchanted bow.
+- In Nether Bricks Shipwrecks, they now have more Wither Skeletons upon first generation.
 
 - Adjusted the stairway in Nether Bricks Shipwrecks so that Wither Skeletons can walk though them.
+
+- 1 Wither Skeleton with an enchanted bow has been added to Warped, Crimson, and Nether Bricks Shipwreck. (Crimson Shipwreck mast now has platform)
 
 ##### Cities:
 - Change Nether City's default config spawnrate from 160 to 120 to make them more common and less traveling to reach.
