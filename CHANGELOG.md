@@ -10,6 +10,36 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ## (V.2.6.0 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)
 
+##### Cities:
+- Change Nether City's default config spawnrate from 160 to 120 to make them more common and less traveling to reach.
+
+- Made large room with double chest in Nether Cities now a bit more common and have 3 Wither Skeletons defending it now.
+
+- Added Wither Skeleton with enchanted bow to Nether Cities's tiny tower top pieces.
+
+- Buffed Nether City loot a bit to have higher chance of Netherite loot and more chests.
+
+- Removed random stray Red Nether Bricks block in one of the Nether City's stair piece.
+
+##### Strongholds:
+- Repurposed Structure's Stonebrick Strongholds will now generate only in rings around world origin like Vanilla stronghold's do.
+  The rings of valid spots that RS Stonebrick Strongholds can spawn in are the same size and distance from spawn as vanilla's.
+  However, there are an unlimited number of rings for RS's Stonebrick Stronghold beyond the 8 rings that Vanilla's does.
+  See here for what I mean about rings: https://minecraft.fandom.com/wiki/Stronghold#Generation
+
+- Bumped Stonebrick Stronghold's default config spawnrate from 85 to 110.
+
+- Stonebrick Strongholds will not spawn at all if Yung's Better Strongholds is on.
+
+- Stonebrick Strongholds now will spawn in ocean biomes like vanilla Strongholds do.
+  There's a weird quirk with how vanilla Stronghold will spawn in biomes that doesn't have the Stronghold added to it which I am trying to copy here.
+
+- Buffed Nether Stronghold loot and added custom loot table for its library too.
+
+- Nether Stronghold Libraries can spawn bookshelves of even more kinds of blocks.
+
+- Made Repurposed Structures's Stonebrick Strongholds now use custom loot tables and can have better loot than vanilla loot.
+
 ##### Dungeons:
 - All Dungeons now use nbt files. You can override the looks of dungeons with a datapack!
 
@@ -27,17 +57,6 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Bumped up the config default spawnrates for Nether and End Dungeons from 8 to 12. Slightly restricted the spawn condition for overworld dungeons.
 
 ##### Shipwrecks:
-- Fixed End Shipwrecks spawning so they no longer can spawn on the Enderdragon island.
-
-##### Pyramids:
-- Fixed https://bugs.mojang.com/browse/MC-130584 by using a special processor.
-  This means this mod's pyramid's chests will no longer be waterlogged if their pits replaces water in the world.
-
-##### Igloos:
-- Fixed https://bugs.mojang.com/browse/MC-130584 by using a special processor.
-  This means this mod's igloo's chests, ladders, and other blocks will no longer be waterlogged if their basement places water in the world.
-
-##### Shipwrecks:
 - Hard nerfed the Netherite loot from Nether Bricks Shipwrecks.
 
 - In Nether Bricks Shipwrecks, they now have more Wither Skeletons upon first generation.
@@ -47,30 +66,16 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - 1 Wither Skeleton with an enchanted bow has been added to Warped, Crimson, and Nether Bricks Shipwreck. (Crimson Shipwreck mast now has platform)
 
 - All 3 Nether Shipwrecks now properly checks to make sure they won't spawn inside land.
-
-##### Cities:
-- Change Nether City's default config spawnrate from 160 to 120 to make them more common and less traveling to reach.
-
-- Made large room with double chest in Nether Cities now a bit more common and have 3 Wither Skeletons defending it now.
-
-- Added Wither Skeleton with enchanted bow to Nether Cities's tiny tower top pieces.
   
-- Buffed Nether City loot a bit to have higher chance of Netherite loot and more chests.
+- Fixed End Shipwrecks spawning so they no longer can spawn on the Enderdragon island.
 
-- Removed random stray Red Nether Bricks block in one of the Nether City's stair piece.
+##### Pyramids:
+- Fixed https://bugs.mojang.com/browse/MC-130584 by using a special processor.
+  This means this mod's pyramid's chests will no longer be waterlogged if their pits replaces water in the world.
 
-##### Strongholds:
-- Repurposed Structure's Stonebrick Strongholds will now generate only in rings around world origin like Vanilla stronghold's do.
-  The rings of valid spots that RS Stonebrick Strongholds can spawn in are the same size and distance from spawn as vanilla's.
-  However, there are an unlimited number of rings for RS's Stonebrick Stronghold beyond the 8 rings that Vanilla's does.
-  See here for what I mean about rings: https://minecraft.fandom.com/wiki/Stronghold#Generation
-
-- Bumped Stonebrick Stronghold's default config spawnrate from 85 to 110.
-  
-- Stonebrick Strongholds will not spawn at all if Yung's Better Strongholds is on.
-  
-- Stronebrick Strongholds now will spawn in ocean biomes like vanilla Strongholds do. 
-  There's a weird quirk with how vanilla Stronghold will spawn in biomes that doesn't have the Stronghold added to it which I am trying to copy here.
+##### Igloos:
+- Fixed https://bugs.mojang.com/browse/MC-130584 by using a special processor.
+  This means this mod's igloo's chests, ladders, and other blocks will no longer be waterlogged if their basement places water in the world.
   
   
 ## (V.2.5.1 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)

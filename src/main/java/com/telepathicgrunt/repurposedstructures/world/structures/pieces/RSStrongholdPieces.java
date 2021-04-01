@@ -46,8 +46,10 @@ public class RSStrongholdPieces {
     }
     
     private static final ResourceLocation NETHER_STRONGHOLD_BOOKSHELF_RL = new ResourceLocation("repurposed_structures:nether_stronghold_bookshelves");
+
     private static final ResourceLocation STONEBRICK_SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID, "stronghold_stonebrick");
     private static final ResourceLocation STONEBRICK_PORTAL_SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID, "stronghold_stonebrick_portal_room");
+
     private static final ResourceLocation NETHER_SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID, "stronghold_nether");
     private static final ResourceLocation NETHER_PORTAL_SPAWNER_ID = new ResourceLocation(RepurposedStructures.MODID, "stronghold_nether_portal_room");
 
@@ -729,14 +731,14 @@ public class RSStrongholdPieces {
             }
 
             if (RepurposedStructures.RSStrongholdsConfig.lootChests.get()) {
-                this.generateChest(world, structureBoundingBoxIn, random, 3, 3, 5, LootTables.CHESTS_STRONGHOLD_LIBRARY);
+                this.generateChest(world, structureBoundingBoxIn, random, 3, 3, 5, getLibraryChestLoot());
             }
 
             if (this.isLargeRoom) {
                 this.setBlockState(world, Blocks.AIR.getDefaultState(), 12, 9, 1, structureBoundingBoxIn);
 
                 if (RepurposedStructures.RSStrongholdsConfig.lootChests.get()) {
-                    this.generateChest(world, structureBoundingBoxIn, random, 12, 8, 1, LootTables.CHESTS_STRONGHOLD_LIBRARY);
+                    this.generateChest(world, structureBoundingBoxIn, random, 12, 8, 1, getLibraryChestLoot());
                 }
             }
 
@@ -1669,7 +1671,7 @@ public class RSStrongholdPieces {
             if (this.strongholdType == Type.NETHER) {
                 return new ResourceLocation(RepurposedStructures.MODID, "chests/stronghold/nether_hallway");
             } else {
-                return LootTables.CHESTS_STRONGHOLD_CORRIDOR;
+                return new ResourceLocation(RepurposedStructures.MODID, "chests/stronghold/stonebrick_hallway");
             }
         }
 
@@ -1678,10 +1680,17 @@ public class RSStrongholdPieces {
             if (this.strongholdType == Type.NETHER) {
                 return new ResourceLocation(RepurposedStructures.MODID, "chests/stronghold/nether_storage_room");
             } else {
-                return LootTables.CHESTS_STRONGHOLD_CORRIDOR;
+                return new ResourceLocation(RepurposedStructures.MODID, "chests/stronghold/stonebrick_storage_room");
             }
         }
 
+        protected ResourceLocation getLibraryChestLoot() {
+            if (this.strongholdType == Type.NETHER) {
+                return new ResourceLocation(RepurposedStructures.MODID, "chests/stronghold/nether_library");
+            } else {
+                return new ResourceLocation(RepurposedStructures.MODID, "chests/stronghold/stonebrick_library");
+            }
+        }
 
         protected StructurePiece getNextComponentNormal(RSStrongholdPieces.EntranceStairs p_74986_1_, List<StructurePiece> p_74986_2_, Random p_74986_3_, int p_74986_4_, int p_74986_5_) {
             Direction enumfacing = this.getCoordBaseMode();
