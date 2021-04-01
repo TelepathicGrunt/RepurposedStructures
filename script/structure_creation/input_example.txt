@@ -20,3 +20,26 @@ minecraft:snow_block
 y
 C:\Users\MSI Laptop\Documents\ModdingWorkspace\RepurposedStructures-Fabric\src
 C:\Users\MSI Laptop\Documents\ModdingWorkspace\RepurposedStructures\src
+
+pyramid_end
+11
+temples/pyramid_end
+0
+0
+exit
+surface_structures
+RSTemplesConfig
+pyramids
+Add End Pyramid to modded end biomes.
+How rare are End Pyramid in End biomes. 1 for spawning in most chunks and 1001 for none. 
+75
+n
+PYRAMID
+exit
+Temple of the Dragon
+Enter a End Pyramid
+minecraft:magenta_concrete
+20
+y
+C:\Users\MSI Laptop\Documents\ModdingWorkspace\RepurposedStructures-Fabric\src
+C:\Users\MSI Laptop\Documents\ModdingWorkspace\RepurposedStructures\src
