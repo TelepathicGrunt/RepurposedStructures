@@ -56,6 +56,7 @@ public class RSConfiguredStructures {
 
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> NETHER_PYRAMID = RSStructures.NETHER_PYRAMID.configure(FeatureConfig.DEFAULT);
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> BADLANDS_PYRAMID = RSStructures.BADLANDS_PYRAMID.configure(FeatureConfig.DEFAULT);
+    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> PYRAMID_END = RSStructures.PYRAMID_END.configure(FeatureConfig.DEFAULT);
 // regexpos1
 
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> END_SHIPWRECK = RSStructures.END_SHIPWRECK.configure(FeatureConfig.DEFAULT);
@@ -140,6 +141,7 @@ public class RSConfiguredStructures {
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "nether_pyramid"), NETHER_PYRAMID);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "badlands_temple"), BADLANDS_PYRAMID);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "pyramid_snowy"), PYRAMID_SNOWY);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "pyramid_end"), PYRAMID_END);
         // regexpos2
 
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "end_shipwreck"), END_SHIPWRECK);

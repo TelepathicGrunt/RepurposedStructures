@@ -1,0 +1,1 @@
+        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "pyramid_end"), PYRAMID_END.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSTemplesConfig.pyramidEndMaxChunkDistance.get(), (int) (RepurposedStructures.RSTemplesConfig.pyramidEndMaxChunkDistance.get() * 0.5f), 1145023315));

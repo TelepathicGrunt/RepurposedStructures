@@ -73,6 +73,7 @@ public class RSStructures {
     public static StructureFeature<DefaultFeatureConfig> NETHER_PYRAMID = new GenericNetherJigsawHighStructure(new Identifier(RepurposedStructures.MODID, "temples/pyramid_nether"), 1, -4, 0);
     public static StructureFeature<DefaultFeatureConfig> BADLANDS_PYRAMID = new BuriableStructure(new Identifier(RepurposedStructures.MODID, "temples/pyramid_badlands"));
     public static StructureFeature<DefaultFeatureConfig> PYRAMID_SNOWY = new BuriableStructure(new Identifier(RepurposedStructures.MODID, "temples/pyramid_snowy"));
+    public static StructureFeature<DefaultFeatureConfig> PYRAMID_END = new LandBasedEndStructure(new Identifier(RepurposedStructures.MODID, "temples/pyramid_end"), 11, -2, 0, 0, new HashSet<>());
 // regexpos1
 
     public static StructureFeature<DefaultFeatureConfig> END_SHIPWRECK = new ShipwreckEndStructure();
@@ -91,7 +92,7 @@ public class RSStructures {
     public static StructureFeature<DefaultFeatureConfig> WARPED_VILLAGE = new VillageNetherStructure(new Identifier(RepurposedStructures.MODID, "village/warped/town_centers"), 6, 0, 1, 0, new HashSet<>());
     public static StructureFeature<DefaultFeatureConfig> VILLAGE_OAK = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/oak/town_centers"), 6, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.MANSION).collect(Collectors.toSet()));
 
-    public static StructureFeature<DefaultFeatureConfig> RUINED_PORTAL_END = new RuinedPortalEndStructure(new Identifier(RepurposedStructures.MODID, "ruined_portal/end"), 20, -6, 0, 0, new HashSet<>());
+    public static StructureFeature<DefaultFeatureConfig> RUINED_PORTAL_END = new LandBasedEndStructure(new Identifier(RepurposedStructures.MODID, "ruined_portal/end"), 20, -6, 0, 0, new HashSet<>());
 
     public static StructureFeature<DefaultFeatureConfig> RUINS_NETHER = new GenericNetherJigsawHighStructure(new Identifier(RepurposedStructures.MODID, "ruins/nether/start_pool"), 1, -4, -1);
 
@@ -156,6 +157,7 @@ public class RSStructures {
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "pyramid_badlands"), BADLANDS_PYRAMID).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.badlandsPyramidMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.badlandsPyramidMaxChunkDistance * 0.5f), 1718729448)).superflatFeature(BADLANDS_PYRAMID.configure(FeatureConfig.DEFAULT)).register();
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "pyramid_nether"), NETHER_PYRAMID).step(GenerationStep.Feature.VEGETAL_DECORATION).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.netherPyramidMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.netherPyramidMaxChunkDistance * 0.5f), 2054372964)).superflatFeature(NETHER_PYRAMID.configure(FeatureConfig.DEFAULT)).adjustsSurface().register();
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "pyramid_snowy"), PYRAMID_SNOWY).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidSnowyMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidSnowyMaxChunkDistance * 0.5f), 1630533493)).superflatFeature(PYRAMID_SNOWY.configure(FeatureConfig.DEFAULT)).register();
+        FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "pyramid_end"), PYRAMID_END).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidEndMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidEndMaxChunkDistance * 0.5f), 1145023315)).superflatFeature(PYRAMID_END.configure(FeatureConfig.DEFAULT)).register();
 // regexpos2
 
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "shipwreck_end"), END_SHIPWRECK).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSShipwrecksConfig.maxChunkDistance.endShipwreckMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSShipwrecksConfig.maxChunkDistance.endShipwreckMaxChunkDistance * 0.5f), 1605500075)).superflatFeature(END_SHIPWRECK.configure(FeatureConfig.DEFAULT)).register();

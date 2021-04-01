@@ -1,4 +1,4 @@
-        addToBiome("$1",
+        GeneralUtils.addToBiome("$1",
                 (context) -> 
 						&& BiomeSelection.isBiomeAllowed(context, "$2")
                         && RepurposedStructures.RSAllConfig.$3.maxChunkDistance.$4 != 1001

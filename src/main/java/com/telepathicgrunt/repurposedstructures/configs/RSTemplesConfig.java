@@ -137,8 +137,18 @@ public class RSTemplesConfig implements ConfigData {
         @Comment("Add Snowy Pyramid to modded snowy biomes.")
         public boolean addPyramidSnowyToModdedBiomes = true;
 
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("How rare are End Pyramid in End biomes. 1 for"
+                + "\nspawning in most chunks and 1001 for none.")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int pyramidEndMaxChunkDistance = 75;
         // regexpos2
 
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Add End Pyramid to modded end biomes.")
+        public boolean addPyramidEndToModdedBiomes = true;
         // regexpos1
     }
 }

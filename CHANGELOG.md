@@ -69,12 +69,17 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Fixed End Shipwrecks spawning so they no longer can spawn on the Enderdragon island.
 
 ##### Pyramids:
+- Added End Pyramids to the End! A shrine for the dragon of the End!
+  
 - Fixed https://bugs.mojang.com/browse/MC-130584 by using a special processor.
   This means this mod's pyramid's chests will no longer be waterlogged if their pits replaces water in the world.
 
 ##### Igloos:
 - Fixed https://bugs.mojang.com/browse/MC-130584 by using a special processor.
   This means this mod's igloo's chests, ladders, and other blocks will no longer be waterlogged if their basement places water in the world.
+
+##### Ruined Portals:
+- Now will be less likely to spawn off the island and will bury itself a bit.
 
 ##### Loot Tables:
 - Fixed blacklistedRSLoottablesFromImportingModdedItems config entry not actually being read.

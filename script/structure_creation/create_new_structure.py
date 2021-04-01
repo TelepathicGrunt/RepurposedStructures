@@ -278,7 +278,7 @@ while restart:
         raw_output += "\n\n" + file_content
         file.write(file_content)
         if bool(inject_into_code):
-            directory = os.path.join(fabric_src, 'main','java','com','telepathicgrunt','repurposedstructures','biome_injection')
+            directory = os.path.join(forge_src, 'main','java','com','telepathicgrunt','repurposedstructures','biome_injection')
             for filename in os.listdir(directory):
                 with open(os.path.join(directory, filename), 'r+') as f:
                     tempRead = f.read()
@@ -336,16 +336,6 @@ while restart:
     with open(filename, "w") as file:
         file.write(file_content)
 
-
-    with open(os.path.join('template', 'translation_advancement.json'), "r") as file:
-        file_content = file.read().replace("$1", structure_registry_name).replace("$2", advancement_icon).replace("$3", advancement_title) \
-                                .replace("$4", advancement_description).replace("$5", advancement_exp).replace("$6", config_subcategory)
-    filename = os.path.join('advancements', 'Repurposed_Structures-Translation_Advancements', "data", "repurposed_structures", "advancements", config_subcategory, structure_registry_name+'.json')
-    os.makedirs(os.path.dirname(filename), exist_ok=True)
-    with open(filename, "w") as file:
-        file.write(file_content)
-
-
     with open(os.path.join('template', 'disabled_advancement.json'), "r") as file:
         file_content = file.read().replace("$1", structure_registry_name).replace("$2", advancement_icon).replace("$3", advancement_title) \
                                 .replace("$4", advancement_description).replace("$5", advancement_exp).replace("$6", config_subcategory)
@@ -356,7 +346,9 @@ while restart:
 
 
 
-    with open(os.path.join('code', 'raw_output', structure_registry_name+'.txt'), "w") as file:
+    path = os.path.join('code', 'raw_output', structure_registry_name+'.txt')
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w") as file:
         file.write(raw_output)
 
     print("\n\nFINISHED!")
