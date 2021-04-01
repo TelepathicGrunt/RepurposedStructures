@@ -90,8 +90,12 @@ public class StructureModdedLootImporter {
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/shipwreck/warped/supply_chest"), new Identifier("minecraft:chests/shipwreck_supply"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/shipwreck/warped/treasure_chest"), new Identifier("minecraft:chests/shipwreck_treasure"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/shipwreck/nether_bricks/treasure_chest"), new Identifier("minecraft:chests/shipwreck_treasure"));
+        tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/stronghold/stonebrick_storage_room"), new Identifier("minecraft:chests/stronghold_crossing"));
+        tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/stronghold/stonebrick_hallway"), new Identifier("minecraft:chests/stronghold_corridor"));
+        tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/stronghold/stonebrick_library"), new Identifier("minecraft:chests/stronghold_library"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/stronghold/nether_storage_room"), new Identifier("minecraft:chests/stronghold_crossing"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/stronghold/nether_hallway"), new Identifier("minecraft:chests/stronghold_corridor"));
+        tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/stronghold/nether_library"), new Identifier("minecraft:chests/stronghold_library"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/temple/nether_basalt_chest"), new Identifier("minecraft:chests/nether_bridge")); // new Identifier("minecraft:chests/jungle_temple"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/temple/nether_crimson_chest"), new Identifier("minecraft:chests/nether_bridge")); // new Identifier("minecraft:chests/jungle_temple"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/temple/nether_soul_chest"), new Identifier("minecraft:chests/nether_bridge")); // new Identifier("minecraft:chests/jungle_temple"));

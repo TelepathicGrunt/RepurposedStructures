@@ -11,47 +11,6 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ## (V.1.10.0 Changes) (1.16.5 Minecraft)
 
-##### Loot Tables:
-- Fixed blacklistedRSLoottablesFromImportingModdedItems config entry not actually being read.
-
-##### Dungeons:
-- All Dungeons now use nbt files. You can override the looks of dungeons with a datapack!
-  
-- Icy dungeon is now actually icy and spawns only in non-ocean biomes that are super cold or has frozen/ice in the name.
-  Loot and spawner mobs have been adjusted as well.
-
-- Snow Dungeon is now added and will spawn in all snowy biomes!
-
-- Nether Dungeons at any height now has the 1% chance of a Wither Skeleton Spawner.
-
-- Nether Dungeons no long spawn attached to lava pockets underground.
-
-- Nether Dungeons are in Vegetal Generation Stage now to be able to spawn in Nether Mineshafts again and not be filled with Basalt as much.
-
-- Bumped up the config default spawnrates for Nether and End Dungeons from 8 to 12. Slightly restricted the spawn condition for overworld dungeons.
-
-##### Shipwrecks:
-- Fixed End Shipwrecks spawning so they no longer can spawn on the Enderdragon island.
-
-##### Pyramids:
-- Fixed https://bugs.mojang.com/browse/MC-130584 by using a special processor.
-  This means this mod's pyramid's chests will no longer be waterlogged if their pits replaces water in the world.
-
-##### Igloos:
-- Fixed https://bugs.mojang.com/browse/MC-130584 by using a special processor.
-  This means this mod's igloo's chests, ladders, and other blocks will no longer be waterlogged if their basement places water in the world.
-
-##### Shipwrecks:
-- Hard nerfed the Netherite loot from Nether Bricks Shipwrecks.
-
-- In Nether Bricks Shipwrecks, they now have more Wither Skeletons upon first generation.
-
-- Adjusted the stairway in Nether Bricks Shipwrecks so that Wither Skeletons can walk though them.
-
-- 1 Wither Skeleton with an enchanted bow has been added to Warped, Crimson, and Nether Bricks Shipwreck. (Crimson Shipwreck mast now has platform)
-
-- All 3 Nether Shipwrecks now properly checks to make sure they won't spawn inside land.
-
 ##### Cities:
 - Change Nether City's default config spawnrate from 160 to 120 to make them more common and less traveling to reach.
 
@@ -70,9 +29,55 @@ Welcome to the Github! If you are looking for the most recent stable version, th
   See here for what I mean about rings: https://minecraft.fandom.com/wiki/Stronghold#Generation
 
 - Bumped Stonebrick Stronghold's default config spawnrate from 85 to 110.
-  
-- Stronebrick Strongholds now will spawn in ocean biomes like vanilla Strongholds do.
+
+- Stonebrick Strongholds now will spawn in ocean biomes like vanilla Strongholds do.
   There's a weird quirk with how vanilla Stronghold will spawn in biomes that doesn't have the Stronghold added to it which I am trying to copy here.
+
+- Buffed Nether Stronghold loot and added custom loot table for its library too.
+
+- Nether Stronghold Libraries can spawn bookshelves of even more kinds of blocks.
+
+- Made Repurposed Structures's Stonebrick Strongholds now use custom loot tables and can have better loot than vanilla loot.
+
+##### Dungeons:
+- All Dungeons now use nbt files. You can override the looks of dungeons with a datapack!
+  
+- Icy dungeon is now actually icy and spawns only in non-ocean biomes that are super cold or has frozen/ice in the name.
+  Loot and spawner mobs have been adjusted as well.
+
+- Snow Dungeon is now added and will spawn in all snowy biomes!
+
+- Nether Dungeons at any height now has the 1% chance of a Wither Skeleton Spawner.
+
+- Nether Dungeons no long spawn attached to lava pockets underground.
+
+- Nether Dungeons are in Vegetal Generation Stage now to be able to spawn in Nether Mineshafts again and not be filled with Basalt as much.
+
+- Bumped up the config default spawnrates for Nether and End Dungeons from 8 to 12. Slightly restricted the spawn condition for overworld dungeons.
+
+##### Shipwrecks:
+- Hard nerfed the Netherite loot from Nether Bricks Shipwrecks.
+
+- In Nether Bricks Shipwrecks, they now have more Wither Skeletons upon first generation.
+
+- Adjusted the stairway in Nether Bricks Shipwrecks so that Wither Skeletons can walk though them.
+
+- 1 Wither Skeleton with an enchanted bow has been added to Warped, Crimson, and Nether Bricks Shipwreck. (Crimson Shipwreck mast now has platform)
+
+- All 3 Nether Shipwrecks now properly checks to make sure they won't spawn inside land.
+  
+- Fixed End Shipwrecks spawning so they no longer can spawn on the Enderdragon island.
+
+##### Pyramids:
+- Fixed https://bugs.mojang.com/browse/MC-130584 by using a special processor.
+  This means this mod's pyramid's chests will no longer be waterlogged if their pits replaces water in the world.
+
+##### Igloos:
+- Fixed https://bugs.mojang.com/browse/MC-130584 by using a special processor.
+  This means this mod's igloo's chests, ladders, and other blocks will no longer be waterlogged if their basement places water in the world.
+
+##### Loot Tables:
+- Fixed blacklistedRSLoottablesFromImportingModdedItems config entry not actually being read.
 
 
 ## (V.1.9.0 Changes) (1.16.5 Minecraft)
