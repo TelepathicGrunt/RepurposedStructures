@@ -74,6 +74,7 @@ public class RSStructureTagMap {
         addTags(RSStructures.BADLANDS_PYRAMID.get(), Stream.of(STRUCTURE_TAGS.PYRAMID).collect(Collectors.toSet()));
         addTags(RSStructures.NETHER_PYRAMID.get(), Stream.of(STRUCTURE_TAGS.PYRAMID).collect(Collectors.toSet()));
         addTags(RSStructures.PYRAMID_SNOWY.get(), Stream.of(STRUCTURE_TAGS.PYRAMID).collect(Collectors.toSet()));
+        addTags(RSStructures.PYRAMID_END.get(), Stream.of(STRUCTURE_TAGS.PYRAMID).collect(Collectors.toSet()));
         // regexpos1
 
         addTags(RSStructures.NETHER_BASALT_TEMPLE.get(), Stream.of(STRUCTURE_TAGS.TEMPLE, STRUCTURE_TAGS.NETHER_TEMPLE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));

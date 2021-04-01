@@ -55,6 +55,7 @@ public class RSConfiguredStructures {
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_PYRAMID = RSStructures.NETHER_PYRAMID.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> BADLANDS_TEMPLE = RSStructures.BADLANDS_PYRAMID.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> PYRAMID_SNOWY = RSStructures.PYRAMID_SNOWY.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> PYRAMID_END = RSStructures.PYRAMID_END.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
     // regexpos1
 
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> END_SHIPWRECK = RSStructures.END_SHIPWRECK.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
@@ -138,6 +139,7 @@ public class RSConfiguredStructures {
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "nether_pyramid"), NETHER_PYRAMID);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "badlands_temple"), BADLANDS_TEMPLE);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "pyramid_snowy"), PYRAMID_SNOWY);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "pyramid_end"), PYRAMID_END);
         // regexpos2
 
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "end_shipwreck"), END_SHIPWRECK);

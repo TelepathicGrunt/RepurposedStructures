@@ -34,6 +34,8 @@ public class RSTemplesConfig
 
 		public ConfigValueListener<Integer> pyramidSnowyMaxChunkDistance;
 		public ConfigValueListener<Boolean> addPyramidSnowyToModdedBiomes;
+		public ConfigValueListener<Integer> pyramidEndMaxChunkDistance;
+		public ConfigValueListener<Boolean> addPyramidEndToModdedBiomes;
 		// regexpos1
 
 		public RSTemplesConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
@@ -150,6 +152,17 @@ public class RSTemplesConfig
                     .comment("\n Add Snowy Pyramid to modded snowy biomes.")
                     .translation("repurposedstructures.config.pyramids.addpyramidsnowytomoddedbiomes")
                     .define("addPyramidSnowyToModdedBiomes", true));
+
+                pyramidEndMaxChunkDistance = subscriber.subscribe(builder
+                    .comment("Add End Pyramid to modded end biomes.")
+                    .translation("repurposedstructures.config.pyramids.pyramidendmaxchunkdistance")
+                    .defineInRange("pyramidEndMaxChunkDistance", 75, 1, 1001));
+
+                addPyramidEndToModdedBiomes = subscriber.subscribe(builder
+                    .comment("Add End Pyramid to modded end biomes.")
+                    .translation("repurposedstructures.config.pyramids.addpyramidendtomoddedbiomes")
+                    .define("addPyramidEndToModdedBiomes", true));
+
 			// regexpos2
 			builder.pop();
 		}

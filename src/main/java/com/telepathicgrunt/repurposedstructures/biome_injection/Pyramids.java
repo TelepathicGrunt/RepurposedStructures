@@ -5,6 +5,7 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredStructures;
 import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.Category;
+import net.minecraft.world.biome.Biomes;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 
 public class Pyramids {
@@ -31,6 +32,16 @@ public class Pyramids {
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.PYRAMID_SNOWY);
         }
+
+        if (RepurposedStructures.RSTemplesConfig.pyramidEndMaxChunkDistance.get() != 1001 &&
+                BiomeSelection.haveCategories(event, Category.THEEND) &&
+                !BiomeSelection.isBiome(event, Biomes.THE_END, Biomes.SMALL_END_ISLANDS, Biomes.END_BARRENS) &&
+                (BiomeSelection.hasNamespace(event, "minecraft") ||
+                        RepurposedStructures.RSTemplesConfig.addPyramidEndToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.PYRAMID_END);
+        }
+
         // regexpos1
     }
 }

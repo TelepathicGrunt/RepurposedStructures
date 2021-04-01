@@ -100,6 +100,7 @@ public class RSStructures {
     public static final RegistryObject<Structure<NoFeatureConfig>> NETHER_PYRAMID = addToStructureMaps("pyramid_nether", () -> (new GenericNetherJigsawHighStructure(new ResourceLocation(RepurposedStructures.MODID, "temples/pyramid_nether"), 1, -4, 0)));
     public static final RegistryObject<Structure<NoFeatureConfig>> BADLANDS_PYRAMID = addToStructureMaps("pyramid_badlands", () -> (new BuriableStructure(new ResourceLocation(RepurposedStructures.MODID, "temples/pyramid_badlands"))));
     public static final RegistryObject<Structure<NoFeatureConfig>> PYRAMID_SNOWY = addToStructureMaps("pyramid_snowy", () -> (new BuriableStructure(new ResourceLocation(RepurposedStructures.MODID, "temples/pyramid_snowy"))));
+    public static final RegistryObject<Structure<NoFeatureConfig>> PYRAMID_END = addToStructureMaps("pyramid_end", () -> (new LandBasedEndStructure(new ResourceLocation(RepurposedStructures.MODID, "temples/pyramid_end"), 11, -2, 0, 0, new HashSet<>())));
 // regexpos1
 
     //Shipwrecks
@@ -121,7 +122,7 @@ public class RSStructures {
     public static final RegistryObject<Structure<NoFeatureConfig>> VILLAGE_OAK = addToStructureMaps("village_oak", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "village/oak/town_centers"), 6, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.MANSION).collect(Collectors.toSet()))));
 
     //Ruined Portals
-    public static final RegistryObject<Structure<NoFeatureConfig>> RUINED_PORTAL_END = addToStructureMaps("ruined_portal_end", () -> (new RuinedPortalEndStructure(new ResourceLocation(RepurposedStructures.MODID, "ruined_portal/end"), 20, -6, 0, 0, new HashSet<>())));
+    public static final RegistryObject<Structure<NoFeatureConfig>> RUINED_PORTAL_END = addToStructureMaps("ruined_portal_end", () -> (new LandBasedEndStructure(new ResourceLocation(RepurposedStructures.MODID, "ruined_portal/end"), 20, -6, 0, 0, new HashSet<>())));
 
     //Ruins
     public static final RegistryObject<Structure<NoFeatureConfig>> RUINS_NETHER = addToStructureMaps("ruins_nether", () -> (new GenericNetherJigsawHighStructure(new ResourceLocation(RepurposedStructures.MODID, "ruins/nether/start_pool"), 1, -4, -1)));
@@ -193,6 +194,7 @@ public class RSStructures {
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "pyramid_badlands"), BADLANDS_PYRAMID.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSTemplesConfig.badlandsPyramidMaxChunkDistance.get(), (int) (RepurposedStructures.RSTemplesConfig.badlandsPyramidMaxChunkDistance.get() * 0.5f), 1718729448));
         addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "pyramid_nether"), NETHER_PYRAMID.get(), GenerationStage.Decoration.VEGETAL_DECORATION, new StructureSeparationSettings(RepurposedStructures.RSTemplesConfig.netherPyramidMaxChunkDistance.get(), (int) (RepurposedStructures.RSTemplesConfig.netherPyramidMaxChunkDistance.get() * 0.5f), 2054372964));
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "pyramid_snowy"), PYRAMID_SNOWY.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSTemplesConfig.pyramidSnowyMaxChunkDistance.get(), (int) (RepurposedStructures.RSTemplesConfig.pyramidSnowyMaxChunkDistance.get() * 0.5f), 1630533493));
+        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "pyramid_end"), PYRAMID_END.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSTemplesConfig.pyramidEndMaxChunkDistance.get(), (int) (RepurposedStructures.RSTemplesConfig.pyramidEndMaxChunkDistance.get() * 0.5f), 1145023315));
 // regexpos2
 
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "shipwreck_end"), END_SHIPWRECK.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSShipwrecksConfig.endShipwreckMaxChunkDistance.get(), (int) (RepurposedStructures.RSShipwrecksConfig.endShipwreckMaxChunkDistance.get() * 0.5f), 1605500075));
