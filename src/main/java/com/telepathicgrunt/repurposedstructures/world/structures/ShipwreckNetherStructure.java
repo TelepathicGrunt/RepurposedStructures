@@ -46,7 +46,7 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NetherShipwr
     @Override
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NetherShipwreckConfig config) {
 
-        // Quick shitty check to see if there some air where the structure wants to spawn.
+        // Check to see if there some air where the structure wants to spawn.
         // Doesn't account for rotation of structure.
         BlockPos blockPos;
         if(!config.isFlying){
@@ -58,14 +58,18 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NetherShipwr
             blockPos = new BlockPos(chunkX << 4, height, chunkZ << 4);
         }
 
-        for(Direction direction : Direction.Plane.HORIZONTAL) {
-            BlockPos blockPos2 = blockPos.offset(direction, 8);
-            IBlockReader blockView = chunkGenerator.getColumnSample(blockPos2.getX(), blockPos2.getZ());
+        int checkRadius = 16;
+        BlockPos.Mutable mutable = new BlockPos.Mutable();
 
-            if (!blockView.getBlockState(blockPos2).isAir() ||
-                    !blockView.getBlockState(blockPos2.up(9)).isAir() ||
-                    !blockView.getBlockState(blockPos2.up(18)).isAir()) {
-                return false;
+        for(int xOffset = -checkRadius; xOffset <= checkRadius; xOffset += 8){
+            for(int zOffset = -checkRadius; zOffset <= checkRadius; zOffset += 8){
+                IBlockReader blockView = chunkGenerator.getColumnSample(xOffset + blockPos.getX(), zOffset + blockPos.getZ());
+                for(int yOffset = 0; yOffset <= 30; yOffset += 5){
+                    mutable.setPos(blockPos).move(xOffset, yOffset, zOffset);
+                    if (!blockView.getBlockState(mutable).isAir()) {
+                        return false;
+                    }
+                }
             }
         }
 
@@ -119,7 +123,7 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NetherShipwr
             }
             else{
                 SharedSeedRandom random = new SharedSeedRandom(seed + (chunkX * (chunkZ * 17)));
-                placementHeight = placementHeight + random.nextInt(Math.max(chunkGenerator.getMaxY() - (placementHeight + 30), 1));
+                placementHeight = placementHeight + random.nextInt(Math.max(chunkGenerator.getMaxY() - (placementHeight + 30), 6));
             }
 
             BlockPos blockPos = new BlockPos(chunkX * 16, placementHeight, chunkZ * 16);
@@ -134,7 +138,7 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NetherShipwr
                     blockPos,
                     this.components,
                     this.rand,
-                    true,
+                    false,
                     false);
             this.recalculateStructureSize();
         }

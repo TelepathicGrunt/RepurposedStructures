@@ -46,6 +46,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - 1 Wither Skeleton with an enchanted bow has been added to Warped, Crimson, and Nether Bricks Shipwreck. (Crimson Shipwreck mast now has platform)
 
+- All 3 Nether Shipwrecks now properly checks to make sure they won't spawn inside land.
+
 ##### Cities:
 - Change Nether City's default config spawnrate from 160 to 120 to make them more common and less traveling to reach.
 
