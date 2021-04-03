@@ -73,6 +73,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Pyramids:
 - Added End Pyramids to the End! A shrine for the dragon of the End!
   
+- Added Icy Pyramids to frozen biomes! Stay warm!
+
 - Snowy Pyramid chests will have Snow Blocks instead of Ice Blocks in its loot.
 
 - Fixed https://bugs.mojang.com/browse/MC-130584 by using a special processor.
