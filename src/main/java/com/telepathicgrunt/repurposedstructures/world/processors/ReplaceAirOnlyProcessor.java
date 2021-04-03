@@ -5,9 +5,7 @@ import com.google.common.collect.Sets;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
-import net.minecraft.block.AbstractChestBlock;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.structure.Structure;
 import net.minecraft.structure.StructurePlacementData;
 import net.minecraft.structure.processor.StructureProcessor;
@@ -16,8 +14,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.WorldView;
 
 import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
 
 /**
  * For mimicking the dungeon look where they cannot replace air.

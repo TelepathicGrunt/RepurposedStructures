@@ -12,7 +12,6 @@ import net.minecraft.util.Identifier;
 import net.minecraft.world.gen.feature.FeatureConfig;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.function.Function;
 
 public class NbtDungeonConfig implements FeatureConfig {

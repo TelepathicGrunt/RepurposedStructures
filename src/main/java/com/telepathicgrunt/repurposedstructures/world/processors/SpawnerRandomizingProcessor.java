@@ -4,16 +4,11 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
-import com.telepathicgrunt.repurposedstructures.world.features.configs.NbtDungeonConfig;
-import net.minecraft.block.AbstractChestBlock;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.SpawnerBlock;
-import net.minecraft.block.entity.MobSpawnerBlockEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.IntTag;
 import net.minecraft.nbt.ListTag;
-import net.minecraft.nbt.Tag;
 import net.minecraft.structure.Structure;
 import net.minecraft.structure.StructurePlacementData;
 import net.minecraft.structure.processor.StructureProcessor;
@@ -23,7 +18,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.WorldView;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class SpawnerRandomizingProcessor extends StructureProcessor {

@@ -1,15 +1,9 @@
 package com.telepathicgrunt.repurposedstructures.modinit;
 
-import com.google.common.collect.ImmutableList;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.NbtDungeonConfig;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.StairsBlock;
-import net.minecraft.block.WallBlock;
-import net.minecraft.block.enums.WallShape;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.CountConfig;
@@ -22,7 +16,6 @@ import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 
 public class RSConfiguredFeatures {
