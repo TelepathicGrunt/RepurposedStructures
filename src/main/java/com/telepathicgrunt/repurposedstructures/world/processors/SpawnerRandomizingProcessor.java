@@ -53,7 +53,7 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
         EntityType<?> entity = RepurposedStructures.mobSpawnerManager.getSpawnerMob(rsSpawnerResourcelocation, random);
         if(entity != null){
             CompoundTag spawnDataTag = nbt.getCompound("SpawnData");
-            if(spawnDataTag == null){
+            if(spawnDataTag.isEmpty()){
                 spawnDataTag = new CompoundTag();
                 nbt.put("SpawnData", spawnDataTag);
             }
@@ -65,7 +65,7 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
             spawnPotentialEntryTag.put("Entity", spawnEntityDataTag);
             spawnPotentialEntryTag.put("Weight", IntTag.of(1));
             ListTag spawnPotentialDataTag = nbt.getList("SpawnPotentials", spawnPotentialEntryTag.getType());
-            if(spawnPotentialDataTag == null){
+            if(spawnPotentialDataTag.isEmpty()){
                 spawnPotentialDataTag = new ListTag();
                 nbt.put("SpawnPotentials", spawnPotentialDataTag);
             }
