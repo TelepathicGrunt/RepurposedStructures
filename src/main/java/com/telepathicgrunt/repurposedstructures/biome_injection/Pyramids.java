@@ -26,7 +26,14 @@ public class Pyramids {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.BADLANDS_TEMPLE);
         }
 
-        if ((BiomeSelection.haveCategories(event, Category.ICY) || (BiomeSelection.haveCategories(event, Category.TAIGA) && event.getClimate().precipitation == Biome.RainType.SNOW)) &&
+        if (BiomeSelection.haveCategories(event, Category.ICY) &&
+                (BiomeSelection.hasName(event, "icy", "ice", "frozen") || (event.getClimate().temperature < 0 && !BiomeSelection.hasName(event, "snow"))) &&
+                RepurposedStructures.RSTemplesConfig.pyramidIcyMaxChunkDistance.get() != 1001 &&
+                (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSTemplesConfig.addPyramidIcyToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.PYRAMID_ICY);
+        }
+        else if ((BiomeSelection.haveCategories(event, Category.ICY) || (BiomeSelection.haveCategories(event, Category.TAIGA) && event.getClimate().precipitation == Biome.RainType.SNOW)) &&
                 RepurposedStructures.RSTemplesConfig.pyramidSnowyMaxChunkDistance.get() != 1001 &&
                 (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSTemplesConfig.addPyramidSnowyToModdedBiomes.get()))
         {
@@ -41,7 +48,6 @@ public class Pyramids {
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.PYRAMID_END);
         }
-
         // regexpos1
     }
 }
