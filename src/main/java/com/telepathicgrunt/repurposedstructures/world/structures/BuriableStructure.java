@@ -44,7 +44,7 @@ public class BuriableStructure extends AbstractBaseStructure<DefaultFeatureConfi
             BlockPos blockpos = new BlockPos(chunkX * 16, chunkGenerator.getSeaLevel(), chunkZ * 16);
             StructurePoolBasedGenerator.method_30419(
                     dynamicRegistryManager,
-                    new StructurePoolFeatureConfig(() -> dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN).get(startPool), 1),
+                    new StructurePoolFeatureConfig(() -> dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN).get(startPool), 11),
                     PoolStructurePiece::new,
                     chunkGenerator,
                     structureManager,

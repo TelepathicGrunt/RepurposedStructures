@@ -10,7 +10,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "weight": 6,
+          "weight": 10,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -96,11 +96,11 @@
               }
             }
           ],
-          "name": "minecraft:snowball"
+          "name": "minecraft:blue_ice"
         },
         {
           "type": "minecraft:item",
-          "weight": 25,
+          "weight": 20,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -179,7 +179,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 10,
+          "weight": 7,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -220,7 +220,7 @@
               }
             }
           ],
-          "name": "minecraft:snow_block"
+          "name": "minecraft:ice"
         }
       ]
     }

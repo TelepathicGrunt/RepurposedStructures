@@ -1,0 +1,28 @@
+{
+  "parent": "repurposed_structures:pyramids",
+  "display": {
+    "icon": {
+      "item": "minecraft:packed_ice"
+    },
+    "title": {
+      "text": "Frosted Pyramid"
+    },
+    "description": {
+      "text": "Enter a Icy Pyramid"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 20
+  },
+  "criteria": {
+    "in_pyramid_icy": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "in_pyramid_icy"
+    ]
+  ]
+}

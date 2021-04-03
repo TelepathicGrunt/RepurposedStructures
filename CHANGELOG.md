@@ -73,6 +73,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Pyramids:
 - Added End Pyramids to the End! A shrine for the dragon of the End!
   
+- Snowy Pyramid chests will have Snow Blocks instead of Ice Blocks in its loot.
+
 - Fixed https://bugs.mojang.com/browse/MC-130584 by using a special processor.
   This means this mod's pyramid's chests will no longer be waterlogged if their pits replaces water in the world.
 

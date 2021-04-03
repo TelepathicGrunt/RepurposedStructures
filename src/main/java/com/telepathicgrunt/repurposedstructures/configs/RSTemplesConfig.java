@@ -143,12 +143,24 @@ public class RSTemplesConfig implements ConfigData {
                 + "\nspawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
         public int pyramidEndMaxChunkDistance = 68;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("How rare are Icy Pyramid in biomes that are super"
+                + "\ncold or has icy words in its name. 1 for spawning"
+                + "\nin most chunks and 1001 for none.")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int pyramidIcyMaxChunkDistance = 37;
         // regexpos2
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
         @Comment("Add End Pyramid to modded end biomes.")
         public boolean addPyramidEndToModdedBiomes = true;
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Add Icy Pyramid to modded icy biomes.")
+        public boolean addPyramidIcyToModdedBiomes = true;
         // regexpos1
     }
 }

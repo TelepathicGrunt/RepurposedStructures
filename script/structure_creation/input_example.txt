@@ -21,24 +21,24 @@ y
 C:\Users\MSI Laptop\Documents\ModdingWorkspace\RepurposedStructures-Fabric\src
 C:\Users\MSI Laptop\Documents\ModdingWorkspace\RepurposedStructures\src
 
-pyramid_end
+pyramid_icy
 11
-temples/pyramid_end
+temples/pyramid_icy
 0
 0
 exit
 surface_structures
 RSTemplesConfig
 pyramids
-Add End Pyramid to modded end biomes.
-How rare are End Pyramid in End biomes. 1 for spawning in most chunks and 1001 for none. 
-75
+Add Icy Pyramid to modded icy biomes.
+How rare are Icy Pyramid in biomes that are super cold or has icy words in its name. 1 for spawning in most chunks and 1001 for none. 
+37
 n
 PYRAMID
 exit
-Temple of the Dragon
-Enter a End Pyramid
-minecraft:magenta_concrete
+Frosted Pyramid
+Enter a Icy Pyramid
+minecraft:packed_ice
 20
 y
 C:\Users\MSI Laptop\Documents\ModdingWorkspace\RepurposedStructures-Fabric\src

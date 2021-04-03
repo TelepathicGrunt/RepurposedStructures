@@ -20,17 +20,11 @@ conversion_exact_dict = {
 
 blockPalette = {""}
 
-originalBiome = "plains"
-newBiome = "crimson"
+originalBiome = ""
+newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {
-    "minecraft:village/plains/villagers":"minecraft:village/crimson/villagers",
-    "petrified_oak_slab":"crimson_slab",
-    "dark_oak":"crimson",
-    "birch":"crimson",
-    "oak":"crimson",
-    "jungle":"crimson",
-    "glass_pane":"red_stained_glass_pane"
+    "down-minecraft:red_sandstone":"down-minecraft:packed_ice"
 }
 conversion_exact_dict = {
 }
