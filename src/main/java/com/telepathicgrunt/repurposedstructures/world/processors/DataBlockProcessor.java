@@ -14,7 +14,6 @@ import net.minecraft.world.gen.feature.template.IStructureProcessorType;
 import net.minecraft.world.gen.feature.template.PlacementSettings;
 import net.minecraft.world.gen.feature.template.StructureProcessor;
 import net.minecraft.world.gen.feature.template.Template;
-import net.minecraftforge.fml.server.ServerLifecycleHooks;
 
 import static java.lang.Integer.parseInt;
 
@@ -80,6 +79,6 @@ public class DataBlockProcessor extends StructureProcessor {
 
     @Override
     protected IStructureProcessorType<?> getType() {
-        return RSProcessors.DATA_BLOCK_PROCESSORS;
+        return RSProcessors.DATA_BLOCK_PROCESSOR;
     }
 }

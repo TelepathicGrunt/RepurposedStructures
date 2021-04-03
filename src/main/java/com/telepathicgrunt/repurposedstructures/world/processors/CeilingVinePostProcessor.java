@@ -89,6 +89,6 @@ public class CeilingVinePostProcessor extends StructureProcessor {
 
     @Override
     protected IStructureProcessorType<?> getType() {
-        return RSProcessors.CEILING_VINE_POST_PROCESSORS;
+        return RSProcessors.CEILING_VINE_POST_PROCESSOR;
     }
 }

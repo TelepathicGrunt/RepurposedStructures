@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 import java.util.List;
 
 @Mixin(Template.class)
-public interface TemplateInvoker {
+public interface TemplateAccessorInvoker {
 
     @Accessor("blocks")
     List<Template.Palette> rs_getBlocks();

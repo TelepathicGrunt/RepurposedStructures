@@ -60,6 +60,6 @@ public class WaterloggingFixProcessor extends StructureProcessor {
 
     @Override
     protected IStructureProcessorType<?> getType() {
-        return RSProcessors.WATER_FIX_PROCESSORS;
+        return RSProcessors.WATER_FIX_PROCESSOR;
     }
 }

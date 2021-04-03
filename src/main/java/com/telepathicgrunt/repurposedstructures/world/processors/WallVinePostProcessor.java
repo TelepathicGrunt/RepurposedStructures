@@ -59,6 +59,6 @@ public class WallVinePostProcessor extends StructureProcessor {
 
     @Override
     protected IStructureProcessorType<?> getType() {
-        return RSProcessors.WALL_VINE_POST_PROCESSORS;
+        return RSProcessors.WALL_VINE_POST_PROCESSOR;
     }
 }
