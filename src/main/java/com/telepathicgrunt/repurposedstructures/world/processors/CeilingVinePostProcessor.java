@@ -22,7 +22,7 @@ import java.util.Random;
 import java.util.stream.Collectors;
 
 /**
- * FOR ELEMENTS USING legacy_single_pool_element AND WANTS AIR TO REPLACE TERRAIN.
+ * RUN ONLY AFTER THE NBT PIECE IS PLACED INTO THE WORLD
  */
 public class CeilingVinePostProcessor extends StructureProcessor {
 
@@ -90,6 +90,6 @@ public class CeilingVinePostProcessor extends StructureProcessor {
 
     @Override
     protected StructureProcessorType<?> getType() {
-        return RSProcessors.CEILING_VINE_POST_PROCESSORS;
+        return RSProcessors.CEILING_VINE_POST_PROCESSOR;
     }
 }

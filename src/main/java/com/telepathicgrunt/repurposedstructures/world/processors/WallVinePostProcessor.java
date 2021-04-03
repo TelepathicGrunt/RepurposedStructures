@@ -18,7 +18,7 @@ import net.minecraft.world.chunk.Chunk;
 import java.util.Random;
 
 /**
- * FOR ELEMENTS USING legacy_single_pool_element AND WANTS AIR TO REPLACE TERRAIN.
+ * RUN ONLY AFTER THE NBT PIECE IS PLACED INTO THE WORLD
  */
 public class WallVinePostProcessor extends StructureProcessor {
     public static final Codec<WallVinePostProcessor> CODEC = Codec.FLOAT.fieldOf("probability")
@@ -59,6 +59,6 @@ public class WallVinePostProcessor extends StructureProcessor {
 
     @Override
     protected StructureProcessorType<?> getType() {
-        return RSProcessors.WALL_VINE_POST_PROCESSORS;
+        return RSProcessors.WALL_VINE_POST_PROCESSOR;
     }
 }

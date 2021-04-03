@@ -17,7 +17,9 @@ import net.minecraft.world.WorldView;
 import net.minecraft.world.chunk.Chunk;
 
 /**
- * FOR ELEMENTS USING legacy_single_pool_element AND WANTS AIR TO REPLACE TERRAIN.
+ * Workaround for https://bugs.mojang.com/browse/MC-130584
+ * Due to a hardcoded field in Templates, any waterloggable blocks in structures replacing water in the world will become waterlogged.
+ * Idea of workaround is detect if we are placing a waterloggable block and if so, remove the water in the world instead.
  */
 public class WaterloggingFixProcessor extends StructureProcessor {
 
@@ -27,9 +29,6 @@ public class WaterloggingFixProcessor extends StructureProcessor {
     @Override
     public Structure.StructureBlockInfo process(WorldView worldReader, BlockPos pos, BlockPos pos2, Structure.StructureBlockInfo infoIn1, Structure.StructureBlockInfo infoIn2, StructurePlacementData settings) {
 
-        // Workaround for https://bugs.mojang.com/browse/MC-130584
-        // Due to a hardcoded field in Templates, any waterloggable blocks in structures replacing water in the world will become waterlogged.
-        // Idea of workaround is detect if we are placing a waterloggable block and if so, remove the water in the world instead.
         // ONLY RUN THIS IF STRUCTURE BLOCK IS A DRY WATERLOGGABLE BLOCK
         ChunkPos currentChunkPos = new ChunkPos(infoIn2.pos);
         if(infoIn2.state.getBlock() instanceof Waterloggable && !infoIn2.state.get(Properties.WATERLOGGED)){
@@ -58,6 +57,6 @@ public class WaterloggingFixProcessor extends StructureProcessor {
 
     @Override
     protected StructureProcessorType<?> getType() {
-        return RSProcessors.WATER_FIX_PROCESSORS;
+        return RSProcessors.WATER_FIX_PROCESSOR;
     }
 }

@@ -27,6 +27,6 @@ public class AirProcessor extends StructureProcessor {
 
     @Override
     protected StructureProcessorType<?> getType() {
-        return RSProcessors.AIR_PROCESSORS;
+        return RSProcessors.AIR_PROCESSOR;
     }
 }

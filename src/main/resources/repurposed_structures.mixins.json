@@ -22,7 +22,7 @@
     "StructurePieceAccessor",
     "StructureProcessorListAccessor",
     "StructuresConfigAccessor",
-    "TemplateInvoker",
+    "TemplateAccessorInvoker",
     "VanillaLayeredBiomeSourceAccessor"
   ],
   "client": [

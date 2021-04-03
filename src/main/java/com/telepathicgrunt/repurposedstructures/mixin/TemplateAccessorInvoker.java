@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 import java.util.List;
 
 @Mixin(Structure.class)
-public interface TemplateInvoker {
+public interface TemplateAccessorInvoker {
 
     @Accessor("blockInfoLists")
     List<Structure.PalettedBlockInfoList> rs_getBlocks();

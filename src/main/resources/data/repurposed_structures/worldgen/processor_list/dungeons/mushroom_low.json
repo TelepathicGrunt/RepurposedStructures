@@ -4,37 +4,19 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:smooth_sandstone"
+            "Properties": {
+              "up": "true",
+              "down": "true",
+              "north": "true",
+              "south": "true",
+              "east": "true",
+              "west": "true"
+            },
+            "Name": "minecraft:mushroom_stem"
           },
           "input_predicate": {
-            "block": "minecraft:smooth_sandstone_slab",
-            "probability": 0.225,
-            "predicate_type": "minecraft:random_block_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          }
-        },
-        {
-          "output_state": {
-            "Name": "minecraft:chiseled_sandstone"
-          },
-          "input_predicate": {
-            "block": "minecraft:smooth_sandstone_slab",
-            "probability": 0.025,
-            "predicate_type": "minecraft:random_block_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          }
-        },
-        {
-          "output_state": {
-            "Name": "minecraft:smooth_sandstone"
-          },
-          "input_predicate": {
-            "block": "minecraft:sandstone",
-            "probability": 0.25,
+            "block": "minecraft:mushroom_stem",
+            "probability": 1,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -44,13 +26,38 @@
         {
           "output_state": {
             "Properties": {
-                "type": "top",
-                "waterlogged": "false"
+              "up": "true",
+              "down": "true",
+              "north": "true",
+              "south": "true",
+              "east": "true",
+              "west": "true"
             },
-            "Name": "minecraft:sandstone_slab"
+            "Name": "minecraft:brown_mushroom_block"
           },
           "input_predicate": {
-            "block": "minecraft:sandstone",
+            "block": "minecraft:brown_mushroom_block",
+            "probability": 1,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "up": "true",
+              "down": "true",
+              "north": "true",
+              "south": "true",
+              "east": "true",
+              "west": "true"
+            },
+            "Name": "minecraft:red_mushroom_block"
+          },
+          "input_predicate": {
+            "block": "minecraft:red_mushroom_block",
             "probability": 1,
             "predicate_type": "minecraft:random_block_match"
           },
@@ -81,7 +88,7 @@
     },
     {
       "processor_type": "repurposed_structures:spawner_randomizing_processor",
-      "rs_spawner_resourcelocation": "repurposed_structures:dungeon_desert"
+      "rs_spawner_resourcelocation": "repurposed_structures:dungeon_mushroom_low"
     }
   ]
 }
