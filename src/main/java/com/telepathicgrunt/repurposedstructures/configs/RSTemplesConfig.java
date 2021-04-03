@@ -142,7 +142,7 @@ public class RSTemplesConfig implements ConfigData {
         @Comment("How rare are End Pyramid in End biomes. 1 for"
                 + "\nspawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int pyramidEndMaxChunkDistance = 75;
+        public int pyramidEndMaxChunkDistance = 68;
         // regexpos2
 
         @ConfigEntry.Gui.Tooltip(count = 0)

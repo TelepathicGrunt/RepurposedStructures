@@ -67,6 +67,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - All 3 Nether Shipwrecks now properly checks to make sure they won't spawn inside land.
   
 - Fixed End Shipwrecks spawning so they no longer can spawn on the Enderdragon island.
+  
+- Change End Shipwrecks's default config spawnrate from 15 to 24 to make them less common.
 
 ##### Pyramids:
 - Added End Pyramids to the End! A shrine for the dragon of the End!
