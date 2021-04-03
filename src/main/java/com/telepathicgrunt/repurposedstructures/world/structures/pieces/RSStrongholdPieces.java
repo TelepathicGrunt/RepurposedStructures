@@ -8,7 +8,6 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePieces;
 import net.minecraft.block.*;
 import net.minecraft.entity.EntityType;
 import net.minecraft.fluid.FluidState;
-import net.minecraft.loot.LootTables;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.state.Property;
 import net.minecraft.state.properties.DoubleBlockHalf;

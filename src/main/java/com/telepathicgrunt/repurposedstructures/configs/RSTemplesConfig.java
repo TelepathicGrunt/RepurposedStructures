@@ -156,7 +156,7 @@ public class RSTemplesConfig
                 pyramidEndMaxChunkDistance = subscriber.subscribe(builder
                     .comment("Add End Pyramid to modded end biomes.")
                     .translation("repurposedstructures.config.pyramids.pyramidendmaxchunkdistance")
-                    .defineInRange("pyramidEndMaxChunkDistance", 75, 1, 1001));
+                    .defineInRange("pyramidEndMaxChunkDistance", 68, 1, 1001));
 
                 addPyramidEndToModdedBiomes = subscriber.subscribe(builder
                     .comment("Add End Pyramid to modded end biomes.")

@@ -12,7 +12,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.function.Function;
 
 public class NbtDungeonConfig implements IFeatureConfig {

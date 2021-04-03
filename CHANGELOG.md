@@ -69,6 +69,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
   
 - Fixed End Shipwrecks spawning so they no longer can spawn on the Enderdragon island.
 
+- Change End Shipwrecks's default config spawnrate from 15 to 24 to make them less common.
+
 ##### Pyramids:
 - Added End Pyramids to the End! A shrine for the dragon of the End!
 

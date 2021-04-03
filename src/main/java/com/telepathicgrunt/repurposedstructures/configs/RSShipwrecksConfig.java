@@ -38,7 +38,7 @@ public class RSShipwrecksConfig
 					.comment("\n How rare are End Shipwreck in End Highlands biomes.",
 							 " 1 for spawning in most chunks and 1001 for none.")
 					.translation("repurposedstructures.config.shipwrecks.endshipwreckmaxchunkdistance")
-					.defineInRange("endShipwreckMaxChunkDistance", 15, 1, 1001));
+					.defineInRange("endShipwreckMaxChunkDistance", 24, 1, 1001));
 
 
 				addNetherBricksShipwreckToModdedBiomes = subscriber.subscribe(builder

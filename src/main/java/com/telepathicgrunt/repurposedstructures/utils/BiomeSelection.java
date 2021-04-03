@@ -2,10 +2,8 @@ package com.telepathicgrunt.repurposedstructures.utils;
 
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import net.minecraft.util.RegistryKey;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;

@@ -16,7 +16,6 @@ import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.placement.TopSolidRangeConfig;
 
 import java.util.List;
-import java.util.Optional;
 
 
 public class RSConfiguredFeatures {
