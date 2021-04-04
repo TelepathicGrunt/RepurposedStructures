@@ -289,9 +289,9 @@ while restart:
 
     with open(os.path.join('template', 'forge_config.txt'), "r") as file:
         file_content = file.read().replace("$1", config_spawnrate_entry).replace("$2", config_spawnrate_entry.lower()) \
-                                .replace("$3", bend(50, config_modded_biome_comment)).replace("$4", config_subcategory).replace("$5", spacing_default_value) \
+                                .replace("$3", bend(50, config_spawnrate_comment)).replace("$4", config_subcategory).replace("$5", spacing_default_value) \
                                 .replace("$6", config_modded_biome_entry).replace("$7", config_modded_biome_entry.lower()) \
-                                .replace("$8", bend(50, config_modded_biome_comment))
+                                .replace("$8", bend(50, config_modded_biome_comment).replace("\"", "\"\\n "))
     path = os.path.join('code', 'forge', structure_registry_name+'_config.txt')
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w") as file:

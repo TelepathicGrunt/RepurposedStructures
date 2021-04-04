@@ -70,6 +70,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
   
 - Change End Shipwrecks's default config spawnrate from 15 to 24 to make them less common.
 
+##### Outposts:
+- Added End Outposts to the End! Be careful as they are swarming with Phantoms!
+
 ##### Pyramids:
 - Added End Pyramids to the End! A shrine for the dragon of the End!
   

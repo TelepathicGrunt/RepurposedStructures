@@ -74,9 +74,12 @@ public class StructureModdedLootImporter {
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/outpost/snowy_chest"), new Identifier("minecraft:chests/pillager_outpost"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/outpost/taiga_chest"), new Identifier("minecraft:chests/pillager_outpost"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/outpost/warped_chest"), new Identifier("minecraft:chests/pillager_outpost"));
+        tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/outpost/end_shulker_box"), new Identifier("minecraft:chests/end_city_treasure")); // "minecraft:chests/pillager_outpost"
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/pyramid/badlands_chest"), new Identifier("minecraft:chests/desert_pyramid"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/pyramid/nether_chest"), new Identifier("minecraft:chests/desert_pyramid"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/pyramid/snowy_chest"), new Identifier("minecraft:chests/desert_pyramid"));
+        tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/pyramid/icy_chest"), new Identifier("minecraft:chests/desert_pyramid"));
+        tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/pyramid/end_chest"), new Identifier("minecraft:chests/end_city_treasure")); // "minecraft:chests/desert_pyramid"
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/ruin/nether"), new Identifier("minecraft:chests/bastion_other")); // new Identifier("minecraft:chests/underwater_ruin_big"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/ruined_portal/large_portal_chest"), new Identifier("minecraft:chests/ruined_portal"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/ruined_portal/small_portal_chest"), new Identifier("minecraft:chests/ruined_portal"));
