@@ -93,6 +93,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 ##### Mansions:
 - Fixed two rooms in Snowy Mansions so that they won't melt Ice blocks on the ceiling due to their torches.
+  
+- Changed Snowy Mansion's achievement description.
 
   
 ## (V.2.5.1 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)
