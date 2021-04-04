@@ -6,7 +6,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:temples/pyramid_end_body",
-        "processors": "minecraft:empty",
+        "processors": "repurposed_structures:temples/pyramid_end",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }

@@ -1,0 +1,12 @@
+{
+  "mobs" : [
+    {
+      "name" : "minecraft:strider",
+      "weight" : 10
+    },
+    {
+      "name" : "minecraft:enderman",
+      "weight" : 10
+    }
+  ]
+}

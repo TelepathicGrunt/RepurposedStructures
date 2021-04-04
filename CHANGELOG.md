@@ -83,6 +83,11 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Fixed https://bugs.mojang.com/browse/MC-130584 by using a special processor.
   This means this mod's pyramid's chests will no longer be waterlogged if their pits replaces water in the world.
 
+- Nether and Badlands Pyramids now has a rs_spawner entry where people can randomize the mob spawner's mob much easier!
+
+##### Temples:
+- All Nether Temples now has a rs_spawner entry where people can randomize the mob spawner's mob much easier!
+
 ##### Igloos:
 - Fixed https://bugs.mojang.com/browse/MC-130584 by using a special processor.
   This means this mod's igloo's chests, ladders, and other blocks will no longer be waterlogged if their basement places water in the world.
