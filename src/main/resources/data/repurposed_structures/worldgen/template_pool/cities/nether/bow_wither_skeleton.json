@@ -1,0 +1,14 @@
+{
+  "name": "repurposed_structures:bow_wither_skeleton",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "feature": "repurposed_structures:wither_skeleton_with_bow",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    }
+  ]
+}
