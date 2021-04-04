@@ -92,8 +92,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 - Now will be less likely to spawn off the island and will bury itself a bit.
 
 ##### Mansions:
-- Fixed two rooms in Snowy Mansions so that they won't melt Ice blocks on the ceiling due to their torches.
-  
+- Fixed up a massive amount of RS Mansion pieces so that they look nicer. 
+  (Also fixed some torches in Snowy mansion melting ice and fixed the leaf block that was decaying within the mini-tree in bedroom)
+
 - Changed Snowy Mansion's achievement description.
 
   
