@@ -48,6 +48,5 @@ public class Pyramids {
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.PYRAMID_END);
         }
-        // regexpos1
     }
 }

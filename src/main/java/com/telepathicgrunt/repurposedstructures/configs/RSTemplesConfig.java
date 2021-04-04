@@ -38,6 +38,8 @@ public class RSTemplesConfig
 		public ConfigValueListener<Boolean> addPyramidEndToModdedBiomes;
 		public ConfigValueListener<Integer> pyramidIcyMaxChunkDistance;
 		public ConfigValueListener<Boolean> addPyramidIcyToModdedBiomes;
+		public ConfigValueListener<Integer> outpostEndMaxChunkDistance;
+		public ConfigValueListener<Boolean> addOutpostEndToModdedBiomes;
 		// regexpos1
 
 		public RSTemplesConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
@@ -145,7 +147,7 @@ public class RSTemplesConfig
 					.defineInRange("badlandsPyramidMaxChunkDistance", 37, 1, 1001));
 
                 pyramidSnowyMaxChunkDistance = subscriber.subscribe(builder
-                    .comment("\n Add Snowy Pyramid to modded snowy biomes.",
+                    .comment("\n How rare are Snowy Pyramid in snowy biomes.",
 							" 1 for spawning in most chunks and 1001 for none.")
                     .translation("repurposedstructures.config.pyramids.pyramidsnowymaxchunkdistance")
                     .defineInRange("pyramidSnowyMaxChunkDistance", 37, 1, 1001));
@@ -156,25 +158,25 @@ public class RSTemplesConfig
                     .define("addPyramidSnowyToModdedBiomes", true));
 
                 pyramidEndMaxChunkDistance = subscriber.subscribe(builder
-                    .comment("Add End Pyramid to modded end biomes.")
+                    .comment("\n How rare are End Pyramid in End biomes.")
                     .translation("repurposedstructures.config.pyramids.pyramidendmaxchunkdistance")
                     .defineInRange("pyramidEndMaxChunkDistance", 68, 1, 1001));
 
                 addPyramidEndToModdedBiomes = subscriber.subscribe(builder
-                    .comment("Add End Pyramid to modded end biomes.")
+                    .comment("\n Add End Pyramid to modded end biomes.")
                     .translation("repurposedstructures.config.pyramids.addpyramidendtomoddedbiomes")
                     .define("addPyramidEndToModdedBiomes", true));
 
                 pyramidIcyMaxChunkDistance = subscriber.subscribe(builder
-                    .comment("Add Icy Pyramid to modded icy biomes.")
+					.comment("\n How rare are Icy Pyramid in super cold or icy biomes.",
+							" 1 for spawning in most chunks and 1001 for none.")
                     .translation("repurposedstructures.config.pyramids.pyramidicymaxchunkdistance")
                     .defineInRange("pyramidIcyMaxChunkDistance", 37, 1, 1001));
 
                 addPyramidIcyToModdedBiomes = subscriber.subscribe(builder
-                    .comment("Add Icy Pyramid to modded icy biomes.")
+                    .comment("\n Add Icy Pyramid to modded icy biomes.")
                     .translation("repurposedstructures.config.pyramids.addpyramidicytomoddedbiomes")
                     .define("addPyramidIcyToModdedBiomes", true));
-			// regexpos2
 			builder.pop();
 		}
 	}

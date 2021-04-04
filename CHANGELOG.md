@@ -71,8 +71,13 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 
 - Change End Shipwrecks's default config spawnrate from 15 to 24 to make them less common.
 
+##### Outposts:
+- Added End Outposts to the End! Be careful as they are swarming with Phantoms!
+
 ##### Pyramids:
 - Added End Pyramids to the End! A shrine for the dragon of the End!
+
+- Added Icy Pyramids to frozen biomes! Stay warm!
 
 - Fixed https://bugs.mojang.com/browse/MC-130584 by using a special processor.
   This means this mod's pyramid's chests will no longer be waterlogged if their pits replaces water in the world.

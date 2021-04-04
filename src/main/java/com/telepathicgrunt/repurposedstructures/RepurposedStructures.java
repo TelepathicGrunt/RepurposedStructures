@@ -92,7 +92,7 @@ public class RepurposedStructures
 		forgeBus.addListener(this::registerDatapackListener);
 		forgeBus.addListener(this::addDimensionalSpacing);
 		forgeBus.addListener(MobMapTrades::onVillagerTradesEvent);
-		GeneralUtils.registerStructureDebugging(RSStructures.STONEBRICK_STRONGHOLD);
+		//GeneralUtils.registerStructureDebugging(RSStructures.STONEBRICK_STRONGHOLD);
 
 		modEventBus.addListener(this::setup);
 		RSFeatures.FEATURES.register(modEventBus);

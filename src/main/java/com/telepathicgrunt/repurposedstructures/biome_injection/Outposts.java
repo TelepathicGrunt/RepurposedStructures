@@ -4,6 +4,7 @@ import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredStructures;
 import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
 import net.minecraft.world.biome.Biome.Category;
+import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 
@@ -33,6 +34,15 @@ public class Outposts {
             {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_BRICK_OUTPOST);
             }
+        }
+        else if(BiomeSelection.haveCategories(event, Category.THEEND)) {
+            if (!BiomeSelection.isBiome(event, Biomes.THE_END, Biomes.SMALL_END_ISLANDS, Biomes.END_BARRENS) &&
+                RepurposedStructures.RSOutpostsConfig.outpostEndMaxChunkDistance.get() != 1001 &&
+                (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSOutpostsConfig.addOutpostEndToModdedBiomes.get()))
+            {
+                event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_END);
+            }
+            // regexpos1
         }
         else{
             if (BiomeSelection.hasName(event, "birch") &&

@@ -33,6 +33,8 @@ public class RSOutpostsConfig
 		public ConfigValueListener<Boolean> addOutpostTaigaToModdedBiomes;
 		public ConfigValueListener<Integer> outpostOakMaxChunkDistance;
 		public ConfigValueListener<Boolean> addOutpostOakToModdedBiomes;
+		public ConfigValueListener<Integer> outpostEndMaxChunkDistance;
+		public ConfigValueListener<Boolean> addOutpostEndToModdedBiomes;
 
 		public RSOutpostsConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
 		{
@@ -172,7 +174,8 @@ public class RSOutpostsConfig
 
 
 				outpostOakMaxChunkDistance = subscriber.subscribe(builder
-						.comment("\n Add Oak Outposts to modded forest biomes that are not birch or dark forest.")
+						.comment("\n How rare Taiga Icy Outposts in forest biomes that are not birch or dark forest biomes.",
+								" 1 for spawning in most chunks and 1001 for none.")
 						.translation("repurposedstructures.config.outposts.outpostoakmaxchunkdistance")
 						.defineInRange("outpostOakMaxChunkDistance", 45, 1, 1001));
 
@@ -183,7 +186,8 @@ public class RSOutpostsConfig
 
 
 				outpostTaigaMaxChunkDistance = subscriber.subscribe(builder
-						.comment("\n Add Taiga Outposts to modded non-snowy and non-giant taiga biomes.")
+						.comment("\n How rare Taiga Icy Outposts in non-snowy and non-giant taiga biomes.",
+								" 1 for spawning in most chunks and 1001 for none.")
 						.translation("repurposedstructures.config.outposts.outposttaigamaxchunkdistance")
 						.defineInRange("outpostTaigaMaxChunkDistance", 45, 1, 1001));
 
@@ -192,6 +196,19 @@ public class RSOutpostsConfig
 						.translation("repurposedstructures.config.outposts.addoutposttaigatomoddedbiomes")
 						.define("addOutpostTaigaToModdedBiomes", true));
 
+
+				outpostEndMaxChunkDistance = subscriber.subscribe(builder
+						.comment("\n How rare are End Outposts in End biomes.",
+								" 1 for spawning in most chunks and 1001 for none.")
+						.translation("repurposedstructures.config.outposts.outpostendmaxchunkdistance")
+						.defineInRange("outpostEndMaxChunkDistance", 55, 1, 1001));
+
+				addOutpostEndToModdedBiomes = subscriber.subscribe(builder
+						.comment("\n Add End Outposts to modded End biomes.")
+						.translation("repurposedstructures.config.outposts.addoutpostendtomoddedbiomes")
+						.define("addOutpostEndToModdedBiomes", true));
+
+			// regexpos2
 			builder.pop();
 		}
 	}

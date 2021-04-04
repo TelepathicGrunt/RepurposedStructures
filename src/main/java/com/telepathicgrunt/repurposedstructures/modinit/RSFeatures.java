@@ -41,7 +41,8 @@ public class RSFeatures {
 	public static final RegistryObject<Feature<NoFeatureConfig>> STRONGHOLD_CHAINS = createFeature("stronghold_chains", () -> new StrongholdChains(NoFeatureConfig.CODEC));
 
 	public static final RegistryObject<Feature<NoFeatureConfig>> WITHER_SKELETON_WITH_BOW = createFeature("wither_skeleton_with_bow", () -> new WitherSkeletonWithBow(NoFeatureConfig.CODEC));
-	
+	public static final RegistryObject<Feature<NoFeatureConfig>> SHULKER_MOB = createFeature("shulker_mob", () -> new ShulkerMob(NoFeatureConfig.CODEC));
+
 	private static <F extends Feature<?>> RegistryObject<F> createFeature(String name, Supplier<F> feature)
     {
 		return FEATURES.register(name, feature);
