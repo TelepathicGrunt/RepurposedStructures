@@ -201,7 +201,7 @@ public class RSOutpostsConfig
 						.comment("\n How rare are End Outposts in End biomes.",
 								" 1 for spawning in most chunks and 1001 for none.")
 						.translation("repurposedstructures.config.outposts.outpostendmaxchunkdistance")
-						.defineInRange("outpostEndMaxChunkDistance", 55, 1, 1001));
+						.defineInRange("outpostEndMaxChunkDistance", 61, 1, 1001));
 
 				addOutpostEndToModdedBiomes = subscriber.subscribe(builder
 						.comment("\n Add End Outposts to modded End biomes.")
