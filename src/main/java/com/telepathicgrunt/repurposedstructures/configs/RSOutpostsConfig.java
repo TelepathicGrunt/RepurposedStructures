@@ -200,7 +200,7 @@ public class RSOutpostsConfig implements ConfigData {
         @Comment("How rare are End Outposts in End biomes."
                 + "\n1 for spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int outpostEndMaxChunkDistance = 55;
+        public int outpostEndMaxChunkDistance = 61;
         // regexpos2
 
         @ConfigEntry.Gui.Tooltip(count = 0)
