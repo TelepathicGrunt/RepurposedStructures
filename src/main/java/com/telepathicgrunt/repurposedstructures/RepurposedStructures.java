@@ -18,7 +18,10 @@ import com.telepathicgrunt.repurposedstructures.configs.RSWitchHutsConfig.RSWitc
 import com.telepathicgrunt.repurposedstructures.misc.MobMapTrades;
 import com.telepathicgrunt.repurposedstructures.mixin.ChunkGeneratorAccessor;
 import com.telepathicgrunt.repurposedstructures.modinit.*;
-import com.telepathicgrunt.repurposedstructures.utils.*;
+import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
+import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
+import com.telepathicgrunt.repurposedstructures.utils.LogSpamFiltering;
+import com.telepathicgrunt.repurposedstructures.utils.MobSpawnerManager;
 import it.unimi.dsi.fastutil.objects.Reference2ObjectOpenHashMap;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
