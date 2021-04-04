@@ -93,6 +93,8 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Mansions:
 - Fixed two rooms in Snowy Mansions so that they won't melt Ice blocks on the ceiling due to their torches.
 
+- Changed Snowy Mansion's achievement description.
+
 ##### Loot Tables:
 - Fixed blacklistedRSLoottablesFromImportingModdedItems config entry not actually being read.
 
