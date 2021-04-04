@@ -17,6 +17,7 @@
     "NoLavaFallsInStructuresMixin",
     "PillagerOutpostFeatureAccessor",
     "ServerResourceManagerMixin",
+    "ShulkerEntityAccessor",
     "StrongholdGeneratorAccessor",
     "StructureMobSpawningMixin",
     "StructurePieceAccessor",

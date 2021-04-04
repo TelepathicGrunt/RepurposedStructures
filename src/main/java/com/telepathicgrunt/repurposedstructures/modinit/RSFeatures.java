@@ -39,6 +39,7 @@ public class RSFeatures {
     public static Feature<DefaultFeatureConfig> STRONGHOLD_CHAINS = new StrongholdChains();
 
     public static Feature<DefaultFeatureConfig> WITHER_SKELETON_WITH_BOW = new WitherSkeletonWithBow();
+    public static Feature<DefaultFeatureConfig> SHULKER_MOB = new ShulkerMob();
 
     public static void registerFeatures() {
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "dungeons_badlands"), BADLANDS_DUNGEONS);
@@ -68,5 +69,6 @@ public class RSFeatures {
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "stronghold_chains"), STRONGHOLD_CHAINS);
 
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "wither_skeleton_with_bow"), WITHER_SKELETON_WITH_BOW);
+        Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "shulker_mob"), SHULKER_MOB);
     }
 }

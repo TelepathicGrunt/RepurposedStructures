@@ -1,0 +1,12 @@
+		public ConfigValueListener<Integer> outpostEndMaxChunkDistance;
+		public ConfigValueListener<Boolean> addOutpostEndToModdedBiomes;
+
+                outpostEndMaxChunkDistance = subscriber.subscribe(builder
+                    .comment("Add End Outposts to modded End biomes.")
+                    .translation("repurposedstructures.config.outposts.outpostendmaxchunkdistance")
+                    .defineInRange("outpostEndMaxChunkDistance", 55, 1, 1001));
+
+                addOutpostEndToModdedBiomes = subscriber.subscribe(builder
+                    .comment("Add End Outposts to modded End biomes.")
+                    .translation("repurposedstructures.config.outposts.addoutpostendtomoddedbiomes")
+                    .define("addOutpostEndToModdedBiomes", true));

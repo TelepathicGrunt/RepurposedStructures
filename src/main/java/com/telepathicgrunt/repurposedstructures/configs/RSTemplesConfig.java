@@ -101,6 +101,7 @@ public class RSTemplesConfig implements ConfigData {
                 +"\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
         public String blacklistedPyramidBiomes = "";
 
+
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
         @Comment("How rare are Nether Pyramids in Nether."
@@ -112,6 +113,7 @@ public class RSTemplesConfig implements ConfigData {
         @ConfigEntry.Gui.PrefixText
         @Comment("Add Nether Pyramids to modded Nether biomes.")
         public boolean addNetherPyramidToModdedBiomes = true;
+
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
@@ -125,6 +127,7 @@ public class RSTemplesConfig implements ConfigData {
         @Comment("Add Badlands Pyramid to modded Badlands biomes.")
         public boolean addBadlandsPyramidToModdedBiomes = true;
 
+
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
         @Comment("How rare are Snowy Pyramid in snowy biomes."
@@ -137,6 +140,7 @@ public class RSTemplesConfig implements ConfigData {
         @Comment("Add Snowy Pyramid to modded snowy biomes.")
         public boolean addPyramidSnowyToModdedBiomes = true;
 
+
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
         @Comment("How rare are End Pyramid in End biomes. 1 for"
@@ -146,21 +150,21 @@ public class RSTemplesConfig implements ConfigData {
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
+        @Comment("Add End Pyramid to modded end biomes.")
+        public boolean addPyramidEndToModdedBiomes = true;
+
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
         @Comment("How rare are Icy Pyramid in biomes that are super"
                 + "\ncold or has icy words in its name. 1 for spawning"
                 + "\nin most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
         public int pyramidIcyMaxChunkDistance = 37;
-        // regexpos2
 
-        @ConfigEntry.Gui.Tooltip(count = 0)
-        @ConfigEntry.Gui.PrefixText
-        @Comment("Add End Pyramid to modded end biomes.")
-        public boolean addPyramidEndToModdedBiomes = true;
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
         @Comment("Add Icy Pyramid to modded icy biomes.")
         public boolean addPyramidIcyToModdedBiomes = true;
-        // regexpos1
     }
 }

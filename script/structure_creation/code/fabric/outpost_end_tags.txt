@@ -1,0 +1,1 @@
+        addTags(RSStructures.OUTPOST_END, Stream.of(STRUCTURE_TAGS.OUTPOST).collect(Collectors.toSet()));

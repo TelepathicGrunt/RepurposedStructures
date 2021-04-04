@@ -9,6 +9,7 @@ import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.Biome.Category;
+import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.gen.feature.StructureFeature;
 
 public class Outposts {
@@ -120,6 +121,15 @@ public class Outposts {
                         && RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.outpostOakMaxChunkDistance != 1001
                         && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.addOutpostOakToModdedBiomes),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.OUTPOST_OAK));
+
+        GeneralUtils.addToBiome("outpost_end",
+                (context) ->  BiomeSelection.haveCategories(context, Category.THEEND)
+                        && !BiomeSelection.isBiome(context, BiomeKeys.THE_END, BiomeKeys.SMALL_END_ISLANDS, BiomeKeys.END_BARRENS)
+                        && BiomeSelection.isBiomeAllowed(context, "outposts")
+                        && RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.outpostEndMaxChunkDistance != 1001
+                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.addOutpostEndToModdedBiomes),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.OUTPOST_END));
+        // regexpos1
 
         //Remove vanilla outposts from biomes we added our outpost to
         BiomeModifications.create(new Identifier(RepurposedStructures.MODID, "remove_vanilla_outposts")).add(

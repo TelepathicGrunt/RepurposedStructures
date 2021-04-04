@@ -1,0 +1,1 @@
+    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> OUTPOST_END = RSStructures.OUTPOST_END.configure(FeatureConfig.DEFAULT);

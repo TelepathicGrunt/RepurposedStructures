@@ -21,25 +21,25 @@ y
 C:\Users\MSI Laptop\Documents\ModdingWorkspace\RepurposedStructures-Fabric\src
 C:\Users\MSI Laptop\Documents\ModdingWorkspace\RepurposedStructures\src
 
-pyramid_icy
+outpost_end
 11
-temples/pyramid_icy
+outposts/outpost_end
 0
 0
 exit
 surface_structures
-RSTemplesConfig
-pyramids
-Add Icy Pyramid to modded icy biomes.
-How rare are Icy Pyramid in biomes that are super cold or has icy words in its name. 1 for spawning in most chunks and 1001 for none. 
-37
-n
-PYRAMID
+RSOutpostsConfig
+outposts
+Add End Outposts to modded End biomes.
+How rare are End Outposts in End biomes. 1 for spawning in most chunks and 1001 for none. 
+55
+y
+OUTPOST
 exit
-Frosted Pyramid
-Enter a Icy Pyramid
-minecraft:packed_ice
-20
+The End's Gaze
+Enter an End Outpost
+minecraft:magenta_concrete
+100
 y
 C:\Users\MSI Laptop\Documents\ModdingWorkspace\RepurposedStructures-Fabric\src
 C:\Users\MSI Laptop\Documents\ModdingWorkspace\RepurposedStructures\src

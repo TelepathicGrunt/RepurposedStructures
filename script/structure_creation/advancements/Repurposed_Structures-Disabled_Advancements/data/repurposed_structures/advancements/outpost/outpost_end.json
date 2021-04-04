@@ -1,0 +1,28 @@
+{
+  "parent": "repurposed_structures:outposts",
+  "display": {
+    "icon": {
+      "item": "minecraft:magenta_concrete"
+    },
+    "title": {
+      "text": "The End's Gaze"
+    },
+    "description": {
+      "text": "Enter an End Outpost"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 100
+  },
+  "criteria": {
+    "in_outpost_end": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "in_outpost_end"
+    ]
+  ]
+}

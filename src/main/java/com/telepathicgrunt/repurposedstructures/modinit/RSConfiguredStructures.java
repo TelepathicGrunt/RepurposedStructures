@@ -53,12 +53,12 @@ public class RSConfiguredStructures {
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> OUTPOST_ICY = RSStructures.OUTPOST_ICY.configure(FeatureConfig.DEFAULT);
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> OUTPOST_TAIGA = RSStructures.OUTPOST_TAIGA.configure(FeatureConfig.DEFAULT);
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> OUTPOST_OAK = RSStructures.OUTPOST_OAK.configure(FeatureConfig.DEFAULT);
+    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> OUTPOST_END = RSStructures.OUTPOST_END.configure(FeatureConfig.DEFAULT);
 
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> NETHER_PYRAMID = RSStructures.NETHER_PYRAMID.configure(FeatureConfig.DEFAULT);
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> BADLANDS_PYRAMID = RSStructures.BADLANDS_PYRAMID.configure(FeatureConfig.DEFAULT);
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> PYRAMID_END = RSStructures.PYRAMID_END.configure(FeatureConfig.DEFAULT);
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> PYRAMID_ICY = RSStructures.PYRAMID_ICY.configure(FeatureConfig.DEFAULT);
-// regexpos1
 
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> END_SHIPWRECK = RSStructures.END_SHIPWRECK.configure(FeatureConfig.DEFAULT);
     public static ConfiguredStructureFeature<NetherShipwreckConfig, ? extends StructureFeature<NetherShipwreckConfig>> NETHER_BRICKS_SHIPWRECK_FLYING = RSStructures.NETHER_BRICKS_SHIPWRECK.configure(new NetherShipwreckConfig(true));
@@ -95,6 +95,8 @@ public class RSConfiguredStructures {
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> WITCH_HUTS_DARK_FOREST = RSStructures.WITCH_HUTS_DARK_FOREST.configure(FeatureConfig.DEFAULT);
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> WITCH_HUTS_GIANT_TREE_TAIGA = RSStructures.WITCH_HUTS_GIANT_TREE_TAIGA.configure(FeatureConfig.DEFAULT);
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> PYRAMID_SNOWY = RSStructures.PYRAMID_SNOWY.configure(FeatureConfig.DEFAULT);
+
+    // regexpos1
 
     public static void registerConfiguredStructures() {
         MutableRegistry<ConfiguredStructureFeature<?, ?>> registry = (MutableRegistry<ConfiguredStructureFeature<?, ?>>) BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE;
@@ -138,13 +140,13 @@ public class RSConfiguredStructures {
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "outpost_icy"), OUTPOST_ICY);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "outpost_taiga"), OUTPOST_TAIGA);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "outpost_oak"), OUTPOST_OAK);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "outpost_end"), OUTPOST_END);
 
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "nether_pyramid"), NETHER_PYRAMID);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "badlands_temple"), BADLANDS_PYRAMID);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "pyramid_snowy"), PYRAMID_SNOWY);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "pyramid_end"), PYRAMID_END);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "pyramid_icy"), PYRAMID_ICY);
-        // regexpos2
 
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "end_shipwreck"), END_SHIPWRECK);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "nether_bricks_shipwreck_flying"), NETHER_BRICKS_SHIPWRECK_FLYING);
@@ -180,5 +182,7 @@ public class RSConfiguredStructures {
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "witch_huts_birch"), WITCH_HUTS_BIRCH);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "witch_huts_dark_forest"), WITCH_HUTS_DARK_FOREST);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "witch_huts_giant_tree_taiga"), WITCH_HUTS_GIANT_TREE_TAIGA);
+
+        // regexpos2
     }
 }

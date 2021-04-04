@@ -46,7 +46,7 @@ public class DataBlockProcessor extends StructureProcessor {
                 if(metadata.contains(DATA_PROCESSOR_MODE.PILLARS.symbol)){
                     String[] splitString = metadata.split(DATA_PROCESSOR_MODE.PILLARS.symbol);
 
-                    // Parses the data block's name field to get direction, blockstate, and depth
+                    // Parses the data block's field to get direction, blockstate, and depth
                     Direction direction = Direction.valueOf(splitString[0].toUpperCase());
                     BlockArgumentParser blockArgumentParser = new BlockArgumentParser(new StringReader(splitString[1]), false);
                     blockArgumentParser.parse(true);

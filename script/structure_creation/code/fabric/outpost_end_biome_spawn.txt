@@ -1,0 +1,6 @@
+        GeneralUtils.addToBiome("outpost_end",
+                (context) -> 
+						&& BiomeSelection.isBiomeAllowed(context, "outposts")
+                        && RepurposedStructures.RSAllConfig.RSOutpostsConfig.maxChunkDistance.outpostEndMaxChunkDistance != 1001
+                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSOutpostsConfig.blacklist.addOutpostEndToModdedBiomes),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.OUTPOST_END));
