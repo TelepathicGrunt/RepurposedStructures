@@ -1,0 +1,8 @@
+{
+  "mobs" : [
+    {
+      "name" : "minecraft:zombified_piglin",
+      "weight" : 10
+    }
+  ]
+}
