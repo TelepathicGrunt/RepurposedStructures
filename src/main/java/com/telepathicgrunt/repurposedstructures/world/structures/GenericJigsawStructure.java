@@ -40,6 +40,7 @@ public class GenericJigsawStructure extends AbstractBaseStructure<DefaultFeature
     protected final List<SpawnSettings.SpawnEntry> creatureSpawns;
     protected final int allowTerrainHeightRange;
     protected final int terrainHeightRadius;
+    protected final int minTerrainHeight;
 
     public GenericJigsawStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange, int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet) {
         this(poolID, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet, -1, 0);
@@ -58,6 +59,15 @@ public class GenericJigsawStructure extends AbstractBaseStructure<DefaultFeature
                                   int allowTerrainHeightRange, int terrainHeightRadius,
                                   List<SpawnSettings.SpawnEntry> monsterSpawns, List<SpawnSettings.SpawnEntry> creatureSpawns)
     {
+        this(poolID, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet, allowTerrainHeightRange, terrainHeightRadius, monsterSpawns, creatureSpawns, Integer.MIN_VALUE);
+    }
+
+    public GenericJigsawStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange,
+                                  int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet,
+                                  int allowTerrainHeightRange, int terrainHeightRadius,
+                                  List<SpawnSettings.SpawnEntry> monsterSpawns, List<SpawnSettings.SpawnEntry> creatureSpawns,
+                                  int minTerrainHeight)
+    {
         super(DefaultFeatureConfig.CODEC);
 
         this.startPool = poolID;
@@ -70,6 +80,7 @@ public class GenericJigsawStructure extends AbstractBaseStructure<DefaultFeature
         this.creatureSpawns = creatureSpawns;
         this.allowTerrainHeightRange = allowTerrainHeightRange;
         this.terrainHeightRadius = terrainHeightRadius;
+        this.minTerrainHeight = minTerrainHeight;
 
         RSStructures.RS_STRUCTURE_START_PIECES.add(startPool);
     }
@@ -125,6 +136,10 @@ public class GenericJigsawStructure extends AbstractBaseStructure<DefaultFeature
                     int height = chunkGenerator.getHeight((curChunkX << 4) + 7, (curChunkZ << 4) + 7, Heightmap.Type.WORLD_SURFACE_WG);
                     maxTerrainHeight = Math.max(maxTerrainHeight, height);
                     minTerrainHeight = Math.min(minTerrainHeight, height);
+
+                    if(minTerrainHeight < this.minTerrainHeight){
+                        return false;
+                    }
                 }
             }
 
