@@ -8,6 +8,19 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+
+## (V.2.6.2 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)
+
+##### Outposts:
+- Fixed End Outposts able to spawn on the void in modded biomes.
+
+
+## (V.2.6.1 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)
+
+##### Pyramids:
+- Fixed End Pyramid pits not spawning.
+
+
 ## (V.2.6.0 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)
 
 ##### Cities:
