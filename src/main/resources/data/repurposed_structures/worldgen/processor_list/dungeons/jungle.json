@@ -1,0 +1,114 @@
+{
+  "processors": [
+    {
+      "rules": [
+        {
+          "output_state": {
+            "Properties": {
+              "axis": "y"
+            },
+            "Name": "minecraft:jungle_log"
+          },
+          "input_predicate": {
+            "block": "minecraft:jungle_planks",
+            "probability": 0.0666666,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "persistent": "true",
+              "distance": "1"
+            },
+            "Name": "minecraft:jungle_leaves"
+          },
+          "input_predicate": {
+            "block": "minecraft:jungle_planks",
+            "probability": 0.1333333,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "persistent": "true",
+              "distance": "1"
+            },
+            "Name": "minecraft:jungle_leaves"
+          },
+          "input_predicate": {
+            "block": "minecraft:jungle_log",
+            "probability": 0.6666666,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "axis": "x"
+            },
+            "Name": "minecraft:jungle_log"
+          },
+          "input_predicate": {
+            "block": "minecraft:jungle_leaves",
+            "probability": 0.3333333,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "persistent": "true",
+              "distance": "1"
+            },
+            "Name": "minecraft:jungle_leaves"
+          },
+          "input_predicate": {
+            "block": "minecraft:jungle_leaves",
+            "probability": 1,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:cave_air"
+          },
+          "input_predicate": {
+            "block": "minecraft:air",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        }
+      ],
+      "processor_type": "minecraft:rule"
+    },
+    {
+      "processor_type": "repurposed_structures:replace_air_only_processor"
+    },
+    {
+      "processor_type": "repurposed_structures:remove_floating_blocks_processor"
+    },
+    {
+      "processor_type": "repurposed_structures:spawner_randomizing_processor",
+      "rs_spawner_resourcelocation": "repurposed_structures:dungeon_jungle"
+    }
+  ]
+}

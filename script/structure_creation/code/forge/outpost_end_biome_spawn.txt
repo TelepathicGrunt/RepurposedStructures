@@ -1,0 +1,6 @@
+        if ( &&
+            RepurposedStructures.RSOutpostsConfig.outpostEndMaxChunkDistance.get() != 1001 &&
+            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSOutpostsConfig.addOutpostEndToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_END);
+        }

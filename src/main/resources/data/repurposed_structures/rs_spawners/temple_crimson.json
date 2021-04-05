@@ -1,0 +1,8 @@
+{
+  "mobs" : [
+    {
+      "name" : "minecraft:zoglin",
+      "weight" : 10
+    }
+  ]
+}

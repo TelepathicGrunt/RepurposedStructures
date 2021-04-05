@@ -13,7 +13,6 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
-import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.DynamicRegistryManager;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.BlockView;
@@ -46,7 +45,7 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NetherShipwr
     @Override
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NetherShipwreckConfig config) {
 
-        // Quick shitty check to see if there some air where the structure wants to spawn.
+        // Check to see if there some air where the structure wants to spawn.
         // Doesn't account for rotation of structure.
         BlockPos blockPos;
         if(!config.isFlying){
@@ -58,14 +57,18 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NetherShipwr
             blockPos = new BlockPos(chunkX << 4, height, chunkZ << 4);
         }
 
-        for(Direction direction : Direction.Type.HORIZONTAL) {
-            BlockPos blockPos2 = blockPos.offset(direction, 8);
-            BlockView blockView = chunkGenerator.getColumnSample(blockPos2.getX(), blockPos2.getZ());
+        int checkRadius = 16;
+        BlockPos.Mutable mutable = new BlockPos.Mutable();
 
-            if (!blockView.getBlockState(blockPos2).isAir() ||
-                    !blockView.getBlockState(blockPos2.up(9)).isAir() ||
-                    !blockView.getBlockState(blockPos2.up(18)).isAir()) {
-                return false;
+        for(int xOffset = -checkRadius; xOffset <= checkRadius; xOffset += 8){
+            for(int zOffset = -checkRadius; zOffset <= checkRadius; zOffset += 8){
+                BlockView blockView = chunkGenerator.getColumnSample(xOffset + blockPos.getX(), zOffset + blockPos.getZ());
+                for(int yOffset = 0; yOffset <= 30; yOffset += 5){
+                    mutable.set(blockPos).move(xOffset, yOffset, zOffset);
+                    if (!blockView.getBlockState(mutable).isAir()) {
+                        return false;
+                    }
+                }
             }
         }
 
@@ -122,17 +125,17 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NetherShipwr
                 placementHeight = placementHeight + random.nextInt(Math.max(chunkGenerator.getWorldHeight() - (placementHeight + 30), 1));
             }
 
-            BlockPos blockpos = new BlockPos(chunkX * 16, placementHeight, chunkZ * 16);
+            BlockPos blockpos = new BlockPos(chunkX << 4, placementHeight, chunkZ << 4);
             StructurePoolBasedGenerator.method_30419(
                     dynamicRegistryManager,
-                    new StructurePoolFeatureConfig(() -> dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN).get(startPool), 1),
+                    new StructurePoolFeatureConfig(() -> dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN).get(startPool), 6),
                     PoolStructurePiece::new,
                     chunkGenerator,
                     structureManager,
                     blockpos,
                     this.children,
                     random,
-                    true,
+                    false,
                     false);
             this.setBoundingBoxFromChildren();
         }

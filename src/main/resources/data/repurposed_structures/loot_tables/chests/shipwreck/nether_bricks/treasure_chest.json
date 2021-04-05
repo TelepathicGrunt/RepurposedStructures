@@ -51,14 +51,14 @@
 		},
 		{
 			"rolls": {
-				"min": 3.0,
-				"max": 6.0,
+				"min": 4.0,
+				"max": 8.0,
 				"type": "minecraft:uniform"
 			},
 			"entries": [
 				{
 					"type": "minecraft:item",
-					"weight": 20,
+					"weight": 70,
 					"functions": [
 						{
 							"function": "minecraft:set_count",
@@ -73,7 +73,7 @@
 				},
 				{
 					"type": "minecraft:item",
-					"weight": 20,
+					"weight": 70,
 					"functions": [
 						{
 							"function": "minecraft:set_count",
@@ -88,18 +88,7 @@
 				},
 				{
 					"type": "minecraft:item",
-					"weight": 20,
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": 1
-						}
-					],
-					"name": "minecraft:netherite_ingot"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 14,
+					"weight": 55,
 					"functions": [
 						{
 							"function": "minecraft:set_count",
@@ -114,18 +103,7 @@
 				},
 				{
 					"type": "minecraft:item",
-					"weight": 14,
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": 1
-						}
-					],
-					"name": "minecraft:ancient_debris"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 10,
+					"weight": 45,
 					"functions": [
 						{
 							"function": "minecraft:set_count",
@@ -140,7 +118,7 @@
 				},
 				{
 					"type": "minecraft:item",
-					"weight": 10,
+					"weight": 35,
 					"functions": [
 						{
 							"function": "minecraft:enchant_with_levels",
@@ -156,44 +134,37 @@
 				},
 				{
 					"type": "minecraft:item",
-					"weight": 6,
+					"weight": 30,
 					"functions": [
 						{
 							"function": "minecraft:set_count",
-							"count": 1
+							"count": {
+								"min": 7.0,
+								"max": 15.0,
+								"type": "minecraft:uniform"
+							}
 						}
 					],
-					"name": "minecraft:netherite_scrap"
+					"name": "minecraft:magma_cream"
 				},
 				{
 					"type": "minecraft:item",
-					"weight": 4,
+					"weight": 30,
 					"functions": [
 						{
 							"function": "minecraft:set_count",
-							"count": 2
+							"count": {
+								"min": 1.0,
+								"max": 3.0,
+								"type": "minecraft:uniform"
+							}
 						}
 					],
 					"name": "minecraft:ancient_debris"
 				},
 				{
 					"type": "minecraft:item",
-					"weight": 3,
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"min": 8.0,
-								"max": 15.0,
-								"type": "minecraft:uniform"
-							}
-						}
-					],
-					"name": "minecraft:spectral_arrow"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 2,
+					"weight": 20,
 					"functions": [
 						{
 							"function": "minecraft:set_count",
@@ -208,7 +179,37 @@
 				},
 				{
 					"type": "minecraft:item",
-					"weight": 1,
+					"weight": 10,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 8.0,
+								"max": 15.0,
+								"type": "minecraft:uniform"
+							}
+						}
+					],
+					"name": "minecraft:spectral_arrow"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 10,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 1.0,
+								"max": 3.0,
+								"type": "minecraft:uniform"
+							}
+						}
+					],
+					"name": "minecraft:netherite_scrap"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 6,
 					"functions": [
 						{
 							"function": "minecraft:set_count",
@@ -223,7 +224,7 @@
 				},
 				{
 					"type": "minecraft:item",
-					"weight": 1,
+					"weight": 3,
 					"functions": [
 						{
 							"function": "minecraft:set_count",
@@ -238,18 +239,18 @@
 				},
 				{
 					"type": "minecraft:item",
-					"weight": 1,
+					"weight": 3,
 					"functions": [
 						{
 							"function": "minecraft:set_count",
 							"count": {
-								"min": 7.0,
-								"max": 15.0,
+								"min": 1.0,
+								"max": 4.0,
 								"type": "minecraft:uniform"
 							}
 						}
 					],
-					"name": "minecraft:magma_cream"
+					"name": "minecraft:netherite_ingot"
 				},
 				{
 					"type": "minecraft:item",

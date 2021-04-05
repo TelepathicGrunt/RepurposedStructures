@@ -110,7 +110,9 @@ while restart:
         file_content = file.read().replace("$1", structure_variable_name).replace("$2", start_pool).replace("$3", structure_size)  \
                                 .replace("$4", biome_spacing).replace("$5", structure_spacing) \
                                 .replace("$6", ("new HashSet<>()", "Stream.of("+avoid_tags+").collect(Collectors.toSet())")[bool(avoid_tags)])
-    with open(os.path.join('code', 'fabric', structure_registry_name+'_structure_init.txt'), "w") as file:
+    path = os.path.join('code', 'fabric', structure_registry_name+'_structure_init.txt')
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w") as file:
         raw_output += "\n\n" + file_content
         file.write(file_content)
         if bool(inject_into_code):
@@ -121,7 +123,9 @@ while restart:
         file_content = file.read().replace("$1", structure_registry_name).replace("$2", structure_variable_name).replace("$3", generation_step)  \
                                 .replace("$4", config_category).replace("$5", config_subcategory).replace("$6", config_spawnrate_entry) \
                                 .replace("$7", spacing_seed).replace("$8", ("", ".adjustsSurface()")[adjusts_surface == 'y'])
-    with open(os.path.join('code', 'fabric', structure_registry_name+'_structure_registration.txt'), "w") as file:
+    path = os.path.join('code', 'fabric', structure_registry_name+'_structure_registration.txt')
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w") as file:
         raw_output += "\n\n" + file_content
         file.write(file_content)
         if bool(inject_into_code):
@@ -130,7 +134,9 @@ while restart:
 
     with open(os.path.join('template', 'fabric_configured_structure_init.txt'), "r") as file:
         file_content = file.read().replace("$1", structure_variable_name)
-    with open(os.path.join('code', 'fabric', structure_registry_name+'_configured_structure_init.txt'), "w") as file:
+    path = os.path.join('code', 'fabric', structure_registry_name+'_configured_structure_init.txt')
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w") as file:
         raw_output += "\n\n" + file_content
         file.write(file_content)
         if bool(inject_into_code):
@@ -139,7 +145,9 @@ while restart:
 
     with open(os.path.join('template', 'fabric_configured_structure_registration.txt'), "r") as file:
         file_content = file.read().replace("$1", structure_registry_name).replace("$2", structure_variable_name)
-    with open(os.path.join('code', 'fabric', structure_registry_name+'_configured_structure_registration.txt'), "w") as file:
+    path = os.path.join('code', 'fabric', structure_registry_name+'_configured_structure_registration.txt')
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w") as file:
         raw_output += "\n\n" + file_content
         file.write(file_content)
         if bool(inject_into_code):
@@ -148,7 +156,9 @@ while restart:
 
     with open(os.path.join('template', 'tags.txt'), "r") as file:
         file_content = file.read().replace("$1", structure_variable_name).replace("$2", innate_tags)
-    with open(os.path.join('code', 'fabric', structure_registry_name+'_tags.txt'), "w") as file:
+    path = os.path.join('code', 'fabric', structure_registry_name+'_tags.txt')
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w") as file:
         raw_output += "\n\n" + file_content
         file.write(file_content)
         if bool(inject_into_code):
@@ -159,17 +169,27 @@ while restart:
     with open(os.path.join('template', 'fabric_biome_spawn.txt'), "r") as file:
         file_content = file.read().replace("$1", structure_registry_name).replace("$2", config_subcategory).replace("$3", config_category) \
                                 .replace("$4", config_spawnrate_entry).replace("$5", config_modded_biome_entry).replace("$6", structure_variable_name)
-    with open(os.path.join('code', 'fabric', structure_registry_name+'_biome_spawn.txt'), "w") as file:
+    path = os.path.join('code', 'fabric', structure_registry_name+'_biome_spawn.txt')
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w") as file:
         raw_output += "\n\n" + file_content
         file.write(file_content)
         if bool(inject_into_code):
-            insertLine(os.path.join(fabric_src, 'main','java','com','telepathicgrunt','repurposedstructures','RSAddFeaturesAndStructures.java'), \
-                "regexpos1", file_content)
+            directory = os.path.join(fabric_src, 'main','java','com','telepathicgrunt','repurposedstructures','biome_injection')
+            for filename in os.listdir(directory):
+                with open(os.path.join(directory, filename), 'r+') as f:
+                    tempRead = f.read()
+                    if "regexpos1" in tempRead:
+                        f.seek(0)
+                        insertLine(os.path.join(directory, filename), \
+                            "regexpos1", file_content)
 
     with open(os.path.join('template', 'fabric_config.txt'), "r") as file:
         file_content = file.read().replace("$1", bend(50, config_modded_biome_comment)).replace("$2", config_modded_biome_entry) \
                                 .replace("$3", bend(50, config_spawnrate_comment)).replace("$4", config_spawnrate_entry).replace("$5", spacing_default_value)
-    with open(os.path.join('code', 'fabric', structure_registry_name+'_config.txt'), "w") as file:
+    path = os.path.join('code', 'fabric', structure_registry_name+'_config.txt')
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w") as file:
         raw_output += "\n\n" + file_content
         file.write(file_content)
         if bool(inject_into_code):
@@ -194,7 +214,9 @@ while restart:
         file_content = file.read().replace("$1", structure_variable_name).replace("$2", structure_registry_name).replace("$3", start_pool) \
                                 .replace("$4", structure_size).replace("$5", biome_spacing).replace("$6", structure_spacing) \
                                 .replace("$7", ("new HashSet<>()", "Stream.of("+avoid_tags+").collect(Collectors.toSet())")[bool(avoid_tags)])
-    with open(os.path.join('code', 'forge', structure_registry_name+'_structure_init.txt'), "w") as file:
+    path = os.path.join('code', 'forge', structure_registry_name+'_structure_init.txt')
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w") as file:
         raw_output += "\n\n" + file_content
         file.write(file_content)
         if bool(inject_into_code):
@@ -205,7 +227,9 @@ while restart:
         file_content = file.read().replace("$1", ("addToStructureMaps", "addToTerraformingAndStructureMaps")[adjusts_surface == 'y']) \
                                 .replace("$2", structure_registry_name).replace("$3", structure_variable_name).replace("$4", generation_step)  \
                                 .replace("$5", config_category).replace("$6", config_spawnrate_entry).replace("$7", spacing_seed)
-    with open(os.path.join('code', 'forge', structure_registry_name+'_structure_registration.txt'), "w") as file:
+    path = os.path.join('code', 'forge', structure_registry_name+'_structure_registration.txt')
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w") as file:
         raw_output += "\n\n" + file_content
         file.write(file_content)
         if bool(inject_into_code):
@@ -214,7 +238,9 @@ while restart:
 
     with open(os.path.join('template', 'forge_configured_structure_init.txt'), "r") as file:
         file_content = file.read().replace("$1", structure_variable_name)
-    with open(os.path.join('code', 'forge', structure_registry_name+'_configured_structure_init.txt'), "w") as file:
+    path = os.path.join('code', 'forge', structure_registry_name+'_configured_structure_init.txt')
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w") as file:
         raw_output += "\n\n" + file_content
         file.write(file_content)
         if bool(inject_into_code):
@@ -223,7 +249,9 @@ while restart:
 
     with open(os.path.join('template', 'forge_configured_structure_registration.txt'), "r") as file:
         file_content = file.read().replace("$1", structure_registry_name).replace("$2", structure_variable_name)
-    with open(os.path.join('code', 'forge', structure_registry_name+'_configured_structure_registration.txt'), "w") as file:
+    path = os.path.join('code', 'forge', structure_registry_name+'_configured_structure_registration.txt')
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w") as file:
         raw_output += "\n\n" + file_content
         file.write(file_content)
         if bool(inject_into_code):
@@ -232,7 +260,9 @@ while restart:
 
     with open(os.path.join('template', 'tags.txt'), "r") as file:
         file_content = file.read().replace("$1", structure_variable_name+".get()").replace("$2", innate_tags)
-    with open(os.path.join('code', 'forge', structure_registry_name+'_tags.txt'), "w") as file:
+    path = os.path.join('code', 'forge', structure_registry_name+'_tags.txt')
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w") as file:
         raw_output += "\n\n" + file_content
         file.write(file_content)
         if bool(inject_into_code):
@@ -242,19 +272,29 @@ while restart:
     with open(os.path.join('template', 'forge_biome_spawn.txt'), "r") as file:
         file_content = file.read().replace("$1", config_spawnrate_entry).replace("$2", config_category) \
                                 .replace("$3", config_modded_biome_entry).replace("$4", structure_variable_name)
-    with open(os.path.join('code', 'forge', structure_registry_name+'_biome_spawn.txt'), "w") as file:
+    path = os.path.join('code', 'forge', structure_registry_name+'_biome_spawn.txt')
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w") as file:
         raw_output += "\n\n" + file_content
         file.write(file_content)
         if bool(inject_into_code):
-            insertLine(os.path.join(forge_src, 'main','java','com','telepathicgrunt','repurposedstructures','RSAddFeaturesAndStructures.java'), \
-                "regexpos1", file_content)
+            directory = os.path.join(forge_src, 'main','java','com','telepathicgrunt','repurposedstructures','biome_injection')
+            for filename in os.listdir(directory):
+                with open(os.path.join(directory, filename), 'r+') as f:
+                    tempRead = f.read()
+                    if "regexpos1" in tempRead:
+                        f.seek(0)
+                        insertLine(os.path.join(directory, filename), \
+                            "regexpos1", file_content)
 
     with open(os.path.join('template', 'forge_config.txt'), "r") as file:
         file_content = file.read().replace("$1", config_spawnrate_entry).replace("$2", config_spawnrate_entry.lower()) \
-                                .replace("$3", bend(50, config_modded_biome_comment)).replace("$4", config_subcategory).replace("$5", spacing_default_value) \
+                                .replace("$3", bend(50, config_spawnrate_comment)).replace("$4", config_subcategory).replace("$5", spacing_default_value) \
                                 .replace("$6", config_modded_biome_entry).replace("$7", config_modded_biome_entry.lower()) \
-                                .replace("$8", bend(50, config_modded_biome_comment))
-    with open(os.path.join('code', 'forge', structure_registry_name+'_config.txt'), "w") as file:
+                                .replace("$8", bend(50, config_modded_biome_comment).replace("\"", "\"\\n "))
+    path = os.path.join('code', 'forge', structure_registry_name+'_config.txt')
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w") as file:
         raw_output += "\n\n" + file_content
         file.write(file_content)
         if bool(inject_into_code):
@@ -296,16 +336,6 @@ while restart:
     with open(filename, "w") as file:
         file.write(file_content)
 
-
-    with open(os.path.join('template', 'translation_advancement.json'), "r") as file:
-        file_content = file.read().replace("$1", structure_registry_name).replace("$2", advancement_icon).replace("$3", advancement_title) \
-                                .replace("$4", advancement_description).replace("$5", advancement_exp).replace("$6", config_subcategory)
-    filename = os.path.join('advancements', 'Repurposed_Structures-Translation_Advancements', "data", "repurposed_structures", "advancements", config_subcategory, structure_registry_name+'.json')
-    os.makedirs(os.path.dirname(filename), exist_ok=True)
-    with open(filename, "w") as file:
-        file.write(file_content)
-
-
     with open(os.path.join('template', 'disabled_advancement.json'), "r") as file:
         file_content = file.read().replace("$1", structure_registry_name).replace("$2", advancement_icon).replace("$3", advancement_title) \
                                 .replace("$4", advancement_description).replace("$5", advancement_exp).replace("$6", config_subcategory)
@@ -316,7 +346,9 @@ while restart:
 
 
 
-    with open(os.path.join('code', 'raw_output', structure_registry_name+'.txt'), "w") as file:
+    path = os.path.join('code', 'raw_output', structure_registry_name+'.txt')
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w") as file:
         file.write(raw_output)
 
     print("\n\nFINISHED!")

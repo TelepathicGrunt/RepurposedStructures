@@ -1,0 +1,19 @@
+{
+  "processors": [
+    {
+      "processor_type": "repurposed_structures:ceiling_vine_post_processor",
+      "probability": 0.25,
+      "blockstate" : {
+        "Name": "minecraft:jungle_leaves",
+        "Properties": {
+          "persistent": "false",
+          "distance": "1"
+        }
+      }
+    },
+    {
+      "processor_type": "repurposed_structures:wall_vine_post_processor",
+      "probability": 0.2
+    }
+  ]
+}

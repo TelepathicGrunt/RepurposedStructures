@@ -74,9 +74,12 @@ public class StructureModdedLootImporter {
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/outpost/snowy_chest"), new Identifier("minecraft:chests/pillager_outpost"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/outpost/taiga_chest"), new Identifier("minecraft:chests/pillager_outpost"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/outpost/warped_chest"), new Identifier("minecraft:chests/pillager_outpost"));
+        tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/outpost/end_shulker_box"), new Identifier("minecraft:chests/end_city_treasure")); // "minecraft:chests/pillager_outpost"
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/pyramid/badlands_chest"), new Identifier("minecraft:chests/desert_pyramid"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/pyramid/nether_chest"), new Identifier("minecraft:chests/desert_pyramid"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/pyramid/snowy_chest"), new Identifier("minecraft:chests/desert_pyramid"));
+        tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/pyramid/icy_chest"), new Identifier("minecraft:chests/desert_pyramid"));
+        tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/pyramid/end_chest"), new Identifier("minecraft:chests/end_city_treasure")); // "minecraft:chests/desert_pyramid"
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/ruin/nether"), new Identifier("minecraft:chests/bastion_other")); // new Identifier("minecraft:chests/underwater_ruin_big"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/ruined_portal/large_portal_chest"), new Identifier("minecraft:chests/ruined_portal"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/ruined_portal/small_portal_chest"), new Identifier("minecraft:chests/ruined_portal"));
@@ -90,8 +93,12 @@ public class StructureModdedLootImporter {
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/shipwreck/warped/supply_chest"), new Identifier("minecraft:chests/shipwreck_supply"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/shipwreck/warped/treasure_chest"), new Identifier("minecraft:chests/shipwreck_treasure"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/shipwreck/nether_bricks/treasure_chest"), new Identifier("minecraft:chests/shipwreck_treasure"));
+        tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/stronghold/stonebrick_storage_room"), new Identifier("minecraft:chests/stronghold_crossing"));
+        tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/stronghold/stonebrick_hallway"), new Identifier("minecraft:chests/stronghold_corridor"));
+        tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/stronghold/stonebrick_library"), new Identifier("minecraft:chests/stronghold_library"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/stronghold/nether_storage_room"), new Identifier("minecraft:chests/stronghold_crossing"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/stronghold/nether_hallway"), new Identifier("minecraft:chests/stronghold_corridor"));
+        tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/stronghold/nether_library"), new Identifier("minecraft:chests/stronghold_library"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/temple/nether_basalt_chest"), new Identifier("minecraft:chests/nether_bridge")); // new Identifier("minecraft:chests/jungle_temple"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/temple/nether_crimson_chest"), new Identifier("minecraft:chests/nether_bridge")); // new Identifier("minecraft:chests/jungle_temple"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/temple/nether_soul_chest"), new Identifier("minecraft:chests/nether_bridge")); // new Identifier("minecraft:chests/jungle_temple"));
@@ -185,7 +192,7 @@ public class StructureModdedLootImporter {
 
     private static boolean isInBlacklist(Identifier lootTableID){
         if(BLACKLISTED_LOOTTABLES == null){
-            String cleanedBlacklist = RepurposedStructures.RSAllConfig.RSDungeonsConfig.blacklistedDungeonBiomes.replace(" ", "");
+            String cleanedBlacklist = RepurposedStructures.RSAllConfig.RSMainConfig.blacklistedRSLoottablesFromImportingModdedItems.replace(" ", "");
 
             if(cleanedBlacklist.equals("")){
                 BLACKLISTED_LOOTTABLES = new HashSet<>(); // make empty set instead of ["minecraft:"].

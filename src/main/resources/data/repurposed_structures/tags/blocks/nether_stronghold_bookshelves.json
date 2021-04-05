@@ -1,22 +1,17 @@
 {
   "replace": false,
   "values": [
-    "minecraft:polished_blackstone_bricks",
-    "minecraft:polished_blackstone_bricks",
-    "minecraft:polished_blackstone_bricks",
-    "minecraft:polished_blackstone_bricks",
-    "minecraft:polished_blackstone_bricks",
+    "minecraft:basalt",
+    "minecraft:polished_basalt",
+    "minecraft:blackstone",
     "minecraft:polished_blackstone_bricks",
     "minecraft:polished_blackstone",
-    "minecraft:polished_blackstone",
-    "minecraft:polished_blackstone",
-    "minecraft:cracked_polished_blackstone_bricks",
-    "minecraft:cracked_polished_blackstone_bricks",
-    "minecraft:cracked_polished_blackstone_bricks",
     "minecraft:cracked_polished_blackstone_bricks",
     "minecraft:chiseled_polished_blackstone",
-    "minecraft:chiseled_polished_blackstone",
-    "minecraft:chiseled_polished_blackstone",
-    "minecraft:gilded_blackstone"
+    "minecraft:gilded_blackstone",
+    "minecraft:obsidian",
+    "minecraft:magma_block",
+    "minecraft:chiseled_nether_bricks",
+    "minecraft:nether_gold_ore"
   ]
 }

@@ -25,12 +25,12 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 15,
+          "weight": 25,
           "name": "minecraft:music_disc_strad"
         },
         {
           "type": "minecraft:item",
-          "weight": 15,
+          "weight": 5,
           "name": "minecraft:music_disc_wait"
         },
         {
@@ -90,7 +90,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "weight": 10,
+          "weight": 12,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -145,7 +145,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 7,
+          "weight": 5,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -164,7 +164,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 7,
+          "weight": 5,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -183,7 +183,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 10,
+          "weight": 15,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -198,22 +198,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 10,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 2.0,
-                "max": 4.0,
-                "type": "minecraft:uniform"
-              }
-            }
-          ],
-          "name": "minecraft:light_blue_dye"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 10,
+          "weight": 15,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -274,7 +259,7 @@
               }
             }
           ],
-          "name": "minecraft:ice"
+          "name": "minecraft:snowball"
         },
         {
           "type": "minecraft:item",
@@ -289,7 +274,7 @@
               }
             }
           ],
-          "name": "minecraft:packed_ice"
+          "name": "minecraft:snow_block"
         },
         {
           "type": "minecraft:item",
@@ -304,7 +289,7 @@
               }
             }
           ],
-          "name": "minecraft:blue_ice"
+          "name": "minecraft:ice"
         },
         {
           "type": "minecraft:item",

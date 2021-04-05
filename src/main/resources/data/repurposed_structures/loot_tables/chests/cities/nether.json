@@ -3,7 +3,7 @@
 	"pools": [
 		{
 			"rolls": {
-				"min": 3.0,
+				"min": 4.0,
 				"max": 7.0,
 				"type": "minecraft:uniform"
 			},
@@ -22,6 +22,21 @@
 						}
 					],
 					"name": "minecraft:magma_block"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 20,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 1.0,
+								"max": 8.0,
+								"type": "minecraft:uniform"
+							}
+						}
+					],
+					"name": "minecraft:netherite_scrap"
 				},
 				{
 					"type": "minecraft:item",
@@ -60,13 +75,13 @@
 						{
 							"function": "minecraft:set_count",
 							"count": {
-								"min": 3.0,
-								"max": 15.0,
+								"min": 1.0,
+								"max": 2.0,
 								"type": "minecraft:uniform"
 							}
 						}
 					],
-					"name": "minecraft:fire_charge"
+					"name": "minecraft:netherite_ingot"
 				},
 				{
 					"type": "minecraft:item",
@@ -229,18 +244,33 @@
 				},
 				{
 					"type": "minecraft:item",
+					"weight": 12,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 3.0,
+								"max": 12.0,
+								"type": "minecraft:uniform"
+							}
+						}
+					],
+					"name": "minecraft:fire_charge"
+				},
+				{
+					"type": "minecraft:item",
 					"weight": 10,
 					"name": "minecraft:flint_and_steel"
 				},
 				{
 					"type": "minecraft:item",
-					"weight": 10,
+					"weight": 8,
 					"functions": [
 						{
 							"function": "minecraft:set_count",
 							"count": {
-								"min": 6.0,
-								"max": 14.0,
+								"min": 4.0,
+								"max": 12.0,
 								"type": "minecraft:uniform"
 							}
 						},
@@ -253,13 +283,13 @@
 				},
 				{
 					"type": "minecraft:item",
-					"weight": 10,
+					"weight": 8,
 					"functions": [
 						{
 							"function": "minecraft:set_count",
 							"count": {
-								"min": 6.0,
-								"max": 14.0,
+								"min": 4.0,
+								"max": 12.0,
 								"type": "minecraft:uniform"
 							}
 						},
@@ -332,28 +362,13 @@
 			"entries": [
 				{
 					"type": "minecraft:item",
-					"weight": 4,
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"min": 1.0,
-								"max": 10.0,
-								"type": "minecraft:uniform"
-							}
-						}
-					],
-					"name": "minecraft:fire_charge"
-				},
-				{
-					"type": "minecraft:item",
 					"weight": 3,
 					"functions": [
 						{
 							"function": "minecraft:set_count",
 							"count": {
-								"min": 1.0,
-								"max": 8.0,
+								"min": 3.0,
+								"max": 9.0,
 								"type": "minecraft:uniform"
 							}
 						}
@@ -367,7 +382,7 @@
 						{
 							"function": "minecraft:set_count",
 							"count": {
-								"min": 1.0,
+								"min": 2.0,
 								"max": 6.0,
 								"type": "minecraft:uniform"
 							}
@@ -377,13 +392,13 @@
 				},
 				{
 					"type": "minecraft:item",
-					"weight": 2,
+					"weight": 3,
 					"functions": [
 						{
 							"function": "minecraft:set_count",
 							"count": {
-								"min": 1.0,
-								"max": 3.0,
+								"min": 2.0,
+								"max": 6.0,
 								"type": "minecraft:uniform"
 							}
 						}
@@ -392,18 +407,33 @@
 				},
 				{
 					"type": "minecraft:item",
-					"weight": 1,
+					"weight": 2,
 					"functions": [
 						{
 							"function": "minecraft:set_count",
 							"count": {
 								"min": 1.0,
-								"max": 2.0,
+								"max": 4.0,
 								"type": "minecraft:uniform"
 							}
 						}
 					],
 					"name": "minecraft:netherite_ingot"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 2,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 5.0,
+								"max": 10.0,
+								"type": "minecraft:uniform"
+							}
+						}
+					],
+					"name": "minecraft:fire_charge"
 				},
 				{
 					"type": "minecraft:item",

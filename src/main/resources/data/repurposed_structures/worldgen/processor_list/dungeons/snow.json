@@ -1,0 +1,182 @@
+{
+  "processors": [
+    {
+      "rules": [
+        {
+          "output_state": {
+            "Name": "minecraft:packed_ice"
+          },
+          "input_predicate": {
+            "block": "minecraft:snow_block",
+            "probability": 0.045,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:ice"
+          },
+          "input_predicate": {
+            "block": "minecraft:snow_block",
+            "probability": 0.045,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:blue_ice"
+          },
+          "input_predicate": {
+            "block": "minecraft:snow_block",
+            "probability": 0.0075,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "layers": "1"
+            },
+            "Name": "minecraft:snow"
+          },
+          "input_predicate": {
+            "block": "minecraft:snow",
+            "probability": 0.01,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "layers": "2"
+            },
+            "Name": "minecraft:snow"
+          },
+          "input_predicate": {
+            "block": "minecraft:snow",
+            "probability": 0.01,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "layers": "3"
+            },
+            "Name": "minecraft:snow"
+          },
+          "input_predicate": {
+            "block": "minecraft:snow",
+            "probability": 0.01,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "layers": "4"
+            },
+            "Name": "minecraft:snow"
+          },
+          "input_predicate": {
+            "block": "minecraft:snow",
+            "probability": 0.01,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "layers": "5"
+            },
+            "Name": "minecraft:snow"
+          },
+          "input_predicate": {
+            "block": "minecraft:snow",
+            "probability": 0.01,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "layers": "6"
+            },
+            "Name": "minecraft:snow"
+          },
+          "input_predicate": {
+            "block": "minecraft:snow",
+            "probability": 0.01,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "layers": "7"
+            },
+            "Name": "minecraft:snow"
+          },
+          "input_predicate": {
+            "block": "minecraft:snow",
+            "probability": 0.01,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:cave_air"
+          },
+          "input_predicate": {
+            "block": "minecraft:air",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        }
+      ],
+      "processor_type": "minecraft:rule"
+    },
+    {
+      "processor_type": "repurposed_structures:replace_air_only_processor"
+    },
+    {
+      "processor_type": "repurposed_structures:remove_floating_blocks_processor"
+    },
+    {
+      "processor_type": "repurposed_structures:spawner_randomizing_processor",
+      "rs_spawner_resourcelocation": "repurposed_structures:dungeon_snow"
+    }
+  ]
+}

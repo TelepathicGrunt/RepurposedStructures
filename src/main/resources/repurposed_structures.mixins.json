@@ -17,11 +17,14 @@
     "NoLavaFallsInStructuresMixin",
     "PillagerOutpostFeatureAccessor",
     "ServerResourceManagerMixin",
+    "ShulkerEntityAccessor",
     "StrongholdGeneratorAccessor",
     "StructureMobSpawningMixin",
     "StructurePieceAccessor",
     "StructureProcessorListAccessor",
-    "StructuresConfigAccessor"
+    "StructuresConfigAccessor",
+    "TemplateAccessorInvoker",
+    "VanillaLayeredBiomeSourceAccessor"
   ],
   "client": [
     "StructureBlockScreenMixin"

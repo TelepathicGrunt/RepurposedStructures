@@ -1,0 +1,12 @@
+		public ConfigValueListener<Integer> pyramidEndMaxChunkDistance;
+		public ConfigValueListener<Boolean> addPyramidEndToModdedBiomes;
+
+                pyramidEndMaxChunkDistance = subscriber.subscribe(builder
+                    .comment("Add End Pyramid to modded end biomes.")
+                    .translation("repurposedstructures.config.pyramids.pyramidendmaxchunkdistance")
+                    .defineInRange("pyramidEndMaxChunkDistance", 75, 1, 1001));
+
+                addPyramidEndToModdedBiomes = subscriber.subscribe(builder
+                    .comment("Add End Pyramid to modded end biomes.")
+                    .translation("repurposedstructures.config.pyramids.addpyramidendtomoddedbiomes")
+                    .define("addPyramidEndToModdedBiomes", true));

@@ -1,0 +1,94 @@
+{
+  "processors": [
+    {
+      "rules": [
+        {
+          "output_state": {
+            "Properties": {
+              "up": "true",
+              "down": "true",
+              "north": "true",
+              "south": "true",
+              "east": "true",
+              "west": "true"
+            },
+            "Name": "minecraft:mushroom_stem"
+          },
+          "input_predicate": {
+            "block": "minecraft:mushroom_stem",
+            "probability": 1,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "up": "true",
+              "down": "true",
+              "north": "true",
+              "south": "true",
+              "east": "true",
+              "west": "true"
+            },
+            "Name": "minecraft:brown_mushroom_block"
+          },
+          "input_predicate": {
+            "block": "minecraft:brown_mushroom_block",
+            "probability": 1,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "up": "true",
+              "down": "true",
+              "north": "true",
+              "south": "true",
+              "east": "true",
+              "west": "true"
+            },
+            "Name": "minecraft:red_mushroom_block"
+          },
+          "input_predicate": {
+            "block": "minecraft:red_mushroom_block",
+            "probability": 1,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:cave_air"
+          },
+          "input_predicate": {
+            "block": "minecraft:air",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        }
+      ],
+      "processor_type": "minecraft:rule"
+    },
+    {
+      "processor_type": "repurposed_structures:replace_air_only_processor"
+    },
+    {
+      "processor_type": "repurposed_structures:remove_floating_blocks_processor"
+    },
+    {
+      "processor_type": "repurposed_structures:spawner_randomizing_processor",
+      "rs_spawner_resourcelocation": "repurposed_structures:dungeon_mushroom_low"
+    }
+  ]
+}

@@ -75,12 +75,20 @@ public class RSDungeonsConfig implements ConfigData {
         public int mushroomDungeonAttemptsPerChunk = 8;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-        @Comment("Replaces vanilla dungeon in icy/snowy biomes."
+        @Comment("Replaces vanilla dungeon in snowy biomes."
                 + "\nSpawn attempts per chunk."
                 + "\n0 for no Dungeons at all and 1000 for max spawnrate."
                 + "\nNote: When set to 0, Vanilla Dungeons spawns again.")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
         public int snowDungeonAttemptsPerChunk = 8;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @Comment("Replaces vanilla dungeon in icy biomes (non-ocean biomes that are super cold or has frozen/ice/icy in name)"
+                + "\nSpawn attempts per chunk."
+                + "\n0 for no Dungeons at all and 1000 for max spawnrate."
+                + "\nNote: When set to 0, Vanilla Dungeons spawns again.")
+        @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
+        public int icyDungeonAttemptsPerChunk = 8;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @Comment("Replaces vanilla dungeon in Swamp biomes."
@@ -95,14 +103,14 @@ public class RSDungeonsConfig implements ConfigData {
                 + "\nSpawn attempts per chunk."
                 + "\n0 for no Dungeons at all and 1000 for max spawnrate.")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int endDungeonAttemptsPerChunk = 8;
+        public int endDungeonAttemptsPerChunk = 12;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @Comment("Add Nether themed dungeon to Nether biomes."
                 + "\nSpawn attempts per chunk."
                 + "\n0 for no Dungeons at all and 1000 for max spawnrate.")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int netherDungeonAttemptsPerChunk = 8;
+        public int netherDungeonAttemptsPerChunk = 12;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
     @ConfigEntry.Gui.PrefixText
@@ -156,6 +164,12 @@ public class RSDungeonsConfig implements ConfigData {
                 + "\nNote: The dungeon will spawn between min and max y height set in config.")
         @ConfigEntry.BoundedDiscrete(min = 2, max = 255)
         public int snowDungeonMinHeight = 2;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @Comment("Minimum Y height that this dungeon can spawn at. Default is 2."
+                + "\nNote: The dungeon will spawn between min and max y height set in config.")
+        @ConfigEntry.BoundedDiscrete(min = 2, max = 255)
+        public int icyDungeonMinHeight = 2;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @Comment("Minimum Y height that this dungeon can spawn at. Default is 2."
@@ -227,6 +241,13 @@ public class RSDungeonsConfig implements ConfigData {
                 + "\nSetting this to below min height config will make dungeon spawn only at min height.")
         @ConfigEntry.BoundedDiscrete(min = 2, max = 255)
         public int snowDungeonMaxHeight = 255;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @Comment("Maximum Y height that this dungeon can spawn at. Default is 255."
+                + "\nNote: The dungeon will spawn between min and max y height set in config."
+                + "\nSetting this to below min height config will make dungeon spawn only at min height.")
+        @ConfigEntry.BoundedDiscrete(min = 2, max = 255)
+        public int icyDungeonMaxHeight = 255;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @Comment("Maximum Y height that this dungeon can spawn at. Default is 255."

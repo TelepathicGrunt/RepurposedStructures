@@ -20,3 +20,26 @@ minecraft:snow_block
 y
 C:\Users\MSI Laptop\Documents\ModdingWorkspace\RepurposedStructures-Fabric\src
 C:\Users\MSI Laptop\Documents\ModdingWorkspace\RepurposedStructures\src
+
+outpost_end
+11
+outposts/outpost_end
+0
+0
+exit
+surface_structures
+RSOutpostsConfig
+outposts
+Add End Outposts to modded End biomes.
+How rare are End Outposts in End biomes. 1 for spawning in most chunks and 1001 for none. 
+55
+y
+OUTPOST
+exit
+The End's Gaze
+Enter an End Outpost
+minecraft:magenta_concrete
+100
+y
+C:\Users\MSI Laptop\Documents\ModdingWorkspace\RepurposedStructures-Fabric\src
+C:\Users\MSI Laptop\Documents\ModdingWorkspace\RepurposedStructures\src

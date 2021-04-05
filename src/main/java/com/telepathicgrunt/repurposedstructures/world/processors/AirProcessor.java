@@ -2,7 +2,6 @@ package com.telepathicgrunt.repurposedstructures.world.processors;
 
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
-import net.minecraft.block.Blocks;
 import net.minecraft.structure.Structure;
 import net.minecraft.structure.StructurePlacementData;
 import net.minecraft.structure.processor.StructureProcessor;
@@ -15,18 +14,19 @@ import net.minecraft.world.WorldView;
  */
 public class AirProcessor extends StructureProcessor {
 
-    public static final AirProcessor INSTANCE = new AirProcessor();
-    public static final Codec<AirProcessor> CODEC = Codec.unit(() -> INSTANCE);
+    public static final Codec<AirProcessor> CODEC = Codec.unit(AirProcessor::new);
     private AirProcessor() { }
 
+    @Override
     public Structure.StructureBlockInfo process(WorldView worldView, BlockPos pos, BlockPos blockPos, Structure.StructureBlockInfo structureBlockInfoLocal, Structure.StructureBlockInfo structureBlockInfoWorld, StructurePlacementData structurePlacementData) {
-        if (structureBlockInfoWorld.state.isOf(Blocks.AIR)) {
-            worldView.getChunk(structureBlockInfoWorld.pos).setBlockState(structureBlockInfoWorld.pos, Blocks.AIR.getDefaultState(), false);
+        if (structureBlockInfoWorld.state.isAir()) {
+            worldView.getChunk(structureBlockInfoWorld.pos).setBlockState(structureBlockInfoWorld.pos, structureBlockInfoWorld.state, false);
         }
         return structureBlockInfoWorld;
     }
 
+    @Override
     protected StructureProcessorType<?> getType() {
-        return RSProcessors.AIR_PROCESSORS;
+        return RSProcessors.AIR_PROCESSOR;
     }
 }

@@ -31,34 +31,35 @@ public class DataBlockProcessor extends StructureProcessor {
         }
     }
 
-    public static final DataBlockProcessor INSTANCE = new DataBlockProcessor();
-    public static final Codec<DataBlockProcessor> CODEC = Codec.unit(() -> INSTANCE);
+    public static final Codec<DataBlockProcessor> CODEC = Codec.unit(DataBlockProcessor::new);
     private DataBlockProcessor() { }
 
+    @Override
     public Structure.StructureBlockInfo process(WorldView worldView, BlockPos pos, BlockPos blockPos, Structure.StructureBlockInfo structureBlockInfoLocal, Structure.StructureBlockInfo structureBlockInfoWorld, StructurePlacementData structurePlacementData) {
         BlockState blockState = structureBlockInfoWorld.state;
         if (blockState.isOf(Blocks.STRUCTURE_BLOCK)) {
-            String string = structureBlockInfoWorld.tag.getString("metadata");
+            String metadata = structureBlockInfoWorld.tag.getString("metadata");
+            BlockPos worldPos = structureBlockInfoWorld.pos;
 
             try {
                 // Pillar mode activated
-                if(string.contains(DATA_PROCESSOR_MODE.PILLARS.symbol)){
-                    String[] splitString = string.split(DATA_PROCESSOR_MODE.PILLARS.symbol);
+                if(metadata.contains(DATA_PROCESSOR_MODE.PILLARS.symbol)){
+                    String[] splitString = metadata.split(DATA_PROCESSOR_MODE.PILLARS.symbol);
 
-                    // Parses the data block's name field to get direction, blockstate, and depth
+                    // Parses the data block's field to get direction, blockstate, and depth
                     Direction direction = Direction.valueOf(splitString[0].toUpperCase());
                     BlockArgumentParser blockArgumentParser = new BlockArgumentParser(new StringReader(splitString[1]), false);
                     blockArgumentParser.parse(true);
                     BlockState replacementState = blockArgumentParser.getBlockState();
-                    BlockState currentBlock = worldView.getBlockState(structureBlockInfoWorld.pos);
-                    BlockPos.Mutable currentPos = new BlockPos.Mutable().set(structureBlockInfoWorld.pos);
+                    BlockState currentBlock = worldView.getBlockState(worldPos);
+                    BlockPos.Mutable currentPos = new BlockPos.Mutable().set(worldPos);
                     int depth = splitString.length > 2 ? parseInt(splitString[2]) + 1 : 256;
 
                     // Creates the pillars in the world that replaces air and liquids
                     while((currentBlock.isAir() || currentBlock.getMaterial().isLiquid()) &&
                             currentPos.getY() <= worldView.getDimension().getLogicalHeight() &&
                             currentPos.getY() >= 0 &&
-                            currentPos.isWithinDistance(structureBlockInfoWorld.pos, depth)
+                            currentPos.isWithinDistance(worldPos, depth)
                     ){
                         worldView.getChunk(currentPos).setBlockState(currentPos, replacementState, false);
                         currentPos.move(direction);
@@ -66,7 +67,7 @@ public class DataBlockProcessor extends StructureProcessor {
                     }
 
                     // Replaces the data block itself
-                    return replacementState.isOf(Blocks.STRUCTURE_VOID) ? null : new Structure.StructureBlockInfo(structureBlockInfoWorld.pos, replacementState, null);
+                    return replacementState.isOf(Blocks.STRUCTURE_VOID) ? null : new Structure.StructureBlockInfo(worldPos, replacementState, null);
                 }
             }
             catch (CommandSyntaxException var11) {
@@ -76,7 +77,8 @@ public class DataBlockProcessor extends StructureProcessor {
         return structureBlockInfoWorld;
     }
 
+    @Override
     protected StructureProcessorType<?> getType() {
-        return RSProcessors.DATA_BLOCK_PROCESSORS;
+        return RSProcessors.DATA_BLOCK_PROCESSOR;
     }
 }

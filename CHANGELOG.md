@@ -9,6 +9,102 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 # | Repurposed Structures changelog |
 
 
+## (V.1.10.0 Changes) (1.16.5 Minecraft)
+
+##### Cities:
+- Change Nether City's default config spawnrate from 160 to 120 to make them more common and less traveling to reach.
+
+- Made large room with double chest in Nether Cities now a bit more common and have 3 Wither Skeletons defending it now.
+
+- Added Wither Skeleton with enchanted bow to Nether Cities's tiny tower top pieces.
+
+- Buffed Nether City loot a lot to have higher chance of Netherite loot and more chests.
+
+- Removed random stray Red Nether Bricks block in one of the Nether City's stair piece.
+
+##### Strongholds:
+- Repurposed Structure's Stonebrick Strongholds will now generate only in rings around world origin like Vanilla stronghold's do.
+  The rings of valid spots that RS Stonebrick Strongholds can spawn in are the same size and distance from spawn as vanilla's.
+  However, there are an unlimited number of rings for RS's Stonebrick Stronghold beyond the 8 rings that Vanilla's does.
+  See here for what I mean about rings: https://minecraft.fandom.com/wiki/Stronghold#Generation
+
+- Bumped Stonebrick Stronghold's default config spawnrate from 85 to 110.
+
+- Stonebrick Strongholds now will spawn in ocean biomes like vanilla Strongholds do.
+  There's a weird quirk with how vanilla Stronghold will spawn in biomes that doesn't have the Stronghold added to it which I am trying to copy here.
+
+- Buffed Nether Stronghold loot and added custom loot table for its library too.
+
+- Nether Stronghold Libraries can spawn bookshelves of even more kinds of blocks.
+
+- Made Repurposed Structures's Stonebrick Strongholds now use custom loot tables and can have better loot than vanilla loot.
+
+##### Dungeons:
+- All Dungeons now use nbt files. You can override the looks of dungeons with a datapack!
+  
+- Icy dungeon is now actually icy and spawns only in non-ocean biomes that are super cold or has frozen/ice in the name.
+  Loot and spawner mobs have been adjusted as well.
+
+- Snow Dungeon is now added and will spawn in all snowy biomes!
+
+- Nether Dungeons at any height now has the 1% chance of a Wither Skeleton Spawner.
+
+- Nether Dungeons no long spawn attached to lava pockets underground.
+
+- Nether Dungeons are in Vegetal Generation Stage now to be able to spawn in Nether Mineshafts again and not be filled with Basalt as much.
+
+- Bumped up the config default spawnrates for Nether and End Dungeons from 8 to 12. Slightly restricted the spawn condition for overworld dungeons.
+
+##### Shipwrecks:
+- Hard nerfed the Netherite loot from Nether Bricks Shipwrecks.
+
+- In Nether Bricks Shipwrecks, they now have more Wither Skeletons upon first generation.
+
+- Adjusted the stairway in Nether Bricks Shipwrecks so that Wither Skeletons can walk though them.
+
+- 1 Wither Skeleton with an enchanted bow has been added to Warped, Crimson, and Nether Bricks Shipwreck. (Crimson Shipwreck mast now has platform)
+
+- All 3 Nether Shipwrecks now properly checks to make sure they won't spawn inside land.
+  
+- Fixed End Shipwrecks spawning so they no longer can spawn on the Enderdragon island.
+  
+- Change End Shipwrecks's default config spawnrate from 15 to 24 to make them less common.
+
+##### Outposts:
+- Added End Outposts to the End! Be careful as they are swarming with Phantoms!
+
+##### Pyramids:
+- Added End Pyramids to the End! A shrine for the dragon of the End!
+  
+- Added Icy Pyramids to frozen biomes! Stay warm!
+
+- Snowy Pyramid chests will have Snow Blocks instead of Ice Blocks in its loot.
+
+- Fixed https://bugs.mojang.com/browse/MC-130584 by using a special processor.
+  This means this mod's pyramid's chests will no longer be waterlogged if their pits replaces water in the world.
+
+- Nether and Badlands Pyramids now has a rs_spawner entry where people can randomize the mob spawner's mob much easier!
+
+##### Temples:
+- All Nether Temples now has a rs_spawner entry where people can randomize the mob spawner's mob much easier!
+
+##### Igloos:
+- Fixed https://bugs.mojang.com/browse/MC-130584 by using a special processor.
+  This means this mod's igloo's chests, ladders, and other blocks will no longer be waterlogged if their basement places water in the world.
+
+##### Ruined Portals:
+- Now will be less likely to spawn off the island and will bury itself a bit.
+
+##### Mansions:
+- Fixed up a massive amount of RS Mansion pieces so that they look nicer.
+  (Also fixed some torches in Snowy mansion melting ice and fixed the leaf block that was decaying within the mini-tree in bedroom)
+
+- Changed Snowy Mansion's achievement description.
+
+##### Loot Tables:
+- Fixed blacklistedRSLoottablesFromImportingModdedItems config entry not actually being read.
+
+
 ## (V.1.9.0 Changes) (1.16.5 Minecraft)
 
 ##### Loot Tables:
