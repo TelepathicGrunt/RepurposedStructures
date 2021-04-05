@@ -5,9 +5,9 @@
 <h2 style="text-align: center;"><span style="font-size: 14px;"><strong><span style="color: #009611;">CLICK HERE FOR 1.16.5 FORGE VERSION:&nbsp;</span></strong></span></h2>
 <p style="text-align: center;"><span style="font-size: 14px;"><strong><span style="color: #009611;"><a href="https://www.curseforge.com/minecraft/mc-mods/repurposed-structures">https://www.curseforge.com/minecraft/mc-mods/repurposed-structures</a></span></strong></span></p>
 <p>&nbsp;</p>
-<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;Added german translations!<br />This mod's structures will now import modded<br />loot automatically from vanilla structures's<br />loot tables to maximize mod compatibility!</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;End Pyramid, End Outpost,<br />Icy Pyramid, and Icy Dungeon is now added!<br />Dungeons are now nbt file based and&nbsp;<br />can be modified by datapacks now!<br />Plus a huge amount of tweaks and bug fixes!<br />See the changelog for more info.</strong></b></span></em></p>
 <p style="text-align: center;">&nbsp;</p>
-<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Past News:</strong></span><span style="font-size: 14px;"><b><strong> Spanish and Simplified Chinese translations are<br />now packaged with the mod itself in latest version!</strong></b></span></em>&nbsp;&nbsp;</p>
+<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Past News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;This mod's structures will now<br />automatically import modded loot from vanilla<br />&nbsp;structure loot tables to maximize mod compat!<br />Added German translations!</strong></b></span></em></p>
 <p style="text-align: center;"><span style="font-size: 18px;"><strong>______________________________________________________________________________</strong></span></p>
 <p style="text-align: center;">&nbsp;</p>
 <h2 style="text-align: left;"><span style="color: #009611; font-size: 24px;"><strong>WHAT IS REPURPOSED STRUCTURES?</strong></span></h2>
@@ -40,7 +40,9 @@
 <p>&nbsp;</p>
 <p style="text-align: left;"><span style="font-size: 18px;"><strong>&nbsp; &nbsp;Extra Details about everything in this mod!</strong></span></p>
 <div class="spoiler">
-<p><strong><b>Village</b></strong></p>
+<p><strong><b>Note: all chest loot info can be found here in the loot table files for the structure! :&nbsp;<span style="color: #3366ff;"><a style="color: #3366ff;" href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/1.16/src/main/resources/data/repurposed_structures/loot_tables/chests">https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/1.16/src/main/resources/data/repurposed_structures/loot_tables/chests</a></span></b></strong></p>
+<p>&nbsp;</p>
+<p><strong><b>Village Variants</b></strong></p>
 <div class="spoiler">
 <p><strong><b>Note: Some village houses will have custom loot to match their biome better but nothing too crazy for balance reasons. The Nether based villages are full of fully armored Piglins and have fully unique chest loot.</b></strong></p>
 <p>&nbsp;</p>
@@ -95,6 +97,12 @@
 <p><strong>2% : Phantom</strong></p>
 <p><strong>&nbsp;</strong></p>
 <p><strong>Spawns Shulker Box instead of Chests to hold the loot but spawns less frequently than Chests.</strong></p>
+</div>
+<p>&nbsp;</p>
+<p><strong>Icy Dungeons spawner's mob rates</strong></p>
+<div class="spoiler">
+<p><strong>75% : Stray</strong></p>
+<p><strong>25% : Cave Spider</strong></p>
 </div>
 <p>&nbsp;</p>
 <p><strong>Jungle Dungeons spawner's mob rates</strong></p>
@@ -230,208 +238,32 @@
 <p>&nbsp;</p>
 <p><strong>Nether City (Nether themed End City without the ship)</strong></p>
 <div class="spoiler">
-<p><strong>Will spawn Blazes and Wither Skeletons very rarely inside the city over time.&nbsp;</strong></p>
+<p><strong>Will spawn Blazes often and Wither Skeletons very rarely inside the city over time</strong></p>
+<p><strong>&nbsp;</strong></p>
+<p><strong>Spawns several Wither skeletons upon first generation</strong></p>
 <p>&nbsp;</p>
-<p><strong>Maps to Nether Cities can be found in Nether Ruins or very rarely, in chest in Cartographer buildings in Warped/Crimson Villages.</strong></p>
+<p><strong>Maps to Nether Cities can be found in Nether Ruins or very rarely, in chest in Cartographer buildings in Warped/Crimson Villages</strong></p>
 <p>&nbsp;</p>
-<p><strong>Chest loot</strong></p>
-<p><strong><b>&nbsp;Can contain the following in order from most common to least common</b></strong></p>
-<p>&nbsp;</p>
-<p><strong><b>-Magma Block</b></strong></p>
-<p><strong><b>-Magma Cream</b></strong></p>
-<p><strong><b>-Blaze Rod</b></strong></p>
-<p><strong><b>-Fire Charge</b></strong></p>
-<p><strong><b>-Gold Ingot</b></strong></p>
-<p><strong><b>-Golden Sword (lvl 35-45 enchanted)</b></strong></p>
-<p><strong><b>-Golden Axe (lvl 35-45 enchanted)</b></strong></p>
-<p><strong><b>-Golden Hoe (lvl 35-45 enchanted)</b></strong></p>
-<p><strong><b>-Golden Shovel (lvl 35-45 enchanted)</b></strong></p>
-<p><strong><b>-Golden Pickaxe (lvl 35-45 enchanted)</b></strong></p>
-<p><strong><b>-Golden Boots (lvl 35-45 enchanted)</b></strong></p>
-<p><strong><b>-Golden Helmet (lvl 35-45 enchanted)</b></strong></p>
-<p><strong><b>-Golden Leggings (lvl 35-45 enchanted)</b></strong></p>
-<p><strong><b>-Flint and Steel</b></strong></p>
-<p><strong><b>-Firework Star that is flickering Black with Red Trail and does cone shape</b></strong></p>
-<p><strong><b>-Firework Star that is flickering Red with Black Trail and does cone shape</b></strong></p>
-<p><strong><b>-Golden Horse Armor</b></strong></p>
-<p><strong><b>-Gold Ingot</b></strong></p>
-<p><strong><b>-Gold Nugget</b></strong></p>
-<p><strong><b>-Bastion Remnant Treasure Map</b></strong></p>
+<p><strong>Chest loot is highly Netherite based to reflect the danger of the city</strong></p>
 </div>
 <p>&nbsp;</p>
 <p><strong>Nether Ruins</strong></p>
 <div class="spoiler">
-<p><strong>Chest loot</strong></p>
-<p><strong><b>&nbsp;Can contain the following in order from most common to least common</b></strong></p>
-<p>&nbsp;</p>
-<p><strong><b>-Warped Fungus on a Stick</b></strong></p>
-<p><strong><b>-Book</b></strong></p>
-<p><strong><b>-Gold Nugget</b></strong></p>
-<p><strong><b>-Leather Helmet</b></strong></p>
-<p><strong><b>-Leather Chestplate</b></strong></p>
-<p><strong><b>-Leather Leggings</b></strong></p>
-<p><strong><b>-Leather Boots</b></strong></p>
-<p><strong><b>-Coal</b></strong></p>
-<p><strong><b>-Rotten Flesh</b></strong></p>
-<p><strong><b>-Golden Apple</b></strong></p>
-<p><strong><b>-Magma Cream</b></strong></p>
-<p><strong><b>-Ghast Tear</b></strong></p>
-<p><strong><b>-Bastion Remnant Treasure Map</b></strong></p>
-<p><strong><b>-Golden Axe</b></strong></p>
-<p><strong><b>-Quartz</b></strong></p>
-<p><strong><b>-Golden Helmet</b></strong></p>
-<p><strong><b>-Golden Chestplate</b></strong></p>
-<p><strong><b>-Nether City Treasure Map</b></strong></p>
+<p><strong>May contain maps to Bastions or Nether Cities</strong></p>
 </div>
 <p>&nbsp;</p>
 <p><strong>Jungle Fortress</strong></p>
 <div class="spoiler">
-<p><strong>(Can naturally spawn Wither Skeletons over time but it is extremely rare. May spawn Drowned upon first generation with some armor in the flooded hallways)</strong></p>
+<p><strong>Can naturally spawn Wither Skeletons over time but it is extremely rare. </strong></p>
 <p>&nbsp;</p>
-<p><strong>Will have 2 Silverfish Mob Spawners.</strong></p>
+<p><strong>May spawn Drowned upon first generation with some armor in the flooded hallways</strong></p>
 <p>&nbsp;</p>
-<p><strong>Chest loot</strong></p>
-<p><strong><b>&nbsp;Can contain the following in order from most common to least common</b></strong></p>
-<p>&nbsp;</p>
-<p><strong>Spawner Chests</strong></p>
-<p><strong><b>&nbsp;- Iron Ingot</b></strong></p>
-<p><strong><b>&nbsp;- Gold ingot</b></strong></p>
-<p><strong><b>&nbsp;- Emerald</b></strong></p>
-<p><strong><b>&nbsp;- Iron Bars</b></strong></p>
-<p><strong><b>&nbsp;- Cobweb</b></strong></p>
-<p><strong><b>&nbsp;- Bone</b></strong></p>
-<p><strong><b>&nbsp;- Vine</b></strong></p>
-<p><strong><b>&nbsp;- Cocoa Beans</b></strong></p>
-<p><strong><b>&nbsp;- Saddle</b></strong></p>
-<p><strong><b>&nbsp;- Leather Helmet</b></strong></p>
-<p><strong><b>&nbsp;- Leather Chestplate</b></strong></p>
-<p><strong><b>&nbsp;- Leather Leggings</b></strong></p>
-<p><strong><b>&nbsp;- Leather Boots</b></strong></p>
-<p><strong><b>&nbsp;- Stone Bricks</b></strong></p>
-<p><strong><b>&nbsp;- Mossy Stone Bricks</b></strong></p>
-<p><strong><b>&nbsp;- Iron Sword</b></strong></p>
-<p><strong><b>&nbsp;- Chainmail Helmet</b></strong></p>
-<p><strong><b>&nbsp;- Chainmail Chestplate</b></strong></p>
-<p><strong><b>&nbsp;- Chainmail Leggings</b></strong></p>
-<p><strong><b>&nbsp;- Chainmail Boots</b></strong></p>
-<p><strong><b>&nbsp;- Iron Pickaxe</b></strong></p>
-<p><strong><b>&nbsp;- Iron Shovel</b></strong></p>
-<p><strong><b>&nbsp;- Diamonds</b></strong></p>
-<p><strong><b>&nbsp;- Diamond Sword</b></strong></p>
-<p><strong><b>&nbsp;- Iron Helmet</b></strong></p>
-<p><strong><b>&nbsp;- Iron Chestplate</b></strong></p>
-<p><strong><b>&nbsp;- Iron Leggings</b></strong></p>
-<p><strong><b>&nbsp;- Iron Boots</b></strong></p>
-<p><strong><b>&nbsp;- Diamond Pickaxe</b></strong></p>
-<p><strong><b>&nbsp;- Diamond Shovel</b></strong></p>
-<p><span style="font-size: 1.2rem;">&nbsp;</span></p>
-<p><strong>Hallway Chests</strong></p>
-<p><strong><b>&nbsp;- Stone Sword</b></strong></p>
-<p><strong><b>&nbsp;- Iron Ingot</b></strong></p>
-<p><strong><b>&nbsp;- Cobweb</b></strong></p>
-<p><strong><b>&nbsp;- Bone</b></strong></p>
-<p><strong><b>&nbsp;- Vine</b></strong></p>
-<p><strong><b>&nbsp;- Cocoa Beans</b></strong></p>
-<p><strong><b>&nbsp;- Iron Bars</b></strong></p>
-<p><strong><b>&nbsp;- Leather Helmet</b></strong></p>
-<p><strong><b>&nbsp;- Leather Chestplate</b></strong></p>
-<p><strong><b>&nbsp;- Leather Leggings</b></strong></p>
-<p><strong><b>&nbsp;- Leather Boots</b></strong></p>
-<p><strong><b>&nbsp;- Chainmail Helmet</b></strong></p>
-<p><strong><b>&nbsp;- Chainmail Chestplate</b></strong></p>
-<p><strong><b>&nbsp;- Chainmail Leggings</b></strong></p>
-<p><strong><b>&nbsp;- Chainmail Boots</b></strong></p>
-<p><strong><b>&nbsp;- Iron Sword</b></strong></p>
-<p><strong><b>&nbsp;- Stone Bricks</b></strong></p>
-<p><strong><b>&nbsp;- Mossy Stone Bricks</b></strong></p>
-<p><strong><b>&nbsp;- Emerald</b></strong></p>
-<p><strong><b>&nbsp;- Bread</b></strong></p>
-<p><strong><b>&nbsp;- Bamboo</b></strong></p>
-<p><strong><b>&nbsp;- Stone Pickaxe</b></strong></p>
-<p><strong><b>&nbsp;- Stone Shovel</b></strong></p>
-<p><strong><b>&nbsp;- Iron Helmet</b></strong></p>
-<p><strong><b>&nbsp;- Iron Chestplate</b></strong></p>
-<p><strong><b>&nbsp;- Iron Leggings</b></strong></p>
-<p><strong><b>&nbsp;- Iron Boots</b></strong></p>
-<p><strong><b>&nbsp;- Chain</b></strong></p>
-<p><strong><b>&nbsp;- Saddle</b></strong></p>
-<p><strong><b>&nbsp;- Iron Pickaxe</b></strong></p>
-<p><strong><b>&nbsp;- Iron Shovel</b></strong></p>
-<p><strong><b>&nbsp;- Diamonds</b></strong></p>
-<p>&nbsp;</p>
-<p><strong>Central Room Chests</strong></p>
-<p><strong><b>&nbsp;- Gold Ingot</b></strong></p>
-<p><strong><b>&nbsp;- Iron Ingot</b></strong></p>
-<p><strong><b>&nbsp;- Cobweb</b></strong></p>
-<p><strong><b>&nbsp;- Bone</b></strong></p>
-<p><strong><b>&nbsp;- Vine</b></strong></p>
-<p><strong><b>&nbsp;- Chain</b></strong></p>
-<p><strong><b>&nbsp;- Stone Bricks</b></strong></p>
-<p><strong><b>&nbsp;- Saddle</b></strong></p>
-<p><strong><b>&nbsp;- Bread</b></strong></p>
-<p><strong><b>&nbsp;- Bamboo</b></strong></p>
-<p><strong><b>&nbsp;- Cocoa Beans</b></strong></p>
-<p><strong><b>&nbsp;- Emerald</b></strong></p>
-<p><strong><b>&nbsp;- Iron Bars</b></strong></p>
-<p><strong><b>&nbsp;- Stone Sword</b></strong></p>
-<p><strong><b>&nbsp;- Stone Pickaxe</b></strong></p>
-<p><strong><b>&nbsp;- Stone Shovel</b></strong></p>
-<p><strong><b>&nbsp;- Diamonds</b></strong></p>
-<p><strong><b>&nbsp;- Leather Helmet</b></strong></p>
-<p><strong><b>&nbsp;- Leather Chestplate</b></strong></p>
-<p><strong><b>&nbsp;- Leather Leggings</b></strong></p>
-<p><strong><b>&nbsp;- Leather Boots</b></strong></p>
-<p><strong><b>&nbsp;- Iron Sword</b></strong></p>
-<p><strong><b>&nbsp;- Iron Pickaxe</b></strong></p>
-<p><strong><b>&nbsp;- Iron Shovel</b></strong></p>
-<p><strong><b>&nbsp;- Chainmail Helmet</b></strong></p>
-<p><strong><b>&nbsp;- Chainmail Chestplate</b></strong></p>
-<p><strong><b>&nbsp;- Chainmail Leggings</b></strong></p>
-<p><strong><b>&nbsp;- Chainmail Boots</b></strong></p>
-<p><strong><b>&nbsp;- Diamond Sword</b></strong></p>
-<p><strong><b>&nbsp;- Iron Helmet</b></strong></p>
-<p><strong><b>&nbsp;- Iron Chestplate</b></strong></p>
-<p><strong><b>&nbsp;- Iron Leggings</b></strong></p>
-<p><strong><b>&nbsp;- Iron Boots</b></strong></p>
-<p><strong><b>&nbsp;- Diamond Pickaxe</b></strong></p>
-<p><strong><b>&nbsp;- Diamond Shovel</b></strong></p>
+<p><strong>Will have 2 Silverfish Mob Spawners as well as random blocks sometimes being infested already</strong></p>
 </div>
 <p>&nbsp;</p>
 <p><strong>End Ruined Portals</strong></p>
 <div class="spoiler">
-<p><strong>Chest loot</strong></p>
-<p><strong><b>&nbsp;Can contain the following in order from most common to least common</b></strong></p>
-<p><strong><b>&nbsp;- Fire Charge</b></strong></p>
-<p><strong><b>&nbsp;- Obsidian</b></strong></p>
-<p><strong><b>&nbsp;- Crying&nbsp;Obsidian</b></strong></p>
-<p><strong><b>&nbsp;- Flint</b></strong></p>
-<p><strong><b>&nbsp;- Popped Chorus Fruit</b></strong></p>
-<p><strong><b>&nbsp;- Golden Apple</b></strong></p>
-<p><strong><b>&nbsp;- Gold Ingot</b></strong></p>
-<p><strong><b>&nbsp;- Golden Sword (Lvl 15 to 30 for small portal,&nbsp;Lvl 20 to 30 for large portal)</b></strong></p>
-<p><strong><b>&nbsp;- Golden Axe (Lvl 15 to 30 for small portal,&nbsp;Lvl 20 to 30 for large portal)</b></strong></p>
-<p><strong><b>&nbsp;- Golden Hoe (Lvl 15 to 30 for small portal,&nbsp;Lvl 20 to 30 for large portal)</b></strong></p>
-<p><strong><b>&nbsp;- Golden Shovel (Lvl 15 to 30 for small portal,&nbsp;Lvl 20 to 30 for large portal)</b></strong></p>
-<p><strong><b>&nbsp;- Golden Pickaxe (Lvl 15 to 30 for small portal,&nbsp;Lvl 20 to 30 for large portal)</b></strong></p>
-<p>&nbsp;<strong><b>- Golden Boots (Lvl 15 to 30 for small portal,&nbsp;Lvl 20 to 30 for large portal)</b></strong></p>
-<p><strong><b>&nbsp;- Golden Chestplate (Lvl 15 to 30 for small portal,&nbsp;Lvl 20 to 30 for large portal)</b></strong></p>
-<p><strong><b>&nbsp;- Golden Helmet (Lvl 15 to 30 for small portal,&nbsp;Lvl 20 to 30 for large portal)</b></strong></p>
-<p><strong><b>&nbsp;- Golden Leggings (Lvl 15 to 30 for small portal,&nbsp;Lvl 20 to 30 for large portal)</b></strong></p>
-<p><strong><b>&nbsp;- Iron Block</b></strong></p>
-<p><strong><b>&nbsp;- Flint and Steel</b></strong></p>
-<p><strong><b>&nbsp;- Firework Star that is flickering Purple with Magenta Trail and does star shape</b></strong></p>
-<p><strong><b>&nbsp;- Gold Block</b></strong></p>
-<p><strong><b>&nbsp;- Glistering Melon Slice</b></strong></p>
-<p><strong><b>&nbsp;- Gold Horse Armor</b></strong></p>
-<p><strong><b>&nbsp;- Light Weighted Pressure Plate</b></strong></p>
-<p><strong><b>&nbsp;- Golden Carrot</b></strong></p>
-<p><strong><b>&nbsp;- Clock</b></strong></p>
-<p><strong><b>&nbsp;- Firework Star that is flickering Magenta with Purple Trail and does star shape</b></strong></p>
-<p><strong><b>&nbsp;- Gold Nugget</b></strong></p>
-<p><strong><b>&nbsp;- Enchanted Golden Apple</b></strong></p>
-<p><strong><b>&nbsp;- Bell</b></strong></p>
-<p><strong><b>&nbsp;- Dragon Breath</b></strong></p>
-<p><strong><b>&nbsp;- Treasure Map to closest unexplored End City</b></strong><strong><b><br /></b></strong></p>
+<p><strong><b>Chest Loot is heavily high-leveled gold based. May also contain maps or End City maps.</b></strong></p>
 </div>
 <p>&nbsp;</p>
 <p><strong>Outposts&nbsp;</strong></p>
@@ -456,220 +288,75 @@
 <p><strong><b>-Snowy Outposts (can have trapped Snow Golems as well)</b></strong></p>
 </div>
 <p>&nbsp;</p>
+<p><strong>End Outpost</strong></p>
+<div class="spoiler">
+<p><strong>Can naturally spawn Phantoms over time</strong></p>
+<p>&nbsp;</p>
+<p><strong>Spawns with Chorus Plants and some Shulkers mobs</strong></p>
+<p>&nbsp;</p>
+<p><strong>Chests loot is heavily combat based with stuff that is effective against Phantoms</strong></p>
+</div>
+<p>&nbsp;</p>
 <p><strong>Nether Brick Outpost</strong></p>
 <div class="spoiler">
-<p><strong>(Can naturally spawn Piglins over time)</strong></p>
+<p><strong>Can naturally spawn Piglins over time</strong></p>
 <p>&nbsp;</p>
-<p><strong>Chests loot</strong></p>
-<p><strong><b>Can contain the following in order from most common to least common</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 20 to 30 Enchanted Stone Swords</b></strong></p>
-<p><strong><b>&nbsp;- Raw Porkchop</b></strong></p>
-<p><strong><b>&nbsp;- Cooked Porkchop</b></strong></p>
-<p><strong><b>&nbsp;- Blackstone</b></strong></p>
-<p><strong><b>&nbsp;- Nether Bricks</b></strong></p>
-<p><strong>&nbsp;- Gold ingots</strong></p>
-<p><strong><b>&nbsp;- Golden Nuggets</b></strong></p>
-<p><strong><b>&nbsp;- Arrows</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 15 to 25 Enchanted Crossbow</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 15 to 25 Enchanted Bow</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 15 to 25 Enchanted Golden Swords</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 15 to 25 Enchanted Gold Helmet</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 15 to 25 Enchanted Gold Leggings</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 15 to 25 Enchanted Gold Chestplate</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 15 to 25 Enchanted Gold Boots</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 15 to 25 Enchanted Gold Helmet</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 15 to 25 Enchanted Gold Blocks</b></strong></p>
-<p><strong><b>- Netherite Scraps</b></strong></p>
+<p><strong>Chests loot is heavily combat based with gold gear</strong></p>
 </div>
 <p>&nbsp;</p>
 <p><strong>Warped Outpost</strong></p>
 <div class="spoiler">
-<p><strong>(Can naturally spawn Piglins over time)</strong></p>
+<p><strong>Can naturally spawn Piglins over time</strong></p>
 <p>&nbsp;</p>
-<p><strong>Chests loot</strong></p>
-<p><strong><b>Can contain the following in order from most common to least common</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 20 to 30 Enchanted Stone Swords</b></strong></p>
-<p><strong><b>&nbsp;- Raw Porkchop</b></strong></p>
-<p><strong><b>&nbsp;- Cooked Porkchop</b></strong></p>
-<p><strong><b>&nbsp;- Warped Wart Block</b></strong></p>
-<p><strong><b>&nbsp;- Warped Fungus</b></strong></p>
-<p><strong>&nbsp;- Gold ingots</strong></p>
-<p><strong><b>&nbsp;- Golden Nuggets</b></strong></p>
-<p><strong><b>&nbsp;- Arrows</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 15 to 25 Enchanted Crossbow</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 15 to 25 Enchanted Bow</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 15 to 25 Enchanted Golden Swords</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 15 to 25 Enchanted Gold Helmet</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 15 to 25 Enchanted Gold Leggings</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 15 to 25 Enchanted Gold Chestplate</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 15 to 25 Enchanted Gold Boots</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 15 to 25 Enchanted Gold Helmet</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 15 to 25 Enchanted Gold Blocks</b></strong></p>
-<p><strong><b>- Netherite Scraps</b></strong></p>
+<p><strong>Chests loot is heavily combat based with gold gear</strong></p>
 </div>
 <p>&nbsp;</p>
 <p><strong>Crimson Outpost</strong></p>
 <div class="spoiler">
-<p><strong>(Can naturally spawn Piglins over time)</strong></p>
+<p><strong>Can naturally spawn Piglins over time</strong></p>
 <p>&nbsp;</p>
-<p><strong>Chests loot</strong></p>
-<p><strong><b>Can contain the following in order from most common to least common</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 20 to 30 Enchanted Stone Swords</b></strong></p>
-<p><strong><b>&nbsp;- Raw Porkchop</b></strong></p>
-<p><strong><b>&nbsp;- Cooked Porkchop</b></strong></p>
-<p><strong><b>&nbsp;- Nether Wart Block</b></strong></p>
-<p><strong><b>&nbsp;- Crimson Fungus</b></strong></p>
-<p><strong>&nbsp;- Gold ingots</strong></p>
-<p><strong><b>&nbsp;- Golden Nuggets</b></strong></p>
-<p><strong><b>&nbsp;- Arrows</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 15 to 25 Enchanted Crossbow</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 15 to 25 Enchanted Bow</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 15 to 25 Enchanted Golden Swords</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 15 to 25 Enchanted Gold Helmet</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 15 to 25 Enchanted Gold Leggings</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 15 to 25 Enchanted Gold Chestplate</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 15 to 25 Enchanted Gold Boots</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 15 to 25 Enchanted Gold Helmet</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 15 to 25 Enchanted Gold Blocks</b></strong></p>
-<p><strong><b>- Netherite Scraps</b></strong></p>
+<p><strong>Chests loot is heavily combat based with gold gear</strong></p>
 </div>
 </div>
 <p>&nbsp;</p>
 <p><strong>Temples</strong></p>
 <div class="spoiler">
-<p><strong>Nether Wasteland Temple loot</strong></p>
+<p><strong>Nether Wasteland Temple&nbsp;</strong></p>
 <div class="spoiler">
-<p><strong>Dispensers loot</strong></p>
+<p><strong>Dispensers&nbsp;</strong></p>
 <p><strong>5 to 14 Arrows of Harming II</strong></p>
-<p>&nbsp;</p>
-<p><strong>Chests loot</strong></p>
-<p><strong><b>Can contain the following in order from most common to least common:</b></strong></p>
-<p>&nbsp;</p>
-<p><strong><b>&nbsp;- Redstone</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 30 Enchanted Stone Swords</b></strong></p>
-<p><strong><b>&nbsp;- Quartz</b></strong></p>
-<p><strong>&nbsp;- Gold ingots</strong></p>
-<p><strong><b>&nbsp;- Rotten Flesh</b></strong></p>
-<p><strong><b>&nbsp;- Golden Nuggets</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 20 to 30 Enchanted Golden Swords</b></strong></p>
-<p><strong><b>&nbsp;- Nether Warts</b></strong></p>
-<p><strong><b>&nbsp;- Golden Horse Armor</b></strong></p>
-<p><strong><b>&nbsp;- Quartz Blocks</b></strong></p>
-<p><strong><b>&nbsp;- Gold Blocks</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 30 Enchanted Books</b></strong></p>
-<p><strong><b>- Netherite Scraps</b></strong></p>
-<p><strong><b>- Blackstone</b></strong></p>
 <p>&nbsp;</p>
 <p><strong>Has one hidden Zombified Piglin spawner</strong></p>
 </div>
 <p>&nbsp;</p>
-<p><strong>Nether Basalt Temple loot</strong></p>
+<p><strong>Nether Basalt Temple</strong></p>
 <div class="spoiler">
-<p><strong>Dispensers loot</strong></p>
+<p><strong>Dispensers</strong></p>
 <p><strong>5 to 14 Arrows of Weakness I</strong></p>
-<p>&nbsp;</p>
-<p><strong>Chests loot</strong></p>
-<p><strong><b>Can contain the following in order from most common to least common:</b></strong></p>
-<p>&nbsp;</p>
-<p><strong><b>&nbsp;- Coal</b></strong></p>
-<p><strong><b>&nbsp;- Redstone</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 30 Enchanted Stone Swords</b></strong></p>
-<p><strong><b>&nbsp;- Quartz</b></strong></p>
-<p><strong>&nbsp;- Gold ingots</strong></p>
-<p><strong><b>&nbsp;- Basalt</b></strong></p>
-<p><strong><b>&nbsp;- Gold Nugget</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 20 to 30 Enchanted Golden Swords</b></strong></p>
-<p><strong><b>&nbsp;- Quartz Blocks</b></strong></p>
-<p><strong><b>&nbsp;- Coal Blocks</b></strong></p>
-<p><strong><b>&nbsp;- Magma Blocks</b></strong></p>
-<p><strong><b>&nbsp;- Chains</b></strong></p>
-<p><strong><b>&nbsp;- Golden Horse Armor</b></strong></p>
-<p><strong><b>&nbsp;- Gold Blocks</b></strong></p>
-<p><strong><b>- Blackstone</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 30 Enchanted Books</b></strong></p>
-<p><strong><b>- Gilded Blackstone</b></strong></p>
-<p><strong><b>- Netherite Scraps</b></strong></p>
 <p>&nbsp;</p>
 <p><strong>Has one hidden Magma Cube spawner</strong></p>
 </div>
 <p>&nbsp;</p>
-<p><strong>Nether Crimson Temple loot</strong></p>
+<p><strong>Nether Crimson Temple&nbsp;</strong></p>
 <div class="spoiler">
-<p><strong>Dispensers loot</strong></p>
+<p><strong>Dispensers&nbsp;</strong></p>
 <p><strong>5 to 14 Arrows of Harming II</strong></p>
-<p>&nbsp;</p>
-<p><strong>Chests loot</strong></p>
-<p><strong><b>Can contain the following in order from most common to least common:</b></strong></p>
-<p>&nbsp;</p>
-<p><strong><b>&nbsp;- Redstone</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 30 Enchanted Stone Swords</b></strong></p>
-<p><strong><b>&nbsp;- Quartz</b></strong></p>
-<p><strong>&nbsp;- Gold ingots</strong></p>
-<p><strong><b>&nbsp;- Rotten Flesh</b></strong></p>
-<p><strong><b>&nbsp;- Golden Nuggets</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 20 to 30 Enchanted Golden Swords</b></strong></p>
-<p><strong><b>&nbsp;- Golden Horse Armor</b></strong></p>
-<p><strong><b>&nbsp;- Crimson Fungus</b></strong></p>
-<p><strong><b>&nbsp;- Shroomlight</b></strong></p>
-<p><strong><b>&nbsp;- Gold Blocks</b></strong></p>
-<p><strong><b>&nbsp;- Nether Wart Block</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 30 Enchanted Books</b></strong></p>
-<p><strong><b>&nbsp;- Netherite Scraps</b></strong></p>
 <p>&nbsp;</p>
 <p><strong>Has one hidden Zoglin spawner</strong></p>
 </div>
 <p>&nbsp;</p>
-<p><strong>Nether Warped Temple loot</strong></p>
+<p><strong>Nether Warped Temple</strong></p>
 <div class="spoiler">
-<p><strong>Dispensers loot</strong></p>
+<p><strong>Dispensers</strong></p>
 <p><strong>5 to 14 Arrows of Harming II</strong></p>
-<p>&nbsp;</p>
-<p><strong>Chests loot</strong></p>
-<p><strong><b>Can contain the following in order from most common to least common:</b></strong></p>
-<p>&nbsp;</p>
-<p><strong><b>&nbsp;- Redstone</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 30 Enchanted Stone Swords</b></strong></p>
-<p><strong><b>&nbsp;- Quartz</b></strong></p>
-<p><strong>&nbsp;- Gold ingots</strong></p>
-<p><strong><b>&nbsp;- Rotten Flesh</b></strong></p>
-<p><strong><b>&nbsp;- Golden Nuggets</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 20 to 30 Enchanted Golden Swords</b></strong></p>
-<p><strong><b>&nbsp;- Golden Horse Armor</b></strong></p>
-<p><strong><b>&nbsp;- Warped Fungus</b></strong></p>
-<p><strong><b>&nbsp;- Chains</b></strong></p>
-<p><strong><b>&nbsp;- Soul Lantern</b></strong></p>
-<p><strong><b>&nbsp;- Quartz Blocks</b></strong></p>
-<p><strong><b>&nbsp;- Gold Blocks</b></strong></p>
-<p><strong><b>&nbsp;- Warped Wart Block</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 30 Enchanted Books</b></strong></p>
-<p><strong><b>&nbsp;- Netherite Scraps</b></strong></p>
 <p>&nbsp;</p>
 <p><strong>Has one hidden Enderman spawner and 1 Strider spawner</strong></p>
 </div>
 <p>&nbsp;</p>
-<p><strong>Nether Soul Temple loot</strong></p>
+<p><strong>Nether Soul Temple</strong></p>
 <div class="spoiler">
-<p><strong>Dispensers loot</strong></p>
+<p><strong>Dispensers&nbsp;</strong></p>
 <p><strong>A mix of Arrows of Slowness and Fire Charges</strong></p>
-<p>&nbsp;</p>
-<p><strong>Chests loot</strong></p>
-<p><strong><b>Can contain the following in order from most common to least common:</b></strong></p>
-<p>&nbsp;</p>
-<p><strong><b>&nbsp;- Redstone</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 30 Enchanted Stone Swords</b></strong></p>
-<p><strong><b>&nbsp;- Quartz</b></strong></p>
-<p><strong><b>&nbsp;- Bone Meal</b></strong></p>
-<p><strong><b>&nbsp;- Soul Torch</b></strong></p>
-<p><strong>&nbsp;- Gold ingots</strong></p>
-<p><strong><b>&nbsp;- Golden Nuggets</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 20 to 30 Enchanted Golden Swords</b></strong></p>
-<p><strong><b>&nbsp;- Bone</b></strong></p>
-<p><strong><b>&nbsp;- Golden Horse Armor</b></strong></p>
-<p><strong><b>&nbsp;- Bone Block</b></strong></p>
-<p><strong><b>&nbsp;- Soul Sand</b></strong></p>
-<p><strong><b>&nbsp;- Gold Blocks</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 30 Enchanted Books</b></strong></p>
-<p><strong><b>&nbsp;- Netherite Scraps</b></strong></p>
 <p>&nbsp;</p>
 <p><strong>Has two hidden Skeleton spawners</strong></p>
 </div>
@@ -677,39 +364,30 @@
 <p>&nbsp;</p>
 <p><strong>Pyramids</strong></p>
 <div class="spoiler">
-<p>&nbsp;<strong>Badlands Pyramid loot</strong></p>
+<p>&nbsp;<strong>Nether Pyramid</strong></p>
 <div class="spoiler">
-<p><strong>Chests loot</strong></p>
+<p><strong>Has two hidden Zombified Piglin spawners&nbsp;</strong></p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;<strong>End Pyramid</strong></p>
+<div class="spoiler">
+<p><strong>Has great loot but also has hidden Endermite spawners. Also has custom banners!</strong></p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;<strong>Badlands Pyramid</strong></p>
+<div class="spoiler">
 <p><strong>Uses barely modified Desert Temple loot. (Has Dead Bush and Red Sand instead)</strong></p>
 <p>&nbsp;</p>
 <p><strong>Has two hidden Husk spawners&nbsp;</strong></p>
 </div>
 <p>&nbsp;</p>
-<p>&nbsp;<strong>Nether Pyramid loot</strong></p>
+<p>&nbsp;<strong>Icy Pyramid</strong></p>
 <div class="spoiler">
-<p><strong>Chests loot</strong></p>
-<p><strong><b>Can contain the following in order from most common to least common:</b></strong></p>
-<p><strong><b>&nbsp;- Redstone</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 30 Enchanted Stone Swords</b></strong></p>
-<p><strong><b>&nbsp;- Quartz</b></strong></p>
-<p><strong>&nbsp;- Gold ingots</strong></p>
-<p><strong><b>&nbsp;- Rotten Flesh</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 20 to 30 Enchanted Golden Swords</b></strong></p>
-<p><strong><b>&nbsp;- Fire Charge</b></strong></p>
-<p><strong><b>&nbsp;- Gold Nugget</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 30 Enchanted Books</b></strong></p>
-<p><strong><b>&nbsp;- Blackstone</b></strong></p>
-<p><strong><b>&nbsp;- Golden Horse Armor</b></strong></p>
-<p><strong><b>&nbsp;- Nether Wart</b></strong></p>
-<p><strong><b>&nbsp;- Gold Blocks</b></strong></p>
-<p><strong><b>&nbsp;- Quartz Blocks</b></strong></p>
-<p><strong><b>&nbsp;- Netherite Scraps</b></strong></p>
-<p><strong>Has two hidden Zombified Piglin spawners&nbsp;</strong></p>
+<p><strong>Uses barely modified Desert Temple loot. (Has a lot of Ice and lapis instead)</strong></p>
 </div>
 <p>&nbsp;</p>
-<p><strong>Snowy Pyramid loot</strong></p>
+<p><strong>Snowy Pyramid</strong></p>
 <div class="spoiler">
-<p><strong>Chests loot</strong></p>
 <p><strong>Uses barely modified Desert Temple loot. (Has Snow Balls, Ice, and&nbsp;Lapis Lazuli instead)</strong></p>
 <p>&nbsp;</p>
 <p><strong>Has two hidden Stray spawners&nbsp;</strong></p>
@@ -720,227 +398,29 @@
 <div class="spoiler">
 <p><strong>End Shipwreck</strong></p>
 <div class="spoiler">
-<p><strong>Treasure Chest loot</strong></p>
-<div class="spoiler">
-<p>&nbsp;<strong><b>Can contain the following in order from most common to least common:</b></strong></p>
-<p>&nbsp;</p>
-<p><strong><b>&nbsp;- Iron Nugget</b></strong></p>
-<p><strong><b>&nbsp;- Lapis Lazuli</b></strong></p>
-<p><strong><b>&nbsp;- GoldNugget</b></strong></p>
-<p><strong><b>&nbsp;- Iron Ingot</b></strong></p>
-<p><strong><b>&nbsp;- Emerald</b></strong></p>
-<p><strong>&nbsp;- Diamond</strong></p>
-<p><strong><b>&nbsp;- Experience Bottle</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 28 to 30 Enchanted Books</b></strong></p>
-<p><strong><b>&nbsp;- Gold Ingot</b></strong></p>
-<p><strong><b>&nbsp;- Dragon Breath</b></strong></p>
-<p><strong><b>&nbsp;- Elytra</b></strong></p>
+<p><strong>You may find maps and if you are EXTREMELY lucky, maybe an Elytra in their chests! They can also have unique Firework Stars and rarely, Dragon's Breath too!</strong></p>
 </div>
 <p>&nbsp;</p>
-<p><strong>Map Chest loot</strong></p>
-<div class="spoiler">
-<p>&nbsp;<strong><b>Can contain the following in order from most common to least common:</b></strong></p>
-<p>&nbsp;</p>
-<p><strong><b>&nbsp;- 1 Treasure Map that points to closest unexplored End City</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 30 Enchanted Stone Swords</b></strong></p>
-<p><strong><b>&nbsp;- Paper</b></strong></p>
-<p><strong>&nbsp;- Feather</strong></p>
-<p><strong><b>&nbsp;- Book</b></strong></p>
-<p><strong><b>&nbsp;- Ender Pearl</b></strong></p>
-<p><strong><b>&nbsp;- Compass</b></strong></p>
-<p><strong><b>&nbsp;- Empty Map</b></strong></p>
-<p><strong><b>&nbsp;- Clock</b></strong></p>
-<p><strong><b>&nbsp;- Book and Quill</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 25 to 30 Enchanted Books</b></strong></p>
-</div>
-<p>&nbsp;</p>
-<p><strong>Supply Chest loot</strong></p>
-<div class="spoiler">
-<p>&nbsp;<strong><b>Can contain the following in order from most common to least common:</b></strong></p>
-<p>&nbsp;</p>
-<p><strong><b>&nbsp;- Suspicious Stew that could give Blindness, Levitation, Weakness, Jump Boost, Night Vision, Saturation, Invisibility, Slow Falling, or Glowing</b></strong></p>
-<p><strong><b>&nbsp;- Paper</b></strong></p>
-<p><strong><b>&nbsp;- Chorus Fruit</b></strong></p>
-<p><strong><b>&nbsp;- Beetroot Seeds</b></strong></p>
-<p><strong>&nbsp;- Magenta Banner with End City's banner pattern</strong></p>
-<p><strong><b>&nbsp;- Popped Chorus Fruit</b></strong></p>
-<p><strong><b>&nbsp;- Phantom Membrane</b></strong></p>
-<p><strong><b>&nbsp;- Ender Pearl</b></strong></p>
-<p><strong><b>&nbsp;- Gun Powder</b></strong></p>
-<p><strong><b>&nbsp;- Firework Star that is flickering Magenta with Purple Trail and does star shape</b></strong></p>
-<p><strong><b>&nbsp;- Firework Star that is flickering Purple with Magenta Trail and does star shape</b></strong></p>
-<p><strong><b>&nbsp;- Randomly Enchanted Iron Helmet</b></strong></p>
-<p><strong><b>&nbsp;- Randomly Enchanted Iron Chestplate</b></strong></p>
-<p><strong><b>&nbsp;- Randomly Enchanted Iron Leggings</b></strong></p>
-<p><strong><b>&nbsp;- Randomly Enchanted Iron Boots</b></strong></p>
-</div>
-</div>
 <p>&nbsp;</p>
 <p><strong>Nether Bricks Shipwreck</strong></p>
 <div class="spoiler">
 <p><strong>(Can naturally spawn Wither Skeletons over time)</strong></p>
 <p>&nbsp;</p>
-<p><strong>Treasure Chest loot</strong></p>
-<div class="spoiler">
-<p>&nbsp;<strong><b>Can contain the following in order from most common to least common:</b></strong></p>
-<p>&nbsp;</p>
-<p><strong><b>&nbsp;- Iron Ingot</b></strong></p>
-<p><strong><b>- Coal</b></strong></p>
-<p><strong><b>- Netherite Ingot</b></strong></p>
-<p><strong><b>- Bone</b></strong></p>
-<p><strong><b>- Ancient Debris</b></strong></p>
-<p><strong><b>- Nether Fortress Map</b></strong></p>
-<p><strong><b>- Bastion Remnant Map</b></strong></p>
-<p><strong><b>- Experience Bottle</b></strong></p>
-<p><strong><b>- Gold Ingot</b></strong></p>
-<p><strong><b>- Lvl 30 Enchanted Stone Sword&nbsp;</b></strong></p>
-<p><strong><b>- Netherite Scrap</b></strong></p>
-<p><strong><b>- Spectral Arrow</b></strong></p>
-<p><strong><b>- Crying Obsidian</b></strong></p>
-<p><strong><b>- Gold Block</b></strong></p>
-<p><strong><b>- Iron Block</b></strong></p>
-<p><strong><b>- Elytra (0.02% to 0.05% chance. Very very rare)</b></strong></p>
-</div>
+<p><strong>You may find maps and if you are EXTREMELY lucky, maybe an Elytra in their chests! Also, they got unique banners!</strong></p>
 </div>
 <p>&nbsp;</p>
 <p><strong>Crimson Shipwreck</strong></p>
 <div class="spoiler">
 <p><strong>(Can naturally spawn Wither Skeletons over time)</strong></p>
 <p>&nbsp;</p>
-<p><strong>Treasure Chest loot</strong></p>
-<div class="spoiler">
-<p>&nbsp;<strong><b>Can contain the following in order from most common to least common:</b></strong></p>
-<p>&nbsp;</p>
-<p><strong><b>&nbsp;- Iron Ingot</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 30 Enchanted Stone Sword</b></strong></p>
-<p><strong><b>&nbsp;- Experience Bottle</b></strong></p>
-<p><strong><b>&nbsp;- Coal</b></strong></p>
-<p><strong><b>&nbsp;- Bone</b></strong></p>
-<p><strong><b>&nbsp;- Iron Nugget</b></strong></p>
-<p><strong><b>&nbsp;- Gold Nugget</b></strong></p>
-<p><strong><b>&nbsp;- Spectral Arrow</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 30 Enchanted Book</b></strong></p>
-<p><strong>&nbsp;- Netherite Ingot</strong></p>
-<p><strong><b>&nbsp;- Gold Ingot</b></strong></p>
-<p><strong><b>&nbsp;- Ancient Debris</b></strong></p>
-<p><strong><b>&nbsp;- Netherite Scrap</b></strong></p>
-<p><strong><b>&nbsp;- Gold Block</b></strong></p>
-<p><strong><b>&nbsp;- Iron Block</b></strong></p>
-<p><strong><b>&nbsp;- Crying Obsidian</b></strong></p>
-<p><strong><b>&nbsp;- Quartz</b></strong></p>
-<p><strong><b>&nbsp;- Gilded Blackstone</b></strong></p>
-<p><strong><b>&nbsp;- Magma Cream</b></strong></p>
-</div>
-<p>&nbsp;</p>
-<p><strong>Map Chest loot</strong></p>
-<div class="spoiler">
-<p>&nbsp;<strong><b>Can contain the following in order from most common to least common:</b></strong></p>
-<p>&nbsp;</p>
-<p><strong><b>&nbsp;- Nether Fortress Map</b></strong></p>
-<p><strong><b>&nbsp;- Bastion Remnant Map</b></strong></p>
-<p><strong><b>&nbsp;- Empty Map</b></strong></p>
-<p><strong><b>&nbsp;- Compass</b></strong></p>
-<p><strong><b>&nbsp;- Clock</b></strong></p>
-<p><strong><b>&nbsp;- Paper</b></strong></p>
-<p><strong>&nbsp;- Feather</strong></p>
-<p><strong>&nbsp;- Bone</strong></p>
-<p><strong>&nbsp;- Coal</strong></p>
-<p><strong><b>&nbsp;- Book</b></strong></p>
-<p><strong><b>&nbsp;- Book and Quill</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 25 to 30 Enchanted Books</b></strong></p>
-</div>
-<p>&nbsp;</p>
-<p><strong>Supply Chest loot</strong></p>
-<div class="spoiler">
-<p>&nbsp;<strong><b>Can contain the following in order from most common to least common:</b></strong></p>
-<p>&nbsp;</p>
-<p><strong><b>&nbsp;- Suspicious Stew that could give Blindness, Wither, Weakness, Poison, Unluck, Fire Resistance, Night Vision, Saturation</b></strong></p>
-<p><strong><b>&nbsp;- Paper</b></strong></p>
-<p><strong><b>&nbsp;- Crimson Fungus</b></strong></p>
-<p><strong><b>&nbsp;- Nether Wart Block</b></strong></p>
-<p><strong><b>&nbsp;- Shroomlight</b></strong></p>
-<p><strong>&nbsp;- Ghast Tear</strong></p>
-<p><strong><b>&nbsp;- Firework Star that is flickering Black with Red Trail and does cone shape</b></strong></p>
-<p><strong><b>&nbsp;- Firework Star that is flickering Red with Black Trail and does cone shape</b></strong></p>
-<p><strong><b>&nbsp;- Warped Fungus on a Stick</b></strong></p>
-<p><strong><b>&nbsp;- Gunpowder</b></strong></p>
-<p><strong><b>&nbsp;- Randomly Enchanted Iron Helmet</b></strong></p>
-<p><strong><b>&nbsp;- Randomly Enchanted Iron Chestplate</b></strong></p>
-<p><strong><b>&nbsp;- Randomly Enchanted Iron Leggings</b></strong></p>
-<p><strong><b>&nbsp;- Randomly Enchanted Iron Boots</b></strong></p>
-<p><strong><b>&nbsp;- Red Stained Glass Pane</b></strong></p>
-<p><strong><b>&nbsp;- Black Stained Glass Pane</b></strong></p>
-</div>
+<p><strong>You may find maps and unique Firework Stars in their chests! Also, they got unique banners!</strong></p>
 </div>
 <p>&nbsp;</p>
 <p><strong>Warped Shipwreck</strong></p>
 <div class="spoiler">
 <p><strong>(Can naturally spawn Wither Skeletons over time)</strong></p>
 <p>&nbsp;</p>
-<p><strong>Treasure Chest loot</strong></p>
-<div class="spoiler">
-<p>&nbsp;<strong><b>Can contain the following in order from most common to least common:</b></strong></p>
-<p>&nbsp;</p>
-<p><strong><b>&nbsp;- Iron Ingot</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 30 Enchanted Stone Sword</b></strong></p>
-<p><strong><b>&nbsp;- Experience Bottle</b></strong></p>
-<p><strong><b>&nbsp;- Coal</b></strong></p>
-<p><strong><b>&nbsp;- Bone</b></strong></p>
-<p><strong><b>&nbsp;- Iron Nugget</b></strong></p>
-<p><strong><b>&nbsp;- Gold Nugget</b></strong></p>
-<p><strong><b>&nbsp;- Spectral Arrow</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 30 Enchanted Book</b></strong></p>
-<p><strong>&nbsp;- Netherite Ingot</strong></p>
-<p><strong><b>&nbsp;- Gold Ingot</b></strong></p>
-<p><strong><b>&nbsp;- Ancient Debris</b></strong></p>
-<p><strong><b>&nbsp;- Netherite Scrap</b></strong></p>
-<p><strong><b>&nbsp;- Gold Block</b></strong></p>
-<p><strong><b>&nbsp;- Iron Block</b></strong></p>
-<p><strong><b>&nbsp;- Crying Obsidian</b></strong></p>
-<p><strong><b>&nbsp;- Quartz</b></strong></p>
-<p><strong><b>&nbsp;- Gilded Blackstone</b></strong></p>
-<p><strong><b>&nbsp;- Magma Cream</b></strong></p>
-</div>
-<p>&nbsp;</p>
-<p><strong>Map Chest loot</strong></p>
-<div class="spoiler">
-<p>&nbsp;<strong><b>Can contain the following in order from most common to least common:</b></strong></p>
-<p>&nbsp;</p>
-<p><strong><b>&nbsp;- Nether Fortress Map</b></strong></p>
-<p><strong><b>&nbsp;- Bastion Remnant Map</b></strong></p>
-<p><strong><b>&nbsp;- Empty Map</b></strong></p>
-<p><strong><b>&nbsp;- Compass</b></strong></p>
-<p><strong><b>&nbsp;- Clock</b></strong></p>
-<p><strong><b>&nbsp;- Paper</b></strong></p>
-<p><strong>&nbsp;- Feather</strong></p>
-<p><strong>&nbsp;- Bone</strong></p>
-<p><strong>&nbsp;- Coal</strong></p>
-<p><strong><b>&nbsp;- Book</b></strong></p>
-<p><strong><b>&nbsp;- Book and Quill</b></strong></p>
-<p><strong><b>&nbsp;- Lvl 25 to 30 Enchanted Books</b></strong></p>
-</div>
-<p>&nbsp;</p>
-<p><strong>Supply Chest loot</strong></p>
-<div class="spoiler">
-<p>&nbsp;<strong><b>Can contain the following in order from most common to least common:</b></strong></p>
-<p>&nbsp;</p>
-<p><strong><b>&nbsp;- Suspicious Stew that could give Blindness, Wither, Weakness, Poison, Unluck, Fire Resistance, Night Vision, Saturation</b></strong></p>
-<p><strong><b>&nbsp;- Paper</b></strong></p>
-<p><strong><b>&nbsp;- Warped Fungus</b></strong></p>
-<p><strong><b>&nbsp;- Warped Wart Block</b></strong></p>
-<p><strong><b>&nbsp;- Shroomlight</b></strong></p>
-<p><strong>&nbsp;- Ghast Tear</strong></p>
-<p><strong><b>&nbsp;- Firework Star that is flickering Black with Blue Trail and does cone shape</b></strong></p>
-<p><strong><b>&nbsp;- Firework Star that is flickering Blue with Black Trail and does cone shape</b></strong></p>
-<p><strong><b>&nbsp;- Warped Fungus on a Stick</b></strong></p>
-<p><strong><b>&nbsp;- Gunpowder</b></strong></p>
-<p><strong><b>&nbsp;- Randomly Enchanted Iron Helmet</b></strong></p>
-<p><strong><b>&nbsp;- Randomly Enchanted Iron Chestplate</b></strong></p>
-<p><strong><b>&nbsp;- Randomly Enchanted Iron Leggings</b></strong></p>
-<p><strong><b>&nbsp;- Randomly Enchanted Iron Boots</b></strong></p>
-<p><strong><b>&nbsp;- Lime Stained Glass Pane</b></strong></p>
-<p><strong><b>&nbsp;- Black Stained Glass Pane</b></strong></p>
-</div>
+<p><strong>You may find maps and unique Firework Stars in their chests! Also, they got unique banners!</strong></p>
 </div>
 </div>
 <p>&nbsp;</p>
@@ -954,7 +434,6 @@
 <p>&nbsp;</p>
 <p><strong>Silverfish spawners are added to storage room, the room with the pillar that holds 4 Torches, and fountain room.</strong></p>
 </div>
-<p>&nbsp;</p>
 <p>&nbsp;</p>
 <p><strong>Nether Stronghold Chest rates and Blaze Spawner locations</strong></p>
 <div class="spoiler">
@@ -979,7 +458,7 @@
 <p><strong><b>Variants:</b></strong></p>
 <p>&nbsp;</p>
 <p><strong><b>- Oak Witch Hut</b></strong></p>
-<p><strong><b>-Taiga Witch Hut</b></strong></p>
+<p><strong><b>- Taiga Witch Hut</b></strong></p>
 <p><strong><b>- Birch Witch Hut</b></strong></p>
 <p><strong><b>- Dark Forest Witch Hut</b></strong></p>
 <p><strong><b>- Giant Tree Taiga Witch Hut</b></strong></p>
@@ -1047,19 +526,19 @@
 <p>&nbsp;</p>
 <h2><strong><span style="font-size: 24px; color: #009611;">HOW CAN I CONFIGURE THIS MOD?</span></strong></h2>
 <p><span style="font-size: 14px;">&nbsp;</span></p>
-<p><span style="font-size: 14px;">&nbsp; &nbsp; You can configure this mod with either datapacks or the configs! See the "PRE-MADE DATAPACKS" section further down for already made datapacks that do stuff such as turning off advancements!&nbsp;</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; You can configure this mod with configs and datapacks! See the "PRE-MADE DATAPACKS" section further down for already made datapacks that do a bunch of stuff such as turning off advancements!</span></p>
 <p>&nbsp;</p>
-<p><span style="font-size: 14px;">&nbsp;&nbsp;<strong>&nbsp; You can change the configs by using Mod Menu mod with this mod. Just go into my mod in the list and click the gear. Just be sure to restart you game when you're finished changing configs! If you want to find this mod's config file directly, go into the config folder that is above the mods folder and there will be 1 config file for this mod (but without comments). Then exit/restart Minecraft for all changes to take effect. Do note that the config will affect this mod for all worlds so keep that in mind!</strong></span></p>
+<p><span style="font-size: 14px;">&nbsp;&nbsp;<strong>&nbsp; You can change the configs by using Mod Menu mod with this mod. Just go into my mod in the list and click the gear. Just be sure to restart you game when you're finished changing configs! If you want to find this mod's config file directly, go into the config folder that is above the mods folder and there will be 1 config file for this mod (but without comments). Then exit/restart Minecraft for all changes to take effect. Do note that the config will affect all worlds so keep that in mind!</strong></span></p>
 <p>&nbsp;</p>
 <p><strong>&nbsp; &nbsp;<span style="font-size: 18px;"> Config details:</span></strong></p>
 <div class="spoiler">
-<p>&nbsp; &nbsp; Right now, there are lots of config options. The big ones that you may be interested in are the <span style="font-size: 12px;"><strong>add____ToModdedBiomes</strong> </span>config entries. Turning this on will make the config add the features or structures to any modded biomes with the correct category. For example, if you turn on <span style="font-size: 12px;"><strong>addMineshaftsToModdedBiomes</strong> </span>and you have a mod that adds a new kind of Desert biome in any dimension, then that biome will now spawn Desert themed Mineshafts in it! For all structures, you can change their spawnrates and what biomes they should be blacklisted from. You can even blacklist dimensions as well! For some structures, you can change the maximum and minimum y value that they can start their generation at and far more! Check out the config. It should be clear what you can do and I included comments in the config to describe what the configs do.</p>
+<p>&nbsp; &nbsp; Right now, there are lots of config options. The big one that you may be interested in is the spawnrate config for every structure and yes, you can even fully turn off the structures too. The config comments will help walk you through on how to adjust the rates. Furthermore, you can even blacklist dimensions or biomes as well! For some structures, you can change the maximum and minimum y value that they can start their generation at and far more! Check out the config for everything you can do!</p>
 <p>&nbsp;</p>
 <p>Furthermore, you can make datapacks to modify or change a huge amount of stuff in my mod including modifying how structures look! Here's a flat world of all the pieces of my nbt-based structures. Use this to make editing and overriding structure pieces easier with datapacks:&nbsp;<strong><br /><span style="color: #3366ff;"><a style="color: #3366ff;" href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/tag/0.0.10">Repurposed Structures - pieces world (click here)</a></span></strong></p>
 <p>&nbsp;</p>
 <p>All the tags this mod uses are under data.repurposed_structures.tags.blocks and you can specify more than one block. The json tag files you can override can be found at:<br /><span style="color: #3366ff;"><a style="color: #3366ff;" href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/tags/blocks">Block Tags for Repurposed Structures (click here) </a></span></p>
 <p><strong>&nbsp;</strong></p>
-<p>If you want to change the loot tables that the structures in this mod uses, you can override my loot tables with a data pack! All loot tables are under data.repurposed_structures.loot_tables.chests path. Here's a datapack with the default loottables:&nbsp;<br /><span style="color: #3366ff;"><strong><a style="color: #3366ff;" href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/loot_tables/chests">Repurposed_Structures-Loottables (click here) </a></strong></span></p>
+<p>If you want to change the loot tables that the structures in this mod uses, you can override my loot tables with a data pack! Here's a datapack with the default loot tables:&nbsp;<br /><span style="color: #3366ff;"><strong><a style="color: #3366ff;" href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/loot_tables/chests">Repurposed_Structures-Loottables (click here) </a></strong></span></p>
 <p>&nbsp;</p>
 <p>The mob spawner for all none-nbt based structures can be changed with datapacks as well! You can download the spawner datapack here and change the entries inside the json files to add, remove, or change mob chances in spawners!:<br /><span style="color: #3366ff;"><a style="color: #3366ff;" href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/rs_spawners">Repurposed_Structures-Mob_Spawners (click here) </a></span></p>
 <p>&nbsp;<br /><span style="font-size: 12px;">And some structure pieces such as Wells, Villages, Outposts, Shipwrecks, Pyramids, and Igloos can also be overridden with datapacks. Furthermore, the template pools that holds structure pieces for Villages and other structures can also be overridden with datapacks to add your own pieces to the villages or other structures! You can find what pieces or pools can be replaced and their filenames here: </span><br /><span style="font-size: 12px; color: #3366ff;"><strong><a style="color: #3366ff;" href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/structures">Overridable structure nbt files (click here)</a></strong></span><br /><span style="color: #3366ff;"><strong><a style="color: #3366ff;" href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/tree/master/src/main/resources/data/repurposed_structures/worldgen/template_pool">Overridable structure pool files (click here)</a></strong></span></p>
@@ -1087,7 +566,7 @@
 <p>Download link: <span style="color: #3366ff;"><a style="color: #3366ff;" href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/tag/0.0.6">Repurposed_Structures-Disabled_Advancements</a></span></p>
 <p>&nbsp;</p>
 <p><strong><a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/tag/0.0.12">Vanilla Loottable pack!</a></strong></p>
-<p>Add this datapack (the .zip file) to the world's datapack folder to make all&nbsp;RS structure's loottables to use the same loottable as the vanilla structures that they are based upon. For example, Nether Pyramids now uses vanilla Desert Temple loottable. This can be helpful for doing mod compat quickly with other loot-based mods that are hardcoded to add to vanilla loottables.</p>
+<p>Add this datapack (the .zip file) to the world's datapack folder to make all&nbsp;RS structure's loot tables to use the same loot table as the vanilla structures that they are based upon. For example, Nether Pyramids now uses vanilla Desert Temple loot table. This can be helpful if you do not want RS structures to have customized loot tables</p>
 <p>Download link:&nbsp;<span style="color: #3366ff;"><a style="color: #3366ff;" href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/tag/0.0.12">Repurposed_Structures-Vanilla_Loottables</a></span></p>
 <p>&nbsp;</p>
 <p><strong><a href="https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/tag/0.0.8">Translation Resourcepack!</a></strong></p>
