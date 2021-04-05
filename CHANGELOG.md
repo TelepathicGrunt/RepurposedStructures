@@ -9,6 +9,12 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 # | Repurposed Structures changelog |
 
 
+## (V.1.10.1 Changes) (1.16.5 Minecraft)
+
+##### Outposts:
+- Fixed End Outposts able to spawn on the void in modded biomes.
+
+
 ## (V.1.10.0 Changes) (1.16.5 Minecraft)
 
 ##### Cities:
