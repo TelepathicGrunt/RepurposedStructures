@@ -53,16 +53,16 @@
           "weight": 5,
           "name": "minecraft:diamond_horse_armor"
         },
-		{
-			"type": "minecraft:item",
-			"weight": 5,
-			"name": "minecraft:iron_axe"
-		},
-		{
-			"type": "minecraft:item",
-			"weight": 1,
-			"name": "minecraft:diamond_axe"
-		},
+    {
+      "type": "minecraft:item",
+      "weight": 5,
+      "name": "minecraft:iron_axe"
+    },
+    {
+      "type": "minecraft:item",
+      "weight": 1,
+      "name": "minecraft:diamond_axe"
+    },
         {
           "type": "minecraft:item",
           "weight": 1,

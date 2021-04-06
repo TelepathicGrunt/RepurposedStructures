@@ -1,159 +1,159 @@
 {
-	"type": "minecraft:chest",
-	"pools": [
-		{
-			"rolls": 1,
-			"entries": [
-				{
-					"type": "minecraft:item",
-					"weight": 1,
-					"functions": [
-						{
-							"function": "minecraft:exploration_map",
-							"destination": "bastion_remnant",
-							"decoration": "banner_black",
-							"zoom": 2,
-							"skip_existing_chunks": true
-						}
-					],
-					"name": "minecraft:map"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 2,
-					"functions": [
-						{
-							"function": "minecraft:exploration_map",
-							"destination": "fortresses",
-							"decoration": "banner_red",
-							"zoom": 2,
-							"skip_existing_chunks": true
-						}
-					],
-					"name": "minecraft:map"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 1,
-					"name": "minecraft:map"
-				}
-			]
-		},
-		{
-			"rolls": 10,
-			"entries": [
-				{
-					"type": "minecraft:item",
-					"weight": 3,
-					"name": "minecraft:compass"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 3,
-					"name": "minecraft:map"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 3,
-					"name": "minecraft:clock"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 18,
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"min": 1.0,
-								"max": 10.0,
-								"type": "minecraft:uniform"
-							}
-						}
-					],
-					"name": "minecraft:paper"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 8,
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"min": 1.0,
-								"max": 5.0,
-								"type": "minecraft:uniform"
-							}
-						}
-					],
-					"name": "minecraft:feather"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 3,
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"min": 3.0,
-								"max": 6.0,
-								"type": "minecraft:uniform"
-							}
-						}
-					],
-					"name": "minecraft:bone"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 3,
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"min": 3.0,
-								"max": 6.0,
-								"type": "minecraft:uniform"
-							}
-						}
-					],
-					"name": "minecraft:coal"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 3,
-					"name": "minecraft:writable_book"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 8,
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"min": 2.0,
-								"max": 8.0,
-								"type": "minecraft:uniform"
-							}
-						}
-					],
-					"name": "minecraft:book"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 2,
-					"functions": [
-						{
-							"function": "minecraft:enchant_with_levels",
-							"levels": {
-								"min": 25.0,
-								"max": 35.0,
-								"type": "minecraft:uniform"
-							},
-							"treasure": true
-						}
-					],
-					"name": "minecraft:book"
-				}
-			]
-		}
-	]
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:exploration_map",
+              "destination": "bastion_remnant",
+              "decoration": "banner_black",
+              "zoom": 2,
+              "skip_existing_chunks": true
+            }
+          ],
+          "name": "minecraft:map"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:exploration_map",
+              "destination": "fortresses",
+              "decoration": "banner_red",
+              "zoom": 2,
+              "skip_existing_chunks": true
+            }
+          ],
+          "name": "minecraft:map"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "minecraft:map"
+        }
+      ]
+    },
+    {
+      "rolls": 10,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "weight": 3,
+          "name": "minecraft:compass"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 3,
+          "name": "minecraft:map"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 3,
+          "name": "minecraft:clock"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 18,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 10.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:paper"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 8,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 5.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:feather"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 3.0,
+                "max": 6.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:bone"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 3.0,
+                "max": 6.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:coal"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 3,
+          "name": "minecraft:writable_book"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 8,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2.0,
+                "max": 8.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:book"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "min": 25.0,
+                "max": 35.0,
+                "type": "minecraft:uniform"
+              },
+              "treasure": true
+            }
+          ],
+          "name": "minecraft:book"
+        }
+      ]
+    }
+  ]
 }
