@@ -9,6 +9,13 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 # | Repurposed Structures changelog |
 
 
+## (V.2.6.3 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)
+
+##### Dungeons:
+- Fixed Nether Dungeon spawners not being set correctly. 
+  (Why can't I just have an update without things blowing up lmao)
+
+
 ## (V.2.6.2 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)
 
 ##### Outposts:

@@ -54,7 +54,7 @@ public class RSMainConfig
 								" Separate multiple entries with a comma.",
 								"   Example: \"minecraft:the_end,awesome_mod:awesome_dimension\"")
 						.translation("repurposedstructures.config.all.blacklisteddimensions")
-						.define("blacklistedDimensions", "the_bumblezone:the_bumblezone"));
+						.define("blacklistedDimensions", "the_bumblezone:the_bumblezone, twilightforest:twilightforest, undergarden:undergarden, the_midnight:the_midnight"));
 
 			builder.build();
 
