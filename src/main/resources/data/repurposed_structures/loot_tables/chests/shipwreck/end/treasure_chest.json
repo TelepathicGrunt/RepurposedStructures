@@ -1,169 +1,169 @@
 {
-	"type": "minecraft:chest",
-	"pools": [
-		{
-			"rolls": {
-				"min": 3.0,
-				"max": 7.0,
-				"type": "minecraft:uniform"
-			},
-			"entries": [
-				{
-					"type": "minecraft:item",
-					"weight": 70,
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"min": 4.0,
-								"max": 15.0,
-								"type": "minecraft:uniform"
-							}
-						}
-					],
-					"name": "minecraft:iron_ingot"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 10,
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"min": 3.0,
-								"max": 10.0,
-								"type": "minecraft:uniform"
-							}
-						}
-					],
-					"name": "minecraft:gold_ingot"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 40,
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"min": 3.0,
-								"max": 8.0,
-								"type": "minecraft:uniform"
-							}
-						}
-					],
-					"name": "minecraft:emerald"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 15,
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"min": 2.0,
-								"max": 5.0,
-								"type": "minecraft:uniform"
-							}
-						}
-					],
-					"name": "minecraft:diamond"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 15,
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"min": 2.0,
-								"max": 5.0,
-								"type": "minecraft:uniform"
-							}
-						}
-					],
-					"name": "minecraft:experience_bottle"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 15,
-					"functions": [
-						{
-							"function": "minecraft:enchant_with_levels",
-							"levels": {
-								"min": 28.0,
-								"max": 40.0,
-								"type": "minecraft:uniform"
-							},
-							"treasure": true
-						}
-					],
-					"name": "minecraft:book"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 5,
-					"name": "minecraft:dragon_breath"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 2,
-					"name": "minecraft:elytra"
-				}
-			]
-		},
-		{
-			"rolls": {
-				"min": 2.0,
-				"max": 5.0,
-				"type": "minecraft:uniform"
-			},
-			"entries": [
-				{
-					"type": "minecraft:item",
-					"weight": 30,
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"min": 6.0,
-								"max": 20.0,
-								"type": "minecraft:uniform"
-							}
-						}
-					],
-					"name": "minecraft:iron_nugget"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 10,
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"min": 6.0,
-								"max": 20.0,
-								"type": "minecraft:uniform"
-							}
-						}
-					],
-					"name": "minecraft:gold_nugget"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 30,
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"min": 6.0,
-								"max": 20.0,
-								"type": "minecraft:uniform"
-							}
-						}
-					],
-					"name": "minecraft:lapis_lazuli"
-				}
-			]
-		}
-	]
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": {
+        "min": 3.0,
+        "max": 7.0,
+        "type": "minecraft:uniform"
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "weight": 70,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 4.0,
+                "max": 15.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:iron_ingot"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 3.0,
+                "max": 10.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:gold_ingot"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 40,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 3.0,
+                "max": 8.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:emerald"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 15,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2.0,
+                "max": 5.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:diamond"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 15,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2.0,
+                "max": 5.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:experience_bottle"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 15,
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "min": 28.0,
+                "max": 40.0,
+                "type": "minecraft:uniform"
+              },
+              "treasure": true
+            }
+          ],
+          "name": "minecraft:book"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 5,
+          "name": "minecraft:dragon_breath"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "minecraft:elytra"
+        }
+      ]
+    },
+    {
+      "rolls": {
+        "min": 2.0,
+        "max": 5.0,
+        "type": "minecraft:uniform"
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "weight": 30,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 6.0,
+                "max": 20.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:iron_nugget"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 6.0,
+                "max": 20.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:gold_nugget"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 30,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 6.0,
+                "max": 20.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:lapis_lazuli"
+        }
+      ]
+    }
+  ]
 }
