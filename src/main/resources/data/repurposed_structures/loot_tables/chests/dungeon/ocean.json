@@ -1,104 +1,104 @@
 {
-	"type": "minecraft:chest",
-	"pools": [
-		{
-			"rolls": 1,
-			"entries": [
-				{
-					"type": "minecraft:loot_table",
-					"name": "minecraft:chests/buried_treasure",
-					"weight": 1
-				},
-				{
-					"type": "minecraft:loot_table",
-					"name": "minecraft:chests/underwater_ruin_big",
-					"weight": 9
-				},
-				{
-					"type": "minecraft:loot_table",
-					"name": "minecraft:chests/underwater_ruin_small",
-					"weight": 22
-				},
-				{
-					"type": "minecraft:loot_table",
-					"name": "minecraft:chests/simple_dungeon",
-					"weight": 45
-				},
-				{
-					"type": "minecraft:loot_table",
-					"name": "minecraft:chests/shipwreck_supply",
-					"weight": 55
-				}
-			]
-		},
-		{
-			"rolls": {
-				"min": 1.0,
-				"max": 3.0,
-				"type": "minecraft:uniform"
-			},
-			"entries": [
-				{
-					"type": "minecraft:item",
-					"weight": 2,
-					"name": "minecraft:music_disc_wait"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 2,
-					"name": "minecraft:music_disc_mall"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 10,
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"min": 3.0,
-								"max": 6.0,
-								"type": "minecraft:uniform"
-							}
-						}
-					],
-					"name": "minecraft:nautilus_shell"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 5,
-					"name": "minecraft:name_tag"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 10,
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"min": 1.0,
-								"max": 2.0,
-								"type": "minecraft:uniform"
-							}
-						}
-					],
-					"name": "minecraft:prismarine_crystals"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 10,
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"min": 1.0,
-								"max": 6.0,
-								"type": "minecraft:uniform"
-							}
-						}
-					],
-					"name": "minecraft:prismarine_shard"
-				}
-			]
-		}
-	]
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "name": "minecraft:chests/buried_treasure",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:loot_table",
+          "name": "minecraft:chests/underwater_ruin_big",
+          "weight": 9
+        },
+        {
+          "type": "minecraft:loot_table",
+          "name": "minecraft:chests/underwater_ruin_small",
+          "weight": 22
+        },
+        {
+          "type": "minecraft:loot_table",
+          "name": "minecraft:chests/simple_dungeon",
+          "weight": 45
+        },
+        {
+          "type": "minecraft:loot_table",
+          "name": "minecraft:chests/shipwreck_supply",
+          "weight": 55
+        }
+      ]
+    },
+    {
+      "rolls": {
+        "min": 1.0,
+        "max": 3.0,
+        "type": "minecraft:uniform"
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "minecraft:music_disc_wait"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "minecraft:music_disc_mall"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 3.0,
+                "max": 6.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:nautilus_shell"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 5,
+          "name": "minecraft:name_tag"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 2.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:prismarine_crystals"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 6.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:prismarine_shard"
+        }
+      ]
+    }
+  ]
 }
