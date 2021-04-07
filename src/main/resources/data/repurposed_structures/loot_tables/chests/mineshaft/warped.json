@@ -9,26 +9,27 @@
       },
       "entries": [
         {
+          "name": "minecraft:enchanted_golden_apple",
           "type": "minecraft:item",
-          "weight": 1,
-          "name": "minecraft:enchanted_golden_apple"
+          "weight": 1
         },
         {
+          "name": "minecraft:name_tag",
           "type": "minecraft:item",
-          "weight": 35,
-          "name": "minecraft:name_tag"
+          "weight": 35
         },
         {
+          "name": "minecraft:book",
           "type": "minecraft:item",
           "weight": 25,
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
             }
-          ],
-          "name": "minecraft:book"
+          ]
         },
         {
+          "name": "minecraft:golden_pickaxe",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -41,10 +42,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:golden_pickaxe"
+          ]
         },
         {
+          "name": "minecraft:golden_sword",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -57,10 +58,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:golden_sword"
+          ]
         },
         {
+          "name": "minecraft:chainmail_boots",
           "type": "minecraft:item",
           "weight": 7,
           "functions": [
@@ -73,10 +74,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:chainmail_boots"
+          ]
         },
         {
+          "name": "minecraft:chainmail_chestplate",
           "type": "minecraft:item",
           "weight": 7,
           "functions": [
@@ -89,10 +90,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:chainmail_chestplate"
+          ]
         },
         {
+          "name": "minecraft:chainmail_leggings",
           "type": "minecraft:item",
           "weight": 7,
           "functions": [
@@ -105,10 +106,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:chainmail_leggings"
+          ]
         },
         {
+          "name": "minecraft:chainmail_helmet",
           "type": "minecraft:item",
           "weight": 7,
           "functions": [
@@ -121,8 +122,7 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:chainmail_helmet"
+          ]
         },
         {
           "type": "minecraft:empty",
@@ -138,6 +138,7 @@
       },
       "entries": [
         {
+          "name": "minecraft:gold_nugget",
           "type": "minecraft:item",
           "weight": 20,
           "functions": [
@@ -149,10 +150,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gold_nugget"
+          ]
         },
         {
+          "name": "minecraft:gold_ingot",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -164,10 +165,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gold_ingot"
+          ]
         },
         {
+          "name": "minecraft:quartz",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -179,10 +180,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:quartz"
+          ]
         },
         {
+          "name": "minecraft:coal",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -194,10 +195,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:coal"
+          ]
         },
         {
+          "name": "minecraft:redstone",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -209,10 +210,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:redstone"
+          ]
         },
         {
+          "name": "minecraft:warped_fungus",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -224,10 +225,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:warped_fungus"
+          ]
         },
         {
+          "name": "minecraft:beetroot_seeds",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -239,10 +240,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:beetroot_seeds"
+          ]
         },
         {
+          "name": "minecraft:beetroot",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -254,8 +255,7 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:beetroot"
+          ]
         }
       ]
     },
@@ -263,6 +263,7 @@
       "rolls": 3,
       "entries": [
         {
+          "name": "minecraft:rail",
           "type": "minecraft:item",
           "weight": 20,
           "functions": [
@@ -274,10 +275,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:rail"
+          ]
         },
         {
+          "name": "minecraft:powered_rail",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -289,10 +290,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:powered_rail"
+          ]
         },
         {
+          "name": "minecraft:detector_rail",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -304,10 +305,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:detector_rail"
+          ]
         },
         {
+          "name": "minecraft:activator_rail",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -319,10 +320,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:activator_rail"
+          ]
         },
         {
+          "name": "minecraft:redstone_torch",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -334,8 +335,7 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:redstone_torch"
+          ]
         }
       ]
     }

@@ -9,6 +9,7 @@
       },
       "entries": [
         {
+          "name": "minecraft:paper",
           "type": "minecraft:item",
           "weight": 8,
           "functions": [
@@ -20,10 +21,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:paper"
+          ]
         },
         {
+          "name": "minecraft:chorus_fruit",
           "type": "minecraft:item",
           "weight": 7,
           "functions": [
@@ -35,10 +36,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:chorus_fruit"
+          ]
         },
         {
+          "name": "minecraft:beetroot_seeds",
           "type": "minecraft:item",
           "weight": 7,
           "functions": [
@@ -50,10 +51,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:beetroot_seeds"
+          ]
         },
         {
+          "name": "minecraft:magenta_banner",
           "type": "minecraft:item",
           "weight": 7,
           "functions": [
@@ -69,10 +70,10 @@
               "function":"set_nbt",
               "tag":"{BlockEntityTag:{Patterns:[{Color:15,Pattern:tt}, {Color:15,Pattern:bt}]}}"
             }
-          ],
-          "name": "minecraft:magenta_banner"
+          ]
         },
         {
+          "name": "minecraft:popped_chorus_fruit",
           "type": "minecraft:item",
           "weight": 7,
           "functions": [
@@ -84,10 +85,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:popped_chorus_fruit"
+          ]
         },
         {
+          "name": "minecraft:suspicious_stew",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -159,10 +160,10 @@
                 }
               ]
             }
-          ],
-          "name": "minecraft:suspicious_stew"
+          ]
         },
         {
+          "name": "minecraft:phantom_membrane",
           "type": "minecraft:item",
           "weight": 6,
           "functions": [
@@ -174,10 +175,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:phantom_membrane"
+          ]
         },
         {
+          "name": "minecraft:ender_pearl",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -189,10 +190,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:ender_pearl"
+          ]
         },
         {
+          "name": "minecraft:end_rod",
           "type": "minecraft:item",
           "weight": 2,
           "functions": [
@@ -204,10 +205,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:end_rod"
+          ]
         },
         {
+          "name": "minecraft:magenta_stained_glass_pane",
           "type": "minecraft:item",
           "weight": 2,
           "functions": [
@@ -219,10 +220,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:magenta_stained_glass_pane"
+          ]
         },
         {
+          "name": "minecraft:gunpowder",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -234,10 +235,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gunpowder"
+          ]
         },
         {
+          "name": "minecraft:firework_star",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -253,10 +254,10 @@
               "function":"set_nbt",
               "tag":"{Explosion:{Colors:[I;8073150], FadeColors:[I;12801229], Trail:1b, Flicker:1b, Type:2b}}"
             }
-          ],
-          "name": "minecraft:firework_star"
+          ]
         },
         {
+          "name": "minecraft:firework_star",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -272,10 +273,10 @@
               "function":"set_nbt",
               "tag":"{Explosion:{Colors:[I;12801229], FadeColors:[I;8073150], Trail:1b, Flicker:1b, Type:2b}}"
             }
-          ],
-          "name": "minecraft:firework_star"
+          ]
         },
         {
+          "name": "minecraft:obsidian",
           "type": "minecraft:item",
           "functions": [
             {
@@ -286,48 +287,47 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:obsidian"
+          ]
         },
         {
+          "name": "minecraft:iron_helmet",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
             }
-          ],
-          "name": "minecraft:iron_helmet"
+          ]
         },
         {
+          "name": "minecraft:iron_chestplate",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
             }
-          ],
-          "name": "minecraft:iron_chestplate"
+          ]
         },
         {
+          "name": "minecraft:iron_leggings",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
             }
-          ],
-          "name": "minecraft:iron_leggings"
+          ]
         },
         {
+          "name": "minecraft:iron_boots",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
             }
-          ],
-          "name": "minecraft:iron_boots"
+          ]
         }
       ]
     }

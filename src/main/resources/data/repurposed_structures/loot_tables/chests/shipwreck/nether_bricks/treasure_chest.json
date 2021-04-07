@@ -5,6 +5,7 @@
       "rolls": 1,
       "entries": [
         {
+          "name": "minecraft:map",
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
@@ -15,10 +16,10 @@
               "zoom": 2,
               "skip_existing_chunks": true
             }
-          ],
-          "name": "minecraft:map"
+          ]
         },
         {
+          "name": "minecraft:map",
           "type": "minecraft:item",
           "weight": 2,
           "functions": [
@@ -29,10 +30,10 @@
               "zoom": 2,
               "skip_existing_chunks": true
             }
-          ],
-          "name": "minecraft:map"
+          ]
         },
         {
+          "name": "minecraft:experience_bottle",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -44,8 +45,7 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:experience_bottle"
+          ]
         }
       ]
     },
@@ -57,6 +57,7 @@
       },
       "entries": [
         {
+          "name": "minecraft:iron_ingot",
           "type": "minecraft:item",
           "weight": 70,
           "functions": [
@@ -68,10 +69,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:iron_ingot"
+          ]
         },
         {
+          "name": "minecraft:coal",
           "type": "minecraft:item",
           "weight": 70,
           "functions": [
@@ -83,10 +84,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:coal"
+          ]
         },
         {
+          "name": "minecraft:bone",
           "type": "minecraft:item",
           "weight": 55,
           "functions": [
@@ -98,10 +99,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:bone"
+          ]
         },
         {
+          "name": "minecraft:gold_ingot",
           "type": "minecraft:item",
           "weight": 45,
           "functions": [
@@ -113,10 +114,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gold_ingot"
+          ]
         },
         {
+          "name": "minecraft:stone_sword",
           "type": "minecraft:item",
           "weight": 35,
           "functions": [
@@ -129,10 +130,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:stone_sword"
+          ]
         },
         {
+          "name": "minecraft:magma_cream",
           "type": "minecraft:item",
           "weight": 30,
           "functions": [
@@ -144,10 +145,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:magma_cream"
+          ]
         },
         {
+          "name": "minecraft:ancient_debris",
           "type": "minecraft:item",
           "weight": 30,
           "functions": [
@@ -159,10 +160,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:ancient_debris"
+          ]
         },
         {
+          "name": "minecraft:crying_obsidian",
           "type": "minecraft:item",
           "weight": 20,
           "functions": [
@@ -174,10 +175,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:crying_obsidian"
+          ]
         },
         {
+          "name": "minecraft:spectral_arrow",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -189,10 +190,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:spectral_arrow"
+          ]
         },
         {
+          "name": "minecraft:netherite_scrap",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -204,10 +205,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:netherite_scrap"
+          ]
         },
         {
+          "name": "minecraft:gold_block",
           "type": "minecraft:item",
           "weight": 6,
           "functions": [
@@ -219,10 +220,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gold_block"
+          ]
         },
         {
+          "name": "minecraft:iron_block",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -234,10 +235,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:iron_block"
+          ]
         },
         {
+          "name": "minecraft:netherite_ingot",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -249,13 +250,12 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:netherite_ingot"
+          ]
         },
         {
+          "name": "minecraft:elytra",
           "type": "minecraft:item",
-          "weight": 1,
-          "name": "minecraft:elytra"
+          "weight": 1
         }
       ]
     }

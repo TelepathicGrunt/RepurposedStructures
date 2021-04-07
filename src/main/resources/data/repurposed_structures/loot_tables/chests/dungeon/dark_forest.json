@@ -9,74 +9,74 @@
       },
       "entries": [
         {
+          "name": "minecraft:saddle",
           "type": "minecraft:item",
-          "weight": 20,
-          "name": "minecraft:saddle"
+          "weight": 20
         },
         {
+          "name": "minecraft:golden_apple",
           "type": "minecraft:item",
-          "weight": 15,
-          "name": "minecraft:golden_apple"
+          "weight": 15
         },
         {
+          "name": "minecraft:enchanted_golden_apple",
           "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:enchanted_golden_apple"
+          "weight": 2
         },
         {
+          "name": "minecraft:music_disc_ward",
           "type": "minecraft:item",
-          "weight": 15,
-          "name": "minecraft:music_disc_ward"
+          "weight": 15
         },
         {
+          "name": "minecraft:music_disc_stal",
           "type": "minecraft:item",
-          "weight": 15,
-          "name": "minecraft:music_disc_stal"
+          "weight": 15
         },
         {
+          "name": "minecraft:name_tag",
           "type": "minecraft:item",
-          "weight": 20,
-          "name": "minecraft:name_tag"
+          "weight": 20
         },
         {
+          "name": "minecraft:golden_horse_armor",
           "type": "minecraft:item",
-          "weight": 10,
-          "name": "minecraft:golden_horse_armor"
+          "weight": 10
         },
         {
+          "name": "minecraft:iron_horse_armor",
           "type": "minecraft:item",
-          "weight": 15,
-          "name": "minecraft:iron_horse_armor"
+          "weight": 15
         },
         {
+          "name": "minecraft:diamond_horse_armor",
           "type": "minecraft:item",
-          "weight": 5,
-          "name": "minecraft:diamond_horse_armor"
+          "weight": 5
         },
     {
+      "name": "minecraft:iron_axe",
       "type": "minecraft:item",
-      "weight": 5,
-      "name": "minecraft:iron_axe"
+      "weight": 5
     },
     {
+      "name": "minecraft:diamond_axe",
       "type": "minecraft:item",
-      "weight": 1,
-      "name": "minecraft:diamond_axe"
+      "weight": 1
     },
         {
+          "name": "minecraft:totem_of_undying",
           "type": "minecraft:item",
-          "weight": 1,
-          "name": "minecraft:totem_of_undying"
+          "weight": 1
         },
         {
+          "name": "minecraft:book",
           "type": "minecraft:item",
           "weight": 12,
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
             }
-          ],
-          "name": "minecraft:book"
+          ]
         }
       ]
     },
@@ -88,6 +88,7 @@
       },
       "entries": [
         {
+          "name": "minecraft:iron_ingot",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -99,10 +100,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:iron_ingot"
+          ]
         },
         {
+          "name": "minecraft:emerald",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -114,15 +115,15 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:emerald"
+          ]
         },
         {
+          "name": "minecraft:apple",
           "type": "minecraft:item",
-          "weight": 20,
-          "name": "minecraft:apple"
+          "weight": 20
         },
         {
+          "name": "minecraft:green_dye",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -134,15 +135,15 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:green_dye"
+          ]
         },
         {
+          "name": "minecraft:bucket",
           "type": "minecraft:item",
-          "weight": 10,
-          "name": "minecraft:bucket"
+          "weight": 10
         },
         {
+          "name": "minecraft:redstone",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -154,10 +155,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:redstone"
+          ]
         },
         {
+          "name": "minecraft:coal",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -169,10 +170,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:coal"
+          ]
         },
         {
+          "name": "minecraft:beetroot",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -184,10 +185,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:beetroot"
+          ]
         },
         {
+          "name": "minecraft:poisonous_potato",
           "type": "minecraft:item",
           "weight": 7,
           "functions": [
@@ -199,10 +200,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:poisonous_potato"
+          ]
         },
         {
+          "name": "minecraft:potato",
           "type": "minecraft:item",
           "weight": 7,
           "functions": [
@@ -214,10 +215,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:potato"
+          ]
         },
         {
+          "name": "minecraft:beetroot_seeds",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -229,10 +230,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:beetroot_seeds"
+          ]
         },
         {
+          "name": "minecraft:suspicious_stew",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -283,8 +284,7 @@
                 }
               ]
             }
-          ],
-          "name": "minecraft:suspicious_stew"
+          ]
         }
       ]
     },
@@ -292,6 +292,7 @@
       "rolls": 3,
       "entries": [
         {
+          "name": "minecraft:bone",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -303,10 +304,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:bone"
+          ]
         },
         {
+          "name": "minecraft:gunpowder",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -318,10 +319,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gunpowder"
+          ]
         },
         {
+          "name": "minecraft:rotten_flesh",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -333,10 +334,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:rotten_flesh"
+          ]
         },
         {
+          "name": "minecraft:string",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -348,10 +349,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:string"
+          ]
         },
         {
+          "name": "minecraft:cobweb",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -363,48 +364,47 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:cobweb"
+          ]
         },
         {
+          "name": "minecraft:leather_helmet",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
             }
-          ],
-          "name": "minecraft:leather_helmet"
+          ]
         },
         {
+          "name": "minecraft:leather_chestplate",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
             }
-          ],
-          "name": "minecraft:leather_chestplate"
+          ]
         },
         {
+          "name": "minecraft:leather_leggings",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
             }
-          ],
-          "name": "minecraft:leather_leggings"
+          ]
         },
         {
+          "name": "minecraft:leather_boots",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
             }
-          ],
-          "name": "minecraft:leather_boots"
+          ]
         }
       ]
     }

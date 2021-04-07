@@ -9,6 +9,7 @@
       },
       "entries": [
         {
+          "name": "minecraft:coal",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -20,10 +21,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:coal"
+          ]
         },
         {
+          "name": "minecraft:rotten_flesh",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -35,10 +36,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:rotten_flesh"
+          ]
         },
         {
+          "name": "minecraft:quartz",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -50,10 +51,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:quartz"
+          ]
         },
         {
+          "name": "minecraft:iron_ingot",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -65,10 +66,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:iron_ingot"
+          ]
         },
         {
+          "name": "minecraft:gold_ingot",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -80,10 +81,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gold_ingot"
+          ]
         },
         {
+          "name": "minecraft:redstone",
           "type": "minecraft:item",
           "weight": 2,
           "functions": [
@@ -95,10 +96,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:redstone"
+          ]
         },
         {
+          "name": "minecraft:nether_wart",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -110,35 +111,19 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:nether_wart"
+          ]
         },
         {
+          "name": "minecraft:saddle",
           "type": "minecraft:item",
-          "weight": 3,
-          "name": "minecraft:saddle"
+          "weight": 3
         },
         {
-          "type": "minecraft:item",
-          "name": "minecraft:golden_horse_armor"
+          "name": "minecraft:golden_horse_armor",
+          "type": "minecraft:item"
         },
         {
-          "type": "minecraft:item",
-          "weight": 3,
-          "functions": [
-            {
-              "function": "minecraft:enchant_with_levels",
-              "levels": {
-                "min": 5.0,
-                "max": 25.0,
-                "type": "minecraft:uniform"
-              },
-              "treasure": true
-            }
-          ],
-          "name": "minecraft:golden_sword"
-        },
-        {
+          "name": "minecraft:golden_sword",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -151,10 +136,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:golden_boots"
+          ]
         },
         {
+          "name": "minecraft:golden_boots",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -167,10 +152,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:golden_chestplate"
+          ]
         },
         {
+          "name": "minecraft:golden_chestplate",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -183,10 +168,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:golden_leggings"
+          ]
         },
         {
+          "name": "minecraft:golden_leggings",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -199,10 +184,26 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:golden_helmet"
+          ]
         },
         {
+          "name": "minecraft:golden_helmet",
+          "type": "minecraft:item",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "min": 5.0,
+                "max": 25.0,
+                "type": "minecraft:uniform"
+              },
+              "treasure": true
+            }
+          ]
+        },
+        {
+          "name": "minecraft:iron_sword",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -215,10 +216,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:iron_sword"
+          ]
         },
         {
+          "name": "minecraft:chainmail_boots",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -231,10 +232,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:chainmail_boots"
+          ]
         },
         {
+          "name": "minecraft:chainmail_chestplate",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -247,10 +248,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:chainmail_chestplate"
+          ]
         },
         {
+          "name": "minecraft:chainmail_leggings",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -263,10 +264,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:chainmail_leggings"
+          ]
         },
         {
+          "name": "minecraft:chainmail_helmet",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -279,8 +280,7 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:chainmail_helmet"
+          ]
         }
       ]
     },
@@ -292,49 +292,49 @@
       },
       "entries": [
         {
+          "name": "minecraft:saddle",
           "type": "minecraft:item",
-          "weight": 20,
-          "name": "minecraft:saddle"
+          "weight": 20
         },
         {
+          "name": "minecraft:music_disc_13",
           "type": "minecraft:item",
-          "weight": 15,
-          "name": "minecraft:music_disc_13"
+          "weight": 15
         },
         {
+          "name": "minecraft:music_disc_blocks",
           "type": "minecraft:item",
-          "weight": 15,
-          "name": "minecraft:music_disc_blocks"
+          "weight": 15
         },
         {
+          "name": "minecraft:music_disc_chirp",
           "type": "minecraft:item",
-          "weight": 15,
-          "name": "minecraft:music_disc_chirp"
+          "weight": 15
         },
         {
+          "name": "minecraft:music_disc_pigstep",
           "type": "minecraft:item",
-          "weight": 4,
-          "name": "minecraft:music_disc_pigstep"
+          "weight": 4
         },
         {
+          "name": "minecraft:name_tag",
           "type": "minecraft:item",
-          "weight": 20,
-          "name": "minecraft:name_tag"
+          "weight": 20
         },
         {
+          "name": "minecraft:enchanted_golden_apple",
           "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:enchanted_golden_apple"
+          "weight": 2
         },
         {
+          "name": "minecraft:book",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
             }
-          ],
-          "name": "minecraft:book"
+          ]
         }
       ]
     },
@@ -346,6 +346,7 @@
       },
       "entries": [
         {
+          "name": "minecraft:coal",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -357,10 +358,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:coal"
+          ]
         },
         {
+          "name": "minecraft:rotten_flesh",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -372,10 +373,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:rotten_flesh"
+          ]
         },
         {
+          "name": "minecraft:quartz",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -387,10 +388,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:quartz"
+          ]
         },
         {
+          "name": "minecraft:gold_nugget",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -402,10 +403,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gold_nugget"
+          ]
         },
         {
+          "name": "minecraft:gold_ingot",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -417,10 +418,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gold_ingot"
+          ]
         },
         {
+          "name": "minecraft:redstone",
           "type": "minecraft:item",
           "weight": 2,
           "functions": [
@@ -432,10 +433,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:redstone"
+          ]
         },
         {
+          "name": "minecraft:nether_wart",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -447,8 +448,7 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:nether_wart"
+          ]
         }
       ]
     }

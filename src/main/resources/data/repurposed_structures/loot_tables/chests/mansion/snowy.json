@@ -9,59 +9,59 @@
       },
       "entries": [
         {
+          "name": "minecraft:lead",
           "type": "minecraft:item",
-          "weight": 20,
-          "name": "minecraft:lead"
+          "weight": 20
         },
         {
+          "name": "minecraft:golden_apple",
           "type": "minecraft:item",
-          "weight": 15,
-          "name": "minecraft:golden_apple"
+          "weight": 15
         },
         {
+          "name": "minecraft:enchanted_golden_apple",
           "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:enchanted_golden_apple"
+          "weight": 2
         },
         {
+          "name": "minecraft:music_disc_13",
           "type": "minecraft:item",
-          "weight": 15,
-          "name": "minecraft:music_disc_13"
+          "weight": 15
         },
         {
+          "name": "minecraft:music_disc_cat",
           "type": "minecraft:item",
-          "weight": 15,
-          "name": "minecraft:music_disc_cat"
+          "weight": 15
         },
         {
+          "name": "minecraft:name_tag",
           "type": "minecraft:item",
-          "weight": 20,
-          "name": "minecraft:name_tag"
+          "weight": 20
         },
         {
+          "name": "minecraft:chainmail_chestplate",
           "type": "minecraft:item",
-          "weight": 10,
-          "name": "minecraft:chainmail_chestplate"
+          "weight": 10
         },
         {
+          "name": "minecraft:diamond_hoe",
           "type": "minecraft:item",
-          "weight": 15,
-          "name": "minecraft:diamond_hoe"
+          "weight": 15
         },
         {
+          "name": "minecraft:diamond_chestplate",
           "type": "minecraft:item",
-          "weight": 5,
-          "name": "minecraft:diamond_chestplate"
+          "weight": 5
         },
         {
+          "name": "minecraft:book",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
             }
-          ],
-          "name": "minecraft:book"
+          ]
         }
       ]
     },
@@ -73,6 +73,7 @@
       },
       "entries": [
         {
+          "name": "minecraft:iron_ingot",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -84,10 +85,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:iron_ingot"
+          ]
         },
         {
+          "name": "minecraft:gold_ingot",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -99,10 +100,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gold_ingot"
+          ]
         },
         {
+          "name": "minecraft:lapis_lazuli",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -114,15 +115,15 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:lapis_lazuli"
+          ]
         },
         {
+          "name": "minecraft:bread",
           "type": "minecraft:item",
-          "weight": 20,
-          "name": "minecraft:bread"
+          "weight": 20
         },
         {
+          "name": "minecraft:wheat",
           "type": "minecraft:item",
           "weight": 20,
           "functions": [
@@ -134,15 +135,15 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:wheat"
+          ]
         },
         {
+          "name": "minecraft:bucket",
           "type": "minecraft:item",
-          "weight": 10,
-          "name": "minecraft:bucket"
+          "weight": 10
         },
         {
+          "name": "minecraft:redstone",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -154,10 +155,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:redstone"
+          ]
         },
         {
+          "name": "minecraft:coal",
           "type": "minecraft:item",
           "weight": 18,
           "functions": [
@@ -169,10 +170,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:coal"
+          ]
         },
         {
+          "name": "minecraft:cookie",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -184,10 +185,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:cookie"
+          ]
         },
         {
+          "name": "minecraft:sweet_berries",
           "type": "minecraft:item",
           "weight": 4,
           "functions": [
@@ -199,10 +200,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:sweet_berries"
+          ]
         },
         {
+          "name": "minecraft:melon_seeds",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -214,10 +215,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:melon_seeds"
+          ]
         },
         {
+          "name": "minecraft:pumpkin_seeds",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -229,10 +230,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:pumpkin_seeds"
+          ]
         },
         {
+          "name": "minecraft:cake",
           "type": "minecraft:item",
           "weight": 2,
           "functions": [
@@ -244,8 +245,7 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:cake"
+          ]
         }
       ]
     },
@@ -253,6 +253,7 @@
       "rolls": 3,
       "entries": [
         {
+          "name": "minecraft:snowball",
           "type": "minecraft:item",
           "weight": 16,
           "functions": [
@@ -264,10 +265,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:snowball"
+          ]
         },
         {
+          "name": "minecraft:bone",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -279,10 +280,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:bone"
+          ]
         },
         {
+          "name": "minecraft:gunpowder",
           "type": "minecraft:item",
           "weight": 8,
           "functions": [
@@ -294,10 +295,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gunpowder"
+          ]
         },
         {
+          "name": "minecraft:rotten_flesh",
           "type": "minecraft:item",
           "weight": 8,
           "functions": [
@@ -309,10 +310,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:rotten_flesh"
+          ]
         },
         {
+          "name": "minecraft:string",
           "type": "minecraft:item",
           "weight": 8,
           "functions": [
@@ -324,8 +325,7 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:string"
+          ]
         }
       ]
     }

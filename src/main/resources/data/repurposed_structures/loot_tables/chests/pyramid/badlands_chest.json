@@ -9,6 +9,7 @@
       },
       "entries": [
         {
+          "name": "minecraft:diamond",
           "type": "minecraft:item",
           "weight": 6,
           "functions": [
@@ -20,10 +21,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:diamond"
+          ]
         },
         {
+          "name": "minecraft:iron_ingot",
           "type": "minecraft:item",
           "weight": 8,
           "functions": [
@@ -35,10 +36,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:iron_ingot"
+          ]
         },
         {
+          "name": "minecraft:gold_ingot",
           "type": "minecraft:item",
           "weight": 20,
           "functions": [
@@ -50,10 +51,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gold_ingot"
+          ]
         },
         {
+          "name": "minecraft:emerald",
           "type": "minecraft:item",
           "weight": 16,
           "functions": [
@@ -65,10 +66,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:emerald"
+          ]
         },
         {
+          "name": "minecraft:bone",
           "type": "minecraft:item",
           "weight": 25,
           "functions": [
@@ -80,10 +81,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:bone"
+          ]
         },
         {
+          "name": "minecraft:dead_bush",
           "type": "minecraft:item",
           "weight": 25,
           "functions": [
@@ -95,10 +96,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:dead_bush"
+          ]
         },
         {
+          "name": "minecraft:rotten_flesh",
           "type": "minecraft:item",
           "weight": 25,
           "functions": [
@@ -110,33 +111,32 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:rotten_flesh"
+          ]
         },
         {
+          "name": "minecraft:saddle",
           "type": "minecraft:item",
-          "weight": 20,
-          "name": "minecraft:saddle"
+          "weight": 20
         },
         {
+          "name": "minecraft:book",
           "type": "minecraft:item",
           "weight": 30,
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
             }
-          ],
-          "name": "minecraft:book"
+          ]
         },
         {
+          "name": "minecraft:golden_apple",
           "type": "minecraft:item",
-          "weight": 20,
-          "name": "minecraft:golden_apple"
+          "weight": 20
         },
         {
+          "name": "minecraft:enchanted_golden_apple",
           "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:enchanted_golden_apple"
+          "weight": 2
         },
         {
           "type": "minecraft:empty",
@@ -148,6 +148,7 @@
       "rolls": 4,
       "entries": [
         {
+          "name": "minecraft:bone",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -159,10 +160,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:bone"
+          ]
         },
         {
+          "name": "minecraft:gunpowder",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -174,10 +175,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gunpowder"
+          ]
         },
         {
+          "name": "minecraft:rotten_flesh",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -189,10 +190,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:rotten_flesh"
+          ]
         },
         {
+          "name": "minecraft:string",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -204,10 +205,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:string"
+          ]
         },
         {
+          "name": "minecraft:red_sand",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -219,8 +220,7 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:red_sand"
+          ]
         }
       ]
     }

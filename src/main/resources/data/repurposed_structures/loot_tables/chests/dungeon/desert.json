@@ -9,59 +9,59 @@
       },
       "entries": [
         {
+          "name": "minecraft:saddle",
           "type": "minecraft:item",
-          "weight": 20,
-          "name": "minecraft:saddle"
+          "weight": 20
         },
         {
+          "name": "minecraft:golden_apple",
           "type": "minecraft:item",
-          "weight": 15,
-          "name": "minecraft:golden_apple"
+          "weight": 15
         },
         {
+          "name": "minecraft:enchanted_golden_apple",
           "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:enchanted_golden_apple"
+          "weight": 2
         },
         {
+          "name": "minecraft:music_disc_13",
           "type": "minecraft:item",
-          "weight": 15,
-          "name": "minecraft:music_disc_13"
+          "weight": 15
         },
         {
+          "name": "minecraft:music_disc_strad",
           "type": "minecraft:item",
-          "weight": 15,
-          "name": "minecraft:music_disc_strad"
+          "weight": 15
         },
         {
+          "name": "minecraft:name_tag",
           "type": "minecraft:item",
-          "weight": 20,
-          "name": "minecraft:name_tag"
+          "weight": 20
         },
         {
+          "name": "minecraft:lead",
           "type": "minecraft:item",
-          "weight": 20,
-          "name": "minecraft:lead"
+          "weight": 20
         },
         {
+          "name": "minecraft:iron_shovel",
           "type": "minecraft:item",
-          "weight": 10,
-          "name": "minecraft:iron_shovel"
+          "weight": 10
         },
         {
+          "name": "minecraft:golden_shovel",
           "type": "minecraft:item",
-          "weight": 5,
-          "name": "minecraft:golden_shovel"
+          "weight": 5
         },
         {
+          "name": "minecraft:book",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
             }
-          ],
-          "name": "minecraft:book"
+          ]
         }
       ]
     },
@@ -73,6 +73,7 @@
       },
       "entries": [
         {
+          "name": "minecraft:iron_ingot",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -84,10 +85,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:iron_ingot"
+          ]
         },
         {
+          "name": "minecraft:gold_ingot",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -99,15 +100,15 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gold_ingot"
+          ]
         },
         {
+          "name": "minecraft:leather",
           "type": "minecraft:item",
-          "weight": 20,
-          "name": "minecraft:leather"
+          "weight": 20
         },
         {
+          "name": "minecraft:yellow_dye",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -119,15 +120,15 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:yellow_dye"
+          ]
         },
         {
+          "name": "minecraft:bucket",
           "type": "minecraft:item",
-          "weight": 10,
-          "name": "minecraft:bucket"
+          "weight": 10
         },
         {
+          "name": "minecraft:redstone",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -139,10 +140,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:redstone"
+          ]
         },
         {
+          "name": "minecraft:coal",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -154,10 +155,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:coal"
+          ]
         },
         {
+          "name": "minecraft:rabbit_hide",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -169,10 +170,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:rabbit_hide"
+          ]
         },
         {
+          "name": "minecraft:pumpkin_seeds",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -184,10 +185,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:pumpkin_seeds"
+          ]
         },
         {
+          "name": "minecraft:dead_bush",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -199,8 +200,7 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:dead_bush"
+          ]
         }
       ]
     },
@@ -208,6 +208,7 @@
       "rolls": 3,
       "entries": [
         {
+          "name": "minecraft:bone",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -219,10 +220,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:bone"
+          ]
         },
         {
+          "name": "minecraft:gunpowder",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -234,10 +235,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gunpowder"
+          ]
         },
         {
+          "name": "minecraft:rotten_flesh",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -249,10 +250,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:rotten_flesh"
+          ]
         },
         {
+          "name": "minecraft:stick",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -264,10 +265,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:stick"
+          ]
         },
         {
+          "name": "minecraft:string",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -279,10 +280,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:string"
+          ]
         },
         {
+          "name": "minecraft:sand",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -294,10 +295,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:sand"
+          ]
         },
         {
+          "name": "minecraft:cobweb",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -309,8 +310,7 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:cobweb"
+          ]
         }
       ]
     }

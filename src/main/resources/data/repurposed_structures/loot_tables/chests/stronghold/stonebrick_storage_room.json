@@ -9,6 +9,7 @@
       },
       "entries": [
         {
+          "name": "minecraft:bread",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -20,10 +21,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:bread"
+          ]
         },
         {
+          "name": "minecraft:apple",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -35,10 +36,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:apple"
+          ]
         },
         {
+          "name": "minecraft:coal",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -50,10 +51,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:coal"
+          ]
         },
         {
+          "name": "minecraft:iron_ingot",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -65,10 +66,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:iron_ingot"
+          ]
         },
         {
+          "name": "minecraft:gold_ingot",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -80,10 +81,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gold_ingot"
+          ]
         },
         {
+          "name": "minecraft:redstone",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -95,10 +96,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:redstone"
+          ]
         },
         {
+          "name": "minecraft:cobweb",
           "type": "minecraft:item",
           "weight": 4,
           "functions": [
@@ -110,10 +111,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:cobweb"
+          ]
         },
         {
+          "name": "minecraft:bone",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -125,30 +126,30 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:bone"
+          ]
         },
         {
+          "name": "minecraft:golden_apple",
           "type": "minecraft:item",
-          "weight": 1,
-          "name": "minecraft:golden_apple"
+          "weight": 1
         },
         {
+          "name": "minecraft:iron_pickaxe",
           "type": "minecraft:item",
-          "weight": 1,
-          "name": "minecraft:iron_pickaxe"
+          "weight": 1
         },
         {
+          "name": "minecraft:iron_pickaxe",
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
             }
-          ],
-          "name": "minecraft:iron_pickaxe"
+          ]
         },
         {
+          "name": "minecraft:book",
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
@@ -157,8 +158,7 @@
               "levels": 30,
               "treasure": true
             }
-          ],
-          "name": "minecraft:book"
+          ]
         }
       ]
     }

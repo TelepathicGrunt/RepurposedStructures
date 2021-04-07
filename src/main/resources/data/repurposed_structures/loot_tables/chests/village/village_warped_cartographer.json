@@ -5,6 +5,7 @@
       "rolls": 1,
       "entries": [
         {
+          "name": "minecraft:map",
           "type": "minecraft:item",
           "weight": 25,
           "functions": [
@@ -15,10 +16,10 @@
               "zoom": 2,
               "skip_existing_chunks": true
             }
-          ],
-          "name": "minecraft:map"
+          ]
         },
         {
+          "name": "minecraft:map",
           "type": "minecraft:item",
           "weight": 25,
           "functions": [
@@ -29,10 +30,10 @@
               "zoom": 2,
               "skip_existing_chunks": true
             }
-          ],
-          "name": "minecraft:map"
+          ]
         },
         {
+          "name": "minecraft:map",
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
@@ -43,8 +44,7 @@
               "zoom": 4,
               "skip_existing_chunks": true
             }
-          ],
-          "name": "minecraft:map"
+          ]
         }
       ]
     },
@@ -56,6 +56,7 @@
       },
       "entries": [
         {
+          "name": "minecraft:map",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -67,10 +68,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:map"
+          ]
         },
         {
+          "name": "minecraft:paper",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -82,15 +83,15 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:paper"
+          ]
         },
         {
+          "name": "minecraft:compass",
           "type": "minecraft:item",
-          "weight": 8,
-          "name": "minecraft:compass"
+          "weight": 8
         },
         {
+          "name": "minecraft:nether_wart",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -102,10 +103,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:nether_wart"
+          ]
         },
         {
+          "name": "minecraft:redstone",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -117,8 +118,7 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:redstone"
+          ]
         }
       ]
     }

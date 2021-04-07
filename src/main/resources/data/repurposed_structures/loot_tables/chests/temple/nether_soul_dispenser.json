@@ -9,6 +9,7 @@
       },
       "entries": [
         {
+          "name": "minecraft:tipped_arrow",
           "type": "minecraft:item",
           "weight": 30,
           "functions": [
@@ -24,10 +25,10 @@
               "function": "minecraft:set_nbt",
               "tag": "{Potion:\"minecraft:long_slowness\"}"
             }
-          ],
-          "name": "minecraft:tipped_arrow"
+          ]
         },
         {
+          "name": "minecraft:fire_charge",
           "type": "minecraft:item",
           "weight": 20,
           "functions": [
@@ -39,8 +40,7 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:fire_charge"
+          ]
         }
       ]
     }

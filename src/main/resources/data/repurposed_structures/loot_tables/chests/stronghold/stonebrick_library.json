@@ -9,6 +9,7 @@
       },
       "entries": [
         {
+          "name": "minecraft:book",
           "type": "minecraft:item",
           "weight": 18,
           "functions": [
@@ -20,10 +21,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:book"
+          ]
         },
         {
+          "name": "minecraft:paper",
           "type": "minecraft:item",
           "weight": 18,
           "functions": [
@@ -35,10 +36,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:paper"
+          ]
         },
         {
+          "name": "minecraft:book",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -47,20 +48,20 @@
               "levels": 30,
               "treasure": true
             }
-          ],
-          "name": "minecraft:book"
+          ]
         },
         {
+          "name": "minecraft:map",
           "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:map"
+          "weight": 2
         },
         {
+          "name": "minecraft:compass",
           "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:compass"
+          "weight": 2
         },
         {
+          "name": "minecraft:map",
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
@@ -71,10 +72,10 @@
               "zoom": 3,
               "skip_existing_chunks": true
             }
-          ],
-          "name": "minecraft:map"
+          ]
         },
         {
+          "name": "minecraft:map",
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
@@ -85,8 +86,7 @@
               "zoom": 3,
               "skip_existing_chunks": true
             }
-          ],
-          "name": "minecraft:map"
+          ]
         }
       ]
     }

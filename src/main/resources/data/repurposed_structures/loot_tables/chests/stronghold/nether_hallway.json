@@ -9,6 +9,7 @@
       },
       "entries": [
         {
+          "name": "minecraft:gold_ingot",
           "type": "minecraft:item",
           "weight": 8,
           "functions": [
@@ -20,10 +21,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gold_ingot"
+          ]
         },
         {
+          "name": "minecraft:diamond",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -35,10 +36,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:diamond"
+          ]
         },
         {
+          "name": "minecraft:iron_ingot",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -50,10 +51,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:iron_ingot"
+          ]
         },
         {
+          "name": "minecraft:nether_wart",
           "type": "minecraft:item",
           "weight": 4,
           "functions": [
@@ -65,10 +66,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:nether_wart"
+          ]
         },
         {
+          "name": "minecraft:chain",
           "type": "minecraft:item",
           "weight": 4,
           "functions": [
@@ -80,10 +81,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:chain"
+          ]
         },
         {
+          "name": "minecraft:ender_pearl",
           "type": "minecraft:item",
           "weight": 4,
           "functions": [
@@ -95,35 +96,35 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:ender_pearl"
+          ]
         },
         {
+          "name": "minecraft:ender_eye",
           "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:ender_eye"
+          "weight": 2
         },
         {
+          "name": "minecraft:saddle",
           "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:saddle"
+          "weight": 2
         },
         {
+          "name": "minecraft:iron_horse_armor",
           "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:iron_horse_armor"
+          "weight": 2
         },
         {
+          "name": "minecraft:golden_horse_armor",
           "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:golden_horse_armor"
+          "weight": 2
         },
         {
+          "name": "minecraft:diamond_horse_armor",
           "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:diamond_horse_armor"
+          "weight": 2
         },
         {
+          "name": "minecraft:obsidian",
           "type": "minecraft:item",
           "weight": 2,
           "functions": [
@@ -135,105 +136,105 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:obsidian"
+          ]
         },
         {
+          "name": "minecraft:golden_sword",
           "type": "minecraft:item",
-          "weight": 1,
-          "name": "minecraft:golden_sword"
+          "weight": 1
         },
         {
+          "name": "minecraft:golden_chestplate",
           "type": "minecraft:item",
-          "weight": 1,
-          "name": "minecraft:golden_chestplate"
+          "weight": 1
         },
         {
+          "name": "minecraft:golden_boots",
           "type": "minecraft:item",
-          "weight": 1,
-          "name": "minecraft:golden_boots"
+          "weight": 1
         },
         {
+          "name": "minecraft:golden_helmet",
           "type": "minecraft:item",
-          "weight": 1,
-          "name": "minecraft:golden_helmet"
+          "weight": 1
         },
         {
+          "name": "minecraft:golden_leggings",
           "type": "minecraft:item",
-          "weight": 1,
-          "name": "minecraft:golden_leggings"
+          "weight": 1
         },
         {
-          "type": "minecraft:item",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "minecraft:enchant_randomly"
-            }
-          ],
-          "name": "minecraft:golden_sword"
-        },
-        {
+          "name": "minecraft:golden_sword",
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
             }
-          ],
-          "name": "minecraft:golden_chestplate"
+          ]
         },
         {
+          "name": "minecraft:golden_chestplate",
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
             }
-          ],
-          "name": "minecraft:golden_boots"
+          ]
         },
         {
+          "name": "minecraft:golden_boots",
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
             }
-          ],
-          "name": "minecraft:golden_helmet"
+          ]
         },
         {
+          "name": "minecraft:golden_helmet",
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
             }
-          ],
-          "name": "minecraft:golden_leggings"
+          ]
         },
         {
-          "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:flint_and_steel"
-        },
-        {
+          "name": "minecraft:golden_leggings",
           "type": "minecraft:item",
           "weight": 1,
-          "name": "minecraft:lodestone"
+          "functions": [
+            {
+              "function": "minecraft:enchant_randomly"
+            }
+          ]
         },
         {
+          "name": "minecraft:flint_and_steel",
           "type": "minecraft:item",
-          "weight": 1,
-          "name": "minecraft:music_disc_pigstep"
+          "weight": 2
         },
         {
+          "name": "minecraft:lodestone",
           "type": "minecraft:item",
-          "weight": 1,
-          "name": "minecraft:netherite_scrap"
+          "weight": 1
         },
         {
+          "name": "minecraft:music_disc_pigstep",
+          "type": "minecraft:item",
+          "weight": 1
+        },
+        {
+          "name": "minecraft:netherite_scrap",
+          "type": "minecraft:item",
+          "weight": 1
+        },
+        {
+          "name": "minecraft:book",
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
@@ -242,8 +243,7 @@
               "levels": 30,
               "treasure": true
             }
-          ],
-          "name": "minecraft:book"
+          ]
         }
       ]
     }

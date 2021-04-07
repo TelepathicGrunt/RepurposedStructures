@@ -9,6 +9,7 @@
       },
       "entries": [
         {
+          "name": "minecraft:leather",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -20,45 +21,30 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:leather"
+          ]
         },
         {
+          "name": "minecraft:leather_chestplate",
           "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:leather_chestplate"
+          "weight": 2
         },
         {
+          "name": "minecraft:leather_boots",
           "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:leather_boots"
+          "weight": 2
         },
         {
+          "name": "minecraft:leather_helmet",
           "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:leather_helmet"
+          "weight": 2
         },
         {
+          "name": "minecraft:leather_leggings",
           "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:leather_leggings"
+          "weight": 2
         },
         {
-          "type": "minecraft:item",
-          "weight": 3,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1.0,
-                "max": 4.0,
-                "type": "minecraft:uniform"
-              }
-            }
-          ],
-          "name": "minecraft:porkchop"
-        },
-        {
+          "name": "minecraft:porkchop",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -70,10 +56,25 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:cooked_porkchop"
+          ]
         },
         {
+          "name": "minecraft:cooked_porkchop",
+          "type": "minecraft:item",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 4.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ]
+        },
+        {
+          "name": "minecraft:nether_wart",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -85,15 +86,15 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:nether_wart"
+          ]
         },
         {
+          "name": "minecraft:saddle",
           "type": "minecraft:item",
-          "weight": 3,
-          "name": "minecraft:saddle"
+          "weight": 3
         },
         {
+          "name": "minecraft:gold_ingot",
           "type": "minecraft:item",
           "functions": [
             {
@@ -104,8 +105,7 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gold_ingot"
+          ]
         }
       ]
     }

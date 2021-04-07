@@ -9,6 +9,7 @@
       },
       "entries": [
         {
+          "name": "minecraft:iron_nugget",
           "type": "minecraft:item",
           "functions": [
             {
@@ -19,20 +20,20 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:iron_nugget"
+          ]
         },
         {
+          "name": "minecraft:coal",
           "type": "minecraft:item",
-          "weight": 4,
-          "name": "minecraft:coal"
+          "weight": 4
         },
         {
+          "name": "minecraft:grass",
           "type": "minecraft:item",
-          "weight": 4,
-          "name": "minecraft:grass"
+          "weight": 4
         },
         {
+          "name": "minecraft:sweet_berries",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -44,10 +45,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:sweet_berries"
+          ]
         },
         {
+          "name": "minecraft:bread",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -59,10 +60,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:bread"
+          ]
         },
         {
+          "name": "minecraft:carrot",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -74,30 +75,15 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:carrot"
+          ]
         },
         {
+          "name": "minecraft:stone_pickaxe",
           "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:stone_pickaxe"
+          "weight": 2
         },
         {
-          "type": "minecraft:item",
-          "weight": 5,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1.0,
-                "max": 2.0,
-                "type": "minecraft:uniform"
-              }
-            }
-          ],
-          "name": "minecraft:cobblestone"
-        },
-        {
+          "name": "minecraft:cobblestone",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -109,10 +95,25 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:stone_bricks"
+          ]
         },
         {
+          "name": "minecraft:stone_bricks",
+          "type": "minecraft:item",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 2.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ]
+        },
+        {
+          "name": "minecraft:emerald",
           "type": "minecraft:item",
           "weight": 2,
           "functions": [
@@ -124,10 +125,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:emerald"
+          ]
         },
         {
+          "name": "minecraft:spruce_sapling",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -139,8 +140,7 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:spruce_sapling"
+          ]
         }
       ]
     }
