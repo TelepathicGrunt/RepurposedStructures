@@ -9,8 +9,8 @@
       },
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "minecraft:crossbow"
+          "name": "minecraft:crossbow",
+          "type": "minecraft:item"
         }
       ]
     },
@@ -22,6 +22,7 @@
       },
       "entries": [
         {
+          "name": "minecraft:cookie",
           "type": "minecraft:item",
           "weight": 7,
           "functions": [
@@ -33,10 +34,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:cookie"
+          ]
         },
         {
+          "name": "minecraft:rabbit",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -48,13 +49,12 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:rabbit"
+          ]
         },
         {
+          "name": "minecraft:cake",
           "type": "minecraft:item",
-          "weight": 3,
-          "name": "minecraft:cake"
+          "weight": 3
         }
       ]
     },
@@ -66,6 +66,7 @@
       },
       "entries": [
         {
+          "name": "minecraft:blue_ice",
           "type": "minecraft:item",
           "functions": [
             {
@@ -76,8 +77,7 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:blue_ice"
+          ]
         }
       ]
     },
@@ -89,11 +89,12 @@
       },
       "entries": [
         {
+          "name": "minecraft:experience_bottle",
           "type": "minecraft:item",
-          "weight": 7,
-          "name": "minecraft:experience_bottle"
+          "weight": 7
         },
         {
+          "name": "minecraft:string",
           "type": "minecraft:item",
           "weight": 4,
           "functions": [
@@ -105,10 +106,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:string"
+          ]
         },
         {
+          "name": "minecraft:arrow",
           "type": "minecraft:item",
           "weight": 4,
           "functions": [
@@ -120,10 +121,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:arrow"
+          ]
         },
         {
+          "name": "minecraft:tripwire_hook",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -135,10 +136,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:tripwire_hook"
+          ]
         },
         {
+          "name": "minecraft:iron_ingot",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -150,17 +151,16 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:iron_ingot"
+          ]
         },
         {
+          "name": "minecraft:book",
           "type": "minecraft:item",
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
             }
-          ],
-          "name": "minecraft:book"
+          ]
         }
       ]
     }

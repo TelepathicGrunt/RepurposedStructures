@@ -9,6 +9,7 @@
       },
       "entries": [
         {
+          "name": "minecraft:gold_ingot",
           "type": "minecraft:item",
           "weight": 8,
           "functions": [
@@ -20,10 +21,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gold_ingot"
+          ]
         },
         {
+          "name": "minecraft:diamond",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -35,10 +36,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:diamond"
+          ]
         },
         {
+          "name": "minecraft:iron_ingot",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -50,20 +51,20 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:iron_ingot"
+          ]
         },
         {
+          "name": "minecraft:golden_sword",
           "type": "minecraft:item",
-          "weight": 4,
-          "name": "minecraft:golden_sword"
+          "weight": 4
         },
         {
+          "name": "minecraft:golden_chestplate",
           "type": "minecraft:item",
-          "weight": 4,
-          "name": "minecraft:golden_chestplate"
+          "weight": 4
         },
         {
+          "name": "minecraft:nether_wart",
           "type": "minecraft:item",
           "weight": 4,
           "functions": [
@@ -75,10 +76,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:nether_wart"
+          ]
         },
         {
+          "name": "minecraft:blaze_rod",
           "type": "minecraft:item",
           "weight": 4,
           "functions": [
@@ -90,10 +91,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:blaze_rod"
+          ]
         },
         {
+          "name": "minecraft:ghast_tear",
           "type": "minecraft:item",
           "weight": 4,
           "functions": [
@@ -105,10 +106,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:ghast_tear"
+          ]
         },
         {
+          "name": "minecraft:chiseled_polished_blackstone",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -120,50 +121,35 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:chiseled_polished_blackstone"
+          ]
         },
         {
+          "name": "minecraft:ender_eye",
           "type": "minecraft:item",
-          "weight": 3,
-          "name": "minecraft:ender_eye"
+          "weight": 3
         },
         {
+          "name": "minecraft:saddle",
           "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:saddle"
+          "weight": 2
         },
         {
+          "name": "minecraft:golden_horse_armor",
           "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:golden_horse_armor"
+          "weight": 2
         },
         {
+          "name": "minecraft:iron_horse_armor",
           "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:iron_horse_armor"
+          "weight": 2
         },
         {
+          "name": "minecraft:diamond_horse_armor",
           "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:diamond_horse_armor"
+          "weight": 2
         },
         {
-          "type": "minecraft:item",
-          "weight": 2,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 2.0,
-                "max": 8.0,
-                "type": "minecraft:uniform"
-              }
-            }
-          ],
-          "name": "minecraft:obsidian"
-        },
-        {
+          "name": "minecraft:obsidian",
           "type": "minecraft:item",
           "weight": 2,
           "functions": [
@@ -175,13 +161,27 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:chain"
+          ]
         },
         {
+          "name": "minecraft:chain",
           "type": "minecraft:item",
-          "weight": 1,
-          "name": "minecraft:netherite_scrap"
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2.0,
+                "max": 8.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ]
+        },
+        {
+          "name": "minecraft:netherite_scrap",
+          "type": "minecraft:item",
+          "weight": 1
         }
       ]
     }

@@ -9,6 +9,7 @@
       },
       "entries": [
         {
+          "name": "minecraft:gold_ingot",
           "type": "minecraft:item",
           "functions": [
             {
@@ -19,10 +20,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gold_ingot"
+          ]
         },
         {
+          "name": "minecraft:gold_nugget",
           "type": "minecraft:item",
           "weight": 4,
           "functions": [
@@ -34,10 +35,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gold_nugget"
+          ]
         },
         {
+          "name": "minecraft:gilded_blackstone",
           "type": "minecraft:item",
           "weight": 4,
           "functions": [
@@ -49,10 +50,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gilded_blackstone"
+          ]
         },
         {
+          "name": "minecraft:nether_gold_ore",
           "type": "minecraft:item",
           "weight": 4,
           "functions": [
@@ -64,10 +65,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:nether_gold_ore"
+          ]
         },
         {
+          "name": "minecraft:light_weighted_pressure_plate",
           "type": "minecraft:item",
           "weight": 2,
           "functions": [
@@ -79,10 +80,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:light_weighted_pressure_plate"
+          ]
         },
         {
+          "name": "minecraft:nether_wart",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -94,10 +95,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:nether_wart"
+          ]
         },
         {
+          "name": "minecraft:warped_fungus",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -109,10 +110,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:warped_fungus"
+          ]
         },
         {
+          "name": "minecraft:porkchop",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -124,10 +125,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:porkchop"
+          ]
         },
         {
+          "name": "minecraft:cooked_porkchop",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -139,18 +140,18 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:cooked_porkchop"
+          ]
         },
         {
-          "type": "minecraft:item",
-          "name": "minecraft:gold_block"
+          "name": "minecraft:gold_block",
+          "type": "minecraft:item"
         },
         {
-          "type": "minecraft:item",
-          "name": "minecraft:golden_sword"
+          "name": "minecraft:golden_sword",
+          "type": "minecraft:item"
         },
         {
+          "name": "minecraft:warped_wart_block",
           "type": "minecraft:item",
           "weight": 2,
           "functions": [
@@ -162,10 +163,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:warped_wart_block"
+          ]
         },
         {
+          "name": "minecraft:warped_roots",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -177,8 +178,7 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:warped_roots"
+          ]
         }
       ]
     }

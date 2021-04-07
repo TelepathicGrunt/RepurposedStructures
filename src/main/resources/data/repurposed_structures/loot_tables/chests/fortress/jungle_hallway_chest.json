@@ -9,6 +9,7 @@
       },
       "entries": [
         {
+          "name": "minecraft:diamond",
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
@@ -20,10 +21,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:diamond"
+          ]
         },
         {
+          "name": "minecraft:iron_ingot",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -35,10 +36,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:iron_ingot"
+          ]
         },
         {
+          "name": "minecraft:gold_ingot",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -50,10 +51,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gold_ingot"
+          ]
         },
         {
+          "name": "minecraft:emerald",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -65,10 +66,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:emerald"
+          ]
         },
         {
+          "name": "minecraft:cocoa_beans",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -80,10 +81,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:cocoa_beans"
+          ]
         },
         {
+          "name": "minecraft:iron_bars",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -95,10 +96,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:iron_bars"
+          ]
         },
         {
+          "name": "minecraft:stone_bricks",
           "type": "minecraft:item",
           "weight": 4,
           "functions": [
@@ -110,10 +111,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:stone_bricks"
+          ]
         },
         {
+          "name": "minecraft:mossy_stone_bricks",
           "type": "minecraft:item",
           "weight": 4,
           "functions": [
@@ -125,25 +126,25 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:mossy_stone_bricks"
+          ]
         },
         {
+          "name": "minecraft:saddle",
           "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:saddle"
+          "weight": 2
         },
         {
+          "name": "minecraft:bread",
           "type": "minecraft:item",
-          "weight": 3,
-          "name": "minecraft:bread"
+          "weight": 3
         },
         {
+          "name": "minecraft:bamboo",
           "type": "minecraft:item",
-          "weight": 3,
-          "name": "minecraft:bamboo"
+          "weight": 3
         },
         {
+          "name": "minecraft:chain",
           "type": "minecraft:item",
           "weight": 2,
           "functions": [
@@ -155,11 +156,11 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:chain"
+          ]
         },
         {
           "weight": 10,
+          "name": "minecraft:cobweb",
           "type": "minecraft:item",
           "functions": [
             {
@@ -170,11 +171,11 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:cobweb"
+          ]
         },
         {
           "weight": 10,
+          "name": "minecraft:bone",
           "type": "minecraft:item",
           "functions": [
             {
@@ -185,11 +186,11 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:bone"
+          ]
         },
         {
           "weight": 10,
+          "name": "minecraft:vine",
           "type": "minecraft:item",
           "functions": [
             {
@@ -200,31 +201,15 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:vine"
+          ]
         },
         {
+          "name": "minecraft:stone_sword",
           "type": "minecraft:item",
-          "weight": 12,
-          "name": "minecraft:stone_sword"
+          "weight": 12
         },
         {
-          "type": "minecraft:item",
-          "weight": 5,
-          "functions": [
-            {
-              "function": "minecraft:enchant_with_levels",
-              "levels": {
-                "min": -10.0,
-                "max": 5.0,
-                "type": "minecraft:uniform"
-              },
-              "treasure": true
-            }
-          ],
-          "name": "minecraft:leather_boots"
-        },
-        {
+          "name": "minecraft:leather_boots",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -237,10 +222,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:leather_chestplate"
+          ]
         },
         {
+          "name": "minecraft:leather_chestplate",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -253,10 +238,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:leather_leggings"
+          ]
         },
         {
+          "name": "minecraft:leather_leggings",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -269,73 +254,88 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:leather_helmet"
+          ]
         },
         {
+          "name": "minecraft:leather_helmet",
           "type": "minecraft:item",
           "weight": 5,
-          "name": "minecraft:chainmail_boots"
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "min": -10.0,
+                "max": 5.0,
+                "type": "minecraft:uniform"
+              },
+              "treasure": true
+            }
+          ]
         },
         {
+          "name": "minecraft:chainmail_boots",
           "type": "minecraft:item",
-          "weight": 5,
-          "name": "minecraft:chainmail_chestplate"
+          "weight": 5
         },
         {
+          "name": "minecraft:chainmail_chestplate",
           "type": "minecraft:item",
-          "weight": 5,
-          "name": "minecraft:chainmail_leggings"
+          "weight": 5
         },
         {
+          "name": "minecraft:chainmail_leggings",
           "type": "minecraft:item",
-          "weight": 5,
-          "name": "minecraft:chainmail_helmet"
+          "weight": 5
         },
         {
+          "name": "minecraft:chainmail_helmet",
           "type": "minecraft:item",
-          "weight": 3,
-          "name": "minecraft:stone_pickaxe"
+          "weight": 5
         },
         {
+          "name": "minecraft:stone_pickaxe",
           "type": "minecraft:item",
-          "weight": 3,
-          "name": "minecraft:stone_shovel"
+          "weight": 3
         },
         {
+          "name": "minecraft:stone_shovel",
           "type": "minecraft:item",
-          "weight": 5,
-          "name": "minecraft:iron_sword"
+          "weight": 3
         },
         {
+          "name": "minecraft:iron_sword",
           "type": "minecraft:item",
-          "weight": 3,
-          "name": "minecraft:iron_boots"
+          "weight": 5
         },
         {
+          "name": "minecraft:iron_boots",
           "type": "minecraft:item",
-          "weight": 3,
-          "name": "minecraft:iron_chestplate"
+          "weight": 3
         },
         {
+          "name": "minecraft:iron_chestplate",
           "type": "minecraft:item",
-          "weight": 3,
-          "name": "minecraft:iron_leggings"
+          "weight": 3
         },
         {
+          "name": "minecraft:iron_leggings",
           "type": "minecraft:item",
-          "weight": 3,
-          "name": "minecraft:iron_helmet"
+          "weight": 3
         },
         {
+          "name": "minecraft:iron_helmet",
           "type": "minecraft:item",
-          "weight": 1,
-          "name": "minecraft:iron_pickaxe"
+          "weight": 3
         },
         {
+          "name": "minecraft:iron_pickaxe",
           "type": "minecraft:item",
-          "weight": 1,
-          "name": "minecraft:iron_shovel"
+          "weight": 1
+        },
+        {
+          "name": "minecraft:iron_shovel",
+          "type": "minecraft:item",
+          "weight": 1
         }
       ]
     }

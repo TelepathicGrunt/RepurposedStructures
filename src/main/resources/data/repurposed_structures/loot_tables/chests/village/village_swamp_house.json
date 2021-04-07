@@ -9,6 +9,7 @@
       },
       "entries": [
         {
+          "name": "minecraft:iron_nugget",
           "type": "minecraft:item",
           "functions": [
             {
@@ -19,35 +20,20 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:iron_nugget"
+          ]
         },
         {
+          "name": "minecraft:vine",
           "type": "minecraft:item",
-          "weight": 4,
-          "name": "minecraft:vine"
+          "weight": 4
         },
         {
+          "name": "minecraft:blue_orchid",
           "type": "minecraft:item",
-          "weight": 4,
-          "name": "minecraft:blue_orchid"
+          "weight": 4
         },
         {
-          "type": "minecraft:item",
-          "weight": 10,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1.0,
-                "max": 4.0,
-                "type": "minecraft:uniform"
-              }
-            }
-          ],
-          "name": "minecraft:bread"
-        },
-        {
+          "name": "minecraft:bread",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -59,23 +45,38 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:carrot"
+          ]
         },
         {
+          "name": "minecraft:carrot",
           "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:slime_ball"
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 4.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ]
         },
         {
+          "name": "minecraft:slime_ball",
           "type": "minecraft:item",
-          "name": "minecraft:brown_terracotta"
+          "weight": 2
         },
         {
-          "type": "minecraft:item",
-          "name": "minecraft:gray_terracotta"
+          "name": "minecraft:brown_terracotta",
+          "type": "minecraft:item"
         },
         {
+          "name": "minecraft:gray_terracotta",
+          "type": "minecraft:item"
+        },
+        {
+          "name": "minecraft:clay_ball",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -87,10 +88,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:clay_ball"
+          ]
         },
         {
+          "name": "minecraft:emerald",
           "type": "minecraft:item",
           "weight": 2,
           "functions": [
@@ -102,10 +103,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:emerald"
+          ]
         },
         {
+          "name": "minecraft:oak_sapling",
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
@@ -117,8 +118,7 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:oak_sapling"
+          ]
         }
       ]
     }

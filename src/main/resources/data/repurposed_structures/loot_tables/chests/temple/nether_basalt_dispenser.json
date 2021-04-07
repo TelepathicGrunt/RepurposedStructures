@@ -9,6 +9,7 @@
       },
       "entries": [
         {
+          "name": "minecraft:tipped_arrow",
           "type": "minecraft:item",
           "weight": 30,
           "functions": [
@@ -24,8 +25,7 @@
               "function": "minecraft:set_nbt",
               "tag": "{Potion:\"minecraft:long_weakness\"}"
             }
-          ],
-          "name": "minecraft:tipped_arrow"
+          ]
         }
       ]
     }

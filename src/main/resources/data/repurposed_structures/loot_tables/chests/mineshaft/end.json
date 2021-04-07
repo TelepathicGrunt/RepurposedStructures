@@ -9,30 +9,31 @@
       },
       "entries": [
         {
+          "name": "minecraft:phantom_membrane",
           "type": "minecraft:item",
-          "weight": 20,
-          "name": "minecraft:phantom_membrane"
+          "weight": 20
         },
         {
+          "name": "minecraft:dragon_breath",
           "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:dragon_breath"
+          "weight": 2
         },
         {
+          "name": "minecraft:experience_bottle",
           "type": "minecraft:item",
-          "weight": 1,
-          "name": "minecraft:experience_bottle"
+          "weight": 1
         },
         {
-          "type": "minecraft:item",
-          "name": "minecraft:enchanted_golden_apple"
+          "name": "minecraft:enchanted_golden_apple",
+          "type": "minecraft:item"
         },
         {
+          "name": "minecraft:name_tag",
           "type": "minecraft:item",
-          "weight": 30,
-          "name": "minecraft:name_tag"
+          "weight": 30
         },
         {
+          "name": "minecraft:book",
           "type": "minecraft:item",
           "weight": 20,
           "functions": [
@@ -45,10 +46,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:book"
+          ]
         },
         {
+          "name": "minecraft:diamond_boots",
           "type": "minecraft:item",
           "weight": 2,
           "functions": [
@@ -61,10 +62,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:diamond_boots"
+          ]
         },
         {
+          "name": "minecraft:diamond_chestplate",
           "type": "minecraft:item",
           "weight": 2,
           "functions": [
@@ -77,10 +78,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:diamond_chestplate"
+          ]
         },
         {
+          "name": "minecraft:diamond_leggings",
           "type": "minecraft:item",
           "weight": 2,
           "functions": [
@@ -93,10 +94,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:diamond_leggings"
+          ]
         },
         {
+          "name": "minecraft:diamond_helmet",
           "type": "minecraft:item",
           "weight": 2,
           "functions": [
@@ -109,10 +110,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:diamond_helmet"
+          ]
         },
         {
+          "name": "minecraft:diamond_pickaxe",
           "type": "minecraft:item",
           "weight": 2,
           "functions": [
@@ -125,10 +126,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:diamond_pickaxe"
+          ]
         },
         {
+          "name": "minecraft:diamond_shovel",
           "type": "minecraft:item",
           "weight": 2,
           "functions": [
@@ -141,10 +142,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:diamond_shovel"
+          ]
         },
         {
+          "name": "minecraft:iron_boots",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -157,10 +158,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:iron_boots"
+          ]
         },
         {
+          "name": "minecraft:iron_chestplate",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -173,10 +174,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:iron_chestplate"
+          ]
         },
         {
+          "name": "minecraft:iron_leggings",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -189,10 +190,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:iron_leggings"
+          ]
         },
         {
+          "name": "minecraft:iron_helmet",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -205,10 +206,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:iron_helmet"
+          ]
         },
         {
+          "name": "minecraft:iron_pickaxe",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -221,10 +222,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:iron_pickaxe"
+          ]
         },
         {
+          "name": "minecraft:iron_shovel",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -237,8 +238,7 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:iron_shovel"
+          ]
         }
       ]
     },
@@ -250,6 +250,7 @@
       },
       "entries": [
         {
+          "name": "minecraft:diamond",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -261,10 +262,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:diamond"
+          ]
         },
         {
+          "name": "minecraft:iron_ingot",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -276,10 +277,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:iron_ingot"
+          ]
         },
         {
+          "name": "minecraft:gold_ingot",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -291,10 +292,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gold_ingot"
+          ]
         },
         {
+          "name": "minecraft:emerald",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -306,10 +307,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:emerald"
+          ]
         },
         {
+          "name": "minecraft:popped_chorus_fruit",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -321,10 +322,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:popped_chorus_fruit"
+          ]
         },
         {
+          "name": "minecraft:chorus_fruit",
           "type": "minecraft:item",
           "weight": 7,
           "functions": [
@@ -336,10 +337,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:chorus_fruit"
+          ]
         },
         {
+          "name": "minecraft:chorus_flower",
           "type": "minecraft:item",
           "weight": 12,
           "functions": [
@@ -351,10 +352,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:chorus_flower"
+          ]
         },
         {
+          "name": "minecraft:chorus_plant",
           "type": "minecraft:item",
           "weight": 12,
           "functions": [
@@ -366,10 +367,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:chorus_plant"
+          ]
         },
         {
+          "name": "minecraft:beetroot_seeds",
           "type": "minecraft:item",
           "weight": 7,
           "functions": [
@@ -381,10 +382,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:beetroot_seeds"
+          ]
         },
         {
+          "name": "minecraft:purpur_block",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -396,8 +397,7 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:purpur_block"
+          ]
         }
       ]
     },
@@ -405,6 +405,7 @@
       "rolls": 3,
       "entries": [
         {
+          "name": "minecraft:rail",
           "type": "minecraft:item",
           "weight": 20,
           "functions": [
@@ -416,10 +417,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:rail"
+          ]
         },
         {
+          "name": "minecraft:powered_rail",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -431,10 +432,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:powered_rail"
+          ]
         },
         {
+          "name": "minecraft:detector_rail",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -446,10 +447,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:detector_rail"
+          ]
         },
         {
+          "name": "minecraft:activator_rail",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -461,10 +462,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:activator_rail"
+          ]
         },
         {
+          "name": "minecraft:end_rod",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -476,8 +477,7 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:end_rod"
+          ]
         }
       ]
     }

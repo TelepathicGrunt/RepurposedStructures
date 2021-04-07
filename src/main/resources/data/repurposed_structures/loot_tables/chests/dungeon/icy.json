@@ -9,51 +9,52 @@
       },
       "entries": [
         {
+          "name": "minecraft:saddle",
           "type": "minecraft:item",
-          "weight": 20,
-          "name": "minecraft:saddle"
+          "weight": 20
         },
         {
+          "name": "minecraft:golden_apple",
           "type": "minecraft:item",
-          "weight": 15,
-          "name": "minecraft:golden_apple"
+          "weight": 15
         },
         {
+          "name": "minecraft:enchanted_golden_apple",
           "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:enchanted_golden_apple"
+          "weight": 2
         },
         {
+          "name": "minecraft:music_disc_strad",
           "type": "minecraft:item",
-          "weight": 5,
-          "name": "minecraft:music_disc_strad"
+          "weight": 5
         },
         {
+          "name": "minecraft:music_disc_wait",
           "type": "minecraft:item",
-          "weight": 25,
-          "name": "minecraft:music_disc_wait"
+          "weight": 25
         },
         {
+          "name": "minecraft:name_tag",
           "type": "minecraft:item",
-          "weight": 20,
-          "name": "minecraft:name_tag"
+          "weight": 20
         },
         {
+          "name": "minecraft:golden_horse_armor",
           "type": "minecraft:item",
-          "weight": 10,
-          "name": "minecraft:golden_horse_armor"
+          "weight": 10
         },
         {
+          "name": "minecraft:iron_horse_armor",
           "type": "minecraft:item",
-          "weight": 15,
-          "name": "minecraft:iron_horse_armor"
+          "weight": 15
         },
         {
+          "name": "minecraft:diamond_horse_armor",
           "type": "minecraft:item",
-          "weight": 5,
-          "name": "minecraft:diamond_horse_armor"
+          "weight": 5
         },
         {
+          "name": "minecraft:bow",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -66,18 +67,17 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:bow"
+          ]
         },
         {
+          "name": "minecraft:book",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
             }
-          ],
-          "name": "minecraft:book"
+          ]
         }
       ]
     },
@@ -89,6 +89,7 @@
       },
       "entries": [
         {
+          "name": "minecraft:iron_ingot",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -100,10 +101,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:iron_ingot"
+          ]
         },
         {
+          "name": "minecraft:lapis_lazuli",
           "type": "minecraft:item",
           "weight": 13,
           "functions": [
@@ -115,10 +116,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:lapis_lazuli"
+          ]
         },
         {
+          "name": "minecraft:cookie",
           "type": "minecraft:item",
           "weight": 28,
           "functions": [
@@ -130,15 +131,15 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:cookie"
+          ]
         },
         {
+          "name": "minecraft:bucket",
           "type": "minecraft:item",
-          "weight": 10,
-          "name": "minecraft:bucket"
+          "weight": 10
         },
         {
+          "name": "minecraft:tipped_arrow",
           "type": "minecraft:item",
           "weight": 9,
           "functions": [
@@ -154,10 +155,10 @@
               "function": "minecraft:set_nbt",
               "tag": "{Potion:\"minecraft:long_slowness\"}"
             }
-          ],
-          "name": "minecraft:tipped_arrow"
+          ]
         },
         {
+          "name": "minecraft:tipped_arrow",
           "type": "minecraft:item",
           "weight": 9,
           "functions": [
@@ -173,10 +174,10 @@
               "function": "minecraft:set_nbt",
               "tag": "{Potion:\"minecraft:strong_slowness\"}"
             }
-          ],
-          "name": "minecraft:tipped_arrow"
+          ]
         },
         {
+          "name": "minecraft:light_blue_dye",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -188,10 +189,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:light_blue_dye"
+          ]
         },
         {
+          "name": "minecraft:light_gray_dye",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -203,8 +204,7 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:light_gray_dye"
+          ]
         }
       ]
     },
@@ -212,6 +212,7 @@
       "rolls": 3,
       "entries": [
         {
+          "name": "minecraft:bone",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -223,10 +224,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:bone"
+          ]
         },
         {
+          "name": "minecraft:gunpowder",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -238,10 +239,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gunpowder"
+          ]
         },
         {
+          "name": "minecraft:ice",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -253,10 +254,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:ice"
+          ]
         },
         {
+          "name": "minecraft:packed_ice",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -268,10 +269,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:packed_ice"
+          ]
         },
         {
+          "name": "minecraft:blue_ice",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -283,10 +284,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:blue_ice"
+          ]
         },
         {
+          "name": "minecraft:string",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -298,10 +299,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:string"
+          ]
         },
         {
+          "name": "minecraft:cobweb",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -313,8 +314,7 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:cobweb"
+          ]
         }
       ]
     }

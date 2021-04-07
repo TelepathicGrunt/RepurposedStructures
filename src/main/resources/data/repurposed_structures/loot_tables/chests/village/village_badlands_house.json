@@ -9,16 +9,17 @@
       },
       "entries": [
         {
+          "name": "minecraft:clay_ball",
           "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:clay_ball"
+          "weight": 2
         },
         {
+          "name": "minecraft:green_dye",
           "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:green_dye"
+          "weight": 2
         },
         {
+          "name": "minecraft:cactus",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -30,10 +31,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:cactus"
+          ]
         },
         {
+          "name": "minecraft:red_terracotta",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -45,10 +46,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:red_terracotta"
+          ]
         },
         {
+          "name": "minecraft:wheat",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -60,10 +61,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:wheat"
+          ]
         },
         {
+          "name": "minecraft:potato",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -75,14 +76,14 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:potato"
+          ]
         },
         {
-          "type": "minecraft:item",
-          "name": "minecraft:book"
+          "name": "minecraft:book",
+          "type": "minecraft:item"
         },
         {
+          "name": "minecraft:stick",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -94,10 +95,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:stick"
+          ]
         },
         {
+          "name": "minecraft:dead_bush",
           "type": "minecraft:item",
           "weight": 7,
           "functions": [
@@ -109,10 +110,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:dead_bush"
+          ]
         },
         {
+          "name": "minecraft:gold_nugget",
           "type": "minecraft:item",
           "weight": 2,
           "functions": [
@@ -124,10 +125,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gold_nugget"
+          ]
         },
         {
+          "name": "minecraft:gold_ingot",
           "type": "minecraft:item",
           "functions": [
             {
@@ -138,8 +139,7 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gold_ingot"
+          ]
         }
       ]
     }

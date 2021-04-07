@@ -9,6 +9,7 @@
       },
       "entries": [
         {
+          "name": "minecraft:sea_lantern",
           "type": "minecraft:item",
           "weight": 30,
           "functions": [
@@ -20,40 +21,40 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:sea_lantern"
+          ]
         },
         {
+          "name": "minecraft:enchanted_golden_apple",
           "type": "minecraft:item",
-          "weight": 1,
-          "name": "minecraft:enchanted_golden_apple"
+          "weight": 1
         },
         {
+          "name": "minecraft:heart_of_the_sea",
           "type": "minecraft:item",
-          "weight": 1,
-          "name": "minecraft:heart_of_the_sea"
+          "weight": 1
         },
         {
+          "name": "minecraft:name_tag",
           "type": "minecraft:item",
-          "weight": 35,
-          "name": "minecraft:name_tag"
+          "weight": 35
         },
         {
+          "name": "minecraft:book",
           "type": "minecraft:item",
           "weight": 20,
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
             }
-          ],
-          "name": "minecraft:book"
+          ]
         },
         {
+          "name": "minecraft:iron_pickaxe",
           "type": "minecraft:item",
-          "weight": 10,
-          "name": "minecraft:iron_pickaxe"
+          "weight": 10
         },
         {
+          "name": "minecraft:leather_helmet",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -63,10 +64,10 @@
                 "minecraft:aqua_affinity"
               ]
             }
-          ],
-          "name": "minecraft:leather_helmet"
+          ]
         },
         {
+          "name": "minecraft:leather_boots",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -76,10 +77,10 @@
                 "minecraft:depth_strider"
               ]
             }
-          ],
-          "name": "minecraft:leather_boots"
+          ]
         },
         {
+          "name": "minecraft:trident",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -89,8 +90,7 @@
                 "minecraft:riptide"
               ]
             }
-          ],
-          "name": "minecraft:trident"
+          ]
         }
       ]
     },
@@ -102,6 +102,7 @@
       },
       "entries": [
         {
+          "name": "minecraft:iron_ingot",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -113,10 +114,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:iron_ingot"
+          ]
         },
         {
+          "name": "minecraft:gold_ingot",
           "type": "minecraft:item",
           "weight": 7,
           "functions": [
@@ -128,10 +129,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gold_ingot"
+          ]
         },
         {
+          "name": "minecraft:redstone",
           "type": "minecraft:item",
           "weight": 7,
           "functions": [
@@ -143,10 +144,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:redstone"
+          ]
         },
         {
+          "name": "minecraft:lapis_lazuli",
           "type": "minecraft:item",
           "weight": 7,
           "functions": [
@@ -158,10 +159,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:lapis_lazuli"
+          ]
         },
         {
+          "name": "minecraft:diamond",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -173,10 +174,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:diamond"
+          ]
         },
         {
+          "name": "minecraft:coal",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -188,10 +189,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:coal"
+          ]
         },
         {
+          "name": "minecraft:kelp",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -203,10 +204,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:kelp"
+          ]
         },
         {
+          "name": "minecraft:dried_kelp",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -218,10 +219,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:dried_kelp"
+          ]
         },
         {
+          "name": "minecraft:prismarine_crystals",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -233,10 +234,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:prismarine_crystals"
+          ]
         },
         {
+          "name": "minecraft:prismarine_shard",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -248,10 +249,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:prismarine_shard"
+          ]
         },
         {
+          "name": "minecraft:nautilus_shell",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -263,8 +264,7 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:nautilus_shell"
+          ]
         }
       ]
     },
@@ -272,6 +272,7 @@
       "rolls": 3,
       "entries": [
         {
+          "name": "minecraft:rail",
           "type": "minecraft:item",
           "weight": 20,
           "functions": [
@@ -283,10 +284,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:rail"
+          ]
         },
         {
+          "name": "minecraft:powered_rail",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -298,10 +299,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:powered_rail"
+          ]
         },
         {
+          "name": "minecraft:detector_rail",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -313,10 +314,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:detector_rail"
+          ]
         },
         {
+          "name": "minecraft:activator_rail",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -328,15 +329,15 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:activator_rail"
+          ]
         },
         {
+          "name": "minecraft:oak_boat",
           "type": "minecraft:item",
-          "weight": 5,
-          "name": "minecraft:oak_boat"
+          "weight": 5
         },
         {
+          "name": "minecraft:torch",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -348,8 +349,7 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:torch"
+          ]
         }
       ]
     }

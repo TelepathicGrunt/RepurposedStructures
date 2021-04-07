@@ -9,6 +9,7 @@
       },
       "entries": [
         {
+          "name": "minecraft:fire_charge",
           "type": "minecraft:item",
           "weight": 20,
           "functions": [
@@ -20,10 +21,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:fire_charge"
+          ]
         },
         {
+          "name": "minecraft:obsidian",
           "type": "minecraft:item",
           "weight": 20,
           "functions": [
@@ -35,10 +36,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:obsidian"
+          ]
         },
         {
+          "name": "minecraft:crying_obsidian",
           "type": "minecraft:item",
           "weight": 20,
           "functions": [
@@ -50,10 +51,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:crying_obsidian"
+          ]
         },
         {
+          "name": "minecraft:flint",
           "type": "minecraft:item",
           "weight": 20,
           "functions": [
@@ -65,10 +66,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:flint"
+          ]
         },
         {
+          "name": "minecraft:popped_chorus_fruit",
           "type": "minecraft:item",
           "weight": 20,
           "functions": [
@@ -80,10 +81,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:popped_chorus_fruit"
+          ]
         },
         {
+          "name": "minecraft:golden_apple",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -95,10 +96,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:golden_apple"
+          ]
         },
         {
+          "name": "minecraft:gold_ingot",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -110,10 +111,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gold_ingot"
+          ]
         },
         {
+          "name": "minecraft:golden_sword",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -126,10 +127,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:golden_sword"
+          ]
         },
         {
+          "name": "minecraft:golden_axe",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -142,10 +143,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:golden_axe"
+          ]
         },
         {
+          "name": "minecraft:golden_hoe",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -158,10 +159,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:golden_hoe"
+          ]
         },
         {
+          "name": "minecraft:golden_shovel",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -174,10 +175,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:golden_shovel"
+          ]
         },
         {
+          "name": "minecraft:golden_pickaxe",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -190,10 +191,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:golden_pickaxe"
+          ]
         },
         {
+          "name": "minecraft:golden_boots",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -206,10 +207,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:golden_boots"
+          ]
         },
         {
+          "name": "minecraft:golden_chestplate",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -222,10 +223,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:golden_chestplate"
+          ]
         },
         {
+          "name": "minecraft:golden_helmet",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -238,10 +239,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:golden_helmet"
+          ]
         },
         {
+          "name": "minecraft:golden_leggings",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -254,10 +255,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:golden_leggings"
+          ]
         },
         {
+          "name": "minecraft:iron_block",
           "type": "minecraft:item",
           "weight": 12,
           "functions": [
@@ -269,15 +270,15 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:iron_block"
+          ]
         },
         {
+          "name": "minecraft:flint_and_steel",
           "type": "minecraft:item",
-          "weight": 8,
-          "name": "minecraft:flint_and_steel"
+          "weight": 8
         },
         {
+          "name": "minecraft:firework_star",
           "type": "minecraft:item",
           "weight": 8,
           "functions": [
@@ -293,10 +294,10 @@
               "function":"set_nbt",
               "tag":"{Explosion:{Colors:[I;8073150], FadeColors:[I;12801229], Trail:1b, Flicker:1b, Type:2b}}"
             }
-          ],
-          "name": "minecraft:firework_star"
+          ]
         },
         {
+          "name": "minecraft:gold_block",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -308,10 +309,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gold_block"
+          ]
         },
         {
+          "name": "minecraft:glistering_melon_slice",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -323,15 +324,15 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:glistering_melon_slice"
+          ]
         },
         {
+          "name": "minecraft:golden_horse_armor",
           "type": "minecraft:item",
-          "weight": 5,
-          "name": "minecraft:golden_horse_armor"
+          "weight": 5
         },
         {
+          "name": "minecraft:light_weighted_pressure_plate",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -343,10 +344,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:light_weighted_pressure_plate"
+          ]
         },
         {
+          "name": "minecraft:golden_carrot",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -358,15 +359,15 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:golden_carrot"
+          ]
         },
         {
+          "name": "minecraft:clock",
           "type": "minecraft:item",
-          "weight": 5,
-          "name": "minecraft:clock"
+          "weight": 5
         },
         {
+          "name": "minecraft:firework_star",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -382,10 +383,10 @@
               "function":"set_nbt",
               "tag":"{Explosion:{Colors:[I;12801229], FadeColors:[I;8073150], Trail:1b, Flicker:1b, Type:2b}}"
             }
-          ],
-          "name": "minecraft:firework_star"
+          ]
         },
         {
+          "name": "minecraft:gold_nugget",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -397,10 +398,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gold_nugget"
+          ]
         },
         {
+          "name": "minecraft:enchanted_golden_apple",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -412,20 +413,20 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:enchanted_golden_apple"
+          ]
         },
         {
+          "name": "minecraft:bell",
           "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:bell"
+          "weight": 2
         },
         {
+          "name": "minecraft:dragon_breath",
           "type": "minecraft:item",
-          "weight": 1,
-          "name": "minecraft:dragon_breath"
+          "weight": 1
         },
         {
+          "name": "minecraft:map",
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
@@ -436,8 +437,7 @@
               "zoom": 2,
               "skip_existing_chunks": true
             }
-          ],
-          "name": "minecraft:map"
+          ]
         }
       ]
     }

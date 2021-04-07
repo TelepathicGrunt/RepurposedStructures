@@ -9,6 +9,7 @@
       },
       "entries": [
         {
+          "name": "minecraft:coal",
           "type": "minecraft:item",
           "weight": 8,
           "functions": [
@@ -20,15 +21,15 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:coal"
+          ]
         },
         {
+          "name": "minecraft:golden_axe",
           "type": "minecraft:item",
-          "weight": 3,
-          "name": "minecraft:golden_axe"
+          "weight": 3
         },
         {
+          "name": "minecraft:rotten_flesh",
           "type": "minecraft:item",
           "weight": 7,
           "functions": [
@@ -40,10 +41,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:rotten_flesh"
+          ]
         },
         {
+          "name": "minecraft:gold_nugget",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -55,10 +56,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gold_nugget"
+          ]
         },
         {
+          "name": "minecraft:quartz",
           "type": "minecraft:item",
           "weight": 2,
           "functions": [
@@ -70,10 +71,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:quartz"
+          ]
         },
         {
+          "name": "minecraft:ghast_tear",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -85,8 +86,7 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:ghast_tear"
+          ]
         }
       ]
     },
@@ -94,36 +94,37 @@
       "rolls": 1,
       "entries": [
         {
+          "name": "minecraft:golden_apple",
           "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:golden_apple"
+          "weight": 2
         },
         {
+          "name": "minecraft:book",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
             }
-          ],
-          "name": "minecraft:book"
+          ]
         },
         {
+          "name": "minecraft:leather_chestplate",
           "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:leather_chestplate"
+          "weight": 2
         },
         {
+          "name": "minecraft:golden_helmet",
           "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:golden_helmet"
+          "weight": 2
         },
         {
+          "name": "minecraft:golden_chestplate",
           "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:golden_chestplate"
+          "weight": 2
         },
         {
+          "name": "minecraft:magma_cream",
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
@@ -135,10 +136,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:magma_cream"
+          ]
         },
         {
+          "name": "minecraft:map",
           "type": "minecraft:item",
           "weight": 2,
           "functions": [
@@ -149,8 +150,7 @@
               "zoom": 2,
               "skip_existing_chunks": true
             }
-          ],
-          "name": "minecraft:map"
+          ]
         }
       ]
     },
@@ -158,46 +158,47 @@
       "rolls": 1,
       "entries": [
         {
+          "name": "minecraft:warped_fungus_on_a_stick",
           "type": "minecraft:item",
-          "weight": 20,
-          "name": "minecraft:warped_fungus_on_a_stick"
+          "weight": 20
         },
         {
+          "name": "minecraft:book",
           "type": "minecraft:item",
           "weight": 16,
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
             }
-          ],
-          "name": "minecraft:book"
+          ]
         },
         {
+          "name": "minecraft:leather_helmet",
           "type": "minecraft:item",
-          "weight": 10,
-          "name": "minecraft:leather_helmet"
+          "weight": 10
         },
         {
+          "name": "minecraft:leather_chestplate",
           "type": "minecraft:item",
-          "weight": 10,
-          "name": "minecraft:leather_chestplate"
+          "weight": 10
         },
         {
+          "name": "minecraft:leather_leggings",
           "type": "minecraft:item",
-          "weight": 10,
-          "name": "minecraft:leather_leggings"
+          "weight": 10
         },
         {
+          "name": "minecraft:leather_boots",
           "type": "minecraft:item",
-          "weight": 10,
-          "name": "minecraft:leather_boots"
+          "weight": 10
         },
         {
+          "name": "minecraft:golden_apple",
           "type": "minecraft:item",
-          "weight": 5,
-          "name": "minecraft:golden_apple"
+          "weight": 5
         },
         {
+          "name": "minecraft:magma_cream",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -209,10 +210,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:magma_cream"
+          ]
         },
         {
+          "name": "minecraft:map",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -223,10 +224,10 @@
               "zoom": 3,
               "skip_existing_chunks": true
             }
-          ],
-          "name": "minecraft:map"
+          ]
         },
         {
+          "name": "minecraft:map",
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
@@ -237,8 +238,7 @@
               "zoom": 4,
               "skip_existing_chunks": true
             }
-          ],
-          "name": "minecraft:map"
+          ]
         }
       ]
     }

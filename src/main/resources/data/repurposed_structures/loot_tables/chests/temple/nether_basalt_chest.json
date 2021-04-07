@@ -9,6 +9,7 @@
       },
       "entries": [
         {
+          "name": "minecraft:gilded_blackstone",
           "type": "minecraft:item",
           "weight": 2,
           "functions": [
@@ -20,10 +21,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gilded_blackstone"
+          ]
         },
         {
+          "name": "minecraft:coal_block",
           "type": "minecraft:item",
           "weight": 8,
           "functions": [
@@ -35,15 +36,15 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:coal_block"
+          ]
         },
         {
+          "name": "minecraft:netherite_scrap",
           "type": "minecraft:item",
-          "weight": 1,
-          "name": "minecraft:netherite_scrap"
+          "weight": 1
         },
         {
+          "name": "minecraft:golden_sword",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -56,10 +57,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:golden_sword"
+          ]
         },
         {
+          "name": "minecraft:stone_sword",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -72,10 +73,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:stone_sword"
+          ]
         },
         {
+          "name": "minecraft:coal",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -87,10 +88,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:coal"
+          ]
         },
         {
+          "name": "minecraft:chain",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -102,10 +103,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:chain"
+          ]
         },
         {
+          "name": "minecraft:magma_block",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -117,10 +118,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:magma_block"
+          ]
         },
         {
+          "name": "minecraft:redstone",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -132,10 +133,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:redstone"
+          ]
         },
         {
+          "name": "minecraft:quartz_block",
           "type": "minecraft:item",
           "weight": 8,
           "functions": [
@@ -147,10 +148,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:quartz_block"
+          ]
         },
         {
+          "name": "minecraft:quartz",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -162,10 +163,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:quartz"
+          ]
         },
         {
+          "name": "minecraft:basalt",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -177,10 +178,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:basalt"
+          ]
         },
         {
+          "name": "minecraft:gold_nugget",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -192,15 +193,15 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gold_nugget"
+          ]
         },
         {
+          "name": "minecraft:golden_horse_armor",
           "type": "minecraft:item",
-          "weight": 5,
-          "name": "minecraft:golden_horse_armor"
+          "weight": 5
         },
         {
+          "name": "minecraft:book",
           "type": "minecraft:item",
           "weight": 2,
           "functions": [
@@ -209,10 +210,10 @@
               "levels": 30,
               "treasure": true
             }
-          ],
-          "name": "minecraft:book"
+          ]
         },
         {
+          "name": "minecraft:blackstone",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -224,8 +225,7 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:blackstone"
+          ]
         }
       ]
     }
