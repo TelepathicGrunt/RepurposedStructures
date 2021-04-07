@@ -9,26 +9,27 @@
       },
       "entries": [
         {
+          "name": "minecraft:elytra",
           "type": "minecraft:item",
-          "weight": 1,
-          "name": "minecraft:elytra"
+          "weight": 1
         },
         {
+          "name": "minecraft:end_crystal",
           "type": "minecraft:item",
-          "weight": 9,
-          "name": "minecraft:end_crystal"
+          "weight": 9
         },
         {
+          "name": "minecraft:shulker_shell",
           "type": "minecraft:item",
-          "weight": 40,
-          "name": "minecraft:shulker_shell"
+          "weight": 40
         },
         {
+          "name": "minecraft:enchanted_golden_apple",
           "type": "minecraft:item",
-          "weight": 40,
-          "name": "minecraft:enchanted_golden_apple"
+          "weight": 40
         },
         {
+          "name": "minecraft:phantom_membrane",
           "type": "minecraft:item",
           "weight": 40,
           "functions": [
@@ -40,10 +41,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:phantom_membrane"
+          ]
         },
         {
+          "name": "minecraft:experience_bottle",
           "type": "minecraft:item",
           "weight": 60,
           "functions": [
@@ -55,10 +56,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:experience_bottle"
+          ]
         },
         {
+          "name": "minecraft:obsidian",
           "type": "minecraft:item",
           "weight": 60,
           "functions": [
@@ -70,10 +71,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:obsidian"
+          ]
         },
         {
+          "name": "minecraft:purpur_block",
           "type": "minecraft:item",
           "weight": 60,
           "functions": [
@@ -85,10 +86,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:purpur_block"
+          ]
         },
         {
+          "name": "minecraft:diamond",
           "type": "minecraft:item",
           "weight": 100,
           "functions": [
@@ -100,10 +101,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:diamond"
+          ]
         },
         {
+          "name": "minecraft:emerald",
           "type": "minecraft:item",
           "weight": 100,
           "functions": [
@@ -115,14 +116,14 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:emerald"
+          ]
         },
         {
           "type": "minecraft:empty",
           "weight": 140
         },
         {
+          "name": "minecraft:book",
           "type": "minecraft:item",
           "weight": 160,
           "functions": [
@@ -135,8 +136,7 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:book"
+          ]
         }
       ]
     },
@@ -144,6 +144,7 @@
       "rolls": 4,
       "entries": [
         {
+          "name": "minecraft:purple_dye",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -155,10 +156,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:purple_dye"
+          ]
         },
         {
+          "name": "minecraft:ender_pearl",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -170,10 +171,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:ender_pearl"
+          ]
         },
         {
+          "name": "minecraft:chorus_fruit",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -185,10 +186,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:chorus_fruit"
+          ]
         },
         {
+          "name": "minecraft:ender_eye",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -200,10 +201,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:ender_eye"
+          ]
         },
         {
+          "name": "minecraft:obsidian",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -215,8 +216,7 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:obsidian"
+          ]
         }
       ]
     }

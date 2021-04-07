@@ -5,34 +5,34 @@
       "rolls": 1,
       "entries": [
         {
+          "name": "minecraft:golden_carrot",
           "type": "minecraft:item",
-          "weight": 20,
-          "name": "minecraft:golden_carrot"
+          "weight": 20
         },
         {
+          "name": "minecraft:totem_of_undying",
           "type": "minecraft:item",
-          "weight": 1,
-          "name": "minecraft:totem_of_undying"
+          "weight": 1
         },
         {
+          "name": "minecraft:name_tag",
           "type": "minecraft:item",
-          "weight": 30,
-          "name": "minecraft:name_tag"
+          "weight": 30
         },
         {
+          "name": "minecraft:book",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
             }
-          ],
-          "name": "minecraft:book"
+          ]
         },
         {
+          "name": "minecraft:iron_pickaxe",
           "type": "minecraft:item",
-          "weight": 5,
-          "name": "minecraft:iron_pickaxe"
+          "weight": 5
         },
         {
           "type": "minecraft:empty",
@@ -48,6 +48,7 @@
       },
       "entries": [
         {
+          "name": "minecraft:iron_ingot",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -59,10 +60,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:iron_ingot"
+          ]
         },
         {
+          "name": "minecraft:gold_ingot",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -74,10 +75,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gold_ingot"
+          ]
         },
         {
+          "name": "minecraft:redstone",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -89,10 +90,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:redstone"
+          ]
         },
         {
+          "name": "minecraft:lapis_lazuli",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -104,10 +105,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:lapis_lazuli"
+          ]
         },
         {
+          "name": "minecraft:diamond",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -119,10 +120,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:diamond"
+          ]
         },
         {
+          "name": "minecraft:emerald",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -134,10 +135,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:emerald"
+          ]
         },
         {
+          "name": "minecraft:coal",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -149,10 +150,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:coal"
+          ]
         },
         {
+          "name": "minecraft:apple",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -164,15 +165,15 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:apple"
+          ]
         },
         {
+          "name": "minecraft:mushroom_stew",
           "type": "minecraft:item",
-          "weight": 10,
-          "name": "minecraft:mushroom_stew"
+          "weight": 10
         },
         {
+          "name": "minecraft:suspicious_stew",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -223,10 +224,10 @@
                 }
               ]
             }
-          ],
-          "name": "minecraft:suspicious_stew"
+          ]
         },
         {
+          "name": "minecraft:pumpkin_seeds",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -238,10 +239,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:pumpkin_seeds"
+          ]
         },
         {
+          "name": "minecraft:pumpkin",
           "type": "minecraft:item",
           "weight": 7,
           "functions": [
@@ -253,10 +254,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:pumpkin"
+          ]
         },
         {
+          "name": "minecraft:carved_pumpkin",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -268,8 +269,7 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:carved_pumpkin"
+          ]
         }
       ]
     },
@@ -277,6 +277,7 @@
       "rolls": 3,
       "entries": [
         {
+          "name": "minecraft:rail",
           "type": "minecraft:item",
           "weight": 20,
           "functions": [
@@ -288,10 +289,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:rail"
+          ]
         },
         {
+          "name": "minecraft:powered_rail",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -303,10 +304,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:powered_rail"
+          ]
         },
         {
+          "name": "minecraft:detector_rail",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -318,10 +319,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:detector_rail"
+          ]
         },
         {
+          "name": "minecraft:activator_rail",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -333,10 +334,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:activator_rail"
+          ]
         },
         {
+          "name": "minecraft:torch",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -348,15 +349,15 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:torch"
+          ]
         },
         {
+          "name": "minecraft:dark_oak_boat",
           "type": "minecraft:item",
-          "weight": 5,
-          "name": "minecraft:dark_oak_boat"
+          "weight": 5
         },
         {
+          "name": "minecraft:slime_ball",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -368,8 +369,7 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:slime_ball"
+          ]
         }
       ]
     }

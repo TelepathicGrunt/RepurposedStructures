@@ -9,6 +9,7 @@
       },
       "entries": [
         {
+          "name": "minecraft:gold_block",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -20,15 +21,15 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gold_block"
+          ]
         },
         {
+          "name": "minecraft:netherite_scrap",
           "type": "minecraft:item",
-          "weight": 1,
-          "name": "minecraft:netherite_scrap"
+          "weight": 1
         },
         {
+          "name": "minecraft:golden_sword",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -41,10 +42,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:golden_sword"
+          ]
         },
         {
+          "name": "minecraft:stone_sword",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -57,10 +58,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:stone_sword"
+          ]
         },
         {
+          "name": "minecraft:gold_ingot",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -72,10 +73,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gold_ingot"
+          ]
         },
         {
+          "name": "minecraft:crimson_fungus",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -87,10 +88,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:crimson_fungus"
+          ]
         },
         {
+          "name": "minecraft:redstone",
           "type": "minecraft:item",
           "weight": 20,
           "functions": [
@@ -102,10 +103,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:redstone"
+          ]
         },
         {
+          "name": "minecraft:shroomlight",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -117,10 +118,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:shroomlight"
+          ]
         },
         {
+          "name": "minecraft:quartz",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -132,10 +133,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:quartz"
+          ]
         },
         {
+          "name": "minecraft:rotten_flesh",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -147,10 +148,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:rotten_flesh"
+          ]
         },
         {
+          "name": "minecraft:gold_nugget",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -162,15 +163,15 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gold_nugget"
+          ]
         },
         {
+          "name": "minecraft:golden_horse_armor",
           "type": "minecraft:item",
-          "weight": 5,
-          "name": "minecraft:golden_horse_armor"
+          "weight": 5
         },
         {
+          "name": "minecraft:book",
           "type": "minecraft:item",
           "weight": 2,
           "functions": [
@@ -179,10 +180,10 @@
               "levels": 30,
               "treasure": true
             }
-          ],
-          "name": "minecraft:book"
+          ]
         },
         {
+          "name": "minecraft:nether_wart_block",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -194,8 +195,7 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:nether_wart_block"
+          ]
         }
       ]
     }

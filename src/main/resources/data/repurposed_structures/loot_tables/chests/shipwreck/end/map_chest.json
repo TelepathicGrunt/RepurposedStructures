@@ -5,6 +5,7 @@
       "rolls": 1,
       "entries": [
         {
+          "name": "minecraft:map",
           "type": "minecraft:item",
           "functions": [
             {
@@ -14,8 +15,7 @@
               "zoom": 2,
               "skip_existing_chunks": true
             }
-          ],
-          "name": "minecraft:map"
+          ]
         }
       ]
     },
@@ -23,21 +23,22 @@
       "rolls": 10,
       "entries": [
         {
+          "name": "minecraft:compass",
           "type": "minecraft:item",
-          "weight": 3,
-          "name": "minecraft:compass"
+          "weight": 3
         },
         {
+          "name": "minecraft:map",
           "type": "minecraft:item",
-          "weight": 3,
-          "name": "minecraft:map"
+          "weight": 3
         },
         {
+          "name": "minecraft:clock",
           "type": "minecraft:item",
-          "weight": 3,
-          "name": "minecraft:clock"
+          "weight": 3
         },
         {
+          "name": "minecraft:paper",
           "type": "minecraft:item",
           "weight": 18,
           "functions": [
@@ -49,10 +50,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:paper"
+          ]
         },
         {
+          "name": "minecraft:feather",
           "type": "minecraft:item",
           "weight": 8,
           "functions": [
@@ -64,10 +65,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:feather"
+          ]
         },
         {
+          "name": "minecraft:ender_pearl",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -79,15 +80,15 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:ender_pearl"
+          ]
         },
         {
+          "name": "minecraft:writable_book",
           "type": "minecraft:item",
-          "weight": 3,
-          "name": "minecraft:writable_book"
+          "weight": 3
         },
         {
+          "name": "minecraft:book",
           "type": "minecraft:item",
           "weight": 8,
           "functions": [
@@ -99,10 +100,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:book"
+          ]
         },
         {
+          "name": "minecraft:book",
           "type": "minecraft:item",
           "weight": 2,
           "functions": [
@@ -115,8 +116,7 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:book"
+          ]
         }
       ]
     }

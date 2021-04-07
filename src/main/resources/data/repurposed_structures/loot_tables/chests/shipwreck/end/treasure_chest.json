@@ -9,6 +9,7 @@
       },
       "entries": [
         {
+          "name": "minecraft:iron_ingot",
           "type": "minecraft:item",
           "weight": 70,
           "functions": [
@@ -20,10 +21,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:iron_ingot"
+          ]
         },
         {
+          "name": "minecraft:gold_ingot",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -35,10 +36,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gold_ingot"
+          ]
         },
         {
+          "name": "minecraft:emerald",
           "type": "minecraft:item",
           "weight": 40,
           "functions": [
@@ -50,10 +51,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:emerald"
+          ]
         },
         {
+          "name": "minecraft:diamond",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -65,10 +66,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:diamond"
+          ]
         },
         {
+          "name": "minecraft:experience_bottle",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -80,10 +81,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:experience_bottle"
+          ]
         },
         {
+          "name": "minecraft:book",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -96,18 +97,17 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:book"
+          ]
         },
         {
+          "name": "minecraft:dragon_breath",
           "type": "minecraft:item",
-          "weight": 5,
-          "name": "minecraft:dragon_breath"
+          "weight": 5
         },
         {
+          "name": "minecraft:elytra",
           "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:elytra"
+          "weight": 2
         }
       ]
     },
@@ -119,6 +119,7 @@
       },
       "entries": [
         {
+          "name": "minecraft:iron_nugget",
           "type": "minecraft:item",
           "weight": 30,
           "functions": [
@@ -130,10 +131,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:iron_nugget"
+          ]
         },
         {
+          "name": "minecraft:gold_nugget",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -145,10 +146,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gold_nugget"
+          ]
         },
         {
+          "name": "minecraft:lapis_lazuli",
           "type": "minecraft:item",
           "weight": 30,
           "functions": [
@@ -160,8 +161,7 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:lapis_lazuli"
+          ]
         }
       ]
     }

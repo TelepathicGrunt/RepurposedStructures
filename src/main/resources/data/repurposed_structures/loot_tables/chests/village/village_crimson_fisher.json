@@ -9,10 +9,11 @@
       },
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "minecraft:gold_ingot"
+          "name": "minecraft:gold_ingot",
+          "type": "minecraft:item"
         },
         {
+          "name": "minecraft:cooked_porkchop",
           "type": "minecraft:item",
           "weight": 2,
           "functions": [
@@ -24,10 +25,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:cooked_porkchop"
+          ]
         },
         {
+          "name": "minecraft:porkchop",
           "type": "minecraft:item",
           "functions": [
             {
@@ -38,10 +39,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:porkchop"
+          ]
         },
         {
+          "name": "minecraft:lava_bucket",
           "type": "minecraft:item",
           "functions": [
             {
@@ -52,10 +53,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:lava_bucket"
+          ]
         },
         {
+          "name": "minecraft:barrel",
           "type": "minecraft:item",
           "functions": [
             {
@@ -66,10 +67,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:barrel"
+          ]
         },
         {
+          "name": "minecraft:nether_wart",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -81,10 +82,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:nether_wart"
+          ]
         },
         {
+          "name": "minecraft:coal",
           "type": "minecraft:item",
           "weight": 2,
           "functions": [
@@ -96,18 +97,17 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:coal"
+          ]
         },
         {
+          "name": "minecraft:fishing_rod",
           "type": "minecraft:item",
-          "weight": 1,
-          "name": "minecraft:fishing_rod"
+          "weight": 1
         },
         {
+          "name": "minecraft:warped_fungus_on_a_stick",
           "type": "minecraft:item",
-          "weight": 1,
-          "name": "minecraft:warped_fungus_on_a_stick"
+          "weight": 1
         }
       ]
     }

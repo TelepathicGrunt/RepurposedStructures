@@ -9,6 +9,7 @@
       },
       "entries": [
         {
+          "name": "minecraft:suspicious_stew",
           "type": "minecraft:item",
           "weight": 8,
           "functions": [
@@ -73,10 +74,10 @@
                 }
               ]
             }
-          ],
-          "name": "minecraft:suspicious_stew"
+          ]
         },
         {
+          "name": "minecraft:paper",
           "type": "minecraft:item",
           "weight": 8,
           "functions": [
@@ -88,10 +89,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:paper"
+          ]
         },
         {
+          "name": "minecraft:crimson_fungus",
           "type": "minecraft:item",
           "weight": 7,
           "functions": [
@@ -103,10 +104,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:crimson_fungus"
+          ]
         },
         {
+          "name": "minecraft:nether_wart_block",
           "type": "minecraft:item",
           "weight": 7,
           "functions": [
@@ -118,10 +119,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:nether_wart_block"
+          ]
         },
         {
+          "name": "minecraft:shroomlight",
           "type": "minecraft:item",
           "weight": 7,
           "functions": [
@@ -133,10 +134,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:shroomlight"
+          ]
         },
         {
+          "name": "minecraft:ghast_tear",
           "type": "minecraft:item",
           "weight": 6,
           "functions": [
@@ -148,10 +149,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:ghast_tear"
+          ]
         },
         {
+          "name": "minecraft:firework_star",
           "type": "minecraft:item",
           "weight": 4,
           "functions": [
@@ -167,10 +168,10 @@
               "function":"set_nbt",
               "tag":"{Explosion:{Colors:[I;0], FadeColors:[I;12201518], Trail:1b, Flicker:1b, Type:4b}}"
             }
-          ],
-          "name": "minecraft:firework_star"
+          ]
         },
         {
+          "name": "minecraft:firework_star",
           "type": "minecraft:item",
           "weight": 4,
           "functions": [
@@ -186,15 +187,15 @@
               "function":"set_nbt",
               "tag":"{Explosion:{Colors:[I;12201518], FadeColors:[I;0], Trail:1b, Flicker:1b, Type:4b}}"
             }
-          ],
-          "name": "minecraft:firework_star"
+          ]
         },
         {
+          "name": "minecraft:warped_fungus_on_a_stick",
           "type": "minecraft:item",
-          "weight": 4,
-          "name": "minecraft:warped_fungus_on_a_stick"
+          "weight": 4
         },
         {
+          "name": "minecraft:gunpowder",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
@@ -206,50 +207,50 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gunpowder"
+          ]
         },
         {
+          "name": "minecraft:iron_helmet",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
             }
-          ],
-          "name": "minecraft:iron_helmet"
+          ]
         },
         {
+          "name": "minecraft:iron_chestplate",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
             }
-          ],
-          "name": "minecraft:iron_chestplate"
+          ]
         },
         {
+          "name": "minecraft:iron_leggings",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
             }
-          ],
-          "name": "minecraft:iron_leggings"
+          ]
         },
         {
+          "name": "minecraft:iron_boots",
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
             }
-          ],
-          "name": "minecraft:iron_boots"
+          ]
         },
         {
+          "name": "minecraft:red_stained_glass_pane",
           "type": "minecraft:item",
           "weight": 2,
           "functions": [
@@ -261,10 +262,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:red_stained_glass_pane"
+          ]
         },
         {
+          "name": "minecraft:black_stained_glass_pane",
           "type": "minecraft:item",
           "weight": 2,
           "functions": [
@@ -276,8 +277,7 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:black_stained_glass_pane"
+          ]
         }
       ]
     }

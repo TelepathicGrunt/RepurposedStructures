@@ -9,6 +9,7 @@
       },
       "entries": [
         {
+          "name": "minecraft:iron_ingot",
           "type": "minecraft:item",
           "weight": 40,
           "functions": [
@@ -20,10 +21,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:iron_ingot"
+          ]
         },
         {
+          "name": "minecraft:stone_sword",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -36,10 +37,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:stone_sword"
+          ]
         },
         {
+          "name": "minecraft:experience_bottle",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -51,10 +52,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:experience_bottle"
+          ]
         },
         {
+          "name": "minecraft:book",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -67,10 +68,10 @@
               },
               "treasure": true
             }
-          ],
-          "name": "minecraft:book"
+          ]
         },
         {
+          "name": "minecraft:netherite_ingot",
           "type": "minecraft:item",
           "weight": 13,
           "functions": [
@@ -78,10 +79,10 @@
               "function": "minecraft:set_count",
               "count": 1
             }
-          ],
-          "name": "minecraft:netherite_ingot"
+          ]
         },
         {
+          "name": "minecraft:gold_ingot",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -93,10 +94,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gold_ingot"
+          ]
         },
         {
+          "name": "minecraft:coal",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -108,10 +109,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:coal"
+          ]
         },
         {
+          "name": "minecraft:bone",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -123,10 +124,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:bone"
+          ]
         },
         {
+          "name": "minecraft:ancient_debris",
           "type": "minecraft:item",
           "weight": 9,
           "functions": [
@@ -134,10 +135,10 @@
               "function": "minecraft:set_count",
               "count": 1
             }
-          ],
-          "name": "minecraft:ancient_debris"
+          ]
         },
         {
+          "name": "minecraft:netherite_scrap",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -145,10 +146,10 @@
               "function": "minecraft:set_count",
               "count": 1
             }
-          ],
-          "name": "minecraft:netherite_scrap"
+          ]
         },
         {
+          "name": "minecraft:ancient_debris",
           "type": "minecraft:item",
           "weight": 4,
           "functions": [
@@ -156,10 +157,10 @@
               "function": "minecraft:set_count",
               "count": 2
             }
-          ],
-          "name": "minecraft:ancient_debris"
+          ]
         },
         {
+          "name": "minecraft:gold_block",
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
@@ -171,10 +172,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gold_block"
+          ]
         },
         {
+          "name": "minecraft:iron_block",
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
@@ -186,10 +187,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:iron_block"
+          ]
         },
         {
+          "name": "minecraft:crying_obsidian",
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
@@ -201,10 +202,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:crying_obsidian"
+          ]
         },
         {
+          "name": "minecraft:quartz",
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
@@ -216,10 +217,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:quartz"
+          ]
         },
         {
+          "name": "minecraft:gilded_blackstone",
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
@@ -231,10 +232,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gilded_blackstone"
+          ]
         },
         {
+          "name": "minecraft:magma_cream",
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
@@ -246,8 +247,7 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:magma_cream"
+          ]
         }
       ]
     },
@@ -259,6 +259,7 @@
       },
       "entries": [
         {
+          "name": "minecraft:coal",
           "type": "minecraft:item",
           "weight": 20,
           "functions": [
@@ -270,10 +271,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:coal"
+          ]
         },
         {
+          "name": "minecraft:iron_nugget",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -285,10 +286,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:iron_nugget"
+          ]
         },
         {
+          "name": "minecraft:gold_nugget",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -300,10 +301,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:gold_nugget"
+          ]
         },
         {
+          "name": "minecraft:bone",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -315,10 +316,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:bone"
+          ]
         },
         {
+          "name": "minecraft:spectral_arrow",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -330,8 +331,7 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:spectral_arrow"
+          ]
         }
       ]
     }

@@ -39,16 +39,17 @@
       },
       "entries": [
         {
+          "name": "minecraft:music_disc_wait",
           "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:music_disc_wait"
+          "weight": 2
         },
         {
+          "name": "minecraft:music_disc_mall",
           "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:music_disc_mall"
+          "weight": 2
         },
         {
+          "name": "minecraft:nautilus_shell",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -60,15 +61,15 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:nautilus_shell"
+          ]
         },
         {
+          "name": "minecraft:name_tag",
           "type": "minecraft:item",
-          "weight": 5,
-          "name": "minecraft:name_tag"
+          "weight": 5
         },
         {
+          "name": "minecraft:prismarine_crystals",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -80,10 +81,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:prismarine_crystals"
+          ]
         },
         {
+          "name": "minecraft:prismarine_shard",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -95,8 +96,7 @@
                 "type": "minecraft:uniform"
               }
             }
-          ],
-          "name": "minecraft:prismarine_shard"
+          ]
         }
       ]
     }
