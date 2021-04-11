@@ -66,8 +66,7 @@ public abstract class AbstractNetherStructure extends AbstractBaseStructure<NoFe
                     mutable.move(Direction.DOWN);
                     continue;
                 }
-                else if(blockView.getBlockState(mutable.add(0,3,0)).getMaterial() == Material.AIR &&
-                        isValidBlock(currentBlockstate))
+                else if(blockView.getBlockState(mutable.add(0,3,0)).getMaterial() == Material.AIR && !currentBlockstate.isAir())
                 {
                     break;
                 }
@@ -86,7 +85,7 @@ public abstract class AbstractNetherStructure extends AbstractBaseStructure<NoFe
                 if(blockView.getBlockState(mutable).getMaterial() != Material.AIR &&
                         blockView.getBlockState(mutable.up()).getMaterial() == Material.AIR &&
                         blockView.getBlockState(mutable.up(5)).getMaterial() == Material.AIR &&
-                        isValidBlock(currentBlockstate))
+                        !currentBlockstate.isAir())
                 {
                     mutable.move(Direction.UP);
                     break;
@@ -97,23 +96,6 @@ public abstract class AbstractNetherStructure extends AbstractBaseStructure<NoFe
             }
 
             return mutable;
-        }
-
-
-
-        private boolean isValidBlock(BlockState currentBlockstate){
-            return BlockTags.INFINIBURN_NETHER.contains(currentBlockstate.getBlock()) ||
-                    BlockTags.VALID_SPAWN.contains(currentBlockstate.getBlock()) ||
-                    BlockTags.SAND.contains(currentBlockstate.getBlock()) ||
-                    BlockTags.NYLIUM.contains(currentBlockstate.getBlock()) ||
-                    BlockTags.ICE.contains(currentBlockstate.getBlock()) ||
-                    BlockTags.PLANKS.contains(currentBlockstate.getBlock()) ||
-                    BlockTags.STONE_BRICKS.contains(currentBlockstate.getBlock()) ||
-                    BlockTags.WITHER_IMMUNE.contains(currentBlockstate.getBlock()) ||
-                    BlockTags.WOOL.contains(currentBlockstate.getBlock()) ||
-                    currentBlockstate.getMaterial() == Material.SAND ||
-                    currentBlockstate.getMaterial() == Material.ROCK ||
-                    currentBlockstate.getMaterial() == Material.EARTH;
         }
     }
 }

@@ -76,7 +76,7 @@ public class RSMineshaftsConfig
 							" RS's mineshafts to spawn in. Separate each ID with a comma ,",
 							"   Example: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
 					.translation("repurposedstructures.config.mineshaft.blacklistedmineshaftbiomes")
-					.define("blacklistedMineshaftBiomes", " "));
+					.define("blacklistedMineshaftBiomes", "betterendforge:sulphur_springs"));
 
 				builder.push("Spawnrate");
 					
