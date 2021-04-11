@@ -15,7 +15,7 @@ public class RSMainConfig implements ConfigData {
             +"\n no Repurposed Structures structure to spawn in."
             +"\n Separate multiple entries with a comma."
             +"\nExample: \"minecraft:the_end,awesome_mod:awesome_dimension\"")
-    public String blacklistedDimensions = "the_bumblezone:the_bumblezone";
+    public String blacklistedDimensions = "the_bumblezone:the_bumblezone,the_aether:the_aether";
 
     @ConfigEntry.Gui.Tooltip(count = 0)
     @ConfigEntry.Gui.PrefixText
