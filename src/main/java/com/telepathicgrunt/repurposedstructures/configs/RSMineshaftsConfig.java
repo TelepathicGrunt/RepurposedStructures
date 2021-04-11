@@ -26,7 +26,7 @@ public class RSMineshaftsConfig implements ConfigData {
             +"\nRS's mineshafts to spawn in. Separate each ID with a comma ,"
             +"\n"
             +"\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
-    public String blacklistedMineshaftBiomes = "";
+    public String blacklistedMineshaftBiomes = "betterend:sulphur_springs";
 
     @ConfigEntry.Gui.CollapsibleObject
     public Spawnrate spawnrate = new Spawnrate();

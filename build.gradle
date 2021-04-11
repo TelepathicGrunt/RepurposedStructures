@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '0.5-SNAPSHOT'
+	id 'fabric-loom' version '0.7-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -33,7 +33,7 @@ dependencies {
 	implementation 'com.github.modmuss50:Voyager:1.0.0'
 	include 'com.github.modmuss50:Voyager:1.0.0'
 
-	modCompile 'com.github.Draylar:angerable-patch:1.1.0-1.16.4'
+	modImplementation 'com.github.Draylar:angerable-patch:1.1.0-1.16.4'
 	include 'com.github.Draylar:angerable-patch:1.1.0-1.16.4'
 }
 
