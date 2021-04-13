@@ -46,6 +46,10 @@ public class ReplaceAirOnlyProcessor extends StructureProcessor {
             {
                 structureBlockInfoWorld = new Structure.StructureBlockInfo(structureBlockInfoWorld.pos, worldState, null);
             }
+            // Do not replace other dungeon's chests/spawners
+            else if(worldState.getBlock().hasBlockEntity()){
+                structureBlockInfoWorld = new Structure.StructureBlockInfo(structureBlockInfoWorld.pos, worldState, null);
+            }
         }
         return structureBlockInfoWorld;
     }
