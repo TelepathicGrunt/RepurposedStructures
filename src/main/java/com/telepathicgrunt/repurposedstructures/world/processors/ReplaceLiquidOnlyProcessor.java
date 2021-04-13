@@ -46,6 +46,10 @@ public class ReplaceLiquidOnlyProcessor extends StructureProcessor {
             {
                 structureBlockInfoWorld = new Template.BlockInfo(structureBlockInfoWorld.pos, worldState, null);
             }
+            // Do not replace other dungeon's chests/spawners
+            else if(worldState.getBlock().hasBlockEntity()){
+                structureBlockInfoWorld = new Template.BlockInfo(structureBlockInfoWorld.pos, worldState, null);
+            }
         }
 
         return structureBlockInfoWorld;

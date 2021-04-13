@@ -9,6 +9,12 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 # | Repurposed Structures changelog |
 
 
+## (V.2.6.3 Changes) (1.16.5 Minecraft)
+
+##### Dungeons:
+- Fixed Dungeons being able to replace Chests and Spawners of other dungeons.
+
+
 ## (V.2.6.3 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)
 
 ##### Dungeons:
