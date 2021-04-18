@@ -8,6 +8,11 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ------------------------------------------------
 # | Repurposed Structures changelog |
 
+## (V.1.10.3 Changes) (1.16.5 Minecraft)
+
+##### Dungeons:
+- Improved the RNG for Dungeon processors.
+
 
 ## (V.1.10.2 Changes) (1.16.5 Minecraft)
 

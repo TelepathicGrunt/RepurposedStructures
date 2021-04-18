@@ -15,6 +15,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.chunk.Chunk;
+import net.minecraft.world.gen.ChunkRandom;
 
 import java.util.Collections;
 import java.util.List;
@@ -43,7 +44,8 @@ public class CeilingVinePostProcessor extends StructureProcessor {
         // Place vines only in air space
         if (structureBlockInfoWorld.state.isAir()) {
 
-            Random random = structurePlacementData.getRandom(structureBlockInfoWorld.pos);
+            Random random = new ChunkRandom();
+            random.setSeed(structureBlockInfoWorld.pos.asLong() * structureBlockInfoWorld.pos.getY());
             Chunk centerChunk = worldView.getChunk(structureBlockInfoWorld.pos);
             BlockState centerState = centerChunk.getBlockState(structureBlockInfoWorld.pos);
             BlockPos abovePos = structureBlockInfoWorld.pos.up();

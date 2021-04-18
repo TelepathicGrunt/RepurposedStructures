@@ -17,6 +17,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.WorldView;
+import net.minecraft.world.gen.ChunkRandom;
 
 import java.util.Random;
 
@@ -35,7 +36,9 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
     @Override
     public Structure.StructureBlockInfo process(WorldView worldView, BlockPos pos, BlockPos blockPos, Structure.StructureBlockInfo structureBlockInfoLocal, Structure.StructureBlockInfo structureBlockInfoWorld, StructurePlacementData structurePlacementData) {
         if (structureBlockInfoWorld.state.getBlock() instanceof SpawnerBlock) {
-            SetMobSpawnerEntity(structurePlacementData.getRandom(structureBlockInfoWorld.pos), structureBlockInfoWorld.tag);
+            Random random = new ChunkRandom();
+            random.setSeed(structureBlockInfoWorld.pos.asLong() * structureBlockInfoWorld.pos.getY());
+            SetMobSpawnerEntity(random, structureBlockInfoWorld.tag);
         }
         return structureBlockInfoWorld;
     }
