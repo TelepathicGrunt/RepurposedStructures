@@ -4,7 +4,6 @@ import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Direction;
 import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.BlockPos;

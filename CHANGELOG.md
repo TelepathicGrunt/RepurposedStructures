@@ -14,6 +14,9 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 ##### Dungeons:
 - Improved the RNG for Dungeon processors.
 
+##### Strongholds:
+- Moved Eyes of Ender mixin code out of mixin to be compatible with Better Strongholds.
+
 
 ## (V.2.6.3 Changes) (1.16.5 Minecraft)
 
