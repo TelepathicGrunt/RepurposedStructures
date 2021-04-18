@@ -36,9 +36,14 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
     @Override
     public Template.BlockInfo process(IWorldReader worldView, BlockPos pos, BlockPos blockPos, Template.BlockInfo structureBlockInfoLocal, Template.BlockInfo structureBlockInfoWorld, PlacementSettings structurePlacementData) {
         if (structureBlockInfoWorld.state.getBlock() instanceof SpawnerBlock) {
+            BlockPos worldPos = structureBlockInfoWorld.pos;
             Random random = new SharedSeedRandom();
-            random.setSeed(structureBlockInfoWorld.pos.toLong() * structureBlockInfoWorld.pos.getY());
-            SetMobSpawnerEntity(random, structureBlockInfoWorld.nbt);
+            random.setSeed(worldPos.toLong() * worldPos.getY());
+
+            return new Template.BlockInfo(
+                    worldPos,
+                    structureBlockInfoWorld.state,
+                    SetMobSpawnerEntity(random, structureBlockInfoWorld.nbt));
         }
         return structureBlockInfoWorld;
     }
@@ -46,32 +51,65 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
     /**
      * Makes the given block entity now have the correct spawner mob
      */
-    private void SetMobSpawnerEntity(Random random, CompoundNBT nbt) {
+    private CompoundNBT SetMobSpawnerEntity(Random random, CompoundNBT nbt) {
         EntityType<?> entity = RepurposedStructures.mobSpawnerManager.getSpawnerMob(rsSpawnerResourcelocation, random);
         if(entity != null){
-            CompoundNBT spawnDataTag = nbt.getCompound("SpawnData");
-            if(spawnDataTag.isEmpty()){
-                spawnDataTag = new CompoundNBT();
-                nbt.put("SpawnData", spawnDataTag);
-            }
-            spawnDataTag.putString("id", Registry.ENTITY_TYPE.getKey(entity).toString());
+            if(nbt != null){
 
-            CompoundNBT spawnEntityDataTag = new CompoundNBT();
-            spawnEntityDataTag.putString("id", Registry.ENTITY_TYPE.getKey(entity).toString());
-            CompoundNBT spawnPotentialEntryTag = new CompoundNBT();
-            spawnPotentialEntryTag.put("Entity", spawnEntityDataTag);
-            spawnPotentialEntryTag.put("Weight", IntNBT.of(1));
-            ListNBT spawnPotentialDataTag = nbt.getList("SpawnPotentials", spawnPotentialEntryTag.getId());
-            if(spawnPotentialDataTag.isEmpty()){
-                spawnPotentialDataTag = new ListNBT();
-                nbt.put("SpawnPotentials", spawnPotentialDataTag);
+                CompoundNBT spawnDataTag = nbt.getCompound("SpawnData");
+                if(spawnDataTag.isEmpty()){
+                    spawnDataTag = new CompoundNBT();
+                    nbt.put("SpawnData", spawnDataTag);
+                }
+                spawnDataTag.putString("id", Registry.ENTITY_TYPE.getKey(entity).toString());
+
+                CompoundNBT spawnEntityDataTag = new CompoundNBT();
+                spawnEntityDataTag.putString("id", Registry.ENTITY_TYPE.getKey(entity).toString());
+                CompoundNBT spawnPotentialEntryTag = new CompoundNBT();
+                spawnPotentialEntryTag.put("Entity", spawnEntityDataTag);
+                spawnPotentialEntryTag.put("Weight", IntNBT.of(1));
+                ListNBT spawnPotentialDataTag = nbt.getList("SpawnPotentials", spawnPotentialEntryTag.getId());
+                if(spawnPotentialDataTag.isEmpty()){
+                    spawnPotentialDataTag = new ListNBT();
+                    nbt.put("SpawnPotentials", spawnPotentialDataTag);
+                }
+                spawnPotentialDataTag.clear();
+                spawnPotentialDataTag.add(0, spawnPotentialEntryTag);
+                return nbt;
             }
-            spawnPotentialDataTag.clear();
-            spawnPotentialDataTag.add(0, spawnPotentialEntryTag);
+            else{
+                CompoundNBT compound = new CompoundNBT();
+                compound.putShort("Delay", (short) 20);
+                compound.putShort("MinSpawnDelay", (short) 200);
+                compound.putShort("MaxSpawnDelay", (short) 800);
+                compound.putShort("SpawnCount", (short) 4);
+                compound.putShort("MaxNearbyEntities", (short) 6);
+                compound.putShort("RequiredPlayerRange", (short) 16);
+                compound.putShort("SpawnRange", (short) 4);
+
+                CompoundNBT spawnData = new CompoundNBT();
+                spawnData.putString("id", Registry.ENTITY_TYPE.getKey(entity).toString());
+                compound.put("SpawnData", spawnData);
+
+                CompoundNBT entityData = new CompoundNBT();
+                entityData.putString("id", Registry.ENTITY_TYPE.getKey(entity).toString());
+
+                CompoundNBT listEntry = new CompoundNBT();
+                listEntry.put("Entity", entityData);
+                listEntry.putInt("Weight", 1);
+
+                ListNBT listnbt = new ListNBT();
+                listnbt.add(listEntry);
+
+                compound.put("SpawnPotentials", listnbt);
+
+                return compound;
+            }
         }
         else{
             RepurposedStructures.LOGGER.warn("EntityType in a dungeon does not exist in registry! : {}", rsSpawnerResourcelocation);
         }
+        return nbt;
     }
 
     @Override

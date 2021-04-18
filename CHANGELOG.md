@@ -9,6 +9,12 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 # | Repurposed Structures changelog |
 
 
+## (V.2.6.5 Changes) (1.16.5 Minecraft)
+
+##### Dungeons:
+- Fixed potential crash if someone set RS's dungeon spawners to not have any nbt.
+
+
 ## (V.2.6.4 Changes) (1.16.5 Minecraft)
 
 ##### Dungeons:
