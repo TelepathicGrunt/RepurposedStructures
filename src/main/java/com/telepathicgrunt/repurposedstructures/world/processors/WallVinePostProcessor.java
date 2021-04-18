@@ -7,6 +7,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.VineBlock;
 import net.minecraft.util.Direction;
+import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.chunk.IChunk;
@@ -33,8 +34,8 @@ public class WallVinePostProcessor extends StructureProcessor {
     public Template.BlockInfo process(IWorldReader worldView, BlockPos pos, BlockPos blockPos, Template.BlockInfo structureBlockInfoLocal, Template.BlockInfo structureBlockInfoWorld, PlacementSettings structurePlacementData) {
         // Place vines only in air space
         if (structureBlockInfoWorld.state.isAir()) {
-
-            Random random = structurePlacementData.getRandom(structureBlockInfoWorld.pos);
+            Random random = new SharedSeedRandom();
+            random.setSeed(structureBlockInfoWorld.pos.toLong() * structureBlockInfoWorld.pos.getY());
             IChunk centerChunk = worldView.getChunk(structureBlockInfoWorld.pos);
             BlockState centerState = centerChunk.getBlockState(structureBlockInfoWorld.pos);
             if(random.nextFloat() < probability && centerState.isAir()){

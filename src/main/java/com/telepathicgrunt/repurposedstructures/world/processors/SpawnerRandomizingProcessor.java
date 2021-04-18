@@ -10,6 +10,7 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.nbt.IntNBT;
 import net.minecraft.nbt.ListNBT;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.IWorldReader;
@@ -35,7 +36,9 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
     @Override
     public Template.BlockInfo process(IWorldReader worldView, BlockPos pos, BlockPos blockPos, Template.BlockInfo structureBlockInfoLocal, Template.BlockInfo structureBlockInfoWorld, PlacementSettings structurePlacementData) {
         if (structureBlockInfoWorld.state.getBlock() instanceof SpawnerBlock) {
-            SetMobSpawnerEntity(structurePlacementData.getRandom(structureBlockInfoWorld.pos), structureBlockInfoWorld.nbt);
+            Random random = new SharedSeedRandom();
+            random.setSeed(structureBlockInfoWorld.pos.toLong() * structureBlockInfoWorld.pos.getY());
+            SetMobSpawnerEntity(random, structureBlockInfoWorld.nbt);
         }
         return structureBlockInfoWorld;
     }
