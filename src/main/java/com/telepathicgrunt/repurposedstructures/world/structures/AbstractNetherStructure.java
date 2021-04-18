@@ -5,7 +5,6 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Material;
 import net.minecraft.structure.MarginedStructureStart;
-import net.minecraft.tag.BlockTags;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
