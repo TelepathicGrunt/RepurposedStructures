@@ -9,6 +9,15 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 # | Repurposed Structures changelog |
 
 
+## (V.1.10.4 Changes) (1.16.5 Minecraft)
+
+##### Misc:
+- Stopped using Fabric API's TradeOfferHelper for adding structure maps to Cartographer trades.
+  This is due to the API being broken and duplicating old trades like crazy. And due to it breaking 
+  any mod that adds trades without using the API. However, this means my mod's trades will be nuked if 
+  you have on another mod that is using the API to add trades.
+
+
 ## (V.1.10.3 Changes) (1.16.5 Minecraft)
 
 ##### Dungeons:

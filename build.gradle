@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '0.7-SNAPSHOT'
+	id 'fabric-loom' version '0.6-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -27,14 +27,22 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	modApi("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}") {
-		exclude(group: "net.fabricmc.fabric-api")
+		transitive = false
 	}
 
-	implementation 'com.github.modmuss50:Voyager:1.0.0'
-	include 'com.github.modmuss50:Voyager:1.0.0'
+	implementation ('com.github.modmuss50:Voyager:1.0.0') {
+		transitive = false
+	}
+	include ('com.github.modmuss50:Voyager:1.0.0') {
+		transitive = false
+	}
 
-	modImplementation 'com.github.Draylar:angerable-patch:1.1.0-1.16.4'
-	include 'com.github.Draylar:angerable-patch:1.1.0-1.16.4'
+	modImplementation ('com.github.Draylar:angerable-patch:1.1.0-1.16.4') {
+		transitive = false
+	}
+	include ('com.github.Draylar:angerable-patch:1.1.0-1.16.4') {
+		transitive = false
+	}
 }
 
 if (project.use_third_party_mods) {
@@ -45,11 +53,21 @@ if (project.use_third_party_mods) {
 
 	dependencies {
 
-		modImplementation "io.github.prospector:modmenu:${project.mod_menu_version}"
+		modImplementation ("io.github.prospector:modmenu:${project.mod_menu_version}") {
+			transitive = false
+		}
 
-		modRuntime "com.telepathicgrunt.loadnbtblock:loadnbtblock:1.0.6"
-		modRuntime "com.telepathicgrunt.structure_void_toggle:structure_void_toggle-1.16.5:2.0.0"
-		modRuntime "com.telepathicgrunt.blame:blame-1.16.4:2.4.0"
+		modRuntime ("com.telepathicgrunt.loadnbtblock:loadnbtblock:1.0.6") {
+			transitive = false
+		}
+
+		modRuntime ("com.telepathicgrunt.structure_void_toggle:structure_void_toggle-1.16.5:2.0.0") {
+			transitive = false
+		}
+
+		modRuntime ("com.telepathicgrunt.blame:blame-1.16.4:2.4.0") {
+			transitive = false
+		}
 
 	//	modRuntime "com.charm:charm-fabric-1.16.4:2.2.2"
 	//	modRuntime "com.moandjiezana.toml:toml4j:0.7.2"

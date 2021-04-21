@@ -42,9 +42,6 @@ public class RepurposedStructures implements ModInitializer {
     public void onInitialize() {
         AutoConfig.register(RSAllConfig.class, Toml4jConfigSerializer::new);
         RSAllConfig = AutoConfig.getConfigHolder(RSAllConfig.class).getConfig();
-
-        ServerStartCallback.EVENT.register(minecraftServer -> MobMapTrades.addMapTrades());
-
         RSPlacements.registerPlacements();
         RSFeatures.registerFeatures();
         RSProcessors.registerProcessors();
@@ -55,6 +52,7 @@ public class RepurposedStructures implements ModInitializer {
 
         allowStructureSpawningPerDimension();
         setupBiomeModifications();
+        MobMapTrades.addMapTrades();
 
 
         // Silences logspam due to me changing my piece's namespace from minecraft to my modid.
