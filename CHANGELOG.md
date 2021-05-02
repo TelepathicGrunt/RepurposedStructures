@@ -9,6 +9,18 @@ Welcome to the Github! If you are looking for the most recent stable version, th
 # | Repurposed Structures changelog |
 
 
+## (V.2.6.6 Changes) (1.16.5 Minecraft)
+
+##### Config:
+- Fixed dimension blacklisting not working for dungeons, boulders, wells, and other features.
+
+##### Strongholds:
+- Chest Corridors now will always have a chest instead of a 1/3rd chance.
+
+##### Witch Huts:
+- Fixed Giant Tree Taiga Witch Hut having a stripped spruce log leg instead of Stone Bricks leg.
+
+
 ## (V.2.6.5 Changes) (1.16.5 Minecraft)
 
 ##### Dungeons:

@@ -9,13 +9,13 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalBlock;
 import net.minecraft.block.LeavesBlock;
-import net.minecraft.util.Direction;
-import net.minecraft.util.Hand;
-import net.minecraft.util.SharedSeedRandom;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.SectionPos;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.IServerWorld;
+import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkStatus;
 import net.minecraft.world.chunk.IChunk;
 import net.minecraft.world.gen.ChunkGenerator;
@@ -30,6 +30,7 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.RegistryObject;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class GeneralUtils {
 
@@ -107,6 +108,18 @@ public class GeneralUtils {
 
         // Compare the JSON to see if it's the same ConfiguredFeature in the end.
         return configuredFeatureJSON1.equals(configuredFeatureJSON2);
+    }
+
+    //////////////////////////////////////////////
+
+    private static Set<RegistryKey<World>> BLACKLISTED_WORLDS = null;
+    public static boolean isWorldBlacklisted(IServerWorld world){
+        if(BLACKLISTED_WORLDS == null){
+            BLACKLISTED_WORLDS = Arrays.stream(RepurposedStructures.RSMainConfig.blacklistedDimensions.get().split(","))
+                    .map(String::trim).map(dimensionName -> RegistryKey.of(Registry.DIMENSION, new ResourceLocation(dimensionName)))
+                    .collect(Collectors.toSet());
+        }
+        return BLACKLISTED_WORLDS.contains(world.getWorld().getRegistryKey());
     }
 
     //////////////////////////////////////////////

@@ -2,6 +2,7 @@ package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.tags.BlockTags;
@@ -27,6 +28,7 @@ public class WellBadlands extends WellAbstract {
 
 
     public boolean generate(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
+        if(GeneralUtils.isWorldBlacklisted(world)) return false;
         // move to top land block below position
         BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(position);
         for (mutable.move(Direction.UP); world.isAirBlock(mutable) && mutable.getY() > 2; ) {

@@ -38,6 +38,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
 
     @Override
     public boolean generate(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NbtDungeonConfig config) {
+        if(GeneralUtils.isWorldBlacklisted(world)) return false;
 
         ResourceLocation nbtRL = GeneralUtils.getRandomEntry(config.nbtResourcelocationsAndWeights, random);
 
