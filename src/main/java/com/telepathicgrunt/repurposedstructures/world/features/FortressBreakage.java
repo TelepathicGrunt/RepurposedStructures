@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
@@ -41,6 +42,7 @@ public class FortressBreakage extends Feature<DefaultFeatureConfig> {
 
     @Override
     public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
+        if(GeneralUtils.isWorldBlacklisted(world)) return false;
         if (FORTRESS_BLOCKS.test(world.getBlockState(position.down())) &&
             world.getStructures(ChunkSectionPos.from(position), RSStructures.JUNGLE_FORTRESS).findAny().isPresent())
         {

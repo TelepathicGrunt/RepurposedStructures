@@ -313,7 +313,7 @@ public class RSStrongholdPieces {
             }
 
             if (structureBoundingBoxIn.contains(new BlockPos(this.applyXTransform(3, 3), this.applyYTransform(2), this.applyZTransform(3, 3)))) {
-                if (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.lootChestsSH && random.nextInt(3) == 0) {
+                if (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.lootChestsSH) {
                     this.addChest(world, structureBoundingBoxIn, random, 3, 2, 3, getHallwayChestLoot());
                 }
             }

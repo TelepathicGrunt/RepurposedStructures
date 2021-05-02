@@ -3,6 +3,7 @@ package com.telepathicgrunt.repurposedstructures.world.features;
 import com.google.common.collect.Sets;
 import com.telepathicgrunt.repurposedstructures.modinit.RSFeatures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -39,6 +40,7 @@ public class JungleStructuresVines extends Feature<DefaultFeatureConfig> {
 
     @Override
     public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
+        if(GeneralUtils.isWorldBlacklisted(world)) return false;
 
         BlockPos.Mutable mutable = new BlockPos.Mutable().set(position);
         //Place vines without replacing blocks.

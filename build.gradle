@@ -26,9 +26,7 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-	modApi("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}") {
-		transitive = false
-	}
+	modApi "me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}"
 
 	implementation ('com.github.modmuss50:Voyager:1.0.0') {
 		transitive = false
@@ -57,7 +55,7 @@ if (project.use_third_party_mods) {
 			transitive = false
 		}
 
-		modRuntime ("com.telepathicgrunt.loadnbtblock:loadnbtblock:1.0.6") {
+		modRuntime ("com.telepathicgrunt.loadnbtblock:loadnbtblock:1.0.8") {
 			transitive = false
 		}
 

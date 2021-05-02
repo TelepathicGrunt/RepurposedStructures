@@ -1,5 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -19,6 +20,7 @@ public class BoulderTiny extends Feature<DefaultFeatureConfig> {
 
     @Override
     public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
+        if(GeneralUtils.isWorldBlacklisted(world)) return false;
 
         BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().set(position.down());
         Block block = world.getBlockState(blockpos$Mutable).getBlock();

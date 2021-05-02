@@ -12,14 +12,15 @@ import net.minecraft.block.HorizontalFacingBlock;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.ServerWorldAccess;
+import net.minecraft.world.World;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class GeneralUtils {
 
@@ -77,6 +78,18 @@ public class GeneralUtils {
 
         // Make chest face away from wall
         return blockState.with(HorizontalFacingBlock.FACING, wallDirection.getOpposite());
+    }
+
+    //////////////////////////////////////////////
+
+    private static Set<RegistryKey<World>> BLACKLISTED_WORLDS = null;
+    public static boolean isWorldBlacklisted(ServerWorldAccess world){
+        if(BLACKLISTED_WORLDS == null){
+            BLACKLISTED_WORLDS = Arrays.stream(RepurposedStructures.RSAllConfig.RSMainConfig.blacklistedDimensions.split(","))
+                    .map(String::trim).map(dimensionName -> RegistryKey.of(Registry.DIMENSION, new Identifier(dimensionName)))
+                    .collect(Collectors.toSet());
+        }
+        return BLACKLISTED_WORLDS.contains(world.toServerWorld().getRegistryKey());
     }
 
     //////////////////////////////

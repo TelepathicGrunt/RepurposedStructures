@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import com.telepathicgrunt.repurposedstructures.utils.OpenSimplex2F;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -18,7 +19,7 @@ import java.util.Random;
 public class BoulderGiant extends Feature<DefaultFeatureConfig> {
 
     protected long seed;
-    protected static OpenSimplex2F noiseGen;
+    protected OpenSimplex2F noiseGen;
 
     public void setSeed(long seed) {
         if (this.seed != seed || noiseGen == null) {
@@ -34,6 +35,7 @@ public class BoulderGiant extends Feature<DefaultFeatureConfig> {
 
     @Override
     public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
+        if(GeneralUtils.isWorldBlacklisted(world)) return false;
         setSeed(world.getSeed());
 
         BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().set(position);
