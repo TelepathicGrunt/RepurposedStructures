@@ -24,7 +24,7 @@ originalBiome = ""
 newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {
-    "down-minecraft:red_sandstone":"down-minecraft:packed_ice"
+    "minecraft:village/guiana/villagers":"byg:village/tropical/villagers"
 }
 conversion_exact_dict = {
 }

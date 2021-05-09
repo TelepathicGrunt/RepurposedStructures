@@ -1,16 +1,9 @@
 package com.telepathicgrunt.repurposedstructures.misc;
 
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
-import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
-import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
-import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.minecraft.item.map.MapIcon;
-import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.village.TradeOffers;
 import net.minecraft.village.VillagerProfession;
-
-import java.util.Arrays;
-import java.util.List;
 
 import static net.minecraft.village.TradeOffers.PROFESSION_TO_LEVELED_TRADE;
 
