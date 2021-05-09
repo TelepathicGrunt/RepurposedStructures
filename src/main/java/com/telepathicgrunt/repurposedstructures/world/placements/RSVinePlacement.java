@@ -18,7 +18,7 @@ public class RSVinePlacement extends Placement<TopSolidRangeConfig> {
     public Stream<BlockPos> getPositions(WorldDecoratingHelper world, Random random, TopSolidRangeConfig config, BlockPos pos) {
         int x = random.nextInt(16) + pos.getX();
         int z = random.nextInt(16) + pos.getZ();
-        int y = world.getTopY(Heightmap.Type.MOTION_BLOCKING, x, z);
+        int y = world.getHeight(Heightmap.Type.MOTION_BLOCKING, x, z);
         return y <= 0 ? Stream.empty() : Stream.of(new BlockPos(x, y + config.topOffset - random.nextInt(config.maximum), z));
     }
 }

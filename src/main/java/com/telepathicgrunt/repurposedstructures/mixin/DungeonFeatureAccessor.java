@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 @Mixin(DungeonsFeature.class)
 public interface DungeonFeatureAccessor {
 
-    @Accessor("SPAWNERTYPES")
+    @Accessor("MOBS")
     static EntityType<?>[] rs_getMOB_SPAWNER_ENTITIES() {
         throw new UnsupportedOperationException();
     }

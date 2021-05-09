@@ -15,8 +15,8 @@ repositories {
     maven {
         url "https://maven.tterrag.com/"
     }
-    flatDir {
-        dirs 'deps'
+    maven {
+        url "https://nexus.resourcefulbees.com/repository/telepathicgrunt/"
     }
 }
 
@@ -31,8 +31,7 @@ archivesBaseName = "repurposed_structures"
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 
 minecraft {
-
-    mappings channel: 'snapshot', version: "${mapping}-mixed-${yarnmcp_version}"
+    mappings channel: "official", version: "1.16.5"
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
    
     runs {
@@ -40,12 +39,16 @@ minecraft {
             workingDirectory project.file('run')
             arg "-mixin.config="+archivesBaseName+".mixins.json"
             property 'forge.logging.console.level', 'debug'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
             mods { repurposed_structures { source sourceSets.main } }
         }
 
         server {
             workingDirectory project.file('run')
             arg "-mixin.config="+archivesBaseName+".mixins.json"
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
             mods { repurposed_structures { source sourceSets.main } }
         }
     }
@@ -58,6 +61,7 @@ dependencies {
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
 
     //implementation fg.deobf("ignored:TerraForged-1.16.4:0.2.5")
+    implementation fg.deobf("com.telepathicgrunt:Blame:1.16.5-3.0.0-forge")
 }
 
 

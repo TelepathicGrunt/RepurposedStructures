@@ -21,16 +21,15 @@ import java.util.Random;
 public class NoLavaFallsInStructuresMixin {
 
     @Inject(
-            method = "generate",
+            method = "place",
             at = @At(value = "HEAD"),
-            cancellable = true,
-            require = -1
+            cancellable = true
     )
     private void noLava(ISeedReader structureWorldAccess, ChunkGenerator chunkGenerator, Random random, BlockPos blockPos, LiquidsConfig springFeatureConfig, CallbackInfoReturnable<Boolean> cir) {
-        if(springFeatureConfig.state.isTagged(FluidTags.LAVA)) {
+        if(springFeatureConfig.state.is(FluidTags.LAVA)) {
             BlockPos.Mutable mutable = new BlockPos.Mutable();
             for(Direction face : Direction.Plane.HORIZONTAL){
-                if(structureWorldAccess.getStructures(SectionPos.from(mutable.setPos(blockPos).move(face)), RSStructures.ICY_MINESHAFT.get()).findAny().isPresent()){
+                if(structureWorldAccess.startsForFeature(SectionPos.of(mutable.set(blockPos).move(face)), RSStructures.ICY_MINESHAFT.get()).findAny().isPresent()){
                     cir.setReturnValue(false);
                 }
             }

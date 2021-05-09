@@ -243,36 +243,36 @@ public class RSStructures {
     }
 
     public static <C extends IFeatureConfig, F extends Structure<C>> void addToTerraformingAndStructureMaps(ResourceLocation resourceLocation, F structure, GenerationStage.Decoration stage, StructureSeparationSettings StructureSeparationSettings, C config) {
-        Structure.JIGSAW_STRUCTURES = ImmutableList.<Structure<?>>builder().addAll(Structure.JIGSAW_STRUCTURES).add(structure).build();
+        Structure.NOISE_AFFECTING_FEATURES = ImmutableList.<Structure<?>>builder().addAll(Structure.NOISE_AFFECTING_FEATURES).add(structure).build();
         addToStructureMaps(resourceLocation, structure, stage, StructureSeparationSettings, config);
     }
 
     public static <F extends Structure<NoFeatureConfig>> void addToTerraformingAndStructureMaps(ResourceLocation resourceLocation, F structure, GenerationStage.Decoration stage, StructureSeparationSettings StructureSeparationSettings) {
-        Structure.JIGSAW_STRUCTURES = ImmutableList.<Structure<?>>builder().addAll(Structure.JIGSAW_STRUCTURES).add(structure).build();
+        Structure.NOISE_AFFECTING_FEATURES = ImmutableList.<Structure<?>>builder().addAll(Structure.NOISE_AFFECTING_FEATURES).add(structure).build();
         addToStructureMaps(resourceLocation, structure, stage, StructureSeparationSettings);
     }
 
     public static <C extends IFeatureConfig, F extends Structure<C>> void addToStructureMaps(ResourceLocation resourceLocation, F structure, GenerationStage.Decoration stage, StructureSeparationSettings structureSeparationSettings, C config) {
-        Structure.STRUCTURES.put(resourceLocation.toString().toLowerCase(Locale.ROOT), structure);
+        Structure.STRUCTURES_REGISTRY.put(resourceLocation.toString().toLowerCase(Locale.ROOT), structure);
 
-        // This is only for myself. Others should override func_236396_f_() in
+        // This is only for myself. Others should override step() in
         // their structure's class to return their generation stage instead.
-        Structure.STRUCTURE_TO_GENERATION_STEP.put(structure, stage);
+        Structure.STEP.put(structure, stage);
 
-        DimensionStructuresSettings.DEFAULT_STRUCTURES = ImmutableMap.<Structure<?>, StructureSeparationSettings>builder().putAll(DimensionStructuresSettings.DEFAULT_STRUCTURES).put(structure, structureSeparationSettings).build();
-        FlatGenerationSettings.STRUCTURES.put(structure, structure.configure(config));
+        DimensionStructuresSettings.DEFAULTS = ImmutableMap.<Structure<?>, StructureSeparationSettings>builder().putAll(DimensionStructuresSettings.DEFAULTS).put(structure, structureSeparationSettings).build();
+        FlatGenerationSettings.STRUCTURE_FEATURES.put(structure, structure.configured(config));
         RS_STRUCTURES.put(structure, structureSeparationSettings);
     }
 
     public static <F extends Structure<NoFeatureConfig>> void addToStructureMaps(ResourceLocation resourceLocation, F structure, GenerationStage.Decoration stage, StructureSeparationSettings structureSeparationSettings) {
-        Structure.STRUCTURES.put(resourceLocation.toString().toLowerCase(Locale.ROOT), structure);
+        Structure.STRUCTURES_REGISTRY.put(resourceLocation.toString().toLowerCase(Locale.ROOT), structure);
 
-        // This is only for myself. Others should override func_236396_f_() in
+        // This is only for myself. Others should override step() in
         // their structure's class to return their generation stage instead.
-        Structure.STRUCTURE_TO_GENERATION_STEP.put(structure, stage);
+        Structure.STEP.put(structure, stage);
 
-        DimensionStructuresSettings.DEFAULT_STRUCTURES = ImmutableMap.<Structure<?>, StructureSeparationSettings>builder().putAll(DimensionStructuresSettings.DEFAULT_STRUCTURES).put(structure, structureSeparationSettings).build();
-        FlatGenerationSettings.STRUCTURES.put(structure, structure.configure(IFeatureConfig.NO_FEATURE_CONFIG));
+        DimensionStructuresSettings.DEFAULTS = ImmutableMap.<Structure<?>, StructureSeparationSettings>builder().putAll(DimensionStructuresSettings.DEFAULTS).put(structure, structureSeparationSettings).build();
+        FlatGenerationSettings.STRUCTURE_FEATURES.put(structure, structure.configured(IFeatureConfig.NONE));
         RS_STRUCTURES.put(structure, structureSeparationSettings);
     }
 }

@@ -136,7 +136,7 @@ public class StructureModdedLootImporter extends LootModifier {
 
         // Generate random loot that would've been in vanilla chests. (Need to make new context or else we recursively call ourselves infinitely)
         LootContext newContext = copyLootContextWithNewQueryID(context, tableToImportLoot);
-        List<ItemStack> newlyGeneratedLoot = context.getSupplier(tableToImportLoot).generate(newContext);
+        List<ItemStack> newlyGeneratedLoot = context.getLootTable(tableToImportLoot).getRandomItems(newContext);
 
         // Remove all vanilla loot so we only have modded loot
         newlyGeneratedLoot.removeIf(itemStack -> itemStack.getItem().getRegistryName().getNamespace().equals("minecraft"));
@@ -159,7 +159,7 @@ public class StructureModdedLootImporter extends LootModifier {
     }
 
     private LootContext copyLootContextWithNewQueryID(LootContext oldLootContext, ResourceLocation newQueryID){
-        LootContext newContext = new LootContext.Builder(oldLootContext).build(LootParameterSets.CHEST);
+        LootContext newContext = new LootContext.Builder(oldLootContext).create(LootParameterSets.CHEST);
         ((LootContextAccessor)newContext).rs_setQueriedLootTableId(newQueryID); // The normal method won't set it as the newContext already has queriedID.
         return newContext;
     }

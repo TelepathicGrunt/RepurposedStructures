@@ -22,19 +22,22 @@ import net.minecraft.world.gen.settings.StructureSeparationSettings;
 
 import java.util.Set;
 
+import com.telepathicgrunt.repurposedstructures.world.structures.GenericJigsawStructure.MainStart;
+import net.minecraft.world.gen.feature.structure.Structure.IStartFactory;
+
 public class VillageNetherStructure extends GenericJigsawStructure {
     public VillageNetherStructure(ResourceLocation poolRL, int structureSize, int centerOffset, int biomeRange, int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet) {
         super(poolRL, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet);
     }
 
     @Override
-    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig noFeatureConfig) {
+    protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig noFeatureConfig) {
         for (int curChunkX = chunkX - 10; curChunkX <= chunkX + 10; curChunkX++) {
             for (int curChunkZ = chunkZ - 10; curChunkZ <= chunkZ + 10; curChunkZ++) {
                 for(Structure<?> outpost : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NETHER_OUTPOST)){
-                    StructureSeparationSettings structureConfig = chunkGenerator.getStructuresConfig().getForType(outpost);
-                    if(structureConfig != null && structureConfig.getSpacing() > 10) {
-                        ChunkPos chunkPos2 = outpost.getStartChunk(structureConfig, seed, chunkRandom, curChunkX, curChunkZ);
+                    StructureSeparationSettings structureConfig = chunkGenerator.getSettings().getConfig(outpost);
+                    if(structureConfig != null && structureConfig.spacing() > 10) {
+                        ChunkPos chunkPos2 = outpost.getPotentialFeatureChunk(structureConfig, seed, chunkRandom, curChunkX, curChunkZ);
                         if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
                             return false;
                         }
@@ -42,7 +45,7 @@ public class VillageNetherStructure extends GenericJigsawStructure {
                 }
             }
         }
-        return super.shouldStartAt(chunkGenerator, biomeSource, seed, chunkRandom, chunkX, chunkZ, biome, chunkPos, noFeatureConfig);
+        return super.isFeatureChunk(chunkGenerator, biomeSource, seed, chunkRandom, chunkX, chunkZ, biome, chunkPos, noFeatureConfig);
     }
 
     @Override
@@ -55,15 +58,15 @@ public class VillageNetherStructure extends GenericJigsawStructure {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
         }
 
-        public void init(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
-            super.init(dynamicRegistryManager, chunkGenerator, structureManager, chunkX, chunkZ, biome, NoFeatureConfig);
+        public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
+            super.generatePieces(dynamicRegistryManager, chunkGenerator, structureManager, chunkX, chunkZ, biome, NoFeatureConfig);
 
-            BlockPos lowestLandPos = getHighestLand(chunkGenerator, this.bounds);
-            if (lowestLandPos.getY() >= chunkGenerator.getMaxY() - 20 || lowestLandPos.getY() <= chunkGenerator.getSeaLevel() + 1) {
-                this.func_214626_a(this.rand, chunkGenerator.getSeaLevel() - 12, chunkGenerator.getSeaLevel() - 11);
+            BlockPos lowestLandPos = getHighestLand(chunkGenerator, this.boundingBox);
+            if (lowestLandPos.getY() >= chunkGenerator.getGenDepth() - 20 || lowestLandPos.getY() <= chunkGenerator.getSeaLevel() + 1) {
+                this.moveInsideHeights(this.random, chunkGenerator.getSeaLevel() - 12, chunkGenerator.getSeaLevel() - 11);
             }
             else {
-                this.func_214626_a(this.rand, lowestLandPos.getY() - 13, lowestLandPos.getY() - 12);
+                this.moveInsideHeights(this.random, lowestLandPos.getY() - 13, lowestLandPos.getY() - 12);
             }
         }
 
@@ -73,16 +76,16 @@ public class VillageNetherStructure extends GenericJigsawStructure {
     //Helper methods//
 
     public static BlockPos getHighestLand(ChunkGenerator chunkGenerator, MutableBoundingBox bounds) {
-        BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(bounds.func_215126_f().getX(), chunkGenerator.getMaxY() - 20, bounds.func_215126_f().getZ());
-        IBlockReader blockView = chunkGenerator.getColumnSample(mutable.getX(), mutable.getZ());
+        BlockPos.Mutable mutable = new BlockPos.Mutable().set(bounds.getCenter().getX(), chunkGenerator.getGenDepth() - 20, bounds.getCenter().getZ());
+        IBlockReader blockView = chunkGenerator.getBaseColumn(mutable.getX(), mutable.getZ());
         BlockState currentBlockstate;
         while (mutable.getY() > chunkGenerator.getSeaLevel() + 1) {
             currentBlockstate = blockView.getBlockState(mutable);
-            if (!currentBlockstate.isFullCube(blockView, mutable)) {
+            if (!currentBlockstate.isCollisionShapeFullBlock(blockView, mutable)) {
                 mutable.move(Direction.DOWN);
                 continue;
             }
-            else if (blockView.getBlockState(mutable.add(0, 3, 0)).getMaterial() == Material.AIR &&
+            else if (blockView.getBlockState(mutable.offset(0, 3, 0)).getMaterial() == Material.AIR &&
                     isValidBlock(currentBlockstate)) {
                 break;
             }
@@ -103,7 +106,7 @@ public class VillageNetherStructure extends GenericJigsawStructure {
                 BlockTags.WITHER_IMMUNE.contains(currentBlockstate.getBlock()) ||
                 BlockTags.WOOL.contains(currentBlockstate.getBlock()) ||
                 currentBlockstate.getMaterial() == Material.SAND ||
-                currentBlockstate.getMaterial() == Material.ROCK ||
-                currentBlockstate.getMaterial() == Material.EARTH;
+                currentBlockstate.getMaterial() == Material.STONE ||
+                currentBlockstate.getMaterial() == Material.DIRT;
     }
 }

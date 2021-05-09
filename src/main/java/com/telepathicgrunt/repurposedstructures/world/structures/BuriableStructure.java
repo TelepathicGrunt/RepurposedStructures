@@ -39,34 +39,34 @@ public class BuriableStructure extends AbstractBaseStructure<NoFeatureConfig> {
         }
 
         @Override
-        public void init(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
+        public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
             BlockPos blockPos = new BlockPos(chunkX * 16, chunkGenerator.getSeaLevel(), chunkZ * 16);
-            JigsawManager.method_30419(
+            JigsawManager.addPieces(
                     dynamicRegistryManager,
-                    new VillageConfig(() -> dynamicRegistryManager.get(
-                            Registry.TEMPLATE_POOL_WORLDGEN).getOrDefault(startPool),
+                    new VillageConfig(() -> dynamicRegistryManager.registryOrThrow(
+                            Registry.TEMPLATE_POOL_REGISTRY).get(startPool),
                             1),
                     AbstractVillagePiece::new,
                     chunkGenerator,
                     structureManager,
                     blockPos,
-                    this.components,
-                    this.rand,
+                    this.pieces,
+                    this.random,
                     true,
                     false);
 
-            this.components.get(1).getBoundingBox().expandTo(this.components.get(0).getBoundingBox());
-            this.recalculateStructureSize();
+            this.pieces.get(1).getBoundingBox().expand(this.pieces.get(0).getBoundingBox());
+            this.calculateBoundingBox();
 
-            Rotation rotation = this.components.get(0).getRotation();
-            BlockPos maxCorner = new BlockPos(this.components.get(0).getBoundingBox().getXSize(), 0, this.components.get(0).getBoundingBox().getZSize()).rotate(rotation);
+            Rotation rotation = this.pieces.get(0).getRotation();
+            BlockPos maxCorner = new BlockPos(this.pieces.get(0).getBoundingBox().getXSpan(), 0, this.pieces.get(0).getBoundingBox().getZSpan()).rotate(rotation);
 
-            int highestLandPos = chunkGenerator.func_222529_a(blockPos.getX() + maxCorner.getX(), blockPos.getZ() + maxCorner.getZ(), Heightmap.Type.WORLD_SURFACE_WG);
-            highestLandPos = Math.min(highestLandPos, chunkGenerator.func_222529_a(blockPos.getX(), blockPos.getZ() + maxCorner.getZ(), Heightmap.Type.WORLD_SURFACE_WG));
-            highestLandPos = Math.min(highestLandPos, chunkGenerator.func_222529_a(blockPos.getX() + maxCorner.getX(), blockPos.getZ(), Heightmap.Type.WORLD_SURFACE_WG));
-            highestLandPos = Math.min(highestLandPos, chunkGenerator.func_222529_a(blockPos.getX(), blockPos.getZ(), Heightmap.Type.WORLD_SURFACE_WG));
+            int highestLandPos = chunkGenerator.getBaseHeight(blockPos.getX() + maxCorner.getX(), blockPos.getZ() + maxCorner.getZ(), Heightmap.Type.WORLD_SURFACE_WG);
+            highestLandPos = Math.min(highestLandPos, chunkGenerator.getBaseHeight(blockPos.getX(), blockPos.getZ() + maxCorner.getZ(), Heightmap.Type.WORLD_SURFACE_WG));
+            highestLandPos = Math.min(highestLandPos, chunkGenerator.getBaseHeight(blockPos.getX() + maxCorner.getX(), blockPos.getZ(), Heightmap.Type.WORLD_SURFACE_WG));
+            highestLandPos = Math.min(highestLandPos, chunkGenerator.getBaseHeight(blockPos.getX(), blockPos.getZ(), Heightmap.Type.WORLD_SURFACE_WG));
 
-            this.func_214626_a(this.rand, highestLandPos-15, highestLandPos-14);
+            this.moveInsideHeights(this.random, highestLandPos-15, highestLandPos-14);
         }
     }
 }

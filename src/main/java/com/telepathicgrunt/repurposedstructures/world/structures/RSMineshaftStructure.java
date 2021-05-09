@@ -17,6 +17,8 @@ import net.minecraft.world.gen.settings.StructureSeparationSettings;
 import net.minecraftforge.common.util.Lazy;
 
 
+import net.minecraft.world.gen.feature.structure.Structure.IStartFactory;
+
 public class RSMineshaftStructure extends AbstractBaseStructure<NoFeatureConfig> {
     protected final Lazy<Double> probability;
     protected final Lazy<Integer> maxHeight;
@@ -32,10 +34,10 @@ public class RSMineshaftStructure extends AbstractBaseStructure<NoFeatureConfig>
     }
 
     @Override
-    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int x, int z, Biome biome, ChunkPos chunkPos, NoFeatureConfig featureConfig) {
-        StructureSeparationSettings structureConfig = chunkGenerator.getStructuresConfig().getForType(this);
+    protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int x, int z, Biome biome, ChunkPos chunkPos, NoFeatureConfig featureConfig) {
+        StructureSeparationSettings structureConfig = chunkGenerator.getSettings().getConfig(this);
         if(structureConfig != null) {
-            chunkRandom.setLargeFeatureSeed(seed + structureConfig.getSalt(), x, z);
+            chunkRandom.setLargeFeatureSeed(seed + structureConfig.salt(), x, z);
             double d = (probability.get() / 10000D);
             return chunkRandom.nextDouble() < d;
         }
@@ -53,21 +55,21 @@ public class RSMineshaftStructure extends AbstractBaseStructure<NoFeatureConfig>
         }
 
         @Override
-        public void init(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
-            RSMineshaftPieces.Room structuremineshaftpiecesua$room = new RSMineshaftPieces.Room(0, this.rand, (chunkX << 4) + 2, (chunkZ << 4) + 2, mineshaftType);
-            this.components.add(structuremineshaftpiecesua$room);
+        public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
+            RSMineshaftPieces.Room structuremineshaftpiecesua$room = new RSMineshaftPieces.Room(0, this.random, (chunkX << 4) + 2, (chunkZ << 4) + 2, mineshaftType);
+            this.pieces.add(structuremineshaftpiecesua$room);
 
-            structuremineshaftpiecesua$room.buildComponent(structuremineshaftpiecesua$room, this.components, this.rand);
-            this.recalculateStructureSize();
+            structuremineshaftpiecesua$room.addChildren(structuremineshaftpiecesua$room, this.pieces, this.random);
+            this.calculateBoundingBox();
 
             int minimum = minHeight.get();
             int maximum = Math.max(maxHeight.get(), minimum) + 1;
 
-            int offset = this.rand.nextInt(maximum - minimum) + minimum;
-            this.bounds.offset(0, offset - 50, 0);
+            int offset = this.random.nextInt(maximum - minimum) + minimum;
+            this.boundingBox.move(0, offset - 50, 0);
 
-            for (StructurePiece structurepiece : this.components) {
-                structurepiece.offset(0, offset - 50, 0);
+            for (StructurePiece structurepiece : this.pieces) {
+                structurepiece.move(0, offset - 50, 0);
             }
         }
     }

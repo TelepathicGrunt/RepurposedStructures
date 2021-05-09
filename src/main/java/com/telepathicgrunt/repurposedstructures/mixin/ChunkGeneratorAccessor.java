@@ -7,6 +7,6 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 
 @Mixin(ChunkGenerator.class)
 public interface ChunkGeneratorAccessor {
-    @Invoker("getCodec")
+    @Invoker("codec")
     Codec<ChunkGenerator> rs_getCodec();
 }

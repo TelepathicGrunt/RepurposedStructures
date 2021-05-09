@@ -30,7 +30,7 @@ public class StructureMobSpawningMixin {
      * @reason Return list of structure mob spawn combined with biome's mob spawn.
      */
     @Inject(
-            method = "getEntitySpawnList(Lnet/minecraft/world/biome/Biome;Lnet/minecraft/world/gen/feature/structure/StructureManager;Lnet/minecraft/entity/EntityClassification;Lnet/minecraft/util/math/BlockPos;)Ljava/util/List;",
+            method = "getMobsAt(Lnet/minecraft/world/biome/Biome;Lnet/minecraft/world/gen/feature/structure/StructureManager;Lnet/minecraft/entity/EntityClassification;Lnet/minecraft/util/math/BlockPos;)Ljava/util/List;",
             at = @At(value = "HEAD"),
             cancellable = true
     )
@@ -45,7 +45,7 @@ public class StructureMobSpawningMixin {
         if(group == EntityClassification.MONSTER){
             for(Structure<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.APPEND_WITH_NATURAL_MOBS)){
                 if (!structureFeature.getDefaultSpawnList().isEmpty() && accessor.getStructureAt(pos, true, structureFeature).isValid()) {
-                    return Lists.newArrayList(Iterators.concat(biome.getSpawnSettings().getSpawnEntry(EntityClassification.MONSTER).iterator(), structureFeature.getDefaultSpawnList().iterator()));
+                    return Lists.newArrayList(Iterators.concat(biome.getMobSettings().getMobs(EntityClassification.MONSTER).iterator(), structureFeature.getDefaultSpawnList().iterator()));
                 }
             }
         }
@@ -53,7 +53,7 @@ public class StructureMobSpawningMixin {
         else if(group == EntityClassification.CREATURE){
             for(Structure<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.APPEND_WITH_NATURAL_MOBS)){
                 if (!structureFeature.getDefaultCreatureSpawnList().isEmpty() && accessor.getStructureAt(pos, true, structureFeature).isValid()) {
-                    return Lists.newArrayList(Iterators.concat(biome.getSpawnSettings().getSpawnEntry(EntityClassification.CREATURE).iterator(), structureFeature.getDefaultCreatureSpawnList().iterator()));
+                    return Lists.newArrayList(Iterators.concat(biome.getMobSettings().getMobs(EntityClassification.CREATURE).iterator(), structureFeature.getDefaultCreatureSpawnList().iterator()));
                 }
             }
         }

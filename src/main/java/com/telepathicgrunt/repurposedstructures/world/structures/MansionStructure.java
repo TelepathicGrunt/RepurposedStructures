@@ -25,6 +25,8 @@ import java.util.List;
 import java.util.Random;
 
 
+import net.minecraft.world.gen.feature.structure.Structure.IStartFactory;
+
 public class MansionStructure extends AbstractBaseStructure<NoFeatureConfig> {
 
     protected final MansionPieces.MansionTemplate.MANSIONTYPE type;
@@ -34,15 +36,15 @@ public class MansionStructure extends AbstractBaseStructure<NoFeatureConfig> {
     }
 
     @Override
-    protected boolean isUniformDistribution() {
+    protected boolean linearSeparation() {
         return false;
     }
 
     @Override
-    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom random, int chunkX, int chunkZ, Biome biome1, ChunkPos chunkPos, NoFeatureConfig config) {
+    protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom random, int chunkX, int chunkZ, Biome biome1, ChunkPos chunkPos, NoFeatureConfig config) {
         if(!(biomeSource instanceof CheckerboardBiomeProvider)) {
-            for (Biome biome2 : biomeSource.getBiomesInArea(chunkX * 16 + 9, chunkGenerator.getSeaLevel(), chunkZ * 16 + 9, 32)) {
-                if (!biome2.getGenerationSettings().hasStructureFeature(this)) {
+            for (Biome biome2 : biomeSource.getBiomesWithin(chunkX * 16 + 9, chunkGenerator.getSeaLevel(), chunkZ * 16 + 9, 32)) {
+                if (!biome2.getGenerationSettings().isValidStart(this)) {
                     return false;
                 }
             }
@@ -62,8 +64,8 @@ public class MansionStructure extends AbstractBaseStructure<NoFeatureConfig> {
         }
 
         @Override
-        public void init(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
-            Rotation rotation = Rotation.randomRotation(this.rand);
+        public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
+            Rotation rotation = Rotation.getRandom(this.random);
             int i = 5;
             int j = 5;
             if (rotation == Rotation.CLOCKWISE_90) {
@@ -77,31 +79,31 @@ public class MansionStructure extends AbstractBaseStructure<NoFeatureConfig> {
 
             int k = (chunkX << 4) + 7;
             int l = (chunkZ << 4) + 7;
-            int i1 = chunkGenerator.func_222531_c(k, l, Heightmap.Type.WORLD_SURFACE_WG);
-            int j1 = chunkGenerator.func_222531_c(k, l + j, Heightmap.Type.WORLD_SURFACE_WG);
-            int k1 = chunkGenerator.func_222531_c(k + i, l, Heightmap.Type.WORLD_SURFACE_WG);
-            int l1 = chunkGenerator.func_222531_c(k + i, l + j, Heightmap.Type.WORLD_SURFACE_WG);
+            int i1 = chunkGenerator.getFirstOccupiedHeight(k, l, Heightmap.Type.WORLD_SURFACE_WG);
+            int j1 = chunkGenerator.getFirstOccupiedHeight(k, l + j, Heightmap.Type.WORLD_SURFACE_WG);
+            int k1 = chunkGenerator.getFirstOccupiedHeight(k + i, l, Heightmap.Type.WORLD_SURFACE_WG);
+            int l1 = chunkGenerator.getFirstOccupiedHeight(k + i, l + j, Heightmap.Type.WORLD_SURFACE_WG);
             int y = Math.min(Math.min(i1, j1), Math.min(k1, l1));
             BlockPos blockpos = new BlockPos(chunkX * 16 + 8, y + 1, chunkZ * 16 + 8);
             List<MansionPieces.MansionTemplate> list = Lists.newLinkedList();
-            MansionPieces.generateMansion(structureManager, blockpos, rotation, list, this.rand, type);
-            this.components.addAll(list);
-            this.recalculateStructureSize();
+            MansionPieces.generateMansion(structureManager, blockpos, rotation, list, this.random, type);
+            this.pieces.addAll(list);
+            this.calculateBoundingBox();
         }
 
 
-        public void generateStructure(ISeedReader world, StructureManager structureManager, ChunkGenerator chunkGenerator, Random random, MutableBoundingBox boundingBox, ChunkPos chunkPos) {
-            super.generateStructure(world, structureManager, chunkGenerator, random, boundingBox, chunkPos);
-            int i = this.bounds.minY;
+        public void placeInChunk(ISeedReader world, StructureManager structureManager, ChunkGenerator chunkGenerator, Random random, MutableBoundingBox boundingBox, ChunkPos chunkPos) {
+            super.placeInChunk(world, structureManager, chunkGenerator, random, boundingBox, chunkPos);
+            int i = this.boundingBox.y0;
 
-            for(int j = boundingBox.minX; j <= boundingBox.maxX; ++j) {
-                for(int k = boundingBox.minZ; k <= boundingBox.maxZ; ++k) {
+            for(int j = boundingBox.x0; j <= boundingBox.x1; ++j) {
+                for(int k = boundingBox.z0; k <= boundingBox.z1; ++k) {
                     BlockPos blockpos = new BlockPos(j, i, k);
-                    if (!world.isAirBlock(blockpos) && this.bounds.isVecInside(blockpos)) {
+                    if (!world.isEmptyBlock(blockpos) && this.boundingBox.isInside(blockpos)) {
                         boolean flag = false;
 
-                        for(StructurePiece structurepiece : this.components) {
-                            if (structurepiece.getBoundingBox().isVecInside(blockpos)) {
+                        for(StructurePiece structurepiece : this.pieces) {
+                            if (structurepiece.getBoundingBox().isInside(blockpos)) {
                                 flag = true;
                                 break;
                             }
@@ -110,11 +112,11 @@ public class MansionStructure extends AbstractBaseStructure<NoFeatureConfig> {
                         if (flag) {
                             for(int l = i - 1; l > 1; --l) {
                                 BlockPos blockpos1 = new BlockPos(j, l, k);
-                                if (!world.isAirBlock(blockpos1) && !world.getBlockState(blockpos1).getMaterial().isLiquid()) {
+                                if (!world.isEmptyBlock(blockpos1) && !world.getBlockState(blockpos1).getMaterial().isLiquid()) {
                                     break;
                                 }
 
-                                world.setBlockState(blockpos1, type.getFoundationBlock(), 2);
+                                world.setBlock(blockpos1, type.getFoundationBlock(), 2);
                             }
                         }
                     }

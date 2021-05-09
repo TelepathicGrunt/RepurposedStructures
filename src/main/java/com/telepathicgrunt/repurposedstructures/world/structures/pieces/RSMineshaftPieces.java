@@ -100,13 +100,13 @@ public class RSMineshaftPieces {
     private static RSMineshaftPieces.Piece generateAndAddPiece(StructurePiece p_189938_0_, List<StructurePiece> p_189938_1_, Random p_189938_2_, int p_189938_3_, int p_189938_4_, int p_189938_5_, Direction p_189938_6_, int p_189938_7_) {
         if (p_189938_7_ > 8) {
             return null;
-        } else if (Math.abs(p_189938_3_ - p_189938_0_.getBoundingBox().minX) <= 80 && Math.abs(p_189938_5_ - p_189938_0_.getBoundingBox().minZ) <= 80) {
+        } else if (Math.abs(p_189938_3_ - p_189938_0_.getBoundingBox().x0) <= 80 && Math.abs(p_189938_5_ - p_189938_0_.getBoundingBox().z0) <= 80) {
             RSMineshaftPieces.Type mapgenmineshaft$type = ((RSMineshaftPieces.Piece) p_189938_0_).mineShaftType;
             RSMineshaftPieces.Piece structuremineshaftpieces$peice = createRandomShaftPiece(p_189938_1_, p_189938_2_, p_189938_3_, p_189938_4_, p_189938_5_, p_189938_6_, p_189938_7_ + 1, mapgenmineshaft$type);
 
             if (structuremineshaftpieces$peice != null) {
                 p_189938_1_.add(structuremineshaftpieces$peice);
-                structuremineshaftpieces$peice.buildComponent(p_189938_0_, p_189938_1_, p_189938_2_);
+                structuremineshaftpieces$peice.addChildren(p_189938_0_, p_189938_1_, p_189938_2_);
             }
 
             return structuremineshaftpieces$peice;
@@ -134,8 +134,8 @@ public class RSMineshaftPieces {
          * (abstract) Helper method to read subclass data from NBT
          */
         @Override
-        protected void readAdditional(CompoundNBT tagCompound) {
-            super.readAdditional(tagCompound);
+        protected void addAdditionalSaveData(CompoundNBT tagCompound) {
+            super.addAdditionalSaveData(tagCompound);
             tagCompound.putBoolean("hr", this.hasRails);
             tagCompound.putBoolean("sc", this.attemptSpawnerCreation);
             tagCompound.putBoolean("hps", this.spawnerPlaced);
@@ -145,7 +145,7 @@ public class RSMineshaftPieces {
 
         public Corridor(int p_i47140_1_, Random p_i47140_2_, MutableBoundingBox p_i47140_3_, Direction p_i47140_4_, RSMineshaftPieces.Type p_i47140_5_) {
             super(RSStructurePieces.MINESHAFT_CORRIDOR_RS, p_i47140_1_, p_i47140_5_);
-            this.setCoordBaseMode(p_i47140_4_);
+            this.setOrientation(p_i47140_4_);
             this.boundingBox = p_i47140_3_;
             this.hasRails = p_i47140_2_.nextInt(3) == 0;
             if (this.mineShaftType == Type.END) {
@@ -153,10 +153,10 @@ public class RSMineshaftPieces {
             } else {
                 this.attemptSpawnerCreation = !this.hasRails && p_i47140_2_.nextInt(20) == 0;
             }
-            if (this.getCoordBaseMode() != null && this.getCoordBaseMode().getAxis() == Direction.Axis.Z) {
-                this.sectionCount = p_i47140_3_.getZSize() / 5;
+            if (this.getOrientation() != null && this.getOrientation().getAxis() == Direction.Axis.Z) {
+                this.sectionCount = p_i47140_3_.getZSpan() / 5;
             } else {
-                this.sectionCount = p_i47140_3_.getXSize() / 5;
+                this.sectionCount = p_i47140_3_.getXSpan() / 5;
             }
 
         }
@@ -172,26 +172,26 @@ public class RSMineshaftPieces {
                 switch (facing) {
                     case NORTH:
                     default:
-                        MutableBoundingBox.maxX = x + 2;
-                        MutableBoundingBox.minZ = z - (j - 1);
+                        MutableBoundingBox.x1 = x + 2;
+                        MutableBoundingBox.z0 = z - (j - 1);
                         break;
 
                     case SOUTH:
-                        MutableBoundingBox.maxX = x + 2;
-                        MutableBoundingBox.maxZ = z + (j - 1);
+                        MutableBoundingBox.x1 = x + 2;
+                        MutableBoundingBox.z1 = z + (j - 1);
                         break;
 
                     case WEST:
-                        MutableBoundingBox.minX = x - (j - 1);
-                        MutableBoundingBox.maxZ = z + 2;
+                        MutableBoundingBox.x0 = x - (j - 1);
+                        MutableBoundingBox.z1 = z + 2;
                         break;
 
                     case EAST:
-                        MutableBoundingBox.maxX = x + (j - 1);
-                        MutableBoundingBox.maxZ = z + 2;
+                        MutableBoundingBox.x1 = x + (j - 1);
+                        MutableBoundingBox.z1 = z + 2;
                 }
 
-                if (StructurePiece.findIntersecting(p_175814_0_, MutableBoundingBox) == null) {
+                if (StructurePiece.findCollisionPiece(p_175814_0_, MutableBoundingBox) == null) {
                     break;
                 }
             }
@@ -201,77 +201,77 @@ public class RSMineshaftPieces {
 
 
         @Override
-        public void buildComponent(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
-            int i = this.getComponentType();
+        public void addChildren(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
+            int i = this.getGenDepth();
             int j = rand.nextInt(4);
-            Direction enumfacing = this.getCoordBaseMode();
+            Direction enumfacing = this.getOrientation();
 
             if (enumfacing != null) {
                 switch (enumfacing) {
                     case NORTH:
                     default:
                         if (j <= 1) {
-                            RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.minX, this.boundingBox.minY - 1 + rand.nextInt(3), this.boundingBox.minZ - 1, enumfacing, i);
+                            RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.x0, this.boundingBox.y0 - 1 + rand.nextInt(3), this.boundingBox.z0 - 1, enumfacing, i);
                         } else if (j == 2) {
-                            RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.minX - 1, this.boundingBox.minY - 1 + rand.nextInt(3), this.boundingBox.minZ, Direction.WEST, i);
+                            RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.x0 - 1, this.boundingBox.y0 - 1 + rand.nextInt(3), this.boundingBox.z0, Direction.WEST, i);
                         } else {
-                            RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.maxX + 1, this.boundingBox.minY - 1 + rand.nextInt(3), this.boundingBox.minZ, Direction.EAST, i);
+                            RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.x1 + 1, this.boundingBox.y0 - 1 + rand.nextInt(3), this.boundingBox.z0, Direction.EAST, i);
                         }
 
                         break;
 
                     case SOUTH:
                         if (j <= 1) {
-                            RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.minX, this.boundingBox.minY - 1 + rand.nextInt(3), this.boundingBox.maxZ + 1, enumfacing, i);
+                            RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.x0, this.boundingBox.y0 - 1 + rand.nextInt(3), this.boundingBox.z1 + 1, enumfacing, i);
                         } else if (j == 2) {
-                            RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.minX - 1, this.boundingBox.minY - 1 + rand.nextInt(3), this.boundingBox.maxZ - 3, Direction.WEST, i);
+                            RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.x0 - 1, this.boundingBox.y0 - 1 + rand.nextInt(3), this.boundingBox.z1 - 3, Direction.WEST, i);
                         } else {
-                            RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.maxX + 1, this.boundingBox.minY - 1 + rand.nextInt(3), this.boundingBox.maxZ - 3, Direction.EAST, i);
+                            RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.x1 + 1, this.boundingBox.y0 - 1 + rand.nextInt(3), this.boundingBox.z1 - 3, Direction.EAST, i);
                         }
 
                         break;
 
                     case WEST:
                         if (j <= 1) {
-                            RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.minX - 1, this.boundingBox.minY - 1 + rand.nextInt(3), this.boundingBox.minZ, enumfacing, i);
+                            RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.x0 - 1, this.boundingBox.y0 - 1 + rand.nextInt(3), this.boundingBox.z0, enumfacing, i);
                         } else if (j == 2) {
-                            RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.minX, this.boundingBox.minY - 1 + rand.nextInt(3), this.boundingBox.minZ - 1, Direction.NORTH, i);
+                            RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.x0, this.boundingBox.y0 - 1 + rand.nextInt(3), this.boundingBox.z0 - 1, Direction.NORTH, i);
                         } else {
-                            RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.minX, this.boundingBox.minY - 1 + rand.nextInt(3), this.boundingBox.maxZ + 1, Direction.SOUTH, i);
+                            RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.x0, this.boundingBox.y0 - 1 + rand.nextInt(3), this.boundingBox.z1 + 1, Direction.SOUTH, i);
                         }
 
                         break;
 
                     case EAST:
                         if (j <= 1) {
-                            RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.maxX + 1, this.boundingBox.minY - 1 + rand.nextInt(3), this.boundingBox.minZ, enumfacing, i);
+                            RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.x1 + 1, this.boundingBox.y0 - 1 + rand.nextInt(3), this.boundingBox.z0, enumfacing, i);
                         } else if (j == 2) {
-                            RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.maxX - 3, this.boundingBox.minY - 1 + rand.nextInt(3), this.boundingBox.minZ - 1, Direction.NORTH, i);
+                            RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.x1 - 3, this.boundingBox.y0 - 1 + rand.nextInt(3), this.boundingBox.z0 - 1, Direction.NORTH, i);
                         } else {
-                            RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.maxX - 3, this.boundingBox.minY - 1 + rand.nextInt(3), this.boundingBox.maxZ + 1, Direction.SOUTH, i);
+                            RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.x1 - 3, this.boundingBox.y0 - 1 + rand.nextInt(3), this.boundingBox.z1 + 1, Direction.SOUTH, i);
                         }
                 }
             }
 
             if (i < 8) {
                 if (enumfacing != Direction.NORTH && enumfacing != Direction.SOUTH) {
-                    for (int i1 = this.boundingBox.minX + 3; i1 + 3 <= this.boundingBox.maxX; i1 += 5) {
+                    for (int i1 = this.boundingBox.x0 + 3; i1 + 3 <= this.boundingBox.x1; i1 += 5) {
                         int j1 = rand.nextInt(5);
 
                         if (j1 == 0) {
-                            RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, i1, this.boundingBox.minY, this.boundingBox.minZ - 1, Direction.NORTH, i + 1);
+                            RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, i1, this.boundingBox.y0, this.boundingBox.z0 - 1, Direction.NORTH, i + 1);
                         } else if (j1 == 1) {
-                            RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, i1, this.boundingBox.minY, this.boundingBox.maxZ + 1, Direction.SOUTH, i + 1);
+                            RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, i1, this.boundingBox.y0, this.boundingBox.z1 + 1, Direction.SOUTH, i + 1);
                         }
                     }
                 } else {
-                    for (int k = this.boundingBox.minZ + 3; k + 3 <= this.boundingBox.maxZ; k += 5) {
+                    for (int k = this.boundingBox.z0 + 3; k + 3 <= this.boundingBox.z1; k += 5) {
                         int l = rand.nextInt(5);
 
                         if (l == 0) {
-                            RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.minX - 1, this.boundingBox.minY, k, Direction.WEST, i + 1);
+                            RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.x0 - 1, this.boundingBox.y0, k, Direction.WEST, i + 1);
                         } else if (l == 1) {
-                            RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.maxX + 1, this.boundingBox.minY, k, Direction.EAST, i + 1);
+                            RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.x1 + 1, this.boundingBox.y0, k, Direction.EAST, i + 1);
                         }
                     }
                 }
@@ -280,22 +280,22 @@ public class RSMineshaftPieces {
 
 
         @Override
-        protected boolean generateChest(ISeedReader world, MutableBoundingBox boundingBox, Random random, int x, int y, int z, ResourceLocation lootTableId) {
-            BlockPos blockpos = new BlockPos(this.getXWithOffset(x, z), this.getYWithOffset(y), this.getZWithOffset(x, z));
+        protected boolean createChest(ISeedReader world, MutableBoundingBox boundingBox, Random random, int x, int y, int z, ResourceLocation lootTableId) {
+            BlockPos blockpos = new BlockPos(this.getWorldX(x, z), this.getWorldY(y), this.getWorldZ(x, z));
             Material currentMaterial = world.getBlockState(blockpos).getMaterial();
 
-            if (boundingBox.isVecInside(blockpos) && (currentMaterial == Material.AIR || currentMaterial == Material.WATER)) {
+            if (boundingBox.isInside(blockpos) && (currentMaterial == Material.AIR || currentMaterial == Material.WATER)) {
                 BlockState blockstate;
                 if (currentMaterial == Material.AIR) {
-                    blockstate = Blocks.RAIL.getDefaultState().with(RailBlock.SHAPE, random.nextBoolean() ? RailShape.NORTH_SOUTH : RailShape.EAST_WEST);
+                    blockstate = Blocks.RAIL.defaultBlockState().setValue(RailBlock.SHAPE, random.nextBoolean() ? RailShape.NORTH_SOUTH : RailShape.EAST_WEST);
                 } else {
-                    blockstate = Blocks.OAK_TRAPDOOR.getDefaultState().with(BlockStateProperties.WATERLOGGED, true);
+                    blockstate = Blocks.OAK_TRAPDOOR.defaultBlockState().setValue(BlockStateProperties.WATERLOGGED, true);
                 }
 
-                this.setBlockState(world, blockstate, x, y, z, boundingBox);
-                ChestMinecartEntity entityminecartchest = new ChestMinecartEntity(world.getWorld(), blockpos.getX() + 0.5F, blockpos.getY() + 0.5F, blockpos.getZ() + 0.5F);
+                this.placeBlock(world, blockstate, x, y, z, boundingBox);
+                ChestMinecartEntity entityminecartchest = new ChestMinecartEntity(world.getLevel(), blockpos.getX() + 0.5F, blockpos.getY() + 0.5F, blockpos.getZ() + 0.5F);
                 entityminecartchest.setLootTable(lootTableId, random.nextLong());
-                world.addEntity(entityminecartchest);
+                world.addFreshEntity(entityminecartchest);
                 return true;
             } else {
                 return false;
@@ -304,15 +304,15 @@ public class RSMineshaftPieces {
 
 
         @Override
-        public boolean generate(ISeedReader world, StructureManager structureAccessor, ChunkGenerator chunkGenerator, Random random, MutableBoundingBox box, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean postProcess(ISeedReader world, StructureManager structureAccessor, ChunkGenerator chunkGenerator, Random random, MutableBoundingBox box, ChunkPos chunkPos, BlockPos blockPos) {
             boolean isOceanType = this.mineShaftType == Type.OCEAN;
             boolean isNetherType = this.mineShaftType == Type.NETHER || this.mineShaftType == Type.CRIMSON || this.mineShaftType == Type.WARPED;
-            if (!isNetherType && (isOceanType ? this.isAirInStructureBoundingBox(world, box) : this.isLiquidInStructureBoundingBox(world, box))) {
+            if (!isNetherType && (isOceanType ? this.isAirInStructureBoundingBox(world, box) : this.edgesLiquid(world, box))) {
                 return false;
             } else {
                 int offsetInSection = this.sectionCount * 5 - 1;
                 BlockState iblockstate = this.getFloorBlock();
-                this.fillWithBlocks(world, box, 0, 0, 0, 2, 1, offsetInSection, getFillingBlock(), getFillingBlock(), false);
+                this.generateBox(world, box, 0, 0, 0, 2, 1, offsetInSection, getFillingBlock(), getFillingBlock(), false);
                 this.generateMaybeBox(world, box, random, 0.8F, 0, 2, 0, 2, 2, offsetInSection, getFillingBlock(), getFillingBlock(), false, false);
 
                 // prevent floating lava
@@ -320,10 +320,10 @@ public class RSMineshaftPieces {
                     BlockState liquidReplacementBlock = getFloorBlock();
 
                     if(this.mineShaftType == Type.CRIMSON){
-                        liquidReplacementBlock = Blocks.CRIMSON_HYPHAE.getDefaultState();
+                        liquidReplacementBlock = Blocks.CRIMSON_HYPHAE.defaultBlockState();
                     }
                     else if(this.mineShaftType == Type.WARPED){
-                        liquidReplacementBlock = Blocks.WARPED_HYPHAE.getDefaultState();
+                        liquidReplacementBlock = Blocks.WARPED_HYPHAE.defaultBlockState();
                     }
 
                     replaceFloatingLiquids(world, box, -1, -1, -1, 3, 3, offsetInSection + 1, liquidReplacementBlock);
@@ -339,8 +339,8 @@ public class RSMineshaftPieces {
                         // can only place chorus fruit on end stone
                         for (int x = 0; x <= 2; ++x) {
                             for (int z = 0; z <= offsetInSection; ++z) {
-                                if (this.getBlockStateFromPos(world, x, 0, z, box).isIn(Blocks.CHORUS_FLOWER)) {
-                                    this.setBlockState(world, Blocks.END_STONE.getDefaultState(), x, -1, z, box);
+                                if (this.getBlock(world, x, 0, z, box).is(Blocks.CHORUS_FLOWER)) {
+                                    this.placeBlock(world, Blocks.END_STONE.defaultBlockState(), x, -1, z, box);
                                 }
                             }
                         }
@@ -364,50 +364,50 @@ public class RSMineshaftPieces {
 
                     if (RepurposedStructures.RSMineshaftsConfig.lootChestsMS.get()) {
                         if (random.nextInt(50) == 0) {
-                            this.generateChest(world, box, random, 2, 0, k1 - 1, getChestLoot());
+                            this.createChest(world, box, random, 2, 0, k1 - 1, getChestLoot());
                         }
 
                         if (random.nextInt(50) == 0) {
-                            this.generateChest(world, box, random, 0, 0, k1 + 1, getChestLoot());
+                            this.createChest(world, box, random, 0, 0, k1 + 1, getChestLoot());
                         }
                     }
 
                     if (this.attemptSpawnerCreation && (!this.spawnerPlaced || (this.mineShaftType == Type.END && random.nextBoolean()))) {
-                        int l1 = this.getYWithOffset(0);
+                        int l1 = this.getWorldY(0);
                         int i2 = k1 - 1 + random.nextInt(3);
-                        int j2 = this.getXWithOffset(1, i2);
-                        int k2 = this.getZWithOffset(1, i2);
+                        int j2 = this.getWorldX(1, i2);
+                        int k2 = this.getWorldZ(1, i2);
                         BlockPos blockpos = new BlockPos(j2, l1, k2);
 
-                        if (box.isVecInside(blockpos) && this.getSkyBrightness(world, 1, 0, i2, box)) {
+                        if (box.isInside(blockpos) && this.isInterior(world, 1, 0, i2, box)) {
                             this.spawnerPlaced = true;
-                            world.setBlockState(blockpos, Blocks.SPAWNER.getDefaultState(), 2);
-                            TileEntity tileentity = world.getTileEntity(blockpos);
+                            world.setBlock(blockpos, Blocks.SPAWNER.defaultBlockState(), 2);
+                            TileEntity tileentity = world.getBlockEntity(blockpos);
 
                             if (tileentity instanceof MobSpawnerTileEntity) {
-                                ((MobSpawnerTileEntity) tileentity).getSpawnerBaseLogic().setEntityType(getSpawnerMob(random));
+                                ((MobSpawnerTileEntity) tileentity).getSpawner().setEntityId(getSpawnerMob(random));
                             }
                         }
                     }
 
                     //wall of glass
                     if (this.mineShaftType == Type.END && random.nextFloat() < 0.3f) {
-                        this.fillWithBlocks(world, box, 0, 0, 0, 2, 2, 0, Blocks.PURPLE_STAINED_GLASS_PANE.getDefaultState().with(PaneBlock.EAST, true).with(PaneBlock.WEST, true), Blocks.PURPLE_STAINED_GLASS_PANE.getDefaultState().with(PaneBlock.NORTH, true).with(PaneBlock.SOUTH, true), false);
+                        this.generateBox(world, box, 0, 0, 0, 2, 2, 0, Blocks.PURPLE_STAINED_GLASS_PANE.defaultBlockState().setValue(PaneBlock.EAST, true).setValue(PaneBlock.WEST, true), Blocks.PURPLE_STAINED_GLASS_PANE.defaultBlockState().setValue(PaneBlock.NORTH, true).setValue(PaneBlock.SOUTH, true), false);
                     }
                 }
 
                 for (int x = 0; x <= 2; ++x) {
                     for (int z = 0; z <= offsetInSection; ++z) {
-                        BlockState spaceForFloor = this.getBlockStateFromPos(world, x, -1, z, box);
+                        BlockState spaceForFloor = this.getBlock(world, x, -1, z, box);
 
                         if (isOceanType ? spaceForFloor.getMaterial() == Material.WATER : spaceForFloor.getMaterial() == Material.AIR) {
-                            this.setBlockState(world, iblockstate, x, -1, z, box);
+                            this.placeBlock(world, iblockstate, x, -1, z, box);
                         }
                         else if(this.mineShaftType == Type.CRIMSON){
-                            this.setBlockState(world, Blocks.CRIMSON_NYLIUM.getDefaultState(), x, -1, z, box);
+                            this.placeBlock(world, Blocks.CRIMSON_NYLIUM.defaultBlockState(), x, -1, z, box);
                         }
                         else if(this.mineShaftType == Type.WARPED){
-                            this.setBlockState(world, Blocks.WARPED_NYLIUM.getDefaultState(), x, -1, z, box);
+                            this.placeBlock(world, Blocks.WARPED_NYLIUM.defaultBlockState(), x, -1, z, box);
                         }
                     }
                 }
@@ -416,20 +416,20 @@ public class RSMineshaftPieces {
                     BlockState blockstate = getRailBlock();
 
                     for (int j3 = 0; j3 <= offsetInSection; ++j3) {
-                        BlockState spaceForRails = this.getBlockStateFromPos(world, 1, -1, j3, box);
+                        BlockState spaceForRails = this.getBlock(world, 1, -1, j3, box);
 
                         if (isOceanType ? spaceForRails.getMaterial() != Material.WATER : spaceForRails.getMaterial() != Material.AIR) {
-                            float f = this.getSkyBrightness(world, 1, 0, j3, box) ? 0.7F : 0.9F;
-                            this.randomlyPlaceBlock(world, box, random, f, 1, 0, j3, blockstate);
+                            float f = this.isInterior(world, 1, 0, j3, box) ? 0.7F : 0.9F;
+                            this.maybeGenerateBlock(world, box, random, f, 1, 0, j3, blockstate);
                         }
                     }
                 }
 
                 if (this.mineShaftType == Type.JUNGLE) {
-                    fillWithVines(world, random, box, 15, 0, 0, 0, 2, 2, offsetInSection, Blocks.JUNGLE_LEAVES.getDefaultState().with(LeavesBlock.PERSISTENT, true));
+                    fillWithVines(world, random, box, 15, 0, 0, 0, 2, 2, offsetInSection, Blocks.JUNGLE_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true));
                 }
                 else if (this.mineShaftType == Type.SWAMPORDARKFOREST) {
-                    fillWithVines(world, random, box, 7, 0, 0, 0, 2, 2, offsetInSection, Blocks.OAK_LEAVES.getDefaultState().with(LeavesBlock.PERSISTENT, true));
+                    fillWithVines(world, random, box, 7, 0, 0, 0, 2, 2, offsetInSection, Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true));
                 }
                 else if(this.mineShaftType == Type.WARPED){
                     fillWithTwistedVines(world, random, box, 8, 0, 0, 0, 2, 2, offsetInSection);
@@ -447,82 +447,82 @@ public class RSMineshaftPieces {
 
             BlockState iblockstate = this.getArchTopBlock();
             BlockState iblockstate2 = getFillingBlock();
-            this.fillWithBlocks(world, boundingBox, x, y2, z, x, y - 1, z, this.getArchSupportBlock(random), iblockstate2, false);
-            this.fillWithBlocks(world, boundingBox, x2, y2, z, x2, y - 1, z, this.getArchSupportBlock(random), iblockstate2, false);
-            this.fillWithBlocks(world, boundingBox, x, y, z, x2, y, z, iblockstate, iblockstate2, false);
+            this.generateBox(world, boundingBox, x, y2, z, x, y - 1, z, this.getArchSupportBlock(random), iblockstate2, false);
+            this.generateBox(world, boundingBox, x2, y2, z, x2, y - 1, z, this.getArchSupportBlock(random), iblockstate2, false);
+            this.generateBox(world, boundingBox, x, y, z, x2, y, z, iblockstate, iblockstate2, false);
 
             if (this.mineShaftType == Type.END) {
                 if (random.nextFloat() < 0.08F) {
-                    this.randomlyPlaceBlock(world, boundingBox, random, 1F, x, y, z - 1, Blocks.END_ROD.getDefaultState().with(DirectionalBlock.FACING, Direction.SOUTH));
-                    this.randomlyPlaceBlock(world, boundingBox, random, 1F, x, y, z + 1, Blocks.END_ROD.getDefaultState().with(DirectionalBlock.FACING, Direction.NORTH));
+                    this.maybeGenerateBlock(world, boundingBox, random, 1F, x, y, z - 1, Blocks.END_ROD.defaultBlockState().setValue(DirectionalBlock.FACING, Direction.SOUTH));
+                    this.maybeGenerateBlock(world, boundingBox, random, 1F, x, y, z + 1, Blocks.END_ROD.defaultBlockState().setValue(DirectionalBlock.FACING, Direction.NORTH));
                 }
 
                 if (random.nextFloat() < 0.08F) {
-                    this.randomlyPlaceBlock(world, boundingBox, random, 1F, x + 2, y, z - 1, Blocks.END_ROD.getDefaultState().with(DirectionalBlock.FACING, Direction.SOUTH));
-                    this.randomlyPlaceBlock(world, boundingBox, random, 1F, x + 2, y, z + 1, Blocks.END_ROD.getDefaultState().with(DirectionalBlock.FACING, Direction.NORTH));
+                    this.maybeGenerateBlock(world, boundingBox, random, 1F, x + 2, y, z - 1, Blocks.END_ROD.defaultBlockState().setValue(DirectionalBlock.FACING, Direction.SOUTH));
+                    this.maybeGenerateBlock(world, boundingBox, random, 1F, x + 2, y, z + 1, Blocks.END_ROD.defaultBlockState().setValue(DirectionalBlock.FACING, Direction.NORTH));
                 }
             }
             else if (this.mineShaftType == Type.NETHER) {
                 if (random.nextFloat() < 0.3f) {
-                    this.randomlyPlaceBlock(world, boundingBox, random, 0.45F, x + 1, y, z, Blocks.SHROOMLIGHT.getDefaultState());
+                    this.maybeGenerateBlock(world, boundingBox, random, 0.45F, x + 1, y, z, Blocks.SHROOMLIGHT.defaultBlockState());
                 } else {
-                    this.randomlyPlaceBlock(world, boundingBox, random, 0.1F, x + 1, y, z - 1, Blocks.SOUL_WALL_TORCH.getDefaultState().with(WallTorchBlock.HORIZONTAL_FACING, Direction.SOUTH));
-                    this.randomlyPlaceBlock(world, boundingBox, random, 0.1F, x + 1, y, z + 1, Blocks.SOUL_WALL_TORCH.getDefaultState().with(WallTorchBlock.HORIZONTAL_FACING, Direction.NORTH));
+                    this.maybeGenerateBlock(world, boundingBox, random, 0.1F, x + 1, y, z - 1, Blocks.SOUL_WALL_TORCH.defaultBlockState().setValue(WallTorchBlock.FACING, Direction.SOUTH));
+                    this.maybeGenerateBlock(world, boundingBox, random, 0.1F, x + 1, y, z + 1, Blocks.SOUL_WALL_TORCH.defaultBlockState().setValue(WallTorchBlock.FACING, Direction.NORTH));
                 }
             }
             else if (this.mineShaftType == Type.CRIMSON || this.mineShaftType == Type.WARPED) {
                 if(this.mineShaftType == Type.CRIMSON){
-                    this.randomlyPlaceBlock(world, boundingBox, random, 0.8F, x, y, z, Blocks.CRIMSON_HYPHAE.getDefaultState());
-                    this.randomlyPlaceBlock(world, boundingBox, random, 0.8F, x + 2, y, z, Blocks.CRIMSON_HYPHAE.getDefaultState());
+                    this.maybeGenerateBlock(world, boundingBox, random, 0.8F, x, y, z, Blocks.CRIMSON_HYPHAE.defaultBlockState());
+                    this.maybeGenerateBlock(world, boundingBox, random, 0.8F, x + 2, y, z, Blocks.CRIMSON_HYPHAE.defaultBlockState());
                 }
                 else {
-                    this.randomlyPlaceBlock(world, boundingBox, random, 0.8F, x, y, z, Blocks.WARPED_HYPHAE.getDefaultState());
-                    this.randomlyPlaceBlock(world, boundingBox, random, 0.8F, x + 2, y, z, Blocks.WARPED_HYPHAE.getDefaultState());
+                    this.maybeGenerateBlock(world, boundingBox, random, 0.8F, x, y, z, Blocks.WARPED_HYPHAE.defaultBlockState());
+                    this.maybeGenerateBlock(world, boundingBox, random, 0.8F, x + 2, y, z, Blocks.WARPED_HYPHAE.defaultBlockState());
                 }
-                this.randomlyPlaceBlock(world, boundingBox, random, 0.1F, x, y, z, Blocks.SHROOMLIGHT.getDefaultState());
-                this.randomlyPlaceBlock(world, boundingBox, random, 0.40F, x + 1, y, z, Blocks.SHROOMLIGHT.getDefaultState());
-                this.randomlyPlaceBlock(world, boundingBox, random, 0.1F, x + 2, y, z, Blocks.SHROOMLIGHT.getDefaultState());
+                this.maybeGenerateBlock(world, boundingBox, random, 0.1F, x, y, z, Blocks.SHROOMLIGHT.defaultBlockState());
+                this.maybeGenerateBlock(world, boundingBox, random, 0.40F, x + 1, y, z, Blocks.SHROOMLIGHT.defaultBlockState());
+                this.maybeGenerateBlock(world, boundingBox, random, 0.1F, x + 2, y, z, Blocks.SHROOMLIGHT.defaultBlockState());
             }
             else if (this.mineShaftType == Type.OCEAN) {
-                this.randomlyPlaceBlock(world, boundingBox, random, 0.2F, x + 1, y, z, Blocks.SEA_LANTERN.getDefaultState());
+                this.maybeGenerateBlock(world, boundingBox, random, 0.2F, x + 1, y, z, Blocks.SEA_LANTERN.defaultBlockState());
             }
             else if (this.mineShaftType == Type.ICY) {
-                this.randomlyPlaceBlock(world, boundingBox, random, 0.08F, x + 1, y, z - 1, Blocks.REDSTONE_WALL_TORCH.getDefaultState().with(WallTorchBlock.HORIZONTAL_FACING, Direction.SOUTH));
-                this.randomlyPlaceBlock(world, boundingBox, random, 0.08F, x + 1, y, z + 1, Blocks.REDSTONE_WALL_TORCH.getDefaultState().with(WallTorchBlock.HORIZONTAL_FACING, Direction.NORTH));
+                this.maybeGenerateBlock(world, boundingBox, random, 0.08F, x + 1, y, z - 1, Blocks.REDSTONE_WALL_TORCH.defaultBlockState().setValue(WallTorchBlock.FACING, Direction.SOUTH));
+                this.maybeGenerateBlock(world, boundingBox, random, 0.08F, x + 1, y, z + 1, Blocks.REDSTONE_WALL_TORCH.defaultBlockState().setValue(WallTorchBlock.FACING, Direction.NORTH));
             }
             else {
-                this.randomlyPlaceBlock(world, boundingBox, random, 0.08F, x + 1, y, z - 1, Blocks.WALL_TORCH.getDefaultState().with(WallTorchBlock.HORIZONTAL_FACING, Direction.SOUTH));
-                this.randomlyPlaceBlock(world, boundingBox, random, 0.08F, x + 1, y, z + 1, Blocks.WALL_TORCH.getDefaultState().with(WallTorchBlock.HORIZONTAL_FACING, Direction.NORTH));
+                this.maybeGenerateBlock(world, boundingBox, random, 0.08F, x + 1, y, z - 1, Blocks.WALL_TORCH.defaultBlockState().setValue(WallTorchBlock.FACING, Direction.SOUTH));
+                this.maybeGenerateBlock(world, boundingBox, random, 0.08F, x + 1, y, z + 1, Blocks.WALL_TORCH.defaultBlockState().setValue(WallTorchBlock.FACING, Direction.NORTH));
             }
         }
 
 
         private void placeDecoration(ISeedReader world, MutableBoundingBox box, Random random, float probability, int x, int y, int z) {
-            if (world.getRegistryManager().get(Registry.DIMENSION_TYPE_KEY).getKey(world.getDimension()) != DimensionType.OVERWORLD_ID || this.getSkyBrightness(world, x, y, z, box)) {
+            if (world.registryAccess().registryOrThrow(Registry.DIMENSION_TYPE_REGISTRY).getKey(world.dimensionType()) != DimensionType.OVERWORLD_EFFECTS || this.isInterior(world, x, y, z, box)) {
                 BlockState decorativeBlock = getDecorativeBlock(random);
-                if (!decorativeBlock.isIn(Blocks.COBWEB)) {
+                if (!decorativeBlock.is(Blocks.COBWEB)) {
                     y = 0;
                 }
-                this.randomlyPlaceBlock(world, box, random, probability, x, y, z, decorativeBlock);
+                this.maybeGenerateBlock(world, box, random, probability, x, y, z, decorativeBlock);
 
                 // can only place chorus fruit on end stone
                 //Also places it in a grown state
-                if (this.getBlockStateFromPos(world, x, y, z, box).isIn(Blocks.CHORUS_FLOWER)) {
-                    this.setBlockState(world, Blocks.END_STONE.getDefaultState(), x, -1, z, box);
-                    this.setBlockState(world, Blocks.CHORUS_PLANT.getDefaultState().with(SixWayBlock.UP, true).with(SixWayBlock.DOWN, true), x, 0, z, box);
-                    this.setBlockState(world, Blocks.CHORUS_PLANT.getDefaultState().with(SixWayBlock.SOUTH, true).with(SixWayBlock.NORTH, true).with(SixWayBlock.EAST, true).with(SixWayBlock.WEST, true).with(SixWayBlock.DOWN, true), x, 1, z, box);
+                if (this.getBlock(world, x, y, z, box).is(Blocks.CHORUS_FLOWER)) {
+                    this.placeBlock(world, Blocks.END_STONE.defaultBlockState(), x, -1, z, box);
+                    this.placeBlock(world, Blocks.CHORUS_PLANT.defaultBlockState().setValue(SixWayBlock.UP, true).setValue(SixWayBlock.DOWN, true), x, 0, z, box);
+                    this.placeBlock(world, Blocks.CHORUS_PLANT.defaultBlockState().setValue(SixWayBlock.SOUTH, true).setValue(SixWayBlock.NORTH, true).setValue(SixWayBlock.EAST, true).setValue(SixWayBlock.WEST, true).setValue(SixWayBlock.DOWN, true), x, 1, z, box);
 
                     if (random.nextBoolean()) {
-                        if (this.getBlockStateFromPos(world, x - 1, 1, z, box).isAir()) {
-                            this.setBlockState(world, Blocks.CHORUS_FLOWER.getDefaultState().with(ChorusFlowerBlock.AGE, 5), x - 1, 1, z, box);
+                        if (this.getBlock(world, x - 1, 1, z, box).isAir()) {
+                            this.placeBlock(world, Blocks.CHORUS_FLOWER.defaultBlockState().setValue(ChorusFlowerBlock.AGE, 5), x - 1, 1, z, box);
                         } else {
-                            this.setBlockState(world, Blocks.CHORUS_FLOWER.getDefaultState().with(ChorusFlowerBlock.AGE, 5), x, 1, z, box);
+                            this.placeBlock(world, Blocks.CHORUS_FLOWER.defaultBlockState().setValue(ChorusFlowerBlock.AGE, 5), x, 1, z, box);
                         }
                     } else {
-                        if (this.getBlockStateFromPos(world, x + 1, 1, z, box).isAir()) {
-                            this.setBlockState(world, Blocks.CHORUS_FLOWER.getDefaultState().with(ChorusFlowerBlock.AGE, 5), x + 1, 1, z, box);
+                        if (this.getBlock(world, x + 1, 1, z, box).isAir()) {
+                            this.placeBlock(world, Blocks.CHORUS_FLOWER.defaultBlockState().setValue(ChorusFlowerBlock.AGE, 5), x + 1, 1, z, box);
                         } else {
-                            this.setBlockState(world, Blocks.CHORUS_FLOWER.getDefaultState().with(ChorusFlowerBlock.AGE, 5), x, 1, z, box);
+                            this.placeBlock(world, Blocks.CHORUS_FLOWER.defaultBlockState().setValue(ChorusFlowerBlock.AGE, 5), x, 1, z, box);
                         }
                     }
                 }
@@ -538,7 +538,7 @@ public class RSMineshaftPieces {
         public Cross(TemplateManager p_i50454_1_, CompoundNBT p_i50454_2_) {
             super(RSStructurePieces.MINESHAFT_CROSSING_RS, p_i50454_2_);
             this.isMultipleFloors = p_i50454_2_.getBoolean("tf");
-            this.corridorDirection = Direction.byHorizontalIndex(p_i50454_2_.getInt("D"));
+            this.corridorDirection = Direction.from2DDataValue(p_i50454_2_.getInt("D"));
         }
 
 
@@ -546,10 +546,10 @@ public class RSMineshaftPieces {
          * (abstract) Helper method to read subclass data from NBT
          */
         @Override
-        protected void readAdditional(CompoundNBT tagCompound) {
-            super.readAdditional(tagCompound);
+        protected void addAdditionalSaveData(CompoundNBT tagCompound) {
+            super.addAdditionalSaveData(tagCompound);
             tagCompound.putBoolean("tf", this.isMultipleFloors);
-            tagCompound.putInt("D", this.corridorDirection.getHorizontalIndex());
+            tagCompound.putInt("D", this.corridorDirection.get2DDataValue());
         }
 
 
@@ -557,7 +557,7 @@ public class RSMineshaftPieces {
             super(RSStructurePieces.MINESHAFT_CROSSING_RS, p_i50455_1_, p_i50455_4_);
             this.corridorDirection = p_i50455_3_;
             this.boundingBox = p_i50455_2_;
-            this.isMultipleFloors = p_i50455_2_.getYSize() > 3;
+            this.isMultipleFloors = p_i50455_2_.getYSpan() > 3;
         }
 
 
@@ -565,107 +565,107 @@ public class RSMineshaftPieces {
             MutableBoundingBox MutableBoundingBox = new MutableBoundingBox(x, y, z, x, y + 2, z);
 
             if (rand.nextInt(4) == 0) {
-                MutableBoundingBox.maxY += 4;
+                MutableBoundingBox.y1 += 4;
             }
 
             switch (facing) {
                 case NORTH:
                 default:
-                    MutableBoundingBox.minX = x - 1;
-                    MutableBoundingBox.maxX = x + 3;
-                    MutableBoundingBox.minZ = z - 4;
+                    MutableBoundingBox.x0 = x - 1;
+                    MutableBoundingBox.x1 = x + 3;
+                    MutableBoundingBox.z0 = z - 4;
                     break;
 
                 case SOUTH:
-                    MutableBoundingBox.minX = x - 1;
-                    MutableBoundingBox.maxX = x + 3;
-                    MutableBoundingBox.maxZ = z + 3 + 1;
+                    MutableBoundingBox.x0 = x - 1;
+                    MutableBoundingBox.x1 = x + 3;
+                    MutableBoundingBox.z1 = z + 3 + 1;
                     break;
 
                 case WEST:
-                    MutableBoundingBox.minX = x - 4;
-                    MutableBoundingBox.minZ = z - 1;
-                    MutableBoundingBox.maxZ = z + 3;
+                    MutableBoundingBox.x0 = x - 4;
+                    MutableBoundingBox.z0 = z - 1;
+                    MutableBoundingBox.z1 = z + 3;
                     break;
 
                 case EAST:
-                    MutableBoundingBox.maxX = x + 3 + 1;
-                    MutableBoundingBox.minZ = z - 1;
-                    MutableBoundingBox.maxZ = z + 3;
+                    MutableBoundingBox.x1 = x + 3 + 1;
+                    MutableBoundingBox.z0 = z - 1;
+                    MutableBoundingBox.z1 = z + 3;
             }
 
-            return StructurePiece.findIntersecting(listIn, MutableBoundingBox) != null ? null : MutableBoundingBox;
+            return StructurePiece.findCollisionPiece(listIn, MutableBoundingBox) != null ? null : MutableBoundingBox;
         }
 
 
         @Override
-        public void buildComponent(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
-            int i = this.getComponentType();
+        public void addChildren(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
+            int i = this.getGenDepth();
 
             switch (this.corridorDirection) {
                 case NORTH:
                 default:
-                    RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.minX + 1, this.boundingBox.minY, this.boundingBox.minZ - 1, Direction.NORTH, i);
-                    RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.minX - 1, this.boundingBox.minY, this.boundingBox.minZ + 1, Direction.WEST, i);
-                    RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.maxX + 1, this.boundingBox.minY, this.boundingBox.minZ + 1, Direction.EAST, i);
+                    RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.x0 + 1, this.boundingBox.y0, this.boundingBox.z0 - 1, Direction.NORTH, i);
+                    RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.x0 - 1, this.boundingBox.y0, this.boundingBox.z0 + 1, Direction.WEST, i);
+                    RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.x1 + 1, this.boundingBox.y0, this.boundingBox.z0 + 1, Direction.EAST, i);
                     break;
 
                 case SOUTH:
-                    RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.minX + 1, this.boundingBox.minY, this.boundingBox.maxZ + 1, Direction.SOUTH, i);
-                    RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.minX - 1, this.boundingBox.minY, this.boundingBox.minZ + 1, Direction.WEST, i);
-                    RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.maxX + 1, this.boundingBox.minY, this.boundingBox.minZ + 1, Direction.EAST, i);
+                    RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.x0 + 1, this.boundingBox.y0, this.boundingBox.z1 + 1, Direction.SOUTH, i);
+                    RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.x0 - 1, this.boundingBox.y0, this.boundingBox.z0 + 1, Direction.WEST, i);
+                    RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.x1 + 1, this.boundingBox.y0, this.boundingBox.z0 + 1, Direction.EAST, i);
                     break;
 
                 case WEST:
-                    RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.minX + 1, this.boundingBox.minY, this.boundingBox.minZ - 1, Direction.NORTH, i);
-                    RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.minX + 1, this.boundingBox.minY, this.boundingBox.maxZ + 1, Direction.SOUTH, i);
-                    RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.minX - 1, this.boundingBox.minY, this.boundingBox.minZ + 1, Direction.WEST, i);
+                    RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.x0 + 1, this.boundingBox.y0, this.boundingBox.z0 - 1, Direction.NORTH, i);
+                    RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.x0 + 1, this.boundingBox.y0, this.boundingBox.z1 + 1, Direction.SOUTH, i);
+                    RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.x0 - 1, this.boundingBox.y0, this.boundingBox.z0 + 1, Direction.WEST, i);
                     break;
 
                 case EAST:
-                    RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.minX + 1, this.boundingBox.minY, this.boundingBox.minZ - 1, Direction.NORTH, i);
-                    RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.minX + 1, this.boundingBox.minY, this.boundingBox.maxZ + 1, Direction.SOUTH, i);
-                    RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.maxX + 1, this.boundingBox.minY, this.boundingBox.minZ + 1, Direction.EAST, i);
+                    RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.x0 + 1, this.boundingBox.y0, this.boundingBox.z0 - 1, Direction.NORTH, i);
+                    RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.x0 + 1, this.boundingBox.y0, this.boundingBox.z1 + 1, Direction.SOUTH, i);
+                    RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.x1 + 1, this.boundingBox.y0, this.boundingBox.z0 + 1, Direction.EAST, i);
             }
 
             if (this.isMultipleFloors) {
                 if (rand.nextBoolean()) {
-                    RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.minX + 1, this.boundingBox.minY + 3 + 1, this.boundingBox.minZ - 1, Direction.NORTH, i);
+                    RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.x0 + 1, this.boundingBox.y0 + 3 + 1, this.boundingBox.z0 - 1, Direction.NORTH, i);
                 }
 
                 if (rand.nextBoolean()) {
-                    RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.minX - 1, this.boundingBox.minY + 3 + 1, this.boundingBox.minZ + 1, Direction.WEST, i);
+                    RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.x0 - 1, this.boundingBox.y0 + 3 + 1, this.boundingBox.z0 + 1, Direction.WEST, i);
                 }
 
                 if (rand.nextBoolean()) {
-                    RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.maxX + 1, this.boundingBox.minY + 3 + 1, this.boundingBox.minZ + 1, Direction.EAST, i);
+                    RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.x1 + 1, this.boundingBox.y0 + 3 + 1, this.boundingBox.z0 + 1, Direction.EAST, i);
                 }
 
                 if (rand.nextBoolean()) {
-                    RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.minX + 1, this.boundingBox.minY + 3 + 1, this.boundingBox.maxZ + 1, Direction.SOUTH, i);
+                    RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.x0 + 1, this.boundingBox.y0 + 3 + 1, this.boundingBox.z1 + 1, Direction.SOUTH, i);
                 }
             }
         }
 
 
         @Override
-        public boolean generate(ISeedReader world, StructureManager structureAccessor, ChunkGenerator chunkGenerator, Random random, MutableBoundingBox box, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean postProcess(ISeedReader world, StructureManager structureAccessor, ChunkGenerator chunkGenerator, Random random, MutableBoundingBox box, ChunkPos chunkPos, BlockPos blockPos) {
             boolean isOceanType = this.mineShaftType == Type.OCEAN;
             boolean isNetherType = this.mineShaftType == Type.NETHER || this.mineShaftType == Type.CRIMSON || this.mineShaftType == Type.WARPED;
-            if (!isNetherType && (isOceanType ? this.isAirInStructureBoundingBox(world, box) : this.isLiquidInStructureBoundingBox(world, box))) {
+            if (!isNetherType && (isOceanType ? this.isAirInStructureBoundingBox(world, box) : this.edgesLiquid(world, box))) {
                 return false;
             } else {
                 BlockState iblockstate = this.getFloorBlock();
 
                 if (this.isMultipleFloors) {
-                    this.fillWithBlocks(world, box, this.boundingBox.minX + 1, this.boundingBox.minY, this.boundingBox.minZ, this.boundingBox.maxX - 1, this.boundingBox.minY + 3 - 1, this.boundingBox.maxZ, getFillingBlock(), getFillingBlock(), false);
-                    this.fillWithBlocks(world, box, this.boundingBox.minX, this.boundingBox.minY, this.boundingBox.minZ + 1, this.boundingBox.maxX, this.boundingBox.minY + 3 - 1, this.boundingBox.maxZ - 1, getFillingBlock(), getFillingBlock(), false);
-                    this.fillWithBlocks(world, box, this.boundingBox.minX + 1, this.boundingBox.maxY - 2, this.boundingBox.minZ, this.boundingBox.maxX - 1, this.boundingBox.maxY, this.boundingBox.maxZ, getFillingBlock(), getFillingBlock(), false);
-                    this.fillWithBlocks(world, box, this.boundingBox.minX, this.boundingBox.maxY - 2, this.boundingBox.minZ + 1, this.boundingBox.maxX, this.boundingBox.maxY, this.boundingBox.maxZ - 1, getFillingBlock(), getFillingBlock(), false);
-                    this.fillWithBlocks(world, box, this.boundingBox.minX + 1, this.boundingBox.minY + 3, this.boundingBox.minZ + 1, this.boundingBox.maxX - 1, this.boundingBox.minY + 3, this.boundingBox.maxZ - 1, getFillingBlock(), getFillingBlock(), false);
+                    this.generateBox(world, box, this.boundingBox.x0 + 1, this.boundingBox.y0, this.boundingBox.z0, this.boundingBox.x1 - 1, this.boundingBox.y0 + 3 - 1, this.boundingBox.z1, getFillingBlock(), getFillingBlock(), false);
+                    this.generateBox(world, box, this.boundingBox.x0, this.boundingBox.y0, this.boundingBox.z0 + 1, this.boundingBox.x1, this.boundingBox.y0 + 3 - 1, this.boundingBox.z1 - 1, getFillingBlock(), getFillingBlock(), false);
+                    this.generateBox(world, box, this.boundingBox.x0 + 1, this.boundingBox.y1 - 2, this.boundingBox.z0, this.boundingBox.x1 - 1, this.boundingBox.y1, this.boundingBox.z1, getFillingBlock(), getFillingBlock(), false);
+                    this.generateBox(world, box, this.boundingBox.x0, this.boundingBox.y1 - 2, this.boundingBox.z0 + 1, this.boundingBox.x1, this.boundingBox.y1, this.boundingBox.z1 - 1, getFillingBlock(), getFillingBlock(), false);
+                    this.generateBox(world, box, this.boundingBox.x0 + 1, this.boundingBox.y0 + 3, this.boundingBox.z0 + 1, this.boundingBox.x1 - 1, this.boundingBox.y0 + 3, this.boundingBox.z1 - 1, getFillingBlock(), getFillingBlock(), false);
                 } else {
-                    this.fillWithBlocks(world, box, this.boundingBox.minX + 1, this.boundingBox.minY, this.boundingBox.minZ, this.boundingBox.maxX - 1, this.boundingBox.maxY, this.boundingBox.maxZ, getFillingBlock(), getFillingBlock(), false);
-                    this.fillWithBlocks(world, box, this.boundingBox.minX, this.boundingBox.minY, this.boundingBox.minZ + 1, this.boundingBox.maxX, this.boundingBox.maxY, this.boundingBox.maxZ - 1, getFillingBlock(), getFillingBlock(), false);
+                    this.generateBox(world, box, this.boundingBox.x0 + 1, this.boundingBox.y0, this.boundingBox.z0, this.boundingBox.x1 - 1, this.boundingBox.y1, this.boundingBox.z1, getFillingBlock(), getFillingBlock(), false);
+                    this.generateBox(world, box, this.boundingBox.x0, this.boundingBox.y0, this.boundingBox.z0 + 1, this.boundingBox.x1, this.boundingBox.y1, this.boundingBox.z1 - 1, getFillingBlock(), getFillingBlock(), false);
                 }
 
                 // prevent floating lava
@@ -673,48 +673,48 @@ public class RSMineshaftPieces {
                     BlockState liquidReplacementBlock = getFloorBlock();
 
                     if(this.mineShaftType == Type.CRIMSON){
-                        liquidReplacementBlock = Blocks.CRIMSON_HYPHAE.getDefaultState();
+                        liquidReplacementBlock = Blocks.CRIMSON_HYPHAE.defaultBlockState();
                     }
                     else if(this.mineShaftType == Type.WARPED){
-                        liquidReplacementBlock = Blocks.WARPED_HYPHAE.getDefaultState();
+                        liquidReplacementBlock = Blocks.WARPED_HYPHAE.defaultBlockState();
                     }
 
                     if (this.isMultipleFloors) {
-                        replaceFloatingLiquids(world, box, this.boundingBox.minX - 1, this.boundingBox.minY - 1, this.boundingBox.minZ - 1, this.boundingBox.maxX + 1, this.boundingBox.maxY + 1, this.boundingBox.maxZ + 1, liquidReplacementBlock);
+                        replaceFloatingLiquids(world, box, this.boundingBox.x0 - 1, this.boundingBox.y0 - 1, this.boundingBox.z0 - 1, this.boundingBox.x1 + 1, this.boundingBox.y1 + 1, this.boundingBox.z1 + 1, liquidReplacementBlock);
                     }
                     else {
-                        replaceFloatingLiquids(world, box, this.boundingBox.minX - 1, this.boundingBox.minY - 1, this.boundingBox.minZ - 1, this.boundingBox.maxX + 1, this.boundingBox.maxY + 1, this.boundingBox.maxZ + 1, liquidReplacementBlock);
+                        replaceFloatingLiquids(world, box, this.boundingBox.x0 - 1, this.boundingBox.y0 - 1, this.boundingBox.z0 - 1, this.boundingBox.x1 + 1, this.boundingBox.y1 + 1, this.boundingBox.z1 + 1, liquidReplacementBlock);
                     }
                 }
 
-                this.placeSupportPillar(world, box, this.boundingBox.minX + 1, this.boundingBox.minY, this.boundingBox.minZ + 1, this.boundingBox.maxY, isOceanType);
-                this.placeSupportPillar(world, box, this.boundingBox.minX + 1, this.boundingBox.minY, this.boundingBox.maxZ - 1, this.boundingBox.maxY, isOceanType);
-                this.placeSupportPillar(world, box, this.boundingBox.maxX - 1, this.boundingBox.minY, this.boundingBox.minZ + 1, this.boundingBox.maxY, isOceanType);
-                this.placeSupportPillar(world, box, this.boundingBox.maxX - 1, this.boundingBox.minY, this.boundingBox.maxZ - 1, this.boundingBox.maxY, isOceanType);
+                this.placeSupportPillar(world, box, this.boundingBox.x0 + 1, this.boundingBox.y0, this.boundingBox.z0 + 1, this.boundingBox.y1, isOceanType);
+                this.placeSupportPillar(world, box, this.boundingBox.x0 + 1, this.boundingBox.y0, this.boundingBox.z1 - 1, this.boundingBox.y1, isOceanType);
+                this.placeSupportPillar(world, box, this.boundingBox.x1 - 1, this.boundingBox.y0, this.boundingBox.z0 + 1, this.boundingBox.y1, isOceanType);
+                this.placeSupportPillar(world, box, this.boundingBox.x1 - 1, this.boundingBox.y0, this.boundingBox.z1 - 1, this.boundingBox.y1, isOceanType);
 
-                for (int i = this.boundingBox.minX; i <= this.boundingBox.maxX; ++i) {
-                    for (int j = this.boundingBox.minZ; j <= this.boundingBox.maxZ; ++j) {
-                        if (this.getBlockStateFromPos(world, i, this.boundingBox.minY - 1, j, box).getMaterial() == (isOceanType ? Material.WATER : Material.AIR) && this.getSkyBrightness(world, i, this.boundingBox.minY - 1, j, box)) {
-                            this.setBlockState(world, iblockstate, i, this.boundingBox.minY - 1, j, box);
+                for (int i = this.boundingBox.x0; i <= this.boundingBox.x1; ++i) {
+                    for (int j = this.boundingBox.z0; j <= this.boundingBox.z1; ++j) {
+                        if (this.getBlock(world, i, this.boundingBox.y0 - 1, j, box).getMaterial() == (isOceanType ? Material.WATER : Material.AIR) && this.isInterior(world, i, this.boundingBox.y0 - 1, j, box)) {
+                            this.placeBlock(world, iblockstate, i, this.boundingBox.y0 - 1, j, box);
                         }
                     }
                 }
 
                 if (this.mineShaftType == Type.JUNGLE) {
-                    fillWithVines(world, random, box, 15, this.boundingBox.minX, this.boundingBox.minY, this.boundingBox.minZ, this.boundingBox.maxX, this.boundingBox.maxY, this.boundingBox.maxZ, Blocks.JUNGLE_LEAVES.getDefaultState().with(LeavesBlock.PERSISTENT, true));
+                    fillWithVines(world, random, box, 15, this.boundingBox.x0, this.boundingBox.y0, this.boundingBox.z0, this.boundingBox.x1, this.boundingBox.y1, this.boundingBox.z1, Blocks.JUNGLE_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true));
                 }
                 else if (this.mineShaftType == Type.SWAMPORDARKFOREST) {
-                    fillWithVines(world, random, box, 7, this.boundingBox.minX, this.boundingBox.minY, this.boundingBox.minZ, this.boundingBox.maxX, this.boundingBox.maxY, this.boundingBox.maxZ, Blocks.OAK_LEAVES.getDefaultState().with(LeavesBlock.PERSISTENT, true));
+                    fillWithVines(world, random, box, 7, this.boundingBox.x0, this.boundingBox.y0, this.boundingBox.z0, this.boundingBox.x1, this.boundingBox.y1, this.boundingBox.z1, Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true));
                 }
                 else if(this.mineShaftType == Type.WARPED){
-                    fillWithTwistedVines(world, random, box, 8, this.boundingBox.minX, this.boundingBox.minY, this.boundingBox.minZ, this.boundingBox.maxX, this.boundingBox.maxY, this.boundingBox.maxZ);
-                    this.fillWithBlocks(world, box, this.boundingBox.minX + 1, this.boundingBox.minY - 1, this.boundingBox.minZ, this.boundingBox.maxX - 1, this.boundingBox.minY - 1, this.boundingBox.maxZ, Blocks.WARPED_NYLIUM.getDefaultState(), Blocks.WARPED_NYLIUM.getDefaultState(), false);
-                    this.fillWithBlocks(world, box, this.boundingBox.minX, this.boundingBox.minY - 1, this.boundingBox.minZ + 1, this.boundingBox.maxX, this.boundingBox.minY - 1, this.boundingBox.maxZ - 1, Blocks.WARPED_NYLIUM.getDefaultState(), Blocks.WARPED_NYLIUM.getDefaultState(), false);
+                    fillWithTwistedVines(world, random, box, 8, this.boundingBox.x0, this.boundingBox.y0, this.boundingBox.z0, this.boundingBox.x1, this.boundingBox.y1, this.boundingBox.z1);
+                    this.generateBox(world, box, this.boundingBox.x0 + 1, this.boundingBox.y0 - 1, this.boundingBox.z0, this.boundingBox.x1 - 1, this.boundingBox.y0 - 1, this.boundingBox.z1, Blocks.WARPED_NYLIUM.defaultBlockState(), Blocks.WARPED_NYLIUM.defaultBlockState(), false);
+                    this.generateBox(world, box, this.boundingBox.x0, this.boundingBox.y0 - 1, this.boundingBox.z0 + 1, this.boundingBox.x1, this.boundingBox.y0 - 1, this.boundingBox.z1 - 1, Blocks.WARPED_NYLIUM.defaultBlockState(), Blocks.WARPED_NYLIUM.defaultBlockState(), false);
                 }
                 else if(this.mineShaftType == Type.CRIMSON){
-                    fillWithWeepingVines(world, random, box, 8, this.boundingBox.minX, this.boundingBox.minY, this.boundingBox.minZ, this.boundingBox.maxX, this.boundingBox.maxY, this.boundingBox.maxZ);
-                    this.fillWithBlocks(world, box, this.boundingBox.minX + 1, this.boundingBox.minY - 1, this.boundingBox.minZ, this.boundingBox.maxX - 1, this.boundingBox.minY - 1, this.boundingBox.maxZ, Blocks.CRIMSON_NYLIUM.getDefaultState(), Blocks.CRIMSON_NYLIUM.getDefaultState(), false);
-                    this.fillWithBlocks(world, box, this.boundingBox.minX, this.boundingBox.minY - 1, this.boundingBox.minZ + 1, this.boundingBox.maxX, this.boundingBox.minY - 1, this.boundingBox.maxZ - 1, Blocks.CRIMSON_NYLIUM.getDefaultState(), Blocks.CRIMSON_NYLIUM.getDefaultState(), false);
+                    fillWithWeepingVines(world, random, box, 8, this.boundingBox.x0, this.boundingBox.y0, this.boundingBox.z0, this.boundingBox.x1, this.boundingBox.y1, this.boundingBox.z1);
+                    this.generateBox(world, box, this.boundingBox.x0 + 1, this.boundingBox.y0 - 1, this.boundingBox.z0, this.boundingBox.x1 - 1, this.boundingBox.y0 - 1, this.boundingBox.z1, Blocks.CRIMSON_NYLIUM.defaultBlockState(), Blocks.CRIMSON_NYLIUM.defaultBlockState(), false);
+                    this.generateBox(world, box, this.boundingBox.x0, this.boundingBox.y0 - 1, this.boundingBox.z0 + 1, this.boundingBox.x1, this.boundingBox.y0 - 1, this.boundingBox.z1 - 1, Blocks.CRIMSON_NYLIUM.defaultBlockState(), Blocks.CRIMSON_NYLIUM.defaultBlockState(), false);
                 }
 
                 return true;
@@ -723,8 +723,8 @@ public class RSMineshaftPieces {
 
 
         private void placeSupportPillar(ISeedReader world, MutableBoundingBox box, int x, int miny, int z, int maxy, boolean isOceanType) {
-            if (this.getBlockStateFromPos(world, x, maxy + 1, z, box).getMaterial() != (isOceanType ? Material.WATER : Material.AIR)) {
-                this.fillWithBlocks(world, box, x, miny, z, x, maxy, z, this.getFloorBlock().isIn(Blocks.GRASS_BLOCK) ? Blocks.MOSSY_STONE_BRICKS.getDefaultState() : this.getFloorBlock(), getFillingBlock(), false);
+            if (this.getBlock(world, x, maxy + 1, z, box).getMaterial() != (isOceanType ? Material.WATER : Material.AIR)) {
+                this.generateBox(world, box, x, miny, z, x, maxy, z, this.getFloorBlock().is(Blocks.GRASS_BLOCK) ? Blocks.MOSSY_STONE_BRICKS.defaultBlockState() : this.getFloorBlock(), getFillingBlock(), false);
             }
         }
     }
@@ -753,12 +753,12 @@ public class RSMineshaftPieces {
          * (abstract) Helper method to read subclass data from NBT
          */
         @Override
-        protected void readAdditional(CompoundNBT tagCompound) {
-            super.readAdditional(tagCompound);
+        protected void addAdditionalSaveData(CompoundNBT tagCompound) {
+            super.addAdditionalSaveData(tagCompound);
             ListNBT listnbt = new ListNBT();
 
             for (MutableBoundingBox mutableboundingbox : this.roomsLinkedToTheRoom) {
-                listnbt.add(mutableboundingbox.toNBTTagIntArray());
+                listnbt.add(mutableboundingbox.createTag());
             }
 
             tagCompound.put("Entrances", listnbt);
@@ -766,138 +766,138 @@ public class RSMineshaftPieces {
 
 
         @Override
-        public void buildComponent(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
-            int i = this.getComponentType();
-            int k = this.boundingBox.getYSize() - 3 - 1;
+        public void addChildren(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
+            int i = this.getGenDepth();
+            int k = this.boundingBox.getYSpan() - 3 - 1;
             if (k <= 0) {
                 k = 1;
             }
 
             int l;
-            for (int j = 0; j < this.boundingBox.getXSize(); j = l + 4) {
-                l = j + rand.nextInt(this.boundingBox.getXSize());
-                if (l + 3 > this.boundingBox.getXSize()) {
+            for (int j = 0; j < this.boundingBox.getXSpan(); j = l + 4) {
+                l = j + rand.nextInt(this.boundingBox.getXSpan());
+                if (l + 3 > this.boundingBox.getXSpan()) {
                     break;
                 }
 
-                RSMineshaftPieces.Piece structuremineshaftpieces$peice = RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.minX + l, this.boundingBox.minY + rand.nextInt(k) + 1, this.boundingBox.minZ - 1, Direction.NORTH, i);
+                RSMineshaftPieces.Piece structuremineshaftpieces$peice = RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.x0 + l, this.boundingBox.y0 + rand.nextInt(k) + 1, this.boundingBox.z0 - 1, Direction.NORTH, i);
 
                 if (structuremineshaftpieces$peice != null) {
                     MutableBoundingBox MutableBoundingBox = structuremineshaftpieces$peice.getBoundingBox();
-                    this.roomsLinkedToTheRoom.add(new MutableBoundingBox(MutableBoundingBox.minX, MutableBoundingBox.minY, this.boundingBox.minZ, MutableBoundingBox.maxX, MutableBoundingBox.maxY, this.boundingBox.minZ + 1));
+                    this.roomsLinkedToTheRoom.add(new MutableBoundingBox(MutableBoundingBox.x0, MutableBoundingBox.y0, this.boundingBox.z0, MutableBoundingBox.x1, MutableBoundingBox.y1, this.boundingBox.z0 + 1));
                 }
             }
 
-            for (int i1 = 0; i1 < this.boundingBox.getXSize(); i1 = l + 4) {
-                l = i1 + rand.nextInt(this.boundingBox.getXSize());
+            for (int i1 = 0; i1 < this.boundingBox.getXSpan(); i1 = l + 4) {
+                l = i1 + rand.nextInt(this.boundingBox.getXSpan());
 
-                if (l + 3 > this.boundingBox.getXSize()) {
+                if (l + 3 > this.boundingBox.getXSpan()) {
                     break;
                 }
 
-                RSMineshaftPieces.Piece structuremineshaftpieces$peice1 = RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.minX + l, this.boundingBox.minY + rand.nextInt(k) + 1, this.boundingBox.maxZ + 1, Direction.SOUTH, i);
+                RSMineshaftPieces.Piece structuremineshaftpieces$peice1 = RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.x0 + l, this.boundingBox.y0 + rand.nextInt(k) + 1, this.boundingBox.z1 + 1, Direction.SOUTH, i);
 
                 if (structuremineshaftpieces$peice1 != null) {
                     MutableBoundingBox MutableBoundingBox1 = structuremineshaftpieces$peice1.getBoundingBox();
-                    this.roomsLinkedToTheRoom.add(new MutableBoundingBox(MutableBoundingBox1.minX, MutableBoundingBox1.minY, this.boundingBox.maxZ - 1, MutableBoundingBox1.maxX, MutableBoundingBox1.maxY, this.boundingBox.maxZ));
+                    this.roomsLinkedToTheRoom.add(new MutableBoundingBox(MutableBoundingBox1.x0, MutableBoundingBox1.y0, this.boundingBox.z1 - 1, MutableBoundingBox1.x1, MutableBoundingBox1.y1, this.boundingBox.z1));
                 }
             }
 
-            for (int j1 = 0; j1 < this.boundingBox.getZSize(); j1 = l + 4) {
-                l = j1 + rand.nextInt(this.boundingBox.getZSize());
+            for (int j1 = 0; j1 < this.boundingBox.getZSpan(); j1 = l + 4) {
+                l = j1 + rand.nextInt(this.boundingBox.getZSpan());
 
-                if (l + 3 > this.boundingBox.getZSize()) {
+                if (l + 3 > this.boundingBox.getZSpan()) {
                     break;
                 }
 
-                RSMineshaftPieces.Piece structuremineshaftpieces$peice2 = RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.minX - 1, this.boundingBox.minY + rand.nextInt(k) + 1, this.boundingBox.minZ + l, Direction.WEST, i);
+                RSMineshaftPieces.Piece structuremineshaftpieces$peice2 = RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.x0 - 1, this.boundingBox.y0 + rand.nextInt(k) + 1, this.boundingBox.z0 + l, Direction.WEST, i);
 
                 if (structuremineshaftpieces$peice2 != null) {
                     MutableBoundingBox MutableBoundingBox2 = structuremineshaftpieces$peice2.getBoundingBox();
-                    this.roomsLinkedToTheRoom.add(new MutableBoundingBox(this.boundingBox.minX, MutableBoundingBox2.minY, MutableBoundingBox2.minZ, this.boundingBox.minX + 1, MutableBoundingBox2.maxY, MutableBoundingBox2.maxZ));
+                    this.roomsLinkedToTheRoom.add(new MutableBoundingBox(this.boundingBox.x0, MutableBoundingBox2.y0, MutableBoundingBox2.z0, this.boundingBox.x0 + 1, MutableBoundingBox2.y1, MutableBoundingBox2.z1));
                 }
             }
 
-            for (int k1 = 0; k1 < this.boundingBox.getZSize(); k1 = l + 4) {
-                l = k1 + rand.nextInt(this.boundingBox.getZSize());
+            for (int k1 = 0; k1 < this.boundingBox.getZSpan(); k1 = l + 4) {
+                l = k1 + rand.nextInt(this.boundingBox.getZSpan());
 
-                if (l + 3 > this.boundingBox.getZSize()) {
+                if (l + 3 > this.boundingBox.getZSpan()) {
                     break;
                 }
 
-                StructurePiece StructurePiece = RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.maxX + 1, this.boundingBox.minY + rand.nextInt(k) + 1, this.boundingBox.minZ + l, Direction.EAST, i);
+                StructurePiece StructurePiece = RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.x1 + 1, this.boundingBox.y0 + rand.nextInt(k) + 1, this.boundingBox.z0 + l, Direction.EAST, i);
 
                 if (StructurePiece != null) {
                     MutableBoundingBox MutableBoundingBox3 = StructurePiece.getBoundingBox();
-                    this.roomsLinkedToTheRoom.add(new MutableBoundingBox(this.boundingBox.maxX - 1, MutableBoundingBox3.minY, MutableBoundingBox3.minZ, this.boundingBox.maxX, MutableBoundingBox3.maxY, MutableBoundingBox3.maxZ));
+                    this.roomsLinkedToTheRoom.add(new MutableBoundingBox(this.boundingBox.x1 - 1, MutableBoundingBox3.y0, MutableBoundingBox3.z0, this.boundingBox.x1, MutableBoundingBox3.y1, MutableBoundingBox3.z1));
                 }
             }
         }
 
 
         @Override
-        public boolean generate(ISeedReader world, StructureManager structureAccessor, ChunkGenerator chunkGenerator, Random random, MutableBoundingBox box, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean postProcess(ISeedReader world, StructureManager structureAccessor, ChunkGenerator chunkGenerator, Random random, MutableBoundingBox box, ChunkPos chunkPos, BlockPos blockPos) {
             BlockState flooring;
 
             if (this.mineShaftType == Type.NETHER) {
-                flooring = Blocks.SOUL_SAND.getDefaultState();
+                flooring = Blocks.SOUL_SAND.defaultBlockState();
             }
             else if (this.mineShaftType == Type.CRIMSON) {
-                flooring = Blocks.CRIMSON_NYLIUM.getDefaultState();
+                flooring = Blocks.CRIMSON_NYLIUM.defaultBlockState();
             }
             else if (this.mineShaftType == Type.WARPED) {
-                flooring = Blocks.WARPED_NYLIUM.getDefaultState();
+                flooring = Blocks.WARPED_NYLIUM.defaultBlockState();
             }
             else if (this.mineShaftType == Type.END) {
-                flooring = Blocks.END_STONE_BRICKS.getDefaultState();
+                flooring = Blocks.END_STONE_BRICKS.defaultBlockState();
             }
             else if (this.mineShaftType == Type.OCEAN) {
-                flooring = Blocks.CLAY.getDefaultState();
+                flooring = Blocks.CLAY.defaultBlockState();
             }
             else {
-                flooring = getFloorBlock().getMaterial() == Material.WOOD ? Blocks.COARSE_DIRT.getDefaultState() : getFloorBlock();
+                flooring = getFloorBlock().getMaterial() == Material.WOOD ? Blocks.COARSE_DIRT.defaultBlockState() : getFloorBlock();
             }
 
-            this.fillWithBlocks(world, box, this.boundingBox.minX, this.boundingBox.minY, this.boundingBox.minZ, this.boundingBox.maxX, this.boundingBox.minY, this.boundingBox.maxZ, flooring, getFillingBlock(), false);
-            this.fillWithBlocks(world, box, this.boundingBox.minX, this.boundingBox.minY + 1, this.boundingBox.minZ, this.boundingBox.maxX, Math.min(this.boundingBox.minY + 3, this.boundingBox.maxY), this.boundingBox.maxZ, getFillingBlock(), getFillingBlock(), false);
+            this.generateBox(world, box, this.boundingBox.x0, this.boundingBox.y0, this.boundingBox.z0, this.boundingBox.x1, this.boundingBox.y0, this.boundingBox.z1, flooring, getFillingBlock(), false);
+            this.generateBox(world, box, this.boundingBox.x0, this.boundingBox.y0 + 1, this.boundingBox.z0, this.boundingBox.x1, Math.min(this.boundingBox.y0 + 3, this.boundingBox.y1), this.boundingBox.z1, getFillingBlock(), getFillingBlock(), false);
 
             //nether_wart floor
             if (this.mineShaftType == Type.NETHER) {
-                this.generateMaybeBox(world, box, world.getRandom(), 0.3f, this.boundingBox.minX, this.boundingBox.minY + 1, this.boundingBox.minZ, this.boundingBox.maxX, this.boundingBox.minY + 1, this.boundingBox.maxZ, Blocks.NETHER_WART.getDefaultState().with(NetherWartBlock.AGE, 2), Blocks.NETHER_WART.getDefaultState().with(NetherWartBlock.AGE, 2), false, false);
+                this.generateMaybeBox(world, box, world.getRandom(), 0.3f, this.boundingBox.x0, this.boundingBox.y0 + 1, this.boundingBox.z0, this.boundingBox.x1, this.boundingBox.y0 + 1, this.boundingBox.z1, Blocks.NETHER_WART.defaultBlockState().setValue(NetherWartBlock.AGE, 2), Blocks.NETHER_WART.defaultBlockState().setValue(NetherWartBlock.AGE, 2), false, false);
             }
 
             for (MutableBoundingBox MutableBoundingBox : this.roomsLinkedToTheRoom) {
-                this.fillWithBlocks(world, box, MutableBoundingBox.minX, MutableBoundingBox.maxY - 2, MutableBoundingBox.minZ, MutableBoundingBox.maxX, MutableBoundingBox.maxY, MutableBoundingBox.maxZ, getFillingBlock(), getFillingBlock(), false);
+                this.generateBox(world, box, MutableBoundingBox.x0, MutableBoundingBox.y1 - 2, MutableBoundingBox.z0, MutableBoundingBox.x1, MutableBoundingBox.y1, MutableBoundingBox.z1, getFillingBlock(), getFillingBlock(), false);
             }
 
-            this.randomlyRareFillWithBlocks(world, box, this.boundingBox.minX, this.boundingBox.minY + 4, this.boundingBox.minZ, this.boundingBox.maxX, this.boundingBox.maxY, this.boundingBox.maxZ, getFillingBlock(), false);
+            this.generateUpperHalfSphere(world, box, this.boundingBox.x0, this.boundingBox.y0 + 4, this.boundingBox.z0, this.boundingBox.x1, this.boundingBox.y1, this.boundingBox.z1, getFillingBlock(), false);
 
             // prevent floating lava
             if (this.mineShaftType == Type.NETHER || this.mineShaftType == Type.CRIMSON || this.mineShaftType == Type.WARPED) {
                 BlockState liquidReplacementBlock = getFloorBlock();
 
                 if(this.mineShaftType == Type.CRIMSON){
-                    liquidReplacementBlock = Blocks.CRIMSON_HYPHAE.getDefaultState();
+                    liquidReplacementBlock = Blocks.CRIMSON_HYPHAE.defaultBlockState();
                 }
                 else if(this.mineShaftType == Type.WARPED){
-                    liquidReplacementBlock = Blocks.WARPED_HYPHAE.getDefaultState();
+                    liquidReplacementBlock = Blocks.WARPED_HYPHAE.defaultBlockState();
                 }
 
-                replaceFloatingLiquids(world, box, this.boundingBox.minX - 1, this.boundingBox.minY, this.boundingBox.minZ - 1, this.boundingBox.maxX + 1, this.boundingBox.maxY + 4, this.boundingBox.maxZ + 1, liquidReplacementBlock);
+                replaceFloatingLiquids(world, box, this.boundingBox.x0 - 1, this.boundingBox.y0, this.boundingBox.z0 - 1, this.boundingBox.x1 + 1, this.boundingBox.y1 + 4, this.boundingBox.z1 + 1, liquidReplacementBlock);
             }
 
             //vines
             if (this.mineShaftType == Type.JUNGLE) {
-                fillWithVines(world, random, box, 15, this.boundingBox.minX, this.boundingBox.minY, this.boundingBox.minZ, this.boundingBox.maxX, this.boundingBox.maxY + 4, this.boundingBox.maxZ, Blocks.JUNGLE_LEAVES.getDefaultState().with(LeavesBlock.PERSISTENT, true));
+                fillWithVines(world, random, box, 15, this.boundingBox.x0, this.boundingBox.y0, this.boundingBox.z0, this.boundingBox.x1, this.boundingBox.y1 + 4, this.boundingBox.z1, Blocks.JUNGLE_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true));
             }
             else if (this.mineShaftType == Type.SWAMPORDARKFOREST) {
-                fillWithVines(world, random, box, 7, this.boundingBox.minX, this.boundingBox.minY, this.boundingBox.minZ, this.boundingBox.maxX, this.boundingBox.maxY + 4, this.boundingBox.maxZ, Blocks.OAK_LEAVES.getDefaultState().with(LeavesBlock.PERSISTENT, true));
+                fillWithVines(world, random, box, 7, this.boundingBox.x0, this.boundingBox.y0, this.boundingBox.z0, this.boundingBox.x1, this.boundingBox.y1 + 4, this.boundingBox.z1, Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true));
             }
             else if(this.mineShaftType == Type.WARPED){
-                fillWithTwistedVines(world, random, box, 8, this.boundingBox.minX, this.boundingBox.minY, this.boundingBox.minZ, this.boundingBox.maxX, this.boundingBox.maxY + 4, this.boundingBox.maxZ);
+                fillWithTwistedVines(world, random, box, 8, this.boundingBox.x0, this.boundingBox.y0, this.boundingBox.z0, this.boundingBox.x1, this.boundingBox.y1 + 4, this.boundingBox.z1);
             }
             else if(this.mineShaftType == Type.CRIMSON){
-                fillWithWeepingVines(world, random, box, 8, this.boundingBox.minX, this.boundingBox.minY, this.boundingBox.minZ, this.boundingBox.maxX, this.boundingBox.maxY + 4, this.boundingBox.maxZ);
+                fillWithWeepingVines(world, random, box, 8, this.boundingBox.x0, this.boundingBox.y0, this.boundingBox.z0, this.boundingBox.x1, this.boundingBox.y1 + 4, this.boundingBox.z1);
             }
 
             return true;
@@ -905,11 +905,11 @@ public class RSMineshaftPieces {
 
 
         @Override
-        public void offset(int x, int y, int z) {
-            super.offset(x, y, z);
+        public void move(int x, int y, int z) {
+            super.move(x, y, z);
 
             for (MutableBoundingBox MutableBoundingBox : this.roomsLinkedToTheRoom) {
-                MutableBoundingBox.offset(x, y, z);
+                MutableBoundingBox.move(x, y, z);
             }
         }
     }
@@ -917,7 +917,7 @@ public class RSMineshaftPieces {
     public static class Stairs extends RSMineshaftPieces.Piece {
         public Stairs(int p_i50449_1_, MutableBoundingBox p_i50449_2_, Direction p_i50449_3_, RSMineshaftPieces.Type p_i50449_4_) {
             super(RSStructurePieces.MINESHAFT_STAIRS_RS, p_i50449_1_, p_i50449_4_);
-            this.setCoordBaseMode(p_i50449_3_);
+            this.setOrientation(p_i50449_3_);
             this.boundingBox = p_i50449_2_;
         }
 
@@ -933,68 +933,68 @@ public class RSMineshaftPieces {
             switch (facing) {
                 case NORTH:
                 default:
-                    MutableBoundingBox.maxX = x + 2;
-                    MutableBoundingBox.minZ = z - 8;
+                    MutableBoundingBox.x1 = x + 2;
+                    MutableBoundingBox.z0 = z - 8;
                     break;
 
                 case SOUTH:
-                    MutableBoundingBox.maxX = x + 2;
-                    MutableBoundingBox.maxZ = z + 8;
+                    MutableBoundingBox.x1 = x + 2;
+                    MutableBoundingBox.z1 = z + 8;
                     break;
 
                 case WEST:
-                    MutableBoundingBox.minX = x - 8;
-                    MutableBoundingBox.maxZ = z + 2;
+                    MutableBoundingBox.x0 = x - 8;
+                    MutableBoundingBox.z1 = z + 2;
                     break;
 
                 case EAST:
-                    MutableBoundingBox.maxX = x + 8;
-                    MutableBoundingBox.maxZ = z + 2;
+                    MutableBoundingBox.x1 = x + 8;
+                    MutableBoundingBox.z1 = z + 2;
             }
 
-            return StructurePiece.findIntersecting(listIn, MutableBoundingBox) != null ? null : MutableBoundingBox;
+            return StructurePiece.findCollisionPiece(listIn, MutableBoundingBox) != null ? null : MutableBoundingBox;
         }
 
 
         @Override
-        public void buildComponent(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
-            int i = this.getComponentType();
-            Direction enumfacing = this.getCoordBaseMode();
+        public void addChildren(StructurePiece componentIn, List<StructurePiece> listIn, Random rand) {
+            int i = this.getGenDepth();
+            Direction enumfacing = this.getOrientation();
 
             if (enumfacing != null) {
                 switch (enumfacing) {
                     case NORTH:
                     default:
-                        RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.minX, this.boundingBox.minY, this.boundingBox.minZ - 1, Direction.NORTH, i);
+                        RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.x0, this.boundingBox.y0, this.boundingBox.z0 - 1, Direction.NORTH, i);
                         break;
 
                     case SOUTH:
-                        RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.minX, this.boundingBox.minY, this.boundingBox.maxZ + 1, Direction.SOUTH, i);
+                        RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.x0, this.boundingBox.y0, this.boundingBox.z1 + 1, Direction.SOUTH, i);
                         break;
 
                     case WEST:
-                        RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.minX - 1, this.boundingBox.minY, this.boundingBox.minZ, Direction.WEST, i);
+                        RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.x0 - 1, this.boundingBox.y0, this.boundingBox.z0, Direction.WEST, i);
                         break;
 
                     case EAST:
-                        RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.maxX + 1, this.boundingBox.minY, this.boundingBox.minZ, Direction.EAST, i);
+                        RSMineshaftPieces.generateAndAddPiece(componentIn, listIn, rand, this.boundingBox.x1 + 1, this.boundingBox.y0, this.boundingBox.z0, Direction.EAST, i);
                 }
             }
         }
 
 
         @Override
-        public boolean generate(ISeedReader world, StructureManager structureAccessor, ChunkGenerator chunkGenerator, Random random, MutableBoundingBox box, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean postProcess(ISeedReader world, StructureManager structureAccessor, ChunkGenerator chunkGenerator, Random random, MutableBoundingBox box, ChunkPos chunkPos, BlockPos blockPos) {
             boolean isOceanType = this.mineShaftType == Type.OCEAN;
             boolean isNetherType = this.mineShaftType == Type.NETHER || this.mineShaftType == Type.CRIMSON || this.mineShaftType == Type.WARPED;
-            if (!isNetherType && (isOceanType ? this.isAirInStructureBoundingBox(world, box) : this.isLiquidInStructureBoundingBox(world, box))) {
+            if (!isNetherType && (isOceanType ? this.isAirInStructureBoundingBox(world, box) : this.edgesLiquid(world, box))) {
                 return false;
             } else {
-                this.fillWithBlocks(world, box, 0, 5, 0, 2, 7, 1, getFillingBlock(), getFillingBlock(), false);
-                this.fillWithBlocks(world, box, 0, 0, 7, 2, 2, 8, getFillingBlock(), getFillingBlock(), false);
+                this.generateBox(world, box, 0, 5, 0, 2, 7, 1, getFillingBlock(), getFillingBlock(), false);
+                this.generateBox(world, box, 0, 0, 7, 2, 2, 8, getFillingBlock(), getFillingBlock(), false);
 
                 for (int i = 0; i < 5; ++i) {
-                    this.fillWithBlocks(world, box, 0, 5 - i - (i < 4 ? 1 : 0), 2 + i, 2, 7 - i, 2 + i, getFillingBlock(), getFillingBlock(), false);
+                    this.generateBox(world, box, 0, 5 - i - (i < 4 ? 1 : 0), 2 + i, 2, 7 - i, 2 + i, getFillingBlock(), getFillingBlock(), false);
                 }
 
                 // prevent floating lava
@@ -1002,10 +1002,10 @@ public class RSMineshaftPieces {
                     BlockState liquidReplacementBlock = getFloorBlock();
 
                     if(this.mineShaftType == Type.CRIMSON){
-                        liquidReplacementBlock = Blocks.CRIMSON_HYPHAE.getDefaultState();
+                        liquidReplacementBlock = Blocks.CRIMSON_HYPHAE.defaultBlockState();
                     }
                     else if(this.mineShaftType == Type.WARPED){
-                        liquidReplacementBlock = Blocks.WARPED_HYPHAE.getDefaultState();
+                        liquidReplacementBlock = Blocks.WARPED_HYPHAE.defaultBlockState();
                     }
 
                     replaceFloatingLiquids(world, box, -1, 4, -1, 3, 8, 3, liquidReplacementBlock);
@@ -1017,25 +1017,25 @@ public class RSMineshaftPieces {
                 }
 
                 if (this.mineShaftType == Type.JUNGLE) {
-                    fillWithVines(world, random, box, 15, 0, 0, 0, 2, 7, 8, Blocks.JUNGLE_LEAVES.getDefaultState().with(LeavesBlock.PERSISTENT, true));
+                    fillWithVines(world, random, box, 15, 0, 0, 0, 2, 7, 8, Blocks.JUNGLE_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true));
                 }
                 else if (this.mineShaftType == Type.SWAMPORDARKFOREST) {
-                    fillWithVines(world, random, box, 7, 0, 0, 0, 2, 7, 8, Blocks.OAK_LEAVES.getDefaultState().with(LeavesBlock.PERSISTENT, true));
+                    fillWithVines(world, random, box, 7, 0, 0, 0, 2, 7, 8, Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true));
                 }
                 else if(this.mineShaftType == Type.WARPED){
                     fillWithTwistedVines(world, random, box, 8, 0, 0, 0, 2, 7, 8);
-                    this.fillWithBlocks(world, box, 0, 4, 0, 2, 4, 1, Blocks.WARPED_NYLIUM.getDefaultState(), Blocks.WARPED_NYLIUM.getDefaultState(), false);
-                    this.fillWithBlocks(world, box, 0, -1, 7, 2, -1, 8, Blocks.WARPED_NYLIUM.getDefaultState(), Blocks.WARPED_NYLIUM.getDefaultState(), false);
+                    this.generateBox(world, box, 0, 4, 0, 2, 4, 1, Blocks.WARPED_NYLIUM.defaultBlockState(), Blocks.WARPED_NYLIUM.defaultBlockState(), false);
+                    this.generateBox(world, box, 0, -1, 7, 2, -1, 8, Blocks.WARPED_NYLIUM.defaultBlockState(), Blocks.WARPED_NYLIUM.defaultBlockState(), false);
                     for (int i = 0; i < 5; ++i) {
-                        this.fillWithBlocks(world, box, 0, 5 - i - (i < 4 ? 1 : 0) - 1, 2 + i, 2, 5 - i - (i < 4 ? 1 : 0) - 1, 2 + i, Blocks.WARPED_NYLIUM.getDefaultState(), Blocks.WARPED_NYLIUM.getDefaultState(), false);
+                        this.generateBox(world, box, 0, 5 - i - (i < 4 ? 1 : 0) - 1, 2 + i, 2, 5 - i - (i < 4 ? 1 : 0) - 1, 2 + i, Blocks.WARPED_NYLIUM.defaultBlockState(), Blocks.WARPED_NYLIUM.defaultBlockState(), false);
                     }
                 }
                 else if(this.mineShaftType == Type.CRIMSON){
                     fillWithWeepingVines(world, random, box, 8, 0, 0, 0, 2, 7, 8);
-                    this.fillWithBlocks(world, box, 0, 4, 0, 2, 4, 1, Blocks.CRIMSON_NYLIUM.getDefaultState(), Blocks.CRIMSON_NYLIUM.getDefaultState(), false);
-                    this.fillWithBlocks(world, box, 0, -1, 7, 2, -1, 8, Blocks.CRIMSON_NYLIUM.getDefaultState(), Blocks.CRIMSON_NYLIUM.getDefaultState(), false);
+                    this.generateBox(world, box, 0, 4, 0, 2, 4, 1, Blocks.CRIMSON_NYLIUM.defaultBlockState(), Blocks.CRIMSON_NYLIUM.defaultBlockState(), false);
+                    this.generateBox(world, box, 0, -1, 7, 2, -1, 8, Blocks.CRIMSON_NYLIUM.defaultBlockState(), Blocks.CRIMSON_NYLIUM.defaultBlockState(), false);
                     for (int i = 0; i < 5; ++i) {
-                        this.fillWithBlocks(world, box, 0, 5 - i - (i < 4 ? 1 : 0) - 1, 2 + i, 2, 5 - i - (i < 4 ? 1 : 0) - 1, 2 + i, Blocks.CRIMSON_NYLIUM.getDefaultState(), Blocks.CRIMSON_NYLIUM.getDefaultState(), false);
+                        this.generateBox(world, box, 0, 5 - i - (i < 4 ? 1 : 0) - 1, 2 + i, 2, 5 - i - (i < 4 ? 1 : 0) - 1, 2 + i, Blocks.CRIMSON_NYLIUM.defaultBlockState(), Blocks.CRIMSON_NYLIUM.defaultBlockState(), false);
                     }
                 }
 
@@ -1063,7 +1063,7 @@ public class RSMineshaftPieces {
          * (abstract) Helper method to read subclass data from NBT
          */
         @Override
-        protected void readAdditional(CompoundNBT data) {
+        protected void addAdditionalSaveData(CompoundNBT data) {
             data.putInt("MST", this.mineShaftType.ordinal());
         }
 
@@ -1072,21 +1072,21 @@ public class RSMineshaftPieces {
          * checks the entire StructureBoundingBox for Liquids
          */
         protected boolean isAirInStructureBoundingBox(IBlockReader worldIn, MutableBoundingBox boundingboxIn) {
-            int xMin = Math.max(this.boundingBox.minX - 1, boundingboxIn.minX);
-            int yMin = Math.max(this.boundingBox.minY - 1, boundingboxIn.minY);
-            int zMin = Math.max(this.boundingBox.minZ - 1, boundingboxIn.minZ);
-            int xMax = Math.min(this.boundingBox.maxX + 1, boundingboxIn.maxX);
-            int yMax = Math.min(this.boundingBox.maxY + 1, boundingboxIn.maxY);
-            int zMax = Math.min(this.boundingBox.maxZ + 1, boundingboxIn.maxZ);
+            int xMin = Math.max(this.boundingBox.x0 - 1, boundingboxIn.x0);
+            int yMin = Math.max(this.boundingBox.y0 - 1, boundingboxIn.y0);
+            int zMin = Math.max(this.boundingBox.z0 - 1, boundingboxIn.z0);
+            int xMax = Math.min(this.boundingBox.x1 + 1, boundingboxIn.x1);
+            int yMax = Math.min(this.boundingBox.y1 + 1, boundingboxIn.y1);
+            int zMax = Math.min(this.boundingBox.z1 + 1, boundingboxIn.z1);
             BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
 
             for (int x = xMin; x <= xMax; ++x) {
                 for (int z = zMin; z <= zMax; ++z) {
-                    if (worldIn.getBlockState(blockpos$mutable.setPos(x, yMin, z)).getMaterial() == Material.AIR) {
+                    if (worldIn.getBlockState(blockpos$mutable.set(x, yMin, z)).getMaterial() == Material.AIR) {
                         return true;
                     }
 
-                    if (worldIn.getBlockState(blockpos$mutable.setPos(x, yMax, z)).getMaterial() == Material.AIR) {
+                    if (worldIn.getBlockState(blockpos$mutable.set(x, yMax, z)).getMaterial() == Material.AIR) {
                         return true;
                     }
                 }
@@ -1094,11 +1094,11 @@ public class RSMineshaftPieces {
 
             for (int x = xMin; x <= xMax; ++x) {
                 for (int y = yMin; y <= yMax; ++y) {
-                    if (worldIn.getBlockState(blockpos$mutable.setPos(x, y, zMin)).getMaterial() == Material.AIR) {
+                    if (worldIn.getBlockState(blockpos$mutable.set(x, y, zMin)).getMaterial() == Material.AIR) {
                         return true;
                     }
 
-                    if (worldIn.getBlockState(blockpos$mutable.setPos(x, y, zMax)).getMaterial() == Material.AIR) {
+                    if (worldIn.getBlockState(blockpos$mutable.set(x, y, zMax)).getMaterial() == Material.AIR) {
                         return true;
                     }
                 }
@@ -1106,11 +1106,11 @@ public class RSMineshaftPieces {
 
             for (int z = zMin; z <= zMax; ++z) {
                 for (int y = yMin; y <= yMax; ++y) {
-                    if (worldIn.getBlockState(blockpos$mutable.setPos(xMin, y, z)).getMaterial() == Material.AIR) {
+                    if (worldIn.getBlockState(blockpos$mutable.set(xMin, y, z)).getMaterial() == Material.AIR) {
                         return true;
                     }
 
-                    if (worldIn.getBlockState(blockpos$mutable.setPos(xMax, y, z)).getMaterial() == Material.AIR) {
+                    if (worldIn.getBlockState(blockpos$mutable.set(xMax, y, z)).getMaterial() == Material.AIR) {
                         return true;
                     }
                 }
@@ -1128,16 +1128,16 @@ public class RSMineshaftPieces {
 
                 vineLength = 0;
                 for (int y = yMax; y >= yMin; y--) {
-                    BlockState aboveBlockState = this.getBlockStateFromPos(world, x, y + 1, z, boundingbox);
-                    if (aboveBlockState.isSolid() || aboveBlockState.isIn(Blocks.WEEPING_VINES_PLANT)) {
-                        if (this.getBlockStateFromPos(world, x, y, z, boundingbox).isAir()) {
+                    BlockState aboveBlockState = this.getBlock(world, x, y + 1, z, boundingbox);
+                    if (aboveBlockState.canOcclude() || aboveBlockState.is(Blocks.WEEPING_VINES_PLANT)) {
+                        if (this.getBlock(world, x, y, z, boundingbox).isAir()) {
                             vineLength++;
-                            if(random.nextInt(2) == 0 || vineLength >= 4 || !this.getBlockStateFromPos(world, x, y - 1, z, boundingbox).isAir()){
-                                this.setBlockStateSimple(world, Blocks.WEEPING_VINES.getDefaultState(), x, y, z, boundingbox);
+                            if(random.nextInt(2) == 0 || vineLength >= 4 || !this.getBlock(world, x, y - 1, z, boundingbox).isAir()){
+                                this.setBlockStateSimple(world, Blocks.WEEPING_VINES.defaultBlockState(), x, y, z, boundingbox);
                                 break;
                             }
                             else{
-                                this.setBlockStateSimple(world, Blocks.WEEPING_VINES_PLANT.getDefaultState(), x, y, z, boundingbox);
+                                this.setBlockStateSimple(world, Blocks.WEEPING_VINES_PLANT.defaultBlockState(), x, y, z, boundingbox);
                             }
                         }
                     }
@@ -1155,16 +1155,16 @@ public class RSMineshaftPieces {
                 vineLength = 0;
 
                 for (int y = yMin; y <= yMax; y++) {
-                    BlockState belowBlockState = this.getBlockStateFromPos(world, x, y - 1, z, boundingbox);
-                    if (belowBlockState.isSolid() || belowBlockState.isIn(Blocks.TWISTING_VINES_PLANT)) {
-                        if (this.getBlockStateFromPos(world, x, y, z, boundingbox).isAir()) {
+                    BlockState belowBlockState = this.getBlock(world, x, y - 1, z, boundingbox);
+                    if (belowBlockState.canOcclude() || belowBlockState.is(Blocks.TWISTING_VINES_PLANT)) {
+                        if (this.getBlock(world, x, y, z, boundingbox).isAir()) {
                             vineLength++;
-                            if(random.nextInt(2) == 0 || vineLength >= 4 || !this.getBlockStateFromPos(world, x, y + 1, z, boundingbox).isAir()){
-                                this.setBlockStateSimple(world, Blocks.TWISTING_VINES.getDefaultState(), x, y, z, boundingbox);
+                            if(random.nextInt(2) == 0 || vineLength >= 4 || !this.getBlock(world, x, y + 1, z, boundingbox).isAir()){
+                                this.setBlockStateSimple(world, Blocks.TWISTING_VINES.defaultBlockState(), x, y, z, boundingbox);
                                 break;
                             }
                             else{
-                                this.setBlockStateSimple(world, Blocks.TWISTING_VINES_PLANT.getDefaultState(), x, y, z, boundingbox);
+                                this.setBlockStateSimple(world, Blocks.TWISTING_VINES_PLANT.defaultBlockState(), x, y, z, boundingbox);
                             }
                         }
                     }
@@ -1181,53 +1181,53 @@ public class RSMineshaftPieces {
                 int x = random.nextInt(Math.max((xMax - xMin) + 1, 1)) + xMin;
                 int z = random.nextInt(Math.max((zMax - zMin) + 1, 1)) + zMin;
 
-                Direction facing = Direction.Plane.HORIZONTAL.random(random);
-                int xOffset = x + facing.getXOffset();
-                int zOffset = z + facing.getZOffset();
+                Direction facing = Direction.Plane.HORIZONTAL.getRandomDirection(random);
+                int xOffset = x + facing.getStepX();
+                int zOffset = z + facing.getStepZ();
                 if(xOffset > xMax || xOffset < xMin || zOffset > zMax || zOffset < zMin){
                     continue;
                 }
 
-                vineBlock = Blocks.VINE.getDefaultState().with(VineBlock.FACING_TO_PROPERTY_MAP.get(facing), true);
+                vineBlock = Blocks.VINE.defaultBlockState().setValue(VineBlock.PROPERTY_BY_DIRECTION.get(facing), true);
                 vineLength = 0;
 
                 for (int y = yMax; y >= yMin; --y) {
-                    if (this.getBlockStateFromPos(world, x, y, z, boundingbox).isAir()) {
-                        BlockState aboveBlockState = this.getBlockStateFromPos(world, x, y + 1, z, boundingbox);
-                        BlockState sideBlockState = this.getBlockStateFromPos(world, xOffset, y, zOffset, boundingbox);
-                        BlockState sideAboveBlockState = this.getBlockStateFromPos(world, xOffset, y + 1, zOffset, boundingbox);
+                    if (this.getBlock(world, x, y, z, boundingbox).isAir()) {
+                        BlockState aboveBlockState = this.getBlock(world, x, y + 1, z, boundingbox);
+                        BlockState sideBlockState = this.getBlock(world, xOffset, y, zOffset, boundingbox);
+                        BlockState sideAboveBlockState = this.getBlock(world, xOffset, y + 1, zOffset, boundingbox);
 
-                        if(sideBlockState.isAir() && sideAboveBlockState.isSolid()){
+                        if(sideBlockState.isAir() && sideAboveBlockState.canOcclude()){
                             this.setBlockStateSimple(world, sideBlock, xOffset, y, zOffset, boundingbox);
                             placedSideBlock = true;
                         }
 
-                        BlockState newVineBlock = vineBlock.updatePostPlacement(Direction.UP, vineBlock, world, new BlockPos(this.getXWithOffset(x, z), this.getYWithOffset(y), this.getZWithOffset(x, z)), new BlockPos(0, 0, 0));
+                        BlockState newVineBlock = vineBlock.updateShape(Direction.UP, vineBlock, world, new BlockPos(this.getWorldX(x, z), this.getWorldY(y), this.getWorldZ(x, z)), new BlockPos(0, 0, 0));
                         if (!newVineBlock.isAir()) {
                             vineLength++;
-                            this.setBlockStateSimple(world, newVineBlock.with(VineBlock.UP, aboveBlockState.isSolid()), x, y, z, boundingbox);
+                            this.setBlockStateSimple(world, newVineBlock.setValue(VineBlock.UP, aboveBlockState.canOcclude()), x, y, z, boundingbox);
                         }
-                        else if (aboveBlockState.isIn(Blocks.VINE) &&
-                                ((facing == Direction.NORTH && aboveBlockState.get(VineBlock.NORTH)) ||
-                                (facing == Direction.WEST && aboveBlockState.get(VineBlock.WEST)) ||
-                                (facing == Direction.EAST && aboveBlockState.get(VineBlock.EAST)) ||
-                                (facing == Direction.SOUTH && aboveBlockState.get(VineBlock.SOUTH))))
+                        else if (aboveBlockState.is(Blocks.VINE) &&
+                                ((facing == Direction.NORTH && aboveBlockState.getValue(VineBlock.NORTH)) ||
+                                (facing == Direction.WEST && aboveBlockState.getValue(VineBlock.WEST)) ||
+                                (facing == Direction.EAST && aboveBlockState.getValue(VineBlock.EAST)) ||
+                                (facing == Direction.SOUTH && aboveBlockState.getValue(VineBlock.SOUTH))))
                         {
                             vineLength++;
                             this.setBlockStateSimple(world, vineBlock, x, y, z, boundingbox);
                         }
-                        else if(aboveBlockState.isSolid()){
+                        else if(aboveBlockState.canOcclude()){
                             for(Direction side : Direction.Plane.HORIZONTAL){
-                                int xOffset2 = x + side.getXOffset();
-                                int zOffset2 = z + side.getZOffset();
-                                if(this.getBlockStateFromPos(world, xOffset2, y, zOffset2, boundingbox).isIn(Blocks.VINE)){
-                                    this.setBlockStateSimple(world, Blocks.VINE.getDefaultState().with(VineBlock.UP, aboveBlockState.isSolid()), x, y, z, boundingbox);
+                                int xOffset2 = x + side.getStepX();
+                                int zOffset2 = z + side.getStepZ();
+                                if(this.getBlock(world, xOffset2, y, zOffset2, boundingbox).is(Blocks.VINE)){
+                                    this.setBlockStateSimple(world, Blocks.VINE.defaultBlockState().setValue(VineBlock.UP, aboveBlockState.canOcclude()), x, y, z, boundingbox);
                                     break;
                                 }
                             }
                         }
                         else if(placedSideBlock){
-                            this.setBlockStateSimple(world, Blocks.AIR.getDefaultState(), xOffset, y, zOffset, boundingbox);
+                            this.setBlockStateSimple(world, Blocks.AIR.defaultBlockState(), xOffset, y, zOffset, boundingbox);
                         }
 
                         placedSideBlock = false;
@@ -1241,9 +1241,9 @@ public class RSMineshaftPieces {
         }
 
         protected void setBlockStateSimple(ISeedReader worldIn, BlockState blockstateIn, int x, int y, int z, MutableBoundingBox boundingboxIn) {
-            BlockPos blockpos = new BlockPos(this.getXWithOffset(x, z), this.getYWithOffset(y), this.getZWithOffset(x, z));
-            if (boundingboxIn.isVecInside(blockpos)) {
-                worldIn.setBlockState(blockpos, blockstateIn, 2);
+            BlockPos blockpos = new BlockPos(this.getWorldX(x, z), this.getWorldY(y), this.getWorldZ(x, z));
+            if (boundingboxIn.isInside(blockpos)) {
+                worldIn.setBlock(blockpos, blockstateIn, 2);
             }
         }
 
@@ -1251,13 +1251,13 @@ public class RSMineshaftPieces {
             for(int y = minY; y <= maxY; y++) {
                 for(int x = minX; x <= maxX; x++) {
                     for(int z = minZ; z <= maxZ; z++) {
-                        if (!this.getBlockStateFromPos(world, x, y, z, box).getFluidState().isEmpty()) {
-                            if(this.getBlockStateFromPos(world, x + 1, y, z, box).isAir() ||
-                                this.getBlockStateFromPos(world, x, y + 1, z, box).isAir() ||
-                                this.getBlockStateFromPos(world, x, y, z + 1, box).isAir() ||
-                                this.getBlockStateFromPos(world, x - 1, y, z, box).isAir() ||
-                                this.getBlockStateFromPos(world, x, y - 1, z, box).isAir() ||
-                                this.getBlockStateFromPos(world, x, y, z - 1, box).isAir())
+                        if (!this.getBlock(world, x, y, z, box).getFluidState().isEmpty()) {
+                            if(this.getBlock(world, x + 1, y, z, box).isAir() ||
+                                this.getBlock(world, x, y + 1, z, box).isAir() ||
+                                this.getBlock(world, x, y, z + 1, box).isAir() ||
+                                this.getBlock(world, x - 1, y, z, box).isAir() ||
+                                this.getBlock(world, x, y - 1, z, box).isAir() ||
+                                this.getBlock(world, x, y, z - 1, box).isAir())
                             {
                                 setBlockStateSimple(world, mainBlock, x, y, z, box);
                             }
@@ -1270,44 +1270,44 @@ public class RSMineshaftPieces {
         protected BlockState getArchTopBlock() {
             switch (this.mineShaftType) {
                 case ICY:
-                    return Blocks.PACKED_ICE.getDefaultState();
+                    return Blocks.PACKED_ICE.defaultBlockState();
 
                 case JUNGLE:
-                    return Blocks.JUNGLE_LOG.getDefaultState().with(RotatedPillarBlock.AXIS, Direction.Axis.X);
+                    return Blocks.JUNGLE_LOG.defaultBlockState().setValue(RotatedPillarBlock.AXIS, Direction.Axis.X);
 
                 case TAIGA:
-                    return Blocks.STRIPPED_SPRUCE_LOG.getDefaultState().with(RotatedPillarBlock.AXIS, Direction.Axis.X);
+                    return Blocks.STRIPPED_SPRUCE_LOG.defaultBlockState().setValue(RotatedPillarBlock.AXIS, Direction.Axis.X);
 
                 case DESERT:
-                    return Blocks.CHISELED_SANDSTONE.getDefaultState();
+                    return Blocks.CHISELED_SANDSTONE.defaultBlockState();
 
                 case END:
-                    return Blocks.PURPUR_PILLAR.getDefaultState().with(RotatedPillarBlock.AXIS, Direction.Axis.Z);
+                    return Blocks.PURPUR_PILLAR.defaultBlockState().setValue(RotatedPillarBlock.AXIS, Direction.Axis.Z);
 
                 case NETHER:
-                    return Blocks.NETHER_BRICKS.getDefaultState();
+                    return Blocks.NETHER_BRICKS.defaultBlockState();
 
                 case CRIMSON:
-                    return Blocks.CRIMSON_PLANKS.getDefaultState();
+                    return Blocks.CRIMSON_PLANKS.defaultBlockState();
 
                 case WARPED:
-                    return Blocks.WARPED_PLANKS.getDefaultState();
+                    return Blocks.WARPED_PLANKS.defaultBlockState();
 
                 case OCEAN:
-                    return Blocks.DARK_PRISMARINE.getDefaultState();
+                    return Blocks.DARK_PRISMARINE.defaultBlockState();
 
                 case STONE:
-                    return Blocks.STONE.getDefaultState();
+                    return Blocks.STONE.defaultBlockState();
 
                 case SAVANNA:
-                    return Blocks.ACACIA_LOG.getDefaultState().with(RotatedPillarBlock.AXIS, Direction.Axis.X);
+                    return Blocks.ACACIA_LOG.defaultBlockState().setValue(RotatedPillarBlock.AXIS, Direction.Axis.X);
 
                 case SWAMPORDARKFOREST:
-                    return Blocks.DARK_OAK_PLANKS.getDefaultState();
+                    return Blocks.DARK_OAK_PLANKS.defaultBlockState();
 
                 case BIRCH:
                 default:
-                    return Blocks.STRIPPED_BIRCH_LOG.getDefaultState().with(RotatedPillarBlock.AXIS, Direction.Axis.X);
+                    return Blocks.STRIPPED_BIRCH_LOG.defaultBlockState().setValue(RotatedPillarBlock.AXIS, Direction.Axis.X);
             }
         }
 
@@ -1362,44 +1362,44 @@ public class RSMineshaftPieces {
         protected BlockState getFloorBlock() {
             switch (this.mineShaftType) {
                 case ICY:
-                    return Blocks.ICE.getDefaultState();
+                    return Blocks.ICE.defaultBlockState();
 
                 case JUNGLE:
-                    return Blocks.JUNGLE_PLANKS.getDefaultState();
+                    return Blocks.JUNGLE_PLANKS.defaultBlockState();
 
                 case TAIGA:
-                    return Blocks.SPRUCE_PLANKS.getDefaultState();
+                    return Blocks.SPRUCE_PLANKS.defaultBlockState();
 
                 case DESERT:
-                    return Blocks.SMOOTH_SANDSTONE.getDefaultState();
+                    return Blocks.SMOOTH_SANDSTONE.defaultBlockState();
 
                 case END:
-                    return Blocks.PURPUR_BLOCK.getDefaultState();
+                    return Blocks.PURPUR_BLOCK.defaultBlockState();
 
                 case NETHER:
-                    return Blocks.NETHER_BRICKS.getDefaultState();
+                    return Blocks.NETHER_BRICKS.defaultBlockState();
 
                 case CRIMSON:
-                    return Blocks.CRIMSON_PLANKS.getDefaultState();
+                    return Blocks.CRIMSON_PLANKS.defaultBlockState();
 
                 case WARPED:
-                    return Blocks.WARPED_PLANKS.getDefaultState();
+                    return Blocks.WARPED_PLANKS.defaultBlockState();
 
                 case OCEAN:
-                    return Blocks.PRISMARINE_BRICKS.getDefaultState();
+                    return Blocks.PRISMARINE_BRICKS.defaultBlockState();
 
                 case STONE:
-                    return Blocks.ANDESITE.getDefaultState();
+                    return Blocks.ANDESITE.defaultBlockState();
 
                 case SAVANNA:
-                    return Blocks.ACACIA_PLANKS.getDefaultState();
+                    return Blocks.ACACIA_PLANKS.defaultBlockState();
 
                 case SWAMPORDARKFOREST:
-                    return Blocks.GRASS_BLOCK.getDefaultState();
+                    return Blocks.GRASS_BLOCK.defaultBlockState();
 
                 case BIRCH:
                 default:
-                    return Blocks.BIRCH_PLANKS.getDefaultState();
+                    return Blocks.BIRCH_PLANKS.defaultBlockState();
             }
         }
 
@@ -1407,61 +1407,61 @@ public class RSMineshaftPieces {
         protected BlockState getArchSupportBlock(Random random) {
             switch (this.mineShaftType) {
                 case ICY:
-                    return Blocks.ICE.getDefaultState();
+                    return Blocks.ICE.defaultBlockState();
 
                 case JUNGLE:
-                    return Blocks.JUNGLE_FENCE.getDefaultState();
+                    return Blocks.JUNGLE_FENCE.defaultBlockState();
 
                 case TAIGA:
-                    return Blocks.SPRUCE_FENCE.getDefaultState();
+                    return Blocks.SPRUCE_FENCE.defaultBlockState();
 
                 case DESERT:
-                    return Blocks.SANDSTONE_WALL.getDefaultState();
+                    return Blocks.SANDSTONE_WALL.defaultBlockState();
 
                 case END:
-                    return Blocks.PURPUR_PILLAR.getDefaultState().with(RotatedPillarBlock.AXIS, Direction.Axis.Y);
+                    return Blocks.PURPUR_PILLAR.defaultBlockState().setValue(RotatedPillarBlock.AXIS, Direction.Axis.Y);
 
                 case NETHER:
-                    return Blocks.NETHER_BRICK_WALL.getDefaultState();
+                    return Blocks.NETHER_BRICK_WALL.defaultBlockState();
 
                 case CRIMSON:
-                    return Blocks.CRIMSON_FENCE.getDefaultState();
+                    return Blocks.CRIMSON_FENCE.defaultBlockState();
 
                 case WARPED:
-                    return Blocks.WARPED_FENCE.getDefaultState();
+                    return Blocks.WARPED_FENCE.defaultBlockState();
 
                 case OCEAN:
-                    return Blocks.PRISMARINE_WALL.getDefaultState().with(BlockStateProperties.WATERLOGGED, true);
+                    return Blocks.PRISMARINE_WALL.defaultBlockState().setValue(BlockStateProperties.WATERLOGGED, true);
 
                 case STONE:
-                    return random.nextInt(10) < 3 ? Blocks.MOSSY_COBBLESTONE_WALL.getDefaultState() : Blocks.COBBLESTONE_WALL.getDefaultState();
+                    return random.nextInt(10) < 3 ? Blocks.MOSSY_COBBLESTONE_WALL.defaultBlockState() : Blocks.COBBLESTONE_WALL.defaultBlockState();
 
                 case SAVANNA:
-                    return Blocks.ACACIA_FENCE.getDefaultState();
+                    return Blocks.ACACIA_FENCE.defaultBlockState();
 
                 case SWAMPORDARKFOREST:
-                    return Blocks.DARK_OAK_LOG.getDefaultState().with(RotatedPillarBlock.AXIS, Direction.Axis.Y);
+                    return Blocks.DARK_OAK_LOG.defaultBlockState().setValue(RotatedPillarBlock.AXIS, Direction.Axis.Y);
 
                 case BIRCH:
                 default:
-                    return Blocks.BIRCH_FENCE.getDefaultState();
+                    return Blocks.BIRCH_FENCE.defaultBlockState();
             }
         }
 
 
         protected BlockState getFillingBlock() {
             if (this.mineShaftType == Type.OCEAN) {
-                return Blocks.WATER.getDefaultState();
+                return Blocks.WATER.defaultBlockState();
             }
-            return Blocks.CAVE_AIR.getDefaultState();
+            return Blocks.CAVE_AIR.defaultBlockState();
         }
 
 
         protected BlockState getRailBlock() {
             if (this.mineShaftType == Type.OCEAN) {
-                return Blocks.OAK_TRAPDOOR.getDefaultState().with(BlockStateProperties.WATERLOGGED, true);
+                return Blocks.OAK_TRAPDOOR.defaultBlockState().setValue(BlockStateProperties.WATERLOGGED, true);
             }
-            return Blocks.RAIL.getDefaultState().with(RailBlock.SHAPE, RailShape.NORTH_SOUTH);
+            return Blocks.RAIL.defaultBlockState().setValue(RailBlock.SHAPE, RailShape.NORTH_SOUTH);
         }
 
 
@@ -1514,25 +1514,25 @@ public class RSMineshaftPieces {
         protected BlockState getDecorativeBlock(Random random) {
             switch (this.mineShaftType) {
                 case OCEAN:
-                    return random.nextBoolean() ? Blocks.SEAGRASS.getDefaultState() : Blocks.TALL_SEAGRASS.getDefaultState();
+                    return random.nextBoolean() ? Blocks.SEAGRASS.defaultBlockState() : Blocks.TALL_SEAGRASS.defaultBlockState();
 
                 case ICY:
-                    return Blocks.ICE.getDefaultState();
+                    return Blocks.ICE.defaultBlockState();
 
                 case NETHER:
-                    return Blocks.FIRE.getDefaultState();
+                    return Blocks.FIRE.defaultBlockState();
 
                 case CRIMSON:
-                    return Blocks.CRIMSON_ROOTS.getDefaultState();
+                    return Blocks.CRIMSON_ROOTS.defaultBlockState();
 
                 case WARPED:
-                    return Blocks.WARPED_ROOTS.getDefaultState();
+                    return Blocks.WARPED_ROOTS.defaultBlockState();
 
                 case END:
-                    return Blocks.CHORUS_FLOWER.getDefaultState().with(ChorusFlowerBlock.AGE, 5);
+                    return Blocks.CHORUS_FLOWER.defaultBlockState().setValue(ChorusFlowerBlock.AGE, 5);
 
                 default:
-                    return Blocks.COBWEB.getDefaultState();
+                    return Blocks.COBWEB.defaultBlockState();
             }
         }
     }

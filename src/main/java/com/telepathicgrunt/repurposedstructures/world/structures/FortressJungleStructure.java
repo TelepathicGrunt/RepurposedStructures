@@ -27,12 +27,12 @@ public class FortressJungleStructure extends AbstractBaseStructure<NoFeatureConf
         super(NoFeatureConfig.CODEC);
     }
 
-    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long l, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig NoFeatureConfig) {
+    protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long l, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig NoFeatureConfig) {
         if(!(biomeSource instanceof CheckerboardBiomeProvider)){
             int radius = 4;
             for (int curChunkX = chunkX - radius; curChunkX <= chunkX + radius; curChunkX += radius) {
                 for (int curChunkZ = chunkZ - radius; curChunkZ <= chunkZ + radius; curChunkZ += radius) {
-                    if (!biomeSource.getBiomeForNoiseGen(curChunkX << 2, 64, curChunkZ << 2).getGenerationSettings().hasStructureFeature(RSStructures.JUNGLE_FORTRESS.get())) {
+                    if (!biomeSource.getNoiseBiome(curChunkX << 2, 64, curChunkZ << 2).getGenerationSettings().isValidStart(RSStructures.JUNGLE_FORTRESS.get())) {
                         return false;
                     }
                 }
@@ -67,21 +67,21 @@ public class FortressJungleStructure extends AbstractBaseStructure<NoFeatureConf
 
 
         @Override
-        public void init(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
-            FortressJunglePieces.Start fortresspieces$start = new FortressJunglePieces.Start(this.rand, (chunkX << 4) + 2, (chunkZ << 4) + 2);
-            this.components.add(fortresspieces$start);
+        public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
+            FortressJunglePieces.Start fortresspieces$start = new FortressJunglePieces.Start(this.random, (chunkX << 4) + 2, (chunkZ << 4) + 2);
+            this.pieces.add(fortresspieces$start);
 
-            fortresspieces$start.buildComponent(fortresspieces$start, this.components, this.rand);
+            fortresspieces$start.addChildren(fortresspieces$start, this.pieces, this.random);
             List<StructurePiece> list = fortresspieces$start.pendingChildren;
 
             while (!list.isEmpty()) {
-                int i = this.rand.nextInt(list.size());
+                int i = this.random.nextInt(list.size());
                 StructurePiece structurepiece = list.remove(i);
-                structurepiece.buildComponent(fortresspieces$start, this.components, this.rand);
+                structurepiece.addChildren(fortresspieces$start, this.pieces, this.random);
             }
 
-            this.recalculateStructureSize();
-            this.func_214626_a(this.rand, chunkGenerator.getSeaLevel() - 12, chunkGenerator.getSeaLevel() - 7);
+            this.calculateBoundingBox();
+            this.moveInsideHeights(this.random, chunkGenerator.getSeaLevel() - 12, chunkGenerator.getSeaLevel() - 7);
         }
     }
 }

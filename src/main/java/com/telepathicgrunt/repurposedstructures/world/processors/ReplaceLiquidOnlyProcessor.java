@@ -33,21 +33,21 @@ public class ReplaceLiquidOnlyProcessor extends StructureProcessor {
     }
 
     @Override
-    public Template.BlockInfo process(IWorldReader worldView, BlockPos pos, BlockPos blockPos, Template.BlockInfo structureBlockInfoLocal, Template.BlockInfo structureBlockInfoWorld, PlacementSettings structurePlacementData) {
+    public Template.BlockInfo processBlock(IWorldReader worldView, BlockPos pos, BlockPos blockPos, Template.BlockInfo structureBlockInfoLocal, Template.BlockInfo structureBlockInfoWorld, PlacementSettings structurePlacementData) {
 
         if(!blocksToAlwaysPlace.contains(structureBlockInfoWorld.state)){
             BlockPos position = structureBlockInfoWorld.pos;
             BlockState worldState = worldView.getBlockState(position);
-            BlockState aboveWorldState = worldView.getBlockState(position.up());
+            BlockState aboveWorldState = worldView.getBlockState(position.above());
 
             if (!worldState.getFluidState().isEmpty() &&
-                    !structureBlockInfoWorld.state.getBlock().hasBlockEntity() &&
-                    !aboveWorldState.getBlock().hasBlockEntity())
+                    !structureBlockInfoWorld.state.getBlock().isEntityBlock() &&
+                    !aboveWorldState.getBlock().isEntityBlock())
             {
                 structureBlockInfoWorld = new Template.BlockInfo(structureBlockInfoWorld.pos, worldState, null);
             }
             // Do not replace other dungeon's chests/spawners
-            else if(worldState.getBlock().hasBlockEntity()){
+            else if(worldState.getBlock().isEntityBlock()){
                 structureBlockInfoWorld = new Template.BlockInfo(structureBlockInfoWorld.pos, worldState, null);
             }
         }

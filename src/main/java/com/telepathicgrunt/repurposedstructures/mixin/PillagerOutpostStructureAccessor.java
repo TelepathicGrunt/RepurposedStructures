@@ -9,7 +9,7 @@ import java.util.List;
 
 @Mixin(PillagerOutpostStructure.class)
 public interface PillagerOutpostStructureAccessor {
-    @Accessor("PILLAGE_OUTPOST_ENEMIES")
+    @Accessor("OUTPOST_ENEMIES")
     static List<MobSpawnInfo.Spawners> rs_getPILLAGE_OUTPOST_ENEMIES() {
         throw new UnsupportedOperationException();
     }

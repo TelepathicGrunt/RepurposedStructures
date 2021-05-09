@@ -20,14 +20,14 @@ import java.util.Random;
 public class NoLakesInStructuresMixin {
 
     @Inject(
-            method = "generate",
-            at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/util/math/BlockPos;down(I)Lnet/minecraft/util/math/BlockPos;"),
+            method = "place",
+            at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/util/math/BlockPos;below(I)Lnet/minecraft/util/math/BlockPos;"),
             cancellable = true
     )
     private void checkForRSVillages(ISeedReader serverWorldAccess, ChunkGenerator chunkGenerator, Random random, BlockPos blockPos, BlockStateFeatureConfig singleStateFeatureConfig, CallbackInfoReturnable<Boolean> cir) {
 
         for (Structure<?> structure : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NO_LAKES)) {
-            if (serverWorldAccess.getStructures(SectionPos.from(blockPos), structure).findAny().isPresent()) {
+            if (serverWorldAccess.startsForFeature(SectionPos.of(blockPos), structure).findAny().isPresent()) {
                 cir.setReturnValue(false);
                 break;
             }

@@ -132,12 +132,12 @@ public class RepurposedStructures
 			BiomeSelection.setupOverworldBiomesSet();
 
 			// Workaround for Terraforged
-			WorldGenRegistries.CHUNK_GENERATOR_SETTINGS.getEntries().forEach(settings -> {
-				Map<Structure<?>, StructureSeparationSettings> structureMap = settings.getValue().getStructuresConfig().getStructures();
+			WorldGenRegistries.NOISE_GENERATOR_SETTINGS.entrySet().forEach(settings -> {
+				Map<Structure<?>, StructureSeparationSettings> structureMap = settings.getValue().structureSettings().structureConfig();
 				if(structureMap instanceof ImmutableMap){
 					Map<Structure<?>, StructureSeparationSettings> tempMap = new HashMap<>(structureMap);
 					tempMap.putAll(RSStructures.RS_STRUCTURES);
-					settings.getValue().getStructuresConfig().structures = tempMap;
+					settings.getValue().structureSettings().structureConfig = tempMap;
 				}
 				else{
 					structureMap.putAll(RSStructures.RS_STRUCTURES);
@@ -169,18 +169,18 @@ public class RepurposedStructures
 
 			// Workaround for Terraforged. Not thrilled they take control over my structure's configs but nothing I can do about that without breaking structure gen/locating or ASM into Terraforged.
 			// They took the stance of locking down their ChunkGenerator and breaking mods that modifies the structure configs in it due to a perceived idea that malicious mods exist to mess with other structure's spacings... Dont ask me. I dont even know anymore.
-			ResourceLocation cgRL = Registry.CHUNK_GENERATOR.getKey(((ChunkGeneratorAccessor)serverWorld.getChunkProvider().generator).rs_getCodec());
+			ResourceLocation cgRL = Registry.CHUNK_GENERATOR.getKey(((ChunkGeneratorAccessor)serverWorld.getChunkSource().generator).rs_getCodec());
 			if(cgRL != null && cgRL.getNamespace().equals("terraforged")) return;
 
 
 			// Need temp map as some mods use custom chunk generators with immutable maps in themselves.
-			Map<Structure<?>, StructureSeparationSettings> tempMap = new HashMap<>(serverWorld.getChunkProvider().generator.getStructuresConfig().getStructures());
-			if(dimensionBlacklist.stream().anyMatch(blacklist -> blacklist.equals((serverWorld.getRegistryKey().getValue().toString()))))
+			Map<Structure<?>, StructureSeparationSettings> tempMap = new HashMap<>(serverWorld.getChunkSource().generator.getSettings().structureConfig());
+			if(dimensionBlacklist.stream().anyMatch(blacklist -> blacklist.equals((serverWorld.dimension().location().toString()))))
 			{
 				// make absolutely sure dimension cannot spawn RS structures
 				tempMap.keySet().removeAll(RSStructures.RS_STRUCTURES.keySet());
 			}
-			else if (serverWorld.getChunkProvider().getChunkGenerator() instanceof FlatChunkGenerator && serverWorld.getRegistryKey().equals(World.OVERWORLD)) {
+			else if (serverWorld.getChunkSource().getGenerator() instanceof FlatChunkGenerator && serverWorld.dimension().equals(World.OVERWORLD)) {
 				// Make absolutely sure superflat dimension cannot spawn RS structures as it is glitchy and weird.
 				// Also, users don't like structures in superflat worlds.
 				tempMap.keySet().removeAll(RSStructures.RS_STRUCTURES.keySet());
@@ -191,14 +191,14 @@ public class RepurposedStructures
 				spacingToAdd.putAll(RSStructures.RS_STRUCTURES);
 
 				// Do not spawn strongholds in end.
-				if(serverWorld.getRegistryKey().equals(World.END)){
+				if(serverWorld.dimension().equals(World.END)){
 					spacingToAdd.remove(RSStructures.STONEBRICK_STRONGHOLD.get());
 					spacingToAdd.remove(RSStructures.NETHER_STRONGHOLD.get());
 				}
 
 				spacingToAdd.forEach(tempMap::putIfAbsent);
 			}
-			serverWorld.getChunkProvider().generator.getStructuresConfig().structures = tempMap;
+			serverWorld.getChunkSource().generator.getSettings().structureConfig = tempMap;
 		}
 	}
 

@@ -18,6 +18,6 @@ public interface StructurePieceAccessor {
     @Accessor("rotation")
     Rotation rs_getRotation();
 
-    @Accessor("BLOCKS_NEEDING_POSTPROCESSING")
+    @Accessor("SHAPE_CHECK_BLOCKS")
     Set<Block> rs_getBLOCKS_NEEDING_POST_PROCESSING();
 }

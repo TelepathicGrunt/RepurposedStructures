@@ -20,14 +20,14 @@ public class BoulderTiny extends Feature<NoFeatureConfig> {
     }
 
     @Override
-    public boolean generate(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
+    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
         if(GeneralUtils.isWorldBlacklisted(world)) return false;
 
-        BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().setPos(position.down());
+        BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().set(position.below());
         Block block = world.getBlockState(blockpos$Mutable).getBlock();
 
         //boulder can only generate on grass/dirt
-        if (!block.is(Blocks.PODZOL) && !block.is(Blocks.GRASS_BLOCK) && !isSoil(block)) {
+        if (!block.is(Blocks.PODZOL) && !block.is(Blocks.GRASS_BLOCK) && !isDirt(block)) {
             return false;
         }
 
@@ -37,35 +37,35 @@ public class BoulderTiny extends Feature<NoFeatureConfig> {
             int z = random.nextInt(2);
             float calculatedDistance = (x + y + z) * 0.333F + 0.5F;
 
-            for (BlockPos blockpos : BlockPos.getAllInBoxMutable(blockpos$Mutable.add(-x, -y, -z), blockpos$Mutable.add(x, y, z))) {
-                if (blockpos.distanceSq(blockpos$Mutable) <= calculatedDistance * calculatedDistance) {
+            for (BlockPos blockpos : BlockPos.betweenClosed(blockpos$Mutable.offset(-x, -y, -z), blockpos$Mutable.offset(x, y, z))) {
+                if (blockpos.distSqr(blockpos$Mutable) <= calculatedDistance * calculatedDistance) {
                     //adds the blocks for generation in this boulder
                     //note, if user turns off an ore, that ore's chance is dumped into the below ore for generation
                     int randomChance = random.nextInt(1000);
 
                     // 35/1000th chance for iron ore
                     if (randomChance <= 35) {
-                        world.setBlockState(blockpos.up(), Blocks.IRON_ORE.getDefaultState(), 4);
+                        world.setBlock(blockpos.above(), Blocks.IRON_ORE.defaultBlockState(), 4);
                     }
 
                     // 65/1000th chance for coal ore
                     else if (randomChance <= 100) {
-                        world.setBlockState(blockpos.up(), Blocks.COAL_ORE.getDefaultState(), 4);
+                        world.setBlock(blockpos.above(), Blocks.COAL_ORE.defaultBlockState(), 4);
                     }
 
                     // 250/1000th chance for andesite
                     else if (randomChance <= 350) {
-                        world.setBlockState(blockpos.up(), Blocks.ANDESITE.getDefaultState(), 4);
+                        world.setBlock(blockpos.above(), Blocks.ANDESITE.defaultBlockState(), 4);
                     }
 
                     // 250/1000th chance for cobblestone
                     else if (randomChance <= 600) {
-                        world.setBlockState(blockpos.up(), Blocks.COBBLESTONE.getDefaultState(), 4);
+                        world.setBlock(blockpos.above(), Blocks.COBBLESTONE.defaultBlockState(), 4);
                     }
 
                     // 400/1000th chance for mossyCobblestone
                     else {
-                        world.setBlockState(blockpos.up(), Blocks.MOSSY_COBBLESTONE.getDefaultState(), 4);
+                        world.setBlock(blockpos.above(), Blocks.MOSSY_COBBLESTONE.defaultBlockState(), 4);
                     }
                 }
             }

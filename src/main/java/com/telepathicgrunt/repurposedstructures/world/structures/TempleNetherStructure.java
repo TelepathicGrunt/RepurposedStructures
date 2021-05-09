@@ -36,30 +36,30 @@ public class TempleNetherStructure extends Structure<NoFeatureConfig> {
             super(structureFeature, x, z, blockBox, referenceIn, seed);
         }
 
-        public void init(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int x, int z, Biome biome, NoFeatureConfig NoFeatureConfig) {
+        public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int x, int z, Biome biome, NoFeatureConfig NoFeatureConfig) {
 
             BlockPos blockPos = new BlockPos(x * 16, chunkGenerator.getSeaLevel() + 3, z * 16);
-            JigsawManager.method_30419(
+            JigsawManager.addPieces(
                     dynamicRegistryManager,
-                    new VillageConfig(() -> dynamicRegistryManager.get(
-                            Registry.TEMPLATE_POOL_WORLDGEN).getOrDefault(START_POOL),
+                    new VillageConfig(() -> dynamicRegistryManager.registryOrThrow(
+                            Registry.TEMPLATE_POOL_REGISTRY).get(START_POOL),
                             1),
                     AbstractVillagePiece::new,
                     chunkGenerator,
                     structureManager,
                     blockPos,
-                    this.components,
-                    this.rand,
+                    this.pieces,
+                    this.random,
                     true,
                     false);
-            this.recalculateStructureSize();
+            this.calculateBoundingBox();
 
             BlockPos lowestLandPos = getLowestLand(chunkGenerator);
-            if (lowestLandPos.getY() >= chunkGenerator.getMaxY() - 20 || lowestLandPos.getY() <= chunkGenerator.getSeaLevel() + 1) {
-                this.func_214626_a(this.rand, chunkGenerator.getSeaLevel() - 16, chunkGenerator.getSeaLevel() - 15);
+            if (lowestLandPos.getY() >= chunkGenerator.getGenDepth() - 20 || lowestLandPos.getY() <= chunkGenerator.getSeaLevel() + 1) {
+                this.moveInsideHeights(this.random, chunkGenerator.getSeaLevel() - 16, chunkGenerator.getSeaLevel() - 15);
             }
             else {
-                this.func_214626_a(this.rand, lowestLandPos.getY() - 16, lowestLandPos.getY() - 15);
+                this.moveInsideHeights(this.random, lowestLandPos.getY() - 16, lowestLandPos.getY() - 15);
             }
         }
     }

@@ -24,22 +24,22 @@ public class VinesShort extends Feature<NoFeatureConfig> {
 
 
     @Override
-    public boolean generate(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
+    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
         if(GeneralUtils.isWorldBlacklisted(world)) return false;
-        if (!world.isAirBlock(position)) {
+        if (!world.isEmptyBlock(position)) {
             return false;
         }
 
         // generates vines from given position down 4-6 blocks if path is clear and the given position is valid
         // Also won't generate vines below Y = 15.
         int length = 0;
-        BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().setPos(position);
+        BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().set(position);
         BlockState currentBlockstate;
         BlockState aboveBlockstate;
         ChunkPos currentChunkPos = new ChunkPos(position);
 
         for (; blockpos$Mutable.getY() > 15 && length < random.nextInt(3) + 4; blockpos$Mutable.move(Direction.DOWN)) {
-            if (world.isAirBlock(blockpos$Mutable)) {
+            if (world.isEmptyBlock(blockpos$Mutable)) {
                 for (Direction direction : Direction.Plane.HORIZONTAL) {
 
                     // Attempt to prevent floating vines in jungle fortress
@@ -49,20 +49,20 @@ public class VinesShort extends Feature<NoFeatureConfig> {
                         break;
                     }
 
-                    currentBlockstate = Blocks.VINE.getDefaultState().with(VineBlock.getPropertyFor(direction), Boolean.TRUE);
-                    aboveBlockstate = world.getBlockState(blockpos$Mutable.up());
+                    currentBlockstate = Blocks.VINE.defaultBlockState().setValue(VineBlock.getPropertyForFace(direction), Boolean.TRUE);
+                    aboveBlockstate = world.getBlockState(blockpos$Mutable.above());
 
-                    if (currentBlockstate.isValidPosition(world, blockpos$Mutable)) {
+                    if (currentBlockstate.canSurvive(world, blockpos$Mutable)) {
                         //places topmost vine that can face upward
                         //tick scheduled so it can break if block it was attached to was removed later in worldgen
-                        world.setBlockState(blockpos$Mutable, currentBlockstate.with(VineBlock.UP, aboveBlockstate.isSolid()), 2);
+                        world.setBlock(blockpos$Mutable, currentBlockstate.setValue(VineBlock.UP, aboveBlockstate.canOcclude()), 2);
                         length++;
                         break;
                     }
-                    else if (aboveBlockstate.isIn(Blocks.VINE)) {
+                    else if (aboveBlockstate.is(Blocks.VINE)) {
                         //places rest of the vine as long as vine is above
                         //tick scheduled so it can break if block it was attached to was removed later in worldgen
-                        world.setBlockState(blockpos$Mutable, aboveBlockstate.with(VineBlock.UP, false), 2);
+                        world.setBlock(blockpos$Mutable, aboveBlockstate.setValue(VineBlock.UP, false), 2);
                         length++;
                         break;
                     }

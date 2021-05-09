@@ -43,28 +43,28 @@ public class GenericNetherJigsawHighStructure extends AbstractBaseStructure<NoFe
         }
 
         @Override
-        public void init(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
+        public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
             BlockPos blockPos = new BlockPos(chunkX << 4, 0, chunkZ << 4);
-            JigsawManager.method_30419(
+            JigsawManager.addPieces(
                     dynamicRegistryManager,
-                    new VillageConfig(() -> dynamicRegistryManager.get(
-                            Registry.TEMPLATE_POOL_WORLDGEN).getOrDefault(startPool),
+                    new VillageConfig(() -> dynamicRegistryManager.registryOrThrow(
+                            Registry.TEMPLATE_POOL_REGISTRY).get(startPool),
                             size),
                     AbstractVillagePiece::new,
                     chunkGenerator,
                     structureManager,
                     blockPos,
-                    this.components,
-                    this.rand,
+                    this.pieces,
+                    this.random,
                     true,
                     false);
-            this.recalculateStructureSize();
+            this.calculateBoundingBox();
 
             // Needed because the offsetting method offsets the bounds but the structure piece
             // is actually 10 blocks higher than the bound's minimum Y. Wack.
             int boundOffset = -10;
             BlockPos highestLandPos = getHighestLand(chunkGenerator);
-            this.func_214626_a(this.rand,
+            this.moveInsideHeights(this.random,
                     Math.max((highestLandPos.getY() + heightOffset) - 1, (chunkGenerator.getSeaLevel() - 3) + lavaOffset) + boundOffset,
                     Math.max(highestLandPos.getY() + heightOffset, (chunkGenerator.getSeaLevel() - 2) + lavaOffset) + boundOffset);
         }

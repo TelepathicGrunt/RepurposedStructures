@@ -25,7 +25,7 @@ public abstract class AbstractNetherStructure extends AbstractBaseStructure<NoFe
     }
 
     @Override
-    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig defaultFeatureConfig) {
+    protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig defaultFeatureConfig) {
 
         // No one can be within 6 chunks of outpost
         boolean isNetherOutpost = RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NETHER_OUTPOST).contains(this);
@@ -35,9 +35,9 @@ public abstract class AbstractNetherStructure extends AbstractBaseStructure<NoFe
                 if(curChunkX == chunkX && curChunkZ == chunkZ) continue; // Prevent detecting the structure itself and thus, never spawning if structure is in its own blacklist
 
                 for(Structure<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE)) {
-                    StructureSeparationSettings structureConfig = chunkGenerator.getStructuresConfig().getForType(structureFeature);
-                    if(structureConfig != null && structureConfig.getSpacing() > 8){
-                        ChunkPos chunkPos2 = structureFeature.getStartChunk(structureConfig, seed, chunkRandom, curChunkX, curChunkZ);
+                    StructureSeparationSettings structureConfig = chunkGenerator.getSettings().getConfig(structureFeature);
+                    if(structureConfig != null && structureConfig.spacing() > 8){
+                        ChunkPos chunkPos2 = structureFeature.getPotentialFeatureChunk(structureConfig, seed, chunkRandom, curChunkX, curChunkZ);
                         if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
                             return false;
                         }
@@ -46,7 +46,7 @@ public abstract class AbstractNetherStructure extends AbstractBaseStructure<NoFe
             }
         }
 
-        return super.shouldStartAt(chunkGenerator, biomeSource, seed, chunkRandom, chunkX, chunkZ, biome, chunkPos, defaultFeatureConfig);
+        return super.isFeatureChunk(chunkGenerator, biomeSource, seed, chunkRandom, chunkX, chunkZ, biome, chunkPos, defaultFeatureConfig);
     }
 
     public static abstract class AbstractStart extends MarginedStructureStart<NoFeatureConfig> {
@@ -56,16 +56,16 @@ public abstract class AbstractNetherStructure extends AbstractBaseStructure<NoFe
 
 
         public BlockPos getHighestLand(ChunkGenerator chunkGenerator){
-            BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(this.bounds.func_215126_f().getX(), chunkGenerator.getMaxY() - 20, this.bounds.func_215126_f().getZ());
-            IBlockReader blockView = chunkGenerator.getColumnSample(mutable.getX(), mutable.getZ());
+            BlockPos.Mutable mutable = new BlockPos.Mutable().set(this.boundingBox.getCenter().getX(), chunkGenerator.getGenDepth() - 20, this.boundingBox.getCenter().getZ());
+            IBlockReader blockView = chunkGenerator.getBaseColumn(mutable.getX(), mutable.getZ());
             BlockState currentBlockstate;
             while(mutable.getY() > chunkGenerator.getSeaLevel() - 2){
                 currentBlockstate = blockView.getBlockState(mutable);
-                if(!currentBlockstate.isNormalCube(blockView, mutable)){
+                if(!currentBlockstate.isRedstoneConductor(blockView, mutable)){
                     mutable.move(Direction.DOWN);
                     continue;
                 }
-                else if(blockView.getBlockState(mutable.add(0,3,0)).getMaterial() == Material.AIR && !currentBlockstate.isAir())
+                else if(blockView.getBlockState(mutable.offset(0,3,0)).getMaterial() == Material.AIR && !currentBlockstate.isAir())
                 {
                     break;
                 }
@@ -76,14 +76,14 @@ public abstract class AbstractNetherStructure extends AbstractBaseStructure<NoFe
         }
 
         public BlockPos getLowestLand(ChunkGenerator chunkGenerator){
-            BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(this.bounds.func_215126_f().getX(), chunkGenerator.getSeaLevel() + 3, this.bounds.func_215126_f().getZ());
-            IBlockReader blockView = chunkGenerator.getColumnSample(mutable.getX(), mutable.getZ());
+            BlockPos.Mutable mutable = new BlockPos.Mutable().set(this.boundingBox.getCenter().getX(), chunkGenerator.getSeaLevel() + 3, this.boundingBox.getCenter().getZ());
+            IBlockReader blockView = chunkGenerator.getBaseColumn(mutable.getX(), mutable.getZ());
             BlockState currentBlockstate = blockView.getBlockState(mutable);
-            while (mutable.getY() <= chunkGenerator.getMaxY() - 20) {
+            while (mutable.getY() <= chunkGenerator.getGenDepth() - 20) {
 
                 if(blockView.getBlockState(mutable).getMaterial() != Material.AIR &&
-                        blockView.getBlockState(mutable.up()).getMaterial() == Material.AIR &&
-                        blockView.getBlockState(mutable.up(5)).getMaterial() == Material.AIR &&
+                        blockView.getBlockState(mutable.above()).getMaterial() == Material.AIR &&
+                        blockView.getBlockState(mutable.above(5)).getMaterial() == Material.AIR &&
                         !currentBlockstate.isAir())
                 {
                     mutable.move(Direction.UP);

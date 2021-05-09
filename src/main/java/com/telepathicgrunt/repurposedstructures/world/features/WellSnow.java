@@ -25,17 +25,17 @@ public class WellSnow extends WellAbstract {
         super(config);
     }
 
-    public boolean generate(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
+    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
         if(GeneralUtils.isWorldBlacklisted(world)) return false;
         // move to top land block below position
-        BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(position);
-        for (mutable.move(Direction.UP); world.isAirBlock(mutable) && mutable.getY() > 2; ) {
+        BlockPos.Mutable mutable = new BlockPos.Mutable().set(position);
+        for (mutable.move(Direction.UP); world.isEmptyBlock(mutable) && mutable.getY() > 2; ) {
             mutable.move(Direction.DOWN);
         }
 
         // check to make sure spot is valid and not a single block ledge
         BlockState block = world.getBlockState(mutable);
-        if ((block.isIn(Blocks.SNOW_BLOCK) || isSoil(block.getBlock())) && (!world.isAirBlock(mutable.down()) || !world.isAirBlock(mutable.down(2)))) {
+        if ((block.is(Blocks.SNOW_BLOCK) || isDirt(block.getBlock())) && (!world.isEmptyBlock(mutable.below()) || !world.isEmptyBlock(mutable.below(2)))) {
             // Creates the well centered on our spot
             mutable.move(Direction.DOWN);
             Template template = this.generateTemplate(SNOW_WELL_RL, world, random, mutable);

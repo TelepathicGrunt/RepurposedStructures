@@ -34,23 +34,23 @@ public class WaterloggingFixProcessor extends StructureProcessor {
         // Idea of workaround is detect if we are placing a waterloggable block and if so, remove the water in the world instead.
         // ONLY RUN THIS IF STRUCTURE BLOCK IS A DRY WATERLOGGABLE BLOCK
         ChunkPos currentChunkPos = new ChunkPos(infoIn2.pos);
-        if(infoIn2.state.getBlock() instanceof IWaterLoggable && !infoIn2.state.get(BlockStateProperties.WATERLOGGED)){
+        if(infoIn2.state.getBlock() instanceof IWaterLoggable && !infoIn2.state.getValue(BlockStateProperties.WATERLOGGED)){
             IChunk currentChunk = worldReader.getChunk(currentChunkPos.x, currentChunkPos.z);
-            if(worldReader.getFluidState(infoIn2.pos).isTagged(FluidTags.WATER)){
-                currentChunk.setBlockState(infoIn2.pos, Blocks.STONE.getDefaultState(), false);
+            if(worldReader.getFluidState(infoIn2.pos).is(FluidTags.WATER)){
+                currentChunk.setBlockState(infoIn2.pos, Blocks.STONE.defaultBlockState(), false);
             }
 
             // Remove water in adjacent blocks across chunk boundaries and above/below as well
             BlockPos.Mutable mutable = new BlockPos.Mutable();
             for (Direction direction : Direction.values()) {
-                mutable.setPos(infoIn2.pos).move(direction);
+                mutable.set(infoIn2.pos).move(direction);
                 if (currentChunkPos.x != mutable.getX() >> 4 || currentChunkPos.z != mutable.getZ() >> 4) {
                     currentChunk = worldReader.getChunk(mutable);
                     currentChunkPos = new ChunkPos(mutable);
                 }
 
-                if (currentChunk.getFluidState(mutable).isTagged(FluidTags.WATER)) {
-                    currentChunk.setBlockState(mutable, Blocks.STONE.getDefaultState(), false);
+                if (currentChunk.getFluidState(mutable).is(FluidTags.WATER)) {
+                    currentChunk.setBlockState(mutable, Blocks.STONE.defaultBlockState(), false);
                 }
             }
         }

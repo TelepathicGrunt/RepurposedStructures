@@ -20,10 +20,10 @@ public class TemplateManagerMixin {
 	@Shadow
 	@Final
 	@Mutable
-	private Map<ResourceLocation, Template> templates;
+	private Map<ResourceLocation, Template> structureRepository;
 
 	@Inject(method = "<init>", at = @At(value = "RETURN"))
 	private void init(CallbackInfo info) {
-		templates = Collections.synchronizedMap(templates);
+		structureRepository = Collections.synchronizedMap(structureRepository);
 	}
 }

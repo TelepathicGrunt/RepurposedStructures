@@ -28,6 +28,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import net.minecraft.world.gen.feature.structure.Structure.IStartFactory;
+
 public class GenericJigsawStructure extends AbstractBaseStructure<NoFeatureConfig> {
     protected final ResourceLocation startPool;
     protected final int structureSize;
@@ -94,11 +96,11 @@ public class GenericJigsawStructure extends AbstractBaseStructure<NoFeatureConfi
     }
 
     @Override
-    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig noFeatureConfig) {
+    protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig noFeatureConfig) {
         if(!(biomeSource instanceof CheckerboardBiomeProvider)) {
             for (int curChunkX = chunkX - biomeRange; curChunkX <= chunkX + biomeRange; curChunkX++) {
                 for (int curChunkZ = chunkZ - biomeRange; curChunkZ <= chunkZ + biomeRange; curChunkZ++) {
-                    if (!biomeSource.getBiomeForNoiseGen(curChunkX << 2, 60, curChunkZ << 2).getGenerationSettings().hasStructureFeature(this)) {
+                    if (!biomeSource.getNoiseBiome(curChunkX << 2, 60, curChunkZ << 2).getGenerationSettings().isValidStart(this)) {
                         return false;
                     }
                 }
@@ -112,9 +114,9 @@ public class GenericJigsawStructure extends AbstractBaseStructure<NoFeatureConfi
 
                 for(RSStructureTagMap.STRUCTURE_TAGS tag : structureTagsSet){
                     for(Structure<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(tag)){
-                        StructureSeparationSettings structureConfig = chunkGenerator.getStructuresConfig().getForType(structureFeature);
-                        if(structureConfig != null && structureConfig.getSpacing() > 8){
-                            ChunkPos chunkPos2 = structureFeature.getStartChunk(structureConfig, seed, chunkRandom, curChunkX, curChunkZ);
+                        StructureSeparationSettings structureConfig = chunkGenerator.getSettings().getConfig(structureFeature);
+                        if(structureConfig != null && structureConfig.spacing() > 8){
+                            ChunkPos chunkPos2 = structureFeature.getPotentialFeatureChunk(structureConfig, seed, chunkRandom, curChunkX, curChunkZ);
                             if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
                                 return false;
                             }
@@ -130,7 +132,7 @@ public class GenericJigsawStructure extends AbstractBaseStructure<NoFeatureConfi
 
             for (int curChunkX = chunkX - terrainHeightRadius; curChunkX <= chunkX + terrainHeightRadius; curChunkX++) {
                 for (int curChunkZ = chunkZ - terrainHeightRadius; curChunkZ <= chunkZ + terrainHeightRadius; curChunkZ++) {
-                    int height = chunkGenerator.func_222531_c((curChunkX << 4) + 7, (curChunkZ << 4) + 7, Heightmap.Type.WORLD_SURFACE_WG);
+                    int height = chunkGenerator.getFirstOccupiedHeight((curChunkX << 4) + 7, (curChunkZ << 4) + 7, Heightmap.Type.WORLD_SURFACE_WG);
                     maxTerrainHeight = Math.max(maxTerrainHeight, height);
                     minTerrainHeight = Math.min(minTerrainHeight, height);
 
@@ -156,24 +158,24 @@ public class GenericJigsawStructure extends AbstractBaseStructure<NoFeatureConfi
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
         }
 
-        public void init(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
+        public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
 
             BlockPos blockpos = new BlockPos(chunkX * 16, 0, chunkZ * 16);
-            JigsawManager.method_30419(
+            JigsawManager.addPieces(
                     dynamicRegistryManager,
-                    new VillageConfig(() -> dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN)
-                            .getOrDefault(startPool),
+                    new VillageConfig(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY)
+                            .get(startPool),
                             structureSize),
                     AbstractVillagePiece::new,
                     chunkGenerator,
                     structureManager,
                     blockpos,
-                    this.components,
-                    this.rand,
+                    this.pieces,
+                    this.random,
                     true,
                     true);
-            this.recalculateStructureSize();
-            this.components.get(0).offset(0, centerOffset, 0);
+            this.calculateBoundingBox();
+            this.pieces.get(0).move(0, centerOffset, 0);
         }
     }
 }

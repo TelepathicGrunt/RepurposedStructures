@@ -35,9 +35,9 @@ public class DataBlockProcessor extends StructureProcessor {
     private DataBlockProcessor() { }
 
     @Override
-    public Template.BlockInfo process(IWorldReader worldView, BlockPos pos, BlockPos blockPos, Template.BlockInfo structureBlockInfoLocal, Template.BlockInfo structureBlockInfoWorld, PlacementSettings structurePlacementData) {
+    public Template.BlockInfo processBlock(IWorldReader worldView, BlockPos pos, BlockPos blockPos, Template.BlockInfo structureBlockInfoLocal, Template.BlockInfo structureBlockInfoWorld, PlacementSettings structurePlacementData) {
         BlockState blockState = structureBlockInfoWorld.state;
-        if (blockState.isIn(Blocks.STRUCTURE_BLOCK)) {
+        if (blockState.is(Blocks.STRUCTURE_BLOCK)) {
             String metadata = structureBlockInfoWorld.nbt.getString("metadata");
             BlockPos worldPos = structureBlockInfoWorld.pos;
 
@@ -52,14 +52,14 @@ public class DataBlockProcessor extends StructureProcessor {
                     blockArgumentParser.parse(true);
                     BlockState replacementState = blockArgumentParser.getState();
                     BlockState currentBlock = worldView.getBlockState(worldPos);
-                    BlockPos.Mutable currentPos = new BlockPos.Mutable().setPos(worldPos);
+                    BlockPos.Mutable currentPos = new BlockPos.Mutable().set(worldPos);
                     int depth = splitString.length > 2 ? parseInt(splitString[2]) + 1 : 256;
 
                     // Creates the pillars in the world that replaces air and liquids
                     while((currentBlock.isAir() || currentBlock.getMaterial().isLiquid()) &&
-                            currentPos.getY() <= worldView.getDimension().getLogicalHeight() &&
+                            currentPos.getY() <= worldView.dimensionType().logicalHeight() &&
                             currentPos.getY() >= 0 &&
-                            currentPos.withinDistance(worldPos, depth)
+                            currentPos.closerThan(worldPos, depth)
                     ){
                         worldView.getChunk(currentPos).setBlockState(currentPos, replacementState, false);
                         currentPos.move(direction);
@@ -67,7 +67,7 @@ public class DataBlockProcessor extends StructureProcessor {
                     }
 
                     // Replaces the data block itself
-                    return replacementState.isIn(Blocks.STRUCTURE_VOID) ? null : new Template.BlockInfo(worldPos, replacementState, null);
+                    return replacementState.is(Blocks.STRUCTURE_VOID) ? null : new Template.BlockInfo(worldPos, replacementState, null);
                 }
             }
             catch (CommandSyntaxException var11) {

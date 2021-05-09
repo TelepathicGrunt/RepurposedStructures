@@ -43,7 +43,7 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NetherShipwr
     }
 
     @Override
-    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NetherShipwreckConfig config) {
+    protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NetherShipwreckConfig config) {
 
         // Check to see if there some air where the structure wants to spawn.
         // Doesn't account for rotation of structure.
@@ -53,7 +53,7 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NetherShipwr
         }
         else{
             SharedSeedRandom random = new SharedSeedRandom(seed + (chunkX * (chunkZ * 17)));
-            int height = chunkGenerator.getSeaLevel() + random.nextInt(Math.max(chunkGenerator.getMaxY() - (chunkGenerator.getSeaLevel() + 30), 1));
+            int height = chunkGenerator.getSeaLevel() + random.nextInt(Math.max(chunkGenerator.getGenDepth() - (chunkGenerator.getSeaLevel() + 30), 1));
             blockPos = new BlockPos(chunkX << 4, height, chunkZ << 4);
         }
 
@@ -62,9 +62,9 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NetherShipwr
 
         for(int xOffset = -checkRadius; xOffset <= checkRadius; xOffset += 8){
             for(int zOffset = -checkRadius; zOffset <= checkRadius; zOffset += 8){
-                IBlockReader blockView = chunkGenerator.getColumnSample(xOffset + blockPos.getX(), zOffset + blockPos.getZ());
+                IBlockReader blockView = chunkGenerator.getBaseColumn(xOffset + blockPos.getX(), zOffset + blockPos.getZ());
                 for(int yOffset = 0; yOffset <= 30; yOffset += 5){
-                    mutable.setPos(blockPos).move(xOffset, yOffset, zOffset);
+                    mutable.set(blockPos).move(xOffset, yOffset, zOffset);
                     if (!blockView.getBlockState(mutable).isAir()) {
                         return false;
                     }
@@ -78,9 +78,9 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NetherShipwr
                 if(curChunkX == chunkX && curChunkZ == chunkZ) continue; // Prevent detecting the structure itself and thus, never spawning if structure is in its own blacklist
 
                 for(Structure<?> structure : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE)){
-                    StructureSeparationSettings structureConfig = chunkGenerator.getStructuresConfig().getForType(structure);
-                    if(structureConfig != null && structureConfig.getSpacing() > 8) {
-                        ChunkPos chunkPos2 = structure.getStartChunk(structureConfig, seed, chunkRandom, curChunkX, curChunkZ);
+                    StructureSeparationSettings structureConfig = chunkGenerator.getSettings().getConfig(structure);
+                    if(structureConfig != null && structureConfig.spacing() > 8) {
+                        ChunkPos chunkPos2 = structure.getPotentialFeatureChunk(structureConfig, seed, chunkRandom, curChunkX, curChunkZ);
                         if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
                             return false;
                         }
@@ -89,7 +89,7 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NetherShipwr
             }
         }
 
-        return super.shouldStartAt(chunkGenerator, biomeSource, seed, chunkRandom, chunkX, chunkZ, biome, chunkPos, config);
+        return super.isFeatureChunk(chunkGenerator, biomeSource, seed, chunkRandom, chunkX, chunkZ, biome, chunkPos, config);
     }
 
     private static final List<MobSpawnInfo.Spawners> MONSTER_SPAWNS =
@@ -114,7 +114,7 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NetherShipwr
         }
 
         @Override
-        public void init(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NetherShipwreckConfig config) {
+        public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NetherShipwreckConfig config) {
             int placementHeight = chunkGenerator.getSeaLevel();
 
             if(!config.isFlying){
@@ -122,24 +122,24 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NetherShipwr
             }
             else{
                 SharedSeedRandom random = new SharedSeedRandom(seed + (chunkX * (chunkZ * 17)));
-                placementHeight = placementHeight + random.nextInt(Math.max(chunkGenerator.getMaxY() - (placementHeight + 30), 6));
+                placementHeight = placementHeight + random.nextInt(Math.max(chunkGenerator.getGenDepth() - (placementHeight + 30), 6));
             }
 
             BlockPos blockPos = new BlockPos(chunkX * 16, placementHeight, chunkZ * 16);
-            JigsawManager.method_30419(
+            JigsawManager.addPieces(
                     dynamicRegistryManager,
-                    new VillageConfig(() -> dynamicRegistryManager.get(
-                            Registry.TEMPLATE_POOL_WORLDGEN).getOrDefault(startPool),
+                    new VillageConfig(() -> dynamicRegistryManager.registryOrThrow(
+                            Registry.TEMPLATE_POOL_REGISTRY).get(startPool),
                             1),
                     AbstractVillagePiece::new,
                     chunkGenerator,
                     structureManager,
                     blockPos,
-                    this.components,
-                    this.rand,
+                    this.pieces,
+                    this.random,
                     false,
                     false);
-            this.recalculateStructureSize();
+            this.calculateBoundingBox();
         }
     }
 }

@@ -34,20 +34,20 @@ public class RSMineshaftEndStructure extends RSMineshaftStructure {
     }
 
     @Override
-    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig featureConfig) {
-        StructureSeparationSettings structureConfig = chunkGenerator.getStructuresConfig().getForType(this);
+    protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig featureConfig) {
+        StructureSeparationSettings structureConfig = chunkGenerator.getSettings().getConfig(this);
         if(structureConfig != null){
-            chunkRandom.setLargeFeatureSeed(seed + structureConfig.getSalt(), chunkX, chunkZ);
+            chunkRandom.setLargeFeatureSeed(seed + structureConfig.salt(), chunkX, chunkZ);
             double d = (probability.get() / 10000D);
             if(chunkRandom.nextDouble() < d) {
                 int xPos = chunkX << 4;
                 int zPos = chunkZ << 4;
-                int landHeight = chunkGenerator.func_222531_c(xPos, zPos, Heightmap.Type.WORLD_SURFACE_WG);
-                landHeight = Math.min(landHeight, chunkGenerator.func_222531_c(xPos + 50, zPos, Heightmap.Type.WORLD_SURFACE_WG));
-                landHeight = Math.min(landHeight, chunkGenerator.func_222531_c(xPos, zPos + 50, Heightmap.Type.WORLD_SURFACE_WG));
-                landHeight = Math.min(landHeight, chunkGenerator.func_222531_c(xPos - 50, zPos, Heightmap.Type.WORLD_SURFACE_WG));
-                landHeight = Math.min(landHeight, chunkGenerator.func_222531_c(xPos, zPos - 50, Heightmap.Type.WORLD_SURFACE_WG));
-                return RepurposedStructures.RSMineshaftsConfig.barrensIslandsEndMineshafts.get() || landHeight > Math.min(chunkGenerator.getMaxY(), 45);
+                int landHeight = chunkGenerator.getFirstOccupiedHeight(xPos, zPos, Heightmap.Type.WORLD_SURFACE_WG);
+                landHeight = Math.min(landHeight, chunkGenerator.getFirstOccupiedHeight(xPos + 50, zPos, Heightmap.Type.WORLD_SURFACE_WG));
+                landHeight = Math.min(landHeight, chunkGenerator.getFirstOccupiedHeight(xPos, zPos + 50, Heightmap.Type.WORLD_SURFACE_WG));
+                landHeight = Math.min(landHeight, chunkGenerator.getFirstOccupiedHeight(xPos - 50, zPos, Heightmap.Type.WORLD_SURFACE_WG));
+                landHeight = Math.min(landHeight, chunkGenerator.getFirstOccupiedHeight(xPos, zPos - 50, Heightmap.Type.WORLD_SURFACE_WG));
+                return RepurposedStructures.RSMineshaftsConfig.barrensIslandsEndMineshafts.get() || landHeight > Math.min(chunkGenerator.getGenDepth(), 45);
             }
         }
 

@@ -69,16 +69,16 @@ public class DetectRSLootTables implements ILootCondition
         Type type = new TypeToken<List<String>>(){}.getType();
 
         @Override
-        public void toJson(JsonObject object, DetectRSLootTables instance, JsonSerializationContext ctx)
+        public void serialize(JsonObject object, DetectRSLootTables instance, JsonSerializationContext ctx)
         {
             object.addProperty("loot_table_id", instance.blacklistedLootTableIds.toString());
         }
 
         @Override
-        public DetectRSLootTables fromJson(JsonObject object, JsonDeserializationContext ctx)
+        public DetectRSLootTables deserialize(JsonObject object, JsonDeserializationContext ctx)
         {
             List<String> unconvertedLootTableStrings = gson.fromJson(
-                    JSONUtils.getJsonArray(object, "blacklisted_loot_tables"), type);
+                    JSONUtils.getAsJsonArray(object, "blacklisted_loot_tables"), type);
 
             Set<ResourceLocation> convertedLootTableStrings = unconvertedLootTableStrings.stream()
                     .map(ResourceLocation::new).collect(Collectors.toSet());

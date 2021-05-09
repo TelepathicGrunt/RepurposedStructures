@@ -25,7 +25,7 @@ import java.util.Random;
 
 
 public abstract class WellAbstract extends Feature<NoFeatureConfig> {
-    protected PlacementSettings placementsettings = (new PlacementSettings()).setMirror(Mirror.NONE).setRotation(Rotation.NONE).setIgnoreEntities(false).setChunk(null);
+    protected PlacementSettings placementsettings = (new PlacementSettings()).setMirror(Mirror.NONE).setRotation(Rotation.NONE).setIgnoreEntities(false).setChunkPos(null);
 
     public WellAbstract(Codec<NoFeatureConfig> config) {
         super(config);
@@ -36,7 +36,7 @@ public abstract class WellAbstract extends Feature<NoFeatureConfig> {
 
         // Dont cache this as templatemanager already does caching behind the
         // scenes and users might override the file later with datapacks.
-        Template template = world.getWorld().getStructureTemplateManager().getTemplate(templateRL);
+        Template template = world.getLevel().getStructureManager().get(templateRL);
 
         if (template == null) {
             RepurposedStructures.LOGGER.warn(templateRL.toString() + " NTB does not exist!");
@@ -45,17 +45,17 @@ public abstract class WellAbstract extends Feature<NoFeatureConfig> {
 
         // Creates the well centered on our spot
         BlockPos offset = new BlockPos(-template.getSize().getX() / 2, 0, -template.getSize().getZ() / 2);
-        template.place(world, position.add(offset), placementsettings, random);
+        template.placeInWorldChunk(world, position.offset(offset), placementsettings, random);
         return template;
     }
 
 
     protected void handleDataBlocks(ResourceLocation templateOresRL, Template template, ISeedReader world, Random random, BlockPos position, Block defaultBlock, float oreChance) {
         // Replace the Data blocks with ores or bells
-        ITag<Block> ORE_TAG = BlockTags.getCollection().getTagOrEmpty(templateOresRL);
-        Collection<Block> allOreBlocks = ORE_TAG.values();
+        ITag<Block> ORE_TAG = BlockTags.getAllTags().getTagOrEmpty(templateOresRL);
+        Collection<Block> allOreBlocks = ORE_TAG.getValues();
         BlockPos offset = new BlockPos(-template.getSize().getX() / 2, 0, -template.getSize().getZ() / 2);
-        for (Template.BlockInfo template$blockinfo : template.func_215381_a(position.add(offset), placementsettings, Blocks.STRUCTURE_BLOCK)) {
+        for (Template.BlockInfo template$blockinfo : template.filterBlocks(position.offset(offset), placementsettings, Blocks.STRUCTURE_BLOCK)) {
             if (template$blockinfo.nbt != null) {
                 StructureMode structuremode = StructureMode.valueOf(template$blockinfo.nbt.getString("mode"));
                 if (structuremode == StructureMode.DATA) {
@@ -74,9 +74,9 @@ public abstract class WellAbstract extends Feature<NoFeatureConfig> {
     protected static void addBells(String function, BlockPos position, ISeedReader world, Random random, Collection<Block> allOreBlocks) {
         if (function.equals("bell")) {
             if (RepurposedStructures.RSWellsConfig.canHaveBells.get() && random.nextInt(100) == 0) {
-                world.setBlockState(position, Blocks.BELL.getDefaultState().with(BlockStateProperties.BELL_ATTACHMENT, BellAttachment.CEILING), 2);
+                world.setBlock(position, Blocks.BELL.defaultBlockState().setValue(BlockStateProperties.BELL_ATTACHMENT, BellAttachment.CEILING), 2);
             } else {
-                world.setBlockState(position, Blocks.AIR.getDefaultState(), 2);
+                world.setBlock(position, Blocks.AIR.defaultBlockState(), 2);
             }
         }
     }
@@ -88,9 +88,9 @@ public abstract class WellAbstract extends Feature<NoFeatureConfig> {
     protected static void addOres(String function, BlockPos position, ISeedReader world, Random random, Collection<Block> allOreBlocks, Block defaultBlock, float oreChance) {
         if (function.equals("ores")) {
             if (!allOreBlocks.isEmpty() && random.nextFloat() < oreChance) {
-                world.setBlockState(position, ((Block) allOreBlocks.toArray()[random.nextInt(allOreBlocks.size())]).getDefaultState(), 2);
+                world.setBlock(position, ((Block) allOreBlocks.toArray()[random.nextInt(allOreBlocks.size())]).defaultBlockState(), 2);
             } else {
-                world.setBlockState(position, defaultBlock.getDefaultState(), 2);
+                world.setBlock(position, defaultBlock.defaultBlockState(), 2);
             }
         }
     }
@@ -103,15 +103,15 @@ public abstract class WellAbstract extends Feature<NoFeatureConfig> {
         if (function.equals("space")) {
             BlockState blockstate;
             if (position.getY() < world.getSeaLevel()) {
-                blockstate = Blocks.WATER.getDefaultState();
+                blockstate = Blocks.WATER.defaultBlockState();
             } else {
-                blockstate = Blocks.AIR.getDefaultState();
+                blockstate = Blocks.AIR.defaultBlockState();
             }
 
             for (int x = -1; x <= 1; x++) {
                 for (int z = -1; z <= 1; z++) {
                     if (x * z == 0) {
-                        world.setBlockState(position.add(x, 0, z), blockstate, 2);
+                        world.setBlock(position.offset(x, 0, z), blockstate, 2);
                     }
                 }
             }

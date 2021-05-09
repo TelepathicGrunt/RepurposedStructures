@@ -31,24 +31,24 @@ public class FortressBreakage extends Feature<NoFeatureConfig> {
         if (blockState == null) {
             return false;
         } else {
-            return blockState.getMaterial() == Material.ROCK ||
-                    blockState.getMaterial() == Material.EARTH ||
-                    blockState.isIn(Blocks.INFESTED_CHISELED_STONE_BRICKS) ||
-                    blockState.isIn(Blocks.INFESTED_CRACKED_STONE_BRICKS) ||
-                    blockState.isIn(Blocks.INFESTED_STONE_BRICKS) ||
-                    blockState.isIn(Blocks.INFESTED_MOSSY_STONE_BRICKS) ||
-                    blockState.isIn(Blocks.IRON_BARS);
+            return blockState.getMaterial() == Material.STONE ||
+                    blockState.getMaterial() == Material.DIRT ||
+                    blockState.is(Blocks.INFESTED_CHISELED_STONE_BRICKS) ||
+                    blockState.is(Blocks.INFESTED_CRACKED_STONE_BRICKS) ||
+                    blockState.is(Blocks.INFESTED_STONE_BRICKS) ||
+                    blockState.is(Blocks.INFESTED_MOSSY_STONE_BRICKS) ||
+                    blockState.is(Blocks.IRON_BARS);
         }
     };
 
     @Override
-    public boolean generate(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
+    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
         if(GeneralUtils.isWorldBlacklisted(world)) return false;
-        if (FORTRESS_BLOCKS.test(world.getBlockState(position.down())) &&
-                world.getStructures(SectionPos.from(position), RSStructures.JUNGLE_FORTRESS.get()).findAny().isPresent())
+        if (FORTRESS_BLOCKS.test(world.getBlockState(position.below())) &&
+                world.startsForFeature(SectionPos.of(position), RSStructures.JUNGLE_FORTRESS.get()).findAny().isPresent())
         {
             if(random.nextBoolean())
-                position = position.down();
+                position = position.below();
 
             float f = random.nextFloat() * 3.1415927F;
             float g = 3;
@@ -146,16 +146,16 @@ public class FortressBreakage extends Feature<NoFeatureConfig> {
                                         int am = xx - x + (yy - y) * size + (zz - z) * size * i;
                                         if (!bitSet.get(am)) {
                                             bitSet.set(am);
-                                            mutable.setPos(xx, yy, zz);
+                                            mutable.set(xx, yy, zz);
                                             BlockState state = world.getBlockState(mutable);
                                             if (FORTRESS_BLOCKS.test(state)) {
-                                                world.setBlockState(mutable, Blocks.AIR.getDefaultState(), 2);
+                                                world.setBlock(mutable, Blocks.AIR.defaultBlockState(), 2);
                                                 ++j;
                                             }
 
                                             // no floating vines
-                                            while(state.getMaterial() == Material.TALL_PLANTS){
-                                                world.setBlockState(mutable, Blocks.AIR.getDefaultState(), 3);
+                                            while(state.getMaterial() == Material.REPLACEABLE_PLANT){
+                                                world.setBlock(mutable, Blocks.AIR.defaultBlockState(), 3);
                                                 state = world.getBlockState(mutable.move(Direction.DOWN));
                                             }
                                         }

@@ -37,12 +37,12 @@ public abstract class AbstractBaseStructure <C extends IFeatureConfig> extends S
     }
 
     @Override
-    public BlockPos locateStructure(IWorldReader worldView, StructureManager structureAccessor, BlockPos blockPos, int radius, boolean skipExistingChunks, long seed, StructureSeparationSettings structureConfig) {
+    public BlockPos getNearestGeneratedFeature(IWorldReader worldView, StructureManager structureAccessor, BlockPos blockPos, int radius, boolean skipExistingChunks, long seed, StructureSeparationSettings structureConfig) {
         return locateStructureFast(worldView, structureAccessor, blockPos, radius, skipExistingChunks, seed, structureConfig, this);
     }
 
     public static <C extends IFeatureConfig> BlockPos locateStructureFast(IWorldReader worldView, StructureManager structureAccessor, BlockPos blockPos, int radius, boolean skipExistingChunks, long seed, StructureSeparationSettings structureConfig, Structure<C> structure) {
-        int spacing = structureConfig.getSpacing();
+        int spacing = structureConfig.spacing();
         int chunkX = blockPos.getX() >> 4;
         int chunkZ = blockPos.getZ() >> 4;
         int currentRadius = 0;
@@ -56,18 +56,18 @@ public abstract class AbstractBaseStructure <C extends IFeatureConfig> extends S
                     if (xEdge || zEdge) {
                         int trueChunkX = chunkX + spacing * xRadius;
                         int trueChunkZ = chunkZ + spacing * zRadius;
-                        ChunkPos chunkPos = structure.getStartChunk(structureConfig, seed, chunkRandom, trueChunkX, trueChunkZ);
-                        if(worldView.getBiomeForNoiseGen((chunkPos.x << 2) + 2, 60, (chunkPos.z << 2) + 2).getGenerationSettings().hasStructureFeature(structure)) {
+                        ChunkPos chunkPos = structure.getPotentialFeatureChunk(structureConfig, seed, chunkRandom, trueChunkX, trueChunkZ);
+                        if(worldView.getNoiseBiome((chunkPos.x << 2) + 2, 60, (chunkPos.z << 2) + 2).getGenerationSettings().isValidStart(structure)) {
                             IChunk chunk = worldView.getChunk(chunkPos.x, chunkPos.z, ChunkStatus.STRUCTURE_STARTS);
-                            StructureStart<?> structureStart = structureAccessor.getStructureStart(SectionPos.from(chunk.getPos(), 0), structure, chunk);
+                            StructureStart<?> structureStart = structureAccessor.getStartForFeature(SectionPos.of(chunk.getPos(), 0), structure, chunk);
                             if (structureStart != null && structureStart.isValid()) {
-                                if (skipExistingChunks && structureStart.isRefCountBelowMax()) {
-                                    structureStart.incrementRefCount();
-                                    return structureStart.getPos();
+                                if (skipExistingChunks && structureStart.canBeReferenced()) {
+                                    structureStart.addReference();
+                                    return structureStart.getLocatePos();
                                 }
 
                                 if (!skipExistingChunks) {
-                                    return structureStart.getPos();
+                                    return structureStart.getLocatePos();
                                 }
                             }
                         }

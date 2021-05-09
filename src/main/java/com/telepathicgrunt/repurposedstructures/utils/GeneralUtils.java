@@ -58,7 +58,7 @@ public class GeneralUtils {
 
     public static boolean isFullCube(IServerWorld world, BlockPos pos, BlockState state){
         if(!IS_FULLCUBE_MAP.containsKey(state)){
-            boolean isFullCube = Block.isOpaque(state.getCullingShape(world, pos)) || state.getBlock() instanceof LeavesBlock;
+            boolean isFullCube = Block.isShapeFullBlock(state.getOcclusionShape(world, pos)) || state.getBlock() instanceof LeavesBlock;
             IS_FULLCUBE_MAP.put(state, isFullCube);
         }
         return IS_FULLCUBE_MAP.get(state);
@@ -69,10 +69,10 @@ public class GeneralUtils {
     // Helper method to make chests always face away from walls
     public static BlockState orientateChest(IServerWorld blockView, BlockPos blockPos, BlockState blockState) {
         BlockPos.Mutable mutable = new BlockPos.Mutable();
-        Direction bestDirection = blockState.get(HorizontalBlock.HORIZONTAL_FACING);
+        Direction bestDirection = blockState.getValue(HorizontalBlock.FACING);
 
         for(Direction facing : Direction.Plane.HORIZONTAL) {
-            mutable.setPos(blockPos).move(facing);
+            mutable.set(blockPos).move(facing);
 
             // Checks if wall is in this side
             if (isFullCube(blockView, mutable, blockView.getBlockState(mutable))) {
@@ -87,7 +87,7 @@ public class GeneralUtils {
         }
 
         // Make chest face away from wall
-        return blockState.with(HorizontalBlock.HORIZONTAL_FACING, bestDirection.getOpposite());
+        return blockState.setValue(HorizontalBlock.FACING, bestDirection.getOpposite());
     }
 
     ///////////////////////////////////////////
@@ -98,8 +98,8 @@ public class GeneralUtils {
      */
     public static boolean serializeAndCompareFeature(ConfiguredFeature<?, ?> configuredFeature1, ConfiguredFeature<?, ?> configuredFeature2) {
 
-        Optional<JsonElement> configuredFeatureJSON1 = ConfiguredFeature.field_25833.encode(configuredFeature1, JsonOps.INSTANCE, JsonOps.INSTANCE.empty()).get().left();
-        Optional<JsonElement> configuredFeatureJSON2 = ConfiguredFeature.field_25833.encode(configuredFeature2, JsonOps.INSTANCE, JsonOps.INSTANCE.empty()).get().left();
+        Optional<JsonElement> configuredFeatureJSON1 = ConfiguredFeature.DIRECT_CODEC.encode(configuredFeature1, JsonOps.INSTANCE, JsonOps.INSTANCE.empty()).get().left();
+        Optional<JsonElement> configuredFeatureJSON2 = ConfiguredFeature.DIRECT_CODEC.encode(configuredFeature2, JsonOps.INSTANCE, JsonOps.INSTANCE.empty()).get().left();
 
         // One of the configuredfeatures cannot be serialized
         if(!configuredFeatureJSON1.isPresent() || !configuredFeatureJSON2.isPresent()) {
@@ -116,10 +116,10 @@ public class GeneralUtils {
     public static boolean isWorldBlacklisted(IServerWorld world){
         if(BLACKLISTED_WORLDS == null){
             BLACKLISTED_WORLDS = Arrays.stream(RepurposedStructures.RSMainConfig.blacklistedDimensions.get().split(","))
-                    .map(String::trim).map(dimensionName -> RegistryKey.of(Registry.DIMENSION, new ResourceLocation(dimensionName)))
+                    .map(String::trim).map(dimensionName -> RegistryKey.create(Registry.DIMENSION_REGISTRY, new ResourceLocation(dimensionName)))
                     .collect(Collectors.toSet());
         }
-        return BLACKLISTED_WORLDS.contains(world.getWorld().getRegistryKey());
+        return BLACKLISTED_WORLDS.contains(world.getLevel().dimension());
     }
 
     //////////////////////////////////////////////
@@ -127,16 +127,16 @@ public class GeneralUtils {
     public static <T extends IFeatureConfig> void registerStructureDebugging(RegistryObject<Structure<T>> structure){
         MinecraftForge.EVENT_BUS.addListener(
                 (PlayerInteractEvent.RightClickBlock event) -> {
-                    if(!event.getWorld().isRemote() && event.getHand() == Hand.MAIN_HAND){
+                    if(!event.getWorld().isClientSide() && event.getHand() == Hand.MAIN_HAND){
                         RepurposedStructures.LOGGER.info("Started search");
 
                         ServerWorld serverWorld = (ServerWorld) event.getWorld();
-                        ChunkGenerator chunkGenerator = serverWorld.getChunkProvider().getChunkGenerator();
-                        StructureSeparationSettings structureseparationsettings = chunkGenerator.getStructuresConfig().getForType(RSStructures.STONEBRICK_STRONGHOLD.get());
+                        ChunkGenerator chunkGenerator = serverWorld.getChunkSource().getGenerator();
+                        StructureSeparationSettings structureseparationsettings = chunkGenerator.getSettings().getConfig(RSStructures.STONEBRICK_STRONGHOLD.get());
                         Structure<?> structureToFind = structure.get();
                         List<Pair<BlockPos, Integer>> structureStarts = new ArrayList<>();
 
-                        int spacing = structureseparationsettings.getSpacing();
+                        int spacing = structureseparationsettings.spacing();
                         int startX = 0;
                         int startZ = 0;
                         int currentRadius = 0;
@@ -151,11 +151,11 @@ public class GeneralUtils {
                                     if (onXEdge || onZEdge) {
                                         int k1 = startX + spacing * xRadius;
                                         int l1 = startZ + spacing * zRadius;
-                                        ChunkPos chunkpos = structureToFind.getStartChunk(structureseparationsettings, serverWorld.getSeed(), sharedseedrandom, k1, l1);
+                                        ChunkPos chunkpos = structureToFind.getPotentialFeatureChunk(structureseparationsettings, serverWorld.getSeed(), sharedseedrandom, k1, l1);
                                         IChunk ichunk = serverWorld.getChunk(chunkpos.x, chunkpos.z, ChunkStatus.STRUCTURE_STARTS);
-                                        StructureStart<?> structurestart = serverWorld.getStructureAccessor().getStructureStart(SectionPos.from(ichunk.getPos(), 0), structureToFind, ichunk);
+                                        StructureStart<?> structurestart = serverWorld.structureFeatureManager().getStartForFeature(SectionPos.of(ichunk.getPos(), 0), structureToFind, ichunk);
                                         if (structurestart != null && structurestart.isValid()) {
-                                            BlockPos pos = structurestart.getPos();
+                                            BlockPos pos = structurestart.getLocatePos();
                                             structureStarts.add(Pair.of(pos, (int)Math.sqrt((pos.getX() * pos.getX()) + (pos.getZ() * pos.getZ()))));
                                         }
 

@@ -33,13 +33,13 @@ public class WellNether extends WellAbstract {
         super(config);
     }
 
-    public boolean generate(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
+    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
         if(GeneralUtils.isWorldBlacklisted(world)) return false;
         // move to top land block below position
-        BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(position);
+        BlockPos.Mutable mutable = new BlockPos.Mutable().set(position);
         for (mutable.move(Direction.UP); mutable.getY() > 32;) {
 
-            if(world.isAirBlock(mutable) && mutable.getY() > 32){
+            if(world.isEmptyBlock(mutable) && mutable.getY() > 32){
                 mutable.move(Direction.DOWN);
                 continue;
             }
@@ -51,16 +51,16 @@ public class WellNether extends WellAbstract {
                     BlockTags.VALID_SPAWN.contains(block) ||
                     BlockTags.WITHER_IMMUNE.contains(block) ||
                     blockState.getMaterial() == Material.SAND ||
-                    blockState.getMaterial() == Material.ROCK ||
-                    blockState.getMaterial() == Material.EARTH ||
-                    (world.getBiome(mutable).getGenerationSettings().getSurfaceConfig().getTop() != null &&
-                            blockState.isIn(world.getBiome(mutable).getGenerationSettings().getSurfaceConfig().getTop().getBlock()))) &&
-                    !world.isAirBlock(mutable.down()) &&
-                    world.isAirBlock(mutable.up(3)) &&
-                    !world.isAirBlock(mutable.north(2).down()) &&
-                    !world.isAirBlock(mutable.west(2).down()) &&
-                    !world.isAirBlock(mutable.east(2).down()) &&
-                    !world.isAirBlock(mutable.south(2).down())
+                    blockState.getMaterial() == Material.STONE ||
+                    blockState.getMaterial() == Material.DIRT ||
+                    (world.getBiome(mutable).getGenerationSettings().getSurfaceBuilderConfig().getTopMaterial() != null &&
+                            blockState.is(world.getBiome(mutable).getGenerationSettings().getSurfaceBuilderConfig().getTopMaterial().getBlock()))) &&
+                    !world.isEmptyBlock(mutable.below()) &&
+                    world.isEmptyBlock(mutable.above(3)) &&
+                    !world.isEmptyBlock(mutable.north(2).below()) &&
+                    !world.isEmptyBlock(mutable.west(2).below()) &&
+                    !world.isEmptyBlock(mutable.east(2).below()) &&
+                    !world.isEmptyBlock(mutable.south(2).below())
                     )
             {
                 // Creates the well centered on our spot
@@ -82,10 +82,10 @@ public class WellNether extends WellAbstract {
 
     protected void handleDataBlocks(ResourceLocation templateOresRL, Template template, ISeedReader world, Random random, BlockPos position, Block defaultBlock, float oreChance) {
         // Replace the Data blocks with ores or bells
-        ITag<Block> ORE_TAG = BlockTags.getCollection().getTagOrEmpty(templateOresRL);
-        Collection<Block> allOreBlocks = ORE_TAG.values();
+        ITag<Block> ORE_TAG = BlockTags.getAllTags().getTagOrEmpty(templateOresRL);
+        Collection<Block> allOreBlocks = ORE_TAG.getValues();
         BlockPos offset = new BlockPos(-template.getSize().getX() / 2, 0, -template.getSize().getZ() / 2);
-        for (Template.BlockInfo template$blockinfo : template.func_215381_a(position.add(offset), placementsettings, Blocks.STRUCTURE_BLOCK)) {
+        for (Template.BlockInfo template$blockinfo : template.filterBlocks(position.offset(offset), placementsettings, Blocks.STRUCTURE_BLOCK)) {
             if (template$blockinfo.nbt != null) {
                 StructureMode structuremode = StructureMode.valueOf(template$blockinfo.nbt.getString("mode"));
                 if (structuremode == StructureMode.DATA) {
@@ -105,11 +105,11 @@ public class WellNether extends WellAbstract {
         if (function.equals("ores")) {
             float chance = random.nextFloat();
             if (!allOreBlocks.isEmpty() && chance < RARE_ORE_CHANCE) {
-                world.setBlockState(position, ((Block) allOreBlocks.toArray()[0]).getDefaultState(), 2);
+                world.setBlock(position, ((Block) allOreBlocks.toArray()[0]).defaultBlockState(), 2);
             } else if (allOreBlocks.size() > 1 && chance - RARE_ORE_CHANCE < COMMON_ORE_CHANCE) {
-                world.setBlockState(position, ((Block) allOreBlocks.toArray()[random.nextInt(allOreBlocks.size() - 1) + 1]).getDefaultState(), 2);
+                world.setBlock(position, ((Block) allOreBlocks.toArray()[random.nextInt(allOreBlocks.size() - 1) + 1]).defaultBlockState(), 2);
             } else {
-                world.setBlockState(position, defaultBlock.getDefaultState(), 2);
+                world.setBlock(position, defaultBlock.defaultBlockState(), 2);
             }
         }
     }
@@ -121,18 +121,18 @@ public class WellNether extends WellAbstract {
         if (function.equals("space")) {
             BlockState blockstate;
             if (position.getY() < 32) {
-                blockstate = Blocks.LAVA.getDefaultState();
+                blockstate = Blocks.LAVA.defaultBlockState();
             } else {
-                blockstate = Blocks.AIR.getDefaultState();
+                blockstate = Blocks.AIR.defaultBlockState();
             }
 
             for (int x = -1; x <= 1; x++) {
                 for (int z = -1; z <= 1; z++) {
                     if (x * z == 0) {
                         if (position.getY() < world.getSeaLevel()) {
-                            world.setBlockState(position.add(x, 0, z), blockstate, 2);
+                            world.setBlock(position.offset(x, 0, z), blockstate, 2);
                         } else {
-                            world.setBlockState(position.add(x, 0, z), blockstate, 2);
+                            world.setBlock(position.offset(x, 0, z), blockstate, 2);
                         }
                     }
                 }

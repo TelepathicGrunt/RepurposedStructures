@@ -26,17 +26,17 @@ public class WellForest extends WellAbstract {
     }
 
 
-    public boolean generate(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
+    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
         if(GeneralUtils.isWorldBlacklisted(world)) return false;
         // move to top land block below position
-        BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(position);
-        for (mutable.move(Direction.UP); world.isAirBlock(mutable) && mutable.getY() > 2; ) {
+        BlockPos.Mutable mutable = new BlockPos.Mutable().set(position);
+        for (mutable.move(Direction.UP); world.isEmptyBlock(mutable) && mutable.getY() > 2; ) {
             mutable.move(Direction.DOWN);
         }
 
         // check to make sure spot is valid and not a single block ledge
         Block block = world.getBlockState(mutable).getBlock();
-        if (isSoil(block) && (!world.isAirBlock(mutable.down()) || !world.isAirBlock(mutable.down(2)))) {
+        if (isDirt(block) && (!world.isEmptyBlock(mutable.below()) || !world.isEmptyBlock(mutable.below(2)))) {
 
             // Creates the well centered on our spot
             mutable.move(Direction.DOWN, 5);

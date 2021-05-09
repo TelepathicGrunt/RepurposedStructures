@@ -40,39 +40,39 @@ public class CeilingVinePostProcessor extends StructureProcessor {
     }
 
     @Override
-    public Template.BlockInfo process(IWorldReader worldView, BlockPos pos, BlockPos blockPos, Template.BlockInfo structureBlockInfoLocal, Template.BlockInfo structureBlockInfoWorld, PlacementSettings structurePlacementData) {
+    public Template.BlockInfo processBlock(IWorldReader worldView, BlockPos pos, BlockPos blockPos, Template.BlockInfo structureBlockInfoLocal, Template.BlockInfo structureBlockInfoWorld, PlacementSettings structurePlacementData) {
         // Place vines only in air space
         if (structureBlockInfoWorld.state.isAir()) {
             Random random = new SharedSeedRandom();
-            random.setSeed(structureBlockInfoWorld.pos.toLong() * structureBlockInfoWorld.pos.getY());
+            random.setSeed(structureBlockInfoWorld.pos.asLong() * structureBlockInfoWorld.pos.getY());
             IChunk centerChunk = worldView.getChunk(structureBlockInfoWorld.pos);
             BlockState centerState = centerChunk.getBlockState(structureBlockInfoWorld.pos);
-            BlockPos abovePos = structureBlockInfoWorld.pos.up();
+            BlockPos abovePos = structureBlockInfoWorld.pos.above();
             BlockState aboveState = centerChunk.getBlockState(abovePos);
 
             if(random.nextFloat() < probability &&
                 centerState.isAir() &&
-                Block.doesSideFillSquare(aboveState.getCollisionShape(worldView, abovePos), Direction.DOWN)){
+                Block.isFaceFull(aboveState.getCollisionShape(worldView, abovePos), Direction.DOWN)){
 
                 BlockPos.Mutable mutable = new BlockPos.Mutable();
                 List<Direction> shuffledDirectionList = Direction.Plane.HORIZONTAL.stream().collect(Collectors.toList());
                 Collections.shuffle(shuffledDirectionList);
                 for(Direction facing : shuffledDirectionList){
-                    mutable.setPos(structureBlockInfoWorld.pos).move(facing);
+                    mutable.set(structureBlockInfoWorld.pos).move(facing);
                     BlockState worldState = worldView.getChunk(mutable).getBlockState(mutable);
 
                     // Vines only get placed if side block is empty and top block is solid.
-                    if(!worldState.isSolid()){
+                    if(!worldState.canOcclude()){
                         // side block to hold vine
                         worldView.getChunk(mutable).setBlockState(mutable, blockState, false);
 
                         // ceiling vine
-                        BlockState vineBlock = Blocks.VINE.getDefaultState().with(VineBlock.getPropertyFor(facing), true).with(VineBlock.UP, true);
+                        BlockState vineBlock = Blocks.VINE.defaultBlockState().setValue(VineBlock.getPropertyForFace(facing), true).setValue(VineBlock.UP, true);
                         mutable.move(facing.getOpposite()); // Move back to center
                         centerChunk.setBlockState(mutable, vineBlock, false);
 
                         // hanging vines
-                        vineBlock = vineBlock.with(VineBlock.UP, false);
+                        vineBlock = vineBlock.setValue(VineBlock.UP, false);
                         for(int depth = random.nextInt(4); depth < 3; depth++){
                             mutable.move(Direction.DOWN);
                             if(!centerChunk.getBlockState(mutable).isAir()){

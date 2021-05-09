@@ -14,7 +14,7 @@ public class RSDungeonPlacement extends SimplePlacement<TopSolidRangeConfig>
 	super(config);
     }
 
-	public Stream<BlockPos> getPositions(Random random, TopSolidRangeConfig config, BlockPos pos) {
+	public Stream<BlockPos> place(Random random, TopSolidRangeConfig config, BlockPos pos) {
 		int range = Math.max(config.maximum - config.bottomOffset, 1);
 		int x = random.nextInt(16) + pos.getX();
 		int z = random.nextInt(16) + pos.getZ();

@@ -20,19 +20,19 @@ public class ShulkerMob extends Feature<NoFeatureConfig> {
 
 
     @Override
-    public boolean generate(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
+    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
         // move down to spawn at the jigsaw block calling this
-        position = position.down();
+        position = position.below();
 
-        ShulkerEntity shulkerEntity = EntityType.SHULKER.create(world.getWorld());
-        shulkerEntity.enablePersistence();
-        shulkerEntity.setPosition(
+        ShulkerEntity shulkerEntity = EntityType.SHULKER.create(world.getLevel());
+        shulkerEntity.setPersistenceRequired();
+        shulkerEntity.setPos(
                 (double)position.getX() + 0.5D,
                 position.getY(),
                 (double)position.getZ() + 0.5D);
 
-        shulkerEntity.setAttachmentPos(position);
-        world.spawnEntityAndPassengers(shulkerEntity);
+        shulkerEntity.setAttachPosition(position);
+        world.addFreshEntityWithPassengers(shulkerEntity);
         return true;
     }
 }

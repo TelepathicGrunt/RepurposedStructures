@@ -28,18 +28,18 @@ public class WellMossyStone extends WellAbstract {
     }
 
 
-    public boolean generate(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
+    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
         if(GeneralUtils.isWorldBlacklisted(world)) return false;
         // move to top land block below position
-        BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(position);
-        for (mutable.move(Direction.UP); (world.isAirBlock(mutable) || !world.getFluidState(mutable).isEmpty()) && mutable.getY() > 2; ) {
+        BlockPos.Mutable mutable = new BlockPos.Mutable().set(position);
+        for (mutable.move(Direction.UP); (world.isEmptyBlock(mutable) || !world.getFluidState(mutable).isEmpty()) && mutable.getY() > 2; ) {
             mutable.move(Direction.DOWN);
         }
 
         // check to make sure spot is valid and not a single block ledge
         BlockState block = world.getBlockState(mutable);
-        if ((BlockTags.SAND.contains(block.getBlock()) || block.isIn(Blocks.CLAY) || isSoil(block.getBlock()))
-                && (!world.isAirBlock(mutable.down()) || !world.isAirBlock(mutable.down(2)))) {
+        if ((BlockTags.SAND.contains(block.getBlock()) || block.is(Blocks.CLAY) || isDirt(block.getBlock()))
+                && (!world.isEmptyBlock(mutable.below()) || !world.isEmptyBlock(mutable.below(2)))) {
             // Creates the well centered on our spot
             mutable.move(Direction.DOWN);
             Template template = this.generateTemplate(MOSSY_WELL_RL, world, random, mutable);
@@ -48,11 +48,11 @@ public class WellMossyStone extends WellAbstract {
 
                 // turns some of the stony blocks into mossy versions and waterlogs blocks below sealevel
                 BlockPos offset = new BlockPos(-template.getSize().getX() / 2, 0, -template.getSize().getZ() / 2);
-                BlockPos.stream(template
-                        .getMutableBoundingBox(this.placementsettings, mutable.add(offset)))
+                BlockPos.betweenClosedStream(template
+                        .getBoundingBox(this.placementsettings, mutable.offset(offset)))
                         .forEach(pos -> mossifyBlocks(world, random, pos));
-                BlockPos.stream(template
-                        .getMutableBoundingBox(this.placementsettings, mutable.add(offset)))
+                BlockPos.betweenClosedStream(template
+                        .getBoundingBox(this.placementsettings, mutable.offset(offset)))
                         .forEach(pos -> waterlogBlocks(world, pos));
             }
 
@@ -64,21 +64,21 @@ public class WellMossyStone extends WellAbstract {
 
     private static void mossifyBlocks(ISeedReader world, Random random, BlockPos position) {
         BlockState block = world.getBlockState(position);
-        if (block.isIn(Blocks.STONE_BRICKS) && random.nextFloat() < 0.6f) {
-            world.setBlockState(position, Blocks.MOSSY_STONE_BRICKS.getDefaultState(), 2);
-        } else if (block.isIn(Blocks.STONE_BRICK_WALL) && random.nextFloat() < 0.6f) {
-            world.setBlockState(position, Blocks.MOSSY_STONE_BRICK_WALL.getDefaultState(), 2);
-        } else if (block.isIn(Blocks.STONE_BRICK_SLAB) && random.nextFloat() < 0.6f) {
-            world.setBlockState(position, Blocks.MOSSY_STONE_BRICK_SLAB.getDefaultState(), 2);
-        } else if (block.isIn(Blocks.COBBLESTONE) && random.nextFloat() < 0.5f) {
-            world.setBlockState(position, Blocks.MOSSY_COBBLESTONE.getDefaultState(), 2);
+        if (block.is(Blocks.STONE_BRICKS) && random.nextFloat() < 0.6f) {
+            world.setBlock(position, Blocks.MOSSY_STONE_BRICKS.defaultBlockState(), 2);
+        } else if (block.is(Blocks.STONE_BRICK_WALL) && random.nextFloat() < 0.6f) {
+            world.setBlock(position, Blocks.MOSSY_STONE_BRICK_WALL.defaultBlockState(), 2);
+        } else if (block.is(Blocks.STONE_BRICK_SLAB) && random.nextFloat() < 0.6f) {
+            world.setBlock(position, Blocks.MOSSY_STONE_BRICK_SLAB.defaultBlockState(), 2);
+        } else if (block.is(Blocks.COBBLESTONE) && random.nextFloat() < 0.5f) {
+            world.setBlock(position, Blocks.MOSSY_COBBLESTONE.defaultBlockState(), 2);
         }
     }
 
     private static void waterlogBlocks(ISeedReader world, BlockPos position) {
         BlockState blockstate = world.getBlockState(position);
-        if (position.getY() < world.getSeaLevel() && blockstate.contains(BlockStateProperties.WATERLOGGED)) {
-            world.setBlockState(position, blockstate.with(BlockStateProperties.WATERLOGGED, true), 2);
+        if (position.getY() < world.getSeaLevel() && blockstate.hasProperty(BlockStateProperties.WATERLOGGED)) {
+            world.setBlock(position, blockstate.setValue(BlockStateProperties.WATERLOGGED, true), 2);
         }
     }
 }

@@ -32,7 +32,7 @@ public class RSStonebrickStrongholdStructure extends StrongholdStructure {
     // Vanilla has 8 rings
 
     @Override
-    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int xChunk, int zChunk, Biome biome, ChunkPos chunkPos, NoFeatureConfig featureConfig) {
+    protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int xChunk, int zChunk, Biome biome, ChunkPos chunkPos, NoFeatureConfig featureConfig) {
         int ringThickness = 96;
         int distanceToFirstRing = 80;
 
@@ -54,7 +54,7 @@ public class RSStonebrickStrongholdStructure extends StrongholdStructure {
     }
 
     @Override
-    public BlockPos locateStructure(IWorldReader worldView, StructureManager structureAccessor, BlockPos blockPos, int radius, boolean skipExistingChunks, long seed, StructureSeparationSettings structureConfig) {
+    public BlockPos getNearestGeneratedFeature(IWorldReader worldView, StructureManager structureAccessor, BlockPos blockPos, int radius, boolean skipExistingChunks, long seed, StructureSeparationSettings structureConfig) {
         return AbstractBaseStructure.locateStructureFast(worldView, structureAccessor, blockPos, radius, skipExistingChunks, seed, structureConfig, this);
     }
 
@@ -71,39 +71,39 @@ public class RSStonebrickStrongholdStructure extends StrongholdStructure {
 
 
         @Override
-        public void init(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
+        public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
             RSStrongholdPieces.prepareStructurePieces();
-            RSStrongholdPieces.EntranceStairs strongholdpieces$entrancestairs = new RSStrongholdPieces.EntranceStairs(this.rand, (chunkX << 4) + 2, (chunkZ << 4) + 2, RSStrongholdPieces.Type.NORMAL);
-            this.components.add(strongholdpieces$entrancestairs);
-            strongholdpieces$entrancestairs.buildComponent(strongholdpieces$entrancestairs, this.components, this.rand);
+            RSStrongholdPieces.EntranceStairs strongholdpieces$entrancestairs = new RSStrongholdPieces.EntranceStairs(this.random, (chunkX << 4) + 2, (chunkZ << 4) + 2, RSStrongholdPieces.Type.NORMAL);
+            this.pieces.add(strongholdpieces$entrancestairs);
+            strongholdpieces$entrancestairs.addChildren(strongholdpieces$entrancestairs, this.pieces, this.random);
             List<StructurePiece> list = strongholdpieces$entrancestairs.pendingChildren;
 
             while (!list.isEmpty()) {
-                int i = this.rand.nextInt(list.size());
+                int i = this.random.nextInt(list.size());
                 StructurePiece structurepiece = list.remove(i);
-                structurepiece.buildComponent(strongholdpieces$entrancestairs, this.components, this.rand);
+                structurepiece.addChildren(strongholdpieces$entrancestairs, this.pieces, this.random);
             }
 
             if (strongholdpieces$entrancestairs.strongholdPortalRoom == null) {
-                MutableBoundingBox box = this.components.get(this.components.size() - 1).getBoundingBox();
-                RSStrongholdPieces.Stronghold portalRoom = RSStrongholdPieces.PortalRoom.createPiece(this.components, this.rand, box.minX, box.minY + 1, box.minZ, Direction.NORTH, RSStrongholdPieces.Type.NORMAL);
-                this.components.add(portalRoom);
+                MutableBoundingBox box = this.pieces.get(this.pieces.size() - 1).getBoundingBox();
+                RSStrongholdPieces.Stronghold portalRoom = RSStrongholdPieces.PortalRoom.createPiece(this.pieces, this.random, box.x0, box.y0 + 1, box.z0, Direction.NORTH, RSStrongholdPieces.Type.NORMAL);
+                this.pieces.add(portalRoom);
                 strongholdpieces$entrancestairs.pendingChildren.add(portalRoom);
                 list = strongholdpieces$entrancestairs.pendingChildren;
 
                 while (!list.isEmpty()) {
-                    int i = this.rand.nextInt(list.size());
+                    int i = this.random.nextInt(list.size());
                     StructurePiece structurepiece = list.remove(i);
-                    structurepiece.buildComponent(strongholdpieces$entrancestairs, this.components, this.rand);
+                    structurepiece.addChildren(strongholdpieces$entrancestairs, this.pieces, this.random);
                 }
             }
 
-            this.recalculateStructureSize();
-            int lowestBounds = this.bounds.minY - 2;
+            this.calculateBoundingBox();
+            int lowestBounds = this.boundingBox.y0 - 2;
             int maxYConfig = RepurposedStructures.RSStrongholdsConfig.stonebrickStrongholdMaxHeight.get();
             int minYConfig = RepurposedStructures.RSStrongholdsConfig.stonebrickStrongholdMinHeight.get();
 
-            RSStonebrickStrongholdStructure.offsetStronghold(lowestBounds, maxYConfig, minYConfig, this.rand, this.components, this.bounds, strongholdpieces$entrancestairs.strongholdPortalRoom);
+            RSStonebrickStrongholdStructure.offsetStronghold(lowestBounds, maxYConfig, minYConfig, this.random, this.pieces, this.boundingBox, strongholdpieces$entrancestairs.strongholdPortalRoom);
         }
     }
 
@@ -116,32 +116,32 @@ public class RSStonebrickStrongholdStructure extends StrongholdStructure {
         int offset2 = 0;
 
         //apply first offset to be able to do some calculations in next few lines
-        bounds.offset(0, offset - lowestBounds, 0);
+        bounds.move(0, offset - lowestBounds, 0);
 
         // If the stronghold's max y is over the config's max y, lower the stronghold as
         // much as possible without hitting bedrock.
-        if (bounds.maxY > maxYConfig) {
-            int heightDiff = maxYConfig - bounds.maxY;
-            offset2 = bounds.minY + heightDiff < 2 ? 2 - bounds.minY : heightDiff;
+        if (bounds.y1 > maxYConfig) {
+            int heightDiff = maxYConfig - bounds.y1;
+            offset2 = bounds.y0 + heightDiff < 2 ? 2 - bounds.y0 : heightDiff;
         }
 
         // Apply the final offsets
-        bounds.offset(0, offset2, 0);
+        bounds.move(0, offset2, 0);
         int finalOffset = offset2;
-        pieces.forEach(piece -> piece.offset(0, offset + finalOffset - lowestBounds, 0));
+        pieces.forEach(piece -> piece.move(0, offset + finalOffset - lowestBounds, 0));
 
-        int portalRoomY = strongholdPortalRoom.getBoundingBox().minY;
+        int portalRoomY = strongholdPortalRoom.getBoundingBox().y0;
 
         // Now remove rooms that are above max y config if portal room is below it.
         if(portalRoomY < maxYConfig){
-            pieces.removeIf(piece -> piece.getBoundingBox().minY > maxYConfig);
+            pieces.removeIf(piece -> piece.getBoundingBox().y0 > maxYConfig);
         }
         // Portal room too high, lower stronghold and delete rooms too low.
         else {
-            int topDiff = strongholdPortalRoom.getBoundingBox().maxY - maxYConfig;
-            pieces.forEach(piece -> piece.offset(0, -topDiff, 0));
-            pieces.removeIf(piece -> piece.getBoundingBox().minY < Math.max(minYConfig, 4));
-            bounds.offset(0, -topDiff, 0);
+            int topDiff = strongholdPortalRoom.getBoundingBox().y1 - maxYConfig;
+            pieces.forEach(piece -> piece.move(0, -topDiff, 0));
+            pieces.removeIf(piece -> piece.getBoundingBox().y0 < Math.max(minYConfig, 4));
+            bounds.move(0, -topDiff, 0);
         }
     }
 }

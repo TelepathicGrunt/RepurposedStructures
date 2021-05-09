@@ -26,7 +26,7 @@ public class BiomeSelection {
     }
 
     public static boolean isOverworldBiome(BiomeLoadingEvent event) {
-        RegistryKey<Biome> biomeKey = RegistryKey.of(Registry.BIOME_KEY, event.getName());
+        RegistryKey<Biome> biomeKey = RegistryKey.create(Registry.BIOME_REGISTRY, event.getName());
         return OVERWORLD_BIOMES.contains(biomeKey);
     }
 
@@ -40,7 +40,7 @@ public class BiomeSelection {
 
     @SafeVarargs
     public static boolean isBiome(BiomeLoadingEvent context, RegistryKey<Biome>... keys) {
-        return Arrays.stream(keys).anyMatch(key -> context.getName().equals(key.getValue()));
+        return Arrays.stream(keys).anyMatch(key -> context.getName().equals(key.location()));
     }
 
     public static boolean haveCategories(BiomeLoadingEvent context, Biome.Category... categories) {

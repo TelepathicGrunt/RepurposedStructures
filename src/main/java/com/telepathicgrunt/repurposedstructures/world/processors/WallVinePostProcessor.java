@@ -31,11 +31,11 @@ public class WallVinePostProcessor extends StructureProcessor {
     }
 
     @Override
-    public Template.BlockInfo process(IWorldReader worldView, BlockPos pos, BlockPos blockPos, Template.BlockInfo structureBlockInfoLocal, Template.BlockInfo structureBlockInfoWorld, PlacementSettings structurePlacementData) {
+    public Template.BlockInfo processBlock(IWorldReader worldView, BlockPos pos, BlockPos blockPos, Template.BlockInfo structureBlockInfoLocal, Template.BlockInfo structureBlockInfoWorld, PlacementSettings structurePlacementData) {
         // Place vines only in air space
         if (structureBlockInfoWorld.state.isAir()) {
             Random random = new SharedSeedRandom();
-            random.setSeed(structureBlockInfoWorld.pos.toLong() * structureBlockInfoWorld.pos.getY());
+            random.setSeed(structureBlockInfoWorld.pos.asLong() * structureBlockInfoWorld.pos.getY());
             IChunk centerChunk = worldView.getChunk(structureBlockInfoWorld.pos);
             BlockState centerState = centerChunk.getBlockState(structureBlockInfoWorld.pos);
             if(random.nextFloat() < probability && centerState.isAir()){
@@ -43,12 +43,12 @@ public class WallVinePostProcessor extends StructureProcessor {
                 BlockPos.Mutable mutable = new BlockPos.Mutable();
                 for(Direction facing : Direction.Plane.HORIZONTAL){
 
-                    mutable.setPos(structureBlockInfoWorld.pos).move(facing);
+                    mutable.set(structureBlockInfoWorld.pos).move(facing);
                     BlockState worldState = worldView.getChunk(mutable).getBlockState(mutable);
 
                     // Vines only get placed facing the side of 1 full block.
-                    if(!worldState.isIn(Blocks.SPAWNER) && Block.doesSideFillSquare(worldState.getCollisionShape(worldView, pos), facing.getOpposite())){
-                        BlockState vineBlock = Blocks.VINE.getDefaultState().with(VineBlock.getPropertyFor(facing), true);
+                    if(!worldState.is(Blocks.SPAWNER) && Block.isFaceFull(worldState.getCollisionShape(worldView, pos), facing.getOpposite())){
+                        BlockState vineBlock = Blocks.VINE.defaultBlockState().setValue(VineBlock.getPropertyForFace(facing), true);
                         centerChunk.setBlockState(structureBlockInfoWorld.pos, vineBlock, false);
                         break;
                     }

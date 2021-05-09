@@ -34,11 +34,11 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
     }
 
     @Override
-    public Template.BlockInfo process(IWorldReader worldView, BlockPos pos, BlockPos blockPos, Template.BlockInfo structureBlockInfoLocal, Template.BlockInfo structureBlockInfoWorld, PlacementSettings structurePlacementData) {
+    public Template.BlockInfo processBlock(IWorldReader worldView, BlockPos pos, BlockPos blockPos, Template.BlockInfo structureBlockInfoLocal, Template.BlockInfo structureBlockInfoWorld, PlacementSettings structurePlacementData) {
         if (structureBlockInfoWorld.state.getBlock() instanceof SpawnerBlock) {
             BlockPos worldPos = structureBlockInfoWorld.pos;
             Random random = new SharedSeedRandom();
-            random.setSeed(worldPos.toLong() * worldPos.getY());
+            random.setSeed(worldPos.asLong() * worldPos.getY());
 
             return new Template.BlockInfo(
                     worldPos,
@@ -67,7 +67,7 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
                 spawnEntityDataTag.putString("id", Registry.ENTITY_TYPE.getKey(entity).toString());
                 CompoundNBT spawnPotentialEntryTag = new CompoundNBT();
                 spawnPotentialEntryTag.put("Entity", spawnEntityDataTag);
-                spawnPotentialEntryTag.put("Weight", IntNBT.of(1));
+                spawnPotentialEntryTag.put("Weight", IntNBT.valueOf(1));
                 ListNBT spawnPotentialDataTag = nbt.getList("SpawnPotentials", spawnPotentialEntryTag.getId());
                 if(spawnPotentialDataTag.isEmpty()){
                     spawnPotentialDataTag = new ListNBT();

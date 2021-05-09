@@ -34,16 +34,16 @@ public class BoulderGiant extends Feature<NoFeatureConfig> {
     }
 
     @Override
-    public boolean generate(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
+    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
         if(GeneralUtils.isWorldBlacklisted(world)) return false;
         setSeed(world.getSeed());
 
-        BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().setPos(position);
+        BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().set(position);
         BlockState blockState = world.getBlockState(blockpos$Mutable);
 
         //Will keeps moving down position until it finds valid ground to generate on while ignoring other boulders
         while (blockpos$Mutable.getY() >= 10) {
-            if (!blockState.getBlock().is(Blocks.PODZOL) && !blockState.getBlock().is(Blocks.GRASS_BLOCK) && !isSoil(blockState.getBlock())) {
+            if (!blockState.getBlock().is(Blocks.PODZOL) && !blockState.getBlock().is(Blocks.GRASS_BLOCK) && !isDirt(blockState.getBlock())) {
                 //block was air or a non-dirt/grass block. Thus move down one.
                 blockpos$Mutable.move(Direction.DOWN);
                 blockState = world.getBlockState(blockpos$Mutable);
@@ -71,11 +71,11 @@ public class BoulderGiant extends Feature<NoFeatureConfig> {
             int z = startRadius + random.nextInt(2);
             float calculatedDistance = (x + y + z) * 0.333F + 0.5F;
 
-            for (BlockPos blockpos : BlockPos.getAllInBoxMutable(blockpos$Mutable.add(-x, -y, -z), blockpos$Mutable.add(x, y, z))) {
-                if (blockpos.distanceSq(blockpos$Mutable) <= calculatedDistance * calculatedDistance) {
+            for (BlockPos blockpos : BlockPos.betweenClosed(blockpos$Mutable.offset(-x, -y, -z), blockpos$Mutable.offset(x, y, z))) {
+                if (blockpos.distSqr(blockpos$Mutable) <= calculatedDistance * calculatedDistance) {
 
                     double noiseValue = noiseGen.noise3_Classic(blockpos.getX() * 0.035D, blockpos.getY() * 0.0075D, blockpos.getZ() * 0.035D);
-                    if(blockpos.distanceSq(blockpos$Mutable) > calculatedDistance * calculatedDistance * 0.65f &&
+                    if(blockpos.distSqr(blockpos$Mutable) > calculatedDistance * calculatedDistance * 0.65f &&
                             noiseValue > -0.3D && noiseValue < 0.3D){
                         continue; // Rough the surface of the boulders a bit
                     }
@@ -86,32 +86,32 @@ public class BoulderGiant extends Feature<NoFeatureConfig> {
 
                     // 1/3000th chance for diamond ore
                     if (!disabledDiamonds && randomChance == 0) {
-                        world.setBlockState(blockpos, Blocks.DIAMOND_ORE.getDefaultState(), 4);
+                        world.setBlock(blockpos, Blocks.DIAMOND_ORE.defaultBlockState(), 4);
                     }
 
                     // 3/3000th chance for iron ore
                     else if (randomChance <= chanceRange * 0.001F) {
-                        world.setBlockState(blockpos, Blocks.IRON_ORE.getDefaultState(), 4);
+                        world.setBlock(blockpos, Blocks.IRON_ORE.defaultBlockState(), 4);
                     }
 
                     // 150/3000th chance for coal ore
                     else if (randomChance <= chanceRange * 0.05F) {
-                        world.setBlockState(blockpos, Blocks.COAL_ORE.getDefaultState(), 4);
+                        world.setBlock(blockpos, Blocks.COAL_ORE.defaultBlockState(), 4);
                     }
 
                     // 770/3000th chance for andesite
                     else if (randomChance <= chanceRange * 0.257F) {
-                        world.setBlockState(blockpos, Blocks.ANDESITE.getDefaultState(), 4);
+                        world.setBlock(blockpos, Blocks.ANDESITE.defaultBlockState(), 4);
                     }
 
                     // 750/3000th chance for cobblestone
                     else if (randomChance <= chanceRange * 0.25F) {
-                        world.setBlockState(blockpos, Blocks.COBBLESTONE.getDefaultState(), 4);
+                        world.setBlock(blockpos, Blocks.COBBLESTONE.defaultBlockState(), 4);
                     }
 
                     // 1327/3000th chance for mossyCobblestone
                     else {
-                        world.setBlockState(blockpos, Blocks.MOSSY_COBBLESTONE.getDefaultState(), 4);
+                        world.setBlock(blockpos, Blocks.MOSSY_COBBLESTONE.defaultBlockState(), 4);
                     }
                 }
             }

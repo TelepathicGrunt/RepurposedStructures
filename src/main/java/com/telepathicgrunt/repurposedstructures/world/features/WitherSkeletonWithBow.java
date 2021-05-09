@@ -27,37 +27,37 @@ public class WitherSkeletonWithBow extends Feature<NoFeatureConfig> {
 
 
     @Override
-    public boolean generate(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
+    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
 
         // move down to spawn at the jigsaw block calling this
-        position = position.down();
+        position = position.below();
 
-        WitherSkeletonEntity witherEntity = EntityType.WITHER_SKELETON.create(world.getWorld());
-        witherEntity.enablePersistence();
-        witherEntity.setPositionAndRotation(
+        WitherSkeletonEntity witherEntity = EntityType.WITHER_SKELETON.create(world.getLevel());
+        witherEntity.setPersistenceRequired();
+        witherEntity.absMoveTo(
                 (double)position.getX() + 0.5D,
                 position.getY(),
                 (double)position.getZ() + 0.5D,
                 0.0F,
                 0.0F);
 
-        witherEntity.getAttribute(Attributes.GENERIC_FOLLOW_RANGE)
-                .addPersistentModifier(new AttributeModifier(
+        witherEntity.getAttribute(Attributes.FOLLOW_RANGE)
+                .addPermanentModifier(new AttributeModifier(
                         "Random spawn bonus",
                         (random.nextGaussian() * 0.3D) + 0.5D,
                         AttributeModifier.Operation.MULTIPLY_BASE));
 
         ItemStack bow = new ItemStack(Items.BOW);
-        bow.addEnchantment(Enchantments.FLAME, 1);
-        bow.addEnchantment(Enchantments.PUNCH, 2);
-        bow.addEnchantment(Enchantments.POWER, 2);
-        bow.addEnchantment(Enchantments.VANISHING_CURSE, 1);
-        bow.addEnchantment(Enchantments.BINDING_CURSE, 1);
-        witherEntity.setHeldItem(Hand.MAIN_HAND, bow);
+        bow.enchant(Enchantments.FLAMING_ARROWS, 1);
+        bow.enchant(Enchantments.PUNCH_ARROWS, 2);
+        bow.enchant(Enchantments.POWER_ARROWS, 2);
+        bow.enchant(Enchantments.VANISHING_CURSE, 1);
+        bow.enchant(Enchantments.BINDING_CURSE, 1);
+        witherEntity.setItemInHand(Hand.MAIN_HAND, bow);
         witherEntity.setDropChance(EquipmentSlotType.MAINHAND, 0.5f);
         witherEntity.setLeftHanded(random.nextFloat() < 0.05F);
 
-        world.spawnEntityAndPassengers(witherEntity);
+        world.addFreshEntityWithPassengers(witherEntity);
         return true;
     }
 }

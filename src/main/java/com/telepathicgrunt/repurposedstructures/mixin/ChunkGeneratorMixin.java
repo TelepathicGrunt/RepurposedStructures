@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(ChunkGenerator.class)
 public class ChunkGeneratorMixin {
 
-    @Inject(method = "generateStrongholdPositions",
+    @Inject(method = "generateStrongholds()V",
             at = @At(value = "HEAD"),
             cancellable = true)
     private void removeVanillaStronghold(CallbackInfo ci) {

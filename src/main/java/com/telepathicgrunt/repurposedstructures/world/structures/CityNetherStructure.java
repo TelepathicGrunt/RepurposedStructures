@@ -26,6 +26,8 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
 import java.util.List;
 import java.util.Set;
 
+import net.minecraft.world.gen.feature.structure.Structure.IStartFactory;
+
 public class CityNetherStructure extends GenericJigsawStructure {
     public CityNetherStructure(ResourceLocation poolID, int structureSize, int centerOffset, int biomeRange, int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet, List<MobSpawnInfo.Spawners> monsterSpawns, List<MobSpawnInfo.Spawners> creatureSpawns) {
         this(poolID, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet, -1, 0, monsterSpawns, creatureSpawns);
@@ -40,19 +42,19 @@ public class CityNetherStructure extends GenericJigsawStructure {
     }
 
     @Override
-    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig noFeatureConfig) {
+    protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig noFeatureConfig) {
 
         // do cheaper checks first
-        if(super.shouldStartAt(chunkGenerator, biomeSource, seed, chunkRandom, chunkX, chunkZ, biome, chunkPos, noFeatureConfig)){
+        if(super.isFeatureChunk(chunkGenerator, biomeSource, seed, chunkRandom, chunkX, chunkZ, biome, chunkPos, noFeatureConfig)){
 
             // make sure land is open enough for city
             BlockPos.Mutable mutable = new BlockPos.Mutable();
             for (int curChunkX = chunkX - 1; curChunkX <= chunkX + 1; curChunkX++) {
                 for (int curChunkZ = chunkZ - 1; curChunkZ <= chunkZ + 1; curChunkZ++) {
-                    mutable.setPos(curChunkX << 4, chunkGenerator.getSeaLevel() + 10, curChunkZ << 4);
-                    IBlockReader blockView = chunkGenerator.getColumnSample(mutable.getX(), mutable.getZ());
+                    mutable.set(curChunkX << 4, chunkGenerator.getSeaLevel() + 10, curChunkZ << 4);
+                    IBlockReader blockView = chunkGenerator.getBaseColumn(mutable.getX(), mutable.getZ());
                     int minValidSpace = 65;
-                    int maxHeight = Math.min(chunkGenerator.getMaxY(), chunkGenerator.getSeaLevel() + minValidSpace);
+                    int maxHeight = Math.min(chunkGenerator.getGenDepth(), chunkGenerator.getSeaLevel() + minValidSpace);
 
                     while(mutable.getY() < maxHeight){
                         BlockState state = blockView.getBlockState(mutable);
@@ -81,23 +83,23 @@ public class CityNetherStructure extends GenericJigsawStructure {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
         }
 
-        public void init(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig defaultFeatureConfig) {
+        public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig defaultFeatureConfig) {
             BlockPos blockpos = new BlockPos(chunkX * 16, chunkGenerator.getSeaLevel(), chunkZ * 16);
-            JigsawManager.method_30419(
+            JigsawManager.addPieces(
                     dynamicRegistryManager,
-                    new VillageConfig(() -> dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN)
-                            .getOrDefault(startPool),
+                    new VillageConfig(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY)
+                            .get(startPool),
                             structureSize),
                     AbstractVillagePiece::new,
                     chunkGenerator,
                     structureManager,
                     blockpos,
-                    this.components,
-                    this.rand,
+                    this.pieces,
+                    this.random,
                     false,
                     false);
-            this.recalculateStructureSize();
-            this.components.get(0).offset(0, centerOffset, 0);
+            this.calculateBoundingBox();
+            this.pieces.get(0).move(0, centerOffset, 0);
         }
     }
 }

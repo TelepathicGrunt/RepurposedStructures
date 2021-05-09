@@ -22,7 +22,7 @@ public class NbtDungeonConfig implements IFeatureConfig {
             Codec.intRange(0, 100).fieldOf("max_num_of_chests").forGetter(nbtFeatureConfig -> nbtFeatureConfig.maxNumOfChests),
             Codec.BOOL.fieldOf("air_requirement_is_now_water").orElse(false).forGetter(nbtDungeonConfig -> nbtDungeonConfig.airRequirementIsNowWater),
             Codec.INT.fieldOf("structure_y_offset").orElse(0).forGetter(nbtFeatureConfig -> nbtFeatureConfig.structureYOffset),
-            BlockState.CODEC.fieldOf("loot_block").orElse(Blocks.CHEST.getDefaultState()).forGetter(nbtDungeonConfig -> nbtDungeonConfig.lootBlock),
+            BlockState.CODEC.fieldOf("loot_block").orElse(Blocks.CHEST.defaultBlockState()).forGetter(nbtDungeonConfig -> nbtDungeonConfig.lootBlock),
             ResourceLocation.CODEC.fieldOf("chest_loottable_resourcelocation").forGetter(nbtDungeonConfig -> nbtDungeonConfig.chestIdentifier),
             ResourceLocation.CODEC.fieldOf("rs_spawner_resourcelocation").forGetter(nbtDungeonConfig -> nbtDungeonConfig.rsSpawnerResourcelocation),
             ResourceLocation.CODEC.fieldOf("processors").forGetter(nbtDungeonConfig -> nbtDungeonConfig.processor),
@@ -86,7 +86,7 @@ public class NbtDungeonConfig implements IFeatureConfig {
                             int maxAirSpace, boolean airRequirementIsNowWater, int structureYOffset){
         this(false,1, maxAirSpace, 2,
                 airRequirementIsNowWater,
-                structureYOffset, Blocks.CHEST.getDefaultState(),
+                structureYOffset, Blocks.CHEST.defaultBlockState(),
                 new ResourceLocation(RepurposedStructures.MODID, "chests/dungeon/"+dungeonType),
                 new ResourceLocation(RepurposedStructures.MODID, "dungeon_"+spawnerType),
                 processor,

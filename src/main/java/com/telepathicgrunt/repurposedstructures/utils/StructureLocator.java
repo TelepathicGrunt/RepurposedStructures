@@ -13,10 +13,10 @@ public class StructureLocator {
 
     public static BlockPos returnClosestStronghold(BlockPos blockPos, ServerWorld world, BlockPos playerPos) {
         //RepurposedStructures.LOGGER.log(Level.INFO, "yip yip finding stronghold now");
-        ChunkGenerator chunkGenerator = world.getChunkProvider().getChunkGenerator();
+        ChunkGenerator chunkGenerator = world.getChunkSource().getGenerator();
         BlockPos closestPos = blockPos;
         for(Structure<?> strongholdVariant : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.STRONGHOLD)){
-            closestPos = returnCloserPos(closestPos, chunkGenerator.locateStructure(world, strongholdVariant, playerPos, 100, false), playerPos);
+            closestPos = returnCloserPos(closestPos, chunkGenerator.findNearestMapFeature(world, strongholdVariant, playerPos, 100, false), playerPos);
         }
         return closestPos;
     }
