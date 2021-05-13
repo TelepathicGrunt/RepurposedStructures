@@ -1,0 +1,57 @@
+apply plugin: 'maven-publish'
+
+task apiJar(type: Jar, dependsOn: classes) {
+    from(sourceSets.main.output)
+    include 'repurposed_structures/**'
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifact(remapJar) {
+                builtBy remapJar
+            }
+            artifact(sourcesJar) {
+                builtBy remapSourcesJar
+            }
+
+            pom {
+                name = 'Repurposed Structures - Fabric'
+                description = 'Gotta find the broken mods!'
+                url = 'https://github.com/TelepathicGrunt/RepurposedStructures-Fabric'
+
+                scm {
+                    connection = 'git:https://github.com/TelepathicGrunt/RepurposedStructures-Fabric.git'
+                    developerConnection = 'git:https://github.com/TelepathicGrunt/RepurposedStructures-Fabric.git'
+                    url = 'https://github.com/TelepathicGrunt/RepurposedStructures-Fabric'
+                }
+
+                licenses {
+                    license {
+                        name = 'GNU Lesser General Public License v3.0'
+                        url = 'https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/LICENSE'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id = 'telepathic_grunt'
+                        name = 'TelepathicGrunt'
+                        email = 'asarnesespam@gmail.com'
+                    }
+                }
+            }
+
+        }
+    }
+
+    repositories {
+        maven {
+            url = uri("https://nexus.resourcefulbees.com/repository/telepathicgrunt/")
+            credentials {
+                username "$System.env.MAVEN_USER"
+                password "$System.env.MAVEN_PASS"
+            }
+        }
+    }
+}

@@ -1,6 +1,17 @@
+import net.fabricmc.loom.task.RemapJarTask
+
+buildscript {
+	repositories {
+		maven { url "https://plugins.gradle.org/m2/" }
+	}
+	dependencies {
+		classpath "gradle.plugin.com.matthewprenger:CurseGradle:1.4.0"
+		classpath group: 'gradle.plugin.com.modrinth.minotaur', name: 'Minotaur', version: '1.1.0'
+	}
+}
+
 plugins {
-	id 'fabric-loom' version '0.6-SNAPSHOT'
-	id 'maven-publish'
+	id 'fabric-loom' version '0.7-SNAPSHOT'
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8
@@ -46,61 +57,7 @@ if (project.use_third_party_mods) {
 	dependencies {
 		modImplementation "com.telepathicgrunt.loadnbtblock:loadnbtblock:1.0.8"
 		modImplementation "com.telepathicgrunt.structure_void_toggle:structure_void_toggle-1.16.5:2.0.0"
-		modImplementation "com.telepathicgrunt:Blame-Fabric:1.16.5-3.0.0-fabric"
-
-	//	modRuntime "com.charm:charm-fabric-1.16.4:2.2.2"
-	//	modRuntime "com.moandjiezana.toml:toml4j:0.7.2"
-	//	modRuntime "com.electronwill.night-config:core:3.6.2"
-	//	modRuntime "com.electronwill.night-config:toml:3.6.2"
-
-	//	modRuntime "com.github.jellysquid3:lithium_fabric:1.16.1"
-	//	modRuntime "com.github.jellysquid3:phosphor_fabric:1.16.1"
-	//	modRuntime "com.github.jellysquid3:sodium_fabric:1.16.1"
-	//	modRuntime "zabi.minecraft.nbttooltip:nbttooltip:1.0.4"
-	//	modRuntime "com.github.voronoiaoc:byg:1.0.6"
-	}
-}
-
-
-import groovy.json.JsonSlurper
-import groovy.json.JsonOutput
-
-processResources {
-	inputs.property "version", project.version
-
-	from(sourceSets.main.resources.srcDirs) {
-		include "fabric.mod.json"
-		expand "version": project.version
-	}
-
-	from(sourceSets.main.resources.srcDirs) {
-		exclude "fabric.mod.json"
-	}
-
-	// Minifies all .json files when building the mod.
-	// Source files are not minified, only the jar copies.
-	doLast {
-
-		def jsonMinifyStart = System.currentTimeMillis()
-		def jsonMinified = 0
-		def jsonBytesSaved = 0
-
-		fileTree(dir: outputs.files.asPath, include: '**/*.json').each {
-
-			File file = it
-			jsonMinified++
-			def oldLength = file.length()
-			try{
-				file.text = JsonOutput.toJson(new JsonSlurper().parse(file))
-			}
-			catch(Exception e){
-				System.out.println("Parsing JSON error in " + file.path)
-				throw e
-			}
-			jsonBytesSaved += oldLength - file.length()
-		}
-
-		println('Minified ' + jsonMinified + ' json files. Saved ' + jsonBytesSaved + ' bytes. Took ' + (System.currentTimeMillis() - jsonMinifyStart) + 'ms.')
+		modImplementation "com.telepathicgrunt:Blame-Fabric:1.16.5-3.0.1-fabric"
 	}
 }
 
@@ -122,3 +79,8 @@ task sourcesJar(type: Jar, dependsOn: classes) {
 jar {
 	from "LICENSE"
 }
+
+apply from: 'gradle/processresources.gradle'
+apply from: 'gradle/maven.gradle'
+apply from: 'gradle/curseforge.gradle'
+apply from: 'gradle/modrinth.gradle'
