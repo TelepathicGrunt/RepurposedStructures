@@ -1,3 +1,13 @@
+## (V.1.11.0 Changes) (1.16.5 Minecraft)
+
+##### Strongholds:
+• Removed Stonebricks Strongholds because Better Strongholds mod exists!
+Use that epic mod instead of upgrade the Overworld Stronghold!
+
+##### Misc:
+• Removed the giant boulder feature because it isn't close to a structure and doesn't fit this mod.
+
+
 ## (V.1.10.5 Changes) (1.16.5 Minecraft)
 
 ##### Config:

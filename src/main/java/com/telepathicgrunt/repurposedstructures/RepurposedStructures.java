@@ -1,6 +1,6 @@
 package com.telepathicgrunt.repurposedstructures;
 
-import com.telepathicgrunt.repurposedstructures.biome_injection.*;
+import com.telepathicgrunt.repurposedstructures.biomeinjection.*;
 import com.telepathicgrunt.repurposedstructures.configs.RSAllConfig;
 import com.telepathicgrunt.repurposedstructures.misc.MobMapTrades;
 import com.telepathicgrunt.repurposedstructures.mixin.StructuresConfigAccessor;
@@ -28,7 +28,6 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 
-@SuppressWarnings("deprecation")
 public class RepurposedStructures implements ModInitializer {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MODID = "repurposed_structures";
@@ -69,7 +68,6 @@ public class RepurposedStructures implements ModInitializer {
      */
     public static void getBiomeBlacklists(){
         ALL_BIOME_BLACKLISTS.put("dungeons", Arrays.asList(RepurposedStructures.RSAllConfig.RSDungeonsConfig.blacklistedDungeonBiomes.replace(" ", "").split(",")));
-        ALL_BIOME_BLACKLISTS.put("boulders", Arrays.asList(RepurposedStructures.RSAllConfig.RSMainConfig.misc.blacklistedBoulderBiomes.replace(" ", "").split(",")));
         ALL_BIOME_BLACKLISTS.put("fortresses", Arrays.asList(RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.blacklistedFortressBiomes.replace(" ", "").split(",")));
         ALL_BIOME_BLACKLISTS.put("igloos", Arrays.asList(RepurposedStructures.RSAllConfig.RSMainConfig.igloos.blacklistedIglooBiomes.replace(" ", "").split(",")));
         ALL_BIOME_BLACKLISTS.put("mineshafts", Arrays.asList(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.blacklistedMineshaftBiomes.replace(" ", "").split(",")));
@@ -111,7 +109,6 @@ public class RepurposedStructures implements ModInitializer {
 
                 // Do not spawn strongholds in end.
                 if(serverWorld.getRegistryKey().equals(World.END)){
-                    spacingToAdd.remove(RSStructures.STONEBRICK_STRONGHOLD);
                     spacingToAdd.remove(RSStructures.NETHER_STRONGHOLD);
                 }
 
@@ -129,7 +126,6 @@ public class RepurposedStructures implements ModInitializer {
         Mineshafts.addMineshafts();
         Dungeons.addDungeons();
         Wells.addWells();
-        Boulders.addBoulderFeatures();
         Strongholds.addStrongholds();
         Outposts.addOutposts();
         Shipwrecks.addShipwrecks();

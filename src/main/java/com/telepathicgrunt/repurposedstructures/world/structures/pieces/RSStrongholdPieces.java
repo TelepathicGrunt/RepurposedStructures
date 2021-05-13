@@ -37,10 +37,10 @@ import java.util.*;
 public class RSStrongholdPieces {
 
     public enum Type {
-        NORMAL, NETHER;
+        END, NETHER;
 
         public static Type byId(int id) {
-            return id >= 0 && id < values().length ? values()[id] : NORMAL;
+            return id >= 0 && id < values().length ? values()[id] : END;
         }
     }
     
@@ -639,10 +639,7 @@ public class RSStrongholdPieces {
             RSStrongholdPieces.Stones randomStrongholdBlocks = new RSStrongholdPieces.Stones(this.strongholdType);
             this.fillWithOutline(world, structureBoundingBoxIn, 0, 0, 0, 13, i - 1, 14, false, random, randomStrongholdBlocks);
             this.placeDoor(world, random, structureBoundingBoxIn, this.entryDoor, 4, 1, 0);
-            if (this.strongholdType == Type.NORMAL) {
-                this.fillWithOutlineUnderSeaLevel(world, structureBoundingBoxIn, random, 0.07F, 2, 1, 1, 11, 4, 13, Blocks.COBWEB.getDefaultState(), Blocks.COBWEB.getDefaultState(), false, false);
-            }
-            else if (this.strongholdType == Type.NETHER) {
+            if (this.strongholdType == Type.NETHER) {
                 this.fillWithOutlineUnderSeaLevel(world, structureBoundingBoxIn, random, 0.04F, 2, 1, 1, 11, 1, 13, Blocks.FIRE.getDefaultState(), Blocks.FIRE.getDefaultState(), false, false);
             }
 
@@ -1405,22 +1402,6 @@ public class RSStrongholdPieces {
                         this.block = Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS.getDefaultState();
                     } else {
                         this.block = Blocks.POLISHED_BLACKSTONE_BRICKS.getDefaultState();
-                    }
-                } else {
-                    float chance = rand.nextFloat();
-                    if (chance < 0.2F) {
-                        this.block = Blocks.MOSSY_STONE_BRICKS.getDefaultState();
-                    } else if (chance < 0.5F) {
-                        this.block = Blocks.CRACKED_STONE_BRICKS.getDefaultState();
-                    } else {
-                        this.block = Blocks.STONE_BRICKS.getDefaultState();
-                    }
-
-
-                    chance = rand.nextFloat();
-                    float silverfishThreshold = (float) (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.silverfishSpawnrateSH / 100);
-                    if (chance < silverfishThreshold) {
-                        this.block = INFESTED_STONE_LOOKUP.get(this.block);
                     }
                 }
             } else {

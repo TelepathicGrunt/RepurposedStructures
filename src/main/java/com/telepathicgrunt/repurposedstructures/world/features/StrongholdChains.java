@@ -38,25 +38,14 @@ public class StrongholdChains extends Feature<DefaultFeatureConfig> {
                     blockState.isOf(Blocks.POLISHED_BLACKSTONE_BRICKS)  ||
                     blockState.isOf(Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS)  ||
                     blockState.isOf(Blocks.CHISELED_POLISHED_BLACKSTONE)  ||
-                    blockState.isOf(Blocks.GILDED_BLACKSTONE)  ||
-                    blockState.isOf(Blocks.COBBLESTONE)  ||
-                    blockState.isOf(Blocks.STONE_BRICKS)  ||
-                    blockState.isOf(Blocks.CHISELED_STONE_BRICKS)  ||
-                    blockState.isOf(Blocks.CRACKED_STONE_BRICKS)  ||
-                    blockState.isOf(Blocks.MOSSY_STONE_BRICKS)  ||
-                    blockState.isOf(Blocks.INFESTED_CHISELED_STONE_BRICKS) ||
-                    blockState.isOf(Blocks.INFESTED_CRACKED_STONE_BRICKS) ||
-                    blockState.isOf(Blocks.INFESTED_STONE_BRICKS) ||
-                    blockState.isOf(Blocks.INFESTED_MOSSY_STONE_BRICKS);
+                    blockState.isOf(Blocks.GILDED_BLACKSTONE);
         }
     };
 
     @Override
     public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
         if(GeneralUtils.isWorldBlacklisted(world)) return false;
-        if (!world.isAir(position) ||
-                (!world.getStructures(ChunkSectionPos.from(position), RSStructures.STONEBRICK_STRONGHOLD).findAny().isPresent() &&
-                 !world.getStructures(ChunkSectionPos.from(position), RSStructures.NETHER_STRONGHOLD).findAny().isPresent()))
+        if (!world.isAir(position) || !world.getStructures(ChunkSectionPos.from(position), RSStructures.NETHER_STRONGHOLD).findAny().isPresent())
         {
            return false;
         }
@@ -88,9 +77,6 @@ public class StrongholdChains extends Feature<DefaultFeatureConfig> {
         if(blockpos$Mutable.getY() != 3 && random.nextFloat() < 0.075f && world.isAir(blockpos$Mutable)){
             if(world.getBiome(blockpos$Mutable).getCategory() == Biome.Category.NETHER){
                 world.setBlockState(blockpos$Mutable, Blocks.SOUL_LANTERN.getDefaultState().with(LanternBlock.HANGING, true), 2);
-            }
-            else{
-                world.setBlockState(blockpos$Mutable, Blocks.LANTERN.getDefaultState().with(LanternBlock.HANGING, true), 2);
             }
         }
 

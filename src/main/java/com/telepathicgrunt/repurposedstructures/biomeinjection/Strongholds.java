@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.biome_injection;
+package com.telepathicgrunt.repurposedstructures.biomeinjection;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredFeatures;
@@ -13,19 +13,6 @@ import net.minecraft.world.gen.feature.StructureFeature;
 public class Strongholds {
 
     public static void addStrongholds() {
-        GeneralUtils.addToBiome("stonebrick_stronghold",
-                (context) -> (BiomeSelection.hasStructure(context, StructureFeature.STRONGHOLD) || BiomeSelection.isOverworldBiome(context))
-                        && RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.stonebrickStrongholdMaxChunkDistance != 1001
-                        && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.STRONGHOLD)
-                        && BiomeSelection.isBiomeAllowed(context, "strongholds")
-                        && ((RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.allowStonebrickStrongholdToVanillaBiomes && BiomeSelection.hasNamespace(context, "minecraft"))
-                        || (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.addStonebrickStrongholdToModdedBiomes && !BiomeSelection.hasNamespace(context, "minecraft"))),
-                context -> {
-                    context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.STONEBRICK_STRONGHOLD);
-                    context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.STRONGHOLDS, RSConfiguredFeatures.STONEBRICK_STRONGHOLD_CHAINS);
-                });
-
-
         GeneralUtils.addToBiome("nether_stronghold",
                 (context) -> BiomeSelection.haveCategories(context, Category.NETHER)
                         && RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdMaxChunkDistance != 1001

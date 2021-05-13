@@ -67,7 +67,6 @@ public class RSStructureTagMap {
         addTags(RSStructures.GRASSY_IGLOO, Stream.of(STRUCTURE_TAGS.IGLOO).collect(Collectors.toSet()));
         addTags(RSStructures.STONE_IGLOO, Stream.of(STRUCTURE_TAGS.IGLOO).collect(Collectors.toSet()));
 
-        addTags(RSStructures.STONEBRICK_STRONGHOLD, Stream.of(STRUCTURE_TAGS.STRONGHOLD).collect(Collectors.toSet()));
         addTags(RSStructures.NETHER_STRONGHOLD, Stream.of(STRUCTURE_TAGS.REPLACE_NATURAL_MOBS, STRUCTURE_TAGS.STRONGHOLD).collect(Collectors.toSet()));
         
         addTags(RSStructures.BADLANDS_PYRAMID, Stream.of(STRUCTURE_TAGS.PYRAMID).collect(Collectors.toSet()));

@@ -31,10 +31,6 @@ public class RSMainConfig implements ConfigData {
             +"\nExample: \"repurposed_structures:chests/mansion/birch,repurposed_structures:chests/mineshaft/jungle\"")
     public String blacklistedRSLoottablesFromImportingModdedItems = "";
 
-
-    @ConfigEntry.Gui.CollapsibleObject
-    public Misc misc = new Misc();
-
     @ConfigEntry.Gui.CollapsibleObject
     public JungleFortress jungleFortress = new JungleFortress();
 
@@ -49,48 +45,6 @@ public class RSMainConfig implements ConfigData {
 
     @ConfigEntry.Gui.CollapsibleObject
     public Cities cities = new Cities();
-
-    public static class Misc {
-        @ConfigEntry.Gui.Tooltip(count = 0)
-        @ConfigEntry.Gui.PrefixText
-        @Comment("Add RS boulders to modded biomes of same categories/type " +
-                "\ninstead of just vanilla biomes.")
-        public boolean addBoulderToModdedBiomes = false;
-
-        @ConfigEntry.Gui.Tooltip(count = 0)
-        @ConfigEntry.Gui.PrefixText
-        @Comment("Add the ID/resource location of the biome you don't want"
-                +"\nRS's boulders to spawn in. Separate each ID with a comma ,"
-                +"\n"
-                +"\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
-        public String blacklistedBoulderBiomes = "";
-
-        @ConfigEntry.Gui.Tooltip
-        @Comment("Adds tiny boulders to normal/snowy Taiga Mountains biomes.")
-        public boolean boulderTiny = true;
-
-        @ConfigEntry.Gui.Tooltip(count = 0)
-        @ConfigEntry.Gui.PrefixText
-        @Comment("Replaces boulders in Giant Tree/Spruce Taiga Hills"
-                + "\nbiomes with giant boulders that can contain Coal,"
-                + "\nIron, and extremely rarely, Diamond Ores.")
-        public boolean boulderGiant = true;
-
-        @ConfigEntry.Gui.Tooltip(count = 0)
-        @ConfigEntry.Gui.PrefixText
-        @Comment("1 out of ___ chance of Diamond Ore when placing"
-                + "\na block in giant Boulders. Lower number = more common."
-                + "\nEnter 0 to disable Diamond Ores completely.")
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 1000000)
-        public int diamondChanceInGiantBoulders = 7000;
-
-        @ConfigEntry.Gui.Tooltip
-        @Comment("How many Giant Boulders per chunk. (Can be decimal too)")
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
-        public double giantBouldersPerChunk = 0.5D;
-
-
-    }
 
     public static class JungleFortress {
 

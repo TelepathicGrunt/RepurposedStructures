@@ -30,8 +30,6 @@ public class RSFeatures {
     public static Feature<DefaultFeatureConfig> MOSSY_STONE_WELL = new WellMossyStone();
     public static Feature<DefaultFeatureConfig> FOREST_WELL = new WellForest();
 
-    public static Feature<DefaultFeatureConfig> BOULDER_GIANT = new BoulderGiant();
-    public static Feature<DefaultFeatureConfig> BOULDER_TINY = new BoulderTiny();
     public static Feature<DefaultFeatureConfig> SHORT_VINES = new VinesShort();
     public static Feature<DefaultFeatureConfig> SWAMP_VILLAGE_VINES = new SwampVillageVines();
     public static Feature<DefaultFeatureConfig> JUNGLE_STRUCTURES_VINES = new JungleStructuresVines();
@@ -60,8 +58,6 @@ public class RSFeatures {
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "well_mossy_stone"), MOSSY_STONE_WELL);
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "well_forest"), FOREST_WELL);
 
-        Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "boulder_giant"), BOULDER_GIANT);
-        Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "boulder_tiny"), BOULDER_TINY);
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "short_vines"), SHORT_VINES);
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "swamp_village_vines"), SWAMP_VILLAGE_VINES);
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "jungle_structures_vines"), JUNGLE_STRUCTURES_VINES);

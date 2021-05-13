@@ -173,16 +173,6 @@ public class RSConfiguredFeatures {
 
     // Misc
 
-    public static ConfiguredFeature<?, ?> BOULDER_GIANT = RSFeatures.BOULDER_GIANT.configure(FeatureConfig.DEFAULT)
-            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP)
-            .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(
-                    (int) RepurposedStructures.RSAllConfig.RSMainConfig.misc.giantBouldersPerChunk, // Intentional cast. Need to floor to whole number
-                    (float) (RepurposedStructures.RSAllConfig.RSMainConfig.misc.giantBouldersPerChunk - ((int)RepurposedStructures.RSAllConfig.RSMainConfig.misc.giantBouldersPerChunk)),
-                    1)));
-
-    public static ConfiguredFeature<?, ?> BOULDER_TINY = RSFeatures.BOULDER_TINY.configure(FeatureConfig.DEFAULT)
-            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP)
-            .repeat(2);
 
     public static ConfiguredFeature<?, ?> SWAMP_VILLAGE_VINES = RSFeatures.SWAMP_VILLAGE_VINES.configure(FeatureConfig.DEFAULT)
             .decorate(RSPlacements.RS_VINE_PLACEMENT.configure(new RangeDecoratorConfig(30, 0,8))
@@ -200,14 +190,6 @@ public class RSConfiguredFeatures {
     public static ConfiguredFeature<?, ?> FORTRESS_BREAKAGE = RSFeatures.FORTRESS_BREAKAGE.configure(FeatureConfig.DEFAULT)
             .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP)
             .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(1, 0.2F, 1)));
-
-    public static ConfiguredFeature<?, ?> STONEBRICK_STRONGHOLD_CHAINS = RSFeatures.STRONGHOLD_CHAINS.configure(FeatureConfig.DEFAULT)
-            .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(
-                    5,
-                    0,
-                    Math.max(RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.stonebrickStrongholdMaxHeight,
-                                    RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.stonebrickStrongholdMinHeight+1)+15))
-            .decorate(RSPlacements.RS_UNLIMITED_COUNT.configure(new CountConfig(RepurposedStructures.RSAllConfig.RSStrongholdsConfig.stonebrick.stonebrickStrongholdChainSpawnrate))));
 
     public static ConfiguredFeature<?, ?> NETHER_STRONGHOLD_CHAINS = RSFeatures.STRONGHOLD_CHAINS.configure(FeatureConfig.DEFAULT)
             .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(
@@ -261,14 +243,10 @@ public class RSConfiguredFeatures {
         RS_WELLS.add(Registry.register(registry, new Identifier(RepurposedStructures.MODID, "well_mossy_stone"), MOSSY_STONE_WELL));
         RS_WELLS.add(Registry.register(registry, new Identifier(RepurposedStructures.MODID, "well_forest"), FOREST_WELL));
 
-        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "boulder_giant"), BOULDER_GIANT);
-        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "boulder_tiny"), BOULDER_TINY);
-
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "swamp_village_vines"), SWAMP_VILLAGE_VINES);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "jungle_fortress_vines"), JUNGLE_FORTRESS_VINES);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "jungle_village_vines"), JUNGLE_VILLAGE_VINES);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "fortress_breakage"), FORTRESS_BREAKAGE);
-        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "stonebrick_stronghold_chains"), STONEBRICK_STRONGHOLD_CHAINS);
 
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "nether_stronghold_chains"), NETHER_STRONGHOLD_CHAINS);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "lily_of_the_valley"), LILY_OF_THE_VALLEY_FEATURE);
