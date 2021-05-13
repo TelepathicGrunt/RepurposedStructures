@@ -28,16 +28,13 @@ Repurposed Structures is a mod about taking existing vanilla features and struct
 - 5 new Witch Huts types
 - A Nether themed Ocean Ruins
 - A Nether themed End City
-- A Nether Strongholds
-- Stonebrick Strongholds (replaces vanilla Strongholds by default as these are larger and Silverfish infested)
-- Giant boulders (sometimes with ores if lucky) for Giant Tree/Spruce Taiga Hills biomes
-- Tiny boulders added to Taiga Mountain biomes
+- A Nether Stronghold
 - 5 new Desert Well variations were made for other biomes
 </details>
 <br/>
 <br/>
 
-If you have trouble finding one of these structures, just start typing `/locate repu` into the chat and you should see my structures pop up! For example, typing `/locate repurposed_structures:stronghold_stonebrick` will find the closest RS's Stonebrick Stronghold to your location. :) All structures can be found easily from anywhere!
+If you have trouble finding one of these structures, just start typing `/locate repu` into the chat and you should see my structures pop up! For example, typing `/locate repurposed_structures:mansion_birch` will find the closest RS's Birch Mansion to your location. :) All structures can be found easily from anywhere!
 <br/>
 <br/>
 
@@ -47,7 +44,7 @@ If you have trouble finding one of these structures, just start typing `/locate 
 Q: Does this mod work with [YUNG's Better Strongholds](https://www.curseforge.com/minecraft/mc-mods/yungs-better-strongholds-fabric) mod?
 
 <br/>
-A: Yes BUT only with latest version of Repurposed Structures. (PLEASE UPDATE REPURPOSED STRUCTURES PEOPLE) When Better Strongholds is on, Repurposed Structures's Stonebrick Stronghold will no longer spawn so that Better Strongholds has complete control over the overworld Strongholds. RS's Nether Stronghold will still spawn in Nether biomes.
+A: Yes BUT only with latest version of Repurposed Structures. (PLEASE UPDATE REPURPOSED STRUCTURES PEOPLE) When Better Strongholds is on, they will only replace the Overworld Strongholds. RS's Nether Stronghold will still spawn in Nether biomes.
 
 <br/>
 <br/>
@@ -68,16 +65,6 @@ Q: Does this mod conflict with ___ mod?
 
 <br/>
 A: Highly unlikely. My mod adds structures to biomes directly so any conflict would be extremely rare. Best way to know is to just try my mod with the other mod. If you find they do conflict somehow, PLEASE let me know so I can investigate and release a fix! :)
-
-<br/>
-<br/>
-<br/>
-<br/>
-
-Q: /locate stronghold isn't working!
-
-<br/>
-A: That's because by default, Repurposed Structures replaces the Stronghold with its own version and makes sure that Ender Eyes will find this new Stronghold as well. To find the new Stronghold by command, do /locate repurposed_structures:stronghold_stonebrick. You can change this behavior in the configs to make vanilla Strongholds spawn again if you wish.
 
 <br/>
 <br/>
@@ -795,26 +782,6 @@ You may find maps and unique Firework Stars in their chests! Also, they got uniq
 #### Strongholds
 <details>
 
-#### Stonebrick Stronghold  (replaces vanilla strongholds)
-
-<br/>
-
-Chest loot is not changed.
-
-<br/>
-
-Corridor Chests has a 33% chance of spawning.
-
-<br/>
-
-Storage rooms has 4 chests instead of 1 due to them not having much loot naturally.
-
-<br/>
-
-Silverfish spawners are added to storage room, the room with the pillar that holds 4 Torches, and fountain room.
-
-<br/>
-
 #### Nether Stronghold Chest rates and Blaze Spawner locations
 
 <br/>
@@ -894,32 +861,6 @@ Grassy Igloo has a Bed, Crafting Table, Furnace, and a Lantern.
 
 Stone Igloo has a Blast Furnace, Campfire, 1 Iron Ore, a Lantern, a Bed, and a Stone Pickaxe on Crafting Table.
 
-</details>
-<br/>
-
-#### Giant Boulder ore spawnrates
-
-<details>
-
-0.033% : Diamond Ore
-
-2.5% : Iron Ore
-
-6% : Coal Ore
-
-Rest is a mix of Mossy Cobblestone, Cobblestone, and Andesite with Andesite sometime replaced by vanilla's blobs of dirt, various stones, or ores.
-</details>
-
-<br/>
-
-#### Tiny Boulder ore spawnrates
-
-<details>
-3.5% : Iron Ore
-
-6.5% : Coal Ore
-
-Rest is a mix of Mossy Cobblestone, Cobblestone, and Andesite with Andesite sometime replaced by vanilla's blobs of dirt, various stones, or ores.
 </details>
 
 <br/>
