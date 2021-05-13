@@ -17,6 +17,7 @@
     "PillagerOutpostFeatureAccessor",
     "ServerResourceManagerMixin",
     "ShulkerEntityAccessor",
+    "SinglePoolElementAccessor",
     "StrongholdGeneratorAccessor",
     "StructureMobSpawningMixin",
     "StructurePieceAccessor",

@@ -9,6 +9,8 @@ import net.minecraft.structure.StructurePieceType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
+import java.util.HashMap;
+
 
 public class RSStructurePieces {
     public static StructurePieceType MINESHAFT_ROOM_RS = RSMineshaftPieces.Room::new;
@@ -81,4 +83,16 @@ public class RSStructurePieces {
         Registry.register(Registry.STRUCTURE_PIECE, new Identifier(RepurposedStructures.MODID, "mansion_piece"), MANSION_PIECE);
     }
 
+    // Initialize piece counts
+//            this.pieceCounts = new HashMap<>();
+//            this.pieceCounts.put(new Identifier(RepurposedStructures.MODID, "rooms/grand_library"), RepurposedStructures.CONFIG.RepurposedStructures.pieceSettings.grandLibraryMaxCount);
+//            this.pieceCounts.put(new Identifier(RepurposedStructures.MODID, "rooms/library_md"), RepurposedStructures.CONFIG.RepurposedStructures.pieceSettings.smallLibraryMaxCount);
+//            this.pieceCounts.put(new Identifier(RepurposedStructures.MODID, "rooms/prison_lg"), RepurposedStructures.CONFIG.RepurposedStructures.pieceSettings.prisonMaxCount);
+//            this.pieceCounts.put(new Identifier(RepurposedStructures.MODID, "rooms/cmd_acarii"), RepurposedStructures.CONFIG.RepurposedStructures.pieceSettings.cmdAcariiMaxCount);
+//            this.pieceCounts.put(new Identifier(RepurposedStructures.MODID, "rooms/cmd_yung"), RepurposedStructures.CONFIG.RepurposedStructures.pieceSettings.cmdYungMaxCount);
+//            this.pieceCounts.put(new Identifier(RepurposedStructures.MODID, "rooms/treasure_room_lg"), RepurposedStructures.CONFIG.RepurposedStructures.pieceSettings.treasureRoomMaxCount);
+//            this.pieceCounts.put(new Identifier(RepurposedStructures.MODID, "portal_rooms/portal_room"), RepurposedStructures.CONFIG.RepurposedStructures.pieceSettings.portalRoomMaxCount);
+//            this.pieceCounts.put(new Identifier(RepurposedStructures.MODID, "rooms/armoury_md"), RepurposedStructures.CONFIG.RepurposedStructures.pieceSettings.armouryLargeRoomMaxCount);
+//            this.pieceCounts.put(new Identifier(RepurposedStructures.MODID, "rooms/armoury_sm"), RepurposedStructures.CONFIG.RepurposedStructures.pieceSettings.armourySmallRoomMaxCount);
+//            this.maxY = RepurposedStructures.CONFIG.RepurposedStructures.general.strongholdMaxY;
 }
