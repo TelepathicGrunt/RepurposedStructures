@@ -14,25 +14,14 @@ buildscript {
     }
 }
 
-repositories {
-    maven {
-        url "https://maven.tterrag.com/"
-    }
-    maven {
-        url "https://nexus.resourcefulbees.com/repository/maven-public/"
-    }
-}
-
 apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
+apply plugin: 'maven'
 apply plugin: 'org.spongepowered.mixin'
 
 version = "${mc_version}-${mod_version}-forge"
 group = "com.telepathicgrunt"
 archivesBaseName = "${modid}"
-
-sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 
 minecraft {
     mappings channel: "official", version: "1.16.5"
@@ -41,7 +30,7 @@ minecraft {
     runs {
         client {
             workingDirectory project.file('run')
-            arg "-mixin.config="+archivesBaseName+".mixins.json"
+            arg "-mixin.config=" + project.getProperty('modid') + ".mixins.json"
             property 'forge.logging.console.level', 'debug'
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
@@ -50,11 +39,20 @@ minecraft {
 
         server {
             workingDirectory project.file('run')
-            arg "-mixin.config="+archivesBaseName+".mixins.json"
+            arg "-mixin.config=" + project.getProperty('modid') + ".mixins.json"
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
             mods { repurposed_structures { source sourceSets.main } }
         }
+    }
+}
+
+repositories {
+    maven {
+        url "https://maven.tterrag.com/"
+    }
+    maven {
+        url "https://nexus.resourcefulbees.com/repository/maven-public/"
     }
 }
 
