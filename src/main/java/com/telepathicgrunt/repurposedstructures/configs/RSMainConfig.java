@@ -8,12 +8,6 @@ public class RSMainConfig
 {
 	public static class RSConfigValues
 	{
-		public ConfigValueListener<Boolean> addGiantBouldersModdedBiomes;
-		public ConfigValueListener<Double> giantBouldersPerChunk;
-		public ConfigValueListener<Integer> diamondChanceInGiantBoulders;
-		public ConfigValueListener<Boolean> addTinyBouldersModdedBiomes;
-		public ConfigValueListener<Boolean> boulderTiny;
-		public ConfigValueListener<Boolean> boulderGiant;
 
 		public ConfigValueListener<Integer> jungleFortressMaxChunkDistance;
 		public ConfigValueListener<Double> silverfishSpawnrate;
@@ -36,7 +30,6 @@ public class RSMainConfig
 		public ConfigValueListener<Boolean> addCitiesNetherToModdedBiomes;
 
 		public ConfigValueListener<String> blacklistedDimensions;
-		public ConfigValueListener<String> blacklistedBoulderBiomes;
 		public ConfigValueListener<String> blacklistedFortressBiomes;
 		public ConfigValueListener<String> blacklistedIglooBiomes;
 		public ConfigValueListener<String> blacklistedRuinedPortalsBiomes;
@@ -72,59 +65,6 @@ public class RSMainConfig
 								"lostcities:lostcity"));
 
 			builder.build();
-
-			builder.push("Feature Options");
-			
-				builder.push("Misc");
-
-					addGiantBouldersModdedBiomes = subscriber.subscribe(builder
-						.comment("\n Adds giant boulders to modded Giant Tree Taiga (or Redwood) biomes.")
-					.translation("repurposedstructures.config.misc.addgiantbouldersmoddedbiomes")
-					.define("addGiantBouldersModdedBiomes", false));
-
-					blacklistedBoulderBiomes = subscriber.subscribe(builder
-						.comment("\n Add the ID/resource location of the biome you don't want",
-								" RS's boulders to spawn in. Separate each ID with a comma ,",
-								"   Example: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
-						.translation("repurposedstructures.config.misc.blacklistedboulderbiomes")
-						.define("blacklistedBoulderBiomes", " "));
-
-
-
-					giantBouldersPerChunk = subscriber.subscribe(builder
-					.comment("\n How many Giant Boulders per chunk. (Can be decimal too)")
-					.translation("repurposedstructures.config.misc.giantbouldersperchunk")
-					.defineInRange("giantBouldersPerChunk", 0.5D, 0, 100));
-
-					diamondChanceInGiantBoulders = subscriber.subscribe(builder
-					.comment("\n 1 out of ___ chance of Diamond Ore when placing",
-							 " a block in giant Boulders. Lower number = more common.",
-							 " Enter 0 to disable Diamond Ores completely.")
-					.translation("repurposedstructures.config.misc.diamondchanceingiantboulders")
-					.defineInRange("diamondChanceInGiantBoulders", 7000, 0, 1000000));
-
-
-					addTinyBouldersModdedBiomes = subscriber.subscribe(builder
-						.comment("\n Adds tiny boulders to modded Taiga biomes.")
-					.translation("repurposedstructures.config.misc.addtinybouldersmoddedbiomes")
-					.define("addTinyBouldersModdedBiomes", false));
-
-					boulderTiny = subscriber.subscribe(builder
-							.comment("\n Adds tiny boulders to Taiga Mountains and Snowy Taiga Mountains biomes ",
-								" that can contain small amounts of Coal and Iron ores.")
-						.translation("repurposedstructures.config.misc.bouldertiny")
-						.define("boulderTiny", true));
-					
-					boulderGiant = subscriber.subscribe(builder
-							.comment("\n Replaces boulders in Giant Tree Taiga Hills and Giant Spruce Taiga Hills",
-								" biomes with a larger boulder that can contain Coal, Iron, and extremely",
-								" rarely, can also have Diamond Ores.")
-						.translation("repurposedstructures.config.misc.netherdungeons")
-						.define("boulderGiant", true));
-					
-				builder.pop();
-				
-			builder.pop();
 
 			builder.push("Structure Options");
 	

@@ -26,7 +26,6 @@ public class RSConfiguredStructures {
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> SWAMP_OR_DARK_FOREST_MINESHAFT = RSStructures.SWAMP_OR_DARK_FOREST_MINESHAFT.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> TAIGA_MINESHAFT = RSStructures.TAIGA_MINESHAFT.get().configured(IFeatureConfig.NONE);
 
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> STONEBRICK_STRONGHOLD = RSStructures.STONEBRICK_STRONGHOLD.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_STRONGHOLD = RSStructures.NETHER_STRONGHOLD.get().configured(IFeatureConfig.NONE);
 
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> JUNGLE_FORTRESS = RSStructures.JUNGLE_FORTRESS.get().configured(IFeatureConfig.NONE);
@@ -113,7 +112,6 @@ public class RSConfiguredStructures {
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "swamp_or_dark_forest_mineshaft"), SWAMP_OR_DARK_FOREST_MINESHAFT);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "taiga_mineshaft"), TAIGA_MINESHAFT);
 
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "stonebrick_stronghold"), STONEBRICK_STRONGHOLD);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "nether_stronghold"), NETHER_STRONGHOLD);
 
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "jungle_fortress"), JUNGLE_FORTRESS);

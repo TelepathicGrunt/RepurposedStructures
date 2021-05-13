@@ -67,7 +67,6 @@ public class RSStructures {
     public static final RegistryObject<Structure<NoFeatureConfig>> TAIGA_MINESHAFT = addToStructureMaps("mineshaft_taiga", () -> (new RSMineshaftStructure(RSMineshaftPieces.Type.TAIGA, Lazy.of(() -> RepurposedStructures.RSMineshaftsConfig.taigaMineshaftSpawnrate.get()), Lazy.of(() -> RepurposedStructures.RSMineshaftsConfig.taigaMineshaftMaxHeight.get()), Lazy.of(() -> RepurposedStructures.RSMineshaftsConfig.taigaMineshaftMinHeight.get()))));
 
     //Strongholds
-    public static final RegistryObject<Structure<NoFeatureConfig>> STONEBRICK_STRONGHOLD = addToStructureMaps("stronghold_stonebrick", RSStonebrickStrongholdStructure::new);
     public static final RegistryObject<Structure<NoFeatureConfig>> NETHER_STRONGHOLD = addToStructureMaps("stronghold_nether", RSNetherStrongholdStructure::new);
 
     //Igloos and Fortress
@@ -168,7 +167,6 @@ public class RSStructures {
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_swamp_or_dark_forest"), SWAMP_OR_DARK_FOREST_MINESHAFT.get(), GenerationStage.Decoration.UNDERGROUND_STRUCTURES, new StructureSeparationSettings(1, 0, 2037177700));
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_taiga"), TAIGA_MINESHAFT.get(), GenerationStage.Decoration.UNDERGROUND_STRUCTURES, new StructureSeparationSettings(1, 0, 1383003172));
 
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "stronghold_stonebrick"), STONEBRICK_STRONGHOLD.get(), GenerationStage.Decoration.STRONGHOLDS, new StructureSeparationSettings(RepurposedStructures.RSStrongholdsConfig.stonebrickStrongholdMaxChunkDistance.get(), (int) (RepurposedStructures.RSStrongholdsConfig.stonebrickStrongholdMaxChunkDistance.get() * 0.5f), 1098192663));
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "stronghold_nether"), NETHER_STRONGHOLD.get(), GenerationStage.Decoration.STRONGHOLDS, new StructureSeparationSettings(RepurposedStructures.RSStrongholdsConfig.netherStrongholdMaxChunkDistance.get(), (int) (RepurposedStructures.RSStrongholdsConfig.netherStrongholdMaxChunkDistance.get() * 0.5f), 1731422513));
 
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "fortress_jungle"), JUNGLE_FORTRESS.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMainConfig.jungleFortressMaxChunkDistance.get(), (int) (RepurposedStructures.RSMainConfig.jungleFortressMaxChunkDistance.get() * 0.5f), 1464189157));

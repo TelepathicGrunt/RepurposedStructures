@@ -10,7 +10,6 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.SectionPos;
 import net.minecraft.world.ISeedReader;
-import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
@@ -25,7 +24,7 @@ public class StrongholdChains extends Feature<NoFeatureConfig> {
         super(configFactory);
     }
 
-    private static final Predicate<BlockState> STRONGHOLD_BLOCKS = (blockState) -> {
+    private static final Predicate<BlockState> NETHER_STRONGHOLD_BLOCKS = (blockState) -> {
         if (blockState == null) {
             return false;
         } else {
@@ -39,25 +38,14 @@ public class StrongholdChains extends Feature<NoFeatureConfig> {
                     blockState.is(Blocks.POLISHED_BLACKSTONE_BRICKS)  ||
                     blockState.is(Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS)  ||
                     blockState.is(Blocks.CHISELED_POLISHED_BLACKSTONE)  ||
-                    blockState.is(Blocks.GILDED_BLACKSTONE)  ||
-                    blockState.is(Blocks.COBBLESTONE)  ||
-                    blockState.is(Blocks.STONE_BRICKS)  ||
-                    blockState.is(Blocks.CHISELED_STONE_BRICKS)  ||
-                    blockState.is(Blocks.CRACKED_STONE_BRICKS)  ||
-                    blockState.is(Blocks.MOSSY_STONE_BRICKS)  ||
-                    blockState.is(Blocks.INFESTED_CHISELED_STONE_BRICKS) ||
-                    blockState.is(Blocks.INFESTED_CRACKED_STONE_BRICKS) ||
-                    blockState.is(Blocks.INFESTED_STONE_BRICKS) ||
-                    blockState.is(Blocks.INFESTED_MOSSY_STONE_BRICKS);
+                    blockState.is(Blocks.GILDED_BLACKSTONE);
         }
     };
 
     @Override
     public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
         if(GeneralUtils.isWorldBlacklisted(world)) return false;
-        if (!world.isEmptyBlock(position) ||
-                (!world.startsForFeature(SectionPos.of(position), RSStructures.STONEBRICK_STRONGHOLD.get()).findAny().isPresent() &&
-                 !world.startsForFeature(SectionPos.of(position), RSStructures.NETHER_STRONGHOLD.get()).findAny().isPresent()))
+        if (!world.isEmptyBlock(position) || !world.startsForFeature(SectionPos.of(position), RSStructures.NETHER_STRONGHOLD.get()).findAny().isPresent())
         {
            return false;
         }
@@ -76,7 +64,7 @@ public class StrongholdChains extends Feature<NoFeatureConfig> {
             if (world.isEmptyBlock(blockpos$Mutable)) {
                 aboveBlockstate = world.getBlockState(blockpos$Mutable.above());
 
-                if (STRONGHOLD_BLOCKS.test(aboveBlockstate) || aboveBlockstate.is(Blocks.CHAIN)) {
+                if (NETHER_STRONGHOLD_BLOCKS.test(aboveBlockstate) || aboveBlockstate.is(Blocks.CHAIN)) {
                     world.setBlock(blockpos$Mutable, Blocks.CHAIN.defaultBlockState(), 2);
                     length++;
                 }
@@ -87,12 +75,7 @@ public class StrongholdChains extends Feature<NoFeatureConfig> {
 
         //attaches lantern at end at a rare chance
         if(blockpos$Mutable.getY() != 3 && random.nextFloat() < 0.075f && world.isEmptyBlock(blockpos$Mutable)){
-            if(world.getBiome(blockpos$Mutable).getBiomeCategory() == Biome.Category.NETHER){
-                world.setBlock(blockpos$Mutable, Blocks.SOUL_LANTERN.defaultBlockState().setValue(LanternBlock.HANGING, true), 2);
-            }
-            else{
-                world.setBlock(blockpos$Mutable, Blocks.LANTERN.defaultBlockState().setValue(LanternBlock.HANGING, true), 2);
-            }
+            world.setBlock(blockpos$Mutable, Blocks.SOUL_LANTERN.defaultBlockState().setValue(LanternBlock.HANGING, true), 2);
         }
 
         return true;

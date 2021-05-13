@@ -71,7 +71,6 @@ public class RepurposedStructures
 	public static MobSpawnerManager mobSpawnerManager = new MobSpawnerManager();
 
 	public static boolean yungsBetterMineshaftIsNotOn = true;
-	public static boolean yungsBetterStrongholdsIsNotOn = true;
 
 	public RepurposedStructures()
 	{
@@ -104,8 +103,6 @@ public class RepurposedStructures
 		RSGlobalLootModifier.GLM.register(modEventBus);
 
 		yungsBetterMineshaftIsNotOn = !ModList.get().isLoaded("bettermineshafts");
-		yungsBetterStrongholdsIsNotOn = !ModList.get().isLoaded("betterstrongholds");
-
 
 		// Silences logspam due to me changing my piece's namespace from minecraft to my modid.
 		Logger rootLogger = LogManager.getRootLogger();
@@ -192,7 +189,6 @@ public class RepurposedStructures
 
 				// Do not spawn strongholds in end.
 				if(serverWorld.dimension().equals(World.END)){
-					spacingToAdd.remove(RSStructures.STONEBRICK_STRONGHOLD.get());
 					spacingToAdd.remove(RSStructures.NETHER_STRONGHOLD.get());
 				}
 
@@ -228,7 +224,6 @@ public class RepurposedStructures
 		Map<String, Pair<List<String>, Consumer<BiomeLoadingEvent>>> allBiomeBlacklists = new HashMap<>();
 
 		allBiomeBlacklists.put("dungeons", Pair.of(Arrays.asList(RepurposedStructures.RSDungeonsConfig.blacklistedDungeonBiomes.get().replace(" ", "").split(",")), Dungeons::addDungeons));
-		allBiomeBlacklists.put("boulders", Pair.of(Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedBoulderBiomes.get().replace(" ", "").split(",")), Boulders::addBoulderFeatures));
 		allBiomeBlacklists.put("fortresses", Pair.of(Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedFortressBiomes.get().replace(" ", "").split(",")), Fortresses::addJungleFortress));
 		allBiomeBlacklists.put("igloos", Pair.of(Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedIglooBiomes.get().replace(" ", "").split(",")), Igloos::addIgloos));
 		allBiomeBlacklists.put("mineshafts", Pair.of(Arrays.asList(RepurposedStructures.RSMineshaftsConfig.blacklistedMineshaftBiomes.get().replace(" ", "").split(",")), Mineshafts::addMineshafts));

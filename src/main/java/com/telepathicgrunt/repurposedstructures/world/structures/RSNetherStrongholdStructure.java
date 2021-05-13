@@ -21,6 +21,7 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
 import net.minecraft.world.gen.settings.StructureSeparationSettings;
 
 import java.util.List;
+import java.util.Random;
 
 
 public class RSNetherStrongholdStructure extends StrongholdStructure {
@@ -94,7 +95,44 @@ public class RSNetherStrongholdStructure extends StrongholdStructure {
             int maxYConfig = RepurposedStructures.RSStrongholdsConfig.netherStrongholdMaxHeight.get();
             int minYConfig = RepurposedStructures.RSStrongholdsConfig.netherStrongholdMinHeight.get();
 
-            RSStonebrickStrongholdStructure.offsetStronghold(lowestBounds, maxYConfig, minYConfig, this.random, this.pieces, this.boundingBox, strongholdpieces$entrancestairs.strongholdPortalRoom);
+            offsetStronghold(lowestBounds, maxYConfig, minYConfig, this.random, this.pieces, this.boundingBox, strongholdpieces$entrancestairs.strongholdPortalRoom);
+        }
+    }
+
+    public static void offsetStronghold(int lowestBounds, int maxYConfig, int minYConfig, Random random, List<StructurePiece> pieces, MutableBoundingBox bounds, RSStrongholdPieces.PortalRoom strongholdPortalRoom) {
+        int minimum = minYConfig;
+        int maximum = Math.max(maxYConfig, minimum) + 1;
+
+        // Sets stronghold's bottom most y to a random range between min and max y config.
+        int offset = random.nextInt(maximum - minimum) + minimum;
+        int offset2 = 0;
+
+        //apply first offset to be able to do some calculations in next few lines
+        bounds.move(0, offset - lowestBounds, 0);
+
+        // If the stronghold's max y is over the config's max y, lower the stronghold as
+        // much as possible without hitting bedrock.
+        if (bounds.y1 > maxYConfig) {
+            int heightDiff = maxYConfig - bounds.y1;
+            offset2 = bounds.y0 + heightDiff < 2 ? 2 - bounds.y0 : heightDiff;
+        }
+
+        // Apply the final offsets
+        bounds.move(0, offset2, 0);
+        int finalOffset = offset2;
+        pieces.forEach(piece -> piece.move(0, offset + finalOffset - lowestBounds, 0));
+        int portalRoomY = strongholdPortalRoom.getBoundingBox().y0;
+
+        // Now remove rooms that are above max y config if portal room is below it.
+        if (portalRoomY < maxYConfig) {
+            pieces.removeIf(piece -> piece.getBoundingBox().y0 > maxYConfig);
+        }
+        // Portal room too high, lower stronghold and delete rooms too low.
+        else {
+            int topDiff = strongholdPortalRoom.getBoundingBox().y1 - maxYConfig;
+            pieces.forEach(piece -> piece.move(0, -topDiff, 0));
+            pieces.removeIf(piece -> piece.getBoundingBox().y0 < Math.max(minYConfig, 4));
+            bounds.move(0, -topDiff, 0);
         }
     }
 }

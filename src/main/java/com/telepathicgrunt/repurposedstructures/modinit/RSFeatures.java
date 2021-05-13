@@ -32,8 +32,6 @@ public class RSFeatures {
   	public static final RegistryObject<Feature<NoFeatureConfig>> MOSSY_STONE_WELL = createFeature("well_mossy_stone", () -> new WellMossyStone(NoFeatureConfig.CODEC));
   	public static final RegistryObject<Feature<NoFeatureConfig>> FOREST_WELL = createFeature("well_forest", () -> new WellForest(NoFeatureConfig.CODEC));
 
-  	public static final RegistryObject<Feature<NoFeatureConfig>> BOULDER_GIANT = createFeature("boulder_giant", () -> new BoulderGiant(NoFeatureConfig.CODEC));
-  	public static final RegistryObject<Feature<NoFeatureConfig>> BOULDER_TINY = createFeature("boulder_tiny", () -> new BoulderTiny(NoFeatureConfig.CODEC));
   	public static final RegistryObject<Feature<NoFeatureConfig>> SHORT_VINES = createFeature("short_vines", () -> new VinesShort(NoFeatureConfig.CODEC));
   	public static final RegistryObject<Feature<NoFeatureConfig>> SWAMP_VILLAGE_VINES = createFeature("swamp_village_vines", () -> new SwampVillageVines(NoFeatureConfig.CODEC));
   	public static final RegistryObject<Feature<NoFeatureConfig>> JUNGLE_STRUCTURES_VINES = createFeature("jungle_structures_vines", () -> new JungleStructuresVines(NoFeatureConfig.CODEC));

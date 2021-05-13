@@ -132,7 +132,7 @@ public class GeneralUtils {
 
                         ServerWorld serverWorld = (ServerWorld) event.getWorld();
                         ChunkGenerator chunkGenerator = serverWorld.getChunkSource().getGenerator();
-                        StructureSeparationSettings structureseparationsettings = chunkGenerator.getSettings().getConfig(RSStructures.STONEBRICK_STRONGHOLD.get());
+                        StructureSeparationSettings structureseparationsettings = chunkGenerator.getSettings().getConfig(RSStructures.NETHER_STRONGHOLD.get());
                         Structure<?> structureToFind = structure.get();
                         List<Pair<BlockPos, Integer>> structureStarts = new ArrayList<>();
 
