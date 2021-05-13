@@ -1,5 +1,10 @@
 ## (V.2.7.0 Changes) (1.16.5 Minecraft)
 
+##### Outposts:
+• Modernized all Outposts Pieces which should help make their small feature pieces spawn more.
+
+• Expanded all RS's Overworld Outposts boundaries so that Pillagers should now spawn more often over time.
+
 ##### Strongholds:
 • Removed Stonebricks Strongholds because Better Strongholds mod exists! 
   Use that epic mod instead of upgrade the Overworld Stronghold!

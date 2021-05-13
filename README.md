@@ -28,10 +28,7 @@ Repurposed Structures is a mod about taking existing vanilla features and struct
 - 5 new Witch Huts types
 - A Nether themed Ocean Ruins
 - A Nether themed End City
-- A Nether Strongholds
-- Stonebrick Strongholds (replaces vanilla Strongholds by default as these are larger and Silverfish infested)
-- Giant boulders (sometimes with ores if lucky) for Giant Tree/Spruce Taiga Hills biomes
-- Tiny boulders added to Taiga Mountain biomes
+- A Nether Stronghold
 - 5 new Desert Well variations were made for other biomes
 </details>
 <br/>
