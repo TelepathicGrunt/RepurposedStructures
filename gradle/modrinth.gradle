@@ -11,7 +11,7 @@ apply plugin: "com.modrinth.minotaur"
 
 import com.modrinth.minotaur.TaskModrinthUpload
 
-String fileContents = new File(file('CHANGELOG.md')).text
+String fileContents = new File(file('CHANGELOG.md') as String).text
 
 // Make sure it runs after build!
 task publishModrinth (type: TaskModrinthUpload){
