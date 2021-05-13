@@ -52,10 +52,15 @@ public class LogSpamFiltering extends AbstractFilter {
     @Override
     public Result filter(LogEvent event) {
         Message message = event.getMessage();
-        if (message != null && "Unknown structure piece id: {}".equals(message.getFormat()) && SILENCED_PIECES.contains((Identifier)message.getParameters()[0])) {
-            return Result.DENY;
-        } else {
-            return Result.NEUTRAL;
+        if (message != null) {
+            if("Unknown structure piece id: {}".equals(message.getFormat()) && SILENCED_PIECES.contains((Identifier)message.getParameters()[0])){
+                return Result.DENY;
+            }
+            else if(message.getFormattedMessage().equals("Unknown structure start: repurposed_structures:stronghold_stonebrick")) {
+                return Result.DENY;
+            }
         }
+
+        return Result.NEUTRAL;
     }
 }
