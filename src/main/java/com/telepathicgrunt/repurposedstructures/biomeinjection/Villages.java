@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.biome_injection;
+package com.telepathicgrunt.repurposedstructures.biomeinjection;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredFeatures;

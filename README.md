@@ -4,10 +4,10 @@
 <h2 style="text-align: center;"><span style="font-size: 14px;"><strong><span style="color: #009611;">CLICK HERE FOR FABRIC 1.16.5 MC PORT:&nbsp;</span></strong></span></h2>
 <p style="text-align: center;"><span style="font-size: 14px;"><strong><span style="color: #009611;"><a href="https://www.curseforge.com/minecraft/mc-mods/repurposed-structures-fabric">https://www.curseforge.com/minecraft/mc-mods/repurposed-structures-fabric</a></span></strong></span></p>
 <p>&nbsp;</p>
-<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;End Pyramid, End Outpost,<br />Icy Pyramid, and Icy Dungeon is now added!<br />Dungeons are now nbt file based and&nbsp;<br />can be modified by datapacks now!<br />Plus a huge amount of tweaks and bug fixes!<br />See the changelog for more info.</strong></b></span></em></p>
+<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Recent News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;If you are using <span style="color: #3366ff;"><a style="color: #3366ff; font-size: 14px;" href="https://www.curseforge.com/minecraft/mc-mods/yungs-better-strongholds">Better Strongholds</a></span><br />alongside this mod, YOU NEED TO UPDATE<br />REPURPOSED STRUCTURES to its latest version!<br />Otherwise, you will get mod compat issues.</strong></b></span></em></p>
 <p style="text-align: center;">&nbsp;</p>
-<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Past News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;Ice and Fire datapack now made!<br />Put on the datapack to see their Scribers<br />in Repurposed Structures's villages!<br />See Datapack section farther below for the pack.</strong></b></span></em></p>
-<p style="text-align: center;">&nbsp;&nbsp;</p>
+<p style="text-align: center;"><em><span style="font-size: 14px; color: #b00000; text-decoration: underline;"><strong>Past News:</strong></span><span style="font-size: 14px;"><b><strong>&nbsp;End Pyramid, End Outpost,<br />Icy Pyramid, and Icy Dungeon is now added!<br />Dungeons are now nbt file based and&nbsp;<br />can be modified by datapacks now!<br />Plus a huge amount of tweaks and bug fixes!<br />See the changelog for more info.</strong></b></span></em></p>
+<p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;"><span style="font-size: 14px;"><b><strong>(Also, update your Forge to&nbsp;36.0.25 or newer!)</strong></b></span><em><span style="font-size: 14px;"><b><strong><br />And report any bugs or issue with my mod to me!</strong></b></span></em>&nbsp;</p>
 <p style="text-align: center;"><span style="font-size: 18px;"><strong>____________________________________________________________________________</strong></span></p>
 <p style="text-align: center;">&nbsp;</p>
@@ -24,7 +24,9 @@
 <p style="text-align: left;"><span style="font-size: 14px;">&nbsp;</span></p>
 <p style="text-align: left;"><span style="font-size: 14px;"><strong>&nbsp; &nbsp; <span style="font-size: 18px;">Frequently Asked Questions:</span><br /></strong></span></p>
 <div class="spoiler">
-<p><strong>Q: Does this mod work with <a href="https://www.curseforge.com/minecraft/mc-mods/yungs-better-mineshafts-forge"><span style="color: #3366ff;">YUNG's Better Mineshafts</span></a> mod?</strong><br />A: Yes, this mod works with YUNG's Better Mineshafts lol. I added code to make our mods compatible. Both of our mineshafts should spawn in the world.</p>
+<p>&nbsp;<strong>Q: Does this mod work with <span style="color: #3366ff;"><a style="color: #3366ff;" href="https://www.curseforge.com/minecraft/mc-mods/yungs-better-strongholds">YUNG's Better Strongholds</a></span> mod?</strong><br />A: Yes <strong>BUT</strong> only with latest version of Repurposed Structures.<strong> (PLEASE UPDATE REPURPOSED STRUCTURES PEOPLE)</strong> When Better Strongholds is on, Repurposed Structures's Stonebrick Stronghold will no longer spawn so that Better Strongholds has complete control over the overworld Strongholds. RS's Nether Stronghold will still spawn in Nether biomes.</p>
+<p>&nbsp;</p>
+<p><strong>Q: Does this mod work with <a href="https://www.curseforge.com/minecraft/mc-mods/yungs-better-mineshafts-forge"><span style="color: #3366ff;">YUNG's Better Mineshafts</span></a> mod?</strong><br />A: Yep! This mod works with YUNG's Better Mineshafts lol. I added code to make our mods compatible. Both of our mineshafts should spawn in the world.</p>
 <p>&nbsp;</p>
 <p><strong>Q: Does this mod conflict with ___ mod?</strong><br />A: Highly unlikely. My mod adds structures to biomes directly so any conflict would be extremely rare. Best way to know is to just try my mod with the other mod. If you find they do conflict somehow, PLEASE let me know so I can investigate and release a fix! :)</p>
 <p>&nbsp;</p>
@@ -550,7 +552,7 @@
 <p>&nbsp;</p>
 <h2><strong><span style="font-size: 24px; color: #009611;">PRE-MADE DATAPACKS</span></strong></h2>
 <p>&nbsp;</p>
-<p>Since Villages, Temples, Ruined Portals, Outposts, Shipwrecks, Wells uses nbt files, template pools, and/or processors, you can override all of this with datapacks! That means you can customize the blocks in those structures with other mod's blocks or add pieces of other mod's villages into RS's villages!&nbsp;If you decide to use the datapack below, download it, go into your world's save folder, and put the zipped folder into the datapack folder. Now when you load the game, the datapack should take effect! (Also, you can share mod-compat datapacks you made to me and I'll add it below after I check it out and like it!)</p>
+<p>Since the overwhelming majority of my structures uses nbt files, template pools, and/or processors, you can override all of this with datapacks! That means you can customize the blocks in those structures with other mod's blocks or add pieces of other mod's villages into RS's villages!&nbsp;If you decide to use the datapack below, download it, go into your world's save folder, and put the zipped folder into the datapack folder. Now when you load the game, the datapack should take effect! (Also, you can share mod-compat datapacks you made to me and I'll add it below after I check it out and like it!)</p>
 <p>&nbsp;</p>
 <p><strong>&nbsp; &nbsp; <span style="font-size: 18px;">Datapacks made:</span></strong></p>
 <div class="spoiler">
@@ -597,7 +599,7 @@
 <p><span style="font-size: 14px; color: #009611;"><strong><span style="text-decoration: underline;">*If you find an issue, glitch, or have a suggestion about my mod, let me know! But if you don't have a GitHub account to report in the Issue tab above, just comment what the problem is below and I'll try and get back to you ASAP! Or you can contact me on Discord at the link below :)&nbsp;</span></strong></span></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<p><span style="font-size: 24px;"><strong>Discord Link for my channel about my mods! :&nbsp;</strong></span></p>
+<p><span style="font-size: 24px;"><strong>Discord Link to #telepathicgrunt-mods channel for my mods! :&nbsp;</strong></span></p>
 <p><span style="font-size: 24px; color: #3366ff;"><strong><a class="anchor-3Z-8Bb anchorUnderlineOnHover-2ESHQB" style="font-size: 24px; color: #3366ff;" tabindex="0" title="https://discord.gg/4eHptfV" role="button" href="https://discord.gg/SM7WBT6FGu" target="_blank" rel="noopener noreferrer">https://discord.gg/SM7WBT6FGu</a></strong></span></p>
-<p><span style="font-size: 24px;"><strong><a class="anchor-3Z-8Bb anchorUnderlineOnHover-2ESHQB" style="font-size: 24px;" tabindex="0" title="https://discord.gg/4eHptfV" role="button" href="https://discord.gg/SM7WBT6FGu" target="_blank" rel="noopener noreferrer"><img src="https://beeimg.com/images/g00282193071.png" alt="discord-logo-png-free-transparent-png-logos-discord-png-logo-300_300 (PNG)  | BeeIMG" width="112" height="112" /></a></strong></span></p>
+<p><span style="font-size: 24px;"><strong><a class="anchor-3Z-8Bb anchorUnderlineOnHover-2ESHQB" style="font-size: 24px;" tabindex="0" title="https://discord.gg/4eHptfV" role="button" href="https://imgur.com/4guFES4" target="_blank" rel="noopener noreferrer"><img src="https://www.freepnglogos.com/uploads/discord-logo-png/concours-discord-cartes-voeux-fortnite-france-6.png" alt="discord-logo-png-free-transparent-png-logos-discord-png-logo-300_300 (PNG)  | BeeIMG" width="112" height="112" /></a></strong></span></p>
 <p><span style="font-size: 24px; color: #333399;"><strong>&nbsp;</strong></span></p>

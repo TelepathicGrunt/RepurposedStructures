@@ -2,7 +2,7 @@ package com.telepathicgrunt.repurposedstructures;
 
 import com.google.common.collect.ImmutableMap;
 import com.mojang.datafixers.util.Pair;
-import com.telepathicgrunt.repurposedstructures.biome_injection.*;
+import com.telepathicgrunt.repurposedstructures.biomeinjection.*;
 import com.telepathicgrunt.repurposedstructures.configs.RSDungeonsConfig.RSDungeonsConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSMainConfig;
 import com.telepathicgrunt.repurposedstructures.configs.RSMainConfig.RSConfigValues;
