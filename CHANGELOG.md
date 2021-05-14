@@ -5,9 +5,14 @@
 
 • Expanded all RS's Overworld Outposts boundaries so that Pillagers should now spawn more often over time.
 
+##### Pyramids:
+• Snowy Pyramid Pit slightly changed to help hint at what spots are safe to stand on.
+
+• Icy Pyramid Pit trap is now redesigned to be a bit more dangerous.
+
 ##### Strongholds:
 • Removed Stonebricks Strongholds because Better Strongholds mod exists!
-Use that epic mod instead of upgrade the Overworld Stronghold!
+  Use that epic mod instead of upgrade the Overworld Stronghold!
 
 ##### Misc:
 • Removed the giant boulder feature because it isn't close to a structure and doesn't fit this mod.
