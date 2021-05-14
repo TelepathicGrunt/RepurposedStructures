@@ -1,12 +1,15 @@
 apply plugin: "com.matthewprenger.cursegradle"
 
+String fileContents = new File("./", "CHANGELOG.md").text
+//file('CHANGELOG.md')
+
 curseforge {
     project {
         apiKey = "$System.env.CURSEFORGEKEY"
         id = "391366"
         releaseType = "release"
         changelogType = 'markdown'
-        changelog = file('CHANGELOG.md')
+        changelog = fileContents
         addGameVersion("1.16.5")
         addGameVersion("Fabric")
 
