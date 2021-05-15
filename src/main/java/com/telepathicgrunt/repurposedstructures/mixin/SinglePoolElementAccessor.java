@@ -1,7 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.mixin;
 
 import com.mojang.datafixers.util.Either;
-import com.mojang.serialization.Codec;
 import net.minecraft.structure.Structure;
 import net.minecraft.structure.pool.SinglePoolElement;
 import net.minecraft.util.Identifier;

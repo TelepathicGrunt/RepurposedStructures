@@ -9,8 +9,6 @@ import net.minecraft.structure.StructurePieceType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-import java.util.HashMap;
-
 
 public class RSStructurePieces {
     public static StructurePieceType MINESHAFT_ROOM_RS = RSMineshaftPieces.Room::new;
