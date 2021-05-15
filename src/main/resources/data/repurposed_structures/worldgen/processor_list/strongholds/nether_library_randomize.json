@@ -8,7 +8,7 @@
           },
           "input_predicate": {
             "block": "minecraft:gilded_blackstone",
-            "probability": 0.07,
+            "probability": 0.09,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -21,7 +21,7 @@
           },
           "input_predicate": {
             "block": "minecraft:gilded_blackstone",
-            "probability": 0.07,
+            "probability": 0.09,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -34,7 +34,7 @@
           },
           "input_predicate": {
             "block": "minecraft:gilded_blackstone",
-            "probability": 0.07,
+            "probability": 0.09,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -47,7 +47,7 @@
           },
           "input_predicate": {
             "block": "minecraft:gilded_blackstone",
-            "probability": 0.07,
+            "probability": 0.09,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -60,7 +60,7 @@
           },
           "input_predicate": {
             "block": "minecraft:gilded_blackstone",
-            "probability": 0.07,
+            "probability": 0.09,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -73,7 +73,7 @@
           },
           "input_predicate": {
             "block": "minecraft:gilded_blackstone",
-            "probability": 0.07,
+            "probability": 0.09,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -86,7 +86,7 @@
           },
           "input_predicate": {
             "block": "minecraft:gilded_blackstone",
-            "probability": 0.07,
+            "probability": 0.09,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -99,7 +99,7 @@
           },
           "input_predicate": {
             "block": "minecraft:gilded_blackstone",
-            "probability": 0.07,
+            "probability": 0.09,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -112,7 +112,7 @@
           },
           "input_predicate": {
             "block": "minecraft:gilded_blackstone",
-            "probability": 0.07,
+            "probability": 0.09,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -121,11 +121,11 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:magma_block"
+            "Name": "minecraft:nether_quartz_ore"
           },
           "input_predicate": {
             "block": "minecraft:gilded_blackstone",
-            "probability": 0.05,
+            "probability": 0.07,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -147,7 +147,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:nether_quartz_ore"
+            "Name": "minecraft:magma_block"
           },
           "input_predicate": {
             "block": "minecraft:gilded_blackstone",

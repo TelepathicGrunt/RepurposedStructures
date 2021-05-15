@@ -5,6 +5,23 @@
       "rs_spawner_resourcelocation": "repurposed_structures:stronghold_nether"
     },
     {
+      "processor_type": "repurposed_structures:close_off_fluid_sources_processor",
+      "weighted_list_of_replacement_blocks": [
+        {
+          "block" : "minecraft:gilded_blackstone",
+          "weight": 1
+        },
+        {
+          "block" : "minecraft:blackstone",
+          "weight": 2
+        },
+        {
+          "block" : "minecraft:cracked_polished_blackstone_bricks",
+          "weight": 1
+        }
+      ]
+    },
+    {
       "rules": [
         {
           "output_state": {

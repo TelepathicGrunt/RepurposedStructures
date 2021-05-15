@@ -23,10 +23,9 @@ blockPalette = {""}
 originalBiome = ""
 newBiome = ""
 string_blacklist = []
-conversion_partial_dict = {
-    "minecraft:village/guiana/villagers":"byg:village/tropical/villagers"
-}
+conversion_partial_dict = {}
 conversion_exact_dict = {
+    "minecraft:air":"minecraft:cave_air"
 }
 
 #-------------------------------------------------------------------------------------------

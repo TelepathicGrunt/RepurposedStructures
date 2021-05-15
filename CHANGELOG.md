@@ -14,6 +14,14 @@
 • Removed Stonebricks Strongholds because Better Strongholds mod exists!
   Use that epic mod instead of upgrade the Overworld Stronghold!
 
+• Nether Strongholds are now Jigsaw Structures so you can use datapacks to add new nbt pieces to it or customize it even more!
+
+• Nether Stronghold prison pieces may have a chance of a trapped stronger Wither Skeleton.
+
+• nether Stronghold Libraries now has a rare chance for Ancient Debris and the blocks are more randomized.
+
+• The ends of the Nether Stronghold will now never have a wall of flowing lava anymore!
+
 ##### Misc:
 • Removed the giant boulder feature because it isn't close to a structure and doesn't fit this mod.
 
