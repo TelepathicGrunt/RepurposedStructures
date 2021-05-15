@@ -277,7 +277,7 @@
             },
             {
               "function":"set_nbt",
-              "tag":"{Explosion:{Colors:[I;8073150], FadeColors:[I;12801229], Trail:1b, Flicker:1b, Type:2b}}"
+              "tag":"{Explosion:{Colors:[I;0], FadeColors:[I;12201518], Trail:1b, Flicker:1b, Type:4b}}"
             }
           ]
         },
@@ -296,7 +296,7 @@
             },
             {
               "function":"set_nbt",
-              "tag":"{Explosion:{Colors:[I;12801229], FadeColors:[I;8073150], Trail:1b, Flicker:1b, Type:2b}}"
+              "tag":"{Explosion:{Colors:[I;12201518], FadeColors:[I;0], Trail:1b, Flicker:1b, Type:4b}}"
             }
           ]
         },
