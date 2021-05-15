@@ -1,12 +1,15 @@
 package com.telepathicgrunt.repurposedstructures.modinit;
 
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Lists;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.mixin.PillagerOutpostFeatureAccessor;
 import com.telepathicgrunt.repurposedstructures.world.structures.*;
 import com.telepathicgrunt.repurposedstructures.world.structures.configs.NetherShipwreckConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.MansionPieces;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.RSMineshaftPieces;
+import com.telepathicgrunt.repurposedstructures.world.structures.pieces.StructurePiecesBehavior;
 import net.fabricmc.fabric.api.structure.v1.FabricStructureBuilder;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.Identifier;
@@ -18,10 +21,7 @@ import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.FeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -44,7 +44,13 @@ public class RSStructures {
     public static StructureFeature<DefaultFeatureConfig> SWAMP_OR_DARK_FOREST_MINESHAFT = new RSMineshaftStructure(RSMineshaftPieces.Type.SWAMPORDARKFOREST, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.swampAndDarkForestMineshaftSpawnrate, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.swampAndDarkForestMineshaftMaxHeight, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.swampAndDarkForestMineshaftMinHeight);
     public static StructureFeature<DefaultFeatureConfig> TAIGA_MINESHAFT = new RSMineshaftStructure(RSMineshaftPieces.Type.TAIGA, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.taigaMineshaftSpawnrate, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.taigaMineshaftMaxHeight, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.taigaMineshaftMinHeight);
 
-    public static StructureFeature<DefaultFeatureConfig> NETHER_STRONGHOLD = new RSNetherStrongholdStructure();
+    private static final List<SpawnSettings.SpawnEntry> MONSTER_SPAWNS =
+            Lists.newArrayList(new SpawnSettings.SpawnEntry(EntityType.BLAZE, 10, 2, 3),
+                    new SpawnSettings.SpawnEntry(EntityType.ZOMBIFIED_PIGLIN, 3, 4, 4),
+                    new SpawnSettings.SpawnEntry(EntityType.WITHER_SKELETON, 10, 5, 5),
+                    new SpawnSettings.SpawnEntry(EntityType.SKELETON, 2, 5, 5),
+                    new SpawnSettings.SpawnEntry(EntityType.MAGMA_CUBE, 3, 4, 4));
+    public static StructureFeature<DefaultFeatureConfig> NETHER_STRONGHOLD = new AdvancedJigsawStructure(new Identifier(RepurposedStructures.MODID, "strongholds/nether/start_pool"), RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdSize, MONSTER_SPAWNS, ImmutableMap.of(new Identifier(RepurposedStructures.MODID, "strongholds/nether/portal_room"), new StructurePiecesBehavior.RequiredPieceNeeds(1, (int) (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdSize * 0.6D))), RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdMaxHeight, RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdMinHeight);
 
     public static StructureFeature<DefaultFeatureConfig> JUNGLE_FORTRESS = new FortressJungleStructure();
     public static StructureFeature<DefaultFeatureConfig> GRASSY_IGLOO = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "igloos/grassy_top"), 20, 0, 0, 0, new HashSet<>());

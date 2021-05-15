@@ -25,8 +25,8 @@ public class RSStrongholdsConfig implements ConfigData
 		@ConfigEntry.Gui.PrefixText
 		@Comment("Size of Nether Stronghold. This number is how many pieces deep a branch can go from the center piece."
 				+ "\n1 for supertiny and 20 for supermassive Strongholds.")
-		@ConfigEntry.BoundedDiscrete(min = 1, max = 20)
-		public int netherStrongholdSize = 9;
+		@ConfigEntry.BoundedDiscrete(min = 1, max = 30)
+		public int netherStrongholdSize = 15;
 
 		@ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
@@ -47,7 +47,7 @@ public class RSStrongholdsConfig implements ConfigData
 		@Comment("Min Y height that the starting point can spawn at."
 				+"\nDefault is 30.")
 		@ConfigEntry.BoundedDiscrete(min = 0, max = 255)
-		public int netherStrongholdMinHeight = 10;
+		public int netherStrongholdMinHeight = 6;
 
 		@ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText

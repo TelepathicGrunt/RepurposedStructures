@@ -1,0 +1,168 @@
+{
+  "name": "repurposed_structures:strongholds/nether/general_pool",
+  "fallback": "repurposed_structures:strongholds/nether/terminators",
+  "elements": [
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:strongholds/nether/divider_1",
+        "processors": "repurposed_structures:strongholds/nether_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:strongholds/nether/divider_2",
+        "processors": "repurposed_structures:strongholds/nether_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:strongholds/nether/divider_3",
+        "processors": "repurposed_structures:strongholds/nether_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:strongholds/nether/straight",
+        "processors": "repurposed_structures:strongholds/nether_hallway_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:strongholds/nether/turn",
+        "processors": "repurposed_structures:strongholds/nether_hallway_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:strongholds/nether/3_way",
+        "processors": "repurposed_structures:strongholds/nether_hallway_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:strongholds/nether/4_way",
+        "processors": "repurposed_structures:strongholds/nether_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:strongholds/nether/stairs",
+        "processors": "repurposed_structures:strongholds/nether_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:strongholds/nether/stairs_straight",
+        "processors": "repurposed_structures:strongholds/nether_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:strongholds/nether/chest_corridor",
+        "processors": "repurposed_structures:strongholds/nether_hallway_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:strongholds/nether/empty_crossing",
+        "processors": "repurposed_structures:strongholds/nether_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:strongholds/nether/fountain_crossing",
+        "processors": "repurposed_structures:strongholds/nether_spawner_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:strongholds/nether/pillar_crossing",
+        "processors": "repurposed_structures:strongholds/nether_spawner_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:strongholds/nether/storage_crossing",
+        "processors": "repurposed_structures:strongholds/nether_spawner_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:strongholds/nether/prison",
+        "processors": "repurposed_structures:strongholds/nether_hallway_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:strongholds/nether/library_big",
+        "processors": "repurposed_structures:strongholds/nether_library_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:strongholds/nether/library_small",
+        "processors": "repurposed_structures:strongholds/nether_library_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:strongholds/nether/portal_room",
+        "processors": "repurposed_structures:strongholds/nether_portal_room_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

@@ -21,6 +21,7 @@
     "StrongholdGeneratorAccessor",
     "StructureMobSpawningMixin",
     "StructurePieceAccessor",
+    "StructurePoolAccessor",
     "StructureProcessorListAccessor",
     "StructuresConfigAccessor",
     "TemplateAccessor",

@@ -4,6 +4,7 @@ import com.google.common.collect.Queues;
 import com.mojang.datafixers.util.Pair;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.mixin.SinglePoolElementAccessor;
+import com.telepathicgrunt.repurposedstructures.mixin.StructurePoolAccessor;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.StructurePiecesBehavior;
 import net.minecraft.block.JigsawBlock;
 import net.minecraft.structure.*;
@@ -38,11 +39,14 @@ public class PieceLimitedJigsawManager {
             StructurePoolFeatureConfig jigsawConfig,
             ChunkGenerator chunkGenerator,
             StructureManager templateManager,
-            BlockPos startPos, List<? super StructurePiece> components,
+            BlockPos startPos,
+            List<? super StructurePiece> components,
             Random random,
             boolean doBoundaryAdjustments,
             boolean useHeightmap,
-            int maxY
+            Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces,
+            int maxY,
+            int minY
     ) {
         // Get jigsaw pool registry
         MutableRegistry<StructurePool> jigsawPoolRegistry = dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN);
@@ -84,8 +88,8 @@ public class PieceLimitedJigsawManager {
         components.add(startPiece); // Add start piece to list of pieces
 
         if (jigsawConfig.getSize() > 0) {
-            Box axisAlignedBB = new Box(pieceCenterX - 120, pieceCenterY - 120, pieceCenterZ - 180, pieceCenterX + 120 + 1, pieceCenterY + 180 + 1, pieceCenterZ + 120 + 1);
-            Assembler assembler = new Assembler(jigsawPoolRegistry, jigsawConfig.getSize(), chunkGenerator, templateManager, components, random, maxY);
+            Box axisAlignedBB = new Box(pieceCenterX - 80, pieceCenterY - 120, pieceCenterZ - 80, pieceCenterX + 80 + 1, pieceCenterY + 180 + 1, pieceCenterZ + 80 + 1);
+            Assembler assembler = new Assembler(jigsawPoolRegistry, jigsawConfig.getSize(), chunkGenerator, templateManager, components, random, requiredPieces, maxY, minY);
             Entry startPieceEntry = new Entry(
                     startPiece,
                     new MutableObject<>(
@@ -116,9 +120,11 @@ public class PieceLimitedJigsawManager {
         private final Random rand;
         public final Deque<Entry> availablePieces = Queues.newArrayDeque();
         private final Map<Identifier, Integer> pieceCounts;
+        private final Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces;
         private final int maxY;
+        private final int minY;
 
-        public Assembler(Registry<StructurePool> poolRegistry, int maxDepth, ChunkGenerator chunkGenerator, StructureManager structureManager, List<? super PoolStructurePiece> structurePieces, Random rand, int maxY) {
+        public Assembler(Registry<StructurePool> poolRegistry, int maxDepth, ChunkGenerator chunkGenerator, StructureManager structureManager, List<? super PoolStructurePiece> structurePieces, Random rand, Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces, int maxY, int minY) {
             this.poolRegistry = poolRegistry;
             this.maxDepth = maxDepth;
             this.chunkGenerator = chunkGenerator;
@@ -126,9 +132,13 @@ public class PieceLimitedJigsawManager {
             this.structurePieces = structurePieces;
             this.rand = rand;
             this.maxY = maxY;
+            this.minY = minY;
 
             // Create map clone so we do not modify the original map.
+            this.requiredPieces = new HashMap<>(requiredPieces);
             this.pieceCounts = new HashMap<>(StructurePiecesBehavior.PIECES_COUNT);
+            // pieceCounts will keep track of how many required pieces were spawned
+            this.requiredPieces.forEach((key, value) -> this.pieceCounts.put(key, value.getMaxLimit()));
         }
 
         public void generatePiece(PoolStructurePiece piece, MutableObject<VoxelShape> voxelShape, int minY, int depth, boolean doBoundaryAdjustments) {
@@ -157,7 +167,7 @@ public class PieceLimitedJigsawManager {
 
                 // Only continue if we are using the jigsaw pattern registry and if it is not empty
                 if (!(poolOptional.isPresent() && (poolOptional.get().getElementCount() != 0 || Objects.equals(jigsawBlockPool, StructurePools.EMPTY.getValue())))) {
-                    RepurposedStructures.LOGGER.warn("Empty or nonexistent pool: {} which is being called from {}", jigsawBlockPool, ((SinglePoolElementAccessor) pieceBlueprint).rs_getField_24015().left().get());
+                    RepurposedStructures.LOGGER.warn("Empty or nonexistent pool: {} which is being called from {}", jigsawBlockPool, pieceBlueprint instanceof SinglePoolElement ? ((SinglePoolElementAccessor) pieceBlueprint).rs_getField_24015().left().get() : "not a SinglePoolElement class");
                     continue;
                 }
 
@@ -167,7 +177,7 @@ public class PieceLimitedJigsawManager {
 
                 // Only continue if the fallback pool is present and valid
                 if (!(fallbackOptional.isPresent() && (fallbackOptional.get().getElementCount() != 0 || Objects.equals(jigsawBlockFallback, StructurePools.EMPTY.getValue())))) {
-                    RepurposedStructures.LOGGER.warn("Empty or nonexistent pool: {} which is being called from {}", jigsawBlockFallback, ((SinglePoolElementAccessor) pieceBlueprint).rs_getField_24015().left().get());
+                    RepurposedStructures.LOGGER.warn("Empty or nonexistent pool: {} which is being called from {}", jigsawBlockFallback, pieceBlueprint instanceof SinglePoolElement ? ((SinglePoolElementAccessor) pieceBlueprint).rs_getField_24015().left().get() : "not a SinglePoolElement class");
                     continue;
                 }
 
@@ -188,12 +198,12 @@ public class PieceLimitedJigsawManager {
 
                 // Process the pool pieces, randomly choosing different pieces from the pool to spawn
                 if (depth != this.maxDepth) {
-                    StructurePoolElement generatedPiece = this.processList(new ArrayList<>(poolOptional.get().getElementCount()), doBoundaryAdjustments, jigsawBlock, jigsawBlockTargetPos, pieceMinY, jigsawBlockPos, pieceVoxelShape, piece, depth, targetPieceBoundsTop);
+                    StructurePoolElement generatedPiece = this.processList(new ArrayList<>(((StructurePoolAccessor)poolOptional.get()).rs_getElementCounts()), doBoundaryAdjustments, jigsawBlock, jigsawBlockTargetPos, pieceMinY, jigsawBlockPos, pieceVoxelShape, piece, depth, targetPieceBoundsTop);
                     if (generatedPiece != null) continue; // Stop here since we've already generated the piece
                 }
 
                 // Process the fallback pieces in the event none of the pool pieces work
-                this.processList(new ArrayList<>(fallbackOptional.get().getElementCount()), doBoundaryAdjustments, jigsawBlock, jigsawBlockTargetPos, pieceMinY, jigsawBlockPos, pieceVoxelShape, piece, depth, targetPieceBoundsTop);
+                this.processList(new ArrayList<>(((StructurePoolAccessor)fallbackOptional.get()).rs_getElementCounts()), doBoundaryAdjustments, jigsawBlock, jigsawBlockTargetPos, pieceMinY, jigsawBlockPos, pieceVoxelShape, piece, depth, targetPieceBoundsTop);
             }
         }
 
@@ -222,17 +232,19 @@ public class PieceLimitedJigsawManager {
             int totalCount = candidatePieces.stream().mapToInt(Pair::getSecond).reduce(0, Integer::sum);
 
             while (candidatePieces.size() > 0) {
-                // Prioritize portal room if the following conditions are met:
+                // Prioritize required piece if the following conditions are met:
                 // 1. It's a potential candidate for this pool
                 // 2. It hasn't already been placed
-                // 3. We are at least (maxDepth/2) pieces away from the starting room.
+                // 3. We are at least certain amount of pieces away from the starting piece.
                 Pair<StructurePoolElement, Integer> chosenPiecePair = null;
-                if (this.pieceCounts.get(new Identifier(RepurposedStructures.MODID, "portal_rooms/portal_room")) > 0) { // Condition 2
+                // Condition 2
+                Optional<Identifier> pieceNeededToSpawn = this.requiredPieces.keySet().stream().filter(key -> this.pieceCounts.get(key) > 0).findFirst();
+                if (pieceNeededToSpawn.isPresent()) {
                     for (int i = 0; i < candidatePieces.size(); i++) {
                         Pair<StructurePoolElement, Integer> candidatePiecePair = candidatePieces.get(i);
                         StructurePoolElement candidatePiece = candidatePiecePair.getFirst();
-                        if (((SinglePoolElementAccessor) candidatePiece).rs_getField_24015().left().get().equals(new Identifier(RepurposedStructures.MODID, "portal_rooms/portal_room"))) { // Condition 1
-                            if (depth >= maxDepth / 2) { // Condition 3
+                        if (candidatePiece instanceof SinglePoolElement && ((SinglePoolElementAccessor) candidatePiece).rs_getField_24015().left().get().equals(pieceNeededToSpawn.get())) { // Condition 1
+                            if (depth >= this.requiredPieces.get(pieceNeededToSpawn.get()).getMinDistanceFromCenter()) { // Condition 3
                                 // All conditions are met. Use portal room as chosen piece.
                                 chosenPiecePair = candidatePiecePair;
                             } else {
@@ -267,13 +279,16 @@ public class PieceLimitedJigsawManager {
 
                 // Before performing any logic, check to ensure we haven't reached the max number of instances of this piece.
                 // This logic is my own additional logic - vanilla does not offer this behavior.
-                Identifier pieceName = ((SinglePoolElementAccessor) candidatePiece).rs_getField_24015().left().get();
-                if (StructurePiecesBehavior.PIECES_COUNT.containsKey(pieceName)) {
-                    if (StructurePiecesBehavior.PIECES_COUNT.get(pieceName) <= 0) {
-                        // Remove this piece from the list of candidates and retry.
-                        totalCount -= chosenPiecePair.getSecond();
-                        candidatePieces.remove(chosenPiecePair);
-                        continue;
+                Identifier pieceName = null;
+                if(candidatePiece instanceof SinglePoolElement){
+                    pieceName = ((SinglePoolElementAccessor) candidatePiece).rs_getField_24015().left().get();
+                    if (this.pieceCounts.containsKey(pieceName)) {
+                        if (this.pieceCounts.get(pieceName) <= 0) {
+                            // Remove this piece from the list of candidates and retry.
+                            totalCount -= chosenPiecePair.getSecond();
+                            candidatePieces.remove(chosenPiecePair);
+                            continue;
+                        }
                     }
                 }
 
@@ -346,8 +361,8 @@ public class PieceLimitedJigsawManager {
                                 adjustedCandidateBoundingBox.maxY = adjustedCandidateBoundingBox.minY + k2;
                             }
 
-                            // Prevent pieces from spawning above max Y
-                            if (adjustedCandidateBoundingBox.maxY > this.maxY) {
+                            // Prevent pieces from spawning above max Y or below min Y
+                            if (adjustedCandidateBoundingBox.maxY > this.maxY || adjustedCandidateBoundingBox.minY < this.minY) {
                                 continue;
                             }
 
@@ -427,7 +442,7 @@ public class PieceLimitedJigsawManager {
                                     this.availablePieces.addLast(new Entry(newPiece, pieceVoxelShape, targetPieceBoundsTop, depth + 1));
                                 }
                                 // Update piece count, if an entry exists for this piece
-                                if (this.pieceCounts.containsKey(pieceName)) {
+                                if (pieceName != null && this.pieceCounts.containsKey(pieceName)) {
                                     this.pieceCounts.put(pieceName, this.pieceCounts.get(pieceName) - 1);
                                 }
                                 return candidatePiece;
