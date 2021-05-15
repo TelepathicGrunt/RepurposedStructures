@@ -1,7 +1,9 @@
 package com.telepathicgrunt.repurposedstructures.world.processors;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.EndPortalFrameBlock;
 import net.minecraft.structure.Structure;
@@ -19,8 +21,14 @@ import java.util.Random;
  */
 public class FillEndPortalFrameProcessor extends StructureProcessor {
 
-    public static final Codec<FillEndPortalFrameProcessor> CODEC = Codec.unit(FillEndPortalFrameProcessor::new);
-    private FillEndPortalFrameProcessor() { }
+    public static final Codec<FillEndPortalFrameProcessor> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
+            Codec.FLOAT.fieldOf("probability_per_block").stable().forGetter((processor) -> processor.probability))
+            .apply(instance, instance.stable(FillEndPortalFrameProcessor::new)));
+
+    private final float probability;
+    public FillEndPortalFrameProcessor(Float probability) {
+        this.probability = probability;
+    }
 
     @Override
     public Structure.StructureBlockInfo process(WorldView worldView, BlockPos pos, BlockPos blockPos, Structure.StructureBlockInfo structureBlockInfoLocal, Structure.StructureBlockInfo structureBlockInfoWorld, StructurePlacementData structurePlacementData) {
@@ -31,7 +39,7 @@ public class FillEndPortalFrameProcessor extends StructureProcessor {
 
             return new Structure.StructureBlockInfo(
                     structureBlockInfoWorld.pos,
-                    structureBlockInfoWorld.state.with(EndPortalFrameBlock.EYE, random.nextFloat() < 0.1F),
+                    structureBlockInfoWorld.state.with(EndPortalFrameBlock.EYE, random.nextFloat() < probability),
                     structureBlockInfoWorld.tag);
         }
         return structureBlockInfoWorld;

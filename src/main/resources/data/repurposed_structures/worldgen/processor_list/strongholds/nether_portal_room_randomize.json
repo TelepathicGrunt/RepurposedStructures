@@ -5,7 +5,8 @@
       "rs_spawner_resourcelocation": "repurposed_structures:stronghold_nether_portal_room"
     },
     {
-      "processor_type": "repurposed_structures:fill_end_portal_frame_processor"
+      "processor_type": "repurposed_structures:fill_end_portal_frame_processor",
+      "probability_per_block": 0.1
     },
     {
       "rules": [

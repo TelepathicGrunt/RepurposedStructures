@@ -32,7 +32,7 @@ public class CloseOffFluidSourcesProcessor extends StructureProcessor {
     public static final Codec<CloseOffFluidSourcesProcessor> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
             Codec.mapPair(Registry.BLOCK.fieldOf("block"), Codec.intRange(1, Integer.MAX_VALUE).fieldOf("weight"))
                     .codec().listOf().fieldOf("weighted_list_of_replacement_blocks")
-                    .forGetter(nbtFeatureConfig -> nbtFeatureConfig.weightedReplacementBlocks))
+                    .forGetter(processor -> processor.weightedReplacementBlocks))
             .apply(instance, instance.stable(CloseOffFluidSourcesProcessor::new)));
 
     private final List<Pair<Block, Integer>> weightedReplacementBlocks;
