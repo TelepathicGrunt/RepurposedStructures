@@ -144,7 +144,7 @@ public class RSStrongholdPieces {
                 if (name.equals("PortalRoom")) {
                     if (structurestrongholdpieces$pieceweight.instancesSpawned < 1) flag = true;
                 } else {
-                    int maxLimit = (int) (structurestrongholdpieces$pieceweight.instancesLimit * (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.strongholdSizeSH * 0.01D));
+                    int maxLimit = (int) (structurestrongholdpieces$pieceweight.instancesLimit);
 
                     if (structurestrongholdpieces$pieceweight.instancesSpawned <= maxLimit) flag = true;
                 }
@@ -244,7 +244,7 @@ public class RSStrongholdPieces {
 
 
     private static StructurePiece generateAndAddPiece(RSStrongholdPieces.EntranceStairs p_175953_0_, List<StructurePiece> p_175953_1_, Random p_175953_2_, int p_175953_3_, int p_175953_4_, int p_175953_5_, Direction p_175953_6_, int distanceFromStart) {
-        int maxComponents = (int) (50 * (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.strongholdSizeSH * 0.01D));
+        int maxComponents = (int) (50);
         if (distanceFromStart > maxComponents) {
             return null;
         } else if (Math.abs(p_175953_3_ - p_175953_0_.getBoundingBox().minX) <= 112 && Math.abs(p_175953_5_ - p_175953_0_.getBoundingBox().minZ) <= 112) {
@@ -313,9 +313,7 @@ public class RSStrongholdPieces {
             }
 
             if (structureBoundingBoxIn.contains(new BlockPos(this.applyXTransform(3, 3), this.applyYTransform(2), this.applyZTransform(3, 3)))) {
-                if (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.lootChestsSH) {
-                    this.addChest(world, structureBoundingBoxIn, random, 3, 2, 3, getHallwayChestLoot());
-                }
+                this.addChest(world, structureBoundingBoxIn, random, 3, 2, 3, getHallwayChestLoot());
             }
 
             return true;
@@ -727,16 +725,12 @@ public class RSStrongholdPieces {
                 this.addBlock(world, iblockstate4, 7, 8, 8, structureBoundingBoxIn);
             }
 
-            if (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.lootChestsSH) {
-                this.addChest(world, structureBoundingBoxIn, random, 3, 3, 5, getLibraryChestLoot());
-            }
+            this.addChest(world, structureBoundingBoxIn, random, 3, 3, 5, getLibraryChestLoot());
 
             if (this.isLargeRoom) {
                 this.addBlock(world, Blocks.AIR.getDefaultState(), 12, 9, 1, structureBoundingBoxIn);
 
-                if (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.lootChestsSH) {
                     this.addChest(world, structureBoundingBoxIn, random, 12, 8, 1, getLibraryChestLoot());
-                }
             }
 
             return true;
@@ -758,14 +752,14 @@ public class RSStrongholdPieces {
 
 
         public boolean canSpawnMoreStructures(int distanceFromStart) {
-            int maxLimit = (int) (this.instancesLimit * (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.strongholdSizeSH * 0.01D));
+            int maxLimit = (int) (this.instancesLimit);
 
             return this.instancesLimit == 0 || this.instancesSpawned < maxLimit;
         }
 
 
         public boolean canSpawnMoreStructures() {
-            int maxLimit = (int) (this.instancesLimit * (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.strongholdSizeSH * 0.01D));
+            int maxLimit = (int) (this.instancesLimit);
 
             return this.instancesLimit == 0 || this.instancesSpawned < maxLimit;
         }
@@ -1065,16 +1059,12 @@ public class RSStrongholdPieces {
 
                     if (structureBoundingBoxIn.contains(blockpos)) {
 
-                        if (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.allowExtraSpawnersSH) {
                             world.setBlockState(blockpos, Blocks.SPAWNER.getDefaultState(), 2);
                             BlockEntity tileentity = world.getBlockEntity(blockpos);
 
                             if (tileentity instanceof MobSpawnerBlockEntity) {
                                 ((MobSpawnerBlockEntity) tileentity).getLogic().setEntityId(getSpawnerEntity(random, false));
                             }
-                        } else {
-                            world.setBlockState(blockpos, Blocks.STONE_BRICKS.getDefaultState(), 2);
-                        }
                     }
 
                     this.addBlock(world, Blocks.STONE_BRICKS.getDefaultState(), 5, 2, 5, structureBoundingBoxIn);
@@ -1107,16 +1097,12 @@ public class RSStrongholdPieces {
                     blockpos = new BlockPos(this.applyXTransform(5, 5), this.applyYTransform(1), this.applyZTransform(5, 5));
 
                     if (structureBoundingBoxIn.contains(blockpos)) {
-                        if (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.allowExtraSpawnersSH) {
                             world.setBlockState(blockpos, Blocks.SPAWNER.getDefaultState(), 2);
                             BlockEntity tileentity = world.getBlockEntity(blockpos);
 
                             if (tileentity instanceof MobSpawnerBlockEntity) {
                                 ((MobSpawnerBlockEntity) tileentity).getLogic().setEntityId(getSpawnerEntity(random, false));
                             }
-                        } else {
-                            world.setBlockState(blockpos, Blocks.STONE_BRICKS.getDefaultState(), 2);
-                        }
                     }
 
                     this.addBlock(world, Blocks.WATER.getDefaultState(), 5, 4, 5, structureBoundingBoxIn);
@@ -1155,7 +1141,6 @@ public class RSStrongholdPieces {
 
                     if (structureBoundingBoxIn.contains(blockpos)) {
 
-                        if (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.allowExtraSpawnersSH) {
                             world.setBlockState(blockpos, Blocks.SPAWNER.getDefaultState(), 2);
                             BlockEntity tileentity = world.getBlockEntity(blockpos);
 
@@ -1163,9 +1148,7 @@ public class RSStrongholdPieces {
                                 ((MobSpawnerBlockEntity) tileentity).getLogic().setEntityId(getSpawnerEntity(random, false));
                             }
                             this.addBlock(world, Blocks.TORCH.getDefaultState(), 5, 2, 5, structureBoundingBoxIn);
-                        } else {
-                            this.addBlock(world, Blocks.TORCH.getDefaultState(), 5, 1, 5, structureBoundingBoxIn);
-                        }
+
                     }
 
 
@@ -1187,12 +1170,10 @@ public class RSStrongholdPieces {
                     this.addBlock(world, iblockstate, 9, 2, 3, structureBoundingBoxIn);
                     this.addBlock(world, iblockstate, 9, 3, 3, structureBoundingBoxIn);
 
-                    if (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.lootChestsSH) {
                         this.addChest(world, structureBoundingBoxIn, random, 3, 4, 8, getStorageChestLoot());
                         this.addChest(world, structureBoundingBoxIn, random, 5, 4, 2, getStorageChestLoot());
                         this.addChest(world, structureBoundingBoxIn, random, 6, 4, 8, getStorageChestLoot());
                         this.addChest(world, structureBoundingBoxIn, random, 8, 4, 4, getStorageChestLoot());
-                    }
             }
 
             return true;

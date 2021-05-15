@@ -7,6 +7,7 @@ import com.telepathicgrunt.repurposedstructures.mixin.StructuresConfigAccessor;
 import com.telepathicgrunt.repurposedstructures.modinit.*;
 import com.telepathicgrunt.repurposedstructures.utils.LogSpamFiltering;
 import com.telepathicgrunt.repurposedstructures.utils.MobSpawnerManager;
+import com.telepathicgrunt.repurposedstructures.world.structures.pieces.StructurePiecesBehavior;
 import it.unimi.dsi.fastutil.objects.Reference2ObjectOpenHashMap;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer;
@@ -51,6 +52,7 @@ public class RepurposedStructures implements ModInitializer {
         allowStructureSpawningPerDimension();
         setupBiomeModifications();
         MobMapTrades.addMapTrades();
+        StructurePiecesBehavior.init();
 
 
         // Silences logspam due to me changing my piece's namespace from minecraft to my modid.
@@ -106,12 +108,6 @@ public class RepurposedStructures implements ModInitializer {
                 // make absolutely sure dimension can spawn RS structures
                 Map<StructureFeature<?>, StructureConfig> spacingToAdd = new Reference2ObjectOpenHashMap<>();
                 spacingToAdd.putAll(RSStructures.RS_STRUCTURES);
-
-                // Do not spawn strongholds in end.
-                if(serverWorld.getRegistryKey().equals(World.END)){
-                    spacingToAdd.remove(RSStructures.NETHER_STRONGHOLD);
-                }
-
                 spacingToAdd.forEach(tempMap::putIfAbsent);
             }
             ((StructuresConfigAccessor) serverWorld.getChunkManager().getChunkGenerator().getStructuresConfig()).rs_setStructures(tempMap);

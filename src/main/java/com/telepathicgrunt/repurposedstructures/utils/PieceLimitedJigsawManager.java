@@ -4,6 +4,7 @@ import com.google.common.collect.Queues;
 import com.mojang.datafixers.util.Pair;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.mixin.SinglePoolElementAccessor;
+import com.telepathicgrunt.repurposedstructures.world.structures.pieces.StructurePiecesBehavior;
 import net.minecraft.block.JigsawBlock;
 import net.minecraft.structure.*;
 import net.minecraft.structure.pool.*;
@@ -41,7 +42,6 @@ public class PieceLimitedJigsawManager {
             Random random,
             boolean doBoundaryAdjustments,
             boolean useHeightmap,
-            Map<Identifier, Integer> pieceCounts,
             int maxY
     ) {
         // Get jigsaw pool registry
@@ -85,7 +85,7 @@ public class PieceLimitedJigsawManager {
 
         if (jigsawConfig.getSize() > 0) {
             Box axisAlignedBB = new Box(pieceCenterX - 120, pieceCenterY - 120, pieceCenterZ - 180, pieceCenterX + 120 + 1, pieceCenterY + 180 + 1, pieceCenterZ + 120 + 1);
-            Assembler assembler = new Assembler(jigsawPoolRegistry, jigsawConfig.getSize(), chunkGenerator, templateManager, components, random, pieceCounts, maxY);
+            Assembler assembler = new Assembler(jigsawPoolRegistry, jigsawConfig.getSize(), chunkGenerator, templateManager, components, random, maxY);
             Entry startPieceEntry = new Entry(
                     startPiece,
                     new MutableObject<>(
@@ -118,15 +118,17 @@ public class PieceLimitedJigsawManager {
         private final Map<Identifier, Integer> pieceCounts;
         private final int maxY;
 
-        public Assembler(Registry<StructurePool> poolRegistry, int maxDepth, ChunkGenerator chunkGenerator, StructureManager structureManager, List<? super PoolStructurePiece> structurePieces, Random rand, Map<Identifier, Integer> pieceCounts, int maxY) {
+        public Assembler(Registry<StructurePool> poolRegistry, int maxDepth, ChunkGenerator chunkGenerator, StructureManager structureManager, List<? super PoolStructurePiece> structurePieces, Random rand, int maxY) {
             this.poolRegistry = poolRegistry;
             this.maxDepth = maxDepth;
             this.chunkGenerator = chunkGenerator;
             this.structureManager = structureManager;
             this.structurePieces = structurePieces;
             this.rand = rand;
-            this.pieceCounts = pieceCounts;
             this.maxY = maxY;
+
+            // Create map clone so we do not modify the original map.
+            this.pieceCounts = new HashMap<>(StructurePiecesBehavior.PIECES_COUNT);
         }
 
         public void generatePiece(PoolStructurePiece piece, MutableObject<VoxelShape> voxelShape, int minY, int depth, boolean doBoundaryAdjustments) {
@@ -266,8 +268,8 @@ public class PieceLimitedJigsawManager {
                 // Before performing any logic, check to ensure we haven't reached the max number of instances of this piece.
                 // This logic is my own additional logic - vanilla does not offer this behavior.
                 Identifier pieceName = ((SinglePoolElementAccessor) candidatePiece).rs_getField_24015().left().get();
-                if (this.pieceCounts.containsKey(pieceName)) {
-                    if (this.pieceCounts.get(pieceName) <= 0) {
+                if (StructurePiecesBehavior.PIECES_COUNT.containsKey(pieceName)) {
+                    if (StructurePiecesBehavior.PIECES_COUNT.get(pieceName) <= 0) {
                         // Remove this piece from the list of candidates and retry.
                         totalCount -= chosenPiecePair.getSecond();
                         candidatePieces.remove(chosenPiecePair);

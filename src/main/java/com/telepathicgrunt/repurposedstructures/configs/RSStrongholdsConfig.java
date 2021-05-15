@@ -11,26 +11,6 @@ public class RSStrongholdsConfig implements ConfigData
 {
 	@ConfigEntry.Gui.Tooltip(count = 0)
 	@ConfigEntry.Gui.PrefixText
-	@Comment("Size of average Stronghold as a percentage."
-			+ "\nNote: RS Stonghold is much larger by default."
-			+ "\nTo get closer to vanilla's size, enter 60 here."
-			+ "\n10 for supertiny and 2000 for supermassive Strongholds.")
-	@ConfigEntry.BoundedDiscrete(min = 10, max = 2000)
-	public double strongholdSizeSH = 100D;
-
-	@ConfigEntry.Gui.Tooltip(count = 0)
-	@ConfigEntry.Gui.PrefixText
-	@Comment("Add Mob Spawners to rooms other than the Portal Room."
-			+"\nNote: Spawners in Portal Room will always spawn.")
-	public boolean allowExtraSpawnersSH = true;
-
-	@ConfigEntry.Gui.Tooltip(count = 0)
-	@ConfigEntry.Gui.PrefixText
-	@Comment("Controls whether loot chests spawn or not in the Stronghold.")
-	public boolean lootChestsSH = true;
-
-	@ConfigEntry.Gui.Tooltip(count = 0)
-	@ConfigEntry.Gui.PrefixText
 	@Comment("Add the ID/resource location of the biome you don't want"
 			+"\nRS's strongholds to spawn in. Separate each ID with a comma ,"
 			+"\n"
@@ -41,6 +21,12 @@ public class RSStrongholdsConfig implements ConfigData
 	public RSStrongholdsConfig.Nether nether = new RSStrongholdsConfig.Nether();
 
 	public static class Nether {
+		@ConfigEntry.Gui.Tooltip(count = 0)
+		@ConfigEntry.Gui.PrefixText
+		@Comment("Size of Nether Stronghold. This number is how many pieces deep a branch can go from the center piece."
+				+ "\n1 for supertiny and 20 for supermassive Strongholds.")
+		@ConfigEntry.BoundedDiscrete(min = 1, max = 20)
+		public int netherStrongholdSize = 9;
 
 		@ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
