@@ -18,6 +18,7 @@
   Use that epic mod instead of upgrade the Overworld Stronghold!
 
 • Nether Strongholds are now Jigsaw Structures so you can use datapacks to add new nbt pieces to it or customize it even more!
+  The Portal Room will now always be attached properly to the rest of the Stronghold!
 
 • Nether Stronghold prison pieces may have a chance of a trapped stronger Wither Skeleton.
 
