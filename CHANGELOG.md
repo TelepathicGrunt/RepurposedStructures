@@ -10,6 +10,9 @@
 
 • Icy Pyramid Pit trap is now redesigned to be a bit more dangerous.
 
+##### Ruins:
+• Added translation for Nether Ruins Map names.
+
 ##### Strongholds:
 • Removed Stonebricks Strongholds because Better Strongholds mod exists!
   Use that epic mod instead of upgrade the Overworld Stronghold!
