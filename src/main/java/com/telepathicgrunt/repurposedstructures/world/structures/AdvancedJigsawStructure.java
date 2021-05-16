@@ -1,5 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.utils.PieceLimitedJigsawManager;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.StructurePiecesBehavior;
@@ -33,13 +34,13 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<DefaultFeatur
     protected final int biomeRange;
     protected final List<SpawnSettings.SpawnEntry> monsterSpawns;
     protected final List<SpawnSettings.SpawnEntry> creatureSpawns;
-    private final Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces;
+    protected final Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces;
     protected final int maxY;
     protected final int minY;
 
 
     public AdvancedJigsawStructure(Identifier poolID, int structureSize, List<SpawnSettings.SpawnEntry> monsterSpawns, Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces, int maxY, int minY) {
-        this(poolID, structureSize, 0, new ArrayList<>(), new ArrayList<>(), requiredPieces, maxY, minY);
+        this(poolID, structureSize, 0, monsterSpawns, new ArrayList<>(), requiredPieces, maxY, minY);
     }
 
     public AdvancedJigsawStructure(Identifier poolID, int structureSize, int biomeRange,
@@ -59,7 +60,6 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<DefaultFeatur
 
         RSStructures.RS_STRUCTURE_START_PIECES.add(startPool);
     }
-
 
     @Override
     public List<SpawnSettings.SpawnEntry> getMonsterSpawns() {
@@ -92,19 +92,18 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<DefaultFeatur
     }
 
     public class MainStart extends MarginedStructureStart<DefaultFeatureConfig> {
+
         public MainStart(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
         }
 
         public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
             BlockPos.Mutable blockpos = new BlockPos.Mutable(chunkX * 16, 0, chunkZ * 16);
-
-            if(maxY == Integer.MAX_VALUE && minY == Integer.MIN_VALUE){
-                blockpos.move(Direction.UP, chunkGenerator.getSeaLevel());
+            if(maxY - minY <= 0){
+                RepurposedStructures.LOGGER.error("MinY should always be less than MaxY or else a crash will occur or no pieces will spawn. Problematic structure is:" + Registry.STRUCTURE_FEATURE.getId(this.getFeature()));
             }
-            else{
-                blockpos.move(Direction.UP, maxY - 5);
-            }
+            int structureStartHeight = random.nextInt(maxY - minY) + minY;
+            blockpos.move(Direction.UP, structureStartHeight);
 
             PieceLimitedJigsawManager.assembleJigsawStructure(
                     dynamicRegistryManager,
@@ -117,15 +116,16 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<DefaultFeatur
                     false,
                     false,
                     requiredPieces,
-                    maxY,
-                    minY);
+                    // Help make sure the Jigsaw Blocks have room to spawn new pieces if structure is right on edge of maxY or minY
+                    maxY + 5,
+                    minY - 5);
 
             this.setBoundingBoxFromChildren();
 
-            // For jungle fortress. Needs better refactoring
-            if(maxY == Integer.MAX_VALUE && minY == Integer.MIN_VALUE){
-                this.randomUpwardTranslation(this.random, chunkGenerator.getSeaLevel() - 12, chunkGenerator.getSeaLevel() - 7);
-            }
+//            // For jungle fortress. Needs better refactoring
+//            if(maxY == Integer.MAX_VALUE && minY == Integer.MIN_VALUE){
+//                this.randomUpwardTranslation(this.random, chunkGenerator.getSeaLevel() - 12, chunkGenerator.getSeaLevel() - 7);
+//            }
         }
     }
 }

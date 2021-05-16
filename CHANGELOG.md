@@ -18,9 +18,12 @@
 
 • Nether Stronghold prison pieces may have a chance of a trapped stronger Wither Skeleton.
 
-• nether Stronghold Libraries now has a rare chance for Ancient Debris and the blocks are more randomized.
+• Nether Stronghold Libraries now has a rare chance for Ancient Debris and the blocks are more randomized and rebalanced.
 
 • The ends of the Nether Stronghold will now never have a wall of flowing lava anymore!
+
+• Nether Strongholds will now only spawn further than roughly 2000 blocks from spawn. 
+  Their config default distance between spawn attempts was changed from 85 to 100 as well to spread them out a bit. 
 
 ##### Misc:
 • Removed the giant boulder feature because it isn't close to a structure and doesn't fit this mod.

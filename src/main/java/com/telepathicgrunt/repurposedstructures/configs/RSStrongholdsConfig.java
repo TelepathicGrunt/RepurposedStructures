@@ -34,7 +34,7 @@ public class RSStrongholdsConfig implements ConfigData
 				+ "\n1 for spawning in most chunks and 1001 for no spawn."
 				+ "\nNote: Eyes of Ender will work and show the closest Nether Stronghold too.")
 		@ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-		public int netherStrongholdMaxChunkDistance = 85;
+		public int netherStrongholdMaxChunkDistance = 100;
 
 		@ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText

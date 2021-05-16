@@ -4,7 +4,6 @@ import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.FortressJunglePieces;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.MansionPieces;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.RSMineshaftPieces;
-import com.telepathicgrunt.repurposedstructures.world.structures.pieces.RSStrongholdPieces;
 import net.minecraft.structure.StructurePieceType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -30,19 +29,6 @@ public class RSStructurePieces {
     public static StructurePieceType JUNGLE_FORTRESS_MUSHROOM_ROOM = FortressJunglePieces.MushroomRoom::new;
     public static StructurePieceType JUNGLE_FORTRESS_THRONE = FortressJunglePieces.Throne::new;
     public static StructurePieceType JUNGLE_FORTRESS_STAIRS = FortressJunglePieces.Stairs::new;
-    public static StructurePieceType STRONGHOLD_CHEST_CORRIDOR = RSStrongholdPieces.ChestCorridor::new;
-    public static StructurePieceType STRONGHOLD_CORRIDOR = RSStrongholdPieces.Corridor::new;
-    public static StructurePieceType STRONGHOLD_PORTAL_ROOM = RSStrongholdPieces.PortalRoom::new;
-    public static StructurePieceType STRONGHOLD_LIBRARY = RSStrongholdPieces.Library::new;
-    public static StructurePieceType STRONGHOLD_PRISON =  RSStrongholdPieces.Prison::new;
-    public static StructurePieceType STRONGHOLD_ROOM_CROSSING = RSStrongholdPieces.RoomCrossing::new;
-    public static StructurePieceType STRONGHOLD_CROSSING = RSStrongholdPieces.Crossing::new;
-    public static StructurePieceType STRONGHOLD_LEFT_TURN = RSStrongholdPieces.LeftTurn::new;
-    public static StructurePieceType STRONGHOLD_RIGHT_TURN = RSStrongholdPieces.RightTurn::new;
-    public static StructurePieceType STRONGHOLD_STRAIGHT = RSStrongholdPieces.Straight::new;
-    public static StructurePieceType STRONGHOLD_STAIRS = RSStrongholdPieces.Stairs::new;
-    public static StructurePieceType STRONGHOLD_STAIRS_STRAIGHT = RSStrongholdPieces.StairsStraight::new;
-    public static StructurePieceType STRONGHOLD_ENTRANCE_STAIRS = RSStrongholdPieces.EntranceStairs::new;
     public static StructurePieceType MANSION_PIECE = MansionPieces.Piece::new;
 
     public static void registerStructurePieces() {
@@ -65,19 +51,6 @@ public class RSStructurePieces {
         Registry.register(Registry.STRUCTURE_PIECE, new Identifier(RepurposedStructures.MODID, "jungle_fortress_mushroom_room"), JUNGLE_FORTRESS_MUSHROOM_ROOM);
         Registry.register(Registry.STRUCTURE_PIECE, new Identifier(RepurposedStructures.MODID, "jungle_fortress_throne"), JUNGLE_FORTRESS_THRONE);
         Registry.register(Registry.STRUCTURE_PIECE, new Identifier(RepurposedStructures.MODID, "jungle_fortress_stairs"), JUNGLE_FORTRESS_STAIRS);
-        Registry.register(Registry.STRUCTURE_PIECE, new Identifier(RepurposedStructures.MODID, "stronghold_chest_corridor"), STRONGHOLD_CHEST_CORRIDOR);
-        Registry.register(Registry.STRUCTURE_PIECE, new Identifier(RepurposedStructures.MODID, "stronghold_corridor"), STRONGHOLD_CORRIDOR);
-        Registry.register(Registry.STRUCTURE_PIECE, new Identifier(RepurposedStructures.MODID, "stronghold_portal_room"), STRONGHOLD_PORTAL_ROOM);
-        Registry.register(Registry.STRUCTURE_PIECE, new Identifier(RepurposedStructures.MODID, "stronghold_library"), STRONGHOLD_LIBRARY);
-        Registry.register(Registry.STRUCTURE_PIECE, new Identifier(RepurposedStructures.MODID, "stronghold_prison"), STRONGHOLD_PRISON);
-        Registry.register(Registry.STRUCTURE_PIECE, new Identifier(RepurposedStructures.MODID, "stronghold_room_crossing"), STRONGHOLD_ROOM_CROSSING);
-        Registry.register(Registry.STRUCTURE_PIECE, new Identifier(RepurposedStructures.MODID, "stronghold_crossing"), STRONGHOLD_CROSSING);
-        Registry.register(Registry.STRUCTURE_PIECE, new Identifier(RepurposedStructures.MODID, "stronghold_right_turn"), STRONGHOLD_RIGHT_TURN);
-        Registry.register(Registry.STRUCTURE_PIECE, new Identifier(RepurposedStructures.MODID, "stronghold_left_turn"), STRONGHOLD_LEFT_TURN);
-        Registry.register(Registry.STRUCTURE_PIECE, new Identifier(RepurposedStructures.MODID, "stronghold_straight"), STRONGHOLD_STRAIGHT);
-        Registry.register(Registry.STRUCTURE_PIECE, new Identifier(RepurposedStructures.MODID, "stronghold_stairs"), STRONGHOLD_STAIRS);
-        Registry.register(Registry.STRUCTURE_PIECE, new Identifier(RepurposedStructures.MODID, "stronghold_stairs_straight"), STRONGHOLD_STAIRS_STRAIGHT);
-        Registry.register(Registry.STRUCTURE_PIECE, new Identifier(RepurposedStructures.MODID, "stronghold_entrance_stairs"), STRONGHOLD_ENTRANCE_STAIRS);
         Registry.register(Registry.STRUCTURE_PIECE, new Identifier(RepurposedStructures.MODID, "mansion_piece"), MANSION_PIECE);
     }
 }
