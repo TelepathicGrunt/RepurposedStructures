@@ -23,9 +23,10 @@ blockPalette = {""}
 originalBiome = ""
 newBiome = ""
 string_blacklist = []
-conversion_partial_dict = {}
+conversion_partial_dict = {
+    "birch":"desert"
+}
 conversion_exact_dict = {
-    "repurposed_structures:mineshafts/birch/side_step":"repurposed_structures:mineshafts/birch/side"
 }
 
 #-------------------------------------------------------------------------------------------

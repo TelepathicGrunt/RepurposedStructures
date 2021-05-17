@@ -37,7 +37,7 @@
             "predicate_type": "repurposed_structures:piece_origin_axis_aligned_linear_pos_rule_test"
           },
           "input_predicate": {
-            "block": "minecraft:birch_planks",
+            "block": "minecraft:smooth_sandstone",
             "predicate_type": "minecraft:block_match"
           },
           "location_predicate": {
@@ -53,7 +53,7 @@
       "processor_type": "repurposed_structures:close_off_fluid_sources_processor",
       "weighted_list_of_replacement_blocks": [
         {
-          "block" : "minecraft:stripped_birch_wood",
+          "block" : "minecraft:sandstone",
           "weight": 1
         }
       ]
