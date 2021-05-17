@@ -39,6 +39,10 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<DefaultFeatur
     protected final int minY;
 
 
+    public AdvancedJigsawStructure(Identifier poolID, int structureSize, Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces, int maxY, int minY) {
+        this(poolID, structureSize, 0, new ArrayList<>(), new ArrayList<>(), requiredPieces, maxY, minY);
+    }
+
     public AdvancedJigsawStructure(Identifier poolID, int structureSize, List<SpawnSettings.SpawnEntry> monsterSpawns, Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces, int maxY, int minY) {
         this(poolID, structureSize, 0, monsterSpawns, new ArrayList<>(), requiredPieces, maxY, minY);
     }

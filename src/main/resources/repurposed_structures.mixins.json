@@ -15,6 +15,7 @@
     "NoLakesInStructuresMixin",
     "NoLavaFallsInStructuresMixin",
     "PillagerOutpostFeatureAccessor",
+    "RailBlockMixin",
     "ServerResourceManagerMixin",
     "ShulkerEntityAccessor",
     "SinglePoolElementAccessor",

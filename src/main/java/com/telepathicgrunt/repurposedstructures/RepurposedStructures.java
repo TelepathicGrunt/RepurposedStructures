@@ -44,6 +44,7 @@ public class RepurposedStructures implements ModInitializer {
         RSPlacements.registerPlacements();
         RSFeatures.registerFeatures();
         RSProcessors.registerProcessors();
+        RSPredicates.registerPredicates();
         RSStructures.registerStructures();
         RSStructureTagMap.setupTags();
         RSConfiguredFeatures.registerConfiguredFeatures();

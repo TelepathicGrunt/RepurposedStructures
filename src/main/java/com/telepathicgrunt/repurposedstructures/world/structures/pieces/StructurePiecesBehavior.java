@@ -43,5 +43,10 @@ public class StructurePiecesBehavior {
         PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "strongholds/nether/stairs_straight"), (int) (7 * (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdSize * scaleLimitBasedOnSize)));
         PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "strongholds/nether/stairs"), (int) (7 * (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdSize * scaleLimitBasedOnSize)));
         PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "strongholds/nether/chest_corridor"), (int) (16 * (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdSize * scaleLimitBasedOnSize)));
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/birch/spawner_1"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/birch/spawner_2"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/birch/spawner_3_end"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/birch/spawner_3_middle"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/birch/spawner_4_middle"), 1);
     }
 }

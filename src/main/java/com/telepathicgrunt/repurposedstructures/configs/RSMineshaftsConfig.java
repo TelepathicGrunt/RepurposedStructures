@@ -38,6 +38,9 @@ public class RSMineshaftsConfig implements ConfigData {
     public MaxHeight maxHeight = new MaxHeight();
 
     @ConfigEntry.Gui.CollapsibleObject
+    public Size size = new Size();
+
+    @ConfigEntry.Gui.CollapsibleObject
     public Misc misc = new Misc();
 
     public static class Spawnrate {
@@ -308,6 +311,13 @@ public class RSMineshaftsConfig implements ConfigData {
                 + "\nIf below min height, this will be read as min.")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int warpedMineshaftMaxHeight = 13;
+    }
+    public static class Size {
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Size of the mineshaft. This is how many pieces long a branch can be from the start piece.")
+        @ConfigEntry.BoundedDiscrete(min = 0, max = 30)
+        public int birchMineshaftSize = 12;
     }
 
     public static class Misc {
