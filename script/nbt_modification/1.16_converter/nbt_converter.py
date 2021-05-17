@@ -25,7 +25,7 @@ newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {}
 conversion_exact_dict = {
-    "minecraft:air":"minecraft:cave_air"
+    "repurposed_structures:mineshafts/birch/side_step":"repurposed_structures:mineshafts/birch/side"
 }
 
 #-------------------------------------------------------------------------------------------

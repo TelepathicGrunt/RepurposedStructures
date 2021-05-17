@@ -81,7 +81,7 @@
       }
     },
     {
-      "weight": 12,
+      "weight": 10,
       "element": {
         "location": "repurposed_structures:mineshafts/birch/4_way",
         "processors": "repurposed_structures:mineshafts/birch_pillars",
@@ -90,7 +90,7 @@
       }
     },
     {
-      "weight": 12,
+      "weight": 10,
       "element": {
         "location": "repurposed_structures:mineshafts/birch/4_way_tall",
         "processors": "repurposed_structures:mineshafts/birch_pillars",

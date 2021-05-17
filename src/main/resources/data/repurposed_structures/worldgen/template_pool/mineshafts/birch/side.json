@@ -1,9 +1,9 @@
 {
-  "name": "repurposed_structures:mineshafts/birch/",
+  "name": "repurposed_structures:mineshafts/birch/side",
   "fallback": "minecraft:empty",
   "elements": [
     {
-      "weight": 3000,
+      "weight": 4000,
       "element": {
         "element_type": "minecraft:empty_pool_element"
       }
@@ -76,24 +76,6 @@
       "element": {
         "location": "repurposed_structures:mineshafts/birch/tunnel_rails_4",
         "processors": "repurposed_structures:mineshafts/birch_main",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
-    },
-    {
-      "weight": 12,
-      "element": {
-        "location": "repurposed_structures:mineshafts/birch/4_way",
-        "processors": "repurposed_structures:mineshafts/birch_pillars",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
-    },
-    {
-      "weight": 12,
-      "element": {
-        "location": "repurposed_structures:mineshafts/birch/4_way_tall",
-        "processors": "repurposed_structures:mineshafts/birch_pillars",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }

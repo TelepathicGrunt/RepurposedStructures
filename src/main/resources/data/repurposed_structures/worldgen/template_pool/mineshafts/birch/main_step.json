@@ -1,9 +1,9 @@
 {
-  "name": "repurposed_structures:mineshafts/birch/",
+  "name": "repurposed_structures:mineshafts/birch/main_step",
   "fallback": "minecraft:empty",
   "elements": [
     {
-      "weight": 350,
+      "weight": 450,
       "element": {
         "element_type": "minecraft:empty_pool_element"
       }
@@ -81,7 +81,7 @@
       }
     },
     {
-      "weight": 12,
+      "weight": 10,
       "element": {
         "location": "repurposed_structures:mineshafts/birch/4_way",
         "processors": "repurposed_structures:mineshafts/birch_pillars",
@@ -90,7 +90,7 @@
       }
     },
     {
-      "weight": 12,
+      "weight": 10,
       "element": {
         "location": "repurposed_structures:mineshafts/birch/4_way_tall",
         "processors": "repurposed_structures:mineshafts/birch_pillars",

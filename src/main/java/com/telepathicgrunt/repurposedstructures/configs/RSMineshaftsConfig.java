@@ -317,7 +317,7 @@ public class RSMineshaftsConfig implements ConfigData {
         @ConfigEntry.Gui.PrefixText
         @Comment("Size of the mineshaft. This is how many pieces long a branch can be from the start piece.")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 30)
-        public int birchMineshaftSize = 12;
+        public int birchMineshaftSize = 9;
     }
 
     public static class Misc {
