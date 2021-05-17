@@ -1,0 +1,33 @@
+{
+  "name": "repurposed_structures:mineshafts/birch/main",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/birch/tunnel",
+        "processors": "repurposed_structures:mineshafts/birch_main",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/birch/tunnel_rails",
+        "processors": "repurposed_structures:mineshafts/birch_main",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/birch/4_way",
+        "processors": "repurposed_structures:mineshafts/birch_main",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    }
+  ]
+}

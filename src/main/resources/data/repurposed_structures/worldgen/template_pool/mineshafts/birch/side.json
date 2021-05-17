@@ -1,0 +1,15 @@
+{
+  "name": "repurposed_structures:mineshafts/birch/",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/birch/",
+        "processors": "repurposed_structures:mineshafts/birch_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}
