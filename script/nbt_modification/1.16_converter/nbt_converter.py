@@ -20,13 +20,16 @@ conversion_exact_dict = {
 
 blockPalette = {""}
 
-originalBiome = ""
-newBiome = ""
+originalBiome = "birch"
+newBiome = "end"
 string_blacklist = []
 conversion_partial_dict = {
-    "birch":"desert"
+    "birch":"end"
 }
 conversion_exact_dict = {
+    "minecraft:stripped_birch_log":"minecraft:stripped_birch_log",
+    "minecraft:birch_fence":"minecraft:purpur_pillar",
+    "minecraft:birch_planks":"minecraft:purpur_block"
 }
 
 #-------------------------------------------------------------------------------------------

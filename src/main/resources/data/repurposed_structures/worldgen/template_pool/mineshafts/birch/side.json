@@ -81,7 +81,7 @@
       }
     },
     {
-      "weight": 12,
+      "weight": 15,
       "element": {
         "location": "repurposed_structures:mineshafts/birch/stairs",
         "processors": "minecraft:empty",
