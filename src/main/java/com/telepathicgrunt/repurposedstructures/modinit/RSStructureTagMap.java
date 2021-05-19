@@ -57,7 +57,8 @@ public class RSStructureTagMap {
         addTags(RSStructures.ICY_MINESHAFT, Stream.of(STRUCTURE_TAGS.MINESHAFT).collect(Collectors.toSet()));
         addTags(RSStructures.DESERT_MINESHAFT, Stream.of(STRUCTURE_TAGS.MINESHAFT).collect(Collectors.toSet()));
         addTags(RSStructures.STONE_MINESHAFT, Stream.of(STRUCTURE_TAGS.MINESHAFT).collect(Collectors.toSet()));
-        addTags(RSStructures.SWAMP_OR_DARK_FOREST_MINESHAFT, Stream.of(STRUCTURE_TAGS.MINESHAFT).collect(Collectors.toSet()));
+        addTags(RSStructures.DARK_FOREST_MINESHAFT, Stream.of(STRUCTURE_TAGS.MINESHAFT).collect(Collectors.toSet()));
+        addTags(RSStructures.SWAMP_MINESHAFT, Stream.of(STRUCTURE_TAGS.MINESHAFT).collect(Collectors.toSet()));
         addTags(RSStructures.TAIGA_MINESHAFT, Stream.of(STRUCTURE_TAGS.MINESHAFT).collect(Collectors.toSet()));
         addTags(RSStructures.NETHER_MINESHAFT, Stream.of(STRUCTURE_TAGS.MINESHAFT).collect(Collectors.toSet()));
         addTags(RSStructures.CRIMSON_MINESHAFT, Stream.of(STRUCTURE_TAGS.MINESHAFT).collect(Collectors.toSet()));

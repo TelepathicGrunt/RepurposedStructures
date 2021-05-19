@@ -1,0 +1,34 @@
+{
+  "processors": [
+    {
+      "rules": [
+        {
+          "output_state": {
+            "Name": "minecraft:dark_prismarine"
+          },
+          "input_predicate": {
+            "block": "minecraft:sea_lantern",
+            "probability": 0.92,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        }
+      ],
+      "processor_type": "minecraft:rule"
+    },
+    {
+      "processor_type": "repurposed_structures:close_off_air_sources_processor",
+      "weighted_list_of_replacement_blocks": [
+        {
+          "block" : "minecraft:prismarine",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:structure_void_processor"
+    }
+  ]
+}

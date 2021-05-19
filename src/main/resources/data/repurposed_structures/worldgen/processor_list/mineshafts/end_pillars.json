@@ -1,0 +1,65 @@
+{
+  "processors": [
+    {
+      "rules": [
+        {
+          "output_state": {
+            "Name": "minecraft:structure_void"
+          },
+          "position_predicate": {
+            "min_chance": 1,
+            "max_chance": 0,
+            "min_dist": 0,
+            "max_dist": 1,
+            "axis": "y",
+            "predicate_type": "repurposed_structures:piece_origin_axis_aligned_linear_pos_rule_test"
+          },
+          "input_predicate": {
+            "block": "minecraft:purpur_block",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "phase_to_test_for": "AIR",
+            "invert_condition": true,
+            "predicate_type": "repurposed_structures:matter_phase_rule_test"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:structure_void"
+          },
+          "position_predicate": {
+            "min_chance": 0,
+            "max_chance": 1,
+            "min_dist": 0,
+            "max_dist": 1,
+            "axis": "y",
+            "predicate_type": "repurposed_structures:piece_origin_axis_aligned_linear_pos_rule_test"
+          },
+          "input_predicate": {
+            "block": "minecraft:purpur_pillar",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "phase_to_test_for": "SOLID",
+            "invert_condition": true,
+            "predicate_type": "repurposed_structures:matter_phase_rule_test"
+          }
+        }
+      ],
+      "processor_type": "minecraft:rule"
+    },
+    {
+      "processor_type": "repurposed_structures:close_off_fluid_sources_processor",
+      "weighted_list_of_replacement_blocks": [
+        {
+          "block" : "minecraft:purple_stained_glass",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:structure_void_processor"
+    }
+  ]
+}

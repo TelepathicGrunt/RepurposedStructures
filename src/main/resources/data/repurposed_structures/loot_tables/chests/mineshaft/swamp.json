@@ -10,9 +10,8 @@
           "weight": 20
         },
         {
-          "name": "minecraft:totem_of_undying",
-          "type": "minecraft:item",
-          "weight": 1
+          "name": "minecraft:enchanted_golden_apple",
+          "type": "minecraft:item"
         },
         {
           "name": "minecraft:name_tag",
@@ -242,7 +241,7 @@
           ]
         },
         {
-          "name": "minecraft:pumpkin",
+          "name": "minecraft:lily_pad",
           "type": "minecraft:item",
           "weight": 7,
           "functions": [

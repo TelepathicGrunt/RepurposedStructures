@@ -15,6 +15,7 @@ import net.minecraft.world.gen.feature.StructureFeature;
 public class RSConfiguredStructures {
 
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> BIRCH_MINESHAFT = RSStructures.BIRCH_MINESHAFT.configure(FeatureConfig.DEFAULT);
+    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> DARK_FOREST_MINESHAFT = RSStructures.DARK_FOREST_MINESHAFT.configure(FeatureConfig.DEFAULT);
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> DESERT_MINESHAFT = RSStructures.DESERT_MINESHAFT.configure(FeatureConfig.DEFAULT);
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> END_MINESHAFT = RSStructures.END_MINESHAFT.configure(FeatureConfig.DEFAULT);
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> NETHER_MINESHAFT = RSStructures.NETHER_MINESHAFT.configure(FeatureConfig.DEFAULT);
@@ -25,7 +26,7 @@ public class RSConfiguredStructures {
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> OCEAN_MINESHAFT = RSStructures.OCEAN_MINESHAFT.configure(FeatureConfig.DEFAULT);
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> SAVANNA_MINESHAFT = RSStructures.SAVANNA_MINESHAFT.configure(FeatureConfig.DEFAULT);
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> STONE_MINESHAFT = RSStructures.STONE_MINESHAFT.configure(FeatureConfig.DEFAULT);
-    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> SWAMP_OR_DARK_FOREST_MINESHAFT = RSStructures.SWAMP_OR_DARK_FOREST_MINESHAFT.configure(FeatureConfig.DEFAULT);
+    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> SWAMP_MINESHAFT = RSStructures.SWAMP_MINESHAFT.configure(FeatureConfig.DEFAULT);
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> TAIGA_MINESHAFT = RSStructures.TAIGA_MINESHAFT.configure(FeatureConfig.DEFAULT);
 
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> NETHER_STRONGHOLD = RSStructures.NETHER_STRONGHOLD.configure(FeatureConfig.DEFAULT);
@@ -101,6 +102,7 @@ public class RSConfiguredStructures {
         MutableRegistry<ConfiguredStructureFeature<?, ?>> registry = (MutableRegistry<ConfiguredStructureFeature<?, ?>>) BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE;
 
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "birch_mineshaft"), BIRCH_MINESHAFT);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "dark_forest_mineshaft"), DARK_FOREST_MINESHAFT);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "desert_mineshaft"), DESERT_MINESHAFT);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "end_mineshaft"), END_MINESHAFT);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "nether_mineshaft"), NETHER_MINESHAFT);
@@ -111,7 +113,7 @@ public class RSConfiguredStructures {
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "ocean_mineshaft"), OCEAN_MINESHAFT);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "savanna_mineshaft"), SAVANNA_MINESHAFT);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "stone_mineshaft"), STONE_MINESHAFT);
-        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "swamp_or_dark_forest_mineshaft"), SWAMP_OR_DARK_FOREST_MINESHAFT);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "swamp_mineshaft"), SWAMP_MINESHAFT);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "taiga_mineshaft"), TAIGA_MINESHAFT);
 
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "nether_stronghold"), NETHER_STRONGHOLD);

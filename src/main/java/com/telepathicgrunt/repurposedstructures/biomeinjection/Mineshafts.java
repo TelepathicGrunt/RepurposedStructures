@@ -64,12 +64,17 @@ public class Mineshafts {
                         && BiomeSelection.haveCategories(context, Category.TAIGA)),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.TAIGA_MINESHAFT));
 
-        GeneralUtils.addToBiome("swamp_or_dark_forest_mineshaft",
+        GeneralUtils.addToBiome("dark_forest_mineshaft",
                 (context) -> genericMineshaftCheck(context)
                         && (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.swampAndDarkForestMineshaftSpawnrate != 0
-                        && (BiomeSelection.haveCategories(context, Category.SWAMP) ||
-                            (BiomeSelection.haveCategories(context, Category.FOREST) && BiomeSelection.hasName(context, "dark", "spooky", "dead", "haunted")))),
-                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.SWAMP_OR_DARK_FOREST_MINESHAFT));
+                        && BiomeSelection.haveCategories(context, Category.FOREST) && BiomeSelection.hasName(context, "dark", "spooky", "dead", "haunted")),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.DARK_FOREST_MINESHAFT));
+
+        GeneralUtils.addToBiome("swamp_mineshaft",
+                (context) -> genericMineshaftCheck(context)
+                        && (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.swampAndDarkForestMineshaftSpawnrate != 0
+                        && BiomeSelection.haveCategories(context, Category.SWAMP)),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.SWAMP_MINESHAFT));
 
         GeneralUtils.addToBiome("end_mineshaft",
                 (context) -> genericMineshaftCheck(context)
