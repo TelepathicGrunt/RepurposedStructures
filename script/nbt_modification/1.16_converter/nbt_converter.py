@@ -13,6 +13,8 @@ conversion_partial_dict = {
 conversion_exact_dict = {
     "minecraft:chests/pillager_outpost":"repurposed_structures:chests/outpost/badlands_chest"
 }
+    "cobweb":"cave_air",
+    "minecraft:air":"minecraft:cave_air",
 
 '''
 
@@ -20,16 +22,16 @@ conversion_exact_dict = {
 
 blockPalette = {""}
 
-originalBiome = "birch"
-newBiome = "end"
+originalBiome = ""
+newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {
-    "birch":"end"
 }
 conversion_exact_dict = {
-    "minecraft:stripped_birch_log":"minecraft:stripped_birch_log",
-    "minecraft:birch_fence":"minecraft:purpur_pillar",
-    "minecraft:birch_planks":"minecraft:purpur_block"
+    "minecraft:cave_air":"minecraft:water",
+    "minecraft:air":"minecraft:water",
+    "minecraft:cobweb":"minecraft:water",
+    "minecraft:oak_trapdoor[facing=west,half=bottom]": "minecraft:oak_trapdoor[facing=west,half=bottom,waterlogged=true]"
 }
 
 #-------------------------------------------------------------------------------------------
