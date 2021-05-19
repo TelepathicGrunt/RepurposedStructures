@@ -1,6 +1,6 @@
 {
   "name": "repurposed_structures:mineshafts/desert/main",
-  "fallback": "minecraft:empty",
+  "fallback": "repurposed_structures:mineshafts/common/post_process",
   "elements": [
     {
       "weight": 85,

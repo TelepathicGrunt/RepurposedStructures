@@ -1,18 +1,18 @@
 {
-  "name": "repurposed_structures:mineshafts/birch/main_step",
+  "name": "repurposed_structures:mineshafts/end/main_step",
   "fallback": "repurposed_structures:mineshafts/common/post_process",
   "elements": [
     {
-      "weight": 700,
+      "weight": 650,
       "element": {
         "element_type": "minecraft:empty_pool_element"
       }
     },
     {
-      "weight": 10,
+      "weight": 20,
       "element": {
-        "location": "repurposed_structures:mineshafts/birch/tunnel_1",
-        "processors": "repurposed_structures:mineshafts/birch_main",
+        "location": "repurposed_structures:mineshafts/end/divider",
+        "processors": "repurposed_structures:mineshafts/end_main",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -20,8 +20,8 @@
     {
       "weight": 10,
       "element": {
-        "location": "repurposed_structures:mineshafts/birch/tunnel_2",
-        "processors": "repurposed_structures:mineshafts/birch_main",
+        "location": "repurposed_structures:mineshafts/end/tunnel_1",
+        "processors": "repurposed_structures:mineshafts/end_main",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -29,8 +29,8 @@
     {
       "weight": 10,
       "element": {
-        "location": "repurposed_structures:mineshafts/birch/tunnel_3",
-        "processors": "repurposed_structures:mineshafts/birch_main",
+        "location": "repurposed_structures:mineshafts/end/tunnel_2",
+        "processors": "repurposed_structures:mineshafts/end_main",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -38,8 +38,8 @@
     {
       "weight": 10,
       "element": {
-        "location": "repurposed_structures:mineshafts/birch/tunnel_4",
-        "processors": "repurposed_structures:mineshafts/birch_main",
+        "location": "repurposed_structures:mineshafts/end/tunnel_3",
+        "processors": "repurposed_structures:mineshafts/end_main",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -47,8 +47,8 @@
     {
       "weight": 10,
       "element": {
-        "location": "repurposed_structures:mineshafts/birch/tunnel_rails_1",
-        "processors": "repurposed_structures:mineshafts/birch_main",
+        "location": "repurposed_structures:mineshafts/end/tunnel_4",
+        "processors": "repurposed_structures:mineshafts/end_main",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -56,8 +56,8 @@
     {
       "weight": 10,
       "element": {
-        "location": "repurposed_structures:mineshafts/birch/tunnel_rails_2",
-        "processors": "repurposed_structures:mineshafts/birch_main",
+        "location": "repurposed_structures:mineshafts/end/tunnel_rails_1",
+        "processors": "repurposed_structures:mineshafts/end_main",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -65,8 +65,8 @@
     {
       "weight": 10,
       "element": {
-        "location": "repurposed_structures:mineshafts/birch/tunnel_rails_3",
-        "processors": "repurposed_structures:mineshafts/birch_main",
+        "location": "repurposed_structures:mineshafts/end/tunnel_rails_2",
+        "processors": "repurposed_structures:mineshafts/end_main",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -74,8 +74,17 @@
     {
       "weight": 10,
       "element": {
-        "location": "repurposed_structures:mineshafts/birch/tunnel_rails_4",
-        "processors": "repurposed_structures:mineshafts/birch_main",
+        "location": "repurposed_structures:mineshafts/end/tunnel_rails_3",
+        "processors": "repurposed_structures:mineshafts/end_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/end/tunnel_rails_4",
+        "processors": "repurposed_structures:mineshafts/end_main",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -83,8 +92,8 @@
     {
       "weight": 15,
       "element": {
-        "location": "repurposed_structures:mineshafts/birch/4_way",
-        "processors": "repurposed_structures:mineshafts/birch_pillars",
+        "location": "repurposed_structures:mineshafts/end/4_way",
+        "processors": "repurposed_structures:mineshafts/end_pillars",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -92,8 +101,8 @@
     {
       "weight": 15,
       "element": {
-        "location": "repurposed_structures:mineshafts/birch/4_way_tall",
-        "processors": "repurposed_structures:mineshafts/birch_pillars",
+        "location": "repurposed_structures:mineshafts/end/4_way_tall",
+        "processors": "repurposed_structures:mineshafts/end_pillars",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -101,7 +110,7 @@
     {
       "weight": 15,
       "element": {
-        "location": "repurposed_structures:mineshafts/birch/stairs",
+        "location": "repurposed_structures:mineshafts/end/stairs",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
@@ -110,8 +119,8 @@
     {
       "weight": 1,
       "element": {
-        "location": "repurposed_structures:mineshafts/birch/spawner_1",
-        "processors": "repurposed_structures:mineshafts/birch_spawner",
+        "location": "repurposed_structures:mineshafts/end/spawner_1",
+        "processors": "repurposed_structures:mineshafts/end_spawner",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -119,8 +128,8 @@
     {
       "weight": 1,
       "element": {
-        "location": "repurposed_structures:mineshafts/birch/spawner_2",
-        "processors": "repurposed_structures:mineshafts/birch_spawner",
+        "location": "repurposed_structures:mineshafts/end/spawner_2",
+        "processors": "repurposed_structures:mineshafts/end_spawner",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -128,8 +137,8 @@
     {
       "weight": 1,
       "element": {
-        "location": "repurposed_structures:mineshafts/birch/spawner_3_end",
-        "processors": "repurposed_structures:mineshafts/birch_spawner",
+        "location": "repurposed_structures:mineshafts/end/spawner_3_end",
+        "processors": "repurposed_structures:mineshafts/end_spawner",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -137,8 +146,8 @@
     {
       "weight": 1,
       "element": {
-        "location": "repurposed_structures:mineshafts/birch/spawner_3_middle",
-        "processors": "repurposed_structures:mineshafts/birch_spawner",
+        "location": "repurposed_structures:mineshafts/end/spawner_3_middle",
+        "processors": "repurposed_structures:mineshafts/end_spawner",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -146,8 +155,8 @@
     {
       "weight": 1,
       "element": {
-        "location": "repurposed_structures:mineshafts/birch/spawner_4_end",
-        "processors": "repurposed_structures:mineshafts/birch_spawner",
+        "location": "repurposed_structures:mineshafts/end/spawner_4_end",
+        "processors": "repurposed_structures:mineshafts/end_spawner",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -155,8 +164,8 @@
     {
       "weight": 1,
       "element": {
-        "location": "repurposed_structures:mineshafts/birch/spawner_4_middle",
-        "processors": "repurposed_structures:mineshafts/birch_spawner",
+        "location": "repurposed_structures:mineshafts/end/spawner_4_middle",
+        "processors": "repurposed_structures:mineshafts/end_spawner",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
