@@ -129,6 +129,24 @@ public class RSMineshaftsConfig implements ConfigData {
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
+        @Comment("Replaces Mineshafts in Swamps."
+                + "\nHow often Mineshafts will spawn."
+                + "\n0 for no Mineshafts and 1000 for max spawnrate."
+                + "\nNote: Set this to 0 and restart to spawn Vanilla Mineshafts.")
+        @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
+        public int swampMineshaftSpawnrate = 40;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Replaces Mineshafts in Dark Forests."
+                + "\nHow often Mineshafts will spawn."
+                + "\n0 for no Mineshafts and 1000 for max spawnrate."
+                + "\nNote: Set this to 0 and restart to spawn Vanilla Mineshafts.")
+        @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
+        public int darkForestMineshaftSpawnrate = 40;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
         @Comment("Add End themed Mineshafts to biomes outside the Enderdragon island."
                 + "\nHow often Mineshafts will spawn."
                 + "\n0 for no Mineshafts and 1000 for max spawnrate.")
@@ -210,6 +228,16 @@ public class RSMineshaftsConfig implements ConfigData {
         public int swampAndDarkForestMineshaftMinHeight = 8;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @Comment("Min Y height of Mineshaft. Default is 8.")
+        @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
+        public int swampMineshaftMinHeight = 8;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @Comment("Min Y height of Mineshaft. Default is 8.")
+        @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
+        public int darkForestMineshaftMinHeight = 8;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
         @Comment("Min Y height of Mineshaft. Default is 30.")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int endMineshaftMinHeight = 30;
@@ -289,6 +317,18 @@ public class RSMineshaftsConfig implements ConfigData {
         public int swampAndDarkForestMineshaftMaxHeight = 45;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @Comment("Max Y height of Mineshaft. Default is 45."
+                + "\nIf below min height, this will be read as min.")
+        @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
+        public int swampMineshaftMaxHeight = 45;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @Comment("Max Y height of Mineshaft. Default is 45."
+                + "\nIf below min height, this will be read as min.")
+        @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
+        public int darkForestMineshaftMaxHeight = 45;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
         @Comment("Max Y height of Mineshaft. Default is 37."
                 + "\nIf below min height, this will be read as min.")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
@@ -360,6 +400,18 @@ public class RSMineshaftsConfig implements ConfigData {
         @Comment("Size of the mineshaft. This is how many pieces long a branch can be from the start piece.")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 30)
         public int taigaMineshaftSize = 10;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Size of the mineshaft. This is how many pieces long a branch can be from the start piece.")
+        @ConfigEntry.BoundedDiscrete(min = 0, max = 30)
+        public int swampMineshaftSize = 10;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Size of the mineshaft. This is how many pieces long a branch can be from the start piece.")
+        @ConfigEntry.BoundedDiscrete(min = 0, max = 30)
+        public int darkForestMineshaftSize = 10;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText

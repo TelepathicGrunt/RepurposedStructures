@@ -22,16 +22,16 @@ conversion_exact_dict = {
 
 blockPalette = {""}
 
-originalBiome = ""
-newBiome = ""
+originalBiome = "dark_forest"
+newBiome = "icy"
 string_blacklist = []
 conversion_partial_dict = {
+    "dark_forest":"icy"
 }
 conversion_exact_dict = {
-    "minecraft:cave_air":"minecraft:water",
-    "minecraft:air":"minecraft:water",
-    "minecraft:cobweb":"minecraft:water",
-    "minecraft:oak_trapdoor[facing=west,half=bottom]": "minecraft:oak_trapdoor[facing=west,half=bottom,waterlogged=true]"
+    "minecraft:wall_torch":"minecraft:redstone_wall_torch",
+    "minecraft:dark_oak_planks":"minecraft:ice",
+    "minecraft:coarse_dirt":"minecraft:ice"
 }
 
 #-------------------------------------------------------------------------------------------
