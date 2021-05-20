@@ -84,7 +84,7 @@
       "weight": 15,
       "element": {
         "location": "repurposed_structures:mineshafts/swamp/stairs",
-        "processors": "minecraft:empty",
+        "processors": "repurposed_structures:mineshafts/swamp_misc",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }

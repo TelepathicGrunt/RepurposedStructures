@@ -6,7 +6,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:mineshafts/ocean/minecart",
-        "processors": "minecraft:empty",
+        "processors": "repurposed_structures:mineshafts/ocean_misc",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }

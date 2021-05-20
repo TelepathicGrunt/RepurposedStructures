@@ -4,13 +4,10 @@
       "processor_type": "repurposed_structures:close_off_fluid_sources_processor",
       "weighted_list_of_replacement_blocks": [
         {
-          "block" : "minecraft:warped_hyphae",
+          "block" : "minecraft:stripped_birch_wood",
           "weight": 1
         }
       ]
-    },
-    {
-      "processor_type": "repurposed_structures:structure_void_processor"
     }
   ]
 }

@@ -1,9 +1,10 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
-import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
-import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
+import com.mojang.serialization.Codec;
+import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetChanceConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.LanternBlock;
 import net.minecraft.block.Material;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkSectionPos;
@@ -11,8 +12,8 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.WorldAccess;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 
 import java.util.BitSet;
@@ -20,10 +21,10 @@ import java.util.Random;
 import java.util.function.Predicate;
 
 
-public class FortressBreakage extends Feature<DefaultFeatureConfig> {
+public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
 
-    public FortressBreakage() {
-        super(DefaultFeatureConfig.CODEC);
+    public StructureBreakage(Codec<StructureTargetChanceConfig> config) {
+        super(config);
     }
 
     private static final Predicate<BlockState> FORTRESS_BLOCKS = (blockState) -> {
@@ -40,12 +41,23 @@ public class FortressBreakage extends Feature<DefaultFeatureConfig> {
         }
     };
 
+
     @Override
-    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
-        if(GeneralUtils.isWorldBlacklisted(world)) return false;
-        if (FORTRESS_BLOCKS.test(world.getBlockState(position.down())) &&
-            world.getStructures(ChunkSectionPos.from(position), RSStructures.JUNGLE_FORTRESS).findAny().isPresent())
-        {
+    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, StructureTargetChanceConfig config) {
+
+        BlockPos.Mutable mutable = new BlockPos.Mutable();
+
+        if(random.nextFloat() < config.chance){
+            mutable.set(position).move(
+                    random.nextInt(21) - 10,
+                    random.nextInt(2) - 2,
+                    random.nextInt(21) - 10
+            );
+
+            if(!world.toServerWorld().getStructureAccessor().getStructureAt(mutable, true, config.targetStructure).hasChildren()){
+                return false;
+            }
+
             if(random.nextBoolean())
                 position = position.down();
 
@@ -67,12 +79,12 @@ public class FortressBreakage extends Feature<DefaultFeatureConfig> {
             for (int s = n; s <= n + q; ++s) {
                 for (int t = p; t <= p + q; ++t) {
                     return this.generateVeinPart(world, random, d, e, h, j, l, m, n, o, p, q, r);
+                    //this.generateVeinPart(world, random, d, e, h, j, l, m, n, o, p, q, r);
                 }
             }
-            return true;
         }
 
-        return false;
+        return true;
     }
 
 

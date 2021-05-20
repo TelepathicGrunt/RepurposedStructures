@@ -102,7 +102,7 @@
       "weight": 15,
       "element": {
         "location": "repurposed_structures:mineshafts/desert/stairs",
-        "processors": "minecraft:empty",
+        "processors": "repurposed_structures:mineshafts/desert_misc",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }

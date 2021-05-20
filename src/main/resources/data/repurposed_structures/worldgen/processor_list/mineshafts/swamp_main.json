@@ -58,19 +58,6 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:cobweb"
-          },
-          "input_predicate": {
-            "block": "minecraft:cave_air",
-            "probability": 0.8,
-            "predicate_type": "minecraft:random_block_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          }
-        },
-        {
-          "output_state": {
             "Name": "minecraft:structure_void"
           },
           "position_predicate": {

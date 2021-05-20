@@ -84,7 +84,7 @@
       "weight": 15,
       "element": {
         "location": "repurposed_structures:mineshafts/warped/4_way",
-        "processors": "repurposed_structures:mineshafts/warped_pillars",
+        "processors": "repurposed_structures:mineshafts/warped_misc",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -93,7 +93,7 @@
       "weight": 15,
       "element": {
         "location": "repurposed_structures:mineshafts/warped/4_way_tall",
-        "processors": "repurposed_structures:mineshafts/warped_pillars",
+        "processors": "repurposed_structures:mineshafts/warped_misc",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -102,7 +102,7 @@
       "weight": 15,
       "element": {
         "location": "repurposed_structures:mineshafts/warped/stairs",
-        "processors": "minecraft:empty",
+        "processors": "repurposed_structures:mineshafts/warped_misc",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }

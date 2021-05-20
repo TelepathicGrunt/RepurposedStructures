@@ -3,6 +3,9 @@ package com.telepathicgrunt.repurposedstructures.modinit;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.features.*;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.NbtDungeonConfig;
+import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetAndLengthConfig;
+import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetChanceConfig;
+import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetConfig;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
@@ -30,14 +33,20 @@ public class RSFeatures {
     public static Feature<DefaultFeatureConfig> MOSSY_STONE_WELL = new WellMossyStone();
     public static Feature<DefaultFeatureConfig> FOREST_WELL = new WellForest();
 
-    public static Feature<DefaultFeatureConfig> SHORT_VINES = new VinesShort();
-    public static Feature<DefaultFeatureConfig> SWAMP_VILLAGE_VINES = new SwampVillageVines();
-    public static Feature<DefaultFeatureConfig> JUNGLE_STRUCTURES_VINES = new JungleStructuresVines();
-    public static Feature<DefaultFeatureConfig> FORTRESS_BREAKAGE = new FortressBreakage();
-    public static Feature<DefaultFeatureConfig> STRONGHOLD_CHAINS = new StrongholdChains();
-
     public static Feature<DefaultFeatureConfig> WITHER_SKELETON_WITH_BOW = new WitherSkeletonWithBow();
     public static Feature<DefaultFeatureConfig> SHULKER_MOB = new ShulkerMob();
+
+    public static Feature<DefaultFeatureConfig> POST_PROCESS_CONNECTING_BLOCKS = new StructurePostProcessConnectiveBlocks();
+    public static Feature<StructureTargetChanceConfig> STRUCTURE_BREAKAGE = new StructureBreakage(StructureTargetChanceConfig.CODEC);
+    public static Feature<StructureTargetConfig> STRUCTURE_CHAINS = new StructureChains(StructureTargetConfig.CODEC);
+    public static Feature<StructureTargetConfig> STRUCTURE_CHORUS = new StructureChorus(StructureTargetConfig.CODEC);
+    public static Feature<StructureTargetConfig> STRUCTURE_CRIMSON_PLANTS = new StructureCrimsonPlants(StructureTargetConfig.CODEC);
+    public static Feature<StructureTargetConfig> STRUCTURE_FIRE = new StructureFire(StructureTargetConfig.CODEC);
+    public static Feature<StructureTargetConfig> STRUCTURE_NETHERWART = new StructureNetherwart(StructureTargetConfig.CODEC);
+    public static Feature<StructureTargetConfig> STRUCTURE_SEAGRASS = new StructureSeagrass(StructureTargetConfig.CODEC);
+    public static Feature<StructureTargetAndLengthConfig> STRUCTURE_VINES = new StructureVine(StructureTargetAndLengthConfig.CODEC);
+    public static Feature<StructureTargetAndLengthConfig> STRUCTURE_VINES_AND_LEAVES = new StructureVineAndLeaves(StructureTargetAndLengthConfig.CODEC);
+    public static Feature<StructureTargetConfig> STRUCTURE_WARPED_PLANTS = new StructureWarpedPlants(StructureTargetConfig.CODEC);
 
     public static void registerFeatures() {
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "dungeons_badlands"), BADLANDS_DUNGEONS);
@@ -58,13 +67,19 @@ public class RSFeatures {
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "well_mossy_stone"), MOSSY_STONE_WELL);
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "well_forest"), FOREST_WELL);
 
-        Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "short_vines"), SHORT_VINES);
-        Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "swamp_village_vines"), SWAMP_VILLAGE_VINES);
-        Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "jungle_structures_vines"), JUNGLE_STRUCTURES_VINES);
-        Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "fortress_breakage"), FORTRESS_BREAKAGE);
-        Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "stronghold_chains"), STRONGHOLD_CHAINS);
-
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "wither_skeleton_with_bow"), WITHER_SKELETON_WITH_BOW);
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "shulker_mob"), SHULKER_MOB);
+
+        Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "post_process_connecting_blocks"), POST_PROCESS_CONNECTING_BLOCKS);
+        Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "structure_breakage"), STRUCTURE_BREAKAGE);
+        Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "structure_chains"), STRUCTURE_CHAINS);
+        Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "structure_chorus"), STRUCTURE_CHORUS);
+        Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "structure_crimson_plants"), STRUCTURE_CRIMSON_PLANTS);
+        Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "structure_fire"), STRUCTURE_FIRE);
+        Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "structure_netherwart"), STRUCTURE_NETHERWART);
+        Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "structure_seagrass"), STRUCTURE_SEAGRASS);
+        Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "structure_vines"), STRUCTURE_VINES);
+        Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "structure_vines_and_leaves"), STRUCTURE_VINES_AND_LEAVES);
+        Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "structure_warped_plants"), STRUCTURE_WARPED_PLANTS);
     }
 }

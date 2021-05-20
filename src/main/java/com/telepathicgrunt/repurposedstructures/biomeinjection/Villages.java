@@ -45,10 +45,7 @@ public class Villages {
                         && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.VILLAGE)
                         && BiomeSelection.isBiomeAllowed(context, "villages")
                         && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSVillagesConfig.addVillagesToModdedBiomes),
-                context -> {
-                    context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.JUNGLE_VILLAGE);
-                    context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.VEGETAL_DECORATION, RSConfiguredFeatures.JUNGLE_VILLAGE_VINES);
-                });
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.JUNGLE_VILLAGE));
 
         GeneralUtils.addToBiome("swamp_village",
                 (context) -> BiomeSelection.haveCategories(context, Category.SWAMP)
@@ -56,11 +53,7 @@ public class Villages {
                         && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.VILLAGE)
                         && BiomeSelection.isBiomeAllowed(context, "villages")
                         && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSVillagesConfig.addVillagesToModdedBiomes),
-                context -> {
-                    context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.SWAMP_VILLAGE);
-                    context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.VEGETAL_DECORATION, RSConfiguredFeatures.SWAMP_VILLAGE_VINES);
-                });
-
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.SWAMP_VILLAGE));
 
         GeneralUtils.addToBiome("mountains_village",
                 (context) -> BiomeSelection.haveCategories(context, Category.EXTREME_HILLS)

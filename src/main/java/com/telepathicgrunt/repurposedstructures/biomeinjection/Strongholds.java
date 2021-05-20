@@ -18,9 +18,6 @@ public class Strongholds {
                         && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.STRONGHOLD)
                         && BiomeSelection.isBiomeAllowed(context, "strongholds")
                         && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.addNetherStrongholdToModdedBiomes),
-                context -> {
-                    context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.NETHER_STRONGHOLD);
-                    context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.STRONGHOLDS, RSConfiguredFeatures.NETHER_STRONGHOLD_CHAINS);
-                });
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.NETHER_STRONGHOLD));
     }
 }
