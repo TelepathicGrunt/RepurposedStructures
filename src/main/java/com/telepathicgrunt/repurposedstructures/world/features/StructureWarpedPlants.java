@@ -32,9 +32,9 @@ public class StructureWarpedPlants extends Feature<StructureTargetConfig> {
 
         for(int i = 0; i < config.attempts; i++){
             mutable.set(position).move(
-                    random.nextInt(21) - 10,
-                    random.nextInt(21) - 10,
-                    random.nextInt(21) - 10
+                    random.nextInt(7) - 3,
+                    -1,
+                    random.nextInt(7) - 3
             );
 
             if(world.getBlockState(mutable).isAir()){
@@ -59,7 +59,7 @@ public class StructureWarpedPlants extends Feature<StructureTargetConfig> {
                     if(!world.toServerWorld().getStructureAccessor().getStructureAt(mutable, true, config.targetStructure).hasChildren()){
                         continue;
                     }
-                    
+
                     int length = random.nextInt(3);
                     for(int currentLength = 0; currentLength <= length; currentLength++){
                         if(currentLength == length || !world.getBlockState(mutable.up()).isAir()){

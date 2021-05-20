@@ -84,7 +84,7 @@
       "weight": 15,
       "element": {
         "location": "repurposed_structures:mineshafts/ocean/4_way",
-        "processors": "repurposed_structures:mineshafts/ocean_pillars",
+        "processors": "repurposed_structures:mineshafts/ocean_misc",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -93,7 +93,7 @@
       "weight": 15,
       "element": {
         "location": "repurposed_structures:mineshafts/ocean/4_way_tall",
-        "processors": "repurposed_structures:mineshafts/ocean_pillars",
+        "processors": "repurposed_structures:mineshafts/ocean_misc",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }

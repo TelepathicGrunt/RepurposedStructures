@@ -49,9 +49,9 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
 
         if(random.nextFloat() < config.chance){
             mutable.set(position).move(
-                    random.nextInt(21) - 10,
-                    random.nextInt(2) - 2,
-                    random.nextInt(21) - 10
+                    random.nextInt(7) - 3,
+                    random.nextInt(3) - 1,
+                    random.nextInt(7) - 3
             );
 
             if(!world.toServerWorld().getStructureAccessor().getStructureAt(mutable, true, config.targetStructure).hasChildren()){

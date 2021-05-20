@@ -30,9 +30,9 @@ public class StructureChorus extends Feature<StructureTargetConfig> {
 
         for(int i = 0; i < config.attempts; i++){
             mutable.set(position).move(
-                    random.nextInt(21) - 10,
-                    random.nextInt(21) - 10,
-                    random.nextInt(21) - 10
+                    random.nextInt(7) - 3,
+                    -1,
+                    random.nextInt(7) - 3
             );
 
             if(world.getBlockState(mutable).isAir() && world.getBlockState(mutable.move(Direction.DOWN)).isOpaque()){

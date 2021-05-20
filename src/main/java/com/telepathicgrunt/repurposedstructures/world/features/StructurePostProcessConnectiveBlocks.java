@@ -24,9 +24,9 @@ public class StructurePostProcessConnectiveBlocks extends Feature<DefaultFeature
         BlockPos.Mutable mutable2 = new BlockPos.Mutable();
         ChunkPos currentChunkPos = new ChunkPos(position);
         Chunk currentChunk = world.getChunk(currentChunkPos.x, currentChunkPos.z);
-        for(int x = -10; x <= 10; x++){
-            for(int z = -10; z <= 10; z++){
-                for(int y = -1; y <= 0; y++){
+        for(int x = -1; x <= 1; x++){
+            for(int z = -1; z <= 1; z++){
+                for(int y = -2; y <= 0; y++){
                     mutable.set(position).move(x, y, z);
 
                     if (currentChunkPos.x != mutable.getX() >> 4 || currentChunkPos.z != mutable.getZ() >> 4) {
@@ -38,7 +38,10 @@ public class StructurePostProcessConnectiveBlocks extends Feature<DefaultFeature
                     if(currentState.getBlock() instanceof WallBlock){
                         for(Direction direction : Direction.values()){
                             mutable2.set(mutable).move(direction);
-                            BlockState sideBlock = world.getBlockState(mutable2);
+                            if (currentChunkPos.x != mutable2.getX() >> 4 || currentChunkPos.z != mutable2.getZ() >> 4) {
+                                continue;
+                            }
+                            BlockState sideBlock = currentChunk.getBlockState(mutable2);
                             currentState  = currentState.getStateForNeighborUpdate(
                                     direction,
                                     sideBlock,
@@ -52,7 +55,10 @@ public class StructurePostProcessConnectiveBlocks extends Feature<DefaultFeature
                     else if(currentState.getBlock() instanceof FenceBlock){
                         for(Direction direction : Direction.Type.HORIZONTAL){
                             mutable2.set(mutable).move(direction);
-                            BlockState sideBlock = world.getBlockState(mutable2);
+                            if (currentChunkPos.x != mutable2.getX() >> 4 || currentChunkPos.z != mutable2.getZ() >> 4) {
+                                continue;
+                            }
+                            BlockState sideBlock = currentChunk.getBlockState(mutable2);
                             currentState  = currentState.getStateForNeighborUpdate(
                                     direction,
                                     sideBlock,

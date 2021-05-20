@@ -45,7 +45,7 @@ public class CloseOffFluidSourcesProcessor extends StructureProcessor {
     public Structure.StructureBlockInfo process(WorldView worldReader, BlockPos pos, BlockPos pos2, Structure.StructureBlockInfo infoIn1, Structure.StructureBlockInfo infoIn2, StructurePlacementData settings) {
 
         ChunkPos currentChunkPos = new ChunkPos(infoIn2.pos);
-        if(infoIn2.state.isOf(Blocks.CAVE_AIR)){
+        if(!infoIn2.state.isOpaque()){
             Chunk currentChunk = worldReader.getChunk(currentChunkPos.x, currentChunkPos.z);
 
             // Remove fluid sources in adjacent horizontal blocks across chunk boundaries and above as well

@@ -31,9 +31,9 @@ public class StructureChains extends Feature<StructureTargetConfig> {
 
         for(int i = 0; i < config.attempts; i++){
             mutable.set(position).move(
-                    random.nextInt(21) - 10,
-                    random.nextInt(21) - 10,
-                    random.nextInt(21) - 10
+                    random.nextInt(11) - 5,
+                    random.nextInt(3) - 1,
+                    random.nextInt(11) - 5
             );
 
             if(!world.getBlockState(mutable).isAir() || !world.toServerWorld().getStructureAccessor().getStructureAt(mutable, true, config.targetStructure).hasChildren()){

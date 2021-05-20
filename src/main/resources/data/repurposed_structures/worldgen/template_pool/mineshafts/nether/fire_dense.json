@@ -1,0 +1,14 @@
+{
+  "name": "repurposed_structures:mineshafts/nether/fire_dense",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "feature": "repurposed_structures:nether_mineshaft_dense_fire",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    }
+  ]
+}

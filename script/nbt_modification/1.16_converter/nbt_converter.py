@@ -22,16 +22,12 @@ conversion_exact_dict = {
 
 blockPalette = {""}
 
-originalBiome = "dark_forest"
-newBiome = "icy"
+originalBiome = ""
+newBiome = ""
 string_blacklist = []
-conversion_partial_dict = {
-    "dark_forest":"icy"
-}
+conversion_partial_dict = {}
 conversion_exact_dict = {
-    "minecraft:wall_torch":"minecraft:redstone_wall_torch",
-    "minecraft:dark_oak_planks":"minecraft:ice",
-    "minecraft:coarse_dirt":"minecraft:ice"
+    "minecraft:air":"minecraft:cave_air"
 }
 
 #-------------------------------------------------------------------------------------------
@@ -47,6 +43,13 @@ def string_replacer(nbt_string):
                 nbt_string.value = nbt_string.value.replace(key, replacement)
                 return
 
+def property_replacer(nbt_key, nbt_string, property_name, value_to_replace, new_value):
+    if nbt_key == property_name:
+        if nbt_string.value == value_to_replace:
+            nbt_string.value = new_value
+            return
+
+
 
 def traverse_dicts(nbt_list):
     '''
@@ -56,6 +59,21 @@ def traverse_dicts(nbt_list):
     '''
     if isinstance(nbt_list, collections.abc.Mapping):
         for key, entry in nbt_list.items():
+
+            property_replacer(key, entry, "east", "true", "false")
+            property_replacer(key, entry, "north", "true", "false")
+            property_replacer(key, entry, "south", "true", "false")
+            property_replacer(key, entry, "west", "true", "false")
+            property_replacer(key, entry, "east", "tall", "none")
+            property_replacer(key, entry, "north", "tall", "none")
+            property_replacer(key, entry, "south", "tall", "none")
+            property_replacer(key, entry, "west", "tall", "none")
+            property_replacer(key, entry, "east", "low", "none")
+            property_replacer(key, entry, "north", "low", "none")
+            property_replacer(key, entry, "south", "low", "none")
+            property_replacer(key, entry, "west", "low", "none")
+            property_replacer(key, entry, "up", "false", "true")
+
             if isinstance(entry, nbt.NBTTagList) or isinstance(entry, nbt.NBTTagCompound):
                 traverse_dicts(entry)
             elif isinstance(entry, nbt.NBTTagString):

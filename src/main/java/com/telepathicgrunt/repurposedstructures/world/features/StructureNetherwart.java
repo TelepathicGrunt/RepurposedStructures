@@ -30,9 +30,9 @@ public class StructureNetherwart extends Feature<StructureTargetConfig> {
 
         for(int i = 0; i < config.attempts; i++){
             mutable.set(position).move(
-                    random.nextInt(21) - 10,
-                    random.nextInt(21) - 10,
-                    random.nextInt(21) - 10
+                    random.nextInt(10) - 5,
+                    -1,
+                    random.nextInt(10) - 5
             );
 
             if(netherwart.canPlaceAt(world, mutable)){

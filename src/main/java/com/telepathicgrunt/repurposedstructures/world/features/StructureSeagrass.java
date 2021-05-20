@@ -34,7 +34,7 @@ public class StructureSeagrass extends Feature<StructureTargetConfig> {
         for(int i = 0; i < config.attempts; i++){
             mutable.set(position).move(
                     random.nextInt(7) - 3,
-                    random.nextInt(7) - 3,
+                    -1,
                     random.nextInt(7) - 3
             );
 
