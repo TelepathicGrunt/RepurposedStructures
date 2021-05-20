@@ -13,6 +13,20 @@
 ##### Ruins:
 • Added translation for Nether Ruins Map names.
 
+##### Mineshafts:
+• All of RS's Mineshafts are now Jigsaw Structures so you can use datapacks to add new nbt pieces to it or customize it even more!
+
+• Mineshaft size is now a config option. All Mineshafts are a bit larger now with End Mineshafts especially giant now.
+
+• All 3 Nether Mineshafts have higher chance of Chest Minecarts.
+
+• End Mineshafts have much higher rate of Chest Minecarts but also has far more Endermite Spawners to make it dangerous.
+
+• Overworld Mineshafts are less likely to be cutoff by water and instead, will attempt to go through the liquid and wall it off instead.
+  Ocean Mineshafts will do the same but for air instead.
+
+• Swamp And Dark Forest Mineshaft has been split up into two separate Mineshafts. Swamp Mineshaft and Dark Forest Mineshaft.
+
 ##### Strongholds:
 • Removed Stonebricks Strongholds because Better Strongholds mod exists!
   Use that epic mod instead of upgrade the Overworld Stronghold!

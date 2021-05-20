@@ -5,20 +5,15 @@ import com.telepathicgrunt.repurposedstructures.world.features.configs.Structure
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.TallSeagrassBlock;
-import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.tag.Tag;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkSectionPos;
-import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -50,10 +45,15 @@ public class StructureFire extends Feature<StructureTargetConfig> {
                     random.nextInt(7) - 3
             );
 
-            if(world.getBlockState(mutable).isAir() && infiniteBurningBlocks.contains(world.getBlockState(mutable.down()).getBlock())){
+            Block belowBlock = world.getBlockState(mutable.down()).getBlock();
+            if(world.getBlockState(mutable).isAir() && (belowBlock.is(Blocks.NETHER_BRICKS) || infiniteBurningBlocks.contains(belowBlock))){
                 // expensive. Do this check very last
                 if(!world.toServerWorld().getStructureAccessor().getStructureAt(mutable, true, config.targetStructure).hasChildren()){
                     continue;
+                }
+
+                if(belowBlock.is(Blocks.NETHER_BRICKS)){
+                    world.setBlockState(mutable.down(), Blocks.NETHERRACK.getDefaultState(), 3);
                 }
 
                 world.setBlockState(mutable, fire, 3);

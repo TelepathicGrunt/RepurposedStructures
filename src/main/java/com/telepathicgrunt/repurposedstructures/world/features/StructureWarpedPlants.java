@@ -5,7 +5,6 @@ import com.telepathicgrunt.repurposedstructures.world.features.configs.Structure
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkSectionPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
@@ -25,6 +24,7 @@ public class StructureWarpedPlants extends Feature<StructureTargetConfig> {
     public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, StructureTargetConfig config) {
 
         BlockPos.Mutable mutable = new BlockPos.Mutable();
+        BlockState netherSprouts = Blocks.NETHER_SPROUTS.getDefaultState();
         BlockState twistingFungus = Blocks.WARPED_FUNGUS.getDefaultState();
         BlockState twistingRoots = Blocks.WARPED_ROOTS.getDefaultState();
         BlockState twistingVines = Blocks.TWISTING_VINES.getDefaultState();
@@ -38,7 +38,15 @@ public class StructureWarpedPlants extends Feature<StructureTargetConfig> {
             );
 
             if(world.getBlockState(mutable).isAir()){
-                if(random.nextFloat() < 0.8f && twistingRoots.canPlaceAt(world, mutable)){
+                if(random.nextFloat() < 0.5f && netherSprouts.canPlaceAt(world, mutable)){
+                    // expensive. Do this check very last
+                    if(!world.toServerWorld().getStructureAccessor().getStructureAt(mutable, true, config.targetStructure).hasChildren()){
+                        continue;
+                    }
+
+                    world.setBlockState(mutable, netherSprouts, 3);
+                }
+                else if(random.nextFloat() < 0.4f && twistingRoots.canPlaceAt(world, mutable)){
                     // expensive. Do this check very last
                     if(!world.toServerWorld().getStructureAccessor().getStructureAt(mutable, true, config.targetStructure).hasChildren()){
                         continue;
@@ -46,7 +54,7 @@ public class StructureWarpedPlants extends Feature<StructureTargetConfig> {
 
                     world.setBlockState(mutable, twistingRoots, 3);
                 }
-                else if(twistingFungus.canPlaceAt(world, mutable)){
+                else if(random.nextFloat() < 0.3f && twistingFungus.canPlaceAt(world, mutable)){
                     // expensive. Do this check very last
                     if(!world.toServerWorld().getStructureAccessor().getStructureAt(mutable, true, config.targetStructure).hasChildren()){
                         continue;

@@ -3,13 +3,13 @@
   "fallback": "repurposed_structures:mineshafts/common/post_process",
   "elements": [
     {
-      "weight": 85,
+      "weight": 44,
       "element": {
         "element_type": "minecraft:empty_pool_element"
       }
     },
     {
-      "weight": 10,
+      "weight": 5,
       "element": {
         "location": "repurposed_structures:mineshafts/end/tunnel_1",
         "processors": "repurposed_structures:mineshafts/end_main",
@@ -18,7 +18,7 @@
       }
     },
     {
-      "weight": 10,
+      "weight": 5,
       "element": {
         "location": "repurposed_structures:mineshafts/end/tunnel_2",
         "processors": "repurposed_structures:mineshafts/end_main",
@@ -27,7 +27,7 @@
       }
     },
     {
-      "weight": 10,
+      "weight": 5,
       "element": {
         "location": "repurposed_structures:mineshafts/end/tunnel_3",
         "processors": "repurposed_structures:mineshafts/end_main",
@@ -36,7 +36,7 @@
       }
     },
     {
-      "weight": 10,
+      "weight": 5,
       "element": {
         "location": "repurposed_structures:mineshafts/end/tunnel_4",
         "processors": "repurposed_structures:mineshafts/end_main",
@@ -45,7 +45,7 @@
       }
     },
     {
-      "weight": 10,
+      "weight": 5,
       "element": {
         "location": "repurposed_structures:mineshafts/end/tunnel_rails_1",
         "processors": "repurposed_structures:mineshafts/end_main",
@@ -54,7 +54,7 @@
       }
     },
     {
-      "weight": 10,
+      "weight": 5,
       "element": {
         "location": "repurposed_structures:mineshafts/end/tunnel_rails_2",
         "processors": "repurposed_structures:mineshafts/end_main",
@@ -63,7 +63,7 @@
       }
     },
     {
-      "weight": 10,
+      "weight": 5,
       "element": {
         "location": "repurposed_structures:mineshafts/end/tunnel_rails_3",
         "processors": "repurposed_structures:mineshafts/end_main",
@@ -72,7 +72,7 @@
       }
     },
     {
-      "weight": 10,
+      "weight": 5,
       "element": {
         "location": "repurposed_structures:mineshafts/end/tunnel_rails_4",
         "processors": "repurposed_structures:mineshafts/end_main",
@@ -81,7 +81,7 @@
       }
     },
     {
-      "weight": 15,
+      "weight": 7,
       "element": {
         "location": "repurposed_structures:mineshafts/end/4_way",
         "processors": "repurposed_structures:mineshafts/end_pillars",
@@ -90,7 +90,7 @@
       }
     },
     {
-      "weight": 15,
+      "weight": 7,
       "element": {
         "location": "repurposed_structures:mineshafts/end/4_way_tall",
         "processors": "repurposed_structures:mineshafts/end_pillars",
@@ -99,7 +99,7 @@
       }
     },
     {
-      "weight": 15,
+      "weight": 7,
       "element": {
         "location": "repurposed_structures:mineshafts/end/stairs",
         "processors": "repurposed_structures:mineshafts/end_misc",

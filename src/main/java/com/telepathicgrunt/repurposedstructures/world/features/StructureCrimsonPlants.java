@@ -4,10 +4,7 @@ import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.TallSeagrassBlock;
-import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkSectionPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
@@ -35,7 +32,7 @@ public class StructureCrimsonPlants extends Feature<StructureTargetConfig> {
         for(int i = 0; i < config.attempts; i++){
             mutable.set(position).move(
                     random.nextInt(7) - 3,
-                    -1,
+                    random.nextInt(4) - 1,
                     random.nextInt(7) - 3
             );
 

@@ -3,7 +3,6 @@ package com.telepathicgrunt.repurposedstructures.modinit;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.predicates.MatterPhaseRuleTest;
 import com.telepathicgrunt.repurposedstructures.world.predicates.PieceOriginAxisAlignedLinearPosRuleTest;
-import net.minecraft.structure.rule.AlwaysTrueRuleTest;
 import net.minecraft.structure.rule.PosRuleTestType;
 import net.minecraft.structure.rule.RuleTestType;
 import net.minecraft.util.Identifier;

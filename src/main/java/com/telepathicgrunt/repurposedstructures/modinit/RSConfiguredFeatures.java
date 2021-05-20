@@ -10,7 +10,6 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.CountConfig;
-import net.minecraft.world.gen.decorator.CountExtraDecoratorConfig;
 import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
 import net.minecraft.world.gen.feature.*;
@@ -194,19 +193,19 @@ public class RSConfiguredFeatures {
     public static ConfiguredFeature<?, ?> POST_PROCESS_CONNECTING_BLOCKS = RSFeatures.POST_PROCESS_CONNECTING_BLOCKS.configure(FeatureConfig.DEFAULT);
     public static ConfiguredFeature<?, ?> JUNGLE_FORTRESS_STRUCTURE_BREAKAGE = RSFeatures.STRUCTURE_BREAKAGE.configure(new StructureTargetChanceConfig(RSStructures.JUNGLE_FORTRESS, 0.05f));
     public static ConfiguredFeature<?, ?> NETHER_STRONGHOLD_CHAINS = RSFeatures.STRUCTURE_CHAINS.configure(new StructureTargetConfig(RSStructures.NETHER_STRONGHOLD, 5));
-    public static ConfiguredFeature<?, ?> END_MINESHAFT_CHORUS = RSFeatures.STRUCTURE_CHORUS.configure(new StructureTargetConfig(RSStructures.END_MINESHAFT, 10));
-    public static ConfiguredFeature<?, ?> END_MINESHAFT_DENSE_CHORUS = RSFeatures.STRUCTURE_CHORUS.configure(new StructureTargetConfig(RSStructures.END_MINESHAFT, 30));
-    public static ConfiguredFeature<?, ?> CRIMSON_MINESHAFT_PLANTS = RSFeatures.STRUCTURE_CRIMSON_PLANTS.configure(new StructureTargetConfig(RSStructures.CRIMSON_MINESHAFT, 30));
-    public static ConfiguredFeature<?, ?> CRIMSON_MINESHAFT_DENSE_PLANTS = RSFeatures.STRUCTURE_CRIMSON_PLANTS.configure(new StructureTargetConfig(RSStructures.CRIMSON_MINESHAFT, 60));
-    public static ConfiguredFeature<?, ?> NETHER_MINESHAFT_FIRE = RSFeatures.STRUCTURE_FIRE.configure(new StructureTargetConfig(RSStructures.NETHER_MINESHAFT, 10));
+    public static ConfiguredFeature<?, ?> END_MINESHAFT_CHORUS = RSFeatures.STRUCTURE_CHORUS.configure(new StructureTargetConfig(RSStructures.END_MINESHAFT, 4));
+    public static ConfiguredFeature<?, ?> END_MINESHAFT_DENSE_CHORUS = RSFeatures.STRUCTURE_CHORUS.configure(new StructureTargetConfig(RSStructures.END_MINESHAFT, 60));
+    public static ConfiguredFeature<?, ?> CRIMSON_MINESHAFT_PLANTS = RSFeatures.STRUCTURE_CRIMSON_PLANTS.configure(new StructureTargetConfig(RSStructures.CRIMSON_MINESHAFT, 40));
+    public static ConfiguredFeature<?, ?> CRIMSON_MINESHAFT_DENSE_PLANTS = RSFeatures.STRUCTURE_CRIMSON_PLANTS.configure(new StructureTargetConfig(RSStructures.CRIMSON_MINESHAFT, 100));
+    public static ConfiguredFeature<?, ?> NETHER_MINESHAFT_FIRE = RSFeatures.STRUCTURE_FIRE.configure(new StructureTargetConfig(RSStructures.NETHER_MINESHAFT, 3));
     public static ConfiguredFeature<?, ?> NETHER_MINESHAFT_DENSE_FIRE = RSFeatures.STRUCTURE_FIRE.configure(new StructureTargetConfig(RSStructures.NETHER_MINESHAFT, 40));
     public static ConfiguredFeature<?, ?> NETHER_MINESHAFT_NETHERWART = RSFeatures.STRUCTURE_NETHERWART.configure(new StructureTargetConfig(RSStructures.NETHER_MINESHAFT, 40));
     public static ConfiguredFeature<?, ?> OCEAN_MINESHAFT_PLANTS = RSFeatures.STRUCTURE_SEAGRASS.configure(new StructureTargetConfig(RSStructures.OCEAN_MINESHAFT, 40));
     public static ConfiguredFeature<?, ?> OCEAN_MINESHAFT_DENSE_PLANTS = RSFeatures.STRUCTURE_SEAGRASS.configure(new StructureTargetConfig(RSStructures.OCEAN_MINESHAFT, 80));
     public static ConfiguredFeature<?, ?> DARK_FOREST_MINESHAFT_VINES = RSFeatures.STRUCTURE_VINES.configure(new StructureTargetAndLengthConfig(RSStructures.DARK_FOREST_MINESHAFT, 20, 2));
     public static ConfiguredFeature<?, ?> SWAMP_MINESHAFT_VINES = RSFeatures.STRUCTURE_VINES.configure(new StructureTargetAndLengthConfig(RSStructures.SWAMP_MINESHAFT, 10, 1));
-    public static ConfiguredFeature<?, ?> JUNGLE_MINESHAFT_LEAVES_AND_VINES = RSFeatures.STRUCTURE_VINES_AND_LEAVES.configure(new StructureTargetAndLengthConfig(RSStructures.JUNGLE_MINESHAFT, 40, 3));
-    public static ConfiguredFeature<?, ?> WARPED_MINESHAFT_PLANTS = RSFeatures.STRUCTURE_WARPED_PLANTS.configure(new StructureTargetConfig(RSStructures.WARPED_MINESHAFT, 30));
+    public static ConfiguredFeature<?, ?> JUNGLE_MINESHAFT_LEAVES_AND_VINES = RSFeatures.STRUCTURE_VINES_AND_LEAVES.configure(new StructureTargetAndLengthConfig(RSStructures.JUNGLE_MINESHAFT, 30, 3));
+    public static ConfiguredFeature<?, ?> WARPED_MINESHAFT_PLANTS = RSFeatures.STRUCTURE_WARPED_PLANTS.configure(new StructureTargetConfig(RSStructures.WARPED_MINESHAFT, 15));
     public static ConfiguredFeature<?, ?> WARPED_MINESHAFT_DENSE_PLANTS = RSFeatures.STRUCTURE_WARPED_PLANTS.configure(new StructureTargetConfig(RSStructures.WARPED_MINESHAFT, 60));
 
     public static void registerConfiguredFeatures() {

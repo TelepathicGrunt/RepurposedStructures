@@ -43,6 +43,19 @@
             "Name": "minecraft:cave_air"
           },
           "input_predicate": {
+            "block": "minecraft:blue_ice",
+            "probability": 0.9,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:cave_air"
+          },
+          "input_predicate": {
             "block": "minecraft:structure_void",
             "probability": 0.65,
             "predicate_type": "minecraft:random_block_match"
@@ -75,20 +88,7 @@
           },
           "input_predicate": {
             "block": "minecraft:blue_ice",
-            "probability": 0.9,
-            "predicate_type": "minecraft:random_block_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          }
-        },
-        {
-          "output_state": {
-            "Name": "minecraft:cave_air"
-          },
-          "input_predicate": {
-            "block": "minecraft:blue_ice",
-            "probability": 0.9,
+            "probability": 0.95,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {

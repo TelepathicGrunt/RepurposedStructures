@@ -1,19 +1,14 @@
 package com.telepathicgrunt.repurposedstructures.world.predicates;
 
-import com.google.common.collect.Maps;
-import com.mojang.datafixers.util.Function5;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.RSPredicates;
-import net.minecraft.block.BlockState;
-import net.minecraft.structure.rule.*;
-import net.minecraft.util.StringIdentifiable;
-import net.minecraft.util.Util;
+import net.minecraft.structure.rule.PosRuleTest;
+import net.minecraft.structure.rule.PosRuleTestType;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 
-import java.util.Map;
 import java.util.Random;
 
 public class PieceOriginAxisAlignedLinearPosRuleTest extends PosRuleTest {

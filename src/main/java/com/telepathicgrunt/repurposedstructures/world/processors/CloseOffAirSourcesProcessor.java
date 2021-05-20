@@ -6,8 +6,6 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.fluid.FluidState;
 import net.minecraft.structure.Structure;
 import net.minecraft.structure.StructurePlacementData;
 import net.minecraft.structure.processor.StructureProcessor;
@@ -51,7 +49,6 @@ public class CloseOffAirSourcesProcessor extends StructureProcessor {
             // Remove fluid sources in adjacent horizontal blocks across chunk boundaries and above as well
             BlockPos.Mutable mutable = new BlockPos.Mutable();
             for (Direction direction : Direction.values()) {
-                if(direction == Direction.DOWN) continue;
 
                 mutable.set(infoIn2.pos).move(direction);
                 if (currentChunkPos.x != mutable.getX() >> 4 || currentChunkPos.z != mutable.getZ() >> 4) {

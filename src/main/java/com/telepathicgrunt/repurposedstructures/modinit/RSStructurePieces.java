@@ -3,17 +3,12 @@ package com.telepathicgrunt.repurposedstructures.modinit;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.FortressJunglePieces;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.MansionPieces;
-import com.telepathicgrunt.repurposedstructures.world.structures.pieces.RSMineshaftPieces;
 import net.minecraft.structure.StructurePieceType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 
 public class RSStructurePieces {
-    public static StructurePieceType MINESHAFT_ROOM_RS = RSMineshaftPieces.Room::new;
-    public static StructurePieceType MINESHAFT_CORRIDOR_RS = RSMineshaftPieces.Corridor::new;
-    public static StructurePieceType MINESHAFT_CROSSING_RS = RSMineshaftPieces.Cross::new;
-    public static StructurePieceType MINESHAFT_STAIRS_RS = RSMineshaftPieces.Stairs::new;
     public static StructurePieceType JUNGLE_FORTRESS_START = FortressJunglePieces.Start::new;
     public static StructurePieceType JUNGLE_FORTRESS_END = FortressJunglePieces.End::new;
     public static StructurePieceType JUNGLE_FORTRESS_ENTRANCE = FortressJunglePieces.Entrance::new;
@@ -32,10 +27,6 @@ public class RSStructurePieces {
     public static StructurePieceType MANSION_PIECE = MansionPieces.Piece::new;
 
     public static void registerStructurePieces() {
-        Registry.register(Registry.STRUCTURE_PIECE, new Identifier(RepurposedStructures.MODID, "mineshaft_room_rs"), MINESHAFT_ROOM_RS);
-        Registry.register(Registry.STRUCTURE_PIECE, new Identifier(RepurposedStructures.MODID, "mineshaft_corridor_rs"), MINESHAFT_CORRIDOR_RS);
-        Registry.register(Registry.STRUCTURE_PIECE, new Identifier(RepurposedStructures.MODID, "mineshaft_crossing_rs"), MINESHAFT_CROSSING_RS);
-        Registry.register(Registry.STRUCTURE_PIECE, new Identifier(RepurposedStructures.MODID, "mineshaft_stairs_rs"), MINESHAFT_STAIRS_RS);
         Registry.register(Registry.STRUCTURE_PIECE, new Identifier(RepurposedStructures.MODID, "jungle_fortress_start"), JUNGLE_FORTRESS_START);
         Registry.register(Registry.STRUCTURE_PIECE, new Identifier(RepurposedStructures.MODID, "jungle_fortress_entrance"), JUNGLE_FORTRESS_ENTRANCE);
         Registry.register(Registry.STRUCTURE_PIECE, new Identifier(RepurposedStructures.MODID, "jungle_fortress_end"), JUNGLE_FORTRESS_END);

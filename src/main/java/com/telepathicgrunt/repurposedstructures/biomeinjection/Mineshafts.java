@@ -66,13 +66,13 @@ public class Mineshafts {
 
         GeneralUtils.addToBiome("dark_forest_mineshaft",
                 (context) -> genericMineshaftCheck(context)
-                        && (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.swampAndDarkForestMineshaftSpawnrate != 0
+                        && (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.darkForestMineshaftSpawnrate != 0
                         && BiomeSelection.haveCategories(context, Category.FOREST) && BiomeSelection.hasName(context, "dark", "spooky", "dead", "haunted")),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.DARK_FOREST_MINESHAFT));
 
         GeneralUtils.addToBiome("swamp_mineshaft",
                 (context) -> genericMineshaftCheck(context)
-                        && (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.swampAndDarkForestMineshaftSpawnrate != 0
+                        && (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.swampMineshaftSpawnrate != 0
                         && BiomeSelection.haveCategories(context, Category.SWAMP)),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.SWAMP_MINESHAFT));
 

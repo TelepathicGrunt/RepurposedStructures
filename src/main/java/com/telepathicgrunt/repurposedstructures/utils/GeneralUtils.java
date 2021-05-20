@@ -14,6 +14,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 
@@ -46,7 +47,7 @@ public class GeneralUtils {
     //////////////////////////////
     private static final Map<BlockState, Boolean> IS_FULLCUBE_MAP = new HashMap<>();
 
-    public static boolean isFullCube(ServerWorldAccess world, BlockPos pos, BlockState state){
+    public static boolean isFullCube(BlockView world, BlockPos pos, BlockState state){
         if(!IS_FULLCUBE_MAP.containsKey(state)){
             boolean isFullCube = Block.isShapeFullCube(state.getCullingShape(world, pos));
             IS_FULLCUBE_MAP.put(state, isFullCube);

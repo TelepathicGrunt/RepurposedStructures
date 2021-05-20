@@ -1,6 +1,6 @@
 {
   "name": "repurposed_structures:mineshafts/crimson/main_start",
-  "fallback": "repurposed_structures:mineshafts/common/post_process",
+  "fallback": "repurposed_structures:mineshafts/crimson/plants",
   "elements": [
     {
       "weight": 1000,
