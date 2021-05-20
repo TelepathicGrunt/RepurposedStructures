@@ -41,14 +41,25 @@ public class RSMineshaftEndStructure extends RSMineshaftStructure {
             chunkRandom.setCarverSeed(seed + structureConfig.getSalt(), x, z);
             double d = (probability / 10000D);
             if (chunkRandom.nextDouble() < d) {
+                if(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.misc.barrensIslandsEndMineshafts)
+                    return true;
+
+                int minLandHeight = Math.min(chunkGenerator.getWorldHeight(), 45);
                 int xPos = x << 4;
                 int zPos = z << 4;
                 int landHeight = chunkGenerator.getHeightInGround(xPos, zPos, Heightmap.Type.WORLD_SURFACE_WG);
+
                 landHeight = Math.min(landHeight, chunkGenerator.getHeightInGround(xPos + 70, zPos, Heightmap.Type.WORLD_SURFACE_WG));
+                if(landHeight < minLandHeight) return false;
+
                 landHeight = Math.min(landHeight, chunkGenerator.getHeightInGround(xPos, zPos + 70, Heightmap.Type.WORLD_SURFACE_WG));
+                if(landHeight < minLandHeight) return false;
+
                 landHeight = Math.min(landHeight, chunkGenerator.getHeightInGround(xPos - 70, zPos, Heightmap.Type.WORLD_SURFACE_WG));
+                if(landHeight < minLandHeight) return false;
+
                 landHeight = Math.min(landHeight, chunkGenerator.getHeightInGround(xPos, zPos - 70, Heightmap.Type.WORLD_SURFACE_WG));
-                return RepurposedStructures.RSAllConfig.RSMineshaftsConfig.misc.barrensIslandsEndMineshafts || landHeight >= Math.min(chunkGenerator.getWorldHeight(), 45);
+                return landHeight >= minLandHeight;
             }
         }
         return false;
