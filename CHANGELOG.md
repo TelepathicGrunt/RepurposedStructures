@@ -43,6 +43,9 @@
 • Nether Strongholds will now only spawn further than roughly 2000 blocks from spawn. 
   Their config default distance between spawn attempts was changed from 85 to 100 as well to spread them out a bit. 
 
+##### Dungeons:
+• Fixed bug that prevented RS's Dungeons from ever having 2 chests. Now they have a chance of spawning 2 chests.
+
 ##### Misc:
 • Removed the giant boulder feature because it isn't close to a structure and doesn't fit this mod.
 
