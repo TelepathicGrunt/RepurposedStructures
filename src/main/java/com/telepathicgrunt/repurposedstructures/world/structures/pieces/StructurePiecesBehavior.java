@@ -109,5 +109,6 @@ public class StructurePiecesBehavior {
         PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/warped/spawner_3_middle"), 1);
         PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/warped/spawner_4_middle"), 1);
         PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "fortresses/jungle/balcony"), 3);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "fortresses/jungle/4_way_outside"), 6);
     }
 }

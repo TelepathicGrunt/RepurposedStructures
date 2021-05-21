@@ -45,6 +45,8 @@
 • Nether Strongholds will now only spawn further than roughly 2000 blocks from spawn. 
   Their config default distance between spawn attempts was changed from 85 to 100 as well to spread them out a bit. 
 
+• Nether Stronghold is now in the last generation stage in order to try and prevent other structures from eating at the stronghold. 
+
 ##### Dungeons:
 • Fixed bug that prevented RS's Dungeons from ever having 2 chests. Now they have a chance of spawning 2 chests.
 

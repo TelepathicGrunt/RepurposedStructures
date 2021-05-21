@@ -3,9 +3,7 @@ package com.telepathicgrunt.repurposedstructures.world.processors;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.PlantBlock;
+import net.minecraft.block.*;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.state.property.Properties;
 import net.minecraft.state.property.Property;
@@ -42,19 +40,42 @@ public class FloodWithWaterProcessor extends StructureProcessor {
             tickWaterFluid(worldView, structureBlockInfoWorld);
             return structureBlockInfoWorld;
         }
-        else if(structureBlockInfoWorld.state.getBlock() instanceof PlantBlock){
-            structureBlockInfoWorld = new Structure.StructureBlockInfo(structureBlockInfoWorld.pos, Blocks.WATER.getDefaultState(), null);
-            tickWaterFluid(worldView, structureBlockInfoWorld);
-        }
 
         if (structureBlockInfoWorld.pos.getY() <= floodLevel) {
+            boolean flooded = false;
             if(structureBlockInfoWorld.state.isAir()){
                 structureBlockInfoWorld = new Structure.StructureBlockInfo(structureBlockInfoWorld.pos, Blocks.WATER.getDefaultState(), null);
                 tickWaterFluid(worldView, structureBlockInfoWorld);
+                flooded = true;
             }
             else if(structureBlockInfoWorld.state.contains(Properties.WATERLOGGED)){
                 structureBlockInfoWorld = new Structure.StructureBlockInfo(structureBlockInfoWorld.pos, structureBlockInfoWorld.state.with(Properties.WATERLOGGED, true), null);
                 tickWaterFluid(worldView, structureBlockInfoWorld);
+                flooded = true;
+            }
+            else if(structureBlockInfoWorld.state.getBlock() instanceof PlantBlock){
+                structureBlockInfoWorld = new Structure.StructureBlockInfo(structureBlockInfoWorld.pos, Blocks.WATER.getDefaultState(), null);
+                tickWaterFluid(worldView, structureBlockInfoWorld);
+                flooded = true;
+            }
+
+            if(flooded){
+                // enclose the new water block with cracked stonebrick
+                ChunkPos currentChunkPos = new ChunkPos(structureBlockInfoWorld.pos);
+                Chunk currentChunk = worldView.getChunk(currentChunkPos.x, currentChunkPos.z);
+                BlockPos.Mutable mutable = new BlockPos.Mutable();
+                for (Direction direction : Direction.values()) {
+                    mutable.set(structureBlockInfoWorld.pos).move(direction);
+                    if (currentChunkPos.x != mutable.getX() >> 4 || currentChunkPos.z != mutable.getZ() >> 4) {
+                        currentChunk = worldView.getChunk(mutable);
+                        currentChunkPos = new ChunkPos(mutable);
+                    }
+
+                    BlockState neighboringBlock = currentChunk.getBlockState(mutable);
+                    if (!neighboringBlock.isOpaque() && neighboringBlock.getFluidState().isEmpty()) {
+                        currentChunk.setBlockState(mutable, Blocks.CRACKED_STONE_BRICKS.getDefaultState(), false);
+                    }
+                }
             }
         }
         return structureBlockInfoWorld;

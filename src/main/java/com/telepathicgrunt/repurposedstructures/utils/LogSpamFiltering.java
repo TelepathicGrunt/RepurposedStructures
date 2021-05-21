@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.utils;
 
 import com.google.common.collect.ImmutableSet;
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.core.Filter;
 import org.apache.logging.log4j.core.LogEvent;
@@ -53,7 +54,7 @@ public class LogSpamFiltering extends AbstractFilter {
     public Result filter(LogEvent event) {
         Message message = event.getMessage();
         if (message != null) {
-            if("Unknown structure piece id: {}".equals(message.getFormat()) && SILENCED_PIECES.contains((Identifier)message.getParameters()[0])){
+            if("Unknown structure piece id: {}".equals(message.getFormat()) && (SILENCED_PIECES.contains((Identifier)message.getParameters()[0]) || ((Identifier)message.getParameters()[0]).getNamespace().equals(RepurposedStructures.MODID))){
                 return Result.DENY;
             }
             else if(message.getFormattedMessage().equals("Unknown structure start: repurposed_structures:stronghold_stonebrick")) {

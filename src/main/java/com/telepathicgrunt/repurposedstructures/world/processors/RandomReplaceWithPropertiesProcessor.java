@@ -31,7 +31,7 @@ public class RandomReplaceWithPropertiesProcessor extends StructureProcessor {
 
     public static final Codec<RandomReplaceWithPropertiesProcessor> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
             Registry.BLOCK.fieldOf("input_block").forGetter(config -> config.inputBlock),
-            Registry.BLOCK.fieldOf("ouput_block").forGetter(config -> config.outputBlock),
+            Registry.BLOCK.fieldOf("output_block").forGetter(config -> config.outputBlock),
             Codec.floatRange(0, 1).fieldOf("probability").forGetter(config -> config.probability)
     ).apply(instance, instance.stable(RandomReplaceWithPropertiesProcessor::new)));
 

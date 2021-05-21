@@ -85,31 +85,53 @@ public class PieceLimitedJigsawManager {
         int yAdjustment = pieceBoundingBox.minY + startPiece.getGroundLevelDelta();
         startPiece.translate(0, pieceCenterY - yAdjustment, 0);
 
-        components.add(startPiece); // Add start piece to list of pieces
+        while(doesNotHaveAllRequiredPieces(components, requiredPieces)){
+            components.clear();
+            components.add(startPiece); // Add start piece to list of pieces
 
-        if (jigsawConfig.getSize() > 0) {
-            Box axisAlignedBB = new Box(pieceCenterX - 80, pieceCenterY - 120, pieceCenterZ - 80, pieceCenterX + 80 + 1, pieceCenterY + 180 + 1, pieceCenterZ + 80 + 1);
-            Assembler assembler = new Assembler(jigsawPoolRegistry, jigsawConfig.getSize(), chunkGenerator, templateManager, components, random, requiredPieces, maxY, minY);
-            Entry startPieceEntry = new Entry(
-                    startPiece,
-                    new MutableObject<>(
-                            VoxelShapes.combineAndSimplify(
-                                    VoxelShapes.cuboid(axisAlignedBB),
-                                    VoxelShapes.cuboid(Box.from(pieceBoundingBox)),
-                                    BooleanBiFunction.ONLY_FIRST
-                            )
-                    ),
-                    pieceCenterY + 80,
-                    0
-            );
-            assembler.availablePieces.addLast(startPieceEntry);
+            if (jigsawConfig.getSize() > 0) {
+                Box axisAlignedBB = new Box(pieceCenterX - 80, pieceCenterY - 120, pieceCenterZ - 80, pieceCenterX + 80 + 1, pieceCenterY + 180 + 1, pieceCenterZ + 80 + 1);
+                Assembler assembler = new Assembler(jigsawPoolRegistry, jigsawConfig.getSize(), chunkGenerator, templateManager, components, random, requiredPieces, maxY, minY);
+                Entry startPieceEntry = new Entry(
+                        startPiece,
+                        new MutableObject<>(
+                                VoxelShapes.combineAndSimplify(
+                                        VoxelShapes.cuboid(axisAlignedBB),
+                                        VoxelShapes.cuboid(Box.from(pieceBoundingBox)),
+                                        BooleanBiFunction.ONLY_FIRST
+                                )
+                        ),
+                        pieceCenterY + 80,
+                        0
+                );
+                assembler.availablePieces.addLast(startPieceEntry);
 
-            while (!assembler.availablePieces.isEmpty()) {
-                Entry entry = assembler.availablePieces.removeFirst();
-                assembler.generatePiece(entry.piece, entry.pieceShape, entry.minY, entry.depth, doBoundaryAdjustments);
+                while (!assembler.availablePieces.isEmpty()) {
+                    Entry entry = assembler.availablePieces.removeFirst();
+                    assembler.generatePiece(entry.piece, entry.pieceShape, entry.minY, entry.depth, doBoundaryAdjustments);
+                }
             }
         }
     }
+
+    private static boolean doesNotHaveAllRequiredPieces(List<? super StructurePiece> components, Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces){
+        Map<Identifier, Integer> counter = new HashMap<>();
+        requiredPieces.forEach((key, value) -> counter.put(key, value.getRequiredAmount()));
+        for(Object piece : components){
+            if(piece instanceof PoolStructurePiece){
+                StructurePoolElement poolElement = ((PoolStructurePiece)piece).getPoolElement();
+                if(poolElement instanceof SinglePoolElement){
+                    Identifier pieceID = ((SinglePoolElementAccessor) poolElement).rs_getField_24015().left().orElse(null);
+                    if(counter.containsKey(pieceID)){
+                        counter.put(pieceID, counter.get(pieceID) - 1);
+                    }
+                }
+            }
+        }
+
+        return counter.values().stream().anyMatch(count -> count > 0);
+    }
+
 
     public static final class Assembler {
         private final Registry<StructurePool> poolRegistry;
@@ -238,7 +260,15 @@ public class PieceLimitedJigsawManager {
                 // 3. We are at least certain amount of pieces away from the starting piece.
                 Pair<StructurePoolElement, Integer> chosenPiecePair = null;
                 // Condition 2
-                Optional<Identifier> pieceNeededToSpawn = this.requiredPieces.keySet().stream().filter(key -> this.pieceCounts.get(key) > 0 && (StructurePiecesBehavior.PIECES_COUNT.get(key) - this.pieceCounts.get(key) < this.requiredPieces.get(key).getRequiredAmount())).findFirst();
+                Optional<Identifier> pieceNeededToSpawn = this.requiredPieces.keySet().stream().filter(key -> {
+                    int currentCount = this.pieceCounts.get(key);
+                    StructurePiecesBehavior.RequiredPieceNeeds requiredPieceNeeds = this.requiredPieces.get(key);
+                    int requireCount = requiredPieceNeeds == null ? 0 : requiredPieceNeeds.getRequiredAmount();
+                    int startCount = StructurePiecesBehavior.PIECES_COUNT.getOrDefault(key, requireCount);
+
+                    return currentCount > 0 && startCount - currentCount < requireCount;
+                }).findFirst();
+
                 if (pieceNeededToSpawn.isPresent()) {
                     for (int i = 0; i < candidatePieces.size(); i++) {
                         Pair<StructurePoolElement, Integer> candidatePiecePair = candidatePieces.get(i);

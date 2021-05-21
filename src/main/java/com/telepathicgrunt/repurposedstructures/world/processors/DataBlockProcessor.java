@@ -64,13 +64,13 @@ public class DataBlockProcessor extends StructureProcessor {
                     }
 
                     // Creates the pillars in the world that replaces air and liquids
-                    while((currentBlock.isAir() || currentBlock.getMaterial().isLiquid()) &&
+                    while(!currentBlock.isOpaque() &&
                             currentPos.getY() <= worldView.getDimension().getLogicalHeight() &&
                             currentPos.getY() >= 0 &&
                             currentPos.isWithinDistance(worldPos, depth)
                     ){
-                        Structure.StructureBlockInfo newPillarState1 = new Structure.StructureBlockInfo(structureBlockInfoLocal.pos.subtract(currentPos), structureBlockInfoLocal.state, structureBlockInfoLocal.tag);
-                        Structure.StructureBlockInfo newPillarState2 = new Structure.StructureBlockInfo(currentPos.toImmutable(), structureBlockInfoLocal.state, structureBlockInfoLocal.tag);
+                        Structure.StructureBlockInfo newPillarState1 = new Structure.StructureBlockInfo(structureBlockInfoLocal.pos.subtract(currentPos), replacementState, null);
+                        Structure.StructureBlockInfo newPillarState2 = new Structure.StructureBlockInfo(currentPos.toImmutable(), replacementState, null);
 
                         for(StructureProcessor processor : structurePlacementData.getProcessors()){
                             if(newPillarState2 == null){
