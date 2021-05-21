@@ -18,7 +18,7 @@ public class StructurePiecesBehavior {
             this.minDistanceFromCenter = minDistanceFromCenter;
         }
 
-        public int getMaxLimit(){
+        public int getRequiredAmount(){
             return maxLimit;
         }
 
@@ -48,5 +48,66 @@ public class StructurePiecesBehavior {
         PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/birch/spawner_3_end"), 1);
         PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/birch/spawner_3_middle"), 1);
         PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/birch/spawner_4_middle"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/crimson/spawner_1"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/crimson/spawner_2"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/crimson/spawner_3_end"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/crimson/spawner_3_middle"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/crimson/spawner_4_middle"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/dark_forest/spawner_1"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/dark_forest/spawner_2"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/dark_forest/spawner_3_end"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/dark_forest/spawner_3_middle"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/dark_forest/spawner_4_middle"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/desert/spawner_1"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/desert/spawner_2"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/desert/spawner_3_end"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/desert/spawner_3_middle"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/desert/spawner_4_middle"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/icy/spawner_1"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/icy/spawner_2"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/icy/spawner_3_end"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/icy/spawner_3_middle"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/icy/spawner_4_middle"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/jungle/spawner_1"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/jungle/spawner_2"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/jungle/spawner_3_end"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/jungle/spawner_3_middle"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/jungle/spawner_4_middle"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/nether/spawner_1"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/nether/spawner_2"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/nether/spawner_3_end"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/nether/spawner_3_middle"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/nether/spawner_4_middle"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/ocean/spawner_1"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/ocean/spawner_2"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/ocean/spawner_3_end"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/ocean/spawner_3_middle"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/ocean/spawner_4_middle"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/savanna/spawner_1"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/savanna/spawner_2"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/savanna/spawner_3_end"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/savanna/spawner_3_middle"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/savanna/spawner_4_middle"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/stone/spawner_1"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/stone/spawner_2"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/stone/spawner_3_end"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/stone/spawner_3_middle"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/stone/spawner_4_middle"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/swamp/spawner_1"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/swamp/spawner_2"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/swamp/spawner_3_end"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/swamp/spawner_3_middle"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/swamp/spawner_4_middle"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/taiga/spawner_1"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/taiga/spawner_2"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/taiga/spawner_3_end"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/taiga/spawner_3_middle"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/taiga/spawner_4_middle"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/warped/spawner_1"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/warped/spawner_2"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/warped/spawner_3_end"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/warped/spawner_3_middle"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "mineshafts/warped/spawner_4_middle"), 1);
+        PIECES_COUNT.put(new Identifier(RepurposedStructures.MODID, "fortresses/jungle/balcony"), 3);
     }
 }

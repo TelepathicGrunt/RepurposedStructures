@@ -27,7 +27,7 @@ newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {}
 conversion_exact_dict = {
-    "minecraft:air":"minecraft:cave_air"
+    "down-minecraft:red_sandstone":"down-minecraft:snow_block"
 }
 
 #-------------------------------------------------------------------------------------------

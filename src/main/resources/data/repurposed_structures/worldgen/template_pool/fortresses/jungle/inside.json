@@ -1,0 +1,75 @@
+{
+  "name": "repurposed_structures:fortresses/jungle/inside",
+  "fallback": "repurposed_structures:fortresses/jungle/terminator",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:fortresses/jungle/straight_inside",
+        "processors": "repurposed_structures:fortresses/jungle_main",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:fortresses/jungle/4_way_inside",
+        "processors": "repurposed_structures:fortresses/jungle_main",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:fortresses/jungle/turn_inside",
+        "processors": "repurposed_structures:fortresses/jungle_main",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:fortresses/jungle/turn_inside_chest",
+        "processors": "repurposed_structures:fortresses/jungle_main",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:fortresses/jungle/stairs_inside",
+        "processors": "repurposed_structures:fortresses/jungle_main",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:fortresses/jungle/stairs_inside_plants",
+        "processors": "repurposed_structures:fortresses/jungle_fungus",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:fortresses/jungle/balcony",
+        "processors": "repurposed_structures:fortresses/jungle_main",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    }
+  ]
+}

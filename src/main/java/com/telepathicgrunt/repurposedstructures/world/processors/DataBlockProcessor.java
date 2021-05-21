@@ -14,6 +14,7 @@ import net.minecraft.structure.processor.StructureProcessorType;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.WorldView;
+import org.apache.commons.lang3.math.NumberUtils;
 
 import static java.lang.Integer.parseInt;
 
@@ -53,7 +54,14 @@ public class DataBlockProcessor extends StructureProcessor {
                     BlockState replacementState = blockArgumentParser.getBlockState();
                     BlockState currentBlock = worldView.getBlockState(worldPos);
                     BlockPos.Mutable currentPos = new BlockPos.Mutable().set(worldPos);
-                    int depth = splitString.length > 2 ? parseInt(splitString[2]) + 1 : 256;
+
+                    int depth = 256;
+                    if(splitString.length > 2){
+                        String thirdArgument = splitString[2];
+                        if(NumberUtils.isParsable(thirdArgument)){
+                            depth = parseInt(thirdArgument) + 1;
+                        }
+                    }
 
                     // Creates the pillars in the world that replaces air and liquids
                     while((currentBlock.isAir() || currentBlock.getMaterial().isLiquid()) &&
@@ -61,13 +69,26 @@ public class DataBlockProcessor extends StructureProcessor {
                             currentPos.getY() >= 0 &&
                             currentPos.isWithinDistance(worldPos, depth)
                     ){
-                        worldView.getChunk(currentPos).setBlockState(currentPos, replacementState, false);
+                        Structure.StructureBlockInfo newPillarState1 = new Structure.StructureBlockInfo(structureBlockInfoLocal.pos.subtract(currentPos), structureBlockInfoLocal.state, structureBlockInfoLocal.tag);
+                        Structure.StructureBlockInfo newPillarState2 = new Structure.StructureBlockInfo(currentPos.toImmutable(), structureBlockInfoLocal.state, structureBlockInfoLocal.tag);
+
+                        for(StructureProcessor processor : structurePlacementData.getProcessors()){
+                            if(newPillarState2 == null){
+                                break;
+                            }
+                            newPillarState2 = processor.process(worldView, pos, blockPos, newPillarState1, newPillarState2, structurePlacementData);
+                        }
+
+                        if(newPillarState2 != null){
+                            worldView.getChunk(currentPos).setBlockState(currentPos, newPillarState2.state, false);
+                        }
+
                         currentPos.move(direction);
                         currentBlock = worldView.getBlockState(currentPos);
                     }
 
                     // Replaces the data block itself
-                    return replacementState.isOf(Blocks.STRUCTURE_VOID) ? null : new Structure.StructureBlockInfo(worldPos, replacementState, null);
+                    return replacementState == null || replacementState.isOf(Blocks.STRUCTURE_VOID) ? null : new Structure.StructureBlockInfo(worldPos, replacementState, null);
                 }
             }
             catch (CommandSyntaxException var11) {

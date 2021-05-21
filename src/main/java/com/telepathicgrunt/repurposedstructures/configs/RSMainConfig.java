@@ -48,7 +48,6 @@ public class RSMainConfig implements ConfigData {
 
     public static class JungleFortress {
 
-
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
         @Comment("How rare are Jungle Fortresses."
@@ -70,16 +69,24 @@ public class RSMainConfig implements ConfigData {
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
-        @Comment("% of fortress is Silverfish Blocks."
-                + "\nNote: Mossy Stone Bricks block cannot be infested."
-                + "\n0 for no Silverfish Blocks and 100 for max spawnrate.")
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
-        public double silverfishSpawnrate = 0.5D;
+        @Comment("Size of the fortress. This is how many pieces long a branch can be from the start piece.")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 18)
+        public int jungleFortressSize = 10;
 
-        @ConfigEntry.Gui.Tooltip
-        @Comment("Controls whether loot chests spawn or not.")
-        public boolean lootChests = true;
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Min Y height that the starting point can spawn at."
+                +"\nDefault is 56.")
+        @ConfigEntry.BoundedDiscrete(min = 0, max = 255)
+        public int jungleFortressMinHeight = 56;
 
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Max Y height that the starting point can spawn at."
+                +"\nDefault is 63."
+                + "\nIf below min height, this will be read as min.")
+        @ConfigEntry.BoundedDiscrete(min = 0, max = 255)
+        public int jungleFortressMaxHeight = 63;
     }
 
     public static class Igloos {

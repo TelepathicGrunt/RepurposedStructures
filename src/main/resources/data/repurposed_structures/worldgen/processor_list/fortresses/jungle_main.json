@@ -1,0 +1,121 @@
+{
+  "processors": [
+    {
+      "rules": [
+        {
+          "output_state": {
+            "Name": "minecraft:mossy_stone_bricks"
+          },
+          "input_predicate": {
+            "block": "minecraft:stone_bricks",
+            "probability": 0.5,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:cracked_stone_bricks"
+          },
+          "input_predicate": {
+            "block": "minecraft:stone_bricks",
+            "probability": 0.25,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:chiseled_stone_bricks"
+          },
+          "input_predicate": {
+            "block": "minecraft:stone_bricks",
+            "probability": 0.5,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        }
+      ],
+      "processor_type": "minecraft:rule"
+    },
+    {
+      "rules": [
+        {
+          "output_state": {
+            "Name": "minecraft:infested_stone_bricks"
+          },
+          "input_predicate": {
+            "block": "minecraft:stone_bricks",
+            "probability": 0.05,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:infested_mossy_stone_bricks"
+          },
+          "input_predicate": {
+            "block": "minecraft:mossy_stone_bricks",
+            "probability": 0.05,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:infested_cracked_stone_bricks"
+          },
+          "input_predicate": {
+            "block": "minecraft:cracked_stone_bricks",
+            "probability": 0.05,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:infested_chiseled_stone_bricks"
+          },
+          "input_predicate": {
+            "block": "minecraft:chiseled_stone_bricks",
+            "probability": 0.05,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        }
+      ],
+      "processor_type": "minecraft:rule"
+    },
+    {
+      "input_block": "minecraft:stone_brick_stairs",
+      "output_block": "minecraft:mossy_stone_brick_stairs",
+      "probability": 0.55,
+      "processor_type": "repurposed_structures:random_replace_with_properties"
+    },
+    {
+      "processor_type": "repurposed_structures:data_block_processor"
+    },
+    {
+      "processor_type": "repurposed_structures:air_processor"
+    },
+    {
+      "flood_level": 63,
+      "processor_type": "repurposed_structures:flood_with_water_processor"
+    }
+  ]
+}

@@ -56,11 +56,5 @@ public class RSStrongholdsConfig implements ConfigData
 				+ "\nIf below min height, this will be read as min.")
 		@ConfigEntry.BoundedDiscrete(min = 0, max = 255)
 		public int netherStrongholdMaxHeight = 36;
-
-		@ConfigEntry.Gui.Tooltip(count = 0)
-        @ConfigEntry.Gui.PrefixText
-		@Comment("How rare are Chains in this Stronghold. (Can have Soul Lantern attached)")
-		@ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-		public int netherStrongholdChainSpawnrate = 50;
 	}
 }

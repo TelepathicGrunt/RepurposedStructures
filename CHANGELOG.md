@@ -8,6 +8,8 @@
 ##### Pyramids:
 • Snowy Pyramid Pit slightly changed to help hint at what spots are safe to stand on.
 
+• Fixed Snowy Pyramids making a base of Red Sandstone instead of Snow Block by mistake.
+
 • Icy Pyramid Pit trap is now redesigned to be a bit more dangerous.
 
 ##### Ruins:

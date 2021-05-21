@@ -138,7 +138,7 @@ public class PieceLimitedJigsawManager {
             this.requiredPieces = new HashMap<>(requiredPieces);
             this.pieceCounts = new HashMap<>(StructurePiecesBehavior.PIECES_COUNT);
             // pieceCounts will keep track of how many required pieces were spawned
-            this.requiredPieces.forEach((key, value) -> this.pieceCounts.put(key, value.getMaxLimit()));
+            this.requiredPieces.forEach((key, value) -> this.pieceCounts.putIfAbsent(key, value.getRequiredAmount()));
         }
 
         public void generatePiece(PoolStructurePiece piece, MutableObject<VoxelShape> voxelShape, int minY, int depth, boolean doBoundaryAdjustments) {
@@ -238,7 +238,7 @@ public class PieceLimitedJigsawManager {
                 // 3. We are at least certain amount of pieces away from the starting piece.
                 Pair<StructurePoolElement, Integer> chosenPiecePair = null;
                 // Condition 2
-                Optional<Identifier> pieceNeededToSpawn = this.requiredPieces.keySet().stream().filter(key -> this.pieceCounts.get(key) > 0).findFirst();
+                Optional<Identifier> pieceNeededToSpawn = this.requiredPieces.keySet().stream().filter(key -> this.pieceCounts.get(key) > 0 && (StructurePiecesBehavior.PIECES_COUNT.get(key) - this.pieceCounts.get(key) < this.requiredPieces.get(key).getRequiredAmount())).findFirst();
                 if (pieceNeededToSpawn.isPresent()) {
                     for (int i = 0; i < candidatePieces.size(); i++) {
                         Pair<StructurePoolElement, Integer> candidatePiecePair = candidatePieces.get(i);
