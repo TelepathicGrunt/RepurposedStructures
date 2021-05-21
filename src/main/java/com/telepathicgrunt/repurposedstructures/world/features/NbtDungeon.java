@@ -187,9 +187,9 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
         boolean isPlacingChestLikeBlock = config.lootBlock.getBlock() instanceof ChestBlock;
 
         // Add chests that are wall based
-        for(int currentChestCount = 0; currentChestCount < config.maxNumOfChests; ++currentChestCount) {
-            for (int currentChestAttempt = 0; currentChestAttempt < fullLengths.getX() + fullLengths.getZ() + halfLengths.getY(); ++currentChestAttempt) {
-                if (currentChestCount == config.maxNumOfChests) {
+        for(int currentChestAttempt = 0; currentChestAttempt < config.maxNumOfChests;) {
+            for (int currentChestPosAttempt = 0; currentChestPosAttempt < fullLengths.getX() + fullLengths.getZ() + halfLengths.getY(); ++currentChestPosAttempt) {
+                if (currentChestAttempt == config.maxNumOfChests) {
                     return; // early exit
                 }
 
@@ -258,6 +258,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                                     SolidifyBlock(world, mutable.below());
 
                                     isOnWall = false; // Skip wall code as we already placed chest
+                                    currentChestAttempt++;
                                     break;
                                 }
                             }
@@ -278,6 +279,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
 
                             // Set chest to face away from wall.
                             world.setBlock(mutable, lootBlock, 2);
+                            currentChestAttempt++;
                             LockableLootTileEntity.setLootTable(world, random, mutable, config.chestIdentifier);
 
                             mutable.move(Direction.DOWN);
@@ -297,6 +299,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                     }
                 }
             }
+            currentChestAttempt++;
         }
     }
 }
