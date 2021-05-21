@@ -257,7 +257,6 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                                     LockableLootTileEntity.setLootTable(world, random, mutable, config.chestIdentifier);
                                     SolidifyBlock(world, mutable.below());
 
-                                    currentChestCount++;
                                     isOnWall = false; // Skip wall code as we already placed chest
                                     break;
                                 }
@@ -293,7 +292,6 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                                 SolidifyBlock(world, mutable);
                             }
 
-                            currentChestCount++;
                             break;
                         }
                     }

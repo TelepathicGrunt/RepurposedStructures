@@ -14,6 +14,9 @@
 • Removed Stonebricks Strongholds because Better Strongholds mod exists! 
   Use that epic mod instead of upgrade the Overworld Stronghold!
 
+##### Dungeons:
+• Fixed bug that prevented RS's Dungeons from ever having 2 chests. Now they have a chance of spawning 2 chests.
+
 ##### Misc:
 • Removed the giant boulder feature because it isn't close to a structure and doesn't fit this mod.
 
