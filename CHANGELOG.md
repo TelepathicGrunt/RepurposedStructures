@@ -29,6 +29,11 @@
 
 • Swamp And Dark Forest Mineshaft has been split up into two separate Mineshafts. Swamp Mineshaft and Dark Forest Mineshaft.
 
+##### Fortresses:
+• Jungle Fortress is now a Jigsaw Structures so you can use datapacks to add new nbt pieces to it or customize it even more!
+
+• Jungle Fortress's size and the height range it can spawn at are now config options.
+
 ##### Strongholds:
 • Removed Stonebricks Strongholds because Better Strongholds mod exists!
   Use that epic mod instead of upgrade the Overworld Stronghold!

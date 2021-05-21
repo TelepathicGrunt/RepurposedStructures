@@ -85,7 +85,13 @@ public class PieceLimitedJigsawManager {
         int yAdjustment = pieceBoundingBox.minY + startPiece.getGroundLevelDelta();
         startPiece.translate(0, pieceCenterY - yAdjustment, 0);
 
+        int attempts = 0;
         while(doesNotHaveAllRequiredPieces(components, requiredPieces)){
+            if(attempts == 100){
+                RepurposedStructures.LOGGER.error("Failed to create valid structure with all required pieces starting from this pool file: {}. Required pieces are: {}", startPool.getId(), Arrays.toString(requiredPieces.keySet().toArray()));
+            }
+
+            attempts++;
             components.clear();
             components.add(startPiece); // Add start piece to list of pieces
 

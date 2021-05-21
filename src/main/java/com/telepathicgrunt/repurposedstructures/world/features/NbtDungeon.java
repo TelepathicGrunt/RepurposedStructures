@@ -200,11 +200,8 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
         boolean isPlacingChestLikeBlock = config.lootBlock.getBlock() instanceof ChestBlock;
 
         // Add chests that are wall based
-        for(int currentChestCount = 0; currentChestCount < config.maxNumOfChests; ++currentChestCount) {
-            for (int currentChestAttempt = 0; currentChestAttempt < fullLengths.getX() + fullLengths.getZ() + halfLengths.getY(); ++currentChestAttempt) {
-                if (currentChestCount == config.maxNumOfChests) {
-                    return; // early exit
-                }
+        for(int currentChestAttempt = 0; currentChestAttempt < config.maxNumOfChests;) {
+            for (int currentChestPosAttempt = 0; currentChestPosAttempt < fullLengths.getX() + fullLengths.getZ() + halfLengths.getY(); ++currentChestPosAttempt) {
 
                 mutable.set(position).move(
                         random.nextInt(Math.max(fullLengths.getX() - 2, 1)) - halfLengths.getX() + 1,
@@ -270,6 +267,10 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                                     SolidifyBlock(world, mutable.down());
 
                                     isOnWall = false; // Skip wall code as we already placed chest
+                                    currentChestAttempt++;
+                                    if(currentChestAttempt == config.maxNumOfChests){
+                                        return;
+                                    }
                                     break;
                                 }
                             }
@@ -290,6 +291,8 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
 
                             // Set chest to face away from wall.
                             world.setBlockState(mutable, lootBlock, 2);
+                            currentChestAttempt++;
+
                             LootableContainerBlockEntity.setLootTable(world, random, mutable, config.chestResourcelocation);
                             mutable.move(Direction.DOWN);
                             if(lootBlock.getBlock() == Blocks.SHULKER_BOX){
@@ -308,6 +311,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                     }
                 }
             }
+            currentChestAttempt++;
         }
     }
 }
