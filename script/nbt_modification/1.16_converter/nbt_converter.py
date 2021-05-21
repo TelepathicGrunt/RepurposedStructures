@@ -27,7 +27,7 @@ newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {}
 conversion_exact_dict = {
-    "minecraft:rail[shape=east_west]":"minecraft:cave_air"
+    "minecraft:air":"minecraft:cave_air"
 }
 
 #-------------------------------------------------------------------------------------------

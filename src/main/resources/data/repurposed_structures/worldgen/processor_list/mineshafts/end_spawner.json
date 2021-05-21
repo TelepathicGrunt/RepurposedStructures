@@ -8,7 +8,7 @@
           },
           "input_predicate": {
             "block": "minecraft:end_rod",
-            "probability": 0.92,
+            "probability": 0.96,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {

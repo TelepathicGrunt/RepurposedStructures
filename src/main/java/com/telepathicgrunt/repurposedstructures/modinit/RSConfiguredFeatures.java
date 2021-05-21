@@ -192,7 +192,7 @@ public class RSConfiguredFeatures {
 
     public static ConfiguredFeature<?, ?> POST_PROCESS_CONNECTING_BLOCKS = RSFeatures.POST_PROCESS_CONNECTING_BLOCKS.configure(FeatureConfig.DEFAULT);
     public static ConfiguredFeature<?, ?> JUNGLE_FORTRESS_STRUCTURE_BREAKAGE = RSFeatures.STRUCTURE_BREAKAGE.configure(new StructureTargetChanceConfig(RSStructures.JUNGLE_FORTRESS, 0.05f));
-    public static ConfiguredFeature<?, ?> NETHER_STRONGHOLD_CHAINS = RSFeatures.STRUCTURE_CHAINS.configure(new StructureTargetConfig(RSStructures.NETHER_STRONGHOLD, 5));
+    public static ConfiguredFeature<?, ?> NETHER_STRONGHOLD_CHAINS = RSFeatures.STRUCTURE_CHAINS.configure(new StructureTargetConfig(RSStructures.NETHER_STRONGHOLD, 7));
     public static ConfiguredFeature<?, ?> END_MINESHAFT_CHORUS = RSFeatures.STRUCTURE_CHORUS.configure(new StructureTargetConfig(RSStructures.END_MINESHAFT, 4));
     public static ConfiguredFeature<?, ?> END_MINESHAFT_DENSE_CHORUS = RSFeatures.STRUCTURE_CHORUS.configure(new StructureTargetConfig(RSStructures.END_MINESHAFT, 60));
     public static ConfiguredFeature<?, ?> CRIMSON_MINESHAFT_PLANTS = RSFeatures.STRUCTURE_CRIMSON_PLANTS.configure(new StructureTargetConfig(RSStructures.CRIMSON_MINESHAFT, 40));
