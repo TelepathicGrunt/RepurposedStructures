@@ -3,6 +3,8 @@
   "minVersion": "0.8",
   "package": "com.telepathicgrunt.repurposedstructures.mixin",
   "compatibilityLevel": "JAVA_8",
+  "plugin": "com.telepathicgrunt.repurposedstructures.mixin.plugins.RSMixinPlugin",
+  "refmap": "repurposed_structures.refmap.json",
   "mixins": [
     "BuilderAccessor",
     "CatEntityMixin",
@@ -26,7 +28,8 @@
     "StructureProcessorListAccessor",
     "StructuresConfigAccessor",
     "TemplateAccessor",
-    "VanillaLayeredBiomeSourceAccessor"
+    "VanillaLayeredBiomeSourceAccessor",
+    "VoxelShapesMixin"
   ],
   "client": [
     "StructureBlockScreenMixin"

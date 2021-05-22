@@ -60,6 +60,8 @@
 ##### Misc:
 • Removed the giant boulder feature because it isn't close to a structure and doesn't fit this mod.
 
+• Borrowed Lithium's VoxelShapes mixin for LithiumDoublePairList in order to optimize creation of jigsaw structure bounding boxes a bit when Lithium isn't on. Use that mod tho if you can!
+
 
 ## (V.1.10.5 Changes) (1.16.5 Minecraft)
 
