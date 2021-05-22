@@ -63,7 +63,7 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
             if(!foundSurface && !world.toServerWorld().getStructureAccessor().getStructureAt(mutable, true, config.targetStructure).hasChildren()){
                 return false;
             }
-            mutable.move(Direction.UP);
+            mutable.move(Direction.UP, 2);
 
             float f = random.nextFloat() * 3.1415927F;
             float g = 3;
@@ -177,6 +177,12 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
                                                 ChunkPos currentChunkPos = new ChunkPos(mutable);
                                                 Chunk currentChunk = world.getChunk(currentChunkPos.x, currentChunkPos.z);
                                                 boolean isBelowSealevel = mutable.getY() < chunkGenerator.getSeaLevel();
+
+                                                // Do not carve if exposed to cave space
+                                                if(isBelowSealevel && isBorderingAir(world, mutable)){
+                                                    continue;
+                                                }
+
                                                 currentChunk.setBlockState(mutable, isBelowSealevel ? Blocks.WATER.getDefaultState() : Blocks.CAVE_AIR.getDefaultState(), false);
                                                 ++j;
 
@@ -194,21 +200,21 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
                                                     state = currentChunk.getBlockState(mutable.move(Direction.UP));
                                                 }
 
-                                                BlockPos.Mutable mutable2 = new BlockPos.Mutable();
+                                                BlockPos.Mutable mutableVineCheck = new BlockPos.Mutable();
                                                 for (Direction direction : Direction.values()) {
                                                     if(direction == Direction.UP) continue;
 
-                                                    mutable2.set(mutable).move(direction);
-                                                    if (currentChunkPos.x != mutable2.getX() >> 4 || currentChunkPos.z != mutable2.getZ() >> 4) {
-                                                        currentChunk = world.getChunk(mutable2);
-                                                        currentChunkPos = new ChunkPos(mutable2);
+                                                    mutableVineCheck.set(mutable).move(direction);
+                                                    if (currentChunkPos.x != mutableVineCheck.getX() >> 4 || currentChunkPos.z != mutableVineCheck.getZ() >> 4) {
+                                                        currentChunk = world.getChunk(mutableVineCheck);
+                                                        currentChunkPos = new ChunkPos(mutableVineCheck);
                                                     }
 
-                                                    BlockState neighboringBlock = currentChunk.getBlockState(mutable2);
+                                                    BlockState neighboringBlock = currentChunk.getBlockState(mutableVineCheck);
                                                     if (neighboringBlock.isOf(Blocks.VINE) && neighboringBlock.get(VineBlock.getFacingProperty(direction.getOpposite()))) {
                                                         while(neighboringBlock.getMaterial() == Material.REPLACEABLE_PLANT){
-                                                            currentChunk.setBlockState(mutable2, isBelowSealevel ? Blocks.WATER.getDefaultState() : Blocks.CAVE_AIR.getDefaultState(), false);
-                                                            neighboringBlock = currentChunk.getBlockState(mutable2.move(Direction.DOWN));
+                                                            currentChunk.setBlockState(mutableVineCheck, isBelowSealevel ? Blocks.WATER.getDefaultState() : Blocks.CAVE_AIR.getDefaultState(), false);
+                                                            neighboringBlock = currentChunk.getBlockState(mutableVineCheck.move(Direction.DOWN));
                                                         }
                                                     }
                                                 }
@@ -224,5 +230,26 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
         }
 
         return j > 0;
+    }
+
+    private boolean isBorderingAir(WorldAccess world, BlockPos.Mutable mutable) {
+        BlockPos.Mutable mutableWaterCheck = new BlockPos.Mutable();
+        ChunkPos currentChunkPos2 = new ChunkPos(mutable);
+        Chunk currentChunk2 = world.getChunk(currentChunkPos2.x, currentChunkPos2.z);
+        for (Direction direction : Direction.values()) {
+            // Do not check above or else we never carve at sealevel
+            if (direction == Direction.UP) continue;
+
+            mutableWaterCheck.set(mutable).move(direction);
+            if (currentChunkPos2.x != mutableWaterCheck.getX() >> 4 || currentChunkPos2.z != mutableWaterCheck.getZ() >> 4) {
+                currentChunk2 = world.getChunk(mutableWaterCheck);
+                currentChunkPos2 = new ChunkPos(mutableWaterCheck);
+            }
+
+            if(currentChunk2.getBlockState(mutableWaterCheck).isAir()){
+                return true;
+            }
+        }
+        return false;
     }
 }

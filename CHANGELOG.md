@@ -36,6 +36,8 @@
 
 • Drowned in Jungle Fortresses now may hold Stone Swords that could be enchanted and will wear chainmail armor more often than iron armor.
 
+• The breakage and decay in Jungle Fortress can be found throughout the fortress. Even in underground tunnels now.
+
 ##### Strongholds:
 • Removed Stonebricks Strongholds because Better Strongholds mod exists!
   Use that epic mod instead of upgrade the Overworld Stronghold!
