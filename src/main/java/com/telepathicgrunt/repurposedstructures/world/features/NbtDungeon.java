@@ -201,6 +201,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
 
         // Add chests that are wall based
         for(int currentChestAttempt = 0; currentChestAttempt < config.maxNumOfChests;) {
+            boolean addedChestThisAttempt = false;
             for (int currentChestPosAttempt = 0; currentChestPosAttempt < fullLengths.getX() + fullLengths.getZ() + halfLengths.getY(); ++currentChestPosAttempt) {
 
                 mutable.set(position).move(
@@ -268,6 +269,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
 
                                     isOnWall = false; // Skip wall code as we already placed chest
                                     currentChestAttempt++;
+                                    addedChestThisAttempt = true;
                                     if(currentChestAttempt == config.maxNumOfChests){
                                         return;
                                     }
@@ -292,6 +294,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                             // Set chest to face away from wall.
                             world.setBlockState(mutable, lootBlock, 2);
                             currentChestAttempt++;
+                            addedChestThisAttempt = true;
 
                             LootableContainerBlockEntity.setLootTable(world, random, mutable, config.chestResourcelocation);
                             mutable.move(Direction.DOWN);
@@ -311,7 +314,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                     }
                 }
             }
-            currentChestAttempt++;
+            if(!addedChestThisAttempt) currentChestAttempt++;
         }
     }
 }
