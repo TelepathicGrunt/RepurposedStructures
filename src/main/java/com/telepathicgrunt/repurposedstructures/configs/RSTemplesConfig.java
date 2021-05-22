@@ -158,7 +158,8 @@ public class RSTemplesConfig
                     .define("addPyramidSnowyToModdedBiomes", true));
 
                 pyramidEndMaxChunkDistance = subscriber.subscribe(builder
-                    .comment("\n How rare are End Pyramid in End biomes.")
+                    .comment("\n How rare are End Pyramid in End biomes.",
+							" 1 for spawning in most chunks and 1001 for none.")
                     .translation("repurposedstructures.config.pyramids.pyramidendmaxchunkdistance")
                     .defineInRange("pyramidEndMaxChunkDistance", 68, 1, 1001));
 

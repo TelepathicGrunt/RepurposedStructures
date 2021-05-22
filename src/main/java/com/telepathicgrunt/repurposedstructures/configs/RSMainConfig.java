@@ -61,8 +61,7 @@ public class RSMainConfig
 								"theabyss:dream_3, " +
 								"theabyss:radio, " +
 								"theabyss:theabyssdimgroundlands, " +
-								"theabyss:theabyssdimskylands, " +
-								"lostcities:lostcity"));
+								"theabyss:theabyssdimskylands"));
 
 			builder.build();
 

@@ -5,6 +5,8 @@
 
 • Expanded all RS's Overworld Outposts boundaries so that Pillagers should now spawn more often over time.
 
+• Fixed comments on the RS Outpost configs being on the wrong config entries.
+
 ##### Pyramids:
 • Snowy Pyramid Pit slightly changed to help hint at what spots are safe to stand on.
 
