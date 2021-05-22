@@ -35,6 +35,7 @@ public class RSFeatures {
 
     public static Feature<DefaultFeatureConfig> WITHER_SKELETON_WITH_BOW = new WitherSkeletonWithBow();
     public static Feature<DefaultFeatureConfig> SHULKER_MOB = new ShulkerMob();
+    public static Feature<DefaultFeatureConfig> DROWNED_WITH_ARMOR = new DrownedWithArmor();
 
     public static Feature<DefaultFeatureConfig> POST_PROCESS_CONNECTING_BLOCKS = new StructurePostProcessConnectiveBlocks();
     public static Feature<StructureTargetChanceConfig> STRUCTURE_BREAKAGE = new StructureBreakage(StructureTargetChanceConfig.CODEC);
@@ -47,6 +48,7 @@ public class RSFeatures {
     public static Feature<StructureTargetAndLengthConfig> STRUCTURE_VINES = new StructureVine(StructureTargetAndLengthConfig.CODEC);
     public static Feature<StructureTargetAndLengthConfig> STRUCTURE_VINES_AND_LEAVES = new StructureVineAndLeaves(StructureTargetAndLengthConfig.CODEC);
     public static Feature<StructureTargetConfig> STRUCTURE_WARPED_PLANTS = new StructureWarpedPlants(StructureTargetConfig.CODEC);
+    public static Feature<StructureTargetAndLengthConfig> STRUCTURE_VINE_BREAKAGE = new StructureVineBreakage(StructureTargetAndLengthConfig.CODEC);
 
     public static void registerFeatures() {
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "dungeons_badlands"), BADLANDS_DUNGEONS);
@@ -69,6 +71,7 @@ public class RSFeatures {
 
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "wither_skeleton_with_bow"), WITHER_SKELETON_WITH_BOW);
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "shulker_mob"), SHULKER_MOB);
+        Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "drowned_with_armor"), DROWNED_WITH_ARMOR);
 
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "post_process_connecting_blocks"), POST_PROCESS_CONNECTING_BLOCKS);
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "structure_breakage"), STRUCTURE_BREAKAGE);
@@ -81,5 +84,6 @@ public class RSFeatures {
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "structure_vines"), STRUCTURE_VINES);
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "structure_vines_and_leaves"), STRUCTURE_VINES_AND_LEAVES);
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "structure_warped_plants"), STRUCTURE_WARPED_PLANTS);
+        Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "structure_vine_breakage"), STRUCTURE_VINE_BREAKAGE);
     }
 }

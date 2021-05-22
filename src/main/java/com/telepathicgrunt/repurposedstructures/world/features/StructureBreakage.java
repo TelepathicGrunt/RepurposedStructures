@@ -47,16 +47,19 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
         if(random.nextFloat() < config.chance){
             mutable.set(position).move(
                     random.nextInt(7) - 3,
-                    random.nextInt(3) - 1,
+                    0,
                     random.nextInt(7) - 3
             );
 
-            if(!world.toServerWorld().getStructureAccessor().getStructureAt(mutable, true, config.targetStructure).hasChildren()){
-                return false;
+            boolean foundSurface = findSurface(world, mutable, Direction.UP);
+            if(!foundSurface){
+                foundSurface = findSurface(world, mutable, Direction.DOWN);
             }
 
-            if(random.nextBoolean())
-                position = position.down();
+            if(!foundSurface && !world.toServerWorld().getStructureAccessor().getStructureAt(mutable, true, config.targetStructure).hasChildren()){
+                return false;
+            }
+            mutable.move(Direction.DOWN);
 
             float f = random.nextFloat() * 3.1415927F;
             float g = 3;
@@ -75,7 +78,7 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
 
             for (int s = n; s <= n + q; ++s) {
                 for (int t = p; t <= p + q; ++t) {
-                    return this.generateVeinPart(world, random, d, e, h, j, l, m, n, o, p, q, r);
+                    return this.generateVeinPart(world, random, d, e, h, j, l, m, n, o, p, q, r, chunkGenerator);
                     //this.generateVeinPart(world, random, d, e, h, j, l, m, n, o, p, q, r);
                 }
             }
@@ -84,8 +87,18 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
         return true;
     }
 
+    private boolean findSurface(StructureWorldAccess world, BlockPos.Mutable mutable, Direction direction) {
+        for (int i = 0; i <= 5; i++) {
+            if (FORTRESS_BLOCKS.test(world.getBlockState(mutable))) {
+                return true;
+            }
+            mutable.move(direction);
+        }
+        return false;
+    }
 
-    protected boolean generateVeinPart(WorldAccess world, Random random, double startX, double endX, double startZ, double endZ, double startY, double endY, int x, int y, int z, int size, int i) {
+
+    protected boolean generateVeinPart(WorldAccess world, Random random, double startX, double endX, double startZ, double endZ, double startY, double endY, int x, int y, int z, int size, int i, ChunkGenerator chunkGenerator) {
         int j = 0;
         BitSet bitSet = new BitSet(size * i * size);
         BlockPos.Mutable mutable = new BlockPos.Mutable();
@@ -157,14 +170,23 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
                                             mutable.set(ag, ai, ak);
                                             BlockState state = world.getBlockState(mutable);
                                             if (FORTRESS_BLOCKS.test(state)) {
-                                                world.setBlockState(mutable, Blocks.AIR.getDefaultState(), 2);
+                                                boolean isBelowSealevel = mutable.getY() < chunkGenerator.getSeaLevel();
+                                                world.setBlockState(mutable, isBelowSealevel ? Blocks.WATER.getDefaultState() : Blocks.CAVE_AIR.getDefaultState(), 2);
                                                 ++j;
-                                            }
 
-                                            // no floating vines
-                                            while(state.getMaterial() == Material.REPLACEABLE_PLANT){
-                                                world.setBlockState(mutable, Blocks.AIR.getDefaultState(), 3);
+                                                // no floating vines
                                                 state = world.getBlockState(mutable.move(Direction.DOWN));
+                                                while(state.getMaterial() == Material.REPLACEABLE_PLANT){
+                                                    world.setBlockState(mutable, isBelowSealevel ? Blocks.WATER.getDefaultState() : Blocks.CAVE_AIR.getDefaultState(), 3);
+                                                    state = world.getBlockState(mutable.move(Direction.DOWN));
+                                                }
+
+                                                state = world.getBlockState(mutable.move(Direction.UP));
+                                                while(state.getMaterial() == Material.REPLACEABLE_PLANT){
+                                                    isBelowSealevel = mutable.getY() < chunkGenerator.getSeaLevel();
+                                                    world.setBlockState(mutable, isBelowSealevel ? Blocks.WATER.getDefaultState() : Blocks.AIR.getDefaultState(), 3);
+                                                    state = world.getBlockState(mutable.move(Direction.UP));
+                                                }
                                             }
                                         }
                                     }

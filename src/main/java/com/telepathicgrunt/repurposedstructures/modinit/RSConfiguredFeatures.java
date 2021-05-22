@@ -189,9 +189,12 @@ public class RSConfiguredFeatures {
 
     public static ConfiguredFeature<?, ?> WITHER_SKELETON_WITH_BOW = RSFeatures.WITHER_SKELETON_WITH_BOW.configure(FeatureConfig.DEFAULT);
     public static ConfiguredFeature<?, ?> SHULKER_MOB = RSFeatures.SHULKER_MOB.configure(FeatureConfig.DEFAULT);
+    public static ConfiguredFeature<?, ?> DROWNED_WITH_ARMOR = RSFeatures.DROWNED_WITH_ARMOR.configure(FeatureConfig.DEFAULT);
 
     public static ConfiguredFeature<?, ?> POST_PROCESS_CONNECTING_BLOCKS = RSFeatures.POST_PROCESS_CONNECTING_BLOCKS.configure(FeatureConfig.DEFAULT);
-    public static ConfiguredFeature<?, ?> JUNGLE_FORTRESS_STRUCTURE_BREAKAGE = RSFeatures.STRUCTURE_BREAKAGE.configure(new StructureTargetChanceConfig(RSStructures.JUNGLE_FORTRESS, 0.05f));
+    public static ConfiguredFeature<?, ?> JUNGLE_FORTRESS_STRUCTURE_BREAKAGE = RSFeatures.STRUCTURE_BREAKAGE.configure(new StructureTargetChanceConfig(RSStructures.JUNGLE_FORTRESS, 0.366f));
+    public static ConfiguredFeature<?, ?> JUNGLE_FORTRESS_STRUCTURE_VINE_BREAKAGE = RSFeatures.STRUCTURE_VINE_BREAKAGE.configure(new StructureTargetAndLengthConfig(RSStructures.JUNGLE_FORTRESS, 15, 4));
+    public static ConfiguredFeature<?, ?> JUNGLE_FORTRESS_STRUCTURE_VINES = RSFeatures.STRUCTURE_VINES.configure(new StructureTargetAndLengthConfig(RSStructures.JUNGLE_FORTRESS, 10, 3));
     public static ConfiguredFeature<?, ?> NETHER_STRONGHOLD_CHAINS = RSFeatures.STRUCTURE_CHAINS.configure(new StructureTargetConfig(RSStructures.NETHER_STRONGHOLD, 7));
     public static ConfiguredFeature<?, ?> END_MINESHAFT_CHORUS = RSFeatures.STRUCTURE_CHORUS.configure(new StructureTargetConfig(RSStructures.END_MINESHAFT, 4));
     public static ConfiguredFeature<?, ?> END_MINESHAFT_DENSE_CHORUS = RSFeatures.STRUCTURE_CHORUS.configure(new StructureTargetConfig(RSStructures.END_MINESHAFT, 60));
@@ -241,9 +244,12 @@ public class RSConfiguredFeatures {
 
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "wither_skeleton_with_bow"), WITHER_SKELETON_WITH_BOW);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "shulker_mob"), SHULKER_MOB);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "drowned_with_armor"), DROWNED_WITH_ARMOR);
 
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "post_process_connecting_blocks"), POST_PROCESS_CONNECTING_BLOCKS);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "jungle_fortress_structure_breakage"), JUNGLE_FORTRESS_STRUCTURE_BREAKAGE);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "jungle_fortress_structure_vine_breakage"), JUNGLE_FORTRESS_STRUCTURE_VINE_BREAKAGE);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "jungle_fortress_structure_vines"), JUNGLE_FORTRESS_STRUCTURE_VINES);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "nether_stronghold_chains"), NETHER_STRONGHOLD_CHAINS);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "end_mineshaft_chorus"), END_MINESHAFT_CHORUS);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "end_mineshaft_dense_chorus"), END_MINESHAFT_DENSE_CHORUS);

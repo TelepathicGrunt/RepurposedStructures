@@ -2,28 +2,49 @@ package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetAndLengthConfig;
+import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetChanceConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.Material;
 import net.minecraft.block.VineBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.StructureWorldAccess;
+import net.minecraft.world.WorldAccess;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 
+import java.util.BitSet;
 import java.util.Random;
+import java.util.function.Predicate;
 
 
-public class StructureVine extends Feature<StructureTargetAndLengthConfig> {
+public class StructureVineBreakage extends Feature<StructureTargetAndLengthConfig> {
 
-    public StructureVine(Codec<StructureTargetAndLengthConfig> config) {
+    public StructureVineBreakage(Codec<StructureTargetAndLengthConfig> config) {
         super(config);
     }
+
+    private static final Predicate<BlockState> FORTRESS_BLOCKS = (blockState) -> {
+        if (blockState == null) {
+            return false;
+        } else {
+            return blockState.getMaterial() == Material.STONE ||
+                    blockState.getMaterial() == Material.SOIL ||
+                    blockState.isOf(Blocks.INFESTED_CHISELED_STONE_BRICKS) ||
+                    blockState.isOf(Blocks.INFESTED_CRACKED_STONE_BRICKS) ||
+                    blockState.isOf(Blocks.INFESTED_STONE_BRICKS) ||
+                    blockState.isOf(Blocks.INFESTED_MOSSY_STONE_BRICKS) ||
+                    blockState.isOf(Blocks.IRON_BARS);
+        }
+    };
 
 
     @Override
     public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, StructureTargetAndLengthConfig config) {
+
         BlockPos.Mutable mutable = new BlockPos.Mutable();
 
         for(int i = 0; i < config.attempts; i++){
@@ -33,13 +54,33 @@ public class StructureVine extends Feature<StructureTargetAndLengthConfig> {
                     random.nextInt(7) - 3
             );
 
-            if(!world.isAir(mutable) || !world.toServerWorld().getStructureAccessor().getStructureAt(mutable, true, config.targetStructure).hasChildren()){
+            if(!FORTRESS_BLOCKS.test(world.getBlockState(mutable)) || !world.isAir(mutable.down()) || !world.toServerWorld().getStructureAccessor().getStructureAt(mutable, true, config.targetStructure).hasChildren()){
                 continue;
+            }
+
+            // create hole in fortress block for vine
+            world.setBlockState(mutable, Blocks.CAVE_AIR.getDefaultState(), 3);
+            BlockPos.Mutable vineMutablePos = new BlockPos.Mutable().set(mutable);
+            BlockState neighboringBlock = world.getBlockState(vineMutablePos);
+            for (Direction direction : Direction.Type.HORIZONTAL) {
+                vineMutablePos.set(mutable).move(direction);
+                // no floating vines
+                while(neighboringBlock.getMaterial() == Material.REPLACEABLE_PLANT){
+                    world.setBlockState(vineMutablePos, Blocks.CAVE_AIR.getDefaultState(), 3);
+                    neighboringBlock = world.getBlockState(vineMutablePos.move(Direction.DOWN));
+                }
+            }
+
+            BlockPos.Mutable replacingPlantMutable = new BlockPos.Mutable().set(mutable);
+            BlockState plantState = world.getBlockState(replacingPlantMutable.move(Direction.UP));
+            while(plantState.getMaterial() == Material.REPLACEABLE_PLANT){
+                world.setBlockState(replacingPlantMutable, Blocks.AIR.getDefaultState(), 3);
+                plantState = world.getBlockState(replacingPlantMutable.move(Direction.UP));
             }
 
             // generates vines from given position down length number of blocks if path is clear and the given position is valid
             int length = 0;
-            BlockPos.Mutable vineMutablePos = new BlockPos.Mutable().set(mutable);
+            vineMutablePos.set(mutable);
             ChunkPos currentChunkPos = new ChunkPos(vineMutablePos);
             BlockState currentBlockstate;
             BlockState aboveBlockstate;
@@ -61,7 +102,6 @@ public class StructureVine extends Feature<StructureTargetAndLengthConfig> {
                             //places topmost vine that can face upward
                             //tick scheduled so it can break if block it was attached to was removed later in worldgen
                             world.setBlockState(vineMutablePos, currentBlockstate.with(VineBlock.UP, aboveBlockstate.isOpaque()), 2);
-                            world.getBlockTickScheduler().schedule(vineMutablePos.toImmutable(), currentBlockstate.getBlock(), 1);
                             length++;
                             break;
                         }
@@ -69,13 +109,11 @@ public class StructureVine extends Feature<StructureTargetAndLengthConfig> {
                             //places rest of the vine as long as vine is above
                             //tick scheduled so it can break if block it was attached to was removed later in worldgen
                             world.setBlockState(vineMutablePos, aboveBlockstate.with(VineBlock.UP, false), 2);
-                            world.getBlockTickScheduler().schedule(vineMutablePos.toImmutable(), aboveBlockstate.getBlock(), 1);
                             length++;
                             break;
                         }
                     }
-                }
-                else {
+                } else {
                     break;
                 }
             }
