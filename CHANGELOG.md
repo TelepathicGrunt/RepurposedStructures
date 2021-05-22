@@ -14,6 +14,8 @@
 • Removed Stonebricks Strongholds because Better Strongholds mod exists! 
   Use that epic mod instead of upgrade the Overworld Stronghold!
 
+• Nether Stronghold is now in the last generation stage in order to try and prevent other structures from eating at the stronghold.
+
 ##### Dungeons:
 • Fixed bug that prevented RS's Dungeons from ever having 2 chests. Now they have a chance of spawning 2 chests.
 
