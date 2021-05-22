@@ -62,18 +62,20 @@ public class RSMineshaftStructure extends AdvancedJigsawStructure {
         public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
             super.init(dynamicRegistryManager, chunkGenerator, structureManager, chunkX, chunkZ, biome, defaultFeatureConfig);
 
-            if(environmentCheck != ENVIRONMENT_CHECK.NONE){
-                // Prevent Mineshaft from touching ocean water or regular air.
-                // Won't stop touching against carver or feature liquids/air.
-                BlockPos.Mutable mutable = new BlockPos.Mutable();
-                for(int i = this.children.size() - 1; i >= 0; i--){
-                    StructurePiece piece = this.children.get(i);
-                    BlockBox boundingBox = piece.getBoundingBox();
-                    if(isEnvironmentInvalidInBounds(chunkGenerator, mutable, boundingBox, environmentCheck)){
-                        this.children.remove(i);
-                    }
-                }
-            }
+            // Turned off because it has a massive performance impact. Really, really bad...
+            // Profiler results: https://imgur.com/c6EKAhE
+//            if(environmentCheck != ENVIRONMENT_CHECK.NONE){
+//                // Prevent Mineshaft from touching ocean water or regular air.
+//                // Won't stop touching against carver or feature liquids/air.
+//                BlockPos.Mutable mutable = new BlockPos.Mutable();
+//                for(int i = this.children.size() - 1; i >= 0; i--){
+//                    StructurePiece piece = this.children.get(i);
+//                    BlockBox boundingBox = piece.getBoundingBox();
+//                    if(isEnvironmentInvalidInBounds(chunkGenerator, mutable, boundingBox, environmentCheck)){
+//                        this.children.remove(i);
+//                    }
+//                }
+//            }
         }
 
         private boolean isEnvironmentInvalidInBounds(ChunkGenerator chunkGenerator, BlockPos.Mutable mutable, BlockBox boundingBox, ENVIRONMENT_CHECK environmentCheck) {

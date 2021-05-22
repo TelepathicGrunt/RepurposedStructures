@@ -5,11 +5,14 @@ import com.telepathicgrunt.repurposedstructures.world.features.configs.Structure
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
+import net.minecraft.block.VineBlock;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.WorldAccess;
+import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 
@@ -53,26 +56,27 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
 
             boolean foundSurface = findSurface(world, mutable, Direction.UP);
             if(!foundSurface){
+                mutable.move(Direction.DOWN, 5);
                 foundSurface = findSurface(world, mutable, Direction.DOWN);
             }
 
             if(!foundSurface && !world.toServerWorld().getStructureAccessor().getStructureAt(mutable, true, config.targetStructure).hasChildren()){
                 return false;
             }
-            mutable.move(Direction.DOWN);
+            mutable.move(Direction.UP);
 
             float f = random.nextFloat() * 3.1415927F;
             float g = 3;
             int i = 2;
-            double d = (float) position.getX() + MathHelper.sin(f) * g;
-            double e = (float) position.getX() - MathHelper.sin(f) * g;
-            double h = (float) position.getZ() + MathHelper.cos(f) * g;
-            double j = (float) position.getZ() - MathHelper.cos(f) * g;
-            double l = position.getY() + random.nextInt(3) - 2;
-            double m = position.getY() + random.nextInt(3) - 2;
-            int n = position.getX() - MathHelper.ceil(g) - i;
-            int o = position.getY() - 4;
-            int p = position.getZ() - MathHelper.ceil(g) - i;
+            double d = (float) mutable.getX() + MathHelper.sin(f) * g;
+            double e = (float) mutable.getX() - MathHelper.sin(f) * g;
+            double h = (float) mutable.getZ() + MathHelper.cos(f) * g;
+            double j = (float) mutable.getZ() - MathHelper.cos(f) * g;
+            double l = mutable.getY() + random.nextInt(3) - 2;
+            double m = mutable.getY() + random.nextInt(3) - 2;
+            int n = mutable.getX() - MathHelper.ceil(g) - i;
+            int o = mutable.getY() - 4;
+            int p = mutable.getZ() - MathHelper.ceil(g) - i;
             int q = 2 * (MathHelper.ceil(g) + i);
             int r = 8;
 
@@ -170,22 +174,43 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
                                             mutable.set(ag, ai, ak);
                                             BlockState state = world.getBlockState(mutable);
                                             if (FORTRESS_BLOCKS.test(state)) {
+                                                ChunkPos currentChunkPos = new ChunkPos(mutable);
+                                                Chunk currentChunk = world.getChunk(currentChunkPos.x, currentChunkPos.z);
                                                 boolean isBelowSealevel = mutable.getY() < chunkGenerator.getSeaLevel();
-                                                world.setBlockState(mutable, isBelowSealevel ? Blocks.WATER.getDefaultState() : Blocks.CAVE_AIR.getDefaultState(), 2);
+                                                currentChunk.setBlockState(mutable, isBelowSealevel ? Blocks.WATER.getDefaultState() : Blocks.CAVE_AIR.getDefaultState(), false);
                                                 ++j;
 
                                                 // no floating vines
-                                                state = world.getBlockState(mutable.move(Direction.DOWN));
+                                                state = currentChunk.getBlockState(mutable.move(Direction.DOWN));
                                                 while(state.getMaterial() == Material.REPLACEABLE_PLANT){
-                                                    world.setBlockState(mutable, isBelowSealevel ? Blocks.WATER.getDefaultState() : Blocks.CAVE_AIR.getDefaultState(), 3);
-                                                    state = world.getBlockState(mutable.move(Direction.DOWN));
+                                                    currentChunk.setBlockState(mutable, isBelowSealevel ? Blocks.WATER.getDefaultState() : Blocks.CAVE_AIR.getDefaultState(), false);
+                                                    state = currentChunk.getBlockState(mutable.move(Direction.DOWN));
                                                 }
 
-                                                state = world.getBlockState(mutable.move(Direction.UP));
+                                                state = currentChunk.getBlockState(mutable.move(Direction.UP));
                                                 while(state.getMaterial() == Material.REPLACEABLE_PLANT){
                                                     isBelowSealevel = mutable.getY() < chunkGenerator.getSeaLevel();
-                                                    world.setBlockState(mutable, isBelowSealevel ? Blocks.WATER.getDefaultState() : Blocks.AIR.getDefaultState(), 3);
-                                                    state = world.getBlockState(mutable.move(Direction.UP));
+                                                    currentChunk.setBlockState(mutable, isBelowSealevel ? Blocks.WATER.getDefaultState() : Blocks.AIR.getDefaultState(), false);
+                                                    state = currentChunk.getBlockState(mutable.move(Direction.UP));
+                                                }
+
+                                                BlockPos.Mutable mutable2 = new BlockPos.Mutable();
+                                                for (Direction direction : Direction.values()) {
+                                                    if(direction == Direction.UP) continue;
+
+                                                    mutable2.set(mutable).move(direction);
+                                                    if (currentChunkPos.x != mutable2.getX() >> 4 || currentChunkPos.z != mutable2.getZ() >> 4) {
+                                                        currentChunk = world.getChunk(mutable2);
+                                                        currentChunkPos = new ChunkPos(mutable2);
+                                                    }
+
+                                                    BlockState neighboringBlock = currentChunk.getBlockState(mutable2);
+                                                    if (neighboringBlock.isOf(Blocks.VINE) && neighboringBlock.get(VineBlock.getFacingProperty(direction.getOpposite()))) {
+                                                        while(neighboringBlock.getMaterial() == Material.REPLACEABLE_PLANT){
+                                                            currentChunk.setBlockState(mutable2, isBelowSealevel ? Blocks.WATER.getDefaultState() : Blocks.CAVE_AIR.getDefaultState(), false);
+                                                            neighboringBlock = currentChunk.getBlockState(mutable2.move(Direction.DOWN));
+                                                        }
+                                                    }
                                                 }
                                             }
                                         }

@@ -65,6 +65,8 @@ public class FloodWithWaterProcessor extends StructureProcessor {
                 Chunk currentChunk = worldView.getChunk(currentChunkPos.x, currentChunkPos.z);
                 BlockPos.Mutable mutable = new BlockPos.Mutable();
                 for (Direction direction : Direction.values()) {
+                    if(direction == Direction.UP) continue;
+
                     mutable.set(structureBlockInfoWorld.pos).move(direction);
                     if (currentChunkPos.x != mutable.getX() >> 4 || currentChunkPos.z != mutable.getZ() >> 4) {
                         currentChunk = worldView.getChunk(mutable);

@@ -6,6 +6,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.block.Block;
+import net.minecraft.block.Material;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.structure.Structure;
 import net.minecraft.structure.StructurePlacementData;
@@ -44,7 +45,7 @@ public class CloseOffFluidSourcesProcessor extends StructureProcessor {
     public Structure.StructureBlockInfo process(WorldView worldReader, BlockPos pos, BlockPos pos2, Structure.StructureBlockInfo infoIn1, Structure.StructureBlockInfo infoIn2, StructurePlacementData settings) {
 
         ChunkPos currentChunkPos = new ChunkPos(infoIn2.pos);
-        if(!GeneralUtils.isFullCube(worldReader, infoIn2.pos, infoIn2.state)){
+        if(!GeneralUtils.isFullCube(worldReader, infoIn2.pos, infoIn2.state) || !infoIn2.state.getMaterial().blocksMovement()){
             Chunk currentChunk = worldReader.getChunk(currentChunkPos.x, currentChunkPos.z);
 
             // Remove fluid sources in adjacent horizontal blocks across chunk boundaries and above as well

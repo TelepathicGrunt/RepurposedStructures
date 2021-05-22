@@ -54,11 +54,11 @@ public class DrownedWithArmor extends Feature<DefaultFeatureConfig> {
                 0.0F);
 
 
-        if(random.nextFloat() < 0.15F){
+        if(random.nextFloat() < 0.45F){
             ItemStack stoneSword = new ItemStack(Items.STONE_SWORD);
 
             // enchant sword
-            if(random.nextFloat() < 0.2F){
+            if(random.nextFloat() < 0.25F){
                 List<Enchantment> list = Registry.ENCHANTMENT.stream().filter(Enchantment::isAvailableForRandomSelection)
                         .filter((enchantmentToCheck) -> enchantmentToCheck.isAcceptableItem(stoneSword)).collect(Collectors.toList());
                 Enchantment enchantment = list.get(random.nextInt(list.size()));
