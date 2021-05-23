@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.mojang.serialization.Codec;
+import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetAndLengthConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -13,15 +14,15 @@ import net.minecraft.world.gen.feature.Feature;
 import java.util.Random;
 
 
-public class StructureWarpedPlants extends Feature<StructureTargetConfig> {
+public class StructureWarpedPlants extends Feature<StructureTargetAndLengthConfig> {
 
-    public StructureWarpedPlants(Codec<StructureTargetConfig> config) {
+    public StructureWarpedPlants(Codec<StructureTargetAndLengthConfig> config) {
         super(config);
     }
 
 
     @Override
-    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, StructureTargetConfig config) {
+    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, StructureTargetAndLengthConfig config) {
 
         BlockPos.Mutable mutable = new BlockPos.Mutable();
         BlockState netherSprouts = Blocks.NETHER_SPROUTS.getDefaultState();
@@ -68,7 +69,8 @@ public class StructureWarpedPlants extends Feature<StructureTargetConfig> {
                         continue;
                     }
 
-                    int length = random.nextInt(3);
+                    // Biased towards max length if greater than 3
+                    int length = config.length > 3 ? config.length - random.nextInt(random.nextInt(config.length) + 1) : random.nextInt(config.length);
                     for(int currentLength = 0; currentLength <= length; currentLength++){
                         if(currentLength == length || !world.getBlockState(mutable.up()).isAir()){
                             world.setBlockState(mutable, twistingVines, 3);

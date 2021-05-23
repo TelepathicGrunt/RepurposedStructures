@@ -1,7 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.mojang.serialization.Codec;
-import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetAndLengthConfig;
+import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetLengthRangeConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.VineBlock;
@@ -15,22 +15,22 @@ import net.minecraft.world.gen.feature.Feature;
 import java.util.Random;
 
 
-public class StructureVine extends Feature<StructureTargetAndLengthConfig> {
+public class StructureVine extends Feature<StructureTargetLengthRangeConfig> {
 
-    public StructureVine(Codec<StructureTargetAndLengthConfig> config) {
+    public StructureVine(Codec<StructureTargetLengthRangeConfig> config) {
         super(config);
     }
 
 
     @Override
-    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, StructureTargetAndLengthConfig config) {
+    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, StructureTargetLengthRangeConfig config) {
         BlockPos.Mutable mutable = new BlockPos.Mutable();
 
         for(int i = 0; i < config.attempts; i++){
             mutable.set(position).move(
-                    random.nextInt(7) - 3,
+                    random.nextInt((config.range * 2) + 1) - config.range,
                     random.nextInt(5) - 1,
-                    random.nextInt(7) - 3
+                    random.nextInt((config.range * 2) + 1) - config.range
             );
 
             if(!world.isAir(mutable) || !world.toServerWorld().getStructureAccessor().getStructureAt(mutable, true, config.targetStructure).hasChildren()){

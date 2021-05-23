@@ -2,10 +2,7 @@ package com.telepathicgrunt.repurposedstructures.modinit;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.features.*;
-import com.telepathicgrunt.repurposedstructures.world.features.configs.NbtDungeonConfig;
-import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetAndLengthConfig;
-import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetChanceConfig;
-import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetConfig;
+import com.telepathicgrunt.repurposedstructures.world.features.configs.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
@@ -41,13 +38,13 @@ public class RSFeatures {
     public static Feature<StructureTargetChanceConfig> STRUCTURE_BREAKAGE = new StructureBreakage(StructureTargetChanceConfig.CODEC);
     public static Feature<StructureTargetConfig> STRUCTURE_CHAINS = new StructureChains(StructureTargetConfig.CODEC);
     public static Feature<StructureTargetConfig> STRUCTURE_CHORUS = new StructureChorus(StructureTargetConfig.CODEC);
-    public static Feature<StructureTargetConfig> STRUCTURE_CRIMSON_PLANTS = new StructureCrimsonPlants(StructureTargetConfig.CODEC);
+    public static Feature<StructureTargetAndLengthConfig> STRUCTURE_CRIMSON_PLANTS = new StructureCrimsonPlants(StructureTargetAndLengthConfig.CODEC);
     public static Feature<StructureTargetConfig> STRUCTURE_FIRE = new StructureFire(StructureTargetConfig.CODEC);
     public static Feature<StructureTargetConfig> STRUCTURE_NETHERWART = new StructureNetherwart(StructureTargetConfig.CODEC);
     public static Feature<StructureTargetConfig> STRUCTURE_SEAGRASS = new StructureSeagrass(StructureTargetConfig.CODEC);
-    public static Feature<StructureTargetAndLengthConfig> STRUCTURE_VINES = new StructureVine(StructureTargetAndLengthConfig.CODEC);
+    public static Feature<StructureTargetLengthRangeConfig> STRUCTURE_VINES = new StructureVine(StructureTargetLengthRangeConfig.CODEC);
     public static Feature<StructureTargetAndLengthConfig> STRUCTURE_VINES_AND_LEAVES = new StructureVineAndLeaves(StructureTargetAndLengthConfig.CODEC);
-    public static Feature<StructureTargetConfig> STRUCTURE_WARPED_PLANTS = new StructureWarpedPlants(StructureTargetConfig.CODEC);
+    public static Feature<StructureTargetAndLengthConfig> STRUCTURE_WARPED_PLANTS = new StructureWarpedPlants(StructureTargetAndLengthConfig.CODEC);
     public static Feature<StructureTargetAndLengthConfig> STRUCTURE_VINE_BREAKAGE = new StructureVineBreakage(StructureTargetAndLengthConfig.CODEC);
 
     public static void registerFeatures() {
