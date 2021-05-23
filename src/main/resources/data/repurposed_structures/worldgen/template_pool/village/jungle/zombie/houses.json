@@ -3,135 +3,27 @@
   "fallback": "repurposed_structures:village/jungle/terminators",
   "elements": [
     {
-      "weight": 3,
-      "element": {
-        "location": "minecraft:village/jungle/zombie/houses/small_house_1",
-        "processors": "repurposed_structures:village/jungle/zombify",
-        "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
-      }
-    },
-    {
-      "weight": 3,
-      "element": {
-        "location": "minecraft:village/jungle/zombie/houses/small_house_2",
-        "processors": "repurposed_structures:village/jungle/zombify",
-        "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
-      }
-    },
-    {
-      "weight": 3,
-      "element": {
-        "location": "minecraft:village/jungle/zombie/houses/small_house_3",
-        "processors": "repurposed_structures:village/jungle/zombify",
-        "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
-      }
-    },
-    {
-      "weight": 3,
-      "element": {
-        "location": "minecraft:village/jungle/zombie/houses/small_house_4",
-        "processors": "repurposed_structures:village/jungle/zombify",
-        "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
-      }
-    },
-    {
-      "weight": 3,
-      "element": {
-        "location": "minecraft:village/jungle/zombie/houses/small_house_5",
-        "processors": "repurposed_structures:village/jungle/zombify",
-        "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
-      }
-    },
-    {
-      "weight": 3,
-      "element": {
-        "location": "minecraft:village/jungle/zombie/houses/small_house_6",
-        "processors": "repurposed_structures:village/jungle/zombify",
-        "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
-      }
-    },
-    {
-      "weight": 3,
-      "element": {
-        "location": "minecraft:village/jungle/zombie/houses/small_house_7",
-        "processors": "repurposed_structures:village/jungle/zombify",
-        "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
-      }
-    },
-    {
-      "weight": 3,
-      "element": {
-        "location": "minecraft:village/jungle/zombie/houses/small_house_8",
-        "processors": "repurposed_structures:village/jungle/zombify",
-        "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
-      }
-    },
-    {
-      "weight": 3,
-      "element": {
-        "location": "minecraft:village/jungle/zombie/houses/medium_house_1",
-        "processors": "repurposed_structures:village/jungle/zombify",
-        "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
-      }
-    },
-    {
-      "weight": 3,
-      "element": {
-        "location": "minecraft:village/jungle/zombie/houses/medium_house_2",
-        "processors": "repurposed_structures:village/jungle/zombify",
-        "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
-      }
-    },
-    {
       "weight": 2,
       "element": {
-        "location": "minecraft:village/jungle/houses/butchers_shop_1",
+        "location": "repurposed_structures:village/jungle/zombie/houses/animal_pen_1",
         "processors": "repurposed_structures:village/jungle/zombify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
     },
     {
-      "weight": 2,
+      "weight": 3,
       "element": {
-        "location": "minecraft:village/jungle/houses/butchers_shop_2",
+        "location": "repurposed_structures:village/jungle/zombie/houses/animal_pen_2",
         "processors": "repurposed_structures:village/jungle/zombify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
     },
     {
-      "weight": 2,
+      "weight": 3,
       "element": {
-        "location": "minecraft:village/jungle/houses/tool_smith_1",
-        "processors": "repurposed_structures:village/jungle/zombify",
-        "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
-      }
-    },
-    {
-      "weight": 2,
-      "element": {
-        "location": "minecraft:village/jungle/houses/fletcher_house_1",
-        "processors": "repurposed_structures:village/jungle/zombify",
-        "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
-      }
-    },
-    {
-      "weight": 2,
-      "element": {
-        "location": "minecraft:village/jungle/houses/shepherd_1",
+        "location": "repurposed_structures:village/jungle/houses/animal_pen_3",
         "processors": "repurposed_structures:village/jungle/zombify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
@@ -140,79 +32,7 @@
     {
       "weight": 1,
       "element": {
-        "location": "minecraft:village/jungle/houses/armorer_1",
-        "processors": "repurposed_structures:village/jungle/zombify",
-        "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
-      }
-    },
-    {
-      "weight": 2,
-      "element": {
-        "location": "minecraft:village/jungle/houses/fisher_cottage_1",
-        "processors": "repurposed_structures:village/jungle/zombify",
-        "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
-      }
-    },
-    {
-      "weight": 2,
-      "element": {
-        "location": "minecraft:village/jungle/houses/tannery_1",
-        "processors": "repurposed_structures:village/jungle/zombify",
-        "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
-      }
-    },
-    {
-      "weight": 2,
-      "element": {
-        "location": "minecraft:village/jungle/houses/cartographer_1",
-        "processors": "repurposed_structures:village/jungle/zombify",
-        "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
-      }
-    },
-    {
-      "weight": 2,
-      "element": {
-        "location": "minecraft:village/jungle/houses/library_1",
-        "processors": "repurposed_structures:village/jungle/zombify",
-        "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
-      }
-    },
-    {
-      "weight": 2,
-      "element": {
-        "location": "minecraft:village/jungle/houses/mason_1",
-        "processors": "repurposed_structures:village/jungle/zombify",
-        "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
-      }
-    },
-    {
-      "weight": 2,
-      "element": {
-        "location": "minecraft:village/jungle/houses/weaponsmith_1",
-        "processors": "repurposed_structures:village/jungle/zombify",
-        "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
-      }
-    },
-    {
-      "weight": 2,
-      "element": {
-        "location": "minecraft:village/jungle/houses/weaponsmith_2",
-        "processors": "repurposed_structures:village/jungle/zombify",
-        "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
-      }
-    },
-    {
-      "weight": 1,
-      "element": {
-        "location": "minecraft:village/jungle/houses/temple_1",
+        "location": "repurposed_structures:village/jungle/houses/armorer_1",
         "processors": "repurposed_structures:village/jungle/zombify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
@@ -221,7 +41,25 @@
     {
       "weight": 3,
       "element": {
-        "location": "minecraft:village/jungle/houses/temple_2",
+        "location": "repurposed_structures:village/jungle/houses/butcher_shop_1",
+        "processors": "repurposed_structures:village/jungle/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:village/jungle/houses/butcher_shop_2",
+        "processors": "repurposed_structures:village/jungle/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:village/jungle/houses/cartographer_1",
         "processors": "repurposed_structures:village/jungle/zombify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
@@ -230,7 +68,16 @@
     {
       "weight": 4,
       "element": {
-        "location": "minecraft:village/jungle/houses/large_farm_1",
+        "location": "repurposed_structures:village/jungle/houses/fisher_cottage_1",
+        "processors": "repurposed_structures:village/jungle/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/jungle/houses/fletcher_house_1",
         "processors": "repurposed_structures:village/jungle/zombify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
@@ -239,7 +86,34 @@
     {
       "weight": 4,
       "element": {
-        "location": "minecraft:village/jungle/zombie/houses/large_farm_2",
+        "location": "repurposed_structures:village/jungle/houses/large_farm_1",
+        "processors": "repurposed_structures:village/jungle/crop_randomizer",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:village/jungle/zombie/houses/large_farm_2",
+        "processors": "repurposed_structures:village/jungle/crop_randomizer",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/jungle/houses/library_1",
+        "processors": "repurposed_structures:village/jungle/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:village/jungle/houses/masons_1",
         "processors": "repurposed_structures:village/jungle/zombify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
@@ -248,7 +122,79 @@
     {
       "weight": 4,
       "element": {
-        "location": "minecraft:village/jungle/houses/small_farm",
+        "location": "repurposed_structures:village/jungle/zombie/houses/medium_house_1",
+        "processors": "repurposed_structures:village/jungle/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:village/jungle/zombie/houses/medium_house_2",
+        "processors": "repurposed_structures:village/jungle/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:village/jungle/houses/shepherds_1",
+        "processors": "repurposed_structures:village/jungle/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:village/jungle/houses/small_farm",
+        "processors": "repurposed_structures:village/jungle/crop_randomizer",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:village/jungle/zombie/houses/small_house_1",
+        "processors": "repurposed_structures:village/jungle/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:village/jungle/zombie/houses/small_house_2",
+        "processors": "repurposed_structures:village/jungle/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:village/jungle/zombie/houses/small_house_3",
+        "processors": "repurposed_structures:village/jungle/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:village/jungle/zombie/houses/small_house_4",
+        "processors": "repurposed_structures:village/jungle/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:village/jungle/zombie/houses/small_house_5",
         "processors": "repurposed_structures:village/jungle/zombify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
@@ -257,7 +203,34 @@
     {
       "weight": 2,
       "element": {
-        "location": "minecraft:village/jungle/houses/animal_pen_1",
+        "location": "repurposed_structures:village/jungle/zombie/houses/small_house_6",
+        "processors": "repurposed_structures:village/jungle/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:village/jungle/zombie/houses/small_house_7",
+        "processors": "repurposed_structures:village/jungle/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:village/jungle/zombie/houses/small_house_8",
+        "processors": "repurposed_structures:village/jungle/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:village/jungle/houses/tannery_1",
         "processors": "repurposed_structures:village/jungle/zombify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
@@ -266,7 +239,7 @@
     {
       "weight": 2,
       "element": {
-        "location": "minecraft:village/jungle/zombie/houses/animal_pen_2",
+        "location": "repurposed_structures:village/jungle/houses/temple_1",
         "processors": "repurposed_structures:village/jungle/zombify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
@@ -275,7 +248,34 @@
     {
       "weight": 2,
       "element": {
-        "location": "minecraft:village/jungle/zombie/houses/animal_pen_3",
+        "location": "repurposed_structures:village/jungle/houses/temple_2",
+        "processors": "repurposed_structures:village/jungle/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:village/jungle/houses/tool_smith_1",
+        "processors": "repurposed_structures:village/jungle/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:village/jungle/houses/weaponsmith_1",
+        "processors": "repurposed_structures:village/jungle/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:village/jungle/houses/weaponsmith_2",
         "processors": "repurposed_structures:village/jungle/zombify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
