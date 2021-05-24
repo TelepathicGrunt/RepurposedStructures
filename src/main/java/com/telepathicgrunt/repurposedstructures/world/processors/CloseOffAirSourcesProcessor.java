@@ -6,17 +6,17 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.block.Block;
-import net.minecraft.structure.Structure;
-import net.minecraft.structure.StructurePlacementData;
-import net.minecraft.structure.processor.StructureProcessor;
-import net.minecraft.structure.processor.StructureProcessorType;
+import net.minecraft.util.Direction;
+import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
-import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.world.WorldView;
-import net.minecraft.world.chunk.Chunk;
-import net.minecraft.world.gen.ChunkRandom;
+import net.minecraft.world.IWorldReader;
+import net.minecraft.world.chunk.IChunk;
+import net.minecraft.world.gen.feature.template.IStructureProcessorType;
+import net.minecraft.world.gen.feature.template.PlacementSettings;
+import net.minecraft.world.gen.feature.template.StructureProcessor;
+import net.minecraft.world.gen.feature.template.Template;
 
 import java.util.List;
 import java.util.Random;
@@ -40,11 +40,11 @@ public class CloseOffAirSourcesProcessor extends StructureProcessor {
     }
 
     @Override
-    public Structure.StructureBlockInfo process(WorldView worldReader, BlockPos pos, BlockPos pos2, Structure.StructureBlockInfo infoIn1, Structure.StructureBlockInfo infoIn2, StructurePlacementData settings) {
+    public Template.BlockInfo processBlock(IWorldReader worldReader, BlockPos pos, BlockPos pos2, Template.BlockInfo infoIn1, Template.BlockInfo infoIn2, PlacementSettings settings) {
 
         ChunkPos currentChunkPos = new ChunkPos(infoIn2.pos);
         if(!infoIn2.state.getFluidState().isEmpty()){
-            Chunk currentChunk = worldReader.getChunk(currentChunkPos.x, currentChunkPos.z);
+            IChunk currentChunk = worldReader.getChunk(currentChunkPos.x, currentChunkPos.z);
 
             // Remove fluid sources in adjacent horizontal blocks across chunk boundaries and above as well
             BlockPos.Mutable mutable = new BlockPos.Mutable();
@@ -57,11 +57,11 @@ public class CloseOffAirSourcesProcessor extends StructureProcessor {
                 }
 
                 if (currentChunk.getBlockState(mutable).isAir()) {
-                    Random random = new ChunkRandom();
+                    Random random = new SharedSeedRandom();
                     random.setSeed(mutable.asLong() * mutable.getY());
 
                     Block replacementBlock = GeneralUtils.getRandomEntry(weightedReplacementBlocks, random);
-                    currentChunk.setBlockState(mutable, replacementBlock.getDefaultState(), false);
+                    currentChunk.setBlockState(mutable, replacementBlock.defaultBlockState(), false);
                 }
             }
         }
@@ -70,7 +70,7 @@ public class CloseOffAirSourcesProcessor extends StructureProcessor {
     }
 
     @Override
-    protected StructureProcessorType<?> getType() {
+    protected IStructureProcessorType<?> getType() {
         return RSProcessors.CLOSE_OFF_AIR_SOURCES_PROCESSOR;
     }
 }

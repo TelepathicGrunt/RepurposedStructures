@@ -15,6 +15,7 @@ import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.SectionPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.IServerWorld;
+import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkStatus;
 import net.minecraft.world.chunk.IChunk;
@@ -56,7 +57,7 @@ public class GeneralUtils {
     //////////////////////////////
     private static final Map<BlockState, Boolean> IS_FULLCUBE_MAP = new HashMap<>();
 
-    public static boolean isFullCube(IServerWorld world, BlockPos pos, BlockState state){
+    public static boolean isFullCube(IWorldReader world, BlockPos pos, BlockState state){
         if(!IS_FULLCUBE_MAP.containsKey(state)){
             boolean isFullCube = Block.isShapeFullBlock(state.getOcclusionShape(world, pos)) || state.getBlock() instanceof LeavesBlock;
             IS_FULLCUBE_MAP.put(state, isFullCube);

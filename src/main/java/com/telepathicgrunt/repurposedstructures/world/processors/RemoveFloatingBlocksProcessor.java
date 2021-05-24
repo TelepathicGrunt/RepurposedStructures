@@ -29,7 +29,7 @@ public class RemoveFloatingBlocksProcessor extends StructureProcessor {
         // attempts to remove invalid floating plants
         if(structureBlockInfoWorld.state.isAir() || structureBlockInfoWorld.state.getBlock() instanceof FlowingFluidBlock){
 
-            // set the block in the world so that canPlaceAt's result changes
+            // set the block in the world so that canSurvive's result changes
             cachedChunk.setBlockState(mutable, structureBlockInfoWorld.state, false);
             BlockState aboveWorldState = worldView.getBlockState(mutable.move(Direction.UP));
 

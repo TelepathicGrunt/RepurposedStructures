@@ -3,11 +3,11 @@ package com.telepathicgrunt.repurposedstructures.world.predicates;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.RSPredicates;
-import net.minecraft.structure.rule.PosRuleTest;
-import net.minecraft.structure.rule.PosRuleTestType;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.gen.feature.template.IPosRuleTests;
+import net.minecraft.world.gen.feature.template.PosRuleTest;
 
 import java.util.Random;
 
@@ -40,15 +40,15 @@ public class PieceOriginAxisAlignedLinearPosRuleTest extends PosRuleTest {
 
     public boolean test(BlockPos blockPos, BlockPos blockPos2, BlockPos blockPos3, Random random) {
         Direction direction = Direction.get(Direction.AxisDirection.POSITIVE, this.axis);
-        float xDist = (float)Math.abs((blockPos.getX()) * direction.getOffsetX());
-        float yDist = (float)Math.abs((blockPos.getY()) * direction.getOffsetY());
-        float zDist = (float)Math.abs((blockPos.getZ()) * direction.getOffsetZ());
+        float xDist = (float)Math.abs((blockPos.getX()) * direction.getStepX());
+        float yDist = (float)Math.abs((blockPos.getY()) * direction.getStepY());
+        float zDist = (float)Math.abs((blockPos.getZ()) * direction.getStepZ());
         int distanceFromOrigin = (int)(xDist + yDist + zDist);
         float randomChance = random.nextFloat();
-        return (double)randomChance <= MathHelper.clampedLerp(this.minChance, this.maxChance, MathHelper.getLerpProgress(distanceFromOrigin, this.minDistance, this.maxDistance));
+        return (double)randomChance <= MathHelper.clampedLerp(this.minChance, this.maxChance, MathHelper.inverseLerp(distanceFromOrigin, this.minDistance, this.maxDistance));
     }
 
-    protected PosRuleTestType<?> getType() {
+    protected IPosRuleTests<?> getType() {
         return RSPredicates.PIECE_ORIGIN_AXIS_ALIGNED_LINEAR_POS_RULE_TEST;
     }
 }

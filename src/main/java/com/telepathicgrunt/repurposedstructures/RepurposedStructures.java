@@ -20,7 +20,9 @@ import com.telepathicgrunt.repurposedstructures.misc.MobSpawnerManager;
 import com.telepathicgrunt.repurposedstructures.misc.PoolAdditionMerger;
 import com.telepathicgrunt.repurposedstructures.mixin.ChunkGeneratorAccessor;
 import com.telepathicgrunt.repurposedstructures.modinit.*;
-import com.telepathicgrunt.repurposedstructures.utils.*;
+import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
+import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
+import com.telepathicgrunt.repurposedstructures.utils.LogSpamFiltering;
 import it.unimi.dsi.fastutil.objects.Reference2ObjectOpenHashMap;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
@@ -121,6 +123,7 @@ public class RepurposedStructures {
             //Moved the methods below into enqueue to make sure they dont cause issues during registration - andrew
             RSConfiguredFeatures.registerConfiguredFeatures();
             RSProcessors.registerProcessors();
+            RSPredicates.registerPredicates();
             RSStructures.setupStructures();
             RSConfiguredStructures.registerStructureFeatures();
             RSStructureTagMap.setupTags();

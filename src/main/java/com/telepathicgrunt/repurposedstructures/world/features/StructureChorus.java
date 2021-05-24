@@ -2,14 +2,11 @@ package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetConfig;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.ChorusFlowerBlock;
-import net.minecraft.block.ChorusPlantBlock;
+import net.minecraft.block.*;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.StructureWorldAccess;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
+import net.minecraft.world.ISeedReader;
+import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 
 import java.util.Random;
@@ -23,10 +20,10 @@ public class StructureChorus extends Feature<StructureTargetConfig> {
 
 
     @Override
-    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, StructureTargetConfig config) {
+    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, StructureTargetConfig config) {
 
         BlockPos.Mutable mutable = new BlockPos.Mutable();
-        BlockState chorusFlower = Blocks.CHORUS_FLOWER.getDefaultState();
+        BlockState chorusFlower = Blocks.CHORUS_FLOWER.defaultBlockState();
 
         for(int i = 0; i < config.attempts; i++){
             mutable.set(position).move(
@@ -35,26 +32,26 @@ public class StructureChorus extends Feature<StructureTargetConfig> {
                     random.nextInt(7) - 3
             );
 
-            if(world.getBlockState(mutable).isAir() && world.getBlockState(mutable.up()).isAir() && world.getBlockState(mutable.move(Direction.DOWN)).isOpaque()){
+            if(world.getBlockState(mutable).isAir() && world.getBlockState(mutable.above()).isAir() && world.getBlockState(mutable.move(Direction.DOWN)).canOcclude()){
                 // expensive. Do this check very last
-                if(!world.toServerWorld().getStructureAccessor().getStructureAt(mutable, true, config.targetStructure).hasChildren()){
+                if(!world.getLevel().structureFeatureManager().getStructureAt(mutable, true, config.targetStructure).isValid()){
                     continue;
                 }
 
-                world.setBlockState(mutable, Blocks.END_STONE.getDefaultState(), 3);
+                world.setBlock(mutable, Blocks.END_STONE.defaultBlockState(), 3);
                 if(random.nextFloat() < 0.33f){
-                    world.setBlockState(
+                    world.setBlock(
                             mutable.move(Direction.UP),
-                            chorusFlower.with(ChorusFlowerBlock.AGE, 5 - random.nextInt(random.nextInt(6) + 1)),
+                            chorusFlower.setValue(ChorusFlowerBlock.AGE, 5 - random.nextInt(random.nextInt(6) + 1)),
                             3);
                     continue;
                 }
 
                 // check to make sure this chorus stem can be placed
                 boolean isValidSpot = true;
-                for(Direction direction : Direction.Type.HORIZONTAL){
+                for(Direction direction : Direction.Plane.HORIZONTAL){
                     mutable.move(direction);
-                    if(world.getBlockState(mutable).isOf(Blocks.CHORUS_PLANT)){
+                    if(world.getBlockState(mutable).is(Blocks.CHORUS_PLANT)){
                         isValidSpot = false;
                         break;
                     }
@@ -63,28 +60,28 @@ public class StructureChorus extends Feature<StructureTargetConfig> {
                 if(!isValidSpot) continue;
 
                 mutable.move(Direction.UP);
-                world.setBlockState(mutable,
-                        Blocks.CHORUS_PLANT.getDefaultState()
-                                .with(ChorusPlantBlock.DOWN, true)
-                                .with(ChorusPlantBlock.UP, true),
+                world.setBlock(mutable,
+                        Blocks.CHORUS_PLANT.defaultBlockState()
+                                .setValue(ChorusPlantBlock.DOWN, true)
+                                .setValue(ChorusPlantBlock.UP, true),
                         3);
 
-                Direction direction = Direction.Type.HORIZONTAL.random(random);
-                if(random.nextFloat() < 0.33f || !world.getBlockState(mutable.offset(direction)).isAir()) {
-                    world.setBlockState(
+                Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
+                if(random.nextFloat() < 0.33f || !world.getBlockState(mutable.relative(direction)).isAir()) {
+                    world.setBlock(
                             mutable.move(Direction.UP),
-                            chorusFlower.with(ChorusFlowerBlock.AGE, 5 - random.nextInt(random.nextInt(6) + 1)),
+                            chorusFlower.setValue(ChorusFlowerBlock.AGE, 5 - random.nextInt(random.nextInt(6) + 1)),
                             3);
                     continue;
                 }
 
-                world.setBlockState(mutable.move(Direction.UP),
-                        Blocks.CHORUS_PLANT.getDefaultState()
-                            .with(ChorusPlantBlock.DOWN, true)
-                            .with(ConnectingBlock.FACING_PROPERTIES.get(direction), true),
+                world.setBlock(mutable.move(Direction.UP),
+                        Blocks.CHORUS_PLANT.defaultBlockState()
+                            .setValue(ChorusPlantBlock.DOWN, true)
+                            .setValue(SixWayBlock.PROPERTY_BY_DIRECTION.get(direction), true),
                         3);
 
-                world.setBlockState(mutable.move(direction), chorusFlower.with(ChorusFlowerBlock.AGE, random.nextInt(5)), 3);
+                world.setBlock(mutable.move(direction), chorusFlower.setValue(ChorusFlowerBlock.AGE, random.nextInt(5)), 3);
             }
         }
 

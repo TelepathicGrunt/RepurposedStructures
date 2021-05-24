@@ -12,8 +12,6 @@ import org.apache.logging.log4j.message.Message;
 
 import java.util.Set;
 
-import org.apache.logging.log4j.core.Filter.Result;
-
 @Plugin(name = "LogSpamFiltering", category = Node.CATEGORY, elementType = Filter.ELEMENT_TYPE)
 public class LogSpamFiltering extends AbstractFilter {
 

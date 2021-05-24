@@ -4,10 +4,10 @@ import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetAndLengthConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.StructureWorldAccess;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
+import net.minecraft.world.ISeedReader;
+import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 
 import java.util.Random;
@@ -21,13 +21,13 @@ public class StructureCrimsonPlants extends Feature<StructureTargetAndLengthConf
 
 
     @Override
-    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, StructureTargetAndLengthConfig config) {
+    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, StructureTargetAndLengthConfig config) {
 
         BlockPos.Mutable mutable = new BlockPos.Mutable();
-        BlockState crimsonFungus = Blocks.CRIMSON_FUNGUS.getDefaultState();
-        BlockState crimsonRoots = Blocks.CRIMSON_ROOTS.getDefaultState();
-        BlockState weepingVines = Blocks.WEEPING_VINES.getDefaultState();
-        BlockState weepingVinesPlant = Blocks.WEEPING_VINES_PLANT.getDefaultState();
+        BlockState crimsonFungus = Blocks.CRIMSON_FUNGUS.defaultBlockState();
+        BlockState crimsonRoots = Blocks.CRIMSON_ROOTS.defaultBlockState();
+        BlockState weepingVines = Blocks.WEEPING_VINES.defaultBlockState();
+        BlockState weepingVinesPlant = Blocks.WEEPING_VINES_PLANT.defaultBlockState();
 
         for(int i = 0; i < config.attempts; i++){
             mutable.set(position).move(
@@ -37,36 +37,36 @@ public class StructureCrimsonPlants extends Feature<StructureTargetAndLengthConf
             );
 
             if(world.getBlockState(mutable).isAir()){
-                if(random.nextFloat() < 0.8f && crimsonRoots.canPlaceAt(world, mutable)){
+                if(random.nextFloat() < 0.8f && crimsonRoots.canSurvive(world, mutable)){
                     // expensive. Do this check very last
-                    if(!world.toServerWorld().getStructureAccessor().getStructureAt(mutable, true, config.targetStructure).hasChildren()){
+                    if(!world.getLevel().structureFeatureManager().getStructureAt(mutable, true, config.targetStructure).isValid()){
                         continue;
                     }
 
-                    world.setBlockState(mutable, crimsonRoots, 3);
+                    world.setBlock(mutable, crimsonRoots, 3);
                 }
-                else if(crimsonFungus.canPlaceAt(world, mutable)){
+                else if(crimsonFungus.canSurvive(world, mutable)){
                     // expensive. Do this check very last
-                    if(!world.toServerWorld().getStructureAccessor().getStructureAt(mutable, true, config.targetStructure).hasChildren()){
+                    if(!world.getLevel().structureFeatureManager().getStructureAt(mutable, true, config.targetStructure).isValid()){
                         continue;
                     }
 
-                    world.setBlockState(mutable, crimsonFungus, 3);
+                    world.setBlock(mutable, crimsonFungus, 3);
                 }
-                else if(weepingVines.canPlaceAt(world, mutable)){
+                else if(weepingVines.canSurvive(world, mutable)){
                     // expensive. Do this check very last
-                    if(!world.toServerWorld().getStructureAccessor().getStructureAt(mutable, true, config.targetStructure).hasChildren()){
+                    if(!world.getLevel().structureFeatureManager().getStructureAt(mutable, true, config.targetStructure).isValid()){
                         continue;
                     }
 
                     // Biased towards max length if greater than 3
                     int length = config.length > 3 ? config.length - random.nextInt(random.nextInt(config.length) + 1) : random.nextInt(config.length);
                     for(int currentLength = 0; currentLength <= length; currentLength++){
-                        if(currentLength == length || !world.getBlockState(mutable.down()).isAir()){
-                            world.setBlockState(mutable, weepingVines, 3);
+                        if(currentLength == length || !world.getBlockState(mutable.below()).isAir()){
+                            world.setBlock(mutable, weepingVines, 3);
                             break;
                         }
-                        world.setBlockState(mutable, weepingVinesPlant, 3);
+                        world.setBlock(mutable, weepingVinesPlant, 3);
                         mutable.move(Direction.DOWN);
                     }
                 }

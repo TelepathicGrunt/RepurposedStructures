@@ -10,14 +10,52 @@
 ##### Pyramids:
 • Snowy Pyramid Pit slightly changed to help hint at what spots are safe to stand on.
 
+• Fixed Snowy Pyramids making a base of Red Sandstone instead of Snow Block by mistake.
+
 • Icy Pyramid Pit trap is now redesigned to be a bit more dangerous.
 
+##### Mineshafts:
+• All of RS's Mineshafts are now Jigsaw Structures so you can use datapacks to add new nbt pieces to it or customize it even more!
+
+• Mineshaft size is now a config option. All Mineshafts are a bit larger now with End Mineshafts especially giant now.
+
+• All 3 Nether Mineshafts have higher chance of Chest Minecarts.
+
+• End Mineshafts have much higher rate of Chest Minecarts but also has far more Endermite Spawners to make it dangerous.
+
+• Overworld Mineshafts are less likely to be cutoff by water and instead, will attempt to go through the liquid and wall it off instead.
+  Ocean Mineshafts will do the same but for air instead.
+
+• Swamp And Dark Forest Mineshaft has been split up into two separate Mineshafts. Swamp Mineshaft and Dark Forest Mineshaft.
+
+• Crimson, Warped, Jungle, Dark Forest, and Swamp Mineshafts will have a higher chance of taller climbable plants in their 2 floor pillar piece so you can climb to the next floor.
+
 ##### Fortresses:
+• Jungle Fortress is now a Jigsaw Structures so you can use datapacks to add new nbt pieces to it or customize it even more!
+
+• Jungle Fortress's size and the height range it can spawn at are now config options.
+
+• Drowned in Jungle Fortresses now may hold Stone Swords that could be enchanted and will wear chainmail armor more often than iron armor.
+
+• The breakage and decay in Jungle Fortress can be found throughout the fortress. Even in underground tunnels now.
+
 • Fixed Cartographer maps to Jungle Fortresses sometimes showing a house icon instead of a green banner icon.
 
 ##### Strongholds:
 • Removed Stonebricks Strongholds because Better Strongholds mod exists! 
   Use that epic mod instead of upgrade the Overworld Stronghold!
+
+• Nether Strongholds are now Jigsaw Structures so you can use datapacks to add new nbt pieces to it or customize it even more!
+  The Portal Room will now always be attached properly to the rest of the Stronghold!
+
+• Nether Stronghold prison pieces may have a chance of a trapped stronger Wither Skeleton.
+
+• Nether Stronghold Libraries now has a rare chance for Ancient Debris and the blocks are more randomized and rebalanced.
+
+• The ends of the Nether Stronghold will now never have a wall of flowing lava anymore!
+
+• Nether Strongholds will now only spawn further than roughly 2000 blocks from spawn.
+  Their config default distance between spawn attempts was changed from 85 to 100 as well to spread them out a bit.
 
 • Nether Stronghold is now in the last generation stage in order to try and prevent other structures from eating at the stronghold.
 
@@ -29,6 +67,17 @@
 
 ##### Misc:
 • Removed the giant boulder feature because it isn't close to a structure and doesn't fit this mod.
+
+• Borrowed Lithium's VoxelShapes mixin for LithiumDoublePairList in order to optimize creation of jigsaw structure bounding boxes a bit when Lithium isn't on. Use that mod tho if you can!
+
+• Added a new system where multiple datapacks can add new structure pieces to any pool file!
+  Instead of overwriting the pool file at
+  `data\repurposed_structures\worldgen\template_pool\village\birch\houses.nbt`
+  datapacks can swap the worldgen\template_pool part of the path to pool_additions like this
+  `data\repurposed_structures\pool_additions\village\birch\houses.nbt`
+  Now my mod will detect these pool files and merge its entries to the template_pool of the same path!
+  This allows you to stack multiple datapacks using this systme without needing to merge their template_pool files together by hand.
+  (Fun fact, this actually will work for other mod's template_pools too if Repurposed Structures is on)
 
 
 ## (V.2.6.6 Changes) (1.16.5 Minecraft)

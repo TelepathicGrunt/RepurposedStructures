@@ -24,9 +24,6 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
 import java.util.List;
 import java.util.Random;
 
-
-import net.minecraft.world.gen.feature.structure.Structure.IStartFactory;
-
 public class MansionStructure extends AbstractBaseStructure<NoFeatureConfig> {
 
     protected final MansionPieces.MansionTemplate.MANSIONTYPE type;

@@ -22,9 +22,6 @@ import net.minecraft.world.gen.settings.StructureSeparationSettings;
 
 import java.util.Set;
 
-import com.telepathicgrunt.repurposedstructures.world.structures.GenericJigsawStructure.MainStart;
-import net.minecraft.world.gen.feature.structure.Structure.IStartFactory;
-
 public class VillageNetherStructure extends GenericJigsawStructure {
     public VillageNetherStructure(ResourceLocation poolRL, int structureSize, int centerOffset, int biomeRange, int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet) {
         super(poolRL, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet);

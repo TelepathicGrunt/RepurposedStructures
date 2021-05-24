@@ -5,17 +5,17 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.RSPredicates;
 import net.minecraft.block.BlockState;
-import net.minecraft.structure.rule.RuleTest;
-import net.minecraft.structure.rule.RuleTestType;
-import net.minecraft.util.StringIdentifiable;
+import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.Util;
+import net.minecraft.world.gen.feature.template.IRuleTestType;
+import net.minecraft.world.gen.feature.template.RuleTest;
 
 import java.util.Map;
 import java.util.Random;
 
 public class MatterPhaseRuleTest extends RuleTest {
     public static final Codec<MatterPhaseRuleTest> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
-            StringIdentifiable.createCodec(MATTER_PHASE::values, MATTER_PHASE::byName).fieldOf("phase_to_test_for").stable().forGetter((ruletest) -> ruletest.phaseToTestFor),
+            IStringSerializable.fromEnum(MATTER_PHASE::values, MATTER_PHASE::byName).fieldOf("phase_to_test_for").stable().forGetter((ruletest) -> ruletest.phaseToTestFor),
             Codec.BOOL.fieldOf("invert_condition").forGetter((ruletest) -> ruletest.invertCondition))
             .apply(instance, instance.stable(MatterPhaseRuleTest::new)));
 
@@ -38,7 +38,7 @@ public class MatterPhaseRuleTest extends RuleTest {
                 if(!state.getFluidState().isEmpty()) phaseMatch = true;
                 break;
             case SOLID:
-                if(!state.isAir() && state.getFluidState().isEmpty() && state.isOpaque()) phaseMatch = true;
+                if(!state.isAir() && state.getFluidState().isEmpty() && state.canOcclude()) phaseMatch = true;
                 break;
         }
 
@@ -49,12 +49,12 @@ public class MatterPhaseRuleTest extends RuleTest {
         return phaseMatch;
     }
 
-    protected RuleTestType<?> getType() {
+    protected IRuleTestType<?> getType() {
         return RSPredicates.MATTER_PHASE_RULE_TEST;
     }
 
 
-    public enum MATTER_PHASE implements StringIdentifiable {
+    public enum MATTER_PHASE implements IStringSerializable {
         SOLID("SOLID"),
         LIQUID("LIQUID"),
         AIR("AIR");
@@ -77,7 +77,7 @@ public class MatterPhaseRuleTest extends RuleTest {
         }
 
         @Override
-        public String asString() {
+        public String getSerializedName() {
             return this.name;
         }
     }

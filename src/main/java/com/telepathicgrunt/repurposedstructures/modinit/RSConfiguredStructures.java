@@ -13,6 +13,7 @@ import net.minecraft.world.gen.feature.structure.Structure;
 public class RSConfiguredStructures {
 
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> BIRCH_MINESHAFT = RSStructures.BIRCH_MINESHAFT.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> DARK_FOREST_MINESHAFT = RSStructures.DARK_FOREST_MINESHAFT.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> DESERT_MINESHAFT = RSStructures.DESERT_MINESHAFT.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> END_MINESHAFT = RSStructures.END_MINESHAFT.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_MINESHAFT = RSStructures.NETHER_MINESHAFT.get().configured(IFeatureConfig.NONE);
@@ -23,7 +24,7 @@ public class RSConfiguredStructures {
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> OCEAN_MINESHAFT = RSStructures.OCEAN_MINESHAFT.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> SAVANNA_MINESHAFT = RSStructures.SAVANNA_MINESHAFT.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> STONE_MINESHAFT = RSStructures.STONE_MINESHAFT.get().configured(IFeatureConfig.NONE);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> SWAMP_OR_DARK_FOREST_MINESHAFT = RSStructures.SWAMP_OR_DARK_FOREST_MINESHAFT.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> SWAMP_MINESHAFT = RSStructures.SWAMP_MINESHAFT.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> TAIGA_MINESHAFT = RSStructures.TAIGA_MINESHAFT.get().configured(IFeatureConfig.NONE);
 
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_STRONGHOLD = RSStructures.NETHER_STRONGHOLD.get().configured(IFeatureConfig.NONE);
@@ -109,7 +110,8 @@ public class RSConfiguredStructures {
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "ocean_mineshaft"), OCEAN_MINESHAFT);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "savanna_mineshaft"), SAVANNA_MINESHAFT);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "stone_mineshaft"), STONE_MINESHAFT);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "swamp_or_dark_forest_mineshaft"), SWAMP_OR_DARK_FOREST_MINESHAFT);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dark_forest_mineshaft"), DARK_FOREST_MINESHAFT);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "swamp_mineshaft"), SWAMP_MINESHAFT);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "taiga_mineshaft"), TAIGA_MINESHAFT);
 
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "nether_stronghold"), NETHER_STRONGHOLD);

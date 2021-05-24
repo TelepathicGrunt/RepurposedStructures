@@ -28,7 +28,7 @@ public class SafeDecodingRegistryOps<T> extends WorldSettingsImport<T> {
     private final DynamicRegistries dynamicRegistries;
     private final Map<RegistryKey<? extends Registry<?>>, ValueHolder<?>> valueHolders;
 
-    protected SafeDecodingRegistryOps(DynamicOps<T> delegate, DynamicRegistries dynamicRegistries) {
+    public SafeDecodingRegistryOps(DynamicOps<T> delegate, DynamicRegistries dynamicRegistries) {
         super(delegate, null, null, Maps.newIdentityHashMap());
         this.dynamicRegistries = dynamicRegistries;
         this.valueHolders = Maps.newIdentityHashMap();

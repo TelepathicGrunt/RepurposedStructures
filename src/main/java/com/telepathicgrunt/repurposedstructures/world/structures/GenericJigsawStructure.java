@@ -28,8 +28,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import net.minecraft.world.gen.feature.structure.Structure.IStartFactory;
-
 public class GenericJigsawStructure extends AbstractBaseStructure<NoFeatureConfig> {
     protected final ResourceLocation startPool;
     protected final int structureSize;

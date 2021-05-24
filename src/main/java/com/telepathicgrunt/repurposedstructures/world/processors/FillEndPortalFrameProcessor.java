@@ -5,13 +5,13 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.EndPortalFrameBlock;
-import net.minecraft.structure.Structure;
-import net.minecraft.structure.StructurePlacementData;
-import net.minecraft.structure.processor.StructureProcessor;
-import net.minecraft.structure.processor.StructureProcessorType;
+import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.WorldView;
-import net.minecraft.world.gen.ChunkRandom;
+import net.minecraft.world.IWorldReader;
+import net.minecraft.world.gen.feature.template.IStructureProcessorType;
+import net.minecraft.world.gen.feature.template.PlacementSettings;
+import net.minecraft.world.gen.feature.template.StructureProcessor;
+import net.minecraft.world.gen.feature.template.Template;
 
 import java.util.Random;
 
@@ -30,22 +30,22 @@ public class FillEndPortalFrameProcessor extends StructureProcessor {
     }
 
     @Override
-    public Structure.StructureBlockInfo process(WorldView worldView, BlockPos pos, BlockPos blockPos, Structure.StructureBlockInfo structureBlockInfoLocal, Structure.StructureBlockInfo structureBlockInfoWorld, StructurePlacementData structurePlacementData) {
-        if (structureBlockInfoWorld.state.isOf(Blocks.END_PORTAL_FRAME)) {
+    public Template.BlockInfo processBlock(IWorldReader worldView, BlockPos pos, BlockPos blockPos, Template.BlockInfo structureBlockInfoLocal, Template.BlockInfo structureBlockInfoWorld, PlacementSettings structurePlacementData) {
+        if (structureBlockInfoWorld.state.is(Blocks.END_PORTAL_FRAME)) {
             BlockPos worldPos = structureBlockInfoWorld.pos;
-            Random random = new ChunkRandom();
+            Random random = new SharedSeedRandom();
             random.setSeed(worldPos.asLong() * worldPos.getY());
 
-            return new Structure.StructureBlockInfo(
+            return new Template.BlockInfo(
                     structureBlockInfoWorld.pos,
-                    structureBlockInfoWorld.state.with(EndPortalFrameBlock.EYE, random.nextFloat() < probability),
-                    structureBlockInfoWorld.tag);
+                    structureBlockInfoWorld.state.setValue(EndPortalFrameBlock.HAS_EYE, random.nextFloat() < probability),
+                    structureBlockInfoWorld.nbt);
         }
         return structureBlockInfoWorld;
     }
 
     @Override
-    protected StructureProcessorType<?> getType() {
+    protected IStructureProcessorType<?> getType() {
         return RSProcessors.FILL_END_PORTAL_FRAME_PROCESSOR;
     }
 }

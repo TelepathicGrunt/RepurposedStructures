@@ -5,11 +5,11 @@ import com.telepathicgrunt.repurposedstructures.world.features.configs.Structure
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.LanternBlock;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.StructureWorldAccess;
+import net.minecraft.world.ISeedReader;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
+import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 
 import java.util.Random;
@@ -23,7 +23,7 @@ public class StructureChains extends Feature<StructureTargetConfig> {
 
 
     @Override
-    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, StructureTargetConfig config) {
+    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, StructureTargetConfig config) {
 
         BlockPos.Mutable mutable = new BlockPos.Mutable();
 
@@ -34,7 +34,7 @@ public class StructureChains extends Feature<StructureTargetConfig> {
                     random.nextInt(11) - 5
             );
 
-            if(!world.getBlockState(mutable).isAir() || !world.toServerWorld().getStructureAccessor().getStructureAt(mutable, true, config.targetStructure).hasChildren()){
+            if(!world.getBlockState(mutable).isAir() || !world.getLevel().structureFeatureManager().getStructureAt(mutable, true, config.targetStructure).isValid()){
                 continue;
             }
 
@@ -44,11 +44,11 @@ public class StructureChains extends Feature<StructureTargetConfig> {
             boolean exitEarly = false;
 
             for (; mutable.getY() > 3 && length < random.nextInt(random.nextInt(random.nextInt(8) + 1) + 1) + 1; mutable.move(Direction.DOWN)) {
-                if (world.isAir(mutable)) {
-                    aboveBlockstate = world.getBlockState(mutable.up());
+                if (world.isEmptyBlock(mutable)) {
+                    aboveBlockstate = world.getBlockState(mutable.above());
 
-                    if (aboveBlockstate.isSideSolidFullSquare(world, mutable.up(), Direction.DOWN) || aboveBlockstate.isOf(Blocks.CHAIN)) {
-                        world.setBlockState(mutable, Blocks.CHAIN.getDefaultState(), 2);
+                    if (aboveBlockstate.isFaceSturdy(world, mutable.above(), Direction.DOWN) || aboveBlockstate.is(Blocks.CHAIN)) {
+                        world.setBlock(mutable, Blocks.CHAIN.defaultBlockState(), 2);
                         length++;
                     }
                 }
@@ -60,12 +60,12 @@ public class StructureChains extends Feature<StructureTargetConfig> {
             if(exitEarly) continue;
 
             //attaches lantern at end at a rare chance
-            if(mutable.getY() != 3 && random.nextFloat() < 0.075f && world.isAir(mutable)){
-                if(world.getBiome(mutable).getCategory() == Biome.Category.NETHER){
-                    world.setBlockState(mutable, Blocks.SOUL_LANTERN.getDefaultState().with(LanternBlock.HANGING, true), 2);
+            if(mutable.getY() != 3 && random.nextFloat() < 0.075f && world.isEmptyBlock(mutable)){
+                if(world.getBiome(mutable).getBiomeCategory() == Biome.Category.NETHER){
+                    world.setBlock(mutable, Blocks.SOUL_LANTERN.defaultBlockState().setValue(LanternBlock.HANGING, true), 2);
                 }
                 else{
-                    world.setBlockState(mutable, Blocks.LANTERN.getDefaultState().with(LanternBlock.HANGING, true), 2);
+                    world.setBlock(mutable, Blocks.LANTERN.defaultBlockState().setValue(LanternBlock.HANGING, true), 2);
                 }
             }
         }

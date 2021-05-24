@@ -16,6 +16,7 @@
     "NoLavaFallsInStructuresMixin",
     "PillagerOutpostStructureAccessor",
     "SimpleReloadableResourceManagerAccessor",
+    "SingleJigsawPieceAccessor",
     "StrongholdGeneratorAccessor",
     "StructureMobSpawningMixin",
     "StructurePieceAccessor",

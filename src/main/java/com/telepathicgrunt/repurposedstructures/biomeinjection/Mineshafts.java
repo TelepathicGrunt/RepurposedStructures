@@ -82,11 +82,13 @@ public class Mineshafts {
                 RepurposedStructures.RSMineshaftsConfig.taigaMineshaftSpawnrate.get() != 0 &&
                         BiomeSelection.haveCategories(event, Category.TAIGA));
 
-        MINESHAFT_TYPE_AND_CONDITIONS.put(RSConfiguredStructures.SWAMP_OR_DARK_FOREST_MINESHAFT, (event) ->
-                RepurposedStructures.RSMineshaftsConfig.swampAndDarkForestMineshaftSpawnrate.get() != 0 &&
-                        (BiomeSelection.haveCategories(event, Category.SWAMP) ||
-                                (BiomeSelection.haveCategories(event, Category.FOREST) &&
-                                        BiomeSelection.hasName(event, "dark", "spooky", "dead", "haunted"))));
+        MINESHAFT_TYPE_AND_CONDITIONS.put(RSConfiguredStructures.DARK_FOREST_MINESHAFT, (event) ->
+                RepurposedStructures.RSMineshaftsConfig.darkForestMineshaftSpawnrate.get() != 0 &&
+                        BiomeSelection.haveCategories(event, Category.FOREST) && BiomeSelection.hasName(event, "dark", "spooky", "dead", "haunted"));
+
+        MINESHAFT_TYPE_AND_CONDITIONS.put(RSConfiguredStructures.SWAMP_MINESHAFT, (event) ->
+                RepurposedStructures.RSMineshaftsConfig.swampMineshaftSpawnrate.get() != 0 &&
+                        BiomeSelection.haveCategories(event, Category.SWAMP));
 
         MINESHAFT_TYPE_AND_CONDITIONS.put(RSConfiguredStructures.END_MINESHAFT, (event) ->
                 RepurposedStructures.RSMineshaftsConfig.endMineshaftSpawnrate.get() != 0 &&

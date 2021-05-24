@@ -5,11 +5,11 @@ import com.telepathicgrunt.repurposedstructures.world.features.configs.Structure
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.VineBlock;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.StructureWorldAccess;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
+import net.minecraft.world.ISeedReader;
+import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 
 import java.util.Random;
@@ -23,7 +23,7 @@ public class StructureVine extends Feature<StructureTargetLengthRangeConfig> {
 
 
     @Override
-    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, StructureTargetLengthRangeConfig config) {
+    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, StructureTargetLengthRangeConfig config) {
         BlockPos.Mutable mutable = new BlockPos.Mutable();
 
         for(int i = 0; i < config.attempts; i++){
@@ -33,7 +33,7 @@ public class StructureVine extends Feature<StructureTargetLengthRangeConfig> {
                     random.nextInt((config.range * 2) + 1) - config.range
             );
 
-            if(!world.isAir(mutable) || !world.toServerWorld().getStructureAccessor().getStructureAt(mutable, true, config.targetStructure).hasChildren()){
+            if(!world.isEmptyBlock(mutable) || !world.getLevel().structureFeatureManager().getStructureAt(mutable, true, config.targetStructure).isValid()){
                 continue;
             }
 
@@ -47,29 +47,25 @@ public class StructureVine extends Feature<StructureTargetLengthRangeConfig> {
             int maxLength = config.length - random.nextInt(random.nextInt(config.length) + 1);
 
             for (; length < maxLength; vineMutablePos.move(Direction.DOWN)) {
-                if (world.isAir(vineMutablePos)) {
-                    for (Direction direction : Direction.Type.HORIZONTAL) {
+                if (world.isEmptyBlock(vineMutablePos)) {
+                    for (Direction direction : Direction.Plane.HORIZONTAL) {
                         mutable.set(vineMutablePos).move(direction);
                         ChunkPos newChunkPos = new ChunkPos(mutable);
                         // Prevent floating vines at chunk borders
                         if(newChunkPos.x != currentChunkPos.x || newChunkPos.z != currentChunkPos.z) continue;
 
-                        currentBlockstate = Blocks.VINE.getDefaultState().with(VineBlock.getFacingProperty(direction), Boolean.TRUE);
-                        aboveBlockstate = world.getBlockState(vineMutablePos.up());
+                        currentBlockstate = Blocks.VINE.defaultBlockState().setValue(VineBlock.getPropertyForFace(direction), Boolean.TRUE);
+                        aboveBlockstate = world.getBlockState(vineMutablePos.above());
 
-                        if (currentBlockstate.canPlaceAt(world, vineMutablePos)) {
+                        if (currentBlockstate.canSurvive(world, vineMutablePos)) {
                             //places topmost vine that can face upward
-                            //tick scheduled so it can break if block it was attached to was removed later in worldgen
-                            world.setBlockState(vineMutablePos, currentBlockstate.with(VineBlock.UP, aboveBlockstate.isOpaque()), 2);
-                            world.getBlockTickScheduler().schedule(vineMutablePos.toImmutable(), currentBlockstate.getBlock(), 1);
+                            world.setBlock(vineMutablePos, currentBlockstate.setValue(VineBlock.UP, aboveBlockstate.canOcclude()), 2);
                             length++;
                             break;
                         }
-                        else if (aboveBlockstate.isOf(Blocks.VINE)) {
+                        else if (aboveBlockstate.is(Blocks.VINE)) {
                             //places rest of the vine as long as vine is above
-                            //tick scheduled so it can break if block it was attached to was removed later in worldgen
-                            world.setBlockState(vineMutablePos, aboveBlockstate.with(VineBlock.UP, false), 2);
-                            world.getBlockTickScheduler().schedule(vineMutablePos.toImmutable(), aboveBlockstate.getBlock(), 1);
+                            world.setBlock(vineMutablePos, aboveBlockstate.setValue(VineBlock.UP, false), 2);
                             length++;
                             break;
                         }

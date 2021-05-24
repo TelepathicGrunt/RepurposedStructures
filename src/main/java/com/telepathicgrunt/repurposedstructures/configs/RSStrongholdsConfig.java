@@ -8,16 +8,12 @@ public class RSStrongholdsConfig
 {
 	public static class RSStrongholdsConfigValues
 	{
-		public ConfigValueListener<Double> strongholdSize;
-		public ConfigValueListener<Boolean> lootChests;
-		public ConfigValueListener<Boolean> allowExtraSpawners;
-
 		public ConfigValueListener<Boolean> allowNetherStronghold;
 		public ConfigValueListener<Boolean> addNetherStrongholdToModdedBiomes;
 		public ConfigValueListener<Integer> netherStrongholdMaxChunkDistance;
 		public ConfigValueListener<Integer> netherStrongholdMinHeight;
 		public ConfigValueListener<Integer> netherStrongholdMaxHeight;
-		public ConfigValueListener<Integer> netherStrongholdChainSpawnrate;
+		public ConfigValueListener<Integer> netherStrongholdSize;
 
 		public ConfigValueListener<String> blacklistedStrongholdBiomes;
 		
@@ -32,27 +28,14 @@ public class RSStrongholdsConfig
 					.translation("repurposedstructures.config.stronghold.blacklistedstrongholdbiomes")
 					.define("blacklistedStrongholdBiomes", " "));
 
-				strongholdSize = subscriber.subscribe(builder
-					.comment("\n How large the Stronghold is on average as a percentage.",
-							 " Note: The Stonghold is much larger by default. To get something ",
-							 " closer to vanilla stronghold size, use the value of 60.",
-							 " 10 for supertiny Strongholds and 2000 for supermassive Strongholds.")
-					.translation("repurposedstructures.config.stronghold.strongholdsizesh")
-					.defineInRange("strongholdSizeSH", 100D, 10, 2000));
-
-				allowExtraSpawners = subscriber.subscribe(builder
-					.comment("\n Make Mob Spawners generate in rooms other than the Portal Room in Strongholds.",
-							" Note: Spawners in Portal Room will always remain.")
-					.translation("repurposedstructures.config.stronghold.allowextraspawnerssh")
-					.define("allowExtraSpawnersSH", true));
-
-				lootChests = subscriber.subscribe(builder
-					.comment("\n Controls whether loot chests spawn or not in the Stronghold.")
-					.translation("repurposedstructures.config.stronghold.lootchestssh")
-					.define("lootChestsSH", true));
-
-
 				builder.push("Nether");
+
+
+					netherStrongholdSize = subscriber.subscribe(builder
+						.comment("\n Size of Nether Stronghold. This number is how many pieces deep a branch can go from the center piece."
+								+ "\n1 for supertiny and 20 for supermassive Strongholds.")
+						.translation("repurposedstructures.config.stronghold.strongholdsizesh")
+						.defineInRange("strongholdSizeSH", 15, 1, 30));
 
 					netherStrongholdMaxChunkDistance = subscriber.subscribe(builder
 						.comment("\n How rare are Nether-styled Strongholds in Nether-category biomes.",
@@ -85,11 +68,6 @@ public class RSStrongholdsConfig
 							" Setting this to below min height config will make strongholds spawn only at min height.")
 						.translation("repurposedstructures.config.feature.stronghold.netherstrongholdmaxheight")
 						.defineInRange("netherStrongholdMaxHeight", 36, 0, 255));
-
-					netherStrongholdChainSpawnrate = subscriber.subscribe(builder
-						.comment("\n How rare are Chains in this Stronghold. (Can have Soul Lantern attached)")
-						.translation("repurposedstructures.config.feature.stronghold.netherstrongholdchainspawnrate")
-						.defineInRange("netherStrongholdChainSpawnrate", 50, 0, 1000));
 
 				builder.pop();
 			builder.pop();

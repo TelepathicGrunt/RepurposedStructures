@@ -2,6 +2,7 @@ package com.telepathicgrunt.repurposedstructures.world.structures.pieces;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.common.util.Lazy;
 
 import java.util.HashMap;
 
@@ -12,8 +13,8 @@ public class StructurePiecesBehavior {
 
     public static class RequiredPieceNeeds {
         private final int maxLimit;
-        private final int minDistanceFromCenter;
-        public RequiredPieceNeeds(int maxLimit, int minDistanceFromCenter) {
+        private final Lazy<Integer> minDistanceFromCenter;
+        public RequiredPieceNeeds(int maxLimit, Lazy<Integer> minDistanceFromCenter) {
             this.maxLimit = maxLimit;
             this.minDistanceFromCenter = minDistanceFromCenter;
         }
@@ -23,7 +24,7 @@ public class StructurePiecesBehavior {
         }
 
         public int getMinDistanceFromCenter(){
-            return minDistanceFromCenter;
+            return minDistanceFromCenter.get();
         }
     }
 
@@ -32,17 +33,17 @@ public class StructurePiecesBehavior {
     public static HashMap<ResourceLocation, Integer> PIECES_COUNT = new HashMap<>();
     static {
         double scaleLimitBasedOnSize = 0.066D;
-        PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "strongholds/nether/library_big"), (int) (4 * (RepurposedStructures.RSStrongholdsConfig.netherStrongholdSize * scaleLimitBasedOnSize)));
-        PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "strongholds/nether/library_small"), (int) (2 * (RepurposedStructures.RSStrongholdsConfig.netherStrongholdSize * scaleLimitBasedOnSize)));
-        PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "strongholds/nether/prison"), (int) (8 * (RepurposedStructures.RSStrongholdsConfig.netherStrongholdSize * scaleLimitBasedOnSize)));
-        PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "strongholds/nether/crossing"), (int) (7 * (RepurposedStructures.RSStrongholdsConfig.netherStrongholdSize * scaleLimitBasedOnSize)));
-        PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "strongholds/nether/empty_crossing"), (int) (2 * (RepurposedStructures.RSStrongholdsConfig.netherStrongholdSize * scaleLimitBasedOnSize)));
-        PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "strongholds/nether/pillar_crossing"), (int) (3 * (RepurposedStructures.RSStrongholdsConfig.netherStrongholdSize * scaleLimitBasedOnSize)));
-        PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "strongholds/nether/fountain_crossing"), (int) (3 * (RepurposedStructures.RSStrongholdsConfig.netherStrongholdSize * scaleLimitBasedOnSize)));
-        PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "strongholds/nether/storage_crossing"), (int) (4 * (RepurposedStructures.RSStrongholdsConfig.netherStrongholdSize * scaleLimitBasedOnSize)));
-        PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "strongholds/nether/stairs_straight"), (int) (7 * (RepurposedStructures.RSStrongholdsConfig.netherStrongholdSize * scaleLimitBasedOnSize)));
-        PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "strongholds/nether/stairs"), (int) (7 * (RepurposedStructures.RSStrongholdsConfig.netherStrongholdSize * scaleLimitBasedOnSize)));
-        PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "strongholds/nether/chest_corridor"), (int) (16 * (RepurposedStructures.RSStrongholdsConfig.netherStrongholdSize * scaleLimitBasedOnSize)));
+        PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "strongholds/nether/library_big"), (int) (4 * (RepurposedStructures.RSStrongholdsConfig.netherStrongholdSize.get() * scaleLimitBasedOnSize)));
+        PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "strongholds/nether/library_small"), (int) (2 * (RepurposedStructures.RSStrongholdsConfig.netherStrongholdSize.get() * scaleLimitBasedOnSize)));
+        PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "strongholds/nether/prison"), (int) (8 * (RepurposedStructures.RSStrongholdsConfig.netherStrongholdSize.get() * scaleLimitBasedOnSize)));
+        PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "strongholds/nether/crossing"), (int) (7 * (RepurposedStructures.RSStrongholdsConfig.netherStrongholdSize.get() * scaleLimitBasedOnSize)));
+        PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "strongholds/nether/empty_crossing"), (int) (2 * (RepurposedStructures.RSStrongholdsConfig.netherStrongholdSize.get() * scaleLimitBasedOnSize)));
+        PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "strongholds/nether/pillar_crossing"), (int) (3 * (RepurposedStructures.RSStrongholdsConfig.netherStrongholdSize.get() * scaleLimitBasedOnSize)));
+        PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "strongholds/nether/fountain_crossing"), (int) (3 * (RepurposedStructures.RSStrongholdsConfig.netherStrongholdSize.get() * scaleLimitBasedOnSize)));
+        PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "strongholds/nether/storage_crossing"), (int) (4 * (RepurposedStructures.RSStrongholdsConfig.netherStrongholdSize.get() * scaleLimitBasedOnSize)));
+        PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "strongholds/nether/stairs_straight"), (int) (7 * (RepurposedStructures.RSStrongholdsConfig.netherStrongholdSize.get() * scaleLimitBasedOnSize)));
+        PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "strongholds/nether/stairs"), (int) (7 * (RepurposedStructures.RSStrongholdsConfig.netherStrongholdSize.get() * scaleLimitBasedOnSize)));
+        PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "strongholds/nether/chest_corridor"), (int) (16 * (RepurposedStructures.RSStrongholdsConfig.netherStrongholdSize.get() * scaleLimitBasedOnSize)));
         PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshafts/birch/spawner_1"), 1);
         PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshafts/birch/spawner_2"), 1);
         PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshafts/birch/spawner_3_end"), 1);
