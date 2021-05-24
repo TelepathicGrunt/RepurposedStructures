@@ -7,6 +7,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.mixin.DungeonFeatureAccessor;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.entity.EntityType;
 import net.minecraft.resource.JsonDataLoader;
 import net.minecraft.resource.ResourceManager;
@@ -21,7 +22,7 @@ import java.util.Map;
 import java.util.Random;
 
 public class MobSpawnerManager extends JsonDataLoader{
-    private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().disableHtmlEscaping().create();
+    private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().setLenient().disableHtmlEscaping().create();
     private Map<Identifier, List<MobSpawnerObj>> spawnerMap = ImmutableMap.of();
     public MobSpawnerManager() {
         super(GSON, "rs_spawners");

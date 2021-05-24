@@ -7,6 +7,7 @@ import com.telepathicgrunt.repurposedstructures.mixin.StructuresConfigAccessor;
 import com.telepathicgrunt.repurposedstructures.modinit.*;
 import com.telepathicgrunt.repurposedstructures.utils.LogSpamFiltering;
 import com.telepathicgrunt.repurposedstructures.utils.MobSpawnerManager;
+import com.telepathicgrunt.repurposedstructures.utils.PoolAdditionMerger;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.StructurePiecesBehavior;
 import it.unimi.dsi.fastutil.objects.Reference2ObjectOpenHashMap;
 import me.shedaniel.autoconfig.AutoConfig;
@@ -54,7 +55,7 @@ public class RepurposedStructures implements ModInitializer {
         setupBiomeModifications();
         MobMapTrades.addMapTrades();
         StructurePiecesBehavior.init();
-
+        PoolAdditionMerger.mergeAdditionPools();
 
         // Silences logspam due to me changing my piece's namespace from minecraft to my modid.
         Logger rootLogger = LogManager.getRootLogger();
