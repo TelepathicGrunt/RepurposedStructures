@@ -6,7 +6,6 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.block.Block;
-import net.minecraft.block.Material;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.structure.Structure;
 import net.minecraft.structure.StructurePlacementData;

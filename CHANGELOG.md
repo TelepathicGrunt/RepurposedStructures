@@ -69,6 +69,15 @@
 
 • Borrowed Lithium's VoxelShapes mixin for LithiumDoublePairList in order to optimize creation of jigsaw structure bounding boxes a bit when Lithium isn't on. Use that mod tho if you can!
 
+• Added a new system where multiple datapacks can add new structure pieces to any pool file! 
+ Instead of overwriting the pool file at 
+ `data\repurposed_structures\worldgen\template_pool\village\birch\houses.nbt`
+ datapacks can swap the worldgen\template_pool part of the path to pool_additions like this
+ `data\repurposed_structures\pool_additions\village\birch\houses.nbt`
+ Now my mod will detect these pool files and merge its entries to the template_pool of the same path!
+ This allows you to stack multiple datapacks using this systme without needing to merge their template_pool files together by hand.
+ (Fun fact, this actually will work for other mod's template_pools too if Repurposed Structures is on)
+
 
 ## (V.1.10.5 Changes) (1.16.5 Minecraft)
 

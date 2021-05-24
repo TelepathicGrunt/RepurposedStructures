@@ -1,9 +1,9 @@
 package com.telepathicgrunt.repurposedstructures.utils;
 
 
-import net.minecraft.util.shape.PairList;
 import it.unimi.dsi.fastutil.doubles.DoubleArrayList;
 import it.unimi.dsi.fastutil.doubles.DoubleList;
+import net.minecraft.util.shape.PairList;
 
 /**
  * From Lithium (LGPLv3)
