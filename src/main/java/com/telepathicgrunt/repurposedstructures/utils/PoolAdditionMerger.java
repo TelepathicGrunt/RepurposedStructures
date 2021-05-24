@@ -46,7 +46,7 @@ public class PoolAdditionMerger {
         ServerLifecycleEvents.SERVER_STARTING.register((MinecraftServer minecraftServer) -> {
             ResourceManager resourceManager = ((StructureManagerAccessor) minecraftServer.getStructureManager()).rs_getField_25189();
             Map<Identifier, List<JsonElement>> poolAdditionJSON = getPoolAdditionJSON(resourceManager);
-            parsePoolsAndBeginMerger(poolAdditionJSON, minecraftServer.getRegistryManager(), resourceManager);
+            parsePoolsAndBeginMerger(poolAdditionJSON, minecraftServer.getRegistryManager());
         });
     }
 
@@ -131,7 +131,7 @@ public class PoolAdditionMerger {
      * Using the given dynamic registry, will now parse the JSON objects of pools and resolve their processors with the dynamic registry.
      * Afterwards, it will merge the parsed pool into the targeted pool found in the dynamic registry.
      */
-    private static void parsePoolsAndBeginMerger(Map<Identifier, List<JsonElement>> poolAdditionJSON, DynamicRegistryManager dynamicRegistryManager, ResourceManager resourceManager) {
+    private static void parsePoolsAndBeginMerger(Map<Identifier, List<JsonElement>> poolAdditionJSON, DynamicRegistryManager dynamicRegistryManager) {
         MutableRegistry<StructurePool> poolRegistry = dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN);
         // A RegistryOps that doesn't break everything under the sun and can take a DynamicRegistryManager instead of DynamicRegistryManager.Impl.
         SafeDecodingRegistryOps<JsonElement> customRegistryOps = new SafeDecodingRegistryOps<>(JsonOps.INSTANCE, dynamicRegistryManager);

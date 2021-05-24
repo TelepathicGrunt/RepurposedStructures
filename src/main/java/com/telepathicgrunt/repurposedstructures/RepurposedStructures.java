@@ -14,6 +14,8 @@ import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerWorldEvents;
+import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+import net.minecraft.resource.ResourceType;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.World;
@@ -56,6 +58,7 @@ public class RepurposedStructures implements ModInitializer {
         MobMapTrades.addMapTrades();
         StructurePiecesBehavior.init();
         PoolAdditionMerger.mergeAdditionPools();
+        ResourceManagerHelper.get(ResourceType.SERVER_DATA).registerReloadListener(RepurposedStructures.mobSpawnerManager);
 
         // Silences logspam due to me changing my piece's namespace from minecraft to my modid.
         Logger rootLogger = LogManager.getRootLogger();

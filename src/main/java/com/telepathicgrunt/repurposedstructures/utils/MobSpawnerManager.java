@@ -7,6 +7,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.mixin.DungeonFeatureAccessor;
+import net.fabricmc.fabric.api.resource.IdentifiableResourceReloadListener;
 import net.minecraft.entity.EntityType;
 import net.minecraft.resource.JsonDataLoader;
 import net.minecraft.resource.ResourceManager;
@@ -20,9 +21,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-public class MobSpawnerManager extends JsonDataLoader{
+public class MobSpawnerManager extends JsonDataLoader implements IdentifiableResourceReloadListener {
     private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().setLenient().disableHtmlEscaping().create();
     private Map<Identifier, List<MobSpawnerObj>> spawnerMap = ImmutableMap.of();
+    private Identifier MOB_SPAWNER_MANAGER_ID = new Identifier(RepurposedStructures.MODID, "mob_spawner_manager");
+
     public MobSpawnerManager() {
         super(GSON, "rs_spawners");
     }
@@ -68,5 +71,10 @@ public class MobSpawnerManager extends JsonDataLoader{
             RepurposedStructures.LOGGER.log(Level.ERROR,"\n***************************************\nFailed to get mob. Please check that "+spawnerJsonEntry+".json is correct and let Telepathicgrunt (mod author) know he broke the mob spawner code!\n***************************************");
             return EntityType.PIG;
         }
+    }
+
+    @Override
+    public Identifier getFabricId() {
+        return MOB_SPAWNER_MANAGER_ID;
     }
 }

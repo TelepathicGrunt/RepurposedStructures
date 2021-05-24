@@ -24,7 +24,7 @@ public class CatEntityMixin {
      */
     @Inject(method = "initialize(Lnet/minecraft/world/ServerWorldAccess;Lnet/minecraft/world/LocalDifficulty;Lnet/minecraft/entity/SpawnReason;Lnet/minecraft/entity/EntityData;Lnet/minecraft/nbt/CompoundTag;)Lnet/minecraft/entity/EntityData;",
             at = @At(value = "TAIL"))
-    private void emitMissingStructureMessage(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, EntityData entityData, CompoundTag entityTag, CallbackInfoReturnable<EntityData> cir){
+    private void repurposedstructures_spawnWitchHutCats(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, EntityData entityData, CompoundTag entityTag, CallbackInfoReturnable<EntityData> cir){
         ServerWorld world2 = world.toServerWorld();
         BlockPos pos = ((CatEntity)(Object)this).getBlockPos();
 

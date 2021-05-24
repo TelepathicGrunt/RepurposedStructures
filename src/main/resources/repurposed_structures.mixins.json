@@ -8,7 +8,6 @@
   "mixins": [
     "BuilderAccessor",
     "CatEntityMixin",
-    "ChunkSerializerMixin",
     "DungeonFeatureAccessor",
     "EnderEyeStrongholdLocatingMixin",
     "LootContextAccessor",
@@ -20,18 +19,12 @@
     "PillagerOutpostFeatureAccessor",
     "RailBlockMixin",
     "ReloadableResourceManagerImplAccessor",
-    "ServerResourceManagerMixin",
-    "ShulkerEntityAccessor",
     "SinglePoolElementAccessor",
-    "StrongholdGeneratorAccessor",
     "StructureManagerAccessor",
     "StructureMobSpawningMixin",
-    "StructurePieceAccessor",
     "StructurePoolAccessor",
-    "StructureProcessorListAccessor",
     "StructuresConfigAccessor",
     "TemplateAccessor",
-    "VanillaLayeredBiomeSourceAccessor",
     "VoxelShapesMixin"
   ],
   "client": [

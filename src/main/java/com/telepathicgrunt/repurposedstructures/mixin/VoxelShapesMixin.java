@@ -30,7 +30,7 @@ public class VoxelShapesMixin {
             ),
             cancellable = true
     )
-    private static void injectCustomListPair(int size, DoubleList a, DoubleList b, boolean flag1, boolean flag2, CallbackInfoReturnable<PairList> cir) {
+    private static void rs_injectCustomListPair(int size, DoubleList a, DoubleList b, boolean flag1, boolean flag2, CallbackInfoReturnable<PairList> cir) {
         cir.setReturnValue(new LithiumDoublePairList(a, b, flag1, flag2));
     }
 }
