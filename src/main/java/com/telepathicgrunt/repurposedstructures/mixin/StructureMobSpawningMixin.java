@@ -1,6 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.mixin;
 
-import com.telepathicgrunt.repurposedstructures.utils.StructureMobSpawning;
+import com.telepathicgrunt.repurposedstructures.misc.StructureMobSpawning;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;

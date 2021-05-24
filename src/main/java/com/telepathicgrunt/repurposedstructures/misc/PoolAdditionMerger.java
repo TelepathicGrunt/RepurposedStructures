@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.utils;
+package com.telepathicgrunt.repurposedstructures.misc;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -11,6 +11,7 @@ import com.telepathicgrunt.repurposedstructures.mixin.NamespaceResourceManagerAc
 import com.telepathicgrunt.repurposedstructures.mixin.ReloadableResourceManagerImplAccessor;
 import com.telepathicgrunt.repurposedstructures.mixin.StructureManagerAccessor;
 import com.telepathicgrunt.repurposedstructures.mixin.StructurePoolAccessor;
+import com.telepathicgrunt.repurposedstructures.utils.SafeDecodingRegistryOps;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.minecraft.resource.NamespaceResourceManager;
 import net.minecraft.resource.ResourceManager;

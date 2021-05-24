@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.utils;
+package com.telepathicgrunt.repurposedstructures.misc;
 
 import com.google.gson.annotations.Expose;
 import net.minecraft.entity.EntityType;

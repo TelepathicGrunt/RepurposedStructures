@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.utils;
+package com.telepathicgrunt.repurposedstructures.misc;
 
 import com.google.common.collect.Iterators;
 import com.google.common.collect.Lists;

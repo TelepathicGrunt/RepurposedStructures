@@ -1,7 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.mixin;
 
 
-import com.telepathicgrunt.repurposedstructures.utils.LithiumDoublePairList;
+import com.telepathicgrunt.repurposedstructures.misc.LithiumDoublePairList;
 import it.unimi.dsi.fastutil.doubles.DoubleList;
 import net.minecraft.util.shape.PairList;
 import net.minecraft.util.shape.VoxelShapes;

@@ -1,7 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.google.common.collect.Lists;
-import com.telepathicgrunt.repurposedstructures.utils.PieceLimitedJigsawManager;
+import com.telepathicgrunt.repurposedstructures.misc.PieceLimitedJigsawManager;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.StructurePiecesBehavior;
 import net.minecraft.entity.EntityType;
 import net.minecraft.structure.StructureManager;
