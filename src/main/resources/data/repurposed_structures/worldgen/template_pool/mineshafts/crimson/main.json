@@ -1,0 +1,165 @@
+{
+  "name": "repurposed_structures:mineshafts/crimson/main",
+  "fallback": "repurposed_structures:mineshafts/crimson/plants",
+  "elements": [
+    {
+      "weight": 85,
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/crimson/tunnel_1",
+        "processors": "repurposed_structures:mineshafts/crimson_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/crimson/tunnel_2",
+        "processors": "repurposed_structures:mineshafts/crimson_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/crimson/tunnel_3",
+        "processors": "repurposed_structures:mineshafts/crimson_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/crimson/tunnel_4",
+        "processors": "repurposed_structures:mineshafts/crimson_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/crimson/tunnel_rails_1",
+        "processors": "repurposed_structures:mineshafts/crimson_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/crimson/tunnel_rails_2",
+        "processors": "repurposed_structures:mineshafts/crimson_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/crimson/tunnel_rails_3",
+        "processors": "repurposed_structures:mineshafts/crimson_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/crimson/tunnel_rails_4",
+        "processors": "repurposed_structures:mineshafts/crimson_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 15,
+      "element": {
+        "location": "repurposed_structures:mineshafts/crimson/4_way",
+        "processors": "repurposed_structures:mineshafts/crimson_misc",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 15,
+      "element": {
+        "location": "repurposed_structures:mineshafts/crimson/4_way_tall",
+        "processors": "repurposed_structures:mineshafts/crimson_misc",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 15,
+      "element": {
+        "location": "repurposed_structures:mineshafts/crimson/stairs",
+        "processors": "repurposed_structures:mineshafts/crimson_misc",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/crimson/spawner_1",
+        "processors": "repurposed_structures:mineshafts/crimson_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/crimson/spawner_2",
+        "processors": "repurposed_structures:mineshafts/crimson_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/crimson/spawner_3_end",
+        "processors": "repurposed_structures:mineshafts/crimson_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/crimson/spawner_3_middle",
+        "processors": "repurposed_structures:mineshafts/crimson_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/crimson/spawner_4_end",
+        "processors": "repurposed_structures:mineshafts/crimson_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/crimson/spawner_4_middle",
+        "processors": "repurposed_structures:mineshafts/crimson_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

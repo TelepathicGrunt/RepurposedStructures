@@ -1,0 +1,165 @@
+{
+  "name": "repurposed_structures:mineshafts/taiga/main_start",
+  "fallback": "repurposed_structures:mineshafts/common/post_process",
+  "elements": [
+    {
+      "weight": 1000,
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/taiga/tunnel_1",
+        "processors": "repurposed_structures:mineshafts/taiga_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/taiga/tunnel_2",
+        "processors": "repurposed_structures:mineshafts/taiga_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/taiga/tunnel_3",
+        "processors": "repurposed_structures:mineshafts/taiga_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/taiga/tunnel_4",
+        "processors": "repurposed_structures:mineshafts/taiga_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/taiga/tunnel_rails_1",
+        "processors": "repurposed_structures:mineshafts/taiga_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/taiga/tunnel_rails_2",
+        "processors": "repurposed_structures:mineshafts/taiga_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/taiga/tunnel_rails_3",
+        "processors": "repurposed_structures:mineshafts/taiga_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/taiga/tunnel_rails_4",
+        "processors": "repurposed_structures:mineshafts/taiga_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 15,
+      "element": {
+        "location": "repurposed_structures:mineshafts/taiga/4_way",
+        "processors": "repurposed_structures:mineshafts/taiga_pillars",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 15,
+      "element": {
+        "location": "repurposed_structures:mineshafts/taiga/4_way_tall",
+        "processors": "repurposed_structures:mineshafts/taiga_pillars",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 15,
+      "element": {
+        "location": "repurposed_structures:mineshafts/taiga/stairs",
+        "processors": "repurposed_structures:mineshafts/taiga_misc",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/taiga/spawner_1",
+        "processors": "repurposed_structures:mineshafts/taiga_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/taiga/spawner_2",
+        "processors": "repurposed_structures:mineshafts/taiga_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/taiga/spawner_3_end",
+        "processors": "repurposed_structures:mineshafts/taiga_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/taiga/spawner_3_middle",
+        "processors": "repurposed_structures:mineshafts/taiga_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/taiga/spawner_4_end",
+        "processors": "repurposed_structures:mineshafts/taiga_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/taiga/spawner_4_middle",
+        "processors": "repurposed_structures:mineshafts/taiga_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

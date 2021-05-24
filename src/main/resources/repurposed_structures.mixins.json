@@ -2,20 +2,27 @@
   "required": true,
   "package": "com.telepathicgrunt.repurposedstructures.mixin",
   "compatibilityLevel": "JAVA_8",
+  "plugin": "com.telepathicgrunt.repurposedstructures.mixin.plugins.RSMixinPlugin",
   "refmap": "repurposed_structures.refmap.json",
   "mixins": [
+    "CatEntityMixin",
     "ChunkGeneratorAccessor",
     "DungeonFeatureAccessor",
     "EnderEyeStrongholdLocatingMixin",
+    "FallbackResourceManagerAccessor",
+    "JigsawPatternAccessor",
     "LootContextAccessor",
     "NoLakesInStructuresMixin",
     "NoLavaFallsInStructuresMixin",
     "PillagerOutpostStructureAccessor",
+    "SimpleReloadableResourceManagerAccessor",
     "StrongholdGeneratorAccessor",
     "StructureMobSpawningMixin",
     "StructurePieceAccessor",
     "TemplateAccessor",
-    "TemplateManagerMixin"
+    "TemplateManagerAccessor",
+    "TemplateManagerMixin",
+    "VoxelShapesMixin"
   ],
   "client": [
     "StructureBlockScreen"

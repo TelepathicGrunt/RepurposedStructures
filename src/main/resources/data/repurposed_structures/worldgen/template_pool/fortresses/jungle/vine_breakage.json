@@ -1,0 +1,14 @@
+{
+  "name": "repurposed_structures:fortresses/jungle/vine_breakage",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "feature": "repurposed_structures:jungle_fortress_structure_vine_breakage",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    }
+  ]
+}

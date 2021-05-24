@@ -1,0 +1,15 @@
+{
+  "name": "repurposed_structures:mineshafts/ocean/start_pool",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/ocean/room",
+        "processors": "repurposed_structures:mineshafts/ocean_misc",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "name": "repurposed_structures:mineshafts/end/main_start",
+  "fallback": "repurposed_structures:mineshafts/common/post_process",
+  "elements": [
+    {
+      "weight": 450,
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      }
+    },
+    {
+      "weight": 5,
+      "element": {
+        "location": "repurposed_structures:mineshafts/end/tunnel_1",
+        "processors": "repurposed_structures:mineshafts/end_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 5,
+      "element": {
+        "location": "repurposed_structures:mineshafts/end/tunnel_2",
+        "processors": "repurposed_structures:mineshafts/end_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 5,
+      "element": {
+        "location": "repurposed_structures:mineshafts/end/tunnel_3",
+        "processors": "repurposed_structures:mineshafts/end_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 5,
+      "element": {
+        "location": "repurposed_structures:mineshafts/end/tunnel_4",
+        "processors": "repurposed_structures:mineshafts/end_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 5,
+      "element": {
+        "location": "repurposed_structures:mineshafts/end/tunnel_rails_1",
+        "processors": "repurposed_structures:mineshafts/end_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 5,
+      "element": {
+        "location": "repurposed_structures:mineshafts/end/tunnel_rails_2",
+        "processors": "repurposed_structures:mineshafts/end_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 5,
+      "element": {
+        "location": "repurposed_structures:mineshafts/end/tunnel_rails_3",
+        "processors": "repurposed_structures:mineshafts/end_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 5,
+      "element": {
+        "location": "repurposed_structures:mineshafts/end/tunnel_rails_4",
+        "processors": "repurposed_structures:mineshafts/end_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 7,
+      "element": {
+        "location": "repurposed_structures:mineshafts/end/4_way",
+        "processors": "repurposed_structures:mineshafts/end_pillars",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 7,
+      "element": {
+        "location": "repurposed_structures:mineshafts/end/4_way_tall",
+        "processors": "repurposed_structures:mineshafts/end_pillars",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 7,
+      "element": {
+        "location": "repurposed_structures:mineshafts/end/stairs",
+        "processors": "repurposed_structures:mineshafts/end_misc",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/end/spawner_1",
+        "processors": "repurposed_structures:mineshafts/end_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/end/spawner_2",
+        "processors": "repurposed_structures:mineshafts/end_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/end/spawner_3_end",
+        "processors": "repurposed_structures:mineshafts/end_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/end/spawner_3_middle",
+        "processors": "repurposed_structures:mineshafts/end_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/end/spawner_4_end",
+        "processors": "repurposed_structures:mineshafts/end_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/end/spawner_4_middle",
+        "processors": "repurposed_structures:mineshafts/end_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

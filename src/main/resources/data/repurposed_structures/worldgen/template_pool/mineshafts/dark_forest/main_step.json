@@ -1,0 +1,165 @@
+{
+  "name": "repurposed_structures:mineshafts/dark_forest/main_step",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 700,
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/dark_forest/tunnel_1",
+        "processors": "repurposed_structures:mineshafts/dark_forest_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/dark_forest/tunnel_2",
+        "processors": "repurposed_structures:mineshafts/dark_forest_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/dark_forest/tunnel_3",
+        "processors": "repurposed_structures:mineshafts/dark_forest_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/dark_forest/tunnel_4",
+        "processors": "repurposed_structures:mineshafts/dark_forest_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/dark_forest/tunnel_rails_1",
+        "processors": "repurposed_structures:mineshafts/dark_forest_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/dark_forest/tunnel_rails_2",
+        "processors": "repurposed_structures:mineshafts/dark_forest_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/dark_forest/tunnel_rails_3",
+        "processors": "repurposed_structures:mineshafts/dark_forest_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/dark_forest/tunnel_rails_4",
+        "processors": "repurposed_structures:mineshafts/dark_forest_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 15,
+      "element": {
+        "location": "repurposed_structures:mineshafts/dark_forest/4_way",
+        "processors": "repurposed_structures:mineshafts/dark_forest_pillars",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 15,
+      "element": {
+        "location": "repurposed_structures:mineshafts/dark_forest/4_way_tall",
+        "processors": "repurposed_structures:mineshafts/dark_forest_pillars",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 15,
+      "element": {
+        "location": "repurposed_structures:mineshafts/dark_forest/stairs",
+        "processors": "repurposed_structures:mineshafts/dark_forest_misc",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/dark_forest/spawner_1",
+        "processors": "repurposed_structures:mineshafts/dark_forest_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/dark_forest/spawner_2",
+        "processors": "repurposed_structures:mineshafts/dark_forest_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/dark_forest/spawner_3_end",
+        "processors": "repurposed_structures:mineshafts/dark_forest_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/dark_forest/spawner_3_middle",
+        "processors": "repurposed_structures:mineshafts/dark_forest_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/dark_forest/spawner_4_end",
+        "processors": "repurposed_structures:mineshafts/dark_forest_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/dark_forest/spawner_4_middle",
+        "processors": "repurposed_structures:mineshafts/dark_forest_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "repurposed_structures:mineshafts/dark_forest/vines_long",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "feature": "repurposed_structures:dark_forest_mineshaft_vines_long",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    }
+  ]
+}

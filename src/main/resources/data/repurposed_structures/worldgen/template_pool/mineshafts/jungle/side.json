@@ -1,0 +1,147 @@
+{
+  "name": "repurposed_structures:mineshafts/jungle/side",
+  "fallback": "repurposed_structures:mineshafts/common/post_process",
+  "elements": [
+    {
+      "weight": 3250,
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/jungle/tunnel_1",
+        "processors": "repurposed_structures:mineshafts/jungle_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/jungle/tunnel_2",
+        "processors": "repurposed_structures:mineshafts/jungle_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/jungle/tunnel_3",
+        "processors": "repurposed_structures:mineshafts/jungle_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/jungle/tunnel_4",
+        "processors": "repurposed_structures:mineshafts/jungle_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/jungle/tunnel_rails_1",
+        "processors": "repurposed_structures:mineshafts/jungle_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/jungle/tunnel_rails_2",
+        "processors": "repurposed_structures:mineshafts/jungle_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/jungle/tunnel_rails_3",
+        "processors": "repurposed_structures:mineshafts/jungle_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/jungle/tunnel_rails_4",
+        "processors": "repurposed_structures:mineshafts/jungle_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 15,
+      "element": {
+        "location": "repurposed_structures:mineshafts/jungle/stairs",
+        "processors": "repurposed_structures:mineshafts/jungle_misc",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/jungle/spawner_1",
+        "processors": "repurposed_structures:mineshafts/jungle_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/jungle/spawner_2",
+        "processors": "repurposed_structures:mineshafts/jungle_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/jungle/spawner_3_end",
+        "processors": "repurposed_structures:mineshafts/jungle_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/jungle/spawner_3_middle",
+        "processors": "repurposed_structures:mineshafts/jungle_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/jungle/spawner_4_end",
+        "processors": "repurposed_structures:mineshafts/jungle_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/jungle/spawner_4_middle",
+        "processors": "repurposed_structures:mineshafts/jungle_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

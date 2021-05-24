@@ -12,6 +12,9 @@
 
 • Icy Pyramid Pit trap is now redesigned to be a bit more dangerous.
 
+##### Fortresses:
+• Fixed Cartographer maps to Jungle Fortresses sometimes showing a house icon instead of a green banner icon.
+
 ##### Strongholds:
 • Removed Stonebricks Strongholds because Better Strongholds mod exists! 
   Use that epic mod instead of upgrade the Overworld Stronghold!

@@ -1,0 +1,13 @@
+{
+  "processors": [
+    {
+      "processor_type": "repurposed_structures:close_off_fluid_sources_processor",
+      "weighted_list_of_replacement_blocks": [
+        {
+          "block" : "minecraft:stripped_acacia_wood",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "name": "repurposed_structures:fortresses/jungle/outside",
+  "fallback": "repurposed_structures:fortresses/jungle/terminator",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      }
+    },
+    {
+      "weight": 8,
+      "element": {
+        "location": "repurposed_structures:fortresses/jungle/straight_outside",
+        "processors": "repurposed_structures:fortresses/jungle_main",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:fortresses/jungle/4_way_outside",
+        "processors": "repurposed_structures:fortresses/jungle_main",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:fortresses/jungle/4_way_outside_large",
+        "processors": "repurposed_structures:fortresses/jungle_main",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:fortresses/jungle/stairs_outside",
+        "processors": "repurposed_structures:fortresses/jungle_main",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:fortresses/jungle/spawner",
+        "processors": "repurposed_structures:fortresses/jungle_main",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    }
+  ]
+}

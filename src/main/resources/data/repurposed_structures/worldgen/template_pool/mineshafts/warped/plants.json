@@ -1,0 +1,14 @@
+{
+  "name": "repurposed_structures:mineshafts/warped/plants",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "feature": "repurposed_structures:warped_mineshaft_plants",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    }
+  ]
+}

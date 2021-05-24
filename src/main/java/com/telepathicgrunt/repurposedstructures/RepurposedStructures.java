@@ -16,12 +16,11 @@ import com.telepathicgrunt.repurposedstructures.configs.RSVillagesConfig.RSVilla
 import com.telepathicgrunt.repurposedstructures.configs.RSWellsConfig.RSWellsConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSWitchHutsConfig.RSWitchHutsConfigValues;
 import com.telepathicgrunt.repurposedstructures.misc.MobMapTrades;
+import com.telepathicgrunt.repurposedstructures.misc.MobSpawnerManager;
+import com.telepathicgrunt.repurposedstructures.misc.PoolAdditionMerger;
 import com.telepathicgrunt.repurposedstructures.mixin.ChunkGeneratorAccessor;
 import com.telepathicgrunt.repurposedstructures.modinit.*;
-import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
-import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
-import com.telepathicgrunt.repurposedstructures.utils.LogSpamFiltering;
-import com.telepathicgrunt.repurposedstructures.utils.MobSpawnerManager;
+import com.telepathicgrunt.repurposedstructures.utils.*;
 import it.unimi.dsi.fastutil.objects.Reference2ObjectOpenHashMap;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
@@ -92,6 +91,7 @@ public class RepurposedStructures {
         forgeBus.addListener(this::registerDatapackListener);
         forgeBus.addListener(this::addDimensionalSpacing);
         forgeBus.addListener(MobMapTrades::onVillagerTradesEvent);
+        forgeBus.addListener(PoolAdditionMerger::mergeAdditionPools);
         //GeneralUtils.registerStructureDebugging(RSStructures.STONEBRICK_STRONGHOLD);
 
         modEventBus.addListener(this::setup);
@@ -110,6 +110,7 @@ public class RepurposedStructures {
         else {
             LOGGER.error("Registration failed with unexpected class: {}", rootLogger.getClass());
         }
+
     }
 
     /*

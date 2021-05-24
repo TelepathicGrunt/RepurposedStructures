@@ -25,7 +25,7 @@ public class NoLavaFallsInStructuresMixin {
             at = @At(value = "HEAD"),
             cancellable = true
     )
-    private void noLava(ISeedReader structureWorldAccess, ChunkGenerator chunkGenerator, Random random, BlockPos blockPos, LiquidsConfig springFeatureConfig, CallbackInfoReturnable<Boolean> cir) {
+    private void rs_noLava(ISeedReader structureWorldAccess, ChunkGenerator chunkGenerator, Random random, BlockPos blockPos, LiquidsConfig springFeatureConfig, CallbackInfoReturnable<Boolean> cir) {
         if(springFeatureConfig.state.is(FluidTags.LAVA)) {
             BlockPos.Mutable mutable = new BlockPos.Mutable();
             for(Direction face : Direction.Plane.HORIZONTAL){

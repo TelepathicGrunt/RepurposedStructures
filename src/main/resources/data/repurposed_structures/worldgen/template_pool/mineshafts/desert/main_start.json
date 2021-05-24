@@ -1,0 +1,165 @@
+{
+  "name": "repurposed_structures:mineshafts/desert/main_start",
+  "fallback": "repurposed_structures:mineshafts/common/post_process",
+  "elements": [
+    {
+      "weight": 1000,
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/desert/tunnel_1",
+        "processors": "repurposed_structures:mineshafts/desert_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/desert/tunnel_2",
+        "processors": "repurposed_structures:mineshafts/desert_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/desert/tunnel_3",
+        "processors": "repurposed_structures:mineshafts/desert_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/desert/tunnel_4",
+        "processors": "repurposed_structures:mineshafts/desert_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/desert/tunnel_rails_1",
+        "processors": "repurposed_structures:mineshafts/desert_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/desert/tunnel_rails_2",
+        "processors": "repurposed_structures:mineshafts/desert_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/desert/tunnel_rails_3",
+        "processors": "repurposed_structures:mineshafts/desert_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/desert/tunnel_rails_4",
+        "processors": "repurposed_structures:mineshafts/desert_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 15,
+      "element": {
+        "location": "repurposed_structures:mineshafts/desert/4_way",
+        "processors": "repurposed_structures:mineshafts/desert_pillars",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 15,
+      "element": {
+        "location": "repurposed_structures:mineshafts/desert/4_way_tall",
+        "processors": "repurposed_structures:mineshafts/desert_pillars",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 15,
+      "element": {
+        "location": "repurposed_structures:mineshafts/desert/stairs",
+        "processors": "repurposed_structures:mineshafts/desert_misc",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/desert/spawner_1",
+        "processors": "repurposed_structures:mineshafts/desert_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/desert/spawner_2",
+        "processors": "repurposed_structures:mineshafts/desert_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/desert/spawner_3_end",
+        "processors": "repurposed_structures:mineshafts/desert_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/desert/spawner_3_middle",
+        "processors": "repurposed_structures:mineshafts/desert_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/desert/spawner_4_end",
+        "processors": "repurposed_structures:mineshafts/desert_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/desert/spawner_4_middle",
+        "processors": "repurposed_structures:mineshafts/desert_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

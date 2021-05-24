@@ -1,0 +1,147 @@
+{
+  "name": "repurposed_structures:mineshafts/savanna/side",
+  "fallback": "repurposed_structures:mineshafts/common/post_process",
+  "elements": [
+    {
+      "weight": 3250,
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/savanna/tunnel_1",
+        "processors": "repurposed_structures:mineshafts/savanna_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/savanna/tunnel_2",
+        "processors": "repurposed_structures:mineshafts/savanna_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/savanna/tunnel_3",
+        "processors": "repurposed_structures:mineshafts/savanna_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/savanna/tunnel_4",
+        "processors": "repurposed_structures:mineshafts/savanna_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/savanna/tunnel_rails_1",
+        "processors": "repurposed_structures:mineshafts/savanna_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/savanna/tunnel_rails_2",
+        "processors": "repurposed_structures:mineshafts/savanna_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/savanna/tunnel_rails_3",
+        "processors": "repurposed_structures:mineshafts/savanna_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "repurposed_structures:mineshafts/savanna/tunnel_rails_4",
+        "processors": "repurposed_structures:mineshafts/savanna_main",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 15,
+      "element": {
+        "location": "repurposed_structures:mineshafts/savanna/stairs",
+        "processors": "repurposed_structures:mineshafts/savanna_misc",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/savanna/spawner_1",
+        "processors": "repurposed_structures:mineshafts/savanna_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/savanna/spawner_2",
+        "processors": "repurposed_structures:mineshafts/savanna_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/savanna/spawner_3_end",
+        "processors": "repurposed_structures:mineshafts/savanna_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/savanna/spawner_3_middle",
+        "processors": "repurposed_structures:mineshafts/savanna_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/savanna/spawner_4_end",
+        "processors": "repurposed_structures:mineshafts/savanna_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mineshafts/savanna/spawner_4_middle",
+        "processors": "repurposed_structures:mineshafts/savanna_spawner",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

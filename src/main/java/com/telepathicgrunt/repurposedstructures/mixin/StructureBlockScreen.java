@@ -22,7 +22,7 @@ public class StructureBlockScreen {
 
     @Inject(method = "init",
             at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/widget/TextFieldWidget;setValue(Ljava/lang/String;)V", ordinal = 0))
-    private void makeFileNameLonger(CallbackInfo ci) {
+    private void rs_makeFileNameLonger(CallbackInfo ci) {
         nameEdit.setMaxLength(128);
     }
 }

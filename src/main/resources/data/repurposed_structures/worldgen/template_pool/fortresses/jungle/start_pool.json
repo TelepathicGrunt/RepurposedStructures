@@ -1,0 +1,15 @@
+{
+  "name": "repurposed_structures:fortresses/jungle/start_pool",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:fortresses/jungle/center_room",
+        "processors": "repurposed_structures:fortresses/jungle_main",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    }
+  ]
+}

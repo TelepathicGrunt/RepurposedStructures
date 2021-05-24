@@ -1,0 +1,14 @@
+{
+  "name": "repurposed_structures:mineshafts/crimson/plants_long",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "feature": "repurposed_structures:crimson_mineshaft_plants_long",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    }
+  ]
+}

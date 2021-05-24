@@ -1,0 +1,14 @@
+{
+  "name": "repurposed_structures:mineshafts/common/post_process",
+  "fallback": "repurposed_structures:mineshafts/common/post_process",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "feature": "repurposed_structures:post_process_connecting_blocks",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    }
+  ]
+}
