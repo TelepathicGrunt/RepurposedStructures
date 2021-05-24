@@ -28,7 +28,7 @@ public class SafeDecodingRegistryOps<T> extends RegistryOps<T> {
     private final DynamicRegistryManager dynamicRegistryManager;
     private final Map<RegistryKey<? extends Registry<?>>, SafeDecodingRegistryOps.ValueHolder<?>> valueHolders;
 
-    protected SafeDecodingRegistryOps(DynamicOps<T> delegate, DynamicRegistryManager dynamicRegistryManager) {
+    public SafeDecodingRegistryOps(DynamicOps<T> delegate, DynamicRegistryManager dynamicRegistryManager) {
         super(delegate, null, null, Maps.newIdentityHashMap());
         this.dynamicRegistryManager = dynamicRegistryManager;
         this.valueHolders = Maps.newIdentityHashMap();
