@@ -59,17 +59,13 @@ public class StructureVine extends Feature<StructureTargetLengthRangeConfig> {
 
                         if (currentBlockstate.canPlaceAt(world, vineMutablePos)) {
                             //places topmost vine that can face upward
-                            //tick scheduled so it can break if block it was attached to was removed later in worldgen
                             world.setBlockState(vineMutablePos, currentBlockstate.with(VineBlock.UP, aboveBlockstate.isOpaque()), 2);
-                            world.getBlockTickScheduler().schedule(vineMutablePos.toImmutable(), currentBlockstate.getBlock(), 1);
                             length++;
                             break;
                         }
                         else if (aboveBlockstate.isOf(Blocks.VINE)) {
                             //places rest of the vine as long as vine is above
-                            //tick scheduled so it can break if block it was attached to was removed later in worldgen
                             world.setBlockState(vineMutablePos, aboveBlockstate.with(VineBlock.UP, false), 2);
-                            world.getBlockTickScheduler().schedule(vineMutablePos.toImmutable(), aboveBlockstate.getBlock(), 1);
                             length++;
                             break;
                         }

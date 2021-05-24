@@ -39,14 +39,6 @@ public class DrownedWithArmor extends Feature<DefaultFeatureConfig> {
         position = position.down();
 
         DrownedEntity drownedEntity = EntityType.DROWNED.create(world.toServerWorld());
-        drownedEntity.setPersistent();
-        drownedEntity.refreshPositionAndAngles(
-                (double)position.getX() + 0.5D,
-                position.getY(),
-                (double)position.getZ() + 0.5D,
-                0.0F,
-                0.0F);
-
 
         if(random.nextFloat() < 0.45F){
             ItemStack stoneSword = new ItemStack(Items.STONE_SWORD);
@@ -79,7 +71,13 @@ public class DrownedWithArmor extends Feature<DefaultFeatureConfig> {
             drownedEntity.equipStack(EquipmentSlot.FEET, world.getRandom().nextFloat() < 0.2f ? Items.IRON_BOOTS.getDefaultStack() : Items.CHAINMAIL_BOOTS.getDefaultStack());
         }
 
-        drownedEntity.refreshPositionAndAngles((double)position.getX() + 0.5D, position.getY(), (double)position.getZ() + 0.5D, 0.0F, 0.0F);
+        drownedEntity.setPersistent();
+        drownedEntity.refreshPositionAndAngles(
+                (double)position.getX() + 0.5D,
+                position.getY(),
+                (double)position.getZ() + 0.5D,
+                0.0F,
+                0.0F);
         drownedEntity.initialize(world, world.getLocalDifficulty(position), SpawnReason.STRUCTURE, null, null);
         world.spawnEntityAndPassengers(drownedEntity);
         return true;

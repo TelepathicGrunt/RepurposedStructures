@@ -312,7 +312,7 @@ public class RSMineshaftsConfig implements ConfigData {
         @Comment("Max Y height of Mineshaft. Default is 37."
                 + "\nIf below min height, this will be read as min.")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
-        public int endMineshaftMaxHeight = 37;
+        public int endMineshaftMaxHeight = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @Comment("Max Y height of Mineshaft. Default is 13."
@@ -336,85 +336,85 @@ public class RSMineshaftsConfig implements ConfigData {
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
         @Comment("Size of the mineshaft. This is how many pieces long a branch can be from the start piece.")
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 18)
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 18)
         public int birchMineshaftSize = 9;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
         @Comment("Size of the mineshaft. This is how many pieces long a branch can be from the start piece.")
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 18)
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 18)
         public int jungleMineshaftSize = 9;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
         @Comment("Size of the mineshaft. This is how many pieces long a branch can be from the start piece.")
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 18)
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 18)
         public int desertMineshaftSize = 9;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
         @Comment("Size of the mineshaft. This is how many pieces long a branch can be from the start piece.")
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 18)
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 18)
         public int stoneMineshaftSize = 9;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
         @Comment("Size of the mineshaft. This is how many pieces long a branch can be from the start piece.")
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 18)
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 18)
         public int savannaMineshaftSize = 9;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
         @Comment("Size of the mineshaft. This is how many pieces long a branch can be from the start piece.")
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 18)
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 18)
         public int icyMineshaftSize = 9;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
         @Comment("Size of the mineshaft. This is how many pieces long a branch can be from the start piece.")
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 18)
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 18)
         public int oceanMineshaftSize = 9;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
         @Comment("Size of the mineshaft. This is how many pieces long a branch can be from the start piece.")
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 18)
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 18)
         public int taigaMineshaftSize = 9;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
         @Comment("Size of the mineshaft. This is how many pieces long a branch can be from the start piece.")
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 18)
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 18)
         public int swampMineshaftSize = 9;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
         @Comment("Size of the mineshaft. This is how many pieces long a branch can be from the start piece.")
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 18)
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 18)
         public int darkForestMineshaftSize = 9;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
         @Comment("Size of the mineshaft. This is how many pieces long a branch can be from the start piece.")
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 18)
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 18)
         public int endMineshaftSize = 11;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
         @Comment("Size of the mineshaft. This is how many pieces long a branch can be from the start piece.")
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 18)
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 18)
         public int netherMineshaftSize = 10;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
         @Comment("Size of the mineshaft. This is how many pieces long a branch can be from the start piece.")
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 18)
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 18)
         public int crimsonMineshaftSize = 10;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
         @Comment("Size of the mineshaft. This is how many pieces long a branch can be from the start piece.")
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 18)
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 18)
         public int warpedMineshaftSize = 10;
     }
 
