@@ -37,7 +37,8 @@ public class StructureModdedLootImporter {
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/mineshaft/ocean"), new Identifier("minecraft:chests/abandoned_mineshaft"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/mineshaft/savanna"), new Identifier("minecraft:chests/abandoned_mineshaft"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/mineshaft/stone"), new Identifier("minecraft:chests/abandoned_mineshaft"));
-        tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/mineshaft/swamp_dark_forest"), new Identifier("minecraft:chests/abandoned_mineshaft"));
+        tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/mineshaft/dark_forest"), new Identifier("minecraft:chests/abandoned_mineshaft"));
+        tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/mineshaft/swamp"), new Identifier("minecraft:chests/abandoned_mineshaft"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/mineshaft/taiga"), new Identifier("minecraft:chests/abandoned_mineshaft"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/mineshaft/warped"), new Identifier("minecraft:chests/abandoned_mineshaft"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/cities/nether"), new Identifier("minecraft:chests/bastion_treasure")); // new Identifier("minecraft:chests/end_city_treasure"));
