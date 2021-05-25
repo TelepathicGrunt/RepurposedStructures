@@ -53,6 +53,8 @@
 • Fixed comments on the RS Outpost configs being on the wrong config entries.
 
 ##### Pyramids:
+• Added Jungle Pyramids!
+
 • Snowy Pyramid Pit slightly changed to help hint at what spots are safe to stand on.
 
 • Fixed Snowy Pyramids making a base of Red Sandstone instead of Snow Block by mistake.

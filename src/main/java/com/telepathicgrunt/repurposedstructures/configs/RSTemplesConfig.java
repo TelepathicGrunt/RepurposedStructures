@@ -43,6 +43,8 @@ public class RSTemplesConfig
 		public ConfigValueListener<Integer> pyramidIcyMaxChunkDistance;
 		public ConfigValueListener<Boolean> addPyramidIcyToModdedBiomes;
 
+		public ConfigValueListener<Integer> pyramidJungleMaxChunkDistance;
+		public ConfigValueListener<Boolean> addPyramidJungleToModdedBiomes;
 		// regexpos1
 
 		public RSTemplesConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
@@ -182,7 +184,16 @@ public class RSTemplesConfig
                     .translation("repurposedstructures.config.pyramids.addpyramidicytomoddedbiomes")
                     .define("addPyramidIcyToModdedBiomes", true));
 
-                
+
+                pyramidJungleMaxChunkDistance = subscriber.subscribe(builder
+                    .comment("How rare are Jungle Pyramid in Jungle biomes. 1 for spawning in most chunks and 1001 for none.")
+                    .translation("repurposedstructures.config.pyramids.pyramidjunglemaxchunkdistance")
+                    .defineInRange("pyramidJungleMaxChunkDistance", 44, 1, 1001));
+
+                addPyramidJungleToModdedBiomes = subscriber.subscribe(builder
+                    .comment("\n Add Jungle Pyramid to modded Jungle biomes.")
+                    .translation("repurposedstructures.config.pyramids.addpyramidjungletomoddedbiomes")
+                    .define("addPyramidJungleToModdedBiomes", true));
 			// regexpos2
 
 			builder.pop();

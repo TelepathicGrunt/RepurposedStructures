@@ -40,6 +40,12 @@ public class Pyramids {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.PYRAMID_SNOWY);
         }
 
+        if (BiomeSelection.haveCategories(event, Category.JUNGLE) &&
+            RepurposedStructures.RSTemplesConfig.pyramidJungleMaxChunkDistance.get() != 1001 &&
+            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSTemplesConfig.addPyramidJungleToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.PYRAMID_JUNGLE);
+        }
         // regexpos1
 
         if (RepurposedStructures.RSTemplesConfig.pyramidEndMaxChunkDistance.get() != 1001 &&

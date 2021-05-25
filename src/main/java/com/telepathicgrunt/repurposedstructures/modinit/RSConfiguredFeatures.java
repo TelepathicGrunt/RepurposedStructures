@@ -196,6 +196,8 @@ public class RSConfiguredFeatures {
     public static ConfiguredFeature<?, ?> WARPED_MINESHAFT_PLANTS = RSFeatures.STRUCTURE_WARPED_PLANTS.get().configured(new StructureTargetAndLengthConfig(RSStructures.WARPED_MINESHAFT.get(), 25, 3));
     public static ConfiguredFeature<?, ?> WARPED_MINESHAFT_DENSE_PLANTS = RSFeatures.STRUCTURE_WARPED_PLANTS.get().configured(new StructureTargetAndLengthConfig(RSStructures.WARPED_MINESHAFT.get(), 80, 3));
     public static ConfiguredFeature<?, ?> WARPED_MINESHAFT_PLANTS_LONG = RSFeatures.STRUCTURE_WARPED_PLANTS.get().configured(new StructureTargetAndLengthConfig(RSStructures.WARPED_MINESHAFT.get(), 60, 7));
+    public static ConfiguredFeature<?, ?> JUNGLE_PYRAMID_STRUCTURE_VINES = RSFeatures.STRUCTURE_VINES.get().configured(new StructureTargetLengthRangeConfig(RSStructures.PYRAMID_JUNGLE.get(), 17, 4, 3));
+    public static ConfiguredFeature<?, ?> JUNGLE_PYRAMID_STRUCTURE_VINES_NARROW = RSFeatures.STRUCTURE_VINES.get().configured(new StructureTargetLengthRangeConfig(RSStructures.PYRAMID_JUNGLE.get(), 17, 2, 1));
 
 
 
@@ -258,5 +260,7 @@ public class RSConfiguredFeatures {
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "warped_mineshaft_plants"), WARPED_MINESHAFT_PLANTS);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "warped_mineshaft_dense_plants"), WARPED_MINESHAFT_DENSE_PLANTS);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "warped_mineshaft_plants_long"), WARPED_MINESHAFT_PLANTS_LONG);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "jungle_pyramid_structure_vines"), JUNGLE_PYRAMID_STRUCTURE_VINES);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "jungle_pyramid_structure_vines_narrow"), JUNGLE_PYRAMID_STRUCTURE_VINES_NARROW);
     }
 }
