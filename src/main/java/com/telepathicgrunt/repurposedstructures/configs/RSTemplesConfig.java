@@ -8,6 +8,10 @@ public class RSTemplesConfig
 {
 	public static class RSTemplesConfigValues
 	{
+		public ConfigValueListener<String> blacklistedTempleBiomes;
+		public ConfigValueListener<String> blacklistedPyramidBiomes;
+
+
 		public ConfigValueListener<Boolean> addNetherWastelandTempleToModdedBiomes;
 		public ConfigValueListener<Integer> netherWastelandTempleMaxChunkDistance;
 
@@ -23,23 +27,22 @@ public class RSTemplesConfig
 		public ConfigValueListener<Boolean> addNetherSoulTempleToModdedBiomes;
 		public ConfigValueListener<Integer> netherSoulTempleMaxChunkDistance;
 
+
 		public ConfigValueListener<Boolean> addNetherPyramidToModdedBiomes;
 		public ConfigValueListener<Integer> netherPyramidMaxChunkDistance;
 
 		public ConfigValueListener<Boolean> addBadlandsPyramidToModdedBiomes;
 		public ConfigValueListener<Integer> badlandsPyramidMaxChunkDistance;
 
-		public ConfigValueListener<String> blacklistedTempleBiomes;
-		public ConfigValueListener<String> blacklistedPyramidBiomes;
-
 		public ConfigValueListener<Integer> pyramidSnowyMaxChunkDistance;
 		public ConfigValueListener<Boolean> addPyramidSnowyToModdedBiomes;
+
 		public ConfigValueListener<Integer> pyramidEndMaxChunkDistance;
 		public ConfigValueListener<Boolean> addPyramidEndToModdedBiomes;
+
 		public ConfigValueListener<Integer> pyramidIcyMaxChunkDistance;
 		public ConfigValueListener<Boolean> addPyramidIcyToModdedBiomes;
-		public ConfigValueListener<Integer> outpostEndMaxChunkDistance;
-		public ConfigValueListener<Boolean> addOutpostEndToModdedBiomes;
+
 		// regexpos1
 
 		public RSTemplesConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
@@ -178,6 +181,10 @@ public class RSTemplesConfig
                     .comment("\n Add Icy Pyramid to modded icy biomes.")
                     .translation("repurposedstructures.config.pyramids.addpyramidicytomoddedbiomes")
                     .define("addPyramidIcyToModdedBiomes", true));
+
+                
+			// regexpos2
+
 			builder.pop();
 		}
 	}

@@ -42,7 +42,6 @@ public class Outposts {
             {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_END);
             }
-            // regexpos1
         }
         else{
             if (BiomeSelection.hasName(event, "birch") &&

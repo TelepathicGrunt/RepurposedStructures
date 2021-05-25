@@ -201,7 +201,6 @@ public class RSOutpostsConfig {
                     .translation("repurposedstructures.config.outposts.outpostendmaxchunkdistance")
                     .defineInRange("outpostEndMaxChunkDistance", 61, 1, 1001));
 
-            // regexpos2
             builder.pop();
         }
     }

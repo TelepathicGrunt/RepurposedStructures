@@ -130,6 +130,7 @@ public class RSStructures {
     public static final RegistryObject<Structure<NoFeatureConfig>> PYRAMID_SNOWY = addToStructureMaps("pyramid_snowy", () -> (new BuriableStructure(new ResourceLocation(RepurposedStructures.MODID, "temples/pyramid_snowy"))));
     public static final RegistryObject<Structure<NoFeatureConfig>> PYRAMID_END = addToStructureMaps("pyramid_end", () -> (new LandBasedEndStructure(new ResourceLocation(RepurposedStructures.MODID, "temples/pyramid_end"), 11, -2, 0, 0, new HashSet<>())));
     public static final RegistryObject<Structure<NoFeatureConfig>> PYRAMID_ICY = addToStructureMaps("pyramid_icy", () -> (new BuriableStructure(new ResourceLocation(RepurposedStructures.MODID, "temples/pyramid_icy"))));
+    // regexpos1
 
     //Shipwrecks
     public static final RegistryObject<Structure<NoFeatureConfig>> END_SHIPWRECK = addToStructureMaps("shipwreck_end", ShipwreckEndStructure::new);
@@ -174,7 +175,6 @@ public class RSStructures {
     public static final RegistryObject<Structure<NoFeatureConfig>> WITCH_HUTS_DARK_FOREST = addToStructureMaps("witch_hut_dark_forest", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "witch_huts/dark_forest_start_pool"), 11, 0, 0, 0, new HashSet<>(), ImmutableList.of(new MobSpawnInfo.Spawners(EntityType.WITCH, 1, 1, 1)), ImmutableList.of(new MobSpawnInfo.Spawners(EntityType.CAT, 1, 1, 1)))));
     public static final RegistryObject<Structure<NoFeatureConfig>> WITCH_HUTS_GIANT_TREE_TAIGA = addToStructureMaps("witch_hut_giant_tree_taiga", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "witch_huts/giant_tree_taiga_start_pool"), 11, 0, 0, 0, new HashSet<>(), ImmutableList.of(new MobSpawnInfo.Spawners(EntityType.WITCH, 1, 1, 1)), ImmutableList.of(new MobSpawnInfo.Spawners(EntityType.CAT, 1, 1, 1)))));
 
-    // regexpos1
 
     private static <T extends Structure<?>> RegistryObject<T> addToStructureMaps(String name, Supplier<T> structure) {
         return STRUCTURE_FEATURES.register(name, structure);
@@ -227,7 +227,7 @@ public class RSStructures {
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "pyramid_snowy"), PYRAMID_SNOWY.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSTemplesConfig.pyramidSnowyMaxChunkDistance.get(), (int) (RepurposedStructures.RSTemplesConfig.pyramidSnowyMaxChunkDistance.get() * 0.5f), 1630533493));
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "pyramid_end"), PYRAMID_END.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSTemplesConfig.pyramidEndMaxChunkDistance.get(), (int) (RepurposedStructures.RSTemplesConfig.pyramidEndMaxChunkDistance.get() * 0.5f), 1145023315));
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "pyramid_icy"), PYRAMID_ICY.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSTemplesConfig.pyramidIcyMaxChunkDistance.get(), (int) (RepurposedStructures.RSTemplesConfig.pyramidIcyMaxChunkDistance.get() * 0.5f), 884076931));
-
+        // regexpos2
 
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "shipwreck_end"), END_SHIPWRECK.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSShipwrecksConfig.endShipwreckMaxChunkDistance.get(), (int) (RepurposedStructures.RSShipwrecksConfig.endShipwreckMaxChunkDistance.get() * 0.5f), 1605500075));
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "shipwreck_nether_bricks"), NETHER_BRICKS_SHIPWRECK.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSShipwrecksConfig.netherBricksShipwreckMaxChunkDistance.get(), (int) (RepurposedStructures.RSShipwrecksConfig.netherBricksShipwreckMaxChunkDistance.get() * 0.5f), 2073308006), new NetherShipwreckConfig(true));
@@ -262,8 +262,6 @@ public class RSStructures {
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "witch_hut_birch"), WITCH_HUTS_BIRCH.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSWitchHutsConfig.witchHutsBirchMaxChunkDistance.get(), (int) (RepurposedStructures.RSWitchHutsConfig.witchHutsBirchMaxChunkDistance.get() * 0.5f), 904634508));
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "witch_hut_dark_forest"), WITCH_HUTS_DARK_FOREST.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSWitchHutsConfig.witchHutsDarkForestMaxChunkDistance.get(), (int) (RepurposedStructures.RSWitchHutsConfig.witchHutsDarkForestMaxChunkDistance.get() * 0.5f), 165100151));
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "witch_hut_giant_tree_taiga"), WITCH_HUTS_GIANT_TREE_TAIGA.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSWitchHutsConfig.witchHutsGiantTreeTaigaMaxChunkDistance.get(), (int) (RepurposedStructures.RSWitchHutsConfig.witchHutsGiantTreeTaigaMaxChunkDistance.get() * 0.5f), 200289401));
-
-        // regexpos2
 
         //registers the structure pieces.
         RSStructurePieces.registerStructurePieces();

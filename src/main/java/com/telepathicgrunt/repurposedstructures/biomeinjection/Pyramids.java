@@ -40,6 +40,8 @@ public class Pyramids {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.PYRAMID_SNOWY);
         }
 
+        // regexpos1
+
         if (RepurposedStructures.RSTemplesConfig.pyramidEndMaxChunkDistance.get() != 1001 &&
                 BiomeSelection.haveCategories(event, Category.THEEND) &&
                 !BiomeSelection.isBiome(event, Biomes.THE_END, Biomes.SMALL_END_ISLANDS, Biomes.END_BARRENS) &&
