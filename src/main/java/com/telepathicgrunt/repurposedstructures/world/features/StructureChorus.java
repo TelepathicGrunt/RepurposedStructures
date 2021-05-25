@@ -5,6 +5,7 @@ import com.telepathicgrunt.repurposedstructures.world.features.configs.Structure
 import net.minecraft.block.*;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.SectionPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
@@ -34,7 +35,11 @@ public class StructureChorus extends Feature<StructureTargetConfig> {
 
             if(world.getBlockState(mutable).isAir() && world.getBlockState(mutable.above()).isAir() && world.getBlockState(mutable.move(Direction.DOWN)).canOcclude()){
                 // expensive. Do this check very last
-                if(!world.getLevel().structureFeatureManager().getStructureAt(mutable, true, config.targetStructure).isValid()){
+                // This seems to sometimes deadlock only on Forge. But not Fabric. What the fuck?
+                //!world.getLevel().structureFeatureManager().getStructureAt(mutable, true, config.targetStructure).isValid()
+
+                // Alternative. Won't follow the structure's bounds perfectly tho...
+                if(!world.startsForFeature(SectionPos.of(mutable), config.targetStructure).findAny().isPresent()){
                     continue;
                 }
 

@@ -197,7 +197,7 @@ public class PieceLimitedJigsawManager {
                 Optional<JigsawPattern> poolOptional = this.poolRegistry.getOptional(jigsawBlockPool);
 
                 // Only continue if we are using the jigsaw pattern registry and if it is not empty
-                if (!(poolOptional.isPresent() && (poolOptional.get().size() != 0 || Objects.equals(jigsawBlockPool, JigsawPatternRegistry.EMPTY.getRegistryName())))) {
+                if (!(poolOptional.isPresent() && (poolOptional.get().size() != 0 || Objects.equals(jigsawBlockPool, JigsawPatternRegistry.EMPTY.location())))) {
                     RepurposedStructures.LOGGER.warn("Empty or nonexistent pool: {} which is being called from {}", jigsawBlockPool, pieceBlueprint instanceof SingleJigsawPiece ? ((SingleJigsawPieceAccessor) pieceBlueprint).rs_getTemplate().left().get() : "not a SingleJigsawPiece class");
                     continue;
                 }
@@ -207,7 +207,7 @@ public class PieceLimitedJigsawManager {
                 Optional<JigsawPattern> fallbackOptional = this.poolRegistry.getOptional(jigsawBlockFallback);
 
                 // Only continue if the fallback pool is present and valid
-                if (!(fallbackOptional.isPresent() && (fallbackOptional.get().size() != 0 || Objects.equals(jigsawBlockFallback, JigsawPatternRegistry.EMPTY.getRegistryName())))) {
+                if (!(fallbackOptional.isPresent() && (fallbackOptional.get().size() != 0 || Objects.equals(jigsawBlockFallback, JigsawPatternRegistry.EMPTY.location())))) {
                     RepurposedStructures.LOGGER.warn("Empty or nonexistent pool: {} which is being called from {}", jigsawBlockFallback, pieceBlueprint instanceof SingleJigsawPiece ? ((SingleJigsawPieceAccessor) pieceBlueprint).rs_getTemplate().left().get() : "not a SingleJigsawPiece class");
                     continue;
                 }
@@ -284,10 +284,10 @@ public class PieceLimitedJigsawManager {
                         JigsawPiece candidatePiece = candidatePiecePair.getFirst();
                         if (candidatePiece instanceof SingleJigsawPiece && ((SingleJigsawPieceAccessor) candidatePiece).rs_getTemplate().left().get().equals(pieceNeededToSpawn.get())) { // Condition 1
                             if (depth >= this.requiredPieces.get(pieceNeededToSpawn.get()).getMinDistanceFromCenter()) { // Condition 3
-                                // All conditions are met. Use portal room as chosen piece.
+                                // All conditions are met. Use required piece as chosen piece.
                                 chosenPiecePair = candidatePiecePair;
                             } else {
-                                // If not far enough from starting room, remove the portal room piece from the list
+                                // If not far enough from starting room, remove the required piece from the list
                                 totalCount -= candidatePiecePair.getSecond();
                                 candidatePieces.remove(candidatePiecePair);
                             }
@@ -296,7 +296,7 @@ public class PieceLimitedJigsawManager {
                     }
                 }
 
-                // Choose piece if portal room wasn't selected
+                // Choose piece if required piece wasn't selected
                 if (chosenPiecePair == null) {
                     int chosenWeight = rand.nextInt(totalCount) + 1;
 
@@ -415,7 +415,7 @@ public class PieceLimitedJigsawManager {
                                     )
                             ) {
                                 pieceVoxelShape.setValue(
-                                        VoxelShapes.join(
+                                        VoxelShapes.joinUnoptimized(
                                                 pieceVoxelShape.getValue(),
                                                 VoxelShapes.create(AxisAlignedBB.of(adjustedCandidateBoundingBox)),
                                                 IBooleanFunction.ONLY_FIRST

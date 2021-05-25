@@ -2,7 +2,6 @@
   "required": true,
   "package": "com.telepathicgrunt.repurposedstructures.mixin",
   "compatibilityLevel": "JAVA_8",
-  "plugin": "com.telepathicgrunt.repurposedstructures.mixin.plugins.RSMixinPlugin",
   "refmap": "repurposed_structures.refmap.json",
   "mixins": [
     "CatEntityMixin",
@@ -17,13 +16,11 @@
     "PillagerOutpostStructureAccessor",
     "SimpleReloadableResourceManagerAccessor",
     "SingleJigsawPieceAccessor",
-    "StrongholdGeneratorAccessor",
     "StructureMobSpawningMixin",
     "StructurePieceAccessor",
     "TemplateAccessor",
     "TemplateManagerAccessor",
-    "TemplateManagerMixin",
-    "VoxelShapesMixin"
+    "TemplateManagerMixin"
   ],
   "client": [
     "StructureBlockScreen"

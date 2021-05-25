@@ -39,7 +39,7 @@ public class RSMineshaftEndStructure extends RSMineshaftStructure {
     protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int x, int z, Biome biome, ChunkPos chunkPos, NoFeatureConfig featureConfig) {
         StructureSeparationSettings structureConfig = chunkGenerator.getSettings().getConfig(this);
         if(structureConfig != null) {
-            chunkRandom.setFeatureSeed(seed + structureConfig.salt(), x, z);
+            chunkRandom.setLargeFeatureSeed(seed + structureConfig.salt(), x, z);
             double d = (probability.get() / 10000D);
             if (chunkRandom.nextDouble() < d) {
                 if(RepurposedStructures.RSMineshaftsConfig.barrensIslandsEndMineshafts.get())

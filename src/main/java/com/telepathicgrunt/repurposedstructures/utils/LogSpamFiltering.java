@@ -57,7 +57,7 @@ public class LogSpamFiltering extends AbstractFilter {
             if("Unknown structure piece id: {}".equals(message.getFormat()) && (SILENCED_PIECES.contains((ResourceLocation) message.getParameters()[0]) || ((ResourceLocation)message.getParameters()[0]).getNamespace().equals(RepurposedStructures.MODID))){
                 return Result.DENY;
             }
-            else if(message.getFormattedMessage().equals("Unknown structure start: repurposed_structures:stronghold_stonebrick")) {
+            else if(message.getFormattedMessage().contains("Unknown structure start: repurposed_structures:")) {
                 return Result.DENY;
             }
         }

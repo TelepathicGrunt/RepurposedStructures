@@ -8,6 +8,7 @@ import net.minecraft.block.VineBlock;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
+import net.minecraft.util.math.SectionPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
@@ -33,7 +34,12 @@ public class StructureVine extends Feature<StructureTargetLengthRangeConfig> {
                     random.nextInt((config.range * 2) + 1) - config.range
             );
 
-            if(!world.isEmptyBlock(mutable) || !world.getLevel().structureFeatureManager().getStructureAt(mutable, true, config.targetStructure).isValid()){
+            if(!world.isEmptyBlock(mutable) ||
+                    // This seems to sometimes deadlock only on Forge. But not Fabric. What the fuck?
+                    //!world.getLevel().structureFeatureManager().getStructureAt(mutable, true, config.targetStructure).isValid()
+                    // Alternative. Won't follow the structure's bounds perfectly tho...
+                    !world.startsForFeature(SectionPos.of(mutable), config.targetStructure).findAny().isPresent()
+            ){
                 continue;
             }
 

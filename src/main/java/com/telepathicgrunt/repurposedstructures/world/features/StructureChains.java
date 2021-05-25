@@ -7,6 +7,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.LanternBlock;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.SectionPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.ChunkGenerator;
@@ -34,7 +35,12 @@ public class StructureChains extends Feature<StructureTargetConfig> {
                     random.nextInt(11) - 5
             );
 
-            if(!world.getBlockState(mutable).isAir() || !world.getLevel().structureFeatureManager().getStructureAt(mutable, true, config.targetStructure).isValid()){
+            if(!world.getBlockState(mutable).isAir() ||
+                    // This seems to sometimes deadlock only on Forge. But not Fabric. What the fuck?
+                    //!world.getLevel().structureFeatureManager().getStructureAt(mutable, true, config.targetStructure).isValid()
+                    // Alternative. Won't follow the structure's bounds perfectly tho...
+                   !world.startsForFeature(SectionPos.of(mutable), config.targetStructure).findAny().isPresent()
+            ){
                 continue;
             }
 

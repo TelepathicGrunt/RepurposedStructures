@@ -9,6 +9,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ITag;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.SectionPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.ChunkGenerator;
@@ -48,7 +49,11 @@ public class StructureFire extends Feature<StructureTargetConfig> {
             Block belowBlock = world.getBlockState(mutable.below()).getBlock();
             if(world.getBlockState(mutable).isAir() && (belowBlock.is(Blocks.NETHER_BRICKS) || infiniteBurningBlocks.contains(belowBlock))){
                 // expensive. Do this check very last
-                if(!world.getLevel().structureFeatureManager().getStructureAt(mutable, true, config.targetStructure).isValid()){
+                // This seems to sometimes deadlock only on Forge. But not Fabric. What the fuck?
+                //!world.getLevel().structureFeatureManager().getStructureAt(mutable, true, config.targetStructure).isValid()
+
+                // Alternative. Won't follow the structure's bounds perfectly tho...
+                if(!world.startsForFeature(SectionPos.of(mutable), config.targetStructure).findAny().isPresent()){
                     continue;
                 }
 

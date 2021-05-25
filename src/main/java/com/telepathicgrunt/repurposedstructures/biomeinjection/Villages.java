@@ -38,7 +38,6 @@ public class Villages {
                 (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get()))
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.JUNGLE_VILLAGE);
-            event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> RSConfiguredFeatures.JUNGLE_VILLAGE_VINES);
         }
 
         else if (BiomeSelection.haveCategories(event, Category.SWAMP) &&
@@ -46,7 +45,6 @@ public class Villages {
                 (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSVillagesConfig.addVillagesToModdedBiomes.get()))
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.SWAMP_VILLAGE);
-            event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> RSConfiguredFeatures.SWAMP_VILLAGE_VINES);
         }
 
         else if (BiomeSelection.haveCategories(event, Category.EXTREME_HILLS) &&

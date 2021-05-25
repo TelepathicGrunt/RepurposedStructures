@@ -21,12 +21,6 @@ public class Fortresses {
             {
                 event.getGeneration().getStructures().add(() -> RSConfiguredStructures.JUNGLE_FORTRESS);
             }
-
-            event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION)
-                    .add(() -> RSConfiguredFeatures.JUNGLE_FORTRESS_VINES);
-
-            event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_ORES)
-                    .add(() -> RSConfiguredFeatures.FORTRESS_BREAKAGE);
         }
     }
 }

@@ -17,7 +17,6 @@ public class Strongholds {
                     RepurposedStructures.RSStrongholdsConfig.addNetherStrongholdToModdedBiomes.get()))
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_STRONGHOLD);
-            event.getGeneration().getFeatures(GenerationStage.Decoration.STRONGHOLDS).add(() -> RSConfiguredFeatures.NETHER_STRONGHOLD_CHAINS);
         }
     }
 }

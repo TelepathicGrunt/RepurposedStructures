@@ -193,7 +193,7 @@ public class RSStructures {
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_ocean"), OCEAN_MINESHAFT.get(), GenerationStage.Decoration.UNDERGROUND_STRUCTURES, new StructureSeparationSettings(1, 0, 1774808662));
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_savanna"), SAVANNA_MINESHAFT.get(), GenerationStage.Decoration.UNDERGROUND_STRUCTURES, new StructureSeparationSettings(1, 0, 1960212212));
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_stone"), STONE_MINESHAFT.get(), GenerationStage.Decoration.UNDERGROUND_STRUCTURES, new StructureSeparationSettings(1, 0, 1436736620));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_swamp_forest"), SWAMP_MINESHAFT.get(), GenerationStage.Decoration.UNDERGROUND_STRUCTURES, new StructureSeparationSettings(1, 0, 2037177700));
+        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_swamp"), SWAMP_MINESHAFT.get(), GenerationStage.Decoration.UNDERGROUND_STRUCTURES, new StructureSeparationSettings(1, 0, 2037177700));
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_taiga"), TAIGA_MINESHAFT.get(), GenerationStage.Decoration.UNDERGROUND_STRUCTURES, new StructureSeparationSettings(1, 0, 1383003172));
 
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "stronghold_nether"), NETHER_STRONGHOLD.get(), GenerationStage.Decoration.TOP_LAYER_MODIFICATION, new StructureSeparationSettings(RepurposedStructures.RSStrongholdsConfig.netherStrongholdMaxChunkDistance.get(), (int) (RepurposedStructures.RSStrongholdsConfig.netherStrongholdMaxChunkDistance.get() * 0.5f), 1731422513));

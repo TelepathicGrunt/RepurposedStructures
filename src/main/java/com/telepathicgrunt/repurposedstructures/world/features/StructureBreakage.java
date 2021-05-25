@@ -10,6 +10,7 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.SectionPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.chunk.IChunk;
 import net.minecraft.world.gen.ChunkGenerator;
@@ -59,7 +60,12 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
                 foundSurface = findSurface(world, mutable, Direction.DOWN);
             }
 
-            if(!foundSurface && !world.getLevel().structureFeatureManager().getStructureAt(mutable, true, config.targetStructure).isValid()){
+            if(!foundSurface &&
+                    // This seems to sometimes deadlock only on Forge. But not Fabric. What the fuck?
+                    //!world.getLevel().structureFeatureManager().getStructureAt(mutable, true, config.targetStructure).isValid()
+                    // Alternative. Won't follow the structure's bounds perfectly tho...
+                    !world.startsForFeature(SectionPos.of(mutable), config.targetStructure).findAny().isPresent()
+            ){
                 return false;
             }
             mutable.move(Direction.UP, 2);
