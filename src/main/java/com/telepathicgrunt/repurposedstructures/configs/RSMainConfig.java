@@ -12,6 +12,7 @@ public class RSMainConfig {
         public ConfigValueListener<Integer> jungleFortressSize;
         public ConfigValueListener<Integer> jungleFortressMinHeight;
         public ConfigValueListener<Integer> jungleFortressMaxHeight;
+        public ConfigValueListener<Integer> jungleFortressVerticalRange;
 
         public ConfigValueListener<Integer> grassyIglooMaxChunkDistance;
         public ConfigValueListener<Boolean> addGrassyIglooToModdedBiomes;
@@ -101,6 +102,11 @@ public class RSMainConfig {
                             + "\nIf below min height, this will be read as min.")
                     .translation("repurposedstructures.config.junglefortress.junglefortressmaxheight")
                     .defineInRange("jungleFortressMaxHeight", 63, 0, 255));
+
+            jungleFortressVerticalRange = subscriber.subscribe(builder
+                    .comment("\n How far above or below the fortress's pieces can generate away from the center piece.")
+                    .translation("repurposedstructures.config.junglefortress.junglefortressverticalrange")
+                    .defineInRange("jungleFortressVerticalRange", 27, 0, 255));
 
             builder.pop();
 

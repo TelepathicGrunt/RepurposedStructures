@@ -38,25 +38,26 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<NoFeatureConf
     protected final Map<ResourceLocation, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces;
     protected final Lazy<Integer> maxY;
     protected final Lazy<Integer> minY;
+    protected final Lazy<Integer> verticalRange;
     protected final boolean clipOutOfBoundsPieces;
 
 
     public AdvancedJigsawStructure(ResourceLocation poolID, Lazy<Integer> structureSize, Map<ResourceLocation, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces, Lazy<Integer> maxY, Lazy<Integer> minY) {
-        this(poolID, structureSize, Lazy.of(() -> 0), new ArrayList<>(), new ArrayList<>(), requiredPieces, maxY, minY, true);
+        this(poolID, structureSize, Lazy.of(() -> 0), new ArrayList<>(), new ArrayList<>(), requiredPieces, maxY, minY, true, null);
     }
 
     public AdvancedJigsawStructure(ResourceLocation poolID, Lazy<Integer> structureSize, List<MobSpawnInfo.Spawners> monsterSpawns, Map<ResourceLocation, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces, Lazy<Integer> maxY, Lazy<Integer> minY) {
-        this(poolID, structureSize, Lazy.of(() -> 0), monsterSpawns, new ArrayList<>(), requiredPieces, maxY, minY, true);
+        this(poolID, structureSize, Lazy.of(() -> 0), monsterSpawns, new ArrayList<>(), requiredPieces, maxY, minY, true, null);
     }
 
-    public AdvancedJigsawStructure(ResourceLocation poolID, Lazy<Integer> structureSize, Lazy<Integer> biomeRange, List<MobSpawnInfo.Spawners> monsterSpawns, Map<ResourceLocation, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces, Lazy<Integer> maxY, Lazy<Integer> minY, boolean clipOutOfBoundsPieces) {
-        this(poolID, structureSize, biomeRange, monsterSpawns, new ArrayList<>(), requiredPieces, maxY, minY, clipOutOfBoundsPieces);
+    public AdvancedJigsawStructure(ResourceLocation poolID, Lazy<Integer> structureSize, Lazy<Integer> biomeRange, List<MobSpawnInfo.Spawners> monsterSpawns, Map<ResourceLocation, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces, Lazy<Integer> maxY, Lazy<Integer> minY, boolean clipOutOfBoundsPieces, Lazy<Integer> verticalRange) {
+        this(poolID, structureSize, biomeRange, monsterSpawns, new ArrayList<>(), requiredPieces, maxY, minY, clipOutOfBoundsPieces, verticalRange);
     }
 
     public AdvancedJigsawStructure(ResourceLocation poolID, Lazy<Integer> structureSize, Lazy<Integer> biomeRange,
                                    List<MobSpawnInfo.Spawners> monsterSpawns, List<MobSpawnInfo.Spawners> creatureSpawns,
                                    Map<ResourceLocation, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces, Lazy<Integer> maxY, Lazy<Integer> minY,
-                                   boolean clipOutOfBoundsPieces)
+                                   boolean clipOutOfBoundsPieces, Lazy<Integer> verticalRange)
     {
         super(NoFeatureConfig.CODEC);
 
@@ -69,6 +70,7 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<NoFeatureConf
         this.maxY = maxY;
         this.minY = minY;
         this.clipOutOfBoundsPieces = clipOutOfBoundsPieces;
+        this.verticalRange = verticalRange;
 
         RSStructures.RS_STRUCTURE_START_PIECES.add(startPool);
     }
@@ -118,6 +120,18 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<NoFeatureConf
             int structureStartHeight = random.nextInt(maxY.get() - minY.get()) + minY.get();
             blockpos.move(Direction.UP, structureStartHeight);
 
+            int topClipOff;
+            int bottomClipOff;
+            if(verticalRange == null){
+                // Help make sure the Jigsaw Blocks have room to spawn new pieces if structure is right on edge of maxY or minY
+                topClipOff = clipOutOfBoundsPieces ? maxY.get() + 5 : Integer.MAX_VALUE;
+                bottomClipOff = clipOutOfBoundsPieces ? minY.get() - 5 : Integer.MIN_VALUE;
+            }
+            else{
+                topClipOff = structureStartHeight + verticalRange.get();
+                bottomClipOff = structureStartHeight + verticalRange.get();
+            }
+
             PieceLimitedJigsawManager.assembleJigsawStructure(
                     dynamicRegistryManager,
                     new VillageConfig(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY)
@@ -131,9 +145,8 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<NoFeatureConf
                     false,
                     false,
                     requiredPieces,
-                    // Help make sure the Jigsaw Blocks have room to spawn new pieces if structure is right on edge of maxY or minY
-                    clipOutOfBoundsPieces ? maxY.get() + 5 : Integer.MAX_VALUE,
-                    clipOutOfBoundsPieces ? minY.get() - 5 : Integer.MIN_VALUE);
+                    topClipOff,
+                    bottomClipOff);
 
             this.calculateBoundingBox();
         }

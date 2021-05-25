@@ -82,7 +82,6 @@ public class RSStructures {
 
     //Igloos and Fortress
     public static final RegistryObject<Structure<NoFeatureConfig>> JUNGLE_FORTRESS = addToStructureMaps("fortress_jungle", () ->
-
             new AdvancedJigsawStructure(
                     new ResourceLocation(RepurposedStructures.MODID, "fortresses/jungle/start_pool"),
                     Lazy.of(() -> RepurposedStructures.RSMainConfig.jungleFortressSize.get()),
@@ -97,7 +96,8 @@ public class RSStructures {
                                 new StructurePiecesBehavior.RequiredPieceNeeds(4, Lazy.of(() -> (int) (RepurposedStructures.RSMainConfig.jungleFortressSize.get() * 0.6D)))),
                     Lazy.of(() -> RepurposedStructures.RSMainConfig.jungleFortressMaxHeight.get()),
                     Lazy.of(() -> RepurposedStructures.RSMainConfig.jungleFortressMinHeight.get()),
-                    false));
+                    false,
+                    Lazy.of(() -> RepurposedStructures.RSMainConfig.jungleFortressVerticalRange.get())));
 
     public static final RegistryObject<Structure<NoFeatureConfig>> GRASSY_IGLOO = addToStructureMaps("igloo_grassy", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "igloos/grassy_top"), 20, 0, 0, 0, new HashSet<>())));
     public static final RegistryObject<Structure<NoFeatureConfig>> STONE_IGLOO = addToStructureMaps("igloo_stone", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "igloos/stone_top"), 20, 0, 0, 0, new HashSet<>())));
