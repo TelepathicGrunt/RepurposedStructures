@@ -281,10 +281,10 @@ public class PieceLimitedJigsawManager {
                         StructurePoolElement candidatePiece = candidatePiecePair.getFirst();
                         if (candidatePiece instanceof SinglePoolElement && ((SinglePoolElementAccessor) candidatePiece).rs_getField_24015().left().get().equals(pieceNeededToSpawn.get())) { // Condition 1
                             if (depth >= this.requiredPieces.get(pieceNeededToSpawn.get()).getMinDistanceFromCenter()) { // Condition 3
-                                // All conditions are met. Use portal room as chosen piece.
+                                // All conditions are met. Use required piece  as chosen piece.
                                 chosenPiecePair = candidatePiecePair;
                             } else {
-                                // If not far enough from starting room, remove the portal room piece from the list
+                                // If not far enough from starting room, remove the required piece from the list
                                 totalCount -= candidatePiecePair.getSecond();
                                 candidatePieces.remove(candidatePiecePair);
                             }
@@ -293,7 +293,7 @@ public class PieceLimitedJigsawManager {
                     }
                 }
 
-                // Choose piece if portal room wasn't selected
+                // Choose piece if required piece wasn't selected
                 if (chosenPiecePair == null) {
                     int chosenWeight = rand.nextInt(totalCount) + 1;
 

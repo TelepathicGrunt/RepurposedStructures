@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.misc;
+package com.telepathicgrunt.repurposedstructures.utils;
 
 
 import it.unimi.dsi.fastutil.doubles.DoubleArrayList;

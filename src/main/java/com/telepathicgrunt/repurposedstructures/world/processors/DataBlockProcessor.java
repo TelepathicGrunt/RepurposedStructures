@@ -69,7 +69,7 @@ public class DataBlockProcessor extends StructureProcessor {
                             currentPos.getY() >= 0 &&
                             currentPos.isWithinDistance(worldPos, depth)
                     ){
-                        Structure.StructureBlockInfo newPillarState1 = new Structure.StructureBlockInfo(structureBlockInfoLocal.pos.subtract(currentPos), replacementState, null);
+                        Structure.StructureBlockInfo newPillarState1 = new Structure.StructureBlockInfo(structureBlockInfoLocal.pos, replacementState, null);
                         Structure.StructureBlockInfo newPillarState2 = new Structure.StructureBlockInfo(currentPos.toImmutable(), replacementState, null);
 
                         for(StructureProcessor processor : structurePlacementData.getProcessors()){
