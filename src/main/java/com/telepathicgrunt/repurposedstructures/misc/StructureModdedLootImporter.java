@@ -31,7 +31,8 @@ public class StructureModdedLootImporter extends LootModifier {
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshaft/ocean"), new ResourceLocation("minecraft:chests/abandoned_mineshaft"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshaft/savanna"), new ResourceLocation("minecraft:chests/abandoned_mineshaft"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshaft/stone"), new ResourceLocation("minecraft:chests/abandoned_mineshaft"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshaft/swamp_dark_forest"), new ResourceLocation("minecraft:chests/abandoned_mineshaft"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshaft/dark_forest"), new ResourceLocation("minecraft:chests/abandoned_mineshaft"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshaft/swamp"), new ResourceLocation("minecraft:chests/abandoned_mineshaft"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshaft/taiga"), new ResourceLocation("minecraft:chests/abandoned_mineshaft"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshaft/warped"), new ResourceLocation("minecraft:chests/abandoned_mineshaft"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/cities/nether"), new ResourceLocation("minecraft:chests/bastion_treasure")); // new ResourceLocation("minecraft:chests/end_city_treasure"));
