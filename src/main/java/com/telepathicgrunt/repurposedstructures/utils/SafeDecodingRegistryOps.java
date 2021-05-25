@@ -39,7 +39,8 @@ public class SafeDecodingRegistryOps<T> extends WorldSettingsImport<T> {
      *
      * <p>This method is called by casting an arbitrary dynamic ops to a registry reading ops.</p>
      */
-    protected <E> DataResult<Pair<Supplier<E>, T>> decodeOrId(T object, RegistryKey<? extends Registry<E>> registryKey, Codec<E> codec, boolean allowInlineDefinitions) {
+    @Override
+    protected <E> DataResult<Pair<Supplier<E>, T>> decodeElement(T object, RegistryKey<? extends Registry<E>> registryKey, Codec<E> codec, boolean allowInlineDefinitions) {
         Optional<MutableRegistry<E>> optional = this.dynamicRegistries.registry(registryKey);
         if (!optional.isPresent()) {
             return DataResult.error("(RepurposedStructures SafeDecodingRegistryOps) Unknown registry: " + registryKey);
