@@ -12,6 +12,8 @@
 
 • Icy Pyramid Pit trap is now redesigned to be a bit more dangerous.
 
+• Fixed lang entry for End and Icy Pyramids.
+
 ##### Ruins:
 • Added translation for Nether Ruins Map names.
 
