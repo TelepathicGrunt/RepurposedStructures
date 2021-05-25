@@ -38,24 +38,25 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<DefaultFeatur
     protected final int maxY;
     protected final int minY;
     protected final boolean clipOutOfBoundsPieces;
+    protected final Integer verticalRange;
 
 
     public AdvancedJigsawStructure(Identifier poolID, int structureSize, Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces, int maxY, int minY) {
-        this(poolID, structureSize, 0, new ArrayList<>(), new ArrayList<>(), requiredPieces, maxY, minY, true);
+        this(poolID, structureSize, 0, new ArrayList<>(), new ArrayList<>(), requiredPieces, maxY, minY, true, null);
     }
 
     public AdvancedJigsawStructure(Identifier poolID, int structureSize, List<SpawnSettings.SpawnEntry> monsterSpawns, Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces, int maxY, int minY) {
-        this(poolID, structureSize, 0, monsterSpawns, new ArrayList<>(), requiredPieces, maxY, minY, true);
+        this(poolID, structureSize, 0, monsterSpawns, new ArrayList<>(), requiredPieces, maxY, minY, true, null);
     }
 
-    public AdvancedJigsawStructure(Identifier poolID, int structureSize, int biomeRange, List<SpawnSettings.SpawnEntry> monsterSpawns, Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces, int maxY, int minY, boolean clipOutOfBoundsPieces) {
-        this(poolID, structureSize, biomeRange, monsterSpawns, new ArrayList<>(), requiredPieces, maxY, minY, clipOutOfBoundsPieces);
+    public AdvancedJigsawStructure(Identifier poolID, int structureSize, int biomeRange, List<SpawnSettings.SpawnEntry> monsterSpawns, Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces, int maxY, int minY, boolean clipOutOfBoundsPieces, Integer verticalRange) {
+        this(poolID, structureSize, biomeRange, monsterSpawns, new ArrayList<>(), requiredPieces, maxY, minY, clipOutOfBoundsPieces, verticalRange);
     }
 
     public AdvancedJigsawStructure(Identifier poolID, int structureSize, int biomeRange,
                                    List<SpawnSettings.SpawnEntry> monsterSpawns, List<SpawnSettings.SpawnEntry> creatureSpawns,
                                    Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces, int maxY, int minY,
-                                   boolean clipOutOfBoundsPieces)
+                                   boolean clipOutOfBoundsPieces, Integer verticalRange)
     {
         super(DefaultFeatureConfig.CODEC);
 
@@ -68,6 +69,7 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<DefaultFeatur
         this.maxY = maxY;
         this.minY = minY;
         this.clipOutOfBoundsPieces = clipOutOfBoundsPieces;
+        this.verticalRange = verticalRange;
 
         RSStructures.RS_STRUCTURE_START_PIECES.add(startPool);
     }
@@ -116,6 +118,18 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<DefaultFeatur
             int structureStartHeight = random.nextInt(maxY - minY) + minY;
             blockpos.move(Direction.UP, structureStartHeight);
 
+            int topClipOff;
+            int bottomClipOff;
+            if(verticalRange == null){
+                // Help make sure the Jigsaw Blocks have room to spawn new pieces if structure is right on edge of maxY or minY
+                topClipOff = clipOutOfBoundsPieces ? maxY + 5 : Integer.MAX_VALUE;
+                bottomClipOff = clipOutOfBoundsPieces ? minY - 5 : Integer.MIN_VALUE;
+            }
+            else{
+                topClipOff = structureStartHeight + verticalRange;
+                bottomClipOff = structureStartHeight + verticalRange;
+            }
+
             PieceLimitedJigsawManager.assembleJigsawStructure(
                     dynamicRegistryManager,
                     new StructurePoolFeatureConfig(() -> dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN).get(startPool), structureSize),
@@ -127,16 +141,10 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<DefaultFeatur
                     false,
                     false,
                     requiredPieces,
-                    // Help make sure the Jigsaw Blocks have room to spawn new pieces if structure is right on edge of maxY or minY
-                    clipOutOfBoundsPieces ? maxY + 5 : Integer.MAX_VALUE,
-                    clipOutOfBoundsPieces ? minY - 5 : Integer.MIN_VALUE);
+                    topClipOff,
+                    bottomClipOff);
 
             this.setBoundingBoxFromChildren();
-
-//            // For jungle fortress. Needs better refactoring
-//            if(maxY == Integer.MAX_VALUE && minY == Integer.MIN_VALUE){
-//                this.randomUpwardTranslation(this.random, chunkGenerator.getSeaLevel() - 12, chunkGenerator.getSeaLevel() - 7);
-//            }
         }
     }
 }

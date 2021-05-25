@@ -87,6 +87,12 @@ public class RSMainConfig implements ConfigData {
                 + "\nIf below min height, this will be read as min.")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 255)
         public int jungleFortressMaxHeight = 63;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("How far above or below the fortress's pieces can generate away from the center piece.")
+        @ConfigEntry.BoundedDiscrete(min = 0, max = 255)
+        public int jungleFortressVerticalRange = 27;
     }
 
     public static class Igloos {

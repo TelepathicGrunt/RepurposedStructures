@@ -72,7 +72,8 @@ public class RSStructures {
                     new StructurePiecesBehavior.RequiredPieceNeeds(4, (int) (RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.jungleFortressSize * 0.6D))),
             RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.jungleFortressMaxHeight,
             RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.jungleFortressMinHeight,
-            false);
+            false,
+            RepurposedStructures.RSAllConfig.RSMainConfig.jungleFortress.jungleFortressVerticalRange);
 
     public static StructureFeature<DefaultFeatureConfig> GRASSY_IGLOO = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "igloos/grassy_top"), 20, 0, 0, 0, new HashSet<>());
     public static StructureFeature<DefaultFeatureConfig> STONE_IGLOO = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "igloos/stone_top"), 20, 0, 0, 0, new HashSet<>());

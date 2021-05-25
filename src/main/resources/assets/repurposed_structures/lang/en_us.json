@@ -283,6 +283,8 @@
   "text.autoconfig.repurposed_structures-main.option.RSMainConfig.jungleFortress.jungleFortressMinHeight.@PrefixText": "\nMin Y height that the starting point can spawn at.",
   "text.autoconfig.repurposed_structures-main.option.RSMainConfig.jungleFortress.jungleFortressMaxHeight": "Max Height",
   "text.autoconfig.repurposed_structures-main.option.RSMainConfig.jungleFortress.jungleFortressMaxHeight.@PrefixText": "\nMax Y height that the starting point can spawn at.",
+  "text.autoconfig.repurposed_structures-main.option.RSMainConfig.jungleFortress.jungleFortressVerticalRange": "Vertical Range",
+  "text.autoconfig.repurposed_structures-main.option.RSMainConfig.jungleFortress.jungleFortressVerticalRange.@PrefixText": "\nHow far above or below the fortress's pieces can generate away from the center piece.",
   "text.autoconfig.repurposed_structures-main.option.RSMainConfig.ruinedPortals": "Ruined Portals",
   "text.autoconfig.repurposed_structures-main.option.RSMainConfig.ruinedPortals.addRuinedPortalEndToModdedBiomes": "Add End Ruined Portal to Modded Biomes",
   "text.autoconfig.repurposed_structures-main.option.RSMainConfig.ruinedPortals.addRuinedPortalEndToModdedBiomes.@PrefixText": "\nAdd End themed ruined portals to modded End category biomes.",
