@@ -66,6 +66,9 @@
 ##### Villages:
 • Fixed Zombie Jungle Village not spawning any buildings and all Jungle Villages using the wrong terminator piece. 
 
+##### Mansions:
+• Added lang entry for Savanna Mansions Maps.
+
 ##### Misc:
 • Removed the giant boulder feature because it isn't close to a structure and doesn't fit this mod.
 

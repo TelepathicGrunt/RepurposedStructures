@@ -39,6 +39,7 @@ public class SafeDecodingRegistryOps<T> extends RegistryOps<T> {
      *
      * <p>This method is called by casting an arbitrary dynamic ops to a registry reading ops.</p>
      */
+    @Override
     protected <E> DataResult<Pair<Supplier<E>, T>> decodeOrId(T object, RegistryKey<? extends Registry<E>> registryKey, Codec<E> codec, boolean allowInlineDefinitions) {
         Optional<MutableRegistry<E>> optional = this.dynamicRegistryManager.getOptional(registryKey);
         if (!optional.isPresent()) {

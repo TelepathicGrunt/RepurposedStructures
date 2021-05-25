@@ -2,13 +2,13 @@
   "parent": "repurposed_structures:mineshafts",
   "display": {
     "icon": {
-      "item": "minecraft:dark_oak_planks"
+      "item": "minecraft:lily_pad"
     },
     "title": {
-      "translate": "A Dark and Swampy Tunnel"
+      "translate": "Musky Moist Tunnels"
     },
     "description": {
-      "translate": "Enter a Swamp or Dark Forest Mineshaft"
+      "translate": "Enter a Swamp Mineshaft"
     },
     "hidden": true
   },
@@ -16,16 +16,16 @@
     "experience": 20
   },
   "criteria": {
-    "in_mineshaft_swamp_or_dark_forest": {
+    "in_mineshaft_swamp": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:mineshaft_swamp_or_dark_forest"
+        "feature": "repurposed_structures:mineshaft_swamp"
       }
     }
   },
   "requirements": [
     [
-      "in_mineshaft_swamp_or_dark_forest"
+      "in_mineshaft_swamp"
     ]
   ]
 }
