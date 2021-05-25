@@ -129,7 +129,6 @@ public class Outposts {
                         && RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.outpostEndMaxChunkDistance != 1001
                         && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSOutpostsConfig.outposts.addOutpostEndToModdedBiomes),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.OUTPOST_END));
-        // regexpos1
 
         //Remove vanilla outposts from biomes we added our outpost to
         BiomeModifications.create(new Identifier(RepurposedStructures.MODID, "remove_vanilla_outposts")).add(

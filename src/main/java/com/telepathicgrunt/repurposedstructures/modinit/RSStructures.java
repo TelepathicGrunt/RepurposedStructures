@@ -102,6 +102,7 @@ public class RSStructures {
     public static StructureFeature<DefaultFeatureConfig> PYRAMID_SNOWY = new BuriableStructure(new Identifier(RepurposedStructures.MODID, "temples/pyramid_snowy"));
     public static StructureFeature<DefaultFeatureConfig> PYRAMID_END = new LandBasedEndStructure(new Identifier(RepurposedStructures.MODID, "temples/pyramid_end"), 11, -2, 0, 0, new HashSet<>());
     public static StructureFeature<DefaultFeatureConfig> PYRAMID_ICY = new BuriableStructure(new Identifier(RepurposedStructures.MODID, "temples/pyramid_icy"));
+    // regexpos1
 
     public static StructureFeature<DefaultFeatureConfig> END_SHIPWRECK = new ShipwreckEndStructure();
     public static StructureFeature<NetherShipwreckConfig> NETHER_BRICKS_SHIPWRECK = new ShipwreckNetherStructure(new Identifier(RepurposedStructures.MODID, "shipwrecks/nether_bricks"), -3);
@@ -139,7 +140,6 @@ public class RSStructures {
     public static StructureFeature<DefaultFeatureConfig> WITCH_HUTS_DARK_FOREST = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "witch_huts/dark_forest_start_pool"), 11, 0, 0, 0, new HashSet<>(), ImmutableList.of(new SpawnSettings.SpawnEntry(EntityType.WITCH, 1, 1, 1)), ImmutableList.of(new SpawnSettings.SpawnEntry(EntityType.CAT, 1, 1, 1)));
     public static StructureFeature<DefaultFeatureConfig> WITCH_HUTS_GIANT_TREE_TAIGA = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "witch_huts/giant_tree_taiga_start_pool"), 11, 0, 0, 0, new HashSet<>(), ImmutableList.of(new SpawnSettings.SpawnEntry(EntityType.WITCH, 1, 1, 1)), ImmutableList.of(new SpawnSettings.SpawnEntry(EntityType.CAT, 1, 1, 1)));
 
-    // regexpos1
 
     public static void registerStructures() {
 
@@ -190,6 +190,8 @@ public class RSStructures {
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "pyramid_end"), PYRAMID_END).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidEndMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidEndMaxChunkDistance * 0.5f), 1145023315)).superflatFeature(PYRAMID_END.configure(FeatureConfig.DEFAULT)).register();
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "pyramid_icy"), PYRAMID_ICY).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidIcyMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidIcyMaxChunkDistance * 0.5f), 884076931)).superflatFeature(PYRAMID_ICY.configure(FeatureConfig.DEFAULT)).register();
 
+        // regexpos2
+
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "shipwreck_end"), END_SHIPWRECK).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSShipwrecksConfig.maxChunkDistance.endShipwreckMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSShipwrecksConfig.maxChunkDistance.endShipwreckMaxChunkDistance * 0.5f), 1605500075)).superflatFeature(END_SHIPWRECK.configure(FeatureConfig.DEFAULT)).register();
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "shipwreck_nether_bricks"), NETHER_BRICKS_SHIPWRECK).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSShipwrecksConfig.maxChunkDistance.netherBricksShipwreckMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSShipwrecksConfig.maxChunkDistance.netherBricksShipwreckMaxChunkDistance * 0.5f), 2073308006)).superflatFeature(NETHER_BRICKS_SHIPWRECK.configure(new NetherShipwreckConfig(true))).register();
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "shipwreck_crimson"), CRIMSON_SHIPWRECK).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSShipwrecksConfig.maxChunkDistance.crimsonShipwreckMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSShipwrecksConfig.maxChunkDistance.crimsonShipwreckMaxChunkDistance * 0.5f), 1019716871)).superflatFeature(CRIMSON_SHIPWRECK.configure(new NetherShipwreckConfig(false))).register();
@@ -225,8 +227,6 @@ public class RSStructures {
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "witch_hut_dark_forest"), WITCH_HUTS_DARK_FOREST).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSWitchHutsConfig.maxChunkDistance.witchHutsDarkForestMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSWitchHutsConfig.maxChunkDistance.witchHutsDarkForestMaxChunkDistance * 0.5f), 165100151)).superflatFeature(WITCH_HUTS_DARK_FOREST.configure(FeatureConfig.DEFAULT)).register();
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "witch_hut_giant_tree_taiga"), WITCH_HUTS_GIANT_TREE_TAIGA).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSWitchHutsConfig.maxChunkDistance.witchHutsGiantTreeTaigaMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSWitchHutsConfig.maxChunkDistance.witchHutsGiantTreeTaigaMaxChunkDistance * 0.5f), 200289401)).superflatFeature(WITCH_HUTS_GIANT_TREE_TAIGA.configure(FeatureConfig.DEFAULT)).register();
 
-
-        // regexpos2
 
         RS_STRUCTURES.putAll(StructuresConfig.DEFAULT_STRUCTURES);
         RS_STRUCTURES.keySet().removeIf(key -> key.getName() == null || !key.getName().contains(RepurposedStructures.MODID));

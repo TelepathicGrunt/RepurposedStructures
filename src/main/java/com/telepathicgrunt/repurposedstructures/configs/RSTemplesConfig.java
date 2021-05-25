@@ -166,5 +166,9 @@ public class RSTemplesConfig implements ConfigData {
         @ConfigEntry.Gui.PrefixText
         @Comment("Add Icy Pyramid to modded icy biomes.")
         public boolean addPyramidIcyToModdedBiomes = true;
+
+        // regexpos2
+
+        // regexpos1
     }
 }

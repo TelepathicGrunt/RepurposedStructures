@@ -1,0 +1,15 @@
+{
+  "name": "repurposed_structures:temples/pyramid_jungle_pit",
+  "fallback": "repurposed_structures:temples/pyramid_jungle_vines_narrow",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:temples/pyramid_jungle_pit",
+        "processors": "repurposed_structures:temples/pyramid_jungle",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    }
+  ]
+}
