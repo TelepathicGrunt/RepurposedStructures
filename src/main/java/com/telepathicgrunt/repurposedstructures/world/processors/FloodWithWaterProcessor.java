@@ -49,7 +49,7 @@ public class FloodWithWaterProcessor extends StructureProcessor {
                 flooded = true;
             }
             else if(structureBlockInfoWorld.state.hasProperty(BlockStateProperties.WATERLOGGED)){
-                structureBlockInfoWorld = new Template.BlockInfo(structureBlockInfoWorld.pos, structureBlockInfoWorld.state.setValue(BlockStateProperties.WATERLOGGED, true), null);
+                structureBlockInfoWorld = new Template.BlockInfo(structureBlockInfoWorld.pos, structureBlockInfoWorld.state.setValue(BlockStateProperties.WATERLOGGED, true), structureBlockInfoWorld.nbt);
                 tickWaterFluid(worldView, structureBlockInfoWorld);
                 flooded = true;
             }

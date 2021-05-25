@@ -6,6 +6,7 @@
     },
     {
       "processor_type": "repurposed_structures:close_off_fluid_sources_processor",
+      "ignore_down": true,
       "weighted_list_of_replacement_blocks": [
         {
           "block" : "minecraft:gilded_blackstone",

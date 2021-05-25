@@ -31,25 +31,31 @@ public class CloseOffFluidSourcesProcessor extends StructureProcessor {
     public static final Codec<CloseOffFluidSourcesProcessor> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
             Codec.mapPair(Registry.BLOCK.fieldOf("block"), Codec.intRange(1, Integer.MAX_VALUE).fieldOf("weight"))
                     .codec().listOf().fieldOf("weighted_list_of_replacement_blocks")
-                    .forGetter(processor -> processor.weightedReplacementBlocks))
+                    .forGetter(processor -> processor.weightedReplacementBlocks),
+            Codec.BOOL.fieldOf("ignore_down").orElse(false).forGetter(processor -> processor.ignoreDown))
             .apply(instance, instance.stable(CloseOffFluidSourcesProcessor::new)));
 
     private final List<Pair<Block, Integer>> weightedReplacementBlocks;
+    private final boolean ignoreDown;
 
-    public CloseOffFluidSourcesProcessor(List<Pair<Block, Integer>> weightedReplacementBlocks) {
+    public CloseOffFluidSourcesProcessor(List<Pair<Block, Integer>> weightedReplacementBlocks, boolean ignoreDown) {
         this.weightedReplacementBlocks = weightedReplacementBlocks;
+        this.ignoreDown = ignoreDown;
     }
 
     @Override
     public Template.BlockInfo processBlock(IWorldReader worldReader, BlockPos pos, BlockPos pos2, Template.BlockInfo infoIn1, Template.BlockInfo infoIn2, PlacementSettings settings) {
 
         ChunkPos currentChunkPos = new ChunkPos(infoIn2.pos);
+        if(!infoIn2.state.getFluidState().isEmpty()) return infoIn2;
+
         if(!GeneralUtils.isFullCube(worldReader, infoIn2.pos, infoIn2.state) || !infoIn2.state.getMaterial().blocksMotion()){
             IChunk currentChunk = worldReader.getChunk(currentChunkPos.x, currentChunkPos.z);
 
             // Remove fluid sources in adjacent horizontal blocks across chunk boundaries and above as well
             BlockPos.Mutable mutable = new BlockPos.Mutable();
             for (Direction direction : Direction.values()) {
+                if(ignoreDown && direction == Direction.DOWN) continue;
 
                 mutable.set(infoIn2.pos).move(direction);
                 if (currentChunkPos.x != mutable.getX() >> 4 || currentChunkPos.z != mutable.getZ() >> 4) {
