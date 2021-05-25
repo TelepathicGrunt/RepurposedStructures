@@ -1,19 +1,5 @@
 ## (V.2.7.0 Changes) (1.16.5 Minecraft)
 
-##### Outposts:
-• Modernized all Outposts Pieces which should help make their small feature pieces spawn more.
-
-• Expanded all RS's Overworld Outposts boundaries so that Pillagers should now spawn more often over time.
-
-• Fixed comments on the RS Outpost configs being on the wrong config entries.
-
-##### Pyramids:
-• Snowy Pyramid Pit slightly changed to help hint at what spots are safe to stand on.
-
-• Fixed Snowy Pyramids making a base of Red Sandstone instead of Snow Block by mistake.
-
-• Icy Pyramid Pit trap is now redesigned to be a bit more dangerous.
-
 ##### Mineshafts:
 • All of RS's Mineshafts are now Jigsaw Structures so you can use datapacks to add new nbt pieces to it or customize it even more!
 
@@ -58,6 +44,20 @@
   Their config default distance between spawn attempts was changed from 85 to 100 as well to spread them out a bit.
 
 • Nether Stronghold is now in the last generation stage in order to try and prevent other structures from eating at the stronghold.
+
+##### Outposts:
+• Modernized all Outposts Pieces which should help make their small feature pieces spawn more.
+
+• Expanded all RS's Overworld Outposts boundaries so that Pillagers should now spawn more often over time.
+
+• Fixed comments on the RS Outpost configs being on the wrong config entries.
+
+##### Pyramids:
+• Snowy Pyramid Pit slightly changed to help hint at what spots are safe to stand on.
+
+• Fixed Snowy Pyramids making a base of Red Sandstone instead of Snow Block by mistake.
+
+• Icy Pyramid Pit trap is now redesigned to be a bit more dangerous.
 
 ##### Dungeons:
 • Fixed bug that prevented RS's Dungeons from ever having 2 chests. Now they have a chance of spawning 2 chests.
