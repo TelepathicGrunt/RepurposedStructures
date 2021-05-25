@@ -1,21 +1,21 @@
-pyramid_snowy
+pyramid_jungle
 11
-temples/pyramid_badlands
+temples/pyramid_jungle
 0
 0
 exit
 surface_structures
 RSTemplesConfig
 pyramids
-Add Snowy Pyramid to modded snowy biomes.
-How rare are Snowy Pyramid in snowy biomes. 1 for spawning in most chunks and 1001 for none. 
+Add Jungle Pyramid to modded Jungle biomes.
+How rare are Jungle Pyramid in Jungle biomes. 1 for spawning in most chunks and 1001 for none. 
 48
 n
 PYRAMID
 exit
-Pyramids are just bigger igloos!
-Enter a Snowy Pyramid
-minecraft:snow_block
+Pyramid of the Creepy Crawlers
+Enter a Jungle Pyramid
+minecraft:cracked_stone_bricks
 20
 y
 C:\Users\MSI Laptop\Documents\ModdingWorkspace\RepurposedStructures-Fabric\src

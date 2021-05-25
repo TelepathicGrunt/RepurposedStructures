@@ -22,10 +22,20 @@ import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 public class BuriableStructure extends AbstractBaseStructure<DefaultFeatureConfig> {
 
     private final Identifier startPool;
+    private int offsetAmount;
+
     public BuriableStructure(Identifier startPool) {
         super(DefaultFeatureConfig.CODEC);
         this.startPool = startPool;
         RSStructures.RS_STRUCTURE_START_PIECES.add(this.startPool);
+        offsetAmount = 14;
+    }
+
+    public BuriableStructure(Identifier startPool, int offsetAmount) {
+        super(DefaultFeatureConfig.CODEC);
+        this.startPool = startPool;
+        RSStructures.RS_STRUCTURE_START_PIECES.add(this.startPool);
+        this.offsetAmount = offsetAmount;
     }
 
     @Override
@@ -63,7 +73,7 @@ public class BuriableStructure extends AbstractBaseStructure<DefaultFeatureConfi
             highestLandPos = Math.min(highestLandPos, chunkGenerator.getHeight(blockpos.getX() + maxCorner.getX(), blockpos.getZ(), Heightmap.Type.WORLD_SURFACE_WG));
             highestLandPos = Math.min(highestLandPos, chunkGenerator.getHeight(blockpos.getX(), blockpos.getZ(), Heightmap.Type.WORLD_SURFACE_WG));
 
-            this.randomUpwardTranslation(this.random, highestLandPos-15, highestLandPos-14);
+            this.randomUpwardTranslation(this.random, highestLandPos-(offsetAmount+1), highestLandPos-offsetAmount);
         }
     }
 }

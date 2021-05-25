@@ -167,8 +167,19 @@ public class RSTemplesConfig implements ConfigData {
         @Comment("Add Icy Pyramid to modded icy biomes.")
         public boolean addPyramidIcyToModdedBiomes = true;
 
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("How rare are Jungle Pyramid in Jungle biomes. 1"
+                + "\nfor spawning in most chunks and 1001 for none.")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int pyramidJungleMaxChunkDistance = 44;
         // regexpos2
 
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Add Jungle Pyramid to modded Jungle biomes.")
+        public boolean addPyramidJungleToModdedBiomes = true;
         // regexpos1
     }
 }

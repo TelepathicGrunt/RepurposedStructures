@@ -33,7 +33,7 @@ public class StructureVine extends Feature<StructureTargetLengthRangeConfig> {
                     random.nextInt((config.range * 2) + 1) - config.range
             );
 
-            if(!world.isAir(mutable) || !world.toServerWorld().getStructureAccessor().getStructureAt(mutable, true, config.targetStructure).hasChildren()){
+            if(!world.isAir(mutable)){
                 continue;
             }
 

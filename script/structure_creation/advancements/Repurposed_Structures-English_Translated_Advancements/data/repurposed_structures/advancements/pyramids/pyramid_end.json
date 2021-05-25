@@ -1,0 +1,31 @@
+{
+  "parent": "repurposed_structures:pyramids",
+  "display": {
+    "icon": {
+      "item": "minecraft:magenta_concrete"
+    },
+    "title": {
+      "text": "Temple of the Dragon"
+    },
+    "description": {
+      "text": "Enter a End Pyramid"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 100
+  },
+  "criteria": {
+    "in_pyramid_end": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:pyramid_end"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_pyramid_end"
+    ]
+  ]
+}

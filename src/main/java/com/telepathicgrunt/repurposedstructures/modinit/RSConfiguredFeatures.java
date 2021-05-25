@@ -212,8 +212,8 @@ public class RSConfiguredFeatures {
     public static ConfiguredFeature<?, ?> WARPED_MINESHAFT_PLANTS = RSFeatures.STRUCTURE_WARPED_PLANTS.configure(new StructureTargetAndLengthConfig(RSStructures.WARPED_MINESHAFT, 25, 3));
     public static ConfiguredFeature<?, ?> WARPED_MINESHAFT_DENSE_PLANTS = RSFeatures.STRUCTURE_WARPED_PLANTS.configure(new StructureTargetAndLengthConfig(RSStructures.WARPED_MINESHAFT, 80, 3));
     public static ConfiguredFeature<?, ?> WARPED_MINESHAFT_PLANTS_LONG = RSFeatures.STRUCTURE_WARPED_PLANTS.configure(new StructureTargetAndLengthConfig(RSStructures.WARPED_MINESHAFT, 60, 7));
-    public static ConfiguredFeature<?, ?> JUNGLE_PYRAMID_STRUCTURE_VINES = RSFeatures.STRUCTURE_VINES.configure(new StructureTargetLengthRangeConfig(RSStructures.JUNGLE_FORTRESS, 10, 3, 3));
-    public static ConfiguredFeature<?, ?> JUNGLE_PYRAMID_STRUCTURE_VINES_NARROW = RSFeatures.STRUCTURE_VINES.configure(new StructureTargetLengthRangeConfig(RSStructures.JUNGLE_FORTRESS, 10, 2, 1));
+    public static ConfiguredFeature<?, ?> JUNGLE_PYRAMID_STRUCTURE_VINES = RSFeatures.STRUCTURE_VINES.configure(new StructureTargetLengthRangeConfig(RSStructures.PYRAMID_JUNGLE, 17, 4, 3));
+    public static ConfiguredFeature<?, ?> JUNGLE_PYRAMID_STRUCTURE_VINES_NARROW = RSFeatures.STRUCTURE_VINES.configure(new StructureTargetLengthRangeConfig(RSStructures.PYRAMID_JUNGLE, 17, 2, 1));
 
     public static void registerConfiguredFeatures() {
         Registry<ConfiguredFeature<?, ?>> registry = BuiltinRegistries.CONFIGURED_FEATURE;

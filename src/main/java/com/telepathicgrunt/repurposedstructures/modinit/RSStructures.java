@@ -102,6 +102,7 @@ public class RSStructures {
     public static StructureFeature<DefaultFeatureConfig> PYRAMID_SNOWY = new BuriableStructure(new Identifier(RepurposedStructures.MODID, "temples/pyramid_snowy"));
     public static StructureFeature<DefaultFeatureConfig> PYRAMID_END = new LandBasedEndStructure(new Identifier(RepurposedStructures.MODID, "temples/pyramid_end"), 11, -2, 0, 0, new HashSet<>());
     public static StructureFeature<DefaultFeatureConfig> PYRAMID_ICY = new BuriableStructure(new Identifier(RepurposedStructures.MODID, "temples/pyramid_icy"));
+    public static StructureFeature<DefaultFeatureConfig> PYRAMID_JUNGLE = new BuriableStructure(new Identifier(RepurposedStructures.MODID, "temples/pyramid_jungle"), 20);
     // regexpos1
 
     public static StructureFeature<DefaultFeatureConfig> END_SHIPWRECK = new ShipwreckEndStructure();
@@ -189,7 +190,7 @@ public class RSStructures {
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "pyramid_snowy"), PYRAMID_SNOWY).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidSnowyMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidSnowyMaxChunkDistance * 0.5f), 1630533493)).superflatFeature(PYRAMID_SNOWY.configure(FeatureConfig.DEFAULT)).register();
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "pyramid_end"), PYRAMID_END).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidEndMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidEndMaxChunkDistance * 0.5f), 1145023315)).superflatFeature(PYRAMID_END.configure(FeatureConfig.DEFAULT)).register();
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "pyramid_icy"), PYRAMID_ICY).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidIcyMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidIcyMaxChunkDistance * 0.5f), 884076931)).superflatFeature(PYRAMID_ICY.configure(FeatureConfig.DEFAULT)).register();
-
+        FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "pyramid_jungle"), PYRAMID_JUNGLE).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidJungleMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidJungleMaxChunkDistance * 0.5f), 1483015905)).superflatFeature(PYRAMID_JUNGLE.configure(FeatureConfig.DEFAULT)).register();
         // regexpos2
 
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "shipwreck_end"), END_SHIPWRECK).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSShipwrecksConfig.maxChunkDistance.endShipwreckMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSShipwrecksConfig.maxChunkDistance.endShipwreckMaxChunkDistance * 0.5f), 1605500075)).superflatFeature(END_SHIPWRECK.configure(FeatureConfig.DEFAULT)).register();
