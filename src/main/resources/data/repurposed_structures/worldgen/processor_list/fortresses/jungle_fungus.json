@@ -4,10 +4,10 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:red_mushroom"
+            "Name": "minecraft:brown_mushroom"
           },
           "input_predicate": {
-            "block": "minecraft:brown_mushroom",
+            "block": "minecraft:red_mushroom",
             "probability": 0.33,
             "predicate_type": "minecraft:random_block_match"
           },
