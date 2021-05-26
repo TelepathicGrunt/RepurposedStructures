@@ -89,6 +89,7 @@ public class PieceLimitedJigsawManager {
         while(doesNotHaveAllRequiredPieces(components, requiredPieces)){
             if(attempts == 100){
                 RepurposedStructures.LOGGER.error("Failed to create valid structure with all required pieces starting from this pool file: {}. Required pieces are: {}", startPool.getId(), Arrays.toString(requiredPieces.keySet().toArray()));
+                break;
             }
 
             attempts++;

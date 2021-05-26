@@ -92,7 +92,7 @@ public class RSMainConfig implements ConfigData {
         @ConfigEntry.Gui.PrefixText
         @Comment("How far above or below the fortress's pieces can generate away from the center piece.")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 255)
-        public int jungleFortressVerticalRange = 27;
+        public int jungleFortressVerticalRange = 33;
     }
 
     public static class Igloos {
