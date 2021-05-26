@@ -3,8 +3,8 @@
   "pools": [
     {
       "rolls": {
-        "min": 2.0,
-        "max": 4.0,
+        "min": 3.0,
+        "max": 7.0,
         "type": "minecraft:uniform"
       },
       "entries": [
@@ -17,7 +17,7 @@
               "function": "minecraft:set_count",
               "count": {
                 "min": 1.0,
-                "max": 3.0,
+                "max": 5.0,
                 "type": "minecraft:uniform"
               }
             }
@@ -26,7 +26,37 @@
         {
           "name": "minecraft:iron_ingot",
           "type": "minecraft:item",
-          "weight": 8,
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 8.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ]
+        },
+        {
+          "name": "minecraft:gold_ingot",
+          "type": "minecraft:item",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2.0,
+                "max": 9.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ]
+        },
+        {
+          "name": "minecraft:emerald",
+          "type": "minecraft:item",
+          "weight": 20,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -39,89 +69,14 @@
           ]
         },
         {
-          "name": "minecraft:lapis_lazuli",
-          "type": "minecraft:item",
-          "weight": 20,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 5.0,
-                "max": 12.0,
-                "type": "minecraft:uniform"
-              }
-            }
-          ]
-        },
-        {
-          "name": "minecraft:emerald",
-          "type": "minecraft:item",
-          "weight": 16,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1.0,
-                "max": 3.0,
-                "type": "minecraft:uniform"
-              }
-            }
-          ]
-        },
-        {
-          "name": "minecraft:bone",
-          "type": "minecraft:item",
-          "weight": 15,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 4.0,
-                "max": 6.0,
-                "type": "minecraft:uniform"
-              }
-            }
-          ]
-        },
-        {
-          "name": "minecraft:blue_ice",
-          "type": "minecraft:item",
-          "weight": 15,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1.0,
-                "max": 3.0,
-                "type": "minecraft:uniform"
-              }
-            }
-          ]
-        },
-        {
-          "name": "minecraft:rotten_flesh",
-          "type": "minecraft:item",
-          "weight": 10,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 3.0,
-                "max": 7.0,
-                "type": "minecraft:uniform"
-              }
-            }
-          ]
-        },
-        {
           "name": "minecraft:saddle",
           "type": "minecraft:item",
-          "weight": 20
+          "weight": 10
         },
         {
           "name": "minecraft:book",
           "type": "minecraft:item",
-          "weight": 30,
+          "weight": 45,
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
@@ -136,11 +91,11 @@
         {
           "name": "minecraft:enchanted_golden_apple",
           "type": "minecraft:item",
-          "weight": 2
+          "weight": 3
         },
         {
           "type": "minecraft:empty",
-          "weight": 15
+          "weight": 10
         }
       ]
     },
@@ -178,9 +133,24 @@
           ]
         },
         {
-          "name": "minecraft:rotten_flesh",
+          "name": "minecraft:red_mushroom",
           "type": "minecraft:item",
-          "weight": 7,
+          "weight": 5,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 8.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ]
+        },
+        {
+          "name": "minecraft:brown_mushroom",
+          "type": "minecraft:item",
+          "weight": 5,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -208,14 +178,44 @@
           ]
         },
         {
-          "name": "minecraft:ice",
+          "name": "minecraft:red_mushroom_block",
           "type": "minecraft:item",
-          "weight": 10,
+          "weight": 3,
           "functions": [
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 1.0,
+                "min": 2.0,
+                "max": 8.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ]
+        },
+        {
+          "name": "minecraft:brown_mushroom_block",
+          "type": "minecraft:item",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2.0,
+                "max": 8.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ]
+        },
+        {
+          "name": "minecraft:mushroom_stem",
+          "type": "minecraft:item",
+          "weight": 4,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2.0,
                 "max": 8.0,
                 "type": "minecraft:uniform"
               }

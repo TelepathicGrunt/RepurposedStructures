@@ -14,12 +14,7 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           }
-        }
-      ],
-      "processor_type": "minecraft:rule"
-    },
-    {
-      "rules": [
+        },
         {
           "output_state": {
             "Name": "minecraft:air"
