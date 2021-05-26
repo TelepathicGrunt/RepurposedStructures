@@ -84,6 +84,21 @@
           ]
         },
         {
+          "type": "minecraft:item",
+          "weight": 8,
+          "name": "minecraft:iron_horse_armor"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 6,
+          "name": "minecraft:golden_horse_armor"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 4,
+          "name": "minecraft:diamond_horse_armor"
+        },
+        {
           "name": "minecraft:golden_apple",
           "type": "minecraft:item",
           "weight": 20
