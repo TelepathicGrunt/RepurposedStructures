@@ -121,12 +121,27 @@
         {
           "name": "minecraft:book",
           "type": "minecraft:item",
-          "weight": 30,
+          "weight": 35,
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
             }
           ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 9,
+          "name": "minecraft:iron_horse_armor"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 7,
+          "name": "minecraft:golden_horse_armor"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 5,
+          "name": "minecraft:diamond_horse_armor"
         },
         {
           "name": "minecraft:prismarine_crystals",
@@ -171,7 +186,7 @@
         },
         {
           "type": "minecraft:empty",
-          "weight": 13
+          "weight": 10
         }
       ]
     },
