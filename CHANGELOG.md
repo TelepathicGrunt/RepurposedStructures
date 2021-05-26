@@ -49,7 +49,7 @@
 • Expanded all RS's Overworld Outposts boundaries so that Pillagers should now spawn more often over time.
 
 ##### Pyramids:
-• Added Jungle and Mushroom Pyramids!
+• Added Jungle, Ocean, and Mushroom Pyramids!
 
 • Buffed loot a bit for Badlands, Icy, and Snowy Pyramids.
 

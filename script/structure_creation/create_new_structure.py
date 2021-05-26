@@ -185,8 +185,8 @@ while restart:
                             "regexpos1", file_content)
 
     with open(os.path.join('template', 'fabric_config.txt'), "r") as file:
-        file_content = file.read().replace("$1", "\"{config_modded_biome_comment}\"").replace("$2", config_modded_biome_entry) \
-                                .replace("$3", "\"{config_spawnrate_comment}\"").replace("$4", config_spawnrate_entry).replace("$5", spacing_default_value)
+        file_content = file.read().replace("$1", "\"" + config_modded_biome_comment + "\"").replace("$2", config_modded_biome_entry) \
+                                .replace("$3", "\"" + config_spawnrate_comment + "\"").replace("$4", config_spawnrate_entry).replace("$5", spacing_default_value)
     path = os.path.join('code', 'fabric', structure_registry_name+'_config.txt')
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w") as file:

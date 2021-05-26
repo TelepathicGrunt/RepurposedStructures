@@ -1,0 +1,14 @@
+{
+  "name": "repurposed_structures:temples/pyramid_ocean_plants",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "feature": "repurposed_structures:ocean_pyramid_structure_plants",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    }
+  ]
+}

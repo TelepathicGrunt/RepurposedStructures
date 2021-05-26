@@ -1,0 +1,62 @@
+--------------FABRIC-------------
+
+    public static StructureFeature<DefaultFeatureConfig> PYRAMID_OCEAN = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "temples/pyramid_ocean"), 11, 0, 0, 0, new HashSet<>());
+
+        FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "pyramid_ocean"), PYRAMID_OCEAN).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSTemplesConfig.maxChunkDistance.pyramidOceanMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSTemplesConfig.maxChunkDistance.pyramidOceanMaxChunkDistance * 0.5f), 777281414)).superflatFeature(PYRAMID_OCEAN.configure(FeatureConfig.DEFAULT)).register();
+
+    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> PYRAMID_OCEAN = RSStructures.PYRAMID_OCEAN.configure(FeatureConfig.DEFAULT);
+
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "pyramid_ocean"), PYRAMID_OCEAN);
+
+        addTags(RSStructures.PYRAMID_OCEAN, Stream.of(STRUCTURE_TAGS.PYRAMID).collect(Collectors.toSet()));
+
+        GeneralUtils.addToBiome("pyramid_ocean",
+                (context) -> 
+						&& BiomeSelection.isBiomeAllowed(context, "pyramids")
+                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.maxChunkDistance.pyramidOceanMaxChunkDistance != 1001
+                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSTemplesConfig.blacklist.addPyramidOceanToModdedBiomes),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.PYRAMID_OCEAN));
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("{config_modded_biome_comment}")
+        public boolean addPyramidOceanToModdedBiomes = true;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("{config_spawnrate_comment}")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int pyramidOceanMaxChunkDistance = 47;
+
+--------------FORGE-------------
+
+    public static final RegistryObject<Structure<NoFeatureConfig>> PYRAMID_OCEAN = addToStructureMaps("pyramid_ocean", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "temples/pyramid_ocean"), 11, 0, 0, 0, new HashSet<>())));
+
+        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "pyramid_ocean"), PYRAMID_OCEAN.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSTemplesConfig.pyramidOceanMaxChunkDistance.get(), (int) (RepurposedStructures.RSTemplesConfig.pyramidOceanMaxChunkDistance.get() * 0.5f), 777281414));
+
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> PYRAMID_OCEAN = RSStructures.PYRAMID_OCEAN.get().configured(IFeatureConfig.NONE);
+
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "pyramid_ocean"), PYRAMID_OCEAN);
+
+        addTags(RSStructures.PYRAMID_OCEAN.get(), Stream.of(STRUCTURE_TAGS.PYRAMID).collect(Collectors.toSet()));
+
+        if ( &&
+            RepurposedStructures.RSTemplesConfig.pyramidOceanMaxChunkDistance.get() != 1001 &&
+            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSTemplesConfig.addPyramidOceanToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.PYRAMID_OCEAN);
+        }
+
+		public ConfigValueListener<Integer> pyramidOceanMaxChunkDistance;
+		public ConfigValueListener<Boolean> addPyramidOceanToModdedBiomes;
+
+                pyramidOceanMaxChunkDistance = subscriber.subscribe(builder
+                    .comment("How rare are Ocean Pyramid in Ocean biomes. 1 for"
+                + "\nspawning in most chunks and 1001 for none.")
+                    .translation("repurposedstructures.config.pyramids.pyramidoceanmaxchunkdistance")
+                    .defineInRange("pyramidOceanMaxChunkDistance", 47, 1, 1001));
+
+                addPyramidOceanToModdedBiomes = subscriber.subscribe(builder
+                    .comment("\n Add Ocean Pyramid to modded Ocean biomes."\n )
+                    .translation("repurposedstructures.config.pyramids.addpyramidoceantomoddedbiomes")
+                    .define("addPyramidOceanToModdedBiomes", true));

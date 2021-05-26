@@ -191,6 +191,19 @@ public class RSTemplesConfig implements ConfigData {
         @Comment("Add Mushroom Pyramid to modded Mushroom biomes.")
         public boolean addPyramidMushroomToModdedBiomes = true;
 
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("How rare are Ocean Pyramid in Ocean biomes. 1 for spawning in most chunks and 1001 for none. ")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int pyramidOceanMaxChunkDistance = 37;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("{config_modded_biome_comment}")
+        public boolean addPyramidOceanToModdedBiomes = true;
+
+
         // regexpos2
 
         // regexpos1

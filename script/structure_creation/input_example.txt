@@ -1,22 +1,22 @@
-pyramid_mushroom
+pyramid_ocean
 11
-temples/pyramid_mushroom
+temples/pyramid_ocean
 0
 0
 exit
 surface_structures
 RSTemplesConfig
 pyramids
-Add Mushroom Pyramid to modded Mushroom biomes.
-How rare are Mushroom Pyramid in Mushroom biomes. 1 for spawning in most chunks and 1001 for none. 
-48
+Add Ocean Pyramid to modded Ocean biomes.
+How rare are Ocean Pyramid in Ocean biomes. 1 for spawning in most chunks and 1001 for none. 
+47
 n
 PYRAMID
 exit
-There's a fungus among us in this Pyramid!
-Enter a Mushroom Pyramid
-minecraft:red_mushroom_block
-100
+Temple of the Sea
+Enter a Ocean Pyramid
+minecraft:dark_prismarine
+20
 y
 C:\Users\MSI Laptop\Documents\ModdingWorkspace\RepurposedStructures-Fabric\src
 C:\Users\MSI Laptop\Documents\ModdingWorkspace\RepurposedStructures\src
