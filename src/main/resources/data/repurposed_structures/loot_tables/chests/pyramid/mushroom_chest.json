@@ -3,8 +3,8 @@
   "pools": [
     {
       "rolls": {
-        "min": 2.0,
-        "max": 4.0,
+        "min": 3.0,
+        "max": 7.0,
         "type": "minecraft:uniform"
       },
       "entries": [
@@ -69,59 +69,14 @@
           ]
         },
         {
-          "name": "minecraft:bone",
-          "type": "minecraft:item",
-          "weight": 25,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 4.0,
-                "max": 6.0,
-                "type": "minecraft:uniform"
-              }
-            }
-          ]
-        },
-        {
-          "name": "minecraft:red_mushroom",
-          "type": "minecraft:item",
-          "weight": 20,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1.0,
-                "max": 8.0,
-                "type": "minecraft:uniform"
-              }
-            }
-          ]
-        },
-        {
-          "name": "minecraft:brown_mushroom",
-          "type": "minecraft:item",
-          "weight": 20,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1.0,
-                "max": 8.0,
-                "type": "minecraft:uniform"
-              }
-            }
-          ]
-        },
-        {
           "name": "minecraft:saddle",
           "type": "minecraft:item",
-          "weight": 20
+          "weight": 10
         },
         {
           "name": "minecraft:book",
           "type": "minecraft:item",
-          "weight": 40,
+          "weight": 45,
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
@@ -131,16 +86,16 @@
         {
           "name": "minecraft:golden_apple",
           "type": "minecraft:item",
-          "weight": 25
+          "weight": 20
         },
         {
           "name": "minecraft:enchanted_golden_apple",
           "type": "minecraft:item",
-          "weight": 4
+          "weight": 3
         },
         {
           "type": "minecraft:empty",
-          "weight": 7
+          "weight": 10
         }
       ]
     },

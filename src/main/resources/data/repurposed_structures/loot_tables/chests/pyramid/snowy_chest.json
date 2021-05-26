@@ -71,7 +71,7 @@
         {
           "name": "minecraft:bone",
           "type": "minecraft:item",
-          "weight": 25,
+          "weight": 15,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -86,7 +86,7 @@
         {
           "name": "minecraft:snowball",
           "type": "minecraft:item",
-          "weight": 25,
+          "weight": 15,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -101,7 +101,7 @@
         {
           "name": "minecraft:rotten_flesh",
           "type": "minecraft:item",
-          "weight": 25,
+          "weight": 15,
           "functions": [
             {
               "function": "minecraft:set_count",
