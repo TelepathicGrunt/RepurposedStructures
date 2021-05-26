@@ -46,6 +46,8 @@ public class RSFeatures {
     public static Feature<StructureTargetAndLengthConfig> STRUCTURE_VINES_AND_LEAVES = new StructureVineAndLeaves(StructureTargetAndLengthConfig.CODEC);
     public static Feature<StructureTargetAndLengthConfig> STRUCTURE_WARPED_PLANTS = new StructureWarpedPlants(StructureTargetAndLengthConfig.CODEC);
     public static Feature<StructureTargetAndLengthConfig> STRUCTURE_VINE_BREAKAGE = new StructureVineBreakage(StructureTargetAndLengthConfig.CODEC);
+    public static Feature<StructureTargetAndRangeConfig> STRUCTURE_GRASS = new StructureGrass(StructureTargetAndRangeConfig.CODEC);
+    public static Feature<StructureTargetAndRangeConfig> STRUCTURE_FLOWERS = new StructureFlowers(StructureTargetAndRangeConfig.CODEC);
 
     public static void registerFeatures() {
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "dungeons_badlands"), BADLANDS_DUNGEONS);
@@ -82,5 +84,7 @@ public class RSFeatures {
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "structure_vines_and_leaves"), STRUCTURE_VINES_AND_LEAVES);
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "structure_warped_plants"), STRUCTURE_WARPED_PLANTS);
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "structure_vine_breakage"), STRUCTURE_VINE_BREAKAGE);
+        Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "structure_grass"), STRUCTURE_GRASS);
+        Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "structure_flowers"), STRUCTURE_FLOWERS);
     }
 }
