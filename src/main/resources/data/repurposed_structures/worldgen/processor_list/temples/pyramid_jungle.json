@@ -125,7 +125,7 @@
           },
           "input_predicate": {
             "block": "minecraft:infested_stone_bricks",
-            "probability": 0.5,
+            "probability": 0.65,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -138,7 +138,7 @@
           },
           "input_predicate": {
             "block": "minecraft:infested_stone_bricks",
-            "probability": 0.5,
+            "probability": 0.65,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -151,7 +151,7 @@
           },
           "input_predicate": {
             "block": "minecraft:infested_stone_bricks",
-            "probability": 0.5,
+            "probability": 0.65,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -164,7 +164,7 @@
           },
           "input_predicate": {
             "block": "minecraft:infested_cracked_stone_bricks",
-            "probability": 0.5,
+            "probability": 0.65,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -177,7 +177,7 @@
           },
           "input_predicate": {
             "block": "minecraft:infested_mossy_stone_bricks",
-            "probability": 0.5,
+            "probability": 0.65,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -190,7 +190,7 @@
           },
           "input_predicate": {
             "block": "minecraft:infested_chiseled_stone_bricks",
-            "probability": 0.5,
+            "probability": 0.65,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -207,7 +207,7 @@
           },
           "input_predicate": {
             "block": "minecraft:infested_stone",
-            "probability": 0.5,
+            "probability": 0.65,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
