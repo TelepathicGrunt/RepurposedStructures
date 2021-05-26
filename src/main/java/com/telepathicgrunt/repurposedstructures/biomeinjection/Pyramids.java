@@ -4,6 +4,8 @@ import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredStructures;
 import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
+import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
+import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.biome.BiomeKeys;
@@ -75,6 +77,23 @@ public class Pyramids {
                         && RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidOceanMaxChunkDistance != 1001
                         && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.addPyramidOceanToModdedBiomes),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.PYRAMID_OCEAN));
+
+        GeneralUtils.addToBiome("pyramid_giant_tree_taiga",
+                (context) -> BiomeSelection.haveCategories(context, Category.TAIGA)
+                        && BiomeSelection.hasName(context, "giant", "redwood")
+						&& BiomeSelection.isBiomeAllowed(context, "pyramids")
+                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidGiantTreeTaigaMaxChunkDistance != 1001
+                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.addPyramidGiantTreeTaigaToModdedBiomes),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.PYRAMID_GIANT_TREE_TAIGA));
+
+        GeneralUtils.addToBiome("pyramid_flower_forest",
+                (context) -> (BiomeSelection.haveCategories(context, Category.PLAINS, Category.FOREST))
+                        && !BiomeSelection.isBiome(context, BiomeKeys.SUNFLOWER_PLAINS)
+                        && BiomeSelection.hasName(context, "flower", "blossom")
+						&& BiomeSelection.isBiomeAllowed(context, "pyramids")
+                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidFlowerForestMaxChunkDistance != 1001
+                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.addPyramidFlowerForestToModdedBiomes),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.PYRAMID_FLOWER_FOREST));
         // regexpos1
 
     }

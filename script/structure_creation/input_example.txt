@@ -1,21 +1,21 @@
-pyramid_ocean
+pyramid_flower_forest
 11
-temples/pyramid_ocean
+temples/pyramid_flower_forest
 0
 0
 exit
 surface_structures
 RSTemplesConfig
 pyramids
-Add Ocean Pyramid to modded Ocean biomes.
-How rare are Ocean Pyramid in Ocean biomes. 1 for spawning in most chunks and 1001 for none. 
-47
+Add Flower Forest Pyramid to modded Plains or Forest biomes with flower or blossom in its name.
+How rare are Flower Forest Pyramid in Flower Forest biomes. 1 for spawning in most chunks and 1001 for none. 
+34
 n
 PYRAMID
 exit
-Temple of the Sea
-Enter a Ocean Pyramid
-minecraft:dark_prismarine
+PRAISE THE FLOWER SHRINE!
+Enter a Flower Forest Pyramid
+minecraft:red_tulip
 20
 y
 C:\Users\MSI Laptop\Documents\ModdingWorkspace\RepurposedStructures-Fabric\src

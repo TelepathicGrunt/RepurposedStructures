@@ -38,7 +38,7 @@ public class StructureGrass extends Feature<StructureTargetAndRangeConfig> {
             );
 
             if(world.getBlockState(mutable).isAir()){
-                if(random.nextFloat() < 0.45f && grass.canPlaceAt(world, mutable)){
+                if((random.nextFloat() < 0.45f || !world.getBlockState(mutable.up()).isAir()) && grass.canPlaceAt(world, mutable)){
                     // expensive. Do this check very last
                     if(!world.toServerWorld().getStructureAccessor().getStructureAt(mutable, true, config.targetStructure).hasChildren()){
                         continue;

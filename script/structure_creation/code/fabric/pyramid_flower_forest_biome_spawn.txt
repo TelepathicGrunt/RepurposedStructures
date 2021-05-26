@@ -1,0 +1,6 @@
+        GeneralUtils.addToBiome("pyramid_flower_forest",
+                (context) -> 
+						&& BiomeSelection.isBiomeAllowed(context, "pyramids")
+                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.maxChunkDistance.pyramidFlowerForestMaxChunkDistance != 1001
+                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSTemplesConfig.blacklist.addPyramidFlowerForestToModdedBiomes),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.PYRAMID_FLOWER_FOREST));

@@ -1,0 +1,28 @@
+{
+  "parent": "repurposed_structures:pyramids",
+  "display": {
+    "icon": {
+      "item": "minecraft:spruce_wood"
+    },
+    "title": {
+      "text": "The ancient spruce wood still looks great on this pyramid!"
+    },
+    "description": {
+      "text": "Enter a Giant Tree Taiga Pyramid"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 20
+  },
+  "criteria": {
+    "in_pyramid_giant_tree_taiga": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "in_pyramid_giant_tree_taiga"
+    ]
+  ]
+}

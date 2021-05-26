@@ -120,7 +120,7 @@ public class RSTemplesConfig implements ConfigData {
         @Comment("How rare are Badlands Pyramid in Badlands biomes."
                 + "\n1 for spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int badlandsPyramidMaxChunkDistance = 37;
+        public int badlandsPyramidMaxChunkDistance = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
@@ -133,7 +133,7 @@ public class RSTemplesConfig implements ConfigData {
         @Comment("How rare are Snowy Pyramid in snowy biomes."
                 + "\n1 for spawning in most chunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int pyramidSnowyMaxChunkDistance = 37;
+        public int pyramidSnowyMaxChunkDistance = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
@@ -196,7 +196,7 @@ public class RSTemplesConfig implements ConfigData {
         @ConfigEntry.Gui.PrefixText
         @Comment("How rare are Ocean Pyramid in Ocean biomes. 1 for spawning in most chunks and 1001 for none. ")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int pyramidOceanMaxChunkDistance = 37;
+        public int pyramidOceanMaxChunkDistance = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
@@ -204,9 +204,32 @@ public class RSTemplesConfig implements ConfigData {
         public boolean addPyramidOceanToModdedBiomes = true;
 
 
-        // regexpos2
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Add Giant Tree Taiga Pyramid to modded taiga biomes with giant or redwood in its name.")
+        public boolean addPyramidGiantTreeTaigaToModdedBiomes = true;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("How rare are Giant Tree Taiga Pyramid in Giant Tree Taiga biomes. 1 for spawning in most chunks and 1001 for none. ")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int pyramidGiantTreeTaigaMaxChunkDistance = 40;
+
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Add Flower Forest Pyramid to modded Plains or Forest biomes with flower or blossom in its name.")
+        public boolean addPyramidFlowerForestToModdedBiomes = true;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("How rare are Flower Forest Pyramid in Flower Forest biomes. 1 for spawning in most chunks and 1001 for none.")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int pyramidFlowerForestMaxChunkDistance = 36;
+
 
         // regexpos1
 
+        // regexpos2
     }
 }

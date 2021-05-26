@@ -63,6 +63,8 @@ public class RSConfiguredStructures {
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> PYRAMID_JUNGLE = RSStructures.PYRAMID_JUNGLE.configure(FeatureConfig.DEFAULT);
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> PYRAMID_MUSHROOM = RSStructures.PYRAMID_MUSHROOM.configure(FeatureConfig.DEFAULT);
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> PYRAMID_OCEAN = RSStructures.PYRAMID_OCEAN.configure(FeatureConfig.DEFAULT);
+    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> PYRAMID_GIANT_TREE_TAIGA = RSStructures.PYRAMID_GIANT_TREE_TAIGA.configure(FeatureConfig.DEFAULT);
+    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> PYRAMID_FLOWER_FOREST = RSStructures.PYRAMID_FLOWER_FOREST.configure(FeatureConfig.DEFAULT);
     // regexpos1
 
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> END_SHIPWRECK = RSStructures.END_SHIPWRECK.configure(FeatureConfig.DEFAULT);
@@ -153,6 +155,8 @@ public class RSConfiguredStructures {
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "pyramid_jungle"), PYRAMID_JUNGLE);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "pyramid_mushroom"), PYRAMID_MUSHROOM);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "pyramid_ocean"), PYRAMID_OCEAN);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "pyramid_giant_tree_taiga"), PYRAMID_GIANT_TREE_TAIGA);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "pyramid_flower_forest"), PYRAMID_FLOWER_FOREST);
         // regexpos2
 
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "end_shipwreck"), END_SHIPWRECK);

@@ -215,7 +215,7 @@ public class RSConfiguredFeatures {
     public static ConfiguredFeature<?, ?> JUNGLE_PYRAMID_STRUCTURE_VINES = RSFeatures.STRUCTURE_VINES.configure(new StructureTargetLengthRangeConfig(RSStructures.PYRAMID_JUNGLE, 17, 4, 3));
     public static ConfiguredFeature<?, ?> JUNGLE_PYRAMID_STRUCTURE_VINES_NARROW = RSFeatures.STRUCTURE_VINES.configure(new StructureTargetLengthRangeConfig(RSStructures.PYRAMID_JUNGLE, 17, 2, 1));
     public static ConfiguredFeature<?, ?> OCEAN_PYRAMID_STRUCTURE_PLANTS = RSFeatures.STRUCTURE_SEAGRASS.configure(new StructureTargetConfig(RSStructures.PYRAMID_OCEAN, 12));
-    public static ConfiguredFeature<?, ?> FLOWER_FOREST_PYRAMID_STRUCTURE_GRASS = RSFeatures.STRUCTURE_GRASS.configure(new StructureTargetAndRangeConfig(RSStructures.PYRAMID_FLOWER_FOREST, 12, 3));
+    public static ConfiguredFeature<?, ?> FLOWER_FOREST_PYRAMID_STRUCTURE_GRASS = RSFeatures.STRUCTURE_GRASS.configure(new StructureTargetAndRangeConfig(RSStructures.PYRAMID_FLOWER_FOREST, 24, 3));
     public static ConfiguredFeature<?, ?> FLOWER_FOREST_PYRAMID_STRUCTURE_FLOWERS = RSFeatures.STRUCTURE_FLOWERS.configure(new StructureTargetAndRangeConfig(RSStructures.PYRAMID_FLOWER_FOREST, 8, 3));
 
     public static void registerConfiguredFeatures() {

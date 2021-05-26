@@ -1,0 +1,28 @@
+{
+  "parent": "repurposed_structures:pyramids",
+  "display": {
+    "icon": {
+      "item": "minecraft:red_tulip"
+    },
+    "title": {
+      "text": "PRAISE THE FLOWER SHRINE!"
+    },
+    "description": {
+      "text": "Enter a Flower Forest Pyramid"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 20
+  },
+  "criteria": {
+    "in_pyramid_flower_forest": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "in_pyramid_flower_forest"
+    ]
+  ]
+}

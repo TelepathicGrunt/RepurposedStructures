@@ -59,7 +59,7 @@ public class StructureFlowers extends Feature<StructureTargetAndRangeConfig> {
                         continue;
                     }
 
-                    if(chosenFlower.getBlock() instanceof TallPlantBlock){
+                    if(chosenFlower.getBlock() instanceof TallPlantBlock && world.getBlockState(mutable.up()).isAir()){
                         world.setBlockState(mutable, chosenFlower.with(TallPlantBlock.HALF, DoubleBlockHalf.LOWER), 3);
                         world.setBlockState(mutable.move(Direction.UP), chosenFlower.with(TallPlantBlock.HALF, DoubleBlockHalf.UPPER), 3);
                     }

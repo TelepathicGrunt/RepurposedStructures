@@ -49,7 +49,7 @@
 • Expanded all RS's Overworld Outposts boundaries so that Pillagers should now spawn more often over time.
 
 ##### Pyramids:
-• Added Jungle, Ocean, and Mushroom Pyramids!
+• Added Jungle, Ocean, Giant Tree Taiga, Flower Forest, and Mushroom Pyramids!
 
 • Buffed loot a bit for Badlands, Icy, and Snowy Pyramids.
 
@@ -60,6 +60,8 @@
 • Icy Pyramid Pit trap is now redesigned to be a bit more dangerous.
 
 • Fixed lang entry for End and Icy Pyramids.
+
+• Increased the config default value for Badlands and Snowy Pyramid spawn attempt separation from 37 to 40.
 
 ##### Ruins:
 • Added translation for Nether Ruins Map names.

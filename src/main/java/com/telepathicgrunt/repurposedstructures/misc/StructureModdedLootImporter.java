@@ -83,6 +83,8 @@ public class StructureModdedLootImporter {
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/pyramid/jungle_chest"), new Identifier("minecraft:chests/desert_pyramid"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/pyramid/mushroom_chest"), new Identifier("minecraft:chests/desert_pyramid"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/pyramid/ocean_chest"), new Identifier("minecraft:chests/desert_pyramid"));
+        tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/pyramid/giant_tree_taiga_chest"), new Identifier("minecraft:chests/desert_pyramid"));
+        tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/pyramid/flower_forest_chest"), new Identifier("minecraft:chests/desert_pyramid"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/pyramid/end_chest"), new Identifier("minecraft:chests/end_city_treasure")); // "minecraft:chests/desert_pyramid"
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/ruin/nether"), new Identifier("minecraft:chests/bastion_other")); // new Identifier("minecraft:chests/underwater_ruin_big"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/ruined_portal/large_portal_chest"), new Identifier("minecraft:chests/ruined_portal"));

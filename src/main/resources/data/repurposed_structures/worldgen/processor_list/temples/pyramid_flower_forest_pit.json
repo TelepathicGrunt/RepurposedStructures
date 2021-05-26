@@ -7,7 +7,7 @@
             "Name": "minecraft:air"
           },
           "input_predicate": {
-            "block": "minecraft:mossy_cobblestone_slab",
+            "block": "minecraft:spruce_trapdoor",
             "probability": 0.25,
             "predicate_type": "minecraft:random_block_match"
           },
@@ -35,7 +35,9 @@
         "minecraft:rose_bush",
         "minecraft:peony",
         "minecraft:oxeye_daisy",
-        "minecraft:azure_bluet"
+        "minecraft:azure_bluet",
+        "minecraft:grass",
+        "minecraft:tall_grass"
       ],
       "processor_type": "repurposed_structures:air_processor"
     },
