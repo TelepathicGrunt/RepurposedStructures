@@ -27,7 +27,7 @@ newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {}
 conversion_exact_dict = {
-    "down-minecraft:red_sandstone":"down-minecraft:stone_bricks-repurposed_structures:temples/pyramid_jungle"
+    "down-minecraft:red_sandstone":"down-minecraft:brown_mushroom_block"
 }
 
 #-------------------------------------------------------------------------------------------

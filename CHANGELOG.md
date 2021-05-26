@@ -49,7 +49,7 @@
 • Expanded all RS's Overworld Outposts boundaries so that Pillagers should now spawn more often over time.
 
 ##### Pyramids:
-• Added Jungle Pyramids!
+• Added Jungle and Mushroom Pyramids!
 
 • Snowy Pyramid Pit slightly changed to help hint at what spots are safe to stand on.
 

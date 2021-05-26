@@ -61,6 +61,13 @@ public class Pyramids {
                         && RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidJungleMaxChunkDistance != 1001
                         && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.addPyramidJungleToModdedBiomes),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.PYRAMID_JUNGLE));
+
+        GeneralUtils.addToBiome("pyramid_mushroom",
+                (context) -> BiomeSelection.haveCategories(context, Category.MUSHROOM)
+						&& BiomeSelection.isBiomeAllowed(context, "pyramids")
+                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidMushroomMaxChunkDistance != 1001
+                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.addPyramidMushroomToModdedBiomes),
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.PYRAMID_MUSHROOM));
         // regexpos1
 
     }

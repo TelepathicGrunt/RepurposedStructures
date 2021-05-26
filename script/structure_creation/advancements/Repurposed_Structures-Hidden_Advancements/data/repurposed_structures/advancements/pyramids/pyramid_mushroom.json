@@ -2,30 +2,32 @@
   "parent": "repurposed_structures:pyramids",
   "display": {
     "icon": {
-      "item": "minecraft:magenta_concrete"
+      "item": "minecraft:red_mushroom_block"
     },
     "title": {
-      "text": "Temple of the Dragon"
+      "text": "There's a fungus among us in this Pyramid!"
     },
     "description": {
-      "text": "Enter a End Pyramid"
+      "text": "Enter a Mushroom Pyramid"
     },
+    "show_toast": false,
+    "announce_to_chat": false,
     "hidden": true
   },
   "rewards": {
     "experience": 100
   },
   "criteria": {
-    "in_pyramid_end": {
+    "in_pyramid_mushroom": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:pyramid_end"
+        "feature": "repurposed_structures:pyramid_mushroom"
       }
     }
   },
   "requirements": [
     [
-      "in_pyramid_end"
+      "in_pyramid_mushroom"
     ]
   ]
 }

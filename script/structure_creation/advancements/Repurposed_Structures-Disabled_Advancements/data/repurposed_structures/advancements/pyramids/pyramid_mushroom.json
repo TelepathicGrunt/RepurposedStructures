@@ -1,0 +1,28 @@
+{
+  "parent": "repurposed_structures:pyramids",
+  "display": {
+    "icon": {
+      "item": "minecraft:red_mushroom_block"
+    },
+    "title": {
+      "text": "There's a fungus among us in this Pyramid!"
+    },
+    "description": {
+      "text": "Enter a Mushroom Pyramid"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 100
+  },
+  "criteria": {
+    "in_pyramid_mushroom": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "in_pyramid_mushroom"
+    ]
+  ]
+}

@@ -2,30 +2,30 @@
   "parent": "repurposed_structures:pyramids",
   "display": {
     "icon": {
-      "item": "minecraft:snow_block"
+      "item": "minecraft:red_mushroom_block"
     },
     "title": {
-      "translate": "Pyramids are just bigger igloos!"
+      "text": "There's a fungus among us in this Pyramid!"
     },
     "description": {
-      "translate": "Enter a Snowy Pyramid"
+      "text": "Enter a Mushroom Pyramid"
     },
     "hidden": true
   },
   "rewards": {
-    "experience": 20
+    "experience": 100
   },
   "criteria": {
-    "in_pyramid_snowy": {
+    "in_pyramid_mushroom": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:pyramid_snowy"
+        "feature": "repurposed_structures:pyramid_mushroom"
       }
     }
   },
   "requirements": [
     [
-      "in_pyramid_snowy"
+      "in_pyramid_mushroom"
     ]
   ]
 }

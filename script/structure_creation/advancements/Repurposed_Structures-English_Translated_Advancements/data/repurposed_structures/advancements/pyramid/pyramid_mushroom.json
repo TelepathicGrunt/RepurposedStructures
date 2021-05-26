@@ -2,30 +2,30 @@
   "parent": "repurposed_structures:pyramids",
   "display": {
     "icon": {
-      "item": "minecraft:packed_ice"
+      "item": "minecraft:red_mushroom_block"
     },
     "title": {
-      "text": "Frosted Pyramid"
+      "text": "There's a fungus among us in this Pyramid!"
     },
     "description": {
-      "text": "Enter a Icy Pyramid"
+      "text": "Enter a Mushroom Pyramid"
     },
     "hidden": true
   },
   "rewards": {
-    "experience": 20
+    "experience": 100
   },
   "criteria": {
-    "in_pyramid_icy": {
+    "in_pyramid_mushroom": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:pyramid_icy"
+        "feature": "repurposed_structures:pyramid_mushroom"
       }
     }
   },
   "requirements": [
     [
-      "in_pyramid_icy"
+      "in_pyramid_mushroom"
     ]
   ]
 }

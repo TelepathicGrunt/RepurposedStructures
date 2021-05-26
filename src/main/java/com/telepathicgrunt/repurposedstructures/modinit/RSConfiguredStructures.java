@@ -61,6 +61,7 @@ public class RSConfiguredStructures {
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> PYRAMID_ICY = RSStructures.PYRAMID_ICY.configure(FeatureConfig.DEFAULT);
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> PYRAMID_SNOWY = RSStructures.PYRAMID_SNOWY.configure(FeatureConfig.DEFAULT);
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> PYRAMID_JUNGLE = RSStructures.PYRAMID_JUNGLE.configure(FeatureConfig.DEFAULT);
+    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> PYRAMID_MUSHROOM = RSStructures.PYRAMID_MUSHROOM.configure(FeatureConfig.DEFAULT);
     // regexpos1
 
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> END_SHIPWRECK = RSStructures.END_SHIPWRECK.configure(FeatureConfig.DEFAULT);
@@ -149,6 +150,7 @@ public class RSConfiguredStructures {
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "pyramid_end"), PYRAMID_END);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "pyramid_icy"), PYRAMID_ICY);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "pyramid_jungle"), PYRAMID_JUNGLE);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "pyramid_mushroom"), PYRAMID_MUSHROOM);
         // regexpos2
 
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "end_shipwreck"), END_SHIPWRECK);

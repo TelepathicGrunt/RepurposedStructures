@@ -1,22 +1,22 @@
-pyramid_jungle
+pyramid_mushroom
 11
-temples/pyramid_jungle
+temples/pyramid_mushroom
 0
 0
 exit
 surface_structures
 RSTemplesConfig
 pyramids
-Add Jungle Pyramid to modded Jungle biomes.
-How rare are Jungle Pyramid in Jungle biomes. 1 for spawning in most chunks and 1001 for none. 
+Add Mushroom Pyramid to modded Mushroom biomes.
+How rare are Mushroom Pyramid in Mushroom biomes. 1 for spawning in most chunks and 1001 for none. 
 48
 n
 PYRAMID
 exit
-Pyramid of the Creepy Crawlers
-Enter a Jungle Pyramid
-minecraft:cracked_stone_bricks
-20
+There's a fungus among us in this Pyramid!
+Enter a Mushroom Pyramid
+minecraft:red_mushroom_block
+100
 y
 C:\Users\MSI Laptop\Documents\ModdingWorkspace\RepurposedStructures-Fabric\src
 C:\Users\MSI Laptop\Documents\ModdingWorkspace\RepurposedStructures\src

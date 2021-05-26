@@ -1,0 +1,13 @@
+		public ConfigValueListener<Integer> pyramidMushroomMaxChunkDistance;
+		public ConfigValueListener<Boolean> addPyramidMushroomToModdedBiomes;
+
+                pyramidMushroomMaxChunkDistance = subscriber.subscribe(builder
+                    .comment("How rare are Mushroom Pyramid in Mushroom biomes."
+                + "\n1 for spawning in most chunks and 1001 for none.")
+                    .translation("repurposedstructures.config.pyramids.pyramidmushroommaxchunkdistance")
+                    .defineInRange("pyramidMushroomMaxChunkDistance", 48, 1, 1001));
+
+                addPyramidMushroomToModdedBiomes = subscriber.subscribe(builder
+                    .comment("\n Add Mushroom Pyramid to modded Mushroom biomes."\n )
+                    .translation("repurposedstructures.config.pyramids.addpyramidmushroomtomoddedbiomes")
+                    .define("addPyramidMushroomToModdedBiomes", true));
