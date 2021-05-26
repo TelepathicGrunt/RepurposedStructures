@@ -68,6 +68,8 @@
 ##### Villages:
 • Fixed Zombie Jungle Village not spawning any buildings and all Jungle Villages using the wrong terminator piece. 
 
+• Fixed Giant Tree Taiga Village not spawning butcher buildings.
+
 ##### Mansions:
 • Added lang entry for Savanna Mansions Maps.
 
