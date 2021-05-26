@@ -106,7 +106,7 @@ public class RSMainConfig {
             jungleFortressVerticalRange = subscriber.subscribe(builder
                     .comment("\n How far above or below the fortress's pieces can generate away from the center piece.")
                     .translation("repurposedstructures.config.junglefortress.junglefortressverticalrange")
-                    .defineInRange("jungleFortressVerticalRange", 27, 0, 255));
+                    .defineInRange("jungleFortressVerticalRange", 33, 0, 255));
 
             builder.pop();
 

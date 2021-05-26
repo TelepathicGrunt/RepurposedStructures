@@ -129,7 +129,7 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<NoFeatureConf
             }
             else{
                 topClipOff = structureStartHeight + verticalRange.get();
-                bottomClipOff = structureStartHeight + verticalRange.get();
+                bottomClipOff = structureStartHeight - verticalRange.get();
             }
 
             PieceLimitedJigsawManager.assembleJigsawStructure(
