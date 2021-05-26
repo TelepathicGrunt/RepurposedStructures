@@ -46,6 +46,12 @@ public class Pyramids {
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.PYRAMID_JUNGLE);
         }
+        if (BiomeSelection.haveCategories(event, Category.MUSHROOM)  &&
+            RepurposedStructures.RSTemplesConfig.pyramidMushroomMaxChunkDistance.get() != 1001 &&
+            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSTemplesConfig.addPyramidMushroomToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.PYRAMID_MUSHROOM);
+        }
         // regexpos1
 
         if (RepurposedStructures.RSTemplesConfig.pyramidEndMaxChunkDistance.get() != 1001 &&

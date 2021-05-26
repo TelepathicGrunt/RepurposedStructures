@@ -45,6 +45,8 @@ public class RSTemplesConfig
 
 		public ConfigValueListener<Integer> pyramidJungleMaxChunkDistance;
 		public ConfigValueListener<Boolean> addPyramidJungleToModdedBiomes;
+		public ConfigValueListener<Integer> pyramidMushroomMaxChunkDistance;
+		public ConfigValueListener<Boolean> addPyramidMushroomToModdedBiomes;
 		// regexpos1
 
 		public RSTemplesConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
@@ -194,6 +196,19 @@ public class RSTemplesConfig
                     .comment("\n Add Jungle Pyramid to modded Jungle biomes.")
                     .translation("repurposedstructures.config.pyramids.addpyramidjungletomoddedbiomes")
                     .define("addPyramidJungleToModdedBiomes", true));
+
+                pyramidMushroomMaxChunkDistance = subscriber.subscribe(builder
+                    .comment("How rare are Mushroom Pyramid in Mushroom biomes."
+                + "\n1 for spawning in most chunks and 1001 for none.")
+                    .translation("repurposedstructures.config.pyramids.pyramidmushroommaxchunkdistance")
+                    .defineInRange("pyramidMushroomMaxChunkDistance", 24, 1, 1001));
+
+                addPyramidMushroomToModdedBiomes = subscriber.subscribe(builder
+                    .comment("\n Add Mushroom Pyramid to modded Mushroom biomes.")
+                    .translation("repurposedstructures.config.pyramids.addpyramidmushroomtomoddedbiomes")
+                    .define("addPyramidMushroomToModdedBiomes", true));
+
+
 			// regexpos2
 
 			builder.pop();

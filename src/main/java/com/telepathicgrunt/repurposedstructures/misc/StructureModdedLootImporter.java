@@ -74,6 +74,8 @@ public class StructureModdedLootImporter extends LootModifier {
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramid/nether_chest"), new ResourceLocation("minecraft:chests/desert_pyramid"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramid/snowy_chest"), new ResourceLocation("minecraft:chests/desert_pyramid"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramid/icy_chest"), new ResourceLocation("minecraft:chests/desert_pyramid"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramid/jungle_chest"), new ResourceLocation("minecraft:chests/desert_pyramid"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramid/mushroom_chest"), new ResourceLocation("minecraft:chests/desert_pyramid"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramid/end_chest"), new ResourceLocation("minecraft:chests/end_city_treasure")); // "minecraft:chests/desert_pyramid"
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ruin/nether"), new ResourceLocation("minecraft:chests/bastion_other")); // new ResourceLocation("minecraft:chests/underwater_ruin_big"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ruined_portal/large_portal_chest"), new ResourceLocation("minecraft:chests/ruined_portal"));

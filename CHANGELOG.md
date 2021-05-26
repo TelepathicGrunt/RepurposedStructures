@@ -53,7 +53,7 @@
 • Fixed comments on the RS Outpost configs being on the wrong config entries.
 
 ##### Pyramids:
-• Added Jungle Pyramids!
+• Added Jungle and Mushroom Pyramids!
 
 • Snowy Pyramid Pit slightly changed to help hint at what spots are safe to stand on.
 

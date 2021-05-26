@@ -131,6 +131,7 @@ public class RSStructures {
     public static final RegistryObject<Structure<NoFeatureConfig>> PYRAMID_END = addToStructureMaps("pyramid_end", () -> (new LandBasedEndStructure(new ResourceLocation(RepurposedStructures.MODID, "temples/pyramid_end"), 11, -2, 0, 0, new HashSet<>())));
     public static final RegistryObject<Structure<NoFeatureConfig>> PYRAMID_ICY = addToStructureMaps("pyramid_icy", () -> (new BuriableStructure(new ResourceLocation(RepurposedStructures.MODID, "temples/pyramid_icy"))));
     public static final RegistryObject<Structure<NoFeatureConfig>> PYRAMID_JUNGLE = addToStructureMaps("pyramid_jungle", () -> (new BuriableStructure(new ResourceLocation(RepurposedStructures.MODID, "temples/pyramid_jungle"), 20)));
+    public static final RegistryObject<Structure<NoFeatureConfig>> PYRAMID_MUSHROOM = addToStructureMaps("pyramid_mushroom", () -> (new BuriableStructure(new ResourceLocation(RepurposedStructures.MODID, "temples/pyramid_mushroom"))));
     // regexpos1
 
     //Shipwrecks
@@ -229,6 +230,7 @@ public class RSStructures {
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "pyramid_end"), PYRAMID_END.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSTemplesConfig.pyramidEndMaxChunkDistance.get(), (int) (RepurposedStructures.RSTemplesConfig.pyramidEndMaxChunkDistance.get() * 0.5f), 1145023315));
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "pyramid_icy"), PYRAMID_ICY.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSTemplesConfig.pyramidIcyMaxChunkDistance.get(), (int) (RepurposedStructures.RSTemplesConfig.pyramidIcyMaxChunkDistance.get() * 0.5f), 884076931));
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "pyramid_jungle"), PYRAMID_JUNGLE.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSTemplesConfig.pyramidJungleMaxChunkDistance.get(), (int) (RepurposedStructures.RSTemplesConfig.pyramidJungleMaxChunkDistance.get() * 0.5f), 1483015905));
+        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "pyramid_mushroom"), PYRAMID_MUSHROOM.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSTemplesConfig.pyramidMushroomMaxChunkDistance.get(), (int) (RepurposedStructures.RSTemplesConfig.pyramidMushroomMaxChunkDistance.get() * 0.5f), 1035759391));
         // regexpos2
 
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "shipwreck_end"), END_SHIPWRECK.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSShipwrecksConfig.endShipwreckMaxChunkDistance.get(), (int) (RepurposedStructures.RSShipwrecksConfig.endShipwreckMaxChunkDistance.get() * 0.5f), 1605500075));
