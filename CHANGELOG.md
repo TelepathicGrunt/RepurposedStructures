@@ -55,7 +55,7 @@
 ##### Pyramids:
 • Added Jungle, Ocean, Giant Tree Taiga, Flower Forest, and Mushroom Pyramids!
 
-• Buffed loot a bit for Badlands, Icy, and Snowy Pyramids.
+• Buffed loot a bit for Badlands, Icy, and Snowy Pyramids and added Horse Armor back into their loot table.
 
 • Snowy Pyramid Pit slightly changed to help hint at what spots are safe to stand on.
 
