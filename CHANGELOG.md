@@ -53,7 +53,7 @@
 • Fixed comments on the RS Outpost configs being on the wrong config entries.
 
 ##### Pyramids:
-• Added Jungle, Ocean, and Mushroom Pyramids!
+• Added Jungle, Ocean, Giant Tree Taiga, Flower Forest, and Mushroom Pyramids!
 
 • Buffed loot a bit for Badlands, Icy, and Snowy Pyramids.
 
@@ -62,6 +62,8 @@
 • Fixed Snowy Pyramids making a base of Red Sandstone instead of Snow Block by mistake.
 
 • Icy Pyramid Pit trap is now redesigned to be a bit more dangerous.
+
+• Increased the config default value for Badlands and Snowy Pyramid spawn attempt separation from 37 to 40.
 
 ##### Dungeons:
 • Fixed bug that prevented RS's Dungeons from ever having 2 chests. Now they have a chance of spawning 2 chests.

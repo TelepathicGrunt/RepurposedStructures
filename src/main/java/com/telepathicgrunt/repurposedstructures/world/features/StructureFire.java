@@ -49,7 +49,7 @@ public class StructureFire extends Feature<StructureTargetConfig> {
             Block belowBlock = world.getBlockState(mutable.below()).getBlock();
             if(world.getBlockState(mutable).isAir() && (belowBlock.is(Blocks.NETHER_BRICKS) || infiniteBurningBlocks.contains(belowBlock))){
                 // expensive. Do this check very last
-                // This seems to sometimes deadlock only on Forge. But not Fabric. What the fuck?
+                // This seems to sometimes deadlock only on Forge. But not Fabric.
                 //!world.getLevel().structureFeatureManager().getStructureAt(mutable, true, config.targetStructure).isValid()
 
                 // Alternative. Won't follow the structure's bounds perfectly tho...

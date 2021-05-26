@@ -61,7 +61,7 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
             }
 
             if(!foundSurface &&
-                    // This seems to sometimes deadlock only on Forge. But not Fabric. What the fuck?
+                    // This seems to sometimes deadlock only on Forge. But not Fabric.
                     //!world.getLevel().structureFeatureManager().getStructureAt(mutable, true, config.targetStructure).isValid()
                     // Alternative. Won't follow the structure's bounds perfectly tho...
                     !world.startsForFeature(SectionPos.of(mutable), config.targetStructure).findAny().isPresent()

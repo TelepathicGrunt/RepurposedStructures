@@ -40,24 +40,42 @@ public class Pyramids {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.PYRAMID_SNOWY);
         }
 
-        if (BiomeSelection.haveCategories(event, Category.JUNGLE) &&
+        else if (BiomeSelection.haveCategories(event, Category.JUNGLE) &&
             RepurposedStructures.RSTemplesConfig.pyramidJungleMaxChunkDistance.get() != 1001 &&
             (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSTemplesConfig.addPyramidJungleToModdedBiomes.get()))
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.PYRAMID_JUNGLE);
         }
-        if (BiomeSelection.haveCategories(event, Category.MUSHROOM)  &&
+
+        else if (BiomeSelection.haveCategories(event, Category.MUSHROOM)  &&
             RepurposedStructures.RSTemplesConfig.pyramidMushroomMaxChunkDistance.get() != 1001 &&
             (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSTemplesConfig.addPyramidMushroomToModdedBiomes.get()))
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.PYRAMID_MUSHROOM);
         }
-        if ( &&
+
+        else if (BiomeSelection.haveCategories(event, Category.OCEAN) &&
             RepurposedStructures.RSTemplesConfig.pyramidOceanMaxChunkDistance.get() != 1001 &&
             (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSTemplesConfig.addPyramidOceanToModdedBiomes.get()))
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.PYRAMID_OCEAN);
         }
+
+        else if (BiomeSelection.haveCategories(event, Category.TAIGA) && BiomeSelection.hasName(event, "giant", "redwood") &&
+            RepurposedStructures.RSTemplesConfig.pyramidGiantTreeTaigaMaxChunkDistance.get() != 1001 &&
+            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSTemplesConfig.addPyramidGiantTreeTaigaToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.PYRAMID_GIANT_TREE_TAIGA);
+        }
+
+        else if (BiomeSelection.haveCategories(event, Category.PLAINS, Category.FOREST) && !BiomeSelection.isBiome(event, Biomes.SUNFLOWER_PLAINS) &&
+            BiomeSelection.hasName(event, "flower", "blossom") &&
+            RepurposedStructures.RSTemplesConfig.pyramidFlowerForestMaxChunkDistance.get() != 1001 &&
+            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSTemplesConfig.addPyramidFlowerForestToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.PYRAMID_FLOWER_FOREST);
+        }
+
         // regexpos1
 
         if (RepurposedStructures.RSTemplesConfig.pyramidEndMaxChunkDistance.get() != 1001 &&

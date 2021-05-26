@@ -48,4 +48,6 @@ public class RSFeatures {
 	public static final RegistryObject<Feature<StructureTargetAndLengthConfig>> STRUCTURE_VINES_AND_LEAVES = FEATURES.register("structure_vines_and_leaves", () -> new StructureVineAndLeaves(StructureTargetAndLengthConfig.CODEC));
 	public static final RegistryObject<Feature<StructureTargetAndLengthConfig>> STRUCTURE_WARPED_PLANTS = FEATURES.register("structure_warped_plants", () -> new StructureWarpedPlants(StructureTargetAndLengthConfig.CODEC));
 	public static final RegistryObject<Feature<StructureTargetAndLengthConfig>> STRUCTURE_VINE_BREAKAGE = FEATURES.register("structure_vine_breakage", () -> new StructureVineBreakage(StructureTargetAndLengthConfig.CODEC));
+	public static final RegistryObject<Feature<StructureTargetAndRangeConfig>> STRUCTURE_GRASS = FEATURES.register("structure_grass", () -> new StructureGrass(StructureTargetAndRangeConfig.CODEC));
+	public static final RegistryObject<Feature<StructureTargetAndRangeConfig>> STRUCTURE_FLOWERS = FEATURES.register("structure_flowers", () -> new StructureFlowers(StructureTargetAndRangeConfig.CODEC));
 }

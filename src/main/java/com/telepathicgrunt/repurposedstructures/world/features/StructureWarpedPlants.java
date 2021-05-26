@@ -41,7 +41,7 @@ public class StructureWarpedPlants extends Feature<StructureTargetAndLengthConfi
             if(world.getBlockState(mutable).isAir()){
                 if(random.nextFloat() < 0.5f && netherSprouts.canSurvive(world, mutable)){
                     // expensive. Do this check very last
-                    // This seems to sometimes deadlock only on Forge. But not Fabric. What the fuck?
+                    // This seems to sometimes deadlock only on Forge. But not Fabric.
                     //!world.getLevel().structureFeatureManager().getStructureAt(mutable, true, config.targetStructure).isValid()
 
                     // Alternative. Won't follow the structure's bounds perfectly tho...
@@ -53,7 +53,7 @@ public class StructureWarpedPlants extends Feature<StructureTargetAndLengthConfi
                 }
                 else if(random.nextFloat() < 0.4f && twistingRoots.canSurvive(world, mutable)){
                     // expensive. Do this check very last
-                    // This seems to sometimes deadlock only on Forge. But not Fabric. What the fuck?
+                    // This seems to sometimes deadlock only on Forge. But not Fabric.
                     //!world.getLevel().structureFeatureManager().getStructureAt(mutable, true, config.targetStructure).isValid()
 
                     // Alternative. Won't follow the structure's bounds perfectly tho...
@@ -65,7 +65,7 @@ public class StructureWarpedPlants extends Feature<StructureTargetAndLengthConfi
                 }
                 else if(random.nextFloat() < 0.3f && twistingFungus.canSurvive(world, mutable)){
                     // expensive. Do this check very last
-                    // This seems to sometimes deadlock only on Forge. But not Fabric. What the fuck?
+                    // This seems to sometimes deadlock only on Forge. But not Fabric.
                     //!world.getLevel().structureFeatureManager().getStructureAt(mutable, true, config.targetStructure).isValid()
 
                     // Alternative. Won't follow the structure's bounds perfectly tho...
@@ -77,7 +77,7 @@ public class StructureWarpedPlants extends Feature<StructureTargetAndLengthConfi
                 }
                 else if(twistingVines.canSurvive(world, mutable)){
                     // expensive. Do this check very last
-                    // This seems to sometimes deadlock only on Forge. But not Fabric. What the fuck?
+                    // This seems to sometimes deadlock only on Forge. But not Fabric.
                     //!world.getLevel().structureFeatureManager().getStructureAt(mutable, true, config.targetStructure).isValid()
 
                     // Alternative. Won't follow the structure's bounds perfectly tho...

@@ -40,7 +40,7 @@ public class StructureCrimsonPlants extends Feature<StructureTargetAndLengthConf
             if(world.getBlockState(mutable).isAir()){
                 if(random.nextFloat() < 0.8f && crimsonRoots.canSurvive(world, mutable)){
                     // expensive. Do this check very last
-                    // This seems to sometimes deadlock only on Forge. But not Fabric. What the fuck?
+                    // This seems to sometimes deadlock only on Forge. But not Fabric.
                     //!world.getLevel().structureFeatureManager().getStructureAt(mutable, true, config.targetStructure).isValid()
 
                     // Alternative. Won't follow the structure's bounds perfectly tho...
@@ -52,7 +52,7 @@ public class StructureCrimsonPlants extends Feature<StructureTargetAndLengthConf
                 }
                 else if(crimsonFungus.canSurvive(world, mutable)){
                     // expensive. Do this check very last
-                    // This seems to sometimes deadlock only on Forge. But not Fabric. What the fuck?
+                    // This seems to sometimes deadlock only on Forge. But not Fabric.
                     //!world.getLevel().structureFeatureManager().getStructureAt(mutable, true, config.targetStructure).isValid()
 
                     // Alternative. Won't follow the structure's bounds perfectly tho...
@@ -64,7 +64,7 @@ public class StructureCrimsonPlants extends Feature<StructureTargetAndLengthConf
                 }
                 else if(weepingVines.canSurvive(world, mutable)){
                     // expensive. Do this check very last
-                    // This seems to sometimes deadlock only on Forge. But not Fabric. What the fuck?
+                    // This seems to sometimes deadlock only on Forge. But not Fabric.
                     //!world.getLevel().structureFeatureManager().getStructureAt(mutable, true, config.targetStructure).isValid()
 
                     // Alternative. Won't follow the structure's bounds perfectly tho...

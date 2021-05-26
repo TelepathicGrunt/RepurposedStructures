@@ -35,7 +35,7 @@ public class StructureChorus extends Feature<StructureTargetConfig> {
 
             if(world.getBlockState(mutable).isAir() && world.getBlockState(mutable.above()).isAir() && world.getBlockState(mutable.move(Direction.DOWN)).canOcclude()){
                 // expensive. Do this check very last
-                // This seems to sometimes deadlock only on Forge. But not Fabric. What the fuck?
+                // This seems to sometimes deadlock only on Forge. But not Fabric.
                 //!world.getLevel().structureFeatureManager().getStructureAt(mutable, true, config.targetStructure).isValid()
 
                 // Alternative. Won't follow the structure's bounds perfectly tho...

@@ -49,6 +49,10 @@ public class RSTemplesConfig
 		public ConfigValueListener<Boolean> addPyramidMushroomToModdedBiomes;
 		public ConfigValueListener<Integer> pyramidOceanMaxChunkDistance;
 		public ConfigValueListener<Boolean> addPyramidOceanToModdedBiomes;
+		public ConfigValueListener<Integer> pyramidGiantTreeTaigaMaxChunkDistance;
+		public ConfigValueListener<Boolean> addPyramidGiantTreeTaigaToModdedBiomes;
+		public ConfigValueListener<Integer> pyramidFlowerForestMaxChunkDistance;
+		public ConfigValueListener<Boolean> addPyramidFlowerForestToModdedBiomes;
 		// regexpos1
 
 		public RSTemplesConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
@@ -153,13 +157,13 @@ public class RSTemplesConfig
 					.comment("\n How rare are Badlands Pyramid in non-plateau Badlands biomes.",
 							 " 1 for spawning in most chunks and 1001 for none.")
 					.translation("repurposedstructures.config.temples.badlandspyramidmaxchunkdistance")
-					.defineInRange("badlandsPyramidMaxChunkDistance", 37, 1, 1001));
+					.defineInRange("badlandsPyramidMaxChunkDistance", 40, 1, 1001));
 
                 pyramidSnowyMaxChunkDistance = subscriber.subscribe(builder
                     .comment("\n How rare are Snowy Pyramid in snowy biomes.",
 							" 1 for spawning in most chunks and 1001 for none.")
                     .translation("repurposedstructures.config.pyramids.pyramidsnowymaxchunkdistance")
-                    .defineInRange("pyramidSnowyMaxChunkDistance", 37, 1, 1001));
+                    .defineInRange("pyramidSnowyMaxChunkDistance", 40, 1, 1001));
 
                 addPyramidSnowyToModdedBiomes = subscriber.subscribe(builder
                     .comment("\n Add Snowy Pyramid to modded snowy biomes.")
@@ -201,7 +205,7 @@ public class RSTemplesConfig
 
                 pyramidMushroomMaxChunkDistance = subscriber.subscribe(builder
                     .comment("\n How rare are Mushroom Pyramid in Mushroom biomes.",
-                	"\n1 for spawning in most chunks and 1001 for none.")
+                			" 1 for spawning in most chunks and 1001 for none.")
                     .translation("repurposedstructures.config.pyramids.pyramidmushroommaxchunkdistance")
                     .defineInRange("pyramidMushroomMaxChunkDistance", 24, 1, 1001));
 
@@ -213,14 +217,40 @@ public class RSTemplesConfig
 
                 pyramidOceanMaxChunkDistance = subscriber.subscribe(builder
                     .comment("\n How rare are Ocean Pyramid in Ocean biomes. ",
-							"\n 1 for spawning in most chunks and 1001 for none.")
+							" 1 for spawning in most chunks and 1001 for none.")
                     .translation("repurposedstructures.config.pyramids.pyramidoceanmaxchunkdistance")
-                    .defineInRange("pyramidOceanMaxChunkDistance", 37, 1, 1001));
+                    .defineInRange("pyramidOceanMaxChunkDistance", 40, 1, 1001));
 
                 addPyramidOceanToModdedBiomes = subscriber.subscribe(builder
                     .comment("\n Add Ocean Pyramid to modded Ocean biomes.")
                     .translation("repurposedstructures.config.pyramids.addpyramidoceantomoddedbiomes")
                     .define("addPyramidOceanToModdedBiomes", true));
+
+
+                pyramidGiantTreeTaigaMaxChunkDistance = subscriber.subscribe(builder
+                    .comment("\n How rare are Giant Tree Taiga Pyramid in Giant Tree Taiga biomes.",
+							" 1 for spawning in most chunks and 1001 for none.")
+                    .translation("repurposedstructures.config.pyramids.pyramidgianttreetaigamaxchunkdistance")
+                    .defineInRange("pyramidGiantTreeTaigaMaxChunkDistance", 40, 1, 1001));
+
+                addPyramidGiantTreeTaigaToModdedBiomes = subscriber.subscribe(builder
+                    .comment("\n Add Giant Tree Taiga Pyramid to modded taiga biomes with giant or redwood in its name.")
+                    .translation("repurposedstructures.config.pyramids.addpyramidgianttreetaigatomoddedbiomes")
+                    .define("addPyramidGiantTreeTaigaToModdedBiomes", true));
+
+
+                pyramidFlowerForestMaxChunkDistance = subscriber.subscribe(builder
+                    .comment("\n How rare are Flower Forest Pyramid in Flower Forest biomes. ",
+							" 1 for spawning in most chunks and 1001 for none.")
+                    .translation("repurposedstructures.config.pyramids.pyramidflowerforestmaxchunkdistance")
+                    .defineInRange("pyramidFlowerForestMaxChunkDistance", 36, 1, 1001));
+
+                addPyramidFlowerForestToModdedBiomes = subscriber.subscribe(builder
+                    .comment("\n Add Flower Forest Pyramid to modded Plains or Forest biomes with flower or blossom in its name.")
+                    .translation("repurposedstructures.config.pyramids.addpyramidflowerforesttomoddedbiomes")
+                    .define("addPyramidFlowerForestToModdedBiomes", true));
+
+
 			// regexpos2
 
 			builder.pop();

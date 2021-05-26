@@ -198,6 +198,9 @@ public class RSConfiguredFeatures {
     public static ConfiguredFeature<?, ?> WARPED_MINESHAFT_PLANTS_LONG = RSFeatures.STRUCTURE_WARPED_PLANTS.get().configured(new StructureTargetAndLengthConfig(RSStructures.WARPED_MINESHAFT.get(), 60, 7));
     public static ConfiguredFeature<?, ?> JUNGLE_PYRAMID_STRUCTURE_VINES = RSFeatures.STRUCTURE_VINES.get().configured(new StructureTargetLengthRangeConfig(RSStructures.PYRAMID_JUNGLE.get(), 17, 4, 3));
     public static ConfiguredFeature<?, ?> JUNGLE_PYRAMID_STRUCTURE_VINES_NARROW = RSFeatures.STRUCTURE_VINES.get().configured(new StructureTargetLengthRangeConfig(RSStructures.PYRAMID_JUNGLE.get(), 17, 2, 1));
+    public static ConfiguredFeature<?, ?> OCEAN_PYRAMID_STRUCTURE_PLANTS = RSFeatures.STRUCTURE_SEAGRASS.get().configured(new StructureTargetConfig(RSStructures.PYRAMID_OCEAN.get(), 12));
+    public static ConfiguredFeature<?, ?> FLOWER_FOREST_PYRAMID_STRUCTURE_GRASS = RSFeatures.STRUCTURE_GRASS.get().configured(new StructureTargetAndRangeConfig(RSStructures.PYRAMID_FLOWER_FOREST.get(), 24, 3));
+    public static ConfiguredFeature<?, ?> FLOWER_FOREST_PYRAMID_STRUCTURE_FLOWERS = RSFeatures.STRUCTURE_FLOWERS.get().configured(new StructureTargetAndRangeConfig(RSStructures.PYRAMID_FLOWER_FOREST.get(), 8, 3));
 
 
 
@@ -262,5 +265,8 @@ public class RSConfiguredFeatures {
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "warped_mineshaft_plants_long"), WARPED_MINESHAFT_PLANTS_LONG);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "jungle_pyramid_structure_vines"), JUNGLE_PYRAMID_STRUCTURE_VINES);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "jungle_pyramid_structure_vines_narrow"), JUNGLE_PYRAMID_STRUCTURE_VINES_NARROW);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "ocean_pyramid_structure_plants"), OCEAN_PYRAMID_STRUCTURE_PLANTS);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "flower_forest_pyramid_structure_grass"), FLOWER_FOREST_PYRAMID_STRUCTURE_GRASS);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "flower_forest_pyramid_structure_flowers"), FLOWER_FOREST_PYRAMID_STRUCTURE_FLOWERS);
     }
 }
