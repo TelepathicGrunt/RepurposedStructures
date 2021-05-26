@@ -22,21 +22,29 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
 public class BuriableStructure extends AbstractBaseStructure<NoFeatureConfig> {
 
     private final ResourceLocation startPool;
-    private int offsetAmount;
+    private final int offsetAmount;
+    private final boolean onLand;
 
     public BuriableStructure(ResourceLocation startPool) {
-        super(NoFeatureConfig.CODEC);
-        this.startPool = startPool;
-        RSStructures.RS_STRUCTURE_START_PIECES.add(startPool);
-        offsetAmount = 14;
+        this(startPool, 14, true);
+    }
+
+    public BuriableStructure(ResourceLocation startPool, boolean onLand) {
+        this(startPool, 14, onLand);
     }
 
     public BuriableStructure(ResourceLocation startPool, int offsetAmount) {
+        this(startPool, offsetAmount, true);
+    }
+
+    public BuriableStructure(ResourceLocation startPool, int offsetAmount, boolean onLand) {
         super(NoFeatureConfig.CODEC);
         this.startPool = startPool;
         RSStructures.RS_STRUCTURE_START_PIECES.add(this.startPool);
         this.offsetAmount = offsetAmount;
+        this.onLand = onLand;
     }
+
 
     @Override
     public Structure.IStartFactory<NoFeatureConfig> getStartFactory() {
@@ -71,10 +79,12 @@ public class BuriableStructure extends AbstractBaseStructure<NoFeatureConfig> {
             Rotation rotation = this.pieces.get(0).getRotation();
             BlockPos maxCorner = new BlockPos(this.pieces.get(0).getBoundingBox().getXSpan(), 0, this.pieces.get(0).getBoundingBox().getZSpan()).rotate(rotation);
 
-            int highestLandPos = chunkGenerator.getBaseHeight(blockPos.getX() + maxCorner.getX(), blockPos.getZ() + maxCorner.getZ(), Heightmap.Type.WORLD_SURFACE_WG);
-            highestLandPos = Math.min(highestLandPos, chunkGenerator.getBaseHeight(blockPos.getX(), blockPos.getZ() + maxCorner.getZ(), Heightmap.Type.WORLD_SURFACE_WG));
-            highestLandPos = Math.min(highestLandPos, chunkGenerator.getBaseHeight(blockPos.getX() + maxCorner.getX(), blockPos.getZ(), Heightmap.Type.WORLD_SURFACE_WG));
-            highestLandPos = Math.min(highestLandPos, chunkGenerator.getBaseHeight(blockPos.getX(), blockPos.getZ(), Heightmap.Type.WORLD_SURFACE_WG));
+            Heightmap.Type heightMapToUse = onLand ? Heightmap.Type.WORLD_SURFACE_WG : Heightmap.Type.OCEAN_FLOOR_WG;
+
+            int highestLandPos = chunkGenerator.getBaseHeight(blockPos.getX() + maxCorner.getX(), blockPos.getZ() + maxCorner.getZ(), heightMapToUse);
+            highestLandPos = Math.min(highestLandPos, chunkGenerator.getBaseHeight(blockPos.getX(), blockPos.getZ() + maxCorner.getZ(), heightMapToUse));
+            highestLandPos = Math.min(highestLandPos, chunkGenerator.getBaseHeight(blockPos.getX() + maxCorner.getX(), blockPos.getZ(), heightMapToUse));
+            highestLandPos = Math.min(highestLandPos, chunkGenerator.getBaseHeight(blockPos.getX(), blockPos.getZ(), heightMapToUse));
 
             this.moveInsideHeights(this.random, highestLandPos-(offsetAmount+1), highestLandPos-offsetAmount);
         }

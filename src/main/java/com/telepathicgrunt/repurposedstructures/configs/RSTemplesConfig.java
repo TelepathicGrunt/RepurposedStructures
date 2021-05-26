@@ -47,6 +47,8 @@ public class RSTemplesConfig
 		public ConfigValueListener<Boolean> addPyramidJungleToModdedBiomes;
 		public ConfigValueListener<Integer> pyramidMushroomMaxChunkDistance;
 		public ConfigValueListener<Boolean> addPyramidMushroomToModdedBiomes;
+		public ConfigValueListener<Integer> pyramidOceanMaxChunkDistance;
+		public ConfigValueListener<Boolean> addPyramidOceanToModdedBiomes;
 		// regexpos1
 
 		public RSTemplesConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
@@ -188,7 +190,7 @@ public class RSTemplesConfig
 
 
                 pyramidJungleMaxChunkDistance = subscriber.subscribe(builder
-                    .comment("How rare are Jungle Pyramid in Jungle biomes. 1 for spawning in most chunks and 1001 for none.")
+                    .comment("\n How rare are Jungle Pyramid in Jungle biomes. 1 for spawning in most chunks and 1001 for none.")
                     .translation("repurposedstructures.config.pyramids.pyramidjunglemaxchunkdistance")
                     .defineInRange("pyramidJungleMaxChunkDistance", 44, 1, 1001));
 
@@ -198,8 +200,8 @@ public class RSTemplesConfig
                     .define("addPyramidJungleToModdedBiomes", true));
 
                 pyramidMushroomMaxChunkDistance = subscriber.subscribe(builder
-                    .comment("How rare are Mushroom Pyramid in Mushroom biomes."
-                + "\n1 for spawning in most chunks and 1001 for none.")
+                    .comment("\n How rare are Mushroom Pyramid in Mushroom biomes.",
+                	"\n1 for spawning in most chunks and 1001 for none.")
                     .translation("repurposedstructures.config.pyramids.pyramidmushroommaxchunkdistance")
                     .defineInRange("pyramidMushroomMaxChunkDistance", 24, 1, 1001));
 
@@ -209,6 +211,16 @@ public class RSTemplesConfig
                     .define("addPyramidMushroomToModdedBiomes", true));
 
 
+                pyramidOceanMaxChunkDistance = subscriber.subscribe(builder
+                    .comment("\n How rare are Ocean Pyramid in Ocean biomes. ",
+							"\n 1 for spawning in most chunks and 1001 for none.")
+                    .translation("repurposedstructures.config.pyramids.pyramidoceanmaxchunkdistance")
+                    .defineInRange("pyramidOceanMaxChunkDistance", 37, 1, 1001));
+
+                addPyramidOceanToModdedBiomes = subscriber.subscribe(builder
+                    .comment("\n Add Ocean Pyramid to modded Ocean biomes.")
+                    .translation("repurposedstructures.config.pyramids.addpyramidoceantomoddedbiomes")
+                    .define("addPyramidOceanToModdedBiomes", true));
 			// regexpos2
 
 			builder.pop();

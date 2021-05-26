@@ -53,7 +53,7 @@
 • Fixed comments on the RS Outpost configs being on the wrong config entries.
 
 ##### Pyramids:
-• Added Jungle and Mushroom Pyramids!
+• Added Jungle, Ocean, and Mushroom Pyramids!
 
 • Buffed loot a bit for Badlands, Icy, and Snowy Pyramids.
 

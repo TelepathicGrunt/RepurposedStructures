@@ -330,7 +330,7 @@ public class RSMineshaftsConfig {
                             " Note: The mineshaft will spawn between min and max y height set in config.",
                             " Setting this to below min height config will make mineshaft spawn only at min height.")
                     .translation("repurposedstructures.config.mineshaft.oceanmineshaftmaxheight")
-                    .defineInRange("oceanMineshaftMaxHeight", 34, 5, 255));
+                    .defineInRange("oceanMineshaftMaxHeight", 31, 5, 255));
 
             taigaMineshaftMaxHeight = subscriber.subscribe(builder
                     .comment("\n Minimum Y height that this mineshaft can spawn at. Default is 45.",

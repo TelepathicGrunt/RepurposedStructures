@@ -60,6 +60,7 @@ public class RSConfiguredStructures {
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> PYRAMID_ICY = RSStructures.PYRAMID_ICY.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> PYRAMID_JUNGLE = RSStructures.PYRAMID_JUNGLE.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> PYRAMID_MUSHROOM = RSStructures.PYRAMID_MUSHROOM.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> PYRAMID_OCEAN = RSStructures.PYRAMID_OCEAN.get().configured(IFeatureConfig.NONE);
     // regexpos1
 
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> END_SHIPWRECK = RSStructures.END_SHIPWRECK.get().configured(IFeatureConfig.NONE);
@@ -148,6 +149,7 @@ public class RSConfiguredStructures {
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "pyramid_icy"), PYRAMID_ICY);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "pyramid_jungle"), PYRAMID_JUNGLE);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "pyramid_mushroom"), PYRAMID_MUSHROOM);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "pyramid_ocean"), PYRAMID_OCEAN);
         // regexpos2
 
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "end_shipwreck"), END_SHIPWRECK);
