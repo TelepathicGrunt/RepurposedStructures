@@ -13,8 +13,32 @@ conversion_partial_dict = {
 conversion_exact_dict = {
     "minecraft:chests/pillager_outpost":"repurposed_structures:chests/outpost/badlands_chest"
 }
-    "cobweb":"cave_air",
-    "minecraft:air":"minecraft:cave_air",
+conversion_exact_dict = {
+    "minecraft:blackstone_slab":"minecraft:cobblestone_slab",
+    "minecraft:polished_blackstone_brick_stairs":"minecraft:cobblestone_stairs",
+    "minecraft:blackstone_stairs":"minecraft:cobblestone_stairs",
+    "minecraft:blackstone_wall":"minecraft:cobblestone_wall",
+    "minecraft:gold_block":"minecraft:emerald_block",
+    "minecraft:blackstone":"minecraft:dark_oak_planks",
+    "minecraft:magma_block":"minecraft:dark_oak_planks",
+    "minecraft:polished_blackstone_bricks":"minecraft:dark_oak_wood",
+    "minecraft:gilded_blackstone":"minecraft:emerald_ore",
+    "minecraft:cracked_polished_blackstone_bricks":"minecraft:dark_oak_wood",
+    "minecraft:basalt":"minecraft:dark_oak_log",
+    "minecraft:glowstone":"minecraft:orange_wool",
+    "minecraft:lava":"minecraft:water",
+    "minecraft:soul_sand":"minecraft:yellow_wool",
+    "minecraft:polished_basalt":"minecraft:stripped_dark_oak_log",
+    "minecraft:chiseled_polished_blackstone":"minecraft:chiseled_stone_bricks",
+    "minecraft:netherrack":"minecraft:coarse_dirt",
+    "minecraft:bastion/mob/hoglin":"repurposed_structures:bastion/pillager/mob/ravager",
+    "minecraft:bastion/mob/piglin":"repurposed_structures:bastion/pillager/mob/pillagers",
+    "minecraft:bastion/mob/piglin_melee":"repurposed_structures:bastion/pillager/mob/deadly_illagers",
+    "minecraft:chests/bastion_other":"repurposed_structures:chests/bastion/pillager/other",
+    "minecraft:chests/bastion_treasure":"repurposed_structures:chests/bastion/pillager/treasure",
+    bastion_hoglin_stable
+    bastion_bridge
+}
 
 '''
 
@@ -25,9 +49,14 @@ blockPalette = {""}
 originalBiome = ""
 newBiome = ""
 string_blacklist = []
-conversion_partial_dict = {}
+conversion_partial_dict = {
+    "bastion/skeleton":"bastion/underground",
+    "hoglin_stable":"skeleton_horse_stable"
+}
 conversion_exact_dict = {
-    "down-minecraft:red_sandstone":"down-minecraft:spruce_wood"
+    "repurposed_structures:bastion/underground/mobs/piglin":"repurposed_structures:bastion/underground/mobs/skeleton",
+    "repurposed_structures:bastion/underground/mobs/piglin_melee":"repurposed_structures:bastion/underground/mobs/skeleton_melee",
+    "repurposed_structures:bastion/underground/mobs/hoglin":"repurposed_structures:bastion/underground/mobs/skeleton_horse"
 }
 
 #-------------------------------------------------------------------------------------------

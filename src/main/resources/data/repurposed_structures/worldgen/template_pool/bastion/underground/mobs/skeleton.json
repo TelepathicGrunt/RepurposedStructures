@@ -1,0 +1,39 @@
+{
+  "name": "repurposed_structures:bastion/underground/mobs/skeleton",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastion/underground/mobs/deadly_skeleton",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:bastion/underground/mobs/sword_skeleton",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:bastion/underground/mobs/bow_skeleton",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      }
+    }
+  ]
+}

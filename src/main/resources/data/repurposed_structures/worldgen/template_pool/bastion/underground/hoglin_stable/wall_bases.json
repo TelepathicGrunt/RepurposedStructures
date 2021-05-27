@@ -1,0 +1,15 @@
+{
+  "name": "repurposed_structures:bastion/underground/skeleton_horse_stable/wall_bases",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastion/underground/skeleton_horse_stable/walls/wall_base",
+        "processors": "repurposed_structures:bastions/underground/stable_degradation",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

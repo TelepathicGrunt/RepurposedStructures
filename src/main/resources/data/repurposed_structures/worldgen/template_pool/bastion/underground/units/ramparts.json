@@ -1,0 +1,33 @@
+{
+  "name": "repurposed_structures:bastion/underground/units/ramparts",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastion/underground/units/ramparts/ramparts_0",
+        "processors": "repurposed_structures:bastions/underground/housing",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastion/underground/units/ramparts/ramparts_1",
+        "processors": "repurposed_structures:bastions/underground/housing",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastion/underground/units/ramparts/ramparts_2",
+        "processors": "repurposed_structures:bastions/underground/housing",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

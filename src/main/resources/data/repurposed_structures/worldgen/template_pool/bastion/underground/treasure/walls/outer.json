@@ -1,0 +1,60 @@
+{
+  "name": "repurposed_structures:bastion/underground/treasure/walls/outer",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastion/underground/treasure/walls/outer/top_corner",
+        "processors": "repurposed_structures:bastions/underground/high_wall",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastion/underground/treasure/walls/outer/mid_corner",
+        "processors": "repurposed_structures:bastions/underground/high_wall",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastion/underground/treasure/walls/outer/bottom_corner",
+        "processors": "repurposed_structures:bastions/underground/high_wall",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastion/underground/treasure/walls/outer/outer_wall",
+        "processors": "repurposed_structures:bastions/underground/high_wall",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastion/underground/treasure/walls/outer/medium_outer_wall",
+        "processors": "repurposed_structures:bastions/underground/high_wall",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastion/underground/treasure/walls/outer/tall_outer_wall",
+        "processors": "repurposed_structures:bastions/underground/high_wall",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "repurposed_structures:bastion/underground/mobs/skeleton_horse",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:bastion/underground/mobs/skeleton_horse",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      }
+    }
+  ]
+}

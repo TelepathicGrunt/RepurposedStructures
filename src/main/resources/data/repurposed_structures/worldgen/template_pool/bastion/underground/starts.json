@@ -1,0 +1,42 @@
+{
+  "name": "repurposed_structures:bastion/underground/starts",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastion/underground/units/air_base",
+        "processors": "repurposed_structures:bastions/underground/generic_degradation",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastion/underground/skeleton_horse_stable/air_base",
+        "processors": "repurposed_structures:bastions/underground/generic_degradation",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastion/underground/treasure/big_air_full",
+        "processors": "repurposed_structures:bastions/underground/generic_degradation",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastion/underground/bridge/starting_pieces/entrance_base",
+        "processors": "repurposed_structures:bastions/underground/generic_degradation",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

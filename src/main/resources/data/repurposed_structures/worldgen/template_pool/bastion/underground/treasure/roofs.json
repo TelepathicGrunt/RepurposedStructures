@@ -1,0 +1,33 @@
+{
+  "name": "repurposed_structures:bastion/underground/treasure/roofs",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastion/underground/treasure/roofs/wall_roof",
+        "processors": "repurposed_structures:bastions/underground/roof",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastion/underground/treasure/roofs/corner_roof",
+        "processors": "repurposed_structures:bastions/underground/roof",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastion/underground/treasure/roofs/center_roof",
+        "processors": "repurposed_structures:bastions/underground/roof",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}
