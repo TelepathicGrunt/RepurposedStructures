@@ -73,6 +73,7 @@ public class Pyramids {
 
         GeneralUtils.addToBiome("pyramid_ocean",
                 (context) -> BiomeSelection.haveCategories(context, Category.OCEAN)
+                        && !BiomeSelection.isBiome(context, BiomeKeys.MUSHROOM_FIELD_SHORE)
 						&& BiomeSelection.isBiomeAllowed(context, "pyramids")
                         && RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidOceanMaxChunkDistance != 1001
                         && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.addPyramidOceanToModdedBiomes),
