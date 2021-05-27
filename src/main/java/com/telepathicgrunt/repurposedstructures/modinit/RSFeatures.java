@@ -30,7 +30,8 @@ public class RSFeatures {
 	public static final RegistryObject<Feature<NoFeatureConfig>> NETHER_WELL = FEATURES.register("well_nether", () -> new WellNether(NoFeatureConfig.CODEC));
 	public static final RegistryObject<Feature<NoFeatureConfig>> SNOW_WELL = FEATURES.register("well_snow", () -> new WellSnow(NoFeatureConfig.CODEC));
   	public static final RegistryObject<Feature<NoFeatureConfig>> MOSSY_STONE_WELL = FEATURES.register("well_mossy_stone", () -> new WellMossyStone(NoFeatureConfig.CODEC));
-  	public static final RegistryObject<Feature<NoFeatureConfig>> FOREST_WELL = FEATURES.register("well_forest", () -> new WellForest(NoFeatureConfig.CODEC));
+	public static final RegistryObject<Feature<NoFeatureConfig>> FOREST_WELL = FEATURES.register("well_forest", () -> new WellForest(NoFeatureConfig.CODEC));
+	public static final RegistryObject<Feature<NoFeatureConfig>> MUSHROOM_WELL = FEATURES.register("well_mushroom", () -> new WellMushroom(NoFeatureConfig.CODEC));
 
 	public static final RegistryObject<Feature<NoFeatureConfig>> WITHER_SKELETON_WITH_BOW = FEATURES.register("wither_skeleton_with_bow", () -> new WitherSkeletonWithBow(NoFeatureConfig.CODEC));
 	public static final RegistryObject<Feature<NoFeatureConfig>> SHULKER_MOB = FEATURES.register("shulker_mob", () -> new ShulkerMob(NoFeatureConfig.CODEC));

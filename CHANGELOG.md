@@ -73,6 +73,9 @@
 
 • Fixed Giant Tree Taiga Village not spawning butcher buildings.
 
+##### Wells:
+• Added Mushroom Wells to mushroom biomes. Has a chance of Iron or Redstone Ores inside and yes, it also has an extremely rare chance of having a Bell.
+
 ##### Misc:
 • Removed the giant boulder feature because it isn't close to a structure and doesn't fit this mod.
 

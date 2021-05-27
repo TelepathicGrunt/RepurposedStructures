@@ -16,6 +16,7 @@ public class RSWellsConfig
 		public ConfigValueListener<Integer> snowWellRarityPerChunk;
 		public ConfigValueListener<Integer> mossyStoneWellRarityPerChunk;
 		public ConfigValueListener<Integer> forestWellRarityPerChunk;
+		public ConfigValueListener<Integer> mushroomWellRarityPerChunk;
 		public ConfigValueListener<String> blacklistedWellBiomes;
 
 		public RSWellsConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
@@ -81,6 +82,14 @@ public class RSWellsConfig
 								 " 1 for wells spawning in every chunk and 10000 for no wells.")
 						.translation("repurposedstructures.config.smallwells.forestwellrarityperchunk")
 						.defineInRange("forestWellRarityPerChunk", 350, 1, 10000));
+
+					mushroomWellRarityPerChunk = subscriber.subscribe(builder
+						.comment("\n Adds a mushroom themed wells to Mushroom biomes.",
+								" This effects how often wells will attempt to spawn per chunk.",
+								" The chance of a well generating at a chunk is 1/rarityPerChunk.",
+								" 1 for wells spawning in every chunk and 10000 for no wells.")
+						.translation("repurposedstructures.config.smallwells.mushroomwellrarityperchunk")
+						.defineInRange("mushroomWellRarityPerChunk", 350, 1, 10000));
 
 				builder.pop();
 						

@@ -52,6 +52,15 @@ public class Wells {
             event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES)
                     .add(() -> RSConfiguredFeatures.FOREST_WELL);
         }
+
+        else if (BiomeSelection.haveCategories(event, Category.MUSHROOM) &&
+                RepurposedStructures.RSWellsConfig.mushroomWellRarityPerChunk.get() != 10000 &&
+                wellAllowedByNamespaceAndConfig(event))
+        {
+
+            event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES)
+                    .add(() -> RSConfiguredFeatures.FOREST_WELL);
+        }
     }
 
     private static boolean wellAllowedByNamespaceAndConfig(BiomeLoadingEvent event) {

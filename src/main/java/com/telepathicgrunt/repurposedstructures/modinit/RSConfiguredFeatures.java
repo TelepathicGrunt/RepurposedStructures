@@ -141,33 +141,41 @@ public class RSConfiguredFeatures {
     // Wells
 
     public static ConfiguredFeature<?, ?> BADLANDS_WELL = RSFeatures.BADLANDS_WELL.get().configured(IFeatureConfig.NONE)
-            .decorated(Features.Placements.HEIGHTMAP_SQUARE).chance(RepurposedStructures.RSWellsConfig.badlandsWellRarityPerChunk.get());
+            .decorated(Features.Placements.HEIGHTMAP_SQUARE)
+            .chance(RepurposedStructures.RSWellsConfig.badlandsWellRarityPerChunk.get());
 
     public static ConfiguredFeature<?, ?> NETHER_WELL = RSFeatures.NETHER_WELL.get().configured(IFeatureConfig.NONE)
-            .decorated(Placement.RANGE.configured(new TopSolidRangeConfig(30, 0, 91))).chance(RepurposedStructures.RSWellsConfig.netherWellRarityPerChunk.get());
+            .decorated(Placement.RANGE.configured(new TopSolidRangeConfig(30, 0, 91)))
+            .chance(RepurposedStructures.RSWellsConfig.netherWellRarityPerChunk.get());
 
     public static ConfiguredFeature<?, ?> SNOW_WELL = RSFeatures.SNOW_WELL.get().configured(IFeatureConfig.NONE)
-            .decorated(Features.Placements.HEIGHTMAP_SQUARE).chance(RepurposedStructures.RSWellsConfig.snowWellRarityPerChunk.get());
+            .decorated(Features.Placements.HEIGHTMAP_SQUARE)
+            .chance(RepurposedStructures.RSWellsConfig.snowWellRarityPerChunk.get());
 
     public static ConfiguredFeature<?, ?> MOSSY_STONE_WELL = RSFeatures.MOSSY_STONE_WELL.get().configured(IFeatureConfig.NONE)
-            .decorated(Features.Placements.HEIGHTMAP_SQUARE).chance(RepurposedStructures.RSWellsConfig.mossyStoneWellRarityPerChunk.get());
+            .decorated(Features.Placements.HEIGHTMAP_SQUARE)
+            .chance(RepurposedStructures.RSWellsConfig.mossyStoneWellRarityPerChunk.get());
 
     public static ConfiguredFeature<?, ?> FOREST_WELL = RSFeatures.FOREST_WELL.get().configured(IFeatureConfig.NONE)
-                    .decorated(Features.Placements.HEIGHTMAP_SQUARE)
-                    .chance(RepurposedStructures.RSWellsConfig.forestWellRarityPerChunk.get());
+            .decorated(Features.Placements.HEIGHTMAP_SQUARE)
+            .chance(RepurposedStructures.RSWellsConfig.forestWellRarityPerChunk.get());
+
+    public static ConfiguredFeature<?, ?> MUSHROOM_WELL = RSFeatures.MUSHROOM_WELL.get().configured(IFeatureConfig.NONE)
+            .decorated(Features.Placements.HEIGHTMAP_SQUARE)
+            .chance(RepurposedStructures.RSWellsConfig.mushroomWellRarityPerChunk.get());
 
     // Misc
 
     public static ConfiguredFeature<?, ?> LILY_OF_THE_VALLEY_FEATURE = Feature.NO_BONEMEAL_FLOWER.configured(
             (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.LILY_OF_THE_VALLEY.defaultBlockState()), SimpleBlockPlacer.INSTANCE))
-            .tries(64)
-            .build());
+                    .tries(64)
+                    .build());
 
     public static ConfiguredFeature<?, ?> CRIMSON_FUNGI_NOT_PLANTED = Feature.HUGE_FUNGUS.configured(HugeFungusConfig.HUGE_CRIMSON_FUNGI_NOT_PLANTED_CONFIG);
     public static ConfiguredFeature<?, ?> WARPED_FUNGI_NOT_PLANTED = Feature.HUGE_FUNGUS.configured(HugeFungusConfig.HUGE_WARPED_FUNGI_NOT_PLANTED_CONFIG);
     public static ConfiguredFeature<?, ?> COBBLESTONE_PATCH = Feature.BLOCK_PILE.configured(new BlockStateProvidingFeatureConfig(new SimpleBlockStateProvider(Blocks.COBBLESTONE.defaultBlockState())));
     public static ConfiguredFeature<?, ?> CHORUS_PLANT = Feature.CHORUS_PLANT.configured(IFeatureConfig.NONE);
-    
+
     public static ConfiguredFeature<?, ?> WITHER_SKELETON_WITH_BOW = RSFeatures.WITHER_SKELETON_WITH_BOW.get().configured(IFeatureConfig.NONE);
     public static ConfiguredFeature<?, ?> SHULKER_MOB = RSFeatures.SHULKER_MOB.get().configured(IFeatureConfig.NONE);
     public static ConfiguredFeature<?, ?> DROWNED_WITH_ARMOR = RSFeatures.DROWNED_WITH_ARMOR.get().configured(IFeatureConfig.NONE);
@@ -203,7 +211,6 @@ public class RSConfiguredFeatures {
     public static ConfiguredFeature<?, ?> FLOWER_FOREST_PYRAMID_STRUCTURE_FLOWERS = RSFeatures.STRUCTURE_FLOWERS.get().configured(new StructureTargetAndRangeConfig(RSStructures.PYRAMID_FLOWER_FOREST.get(), 8, 3));
 
 
-
     public static void registerConfiguredFeatures() {
         Registry<ConfiguredFeature<?, ?>> registry = WorldGenRegistries.CONFIGURED_FEATURE;
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dungeons_badlands"), BADLANDS_DUNGEONS);
@@ -228,6 +235,7 @@ public class RSConfiguredFeatures {
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "well_snow"), SNOW_WELL);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "well_mossy_stone"), MOSSY_STONE_WELL);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "well_forest"), FOREST_WELL);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "well_mushroom"), MUSHROOM_WELL);
 
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "lily_of_the_valley"), LILY_OF_THE_VALLEY_FEATURE);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "crimson_fungi_not_planted"), CRIMSON_FUNGI_NOT_PLANTED);
