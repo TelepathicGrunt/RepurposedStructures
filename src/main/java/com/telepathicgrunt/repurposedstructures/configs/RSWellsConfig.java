@@ -16,9 +16,9 @@ public class RSWellsConfig implements ConfigData {
     @ConfigEntry.Gui.Tooltip(count = 0)
     @ConfigEntry.Gui.PrefixText
     @Comment("Add the ID/resource location of the biome you don't want"
-            +"\nRS's wells to spawn in. Separate each ID with a comma ,"
-            +"\n"
-            +"\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
+            + "\nRS's wells to spawn in. Separate each ID with a comma ,"
+            + "\n"
+            + "\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
     public String blacklistedWellBiomes = "";
 
     @ConfigEntry.Gui.Tooltip
@@ -33,7 +33,7 @@ public class RSWellsConfig implements ConfigData {
     public static class RarityPerChunk {
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-    @ConfigEntry.Gui.PrefixText
+        @ConfigEntry.Gui.PrefixText
         @Comment("Adds Badlands themed wells to Badlands biomes`."
                 + "\nChanges how often wells attempt to spawn per chunk."
                 + "\nChance of a well generating in a chunk is 1/rarityPerChunk."
@@ -42,7 +42,7 @@ public class RSWellsConfig implements ConfigData {
         public int badlandsWellRarityPerChunk = 350;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-    @ConfigEntry.Gui.PrefixText
+        @ConfigEntry.Gui.PrefixText
         @Comment("Adds Nether themed wells to Nether biomes."
                 + "\nChanges how often wells attempt to spawn per chunk."
                 + "\nChance of a well generating in a chunk is 1/rarityPerChunk."
@@ -51,7 +51,7 @@ public class RSWellsConfig implements ConfigData {
         public int netherWellRarityPerChunk = 350;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-    @ConfigEntry.Gui.PrefixText
+        @ConfigEntry.Gui.PrefixText
         @Comment("Adds Snow themed wells to snowy and icy biomes."
                 + "\nChanges how often wells attempt to spawn per chunk."
                 + "\nChance of a well generating in a chunk is 1/rarityPerChunk."
@@ -60,7 +60,7 @@ public class RSWellsConfig implements ConfigData {
         public int snowWellRarityPerChunk = 350;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-    @ConfigEntry.Gui.PrefixText
+        @ConfigEntry.Gui.PrefixText
         @Comment("Adds mossy stone themed wells to Jungles, Dark Oak, and Swamp biomes."
                 + "\nChanges how often wells attempt to spawn per chunk."
                 + "\nChance of a well generating in a chunk is 1/rarityPerChunk."
@@ -69,13 +69,22 @@ public class RSWellsConfig implements ConfigData {
         public int mossyStoneWellRarityPerChunk = 350;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-    @ConfigEntry.Gui.PrefixText
+        @ConfigEntry.Gui.PrefixText
         @Comment("Adds a wood themed wells to Forest and Birch Forest biomes."
                 + "\nChanges how often wells attempt to spawn per chunk."
                 + "\nChance of a well generating in a chunk is 1/rarityPerChunk."
                 + "\n1 for spawning in every chunk and 10000 for no wells.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 10000)
         public int forestWellRarityPerChunk = 350;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @Comment("Adds a mushroom themed wells to Mushroom biomes."
+                + "\nChanges how often wells attempt to spawn per chunk."
+                + "\nChance of a well generating in a chunk is 1/rarityPerChunk."
+                + "\n1 for spawning in every chunk and 10000 for no wells.")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 10000)
+        public int mushroomWellRarityPerChunk = 350;
 
     }
 }

@@ -74,6 +74,9 @@
 
 • Fixed Giant Tree Taiga Village not spawning butcher buildings.
 
+##### Wells:
+• Added Mushroom Wells to mushroom biomes. Has a chance of Iron or Redstone Ores inside and yes, it also has an extremely rare chance of having a Bell.
+
 ##### Mansions:
 • Added lang entry for Savanna Mansions Maps.
 

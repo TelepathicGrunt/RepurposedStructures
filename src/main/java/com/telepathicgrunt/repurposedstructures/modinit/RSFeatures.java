@@ -29,6 +29,7 @@ public class RSFeatures {
     public static Feature<DefaultFeatureConfig> SNOW_WELL = new WellSnow();
     public static Feature<DefaultFeatureConfig> MOSSY_STONE_WELL = new WellMossyStone();
     public static Feature<DefaultFeatureConfig> FOREST_WELL = new WellForest();
+    public static Feature<DefaultFeatureConfig> MUSHROOM_WELL = new WellMushroom();
 
     public static Feature<DefaultFeatureConfig> WITHER_SKELETON_WITH_BOW = new WitherSkeletonWithBow();
     public static Feature<DefaultFeatureConfig> SHULKER_MOB = new ShulkerMob();
@@ -67,6 +68,7 @@ public class RSFeatures {
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "well_snow"), SNOW_WELL);
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "well_mossy_stone"), MOSSY_STONE_WELL);
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "well_forest"), FOREST_WELL);
+        Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "well_mushroom"), MUSHROOM_WELL);
 
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "wither_skeleton_with_bow"), WITHER_SKELETON_WITH_BOW);
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "shulker_mob"), SHULKER_MOB);

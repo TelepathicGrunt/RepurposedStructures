@@ -43,6 +43,12 @@ public class Wells {
                         && BiomeSelection.haveCategories(context, Category.FOREST)
                         && !BiomeSelection.hasName(context, "dark", "spooky", "dead", "haunted"),
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.SURFACE_STRUCTURES, RSConfiguredFeatures.FOREST_WELL));
+
+        GeneralUtils.addToBiome("mushroom_well",
+                (context) -> genericWellCheck(context)
+                        && RepurposedStructures.RSAllConfig.RSWellsConfig.rarityPerChunk.mushroomWellRarityPerChunk != 10000
+                        && BiomeSelection.haveCategories(context, Category.MUSHROOM),
+                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.SURFACE_STRUCTURES, RSConfiguredFeatures.MUSHROOM_WELL));
     }
 
     private static boolean genericWellCheck(BiomeSelectionContext context) {
