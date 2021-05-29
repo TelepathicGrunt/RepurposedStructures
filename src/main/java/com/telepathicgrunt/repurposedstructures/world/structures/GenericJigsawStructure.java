@@ -40,6 +40,8 @@ public class GenericJigsawStructure extends AbstractBaseStructure<NoFeatureConfi
     protected final int allowTerrainHeightRange;
     protected final int terrainHeightRadius;
     protected final int minHeightLimit;
+    protected int fixedYSpawn = 0;
+    protected boolean useHeightmap = true;
 
     public GenericJigsawStructure(ResourceLocation poolRL, int structureSize, int centerOffset, int biomeRange, int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet) {
         this(poolRL, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet, -1, 0);
@@ -60,6 +62,16 @@ public class GenericJigsawStructure extends AbstractBaseStructure<NoFeatureConfi
     {
         this(poolID, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet, allowTerrainHeightRange, terrainHeightRadius, monsterSpawns, creatureSpawns, Integer.MIN_VALUE);
     }
+
+    public GenericJigsawStructure(ResourceLocation poolID, int biomeRange, int structureSize, int structureBlacklistRange,
+                                  Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet,
+                                  List<MobSpawnInfo.Spawners> monsterSpawns, int fixedHeight)
+    {
+        this(poolID, structureSize, 0, biomeRange, structureBlacklistRange, avoidStructuresSet, -1, 0, monsterSpawns, new ArrayList<>(), Integer.MIN_VALUE);
+        this.fixedYSpawn = fixedHeight;
+        this.useHeightmap = false;
+    }
+
     public GenericJigsawStructure(ResourceLocation poolID, int structureSize, int centerOffset,
                                   int biomeRange, int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet,
                                   int allowTerrainHeightRange, int terrainHeightRadius,
@@ -158,7 +170,7 @@ public class GenericJigsawStructure extends AbstractBaseStructure<NoFeatureConfi
 
         public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
 
-            BlockPos blockpos = new BlockPos(chunkX * 16, 0, chunkZ * 16);
+            BlockPos blockpos = new BlockPos(chunkX * 16, fixedYSpawn, chunkZ * 16);
             JigsawManager.addPieces(
                     dynamicRegistryManager,
                     new VillageConfig(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY)
@@ -170,8 +182,8 @@ public class GenericJigsawStructure extends AbstractBaseStructure<NoFeatureConfi
                     blockpos,
                     this.pieces,
                     this.random,
-                    true,
-                    true);
+                    useHeightmap,
+                    useHeightmap);
             this.calculateBoundingBox();
             this.pieces.get(0).move(0, centerOffset, 0);
         }

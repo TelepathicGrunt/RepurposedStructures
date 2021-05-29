@@ -1,0 +1,87 @@
+{
+  "name": "repurposed_structures:bastions/underground/treasure/extensions/large_pool",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastions/underground/treasure/extensions/empty",
+        "processors": "repurposed_structures:bastions/underground/treasure_rooms",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastions/underground/treasure/extensions/empty",
+        "processors": "repurposed_structures:bastions/underground/treasure_rooms",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastions/underground/treasure/extensions/fire_room",
+        "processors": "repurposed_structures:bastions/underground/treasure_rooms",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastions/underground/treasure/extensions/large_bridge_0",
+        "processors": "repurposed_structures:bastions/underground/treasure_rooms",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastions/underground/treasure/extensions/large_bridge_1",
+        "processors": "repurposed_structures:bastions/underground/treasure_rooms",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastions/underground/treasure/extensions/large_bridge_2",
+        "processors": "repurposed_structures:bastions/underground/treasure_rooms",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastions/underground/treasure/extensions/large_bridge_3",
+        "processors": "repurposed_structures:bastions/underground/treasure_rooms",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastions/underground/treasure/extensions/roofed_bridge",
+        "processors": "repurposed_structures:bastions/underground/treasure_rooms",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastions/underground/treasure/extensions/empty",
+        "processors": "repurposed_structures:bastions/underground/treasure_rooms",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

@@ -28,12 +28,17 @@ public class RSMainConfig {
         public ConfigValueListener<Integer> citiesNetherMaxChunkDistance;
         public ConfigValueListener<Boolean> addCitiesNetherToModdedBiomes;
 
+        public ConfigValueListener<Integer> bastionUndergroundMaxChunkDistance;
+        public ConfigValueListener<Boolean> addBastionUndergroundToModdedBiomes;
+        // regexpos1
+
         public ConfigValueListener<String> blacklistedDimensions;
         public ConfigValueListener<String> blacklistedFortressBiomes;
         public ConfigValueListener<String> blacklistedIglooBiomes;
         public ConfigValueListener<String> blacklistedRuinedPortalsBiomes;
         public ConfigValueListener<String> blacklistedRuinsBiomes;
         public ConfigValueListener<String> blacklistedCitiesBiomes;
+        public ConfigValueListener<String> blacklistedUndergroundBastionBiomes;
 
         public RSConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber) {
 
@@ -162,6 +167,29 @@ public class RSMainConfig {
                     .comment("\n Add End themed ruined portals to modded End category biomes.")
                     .translation("repurposedstructures.config.ruinedPortals.addruinedportalendtomoddedbiomes")
                     .define("addRuinedPortalEndToModdedBiomes", true));
+
+            builder.pop();
+
+            builder.push("Ruins");
+
+            blacklistedUndergroundBastionBiomes = subscriber.subscribe(builder
+                    .comment("\n Add the ID/resource location of the biome you don't want",
+                            " RS's Ruins to spawn in. Separate each ID with a comma ,",
+                            "   Example: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
+                    .translation("repurposedstructures.config.ruins.blacklistedundergroundbastionsbiomes")
+                    .define("blacklistedUndergroundBastionBiomes", " "));
+
+                bastionUndergroundMaxChunkDistance = subscriber.subscribe(builder
+                    .comment("How rare are Underground Bastions in non-ocean and non-beach Overworld biomes.",
+                            "1 for spawning in most chunks and 10001 for none.")
+                    .translation("repurposedstructures.config.pyramids.bastionundergroundmaxchunkdistance")
+                    .defineInRange("bastionUndergroundMaxChunkDistance", 800, 1, 1001));
+
+                addBastionUndergroundToModdedBiomes = subscriber.subscribe(builder
+                    .comment("\n Add Underground Bastions to modded non-ocean and non-beach Overworld biomes.")
+                    .translation("repurposedstructures.config.pyramids.addbastionundergroundtomoddedbiomes")
+                    .define("addBastionUndergroundToModdedBiomes", true));
+            // regexpos2
 
             builder.pop();
 

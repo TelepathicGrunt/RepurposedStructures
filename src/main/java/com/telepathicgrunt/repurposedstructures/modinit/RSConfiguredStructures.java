@@ -63,7 +63,6 @@ public class RSConfiguredStructures {
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> PYRAMID_OCEAN = RSStructures.PYRAMID_OCEAN.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> PYRAMID_GIANT_TREE_TAIGA = RSStructures.PYRAMID_GIANT_TREE_TAIGA.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> PYRAMID_FLOWER_FOREST = RSStructures.PYRAMID_FLOWER_FOREST.get().configured(IFeatureConfig.NONE);
-    // regexpos1
 
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> END_SHIPWRECK = RSStructures.END_SHIPWRECK.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<NetherShipwreckConfig, ? extends Structure<NetherShipwreckConfig>> NETHER_BRICKS_SHIPWRECK_FLYING = RSStructures.NETHER_BRICKS_SHIPWRECK.get().configured(new NetherShipwreckConfig(true));
@@ -99,6 +98,9 @@ public class RSConfiguredStructures {
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> WITCH_HUTS_BIRCH = RSStructures.WITCH_HUTS_BIRCH.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> WITCH_HUTS_DARK_FOREST = RSStructures.WITCH_HUTS_DARK_FOREST.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> WITCH_HUTS_GIANT_TREE_TAIGA = RSStructures.WITCH_HUTS_GIANT_TREE_TAIGA.get().configured(IFeatureConfig.NONE);
+
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> BASTION_UNDERGROUND = RSStructures.BASTION_UNDERGROUND.get().configured(IFeatureConfig.NONE);
+    // regexpos1
 
     public static void registerStructureFeatures() {
         Registry<StructureFeature<?, ?>> registry = WorldGenRegistries.CONFIGURED_STRUCTURE_FEATURE;
@@ -154,7 +156,6 @@ public class RSConfiguredStructures {
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "pyramid_ocean"), PYRAMID_OCEAN);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "pyramid_giant_tree_taiga"), PYRAMID_GIANT_TREE_TAIGA);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "pyramid_flower_forest"), PYRAMID_FLOWER_FOREST);
-        // regexpos2
 
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "end_shipwreck"), END_SHIPWRECK);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "nether_bricks_shipwreck_flying"), NETHER_BRICKS_SHIPWRECK_FLYING);
@@ -190,5 +191,8 @@ public class RSConfiguredStructures {
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "witch_hut_birch"), WITCH_HUTS_BIRCH);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "witch_hut_dark_forest"), WITCH_HUTS_DARK_FOREST);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "witch_hut_giant_tree_taiga"), WITCH_HUTS_GIANT_TREE_TAIGA);
+
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "bastion_underground"), BASTION_UNDERGROUND);
+        // regexpos2
     }
 }

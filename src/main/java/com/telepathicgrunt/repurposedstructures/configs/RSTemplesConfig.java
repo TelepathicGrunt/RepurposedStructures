@@ -53,6 +53,8 @@ public class RSTemplesConfig
 		public ConfigValueListener<Boolean> addPyramidGiantTreeTaigaToModdedBiomes;
 		public ConfigValueListener<Integer> pyramidFlowerForestMaxChunkDistance;
 		public ConfigValueListener<Boolean> addPyramidFlowerForestToModdedBiomes;
+		public ConfigValueListener<Integer> bastionUndergroundMaxChunkDistance;
+		public ConfigValueListener<Boolean> addBastionUndergroundToModdedBiomes;
 		// regexpos1
 
 		public RSTemplesConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
@@ -250,8 +252,6 @@ public class RSTemplesConfig
                     .translation("repurposedstructures.config.pyramids.addpyramidflowerforesttomoddedbiomes")
                     .define("addPyramidFlowerForestToModdedBiomes", true));
 
-
-			// regexpos2
 
 			builder.pop();
 		}

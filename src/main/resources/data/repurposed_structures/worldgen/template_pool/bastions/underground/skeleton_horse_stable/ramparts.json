@@ -1,0 +1,33 @@
+{
+  "name": "repurposed_structures:bastions/underground/skeleton_horse_stable/ramparts",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastions/underground/skeleton_horse_stable/ramparts/ramparts_1",
+        "processors": "repurposed_structures:bastions/underground/stable_degradation",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastions/underground/skeleton_horse_stable/ramparts/ramparts_2",
+        "processors": "repurposed_structures:bastions/underground/stable_degradation",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastions/underground/skeleton_horse_stable/ramparts/ramparts_3",
+        "processors": "repurposed_structures:bastions/underground/stable_degradation",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

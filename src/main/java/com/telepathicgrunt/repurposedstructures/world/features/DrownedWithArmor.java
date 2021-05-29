@@ -1,5 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
@@ -44,16 +45,7 @@ public class DrownedWithArmor extends Feature<NoFeatureConfig> {
             ItemStack stoneSword = new ItemStack(Items.STONE_SWORD);
 
             // enchant sword
-            if(random.nextFloat() < 0.25F){
-                List<Enchantment> list = Registry.ENCHANTMENT.stream().filter(Enchantment::isDiscoverable)
-                        .filter((enchantmentToCheck) -> enchantmentToCheck.canEnchant(stoneSword)).collect(Collectors.toList());
-                Enchantment enchantment = list.get(random.nextInt(list.size()));
-                // bias towards weaker enchantments
-                int enchantmentLevel = random.nextInt(MathHelper.nextInt(random, enchantment.getMinLevel(), enchantment.getMaxLevel()) + 1);
-                stoneSword.enchant(enchantment, enchantmentLevel);
-            }
-
-            drownedEntity.setItemInHand(Hand.MAIN_HAND, stoneSword);
+            drownedEntity.setItemInHand(Hand.MAIN_HAND, GeneralUtils.enchantRandomly(random, stoneSword, 0.25F));
             drownedEntity.setDropChance(EquipmentSlotType.MAINHAND, 0.4f);
             drownedEntity.setLeftHanded(random.nextFloat() < 0.05F);
         }

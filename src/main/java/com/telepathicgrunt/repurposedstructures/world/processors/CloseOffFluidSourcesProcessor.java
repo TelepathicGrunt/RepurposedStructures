@@ -32,15 +32,18 @@ public class CloseOffFluidSourcesProcessor extends StructureProcessor {
             Codec.mapPair(Registry.BLOCK.fieldOf("block"), Codec.intRange(1, Integer.MAX_VALUE).fieldOf("weight"))
                     .codec().listOf().fieldOf("weighted_list_of_replacement_blocks")
                     .forGetter(processor -> processor.weightedReplacementBlocks),
-            Codec.BOOL.fieldOf("ignore_down").orElse(false).forGetter(processor -> processor.ignoreDown))
-            .apply(instance, instance.stable(CloseOffFluidSourcesProcessor::new)));
+            Codec.BOOL.fieldOf("ignore_down").orElse(false).forGetter(processor -> processor.ignoreDown),
+            Codec.BOOL.fieldOf("if_air_in_world").orElse(false).forGetter(processor -> processor.ifAirInWorld)
+    ).apply(instance, instance.stable(CloseOffFluidSourcesProcessor::new)));
 
     private final List<Pair<Block, Integer>> weightedReplacementBlocks;
     private final boolean ignoreDown;
+    private final boolean ifAirInWorld;
 
-    public CloseOffFluidSourcesProcessor(List<Pair<Block, Integer>> weightedReplacementBlocks, boolean ignoreDown) {
+    public CloseOffFluidSourcesProcessor(List<Pair<Block, Integer>> weightedReplacementBlocks, boolean ignoreDown, boolean ifAirInWorld) {
         this.weightedReplacementBlocks = weightedReplacementBlocks;
         this.ignoreDown = ignoreDown;
+        this.ifAirInWorld = ifAirInWorld;
     }
 
     @Override
@@ -51,6 +54,8 @@ public class CloseOffFluidSourcesProcessor extends StructureProcessor {
 
         if(!GeneralUtils.isFullCube(worldReader, infoIn2.pos, infoIn2.state) || !infoIn2.state.getMaterial().blocksMotion()){
             IChunk currentChunk = worldReader.getChunk(currentChunkPos.x, currentChunkPos.z);
+
+            if(ifAirInWorld && !currentChunk.getBlockState(infoIn2.pos).isAir()) return infoIn2;
 
             // Remove fluid sources in adjacent horizontal blocks across chunk boundaries and above as well
             BlockPos.Mutable mutable = new BlockPos.Mutable();

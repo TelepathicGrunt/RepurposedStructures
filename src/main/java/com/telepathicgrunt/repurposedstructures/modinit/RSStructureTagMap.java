@@ -1,5 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.modinit;
 
+import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.structure.Structure;
 
 import java.util.HashMap;
@@ -27,6 +28,7 @@ public class RSStructureTagMap {
         MANSION,
         WITCH_HUTS,
         CITIES,
+        BASTION,
         
         // Structure sets to avoid for some structures
         OVERWORLD_OUTPOST,
@@ -36,6 +38,7 @@ public class RSStructureTagMap {
         GENERIC_AVOID_NETHER_STRUCTURE,
         SHIPWRECK_AVOID_NETHER_STRUCTURE,
         END_AVOID_STRUCTURE,
+        BASTION_AVOID_STRUCTURE,
 
         // For mob spawning
         REPLACE_NATURAL_MOBS,
@@ -82,6 +85,7 @@ public class RSStructureTagMap {
         addTags(RSStructures.PYRAMID_OCEAN.get(), Stream.of(STRUCTURE_TAGS.PYRAMID).collect(Collectors.toSet()));
         addTags(RSStructures.PYRAMID_GIANT_TREE_TAIGA.get(), Stream.of(STRUCTURE_TAGS.PYRAMID).collect(Collectors.toSet()));
         addTags(RSStructures.PYRAMID_FLOWER_FOREST.get(), Stream.of(STRUCTURE_TAGS.PYRAMID).collect(Collectors.toSet()));
+        addTags(RSStructures.BASTION_UNDERGROUND.get(), Stream.of(STRUCTURE_TAGS.BASTION).collect(Collectors.toSet()));
         // regexpos1
 
         addTags(RSStructures.NETHER_BASALT_TEMPLE.get(), Stream.of(STRUCTURE_TAGS.TEMPLE, STRUCTURE_TAGS.NETHER_TEMPLE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
@@ -139,11 +143,13 @@ public class RSStructureTagMap {
         addTags(RSStructures.WITCH_HUTS_DARK_FOREST.get(), Stream.of(STRUCTURE_TAGS.WITCH_HUTS, STRUCTURE_TAGS.NO_LAKES, STRUCTURE_TAGS.REPLACE_NATURAL_MOBS).collect(Collectors.toSet()));
         addTags(RSStructures.WITCH_HUTS_GIANT_TREE_TAIGA.get(), Stream.of(STRUCTURE_TAGS.WITCH_HUTS, STRUCTURE_TAGS.NO_LAKES, STRUCTURE_TAGS.REPLACE_NATURAL_MOBS).collect(Collectors.toSet()));
 
+        addTags(RSStructures.BASTION_UNDERGROUND.get(), Stream.of(STRUCTURE_TAGS.BASTION, STRUCTURE_TAGS.REPLACE_NATURAL_MOBS).collect(Collectors.toSet()));
+
         addTags(Structure.NETHER_BRIDGE, Stream.of(STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
         addTags(Structure.BASTION_REMNANT, Stream.of(STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
-        addTags(Structure.VILLAGE, Stream.of(STRUCTURE_TAGS.VILLAGE).collect(Collectors.toSet()));
+        addTags(Structure.VILLAGE, Stream.of(STRUCTURE_TAGS.VILLAGE, STRUCTURE_TAGS.BASTION_AVOID_STRUCTURE).collect(Collectors.toSet()));
+        addTags(Structure.STRONGHOLD, Stream.of(STRUCTURE_TAGS.BASTION_AVOID_STRUCTURE).collect(Collectors.toSet()));
         addTags(Structure.END_CITY, Stream.of(STRUCTURE_TAGS.END_AVOID_STRUCTURE).collect(Collectors.toSet()));
-
     }
 
 

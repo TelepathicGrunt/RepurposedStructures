@@ -240,6 +240,7 @@ public class RepurposedStructures {
         allBiomeBlacklists.put("cities", Pair.of(Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedCitiesBiomes.get().replace(" ", "").split(",")), Cities::addCities));
         allBiomeBlacklists.put("mansions", Pair.of(Arrays.asList(RepurposedStructures.RSMansionsConfig.blacklistedMansionBiomes.get().replace(" ", "").split(",")), Mansions::addMansions));
         allBiomeBlacklists.put("witch_huts", Pair.of(Arrays.asList(RepurposedStructures.RSWitchHutsConfig.blacklistedWitchHutBiomes.get().replace(" ", "").split(",")), WitchHuts::addWitchHuts));
+        allBiomeBlacklists.put("underground_bastions", Pair.of(Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedUndergroundBastionBiomes.get().replace(" ", "").split(",")), Bastions::addBastions));
 
         return allBiomeBlacklists;
     }

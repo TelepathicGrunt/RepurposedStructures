@@ -3,6 +3,7 @@ package com.telepathicgrunt.repurposedstructures.modinit;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.*;
 import net.minecraft.block.Blocks;
+import net.minecraft.item.Items;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
@@ -179,6 +180,14 @@ public class RSConfiguredFeatures {
     public static ConfiguredFeature<?, ?> WITHER_SKELETON_WITH_BOW = RSFeatures.WITHER_SKELETON_WITH_BOW.get().configured(IFeatureConfig.NONE);
     public static ConfiguredFeature<?, ?> SHULKER_MOB = RSFeatures.SHULKER_MOB.get().configured(IFeatureConfig.NONE);
     public static ConfiguredFeature<?, ?> DROWNED_WITH_ARMOR = RSFeatures.DROWNED_WITH_ARMOR.get().configured(IFeatureConfig.NONE);
+    public static ConfiguredFeature<?, ?> SKELETON_BOW = RSFeatures.SKELETON.get().configured(new GenericMobConfig(null, null, null, null, null, 0.25f, 14));
+    public static ConfiguredFeature<?, ?> SKELETON_BOW_DEADLY = RSFeatures.SKELETON.get().configured(new GenericMobConfig(null, Items.LEATHER_HELMET, Items.CHAINMAIL_CHESTPLATE, Items.LEATHER_LEGGINGS, null, 0.23f, 18));
+    public static ConfiguredFeature<?, ?> SKELETON_BOW_DEADLIEST = RSFeatures.SKELETON.get().configured(new GenericMobConfig(null, Items.CHAINMAIL_HELMET, Items.CHAINMAIL_CHESTPLATE, Items.CHAINMAIL_LEGGINGS, null, 0.21f, 24));
+    public static ConfiguredFeature<?, ?> SKELETON_SWORD = RSFeatures.SKELETON.get().configured(new GenericMobConfig(Items.STONE_SWORD, null, null, null, null, 0.25f, 14));
+    public static ConfiguredFeature<?, ?> SKELETON_SWORD_DEADLY = RSFeatures.SKELETON.get().configured(new GenericMobConfig(Items.STONE_SWORD, Items.LEATHER_HELMET, Items.CHAINMAIL_CHESTPLATE, Items.LEATHER_LEGGINGS, null, 0.29f, 18));
+    public static ConfiguredFeature<?, ?> SKELETON_SWORD_DEADLIEST = RSFeatures.SKELETON.get().configured(new GenericMobConfig(Items.STONE_SWORD, Items.CHAINMAIL_HELMET, Items.CHAINMAIL_CHESTPLATE, Items.CHAINMAIL_LEGGINGS, null, 0.33f, 24));
+    public static ConfiguredFeature<?, ?> SKELETON_HORSEMAN_SWORD = RSFeatures.SKELETON_HORSEMAN.get().configured(new GenericMobConfig(Items.IRON_SWORD, Items.IRON_HELMET, Items.CHAINMAIL_CHESTPLATE, Items.CHAINMAIL_LEGGINGS, Items.IRON_BOOTS, 0.29f, 28));
+    public static ConfiguredFeature<?, ?> SKELETON_HORSEMAN_BOW = RSFeatures.SKELETON_HORSEMAN.get().configured(new GenericMobConfig(Items.BOW, Items.IRON_HELMET, Items.CHAINMAIL_CHESTPLATE, Items.CHAINMAIL_LEGGINGS, Items.IRON_BOOTS, 0.25f, 24));
 
     public static ConfiguredFeature<?, ?> POST_PROCESS_CONNECTING_BLOCKS = RSFeatures.POST_PROCESS_CONNECTING_BLOCKS.get().configured(IFeatureConfig.NONE);
     public static ConfiguredFeature<?, ?> JUNGLE_FORTRESS_STRUCTURE_BREAKAGE = RSFeatures.STRUCTURE_BREAKAGE.get().configured(new StructureTargetChanceConfig(RSStructures.JUNGLE_FORTRESS.get(), 0.366f));
@@ -246,6 +255,14 @@ public class RSConfiguredFeatures {
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "wither_skeleton_with_bow"), WITHER_SKELETON_WITH_BOW);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "shulker_mob"), SHULKER_MOB);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "drowned_with_armor"), DROWNED_WITH_ARMOR);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "skeleton_bow"), SKELETON_BOW);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "skeleton_bow_deadly"), SKELETON_BOW_DEADLY);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "skeleton_bow_deadliest"), SKELETON_BOW_DEADLIEST);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "skeleton_sword"), SKELETON_SWORD);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "skeleton_sword_deadly"), SKELETON_SWORD_DEADLY);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "skeleton_sword_deadliest"), SKELETON_SWORD_DEADLIEST);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "skeleton_horseman_sword"), SKELETON_HORSEMAN_SWORD);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "skeleton_horseman_bow"), SKELETON_HORSEMAN_BOW);
 
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "post_process_connecting_blocks"), POST_PROCESS_CONNECTING_BLOCKS);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "jungle_fortress_structure_breakage"), JUNGLE_FORTRESS_STRUCTURE_BREAKAGE);

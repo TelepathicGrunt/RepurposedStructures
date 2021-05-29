@@ -9,9 +9,12 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalBlock;
 import net.minecraft.block.LeavesBlock;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.SectionPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.IServerWorld;
@@ -184,5 +187,22 @@ public class GeneralUtils {
                     }
                 }
         );
+    }
+
+    //////////////////////////////
+
+    public static ItemStack enchantRandomly(Random random, ItemStack itemToEnchant, float chance) {
+        if(random.nextFloat() < chance){
+            List<Enchantment> list = Registry.ENCHANTMENT.stream().filter(Enchantment::isDiscoverable)
+                    .filter((enchantmentToCheck) -> enchantmentToCheck.canEnchant(itemToEnchant)).collect(Collectors.toList());
+            if(!list.isEmpty()){
+                Enchantment enchantment = list.get(random.nextInt(list.size()));
+                // bias towards weaker enchantments
+                int enchantmentLevel = random.nextInt(MathHelper.nextInt(random, enchantment.getMinLevel(), enchantment.getMaxLevel()) + 1);
+                itemToEnchant.enchant(enchantment, enchantmentLevel);
+            }
+        }
+
+        return itemToEnchant;
     }
 }

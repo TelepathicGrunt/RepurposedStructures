@@ -1,0 +1,42 @@
+{
+  "name": "repurposed_structures:bastions/underground/treasure/bases/centers",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastions/underground/treasure/bases/centers/center_0",
+        "processors": "repurposed_structures:bastions/underground/treasure_rooms",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastions/underground/treasure/bases/centers/center_1",
+        "processors": "repurposed_structures:bastions/underground/treasure_rooms",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastions/underground/treasure/bases/centers/center_2",
+        "processors": "repurposed_structures:bastions/underground/treasure_rooms",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastions/underground/treasure/bases/centers/center_3",
+        "processors": "repurposed_structures:bastions/underground/treasure_rooms",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

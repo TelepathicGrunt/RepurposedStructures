@@ -36,6 +36,8 @@ public class RSFeatures {
 	public static final RegistryObject<Feature<NoFeatureConfig>> WITHER_SKELETON_WITH_BOW = FEATURES.register("wither_skeleton_with_bow", () -> new WitherSkeletonWithBow(NoFeatureConfig.CODEC));
 	public static final RegistryObject<Feature<NoFeatureConfig>> SHULKER_MOB = FEATURES.register("shulker_mob", () -> new ShulkerMob(NoFeatureConfig.CODEC));
 	public static final RegistryObject<Feature<NoFeatureConfig>> DROWNED_WITH_ARMOR = FEATURES.register("drowned_with_armor", DrownedWithArmor::new);
+	public static final RegistryObject<Feature<GenericMobConfig>> SKELETON = FEATURES.register("skeleton", Skeletons::new);
+	public static final RegistryObject<Feature<GenericMobConfig>> SKELETON_HORSEMAN = FEATURES.register("skeleton_horseman", SkeletonHorseman::new);
 
 	public static final RegistryObject<Feature<NoFeatureConfig>> POST_PROCESS_CONNECTING_BLOCKS = FEATURES.register("post_process_connecting_blocks", StructurePostProcessConnectiveBlocks::new);
 	public static final RegistryObject<Feature<StructureTargetChanceConfig>> STRUCTURE_BREAKAGE = FEATURES.register("structure_breakage", () -> new StructureBreakage(StructureTargetChanceConfig.CODEC));
