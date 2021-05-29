@@ -90,6 +90,7 @@ public class RepurposedStructures implements ModInitializer {
         ALL_BIOME_BLACKLISTS.put("cities", Arrays.asList(RepurposedStructures.RSAllConfig.RSMainConfig.cities.blacklistedCitiesBiomes.replace(" ", "").split(",")));
         ALL_BIOME_BLACKLISTS.put("mansions", Arrays.asList(RepurposedStructures.RSAllConfig.RSMansionsConfig.blacklist.blacklistedMansionBiomes.replace(" ", "").split(",")));
         ALL_BIOME_BLACKLISTS.put("witch_huts", Arrays.asList(RepurposedStructures.RSAllConfig.RSWitchHutsConfig.blacklist.blacklistedWitchHutsBiomes.replace(" ", "").split(",")));
+        ALL_BIOME_BLACKLISTS.put("underground_bastions", Arrays.asList(RepurposedStructures.RSAllConfig.RSBastionsConfig.blacklist.blacklistedUndergroundBastionsBiomes.replace(" ", "").split(",")));
     }
 
     public static void allowStructureSpawningPerDimension() {
@@ -140,5 +141,6 @@ public class RepurposedStructures implements ModInitializer {
         Cities.addCities();
         Mansions.addMansions();
         WitchHuts.addWitchHuts();
+        Bastions.addBastions();
     }
 }

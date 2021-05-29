@@ -1,0 +1,42 @@
+{
+  "name": "repurposed_structures:bastions/underground/units/stages/stage_0",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastions/underground/units/stages/stage_0_0",
+        "processors": "repurposed_structures:bastions/underground/housing",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastions/underground/units/stages/stage_0_1",
+        "processors": "repurposed_structures:bastions/underground/housing",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastions/underground/units/stages/stage_0_2",
+        "processors": "repurposed_structures:bastions/underground/housing",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastions/underground/units/stages/stage_0_3",
+        "processors": "repurposed_structures:bastions/underground/housing",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

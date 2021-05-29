@@ -1,0 +1,33 @@
+{
+  "name": "repurposed_structures:bastions/underground/treasure/corners/edges",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastions/underground/treasure/corners/edges/bottom",
+        "processors": "repurposed_structures:bastions/underground/high_wall",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastions/underground/treasure/corners/edges/middle",
+        "processors": "repurposed_structures:bastions/underground/high_wall",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastions/underground/treasure/corners/edges/top",
+        "processors": "repurposed_structures:bastions/underground/high_wall",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

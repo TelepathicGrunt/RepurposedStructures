@@ -1,0 +1,33 @@
+{
+  "parent": "repurposed_structures:pyramids",
+  "display": {
+    "icon": {
+      "item": "minecraft:bone"
+    },
+    "title": {
+      "text": "Bastions, Evil, and Bones... "
+    },
+    "description": {
+      "text": "Enter a Underground Bastion"
+    },
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 100
+  },
+  "criteria": {
+    "in_bastion_underground": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:bastion_underground"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_bastion_underground"
+    ]
+  ]
+}

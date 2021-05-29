@@ -50,13 +50,9 @@ originalBiome = ""
 newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {
-    "bastion/skeleton":"bastion/underground",
-    "hoglin_stable":"skeleton_horse_stable"
+    "repurposed_structures:chests/bastion/":"repurposed_structures:chests/bastions/"
 }
 conversion_exact_dict = {
-    "repurposed_structures:bastion/underground/mobs/piglin":"repurposed_structures:bastion/underground/mobs/skeleton",
-    "repurposed_structures:bastion/underground/mobs/piglin_melee":"repurposed_structures:bastion/underground/mobs/skeleton_melee",
-    "repurposed_structures:bastion/underground/mobs/hoglin":"repurposed_structures:bastion/underground/mobs/skeleton_horse"
 }
 
 #-------------------------------------------------------------------------------------------

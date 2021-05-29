@@ -1,22 +1,22 @@
-pyramid_flower_forest
+bastion_underground
 11
-temples/pyramid_flower_forest
+bastions/bastion_underground
 0
 0
 exit
 surface_structures
-RSTemplesConfig
+RSBastionsConfig
 pyramids
-Add Flower Forest Pyramid to modded Plains or Forest biomes with flower or blossom in its name.
-How rare are Flower Forest Pyramid in Flower Forest biomes. 1 for spawning in most chunks and 1001 for none. 
-34
+Add Underground Bastions to modded non-ocean Overworld biomes.
+How rare are Underground Bastions in non-ocean Overworld biomes. 1 for spawning in most chunks and 1001 for none. 
+135
 n
-PYRAMID
+BASTION
 exit
-PRAISE THE FLOWER SHRINE!
-Enter a Flower Forest Pyramid
-minecraft:red_tulip
-20
+Bastions, Evil, and Bones... 
+Enter a Underground Bastion
+minecraft:bone
+100
 y
 C:\Users\MSI Laptop\Documents\ModdingWorkspace\RepurposedStructures-Fabric\src
 C:\Users\MSI Laptop\Documents\ModdingWorkspace\RepurposedStructures\src

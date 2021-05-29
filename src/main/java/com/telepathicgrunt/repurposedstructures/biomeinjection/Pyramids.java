@@ -95,7 +95,5 @@ public class Pyramids {
                         && RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidFlowerForestMaxChunkDistance != 1001
                         && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.addPyramidFlowerForestToModdedBiomes),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.PYRAMID_FLOWER_FOREST));
-        // regexpos1
-
     }
 }

@@ -1,0 +1,6 @@
+        if ( &&
+            RepurposedStructures.RSBastionsConfig.bastionUndergroundMaxChunkDistance.get() != 1001 &&
+            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSBastionsConfig.addBastionUndergroundToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.BASTION_UNDERGROUND);
+        }

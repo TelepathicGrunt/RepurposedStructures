@@ -228,8 +228,5 @@ public class RSTemplesConfig implements ConfigData {
         public int pyramidFlowerForestMaxChunkDistance = 36;
 
 
-        // regexpos1
-
-        // regexpos2
     }
 }

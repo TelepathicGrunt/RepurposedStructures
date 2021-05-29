@@ -1,0 +1,33 @@
+{
+  "name": "repurposed_structures:bastions/underground/treasure/connectors",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastions/underground/treasure/connectors/center_to_wall_middle",
+        "processors": "repurposed_structures:bastions/underground/treasure_rooms",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastions/underground/treasure/connectors/center_to_wall_top",
+        "processors": "repurposed_structures:bastions/underground/treasure_rooms",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:bastions/underground/treasure/connectors/center_to_wall_top_entrance",
+        "processors": "repurposed_structures:bastions/underground/treasure_rooms",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

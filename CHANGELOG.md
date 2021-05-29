@@ -1,5 +1,8 @@
 ## (V.1.11.0 Changes) (1.16.5 Minecraft)
 
+##### Bastions:
+• Added rare Underground Bastions in the Overworld! Fight through many powerful Skeletons and loot all the Redstone!
+
 ##### Mineshafts:
 • All of RS's Mineshafts are now Jigsaw Structures so you can use datapacks to add new nbt pieces to it or customize it even more!
 

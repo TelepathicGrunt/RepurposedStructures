@@ -9,9 +9,12 @@ import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalFacingBlock;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.BlockView;
@@ -99,5 +102,23 @@ public class GeneralUtils {
     @SuppressWarnings("deprecation")
     public static void addToBiome(String modificationName, Predicate<BiomeSelectionContext> selectorPredicate, Consumer<BiomeModificationContext> biomeAdditionConsumer) {
         BiomeModifications.create(new Identifier(RepurposedStructures.MODID, modificationName)).add(ModificationPhase.ADDITIONS, selectorPredicate, biomeAdditionConsumer);
+    }
+
+
+    //////////////////////////////
+
+    public static ItemStack enchantRandomly(Random random, ItemStack itemToEnchant, float chance) {
+        if(random.nextFloat() < chance){
+            List<Enchantment> list = Registry.ENCHANTMENT.stream().filter(Enchantment::isAvailableForRandomSelection)
+                    .filter((enchantmentToCheck) -> enchantmentToCheck.isAcceptableItem(itemToEnchant)).collect(Collectors.toList());
+            if(!list.isEmpty()){
+                Enchantment enchantment = list.get(random.nextInt(list.size()));
+                // bias towards weaker enchantments
+                int enchantmentLevel = random.nextInt(MathHelper.nextInt(random, enchantment.getMinLevel(), enchantment.getMaxLevel()) + 1);
+                itemToEnchant.addEnchantment(enchantment, enchantmentLevel);
+            }
+        }
+
+        return itemToEnchant;
     }
 }

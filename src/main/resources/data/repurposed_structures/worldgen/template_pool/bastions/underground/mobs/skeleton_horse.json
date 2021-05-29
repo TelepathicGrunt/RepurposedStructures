@@ -1,0 +1,28 @@
+{
+  "name": "repurposed_structures:bastions/underground/mobs/skeleton_horse",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 3,
+      "element": {
+        "feature": "repurposed_structures:skeleton_horseman_sword",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    },
+    {
+      "weight": 5,
+      "element": {
+        "feature": "repurposed_structures:skeleton_horseman_bow",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      }
+    }
+  ]
+}

@@ -1,6 +1,12 @@
 {
   "processors": [
     {
+      "input_block": "minecraft:dark_oak_wood",
+      "output_block": "minecraft:stripped_dark_oak_wood",
+      "probability": 0.1,
+      "processor_type": "repurposed_structures:random_replace_with_properties_processor"
+    },
+    {
       "rules": [
         {
           "output_state": {
@@ -56,6 +62,17 @@
         }
       ],
       "processor_type": "minecraft:rule"
+    },
+    {
+      "processor_type": "repurposed_structures:close_off_fluid_sources_processor",
+      "ignore_down": true,
+      "if_air_in_world": true,
+      "weighted_list_of_replacement_blocks": [
+        {
+          "block" : "minecraft:stone",
+          "weight": 1
+        }
+      ]
     }
   ]
 }
