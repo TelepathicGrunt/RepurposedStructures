@@ -50,9 +50,9 @@ originalBiome = ""
 newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {
-    "repurposed_structures:chests/bastion/":"repurposed_structures:chests/bastions/"
 }
 conversion_exact_dict = {
+    "minecraft:mob_connector":"minecraft:bottom"
 }
 
 #-------------------------------------------------------------------------------------------
