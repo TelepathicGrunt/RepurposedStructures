@@ -16,6 +16,5 @@ public class Bastions {
                         && RepurposedStructures.RSAllConfig.RSBastionsConfig.maxChunkDistance.bastionUndergroundMaxChunkDistance != 10001
                         && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSBastionsConfig.blacklist.addBastionUndergroundToModdedBiomes),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.BASTION_UNDERGROUND));
-        // regexpos1
     }
 }

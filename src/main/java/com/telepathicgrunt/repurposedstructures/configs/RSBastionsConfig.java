@@ -29,7 +29,6 @@ public class RSBastionsConfig implements ConfigData {
         @ConfigEntry.Gui.PrefixText
         @Comment("Add Underground Bastions to modded non-ocean and non-beach Overworld biomes.")
         public boolean addBastionUndergroundToModdedBiomes = true;
-        // regexpos1
     }
 
     public static class MaxChunkDistance {
@@ -39,6 +38,5 @@ public class RSBastionsConfig implements ConfigData {
         @Comment("How rare are Underground Bastions in non-ocean and non-beach Overworld biomes. 1 for spawning in most chunks and 10001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 10001)
         public int bastionUndergroundMaxChunkDistance = 800;
-        // regexpos2
     }
 }

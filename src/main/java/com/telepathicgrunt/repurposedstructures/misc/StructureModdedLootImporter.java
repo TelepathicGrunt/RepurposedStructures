@@ -41,6 +41,9 @@ public class StructureModdedLootImporter {
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/mineshaft/swamp"), new Identifier("minecraft:chests/abandoned_mineshaft"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/mineshaft/taiga"), new Identifier("minecraft:chests/abandoned_mineshaft"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/mineshaft/warped"), new Identifier("minecraft:chests/abandoned_mineshaft"));
+        tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/bastions/underground/bridge"), new Identifier("minecraft:chests/stronghold_corridor")); // new Identifier("minecraft:chests/bastion_bridge")
+        tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/bastions/underground/other"), new Identifier("minecraft:chests/stronghold_corridor")); // new Identifier("minecraft:chests/bastion_other")
+        tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/bastions/underground/skeleton_horse_stable"), new Identifier("minecraft:chests/stronghold_corridor")); // new Identifier("minecraft:chests/bastion_hoglin_stable")
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/cities/nether"), new Identifier("minecraft:chests/bastion_treasure")); // new Identifier("minecraft:chests/end_city_treasure"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/dungeon/badlands"), new Identifier("minecraft:chests/simple_dungeon"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/dungeon/dark_forest"), new Identifier("minecraft:chests/simple_dungeon"));

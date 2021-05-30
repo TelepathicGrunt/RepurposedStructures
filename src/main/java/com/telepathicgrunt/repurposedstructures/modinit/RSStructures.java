@@ -130,6 +130,7 @@ public class RSStructures {
     public static StructureFeature<DefaultFeatureConfig> RUINED_PORTAL_END = new LandBasedEndStructure(new Identifier(RepurposedStructures.MODID, "ruined_portal/end"), 20, -6, 0, 0, new HashSet<>());
 
     public static StructureFeature<DefaultFeatureConfig> RUINS_NETHER = new GenericNetherJigsawHighStructure(new Identifier(RepurposedStructures.MODID, "ruins/nether/start_pool"), 1, -4, -1);
+    // regexpos1
 
     public static StructureFeature<DefaultFeatureConfig> CITY_NETHER = new CityNetherStructure(new Identifier(RepurposedStructures.MODID, "cities/nether/start_pool"), 5, 0, 0, 4, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()), ImmutableList.of(new SpawnSettings.SpawnEntry(EntityType.BLAZE, 120, 1, 4), new SpawnSettings.SpawnEntry(EntityType.WITHER_SKELETON, 10, 2, 3)), ImmutableList.of());
 
@@ -148,7 +149,6 @@ public class RSStructures {
     public static StructureFeature<DefaultFeatureConfig> WITCH_HUTS_GIANT_TREE_TAIGA = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "witch_huts/giant_tree_taiga_start_pool"), 11, 0, 0, 0, new HashSet<>(), ImmutableList.of(new SpawnSettings.SpawnEntry(EntityType.WITCH, 1, 1, 1)), ImmutableList.of(new SpawnSettings.SpawnEntry(EntityType.CAT, 1, 1, 1)));
 
     public static StructureFeature<DefaultFeatureConfig> BASTION_UNDERGROUND = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "bastions/underground/starts"), 7, 10, 5,  ImmutableSet.of(RSStructureTagMap.STRUCTURE_TAGS.BASTION_AVOID_STRUCTURE), ImmutableList.of(new SpawnSettings.SpawnEntry(EntityType.SKELETON, 1, 1, 4)), 12);
-    // regexpos1
 
     public static void registerStructures() {
 
@@ -222,6 +222,7 @@ public class RSStructures {
 
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "ruined_portal_end"), RUINED_PORTAL_END).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSMainConfig.ruinedPortals.ruinedPortalEndMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSMainConfig.ruinedPortals.ruinedPortalEndMaxChunkDistance * 0.5f), 532404086)).superflatFeature(RUINED_PORTAL_END.configure(FeatureConfig.DEFAULT)).register();
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "ruins_nether"), RUINS_NETHER).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSMainConfig.ruins.ruinsNetherMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSMainConfig.ruins.ruinsNetherMaxChunkDistance * 0.5f), 1336047555)).superflatFeature(RUINS_NETHER.configure(FeatureConfig.DEFAULT)).adjustsSurface().register();
+        // regexpos2
 
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "city_nether"), CITY_NETHER).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSMainConfig.cities.cityNetherMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSMainConfig.cities.cityNetherMaxChunkDistance * 0.5f), 2082652405)).superflatFeature(CITY_NETHER.configure(FeatureConfig.DEFAULT)).adjustsSurface().register();
 
@@ -240,7 +241,6 @@ public class RSStructures {
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "witch_hut_giant_tree_taiga"), WITCH_HUTS_GIANT_TREE_TAIGA).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSWitchHutsConfig.maxChunkDistance.witchHutsGiantTreeTaigaMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSWitchHutsConfig.maxChunkDistance.witchHutsGiantTreeTaigaMaxChunkDistance * 0.5f), 200289401)).superflatFeature(WITCH_HUTS_GIANT_TREE_TAIGA.configure(FeatureConfig.DEFAULT)).register();
 
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "bastion_underground"), BASTION_UNDERGROUND).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSBastionsConfig.maxChunkDistance.bastionUndergroundMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSBastionsConfig.maxChunkDistance.bastionUndergroundMaxChunkDistance * 0.5f), 1359301629)).superflatFeature(BASTION_UNDERGROUND.configure(FeatureConfig.DEFAULT)).register();
-        // regexpos2
 
         RS_STRUCTURES.putAll(StructuresConfig.DEFAULT_STRUCTURES);
         RS_STRUCTURES.keySet().removeIf(key -> key.getName() == null || !key.getName().contains(RepurposedStructures.MODID));

@@ -181,6 +181,11 @@ public class RSMainConfig implements ConfigData {
                 + "\nchunks and 1001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
         public int ruinsNetherMaxChunkDistance = 35;
+
+
+        // regexpos1
+
+        // regexpos2
     }
 
     public static class Cities {

@@ -15,5 +15,7 @@ public class Ruins {
                         && BiomeSelection.haveCategories(context, Category.NETHER)
                         && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSMainConfig.ruins.addRuinsNetherToModdedBiomes),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.RUINS_NETHER));
+
+        // regexpos1
     }
 }
