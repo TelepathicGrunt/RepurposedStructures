@@ -15,5 +15,7 @@ public class Ruins {
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.RUINS_NETHER);
         }
+
+        // regexpos1
     }
 }

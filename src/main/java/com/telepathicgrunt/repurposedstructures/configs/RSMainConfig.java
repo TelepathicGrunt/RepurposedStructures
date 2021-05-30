@@ -24,13 +24,13 @@ public class RSMainConfig {
 
         public ConfigValueListener<Integer> ruinsNetherMaxChunkDistance;
         public ConfigValueListener<Boolean> addRuinsNetherToModdedBiomes;
+        // regexpos1
 
         public ConfigValueListener<Integer> citiesNetherMaxChunkDistance;
         public ConfigValueListener<Boolean> addCitiesNetherToModdedBiomes;
 
         public ConfigValueListener<Integer> bastionUndergroundMaxChunkDistance;
         public ConfigValueListener<Boolean> addBastionUndergroundToModdedBiomes;
-        // regexpos1
 
         public ConfigValueListener<String> blacklistedDimensions;
         public ConfigValueListener<String> blacklistedFortressBiomes;
@@ -189,7 +189,6 @@ public class RSMainConfig {
                     .comment("\n Add Underground Bastions to modded non-ocean and non-beach Overworld biomes.")
                     .translation("repurposedstructures.config.pyramids.addbastionundergroundtomoddedbiomes")
                     .define("addBastionUndergroundToModdedBiomes", true));
-            // regexpos2
 
             builder.pop();
 
@@ -212,6 +211,7 @@ public class RSMainConfig {
                     .translation("repurposedstructures.config.ruins.addruinsnethertomoddedbiomes")
                     .define("addRuinsNetherToModdedBiomes", true));
 
+            // regexpos2
             builder.pop();
 
 

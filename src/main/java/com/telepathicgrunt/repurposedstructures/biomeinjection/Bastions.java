@@ -16,6 +16,5 @@ public class Bastions {
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.BASTION_UNDERGROUND);
         }
-        // regexpos1
     }
 }

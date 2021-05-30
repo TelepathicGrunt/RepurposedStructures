@@ -83,6 +83,8 @@ public class RSConfiguredStructures {
 
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> RUINED_PORTAL_END = RSStructures.RUINED_PORTAL_END.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> RUINS_NETHER = RSStructures.RUINS_NETHER.get().configured(IFeatureConfig.NONE);
+    // regexpos1
+
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> CITY_NETHER = RSStructures.CITY_NETHER.get().configured(IFeatureConfig.NONE);
 
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> MANSION_BIRCH = RSStructures.MANSION_BIRCH.get().configured(IFeatureConfig.NONE);
@@ -100,7 +102,6 @@ public class RSConfiguredStructures {
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> WITCH_HUTS_GIANT_TREE_TAIGA = RSStructures.WITCH_HUTS_GIANT_TREE_TAIGA.get().configured(IFeatureConfig.NONE);
 
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> BASTION_UNDERGROUND = RSStructures.BASTION_UNDERGROUND.get().configured(IFeatureConfig.NONE);
-    // regexpos1
 
     public static void registerStructureFeatures() {
         Registry<StructureFeature<?, ?>> registry = WorldGenRegistries.CONFIGURED_STRUCTURE_FEATURE;
@@ -176,6 +177,8 @@ public class RSConfiguredStructures {
 
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "ruined_portal_end"), RUINED_PORTAL_END);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "ruins_nether"), RUINS_NETHER);
+        // regexpos2
+
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "city_nether"), CITY_NETHER);
 
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "mansion_birch"), MANSION_BIRCH);
@@ -193,6 +196,5 @@ public class RSConfiguredStructures {
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "witch_hut_giant_tree_taiga"), WITCH_HUTS_GIANT_TREE_TAIGA);
 
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "bastion_underground"), BASTION_UNDERGROUND);
-        // regexpos2
     }
 }
