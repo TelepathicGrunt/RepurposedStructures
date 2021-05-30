@@ -181,7 +181,7 @@ public class RSStructures {
     public static final RegistryObject<Structure<NoFeatureConfig>> WITCH_HUTS_GIANT_TREE_TAIGA = addToStructureMaps("witch_hut_giant_tree_taiga", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "witch_huts/giant_tree_taiga_start_pool"), 11, 0, 0, 0, new HashSet<>(), ImmutableList.of(new MobSpawnInfo.Spawners(EntityType.WITCH, 1, 1, 1)), ImmutableList.of(new MobSpawnInfo.Spawners(EntityType.CAT, 1, 1, 1)))));
 
     // Bastions
-    public static final RegistryObject<Structure<NoFeatureConfig>> BASTION_UNDERGROUND = addToStructureMaps("bastion_underground", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "bastions/bastion_underground"), 7, 10, 5,  ImmutableSet.of(RSStructureTagMap.STRUCTURE_TAGS.BASTION_AVOID_STRUCTURE), ImmutableList.of(new MobSpawnInfo.Spawners(EntityType.SKELETON, 1, 1, 4)), 12)));
+    public static final RegistryObject<Structure<NoFeatureConfig>> BASTION_UNDERGROUND = addToStructureMaps("bastion_underground", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "bastions/underground/starts"), 7, 10, 5,  ImmutableSet.of(RSStructureTagMap.STRUCTURE_TAGS.BASTION_AVOID_STRUCTURE), ImmutableList.of(new MobSpawnInfo.Spawners(EntityType.SKELETON, 1, 1, 4)), 12)));
 
     // regexpos1
 
