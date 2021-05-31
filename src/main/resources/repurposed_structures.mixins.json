@@ -11,6 +11,7 @@
     "FallbackResourceManagerAccessor",
     "JigsawPatternAccessor",
     "LootContextAccessor",
+    "LessjungleBushInStructuresMixin",
     "NoLakesInStructuresMixin",
     "NoLavaFallsInStructuresMixin",
     "PillagerOutpostStructureAccessor",
