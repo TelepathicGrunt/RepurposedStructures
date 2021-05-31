@@ -67,6 +67,7 @@ public class StructureModdedLootImporter extends LootModifier {
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outpost/desert_chest"), new ResourceLocation("minecraft:chests/pillager_outpost"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outpost/giant_tree_taiga_chest"), new ResourceLocation("minecraft:chests/pillager_outpost"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outpost/icy_chest"), new ResourceLocation("minecraft:chests/pillager_outpost"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outpost/jungle_chest"), new ResourceLocation("minecraft:chests/pillager_outpost"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outpost/nether_brick_chest"), new ResourceLocation("minecraft:chests/pillager_outpost"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outpost/oak_chest"), new ResourceLocation("minecraft:chests/pillager_outpost"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outpost/snowy_chest"), new ResourceLocation("minecraft:chests/pillager_outpost"));
@@ -196,10 +197,11 @@ public class StructureModdedLootImporter extends LootModifier {
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outpost/desert_chest"), new ResourceLocation("endrem:external_chests/old"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramid/badlands_chest"), new ResourceLocation("endrem:external_chests/old"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshaft/desert"), new ResourceLocation("endrem:external_chests/old"));
+        
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshaft/icy"), new ResourceLocation("endrem:external_chests/cold"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outpost/icy_chest"), new ResourceLocation("endrem:external_chests/old"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramid/snowy_chest"), new ResourceLocation("endrem:external_chests/old"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outpost/snowy_chest"), new ResourceLocation("endrem:external_chests/old"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outpost/icy_chest"), new ResourceLocation("endrem:external_chests/cold"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramid/snowy_chest"), new ResourceLocation("endrem:external_chests/cold"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outpost/snowy_chest"), new ResourceLocation("endrem:external_chests/cold"));
 
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outpost/badlands_chest"), new ResourceLocation("endrem:external_chests/corrupted"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outpost/birch_chest"), new ResourceLocation("endrem:external_chests/corrupted"));

@@ -58,6 +58,8 @@
 
 • Fixed comments on the RS Outpost configs being on the wrong config entries.
 
+• Fixed Jungle Outpost not importing modded loot.
+
 ##### Pyramids:
 • Added Jungle, Ocean, Giant Tree Taiga, Flower Forest, and Mushroom Pyramids!
 
