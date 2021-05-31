@@ -9,6 +9,7 @@ import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.CountConfig;
 import net.minecraft.world.gen.decorator.Decorator;
+import net.minecraft.world.gen.decorator.NopeDecoratorConfig;
 import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placer.SimpleBlockPlacer;
@@ -231,6 +232,18 @@ public class RSConfiguredFeatures {
     public static ConfiguredFeature<?, ?> FLOWER_FOREST_PYRAMID_STRUCTURE_GRASS = RSFeatures.STRUCTURE_GRASS.configure(new StructureTargetAndRangeConfig(RSStructures.PYRAMID_FLOWER_FOREST, 24, 3));
     public static ConfiguredFeature<?, ?> FLOWER_FOREST_PYRAMID_STRUCTURE_FLOWERS = RSFeatures.STRUCTURE_FLOWERS.configure(new StructureTargetAndRangeConfig(RSStructures.PYRAMID_FLOWER_FOREST, 8, 3));
 
+    public static ConfiguredFeature<?, ?> WARM_LAND_RUINS_STRUCTURE_GRASS = Feature.RANDOM_PATCH
+            .configure(ConfiguredFeatures.Configs.TALL_GRASS_CONFIG)
+                .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP)
+                .decorate(RSPlacements.RS_MINUS_EIGHT_PLACEMENT.configure(NopeDecoratorConfig.DEFAULT))
+                .repeat(1);
+
+    public static ConfiguredFeature<?, ?> HOT_LAND_RUINS_STRUCTURE_DEAD_BUSH = Feature.RANDOM_PATCH
+            .configure(ConfiguredFeatures.Configs.DEAD_BUSH_CONFIG)
+                .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP)
+                .decorate(RSPlacements.RS_MINUS_EIGHT_PLACEMENT.configure(NopeDecoratorConfig.DEFAULT))
+                .repeat(8);
+
     public static void registerConfiguredFeatures() {
         Registry<ConfiguredFeature<?, ?>> registry = BuiltinRegistries.CONFIGURED_FEATURE;
         RS_DUNGEONS.add(Registry.register(registry, new Identifier(RepurposedStructures.MODID, "dungeons_badlands"), BADLANDS_DUNGEONS));
@@ -304,5 +317,7 @@ public class RSConfiguredFeatures {
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "ocean_pyramid_structure_plants"), OCEAN_PYRAMID_STRUCTURE_PLANTS);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "flower_forest_pyramid_structure_grass"), FLOWER_FOREST_PYRAMID_STRUCTURE_GRASS);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "flower_forest_pyramid_structure_flowers"), FLOWER_FOREST_PYRAMID_STRUCTURE_FLOWERS);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "warm_land_ruins_structure_grass"), WARM_LAND_RUINS_STRUCTURE_GRASS);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "hot_land_ruins_structure_dead_bush"), HOT_LAND_RUINS_STRUCTURE_DEAD_BUSH);
     }
 }

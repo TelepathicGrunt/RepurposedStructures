@@ -1,0 +1,28 @@
+{
+  "parent": "repurposed_structures:ruins",
+  "display": {
+    "icon": {
+      "item": "minecraft:magma_block"
+    },
+    "title": {
+      "text": "Ruined buildings weathering the harsh desert..."
+    },
+    "description": {
+      "text": "Enter a Hot Land Ruins"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 20
+  },
+  "criteria": {
+    "in_ruins_land_hot": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "in_ruins_land_hot"
+    ]
+  ]
+}

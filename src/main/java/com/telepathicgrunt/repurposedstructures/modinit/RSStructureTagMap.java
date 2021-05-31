@@ -42,7 +42,8 @@ public class RSStructureTagMap {
         APPEND_WITH_NATURAL_MOBS,
 
         // Other
-        NO_LAKES
+        NO_LAKES,
+        NO_LAVAFALLS
     }
 
     public static final Map<StructureFeature<?>, Set<STRUCTURE_TAGS>> TAGGED_STRUCTURES = new HashMap<>();
@@ -56,7 +57,7 @@ public class RSStructureTagMap {
         addTags(RSStructures.SAVANNA_MINESHAFT, Stream.of(STRUCTURE_TAGS.MINESHAFT).collect(Collectors.toSet()));
         addTags(RSStructures.OCEAN_MINESHAFT, Stream.of(STRUCTURE_TAGS.MINESHAFT).collect(Collectors.toSet()));
         addTags(RSStructures.JUNGLE_MINESHAFT, Stream.of(STRUCTURE_TAGS.MINESHAFT).collect(Collectors.toSet()));
-        addTags(RSStructures.ICY_MINESHAFT, Stream.of(STRUCTURE_TAGS.MINESHAFT).collect(Collectors.toSet()));
+        addTags(RSStructures.ICY_MINESHAFT, Stream.of(STRUCTURE_TAGS.MINESHAFT, STRUCTURE_TAGS.NO_LAVAFALLS).collect(Collectors.toSet()));
         addTags(RSStructures.DESERT_MINESHAFT, Stream.of(STRUCTURE_TAGS.MINESHAFT).collect(Collectors.toSet()));
         addTags(RSStructures.STONE_MINESHAFT, Stream.of(STRUCTURE_TAGS.MINESHAFT).collect(Collectors.toSet()));
         addTags(RSStructures.DARK_FOREST_MINESHAFT, Stream.of(STRUCTURE_TAGS.MINESHAFT).collect(Collectors.toSet()));
@@ -122,6 +123,9 @@ public class RSStructureTagMap {
         addTags(RSStructures.JUNGLE_FORTRESS, Stream.of(STRUCTURE_TAGS.APPEND_WITH_NATURAL_MOBS, STRUCTURE_TAGS.FORTRESS).collect(Collectors.toSet()));
         addTags(RSStructures.RUINED_PORTAL_END, Stream.of(STRUCTURE_TAGS.RUINED_PORTAL).collect(Collectors.toSet()));
         addTags(RSStructures.RUINS_NETHER, Stream.of(STRUCTURE_TAGS.RUINS).collect(Collectors.toSet()));
+        addTags(RSStructures.RUINS_LAND_WARM, Stream.of(STRUCTURE_TAGS.RUINS, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
+        addTags(RSStructures.RUINS_LAND_HOT, Stream.of(STRUCTURE_TAGS.RUINS, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
+
         addTags(RSStructures.CITY_NETHER, Stream.of(STRUCTURE_TAGS.REPLACE_NATURAL_MOBS, STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
 
         addTags(RSStructures.MANSION_BIRCH, Stream.of(STRUCTURE_TAGS.MANSION, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
@@ -138,14 +142,13 @@ public class RSStructureTagMap {
         addTags(RSStructures.WITCH_HUTS_DARK_FOREST, Stream.of(STRUCTURE_TAGS.WITCH_HUTS, STRUCTURE_TAGS.NO_LAKES, STRUCTURE_TAGS.REPLACE_NATURAL_MOBS).collect(Collectors.toSet()));
         addTags(RSStructures.WITCH_HUTS_GIANT_TREE_TAIGA, Stream.of(STRUCTURE_TAGS.WITCH_HUTS, STRUCTURE_TAGS.NO_LAKES, STRUCTURE_TAGS.REPLACE_NATURAL_MOBS).collect(Collectors.toSet()));
 
-        addTags(RSStructures.BASTION_UNDERGROUND, Stream.of(STRUCTURE_TAGS.BASTION, STRUCTURE_TAGS.REPLACE_NATURAL_MOBS).collect(Collectors.toSet()));
+        addTags(RSStructures.BASTION_UNDERGROUND, Stream.of(STRUCTURE_TAGS.BASTION, STRUCTURE_TAGS.REPLACE_NATURAL_MOBS, STRUCTURE_TAGS.NO_LAVAFALLS, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
 
         addTags(StructureFeature.FORTRESS, Stream.of(STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
         addTags(StructureFeature.BASTION_REMNANT, Stream.of(STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
         addTags(StructureFeature.VILLAGE, Stream.of(STRUCTURE_TAGS.VILLAGE, STRUCTURE_TAGS.BASTION_AVOID_STRUCTURE).collect(Collectors.toSet()));
         addTags(StructureFeature.STRONGHOLD, Stream.of(STRUCTURE_TAGS.BASTION_AVOID_STRUCTURE).collect(Collectors.toSet()));
         addTags(StructureFeature.END_CITY, Stream.of(STRUCTURE_TAGS.END_AVOID_STRUCTURE).collect(Collectors.toSet()));
-
         // regexpos1
     }
 

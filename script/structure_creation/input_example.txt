@@ -1,22 +1,22 @@
-bastion_underground
+ruins_land_warm
 11
-bastions/bastion_underground
+ruins/land_warm
 0
 0
 exit
 surface_structures
-RSBastionsConfig
-pyramids
-Add Underground Bastions to modded non-ocean Overworld biomes.
-How rare are Underground Bastions in non-ocean Overworld biomes. 1 for spawning in most chunks and 1001 for none. 
-135
-n
-BASTION
+RSRuinsConfig
+ruins
+Add Warm Land Ruins to modded Plains, Forests, and non-snowy Taiga biomes.
+How rare are Warm Land Ruins in Plains, Forests, and non-snowy Taiga biomes. 1 for spawning in most chunks and 1001 for none. 
+48
+y
+RUIN
 exit
-Bastions, Evil, and Bones... 
-Enter a Underground Bastion
-minecraft:bone
-100
+There's always history in ruins. Even on land...
+Enter a Warm Land Ruins
+minecraft:wheat
+20
 y
 C:\Users\MSI Laptop\Documents\ModdingWorkspace\RepurposedStructures-Fabric\src
 C:\Users\MSI Laptop\Documents\ModdingWorkspace\RepurposedStructures\src

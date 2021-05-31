@@ -1,14 +1,17 @@
 package com.telepathicgrunt.repurposedstructures.mixin;
 
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import net.minecraft.tag.FluidTags;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.ChunkSectionPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.SpringFeature;
 import net.minecraft.world.gen.feature.SpringFeatureConfig;
+import net.minecraft.world.gen.feature.StructureFeature;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -29,9 +32,14 @@ public class NoLavaFallsInStructuresMixin {
     private void rs_noLava(StructureWorldAccess structureWorldAccess, ChunkGenerator chunkGenerator, Random random, BlockPos blockPos, SpringFeatureConfig springFeatureConfig, CallbackInfoReturnable<Boolean> cir) {
         if(springFeatureConfig.state.isIn(FluidTags.LAVA)) {
             BlockPos.Mutable mutable = new BlockPos.Mutable();
+            ChunkSectionPos chunkPos;
             for(Direction face : Direction.Type.HORIZONTAL){
-                if(structureWorldAccess.getStructures(ChunkSectionPos.from(mutable.set(blockPos).move(face)), RSStructures.ICY_MINESHAFT).findAny().isPresent()){
-                    cir.setReturnValue(false);
+                mutable.set(blockPos).move(face);
+                chunkPos = ChunkSectionPos.from(mutable);
+                for (StructureFeature<?> structure : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NO_LAVAFALLS)) {
+                    if (structureWorldAccess.getStructures(chunkPos, structure).findAny().isPresent()) {
+                        cir.setReturnValue(false);
+                    }
                 }
             }
         }

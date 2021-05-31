@@ -1,0 +1,42 @@
+{
+  "name": "repurposed_structures:ruins/land_hot/start_pool",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:ruins/land_hot/big_sandstone_1",
+        "processors": "repurposed_structures:ruin/land_hot_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:ruins/land_hot/big_sandstone_2",
+        "processors": "repurposed_structures:ruin/land_hot_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:ruins/land_hot/big_sandstone_3",
+        "processors": "repurposed_structures:ruin/land_hot_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:ruins/land_hot/big_sandstone_4",
+        "processors": "repurposed_structures:ruin/land_hot_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

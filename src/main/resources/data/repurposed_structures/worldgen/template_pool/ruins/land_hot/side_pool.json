@@ -1,0 +1,114 @@
+{
+  "name": "repurposed_structures:ruins/land_hot/side_pool",
+  "fallback": "repurposed_structures:ruins/land_hot/dead_bush",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:ruins/land_hot/big_sandstone_1",
+        "processors": "repurposed_structures:ruin/land_hot_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:ruins/land_hot/big_sandstone_2",
+        "processors": "repurposed_structures:ruin/land_hot_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:ruins/land_hot/big_sandstone_3",
+        "processors": "repurposed_structures:ruin/land_hot_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:ruins/land_hot/big_sandstone_4",
+        "processors": "repurposed_structures:ruin/land_hot_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:ruins/land_hot/small_sandstone_1",
+        "processors": "repurposed_structures:ruin/land_hot_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:ruins/land_hot/small_sandstone_2",
+        "processors": "repurposed_structures:ruin/land_hot_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:ruins/land_hot/small_sandstone_3",
+        "processors": "repurposed_structures:ruin/land_hot_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:ruins/land_hot/small_sandstone_4",
+        "processors": "repurposed_structures:ruin/land_hot_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:ruins/land_hot/small_sandstone_5",
+        "processors": "repurposed_structures:ruin/land_hot_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:ruins/land_hot/small_sandstone_6",
+        "processors": "repurposed_structures:ruin/land_hot_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:ruins/land_hot/small_sandstone_7",
+        "processors": "repurposed_structures:ruin/land_hot_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:ruins/land_hot/small_sandstone_8",
+        "processors": "repurposed_structures:ruin/land_hot_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

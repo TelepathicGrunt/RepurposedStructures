@@ -3,6 +3,9 @@
 ##### Bastions:
 • Added rare Underground Bastions in the Overworld! Fight through many powerful Skeletons and loot all the Redstone!
 
+##### Ruins:
+• Added land Ruins to Overworld! They come in a stonebrick and sandstone variant. If you are lucky, you may find a map to an Underground Bastion!
+
 ##### Mineshafts:
 • All of RS's Mineshafts are now Jigsaw Structures so you can use datapacks to add new nbt pieces to it or customize it even more!
 
