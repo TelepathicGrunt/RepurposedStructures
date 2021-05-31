@@ -23,7 +23,7 @@ public class TemplateManagerMixin {
 	private Map<ResourceLocation, Template> structureRepository;
 
 	@Inject(method = "<init>", at = @At(value = "RETURN"))
-	private void rs_init(CallbackInfo info) {
+	private void repurposedstructures_init(CallbackInfo info) {
 		structureRepository = Collections.synchronizedMap(structureRepository);
 	}
 }

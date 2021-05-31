@@ -8,5 +8,5 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 @Mixin(ChunkGenerator.class)
 public interface ChunkGeneratorAccessor {
     @Invoker("codec")
-    Codec<ChunkGenerator> rs_getCodec();
+    Codec<ChunkGenerator> repurposedstructures_getCodec();
 }

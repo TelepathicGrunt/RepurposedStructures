@@ -10,5 +10,5 @@ import java.util.List;
 public interface TemplateAccessor {
 
     @Accessor("palettes")
-    List<Template.Palette> rs_getBlocks();
+    List<Template.Palette> repurposedstructures_getBlocks();
 }

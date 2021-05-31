@@ -10,5 +10,5 @@ import java.util.Map;
 @Mixin(SimpleReloadableResourceManager.class)
 public interface SimpleReloadableResourceManagerAccessor {
     @Accessor("namespacedPacks")
-    Map<String, FallbackResourceManager> rs_getFallbackResourceManager();
+    Map<String, FallbackResourceManager> repurposedstructures_getFallbackResourceManager();
 }

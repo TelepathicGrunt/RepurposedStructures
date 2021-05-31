@@ -31,7 +31,7 @@ public class StructureMobSpawningMixin {
             at = @At(value = "HEAD"),
             cancellable = true
     )
-    private void rs_structureMobs(Biome biome, StructureManager accessor, EntityClassification group, BlockPos pos, CallbackInfoReturnable<List<MobSpawnInfo.Spawners>> cir) {
+    private void repurposedstructures_structureMobs(Biome biome, StructureManager accessor, EntityClassification group, BlockPos pos, CallbackInfoReturnable<List<MobSpawnInfo.Spawners>> cir) {
         List<MobSpawnInfo.Spawners> list = StructureMobSpawning.getStructureSpawns(biome, accessor, group, pos);
         if(list != null) cir.setReturnValue(list);
     }

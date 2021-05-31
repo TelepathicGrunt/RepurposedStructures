@@ -142,7 +142,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
             placementsettings.clearProcessors();
             Optional<StructureProcessorList> postProcessor = world.getLevel().getServer().registryAccess().registryOrThrow(Registry.PROCESSOR_LIST_REGISTRY).getOptional(config.postProcessor);
             postProcessor.orElse(ProcessorLists.EMPTY).list().forEach(placementsettings::addProcessor); // add all post processors
-            List<Template.BlockInfo> list = placementsettings.getRandomPalette(((TemplateAccessor)template).rs_getBlocks(), mutable).blocks();
+            List<Template.BlockInfo> list = placementsettings.getRandomPalette(((TemplateAccessor)template).repurposedstructures_getBlocks(), mutable).blocks();
             Template.processBlockInfos(world, mutable, mutable, placementsettings, list);
 
             spawnLootBlocks(world, random, position, config, fullLengths, halfLengthsRotated, mutable);

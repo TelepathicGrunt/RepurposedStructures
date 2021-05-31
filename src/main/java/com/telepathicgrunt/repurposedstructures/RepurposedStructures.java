@@ -172,7 +172,7 @@ public class RepurposedStructures {
 
             // Workaround for Terraforged. Not thrilled they take control over my structure's configs but nothing I can do about that without breaking structure gen/locating or ASM into Terraforged.
             // They took the stance of locking down their ChunkGenerator and breaking mods that modifies the structure configs in it due to a perceived idea that malicious mods exist to mess with other structure's spacings... Dont ask me. I dont even know anymore.
-            ResourceLocation cgRL = Registry.CHUNK_GENERATOR.getKey(((ChunkGeneratorAccessor) serverWorld.getChunkSource().generator).rs_getCodec());
+            ResourceLocation cgRL = Registry.CHUNK_GENERATOR.getKey(((ChunkGeneratorAccessor) serverWorld.getChunkSource().generator).repurposedstructures_getCodec());
             if (cgRL != null && cgRL.getNamespace().equals("terraforged")) return;
 
 

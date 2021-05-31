@@ -26,12 +26,13 @@ public class NoLavaFallsInStructuresMixin {
             at = @At(value = "HEAD"),
             cancellable = true
     )
-    private void rs_noLava(ISeedReader structureWorldAccess, ChunkGenerator chunkGenerator, Random random, BlockPos blockPos, LiquidsConfig springFeatureConfig, CallbackInfoReturnable<Boolean> cir) {
+    private void repurposedstructures_noLava(ISeedReader structureWorldAccess, ChunkGenerator chunkGenerator, Random random, BlockPos blockPos, LiquidsConfig springFeatureConfig, CallbackInfoReturnable<Boolean> cir) {
         if(springFeatureConfig.state.is(FluidTags.LAVA)) {
             BlockPos.Mutable mutable = new BlockPos.Mutable();
             SectionPos sectionPos;
             for(Direction face : Direction.Plane.HORIZONTAL){
-                sectionPos = SectionPos.of(blockPos);
+                mutable.set(blockPos).move(face);
+                sectionPos = SectionPos.of(mutable);
                 for (Structure<?> structure : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NO_LAVAFALLS)) {
                     if (structureWorldAccess.startsForFeature(sectionPos, structure).findAny().isPresent()) {
                         cir.setReturnValue(false);

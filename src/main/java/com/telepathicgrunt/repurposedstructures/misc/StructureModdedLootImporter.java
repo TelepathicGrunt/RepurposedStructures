@@ -174,7 +174,7 @@ public class StructureModdedLootImporter extends LootModifier {
 
     private static LootContext copyLootContextWithNewQueryID(LootContext oldLootContext, ResourceLocation newQueryID){
         LootContext newContext = new LootContext.Builder(oldLootContext).create(LootParameterSets.CHEST);
-        ((LootContextAccessor)newContext).rs_setQueriedLootTableId(newQueryID); // The normal method won't set it as the newContext already has queriedID.
+        ((LootContextAccessor)newContext).repurposedstructures_setQueriedLootTableId(newQueryID); // The normal method won't set it as the newContext already has queriedID.
         return newContext;
     }
 
@@ -197,7 +197,7 @@ public class StructureModdedLootImporter extends LootModifier {
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outpost/desert_chest"), new ResourceLocation("endrem:external_chests/old"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramid/badlands_chest"), new ResourceLocation("endrem:external_chests/old"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshaft/desert"), new ResourceLocation("endrem:external_chests/old"));
-        
+
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshaft/icy"), new ResourceLocation("endrem:external_chests/cold"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outpost/icy_chest"), new ResourceLocation("endrem:external_chests/cold"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramid/snowy_chest"), new ResourceLocation("endrem:external_chests/cold"));

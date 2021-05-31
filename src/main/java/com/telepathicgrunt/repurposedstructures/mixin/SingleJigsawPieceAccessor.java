@@ -10,5 +10,5 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 @Mixin(SingleJigsawPiece.class)
 public interface SingleJigsawPieceAccessor {
     @Accessor("template")
-    Either<ResourceLocation, Template> rs_getTemplate();
+    Either<ResourceLocation, Template> repurposedstructures_getTemplate();
 }

@@ -14,8 +14,8 @@ import java.util.List;
 @Mixin(FallbackResourceManager.class)
 public interface FallbackResourceManagerAccessor {
     @Accessor("fallbacks")
-    List<IResourcePack> rs_getPackList();
+    List<IResourcePack> repurposedstructures_getPackList();
 
     @Invoker("getWrappedResource")
-    InputStream rs_callGetWrappedResource(ResourceLocation id, IResourcePack pack) throws IOException;
+    InputStream repurposedstructures_callGetWrappedResource(ResourceLocation id, IResourcePack pack) throws IOException;
 }

@@ -7,6 +7,6 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 
 @Mixin(LootContext.class)
 public interface LootContextAccessor {
-    @Accessor("queriedLootTableId")
-    void rs_setQueriedLootTableId(ResourceLocation queriedLootTableId);
+    @Accessor(value = "queriedLootTableId", remap = false)
+    void repurposedstructures_setQueriedLootTableId(ResourceLocation queriedLootTableId);
 }

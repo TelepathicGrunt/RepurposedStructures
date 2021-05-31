@@ -12,16 +12,16 @@ import java.util.List;
 @Mixin(JigsawPattern.class)
 public interface JigsawPatternAccessor {
     @Accessor("rawTemplates")
-    List<Pair<JigsawPiece, Integer>> rs_getRawTemplates();
+    List<Pair<JigsawPiece, Integer>> repurposedstructures_getRawTemplates();
 
     @Mutable
     @Accessor("rawTemplates")
-    void rs_setRawTemplates(List<Pair<JigsawPiece, Integer>> elementCounts);
+    void repurposedstructures_setRawTemplates(List<Pair<JigsawPiece, Integer>> elementCounts);
 
     @Accessor("templates")
-    List<JigsawPiece> rs_getTemplates();
+    List<JigsawPiece> repurposedstructures_getTemplates();
 
     @Mutable
     @Accessor("templates")
-    void rs_setTemplates(List<JigsawPiece> elements);
+    void repurposedstructures_setTemplates(List<JigsawPiece> elements);
 }

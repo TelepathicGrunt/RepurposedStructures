@@ -43,7 +43,7 @@ public class PoolAdditionMerger {
      * Register this at mod init so we can subscribe our pool merging to run at server startup as that's when the dynamic registry exists.
      */
     public static void mergeAdditionPools(final FMLServerAboutToStartEvent event) {
-        IResourceManager resourceManager = ((TemplateManagerAccessor) event.getServer().getStructureManager()).rs_getResourceManager();
+        IResourceManager resourceManager = ((TemplateManagerAccessor) event.getServer().getStructureManager()).repurposedstructures_getResourceManager();
         Map<ResourceLocation, List<JsonElement>> poolAdditionJSON = getPoolAdditionJSON(resourceManager);
         parsePoolsAndBeginMerger(poolAdditionJSON, event.getServer().registryAccess());
     }
@@ -110,13 +110,13 @@ public class PoolAdditionMerger {
     private static List<InputStream> getAllFileStreams(IResourceManager resourceManager, ResourceLocation fileID) throws IOException {
         List<InputStream> fileStreams = new ArrayList<>();
 
-        FallbackResourceManager namespaceResourceManager = ((SimpleReloadableResourceManagerAccessor) resourceManager).rs_getFallbackResourceManager().get(fileID.getNamespace());
-        List<IResourcePack> allResourcePacks = ((FallbackResourceManagerAccessor) namespaceResourceManager).rs_getPackList();
+        FallbackResourceManager namespaceResourceManager = ((SimpleReloadableResourceManagerAccessor) resourceManager).repurposedstructures_getFallbackResourceManager().get(fileID.getNamespace());
+        List<IResourcePack> allResourcePacks = ((FallbackResourceManagerAccessor) namespaceResourceManager).repurposedstructures_getPackList();
 
         // Find the file with the given id and add its filestream to the list
         for (IResourcePack resourcePack : allResourcePacks) {
             if (resourcePack.hasResource(ResourcePackType.SERVER_DATA, fileID)) {
-                InputStream inputStream = ((FallbackResourceManagerAccessor) namespaceResourceManager).rs_callGetWrappedResource(fileID, resourcePack);
+                InputStream inputStream = ((FallbackResourceManagerAccessor) namespaceResourceManager).repurposedstructures_callGetWrappedResource(fileID, resourcePack);
                 if (inputStream != null) fileStreams.add(inputStream);
             }
         }
@@ -152,14 +152,14 @@ public class PoolAdditionMerger {
      */
     private static void mergeIntoExistingPool(JigsawPattern feedingPool, JigsawPattern gluttonyPool) {
         // Make new copies of lists as the originals are immutable lists and we want to make sure our changes only stays with this pool element
-        List<JigsawPiece> elements = new ArrayList<>(((JigsawPatternAccessor) gluttonyPool).rs_getTemplates());
-        List<Pair<JigsawPiece, Integer>> elementCounts = new ArrayList<>(((JigsawPatternAccessor) gluttonyPool).rs_getRawTemplates());
+        List<JigsawPiece> elements = new ArrayList<>(((JigsawPatternAccessor) gluttonyPool).repurposedstructures_getTemplates());
+        List<Pair<JigsawPiece, Integer>> elementCounts = new ArrayList<>(((JigsawPatternAccessor) gluttonyPool).repurposedstructures_getRawTemplates());
 
-        elements.addAll(((JigsawPatternAccessor) feedingPool).rs_getTemplates());
-        elementCounts.addAll(((JigsawPatternAccessor) feedingPool).rs_getRawTemplates());
+        elements.addAll(((JigsawPatternAccessor) feedingPool).repurposedstructures_getTemplates());
+        elementCounts.addAll(((JigsawPatternAccessor) feedingPool).repurposedstructures_getRawTemplates());
 
-        ((JigsawPatternAccessor) gluttonyPool).rs_setTemplates(elements);
-        ((JigsawPatternAccessor) gluttonyPool).rs_setRawTemplates(elementCounts);
+        ((JigsawPatternAccessor) gluttonyPool).repurposedstructures_setTemplates(elements);
+        ((JigsawPatternAccessor) gluttonyPool).repurposedstructures_setRawTemplates(elementCounts);
     }
 
     /**
