@@ -236,7 +236,7 @@ public class RSConfiguredFeatures {
             .configure(ConfiguredFeatures.Configs.TALL_GRASS_CONFIG)
                 .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP)
                 .decorate(RSPlacements.RS_MINUS_EIGHT_PLACEMENT.configure(NopeDecoratorConfig.DEFAULT))
-                .repeat(1);
+                .repeat(2);
 
     public static ConfiguredFeature<?, ?> HOT_LAND_RUINS_STRUCTURE_DEAD_BUSH = Feature.RANDOM_PATCH
             .configure(ConfiguredFeatures.Configs.DEAD_BUSH_CONFIG)
