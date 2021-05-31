@@ -288,11 +288,6 @@ public class RSStructures {
         RSStructurePieces.registerStructurePieces();
     }
 
-    public static <C extends IFeatureConfig, F extends Structure<C>> void addToTerraformingAndStructureMaps(ResourceLocation resourceLocation, F structure, GenerationStage.Decoration stage, StructureSeparationSettings StructureSeparationSettings, C config) {
-        Structure.NOISE_AFFECTING_FEATURES = ImmutableList.<Structure<?>>builder().addAll(Structure.NOISE_AFFECTING_FEATURES).add(structure).build();
-        addToStructureMaps(resourceLocation, structure, stage, StructureSeparationSettings, config);
-    }
-
     public static <F extends Structure<NoFeatureConfig>> void addToTerraformingAndStructureMaps(ResourceLocation resourceLocation, F structure, GenerationStage.Decoration stage, StructureSeparationSettings StructureSeparationSettings) {
         Structure.NOISE_AFFECTING_FEATURES = ImmutableList.<Structure<?>>builder().addAll(Structure.NOISE_AFFECTING_FEATURES).add(structure).build();
         addToStructureMaps(resourceLocation, structure, stage, StructureSeparationSettings);
