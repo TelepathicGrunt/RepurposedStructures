@@ -1,0 +1,187 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": {
+        "min": 2.0,
+        "max": 8.0,
+        "type": "minecraft:uniform"
+      },
+      "entries": [
+        {
+          "name": "minecraft:coal",
+          "type": "minecraft:item",
+          "weight": 12,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 2.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ]
+        },
+        {
+          "name": "minecraft:iron_nugget",
+          "type": "minecraft:item",
+          "weight": 12
+        },
+        {
+          "name": "minecraft:bread",
+          "type": "minecraft:item",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 2.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ]
+        },
+        {
+          "name": "minecraft:stone_hoe",
+          "type": "minecraft:item",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.1,
+                "max": 0.9
+              }
+            }
+          ]
+        },
+        {
+          "name": "minecraft:wheat",
+          "type": "minecraft:item",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 5.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ]
+        },
+        {
+          "name": "minecraft:apple",
+          "type": "minecraft:item",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 2.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:emerald",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "name": "minecraft:fishing_rod",
+          "type": "minecraft:item",
+          "weight": 8
+        },
+        {
+          "name": "minecraft:stone_hoe",
+          "type": "minecraft:item",
+          "weight": 8
+        },
+        {
+          "name": "minecraft:leather_helmet",
+          "type": "minecraft:item",
+          "weight": 2
+        },
+        {
+          "name": "minecraft:leather_chestplate",
+          "type": "minecraft:item",
+          "weight": 2
+        },
+        {
+          "name": "minecraft:leather_leggings",
+          "type": "minecraft:item",
+          "weight": 2
+        },
+        {
+          "name": "minecraft:leather_boots",
+          "type": "minecraft:item",
+          "weight": 2
+        },
+        {
+          "name": "minecraft:saddle",
+          "type": "minecraft:item",
+          "weight": 2
+        },
+        {
+          "name": "minecraft:bucket",
+          "type": "minecraft:item",
+          "weight": 2
+        },
+        {
+          "name": "minecraft:shears",
+          "type": "minecraft:item",
+          "weight": 2
+        },
+        {
+          "name": "minecraft:book",
+          "type": "minecraft:item",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 3.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ]
+        },
+        {
+          "name": "minecraft:fishing_rod",
+          "type": "minecraft:item",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:enchant_randomly"
+            }
+          ]
+        },
+        {
+          "name": "minecraft:map",
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:exploration_map",
+              "destination": "repurposed_structures:bastion_underground",
+              "decoration": "banner_gray",
+              "zoom": 4,
+              "skip_existing_chunks": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

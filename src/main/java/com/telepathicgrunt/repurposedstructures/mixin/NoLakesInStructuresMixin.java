@@ -25,9 +25,9 @@ public class NoLakesInStructuresMixin {
             cancellable = true
     )
     private void rs_checkForRSVillages(ISeedReader serverWorldAccess, ChunkGenerator chunkGenerator, Random random, BlockPos blockPos, BlockStateFeatureConfig singleStateFeatureConfig, CallbackInfoReturnable<Boolean> cir) {
-
+        SectionPos sectionPos = SectionPos.of(blockPos);
         for (Structure<?> structure : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NO_LAKES)) {
-            if (serverWorldAccess.startsForFeature(SectionPos.of(blockPos), structure).findAny().isPresent()) {
+            if (serverWorldAccess.startsForFeature(sectionPos, structure).findAny().isPresent()) {
                 cir.setReturnValue(false);
                 break;
             }

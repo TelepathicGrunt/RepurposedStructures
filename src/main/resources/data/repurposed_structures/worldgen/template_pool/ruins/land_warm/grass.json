@@ -1,0 +1,20 @@
+{
+  "name": "repurposed_structures:ruins/land_warm/grass",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 2,
+      "element": {
+        "feature": "repurposed_structures:warm_land_ruins_structure_grass",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      }
+    }
+  ]
+}

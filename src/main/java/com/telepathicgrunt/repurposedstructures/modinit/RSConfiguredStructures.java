@@ -83,6 +83,8 @@ public class RSConfiguredStructures {
 
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> RUINED_PORTAL_END = RSStructures.RUINED_PORTAL_END.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> RUINS_NETHER = RSStructures.RUINS_NETHER.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> RUINS_LAND_WARM = RSStructures.RUINS_LAND_WARM.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> RUINS_LAND_HOT = RSStructures.RUINS_LAND_HOT.get().configured(IFeatureConfig.NONE);
     // regexpos1
 
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> CITY_NETHER = RSStructures.CITY_NETHER.get().configured(IFeatureConfig.NONE);
@@ -177,6 +179,8 @@ public class RSConfiguredStructures {
 
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "ruined_portal_end"), RUINED_PORTAL_END);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "ruins_nether"), RUINS_NETHER);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "ruins_land_warm"), RUINS_LAND_WARM);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "ruins_land_hot"), RUINS_LAND_HOT);
         // regexpos2
 
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "city_nether"), CITY_NETHER);

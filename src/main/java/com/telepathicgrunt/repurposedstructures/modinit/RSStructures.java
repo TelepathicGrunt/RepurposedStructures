@@ -160,6 +160,8 @@ public class RSStructures {
 
     //Ruins
     public static final RegistryObject<Structure<NoFeatureConfig>> RUINS_NETHER = addToStructureMaps("ruins_nether", () -> (new GenericNetherJigsawHighStructure(new ResourceLocation(RepurposedStructures.MODID, "ruins/nether/start_pool"), 1, -4, -1)));
+    public static final RegistryObject<Structure<NoFeatureConfig>> RUINS_LAND_WARM = addToStructureMaps("ruins_land_warm", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "ruins/land_warm/start_pool"), 2, 0, 0, 0, new HashSet<>())));
+    public static final RegistryObject<Structure<NoFeatureConfig>> RUINS_LAND_HOT = addToStructureMaps("ruins_land_hot", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "ruins/land_hot/start_pool"), 2, 0, 0, 0, new HashSet<>())));
     // regexpos1
 
     //Cities
@@ -260,6 +262,8 @@ public class RSStructures {
 
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "ruined_portal_end"), RUINED_PORTAL_END.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMainConfig.ruinedPortalEndMaxChunkDistance.get(), (int) (RepurposedStructures.RSMainConfig.ruinedPortalEndMaxChunkDistance.get() * 0.5f), 532404086));
         addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "ruins_nether"), RUINS_NETHER.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMainConfig.ruinsNetherMaxChunkDistance.get(), (int) (RepurposedStructures.RSMainConfig.ruinsNetherMaxChunkDistance.get() * 0.5f), 1336047555));
+        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "ruins_land_warm"), RUINS_LAND_WARM.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMainConfig.ruinsLandWarmMaxChunkDistance.get(), (int) (RepurposedStructures.RSMainConfig.ruinsLandWarmMaxChunkDistance.get() * 0.25f), 18646107));
+        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "ruins_land_hot"), RUINS_LAND_HOT.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMainConfig.ruinsLandHotMaxChunkDistance.get(), (int) (RepurposedStructures.RSMainConfig.ruinsLandHotMaxChunkDistance.get() * 0.25f), 1243670027));
         // regexpos2
 
         addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "city_nether"), CITY_NETHER.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMainConfig.citiesNetherMaxChunkDistance.get(), (int) (RepurposedStructures.RSMainConfig.citiesNetherMaxChunkDistance.get() * 0.5f), 2082652405));

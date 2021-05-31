@@ -55,6 +55,10 @@ public class RSTemplesConfig
 		public ConfigValueListener<Boolean> addPyramidFlowerForestToModdedBiomes;
 		public ConfigValueListener<Integer> bastionUndergroundMaxChunkDistance;
 		public ConfigValueListener<Boolean> addBastionUndergroundToModdedBiomes;
+		public ConfigValueListener<Integer> ruinsLandWarmMaxChunkDistance;
+		public ConfigValueListener<Boolean> addRuinsLandWarmToModdedBiomes;
+		public ConfigValueListener<Integer> ruinsLandHotMaxChunkDistance;
+		public ConfigValueListener<Boolean> addRuinsLandHotToModdedBiomes;
 		// regexpos1
 
 		public RSTemplesConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)

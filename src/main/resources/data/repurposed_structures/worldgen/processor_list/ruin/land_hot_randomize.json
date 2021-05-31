@@ -1,0 +1,51 @@
+{
+  "processors": [
+    {
+      "rules": [
+        {
+          "output_state": {
+            "Name": "minecraft:chiseled_sandstone"
+          },
+          "input_predicate": {
+            "block": "minecraft:cut_sandstone",
+            "probability": 0.08,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:sandstone"
+          },
+          "input_predicate": {
+            "block": "minecraft:cut_sandstone",
+            "probability": 0.15,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "age": "6"
+            },
+            "Name": "minecraft:wheat"
+          },
+          "input_predicate": {
+            "block": "minecraft:wheat",
+            "probability": 0.1,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        }
+      ],
+      "processor_type": "minecraft:rule"
+    }
+  ]
+}

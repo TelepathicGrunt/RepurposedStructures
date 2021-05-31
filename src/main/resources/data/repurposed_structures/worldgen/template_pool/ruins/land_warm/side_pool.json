@@ -1,0 +1,114 @@
+{
+  "name": "repurposed_structures:ruins/land_warm/side_pool",
+  "fallback": "repurposed_structures:ruins/land_warm/grass",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:ruins/land_warm/big_brick_1",
+        "processors": "repurposed_structures:ruin/land_warm_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:ruins/land_warm/big_brick_2",
+        "processors": "repurposed_structures:ruin/land_warm_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:ruins/land_warm/big_brick_3",
+        "processors": "repurposed_structures:ruin/land_warm_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:ruins/land_warm/big_brick_4",
+        "processors": "repurposed_structures:ruin/land_warm_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:ruins/land_warm/small_brick_1",
+        "processors": "repurposed_structures:ruin/land_warm_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:ruins/land_warm/small_brick_2",
+        "processors": "repurposed_structures:ruin/land_warm_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:ruins/land_warm/small_brick_3",
+        "processors": "repurposed_structures:ruin/land_warm_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:ruins/land_warm/small_brick_4",
+        "processors": "repurposed_structures:ruin/land_warm_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:ruins/land_warm/small_brick_5",
+        "processors": "repurposed_structures:ruin/land_warm_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:ruins/land_warm/small_brick_6",
+        "processors": "repurposed_structures:ruin/land_warm_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:ruins/land_warm/small_brick_7",
+        "processors": "repurposed_structures:ruin/land_warm_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:ruins/land_warm/small_brick_8",
+        "processors": "repurposed_structures:ruin/land_warm_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

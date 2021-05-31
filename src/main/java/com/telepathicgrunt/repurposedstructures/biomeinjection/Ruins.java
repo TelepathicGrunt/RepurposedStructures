@@ -16,6 +16,20 @@ public class Ruins {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.RUINS_NETHER);
         }
 
+        if (BiomeSelection.haveCategories(event, Category.PLAINS, Category.FOREST, Category.TAIGA) &&
+            !BiomeSelection.hasName(event, "snow", "ice", "frozen") &&
+            event.getClimate().temperature >= 0.25f &&
+            RepurposedStructures.RSMainConfig.ruinsLandWarmMaxChunkDistance.get() != 1001 &&
+            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSMainConfig.addRuinsLandWarmToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.RUINS_LAND_WARM);
+        }
+        if (BiomeSelection.haveCategories(event, Category.DESERT) &&
+            RepurposedStructures.RSMainConfig.ruinsLandHotMaxChunkDistance.get() != 1001 &&
+            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSMainConfig.addRuinsLandHotToModdedBiomes.get()))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.RUINS_LAND_HOT);
+        }
         // regexpos1
     }
 }

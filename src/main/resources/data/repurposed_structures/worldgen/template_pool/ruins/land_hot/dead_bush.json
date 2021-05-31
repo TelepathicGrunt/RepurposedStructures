@@ -1,0 +1,20 @@
+{
+  "name": "repurposed_structures:ruins/land_hot/dead_bush",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 4,
+      "element": {
+        "feature": "repurposed_structures:hot_land_ruins_structure_dead_bush",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      }
+    }
+  ]
+}

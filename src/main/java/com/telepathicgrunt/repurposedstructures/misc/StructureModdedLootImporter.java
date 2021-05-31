@@ -35,9 +35,9 @@ public class StructureModdedLootImporter extends LootModifier {
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshaft/swamp"), new ResourceLocation("minecraft:chests/abandoned_mineshaft"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshaft/taiga"), new ResourceLocation("minecraft:chests/abandoned_mineshaft"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshaft/warped"), new ResourceLocation("minecraft:chests/abandoned_mineshaft"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/bastions/underground/bridge"), new ResourceLocation("minecraft:chests/stronghold_corridor")); // new Identifier("minecraft:chests/bastion_bridge")
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/bastions/underground/other"), new ResourceLocation("minecraft:chests/stronghold_corridor")); // new Identifier("minecraft:chests/bastion_other")
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/bastions/underground/skeleton_horse_stable"), new ResourceLocation("minecraft:chests/stronghold_corridor")); // new Identifier("minecraft:chests/bastion_hoglin_stable")
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/bastions/underground/bridge"), new ResourceLocation("minecraft:chests/stronghold_corridor")); // new ResourceLocation("minecraft:chests/bastion_bridge")
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/bastions/underground/other"), new ResourceLocation("minecraft:chests/stronghold_corridor")); // new ResourceLocation("minecraft:chests/bastion_other")
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/bastions/underground/skeleton_horse_stable"), new ResourceLocation("minecraft:chests/stronghold_corridor")); // new ResourceLocation("minecraft:chests/bastion_hoglin_stable")
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/cities/nether"), new ResourceLocation("minecraft:chests/bastion_treasure")); // new ResourceLocation("minecraft:chests/end_city_treasure"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/dungeon/badlands"), new ResourceLocation("minecraft:chests/simple_dungeon"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/dungeon/dark_forest"), new ResourceLocation("minecraft:chests/simple_dungeon"));
@@ -84,6 +84,10 @@ public class StructureModdedLootImporter extends LootModifier {
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramid/flower_forest_chest"), new ResourceLocation("minecraft:chests/desert_pyramid"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramid/end_chest"), new ResourceLocation("minecraft:chests/end_city_treasure")); // "minecraft:chests/desert_pyramid"
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ruin/nether"), new ResourceLocation("minecraft:chests/bastion_other")); // new ResourceLocation("minecraft:chests/underwater_ruin_big"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ruin/land_hot/large"), new ResourceLocation("minecraft:chests/village/village_desert_house"));  // new ResourceLocation("minecraft:chests/underwater_ruin_big")
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ruin/land_hot/small"), new ResourceLocation("minecraft:chests/village/village_desert_house"));  // new ResourceLocation("minecraft:chests/underwater_ruin_small")
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ruin/land_warm/large"), new ResourceLocation("minecraft:chests/village/village_plains_house"));  // new ResourceLocation("minecraft:chests/underwater_ruin_big")
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ruin/land_warm/small"), new ResourceLocation("minecraft:chests/village/village_plains_house"));  // new ResourceLocation("minecraft:chests/underwater_ruin_small")
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ruined_portal/large_portal_chest"), new ResourceLocation("minecraft:chests/ruined_portal"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ruined_portal/small_portal_chest"), new ResourceLocation("minecraft:chests/ruined_portal"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/shipwreck/crimson/map_chest"), new ResourceLocation("minecraft:chests/shipwreck_map"));

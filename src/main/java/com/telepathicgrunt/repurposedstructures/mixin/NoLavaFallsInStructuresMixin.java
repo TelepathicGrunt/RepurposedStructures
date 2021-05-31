@@ -1,5 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.mixin;
 
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.Direction;
@@ -9,6 +10,7 @@ import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.LiquidsConfig;
 import net.minecraft.world.gen.feature.SpringFeature;
+import net.minecraft.world.gen.feature.structure.Structure;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -28,9 +30,14 @@ public class NoLavaFallsInStructuresMixin {
     private void rs_noLava(ISeedReader structureWorldAccess, ChunkGenerator chunkGenerator, Random random, BlockPos blockPos, LiquidsConfig springFeatureConfig, CallbackInfoReturnable<Boolean> cir) {
         if(springFeatureConfig.state.is(FluidTags.LAVA)) {
             BlockPos.Mutable mutable = new BlockPos.Mutable();
+            SectionPos sectionPos;
             for(Direction face : Direction.Plane.HORIZONTAL){
-                if(structureWorldAccess.startsForFeature(SectionPos.of(mutable.set(blockPos).move(face)), RSStructures.ICY_MINESHAFT.get()).findAny().isPresent()){
-                    cir.setReturnValue(false);
+                sectionPos = SectionPos.of(blockPos);
+                for (Structure<?> structure : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NO_LAVAFALLS)) {
+                    if (structureWorldAccess.startsForFeature(sectionPos, structure).findAny().isPresent()) {
+                        cir.setReturnValue(false);
+                        break;
+                    }
                 }
             }
         }

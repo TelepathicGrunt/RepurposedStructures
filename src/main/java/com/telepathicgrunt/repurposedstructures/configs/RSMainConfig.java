@@ -24,6 +24,10 @@ public class RSMainConfig {
 
         public ConfigValueListener<Integer> ruinsNetherMaxChunkDistance;
         public ConfigValueListener<Boolean> addRuinsNetherToModdedBiomes;
+		public ConfigValueListener<Integer> ruinsLandWarmMaxChunkDistance;
+		public ConfigValueListener<Boolean> addRuinsLandWarmToModdedBiomes;
+		public ConfigValueListener<Integer> ruinsLandHotMaxChunkDistance;
+		public ConfigValueListener<Boolean> addRuinsLandHotToModdedBiomes;
         // regexpos1
 
         public ConfigValueListener<Integer> citiesNetherMaxChunkDistance;
@@ -211,6 +215,28 @@ public class RSMainConfig {
                     .translation("repurposedstructures.config.ruins.addruinsnethertomoddedbiomes")
                     .define("addRuinsNetherToModdedBiomes", true));
 
+                ruinsLandWarmMaxChunkDistance = subscriber.subscribe(builder
+                    .comment("How rare are Warm Land Ruins in Plains, Forests, and non-snowy Taiga biomes.",
+                    "\n1 for spawning in most chunks and 1001 for none.")
+                    .translation("repurposedstructures.config.ruins.ruinslandwarmmaxchunkdistance")
+                    .defineInRange("ruinsLandWarmMaxChunkDistance", 48, 1, 1001));
+
+                addRuinsLandWarmToModdedBiomes = subscriber.subscribe(builder
+                    .comment("\n Add Warm Land Ruins to modded Plains, Forests,",
+                    "\nand non-snowy Taiga biomes.")
+                    .translation("repurposedstructures.config.ruins.addruinslandwarmtomoddedbiomes")
+                    .define("addRuinsLandWarmToModdedBiomes", true));
+
+                ruinsLandHotMaxChunkDistance = subscriber.subscribe(builder
+                    .comment("How rare are Hot Land Ruins in Desert biomes.",
+                    "\n1 for spawning in most chunks and 1001 for none.")
+                    .translation("repurposedstructures.config.ruins.ruinslandhotmaxchunkdistance")
+                    .defineInRange("ruinsLandHotMaxChunkDistance", 48, 1, 1001));
+
+                addRuinsLandHotToModdedBiomes = subscriber.subscribe(builder
+                    .comment("\n Add Hot Land Ruins to modded Desert biomes.")
+                    .translation("repurposedstructures.config.ruins.addruinslandhottomoddedbiomes")
+                    .define("addRuinsLandHotToModdedBiomes", true));
             // regexpos2
             builder.pop();
 
