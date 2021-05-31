@@ -18,6 +18,7 @@ import com.telepathicgrunt.repurposedstructures.configs.RSWitchHutsConfig.RSWitc
 import com.telepathicgrunt.repurposedstructures.misc.MobMapTrades;
 import com.telepathicgrunt.repurposedstructures.misc.MobSpawnerManager;
 import com.telepathicgrunt.repurposedstructures.misc.PoolAdditionMerger;
+import com.telepathicgrunt.repurposedstructures.misc.StructureModdedLootImporter;
 import com.telepathicgrunt.repurposedstructures.mixin.ChunkGeneratorAccessor;
 import com.telepathicgrunt.repurposedstructures.modinit.*;
 import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
@@ -73,6 +74,7 @@ public class RepurposedStructures {
     public static boolean yungsBetterMineshaftIsNotOn = true;
 
     public RepurposedStructures() {
+        // Setup configs
         RSMainConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSConfigValues::new, "repurposed_structures-common.toml");
         RSDungeonsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSDungeonsConfigValues::new, "repurposed_structures-dungeons.toml");
         RSMineshaftsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSMineshaftsConfigValues::new, "repurposed_structures-mineshafts.toml");
@@ -102,7 +104,9 @@ public class RepurposedStructures {
         RSPlacements.DECORATORS.register(modEventBus);
         RSGlobalLootModifier.GLM.register(modEventBus);
 
+        //For mod compat by checking if other mod is on
         yungsBetterMineshaftIsNotOn = !ModList.get().isLoaded("bettermineshafts");
+        StructureModdedLootImporter.isEndRemasteredOn = ModList.get().isLoaded("endrem");
 
         // Silences logspam due to me changing my piece's namespace from minecraft to my modid.
         Logger rootLogger = LogManager.getRootLogger();
