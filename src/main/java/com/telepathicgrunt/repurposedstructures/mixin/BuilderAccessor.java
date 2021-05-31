@@ -13,9 +13,9 @@ import java.util.Map;
 public interface BuilderAccessor {
     @Mutable
     @Accessor("drops")
-    void rs_setDrops(Map<Identifier, LootContext.Dropper> drops);
+    void repurposedstructures_setDrops(Map<Identifier, LootContext.Dropper> drops);
 
     @Mutable
     @Accessor("parameters")
-    void rs_setParameters(Map<LootContextParameter<?>, Object> parameters);
+    void repurposedstructures_setParameters(Map<LootContextParameter<?>, Object> parameters);
 }

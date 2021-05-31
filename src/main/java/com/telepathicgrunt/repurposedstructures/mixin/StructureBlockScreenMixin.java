@@ -22,7 +22,7 @@ public class StructureBlockScreenMixin {
 
     @Inject(method = "init",
             at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/widget/TextFieldWidget;setText(Ljava/lang/String;)V", ordinal = 0))
-    private void rs_makeFileNameLonger(CallbackInfo ci) {
+    private void repurposedstructures_makeFileNameLonger(CallbackInfo ci) {
         inputName.setMaxLength(128);
     }
 }

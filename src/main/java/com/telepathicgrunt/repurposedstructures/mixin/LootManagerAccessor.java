@@ -11,5 +11,5 @@ import java.util.Map;
 @Mixin(LootManager.class)
 public interface LootManagerAccessor {
     @Accessor("tables")
-    Map<Identifier, LootTable> rs_getTables();
+    Map<Identifier, LootTable> repurposedstructures_getTables();
 }

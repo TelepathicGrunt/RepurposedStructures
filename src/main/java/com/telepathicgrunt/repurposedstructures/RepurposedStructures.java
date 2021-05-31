@@ -116,7 +116,7 @@ public class RepurposedStructures implements ModInitializer {
                 spacingToAdd.putAll(RSStructures.RS_STRUCTURES);
                 spacingToAdd.forEach(tempMap::putIfAbsent);
             }
-            ((StructuresConfigAccessor) serverWorld.getChunkManager().getChunkGenerator().getStructuresConfig()).rs_setStructures(tempMap);
+            ((StructuresConfigAccessor) serverWorld.getChunkManager().getChunkGenerator().getStructuresConfig()).repurposedstructures_setStructures(tempMap);
         });
     }
 

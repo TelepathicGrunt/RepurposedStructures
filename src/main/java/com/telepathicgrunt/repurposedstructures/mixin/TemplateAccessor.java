@@ -10,5 +10,5 @@ import java.util.List;
 public interface TemplateAccessor {
 
     @Accessor("blockInfoLists")
-    List<Structure.PalettedBlockInfoList> rs_getBlocks();
+    List<Structure.PalettedBlockInfoList> repurposedstructures_getBlocks();
 }

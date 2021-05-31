@@ -73,6 +73,7 @@ public class StructureModdedLootImporter {
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/outpost/desert_chest"), new Identifier("minecraft:chests/pillager_outpost"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/outpost/giant_tree_taiga_chest"), new Identifier("minecraft:chests/pillager_outpost"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/outpost/icy_chest"), new Identifier("minecraft:chests/pillager_outpost"));
+        tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/outpost/jungle_chest"), new Identifier("minecraft:chests/pillager_outpost"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/outpost/nether_brick_chest"), new Identifier("minecraft:chests/pillager_outpost"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/outpost/oak_chest"), new Identifier("minecraft:chests/pillager_outpost"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/outpost/snowy_chest"), new Identifier("minecraft:chests/pillager_outpost"));
@@ -150,7 +151,7 @@ public class StructureModdedLootImporter {
             Identifier lootTableID = REVERSED_TABLES.computeIfAbsent(
                     currentLootTable,
                     // Will iterate lazily through loottable map for which identifier gives this loottable and return the result
-                    (lootTable) -> ((LootManagerAccessor)context.getWorld().getServer().getLootManager()).rs_getTables()
+                    (lootTable) -> ((LootManagerAccessor)context.getWorld().getServer().getLootManager()).repurposedstructures_getTables()
                             .entrySet()
                             .stream()
                             .filter(entry -> lootTable.equals(entry.getValue()))
@@ -195,8 +196,8 @@ public class StructureModdedLootImporter {
                 .random(oldLootContext.getRandom())
                 .luck(oldLootContext.getLuck());
 
-        ((BuilderAccessor)newContextBuilder).rs_setDrops(((LootContextAccessor)oldLootContext).rs_getDrops());
-        ((BuilderAccessor)newContextBuilder).rs_setParameters(((LootContextAccessor)oldLootContext).rs_getParameters());
+        ((BuilderAccessor)newContextBuilder).repurposedstructures_setDrops(((LootContextAccessor)oldLootContext).repurposedstructures_getDrops());
+        ((BuilderAccessor)newContextBuilder).repurposedstructures_setParameters(((LootContextAccessor)oldLootContext).repurposedstructures_getParameters());
         return newContextBuilder.build(LootContextTypes.CHEST);
     }
 

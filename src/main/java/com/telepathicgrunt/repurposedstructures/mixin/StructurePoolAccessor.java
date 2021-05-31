@@ -12,16 +12,16 @@ import java.util.List;
 @Mixin(StructurePool.class)
 public interface StructurePoolAccessor {
     @Accessor("elementCounts")
-    List<Pair<StructurePoolElement, Integer>> rs_getElementCounts();
+    List<Pair<StructurePoolElement, Integer>> repurposedstructures_getElementCounts();
 
     @Mutable
     @Accessor("elementCounts")
-    void rs_setElementCounts(List<Pair<StructurePoolElement, Integer>> elementCounts);
+    void repurposedstructures_setElementCounts(List<Pair<StructurePoolElement, Integer>> elementCounts);
 
     @Accessor("elements")
-    List<StructurePoolElement> rs_getElements();
+    List<StructurePoolElement> repurposedstructures_getElements();
 
     @Mutable
     @Accessor("elements")
-    void rs_setElements(List<StructurePoolElement> elements);
+    void repurposedstructures_setElements(List<StructurePoolElement> elements);
 }

@@ -128,7 +128,7 @@ public class PieceLimitedJigsawManager {
             if(piece instanceof PoolStructurePiece){
                 StructurePoolElement poolElement = ((PoolStructurePiece)piece).getPoolElement();
                 if(poolElement instanceof SinglePoolElement){
-                    Identifier pieceID = ((SinglePoolElementAccessor) poolElement).rs_getField_24015().left().orElse(null);
+                    Identifier pieceID = ((SinglePoolElementAccessor) poolElement).repurposedstructures_getField_24015().left().orElse(null);
                     if(counter.containsKey(pieceID)){
                         counter.put(pieceID, counter.get(pieceID) - 1);
                     }
@@ -196,7 +196,7 @@ public class PieceLimitedJigsawManager {
 
                 // Only continue if we are using the jigsaw pattern registry and if it is not empty
                 if (!(poolOptional.isPresent() && (poolOptional.get().getElementCount() != 0 || Objects.equals(jigsawBlockPool, StructurePools.EMPTY.getValue())))) {
-                    RepurposedStructures.LOGGER.warn("Empty or nonexistent pool: {} which is being called from {}", jigsawBlockPool, pieceBlueprint instanceof SinglePoolElement ? ((SinglePoolElementAccessor) pieceBlueprint).rs_getField_24015().left().get() : "not a SinglePoolElement class");
+                    RepurposedStructures.LOGGER.warn("Empty or nonexistent pool: {} which is being called from {}", jigsawBlockPool, pieceBlueprint instanceof SinglePoolElement ? ((SinglePoolElementAccessor) pieceBlueprint).repurposedstructures_getField_24015().left().get() : "not a SinglePoolElement class");
                     continue;
                 }
 
@@ -206,7 +206,7 @@ public class PieceLimitedJigsawManager {
 
                 // Only continue if the fallback pool is present and valid
                 if (!(fallbackOptional.isPresent() && (fallbackOptional.get().getElementCount() != 0 || Objects.equals(jigsawBlockFallback, StructurePools.EMPTY.getValue())))) {
-                    RepurposedStructures.LOGGER.warn("Empty or nonexistent pool: {} which is being called from {}", jigsawBlockFallback, pieceBlueprint instanceof SinglePoolElement ? ((SinglePoolElementAccessor) pieceBlueprint).rs_getField_24015().left().get() : "not a SinglePoolElement class");
+                    RepurposedStructures.LOGGER.warn("Empty or nonexistent pool: {} which is being called from {}", jigsawBlockFallback, pieceBlueprint instanceof SinglePoolElement ? ((SinglePoolElementAccessor) pieceBlueprint).repurposedstructures_getField_24015().left().get() : "not a SinglePoolElement class");
                     continue;
                 }
 
@@ -227,12 +227,12 @@ public class PieceLimitedJigsawManager {
 
                 // Process the pool pieces, randomly choosing different pieces from the pool to spawn
                 if (depth != this.maxDepth) {
-                    StructurePoolElement generatedPiece = this.processList(new ArrayList<>(((StructurePoolAccessor)poolOptional.get()).rs_getElementCounts()), doBoundaryAdjustments, jigsawBlock, jigsawBlockTargetPos, pieceMinY, jigsawBlockPos, pieceVoxelShape, piece, depth, targetPieceBoundsTop);
+                    StructurePoolElement generatedPiece = this.processList(new ArrayList<>(((StructurePoolAccessor)poolOptional.get()).repurposedstructures_getElementCounts()), doBoundaryAdjustments, jigsawBlock, jigsawBlockTargetPos, pieceMinY, jigsawBlockPos, pieceVoxelShape, piece, depth, targetPieceBoundsTop);
                     if (generatedPiece != null) continue; // Stop here since we've already generated the piece
                 }
 
                 // Process the fallback pieces in the event none of the pool pieces work
-                this.processList(new ArrayList<>(((StructurePoolAccessor)fallbackOptional.get()).rs_getElementCounts()), doBoundaryAdjustments, jigsawBlock, jigsawBlockTargetPos, pieceMinY, jigsawBlockPos, pieceVoxelShape, piece, depth, targetPieceBoundsTop);
+                this.processList(new ArrayList<>(((StructurePoolAccessor)fallbackOptional.get()).repurposedstructures_getElementCounts()), doBoundaryAdjustments, jigsawBlock, jigsawBlockTargetPos, pieceMinY, jigsawBlockPos, pieceVoxelShape, piece, depth, targetPieceBoundsTop);
             }
         }
 
@@ -280,7 +280,7 @@ public class PieceLimitedJigsawManager {
                     for (int i = 0; i < candidatePieces.size(); i++) {
                         Pair<StructurePoolElement, Integer> candidatePiecePair = candidatePieces.get(i);
                         StructurePoolElement candidatePiece = candidatePiecePair.getFirst();
-                        if (candidatePiece instanceof SinglePoolElement && ((SinglePoolElementAccessor) candidatePiece).rs_getField_24015().left().get().equals(pieceNeededToSpawn.get())) { // Condition 1
+                        if (candidatePiece instanceof SinglePoolElement && ((SinglePoolElementAccessor) candidatePiece).repurposedstructures_getField_24015().left().get().equals(pieceNeededToSpawn.get())) { // Condition 1
                             if (depth >= this.requiredPieces.get(pieceNeededToSpawn.get()).getMinDistanceFromCenter()) { // Condition 3
                                 // All conditions are met. Use required piece  as chosen piece.
                                 chosenPiecePair = candidatePiecePair;
@@ -318,7 +318,7 @@ public class PieceLimitedJigsawManager {
                 // This logic is my own additional logic - vanilla does not offer this behavior.
                 Identifier pieceName = null;
                 if(candidatePiece instanceof SinglePoolElement){
-                    pieceName = ((SinglePoolElementAccessor) candidatePiece).rs_getField_24015().left().get();
+                    pieceName = ((SinglePoolElementAccessor) candidatePiece).repurposedstructures_getField_24015().left().get();
                     if (this.pieceCounts.containsKey(pieceName)) {
                         if (this.pieceCounts.get(pieceName) <= 0) {
                             // Remove this piece from the list of candidates and retry.

@@ -54,6 +54,8 @@
 
 • Expanded all RS's Overworld Outposts boundaries so that Pillagers should now spawn more often over time.
 
+• Fixed Jungle Outpost not importing modded loot.
+
 ##### Pyramids:
 • Added Jungle, Ocean, Giant Tree Taiga, Flower Forest, and Mushroom Pyramids!
 
@@ -1251,7 +1253,7 @@ Upvote the issue on Mojang's issue tracker here to help get them to see the bug!
 
 ##### Datapacks: 
 
--Added a new folder called data.repurposed_structures.rs_spawners where you can specify what kind of mob spawner can be in RS's dungeons, mineshafts, strongholds, and jungle fortress! You can specify more than one mob and what the chances are of the spawner being that mob.
+-Added a new folder called data.repurposed_structures.repurposedstructures_spawners where you can specify what kind of mob spawner can be in RS's dungeons, mineshafts, strongholds, and jungle fortress! You can specify more than one mob and what the chances are of the spawner being that mob.
 
 ##### Outpost:
 

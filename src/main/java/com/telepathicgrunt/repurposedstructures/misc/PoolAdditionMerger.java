@@ -45,7 +45,7 @@ public class PoolAdditionMerger {
      */
     public static void mergeAdditionPools() {
         ServerLifecycleEvents.SERVER_STARTING.register((MinecraftServer minecraftServer) -> {
-            ResourceManager resourceManager = ((StructureManagerAccessor) minecraftServer.getStructureManager()).rs_getField_25189();
+            ResourceManager resourceManager = ((StructureManagerAccessor) minecraftServer.getStructureManager()).repurposedstructures_getField_25189();
             Map<Identifier, List<JsonElement>> poolAdditionJSON = getPoolAdditionJSON(resourceManager);
             parsePoolsAndBeginMerger(poolAdditionJSON, minecraftServer.getRegistryManager());
         });
@@ -113,13 +113,13 @@ public class PoolAdditionMerger {
     private static List<InputStream> getAllFileStreams(ResourceManager resourceManager, Identifier fileID) throws IOException {
         List<InputStream> fileStreams = new ArrayList<>();
 
-        NamespaceResourceManager namespaceResourceManager = ((ReloadableResourceManagerImplAccessor) resourceManager).rs_getNamespaceManagers().get(fileID.getNamespace());
-        List<ResourcePack> allResourcePacks = ((NamespaceResourceManagerAccessor) namespaceResourceManager).rs_getPackList();
+        NamespaceResourceManager namespaceResourceManager = ((ReloadableResourceManagerImplAccessor) resourceManager).repurposedstructures_getNamespaceManagers().get(fileID.getNamespace());
+        List<ResourcePack> allResourcePacks = ((NamespaceResourceManagerAccessor) namespaceResourceManager).repurposedstructures_getPackList();
 
         // Find the file with the given id and add its filestream to the list
         for (ResourcePack resourcePack : allResourcePacks) {
             if (resourcePack.contains(ResourceType.SERVER_DATA, fileID)) {
-                InputStream inputStream = ((NamespaceResourceManagerAccessor) namespaceResourceManager).rs_callOpen(fileID, resourcePack);
+                InputStream inputStream = ((NamespaceResourceManagerAccessor) namespaceResourceManager).repurposedstructures_callOpen(fileID, resourcePack);
                 if (inputStream != null) fileStreams.add(inputStream);
             }
         }
@@ -155,14 +155,14 @@ public class PoolAdditionMerger {
      */
     private static void mergeIntoExistingPool(StructurePool feedingPool, StructurePool gluttonyPool) {
         // Make new copies of lists as the originals are immutable lists and we want to make sure our changes only stays with this pool element
-        List<StructurePoolElement> elements = new ArrayList<>(((StructurePoolAccessor) gluttonyPool).rs_getElements());
-        List<Pair<StructurePoolElement, Integer>> elementCounts = new ArrayList<>(((StructurePoolAccessor) gluttonyPool).rs_getElementCounts());
+        List<StructurePoolElement> elements = new ArrayList<>(((StructurePoolAccessor) gluttonyPool).repurposedstructures_getElements());
+        List<Pair<StructurePoolElement, Integer>> elementCounts = new ArrayList<>(((StructurePoolAccessor) gluttonyPool).repurposedstructures_getElementCounts());
 
-        elements.addAll(((StructurePoolAccessor) feedingPool).rs_getElements());
-        elementCounts.addAll(((StructurePoolAccessor) feedingPool).rs_getElementCounts());
+        elements.addAll(((StructurePoolAccessor) feedingPool).repurposedstructures_getElements());
+        elementCounts.addAll(((StructurePoolAccessor) feedingPool).repurposedstructures_getElementCounts());
 
-        ((StructurePoolAccessor) gluttonyPool).rs_setElements(elements);
-        ((StructurePoolAccessor) gluttonyPool).rs_setElementCounts(elementCounts);
+        ((StructurePoolAccessor) gluttonyPool).repurposedstructures_setElements(elements);
+        ((StructurePoolAccessor) gluttonyPool).repurposedstructures_setElementCounts(elementCounts);
     }
 
     /**

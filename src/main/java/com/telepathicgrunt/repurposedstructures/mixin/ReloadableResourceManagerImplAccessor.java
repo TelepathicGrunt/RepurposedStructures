@@ -10,5 +10,5 @@ import java.util.Map;
 @Mixin(ReloadableResourceManagerImpl.class)
 public interface ReloadableResourceManagerImplAccessor {
     @Accessor("namespaceManagers")
-    Map<String, NamespaceResourceManager> rs_getNamespaceManagers();
+    Map<String, NamespaceResourceManager> repurposedstructures_getNamespaceManagers();
 }

@@ -11,8 +11,8 @@ import java.util.Map;
 @Mixin(LootContext.class)
 public interface LootContextAccessor {
     @Accessor("parameters")
-    Map<LootContextParameter<?>, Object> rs_getParameters();
+    Map<LootContextParameter<?>, Object> repurposedstructures_getParameters();
 
     @Accessor("drops")
-    Map<Identifier, LootContext.Dropper> rs_getDrops();
+    Map<Identifier, LootContext.Dropper> repurposedstructures_getDrops();
 }

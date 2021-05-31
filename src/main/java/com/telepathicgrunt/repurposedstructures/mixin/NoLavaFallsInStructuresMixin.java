@@ -26,10 +26,9 @@ public class NoLavaFallsInStructuresMixin {
     @Inject(
             method = "generate",
             at = @At(value = "HEAD"),
-            cancellable = true,
-            require = -1
+            cancellable = true
     )
-    private void rs_noLava(StructureWorldAccess structureWorldAccess, ChunkGenerator chunkGenerator, Random random, BlockPos blockPos, SpringFeatureConfig springFeatureConfig, CallbackInfoReturnable<Boolean> cir) {
+    private void repurposedstructures_noLava(StructureWorldAccess structureWorldAccess, ChunkGenerator chunkGenerator, Random random, BlockPos blockPos, SpringFeatureConfig springFeatureConfig, CallbackInfoReturnable<Boolean> cir) {
         if(springFeatureConfig.state.isIn(FluidTags.LAVA)) {
             BlockPos.Mutable mutable = new BlockPos.Mutable();
             ChunkSectionPos chunkPos;

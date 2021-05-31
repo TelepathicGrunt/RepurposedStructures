@@ -14,8 +14,8 @@ import java.util.List;
 @Mixin(NamespaceResourceManager.class)
 public interface NamespaceResourceManagerAccessor {
     @Accessor("packList")
-    List<ResourcePack> rs_getPackList();
+    List<ResourcePack> repurposedstructures_getPackList();
 
     @Invoker("open")
-    InputStream rs_callOpen(Identifier id, ResourcePack pack) throws IOException;
+    InputStream repurposedstructures_callOpen(Identifier id, ResourcePack pack) throws IOException;
 }

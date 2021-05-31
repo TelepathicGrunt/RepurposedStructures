@@ -19,7 +19,7 @@ public class RailBlockMixin {
      */
     @Inject(method = "rotate(Lnet/minecraft/block/BlockState;Lnet/minecraft/util/BlockRotation;)Lnet/minecraft/block/BlockState;",
             at = @At(value = "RETURN"), cancellable = true)
-    private void rs_fixMC196102Bug(BlockState state, BlockRotation rotation, CallbackInfoReturnable<BlockState> cir){
+    private void repurposedstructures_fixMC196102Bug(BlockState state, BlockRotation rotation, CallbackInfoReturnable<BlockState> cir){
         if(rotation == BlockRotation.CLOCKWISE_180){
             RailShape railShape = state.get(RailBlock.SHAPE);
             if(railShape == RailShape.NORTH_SOUTH || railShape == RailShape.EAST_WEST){

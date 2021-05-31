@@ -21,7 +21,7 @@ public class LootTableMixin {
      */
     @Inject(method = "generateLoot(Lnet/minecraft/loot/context/LootContext;)Ljava/util/List;",
             at = @At(value = "RETURN"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
-    private void rs_modifyLoot(LootContext context, CallbackInfoReturnable<List<ItemStack>> cir, List<ItemStack> list){
+    private void repurposedstructures_modifyLoot(LootContext context, CallbackInfoReturnable<List<ItemStack>> cir, List<ItemStack> list){
         List<ItemStack> newList = StructureModdedLootImporter.checkAndGetModifiedLoot(context, (LootTable)(Object)this, list);
         if(!newList.isEmpty()) cir.setReturnValue(newList);
     }
