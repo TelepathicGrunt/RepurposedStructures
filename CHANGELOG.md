@@ -1,97 +1,97 @@
-## (V.2.7.0 Changes) (1.16.5 Minecraft)
+### **(V.2.7.0 Changes) (1.16.5 Minecraft)**
 
 ##### Bastions:
-• Added rare Underground Bastions in the Overworld! Fight through many powerful Skeletons and loot all the Redstone!
+* Added rare Underground Bastions in the Overworld! Fight through many powerful Skeletons and loot all the Redstone!
 
 ##### Ruins:
-• Added land Ruins to Overworld! They come in a stonebrick and sandstone variant. If you are lucky, you may find a map to an Underground Bastion!
+* Added land Ruins to Overworld! They come in a stonebrick and sandstone variant. If you are lucky, you may find a map to an Underground Bastion!
 
 ##### Mineshafts:
-• All of RS's Mineshafts are now Jigsaw Structures so you can use datapacks to add new nbt pieces to it or customize it even more!
+* All of RS's Mineshafts are now Jigsaw Structures so you can use datapacks to add new nbt pieces to it or customize it even more!
 
-• Mineshaft size is now a config option. All Mineshafts are a bit larger now with End Mineshafts especially giant now.
+* Mineshaft size is now a config option. All Mineshafts are a bit larger now with End Mineshafts especially giant now.
 
-• All 3 Nether Mineshafts have higher chance of Chest Minecarts.
+* All 3 Nether Mineshafts have higher chance of Chest Minecarts.
 
-• End Mineshafts have much higher rate of Chest Minecarts but also has far more Endermite Spawners to make it dangerous.
+* End Mineshafts have much higher rate of Chest Minecarts but also has far more Endermite Spawners to make it dangerous.
 
-• Overworld Mineshafts are less likely to be cutoff by water and instead, will attempt to go through the liquid and wall it off instead.
+* Overworld Mineshafts are less likely to be cutoff by water and instead, will attempt to go through the liquid and wall it off instead.
   Ocean Mineshafts will do the same but for air instead.
 
-• Swamp And Dark Forest Mineshaft has been split up into two separate Mineshafts. Swamp Mineshaft and Dark Forest Mineshaft.
+* Swamp And Dark Forest Mineshaft has been split up into two separate Mineshafts. Swamp Mineshaft and Dark Forest Mineshaft.
 
-• Crimson, Warped, Jungle, Dark Forest, and Swamp Mineshafts will have a higher chance of taller climbable plants in their 2 floor pillar piece so you can climb to the next floor.
+* Crimson, Warped, Jungle, Dark Forest, and Swamp Mineshafts will have a higher chance of taller climbable plants in their 2 floor pillar piece so you can climb to the next floor.
 
 ##### Fortresses:
-• Jungle Fortress is now a Jigsaw Structures so you can use datapacks to add new nbt pieces to it or customize it even more!
+* Jungle Fortress is now a Jigsaw Structures so you can use datapacks to add new nbt pieces to it or customize it even more!
 
-• Jungle Fortress's size and the height range it can spawn at are now config options.
+* Jungle Fortress's size and the height range it can spawn at are now config options.
 
-• Drowned in Jungle Fortresses now may hold Stone Swords that could be enchanted and will wear chainmail armor more often than iron armor.
+* Drowned in Jungle Fortresses now may hold Stone Swords that could be enchanted and will wear chainmail armor more often than iron armor.
 
-• The breakage and decay in Jungle Fortress can be found throughout the fortress. Even in underground tunnels now.
+* The breakage and decay in Jungle Fortress can be found throughout the fortress. Even in underground tunnels now.
 
-• Fixed Cartographer maps to Jungle Fortresses sometimes showing a house icon instead of a green banner icon.
+* Fixed Cartographer maps to Jungle Fortresses sometimes showing a house icon instead of a green banner icon.
 
 ##### Strongholds:
-• Removed Stonebricks Strongholds because Better Strongholds mod exists! 
+* Removed Stonebricks Strongholds because Better Strongholds mod exists! 
   Use that epic mod instead of upgrade the Overworld Stronghold!
 
-• Nether Strongholds are now Jigsaw Structures so you can use datapacks to add new nbt pieces to it or customize it even more!
+* Nether Strongholds are now Jigsaw Structures so you can use datapacks to add new nbt pieces to it or customize it even more!
   The Portal Room will now always be attached properly to the rest of the Stronghold!
 
-• Nether Stronghold prison pieces may have a chance of a trapped stronger Wither Skeleton.
+* Nether Stronghold prison pieces may have a chance of a trapped stronger Wither Skeleton.
 
-• Nether Stronghold Libraries now has a rare chance for Ancient Debris and the blocks are more randomized and rebalanced.
+* Nether Stronghold Libraries now has a rare chance for Ancient Debris and the blocks are more randomized and rebalanced.
 
-• The ends of the Nether Stronghold will now never have a wall of flowing lava anymore!
+* The ends of the Nether Stronghold will now never have a wall of flowing lava anymore!
 
-• Nether Strongholds will now only spawn further than roughly 2000 blocks from spawn.
+* Nether Strongholds will now only spawn further than roughly 2000 blocks from spawn.
   Their config default distance between spawn attempts was changed from 85 to 100 as well to spread them out a bit.
 
-• Nether Stronghold is now in the last generation stage in order to try and prevent other structures from eating at the stronghold.
+* Nether Stronghold is now in the last generation stage in order to try and prevent other structures from eating at the stronghold.
 
 ##### Outposts:
-• Modernized all Outposts Pieces which should help make their small feature pieces spawn more.
+* Modernized all Outposts Pieces which should help make their small feature pieces spawn more.
 
-• Expanded all RS's Overworld Outposts boundaries so that Pillagers should now spawn more often over time.
+* Expanded all RS's Overworld Outposts boundaries so that Pillagers should now spawn more often over time.
 
-• Fixed comments on the RS Outpost configs being on the wrong config entries.
+* Fixed comments on the RS Outpost configs being on the wrong config entries.
 
-• Fixed Jungle Outpost not importing modded loot.
+* Fixed Jungle Outpost not importing modded loot.
 
 ##### Pyramids:
-• Added Jungle, Ocean, Giant Tree Taiga, Flower Forest, and Mushroom Pyramids!
+* Added Jungle, Ocean, Giant Tree Taiga, Flower Forest, and Mushroom Pyramids!
 
-• Buffed loot a bit for Badlands, Icy, and Snowy Pyramids and added Horse Armor back into their loot table.
+* Buffed loot a bit for Badlands, Icy, and Snowy Pyramids and added Horse Armor back into their loot table.
 
-• Snowy Pyramid Pit slightly changed to help hint at what spots are safe to stand on.
+* Snowy Pyramid Pit slightly changed to help hint at what spots are safe to stand on.
 
-• Fixed Snowy Pyramids making a base of Red Sandstone instead of Snow Block by mistake.
+* Fixed Snowy Pyramids making a base of Red Sandstone instead of Snow Block by mistake.
 
-• Icy Pyramid Pit trap is now redesigned to be a bit more dangerous.
+* Icy Pyramid Pit trap is now redesigned to be a bit more dangerous.
 
-• Increased the config default value for Badlands and Snowy Pyramid spawn attempt separation from 37 to 40.
+* Increased the config default value for Badlands and Snowy Pyramid spawn attempt separation from 37 to 40.
 
 ##### Dungeons:
-• Fixed bug that prevented RS's Dungeons from ever having 2 chests. Now they have a chance of spawning 2 chests.
+* Fixed bug that prevented RS's Dungeons from ever having 2 chests. Now they have a chance of spawning 2 chests.
 
 ##### Villages:
-• Fixed Zombie Jungle Village not spawning any buildings and all Jungle Villages using the wrong terminator piece.
+* Fixed Zombie Jungle Village not spawning any buildings and all Jungle Villages using the wrong terminator piece.
 
-• Fixed Giant Tree Taiga Village not spawning butcher buildings.
+* Fixed Giant Tree Taiga Village not spawning butcher buildings.
 
-• Jungle Villages now has much less Jungle Bush trees blocking houses and paths.
+* Jungle Villages now has much less Jungle Bush trees blocking houses and paths.
 
 ##### Wells:
-• Added Mushroom Wells to mushroom biomes. Has a chance of Iron or Redstone Ores inside and yes, it also has an extremely rare chance of having a Bell.
+* Added Mushroom Wells to mushroom biomes. Has a chance of Iron or Redstone Ores inside and yes, it also has an extremely rare chance of having a Bell.
 
 ##### Misc:
-• Removed the giant boulder feature because it isn't close to a structure and doesn't fit this mod.
+* Removed the giant boulder feature because it isn't close to a structure and doesn't fit this mod.
 
-• Added dedicated mod compat with End Remastered so that their loot appears in the correct RS structures now. 
+* Added dedicated mod compat with End Remastered so that their loot appears in the correct RS structures now. 
 
-• Added a new system where multiple datapacks can add new structure pieces to any pool file!
+* Added a new system where multiple datapacks can add new structure pieces to any pool file!
   Instead of overwriting the pool file at
   `data\repurposed_structures\worldgen\template_pool\village\birch\houses.nbt`
   datapacks can swap the worldgen\template_pool part of the path to pool_additions like this
@@ -101,947 +101,947 @@
   (Fun fact, this actually will work for other mod's template_pools too if Repurposed Structures is on)
 
 
-## (V.2.6.6 Changes) (1.16.5 Minecraft)
+### **(V.2.6.6 Changes) (1.16.5 Minecraft)**
 
 ##### Config:
-• Fixed dimension blacklisting not working for dungeons, boulders, wells, and other features.
+* Fixed dimension blacklisting not working for dungeons, boulders, wells, and other features.
 
 ##### Strongholds:
-• Chest Corridors now will always have a chest instead of a 1/3rd chance.
+* Chest Corridors now will always have a chest instead of a 1/3rd chance.
 
 ##### Witch Huts:
-• Fixed Giant Tree Taiga Witch Hut having a stripped spruce log leg instead of Stone Bricks leg.
+* Fixed Giant Tree Taiga Witch Hut having a stripped spruce log leg instead of Stone Bricks leg.
 
 
-## (V.2.6.5 Changes) (1.16.5 Minecraft)
-
-##### Dungeons:
-• Fixed potential crash if someone set RS's dungeon spawners to not have any nbt.
-
-
-## (V.2.6.4 Changes) (1.16.5 Minecraft)
+### **(V.2.6.5 Changes) (1.16.5 Minecraft)**
 
 ##### Dungeons:
-• Improved the RNG for Dungeon processors.
+* Fixed potential crash if someone set RS's dungeon spawners to not have any nbt.
+
+
+### **(V.2.6.4 Changes) (1.16.5 Minecraft)**
+
+##### Dungeons:
+* Improved the RNG for Dungeon processors.
 
 ##### Strongholds:
-• Moved Eyes of Ender mixin code out of mixin to be compatible with Better Strongholds.
+* Moved Eyes of Ender mixin code out of mixin to be compatible with Better Strongholds.
 
 
-## (V.2.6.3 Changes) (1.16.5 Minecraft)
-
-##### Dungeons:
-• Fixed Dungeons being able to replace Chests and Spawners of other dungeons.
-
-
-## (V.2.6.3 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)
+### **(V.2.6.3 Changes) (1.16.5 Minecraft)**
 
 ##### Dungeons:
-• Fixed Nether Dungeon spawners not being set correctly. 
+* Fixed Dungeons being able to replace Chests and Spawners of other dungeons.
+
+
+### **(V.2.6.3 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)**
+
+##### Dungeons:
+* Fixed Nether Dungeon spawners not being set correctly. 
   (Why can't I just have an update without things blowing up lmao)
 
 
-## (V.2.6.2 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)
+### **(V.2.6.2 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)**
 
 ##### Outposts:
-• Fixed End Outposts able to spawn on the void in modded biomes.
+* Fixed End Outposts able to spawn on the void in modded biomes.
 
 
-## (V.2.6.1 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)
+### **(V.2.6.1 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)**
 
 ##### Pyramids:
-• Fixed End Pyramid pits not spawning.
+* Fixed End Pyramid pits not spawning.
 
 
-## (V.2.6.0 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)
+### **(V.2.6.0 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)**
 
 ##### Cities:
-• Change Nether City's default config spawnrate from 160 to 120 to make them more common and less traveling to reach.
+* Change Nether City's default config spawnrate from 160 to 120 to make them more common and less traveling to reach.
 
-• Made large room with double chest in Nether Cities now a bit more common and have 3 Wither Skeletons defending it now.
+* Made large room with double chest in Nether Cities now a bit more common and have 3 Wither Skeletons defending it now.
 
-• Added Wither Skeleton with enchanted bow to Nether Cities's tiny tower top pieces.
+* Added Wither Skeleton with enchanted bow to Nether Cities's tiny tower top pieces.
 
-• Buffed Nether City loot a bit to have higher chance of Netherite loot and more chests.
+* Buffed Nether City loot a bit to have higher chance of Netherite loot and more chests.
 
-• Removed random stray Red Nether Bricks block in one of the Nether City's stair piece.
+* Removed random stray Red Nether Bricks block in one of the Nether City's stair piece.
 
 ##### Strongholds:
-• Repurposed Structure's Stonebrick Strongholds will now generate only in rings around world origin like Vanilla stronghold's do.
+* Repurposed Structure's Stonebrick Strongholds will now generate only in rings around world origin like Vanilla stronghold's do.
   The rings of valid spots that RS Stonebrick Strongholds can spawn in are the same size and distance from spawn as vanilla's.
   However, there are an unlimited number of rings for RS's Stonebrick Stronghold beyond the 8 rings that Vanilla's does.
   See here for what I mean about rings: https://minecraft.fandom.com/wiki/Stronghold#Generation
 
-• Bumped Stonebrick Stronghold's default config spawnrate from 85 to 110.
+* Bumped Stonebrick Stronghold's default config spawnrate from 85 to 110.
 
-• Stonebrick Strongholds will not spawn at all if Yung's Better Strongholds is on.
+* Stonebrick Strongholds will not spawn at all if Yung's Better Strongholds is on.
 
-• Stonebrick Strongholds now will spawn in ocean biomes like vanilla Strongholds do.
+* Stonebrick Strongholds now will spawn in ocean biomes like vanilla Strongholds do.
   There's a weird quirk with how vanilla Stronghold will spawn in biomes that doesn't have the Stronghold added to it which I am trying to copy here.
 
-• Buffed Nether Stronghold loot and added custom loot table for its library too.
+* Buffed Nether Stronghold loot and added custom loot table for its library too.
 
-• Nether Stronghold Libraries can spawn bookshelves of even more kinds of blocks.
+* Nether Stronghold Libraries can spawn bookshelves of even more kinds of blocks.
 
-• Made Repurposed Structures's Stonebrick Strongholds now use custom loot tables and can have better loot than vanilla loot.
+* Made Repurposed Structures's Stonebrick Strongholds now use custom loot tables and can have better loot than vanilla loot.
 
 ##### Dungeons:
-• All Dungeons now use nbt files. You can override the looks of dungeons with a datapack!
+* All Dungeons now use nbt files. You can override the looks of dungeons with a datapack!
 
-• Icy dungeon is now actually icy and spawns only in non-ocean biomes that are super cold or has frozen/ice in the name.
+* Icy dungeon is now actually icy and spawns only in non-ocean biomes that are super cold or has frozen/ice in the name.
   Loot and spawner mobs have been adjusted as well.
 
-• Snow Dungeon is now added and will spawn in all snowy biomes!
+* Snow Dungeon is now added and will spawn in all snowy biomes!
 
-• Nether Dungeons at any height now has the 1% chance of a Wither Skeleton Spawner.
+* Nether Dungeons at any height now has the 1% chance of a Wither Skeleton Spawner.
 
-• Nether Dungeons no long spawn attached to lava pockets underground.
+* Nether Dungeons no long spawn attached to lava pockets underground.
 
-• Nether Dungeons are in Vegetal Generation Stage now to be able to spawn in Nether Mineshafts again and not be filled with Basalt as much.
+* Nether Dungeons are in Vegetal Generation Stage now to be able to spawn in Nether Mineshafts again and not be filled with Basalt as much.
 
-• Bumped up the config default spawnrates for Nether and End Dungeons from 8 to 12. Slightly restricted the spawn condition for overworld dungeons.
+* Bumped up the config default spawnrates for Nether and End Dungeons from 8 to 12. Slightly restricted the spawn condition for overworld dungeons.
 
 ##### Shipwrecks:
-• Hard nerfed the Netherite loot from Nether Bricks Shipwrecks.
+* Hard nerfed the Netherite loot from Nether Bricks Shipwrecks.
 
-• In Nether Bricks Shipwrecks, they now have more Wither Skeletons upon first generation.
+* In Nether Bricks Shipwrecks, they now have more Wither Skeletons upon first generation.
 
-• Adjusted the stairway in Nether Bricks Shipwrecks so that Wither Skeletons can walk though them.
+* Adjusted the stairway in Nether Bricks Shipwrecks so that Wither Skeletons can walk though them.
 
-• 1 Wither Skeleton with an enchanted bow has been added to Warped, Crimson, and Nether Bricks Shipwreck. (Crimson Shipwreck mast now has platform)
+* 1 Wither Skeleton with an enchanted bow has been added to Warped, Crimson, and Nether Bricks Shipwreck. (Crimson Shipwreck mast now has platform)
 
-• All 3 Nether Shipwrecks now properly checks to make sure they won't spawn inside land.
+* All 3 Nether Shipwrecks now properly checks to make sure they won't spawn inside land.
   
-• Fixed End Shipwrecks spawning so they no longer can spawn on the Enderdragon island.
+* Fixed End Shipwrecks spawning so they no longer can spawn on the Enderdragon island.
 
-• Change End Shipwrecks's default config spawnrate from 15 to 24 to make them less common.
+* Change End Shipwrecks's default config spawnrate from 15 to 24 to make them less common.
 
 ##### Outposts:
-• Added End Outposts to the End! Be careful as they are swarming with Phantoms!
+* Added End Outposts to the End! Be careful as they are swarming with Phantoms!
 
 ##### Pyramids:
-• Added End Pyramids to the End! A shrine for the dragon of the End!
+* Added End Pyramids to the End! A shrine for the dragon of the End!
 
-• Added Icy Pyramids to frozen biomes! Stay warm!
+* Added Icy Pyramids to frozen biomes! Stay warm!
 
-• Fixed https://bugs.mojang.com/browse/MC-130584 by using a special processor.
+* Fixed https://bugs.mojang.com/browse/MC-130584 by using a special processor.
   This means this mod's pyramid's chests will no longer be waterlogged if their pits replaces water in the world.
 
-• Fixed Snowy Pyramid ignoring the pyramid biome blacklist and was using Witch Hut's instead.
+* Fixed Snowy Pyramid ignoring the pyramid biome blacklist and was using Witch Hut's instead.
 
-• Nether and Badlands Pyramids now has a rs_spawner entry where people can randomize the mob spawner's mob much easier!
+* Nether and Badlands Pyramids now has a rs_spawner entry where people can randomize the mob spawner's mob much easier!
 
 ##### Temples:
-• All Nether Temples now has a rs_spawner entry where people can randomize the mob spawner's mob much easier!
+* All Nether Temples now has a rs_spawner entry where people can randomize the mob spawner's mob much easier!
 
 ##### Igloos:
-• Fixed https://bugs.mojang.com/browse/MC-130584 by using a special processor.
+* Fixed https://bugs.mojang.com/browse/MC-130584 by using a special processor.
   This means this mod's igloo's chests, ladders, and other blocks will no longer be waterlogged if their basement places water in the world.
 
 ##### Ruined Portals:
-• Now will be less likely to spawn off the island and will bury itself a bit.
+* Now will be less likely to spawn off the island and will bury itself a bit.
 
 ##### Mansions:
-• Fixed up a massive amount of RS Mansion pieces so that they look nicer. 
+* Fixed up a massive amount of RS Mansion pieces so that they look nicer. 
   (Also fixed some torches in Snowy mansion melting ice and fixed the leaf block that was decaying within the mini-tree in bedroom)
 
-• Changed Snowy Mansion's achievement description.
+* Changed Snowy Mansion's achievement description.
 
   
-## (V.2.5.1 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)
+### **(V.2.5.1 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)**
 
 ##### Mineshafts:
-• Fixed all Mineshaft height and spawnrate configs so they now actually work. 
+* Fixed all Mineshaft height and spawnrate configs so they now actually work. 
   Apparently they were broken for months but no one told me lol.
 
-• Changed Mineshaft spawnrate from int to double. Meaning you can do 55.34 instead of just 55.
+* Changed Mineshaft spawnrate from int to double. Meaning you can do 55.34 instead of just 55.
 
 
-## (V.2.5.0 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)
+### **(V.2.5.0 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)**
 
 ##### Loot Tables:
-• Added a Global Loot Modifier that now will import modded items from vanilla structure's loot tables
+* Added a Global Loot Modifier that now will import modded items from vanilla structure's loot tables
   into Repurposed Structures's own loot tables. (Snowy Pyramid gets all modded items that vanilla Desert Temple can have) 
 
 ##### Language:
-• Fixed some Spanish translations being cut-off.
+* Fixed some Spanish translations being cut-off.
 
-• Added German translations by elloellie and partially Google Translate! Special thanks to them!
+* Added German translations by elloellie and partially Google Translate! Special thanks to them!
 
 ##### Config:
-• Fixed some config comments missing the phrase: '1 for spawning in most chunks and 1001 for none.'
+* Fixed some config comments missing the phrase: '1 for spawning in most chunks and 1001 for none.'
 
 
-## (V.2.4.8 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)
+### **(V.2.4.8 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)**
 
 ##### Language:
-• Fixed bundled lang files that were missing map translations for 5 mansions.
+* Fixed bundled lang files that were missing map translations for 5 mansions.
 
-• Changed how translations are done for this mod and now you no longer need the translation datapack. 
+* Changed how translations are done for this mod and now you no longer need the translation datapack. 
   Just a resourcepack for your translations to take effect! This mod is now bundled with Spanish and Chinese translations files.
   The trick is that the English translations are now the keys for the other language files in order to make them work.
   
-• Spanish translation provided by 16N1C0! Special thanks to them!
+* Spanish translation provided by 16N1C0! Special thanks to them!
 
 
-## (V.2.4.7 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)
+### **(V.2.4.7 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)**
 
 ##### Config:
-• Cleaned up config even more to be neater. Mineshaft spawnrate config comments is a bit more clear now.
+* Cleaned up config even more to be neater. Mineshaft spawnrate config comments is a bit more clear now.
 
 ##### Fortresses:
-• Stopped scheduling duplicate fluid ticks for water in Jungle Fortresses. Also fixed a rare possible crash.
+* Stopped scheduling duplicate fluid ticks for water in Jungle Fortresses. Also fixed a rare possible crash.
 
 ##### Dungeons:
-• End Dungeons now have more Shulker Boxes and will have an additional Spawners per Shulker Box that spawns.
+* End Dungeons now have more Shulker Boxes and will have an additional Spawners per Shulker Box that spawns.
 
 
-## (V.2.4.6 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)
+### **(V.2.4.6 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)**
 
 ##### General:
-• Added null check for logspam filtering code.
+* Added null check for logspam filtering code.
 
 
-## (V.2.4.5 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)
+### **(V.2.4.5 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)**
 
 ##### Config:
-• Found a workaround for a Forge bug which was creating random bak files of my configs in the config folder.
+* Found a workaround for a Forge bug which was creating random bak files of my configs in the config folder.
 
-• Cleaned up the comment formatting significantly for my configs. Should be easier to read now.
+* Cleaned up the comment formatting significantly for my configs. Should be easier to read now.
 
 ##### General:
-• Found a way to silence logspam about the old structure pieces names being unknown in old worlds. Thank you MutantGumdrop for the suggestion!
+* Found a way to silence logspam about the old structure pieces names being unknown in old worlds. Thank you MutantGumdrop for the suggestion!
 
 
-## (V.2.4.4 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)
+### **(V.2.4.4 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)**
 
 ##### Strongholds:
-• So uh, I just learned that removing the Vanilla Stronghold from all biomes doesn't actually stop it from spawning.
+* So uh, I just learned that removing the Vanilla Stronghold from all biomes doesn't actually stop it from spawning.
   To fix this, turnOffVanillaStrongholds config value is now set to true by default and it will now correctly make 
   Vanilla Strongholds no longer spawn anymore. Repurposed Structures's Stonebrick Stronghold will take its place properly.
   (Yes Eyes of Ender will find RS's Strongholds as well)
   
-• Moved RS Strongholds from UNDERGROUND_STRUCTURES generation stage to STRONGHOLDS. 
+* Moved RS Strongholds from UNDERGROUND_STRUCTURES generation stage to STRONGHOLDS. 
   Will prevent some features/structures from breaking strongholds.
   
-• Fixed Nether Stronghold Libraries having floating fire.
+* Fixed Nether Stronghold Libraries having floating fire.
 
 ##### Outposts:
-• Nerfed the enchantment range of armor and weapons in Crimson, Warped, and Nether Bricks Outpost's loot. 
+* Nerfed the enchantment range of armor and weapons in Crimson, Warped, and Nether Bricks Outpost's loot. 
   Armor and Weapons will be damaged now to encourage fusing gears together to repair and strengthen enchantments.
 
-• All Overworld Repurposed Structures Outposts now generates with 8 Pillagers (Vanilla spawns with none btw)
+* All Overworld Repurposed Structures Outposts now generates with 8 Pillagers (Vanilla spawns with none btw)
   All 8 Pillagers will not despawn and 1 of the Pillager has a Raid Banner.
   These outposts will still spawn additional Pillagers over time.
   
-• Crimson, Warped, and Nether Bricks Outpost Chest blocks now faces the correct direction.
+* Crimson, Warped, and Nether Bricks Outpost Chest blocks now faces the correct direction.
 
 ##### Mansions:
-• Fixed logspam from Snowy Mansions about Diorite Walls having wrong properties.
+* Fixed logspam from Snowy Mansions about Diorite Walls having wrong properties.
 
 ##### Fortresses:
-• Lowered Jungle Fortresses a bit to increase the chances of flooded hallways.
+* Lowered Jungle Fortresses a bit to increase the chances of flooded hallways.
 
 ##### Villages:
-• Jungle Villages will now try not to spawn too close to Jungle Fortresses.
+* Jungle Villages will now try not to spawn too close to Jungle Fortresses.
 
 ##### Mineshafts:
-• Lavafalls will no longer spawn in Icy Mineshafts!
+* Lavafalls will no longer spawn in Icy Mineshafts!
 
 
-## (V.2.4.3 Changes) (1.16.5 Minecraft)
+### **(V.2.4.3 Changes) (1.16.5 Minecraft)**
 
 ##### Pyramids:
-• Made Badlands Pyramid rarer by default in configs.
+* Made Badlands Pyramid rarer by default in configs.
 
 ##### Villages:
-• Made Giant Tree Taiga a bit less messy and fixed several pieces not having its Stone Pressure Plates randomly replaced. 
+* Made Giant Tree Taiga a bit less messy and fixed several pieces not having its Stone Pressure Plates randomly replaced. 
 
 ##### Mansions:
-• Fixed Mansions not spawning Illagers.
+* Fixed Mansions not spawning Illagers.
 
 
-## (V.2.4.2 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)
+### **(V.2.4.2 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)**
 
 ##### Cities:
-• made Nether Cities have Netherite Scraps and Netherite Ingot in their chests.
+* made Nether Cities have Netherite Scraps and Netherite Ingot in their chests.
 
 ##### Outposts:
-• Adjusted looks of Crimson and Warped Outposts so their aged tower variants are different. Also renamed tower_glowing piece to tower_aged for both.
+* Adjusted looks of Crimson and Warped Outposts so their aged tower variants are different. Also renamed tower_glowing piece to tower_aged for both.
 
-• Added aged variant for Nether Bricks Outpost.
+* Added aged variant for Nether Bricks Outpost.
 
 ##### Pyramids:
-• Fixed pyramid not having pillar of their blocks below their pits when there is space below.
+* Fixed pyramid not having pillar of their blocks below their pits when there is space below.
 
 ##### Strongholds:
-• Added turnOffVanillaStrongholds config option to let people be able to turn off vanilla Strongholds to only have Nether Strongholds easier.
+* Added turnOffVanillaStrongholds config option to let people be able to turn off vanilla Strongholds to only have Nether Strongholds easier.
 
-• Fixed Stone Shores still having Vanilla Strongholds instead of Repurposed Structures's which was causing false positives with /locate stronghold and Eyes of Ender as a result.
+* Fixed Stone Shores still having Vanilla Strongholds instead of Repurposed Structures's which was causing false positives with /locate stronghold and Eyes of Ender as a result.
 
 ##### Villages:
-• Fixed Zombie Badlands Village having 2 Birch Village houses by mistake.
+* Fixed Zombie Badlands Village having 2 Birch Village houses by mistake.
 
 ##### Mod Compat:
-• Adjusted Stronghold removal code to not conflict with Yung's Better Stronghold mod when he releases it!
+* Adjusted Stronghold removal code to not conflict with Yung's Better Stronghold mod when he releases it!
 
 ##### General:
-• Made all the checks I have for separating some structures from other kinds of structures now ignore those checks if the structure spacing is set super low in configs.
+* Made all the checks I have for separating some structures from other kinds of structures now ignore those checks if the structure spacing is set super low in configs.
   Now if you make all outposts spawn in every chunk by config, Repurposed Structures villages will still be able to spawn.
   
-• Made all hardcoded nether height structures now uses the chunk generator's maximum height. 
+* Made all hardcoded nether height structures now uses the chunk generator's maximum height. 
   So if you use a datapack to expand the Nether's roof, these structures should automatically now use the increased range!
   Some checks for Nether sealevel now uses the chunk generator's sealevel instead of a hardcoded value.
   
-• Made all structures that checks surrounding biomes for valid biomes before spawning will now ignore that check if Checkered Biome Provider is used.
+* Made all structures that checks surrounding biomes for valid biomes before spawning will now ignore that check if Checkered Biome Provider is used.
 
 
-## (V.2.4.1 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)
+### **(V.2.4.1 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)**
 
 ##### Misc:
-• Moved StructureBlockScreen mixin so it only applies client side. Oops. It is not suppose to run on servers.
+* Moved StructureBlockScreen mixin so it only applies client side. Oops. It is not suppose to run on servers.
 
 
-## (V.2.4.0 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)
+### **(V.2.4.0 Changes) (1.16.5 Minecraft) (36.0.25+ Forge)**
 
 ##### Cities:
-• Added extremely rare Nether Cities to all Nether biomes! Beware of the Blazes! Maps to this city are very rare but can be found in Nether Ruins or Crimson/Warped Cartographer chests. 
+* Added extremely rare Nether Cities to all Nether biomes! Beware of the Blazes! Maps to this city are very rare but can be found in Nether Ruins or Crimson/Warped Cartographer chests. 
 
 ##### Ruins:
-• Added Nether Ruins to all Nether biomes! They are a great source of maps to undiscovered Bastion Remnants! Special thanks to miguelforge for the design!
+* Added Nether Ruins to all Nether biomes! They are a great source of maps to undiscovered Bastion Remnants! Special thanks to miguelforge for the design!
 
 ##### Mansions:
-• Added Birch Mansions! They are rarer than vanilla mansion to try and not crowd out the world.
+* Added Birch Mansions! They are rarer than vanilla mansion to try and not crowd out the world.
   Cartographers may sell the mansion maps in Level 4 trades!
 
 ##### Witch Huts:
-• Added Birch, Taiga, Giant Tree Taiga, Dark Forest, and Oak Witch Huts! They spawn Witches and Cats over time!
+* Added Birch, Taiga, Giant Tree Taiga, Dark Forest, and Oak Witch Huts! They spawn Witches and Cats over time!
 
 ##### Mineshafts:
-• Added Crimson and Warped Mineshafts!
+* Added Crimson and Warped Mineshafts!
 
-• Tried to fixed Vines being improperly placed in Jungle and SwampAndDark Mineshafts and also added Leaves blocks to them for a more overgrown look.
+* Tried to fixed Vines being improperly placed in Jungle and SwampAndDark Mineshafts and also added Leaves blocks to them for a more overgrown look.
 
-• Changed Nether Mineshafts so they now carve into lava but places blocks to prevent floating lava. Tunnels should be less disconnected now.
+* Changed Nether Mineshafts so they now carve into lava but places blocks to prevent floating lava. Tunnels should be less disconnected now.
 
-• Moved Nether Mineshafts from UNDERGROUND_STRUCTURES to VEGETAL_DECORATION stage to allow Ancient Debris to be exposed in Mineshafts.
+* Moved Nether Mineshafts from UNDERGROUND_STRUCTURES to VEGETAL_DECORATION stage to allow Ancient Debris to be exposed in Mineshafts.
   As a bonus, Basalt Delta's Basalt will not clog up Mineshafts anymore too!
 
 ##### Outposts:
-• Added Taiga Outposts to non-snowy and non-giant Taiga biomes!
+* Added Taiga Outposts to non-snowy and non-giant Taiga biomes!
 
-• Added Oak Outposts to non-birch and non-dark Forest biomes!
+* Added Oak Outposts to non-birch and non-dark Forest biomes!
 
-• Badlands Outposts can spawn on Badland's Plateaus now using a special heightmap check to not spawn it on plateau walls.
+* Badlands Outposts can spawn on Badland's Plateaus now using a special heightmap check to not spawn it on plateau walls.
 
-• Set default config for all Outposts to be slightly more rare to compensate for Outposts spawning in more biomes.
+* Set default config for all Outposts to be slightly more rare to compensate for Outposts spawning in more biomes.
 
-• Bumped default spawnrate of Birch, Jungle, Giant Tree Taiga, Desert, Badlands, Snowy, Oak, Taiga Outposts from 41/43 to 50 to make them slightly more rare.
+* Bumped default spawnrate of Birch, Jungle, Giant Tree Taiga, Desert, Badlands, Snowy, Oak, Taiga Outposts from 41/43 to 50 to make them slightly more rare.
 
-• Fixed all Outposts spawning too close to vanilla villages.
+* Fixed all Outposts spawning too close to vanilla villages.
 
 ##### Pyramids:
-• Added Snowy Pyramids to snowy biomes!
+* Added Snowy Pyramids to snowy biomes!
 
-• Bumped default config spawnrate of Badlands Pyramids from 20 to 25 to make them a bit more rare.
+* Bumped default config spawnrate of Badlands Pyramids from 20 to 25 to make them a bit more rare.
 
-• Badlands Pyramids now properly create pillar of Red Sandstone in parity to vanilla's Desert Temple.
+* Badlands Pyramids now properly create pillar of Red Sandstone in parity to vanilla's Desert Temple.
 
-• Rounded the bottom of Nether Pyramids so they look better even when the Nether's caves and ravines carves out the land from under the pyramid.
+* Rounded the bottom of Nether Pyramids so they look better even when the Nether's caves and ravines carves out the land from under the pyramid.
 
-• Nerfed Golden Swords enchantment level range from 20-39 to 10-30 in chest's loottable for Nether Pyramids.
+* Nerfed Golden Swords enchantment level range from 20-39 to 10-30 in chest's loottable for Nether Pyramids.
 
 ##### Fortresses:
-• Attempt to reduce the amount of floating Vines in Jungle Fortress.
+* Attempt to reduce the amount of floating Vines in Jungle Fortress.
 
-• Fixed Drowned not spawning in flooded Jungle Fortresses by removing them from the mob-spawning-over-time list and now just directly
+* Fixed Drowned not spawning in flooded Jungle Fortresses by removing them from the mob-spawning-over-time list and now just directly
   spawns some Drowned on fortress creation. These Drowned will not despawn and will sometimes have Iron or Chainmail armor.
 
-• Fixed Fortress maps being sold in Level 4 and 5 trades by Cartographer instead of 3 and 4.
+* Fixed Fortress maps being sold in Level 4 and 5 trades by Cartographer instead of 3 and 4.
 
-• Bumped default spawnrate of Jungle Fortresses from 32 to 50 to make them more rare.
+* Bumped default spawnrate of Jungle Fortresses from 32 to 50 to make them more rare.
 
-• Nerfed Jungle Fortress loottables to pick less loot and diamond armor is removed. Leather armor is added instead.
+* Nerfed Jungle Fortress loottables to pick less loot and diamond armor is removed. Leather armor is added instead.
 
 ##### Shipwrecks:
-• Nether Bricks Shipwrecks will only be flying in any biome with "soul" in the name.
+* Nether Bricks Shipwrecks will only be flying in any biome with "soul" in the name.
 
 ##### Strongholds:
-• Lowered netherStrongholdMinHeight config default value to 10.
+* Lowered netherStrongholdMinHeight config default value to 10.
 
-• Slightly adjusted Stonebrick Strongholds so they now won't be added to None-category biomes.
+* Slightly adjusted Stonebrick Strongholds so they now won't be added to None-category biomes.
 
 ##### Temples:
-• Moved Nether Basalt Temple from SURFACE_STRUCTURES to VEGETAL_DECORATION stage to prevent Basalt Delta's Basalt features from clogging up the insides.
+* Moved Nether Basalt Temple from SURFACE_STRUCTURES to VEGETAL_DECORATION stage to prevent Basalt Delta's Basalt features from clogging up the insides.
 
-• Adjusted Nether Basalt Temple's processor to randomize the temple's blocks a bit better.
+* Adjusted Nether Basalt Temple's processor to randomize the temple's blocks a bit better.
 
-• Nerfed Golden Swords enchantment level range from 20-39 to 10-30 in all chest's loottable for temples.
+* Nerfed Golden Swords enchantment level range from 20-39 to 10-30 in all chest's loottable for temples.
 
-• Badlands Pyramids now properly create pillar of Red Sandstone in parity to vanilla's Desert Temple.
+* Badlands Pyramids now properly create pillar of Red Sandstone in parity to vanilla's Desert Temple.
 
-• Rounded the bottom of Nether Pyramids so they look better even when the Nether's caves and ravines carves out the land from under the pyramid.
+* Rounded the bottom of Nether Pyramids so they look better even when the Nether's caves and ravines carves out the land from under the pyramid.
 
 ##### Villages:
-• Fixed Swamp Villages bypassing surrounding biome check that would've prevented it from spawning on biome edges.
+* Fixed Swamp Villages bypassing surrounding biome check that would've prevented it from spawning on biome edges.
 
-• Replaced a lot of Cobblestone with wood in Oak Villages to make them more distinct from Plains Villages and made Path Blocks more common.
+* Replaced a lot of Cobblestone with wood in Oak Villages to make them more distinct from Plains Villages and made Path Blocks more common.
 
-• Added zombie variant of Badlands Villages.
+* Added zombie variant of Badlands Villages.
 
-• Bumped default config spawnrate of Birch, Oak, Dark Forest, Jungle, Swamp, Mountains, and Giant Tree Taiga Villages from 29/31/33 to 38 to make them more rare.
+* Bumped default config spawnrate of Birch, Oak, Dark Forest, Jungle, Swamp, Mountains, and Giant Tree Taiga Villages from 29/31/33 to 38 to make them more rare.
 
-• Bumped default config spawnrate of Badlands Villages from 23 to 30 to make them more rare.
+* Bumped default config spawnrate of Badlands Villages from 23 to 30 to make them more rare.
 
 ##### Dungeons:
-• Nerfed all golden tools and armor enchantment level range from 15-30 to 5-25 in Nether Dungeon chest's loottable.
+* Nerfed all golden tools and armor enchantment level range from 15-30 to 5-25 in Nether Dungeon chest's loottable.
 
-• Lowered default config spawnrate for Ocean Dungeons from 6 to 5.
+* Lowered default config spawnrate for Ocean Dungeons from 6 to 5.
 
 ##### Misc:
-• Deleted 2x2 Swamp Trees. They didn't fit this mod at all. They still exist in Ultra Amplified Dimension mod!
+* Deleted 2x2 Swamp Trees. They didn't fit this mod at all. They still exist in Ultra Amplified Dimension mod!
 
-• Made Structure Blocks name field now hold 128 characters like Jigsaw Blocks instead of 64 characters.
+* Made Structure Blocks name field now hold 128 characters like Jigsaw Blocks instead of 64 characters.
   Now loading up Repurposed Structures's village pieces are much easier.
   
 ##### General:
-• Cleaned up biome selection code backend a lot and adjusted some biome selections conditions for a few structures. 
+* Cleaned up biome selection code backend a lot and adjusted some biome selections conditions for a few structures. 
 
-• Fixed structure pieces being registered under minecraft's namespace. 
+* Fixed structure pieces being registered under minecraft's namespace. 
   You may see a bit of logspam about unknown piece ID in existing worlds but this will not break your world.
   It means old structure on edges of unexplored chunks might be cutoff. Just ignore the logspam.
   
-• Cleaned up en_us.json file to be nearly alphabetical. 
+* Cleaned up en_us.json file to be nearly alphabetical. 
 
 
-## (V.2.3.4 Changes) (1.16.4 Minecraft)
+### **(V.2.3.4 Changes) (1.16.4 Minecraft)**
 
 ##### General:
-• Improved biome targeting so some structures types get the right biome better.
+* Improved biome targeting so some structures types get the right biome better.
 
 ##### Outposts:
-• Overworld Outposts now spawn Pillagers over time. 
+* Overworld Outposts now spawn Pillagers over time. 
 
-• Replaced Dark Oak blocks with Spruce blocks in Snow Outposts
+* Replaced Dark Oak blocks with Spruce blocks in Snow Outposts
 
-• Changed some blocks for the cages in badlands, Desert, Icy, and Snowy Outposts.  
+* Changed some blocks for the cages in badlands, Desert, Icy, and Snowy Outposts.  
 
 ##### Strongholds:
-• Strongholds now will fit much better between the min and max y set in the config. 
+* Strongholds now will fit much better between the min and max y set in the config. 
   Rooms too low or too high will now be deleted (though the Portal Room will never be deleted).
   As a result, you may find a few rooms or hallways cutoff from the rest of the stronghold but that was
   a sacrifice I was willing to make to fix Strongholds sometimes spawning way aboveground than they should.
 
-• Nether Strongholds no longer has Cobwebs in libraries and instead, may have fire.
+* Nether Strongholds no longer has Cobwebs in libraries and instead, may have fire.
 
-• Strongholds will now not spawn in the End Dimension even when you add non-End category biomes to the dimension. With a datapack, you can
+* Strongholds will now not spawn in the End Dimension even when you add non-End category biomes to the dimension. With a datapack, you can
   add the RS stronghold spacing to the End Noise Setting and to the End category biomes to force the Stronghold to spawn in that dimension.
 
 ##### Villages:
-• Badlands Villages now can spawn in Badlands Plateaus with a terrain check to try and keep them from generating on plateau walls.
+* Badlands Villages now can spawn in Badlands Plateaus with a terrain check to try and keep them from generating on plateau walls.
 
-• Badlands Villages now only contain Desert clothed Villagers instead of sometimes having Plains clothed Villagers.
+* Badlands Villages now only contain Desert clothed Villagers instead of sometimes having Plains clothed Villagers.
 
-• Fixed Birch Villages so they no longer have Oak Stripped Wood, Oak Fence Gate, or Oak Stairs.
+* Fixed Birch Villages so they no longer have Oak Stripped Wood, Oak Fence Gate, or Oak Stairs.
  
-• Fixed Churches not having doors in Birch, Dark Forest, and Oak Villages.
+* Fixed Churches not having doors in Birch, Dark Forest, and Oak Villages.
 
-• Fixed Jungle Villages having Acacia blocks by mistake in the Weaponsmith house and fixed door in Butcher house being the wrong blockstate.
+* Fixed Jungle Villages having Acacia blocks by mistake in the Weaponsmith house and fixed door in Butcher house being the wrong blockstate.
 
-• Mountain Villages farms now have waterlogged Cobblestone Slab instead of Water Blocks to prevent them from turning into ice when too cold.
+* Mountain Villages farms now have waterlogged Cobblestone Slab instead of Water Blocks to prevent them from turning into ice when too cold.
 
-• Removed extra space at the end of addNetherStrongholdToModdedBiomes config name. (Will cause config to default back to true unless changed again)
+* Removed extra space at the end of addNetherStrongholdToModdedBiomes config name. (Will cause config to default back to true unless changed again)
 
 ##### Wells:
-• Fixed crash if the wells nbt file ever somehow goes missing.
+* Fixed crash if the wells nbt file ever somehow goes missing.
 
 ##### Dungeons:
-• Fixed mob spawners losing their mob data after doing `/reload` or `/datapack disable vanilla` commands.
+* Fixed mob spawners losing their mob data after doing `/reload` or `/datapack disable vanilla` commands.
 
 ##### Mineshafts:
-• Fixed mob spawners losing their mob data after doing `/reload` or `/datapack disable vanilla` commands.
+* Fixed mob spawners losing their mob data after doing `/reload` or `/datapack disable vanilla` commands.
 
 ##### Igloos:
-• Stony Igloos now uses Spruce Signs and their Villager/Zombie Villager now wears taiga clothing.
+* Stony Igloos now uses Spruce Signs and their Villager/Zombie Villager now wears taiga clothing.
 
-• Grassy Igloos basements now use Oak blocks instead of Spruce.
+* Grassy Igloos basements now use Oak blocks instead of Spruce.
 
 ##### Fortresses:
-• Added Drowned to Jungle Fortresses possible mob spawns to help populate the water filled hallways below sealevel.
+* Added Drowned to Jungle Fortresses possible mob spawns to help populate the water filled hallways below sealevel.
 
 ##### Backend:
-• Structure spacing for RS structures set by JSON will now no longer be overwritten. 
+* Structure spacing for RS structures set by JSON will now no longer be overwritten. 
   With datapacks, you can make RS structures now spawn more or less frequently as a result.
 
-• Redid code on how mobs spawn over time are added to RS structures to be cleaner and less likely I forget to add mob spawns later. 
+* Redid code on how mobs spawn over time are added to RS structures to be cleaner and less likely I forget to add mob spawns later. 
 
 -Prefixed all my accessor and invoker mixins due to this bug in mixins that could cause a crash with other mods for same named mixins.
  https://github.com/SpongePowered/Mixin/issues/430
 
 
-## (V.2.3.3 Changes) (1.16.4 Minecraft)
+### **(V.2.3.3 Changes) (1.16.4 Minecraft)**
 
 ##### Dungeons:
-• Fixed world not loading due to setting dungeon config spawnrate above 128 due to a Mojang limit. 
+* Fixed world not loading due to setting dungeon config spawnrate above 128 due to a Mojang limit. 
   Now you can set spawnrate above 128 safely!
   
-• Improved the looks of Mushroom Dungeons.
+* Improved the looks of Mushroom Dungeons.
 
-• Removed Turtle from Ocean Dungeon Spawners because Turtles Spawners 
+* Removed Turtle from Ocean Dungeon Spawners because Turtles Spawners 
   only spawn Turtles if above sealevel, in light, and on Sand.
   
 ##### Stronghold:
-• Fixed world not loading due to setting chain config spawnrate above 128 due to a Mojang limit. 
+* Fixed world not loading due to setting chain config spawnrate above 128 due to a Mojang limit. 
   Now you can set spawnrate above 128 safely!
 
 ##### Outposts:
-• Fixed English translation for Giant Tree Taiga Outpost Advancement.
+* Fixed English translation for Giant Tree Taiga Outpost Advancement.
 
 ##### Igloos:
-• Fixed missing Ladder block at top of some basements in Grassy and Stone Igloos.
+* Fixed missing Ladder block at top of some basements in Grassy and Stone Igloos.
 
 
-## (V.2.3.2 Changes) (1.16.4 Minecraft)
-
-##### Outposts:
-• Fixed Warped Outposts not having 6 Piglins and a Brute at first spawning.
-
-
-## (V.2.3.1 Changes) (1.16.4 Minecraft)
+### **(V.2.3.2 Changes) (1.16.4 Minecraft)**
 
 ##### Outposts:
-• Replaced some Birch Logs with Birch Wood in Birch Outposts to make it look better. 
+* Fixed Warped Outposts not having 6 Piglins and a Brute at first spawning.
 
-• Overworld Outposts now mesh much better with the surrounding terrain.
 
-• Lowered default value for outpostBadlandsMaxChunkDistance config entry from 37 to 31
+### **(V.2.3.1 Changes) (1.16.4 Minecraft)**
+
+##### Outposts:
+* Replaced some Birch Logs with Birch Wood in Birch Outposts to make it look better. 
+
+* Overworld Outposts now mesh much better with the surrounding terrain.
+
+* Lowered default value for outpostBadlandsMaxChunkDistance config entry from 37 to 31
   so that the Badlands Outpost isn't as extremely rare as it was before.
 
 
-## (V.2.3.0 Changes) (1.16.4 Minecraft)
+### **(V.2.3.0 Changes) (1.16.4 Minecraft)**
 
 ##### New additions!:
-• End themed Ruined Portals now spawn in the End dimension!
+* End themed Ruined Portals now spawn in the End dimension!
   Special thanks to miguelforge for creating them!
 
-• Added Birch, Jungle, Icy, Snowy, Giant Tree Taiga, Desert, and Badlands Pillager Outposts!
+* Added Birch, Jungle, Icy, Snowy, Giant Tree Taiga, Desert, and Badlands Pillager Outposts!
 
-• Added Oak Village that spawns in any forest category biome that isn't birch or dark forest!
+* Added Oak Village that spawns in any forest category biome that isn't birch or dark forest!
 
 ##### Backend:
-• Reworked and cleaned up backend a bit.
+* Reworked and cleaned up backend a bit.
 
-• Fixed many structures not using the speedy locate method.
+* Fixed many structures not using the speedy locate method.
 
-• Fixed a bug that could still spawn Repurposed Structures's stuff in superflat.
+* Fixed a bug that could still spawn Repurposed Structures's stuff in superflat.
 
-• Ported Voyager's fix for Java 11+'s ConcurrentModificationException crash when the 
+* Ported Voyager's fix for Java 11+'s ConcurrentModificationException crash when the 
   game tries to grab multiple structure's pieces from TemplateManager at the same time.
   Source: https://github.com/modmuss50/Voyager
 
 ##### Advancements:
-• Advancements now have English translations built in so vanilla clients do not 
+* Advancements now have English translations built in so vanilla clients do not 
   need any en_us.json resource pack anymore! If you want clients to have different
   translations from each other, put Repurposed_Structures-Translation_Advancements
   datapack on the server and now each client can make their own en_us.json resourcepack
   for their own language translations.
   
-• Organized advancements into subfolders now so it is cleaner.
+* Organized advancements into subfolders now so it is cleaner.
   
 ##### Strongholds:
-• Fixed Strongholds being cutoff by Bedrock.
+* Fixed Strongholds being cutoff by Bedrock.
 
-• Stonebrick Strongholds no longer can be added to End category modded biomes anymore.
+* Stonebrick Strongholds no longer can be added to End category modded biomes anymore.
 
-• Added allowStonebrickStrongholdToVanillaBiomes config option for Stonebrick Strongholds. 
+* Added allowStonebrickStrongholdToVanillaBiomes config option for Stonebrick Strongholds. 
   It now now possible to have Repurposed Structures's Stonebrick Strongholds to only spawn 
   in modded biomes, or only in vanilla biomes, or both by changing the values of
   addStonebrickStrongholdToModdedBiomes and allowStonebrickStrongholdToVanillaBiomes.
   
-• Fixed Stronghold Chains placing floating lanterns at y = 3.
+* Fixed Stronghold Chains placing floating lanterns at y = 3.
 
 ##### Mineshafts:
-• End Mineshafts will now be much more buried in the End's islands 
+* End Mineshafts will now be much more buried in the End's islands 
   if barrensIslandsEndMineshafts config option is turned off.
 
 ##### Shipwrecks:
-• Fixed addWarpedShipwreckToModdedBiomes config not working.
+* Fixed addWarpedShipwreckToModdedBiomes config not working.
 
 ##### Fortresses:
-• Jungle Fortresses now need to be fully enclosed in a jungle category biome to spawn.
+* Jungle Fortresses now need to be fully enclosed in a jungle category biome to spawn.
 
-• Increased chance of a hallway having a chest in Jungle Fortresses from
+* Increased chance of a hallway having a chest in Jungle Fortresses from
   1/9th chance to 1/5th chance. Nether Fortress is 1/3rd chance for chest 
   in hallway for reference.
 
-• Nerfed Jungle Fortress chest loot a bit
+* Nerfed Jungle Fortress chest loot a bit
 
 ##### Outposts:
-• Buffed Nether Outposts's loot a bit.
+* Buffed Nether Outposts's loot a bit.
 
 ##### Villages:
-• Adjusted Dark Villages so they are added to biomes with "dark" in the name and is 
+* Adjusted Dark Villages so they are added to biomes with "dark" in the name and is 
   forest category instead of only be added to biome with "dark_forest" in name.
   
-• Adjusted some villages pieces to allow Villagers to reach workstation as
+* Adjusted some villages pieces to allow Villagers to reach workstation as
   Mojang broke the Villager AI with a bug lol.
   
-• Fix several instances of stairs and fences being in impossible blockstates 
+* Fix several instances of stairs and fences being in impossible blockstates 
   in the Villages. Also fixed some random Dirt blocks being in Villages.
   
-• Fixed a Dark Oak Village house being fused with a farm for no reason lmao.
+* Fixed a Dark Oak Village house being fused with a farm for no reason lmao.
 
-• Reduced chances of Village's Iron Golem spawning inside a tree and dying.
+* Reduced chances of Village's Iron Golem spawning inside a tree and dying.
 
-• Added a new Badlands Library made by miguelforge!
+* Added a new Badlands Library made by miguelforge!
   
-• Nerfed the default spacing config value for all overworld villages.
+* Nerfed the default spacing config value for all overworld villages.
 
 ##### Miscellaneous:
-• Giant Boulders in Giant Tree Taiga biomes will now no longer float on water.
+* Giant Boulders in Giant Tree Taiga biomes will now no longer float on water.
 
-• Removed logo blur from logo in mod list
+* Removed logo blur from logo in mod list
 
 ##### Configs:
-• Changed "spawnrate" for dungeon entries to say "attemptsPerChunk" instead.
+* Changed "spawnrate" for dungeon entries to say "attemptsPerChunk" instead.
 
-• Changed "spawnrate" for well entries to say "rarityPerChunk" instead.
+* Changed "spawnrate" for well entries to say "rarityPerChunk" instead.
 
-• Changed "spawnrate" for majority of structures entries to say "maxChunkDistance" instead.
+* Changed "spawnrate" for majority of structures entries to say "maxChunkDistance" instead.
 
-• Removed "JF" from some Jungle Fortress entries.
+* Removed "JF" from some Jungle Fortress entries.
 
-• Biome blacklisting configs now will ignore spaces between entries.
+* Biome blacklisting configs now will ignore spaces between entries.
 
 
-## (V.2.2.11 Changes) (1.16.3 Minecraft)
+### **(V.2.2.11 Changes) (1.16.3 Minecraft)**
 
 ##### Shipwreck:
 
-• Fixed map chest loot not showing up in Warped Shipwreck.
+* Fixed map chest loot not showing up in Warped Shipwreck.
 
 
-## (V.2.2.10 Changes) (1.16.3 Minecraft)
+### **(V.2.2.10 Changes) (1.16.3 Minecraft)**
 
 ##### Major:
-• Register to Forge registry instead of vanilla due to a breaking 
+* Register to Forge registry instead of vanilla due to a breaking 
   change done by Forge. Special thanks to andrew0030, dev of 
   Pandoras Creatures, for helping with fixing Repurposed Structures!
 
 ##### Outposts:
 
-• Nether Outposts now has 1 Piglin Brute.
+* Nether Outposts now has 1 Piglin Brute.
 
 ##### Dungeons:
 
-• Ocean Dungeons chests will now have Prismarine placed under 
+* Ocean Dungeons chests will now have Prismarine placed under 
   them if they are floating. Should reduce the amount of 
   floating chests by a lot. 
   
-• Removed floating plants from above Ocean Dungeons as best I can.
+* Removed floating plants from above Ocean Dungeons as best I can.
   
 ##### Misc:
 
-• Giant boulders in Giant Tree Taiga biomes now are more varied in size.
+* Giant boulders in Giant Tree Taiga biomes now are more varied in size.
 
-• Default config spawnrate of giant boulders was reduced.
+* Default config spawnrate of giant boulders was reduced.
 
   
-## (V.2.2.9 Changes) (1.16.3 Minecraft)
+### **(V.2.2.9 Changes) (1.16.3 Minecraft)**
 
 ##### Villages:
 
-• Fixed typos in template_pools so that now ALL village pieces can spawn in villages!
+* Fixed typos in template_pools so that now ALL village pieces can spawn in villages!
 
 ##### Misc:
 
-• Fixed log spam about stuff being registered multiple times. Sorry about that!
+* Fixed log spam about stuff being registered multiple times. Sorry about that!
 
 ##### Config:
 
-• Dimension blacklist will now ignore any spaces you leave between entries in it.
+* Dimension blacklist will now ignore any spaces you leave between entries in it.
 
 
-## (V.2.2.8 Changes) (1.16.3 Minecraft)
+### **(V.2.2.8 Changes) (1.16.3 Minecraft)**
 
 ##### Misc:
 
-• Fixed crash with some mod's custom ChunkGenerator.
+* Fixed crash with some mod's custom ChunkGenerator.
   Just be careful to not use /locate in these custom dimensions
   as that could have a chance of causing the game to hang 
   depending on how they coded the ChunkGenerator. 
   Will try and think of some sort of solution to this...
 
 
-## (V.2.2.7 Changes) (1.16.3 Minecraft)
+### **(V.2.2.7 Changes) (1.16.3 Minecraft)**
 
 ##### Misc:
 
-• Added check to automatically blacklist any dimension using the
+* Added check to automatically blacklist any dimension using the
   FlatChunkGenerator (superflat worldtype) because that chunk generator
   will spawn all RS's structures at once and make /locate on certain 
   RS structure cause the server to hang forever.
 
 ##### Backend:
 
-• Cleaned up codebase a bit.
+* Cleaned up codebase a bit.
 
 ##### Mineshafts:
 
-• Adjusted the default config values for the maximum Y spawnheight 
+* Adjusted the default config values for the maximum Y spawnheight 
   of Mineshafts to match the Fabric version of Repurposed Structures.
 
 
-## (V.2.2.6 Changes) (1.16.3 Minecraft)
+### **(V.2.2.6 Changes) (1.16.3 Minecraft)**
 
 ##### Mod Compat:
 
-• Fixed possible crash with some biome mods if they do 
+* Fixed possible crash with some biome mods if they do 
   strange stuff with their biome provider.
   
 
-## (V.2.2.5 Changes) (1.16.3 Minecraft)
+### **(V.2.2.5 Changes) (1.16.3 Minecraft)**
 
 ##### Major:
 
-• Fixed possible crash when re-entering superflat worlds or 
+* Fixed possible crash when re-entering superflat worlds or 
   blacklisting a RS structure from a vanilla dimension.
 
 ##### Igloos:
 
-• Fixed bug where Grassy Igloos had 2 Villages and 2 Zombie Villages instead of 1 of each. 
+* Fixed bug where Grassy Igloos had 2 Villages and 2 Zombie Villages instead of 1 of each. 
 
 
-## (V.2.2.4 Changes) (1.16.3 Minecraft)
+### **(V.2.2.4 Changes) (1.16.3 Minecraft)**
 
 ##### Misc:
 
-• Used the registered ConfiguredFeatures for Horned Swamp Trees properly now.
+* Used the registered ConfiguredFeatures for Horned Swamp Trees properly now.
 
 
-## (V.2.2.3 Changes) (1.16.3 Minecraft)
+### **(V.2.2.3 Changes) (1.16.3 Minecraft)**
 
 ##### Configs:
 
-• Added config option to blacklist all Repurposed Structures's structures from
+* Added config option to blacklist all Repurposed Structures's structures from
   any dimension(s) you specify. Finally figured out how to do it safely!
 
 ##### Major:
 
-• All structures now will spawn away from themselves with spacing being between
+* All structures now will spawn away from themselves with spacing being between
   the spawnrate's number and half that number (in chunks). So a spawnrate of 50
   means the structure will not be more that 50 chunk apart from another and cannot 
   be closer than 25 chunks to itself.
   
-• The 'salt' used for structure placement has now been fully randomized due to some
+* The 'salt' used for structure placement has now been fully randomized due to some
   weird quirks in Java's RNG that causes different structures to have similar effects
   from their salts if the salts are too similar.
 
 ##### Mineshafts:
 
-• Made it so Mineshafts will not spawn in exact same coordinates 
+* Made it so Mineshafts will not spawn in exact same coordinates 
   if multiple are added to the same biome.
 
-## (V.2.2.2 Changes) (1.16.3 Minecraft)
+### **(V.2.2.2 Changes) (1.16.3 Minecraft)**
 
 ##### Mineshafts:
 
-• Overworld Repurposed Structures Mineshafts now still spawns and 
+* Overworld Repurposed Structures Mineshafts now still spawns and 
   won't conflict with Yung's Better Mineshafts when that mod is on.
   The Mineshafts will now be added to modded biomes of the right type
   even if said biomes do not have Vanilla Mineshafts. Use the config
   blacklist to prevent Repurposed Mineshafts in certain biomes.
 
-## (V.2.2.1 Changes) (1.16.3 Minecraft)
+### **(V.2.2.1 Changes) (1.16.3 Minecraft)**
 
 ##### Shipwrecks:
 
-• Ah shoot. I forgot to add naturally spawning Wither Skeleton to the Nether Shipwrecks!
+* Ah shoot. I forgot to add naturally spawning Wither Skeleton to the Nether Shipwrecks!
 
-## (V.2.2.0 Changes) (1.16.3 Minecraft)
+### **(V.2.2.0 Changes) (1.16.3 Minecraft)**
 
 ##### Misc:
 
-• Load up some structure nbt files at world startup instead of during worldgen.
+* Load up some structure nbt files at world startup instead of during worldgen.
 
-• Fixed registry names of all features (not structures) to not be in minecraft namespace by mistake.
+* Fixed registry names of all features (not structures) to not be in minecraft namespace by mistake.
 
-• Organized all structure loottables file path. Will break datapacks still using old path.
+* Organized all structure loottables file path. Will break datapacks still using old path.
 
-• Organized config screen to say what entries does instead of hiding it in tooltips.
+* Organized config screen to say what entries does instead of hiding it in tooltips.
 
-• Adjusted spacing between two different structures in many nether structures.
+* Adjusted spacing between two different structures in many nether structures.
 
 ##### Shipwrecks:
 
-• Added Warped and Crimson Shipwreck to their respective Nether biomes! 
+* Added Warped and Crimson Shipwreck to their respective Nether biomes! 
   Special thanks to miguelforge for providing the designs and nbt file!
   
-• Added Nether Bricks Shipwreck to all other Nether biomes! 
+* Added Nether Bricks Shipwreck to all other Nether biomes! 
   Special thanks to cannon_foddr for providing the designs and nbt file!
 
 ##### Villages:
 
-• Saloon spawnrate increased
+* Saloon spawnrate increased
 
-• Fixed name of Nether Fortress and Bastion Remnant maps from Nether Villages.
+* Fixed name of Nether Fortress and Bastion Remnant maps from Nether Villages.
 
 ##### Pyramids:
 
-• Fixed Badlands Pyramid's trap not always fully activating.
+* Fixed Badlands Pyramid's trap not always fully activating.
 
 ##### Mineshafts:
 
-• Increased default spawnrate of End Mineshafts
+* Increased default spawnrate of End Mineshafts
 
-• Fixed bug that really screwed up the spawning of End Mineshafts (made them spawn waaaaaaaayyyyy too far out)
+* Fixed bug that really screwed up the spawning of End Mineshafts (made them spawn waaaaaaaayyyyy too far out)
 
 
-## (V.2.1.4 Changes) (1.16.2 Minecraft)
+### **(V.2.1.4 Changes) (1.16.2 Minecraft)**
 
 ##### Misc:
 
-• Updated workspace to 1.16.3 but should still work on 1.16.2. Also cleaned up 1 piece of code.
+* Updated workspace to 1.16.3 but should still work on 1.16.2. Also cleaned up 1 piece of code.
 
 ##### Villages:
 
-• Fixed Swamp Village centers being 1 block too high. Again...
+* Fixed Swamp Village centers being 1 block too high. Again...
 
 
-## (V.2.1.3 Changes) (1.16.2 Minecraft)
+### **(V.2.1.3 Changes) (1.16.2 Minecraft)**
 
 ##### Misc:
 
-• Registered all ConfiguredFeatures and converted all Template Pools/Structure Processors 
+* Registered all ConfiguredFeatures and converted all Template Pools/Structure Processors 
   into JSON so they can be used or overridden more easily by datapacks.
 
-• Significantly cleaned up code in backend again.
+* Significantly cleaned up code in backend again.
 
 ##### Villages:
 
-• Adjusted the weights for straight roads and houses with beds to try
+* Adjusted the weights for straight roads and houses with beds to try
   and make Villages have more bed houses and not be just empty with only
   clusters of roads. Affects all Repurposed Structures villages.
 
-• Fixed waterlogging issue in Animal Pen 1 in Giant Tree Taiga Village.
+* Fixed waterlogging issue in Animal Pen 1 in Giant Tree Taiga Village.
 
-• Fixed Item Frames with Potions missing from Saloons in Badlands Villages.
+* Fixed Item Frames with Potions missing from Saloons in Badlands Villages.
 
 ##### Boulders:
 
-• Giant Boulders in Giant Tree Taiga Hills and Giant Spruce Taiga Hills now
+* Giant Boulders in Giant Tree Taiga Hills and Giant Spruce Taiga Hills now
   are place lower to fit on terrain better and their surfaces are roughed up.
 
 ##### Swamp Trees:
 
-• Increased spawnrate of Horned Swamp Trees in Swamp Hills biome
+* Increased spawnrate of Horned Swamp Trees in Swamp Hills biome
 
 
-## (V.2.1.2 Changes) (1.16.2 Minecraft)
+### **(V.2.1.2 Changes) (1.16.2 Minecraft)**
 
 ##### Misc:
 
-• Fixed crash with datapack chunkgenerators.
+* Fixed crash with datapack chunkgenerators.
 
-## (V.2.1.1 Changes) (1.16.2 Minecraft)
+### **(V.2.1.1 Changes) (1.16.2 Minecraft)**
 
 ##### Temples:
 
-• Added mixin to fix Mojang bug where Enderman spawners won't show Endermen in them and spam the logs to infinity.
+* Added mixin to fix Mojang bug where Enderman spawners won't show Endermen in them and spam the logs to infinity.
 
 ##### Fortresses:
 
-• Fixed bug where one type of crossing in Jungle Fortress would not get filled with water properly when below sealevel.
+* Fixed bug where one type of crossing in Jungle Fortress would not get filled with water properly when below sealevel.
 
 ##### Wells:
 
-• Nether Well's maximum height lower to 120 so it cannot generate on bedrock ceiling anymore.
+* Nether Well's maximum height lower to 120 so it cannot generate on bedrock ceiling anymore.
 
 ##### Swamp Trees:
 
-• Swamp Trees now gets added as an addition to modded biomes instead of replacing the other mod's swamp trees.
+* Swamp Trees now gets added as an addition to modded biomes instead of replacing the other mod's swamp trees.
 
-## (V.2.1.0 Changes) (1.16.2 Minecraft)
+### **(V.2.1.0 Changes) (1.16.2 Minecraft)**
 
 ##### Major:
 
-• Updated to 1.16.2!
+* Updated to 1.16.2!
 
 ##### Dungeons:
 
-• Fixed crash on servers due to me accidentally using a clientsided method in the dungeon spawner code...
+* Fixed crash on servers due to me accidentally using a clientsided method in the dungeon spawner code...
 
-• Added a null check for if the game is unable to find rs_spawner json files. 
+* Added a null check for if the game is unable to find rs_spawner json files. 
   Will instead use vanilla's default mobs and write to the log about the error 
   instead of crashing when it fails to read the json files.
 
 ##### Villages:
 
-• Added a single Piglin Brute to Villages in Nether.
+* Added a single Piglin Brute to Villages in Nether.
 
-• Increased Netherrack Gold Ore and Blackstone Gold Ore rates slightly in Nether Villages.
+* Increased Netherrack Gold Ore and Blackstone Gold Ore rates slightly in Nether Villages.
 
-• Slightly made Nether Villages more rare in config default.
+* Slightly made Nether Villages more rare in config default.
 
 ##### Outposts:
 
-• Slightly made Nether Outposts more rare in config default.
+* Slightly made Nether Outposts more rare in config default.
 
 ##### Temples:
 
-• Slightly made Nether Temples more common in config default.
+* Slightly made Nether Temples more common in config default.
 
-## (V.2.0.5 Changes) (1.16.1 Minecraft)
+### **(V.2.0.5 Changes) (1.16.1 Minecraft)**
 
 ##### Configs:
 
-• Set default value for all add___ToModdedBiomes to true except for Giant Boulders which will remain in vanilla biomes by default (unless manually changed in config)
+* Set default value for all add___ToModdedBiomes to true except for Giant Boulders which will remain in vanilla biomes by default (unless manually changed in config)
 
-• Fixed giantBouldersPerChunk config minimum being 1. 0 Should've been the minimum so you can set very low spawnrates.
+* Fixed giantBouldersPerChunk config minimum being 1. 0 Should've been the minimum so you can set very low spawnrates.
 
 ##### Mineshafts:
 
-• Raised the default minimum Y height up a bit for several Mineshafts in the config
+* Raised the default minimum Y height up a bit for several Mineshafts in the config
 
 ##### Shipwrecks:
 
-• Made End Shipwrecks spawn more frequently.
+* Made End Shipwrecks spawn more frequently.
 
 ##### Villages:
 
-• Made Nether Villages slightly more spaced out by default in config.
+* Made Nether Villages slightly more spaced out by default in config.
 
 ##### Outposts:
 
-• Made Nether Outposts slightly more spaced out by default in config.
+* Made Nether Outposts slightly more spaced out by default in config.
 
 ##### Temples:
 
-• Made Nether Temples and Pyramids slightly more spaced out by default in config.
+* Made Nether Temples and Pyramids slightly more spaced out by default in config.
 
-• Fixed Badlands Pyramid config name being incorrect inside the config file.
+* Fixed Badlands Pyramid config name being incorrect inside the config file.
 
 ##### Other:
 
-• Cleaned up code in backend... Made sure that Outpost, Igloo, Shipwreck, and Temple's pieces can be overridden by datapacks.
+* Cleaned up code in backend... Made sure that Outpost, Igloo, Shipwreck, and Temple's pieces can be overridden by datapacks.
 
-## (V.2.0.4 Changes) (1.16.1 Minecraft)
+### **(V.2.0.4 Changes) (1.16.1 Minecraft)**
 
 ##### Villages:
 
-• Center of Swamp Villages are now lowered by 1 block to fit better with terrain.
+* Center of Swamp Villages are now lowered by 1 block to fit better with terrain.
 
 ##### Misc:
 
-• Fixed en_us.json being missing causing untranslated names.
+* Fixed en_us.json being missing causing untranslated names.
 
-## (V.2.0.3 Changes) (1.16.1 Minecraft)
+### **(V.2.0.3 Changes) (1.16.1 Minecraft)**
 
 ##### Pyramids:
 
 -Fixed Pyramids not spawning.
 
-## (V.2.0.2 Changes) (1.16.1 Minecraft)
+### **(V.2.0.2 Changes) (1.16.1 Minecraft)**
 
 ##### Configs:
 
@@ -1053,10 +1053,10 @@
 
 ##### Misc:
 
-• Fixed /locate to not rarely skip over a closer structure. 
+* Fixed /locate to not rarely skip over a closer structure. 
   Special thanks ontrigger for finding the fix!
 
-## (V.2.0.1 Changes) (1.16.1 Minecraft)
+### **(V.2.0.1 Changes) (1.16.1 Minecraft)**
 
 ##### Mod compat:
 
@@ -1068,7 +1068,7 @@
 
 -Large swamp trees should not have tall grass replacing their trunks now.
 
-## (V.2.0.0 Changes) (1.16.1 Minecraft)
+### **(V.2.0.0 Changes) (1.16.1 Minecraft)**
 DO NOT LOAD THIS 1.16.1 MOD IN A 1.15.2 WORLD ALREADY MADE WITH 
 THE PREVIOUS VERSION OF REPURPOSED STRUCTURES!!!
 However, any world that never had Repurposed Structures on before will
@@ -1090,7 +1090,7 @@ Cartographers can sell maps to Jungle Fortresses!
 End Shipwrecks that can have maps to unexplored End Cities!
 And more!
 
-## (V.1.7.3 Changes) (1.15.2 Minecraft)
+### **(V.1.7.3 Changes) (1.15.2 Minecraft)**
 
 ##### Structures:
 
@@ -1098,7 +1098,7 @@ And more!
 
 -Cleaned up code that adds structures/features to biomes. 2x2 Swamp Trees will be added to all modded biomes in the swamp category regardless if they have "swamp" in the biome name or not (when the add addLargeSwampTreeModdedBiomes is turned on).
 
-## (V.1.7.2 Changes) (1.15.2 Minecraft)
+### **(V.1.7.2 Changes) (1.15.2 Minecraft)**
      
 ##### Datapack/Loot Table:
 
@@ -1112,7 +1112,7 @@ And more!
 
 -Extra vines will now be placed over Swamp Villages' area.
 
-## (V.1.7.1 Changes) (1.15.2 Minecraft)
+### **(V.1.7.1 Changes) (1.15.2 Minecraft)**
   
 ##### Structures:
 
@@ -1121,7 +1121,7 @@ And more!
 -Fixed Dark Forest Village's Blacksmith from burning itself down. Whoops!
 
 
-## (V.1.7.0 Changes) (1.15.2 Minecraft)
+### **(V.1.7.0 Changes) (1.15.2 Minecraft)**
     
 ##### Configs/Loot Table:
 
@@ -1165,7 +1165,7 @@ And more!
 
 -Turned all wells into nbt files and put under repurposed_structures:wells/ so anyone can override them with datapacks.
 
-## (V.1.6.0 Changes) (1.15.2 Minecraft)
+### **(V.1.6.0 Changes) (1.15.2 Minecraft)**
   
 ##### Configs/Loot Table:
 
@@ -1175,7 +1175,7 @@ And more!
 
 -Added Badlands Village that spawns in Badlands biomes.
 
-## (V.1.5.0 Changes) (1.15.2 Minecraft)
+### **(V.1.5.0 Changes) (1.15.2 Minecraft)**
   
 ##### Configs/Loot Table:
 
@@ -1201,7 +1201,7 @@ And more!
 
 -Significantly increased the amount of Endermite Spawner in End Mineshaft to balance out the better loot in the mineshaft. 
    
-## (V.1.4.4 Changes) (1.15.2 Minecraft)
+### **(V.1.4.4 Changes) (1.15.2 Minecraft)**
   
 ##### Structures:
 
@@ -1211,19 +1211,19 @@ And more!
 
 -Changed config for wells to let users change the spawnrate of each type of well separately.
    
-## (V.1.4.3 Changes) (1.15.2 Minecraft)
+### **(V.1.4.3 Changes) (1.15.2 Minecraft)**
   
 ##### Structures:
 
 -Fix crash when updating this mod from pre-1.4.0 to 1.4.x for an old world. Sorry about that!
    
-## (V.1.4.2 Changes) (1.15.2 Minecraft)
+### **(V.1.4.2 Changes) (1.15.2 Minecraft)**
   
 ##### Structures:
 
 -Fixed Ocean Dungeons creating a ring of water slightly above sealevel if it generates in shallow water.
    
-## (V.1.4.1 Changes) (1.15.2 Minecraft)
+### **(V.1.4.1 Changes) (1.15.2 Minecraft)**
   
 ##### Config: 
 
@@ -1233,7 +1233,7 @@ And more!
 
 -Added tags for the bookshelf blocks in Nether Strongholds. You can use datapack to override the default blocks in these tag files and even specify more than 1 block to use. All the tags are under data.repurposed_structures.tags.blocks and the files are called nether_stronghold_bookshelves.json. 
    
-## (V.1.4.0 Changes) (1.15.2 Minecraft)
+### **(V.1.4.0 Changes) (1.15.2 Minecraft)**
   
 ##### Structures: 
   
@@ -1254,7 +1254,7 @@ And more!
 -Quick fix for a concurrent modification crash that I kept forgetting to fix........................................ 
 
    
-## (V.1.3.0 Changes) (1.15.2 Minecraft)
+### **(V.1.3.0 Changes) (1.15.2 Minecraft)**
   
 ##### Structures: 
 
@@ -1279,7 +1279,7 @@ And more!
 -Improved registry names of custom structure pieces in backend.
 
    
-## (V.1.2.2 Changes) (1.15.2 Minecraft)
+### **(V.1.2.2 Changes) (1.15.2 Minecraft)**
   
 ##### Structures: 
 
@@ -1293,7 +1293,7 @@ And more!
 
 
   
-## (V.1.2.1 Changes) (1.15.2 Minecraft)
+### **(V.1.2.1 Changes) (1.15.2 Minecraft)**
   
 ##### Config: 
 
@@ -1301,7 +1301,7 @@ And more!
 
 
   
-## (V.1.2.0 Changes) (1.15.2 Minecraft)
+### **(V.1.2.0 Changes) (1.15.2 Minecraft)**
 
 
 
@@ -1331,7 +1331,7 @@ And more!
 -Mossy Stone Wells now are properly waterlogged when underwater.
   
   
-## (V.1.1.0 Changes) (1.15.2 Minecraft)
+### **(V.1.1.0 Changes) (1.15.2 Minecraft)**
 
 
 
@@ -1362,7 +1362,7 @@ And more!
 
 
 
-## (V.1.0.0 Changes) (1.15.2 Minecraft)
+### **(V.1.0.0 Changes) (1.15.2 Minecraft)**
 
 
 
