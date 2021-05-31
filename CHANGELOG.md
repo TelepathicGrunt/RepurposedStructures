@@ -82,6 +82,8 @@
 
 • Fixed Giant Tree Taiga Village not spawning butcher buildings.
 
+• Jungle Villages now has much less Jungle Bush trees blocking houses and paths.
+
 ##### Wells:
 • Added Mushroom Wells to mushroom biomes. Has a chance of Iron or Redstone Ores inside and yes, it also has an extremely rare chance of having a Bell.
 

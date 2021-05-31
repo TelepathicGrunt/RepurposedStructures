@@ -13,6 +13,7 @@
     "LootManagerAccessor",
     "LootTableMixin",
     "NamespaceResourceManagerAccessor",
+    "LessjungleBushInStructuresMixin",
     "NoLakesInStructuresMixin",
     "NoLavaFallsInStructuresMixin",
     "PillagerOutpostFeatureAccessor",

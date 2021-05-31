@@ -26,7 +26,7 @@ public class NoLavaFallsInStructuresMixin {
             at = @At(value = "HEAD"),
             cancellable = true
     )
-    private void repurposedstructures_noLava(StructureWorldAccess structureWorldAccess, ChunkGenerator chunkGenerator, Random random, BlockPos blockPos, SpringFeatureConfig springFeatureConfig, CallbackInfoReturnable<Boolean> cir) {
+    private void repurposedstructures_noLavaInStructures(StructureWorldAccess structureWorldAccess, ChunkGenerator chunkGenerator, Random random, BlockPos blockPos, SpringFeatureConfig springFeatureConfig, CallbackInfoReturnable<Boolean> cir) {
         if(springFeatureConfig.state.isIn(FluidTags.LAVA)) {
             BlockPos.Mutable mutable = new BlockPos.Mutable();
             ChunkSectionPos chunkPos;
