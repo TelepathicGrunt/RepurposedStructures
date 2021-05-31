@@ -1,7 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.mixin;
 
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
-import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;

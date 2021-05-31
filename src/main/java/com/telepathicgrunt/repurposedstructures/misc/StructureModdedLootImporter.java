@@ -213,8 +213,8 @@ public class StructureModdedLootImporter extends LootModifier {
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/temple/nether_soul_chest"), new ResourceLocation("endrem:external_chests/nether"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/temple/nether_warped_chest"), new ResourceLocation("endrem:external_chests/nether"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/temple/nether_wasteland_chest"), new ResourceLocation("endrem:external_chests/nether"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/shipwreck/crimson/treasure_chest"), new ResourceLocation("endrem:external_chests/black"));
 
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/shipwreck/crimson/treasure_chest"), new ResourceLocation("endrem:external_chests/black"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/shipwreck/nether_bricks/treasure_chest"), new ResourceLocation("endrem:external_chests/black"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/shipwreck/warped/treasure_chest"), new ResourceLocation("endrem:external_chests/black"));
 
@@ -228,7 +228,7 @@ public class StructureModdedLootImporter extends LootModifier {
             currentLoot.removeIf(itemStack -> itemStack.getItem().getRegistryName().getNamespace().equals("endrem"));
 
             // Get correct pool they want us to use
-            ResourceLocation tableToImportLoot = TABLE_IMPORTS.get(oldLootContext.getQueriedLootTableId());
+            ResourceLocation tableToImportLoot = END_REMASTERED_DEDICATED_TABLE_IMPORTS.get(oldLootContext.getQueriedLootTableId());
             if(tableToImportLoot == null) return; // No entry found
 
             // Generate End Remastered's dedicated loot

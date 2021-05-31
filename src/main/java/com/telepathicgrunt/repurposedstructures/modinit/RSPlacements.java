@@ -6,13 +6,10 @@ import com.telepathicgrunt.repurposedstructures.world.placements.RSMinusEightPla
 import com.telepathicgrunt.repurposedstructures.world.placements.RSVinePlacement;
 import net.minecraft.world.gen.feature.FeatureSpread;
 import net.minecraft.world.gen.feature.FeatureSpreadConfig;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.placement.*;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-
-import java.util.function.Supplier;
 
 public class RSPlacements
 {
