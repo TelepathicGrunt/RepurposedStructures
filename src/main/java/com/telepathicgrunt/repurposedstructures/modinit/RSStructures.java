@@ -282,7 +282,7 @@ public class RSStructures {
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "witch_hut_dark_forest"), WITCH_HUTS_DARK_FOREST.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSWitchHutsConfig.witchHutsDarkForestMaxChunkDistance.get(), (int) (RepurposedStructures.RSWitchHutsConfig.witchHutsDarkForestMaxChunkDistance.get() * 0.5f), 165100151));
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "witch_hut_giant_tree_taiga"), WITCH_HUTS_GIANT_TREE_TAIGA.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSWitchHutsConfig.witchHutsGiantTreeTaigaMaxChunkDistance.get(), (int) (RepurposedStructures.RSWitchHutsConfig.witchHutsGiantTreeTaigaMaxChunkDistance.get() * 0.5f), 200289401));
 
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "bastion_underground"), BASTION_UNDERGROUND.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMainConfig.bastionUndergroundMaxChunkDistance.get(), (int) (RepurposedStructures.RSMainConfig.bastionUndergroundMaxChunkDistance.get() * 0.5f), 1359301629));
+        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "bastion_underground"), BASTION_UNDERGROUND.get(), GenerationStage.Decoration.UNDERGROUND_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSMainConfig.bastionUndergroundMaxChunkDistance.get(), (int) (RepurposedStructures.RSMainConfig.bastionUndergroundMaxChunkDistance.get() * 0.5f), 1359301629));
 
         //registers the structure pieces.
         RSStructurePieces.registerStructurePieces();
