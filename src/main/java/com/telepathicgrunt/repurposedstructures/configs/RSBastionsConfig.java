@@ -37,6 +37,6 @@ public class RSBastionsConfig implements ConfigData {
         @ConfigEntry.Gui.PrefixText
         @Comment("How rare are Underground Bastions in non-ocean and non-beach Overworld biomes. 1 for spawning in most chunks and 10001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 10001)
-        public int bastionUndergroundMaxChunkDistance = 800;
+        public int bastionUndergroundMaxChunkDistance = 500;
     }
 }
