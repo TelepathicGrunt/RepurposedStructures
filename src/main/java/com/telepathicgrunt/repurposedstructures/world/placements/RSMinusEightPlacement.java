@@ -3,7 +3,6 @@ package com.telepathicgrunt.repurposedstructures.world.placements;
 import com.mojang.serialization.Codec;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.gen.decorator.NopeDecoratorConfig;
-import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
 import net.minecraft.world.gen.decorator.SimpleDecorator;
 
 import java.util.Random;

@@ -12,7 +12,6 @@ import com.telepathicgrunt.repurposedstructures.world.structures.pieces.MansionP
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.StructurePiecesBehavior;
 import net.fabricmc.fabric.api.structure.v1.FabricStructureBuilder;
 import net.minecraft.entity.EntityType;
-import net.minecraft.structure.Structure;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.SpawnSettings;
 import net.minecraft.world.gen.GenerationStep;

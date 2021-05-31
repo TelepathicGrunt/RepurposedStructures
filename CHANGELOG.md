@@ -102,6 +102,9 @@
  This allows you to stack multiple datapacks using this systme without needing to merge their template_pool files together by hand.
  (Fun fact, this actually will work for other mod's template_pools too if Repurposed Structures is on)
 
+##### Lang:
+• Special thanks to BlueDemonTR for the Turkish translations!
+
 
 ## (V.1.10.5 Changes) (1.16.5 Minecraft)
 

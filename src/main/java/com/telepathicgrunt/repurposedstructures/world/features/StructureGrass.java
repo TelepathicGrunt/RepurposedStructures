@@ -1,7 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.mojang.serialization.Codec;
-import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetAndLengthConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetAndRangeConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
