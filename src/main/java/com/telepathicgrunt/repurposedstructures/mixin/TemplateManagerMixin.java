@@ -12,6 +12,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 
 //Source: https://github.com/modmuss50/Voyager/blob/master/src/main/java/me/modmuss50/voyager/mixin/StructureManagerMixin.java
@@ -24,6 +25,8 @@ public class TemplateManagerMixin {
 
 	@Inject(method = "<init>", at = @At(value = "RETURN"))
 	private void repurposedstructures_init(CallbackInfo info) {
-		structureRepository = Collections.synchronizedMap(structureRepository);
+		if(structureRepository instanceof HashMap){
+			structureRepository = Collections.synchronizedMap(structureRepository);
+		}
 	}
 }
