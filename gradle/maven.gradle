@@ -11,7 +11,7 @@ publishing {
 
             pom {
                 name = 'RepurposedStructures-Forge'
-                description = 'Gotta find the broken mods!'
+                description = 'Adds more variations of vanilla structures and features such as a Jungle Fortress!'
                 url = 'https://github.com/TelepathicGrunt/RepurposedStructures'
 
                 scm {
