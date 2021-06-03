@@ -216,10 +216,10 @@ public class RSMainConfig {
                     .define("addRuinsNetherToModdedBiomes", true));
 
                 ruinsLandWarmMaxChunkDistance = subscriber.subscribe(builder
-                    .comment("How rare are Warm Land Ruins in Plains, Forests, and non-snowy Taiga biomes.",
+                    .comment("How rare are Warm Land Ruins in Plains, Forests, Swamps, and non-snowy Taiga biomes.",
                     "\n1 for spawning in most chunks and 1001 for none.")
                     .translation("repurposedstructures.config.ruins.ruinslandwarmmaxchunkdistance")
-                    .defineInRange("ruinsLandWarmMaxChunkDistance", 48, 1, 1001));
+                    .defineInRange("ruinsLandWarmMaxChunkDistance", 36, 1, 1001));
 
                 addRuinsLandWarmToModdedBiomes = subscriber.subscribe(builder
                     .comment("\n Add Warm Land Ruins to modded Plains, Forests,",
@@ -231,7 +231,7 @@ public class RSMainConfig {
                     .comment("How rare are Hot Land Ruins in Desert biomes.",
                     "\n1 for spawning in most chunks and 1001 for none.")
                     .translation("repurposedstructures.config.ruins.ruinslandhotmaxchunkdistance")
-                    .defineInRange("ruinsLandHotMaxChunkDistance", 48, 1, 1001));
+                    .defineInRange("ruinsLandHotMaxChunkDistance", 39, 1, 1001));
 
                 addRuinsLandHotToModdedBiomes = subscriber.subscribe(builder
                     .comment("\n Add Hot Land Ruins to modded Desert biomes.")

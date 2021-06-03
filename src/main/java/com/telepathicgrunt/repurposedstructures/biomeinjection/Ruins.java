@@ -16,7 +16,7 @@ public class Ruins {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.RUINS_NETHER);
         }
 
-        if (BiomeSelection.haveCategories(event, Category.PLAINS, Category.FOREST, Category.TAIGA) &&
+        if (BiomeSelection.haveCategories(event, Category.PLAINS, Category.FOREST, Category.TAIGA, Category.SWAMP) &&
             !BiomeSelection.hasName(event, "snow", "ice", "frozen") &&
             event.getClimate().temperature >= 0.25f &&
             RepurposedStructures.RSMainConfig.ruinsLandWarmMaxChunkDistance.get() != 1001 &&

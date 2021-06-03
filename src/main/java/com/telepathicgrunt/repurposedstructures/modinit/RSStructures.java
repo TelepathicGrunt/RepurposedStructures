@@ -160,8 +160,8 @@ public class RSStructures {
 
     //Ruins
     public static final RegistryObject<Structure<NoFeatureConfig>> RUINS_NETHER = addToStructureMaps("ruins_nether", () -> (new GenericNetherJigsawHighStructure(new ResourceLocation(RepurposedStructures.MODID, "ruins/nether/start_pool"), 1, -4, -1)));
-    public static final RegistryObject<Structure<NoFeatureConfig>> RUINS_LAND_WARM = addToStructureMaps("ruins_land_warm", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "ruins/land_warm/start_pool"), 2, 0, 0, 0, new HashSet<>())));
-    public static final RegistryObject<Structure<NoFeatureConfig>> RUINS_LAND_HOT = addToStructureMaps("ruins_land_hot", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "ruins/land_hot/start_pool"), 2, 0, 0, 0, new HashSet<>())));
+    public static final RegistryObject<Structure<NoFeatureConfig>> RUINS_LAND_WARM = addToStructureMaps("ruins_land_warm", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "ruins/land_warm/start_pool"), 2, 0, 0, 0, new HashSet<>(), 5, 2)));
+    public static final RegistryObject<Structure<NoFeatureConfig>> RUINS_LAND_HOT = addToStructureMaps("ruins_land_hot", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "ruins/land_hot/start_pool"), 2, 0, 0, 0, new HashSet<>(), 5, 2)));
     // regexpos1
 
     //Cities
