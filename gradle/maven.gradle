@@ -16,8 +16,8 @@ publishing {
             }
 
             pom {
-                name = 'Repurposed Structures - Fabric'
-                description = 'Gotta find the broken mods!'
+                name = 'RepurposedStructures-Fabric'
+                description = 'Adds more variations of vanilla structures and features such as a Jungle Fortress!'
                 url = 'https://github.com/TelepathicGrunt/RepurposedStructures-Fabric'
 
                 scm {

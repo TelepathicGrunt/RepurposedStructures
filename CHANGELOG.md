@@ -106,6 +106,8 @@
 
 ##### Lang:
 * Special thanks to BlueDemonTR for the Turkish translations!
+  
+* Special thanks to Fabidrums for the new and more accurate German translations!
 
 
 ### **(V.1.10.5 Changes) (1.16.5 Minecraft)**
