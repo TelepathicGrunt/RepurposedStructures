@@ -129,8 +129,8 @@ public class RSStructures {
     public static StructureFeature<DefaultFeatureConfig> RUINED_PORTAL_END = new LandBasedEndStructure(new Identifier(RepurposedStructures.MODID, "ruined_portal/end"), 20, -6, 0, 0, new HashSet<>());
 
     public static StructureFeature<DefaultFeatureConfig> RUINS_NETHER = new GenericNetherJigsawHighStructure(new Identifier(RepurposedStructures.MODID, "ruins/nether/start_pool"), 1, -4, -1);
-    public static StructureFeature<DefaultFeatureConfig> RUINS_LAND_WARM = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "ruins/land_warm/start_pool"), 2, 0, 0, 0, new HashSet<>());
-    public static StructureFeature<DefaultFeatureConfig> RUINS_LAND_HOT = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "ruins/land_hot/start_pool"), 2, 0, 0, 0, new HashSet<>());
+    public static StructureFeature<DefaultFeatureConfig> RUINS_LAND_WARM = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "ruins/land_warm/start_pool"), 2, 0, 0, 0, new HashSet<>(), 5, 2);
+    public static StructureFeature<DefaultFeatureConfig> RUINS_LAND_HOT = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "ruins/land_hot/start_pool"), 2, 0, 0, 0, new HashSet<>(), 5, 2);
     // regexpos1
 
     public static StructureFeature<DefaultFeatureConfig> CITY_NETHER = new CityNetherStructure(new Identifier(RepurposedStructures.MODID, "cities/nether/start_pool"), 5, 0, 0, 4, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()), ImmutableList.of(new SpawnSettings.SpawnEntry(EntityType.BLAZE, 120, 1, 4), new SpawnSettings.SpawnEntry(EntityType.WITHER_SKELETON, 10, 2, 3)), ImmutableList.of());

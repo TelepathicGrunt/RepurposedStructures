@@ -17,7 +17,7 @@ public class Ruins {
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.RUINS_NETHER));
 
         GeneralUtils.addToBiome("ruins_land_warm",
-                (context) -> BiomeSelection.haveCategories(context, Category.PLAINS, Category.FOREST, Category.TAIGA)
+                (context) -> BiomeSelection.haveCategories(context, Category.PLAINS, Category.FOREST, Category.TAIGA, Category.SWAMP)
                         && !BiomeSelection.hasName(context, "snow", "ice", "frozen")
 						&& context.getBiome().getTemperature() >= 0.25f
                         && BiomeSelection.isBiomeAllowed(context, "ruins")

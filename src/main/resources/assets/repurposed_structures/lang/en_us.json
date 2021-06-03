@@ -324,7 +324,7 @@
     "text.autoconfig.repurposed_structures-main.option.RSMainConfig.ruins.addRuinsNetherToModdedBiomes": "Add Ruins Nether To Modded Biomes",
     "text.autoconfig.repurposed_structures-main.option.RSMainConfig.ruins.addRuinsNetherToModdedBiomes.@PrefixText": "\nAdd Nether Ruins to modded Nether biomes.",
     "text.autoconfig.repurposed_structures-main.option.RSMainConfig.ruins.addRuinsLandWarmToModdedBiomes": "Add Warm Land Ruins to modded biomes.",
-    "text.autoconfig.repurposed_structures-main.option.RSMainConfig.ruins.addRuinsLandWarmToModdedBiomes.@PrefixText": "\nAdd Warm Land Ruins to modded Plains, Forests, and non-snowy Taiga biomes.",
+    "text.autoconfig.repurposed_structures-main.option.RSMainConfig.ruins.addRuinsLandWarmToModdedBiomes.@PrefixText": "\nAdd Warm Land Ruins to modded Plains, Forests, Swamps, and non-snowy Taiga biomes.",
     "text.autoconfig.repurposed_structures-main.option.RSMainConfig.ruins.addRuinsLandHotToModdedBiomes": "Add Hot Land Ruins to modded biomes.",
     "text.autoconfig.repurposed_structures-main.option.RSMainConfig.ruins.addRuinsLandHotToModdedBiomes.@PrefixText": "\nAdd Hot Land Ruins to modded Desert biomes.",
     "text.autoconfig.repurposed_structures-main.option.RSMainConfig.ruins.blacklistedRuinsBiomes": "Blacklisted Ruins Biomes",

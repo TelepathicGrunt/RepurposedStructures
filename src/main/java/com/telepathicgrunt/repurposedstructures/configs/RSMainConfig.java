@@ -185,14 +185,14 @@ public class RSMainConfig implements ConfigData {
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
-        @Comment("Add Warm Land Ruins to modded Plains, Forests, and non-snowy Taiga biomes.")
+        @Comment("Add Warm Land Ruins to modded Plains, Forests, Swamps, and non-snowy Taiga biomes.")
         public boolean addRuinsLandWarmToModdedBiomes = true;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
-        @Comment("How rare are Warm Land Ruins in Plains, Forests, and non-snowy Taiga biomes. 1 for spawning in most chunks and 1001 for none. ")
+        @Comment("How rare are Warm Land Ruins in Plains, Forests, Swamps, and non-snowy Taiga biomes. 1 for spawning in most chunks and 1001 for none. ")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int ruinsLandWarmMaxChunkDistance = 48;
+        public int ruinsLandWarmMaxChunkDistance = 36;
 
 
         @ConfigEntry.Gui.Tooltip(count = 0)
@@ -205,7 +205,7 @@ public class RSMainConfig implements ConfigData {
         @ConfigEntry.Gui.PrefixText
         @Comment("How rare are Hot Land Ruins in Desert biomes. 1 for spawning in most chunks and 1001 for none. ")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int ruinsLandHotMaxChunkDistance = 48;
+        public int ruinsLandHotMaxChunkDistance = 39;
         // regexpos2
     }
 

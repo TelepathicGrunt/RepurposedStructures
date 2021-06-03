@@ -7,8 +7,8 @@ exit
 surface_structures
 RSRuinsConfig
 ruins
-Add Warm Land Ruins to modded Plains, Forests, and non-snowy Taiga biomes.
-How rare are Warm Land Ruins in Plains, Forests, and non-snowy Taiga biomes. 1 for spawning in most chunks and 1001 for none. 
+Add Warm Land Ruins to modded Plains, Forests, Swamps, and non-snowy Taiga biomes.
+How rare are Warm Land Ruins in Plains, Forests, Swamps, and non-snowy Taiga biomes. 1 for spawning in most chunks and 1001 for none.
 48
 y
 RUIN
