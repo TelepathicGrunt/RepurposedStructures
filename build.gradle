@@ -31,7 +31,6 @@ minecraft {
         client {
             workingDirectory project.file('run')
             arg "-mixin.config=" + project.getProperty('modid') + ".mixins.json"
-            property 'forge.logging.console.level', 'debug'
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
             mods { repurposed_structures { source sourceSets.main } }
@@ -62,7 +61,7 @@ dependencies {
         annotationProcessor 'org.spongepowered:mixin:0.8.2:processor'
     }
 
-    implementation fg.deobf("com.telepathicgrunt:Blame:1.16.5-3.0.1-forge")
+    implementation fg.deobf("com.telepathicgrunt:Blame:1.16.5-3.2.0-forge")
 }
 
 mixin {
