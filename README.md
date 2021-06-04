@@ -100,21 +100,22 @@ Repurposed Structures is a mod about taking existing vanilla features and struct
 - 10 Dungeons variants
 - 13 new Mineshaft types
 - 10 new biome variants of Villages
-- 9 new temples variants
+- 15 new temples variants
 - 2 new biome variants of Igloos
 - 13 new Pillager Outposts
 - 4 new types of Shipwrecks
 - 7 new Mansion types
 - 5 new Witch Huts types
-- A Nether themed Ocean Ruins
+- 3 new kinds of Ruins! (2 on land. 1 in Nether)
 - A Nether themed End City
-- A Nether Stronghold
-- 5 new Desert Well variations were made for other biomes
+- A Nether Strongholds
+- An Underground Bastion in Overworld
+- 6 new Desert Well variations were made for other biomes
 </details>
 <br/>
 <br/>
 
-If you have trouble finding one of these structures, just start typing `/locate repu` into the chat and you should see my structures pop up! For example, typing `/locate repurposed_structures:mansion_birch` will find the closest RS's Birch Mansion to your location. :) All structures can be found easily from anywhere!
+If you have trouble finding one of these structures, just start typing `/locate repu` into the chat and you should see my structures pop up! For example, typing `/locate repurposed_structures:stronghold_nether` will find the closest RS's Nether Stronghold to your location in the Nether dimension. :) All structures can be found easily from anywhere!
 <br/>
 <br/>
 
@@ -124,7 +125,7 @@ If you have trouble finding one of these structures, just start typing `/locate 
 Q: Does this mod work with [YUNG's Better Strongholds](https://www.curseforge.com/minecraft/mc-mods/yungs-better-strongholds) mod?
 
 <br/>
-A: Yes BUT only with latest version of Repurposed Structures. (PLEASE UPDATE REPURPOSED STRUCTURES PEOPLE) When Better Strongholds is on, they will only replace the Overworld Strongholds. RS's Nether Stronghold will still spawn in Nether biomes.
+A: Yes indeed it will on latest version of Repurposed Structures. Do note, RS's Nether Stronghold will still spawn in Nether biomes and be unchanged.
 
 <br/>
 <br/>
@@ -200,7 +201,7 @@ Note: all chest loot info can be found here in the loot table files for the stru
 <br/>
 <br/>
 
-#### Village Variants
+### Village Variants
 
 <details>
 Note: Some village houses will have custom loot to match their biome better but nothing too crazy for balance reasons. The Nether based villages are full of fully armored Piglins and have fully unique chest loot.
@@ -236,7 +237,7 @@ Variants:
 
 <br/>
 
-#### Dungeons
+### Dungeons
 
 <details>
 
@@ -468,7 +469,7 @@ plus a few various other ocean-themed loot
 
 <br/>
 
-#### Mineshafts
+### Mineshafts
 
 <details>
 All other Mineshafts has Cave Spider Spawner unless otherwise specified. And chest loot is specifically tailored to every Mineshaft with some having very unique loot and others having loot that's barely different.
@@ -492,7 +493,9 @@ All other Mineshafts has Cave Spider Spawner unless otherwise specified. And che
 
 -Taiga Mineshafts
 
--Swamp Or Dark Forest Mineshafts
+-Swamp Mineshafts
+
+-Dark Forest Mineshafts
 
 -Icy Mineshafts (has Stray Spawners)
 
@@ -510,7 +513,7 @@ All other Mineshafts has Cave Spider Spawner unless otherwise specified. And che
 
 <br/>
 
-#### Mansions
+### Mansions
 <details>
 
 Chest loot is using a barely modified Woodland Mansion chest loot with most changes being the food. Mansion spawnrates are set to be very rare by default as to not clutter your world. This can be changed in configs.
@@ -544,7 +547,7 @@ Variants:
 
 <br/>
 
-#### Nether City (Nether themed End City without the ship)
+### Nether City (Nether themed End City without the ship)
 <details>
 
 Will spawn Blazes often and Wither Skeletons very rarely inside the city over time
@@ -567,17 +570,59 @@ Chest loot is highly Netherite based to reflect the danger of the city
 
 <br/>
 
-#### Nether Ruins
+### Bastions
 
 <details>
-May contain maps to Bastions or Nether Cities
+
+#### Underground Bastions
+
+<details>
+Spawns only Skeletons over time inside instead of other monsters
+
+Skeletons at initial spawning may have swords, be slightly faster, and wearing stronger armor
+
+Reduced the chances of Underground Bastions not having a stable, unit, or treasure room. Most of time, there will be a massive room underground for the bastion.
+</details>
 </details>
 
 <br/>
 
-#### Jungle Fortress
+### Ruins
+
 <details>
-Can naturally spawn Wither Skeletons over time but it is extremely rare.
+
+#### Warm Land Ruins
+
+<details>
+May contain maps to Underground Bastions in ungenerated chunks
+
+<br/>
+
+High amounts of Wheat surrounding the ruins
+</details>
+
+<br/>
+
+#### Hot Land Ruins
+
+<details>
+May contain maps to Underground Bastions in ungenerated chunks
+</details>
+
+<br/>
+
+#### Nether Ruins
+
+<details>
+May contain maps to Bastion Remnants or Nether Cities
+</details>
+</details>
+
+<br/>
+
+### Jungle Fortress
+<details>
+Can naturally spawn Wither Skeletons over time but it is extremely rare
 
 <br/>
 
@@ -590,7 +635,7 @@ Will have 2 Silverfish Mob Spawners as well as random blocks sometimes being inf
 
 <br/>
 
-#### End Ruined Portals
+### End Ruined Portals
 
 <details>
 Chest Loot is heavily high-leveled gold based. May also contain maps or End City maps.
@@ -598,7 +643,7 @@ Chest Loot is heavily high-leveled gold based. May also contain maps or End City
 
 <br/>
 
-#### Outposts
+### Outposts
 <details>
 
 #### All Overworld Outposts
@@ -694,7 +739,7 @@ Chests loot is heavily combat based with gold gear
 
 <br/>
 
-#### Temples
+### Temples
 <details>
 
 #### Nether Wasteland Temple
@@ -758,7 +803,7 @@ Has two hidden Skeleton spawners
 
 <br/>
 
-#### Pyramids
+### Pyramids
 <details>
 
 #### Nether Pyramid
@@ -781,10 +826,6 @@ Has great loot but also has hidden Endermite spawners. Also has custom banners!
 
 <br/>
 
-Uses barely modified Desert Temple loot. (Has Dead Bush and Red Sand instead)
-
-<br/>
-
 Has two hidden Husk spawners
 
 <br/>
@@ -793,24 +834,53 @@ Has two hidden Husk spawners
 
 <br/>
 
-Uses barely modified Desert Temple loot. (Has a lot of Ice and lapis instead)
-
-<br/>
-
 #### Snowy Pyramid
 
 <br/>
 
-Uses barely modified Desert Temple loot. (Has Snow Balls, Ice, and Lapis Lazuli instead)
+Has two hidden Stray spawners
 
 <br/>
 
-Has two hidden Stray spawners
+#### Flower Forest Pyramid
+
+<br/>
+
+Has lots of bigger explosion radius Creepers
+
+<br/>
+
+#### Ocean Pyramid
+
+<br/>
+
+Has 4 Drowned with Tridents. They have a small chance of dropping Trident or their Turtle Helmet
+
+<br/>
+
+#### Jungle Pyramid
+
+<br/>
+
+Has a high amount of Silverfish infested blocks
+
+<br/>
+
+#### Giant Tree Taiga Pyramid
+
+<br/>
+
+#### Mushroom Pyramid
+
+<br/>
+
+Has no traps and much greater quantity of loot!
+
 </details>
 
 <br/>
 
-#### Shipwrecks
+### Shipwrecks
 <details>
 
 #### End Shipwreck
@@ -859,7 +929,7 @@ You may find maps and unique Firework Stars in their chests! Also, they got uniq
 <br/>
 
 
-#### Strongholds
+### Strongholds
 <details>
 
 #### Nether Stronghold Chest rates and Blaze Spawner locations
@@ -867,14 +937,6 @@ You may find maps and unique Firework Stars in their chests! Also, they got uniq
 <br/>
 
 (Can naturally spawn Blaze, Zombified Piglins, Wither Skeletons, Skeletons, and Magma Cubes over time)
-
-<br/>
-
-Non-Library chest loot uses the Nether Fortress's chest loot table.
-
-<br/>
-
-Corridor Chests has a 33% chance of spawning.
 
 <br/>
 
@@ -904,7 +966,7 @@ Extra spawners are added to storage room, the room with the pillar that holds 4 
 <br/>
 
 
-#### Witch Huts
+### Witch Huts
 
 <details>
 Will spawn Witches and Cats over time like vanilla Witch Huts.
@@ -928,7 +990,7 @@ Will spawn Witches and Cats over time like vanilla Witch Huts.
 
 <br/>
 
-#### Grassy Igloo and Stone Igloo loot
+### Grassy Igloo and Stone Igloo loot
 
 <details>
 The basement's chest and Brewing Stand uses the normal Igloo's.
@@ -942,10 +1004,9 @@ Grassy Igloo has a Bed, Crafting Table, Furnace, and a Lantern.
 Stone Igloo has a Blast Furnace, Campfire, 1 Iron Ore, a Lantern, a Bed, and a Stone Pickaxe on Crafting Table.
 
 </details>
-
 <br/>
 
-#### Wells
+### Wells
 
 <details>
 
@@ -986,6 +1047,14 @@ Each of the 5 blocks inside has a 30% chance of being a Lapis Ore
 1% chance of having a Bell
 
 Each of the 5 blocks inside has a 8% chance of being a Chiseled Quartz block and a 50% chance of being a Quartz Ore
+
+<br/>
+
+#### Mushroom Well
+
+1% chance of having a Bell
+
+Each of the 5 blocks inside has a 30% chance of being a Redstone Ore or Iron Ore
 </details>
 </details>
 <br/>
@@ -1043,6 +1112,11 @@ The mob spawner for all none-nbt based structures can be changed with datapacks 
 And some structure pieces such as Wells, Villages, Outposts, Shipwrecks, Pyramids, and Igloos can also be overridden with datapacks. Furthermore, the template pools that holds structure pieces for Villages and other structures can also be overridden with datapacks to add your own pieces to the villages or other structures! You can find what pieces or pools can be replaced and their filenames here:
 [Overridable structure nbt files (click here)](https://github.com/TelepathicGrunt/RepurposedStructures/tree/master/src/main/resources/data/repurposed_structures/structures)
 [Overridable structure pool files (click here)](https://github.com/TelepathicGrunt/RepurposedStructures/tree/master/src/main/resources/data/repurposed_structures/worldgen)
+
+<br/>
+<br/>
+
+For the expert datapackers, there's actually a hidden neat way to add new pieces to any Jigsaw Structure without overriding their pool file! (Villages, outposts, all of RS's structures minus mansions, etc) For example, instead of overriding `data\repurposed_structures\worldgen\template_pool\village\birch\houses.json` to add new houses to my Birch Village, replace `worldgen\template` in the datapack with `pool_additions` and have the template pool file only have the entries you want merged into the main pool file. Repurposed Structures will detect these files from ALL datapacks and merge the pool_additions pool entries into the actual template pool file that the path points to. Yes, Repurposed Structures will read all pool_additions files from all datapacks that even have the same path so that the datapacks do not override each other's pool_additions! Neat stuff! And it works with other pools too! Just make sure the piece you are adding has a Jigsaw Block with the right name so the actual structure can connect and spawn the piece.
 </details>
 
 <br/>
