@@ -1,3 +1,36 @@
+# MAVEN
+
+For developers that want to add RS to their mod's workspace:
+
+<blockquote>
+repositories {
+
+&nbsp;&nbsp;&nbsp;maven {
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url "https://nexus.resourcefulbees.com/repository/maven-public/"
+
+&nbsp;&nbsp;&nbsp;}
+
+}
+</blockquote>
+
+&nbsp;
+
+Don't forget to change 1.11.0 with the actual latest version of this mod.
+
+<blockquote>
+dependencies {
+
+...
+
+&nbsp;&nbsp;&nbsp;&nbsp;modImplementation "com.telepathicgrunt:RepurposedStructures-Fabric:1.16.5-1.11.0-fabric"
+
+}</blockquote>
+
+**____________________________________________________________________________**
+
+&nbsp;
+
 <img src="https://i.imgur.com/lD8Pa6U.png" alt="Picture that shows the title of this mod with a Stonebrick Fortress during sunset behind the text" width="1519" height="516"></img>
 ## CURRENTLY FOR 1.16.5 MC
 #### Works serverside too so vanilla clients can connect!
