@@ -1,3 +1,9 @@
+### **(V.2.7.1 Changes) (1.16.5 Minecraft)**
+
+##### Lang:
+* Special thanks to invalid2tk for the Portuguese translations!
+
+
 ### **(V.2.7.0 Changes) (1.16.5 Minecraft)**
 
 ##### Bastions:
