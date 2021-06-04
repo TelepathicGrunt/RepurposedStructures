@@ -15,10 +15,10 @@ import com.telepathicgrunt.repurposedstructures.configs.RSTemplesConfig.RSTemple
 import com.telepathicgrunt.repurposedstructures.configs.RSVillagesConfig.RSVillagesConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSWellsConfig.RSWellsConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSWitchHutsConfig.RSWitchHutsConfigValues;
+import com.telepathicgrunt.repurposedstructures.misc.EndRemasteredDedicatedLoot;
 import com.telepathicgrunt.repurposedstructures.misc.MobMapTrades;
 import com.telepathicgrunt.repurposedstructures.misc.MobSpawnerManager;
 import com.telepathicgrunt.repurposedstructures.misc.PoolAdditionMerger;
-import com.telepathicgrunt.repurposedstructures.misc.StructureModdedLootImporter;
 import com.telepathicgrunt.repurposedstructures.mixin.ChunkGeneratorAccessor;
 import com.telepathicgrunt.repurposedstructures.modinit.*;
 import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
@@ -106,7 +106,7 @@ public class RepurposedStructures {
 
         //For mod compat by checking if other mod is on
         yungsBetterMineshaftIsNotOn = !ModList.get().isLoaded("bettermineshafts");
-        StructureModdedLootImporter.isEndRemasteredOn = ModList.get().isLoaded("endrem");
+        EndRemasteredDedicatedLoot.isEndRemasteredOn = ModList.get().isLoaded("endrem");
 
         // Silences logspam due to me changing my piece's namespace from minecraft to my modid.
         Logger rootLogger = LogManager.getRootLogger();
