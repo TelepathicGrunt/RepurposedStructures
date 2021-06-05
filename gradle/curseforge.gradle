@@ -2,6 +2,7 @@ apply plugin: "com.matthewprenger.cursegradle"
 
 curseforge {
     project {
+        displayName = "Repurposed Structures v${mod_version} (${mc_version} MC) (36.0.25+ Forge)"
         apiKey = "$System.env.CURSEFORGEKEY"
         id = "368293"
         releaseType = "release"
