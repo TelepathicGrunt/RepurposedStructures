@@ -5,6 +5,7 @@ String fileContents = new File("./", "CHANGELOG.md").text
 
 curseforge {
     project {
+        displayName = "Repurposed Structures v${mod_version} (${mc_version} MC)"
         apiKey = "$System.env.CURSEFORGEKEY"
         id = "391366"
         releaseType = "release"
