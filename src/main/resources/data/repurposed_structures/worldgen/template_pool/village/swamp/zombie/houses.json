@@ -104,7 +104,7 @@
     {
       "weight": 2,
       "element": {
-        "location": "repurposed_structures:village/swamp/houses/butchers_shop_1",
+        "location": "repurposed_structures:village/swamp/houses/butcher_shop_1",
         "processors": "repurposed_structures:village/swamp/zombify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
@@ -113,7 +113,7 @@
     {
       "weight": 2,
       "element": {
-        "location": "repurposed_structures:village/swamp/houses/butchers_shop_2",
+        "location": "repurposed_structures:village/swamp/houses/butcher_shop_2",
         "processors": "repurposed_structures:village/swamp/zombify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"

@@ -3,6 +3,11 @@
 ##### Misc:
 * Fixed a crash when a feature spawned from a structure tries to check if it is within structure bounds.
 
+##### Villages:
+* Remove entry in Zombie Jungle Village Pool that was pointing to a non-existent nbt file.
+  
+* Fixed butcher house pieces not spawning in zombie swamp villages.
+
 
 ### **(V.2.7.1 Changes) (1.16.5 Minecraft)**
 

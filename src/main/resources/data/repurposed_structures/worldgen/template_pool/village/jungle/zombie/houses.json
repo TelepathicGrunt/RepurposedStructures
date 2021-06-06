@@ -3,15 +3,6 @@
   "fallback": "repurposed_structures:village/jungle/terminators",
   "elements": [
     {
-      "weight": 2,
-      "element": {
-        "location": "repurposed_structures:village/jungle/zombie/houses/animal_pen_1",
-        "processors": "repurposed_structures:village/jungle/zombify",
-        "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
-      }
-    },
-    {
       "weight": 3,
       "element": {
         "location": "repurposed_structures:village/jungle/zombie/houses/animal_pen_2",
