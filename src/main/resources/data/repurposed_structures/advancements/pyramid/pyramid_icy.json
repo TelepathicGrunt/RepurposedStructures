@@ -5,10 +5,10 @@
       "item": "minecraft:packed_ice"
     },
     "title": {
-      "text": "Frosted Pyramid"
+      "translate": "Frosted Pyramid"
     },
     "description": {
-      "text": "Enter a Icy Pyramid"
+      "translate": "Enter a Icy Pyramid"
     },
     "hidden": true
   },

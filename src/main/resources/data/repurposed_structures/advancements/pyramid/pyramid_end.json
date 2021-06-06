@@ -5,10 +5,10 @@
       "item": "minecraft:magenta_concrete"
     },
     "title": {
-      "text": "Temple of the Dragon"
+      "translate": "Temple of the Dragon"
     },
     "description": {
-      "text": "Enter a End Pyramid"
+      "translate": "Enter a End Pyramid"
     },
     "hidden": true
   },

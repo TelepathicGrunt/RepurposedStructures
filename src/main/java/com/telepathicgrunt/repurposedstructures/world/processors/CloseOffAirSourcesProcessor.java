@@ -6,6 +6,9 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.FluidBlock;
+import net.minecraft.fluid.Fluid;
 import net.minecraft.structure.Structure;
 import net.minecraft.structure.StructurePlacementData;
 import net.minecraft.structure.processor.StructureProcessor;
@@ -45,6 +48,7 @@ public class CloseOffAirSourcesProcessor extends StructureProcessor {
         ChunkPos currentChunkPos = new ChunkPos(infoIn2.pos);
         if(!infoIn2.state.getFluidState().isEmpty()){
             Chunk currentChunk = worldReader.getChunk(currentChunkPos.x, currentChunkPos.z);
+            Fluid currentFluid = infoIn2.state.getFluidState().getFluid();
 
             // Remove fluid sources in adjacent horizontal blocks across chunk boundaries and above as well
             BlockPos.Mutable mutable = new BlockPos.Mutable();
@@ -56,11 +60,17 @@ public class CloseOffAirSourcesProcessor extends StructureProcessor {
                     currentChunkPos = new ChunkPos(mutable);
                 }
 
-                if (currentChunk.getBlockState(mutable).isAir()) {
-                    Random random = new ChunkRandom();
-                    random.setSeed(mutable.asLong() * mutable.getY());
-
-                    Block replacementBlock = GeneralUtils.getRandomEntry(weightedReplacementBlocks, random);
+                BlockState neighboringState = currentChunk.getBlockState(mutable);
+                if (neighboringState.isAir() || (neighboringState.getBlock() instanceof FluidBlock && !currentFluid.equals(neighboringState.getFluidState().getFluid()))) {
+                    Block replacementBlock;
+                    if(weightedReplacementBlocks.size() == 1){
+                        replacementBlock = weightedReplacementBlocks.get(0).getFirst();
+                    }
+                    else{
+                        Random random = new ChunkRandom();
+                        random.setSeed(mutable.asLong() * mutable.getY());
+                        replacementBlock = GeneralUtils.getRandomEntry(weightedReplacementBlocks, random);
+                    }
                     currentChunk.setBlockState(mutable, replacementBlock.getDefaultState(), false);
                 }
             }
