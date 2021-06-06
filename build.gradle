@@ -64,12 +64,13 @@ dependencies {
     implementation fg.deobf("com.telepathicgrunt:Blame:1.16.5-3.2.0-forge")
 }
 
+apply from: 'gradle/processresources.gradle'
+apply from: 'gradle/manifest.gradle'
+
 mixin {
     add sourceSets.main, "${modid}.refmap.json"
 }
 
-apply from: 'gradle/processresources.gradle'
-apply from: 'gradle/manifest.gradle'
 apply from: 'gradle/maven.gradle'
 apply from: 'gradle/curseforge.gradle'
 apply from: 'gradle/modrinth.gradle'

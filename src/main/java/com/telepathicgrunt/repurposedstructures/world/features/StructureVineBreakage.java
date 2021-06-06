@@ -9,7 +9,6 @@ import net.minecraft.block.material.Material;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
-import net.minecraft.util.math.SectionPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
@@ -51,12 +50,7 @@ public class StructureVineBreakage extends Feature<StructureTargetAndLengthConfi
                     random.nextInt(7) - 3
             );
 
-            if(!FORTRESS_BLOCKS.test(world.getBlockState(mutable)) || !world.isEmptyBlock(mutable.below()) ||
-                    // This seems to sometimes deadlock only on Forge. But not Fabric.
-                    //!world.getLevel().structureFeatureManager().getStructureAt(mutable, true, config.targetStructure).isValid()
-                    // Alternative. Won't follow the structure's bounds perfectly tho...
-                    !world.startsForFeature(SectionPos.of(mutable), config.targetStructure).findAny().isPresent()
-            ){
+            if(!FORTRESS_BLOCKS.test(world.getBlockState(mutable)) || !world.isEmptyBlock(mutable.below())){
                 continue;
             }
 

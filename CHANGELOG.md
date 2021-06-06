@@ -1,3 +1,9 @@
+### **(V.2.7.2 Changes) (1.16.5 Minecraft)**
+
+##### Misc:
+* Fixed a crash when a feature spawned from a structure tries to check if it is within structure bounds.
+
+
 ### **(V.2.7.1 Changes) (1.16.5 Minecraft)**
 
 ##### Misc:

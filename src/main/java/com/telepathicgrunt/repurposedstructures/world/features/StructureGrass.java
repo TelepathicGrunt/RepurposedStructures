@@ -8,7 +8,6 @@ import net.minecraft.block.TallFlowerBlock;
 import net.minecraft.state.properties.DoubleBlockHalf;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.SectionPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
@@ -39,19 +38,9 @@ public class StructureGrass extends Feature<StructureTargetAndRangeConfig> {
 
             if(world.getBlockState(mutable).isAir()){
                 if((random.nextFloat() < 0.45f || !world.getBlockState(mutable.above()).isAir()) && grass.canSurvive(world, mutable)){
-                    // expensive. Do this check very last
-                    if(!world.startsForFeature(SectionPos.of(mutable), config.targetStructure).findAny().isPresent()){
-                        continue;
-                    }
-
                     world.setBlock(mutable, grass, 3);
                 }
                 else if(tallGrass.canSurvive(world, mutable)){
-                    // expensive. Do this check very last
-                    if(!world.startsForFeature(SectionPos.of(mutable), config.targetStructure).findAny().isPresent()){
-                        continue;
-                    }
-
                     world.setBlock(mutable, tallGrass.setValue(TallFlowerBlock.HALF, DoubleBlockHalf.LOWER), 3);
                     world.setBlock(mutable.move(Direction.UP), tallGrass.setValue(TallFlowerBlock.HALF, DoubleBlockHalf.UPPER), 3);
                 }

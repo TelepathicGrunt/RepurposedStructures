@@ -9,7 +9,6 @@ import net.minecraft.block.TallFlowerBlock;
 import net.minecraft.state.properties.DoubleBlockHalf;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.SectionPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
@@ -55,11 +54,6 @@ public class StructureFlowers extends Feature<StructureTargetAndRangeConfig> {
                 BlockState chosenFlower = FLOWERS.get(random.nextInt(FLOWERS.size()));
 
                 if(chosenFlower.canSurvive(world, mutable)){
-                    // expensive. Do this check very last
-                    if(!world.startsForFeature(SectionPos.of(mutable), config.targetStructure).findAny().isPresent()){
-                        continue;
-                    }
-
                     if(chosenFlower.getBlock() instanceof TallFlowerBlock && world.getBlockState(mutable.above()).isAir()){
                         world.setBlock(mutable, chosenFlower.setValue(TallFlowerBlock.HALF, DoubleBlockHalf.LOWER), 3);
                         world.setBlock(mutable.move(Direction.UP), chosenFlower.setValue(TallFlowerBlock.HALF, DoubleBlockHalf.UPPER), 3);

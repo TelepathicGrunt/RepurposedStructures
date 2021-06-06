@@ -9,9 +9,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FlowingFluidBlock;
 import net.minecraft.fluid.Fluid;
-import net.minecraft.tags.FluidTags;
 import net.minecraft.util.Direction;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
@@ -25,7 +23,6 @@ import net.minecraft.world.gen.feature.template.Template;
 
 import java.util.List;
 import java.util.Random;
-import java.util.Set;
 
 /**
  * Will help enclose the structure in solid blocks rather than allow fluid source blocks to be floating.

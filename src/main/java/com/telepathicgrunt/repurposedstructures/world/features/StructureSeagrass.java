@@ -8,7 +8,6 @@ import net.minecraft.block.TallSeaGrassBlock;
 import net.minecraft.state.properties.DoubleBlockHalf;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.SectionPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
@@ -42,28 +41,10 @@ public class StructureSeagrass extends Feature<StructureTargetConfig> {
 
             boolean isWaterAbove = world.getBlockState(mutable.above()).is(Blocks.WATER);
             if(isWaterAbove && random.nextFloat() < 0.33f && tallSeagrass.canSurvive(world, mutable)){
-                // expensive. Do this check very last
-                // This seems to sometimes deadlock only on Forge. But not Fabric.
-                //!world.getLevel().structureFeatureManager().getStructureAt(mutable, true, config.targetStructure).isValid()
-
-                // Alternative. Won't follow the structure's bounds perfectly tho...
-                if(!world.startsForFeature(SectionPos.of(mutable), config.targetStructure).findAny().isPresent()){
-                    continue;
-                }
-
                 world.setBlock(mutable, tallSeagrass.setValue(TallSeaGrassBlock.HALF, DoubleBlockHalf.LOWER), 3);
                 world.setBlock(mutable.move(Direction.UP), tallSeagrass.setValue(TallSeaGrassBlock.HALF, DoubleBlockHalf.UPPER), 3);
             }
             else if(seagrass.canSurvive(world, mutable)){
-                // expensive. Do this check very last
-                // This seems to sometimes deadlock only on Forge. But not Fabric.
-                //!world.getLevel().structureFeatureManager().getStructureAt(mutable, true, config.targetStructure).isValid()
-
-                // Alternative. Won't follow the structure's bounds perfectly tho...
-                if(!world.startsForFeature(SectionPos.of(mutable), config.targetStructure).findAny().isPresent()){
-                    continue;
-                }
-
                 world.setBlock(mutable, Blocks.SEAGRASS.defaultBlockState(), 3);
             }
         }

@@ -7,7 +7,6 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.LanternBlock;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.SectionPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.ChunkGenerator;
@@ -34,16 +33,6 @@ public class StructureChains extends Feature<StructureTargetConfig> {
                     random.nextInt(3) - 1,
                     random.nextInt(11) - 5
             );
-
-            if(!world.getBlockState(mutable).isAir() ||
-                    // This seems to sometimes deadlock only on Forge. But not Fabric.
-                    //!world.getLevel().structureFeatureManager().getStructureAt(mutable, true, config.targetStructure).isValid()
-                    // Alternative. Won't follow the structure's bounds perfectly tho...
-                   !world.startsForFeature(SectionPos.of(mutable), config.targetStructure).findAny().isPresent()
-            ){
-                continue;
-            }
-
             // generates chains from given position down 1-8 blocks if path is clear and the given position is valid
             int length = 0;
             BlockState aboveBlockstate;

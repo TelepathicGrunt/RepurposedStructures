@@ -6,7 +6,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.SectionPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
@@ -39,39 +38,12 @@ public class StructureCrimsonPlants extends Feature<StructureTargetAndLengthConf
 
             if(world.getBlockState(mutable).isAir()){
                 if(random.nextFloat() < 0.8f && crimsonRoots.canSurvive(world, mutable)){
-                    // expensive. Do this check very last
-                    // This seems to sometimes deadlock only on Forge. But not Fabric.
-                    //!world.getLevel().structureFeatureManager().getStructureAt(mutable, true, config.targetStructure).isValid()
-
-                    // Alternative. Won't follow the structure's bounds perfectly tho...
-                    if(!world.startsForFeature(SectionPos.of(mutable), config.targetStructure).findAny().isPresent()){
-                        continue;
-                    }
-
                     world.setBlock(mutable, crimsonRoots, 3);
                 }
                 else if(crimsonFungus.canSurvive(world, mutable)){
-                    // expensive. Do this check very last
-                    // This seems to sometimes deadlock only on Forge. But not Fabric.
-                    //!world.getLevel().structureFeatureManager().getStructureAt(mutable, true, config.targetStructure).isValid()
-
-                    // Alternative. Won't follow the structure's bounds perfectly tho...
-                    if(!world.startsForFeature(SectionPos.of(mutable), config.targetStructure).findAny().isPresent()){
-                        continue;
-                    }
-
                     world.setBlock(mutable, crimsonFungus, 3);
                 }
                 else if(weepingVines.canSurvive(world, mutable)){
-                    // expensive. Do this check very last
-                    // This seems to sometimes deadlock only on Forge. But not Fabric.
-                    //!world.getLevel().structureFeatureManager().getStructureAt(mutable, true, config.targetStructure).isValid()
-
-                    // Alternative. Won't follow the structure's bounds perfectly tho...
-                    if(!world.startsForFeature(SectionPos.of(mutable), config.targetStructure).findAny().isPresent()){
-                        continue;
-                    }
-
                     // Biased towards max length if greater than 3
                     int length = config.length > 3 ? config.length - random.nextInt(random.nextInt(config.length) + 1) : random.nextInt(config.length);
                     for(int currentLength = 0; currentLength <= length; currentLength++){
