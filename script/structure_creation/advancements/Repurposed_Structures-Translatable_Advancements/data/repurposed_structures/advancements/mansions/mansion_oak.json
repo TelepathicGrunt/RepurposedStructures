@@ -1,0 +1,31 @@
+{
+  "parent": "repurposed_structures:mansions",
+  "display": {
+    "icon": {
+      "item": "minecraft:oak_stairs"
+    },
+    "title": {
+      "translate": "A foresty Oak Mansion"
+    },
+    "description": {
+      "translate": "Enter an Oak Mansion"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 500
+  },
+  "criteria": {
+    "in_mansion_oak": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:mansion_oak"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_mansion_oak"
+    ]
+  ]
+}

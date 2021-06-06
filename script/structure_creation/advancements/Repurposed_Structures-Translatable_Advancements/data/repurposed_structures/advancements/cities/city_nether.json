@@ -1,0 +1,31 @@
+{
+  "parent": "repurposed_structures:cities",
+  "display": {
+    "icon": {
+      "item": "minecraft:red_banner"
+    },
+    "title": {
+      "translate": "Blazing Cities"
+    },
+    "description": {
+      "translate": "Enter a Nether City"
+    },
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 500
+  },
+  "criteria": {
+    "in_city_nether": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:city_nether"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_city_nether"
+    ]
+  ]
+}

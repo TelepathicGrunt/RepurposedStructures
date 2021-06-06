@@ -5,10 +5,10 @@
       "item": "minecraft:red_tulip"
     },
     "title": {
-      "text": "PRAISE THE FLOWER SHRINE!"
+      "translate": "PRAISE THE FLOWER SHRINE!"
     },
     "description": {
-      "text": "Enter a Flower Forest Pyramid"
+      "translate": "Enter a Flower Forest Pyramid"
     },
     "show_toast": false,
     "announce_to_chat": false,

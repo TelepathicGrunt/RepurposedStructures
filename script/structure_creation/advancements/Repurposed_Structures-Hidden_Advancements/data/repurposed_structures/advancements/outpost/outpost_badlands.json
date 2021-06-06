@@ -6,10 +6,10 @@
       "item": "minecraft:chiseled_red_sandstone"
     },
     "title": {
-      "text": "The Red Pillager Tower"
+      "translate": "The Red Pillager Tower"
     },
     "description": {
-      "text": "Enter a Badlands Outpost"
+      "translate": "Enter a Badlands Outpost"
     },
     "show_toast": false
     "announce_to_chat": false

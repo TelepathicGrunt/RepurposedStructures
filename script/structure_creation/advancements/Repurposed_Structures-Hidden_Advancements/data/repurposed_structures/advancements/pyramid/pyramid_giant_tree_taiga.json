@@ -5,10 +5,10 @@
       "item": "minecraft:spruce_wood"
     },
     "title": {
-      "text": "A shrine made of ancient spruce wood"
+      "translate": "A shrine made of ancient spruce wood"
     },
     "description": {
-      "text": "Enter a Giant Tree Taiga Pyramid"
+      "translate": "Enter a Giant Tree Taiga Pyramid"
     },
     "show_toast": false,
     "announce_to_chat": false,

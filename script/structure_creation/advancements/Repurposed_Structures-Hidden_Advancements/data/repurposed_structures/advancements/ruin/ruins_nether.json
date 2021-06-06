@@ -6,10 +6,10 @@
       "item": "minecraft:cracked_polished_blackstone_bricks"
     },
     "title": {
-      "text": "Ruined Nether History"
+      "translate": "Ruined Nether History"
     },
     "description": {
-      "text": "Enter a Nether Ruins"
+      "translate": "Enter a Nether Ruins"
     },
     "show_toast": false
     "announce_to_chat": false

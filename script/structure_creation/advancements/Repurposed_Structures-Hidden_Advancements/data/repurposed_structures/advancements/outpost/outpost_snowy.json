@@ -6,10 +6,10 @@
       "item": "minecraft:snow_block"
     },
     "title": {
-      "text": "Anti-snowmen Watchtower"
+      "translate": "Anti-snowmen Watchtower"
     },
     "description": {
-      "text": "Enter a Snowy Outpost"
+      "translate": "Enter a Snowy Outpost"
     },
     "show_toast": false
     "announce_to_chat": false

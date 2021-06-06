@@ -5,10 +5,10 @@
       "item": "minecraft:jungle_stairs"
     },
     "title": {
-      "text": "Jungly Chateau"
+      "translate": "Jungly Chateau"
     },
     "description": {
-      "text": "Enter a Jungle Mansion"
+      "translate": "Enter a Jungle Mansion"
     },
     "show_toast": false,
     "announce_to_chat": false,

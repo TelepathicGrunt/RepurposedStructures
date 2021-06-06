@@ -5,10 +5,10 @@
       "item": "minecraft:bone"
     },
     "title": {
-      "text": "Bastions, Evil, and Bones... "
+      "translate": "Bastions, Evil, and Bones... "
     },
     "description": {
-      "text": "Enter a Underground Bastion"
+      "translate": "Enter a Underground Bastion"
     },
     "show_toast": false,
     "announce_to_chat": false,

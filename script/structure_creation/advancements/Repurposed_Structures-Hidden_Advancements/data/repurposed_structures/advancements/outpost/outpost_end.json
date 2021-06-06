@@ -5,10 +5,10 @@
       "item": "minecraft:magenta_concrete"
     },
     "title": {
-      "text": "The End's Gaze"
+      "translate": "The End's Gaze"
     },
     "description": {
-      "text": "Enter an End Outpost"
+      "translate": "Enter an End Outpost"
     },
     "show_toast": false,
     "announce_to_chat": false,

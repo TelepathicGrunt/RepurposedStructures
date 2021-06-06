@@ -5,10 +5,10 @@
       "item": "minecraft:spruce_log"
     },
     "title": {
-      "text": "Pine Tower"
+      "translate": "Pine Tower"
     },
     "description": {
-      "text": "Enter a Taiga Outpost"
+      "translate": "Enter a Taiga Outpost"
     },
     "show_toast": false,
     "announce_to_chat": false,

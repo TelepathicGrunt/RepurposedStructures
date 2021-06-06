@@ -5,10 +5,10 @@
       "item": "minecraft:dark_prismarine"
     },
     "title": {
-      "text": "Temple of the Sea"
+      "translate": "Temple of the Sea"
     },
     "description": {
-      "text": "Enter a Ocean Pyramid"
+      "translate": "Enter a Ocean Pyramid"
     },
     "show_toast": false,
     "announce_to_chat": false,

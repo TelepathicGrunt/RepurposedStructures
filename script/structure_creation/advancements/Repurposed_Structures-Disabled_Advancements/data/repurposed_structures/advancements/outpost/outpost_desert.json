@@ -6,10 +6,10 @@
       "item": "minecraft:chiseled_sandstone"
     },
     "title": {
-      "text": "Tower under the Desert Sun"
+      "translate": "Tower under the Desert Sun"
     },
     "description": {
-      "text": "Enter a Desert Outpost"
+      "translate": "Enter a Desert Outpost"
     },
     "hidden": true
   },

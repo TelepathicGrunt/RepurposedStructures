@@ -5,10 +5,10 @@
       "item": "minecraft:wheat"
     },
     "title": {
-      "text": "There's always history in ruins. Even on land..."
+      "translate": "There's always history in ruins. Even on land..."
     },
     "description": {
-      "text": "Enter a Warm Land Ruins"
+      "translate": "Enter a Warm Land Ruins"
     },
     "hidden": true
   },

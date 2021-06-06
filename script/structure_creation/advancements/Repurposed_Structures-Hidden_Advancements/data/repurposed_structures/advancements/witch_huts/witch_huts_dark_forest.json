@@ -5,10 +5,10 @@
       "item": "minecraft:dark_oak_fence"
     },
     "title": {
-      "text": "Spooky Dark Forest Hut"
+      "translate": "Spooky Dark Forest Hut"
     },
     "description": {
-      "text": "Enter a Dark Forest Witch Hut"
+      "translate": "Enter a Dark Forest Witch Hut"
     },
     "show_toast": false,
     "announce_to_chat": false,

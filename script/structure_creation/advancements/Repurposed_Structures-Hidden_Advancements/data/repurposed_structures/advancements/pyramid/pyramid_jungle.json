@@ -5,10 +5,10 @@
       "item": "minecraft:cracked_stone_bricks"
     },
     "title": {
-      "text": "Pyramid of the Creepy Crawlers"
+      "translate": "Pyramid of the Creepy Crawlers"
     },
     "description": {
-      "text": "Enter a Jungle Pyramid"
+      "translate": "Enter a Jungle Pyramid"
     },
     "show_toast": false,
     "announce_to_chat": false,

@@ -289,9 +289,9 @@ while restart:
 
     with open(os.path.join('template', 'forge_config.txt'), "r") as file:
         file_content = file.read().replace("$1", config_spawnrate_entry).replace("$2", config_spawnrate_entry.lower()) \
-                                .replace("$3", bend(50, config_spawnrate_comment)).replace("$4", config_subcategory).replace("$5", spacing_default_value) \
+                                .replace("$3", config_spawnrate_comment).replace("$4", config_subcategory).replace("$5", spacing_default_value) \
                                 .replace("$6", config_modded_biome_entry).replace("$7", config_modded_biome_entry.lower()) \
-                                .replace("$8", bend(50, config_modded_biome_comment).replace("\"", "\"\\n "))
+                                .replace("$8", config_modded_biome_comment.replace("\"", "\"\\n "))
     path = os.path.join('code', 'forge', structure_registry_name+'_config.txt')
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w") as file:
@@ -304,15 +304,14 @@ while restart:
                     tempRead = f.read()
                     if "regexpos1" in tempRead:
                         f.seek(0)
-                        groups = file_content.split(';')
-                        result = ';'.join(groups[:2])
-                        result = result + ";"
+                        groups = file_content.split('(;)')
+                        result = ''.join(groups[:2])
                         insertLine(os.path.join(directory, filename), \
                             "regexpos1", result)
                     if "regexpos2" in tempRead:
                         f.seek(0)
-                        groups = file_content.split(';')
-                        result = ';'.join(groups[2:])
+                        groups = file_content.split('(;)')
+                        result = ''.join(groups[2:])
                         insertLine(os.path.join(directory, filename), \
                             "regexpos2", result[2:])
 
@@ -322,11 +321,20 @@ while restart:
     with open(os.path.join('template', 'translated_advancement.json'), "r") as file:
         file_content = file.read().replace("$1", structure_registry_name).replace("$2", advancement_icon).replace("$3", advancement_title) \
                                 .replace("$4", advancement_description).replace("$5", advancement_exp).replace("$6", config_subcategory)
-    
     filename = os.path.join('advancements', 'Repurposed_Structures-English_Translated_Advancements', "data", "repurposed_structures", "advancements", config_subcategory, structure_registry_name+'.json')
     os.makedirs(os.path.dirname(filename), exist_ok=True)
     with open(filename, "w") as file:
         file.write(file_content)
+
+
+    with open(os.path.join('template', 'translatable_advancement.json'), "r") as file:
+        file_content = file.read().replace("$1", structure_registry_name).replace("$2", advancement_icon).replace("$3", advancement_title) \
+                                .replace("$4", advancement_description).replace("$5", advancement_exp).replace("$6", config_subcategory)
+    filename = os.path.join('advancements', 'Repurposed_Structures-Translatable_Advancements', "data", "repurposed_structures", "advancements", config_subcategory, structure_registry_name+'.json')
+    os.makedirs(os.path.dirname(filename), exist_ok=True)
+    with open(filename, "w") as file:
+        file.write(file_content)
+
 
     with open(os.path.join('template', 'hidden_advancement.json'), "r") as file:
         file_content = file.read().replace("$1", structure_registry_name).replace("$2", advancement_icon).replace("$3", advancement_title) \
@@ -335,6 +343,7 @@ while restart:
     os.makedirs(os.path.dirname(filename), exist_ok=True)
     with open(filename, "w") as file:
         file.write(file_content)
+
 
     with open(os.path.join('template', 'disabled_advancement.json'), "r") as file:
         file_content = file.read().replace("$1", structure_registry_name).replace("$2", advancement_icon).replace("$3", advancement_title) \

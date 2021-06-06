@@ -5,10 +5,10 @@
       "item": "minecraft:snow_block"
     },
     "title": {
-      "text": "Pyramids are just bigger igloos!"
+      "translate": "Pyramids are just bigger igloos!"
     },
     "description": {
-      "text": "Enter a Snowy Pyramid"
+      "translate": "Enter a Snowy Pyramid"
     },
     "hidden": true
   },

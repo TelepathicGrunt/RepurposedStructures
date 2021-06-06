@@ -5,10 +5,10 @@
       "item": "minecraft:spruce_stairs"
     },
     "title": {
-      "text": "Pine Manor"
+      "translate": "Pine Manor"
     },
     "description": {
-      "text": "Enter a Taiga Mansion"
+      "translate": "Enter a Taiga Mansion"
     },
     "show_toast": false,
     "announce_to_chat": false,

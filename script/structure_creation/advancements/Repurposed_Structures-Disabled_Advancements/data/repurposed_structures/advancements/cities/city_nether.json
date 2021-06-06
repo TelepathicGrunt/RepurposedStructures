@@ -5,10 +5,10 @@
       "item": "minecraft:red_banner"
     },
     "title": {
-      "text": "Blazing Cities"
+      "translate": "Blazing Cities"
     },
     "description": {
-      "text": "Enter a Nether City"
+      "translate": "Enter a Nether City"
     },
     "hidden": true
   },

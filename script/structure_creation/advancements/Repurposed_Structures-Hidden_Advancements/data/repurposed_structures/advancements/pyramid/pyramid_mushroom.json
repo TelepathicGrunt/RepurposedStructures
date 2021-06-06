@@ -5,10 +5,10 @@
       "item": "minecraft:red_mushroom_block"
     },
     "title": {
-      "text": "There's a fungus among us in this Pyramid!"
+      "translate": "There's a fungus among us in this Pyramid!"
     },
     "description": {
-      "text": "Enter a Mushroom Pyramid"
+      "translate": "Enter a Mushroom Pyramid"
     },
     "show_toast": false,
     "announce_to_chat": false,

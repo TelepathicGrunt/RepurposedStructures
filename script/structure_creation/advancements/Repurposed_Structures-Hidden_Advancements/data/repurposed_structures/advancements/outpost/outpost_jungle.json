@@ -6,10 +6,10 @@
       "item": "minecraft:jungle_log"
     },
     "title": {
-      "text": "Pillaging the Jungle Watchtower"
+      "translate": "Pillaging the Jungle Watchtower"
     },
     "description": {
-      "text": "Enter a Jungle Outpost"
+      "translate": "Enter a Jungle Outpost"
     },
     "show_toast": false
     "announce_to_chat": false

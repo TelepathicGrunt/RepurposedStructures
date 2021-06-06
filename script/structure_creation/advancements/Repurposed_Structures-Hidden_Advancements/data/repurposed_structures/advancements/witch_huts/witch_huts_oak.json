@@ -5,10 +5,10 @@
       "item": "minecraft:oak_fence"
     },
     "title": {
-      "text": "No forest is safe from Witches! Not even Oak!"
+      "translate": "No forest is safe from Witches! Not even Oak!"
     },
     "description": {
-      "text": "Enter a Oak Witch Hut"
+      "translate": "Enter a Oak Witch Hut"
     },
     "show_toast": false,
     "announce_to_chat": false,

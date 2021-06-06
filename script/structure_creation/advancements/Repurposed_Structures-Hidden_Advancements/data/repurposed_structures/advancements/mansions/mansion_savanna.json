@@ -5,10 +5,10 @@
       "item": "minecraft:acacia_stairs"
     },
     "title": {
-      "text": "Savanna's Chateau"
+      "translate": "Savanna's Chateau"
     },
     "description": {
-      "text": "Enter a Savanna Mansion"
+      "translate": "Enter a Savanna Mansion"
     },
     "show_toast": false,
     "announce_to_chat": false,

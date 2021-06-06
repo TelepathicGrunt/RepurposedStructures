@@ -5,10 +5,10 @@
       "item": "minecraft:spruce_fence"
     },
     "title": {
-      "text": "Spooky Taiga Hut"
+      "translate": "Spooky Taiga Hut"
     },
     "description": {
-      "text": "Enter a Taiga Witch Hut"
+      "translate": "Enter a Taiga Witch Hut"
     },
     "show_toast": false,
     "announce_to_chat": false,

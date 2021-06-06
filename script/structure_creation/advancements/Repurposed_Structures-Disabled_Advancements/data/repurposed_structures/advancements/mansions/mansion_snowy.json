@@ -5,10 +5,10 @@
       "item": "minecraft:snow_block"
     },
     "title": {
-      "text": "Who needs igloos when we got mansions!nsions!"
+      "translate": "Who needs igloos when we got mansions!nsions!"
     },
     "description": {
-      "text": "Enter a Snowy Mansion"
+      "translate": "Enter a Snowy Mansion"
     },
     "hidden": true
   },

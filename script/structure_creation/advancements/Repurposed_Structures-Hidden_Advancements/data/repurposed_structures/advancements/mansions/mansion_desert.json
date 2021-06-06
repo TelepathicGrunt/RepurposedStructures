@@ -5,10 +5,10 @@
       "item": "minecraft:sandstone_stairs"
     },
     "title": {
-      "text": "The Mansion under the Hot Desert Sun"
+      "translate": "The Mansion under the Hot Desert Sun"
     },
     "description": {
-      "text": "Enter a Desert Mansion"
+      "translate": "Enter a Desert Mansion"
     },
     "show_toast": false,
     "announce_to_chat": false,

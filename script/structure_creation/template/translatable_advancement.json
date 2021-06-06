@@ -5,10 +5,10 @@
       "item": "$2"
     },
     "title": {
-      "text": "$3"
+      "translate": "$3"
     },
     "description": {
-      "text": "$4"
+      "translate": "$4"
     },
     "hidden": true
   },

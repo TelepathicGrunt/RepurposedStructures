@@ -6,10 +6,10 @@
       "item": "minecraft:cobblestone"
     },
     "title": {
-      "text": "Rocky Foundations for the Tower"
+      "translate": "Rocky Foundations for the Tower"
     },
     "description": {
-      "text": "Enter a Giant Tree Taiga Outpost"
+      "translate": "Enter a Giant Tree Taiga Outpost"
     },
     "show_toast": false
     "announce_to_chat": false

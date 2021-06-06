@@ -5,10 +5,10 @@
       "item": "minecraft:oak_stairs"
     },
     "title": {
-      "text": "A foresty Oak Mansion"
+      "translate": "A foresty Oak Mansion"
     },
     "description": {
-      "text": "Enter an Oak Mansion"
+      "translate": "Enter an Oak Mansion"
     },
     "hidden": true
   },

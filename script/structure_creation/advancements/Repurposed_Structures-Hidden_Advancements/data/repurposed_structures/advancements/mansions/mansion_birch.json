@@ -5,10 +5,10 @@
       "item": "minecraft:birch_stairs"
     },
     "title": {
-      "text": "The White Chocolate Mansion"
+      "translate": "The White Chocolate Mansion"
     },
     "description": {
-      "text": "Enter a Birch Mansion"
+      "translate": "Enter a Birch Mansion"
     },
     "show_toast": false,
     "announce_to_chat": false,

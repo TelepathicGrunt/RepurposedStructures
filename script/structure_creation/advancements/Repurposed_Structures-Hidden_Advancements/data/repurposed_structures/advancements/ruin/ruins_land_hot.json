@@ -5,10 +5,10 @@
       "item": "minecraft:magma_block"
     },
     "title": {
-      "text": "Ruined buildings weathering the harsh desert..."
+      "translate": "Ruined buildings weathering the harsh desert..."
     },
     "description": {
-      "text": "Enter a Hot Land Ruins"
+      "translate": "Enter a Hot Land Ruins"
     },
     "show_toast": false,
     "announce_to_chat": false,

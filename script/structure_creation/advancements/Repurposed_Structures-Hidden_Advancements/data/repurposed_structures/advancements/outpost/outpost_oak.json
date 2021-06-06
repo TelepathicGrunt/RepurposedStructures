@@ -5,10 +5,10 @@
       "item": "minecraft:oak_log"
     },
     "title": {
-      "text": "Oak Post"
+      "translate": "Oak Post"
     },
     "description": {
-      "text": "Enter a Oak Outpost"
+      "translate": "Enter a Oak Outpost"
     },
     "show_toast": false,
     "announce_to_chat": false,
