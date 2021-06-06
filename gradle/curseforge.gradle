@@ -3,9 +3,9 @@ apply plugin: "com.matthewprenger.cursegradle"
 String fileContents = new File("./", "CHANGELOG.md").text
 //file('CHANGELOG.md')
 
+
 curseforge {
     project {
-        displayName = "Repurposed Structures v${mod_version} (${mc_version} MC)"
         apiKey = "$System.env.CURSEFORGEKEY"
         id = "391366"
         releaseType = "release"
@@ -14,7 +14,9 @@ curseforge {
         addGameVersion("1.16.5")
         addGameVersion("Fabric")
 
-        mainArtifact(remapJar)
+        mainArtifact(remapJar) {
+            displayName = "Repurposed Structures v${project.mod_version} (${project.minecraft_version} MC)"
+        }
 
         afterEvaluate {
             uploadTask.dependsOn("remapJar")
