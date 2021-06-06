@@ -1,7 +1,13 @@
 ### **(V.2.7.1 Changes) (1.16.5 Minecraft)**
 
+##### Misc:
+* Fixed close air off processor not separating the structure's fluid from mismatched environmental fluids as well.
+  Ocean Mineshafts should no longer have floating lava at edges at times anymore.
+
 ##### Lang:
 * Special thanks to invalid2tk for the Portuguese translations!
+  
+* Fixed translations not working for many of the newer structure's advancements.
 
 
 ### **(V.2.7.0 Changes) (1.16.5 Minecraft)**

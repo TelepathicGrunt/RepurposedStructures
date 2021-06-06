@@ -6,7 +6,12 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.FlowingFluidBlock;
+import net.minecraft.fluid.Fluid;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.util.Direction;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
@@ -20,6 +25,7 @@ import net.minecraft.world.gen.feature.template.Template;
 
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 /**
  * Will help enclose the structure in solid blocks rather than allow fluid source blocks to be floating.
@@ -45,6 +51,7 @@ public class CloseOffAirSourcesProcessor extends StructureProcessor {
         ChunkPos currentChunkPos = new ChunkPos(infoIn2.pos);
         if(!infoIn2.state.getFluidState().isEmpty()){
             IChunk currentChunk = worldReader.getChunk(currentChunkPos.x, currentChunkPos.z);
+            Fluid currentFluid = infoIn2.state.getFluidState().getType();
 
             // Remove fluid sources in adjacent horizontal blocks across chunk boundaries and above as well
             BlockPos.Mutable mutable = new BlockPos.Mutable();
@@ -56,11 +63,17 @@ public class CloseOffAirSourcesProcessor extends StructureProcessor {
                     currentChunkPos = new ChunkPos(mutable);
                 }
 
-                if (currentChunk.getBlockState(mutable).isAir()) {
-                    Random random = new SharedSeedRandom();
-                    random.setSeed(mutable.asLong() * mutable.getY());
-
-                    Block replacementBlock = GeneralUtils.getRandomEntry(weightedReplacementBlocks, random);
+                BlockState neighboringState = currentChunk.getBlockState(mutable);
+                if (neighboringState.isAir() || (neighboringState.getBlock() instanceof FlowingFluidBlock && !currentFluid.equals(neighboringState.getFluidState().getType()))) {
+                    Block replacementBlock;
+                    if(weightedReplacementBlocks.size() == 1){
+                        replacementBlock = weightedReplacementBlocks.get(0).getFirst();
+                    }
+                    else{
+                        Random random = new SharedSeedRandom();
+                        random.setSeed(mutable.asLong() * mutable.getY());
+                        replacementBlock = GeneralUtils.getRandomEntry(weightedReplacementBlocks, random);
+                    }
                     currentChunk.setBlockState(mutable, replacementBlock.defaultBlockState(), false);
                 }
             }
