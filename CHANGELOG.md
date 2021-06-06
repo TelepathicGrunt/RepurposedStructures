@@ -1,3 +1,11 @@
+### **(V.1.11.2 Changes) (1.16.5 Minecraft)**
+
+##### Villages:
+* Remove entry in Zombie Jungle Village Pool that was pointing to a non-existent nbt file.
+
+* Fixed butcher house pieces not spawning in zombie swamp villages.
+
+
 ### **(V.1.11.1 Changes) (1.16.5 Minecraft)**
 
 ##### Misc:
