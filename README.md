@@ -29,7 +29,7 @@ Don't forget to change 2.7.0 with the actual latest version of this mod.
 
 &nbsp;
 
-**Add these two properties to both of your run configs in the build.gradle file. These will allow Blame's mixins to work. After you add the properties lines, refresh Gradle and run `genEclipseRuns` or `genIntellijRuns` or `genVSCodeRuns` based on what IDE you are using.**
+**Add these two properties to both of your run configs in the build.gradle file. These will allow RS's mixins to work. After you add the properties lines, refresh Gradle and run `genEclipseRuns` or `genIntellijRuns` or `genVSCodeRuns` based on what IDE you are using.**
 
 <blockquote>minecraft {
 
