@@ -23,6 +23,8 @@ version = "${mc_version}-${mod_version}-forge"
 group = "com.telepathicgrunt"
 archivesBaseName = "${modid}"
 
+sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
+
 minecraft {
     mappings channel: "official", version: "1.16.5"
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
