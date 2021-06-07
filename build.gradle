@@ -25,6 +25,7 @@ repositories {
 	maven { url 'https://jitpack.io' }
 	maven { url "https://maven.shedaniel.me/" }
 	maven { url "https://maven.fabricmc.net" }
+	maven { url "https://nexus.resourcefulbees.com/repository/maven-public/" }
 }
 
 minecraft {
@@ -45,6 +46,8 @@ dependencies {
 
 	modImplementation 'com.github.Draylar:angerable-patch:1.1.0-1.16.4'
 	include 'com.github.Draylar:angerable-patch:1.1.0-1.16.4'
+
+	modImplementation "com.telepathicgrunt:Blame-Fabric:1.16.5-3.2.0-fabric"
 }
 
 if (project.use_third_party_mods) {
