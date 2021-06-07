@@ -1,3 +1,9 @@
+### **(V.2.7.3 Changes) (1.16.5 Minecraft)**
+
+##### Configs:
+* Fixed Blacklisted Outpost Biomes config not being in right config section
+
+
 ### **(V.2.7.2 Changes) (1.16.5 Minecraft)**
 
 ##### Misc:

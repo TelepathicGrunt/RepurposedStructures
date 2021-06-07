@@ -36,14 +36,14 @@ public class RSOutpostsConfig {
 
         public RSOutpostsConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber) {
 
+            builder.push("Outposts");
+
             blacklistedOutpostBiomes = subscriber.subscribe(builder
                     .comment("\n Add the ID/resource location of the biome you don't want",
                             " RS's outposts to spawn in. Separate each ID with a comma ,",
                             "   Example: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
                     .translation("repurposedstructures.config.outposts.blacklistedOutpostBiomes")
                     .define("blacklistedOutpostBiomes", " "));
-
-            builder.push("Outposts");
 
             addNetherBrickOutpostToModdedBiomes = subscriber.subscribe(builder
                     .comment("\n Add Nether Brick Outposts to modded Nether biomes that other nether outposts don't fit in.")
