@@ -3,6 +3,9 @@
 ##### Configs:
 * Fixed Blacklisted Outpost Biomes config not being in right config section
 
+##### Misc:
+* Silenced possible logspam about missing structure pieces that was removed in v2.4.
+
 
 ### **(V.2.7.2 Changes) (1.16.5 Minecraft)**
 

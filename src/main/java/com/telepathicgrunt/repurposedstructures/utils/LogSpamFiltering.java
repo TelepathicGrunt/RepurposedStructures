@@ -54,8 +54,10 @@ public class LogSpamFiltering extends AbstractFilter {
     public Filter.Result filter(LogEvent event) {
         Message message = event.getMessage();
         if (message != null) {
-            if("Unknown structure piece id: {}".equals(message.getFormat()) && (SILENCED_PIECES.contains((ResourceLocation) message.getParameters()[0]) || ((ResourceLocation)message.getParameters()[0]).getNamespace().equals(RepurposedStructures.MODID))){
-                return Result.DENY;
+            if(message.getFormattedMessage().contains("Unknown structure piece")){
+                if(SILENCED_PIECES.contains((ResourceLocation)message.getParameters()[0]) || message.getFormattedMessage().contains(RepurposedStructures.MODID)){
+                    return Result.DENY;
+                }
             }
             else if(message.getFormattedMessage().contains("Unknown structure start: repurposed_structures:")) {
                 return Result.DENY;
