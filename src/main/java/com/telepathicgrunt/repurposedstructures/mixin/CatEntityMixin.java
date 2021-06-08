@@ -4,6 +4,7 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
+import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.CatEntity;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.nbt.CompoundTag;

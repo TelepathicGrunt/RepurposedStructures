@@ -1,3 +1,9 @@
+### **(V.1.11.3 Changes) (1.16.5 Minecraft)**
+
+##### Misc:
+* Silenced logspam about missing structure pieces that was removed in v1.11.
+
+
 ### **(V.1.11.2 Changes) (1.16.5 Minecraft)**
 
 ##### Villages:
