@@ -63,7 +63,7 @@ dependencies {
         annotationProcessor 'org.spongepowered:mixin:0.8.2:processor'
     }
 
-    implementation fg.deobf("com.telepathicgrunt:Blame:1.16.5-3.2.0-forge")
+    runtimeOnly fg.deobf("com.telepathicgrunt:Blame:1.16.5-3.2.0-forge")
 }
 
 apply from: 'gradle/processresources.gradle'
