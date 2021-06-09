@@ -40,9 +40,12 @@ public class MansionStructure extends AbstractBaseStructure<NoFeatureConfig> {
     @Override
     protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom random, int chunkX, int chunkZ, Biome biome1, ChunkPos chunkPos, NoFeatureConfig config) {
         if(!(biomeSource instanceof CheckerboardBiomeProvider)) {
-            for (Biome biome2 : biomeSource.getBiomesWithin(chunkX * 16 + 9, chunkGenerator.getSeaLevel(), chunkZ * 16 + 9, 32)) {
-                if (!biome2.getGenerationSettings().isValidStart(this)) {
-                    return false;
+            int biomeRange = 2;
+            for (int curChunkX = chunkX - biomeRange; curChunkX <= chunkX + biomeRange; curChunkX++) {
+                for (int curChunkZ = chunkZ - biomeRange; curChunkZ <= chunkZ + biomeRange; curChunkZ++) {
+                    if (!biomeSource.getNoiseBiome(curChunkX << 2, 64, curChunkZ << 2).getGenerationSettings().isValidStart(this)) {
+                        return false;
+                    }
                 }
             }
         }

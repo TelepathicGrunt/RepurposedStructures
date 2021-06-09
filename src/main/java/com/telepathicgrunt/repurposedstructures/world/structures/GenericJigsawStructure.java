@@ -110,7 +110,7 @@ public class GenericJigsawStructure extends AbstractBaseStructure<NoFeatureConfi
         if(!(biomeSource instanceof CheckerboardBiomeProvider)) {
             for (int curChunkX = chunkX - biomeRange; curChunkX <= chunkX + biomeRange; curChunkX++) {
                 for (int curChunkZ = chunkZ - biomeRange; curChunkZ <= chunkZ + biomeRange; curChunkZ++) {
-                    if (!biomeSource.getNoiseBiome(curChunkX << 2, 60, curChunkZ << 2).getGenerationSettings().isValidStart(this)) {
+                    if (!biomeSource.getNoiseBiome(curChunkX << 2, 64, curChunkZ << 2).getGenerationSettings().isValidStart(this)) {
                         return false;
                     }
                 }
