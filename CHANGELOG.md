@@ -1,3 +1,15 @@
+### **(V.1.11.6 Changes) (1.16.5 Minecraft)**
+
+##### Mineshafts:
+* Lowered default config value for the max height of Ocean mineshafts from 31 to 26 to reduce amount of Ocean Mineshafts exposed on ocean floor.
+
+
+### **(V.1.11.5 Changes) (1.16.5 Minecraft)**
+
+##### Misc:
+* Fixed serverside crash when trying to use the pool_addition merger system.
+
+
 ### **(V.1.11.4 Changes) (1.16.5 Minecraft)**
 
 ##### Mansions:
