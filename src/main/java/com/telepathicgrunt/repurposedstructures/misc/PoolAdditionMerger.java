@@ -136,7 +136,7 @@ public class PoolAdditionMerger {
 
         // Will iterate over all of our found pool additions and make sure the target pool exists before we parse our JSON objects
         for (Map.Entry<ResourceLocation, List<JsonElement>> entry : poolAdditionJSON.entrySet()) {
-            if (!poolRegistry.containsKey(entry.getKey())) continue;
+            if (poolRegistry.get(entry.getKey()) == null) continue;
 
             // Parse the given pool addition JSON objects and add their pool to the dynamic registry pool
             for (JsonElement jsonElement : entry.getValue()) {
