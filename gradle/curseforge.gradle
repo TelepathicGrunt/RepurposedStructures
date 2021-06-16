@@ -14,6 +14,11 @@ curseforge {
         addGameVersion("1.16.5")
         addGameVersion("Fabric")
 
+        relations {
+            requiredDependency 'cloth-api'
+            requiredDependency 'fabric-api'
+        }
+
         mainArtifact(remapJar) {
             displayName = "Repurposed Structures v${project.mod_version} (${project.minecraft_version} MC)"
         }
