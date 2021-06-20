@@ -1,16 +1,15 @@
 package com.telepathicgrunt.repurposedstructures.world.structures.pieces;
 
 import com.google.common.collect.Lists;
-import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePieces;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.structure.SimpleStructurePiece;
 import net.minecraft.structure.Structure;
 import net.minecraft.structure.StructureManager;
 import net.minecraft.structure.StructurePlacementData;
-import net.minecraft.structure.processor.BlockIgnoreStructureProcessor;
 import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.Identifier;
@@ -505,8 +504,6 @@ public class MansionPieces{
 
             this.method_15055(pieces, pos.up(16), rotation, flagMatrix, flagMatrix2, type);
             this.method_15055(pieces, pos.up(27), rotation, flagMatrix2, null, type);
-            if (!pieces.isEmpty()) {
-            }
 
             MansionPieces.RoomPool[] roomPools = new MansionPieces.RoomPool[]{new MansionPieces.FirstFloorRoomPool(), new MansionPieces.SecondFloorRoomPool(), new MansionPieces.ThirdFloorRoomPool()};
 
@@ -961,10 +958,7 @@ public class MansionPieces{
     }
 
     public static class Piece extends SimpleStructurePiece {
-        private final String template;
-        private final BlockRotation rotation;
-        private final BlockMirror mirror;
-        private final MANSIONTYPE type;
+        public MANSIONTYPE type;
 
         public enum MANSIONTYPE {
             BIRCH(Blocks.DARK_OAK_WOOD.getDefaultState()),
@@ -986,41 +980,36 @@ public class MansionPieces{
             }
         }
 
-        public Piece(StructureManager structureManager, String string, BlockPos blockPos, BlockRotation blockRotation, MANSIONTYPE type) {
-            this(structureManager, string, blockPos, blockRotation, BlockMirror.NONE, type);
-        }
-
-        public Piece(StructureManager structureManager, String string, BlockPos blockPos, BlockRotation blockRotation, BlockMirror blockMirror, MANSIONTYPE type) {
-            super(RSStructurePieces.MANSION_PIECE, 0);
-            this.template = string;
-            this.pos = blockPos;
-            this.rotation = blockRotation;
-            this.mirror = blockMirror;
+        public Piece(StructureManager structureManager, String template, BlockPos pos, BlockRotation rotation, BlockMirror mirror, MANSIONTYPE type) {
+            super(RSStructurePieces.MANSION_PIECE, 0, structureManager, getId(template), template, createPlacementData(mirror, rotation), pos);
             this.type = type;
-            this.setupPlacement(structureManager);
         }
 
-        public Piece(StructureManager structureManager, CompoundTag compoundTag) {
-            super(RSStructurePieces.MANSION_PIECE, compoundTag);
-            this.template = compoundTag.getString("Template");
-            this.rotation = BlockRotation.valueOf(compoundTag.getString("Rot"));
-            this.mirror = BlockMirror.valueOf(compoundTag.getString("Mi"));
-            this.type = MANSIONTYPE.valueOf(compoundTag.getString("Type"));
-            this.setupPlacement(structureManager);
+        public Piece(ServerWorld world, NbtCompound nbt) {
+            super(RSStructurePieces.MANSION_PIECE, nbt, world, (identifier) ->
+                    createPlacementData(BlockMirror.valueOf(nbt.getString("Mi")), BlockRotation.valueOf(nbt.getString("Rot"))));
         }
 
-        private void setupPlacement(StructureManager structureManager) {
-            Structure structure = structureManager.getStructureOrBlank(new Identifier(RepurposedStructures.MODID, "mansions/" + this.type.name().toLowerCase() + "/" + this.template));
-            StructurePlacementData structurePlacementData = (new StructurePlacementData()).setIgnoreEntities(false).setRotation(this.rotation).setMirror(this.mirror).addProcessor(BlockIgnoreStructureProcessor.IGNORE_STRUCTURE_BLOCKS);
-            this.setStructureData(structure, this.pos, structurePlacementData);
+        public Piece(StructureManager structureManager, String template, BlockPos pos, BlockRotation rotation, MANSIONTYPE type) {
+            this(structureManager, template, pos, rotation, BlockMirror.NONE, type);
         }
 
-        protected void toNbt(CompoundTag tag) {
-            super.toNbt(tag);
-            tag.putString("Template", this.template);
-            tag.putString("Rot", this.placementData.getRotation().name());
-            tag.putString("Mi", this.placementData.getMirror().name());
-            tag.putString("Type", this.type.name());
+        protected Identifier getId() {
+            return getId(this.identifier);
+        }
+
+        private static Identifier getId(String identifier) {
+            return new Identifier("woodland_mansion/" + identifier);
+        }
+
+        private static StructurePlacementData createPlacementData(BlockMirror mirror, BlockRotation rotation) {
+            return (new StructurePlacementData()).setIgnoreEntities(true).setRotation(rotation).setMirror(mirror);
+        }
+
+        protected void writeNbt(ServerWorld world, NbtCompound nbt) {
+            super.writeNbt(world, nbt);
+            nbt.putString("Rot", this.placementData.getRotation().name());
+            nbt.putString("Mi", this.placementData.getMirror().name());
         }
 
         protected void handleMetadata(String metadata, BlockPos pos, ServerWorldAccess serverWorldAccess, Random random, BlockBox boundingBox) { }

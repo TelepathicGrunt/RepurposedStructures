@@ -24,7 +24,7 @@ import java.util.Random;
 public class MobSpawnerManager extends JsonDataLoader implements IdentifiableResourceReloadListener {
     private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().setLenient().disableHtmlEscaping().create();
     private Map<Identifier, List<MobSpawnerObj>> spawnerMap = ImmutableMap.of();
-    private Identifier MOB_SPAWNER_MANAGER_ID = new Identifier(RepurposedStructures.MODID, "mob_spawner_manager");
+    private final Identifier MOB_SPAWNER_MANAGER_ID = new Identifier(RepurposedStructures.MODID, "mob_spawner_manager");
 
     public MobSpawnerManager() {
         super(GSON, "rs_spawners");

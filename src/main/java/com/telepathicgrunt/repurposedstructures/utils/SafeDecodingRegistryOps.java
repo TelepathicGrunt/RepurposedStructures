@@ -41,7 +41,7 @@ public class SafeDecodingRegistryOps<T> extends RegistryOps<T> {
      */
     @Override
     protected <E> DataResult<Pair<Supplier<E>, T>> decodeOrId(T object, RegistryKey<? extends Registry<E>> registryKey, Codec<E> codec, boolean allowInlineDefinitions) {
-        Optional<MutableRegistry<E>> optional = this.dynamicRegistryManager.getOptional(registryKey);
+        Optional<MutableRegistry<E>> optional = this.dynamicRegistryManager.getOptionalMutable(registryKey);
         if (!optional.isPresent()) {
             return DataResult.error("(RepurposedStructures SafeDecodingRegistryOps) Unknown registry: " + registryKey);
         } else {

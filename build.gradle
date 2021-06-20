@@ -21,13 +21,13 @@ archivesBaseName = project.archives_base_name
 version = "${project.mod_version}+${project.mc_version}"
 group = project.maven_group
 
+minecraft {
+	accessWidener "src/main/resources/repurposed_structures.accesswidener"
+}
+
 repositories {
 	maven { url "https://maven.shedaniel.me/" }
 	maven { url "https://maven.terraformersmc.com/releases/" }
-}
-
-minecraft {
-	accessWidener "src/main/resources/repurposed_structures.accesswidener"
 }
 
 dependencies {

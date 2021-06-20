@@ -2,20 +2,21 @@ package com.telepathicgrunt.repurposedstructures.world.placements;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.gen.decorator.Decorator;
+import net.minecraft.world.gen.decorator.DecoratorContext;
 import net.minecraft.world.gen.decorator.NopeDecoratorConfig;
-import net.minecraft.world.gen.decorator.SimpleDecorator;
 
 import java.util.Random;
 import java.util.stream.Stream;
 
-public class RSMinusEightPlacement extends SimpleDecorator<NopeDecoratorConfig>
+public class RSMinusEightPlacement extends Decorator<NopeDecoratorConfig>
 {
     public RSMinusEightPlacement(Codec<NopeDecoratorConfig> config) {
 	super(config);
     }
 
 	@Override
-	public Stream<BlockPos> getPositions(Random random, NopeDecoratorConfig config, BlockPos pos) {
+	public Stream<BlockPos> getPositions(DecoratorContext context, Random random, NopeDecoratorConfig config, BlockPos pos) {
 		return Stream.of(pos.add(-8, 0, -8));
 	}
 }

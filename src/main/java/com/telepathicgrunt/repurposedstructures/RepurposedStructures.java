@@ -1,15 +1,36 @@
 package com.telepathicgrunt.repurposedstructures;
 
-import com.telepathicgrunt.repurposedstructures.biomeinjection.*;
+import com.telepathicgrunt.repurposedstructures.biomeinjection.Bastions;
+import com.telepathicgrunt.repurposedstructures.biomeinjection.Cities;
+import com.telepathicgrunt.repurposedstructures.biomeinjection.Dungeons;
+import com.telepathicgrunt.repurposedstructures.biomeinjection.Fortresses;
+import com.telepathicgrunt.repurposedstructures.biomeinjection.Igloos;
+import com.telepathicgrunt.repurposedstructures.biomeinjection.Mansions;
+import com.telepathicgrunt.repurposedstructures.biomeinjection.Mineshafts;
+import com.telepathicgrunt.repurposedstructures.biomeinjection.Outposts;
+import com.telepathicgrunt.repurposedstructures.biomeinjection.Pyramids;
+import com.telepathicgrunt.repurposedstructures.biomeinjection.RuinedPortals;
+import com.telepathicgrunt.repurposedstructures.biomeinjection.Ruins;
+import com.telepathicgrunt.repurposedstructures.biomeinjection.Shipwrecks;
+import com.telepathicgrunt.repurposedstructures.biomeinjection.Strongholds;
+import com.telepathicgrunt.repurposedstructures.biomeinjection.Temples;
+import com.telepathicgrunt.repurposedstructures.biomeinjection.Villages;
+import com.telepathicgrunt.repurposedstructures.biomeinjection.Wells;
+import com.telepathicgrunt.repurposedstructures.biomeinjection.WitchHuts;
 import com.telepathicgrunt.repurposedstructures.configs.RSAllConfig;
 import com.telepathicgrunt.repurposedstructures.misc.MobMapTrades;
 import com.telepathicgrunt.repurposedstructures.misc.MobSpawnerManager;
 import com.telepathicgrunt.repurposedstructures.misc.PoolAdditionMerger;
 import com.telepathicgrunt.repurposedstructures.mixin.StructuresConfigAccessor;
-import com.telepathicgrunt.repurposedstructures.modinit.*;
-import com.telepathicgrunt.repurposedstructures.utils.LogSpamFiltering;
+import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredFeatures;
+import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredStructures;
+import com.telepathicgrunt.repurposedstructures.modinit.RSFeatures;
+import com.telepathicgrunt.repurposedstructures.modinit.RSPlacements;
+import com.telepathicgrunt.repurposedstructures.modinit.RSPredicates;
+import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.StructurePiecesBehavior;
-import it.unimi.dsi.fastutil.objects.Reference2ObjectOpenHashMap;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer;
 import net.fabricmc.api.ModInitializer;
@@ -59,14 +80,6 @@ public class RepurposedStructures implements ModInitializer {
         StructurePiecesBehavior.init();
         PoolAdditionMerger.mergeAdditionPools();
         ResourceManagerHelper.get(ResourceType.SERVER_DATA).registerReloadListener(RepurposedStructures.mobSpawnerManager);
-
-        // Silences logspam due to me changing my piece's namespace from minecraft to my modid.
-        Logger rootLogger = LogManager.getRootLogger();
-        if (rootLogger instanceof org.apache.logging.log4j.core.Logger) {
-            ((org.apache.logging.log4j.core.Logger) rootLogger).addFilter(new LogSpamFiltering());
-        } else {
-            LOGGER.error("Registration failed with unexpected class: {}", rootLogger.getClass());
-        }
     }
 
     /**
@@ -112,9 +125,7 @@ public class RepurposedStructures implements ModInitializer {
             }
             else {
                 // make absolutely sure dimension can spawn RS structures
-                Map<StructureFeature<?>, StructureConfig> spacingToAdd = new Reference2ObjectOpenHashMap<>();
-                spacingToAdd.putAll(RSStructures.RS_STRUCTURES);
-                spacingToAdd.forEach(tempMap::putIfAbsent);
+                tempMap.forEach(RSStructures.RS_STRUCTURES::putIfAbsent);
             }
             ((StructuresConfigAccessor) serverWorld.getChunkManager().getChunkGenerator().getStructuresConfig()).repurposedstructures_setStructures(tempMap);
         });

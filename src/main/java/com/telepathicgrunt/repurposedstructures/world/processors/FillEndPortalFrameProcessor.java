@@ -39,7 +39,7 @@ public class FillEndPortalFrameProcessor extends StructureProcessor {
             return new Structure.StructureBlockInfo(
                     structureBlockInfoWorld.pos,
                     structureBlockInfoWorld.state.with(EndPortalFrameBlock.EYE, random.nextFloat() < probability),
-                    structureBlockInfoWorld.tag);
+                    structureBlockInfoWorld.nbt);
         }
         return structureBlockInfoWorld;
     }

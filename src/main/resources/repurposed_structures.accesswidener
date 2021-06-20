@@ -1,6 +1,4 @@
 accessWidener v1 named
-accessible class net/minecraft/structure/StrongholdGenerator$PieceData
-accessible class net/minecraft/structure/StrongholdGenerator$Piece
 accessible class net/minecraft/village/TradeOffers$SellMapFactory
 accessible class net/minecraft/util/shape/PairList
-accessible method net/minecraft/util/dynamic/RegistryOps <init> (Lcom/mojang/serialization/DynamicOps;Lnet/minecraft/util/dynamic/RegistryOps$EntryLoader;Lnet/minecraft/util/registry/DynamicRegistryManager$Impl;Ljava/util/IdentityHashMap;)V
+accessible method net/minecraft/util/dynamic/RegistryOps <init> (Lcom/mojang/serialization/DynamicOps;Lnet/minecraft/util/dynamic/RegistryOps$EntryLoader;Lnet/minecraft/util/registry/DynamicRegistryManager;Ljava/util/IdentityHashMap;)V

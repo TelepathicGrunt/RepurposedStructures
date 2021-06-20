@@ -133,7 +133,7 @@ public class PoolAdditionMerger {
      * Afterwards, it will merge the parsed pool into the targeted pool found in the dynamic registry.
      */
     private static void parsePoolsAndBeginMerger(Map<Identifier, List<JsonElement>> poolAdditionJSON, DynamicRegistryManager dynamicRegistryManager) {
-        MutableRegistry<StructurePool> poolRegistry = dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN);
+        MutableRegistry<StructurePool> poolRegistry = dynamicRegistryManager.getMutable(Registry.STRUCTURE_POOL_KEY);
         // A RegistryOps that doesn't break everything under the sun and can take a DynamicRegistryManager instead of DynamicRegistryManager.Impl.
         SafeDecodingRegistryOps<JsonElement> customRegistryOps = new SafeDecodingRegistryOps<>(JsonOps.INSTANCE, dynamicRegistryManager);
 

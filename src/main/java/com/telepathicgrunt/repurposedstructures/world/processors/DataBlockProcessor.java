@@ -39,7 +39,7 @@ public class DataBlockProcessor extends StructureProcessor {
     public Structure.StructureBlockInfo process(WorldView worldView, BlockPos pos, BlockPos blockPos, Structure.StructureBlockInfo structureBlockInfoLocal, Structure.StructureBlockInfo structureBlockInfoWorld, StructurePlacementData structurePlacementData) {
         BlockState blockState = structureBlockInfoWorld.state;
         if (blockState.isOf(Blocks.STRUCTURE_BLOCK)) {
-            String metadata = structureBlockInfoWorld.tag.getString("metadata");
+            String metadata = structureBlockInfoWorld.nbt.getString("metadata");
             BlockPos worldPos = structureBlockInfoWorld.pos;
 
             try {

@@ -178,7 +178,7 @@ public class StructureModdedLootImporter {
 
         // Generate random loot that would've been in vanilla chests. (Need to make new context or else we recursively call ourselves infinitely)
         LootContext newContext = copyLootContextWithNewQueryID(context);
-        List<ItemStack> newlyGeneratedLoot = newContext.getSupplier(tableToImportLoot).generateLoot(newContext);
+        List<ItemStack> newlyGeneratedLoot = newContext.getTable(tableToImportLoot).generateLoot(newContext);
 
         // Remove all vanilla loot so we only have modded loot
         newlyGeneratedLoot.removeIf(itemStack -> {

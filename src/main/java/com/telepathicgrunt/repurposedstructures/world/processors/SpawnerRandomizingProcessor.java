@@ -6,9 +6,9 @@ import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import net.minecraft.block.SpawnerBlock;
 import net.minecraft.entity.EntityType;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.IntTag;
-import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtInt;
+import net.minecraft.nbt.NbtList;
 import net.minecraft.structure.Structure;
 import net.minecraft.structure.StructurePlacementData;
 import net.minecraft.structure.processor.StructureProcessor;
@@ -43,7 +43,7 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
             return new Structure.StructureBlockInfo(
                     worldPos,
                     structureBlockInfoWorld.state,
-                    SetMobSpawnerEntity(random, structureBlockInfoWorld.tag));
+                    SetMobSpawnerEntity(random, structureBlockInfoWorld.nbt));
         }
         return structureBlockInfoWorld;
     }
@@ -51,25 +51,25 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
     /**
      * Makes the given block entity now have the correct spawner mob
      */
-    private CompoundTag SetMobSpawnerEntity(Random random, CompoundTag nbt) {
+    private NbtCompound SetMobSpawnerEntity(Random random, NbtCompound nbt) {
         EntityType<?> entity = RepurposedStructures.mobSpawnerManager.getSpawnerMob(rsSpawnerResourcelocation, random);
         if(entity != null){
             if(nbt != null){
-                CompoundTag spawnDataTag = nbt.getCompound("SpawnData");
+                NbtCompound spawnDataTag = nbt.getCompound("SpawnData");
                 if(spawnDataTag.isEmpty()){
-                    spawnDataTag = new CompoundTag();
+                    spawnDataTag = new NbtCompound();
                     nbt.put("SpawnData", spawnDataTag);
                 }
                 spawnDataTag.putString("id", Registry.ENTITY_TYPE.getId(entity).toString());
 
-                CompoundTag spawnEntityDataTag = new CompoundTag();
+                NbtCompound spawnEntityDataTag = new NbtCompound();
                 spawnEntityDataTag.putString("id", Registry.ENTITY_TYPE.getId(entity).toString());
-                CompoundTag spawnPotentialEntryTag = new CompoundTag();
+                NbtCompound spawnPotentialEntryTag = new NbtCompound();
                 spawnPotentialEntryTag.put("Entity", spawnEntityDataTag);
-                spawnPotentialEntryTag.put("Weight", IntTag.of(1));
-                ListTag spawnPotentialDataTag = nbt.getList("SpawnPotentials", spawnPotentialEntryTag.getType());
+                spawnPotentialEntryTag.put("Weight", NbtInt.of(1));
+                NbtList spawnPotentialDataTag = nbt.getList("SpawnPotentials", spawnPotentialEntryTag.getType());
                 if(spawnPotentialDataTag.isEmpty()){
-                    spawnPotentialDataTag = new ListTag();
+                    spawnPotentialDataTag = new NbtList();
                     nbt.put("SpawnPotentials", spawnPotentialDataTag);
                 }
                 spawnPotentialDataTag.clear();
@@ -77,7 +77,7 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
                 return nbt;
             }
             else{
-                CompoundTag compound = new CompoundTag();
+                NbtCompound compound = new NbtCompound();
                 compound.putShort("Delay", (short) 20);
                 compound.putShort("MinSpawnDelay", (short) 200);
                 compound.putShort("MaxSpawnDelay", (short) 800);
@@ -86,18 +86,18 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
                 compound.putShort("RequiredPlayerRange", (short) 16);
                 compound.putShort("SpawnRange", (short) 4);
 
-                CompoundTag spawnData = new CompoundTag();
+                NbtCompound spawnData = new NbtCompound();
                 spawnData.putString("id", Registry.ENTITY_TYPE.getId(entity).toString());
                 compound.put("SpawnData", spawnData);
 
-                CompoundTag entityData = new CompoundTag();
+                NbtCompound entityData = new NbtCompound();
                 entityData.putString("id", Registry.ENTITY_TYPE.getId(entity).toString());
 
-                CompoundTag listEntry = new CompoundTag();
+                NbtCompound listEntry = new NbtCompound();
                 listEntry.put("Entity", entityData);
                 listEntry.putInt("Weight", 1);
 
-                ListTag listnbt = new ListTag();
+                NbtList listnbt = new NbtList();
                 listnbt.add(listEntry);
 
                 compound.put("SpawnPotentials", listnbt);

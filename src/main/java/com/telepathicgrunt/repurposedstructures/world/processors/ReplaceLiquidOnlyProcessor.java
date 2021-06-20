@@ -41,13 +41,13 @@ public class ReplaceLiquidOnlyProcessor extends StructureProcessor {
             BlockState aboveWorldState = worldView.getBlockState(position.up());
 
             if (!worldState.getFluidState().isEmpty() &&
-                    !structureBlockInfoWorld.state.getBlock().hasBlockEntity() &&
-                    !aboveWorldState.getBlock().hasBlockEntity())
+                    !structureBlockInfoWorld.state.hasBlockEntity() &&
+                    !aboveWorldState.hasBlockEntity())
             {
                 structureBlockInfoWorld = new Structure.StructureBlockInfo(structureBlockInfoWorld.pos, worldState, null);
             }
             // Do not replace other dungeon's chests/spawners
-            else if(worldState.getBlock().hasBlockEntity()){
+            else if(worldState.hasBlockEntity()){
                 structureBlockInfoWorld = new Structure.StructureBlockInfo(structureBlockInfoWorld.pos, worldState, null);
             }
         }

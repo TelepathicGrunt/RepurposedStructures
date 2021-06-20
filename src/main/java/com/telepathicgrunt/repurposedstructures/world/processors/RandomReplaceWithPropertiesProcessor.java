@@ -40,7 +40,7 @@ public class RandomReplaceWithPropertiesProcessor extends StructureProcessor {
 
     @Override
     public Structure.StructureBlockInfo process(WorldView worldReader, BlockPos pos, BlockPos pos2, Structure.StructureBlockInfo infoIn1, Structure.StructureBlockInfo infoIn2, StructurePlacementData settings) {
-        if(infoIn2.state.getBlock().is(inputBlock)){
+        if(infoIn2.state.getBlock() == inputBlock){
             BlockPos worldPos = infoIn2.pos;
             Random random = new ChunkRandom();
             random.setSeed(worldPos.asLong() * worldPos.getY());
@@ -52,7 +52,7 @@ public class RandomReplaceWithPropertiesProcessor extends StructureProcessor {
                         newBlockState = getStateWithProperty(newBlockState, infoIn2.state, property);
                     }
                 }
-                return new Structure.StructureBlockInfo(infoIn2.pos, newBlockState, infoIn2.tag);
+                return new Structure.StructureBlockInfo(infoIn2.pos, newBlockState, infoIn2.nbt);
             }
         }
         return infoIn2;

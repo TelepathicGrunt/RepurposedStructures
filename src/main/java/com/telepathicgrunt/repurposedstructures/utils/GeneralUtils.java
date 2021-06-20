@@ -90,7 +90,7 @@ public class GeneralUtils {
     public static boolean isWorldBlacklisted(ServerWorldAccess world){
         if(BLACKLISTED_WORLDS == null){
             BLACKLISTED_WORLDS = Arrays.stream(RepurposedStructures.RSAllConfig.RSMainConfig.blacklistedDimensions.split(","))
-                    .map(String::trim).map(dimensionName -> RegistryKey.of(Registry.DIMENSION, new Identifier(dimensionName)))
+                    .map(String::trim).map(dimensionName -> RegistryKey.of(Registry.WORLD_KEY, new Identifier(dimensionName)))
                     .collect(Collectors.toSet());
         }
         return BLACKLISTED_WORLDS.contains(world.toServerWorld().getRegistryKey());
