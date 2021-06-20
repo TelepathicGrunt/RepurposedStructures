@@ -17,16 +17,13 @@ plugins {
 sourceCompatibility = JavaVersion.VERSION_16
 targetCompatibility = JavaVersion.VERSION_16
 
-version = "${project.mod_version}+${project.minecraft_version}"
-archivesBaseName = "${project.archives_base_name}_fabric"
+archivesBaseName = project.archives_base_name
+version = "${project.mod_version}+${project.mc_version}"
 group = project.maven_group
 
 repositories {
-	maven { url "https://jitpack.io" }
 	maven { url "https://maven.shedaniel.me/" }
-	maven { url "https://maven.fabricmc.net" }
-	maven { url "https://www.cursemaven.com" }
-	maven { url "https://nexus.resourcefulbees.com/repository/maven-public/" }
+	maven { url "https://maven.terraformersmc.com/releases/" }
 }
 
 minecraft {
@@ -39,7 +36,7 @@ dependencies {
 	
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	modImplementation "io.github.prospector:modmenu:${project.mod_menu_version}"
+	modImplementation ("com.terraformersmc:modmenu:${project.mod_menu_version}") { transitive = false }
 
 	modApi "me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}"
 
@@ -48,15 +45,13 @@ dependencies {
 if (project.use_third_party_mods) {
 	repositories {
 		maven {	url "https://nexus.resourcefulbees.com/repository/maven-public/" }
-		flatDir { dirs 'deps' }
-		maven { url = "https://jitpack.io" }
+		maven { url "https://www.cursemaven.com" }
 	}
 
 	dependencies {
-		modImplementation "com.github.TelepathicGrunt:LoadNbtBlock:b6105a6"
-		modImplementation "com.telepathicgrunt.loadnbtblock:loadnbtblock:1.0.8"
+		modImplementation "com.telepathicgrunt:LoadNbtBlock:1.17-2.0.0-fabric"
 		modImplementation "curse.maven:structure_void_toggle-357304:3349168"
-		modImplementation "com.telepathicgrunt:Blame-Fabric:1.17.0-4.0.0-fabric"
+		modImplementation "com.telepathicgrunt:Blame-Fabric:1.17-4.0.0-fabric"
 	}
 }
 
