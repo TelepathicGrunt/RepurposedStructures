@@ -6,25 +6,26 @@ buildscript {
 	}
 	dependencies {
 		classpath "gradle.plugin.com.matthewprenger:CurseGradle:1.4.0"
-		classpath group: 'gradle.plugin.com.modrinth.minotaur', name: 'Minotaur', version: '1.1.0'
+		classpath group: 'gradle.plugin.com.modrinth.minotaur', name: 'Minotaur', version: '1.2.1'
 	}
 }
 
 plugins {
-	id 'fabric-loom' version '0.7-SNAPSHOT'
+	id 'fabric-loom' version '0.8-SNAPSHOT'
 }
 
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
+sourceCompatibility = JavaVersion.VERSION_16
+targetCompatibility = JavaVersion.VERSION_16
 
-archivesBaseName = project.archives_base_name
-version = "${project.minecraft_version}-${project.mod_version}-fabric"
+version = "${project.mod_version}+${project.minecraft_version}"
+archivesBaseName = "${project.archives_base_name}_fabric"
 group = project.maven_group
 
 repositories {
-	maven { url 'https://jitpack.io' }
+	maven { url "https://jitpack.io" }
 	maven { url "https://maven.shedaniel.me/" }
 	maven { url "https://maven.fabricmc.net" }
+	maven { url "https://www.cursemaven.com" }
 	maven { url "https://nexus.resourcefulbees.com/repository/maven-public/" }
 }
 
@@ -35,19 +36,13 @@ minecraft {
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+	
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	modImplementation "io.github.prospector:modmenu:${project.mod_menu_version}"
 
 	modApi "me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}"
 
-	modImplementation 'com.github.modmuss50:Voyager:1.0.0'
-	include 'com.github.modmuss50:Voyager:1.0.0'
-
-	modImplementation 'com.github.Draylar:angerable-patch:1.1.0-1.16.4'
-	include 'com.github.Draylar:angerable-patch:1.1.0-1.16.4'
-
-	modImplementation "com.telepathicgrunt:Blame-Fabric:1.16.5-3.2.0-fabric"
 }
 
 if (project.use_third_party_mods) {
@@ -58,10 +53,10 @@ if (project.use_third_party_mods) {
 	}
 
 	dependencies {
+		modImplementation "com.github.TelepathicGrunt:LoadNbtBlock:b6105a6"
 		modImplementation "com.telepathicgrunt.loadnbtblock:loadnbtblock:1.0.8"
-		modImplementation "com.telepathicgrunt.structure_void_toggle:structure_void_toggle-1.16.5:2.0.0"
-		modImplementation "com.telepathicgrunt:Blame-Fabric:1.16.5-3.0.1-fabric"
-		modImplementation 'com.github.CaffeineMC:lithium-fabric:6261ccd103'
+		modImplementation "curse.maven:structure_void_toggle-357304:3349168"
+		modImplementation "com.telepathicgrunt:Blame-Fabric:1.17.0-4.0.0-fabric"
 	}
 }
 
@@ -69,15 +64,16 @@ apply from: 'gradle/processresources.gradle'
 
 tasks.withType(JavaCompile).configureEach {
 	it.options.encoding = "UTF-8"
-	def targetVersion = 8
-	if (JavaVersion.current().isJava9Compatible()) {
-		it.options.release = targetVersion
-	}
+	it.options.release = 16
 }
 
 task sourcesJar(type: Jar, dependsOn: classes) {
 	classifier = "sources"
 	from sourceSets.main.allSource
+}
+
+java {
+	withSourcesJar()
 }
 
 jar {
