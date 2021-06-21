@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.mixin;
+package com.telepathicgrunt.repurposedstructures.mixin.structures;
 
 import net.minecraft.world.gen.chunk.StructureConfig;
 import net.minecraft.world.gen.chunk.StructuresConfig;

@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.mixin;
+package com.telepathicgrunt.repurposedstructures.mixin.structures;
 
 import net.minecraft.resource.ResourceManager;
 import net.minecraft.structure.StructureManager;

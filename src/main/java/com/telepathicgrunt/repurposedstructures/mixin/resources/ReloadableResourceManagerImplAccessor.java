@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.mixin;
+package com.telepathicgrunt.repurposedstructures.mixin.resources;
 
 import net.minecraft.resource.NamespaceResourceManager;
 import net.minecraft.resource.ReloadableResourceManagerImpl;

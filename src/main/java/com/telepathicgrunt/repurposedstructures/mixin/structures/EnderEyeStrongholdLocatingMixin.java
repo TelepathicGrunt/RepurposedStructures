@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.mixin;
+package com.telepathicgrunt.repurposedstructures.mixin.structures;
 
 import com.telepathicgrunt.repurposedstructures.utils.StructureLocator;
 import net.minecraft.entity.player.PlayerEntity;

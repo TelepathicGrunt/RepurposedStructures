@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.mixin;
+package com.telepathicgrunt.repurposedstructures.mixin.structures;
 
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.structure.pool.StructurePool;

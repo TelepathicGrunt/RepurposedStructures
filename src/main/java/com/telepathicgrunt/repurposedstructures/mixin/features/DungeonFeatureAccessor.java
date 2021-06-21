@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.mixin;
+package com.telepathicgrunt.repurposedstructures.mixin.features;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.gen.feature.DungeonFeature;

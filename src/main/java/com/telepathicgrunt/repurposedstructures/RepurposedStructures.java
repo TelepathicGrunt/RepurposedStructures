@@ -21,7 +21,7 @@ import com.telepathicgrunt.repurposedstructures.configs.RSAllConfig;
 import com.telepathicgrunt.repurposedstructures.misc.MobMapTrades;
 import com.telepathicgrunt.repurposedstructures.misc.MobSpawnerManager;
 import com.telepathicgrunt.repurposedstructures.misc.PoolAdditionMerger;
-import com.telepathicgrunt.repurposedstructures.mixin.StructuresConfigAccessor;
+import com.telepathicgrunt.repurposedstructures.mixin.structures.StructuresConfigAccessor;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredFeatures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSFeatures;

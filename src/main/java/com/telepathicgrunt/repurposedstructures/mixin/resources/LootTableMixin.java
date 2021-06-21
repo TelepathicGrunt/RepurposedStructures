@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.mixin;
+package com.telepathicgrunt.repurposedstructures.mixin.resources;
 
 import com.telepathicgrunt.repurposedstructures.misc.StructureModdedLootImporter;
 import net.minecraft.item.ItemStack;

@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.mixin;
+package com.telepathicgrunt.repurposedstructures.mixin.entities;
 
 import net.minecraft.entity.mob.ShulkerEntity;
 import net.minecraft.util.math.BlockPos;

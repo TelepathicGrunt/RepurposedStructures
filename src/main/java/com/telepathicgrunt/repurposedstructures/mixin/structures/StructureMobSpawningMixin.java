@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.mixin;
+package com.telepathicgrunt.repurposedstructures.mixin.structures;
 
 import com.telepathicgrunt.repurposedstructures.misc.PoolAdditionMerger;
 import com.telepathicgrunt.repurposedstructures.misc.StructureMobSpawning;

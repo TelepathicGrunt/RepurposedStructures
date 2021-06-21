@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.mixin;
+package com.telepathicgrunt.repurposedstructures.mixin.structures;
 
 import net.minecraft.structure.Structure;
 import org.spongepowered.asm.mixin.Mixin;

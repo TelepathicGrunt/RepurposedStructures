@@ -1,9 +1,9 @@
 package com.telepathicgrunt.repurposedstructures.misc;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.mixin.BuilderAccessor;
-import com.telepathicgrunt.repurposedstructures.mixin.LootContextAccessor;
-import com.telepathicgrunt.repurposedstructures.mixin.LootManagerAccessor;
+import com.telepathicgrunt.repurposedstructures.mixin.resources.BuilderAccessor;
+import com.telepathicgrunt.repurposedstructures.mixin.resources.LootContextAccessor;
+import com.telepathicgrunt.repurposedstructures.mixin.resources.LootManagerAccessor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.loot.LootTable;
