@@ -1,6 +1,6 @@
 {
-  "name": "repurposed_structures:bow_wither_skeleton",
-  "fallback": "minecraft:empty",
+  "name": "repurposed_structures:cities/nether/bow_wither_skeleton",
+  "fallback": "repurposed_structures:cities/nether/bow_wither_skeleton",
   "elements": [
     {
       "weight": 1,

@@ -6,5 +6,8 @@
 * File paths in the resources/data folder has been significantly redone to be more consistant and cleaner. 
   1.16.5 or older datapacks for Repurposed Structures may not work anymore and have to be updated.
 
+##### Nether Cities:
+* The topmost small tower tops will now spawn Wither Skeletons with Bows,
+
 ##### Pool Additions:
 * Will now print out to the logs if a merging pool has a typo in its nbt file entries.
