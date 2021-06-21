@@ -1,0 +1,14 @@
+{
+  "name": "repurposed_structures:pyramids/flower_forest_grass",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "feature": "repurposed_structures:flower_forest_pyramid_structure_grass",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    }
+  ]
+}

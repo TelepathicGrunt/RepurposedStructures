@@ -1,0 +1,15 @@
+{
+  "name": "repurposed_structures:pyramids/jungle",
+  "fallback": "repurposed_structures:pyramids/jungle_vines",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:pyramids/jungle_body",
+        "processors": "repurposed_structures:pyramids/jungle",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    }
+  ]
+}

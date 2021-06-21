@@ -1,0 +1,60 @@
+{
+  "name": "repurposed_structures:villages/giant_taiga/town_centers",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 50,
+      "element": {
+        "location": "repurposed_structures:villages/giant_taiga/town_centers/meeting_point_1",
+        "processors": "repurposed_structures:villages/giant_taiga/path_randomizer_and_mossify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 50,
+      "element": {
+        "location": "repurposed_structures:villages/giant_taiga/town_centers/meeting_point_2",
+        "processors": "repurposed_structures:villages/giant_taiga/path_randomizer_and_mossify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 50,
+      "element": {
+        "location": "repurposed_structures:villages/giant_taiga/town_centers/meeting_point_3",
+        "processors": "repurposed_structures:villages/giant_taiga/path_randomizer_and_mossify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:villages/giant_taiga/zombie/town_centers/meeting_point_1",
+        "processors": "repurposed_structures:villages/giant_taiga/path_randomizer_and_mossify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:villages/giant_taiga/zombie/town_centers/meeting_point_2",
+        "processors": "repurposed_structures:villages/giant_taiga/path_randomizer_and_mossify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:villages/giant_taiga/zombie/town_centers/meeting_point_3",
+        "processors": "repurposed_structures:villages/giant_taiga/path_randomizer_and_mossify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    }
+  ]
+}

@@ -49,30 +49,9 @@ originalBiome = ""
 newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {
-    "repurposed_structures:chests/ruined_portal/":"repurposed_structures:chests/ruined_portals/",
-    "repurposed_structures:chests/bastion/":"repurposed_structures:chests/bastions/",
-    "repurposed_structures:chests/city/":"repurposed_structures:chests/cities/",
-    "repurposed_structures:chests/dungeon/":"repurposed_structures:chests/dungeons/",
-    "repurposed_structures:chests/fortress/":"repurposed_structures:chests/fortresses/",
-    "repurposed_structures:chests/igloo/":"repurposed_structures:chests/igloos/",
-    "repurposed_structures:chests/mansion/":"repurposed_structures:chests/mansions/",
-    "repurposed_structures:chests/outpost/":"repurposed_structures:chests/outposts/",
-    "repurposed_structures:chests/pyramid/":"repurposed_structures:chests/pyramids/",
-    "repurposed_structures:chests/temple/":"repurposed_structures:chests/temples/",
-    "repurposed_structures:chests/ruin/":"repurposed_structures:chests/ruins/",
-    "repurposed_structures:chests/shipwreck/":"repurposed_structures:chests/shipwrecks/",
-    "repurposed_structures:chests/stronghold/":"repurposed_structures:chests/strongholds/",
-    "repurposed_structures:chests/village/":"repurposed_structures:chests/villages/",
-    "repurposed_structures:temples/pyramid_":"repurposed_structures:pyramids/",
-    "repurposed_structures:temples/temple_":"repurposed_structures:temples/",
-    "repurposed_structures:village/":"repurposed_structures:villages/"
 }
 conversion_exact_dict = {
-    "repurposed_structures:chests/temple/nether_crimson_dispenser":"repurposed_structures:dispensers/temple/nether_crimson",
-    "repurposed_structures:chests/temple/nether_warped_dispenser":"repurposed_structures:dispensers/temple/nether_warped",
-    "repurposed_structures:chests/temple/nether_basalt_dispenser":"repurposed_structures:dispensers/temple/nether_basalt",
-    "repurposed_structures:chests/temple/nether_wasteland_dispenser":"repurposed_structures:dispensers/temple/nether_wasteland",
-    "repurposed_structures:chests/temple/nether_soul_dispenser":"repurposed_structures:dispensers/temple/nether_soul"
+    "down-minecraft:stone_bricks-repurposed_structures:temples/pyramid_jungle":"down-minecraft:stone_bricks-repurposed_structures:pyramids/jungle"
 }
 
 #-------------------------------------------------------------------------------------------

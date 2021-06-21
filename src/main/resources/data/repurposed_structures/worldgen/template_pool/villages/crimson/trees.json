@@ -1,0 +1,14 @@
+{
+  "name": "repurposed_structures:villages/crimson/trees",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "feature": "repurposed_structures:crimson_fungi_not_planted",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    }
+  ]
+}

@@ -1,0 +1,255 @@
+{
+  "name": "repurposed_structures:villages/badlands/zombie/houses",
+  "fallback": "repurposed_structures:villages/badlands/terminators",
+  "elements": [
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/badlands/zombie/houses/small_house_1",
+        "processors": "repurposed_structures:villages/badlands/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/badlands/zombie/houses/small_house_2",
+        "processors": "repurposed_structures:villages/badlands/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/badlands/zombie/houses/small_house_3",
+        "processors": "repurposed_structures:villages/badlands/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/badlands/zombie/houses/small_house_4",
+        "processors": "repurposed_structures:villages/badlands/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/badlands/zombie/houses/small_house_5",
+        "processors": "repurposed_structures:villages/badlands/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:villages/badlands/zombie/houses/medium_house_1",
+        "processors": "repurposed_structures:villages/badlands/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:villages/badlands/zombie/houses/medium_house_2",
+        "processors": "repurposed_structures:villages/badlands/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:villages/badlands/zombie/houses/medium_house_3",
+        "processors": "repurposed_structures:villages/badlands/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:villages/badlands/zombie/houses/medium_house_4",
+        "processors": "repurposed_structures:villages/badlands/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/badlands/zombie/houses/butcher",
+        "processors": "repurposed_structures:villages/badlands/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/badlands/zombie/houses/meeting_point",
+        "processors": "repurposed_structures:villages/badlands/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/badlands/houses/pen_1",
+        "processors": "repurposed_structures:villages/badlands/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:villages/badlands/zombie/houses/saloon",
+        "processors": "repurposed_structures:villages/badlands/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/badlands/houses/shepherd",
+        "processors": "repurposed_structures:villages/badlands/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/badlands/zombie/houses/stable_1",
+        "processors": "repurposed_structures:villages/badlands/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/badlands/zombie/houses/temple_2",
+        "processors": "repurposed_structures:villages/badlands/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/badlands/houses/armorer",
+        "processors": "repurposed_structures:villages/badlands/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:villages/badlands/houses/cartographer",
+        "processors": "repurposed_structures:villages/badlands/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/badlands/houses/fisher",
+        "processors": "repurposed_structures:villages/badlands/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/badlands/houses/fletcher",
+        "processors": "repurposed_structures:villages/badlands/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:villages/badlands/houses/mason",
+        "processors": "repurposed_structures:villages/badlands/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:villages/badlands/houses/library_2",
+        "processors": "repurposed_structures:villages/badlands/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/badlands/houses/tool_smith",
+        "processors": "repurposed_structures:villages/badlands/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/badlands/houses/weaponsmith",
+        "processors": "repurposed_structures:villages/badlands/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/badlands/houses/temple_1",
+        "processors": "repurposed_structures:villages/badlands/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:villages/badlands/houses/farm_1",
+        "processors": "repurposed_structures:villages/badlands/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:villages/badlands/houses/farm_2",
+        "processors": "repurposed_structures:villages/badlands/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      }
+    }
+  ]
+}

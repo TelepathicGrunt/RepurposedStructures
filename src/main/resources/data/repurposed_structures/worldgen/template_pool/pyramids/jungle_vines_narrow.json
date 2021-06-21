@@ -1,0 +1,14 @@
+{
+  "name": "repurposed_structures:pyramids/jungle_vines_narrow",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "feature": "repurposed_structures:jungle_pyramid_structure_vines_narrow",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    }
+  ]
+}
