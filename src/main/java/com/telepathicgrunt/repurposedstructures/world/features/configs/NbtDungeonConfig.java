@@ -88,7 +88,7 @@ public class NbtDungeonConfig implements FeatureConfig {
                 airRequirementIsNowWater,
                 structureYOffset, Blocks.CHEST.getDefaultState(),
                 new Identifier(RepurposedStructures.MODID, "chests/dungeons/"+dungeonType),
-                new Identifier(RepurposedStructures.MODID, "dungeons_"+spawnerType),
+                new Identifier(RepurposedStructures.MODID, "dungeons/"+spawnerType),
                 processor,
                 postProcessor,
                 ImmutableList.of(
@@ -98,12 +98,12 @@ public class NbtDungeonConfig implements FeatureConfig {
                 ));
     }
 
-    public NbtDungeonConfig(String dungeonType, Identifier postProcessor,
+    public NbtDungeonConfig(String dungeonType, String loottablePlace, Identifier postProcessor,
                             int maxAirSpace, BlockState lootBlock){
         this(false, 1, maxAirSpace, 2,
                 false, 0, lootBlock,
-                new Identifier(RepurposedStructures.MODID, "chests/dungeon/"+dungeonType),
-                new Identifier(RepurposedStructures.MODID, "dungeon_"+dungeonType),
+                new Identifier(RepurposedStructures.MODID, loottablePlace+"/dungeons/"+dungeonType),
+                new Identifier(RepurposedStructures.MODID, "dungeons/"+dungeonType),
                 new Identifier(RepurposedStructures.MODID, "dungeons/"+dungeonType),
                 postProcessor,
                 ImmutableList.of(

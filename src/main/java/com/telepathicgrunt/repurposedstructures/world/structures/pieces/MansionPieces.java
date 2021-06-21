@@ -10,6 +10,7 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.structure.SimpleStructurePiece;
 import net.minecraft.structure.Structure;
 import net.minecraft.structure.StructureManager;
+import net.minecraft.structure.StructurePieceType;
 import net.minecraft.structure.StructurePlacementData;
 import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;
@@ -959,8 +960,6 @@ public class MansionPieces{
     }
 
     public static class Piece extends SimpleStructurePiece {
-        public MANSIONTYPE type;
-
         public enum MANSIONTYPE {
             BIRCH(Blocks.DARK_OAK_WOOD.getDefaultState()),
             OAK(Blocks.DARK_OAK_WOOD.getDefaultState()),
@@ -982,8 +981,7 @@ public class MansionPieces{
         }
 
         public Piece(StructureManager structureManager, String template, BlockPos pos, BlockRotation rotation, BlockMirror mirror, MANSIONTYPE type) {
-            super(RSStructurePieces.MANSION_PIECE, 0, structureManager, getId(template, type), template, createPlacementData(mirror, rotation), pos);
-            this.type = type;
+            super(RSStructurePieces.MANSION_PIECE, 0, structureManager, getId(template, type), getId(template, type).toString(), createPlacementData(mirror, rotation), pos);
         }
 
         public Piece(ServerWorld world, NbtCompound nbt) {
@@ -995,16 +993,12 @@ public class MansionPieces{
             this(structureManager, template, pos, rotation, BlockMirror.NONE, type);
         }
 
-        protected Identifier getId() {
-            return getId(this.identifier, this.type);
-        }
-
         private static Identifier getId(String identifier, MANSIONTYPE type) {
             return new Identifier(RepurposedStructures.MODID, "mansions/" + type.name().toLowerCase() + "/" + identifier);
         }
 
         private static StructurePlacementData createPlacementData(BlockMirror mirror, BlockRotation rotation) {
-            return (new StructurePlacementData()).setIgnoreEntities(true).setRotation(rotation).setMirror(mirror);
+            return (new StructurePlacementData()).setIgnoreEntities(false).setRotation(rotation).setMirror(mirror);
         }
 
         protected void writeNbt(ServerWorld world, NbtCompound nbt) {

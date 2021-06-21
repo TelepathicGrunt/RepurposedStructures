@@ -10,7 +10,4 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 public interface ShulkerEntityInvoker {
     @Invoker("setAttachedFace")
     void repurposedstructures_callSetAttachedFace(Direction face);
-
-    @Invoker("findAttachSide")
-    Direction repurposedstructures_callFindAttachSide(BlockPos pos);
 }
