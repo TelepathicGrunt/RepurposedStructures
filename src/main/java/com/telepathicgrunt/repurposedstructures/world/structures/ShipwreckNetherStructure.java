@@ -10,18 +10,21 @@ import net.minecraft.structure.PoolStructurePiece;
 import net.minecraft.structure.StructureManager;
 import net.minecraft.structure.pool.StructurePoolBasedGenerator;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.collection.Pool;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.registry.DynamicRegistryManager;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.BlockView;
+import net.minecraft.world.HeightLimitView;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.SpawnSettings;
 import net.minecraft.world.biome.source.BiomeSource;
 import net.minecraft.world.gen.ChunkRandom;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.chunk.StructureConfig;
+import net.minecraft.world.gen.chunk.VerticalBlockSample;
 import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 
@@ -43,18 +46,18 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NetherShipwr
     }
 
     @Override
-    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NetherShipwreckConfig config) {
+    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, ChunkPos chunkPos1, Biome biome, ChunkPos chunkPos, NetherShipwreckConfig config, HeightLimitView heightLimitView) {
 
         // Check to see if there some air where the structure wants to spawn.
         // Doesn't account for rotation of structure.
         BlockPos blockPos;
         if(!config.isFlying){
-            blockPos = new BlockPos(chunkX << 4, chunkGenerator.getSeaLevel() + 1, chunkZ << 4);
+            blockPos = new BlockPos(chunkPos1.getStartX(), chunkGenerator.getSeaLevel() + 1, chunkPos1.getStartZ());
         }
         else{
-            ChunkRandom random = new ChunkRandom(seed + (chunkX * (chunkZ * 17)));
+            ChunkRandom random = new ChunkRandom(seed + (chunkPos1.x * (chunkPos1.z * 17L)));
             int height = chunkGenerator.getSeaLevel() + random.nextInt(Math.max(chunkGenerator.getWorldHeight() - (chunkGenerator.getSeaLevel() + 30), 1));
-            blockPos = new BlockPos(chunkX << 4, height, chunkZ << 4);
+            blockPos = new BlockPos(chunkPos1.getStartX(), height, chunkPos1.getStartZ());
         }
 
         int checkRadius = 16;
@@ -62,10 +65,10 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NetherShipwr
 
         for(int xOffset = -checkRadius; xOffset <= checkRadius; xOffset += 8){
             for(int zOffset = -checkRadius; zOffset <= checkRadius; zOffset += 8){
-                BlockView blockView = chunkGenerator.getColumnSample(xOffset + blockPos.getX(), zOffset + blockPos.getZ());
+                VerticalBlockSample blockView = chunkGenerator.getColumnSample(xOffset + blockPos.getX(), zOffset + blockPos.getZ(), heightLimitView);
                 for(int yOffset = 0; yOffset <= 30; yOffset += 5){
                     mutable.set(blockPos).move(xOffset, yOffset, zOffset);
-                    if (!blockView.getBlockState(mutable).isAir()) {
+                    if (!blockView.getState(mutable).isAir()) {
                         return false;
                     }
                 }
@@ -73,9 +76,9 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NetherShipwr
         }
 
         //cannot be near any other structure
-        for (int curChunkX = chunkX - 3; curChunkX <= chunkX + 3; curChunkX++) {
-            for (int curChunkZ = chunkZ - 3; curChunkZ <= chunkZ + 3; curChunkZ++) {
-                if(curChunkX == chunkX && curChunkZ == chunkZ) continue; // Prevent detecting the structure itself and thus, never spawning if structure is in its own blacklist
+        for (int curChunkX = chunkPos1.x - 3; curChunkX <= chunkPos1.x + 3; curChunkX++) {
+            for (int curChunkZ = chunkPos1.z - 3; curChunkZ <= chunkPos1.z + 3; curChunkZ++) {
+                if(curChunkX == chunkPos1.x && curChunkZ == chunkPos1.z) continue; // Prevent detecting the structure itself and thus, never spawning if structure is in its own blacklist
 
                 for(StructureFeature<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE)){
                     StructureConfig structureConfig = chunkGenerator.getStructuresConfig().getForType(structureFeature);
@@ -89,14 +92,14 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NetherShipwr
             }
         }
 
-        return super.shouldStartAt(chunkGenerator, biomeSource, seed, chunkRandom, chunkX, chunkZ, biome, chunkPos, config);
+        return super.shouldStartAt(chunkGenerator, biomeSource, seed, chunkRandom, chunkPos1, biome, chunkPos, config, heightLimitView);
     }
 
-    private static final List<SpawnSettings.SpawnEntry> MONSTER_SPAWNS =
-            Lists.newArrayList(new SpawnSettings.SpawnEntry(EntityType.WITHER_SKELETON, 25, 1, 1));
+    private static final Pool<SpawnSettings.SpawnEntry> MONSTER_SPAWNS =
+            Pool.of(Lists.newArrayList(new SpawnSettings.SpawnEntry(EntityType.WITHER_SKELETON, 25, 1, 1)));
 
     @Override
-    public List<SpawnSettings.SpawnEntry> getMonsterSpawns() {
+    public Pool<SpawnSettings.SpawnEntry> getMonsterSpawns() {
         return MONSTER_SPAWNS;
     }
 
@@ -108,35 +111,36 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NetherShipwr
     public class Start extends MarginedStructureStart<NetherShipwreckConfig> {
         private final long seed;
 
-        public Start(StructureFeature<NetherShipwreckConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
-            super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
+        public Start(StructureFeature<NetherShipwreckConfig> structureIn, ChunkPos chunkPos1, int referenceIn, long seedIn) {
+            super(structureIn, chunkPos1, referenceIn, seedIn);
             seed = seedIn;
         }
 
         @Override
-        public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, NetherShipwreckConfig config) {
+        public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, ChunkPos chunkPos1, Biome biome, NetherShipwreckConfig config, HeightLimitView heightLimitView) {
             int placementHeight = chunkGenerator.getSeaLevel();
 
             if(!config.isFlying){
                 placementHeight = placementHeight + sealevelOffset;
             }
             else{
-                ChunkRandom random = new ChunkRandom(seed + (chunkX * (chunkZ * 17)));
+                ChunkRandom random = new ChunkRandom(seed + (chunkPos1.x * (chunkPos1.z * 17L)));
                 placementHeight = placementHeight + random.nextInt(Math.max(chunkGenerator.getWorldHeight() - (placementHeight + 30), 1));
             }
 
-            BlockPos blockpos = new BlockPos(chunkX << 4, placementHeight, chunkZ << 4);
+            BlockPos blockpos = new BlockPos(chunkPos1.getStartX(), placementHeight, chunkPos1.getStartZ());
             StructurePoolBasedGenerator.method_30419(
                     dynamicRegistryManager,
-                    new StructurePoolFeatureConfig(() -> dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN).get(startPool), 6),
+                    new StructurePoolFeatureConfig(() -> dynamicRegistryManager.get(Registry.STRUCTURE_POOL_KEY).get(startPool), 6),
                     PoolStructurePiece::new,
                     chunkGenerator,
                     structureManager,
                     blockpos,
-                    this.children,
+                    this,
                     random,
                     false,
-                    false);
+                    false,
+                    heightLimitView);
             this.setBoundingBoxFromChildren();
         }
     }

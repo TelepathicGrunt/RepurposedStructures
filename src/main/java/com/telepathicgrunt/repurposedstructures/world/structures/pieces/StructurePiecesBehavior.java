@@ -10,24 +10,17 @@ public class StructurePiecesBehavior {
     public static void init() {
     }
 
-    public static class RequiredPieceNeeds {
-        private final int maxLimit;
-        private final int minDistanceFromCenter;
-        public RequiredPieceNeeds(int maxLimit, int minDistanceFromCenter) {
-            this.maxLimit = maxLimit;
-            this.minDistanceFromCenter = minDistanceFromCenter;
-        }
+    public record RequiredPieceNeeds(int maxLimit, int minDistanceFromCenter) {
 
-        public int getRequiredAmount(){
+        public int getRequiredAmount() {
             return maxLimit;
         }
 
-        public int getMinDistanceFromCenter(){
+        public int getMinDistanceFromCenter() {
             return minDistanceFromCenter;
         }
     }
-
-
+    
 
     public static HashMap<Identifier, Integer> PIECES_COUNT = new HashMap<>();
     static {

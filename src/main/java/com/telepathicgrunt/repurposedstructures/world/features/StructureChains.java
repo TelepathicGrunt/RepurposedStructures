@@ -11,6 +11,7 @@ import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.util.FeatureContext;
 
 import java.util.Random;
 
@@ -23,18 +24,18 @@ public class StructureChains extends Feature<StructureTargetConfig> {
 
 
     @Override
-    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, StructureTargetConfig config) {
+    public boolean generate(FeatureContext<StructureTargetConfig> context) {
 
         BlockPos.Mutable mutable = new BlockPos.Mutable();
 
-        for(int i = 0; i < config.attempts; i++){
-            mutable.set(position).move(
-                    random.nextInt(11) - 5,
-                    random.nextInt(3) - 1,
-                    random.nextInt(11) - 5
+        for(int i = 0; i < context.getConfig().attempts; i++){
+            mutable.set(context.getOrigin()).move(
+                    context.getRandom().nextInt(11) - 5,
+                    context.getRandom().nextInt(3) - 1,
+                    context.getRandom().nextInt(11) - 5
             );
 
-            if(!world.getBlockState(mutable).isAir() || !world.toServerWorld().getStructureAccessor().getStructureAt(mutable, true, config.targetStructure).hasChildren()){
+            if(!context.getWorld().getBlockState(mutable).isAir() || !context.getWorld().toServerWorld().getStructureAccessor().getStructureAt(mutable, true, context.getConfig().targetStructure).hasChildren()){
                 continue;
             }
 
@@ -43,12 +44,12 @@ public class StructureChains extends Feature<StructureTargetConfig> {
             BlockState aboveBlockstate;
             boolean exitEarly = false;
 
-            for (; mutable.getY() > 3 && length < random.nextInt(random.nextInt(random.nextInt(8) + 1) + 1) + 1; mutable.move(Direction.DOWN)) {
-                if (world.isAir(mutable)) {
-                    aboveBlockstate = world.getBlockState(mutable.up());
+            for (; mutable.getY() > 3 && length < context.getRandom().nextInt(context.getRandom().nextInt(context.getRandom().nextInt(8) + 1) + 1) + 1; mutable.move(Direction.DOWN)) {
+                if (context.getWorld().isAir(mutable)) {
+                    aboveBlockstate = context.getWorld().getBlockState(mutable.up());
 
-                    if (aboveBlockstate.isSideSolidFullSquare(world, mutable.up(), Direction.DOWN) || aboveBlockstate.isOf(Blocks.CHAIN)) {
-                        world.setBlockState(mutable, Blocks.CHAIN.getDefaultState(), 2);
+                    if (aboveBlockstate.isSideSolidFullSquare(context.getWorld(), mutable.up(), Direction.DOWN) || aboveBlockstate.isOf(Blocks.CHAIN)) {
+                        context.getWorld().setBlockState(mutable, Blocks.CHAIN.getDefaultState(), 2);
                         length++;
                     }
                 }
@@ -60,12 +61,12 @@ public class StructureChains extends Feature<StructureTargetConfig> {
             if(exitEarly) continue;
 
             //attaches lantern at end at a rare chance
-            if(mutable.getY() != 3 && random.nextFloat() < 0.075f && world.isAir(mutable)){
-                if(world.getBiome(mutable).getCategory() == Biome.Category.NETHER){
-                    world.setBlockState(mutable, Blocks.SOUL_LANTERN.getDefaultState().with(LanternBlock.HANGING, true), 2);
+            if(mutable.getY() != 3 && context.getRandom().nextFloat() < 0.075f && context.getWorld().isAir(mutable)){
+                if(context.getWorld().getBiome(mutable).getCategory() == Biome.Category.NETHER){
+                    context.getWorld().setBlockState(mutable, Blocks.SOUL_LANTERN.getDefaultState().with(LanternBlock.HANGING, true), 2);
                 }
                 else{
-                    world.setBlockState(mutable, Blocks.LANTERN.getDefaultState().with(LanternBlock.HANGING, true), 2);
+                    context.getWorld().setBlockState(mutable, Blocks.LANTERN.getDefaultState().with(LanternBlock.HANGING, true), 2);
                 }
             }
         }

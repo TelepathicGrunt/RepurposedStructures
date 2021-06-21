@@ -11,6 +11,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.util.FeatureContext;
 
 import java.util.Random;
 
@@ -23,36 +24,36 @@ public class StructureGrass extends Feature<StructureTargetAndRangeConfig> {
 
 
     @Override
-    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, StructureTargetAndRangeConfig config) {
+    public boolean generate(FeatureContext<StructureTargetAndRangeConfig> context) {
 
         BlockPos.Mutable mutable = new BlockPos.Mutable();
         BlockState grass = Blocks.GRASS.getDefaultState();
         BlockState tallGrass = Blocks.TALL_GRASS.getDefaultState();
 
-        for(int i = 0; i < config.attempts; i++){
-            mutable.set(position).move(
-                    random.nextInt((config.range * 2) + 1) - config.range,
-                    random.nextInt(3) - 1,
-                    random.nextInt((config.range * 2) + 1) - config.range
+        for(int i = 0; i < context.getConfig().attempts; i++){
+            mutable.set(context.getOrigin()).move(
+                    context.getRandom().nextInt((context.getConfig().range * 2) + 1) - context.getConfig().range,
+                    context.getRandom().nextInt(3) - 1,
+                    context.getRandom().nextInt((context.getConfig().range * 2) + 1) - context.getConfig().range
             );
 
-            if(world.getBlockState(mutable).isAir()){
-                if((random.nextFloat() < 0.45f || !world.getBlockState(mutable.up()).isAir()) && grass.canPlaceAt(world, mutable)){
+            if(context.getWorld().getBlockState(mutable).isAir()){
+                if((context.getRandom().nextFloat() < 0.45f || !context.getWorld().getBlockState(mutable.up()).isAir()) && grass.canPlaceAt(context.getWorld(), mutable)){
                     // expensive. Do this check very last
-                    if(!world.toServerWorld().getStructureAccessor().getStructureAt(mutable, true, config.targetStructure).hasChildren()){
+                    if(!context.getWorld().toServerWorld().getStructureAccessor().getStructureAt(mutable, true, context.getConfig().targetStructure).hasChildren()){
                         continue;
                     }
 
-                    world.setBlockState(mutable, grass, 3);
+                    context.getWorld().setBlockState(mutable, grass, 3);
                 }
-                else if(tallGrass.canPlaceAt(world, mutable)){
+                else if(tallGrass.canPlaceAt(context.getWorld(), mutable)){
                     // expensive. Do this check very last
-                    if(!world.toServerWorld().getStructureAccessor().getStructureAt(mutable, true, config.targetStructure).hasChildren()){
+                    if(!context.getWorld().toServerWorld().getStructureAccessor().getStructureAt(mutable, true, context.getConfig().targetStructure).hasChildren()){
                         continue;
                     }
 
-                    world.setBlockState(mutable, tallGrass.with(TallPlantBlock.HALF, DoubleBlockHalf.LOWER), 3);
-                    world.setBlockState(mutable.move(Direction.UP), tallGrass.with(TallPlantBlock.HALF, DoubleBlockHalf.UPPER), 3);
+                    context.getWorld().setBlockState(mutable, tallGrass.with(TallPlantBlock.HALF, DoubleBlockHalf.LOWER), 3);
+                    context.getWorld().setBlockState(mutable.move(Direction.UP), tallGrass.with(TallPlantBlock.HALF, DoubleBlockHalf.UPPER), 3);
                 }
             }
         }

@@ -27,8 +27,8 @@ public abstract class AbstractBaseStructure<C extends FeatureConfig> extends Str
 
     public static <C extends FeatureConfig> BlockPos locateStructureFast(WorldView worldView, StructureAccessor structureAccessor, BlockPos blockPos, int radius, boolean skipExistingChunks, long seed, StructureConfig structureConfig, StructureFeature<C> structure) {
         int spacing = structureConfig.getSpacing();
-        int chunkX = blockPos.getX() >> 4;
-        int chunkZ = blockPos.getZ() >> 4;
+        int chunkPosX = blockPos.getX() >> 4;
+        int chunkPosZ = blockPos.getZ() >> 4;
         int currentRadius = 0;
 
         for(ChunkRandom chunkRandom = new ChunkRandom(); currentRadius <= 100000; ++currentRadius) {
@@ -38,8 +38,8 @@ public abstract class AbstractBaseStructure<C extends FeatureConfig> extends Str
                 for(int zRadius = -currentRadius; zRadius <= currentRadius; ++zRadius) {
                     boolean zEdge = zRadius == -currentRadius || zRadius == currentRadius;
                     if (xEdge || zEdge) {
-                        int trueChunkX = chunkX + spacing * xRadius;
-                        int trueChunkZ = chunkZ + spacing * zRadius;
+                        int trueChunkX = chunkPosX + spacing * xRadius;
+                        int trueChunkZ = chunkPosZ + spacing * zRadius;
                         ChunkPos chunkPos = structure.getStartChunk(structureConfig, seed, chunkRandom, trueChunkX, trueChunkZ);
                         if(worldView.getBiomeForNoiseGen((chunkPos.x << 2) + 2, 60, (chunkPos.z << 2) + 2).getGenerationSettings().hasStructureFeature(structure)) {
                             Chunk chunk = worldView.getChunk(chunkPos.x, chunkPos.z, ChunkStatus.STRUCTURE_STARTS);
@@ -47,11 +47,11 @@ public abstract class AbstractBaseStructure<C extends FeatureConfig> extends Str
                             if (structureStart != null && structureStart.hasChildren()) {
                                 if (skipExistingChunks && structureStart.isInExistingChunk()) {
                                     structureStart.incrementReferences();
-                                    return structureStart.getPos();
+                                    return structureStart.getBlockPos();
                                 }
 
                                 if (!skipExistingChunks) {
-                                    return structureStart.getPos();
+                                    return structureStart.getBlockPos();
                                 }
                             }
                         }

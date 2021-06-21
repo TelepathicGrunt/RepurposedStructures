@@ -6,12 +6,14 @@ import com.telepathicgrunt.repurposedstructures.world.structures.pieces.Structur
 import net.minecraft.entity.EntityType;
 import net.minecraft.structure.StructureManager;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.collection.Pool;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.DynamicRegistryManager;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.HeightLimitView;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.SpawnSettings;
 import net.minecraft.world.biome.source.BiomeSource;
@@ -26,20 +28,23 @@ import java.util.Map;
 
 
 public class RSNetherStrongholdStructure extends AdvancedJigsawStructure {
-    private static final List<SpawnSettings.SpawnEntry> MONSTER_SPAWNS = Lists.newArrayList(
+    private static final Pool<SpawnSettings.SpawnEntry> MONSTER_SPAWNS = Pool.of(Lists.newArrayList(
             new SpawnSettings.SpawnEntry(EntityType.BLAZE, 10, 2, 3),
             new SpawnSettings.SpawnEntry(EntityType.ZOMBIFIED_PIGLIN, 3, 4, 4),
             new SpawnSettings.SpawnEntry(EntityType.WITHER_SKELETON, 10, 5, 5),
             new SpawnSettings.SpawnEntry(EntityType.SKELETON, 2, 5, 5),
-            new SpawnSettings.SpawnEntry(EntityType.MAGMA_CUBE, 3, 4, 4));
+            new SpawnSettings.SpawnEntry(EntityType.MAGMA_CUBE, 3, 4, 4)));
 
     public RSNetherStrongholdStructure(Identifier poolID, int structureSize, Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces, int maxY, int minY) {
         super(poolID, structureSize, MONSTER_SPAWNS, requiredPieces, maxY, minY);
     }
 
     @Override
-    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, int x, int z, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig featureConfig) {
-        return (x * x) + (z * z) > 31000;
+    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, ChunkPos chunkPos1, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig featureConfig, HeightLimitView heightLimitView) {
+        int radius = 2817;
+        int xBlockPos = chunkPos1.getStartX();
+        int zBlockPos = chunkPos1.getStartZ();
+        return (xBlockPos * xBlockPos) + (zBlockPos * zBlockPos) > radius * radius;
     }
 
     @Override
@@ -48,20 +53,20 @@ public class RSNetherStrongholdStructure extends AdvancedJigsawStructure {
     }
 
     public class Start extends MainStart {
-        public Start(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
-            super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
+        public Start(StructureFeature<DefaultFeatureConfig> structureIn, ChunkPos chunkPos1, int referenceIn, long seedIn) {
+            super(structureIn, chunkPos1, referenceIn, seedIn);
         }
 
         @Override
-        public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
-            BlockPos.Mutable blockpos = new BlockPos.Mutable(chunkX * 16, 0, chunkZ * 16);
+        public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, ChunkPos chunkPos1, Biome biome, DefaultFeatureConfig defaultFeatureConfig, HeightLimitView heightLimitView) {
+            BlockPos.Mutable blockpos = new BlockPos.Mutable(chunkPos1.getStartX(), 0, chunkPos1.getStartZ());
 
             // -5 so that the start piece's bottom 2 jigsaw blocks can spawn extra pieces and the rest of the stronghold wont go as high as start stairway
             blockpos.move(Direction.UP, maxY - 5);
 
             PieceLimitedJigsawManager.assembleJigsawStructure(
                     dynamicRegistryManager,
-                    new StructurePoolFeatureConfig(() -> dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN).get(startPool), structureSize),
+                    new StructurePoolFeatureConfig(() -> dynamicRegistryManager.get(Registry.STRUCTURE_POOL_KEY).get(startPool), structureSize),
                     chunkGenerator,
                     structureManager,
                     blockpos,
@@ -69,6 +74,7 @@ public class RSNetherStrongholdStructure extends AdvancedJigsawStructure {
                     this.random,
                     false,
                     false,
+                    heightLimitView,
                     requiredPieces,
                     maxY,
                     minY);

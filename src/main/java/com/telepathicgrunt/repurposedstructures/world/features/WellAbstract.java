@@ -18,6 +18,7 @@ import net.minecraft.util.BlockRotation;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.StructureWorldAccess;
+import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 
@@ -26,7 +27,7 @@ import java.util.Random;
 
 
 public abstract class WellAbstract extends Feature<DefaultFeatureConfig> {
-    protected StructurePlacementData placementsettings = (new StructurePlacementData()).setMirror(BlockMirror.NONE).setRotation(BlockRotation.NONE).setIgnoreEntities(false).setChunkPosition(null);
+    protected StructurePlacementData placementsettings = (new StructurePlacementData()).setMirror(BlockMirror.NONE).setRotation(BlockRotation.NONE).setIgnoreEntities(false);
 
     public WellAbstract(Identifier PIECE_RL ) {
         super(DefaultFeatureConfig.CODEC);
@@ -36,7 +37,7 @@ public abstract class WellAbstract extends Feature<DefaultFeatureConfig> {
 
     protected Structure generateTemplate(Identifier templateRL, StructureWorldAccess world, Random random, BlockPos position) {
 
-        Structure template = world.toServerWorld().getStructureManager().getStructure(templateRL);
+        Structure template = world.toServerWorld().getStructureManager().getStructureOrBlank(templateRL);
         if (template == null) {
             RepurposedStructures.LOGGER.warn(templateRL.toString() + " NTB does not exist!");
             return null;
@@ -44,23 +45,23 @@ public abstract class WellAbstract extends Feature<DefaultFeatureConfig> {
 
         // Creates the well centered on our spot
         BlockPos offset = new BlockPos(-template.getSize().getX() / 2, 0, -template.getSize().getZ() / 2);
-        template.place(world, position.add(offset), placementsettings, random);
+        template.place(world, position.add(offset), position.add(offset), placementsettings, random, Block.NO_REDRAW);
         return template;
     }
 
 
-    protected void handleDataBlocks(Identifier templateOresRL, Structure template, StructureWorldAccess world, Random random, BlockPos position, Block defaultBlock, float oreChance) {
+    protected void handleDataBlocks(Identifier templateOresRL, Structure template, StructureWorldAccess world, ChunkGenerator generator, Random random, BlockPos position, Block defaultBlock, float oreChance) {
         // Replace the Data blocks with ores or bells
         Tag<Block> ORE_TAG = BlockTags.getTagGroup().getTagOrEmpty(templateOresRL);
         Collection<Block> allOreBlocks = ORE_TAG.values();
         BlockPos offset = new BlockPos(-template.getSize().getX() / 2, 0, -template.getSize().getZ() / 2);
         for (StructureBlockInfo template$blockinfo : template.getInfosForBlock(position.add(offset), placementsettings, Blocks.STRUCTURE_BLOCK)) {
-            if (template$blockinfo.tag != null) {
-                StructureBlockMode structuremode = StructureBlockMode.valueOf(template$blockinfo.tag.getString("mode"));
+            if (template$blockinfo.nbt != null) {
+                StructureBlockMode structuremode = StructureBlockMode.valueOf(template$blockinfo.nbt.getString("mode"));
                 if (structuremode == StructureBlockMode.DATA) {
-                    addBells(template$blockinfo.tag.getString("metadata"), template$blockinfo.pos, world, random, allOreBlocks);
-                    addOres(template$blockinfo.tag.getString("metadata"), template$blockinfo.pos, world, random, allOreBlocks, defaultBlock, oreChance);
-                    addSpace(template$blockinfo.tag.getString("metadata"), template$blockinfo.pos, world);
+                    addBells(template$blockinfo.nbt.getString("metadata"), template$blockinfo.pos, world, random, allOreBlocks);
+                    addOres(template$blockinfo.nbt.getString("metadata"), template$blockinfo.pos, world, random, allOreBlocks, defaultBlock, oreChance);
+                    addSpace(template$blockinfo.nbt.getString("metadata"), template$blockinfo.pos, world, generator);
                 }
             }
         }
@@ -98,10 +99,10 @@ public abstract class WellAbstract extends Feature<DefaultFeatureConfig> {
     /**
      * sets 'space' data blocks to air or water based on sea level so terrain blocks wont be placed weirdly inside well The space will be done in a + shape centered on the data block
      */
-    protected static void addSpace(String function, BlockPos position, StructureWorldAccess world) {
+    protected static void addSpace(String function, BlockPos position, StructureWorldAccess world, ChunkGenerator generator) {
         if (function.equals("space")) {
             BlockState blockstate;
-            if (position.getY() < world.getSeaLevel()) {
+            if (position.getY() < generator.getSeaLevel()) {
                 blockstate = Blocks.WATER.getDefaultState();
             } else {
                 blockstate = Blocks.AIR.getDefaultState();
@@ -110,11 +111,7 @@ public abstract class WellAbstract extends Feature<DefaultFeatureConfig> {
             for (int x = -1; x <= 1; x++) {
                 for (int z = -1; z <= 1; z++) {
                     if (x * z == 0) {
-                        if (position.getY() < world.getSeaLevel()) {
-                            world.setBlockState(position.add(x, 0, z), blockstate, 2);
-                        } else {
-                            world.setBlockState(position.add(x, 0, z), blockstate, 2);
-                        }
+                        world.setBlockState(position.add(x, 0, z), blockstate, 2);
                     }
                 }
             }

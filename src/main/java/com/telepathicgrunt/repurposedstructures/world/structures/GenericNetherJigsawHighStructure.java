@@ -7,8 +7,10 @@ import net.minecraft.structure.pool.StructurePoolBasedGenerator;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.registry.DynamicRegistryManager;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.HeightLimitView;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
@@ -39,30 +41,31 @@ public class GenericNetherJigsawHighStructure extends AbstractBaseStructure<Defa
 
     public class Start extends AbstractNetherStructure.AbstractStart {
 
-        public Start(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
-            super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
+        public Start(StructureFeature<DefaultFeatureConfig> structureIn, ChunkPos chunkPos1, int referenceIn, long seedIn) {
+            super(structureIn, chunkPos1, referenceIn, seedIn);
         }
 
         @Override
-        public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
-            BlockPos blockpos = new BlockPos(chunkX << 4, 0, chunkZ << 4);
+        public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, ChunkPos chunkPos1, Biome biome, DefaultFeatureConfig defaultFeatureConfig, HeightLimitView heightLimitView) {
+            BlockPos blockpos = new BlockPos(chunkPos1.getStartX(), 0, chunkPos1.getStartZ());
             StructurePoolBasedGenerator.method_30419(
                     dynamicRegistryManager,
-                    new StructurePoolFeatureConfig(() -> dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN).get(startPool), size),
+                    new StructurePoolFeatureConfig(() -> dynamicRegistryManager.get(Registry.STRUCTURE_POOL_KEY).get(startPool), size),
                     PoolStructurePiece::new,
                     chunkGenerator,
                     structureManager,
                     blockpos,
-                    this.children,
+                    this,
                     random,
                     true,
-                    false);
+                    false,
+                    heightLimitView);
             this.setBoundingBoxFromChildren();
 
             // Needed because the offsetting method offsets the bounds but the structure piece
             // is actually 10 blocks higher than the bound's minimum Y. Wack.
             int boundOffset = -10;
-            BlockPos highestLandPos = getHighestLand(chunkGenerator);
+            BlockPos highestLandPos = getHighestLand(chunkGenerator, heightLimitView);
             this.randomUpwardTranslation(this.random,
                     Math.max((highestLandPos.getY() + heightOffset) - 1, (chunkGenerator.getSeaLevel() - 3) + lavaOffset) + boundOffset,
                     Math.max(highestLandPos.getY() + heightOffset, (chunkGenerator.getSeaLevel() - 2) + lavaOffset) + boundOffset);

@@ -13,6 +13,7 @@ import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.util.FeatureContext;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,7 +22,7 @@ import java.util.Random;
 
 public class StructureFire extends Feature<StructureTargetConfig> {
 
-    private static final Map<RegistryKey<World>, Tag<Block>> INFINITE_FIRE_BLOCKS = new HashMap<RegistryKey<World>, Tag<Block>>() {{
+    private static final Map<RegistryKey<World>, Tag<Block>> INFINITE_FIRE_BLOCKS = new HashMap<>() {{
         put(World.OVERWORLD, BlockTags.INFINIBURN_OVERWORLD);
         put(World.NETHER, BlockTags.INFINIBURN_NETHER);
         put(World.END, BlockTags.INFINIBURN_END);
@@ -32,31 +33,31 @@ public class StructureFire extends Feature<StructureTargetConfig> {
     }
 
     @Override
-    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, StructureTargetConfig config) {
+    public boolean generate(FeatureContext<StructureTargetConfig> context) {
 
         BlockPos.Mutable mutable = new BlockPos.Mutable();
         BlockState fire = Blocks.FIRE.getDefaultState();
-        Tag<Block> infiniteBurningBlocks = INFINITE_FIRE_BLOCKS.getOrDefault(world.toServerWorld().getRegistryKey(), BlockTags.INFINIBURN_OVERWORLD);
+        Tag<Block> infiniteBurningBlocks = INFINITE_FIRE_BLOCKS.getOrDefault(context.getWorld().toServerWorld().getRegistryKey(), BlockTags.INFINIBURN_OVERWORLD);
 
-        for(int i = 0; i < config.attempts; i++){
-            mutable.set(position).move(
-                    random.nextInt(7) - 3,
+        for(int i = 0; i < context.getConfig().attempts; i++){
+            mutable.set(context.getOrigin()).move(
+                    context.getRandom().nextInt(7) - 3,
                     -1,
-                    random.nextInt(7) - 3
+                    context.getRandom().nextInt(7) - 3
             );
 
-            Block belowBlock = world.getBlockState(mutable.down()).getBlock();
-            if(world.getBlockState(mutable).isAir() && (belowBlock.is(Blocks.NETHER_BRICKS) || infiniteBurningBlocks.contains(belowBlock))){
+            Block belowBlock = context.getWorld().getBlockState(mutable.down()).getBlock();
+            if(context.getWorld().getBlockState(mutable).isAir() && (belowBlock == Blocks.NETHER_BRICKS || infiniteBurningBlocks.contains(belowBlock))){
                 // expensive. Do this check very last
-                if(!world.toServerWorld().getStructureAccessor().getStructureAt(mutable, true, config.targetStructure).hasChildren()){
+                if(!context.getWorld().toServerWorld().getStructureAccessor().getStructureAt(mutable, true, context.getConfig().targetStructure).hasChildren()){
                     continue;
                 }
 
-                if(belowBlock.is(Blocks.NETHER_BRICKS)){
-                    world.setBlockState(mutable.down(), Blocks.NETHERRACK.getDefaultState(), 3);
+                if(belowBlock == Blocks.NETHER_BRICKS){
+                    context.getWorld().setBlockState(mutable.down(), Blocks.NETHERRACK.getDefaultState(), 3);
                 }
 
-                world.setBlockState(mutable, fire, 3);
+                context.getWorld().setBlockState(mutable, fire, 3);
             }
         }
 

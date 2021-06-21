@@ -9,6 +9,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.util.FeatureContext;
 
 import java.util.Random;
 
@@ -21,7 +22,7 @@ public class StructureWarpedPlants extends Feature<StructureTargetAndLengthConfi
 
 
     @Override
-    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, StructureTargetAndLengthConfig config) {
+    public boolean generate(FeatureContext<StructureTargetAndLengthConfig> context) {
 
         BlockPos.Mutable mutable = new BlockPos.Mutable();
         BlockState netherSprouts = Blocks.NETHER_SPROUTS.getDefaultState();
@@ -30,52 +31,52 @@ public class StructureWarpedPlants extends Feature<StructureTargetAndLengthConfi
         BlockState twistingVines = Blocks.TWISTING_VINES.getDefaultState();
         BlockState twistingVinesPlant = Blocks.TWISTING_VINES_PLANT.getDefaultState();
 
-        for(int i = 0; i < config.attempts; i++){
-            mutable.set(position).move(
-                    random.nextInt(7) - 3,
+        for(int i = 0; i < context.getConfig().attempts; i++){
+            mutable.set(context.getOrigin()).move(
+                    context.getRandom().nextInt(7) - 3,
                     -1,
-                    random.nextInt(7) - 3
+                    context.getRandom().nextInt(7) - 3
             );
 
-            if(world.getBlockState(mutable).isAir()){
-                if(random.nextFloat() < 0.5f && netherSprouts.canPlaceAt(world, mutable)){
+            if(context.getWorld().getBlockState(mutable).isAir()){
+                if(context.getRandom().nextFloat() < 0.5f && netherSprouts.canPlaceAt(context.getWorld(), mutable)){
                     // expensive. Do this check very last
-                    if(!world.toServerWorld().getStructureAccessor().getStructureAt(mutable, true, config.targetStructure).hasChildren()){
+                    if(!context.getWorld().toServerWorld().getStructureAccessor().getStructureAt(mutable, true, context.getConfig().targetStructure).hasChildren()){
                         continue;
                     }
 
-                    world.setBlockState(mutable, netherSprouts, 3);
+                    context.getWorld().setBlockState(mutable, netherSprouts, 3);
                 }
-                else if(random.nextFloat() < 0.4f && twistingRoots.canPlaceAt(world, mutable)){
+                else if(context.getRandom().nextFloat() < 0.4f && twistingRoots.canPlaceAt(context.getWorld(), mutable)){
                     // expensive. Do this check very last
-                    if(!world.toServerWorld().getStructureAccessor().getStructureAt(mutable, true, config.targetStructure).hasChildren()){
+                    if(!context.getWorld().toServerWorld().getStructureAccessor().getStructureAt(mutable, true, context.getConfig().targetStructure).hasChildren()){
                         continue;
                     }
 
-                    world.setBlockState(mutable, twistingRoots, 3);
+                    context.getWorld().setBlockState(mutable, twistingRoots, 3);
                 }
-                else if(random.nextFloat() < 0.3f && twistingFungus.canPlaceAt(world, mutable)){
+                else if(context.getRandom().nextFloat() < 0.3f && twistingFungus.canPlaceAt(context.getWorld(), mutable)){
                     // expensive. Do this check very last
-                    if(!world.toServerWorld().getStructureAccessor().getStructureAt(mutable, true, config.targetStructure).hasChildren()){
+                    if(!context.getWorld().toServerWorld().getStructureAccessor().getStructureAt(mutable, true, context.getConfig().targetStructure).hasChildren()){
                         continue;
                     }
 
-                    world.setBlockState(mutable, twistingFungus, 3);
+                    context.getWorld().setBlockState(mutable, twistingFungus, 3);
                 }
-                else if(twistingVines.canPlaceAt(world, mutable)){
+                else if(twistingVines.canPlaceAt(context.getWorld(), mutable)){
                     // expensive. Do this check very last
-                    if(!world.toServerWorld().getStructureAccessor().getStructureAt(mutable, true, config.targetStructure).hasChildren()){
+                    if(!context.getWorld().toServerWorld().getStructureAccessor().getStructureAt(mutable, true, context.getConfig().targetStructure).hasChildren()){
                         continue;
                     }
 
                     // Biased towards max length if greater than 3
-                    int length = config.length > 3 ? config.length - random.nextInt(random.nextInt(config.length) + 1) : random.nextInt(config.length);
+                    int length = context.getConfig().length > 3 ? context.getConfig().length - context.getRandom().nextInt(context.getRandom().nextInt(context.getConfig().length) + 1) : context.getRandom().nextInt(context.getConfig().length);
                     for(int currentLength = 0; currentLength <= length; currentLength++){
-                        if(currentLength == length || !world.getBlockState(mutable.up()).isAir()){
-                            world.setBlockState(mutable, twistingVines, 3);
+                        if(currentLength == length || !context.getWorld().getBlockState(mutable.up()).isAir()){
+                            context.getWorld().setBlockState(mutable, twistingVines, 3);
                             break;
                         }
-                        world.setBlockState(mutable, twistingVinesPlant, 3);
+                        context.getWorld().setBlockState(mutable, twistingVinesPlant, 3);
                         mutable.move(Direction.UP);
                     }
                 }

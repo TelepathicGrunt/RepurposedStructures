@@ -29,6 +29,7 @@ import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.util.FeatureContext;
 
 import java.util.List;
 import java.util.Optional;
@@ -41,31 +42,32 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
     }
 
     @Override
-    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NbtDungeonConfig config) {
-        if(GeneralUtils.isWorldBlacklisted(world)) return false;
+    public boolean generate(FeatureContext<NbtDungeonConfig> context) {
+        if(GeneralUtils.isWorldBlacklisted(context.getWorld())) return false;
 
-        position = position.up(-1);
-        Identifier nbtRL = GeneralUtils.getRandomEntry(config.nbtResourcelocationsAndWeights, random);
+        BlockPos position = context.getOrigin().up(-1);
+        Identifier nbtRL = GeneralUtils.getRandomEntry(context.getConfig().nbtResourcelocationsAndWeights, context.getRandom());
 
-        StructureManager structureManager = world.toServerWorld().getStructureManager();
-        Structure template = structureManager.getStructure(nbtRL);
+        StructureManager structureManager = context.getWorld().toServerWorld().getStructureManager();
+        Structure template = structureManager.getStructureOrBlank(nbtRL);
         if(template == null){
             RepurposedStructures.LOGGER.error("Identifier to the specified nbt file was not found! : {}", nbtRL);
             return false;
         }
-        BlockRotation rotation = BlockRotation.random(random);
+        BlockRotation rotation = BlockRotation.random(context.getRandom());
+        BlockPos size = new BlockPos(template.getSize());
 
         // For proper offsetting the dungeon so it rotate properly around position parameter.
         BlockPos halfLengths = new BlockPos(
-                template.getSize().getX() / 2,
-                template.getSize().getY() / 2,
-                template.getSize().getZ() / 2);
+                size.getX() / 2,
+                size.getY() / 2,
+                size.getZ() / 2);
 
         // Rotated blockpos for the nbt's sizes to be used later.
         BlockPos fullLengths = new BlockPos(
-                Math.abs(template.getSize().rotate(rotation).getX()),
-                Math.abs(template.getSize().rotate(rotation).getY()),
-                Math.abs(template.getSize().rotate(rotation).getZ()));
+                Math.abs(size.rotate(rotation).getX()),
+                Math.abs(size.rotate(rotation).getY()),
+                Math.abs(size.rotate(rotation).getZ()));
 
         // For post processing spawners and chests for rotated dungeon.
         BlockPos halfLengthsRotated = new BlockPos(
@@ -74,7 +76,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                 fullLengths.getZ() / 2);
 
         BlockPos.Mutable mutable = new BlockPos.Mutable().set(position);
-        Chunk cachedChunk = world.getChunk(mutable);
+        Chunk cachedChunk = context.getWorld().getChunk(mutable);
 
         int xMin = -halfLengthsRotated.getX();
         int xMax = halfLengthsRotated.getX();
@@ -82,25 +84,25 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
         int zMax = halfLengthsRotated.getZ();
         int wallOpenings = 0;
         int ceilingOpenings = 0;
-        int ceiling = template.getSize().getY();
+        int ceiling = size.getY();
 
         for (int x = xMin; x <= xMax; x++) {
             for (int z = zMin; z <= zMax; z++) {
                 for (int y = 0; y <= ceiling; y++) {
                     mutable.set(position).move(x, y, z);
                     if(mutable.getX() >> 4 != cachedChunk.getPos().x || mutable.getZ() >> 4 != cachedChunk.getPos().z)
-                        cachedChunk = world.getChunk(mutable);
+                        cachedChunk = context.getWorld().getChunk(mutable);
 
                     BlockState state = cachedChunk.getBlockState(mutable);
 
                     // Dungeons cannot touch fluids if set to air mode and reverse if opposite
-                    if(config.airRequirementIsNowWater ?
+                    if(context.getConfig().airRequirementIsNowWater ?
                             state.isAir() || state.getFluidState().isIn(FluidTags.LAVA) :
                             !state.getFluidState().isEmpty()){
                         return false;
                     }
                     // Floor must be complete
-                    else if(!GeneralUtils.isFullCube(world, mutable, state)){
+                    else if(!GeneralUtils.isFullCube(context.getWorld(), mutable, state)){
                         if (y == 0 && !state.getMaterial().isSolid()) {
                             return false;
                         }
@@ -113,10 +115,10 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                     }
 
                     // Check only along wall bottoms for openings
-                    if ((x == xMin || x == xMax || z == zMin || z == zMax) && y == 1 && isValidNonSolidBlock(config, state))
+                    if ((x == xMin || x == xMax || z == zMin || z == zMax) && y == 1 && isValidNonSolidBlock(context.getConfig(), state))
                     {
                         BlockState aboveState = cachedChunk.getBlockState(mutable);
-                        if(config.airRequirementIsNowWater ?
+                        if(context.getConfig().airRequirementIsNowWater ?
                             !aboveState.getFluidState().isEmpty() :
                             aboveState.isAir())
                         {
@@ -125,7 +127,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                     }
 
                     // Too much open space. Quit
-                    if(wallOpenings > config.maxAirSpace || ceilingOpenings > config.maxAirSpace){
+                    if(wallOpenings > context.getConfig().maxAirSpace || ceilingOpenings > context.getConfig().maxAirSpace){
                         return false;
                     }
                 }
@@ -133,27 +135,28 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
         }
 
         // Check if we meet minimum for open space.
-        if (wallOpenings >= config.minAirSpace) {
+        if (wallOpenings >= context.getConfig().minAirSpace) {
 
             // offset the dungeon such as ocean dungeons down 1
-            position = position.up(config.structureYOffset);
+            position = position.up(context.getConfig().structureYOffset);
 
             //RepurposedStructures.LOGGER.log(Level.INFO, nbtRL + " at X: "+position.getX() +", "+position.getY()+", "+position.getZ());
             StructurePlacementData placementsettings = (new StructurePlacementData()).setRotation(rotation).setPosition(halfLengths).setIgnoreEntities(false);
-            Optional<StructureProcessorList> processor = world.toServerWorld().getServer().getRegistryManager().get(Registry.PROCESSOR_LIST_WORLDGEN).getOrEmpty(config.processor);
+            Optional<StructureProcessorList> processor = context.getWorld().toServerWorld().getServer().getRegistryManager().get(Registry.STRUCTURE_PROCESSOR_LIST_KEY).getOrEmpty(context.getConfig().processor);
             processor.orElse(StructureProcessorLists.EMPTY).getList().forEach(placementsettings::addProcessor); // add all processors
-            template.place(world, mutable.set(position).move(-halfLengths.getX(), 0, -halfLengths.getZ()), placementsettings, random);
+            BlockPos finalPos = mutable.set(position).move(-halfLengths.getX(), 0, -halfLengths.getZ());
+            template.place(context.getWorld(), finalPos, finalPos, placementsettings, context.getRandom(), Block.NO_REDRAW);
 
             // Post-processors
             // For all processors that are sensitive to neighboring blocks such as vines.
             // Post processors will place the blocks themselves so we will not do anything with the return of Structure.process
             placementsettings.clearProcessors();
-            Optional<StructureProcessorList> postProcessor = world.toServerWorld().getServer().getRegistryManager().get(Registry.PROCESSOR_LIST_WORLDGEN).getOrEmpty(config.postProcessor);
+            Optional<StructureProcessorList> postProcessor = context.getWorld().toServerWorld().getServer().getRegistryManager().get(Registry.STRUCTURE_PROCESSOR_LIST_KEY).getOrEmpty(context.getConfig().postProcessor);
             postProcessor.orElse(StructureProcessorLists.EMPTY).getList().forEach(placementsettings::addProcessor); // add all post processors
             List<Structure.StructureBlockInfo> list = placementsettings.getRandomBlockInfos(((TemplateAccessor)template).repurposedstructures_getBlocks(), mutable).getAll();
-            Structure.process(world, mutable, mutable, placementsettings, list);
+            Structure.process(context.getWorld(), mutable, mutable, placementsettings, list);
 
-            spawnLootBlocks(world, random, position, config, fullLengths, halfLengthsRotated, mutable);
+            spawnLootBlocks(context.getWorld(), context.getRandom(), position, context.getConfig(), fullLengths, halfLengthsRotated, mutable);
             return true;
         }
 

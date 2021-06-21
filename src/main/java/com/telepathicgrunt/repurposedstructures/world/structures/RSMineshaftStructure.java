@@ -8,6 +8,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.registry.DynamicRegistryManager;
 import net.minecraft.world.BlockView;
+import net.minecraft.world.HeightLimitView;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.source.BiomeSource;
 import net.minecraft.world.gen.ChunkRandom;
@@ -36,10 +37,10 @@ public class RSMineshaftStructure extends AdvancedJigsawStructure {
     }
 
     @Override
-    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, int x, int z, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig featureConfig) {
+    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, ChunkPos chunkPos1, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig featureConfig, HeightLimitView heightLimitView) {
         StructureConfig structureConfig = chunkGenerator.getStructuresConfig().getForType(this);
         if(structureConfig != null) {
-            chunkRandom.setCarverSeed(seed + structureConfig.getSalt(), x, z);
+            chunkRandom.setCarverSeed(seed + structureConfig.getSalt(), chunkPos1.x, chunkPos1.z);
             double d = (probability / 10000D);
             return chunkRandom.nextDouble() < d;
         }
@@ -54,50 +55,8 @@ public class RSMineshaftStructure extends AdvancedJigsawStructure {
 
     public class Start extends AdvancedJigsawStructure.MainStart {
 
-        public Start(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
-            super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
-        }
-
-        public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
-            super.init(dynamicRegistryManager, chunkGenerator, structureManager, chunkX, chunkZ, biome, defaultFeatureConfig);
-
-            // Turned off because it has a massive performance impact. Really, really bad...
-            // Profiler results: https://imgur.com/c6EKAhE
-//            if(environmentCheck != ENVIRONMENT_CHECK.NONE){
-//                // Prevent Mineshaft from touching ocean water or regular air.
-//                // Won't stop touching against carver or feature liquids/air.
-//                BlockPos.Mutable mutable = new BlockPos.Mutable();
-//                for(int i = this.children.size() - 1; i >= 0; i--){
-//                    StructurePiece piece = this.children.get(i);
-//                    BlockBox boundingBox = piece.getBoundingBox();
-//                    if(isEnvironmentInvalidInBounds(chunkGenerator, mutable, boundingBox, environmentCheck)){
-//                        this.children.remove(i);
-//                    }
-//                }
-//            }
-        }
-
-        private boolean isEnvironmentInvalidInBounds(ChunkGenerator chunkGenerator, BlockPos.Mutable mutable, BlockBox boundingBox, ENVIRONMENT_CHECK environmentCheck) {
-            for(int x = boundingBox.minX - 1; x <= boundingBox.maxX + 1; x++){
-                for(int z = boundingBox.minZ - 1; z <= boundingBox.maxZ + 1; z++){
-                    BlockView columnSample = chunkGenerator.getColumnSample(x, z);
-
-                    for(int y = boundingBox.minY - 1; y <= boundingBox.maxY + 1; y++){
-                        if(environmentCheck == ENVIRONMENT_CHECK.LIQUID){
-                            if(!columnSample.getBlockState(mutable.set(x, y, z)).getFluidState().isEmpty()){
-                                return true;
-                            }
-                        }
-                        else if(environmentCheck == ENVIRONMENT_CHECK.AIR){
-                            if(columnSample.getBlockState(mutable.set(x, y, z)).isAir()){
-                                return true;
-                            }
-                        }
-                    }
-                }
-            }
-
-             return false;
+        public Start(StructureFeature<DefaultFeatureConfig> structureIn, ChunkPos chunkPos1, int referenceIn, long seedIn) {
+            super(structureIn, chunkPos1, referenceIn, seedIn);
         }
     }
 }

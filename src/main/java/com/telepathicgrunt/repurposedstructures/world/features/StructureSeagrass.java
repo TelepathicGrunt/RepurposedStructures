@@ -11,6 +11,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.util.FeatureContext;
 
 import java.util.Random;
 
@@ -23,39 +24,39 @@ public class StructureSeagrass extends Feature<StructureTargetConfig> {
 
 
     @Override
-    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, StructureTargetConfig config) {
+    public boolean generate(FeatureContext<StructureTargetConfig> context) {
 
         BlockPos.Mutable mutable = new BlockPos.Mutable();
         BlockState tallSeagrass = Blocks.TALL_SEAGRASS.getDefaultState();
         BlockState seagrass = Blocks.SEAGRASS.getDefaultState();
 
-        for(int i = 0; i < config.attempts; i++){
-            mutable.set(position).move(
-                    random.nextInt(7) - 3,
+        for(int i = 0; i < context.getConfig().attempts; i++){
+            mutable.set(context.getOrigin()).move(
+                    context.getRandom().nextInt(7) - 3,
                     -1,
-                    random.nextInt(7) - 3
+                    context.getRandom().nextInt(7) - 3
             );
 
-            boolean isWater = world.getBlockState(mutable).isOf(Blocks.WATER);
+            boolean isWater = context.getWorld().getBlockState(mutable).isOf(Blocks.WATER);
             if(!isWater) continue;
 
-            boolean isWaterAbove = world.getBlockState(mutable.up()).isOf(Blocks.WATER);
-            if(isWaterAbove && random.nextFloat() < 0.33f && tallSeagrass.canPlaceAt(world, mutable)){
+            boolean isWaterAbove = context.getWorld().getBlockState(mutable.up()).isOf(Blocks.WATER);
+            if(isWaterAbove && context.getRandom().nextFloat() < 0.33f && tallSeagrass.canPlaceAt(context.getWorld(), mutable)){
                 // expensive. Do this check very last
-                if(!world.toServerWorld().getStructureAccessor().getStructureAt(mutable, true, config.targetStructure).hasChildren()){
+                if(!context.getWorld().toServerWorld().getStructureAccessor().getStructureAt(mutable, true, context.getConfig().targetStructure).hasChildren()){
                     continue;
                 }
 
-                world.setBlockState(mutable, tallSeagrass.with(TallSeagrassBlock.HALF, DoubleBlockHalf.LOWER), 3);
-                world.setBlockState(mutable.move(Direction.UP), tallSeagrass.with(TallSeagrassBlock.HALF, DoubleBlockHalf.UPPER), 3);
+                context.getWorld().setBlockState(mutable, tallSeagrass.with(TallSeagrassBlock.HALF, DoubleBlockHalf.LOWER), 3);
+                context.getWorld().setBlockState(mutable.move(Direction.UP), tallSeagrass.with(TallSeagrassBlock.HALF, DoubleBlockHalf.UPPER), 3);
             }
-            else if(seagrass.canPlaceAt(world, mutable)){
+            else if(seagrass.canPlaceAt(context.getWorld(), mutable)){
                 // expensive. Do this check very last
-                if(!world.toServerWorld().getStructureAccessor().getStructureAt(mutable, true, config.targetStructure).hasChildren()){
+                if(!context.getWorld().toServerWorld().getStructureAccessor().getStructureAt(mutable, true, context.getConfig().targetStructure).hasChildren()){
                     continue;
                 }
 
-                world.setBlockState(mutable, Blocks.SEAGRASS.getDefaultState(), 3);
+                context.getWorld().setBlockState(mutable, Blocks.SEAGRASS.getDefaultState(), 3);
             }
         }
 

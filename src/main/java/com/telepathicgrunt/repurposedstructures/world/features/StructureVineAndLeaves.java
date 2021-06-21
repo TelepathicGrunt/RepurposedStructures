@@ -11,6 +11,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.util.FeatureContext;
 
 import java.util.Random;
 
@@ -23,17 +24,17 @@ public class StructureVineAndLeaves extends Feature<StructureTargetAndLengthConf
 
 
     @Override
-    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, StructureTargetAndLengthConfig config) {
+    public boolean generate(FeatureContext<StructureTargetAndLengthConfig> context) {
         BlockPos.Mutable mutable = new BlockPos.Mutable();
 
-        for(int i = 0; i < config.attempts; i++){
-            mutable.set(position).move(
-                    random.nextInt(7) - 3,
-                    random.nextInt(4) - 1,
-                    random.nextInt(7) - 3
+        for(int i = 0; i < context.getConfig().attempts; i++){
+            mutable.set(context.getOrigin()).move(
+                    context.getRandom().nextInt(7) - 3,
+                    context.getRandom().nextInt(4) - 1,
+                    context.getRandom().nextInt(7) - 3
             );
 
-            if(!world.isAir(mutable) || !world.toServerWorld().getStructureAccessor().getStructureAt(mutable, true, config.targetStructure).hasChildren()){
+            if(!context.getWorld().isAir(mutable) || !context.getWorld().toServerWorld().getStructureAccessor().getStructureAt(mutable, true, context.getConfig().targetStructure).hasChildren()){
                 continue;
             }
 
@@ -44,10 +45,10 @@ public class StructureVineAndLeaves extends Feature<StructureTargetAndLengthConf
             BlockState currentBlockstate;
             BlockState aboveBlockstate;
             // Biased towards max length
-            int maxLength = config.length - random.nextInt(random.nextInt(config.length) + 1);
+            int maxLength = context.getConfig().length - context.getRandom().nextInt(context.getRandom().nextInt(context.getConfig().length) + 1);
 
             for (; length < maxLength; vineMutablePos.move(Direction.DOWN)) {
-                if (world.isAir(vineMutablePos)) {
+                if (context.getWorld().isAir(vineMutablePos)) {
                     for (Direction direction : Direction.Type.HORIZONTAL) {
                         mutable.set(vineMutablePos).move(direction);
                         ChunkPos newChunkPos = new ChunkPos(mutable);
@@ -55,26 +56,26 @@ public class StructureVineAndLeaves extends Feature<StructureTargetAndLengthConf
                         if(newChunkPos.x != currentChunkPos.x || newChunkPos.z != currentChunkPos.z) continue;
 
                         if(length == 0 &&
-                            world.getBlockState(vineMutablePos.up()).isOpaque() &&
-                            world.getBlockState(mutable).isAir() &&
-                            world.getBlockState(mutable.up()).isOpaque())
+                            context.getWorld().getBlockState(vineMutablePos.up()).isOpaque() &&
+                            context.getWorld().getBlockState(mutable).isAir() &&
+                            context.getWorld().getBlockState(mutable.up()).isOpaque())
                         {
-                            world.setBlockState(mutable, Blocks.JUNGLE_LEAVES.getDefaultState(), 3);
+                            context.getWorld().setBlockState(mutable, Blocks.JUNGLE_LEAVES.getDefaultState(), 3);
                         }
 
                         currentBlockstate = Blocks.VINE.getDefaultState().with(VineBlock.getFacingProperty(direction), Boolean.TRUE);
-                        aboveBlockstate = world.getBlockState(vineMutablePos.up());
+                        aboveBlockstate = context.getWorld().getBlockState(vineMutablePos.up());
 
 
-                        if (currentBlockstate.canPlaceAt(world, vineMutablePos)) {
+                        if (currentBlockstate.canPlaceAt(context.getWorld(), vineMutablePos)) {
                             //places topmost vine that can face upward
-                            world.setBlockState(vineMutablePos, currentBlockstate.with(VineBlock.UP, aboveBlockstate.isOpaque()), 2);
+                            context.getWorld().setBlockState(vineMutablePos, currentBlockstate.with(VineBlock.UP, aboveBlockstate.isOpaque()), 2);
                             length++;
                             break;
                         }
                         else if (aboveBlockstate.isOf(Blocks.VINE)) {
                             //places rest of the vine as long as vine is above
-                            world.setBlockState(vineMutablePos, aboveBlockstate.with(VineBlock.UP, false), 2);
+                            context.getWorld().setBlockState(vineMutablePos, aboveBlockstate.with(VineBlock.UP, false), 2);
                             length++;
                             break;
                         }

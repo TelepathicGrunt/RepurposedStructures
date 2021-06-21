@@ -12,11 +12,13 @@ import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.DynamicRegistryManager;
 import net.minecraft.world.BlockView;
+import net.minecraft.world.HeightLimitView;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.source.BiomeSource;
 import net.minecraft.world.gen.ChunkRandom;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.chunk.StructureConfig;
+import net.minecraft.world.gen.chunk.VerticalBlockSample;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
@@ -30,11 +32,11 @@ public class VillageNetherStructure extends GenericJigsawStructure {
     }
 
     @Override
-    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig defaultFeatureConfig) {
+    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, ChunkPos chunkPos1, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig defaultFeatureConfig, HeightLimitView heightLimitView) {
 
-        for (int curChunkX = chunkX - 10; curChunkX <= chunkX + 10; curChunkX++) {
-            for (int curChunkZ = chunkZ - 10; curChunkZ <= chunkZ + 10; curChunkZ++) {
-                if(curChunkX == chunkX && curChunkZ == chunkZ) continue; // Prevent detecting the structure itself and thus, never spawning if structure is in its own blacklist
+        for (int curChunkX = chunkPos1.x - 10; curChunkX <= chunkPos1.x + 10; curChunkX++) {
+            for (int curChunkZ = chunkPos1.z - 10; curChunkZ <= chunkPos1.z + 10; curChunkZ++) {
+                if(curChunkX == chunkPos1.x && curChunkZ == chunkPos1.z) continue; // Prevent detecting the structure itself and thus, never spawning if structure is in its own blacklist
 
                 for(StructureFeature<?> outpost : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NETHER_OUTPOST)){
                     StructureConfig structureConfig = chunkGenerator.getStructuresConfig().getForType(outpost);
@@ -47,7 +49,7 @@ public class VillageNetherStructure extends GenericJigsawStructure {
                 }
             }
         }
-        return super.shouldStartAt(chunkGenerator, biomeSource, seed, chunkRandom, chunkX, chunkZ, biome, chunkPos, defaultFeatureConfig);
+        return super.shouldStartAt(chunkGenerator, biomeSource, seed, chunkRandom, chunkPos1, biome, chunkPos, defaultFeatureConfig, heightLimitView);
     }
 
     @Override
@@ -56,14 +58,14 @@ public class VillageNetherStructure extends GenericJigsawStructure {
     }
 
     public class Start extends MainStart {
-        public Start(StructureFeature<DefaultFeatureConfig> structureIn, int chunkX, int chunkZ, BlockBox mutableBoundingBox, int referenceIn, long seedIn) {
-            super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
+        public Start(StructureFeature<DefaultFeatureConfig> structureIn, ChunkPos chunkPos1, int referenceIn, long seedIn) {
+            super(structureIn, chunkPos1, referenceIn, seedIn);
         }
 
-        public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
-            super.init(dynamicRegistryManager, chunkGenerator, structureManager, chunkX, chunkZ, biome, defaultFeatureConfig);
+        public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, ChunkPos chunkPos1, Biome biome, DefaultFeatureConfig defaultFeatureConfig, HeightLimitView heightLimitView) {
+            super.init(dynamicRegistryManager, chunkGenerator, structureManager, chunkPos1, biome, defaultFeatureConfig, heightLimitView);
 
-            BlockPos lowestLandPos = getHighestLand(chunkGenerator, this.boundingBox);
+            BlockPos lowestLandPos = getHighestLand(chunkGenerator, this.calculateBoundingBox(), heightLimitView);
             if (lowestLandPos.getY() >= chunkGenerator.getWorldHeight() || lowestLandPos.getY() <= chunkGenerator.getSeaLevel() + 1) {
                 this.randomUpwardTranslation(this.random, chunkGenerator.getSeaLevel() - 12, chunkGenerator.getSeaLevel() - 11);
             }
@@ -75,40 +77,22 @@ public class VillageNetherStructure extends GenericJigsawStructure {
 
     //Helper methods//
 
-    public static BlockPos getHighestLand(ChunkGenerator chunkGenerator, BlockBox boundingBox) {
+    public static BlockPos getHighestLand(ChunkGenerator chunkGenerator, BlockBox boundingBox, HeightLimitView heightLimitView) {
         BlockPos.Mutable mutable = new BlockPos.Mutable().set(boundingBox.getCenter().getX(), chunkGenerator.getWorldHeight() - 20, boundingBox.getCenter().getZ());
-        BlockView blockView = chunkGenerator.getColumnSample(mutable.getX(), mutable.getZ());
+        VerticalBlockSample blockView = chunkGenerator.getColumnSample(mutable.getX(), mutable.getZ(), heightLimitView);
         BlockState currentBlockstate;
         while (mutable.getY() > chunkGenerator.getSeaLevel() + 1) {
-            currentBlockstate = blockView.getBlockState(mutable);
-            if (!currentBlockstate.isSolidBlock(blockView, mutable)) {
+            currentBlockstate = blockView.getState(mutable);
+            if (!currentBlockstate.isOpaque()) {
                 mutable.move(Direction.DOWN);
                 continue;
             }
-            else if (blockView.getBlockState(mutable.add(0, 3, 0)).getMaterial() == Material.AIR &&
-                    isValidBlock(currentBlockstate)) {
+            else if (blockView.getState(mutable.add(0, 3, 0)).getMaterial() == Material.AIR && currentBlockstate.isOpaque()) {
                 break;
             }
             mutable.move(Direction.DOWN);
         }
 
         return mutable;
-    }
-
-    private static boolean isValidBlock(BlockState currentBlockstate) {
-        if (BlockTags.INFINIBURN_NETHER.contains(currentBlockstate.getBlock()) ||
-                BlockTags.VALID_SPAWN.contains(currentBlockstate.getBlock()) ||
-                BlockTags.SAND.contains(currentBlockstate.getBlock()) ||
-                BlockTags.NYLIUM.contains(currentBlockstate.getBlock()) ||
-                BlockTags.ICE.contains(currentBlockstate.getBlock()) ||
-                BlockTags.PLANKS.contains(currentBlockstate.getBlock()) ||
-                BlockTags.STONE_BRICKS.contains(currentBlockstate.getBlock()) ||
-                BlockTags.WITHER_IMMUNE.contains(currentBlockstate.getBlock()) ||
-                BlockTags.WOOL.contains(currentBlockstate.getBlock()) ||
-                currentBlockstate.getMaterial() == Material.AGGREGATE ||
-                currentBlockstate.getMaterial() == Material.STONE ||
-                currentBlockstate.getMaterial() == Material.SOIL)
-            return true;
-        return false;
     }
 }

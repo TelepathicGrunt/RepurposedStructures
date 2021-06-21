@@ -17,6 +17,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.util.FeatureContext;
 
 import java.util.Collection;
 import java.util.Random;
@@ -33,19 +34,19 @@ public class WellNether extends WellAbstract {
         super(NETHER_WELL_RL);
     }
 
-    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
-        if(GeneralUtils.isWorldBlacklisted(world)) return false;
+    public boolean generate(FeatureContext<DefaultFeatureConfig> context) {
+        if(GeneralUtils.isWorldBlacklisted(context.getWorld())) return false;
         // move to top land block below position
-        BlockPos.Mutable mutable = new BlockPos.Mutable().set(position);
+        BlockPos.Mutable mutable = new BlockPos.Mutable().set(context.getOrigin());
         for (mutable.move(Direction.UP); mutable.getY() > 32;) {
 
-            if(world.isAir(mutable) && mutable.getY() > 32){
+            if(context.getWorld().isAir(mutable) && mutable.getY() > 32){
                 mutable.move(Direction.DOWN);
                 continue;
             }
 
             // check to make sure spot is valid and not a single block ledge
-            BlockState blockState = world.getBlockState(mutable);
+            BlockState blockState = context.getWorld().getBlockState(mutable);
             Block block = blockState.getBlock();
             if ((BlockTags.INFINIBURN_NETHER.contains(block) ||
                     BlockTags.VALID_SPAWN.contains(block) ||
@@ -53,21 +54,21 @@ public class WellNether extends WellAbstract {
                     blockState.getMaterial() == Material.AGGREGATE ||
                     blockState.getMaterial() == Material.STONE ||
                     blockState.getMaterial() == Material.SOIL ||
-                    (world.getBiome(mutable).getGenerationSettings().getSurfaceConfig().getTopMaterial() != null &&
-                     blockState.isOf(world.getBiome(mutable).getGenerationSettings().getSurfaceConfig().getTopMaterial().getBlock()))) &&
-                    !world.isAir(mutable.down()) &&
-                    world.isAir(mutable.up(3)) &&
-                    !world.isAir(mutable.north(2).down()) &&
-                    !world.isAir(mutable.west(2).down()) &&
-                    !world.isAir(mutable.east(2).down()) &&
-                    !world.isAir(mutable.south(2).down())
+                    (context.getWorld().getBiome(mutable).getGenerationSettings().getSurfaceConfig().getTopMaterial() != null &&
+                     blockState.isOf(context.getWorld().getBiome(mutable).getGenerationSettings().getSurfaceConfig().getTopMaterial().getBlock()))) &&
+                    !context.getWorld().isAir(mutable.down()) &&
+                    context.getWorld().isAir(mutable.up(3)) &&
+                    !context.getWorld().isAir(mutable.north(2).down()) &&
+                    !context.getWorld().isAir(mutable.west(2).down()) &&
+                    !context.getWorld().isAir(mutable.east(2).down()) &&
+                    !context.getWorld().isAir(mutable.south(2).down())
                     )
             {
                 // Creates the well centered on our spot
                 mutable.move(Direction.DOWN);
-                Structure template = this.generateTemplate(NETHER_WELL_RL, world, random, mutable);
+                Structure template = this.generateTemplate(NETHER_WELL_RL, context.getWorld(), context.getRandom(), mutable);
                 if(template != null) {
-                    this.handleDataBlocks(NETHER_WELL_ORE_RL, template, world, random, mutable, Blocks.NETHERRACK, 0);
+                    this.handleDataBlocks(NETHER_WELL_ORE_RL, template, context.getWorld(), context.getRandom(), mutable, Blocks.NETHERRACK, 0);
                 }
 
                 return true;
@@ -87,12 +88,12 @@ public class WellNether extends WellAbstract {
         Collection<Block> allOreBlocks = ORE_TAG.values();
         BlockPos offset = new BlockPos(-template.getSize().getX() / 2, 0, -template.getSize().getZ() / 2);
         for (StructureBlockInfo template$blockinfo : template.getInfosForBlock(position.add(offset), placementsettings, Blocks.STRUCTURE_BLOCK)) {
-            if (template$blockinfo.tag != null) {
-                StructureBlockMode structuremode = StructureBlockMode.valueOf(template$blockinfo.tag.getString("mode"));
+            if (template$blockinfo.nbt != null) {
+                StructureBlockMode structuremode = StructureBlockMode.valueOf(template$blockinfo.nbt.getString("mode"));
                 if (structuremode == StructureBlockMode.DATA) {
-                    addBells(template$blockinfo.tag.getString("metadata"), template$blockinfo.pos, world, random, allOreBlocks);
-                    addOres(template$blockinfo.tag.getString("metadata"), template$blockinfo.pos, world, random, allOreBlocks, defaultBlock, oreChance);
-                    addSpace(template$blockinfo.tag.getString("metadata"), template$blockinfo.pos, world);
+                    addBells(template$blockinfo.nbt.getString("metadata"), template$blockinfo.pos, world, random, allOreBlocks);
+                    addOres(template$blockinfo.nbt.getString("metadata"), template$blockinfo.pos, world, random, allOreBlocks, defaultBlock, oreChance);
+                    addSpace(template$blockinfo.nbt.getString("metadata"), template$blockinfo.pos, world);
                 }
             }
         }

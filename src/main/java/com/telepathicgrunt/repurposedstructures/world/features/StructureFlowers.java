@@ -12,6 +12,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.util.FeatureContext;
 
 import java.util.List;
 import java.util.Random;
@@ -38,33 +39,33 @@ public class StructureFlowers extends Feature<StructureTargetAndRangeConfig> {
     );
 
     @Override
-    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, StructureTargetAndRangeConfig config) {
+    public boolean generate(FeatureContext<StructureTargetAndRangeConfig> context) {
 
         BlockPos.Mutable mutable = new BlockPos.Mutable();
 
-        for(int i = 0; i < config.attempts; i++){
-            mutable.set(position).move(
-                    random.nextInt((config.range * 2) + 1) - config.range,
-                    random.nextInt(3) - 1,
-                    random.nextInt((config.range * 2) + 1) - config.range
+        for(int i = 0; i < context.getConfig().attempts; i++){
+            mutable.set(context.getOrigin()).move(
+                    context.getRandom().nextInt((context.getConfig().range * 2) + 1) - context.getConfig().range,
+                    context.getRandom().nextInt(3) - 1,
+                    context.getRandom().nextInt((context.getConfig().range * 2) + 1) - context.getConfig().range
             );
 
-            if(world.getBlockState(mutable).isAir()){
+            if(context.getWorld().getBlockState(mutable).isAir()){
 
-                BlockState chosenFlower = FLOWERS.get(random.nextInt(FLOWERS.size()));
+                BlockState chosenFlower = FLOWERS.get(context.getRandom().nextInt(FLOWERS.size()));
 
-                if(chosenFlower.canPlaceAt(world, mutable)){
+                if(chosenFlower.canPlaceAt(context.getWorld(), mutable)){
                     // expensive. Do this check very last
-                    if(!world.toServerWorld().getStructureAccessor().getStructureAt(mutable, true, config.targetStructure).hasChildren()){
+                    if(!context.getWorld().toServerWorld().getStructureAccessor().getStructureAt(mutable, true, context.getConfig().targetStructure).hasChildren()){
                         continue;
                     }
 
-                    if(chosenFlower.getBlock() instanceof TallPlantBlock && world.getBlockState(mutable.up()).isAir()){
-                        world.setBlockState(mutable, chosenFlower.with(TallPlantBlock.HALF, DoubleBlockHalf.LOWER), 3);
-                        world.setBlockState(mutable.move(Direction.UP), chosenFlower.with(TallPlantBlock.HALF, DoubleBlockHalf.UPPER), 3);
+                    if(chosenFlower.getBlock() instanceof TallPlantBlock && context.getWorld().getBlockState(mutable.up()).isAir()){
+                        context.getWorld().setBlockState(mutable, chosenFlower.with(TallPlantBlock.HALF, DoubleBlockHalf.LOWER), 3);
+                        context.getWorld().setBlockState(mutable.move(Direction.UP), chosenFlower.with(TallPlantBlock.HALF, DoubleBlockHalf.UPPER), 3);
                     }
                     else{
-                        world.setBlockState(mutable, chosenFlower, 3);
+                        context.getWorld().setBlockState(mutable, chosenFlower, 3);
                     }
                 }
             }

@@ -14,6 +14,7 @@ import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.util.FeatureContext;
 
 import java.util.Random;
 
@@ -26,12 +27,12 @@ public class WitherSkeletonWithBow extends Feature<DefaultFeatureConfig> {
 
 
     @Override
-    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, DefaultFeatureConfig config) {
+    public boolean generate(FeatureContext<DefaultFeatureConfig> context) {
 
         // move down to spawn at the jigsaw block calling this
-        position = position.down();
+        BlockPos position = context.getOrigin().down();
 
-        WitherSkeletonEntity witherEntity = EntityType.WITHER_SKELETON.create(world.toServerWorld());
+        WitherSkeletonEntity witherEntity = EntityType.WITHER_SKELETON.create(context.getWorld().toServerWorld());
         witherEntity.setPersistent();
         witherEntity.refreshPositionAndAngles(
                 (double)position.getX() + 0.5D,
@@ -43,7 +44,7 @@ public class WitherSkeletonWithBow extends Feature<DefaultFeatureConfig> {
         witherEntity.getAttributeInstance(EntityAttributes.GENERIC_FOLLOW_RANGE)
                 .addPersistentModifier(new EntityAttributeModifier(
                         "Random spawn bonus",
-                        (random.nextGaussian() * 0.3D) + 0.5D,
+                        (context.getRandom().nextGaussian() * 0.3D) + 0.5D,
                         EntityAttributeModifier.Operation.MULTIPLY_BASE));
 
         ItemStack bow = new ItemStack(Items.BOW);
@@ -54,9 +55,9 @@ public class WitherSkeletonWithBow extends Feature<DefaultFeatureConfig> {
         bow.addEnchantment(Enchantments.BINDING_CURSE, 1);
         witherEntity.setStackInHand(Hand.MAIN_HAND, bow);
         witherEntity.setEquipmentDropChance(EquipmentSlot.MAINHAND, 0.5f);
-        witherEntity.setLeftHanded(random.nextFloat() < 0.05F);
+        witherEntity.setLeftHanded(context.getRandom().nextFloat() < 0.05F);
 
-        world.spawnEntityAndPassengers(witherEntity);
+        context.getWorld().spawnEntityAndPassengers(witherEntity);
         return true;
     }
 }

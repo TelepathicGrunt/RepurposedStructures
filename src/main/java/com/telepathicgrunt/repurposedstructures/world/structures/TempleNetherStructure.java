@@ -7,8 +7,10 @@ import net.minecraft.structure.pool.StructurePoolBasedGenerator;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.registry.DynamicRegistryManager;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.HeightLimitView;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
@@ -31,26 +33,27 @@ public class TempleNetherStructure extends AbstractBaseStructure<DefaultFeatureC
     }
 
     public class Start extends AbstractNetherStructure.AbstractStart{
-        public Start(StructureFeature<DefaultFeatureConfig> structureFeature, int x, int z, BlockBox blockBox, int referenceIn, long seed) {
-            super(structureFeature, x, z, blockBox, referenceIn, seed);
+        public Start(StructureFeature<DefaultFeatureConfig> structureFeature, ChunkPos chunkPos, int referenceIn, long seed) {
+            super(structureFeature, chunkPos, referenceIn, seed);
         }
 
-        public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, int x, int z, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
-            BlockPos blockPos = new BlockPos(x * 16, chunkGenerator.getSeaLevel() + 3, z * 16);
+        public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, ChunkPos chunkPos, Biome biome, DefaultFeatureConfig defaultFeatureConfig, HeightLimitView heightLimitView) {
+            BlockPos blockPos = new BlockPos(chunkPos.getStartX(), chunkGenerator.getSeaLevel() + 3, chunkPos.getStartZ());
             StructurePoolBasedGenerator.method_30419(
                     dynamicRegistryManager,
-                    new StructurePoolFeatureConfig(() -> dynamicRegistryManager.get(Registry.TEMPLATE_POOL_WORLDGEN).get(START_POOL), 1),
+                    new StructurePoolFeatureConfig(() -> dynamicRegistryManager.get(Registry.STRUCTURE_POOL_KEY).get(START_POOL), 1),
                     PoolStructurePiece::new,
                     chunkGenerator,
                     structureManager,
                     blockPos,
-                    this.children,
+                    this,
                     random,
                     true,
-                    false);
+                    false,
+                    heightLimitView);
             this.setBoundingBoxFromChildren();
 
-            BlockPos lowestLandPos = getLowestLand(chunkGenerator);
+            BlockPos lowestLandPos = getLowestLand(chunkGenerator, heightLimitView);
             if (lowestLandPos.getY() >= chunkGenerator.getWorldHeight() || lowestLandPos.getY() <= chunkGenerator.getSeaLevel() + 1) {
                 this.randomUpwardTranslation(this.random, chunkGenerator.getSeaLevel() - 16, chunkGenerator.getSeaLevel() - 15);
             }

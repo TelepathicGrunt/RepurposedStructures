@@ -10,11 +10,13 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.util.FeatureContext;
 
 import java.util.BitSet;
 import java.util.Random;
@@ -43,37 +45,37 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
 
 
     @Override
-    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos position, StructureTargetChanceConfig config) {
+    public boolean generate(FeatureContext<StructureTargetChanceConfig> context) {
 
         BlockPos.Mutable mutable = new BlockPos.Mutable();
 
-        if(random.nextFloat() < config.chance){
-            mutable.set(position).move(
-                    random.nextInt(7) - 3,
+        if(context.getRandom().nextFloat() < context.getConfig().chance){
+            mutable.set(context.getOrigin()).move(
+                    context.getRandom().nextInt(7) - 3,
                     0,
-                    random.nextInt(7) - 3
+                    context.getRandom().nextInt(7) - 3
             );
 
-            boolean foundSurface = findSurface(world, mutable, Direction.UP);
+            boolean foundSurface = findSurface(context.getWorld(), mutable, Direction.UP);
             if(!foundSurface){
                 mutable.move(Direction.DOWN, 5);
-                foundSurface = findSurface(world, mutable, Direction.DOWN);
+                foundSurface = findSurface(context.getWorld(), mutable, Direction.DOWN);
             }
 
-            if(!foundSurface && !world.toServerWorld().getStructureAccessor().getStructureAt(mutable, true, config.targetStructure).hasChildren()){
+            if(!foundSurface && !context.getWorld().toServerWorld().getStructureAccessor().getStructureAt(mutable, true, context.getConfig().targetStructure).hasChildren()){
                 return false;
             }
             mutable.move(Direction.UP, 2);
 
-            float f = random.nextFloat() * 3.1415927F;
+            float f = context.getRandom().nextFloat() * 3.1415927F;
             float g = 3;
             int i = 2;
             double d = (float) mutable.getX() + MathHelper.sin(f) * g;
             double e = (float) mutable.getX() - MathHelper.sin(f) * g;
             double h = (float) mutable.getZ() + MathHelper.cos(f) * g;
             double j = (float) mutable.getZ() - MathHelper.cos(f) * g;
-            double l = mutable.getY() + random.nextInt(3) - 2;
-            double m = mutable.getY() + random.nextInt(3) - 2;
+            double l = mutable.getY() + context.getRandom().nextInt(3) - 2;
+            double m = mutable.getY() + context.getRandom().nextInt(3) - 2;
             int n = mutable.getX() - MathHelper.ceil(g) - i;
             int o = mutable.getY() - 4;
             int p = mutable.getZ() - MathHelper.ceil(g) - i;
@@ -82,8 +84,7 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
 
             for (int s = n; s <= n + q; ++s) {
                 for (int t = p; t <= p + q; ++t) {
-                    return this.generateVeinPart(world, random, d, e, h, j, l, m, n, o, p, q, r, chunkGenerator);
-                    //this.generateVeinPart(world, random, d, e, h, j, l, m, n, o, p, q, r);
+                    return this.generateVeinPart(context, d, e, h, j, l, m, n, o, p, q, r, context.getGenerator());
                 }
             }
         }
@@ -102,7 +103,7 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
     }
 
 
-    protected boolean generateVeinPart(WorldAccess world, Random random, double startX, double endX, double startZ, double endZ, double startY, double endY, int x, int y, int z, int size, int i, ChunkGenerator chunkGenerator) {
+    protected boolean generateVeinPart(FeatureContext<StructureTargetChanceConfig> context, double startX, double endX, double startZ, double endZ, double startY, double endY, int x, int y, int z, int size, int i, ChunkGenerator chunkGenerator) {
         int j = 0;
         BitSet bitSet = new BitSet(size * i * size);
         BlockPos.Mutable mutable = new BlockPos.Mutable();
@@ -118,9 +119,9 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
             o = MathHelper.lerp(f, startX, endX);
             p = MathHelper.lerp(f, startY, endY);
             q = MathHelper.lerp(f, startZ, endZ);
-            r = random.nextDouble() * (double)24 / 16.0D;
+            r = context.getRandom().nextDouble() * (double)24 / 16.0D;
             double l = ((double)(MathHelper.sin(3.1415927F * f) + 1.0F) * r + 1.0D) / 2.0D;
-            ds[m * 4 + 0] = o;
+            ds[m * 4] = o;
             ds[m * 4 + 1] = p;
             ds[m * 4 + 2] = q;
             ds[m * 4 + 3] = l;
@@ -130,7 +131,7 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
             if (ds[m * 4 + 3] > 0.0D) {
                 for(int n = m + 1; n < 24; ++n) {
                     if (ds[n * 4 + 3] > 0.0D) {
-                        o = ds[m * 4 + 0] - ds[n * 4 + 0];
+                        o = ds[m * 4] - ds[n * 4];
                         p = ds[m * 4 + 1] - ds[n * 4 + 1];
                         q = ds[m * 4 + 2] - ds[n * 4 + 2];
                         r = ds[m * 4 + 3] - ds[n * 4 + 3];
@@ -149,7 +150,7 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
         for(m = 0; m < 24; ++m) {
             double t = ds[m * 4 + 3];
             if (t >= 0.0D) {
-                double u = ds[m * 4 + 0];
+                double u = ds[m * 4];
                 double v = ds[m * 4 + 1];
                 double w = ds[m * 4 + 2];
                 int aa = Math.max(MathHelper.floor(u - t), x);
@@ -172,14 +173,14 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
                                         if (!bitSet.get(am)) {
                                             bitSet.set(am);
                                             mutable.set(ag, ai, ak);
-                                            BlockState state = world.getBlockState(mutable);
+                                            BlockState state = context.getWorld().getBlockState(mutable);
                                             if (FORTRESS_BLOCKS.test(state)) {
                                                 ChunkPos currentChunkPos = new ChunkPos(mutable);
-                                                Chunk currentChunk = world.getChunk(currentChunkPos.x, currentChunkPos.z);
+                                                Chunk currentChunk = context.getWorld().getChunk(currentChunkPos.x, currentChunkPos.z);
                                                 boolean isBelowSealevel = mutable.getY() < chunkGenerator.getSeaLevel();
 
                                                 // Do not carve if exposed to cave space
-                                                if(isBelowSealevel && isBorderingAir(world, mutable)){
+                                                if(isBelowSealevel && isBorderingAir(context.getWorld(), mutable)){
                                                     continue;
                                                 }
 
@@ -206,7 +207,7 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
 
                                                     mutableVineCheck.set(mutable).move(direction);
                                                     if (currentChunkPos.x != mutableVineCheck.getX() >> 4 || currentChunkPos.z != mutableVineCheck.getZ() >> 4) {
-                                                        currentChunk = world.getChunk(mutableVineCheck);
+                                                        currentChunk = context.getWorld().getChunk(mutableVineCheck);
                                                         currentChunkPos = new ChunkPos(mutableVineCheck);
                                                     }
 
@@ -232,7 +233,7 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
         return j > 0;
     }
 
-    private boolean isBorderingAir(WorldAccess world, BlockPos.Mutable mutable) {
+    private boolean isBorderingAir(ServerWorldAccess world, BlockPos.Mutable mutable) {
         BlockPos.Mutable mutableWaterCheck = new BlockPos.Mutable();
         ChunkPos currentChunkPos2 = new ChunkPos(mutable);
         Chunk currentChunk2 = world.getChunk(currentChunkPos2.x, currentChunkPos2.z);
