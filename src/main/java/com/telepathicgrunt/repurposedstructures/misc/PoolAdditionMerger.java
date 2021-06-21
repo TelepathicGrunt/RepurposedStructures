@@ -45,7 +45,7 @@ public class PoolAdditionMerger {
      */
     public static void mergeAdditionPools() {
         ServerLifecycleEvents.SERVER_STARTING.register((MinecraftServer minecraftServer) -> {
-            ResourceManager resourceManager = ((StructureManagerAccessor) minecraftServer.getStructureManager()).repurposedstructures_getField_25189();
+            ResourceManager resourceManager = ((StructureManagerAccessor) minecraftServer.getStructureManager()).repurposedstructures_getResourceManager();
             Map<Identifier, List<JsonElement>> poolAdditionJSON = getPoolAdditionJSON(resourceManager);
             parsePoolsAndBeginMerger(poolAdditionJSON, minecraftServer.getRegistryManager());
         });

@@ -1,7 +1,9 @@
 package com.telepathicgrunt.repurposedstructures.mixin;
 
+import com.telepathicgrunt.repurposedstructures.misc.PoolAdditionMerger;
 import com.telepathicgrunt.repurposedstructures.misc.StructureMobSpawning;
 import net.minecraft.entity.SpawnGroup;
+import net.minecraft.util.collection.Pool;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.SpawnSettings;
@@ -18,12 +20,12 @@ import java.util.List;
 public class StructureMobSpawningMixin {
 
     @Inject(
-            method = "getEntitySpawnList(Lnet/minecraft/world/biome/Biome;Lnet/minecraft/world/gen/StructureAccessor;Lnet/minecraft/entity/SpawnGroup;Lnet/minecraft/util/math/BlockPos;)Ljava/util/List;",
+            method = "getEntitySpawnList(Lnet/minecraft/world/biome/Biome;Lnet/minecraft/world/gen/StructureAccessor;Lnet/minecraft/entity/SpawnGroup;Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/util/collection/Pool;",
             at = @At(value = "HEAD"),
             cancellable = true
     )
-    private void repurposedstructures_structureMobs(Biome biome, StructureAccessor accessor, SpawnGroup group, BlockPos pos, CallbackInfoReturnable<List<SpawnSettings.SpawnEntry>> cir) {
-        List<SpawnSettings.SpawnEntry> list = StructureMobSpawning.getStructureSpawns(biome, accessor, group, pos);
-        if(list != null) cir.setReturnValue(list);
+    private void repurposedstructures_structureMobs(Biome biome, StructureAccessor accessor, SpawnGroup group, BlockPos pos, CallbackInfoReturnable<Pool<SpawnSettings.SpawnEntry>> cir) {
+        Pool<SpawnSettings.SpawnEntry> pool = StructureMobSpawning.getStructureSpawns(biome, accessor, group, pos);
+        if(pool != null) cir.setReturnValue(pool);
     }
 }

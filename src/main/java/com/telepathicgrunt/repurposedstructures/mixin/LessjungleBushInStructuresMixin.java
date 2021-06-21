@@ -8,6 +8,7 @@ import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.TreeFeature;
 import net.minecraft.world.gen.feature.TreeFeatureConfig;
+import net.minecraft.world.gen.feature.util.FeatureContext;
 import net.minecraft.world.gen.foliage.BushFoliagePlacer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -21,18 +22,18 @@ import java.util.Random;
 public class LessjungleBushInStructuresMixin {
 
     @Inject(
-            method = "generate(Lnet/minecraft/world/StructureWorldAccess;Lnet/minecraft/world/gen/chunk/ChunkGenerator;Ljava/util/Random;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/world/gen/feature/TreeFeatureConfig;)Z",
+            method = "generate(Lnet/minecraft/world/gen/feature/util/FeatureContext;)Z",
             at = @At(value = "HEAD"),
             cancellable = true
     )
-    private void repurposedstructures_lessJungleBushInStructures(StructureWorldAccess structureWorldAccess, ChunkGenerator chunkGenerator, Random random, BlockPos blockPos, TreeFeatureConfig config, CallbackInfoReturnable<Boolean> cir) {
+    private void repurposedstructures_lessJungleBushInStructures(FeatureContext<TreeFeatureConfig> context, CallbackInfoReturnable<Boolean> cir) {
         // Detect jungle bush like tree
-        if(config.foliagePlacer instanceof BushFoliagePlacer && config.minimumSize.getMinClippedHeight().orElse(0) < 2){
+        if(context.getConfig().foliagePlacer instanceof BushFoliagePlacer && context.getConfig().minimumSize.getMinClippedHeight().orElse(0) < 2){
             // Rate for removal of bush
-            if(random.nextFloat() < 0.9f){
-                ChunkSectionPos chunkPos = ChunkSectionPos.from(blockPos);
+            if(context.getRandom().nextFloat() < 0.9f){
+                ChunkSectionPos chunkPos = ChunkSectionPos.from(context.getOrigin());
                 for (StructureFeature<?> structure : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.LESS_JUNGLE_BUSH)) {
-                    if (structureWorldAccess.getStructures(chunkPos, structure).findAny().isPresent()) {
+                    if (context.getWorld().getStructures(chunkPos, structure).findAny().isPresent()) {
                         cir.setReturnValue(false);
                     }
                 }
