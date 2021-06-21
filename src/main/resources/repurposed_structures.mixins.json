@@ -3,7 +3,6 @@
   "minVersion": "0.8",
   "package": "com.telepathicgrunt.repurposedstructures.mixin",
   "compatibilityLevel": "JAVA_8",
-  "plugin": "com.telepathicgrunt.repurposedstructures.mixin.plugins.RSMixinPlugin",
   "mixins": [
     "BuilderAccessor",
     "CatEntityMixin",
@@ -25,8 +24,7 @@
     "StructureMobSpawningMixin",
     "StructurePoolAccessor",
     "StructuresConfigAccessor",
-    "TemplateAccessor",
-    "VoxelShapesMixin"
+    "TemplateAccessor"
   ],
   "client": [
     "StructureBlockScreenMixin"
