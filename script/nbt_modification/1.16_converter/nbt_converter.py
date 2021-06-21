@@ -49,9 +49,9 @@ originalBiome = ""
 newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {
+    "repurposed_structures:chests/village/village_":"repurposed_structures:chests/villages/"
 }
 conversion_exact_dict = {
-    "down-minecraft:stone_bricks-repurposed_structures:temples/pyramid_jungle":"down-minecraft:stone_bricks-repurposed_structures:pyramids/jungle"
 }
 
 #-------------------------------------------------------------------------------------------
