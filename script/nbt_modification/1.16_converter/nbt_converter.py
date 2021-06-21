@@ -49,9 +49,54 @@ originalBiome = ""
 newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {
-    "repurposed_structures:chests/village/village_":"repurposed_structures:chests/villages/"
 }
 conversion_exact_dict = {
+    "repurposed_structures:chests/fortresses/jungle_center_chest":"repurposed_structures:chests/fortresses/jungle_center",
+    "repurposed_structures:chests/fortresses/jungle_hallway_chest":"repurposed_structures:chests/fortresses/jungle_hallway",
+    "repurposed_structures:chests/fortresses/jungle_shrine_chest":"repurposed_structures:chests/fortresses/jungle_shrine",
+    "repurposed_structures:chests/igloos/grassy_chest":"repurposed_structures:chests/igloos/grassy",
+    "repurposed_structures:chests/igloos/stone_chest":"repurposed_structures:chests/igloos/stone",
+    "repurposed_structures:chests/outposts/badlands_chest":"repurposed_structures:chests/outposts/badlands",
+    "repurposed_structures:chests/outposts/birch_chest":"repurposed_structures:chests/outposts/birch",
+    "repurposed_structures:chests/outposts/crimson_chest":"repurposed_structures:chests/outposts/crimson",
+    "repurposed_structures:chests/outposts/desert_chest":"repurposed_structures:chests/outposts/desert",
+    "repurposed_structures:chests/outposts/giant_tree_taiga_chest":"repurposed_structures:chests/outposts/giant_tree_taiga",
+    "repurposed_structures:chests/outposts/icy_chest":"repurposed_structures:chests/outposts/icy",
+    "repurposed_structures:chests/outposts/jungle_chest":"repurposed_structures:chests/outposts/jungle",
+    "repurposed_structures:chests/outposts/nether_brick_chest":"repurposed_structures:chests/outposts/nether_brick",
+    "repurposed_structures:chests/outposts/oak_chest":"repurposed_structures:chests/outposts/oak",
+    "repurposed_structures:chests/outposts/snowy_chest":"repurposed_structures:chests/outposts/snowy",
+    "repurposed_structures:chests/outposts/taiga_chest":"repurposed_structures:chests/outposts/taiga",
+    "repurposed_structures:chests/outposts/warped_chest":"repurposed_structures:chests/outposts/warped",
+    "repurposed_structures:chests/outposts/end_shulker_box":"repurposed_structures:shulker_boxes/outposts/end",
+    "repurposed_structures:chests/pyramids/badlands_chest":"repurposed_structures:chests/pyramids/badlands",
+    "repurposed_structures:chests/pyramids/nether_chest":"repurposed_structures:chests/pyramids/nether",
+    "repurposed_structures:chests/pyramids/snowy_chest":"repurposed_structures:chests/pyramids/snowy",
+    "repurposed_structures:chests/pyramids/icy_chest":"repurposed_structures:chests/pyramids/icy",
+    "repurposed_structures:chests/pyramids/jungle_chest":"repurposed_structures:chests/pyramids/jungle",
+    "repurposed_structures:chests/pyramids/mushroom_chest":"repurposed_structures:chests/pyramids/mushroom",
+    "repurposed_structures:chests/pyramids/ocean_chest":"repurposed_structures:chests/pyramids/ocean",
+    "repurposed_structures:chests/pyramids/giant_tree_taiga_chest":"repurposed_structures:chests/pyramids/giant_tree_taiga",
+    "repurposed_structures:chests/pyramids/flower_forest_chest":"repurposed_structures:chests/pyramids/flower_forest",
+    "repurposed_structures:chests/pyramids/end_chest":"repurposed_structures:chests/pyramids/end",
+    "repurposed_structures:chests/ruined_portals/large_portal_chest":"repurposed_structures:chests/ruined_portals/large_portal",
+    "repurposed_structures:chests/ruined_portals/small_portal_chest":"repurposed_structures:chests/ruined_portals/small_portal",
+    "repurposed_structures:chests/shipwrecks/crimson/map_chest":"repurposed_structures:chests/shipwrecks/crimson/map",
+    "repurposed_structures:chests/shipwrecks/crimson/supply_chest":"repurposed_structures:chests/shipwrecks/crimson/supply",
+    "repurposed_structures:chests/shipwrecks/crimson/treasure_chest":"repurposed_structures:chests/shipwrecks/crimson/treasure",
+    "repurposed_structures:chests/shipwrecks/end/map_chest":"repurposed_structures:chests/shipwrecks/end/map",
+    "repurposed_structures:chests/shipwrecks/end/supply_chest":"repurposed_structures:chests/shipwrecks/end/supply",
+    "repurposed_structures:chests/shipwrecks/end/treasure_chest":"repurposed_structures:chests/shipwrecks/end/treasure",
+    "repurposed_structures:chests/shipwrecks/warped/map_chest":"repurposed_structures:chests/shipwrecks/warped/map",
+    "repurposed_structures:chests/shipwrecks/warped/supply_chest":"repurposed_structures:chests/shipwrecks/warped/supply",
+    "repurposed_structures:chests/shipwrecks/warped/treasure_chest":"repurposed_structures:chests/shipwrecks/warped/treasure",
+    "repurposed_structures:chests/shipwrecks/nether_bricks/treasure_chest":"repurposed_structures:chests/shipwrecks/nether_bricks/treasure",
+    "repurposed_structures:chests/temples/nether_basalt_chest":"repurposed_structures:chests/temples/nether_basalt",
+    "repurposed_structures:chests/temples/nether_crimson_chest":"repurposed_structures:chests/temples/nether_crimson",
+    "repurposed_structures:chests/temples/nether_soul_chest":"repurposed_structures:chests/temples/nether_soul",
+    "repurposed_structures:chests/temples/nether_warped_chest":"repurposed_structures:chests/temples/nether_warped",
+    "repurposed_structures:chests/temples/nether_wasteland_chest":"repurposed_structures:chests/temples/nether_wasteland",
+    "repurposed_structures:chests/temples/nether_warped_trapped_chest":"repurposed_structures:trapped_chests/temples/nether_warped"
 }
 
 #-------------------------------------------------------------------------------------------
