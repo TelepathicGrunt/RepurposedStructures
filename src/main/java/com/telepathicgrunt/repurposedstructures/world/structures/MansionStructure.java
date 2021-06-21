@@ -24,7 +24,6 @@ import net.minecraft.world.gen.feature.StructureFeature;
 
 import java.util.List;
 import java.util.Random;
-import java.util.Set;
 
 
 public class MansionStructure extends AbstractBaseStructure<DefaultFeatureConfig> {

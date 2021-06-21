@@ -87,8 +87,8 @@ public class NbtDungeonConfig implements FeatureConfig {
         this(false,1, maxAirSpace, 2,
                 airRequirementIsNowWater,
                 structureYOffset, Blocks.CHEST.getDefaultState(),
-                new Identifier(RepurposedStructures.MODID, "chests/dungeon/"+dungeonType),
-                new Identifier(RepurposedStructures.MODID, "dungeon_"+spawnerType),
+                new Identifier(RepurposedStructures.MODID, "chests/dungeons/"+dungeonType),
+                new Identifier(RepurposedStructures.MODID, "dungeons_"+spawnerType),
                 processor,
                 postProcessor,
                 ImmutableList.of(

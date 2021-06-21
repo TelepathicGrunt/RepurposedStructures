@@ -122,7 +122,7 @@
     },
     {
       "processor_type": "repurposed_structures:spawner_randomizing_processor",
-      "rs_spawner_resourcelocation": "repurposed_structures:mineshaft_icy"
+      "rs_spawner_resourcelocation": "repurposed_structures:mineshafts/icy"
     },
     {
       "processor_type": "repurposed_structures:close_off_fluid_sources_processor",

@@ -8,7 +8,6 @@ import net.minecraft.structure.MarginedStructureStart;
 import net.minecraft.structure.StructureManager;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.Pool;
-import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.Direction;
@@ -25,8 +24,6 @@ import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 public class AdvancedJigsawStructure extends AbstractBaseStructure<DefaultFeatureConfig> {

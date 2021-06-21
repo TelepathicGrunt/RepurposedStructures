@@ -2,7 +2,13 @@ package com.telepathicgrunt.repurposedstructures.modinit;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.features.*;
-import com.telepathicgrunt.repurposedstructures.world.features.configs.*;
+import com.telepathicgrunt.repurposedstructures.world.features.configs.GenericMobConfig;
+import com.telepathicgrunt.repurposedstructures.world.features.configs.NbtDungeonConfig;
+import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetAndLengthConfig;
+import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetAndRangeConfig;
+import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetChanceConfig;
+import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetConfig;
+import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetLengthRangeConfig;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;

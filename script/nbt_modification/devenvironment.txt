@@ -5,16 +5,16 @@ $ pip install virtualenv
 $ pip list 
 
 # Makes a new directory
-$ mkdir Environments
+$ mkdir virtualenvironment
 
 # Goes to environment directory
-$ cd Environments
+$ cd virtualenvironment
 
 # Creates new project env
 $ python -m virtualenv nbt_converter
 
 # Switches the cmd to be in the project
-$ Environments\nbt_converter\Scripts\activate.bat
+$ virtualenvironment\nbt_converter\Scripts\activate.bat
 
 # Install package
 $ pip install Python-NBT

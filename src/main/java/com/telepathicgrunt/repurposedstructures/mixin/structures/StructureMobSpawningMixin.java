@@ -1,6 +1,5 @@
 package com.telepathicgrunt.repurposedstructures.mixin.structures;
 
-import com.telepathicgrunt.repurposedstructures.misc.PoolAdditionMerger;
 import com.telepathicgrunt.repurposedstructures.misc.StructureMobSpawning;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.util.collection.Pool;
@@ -13,8 +12,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-import java.util.List;
 
 @Mixin(NoiseChunkGenerator.class)
 public class StructureMobSpawningMixin {

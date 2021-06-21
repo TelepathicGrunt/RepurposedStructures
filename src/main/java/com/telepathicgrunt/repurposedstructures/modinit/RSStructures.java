@@ -6,7 +6,21 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Lists;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.mixin.structures.PillagerOutpostFeatureAccessor;
-import com.telepathicgrunt.repurposedstructures.world.structures.*;
+import com.telepathicgrunt.repurposedstructures.world.structures.AdvancedJigsawStructure;
+import com.telepathicgrunt.repurposedstructures.world.structures.BuriableStructure;
+import com.telepathicgrunt.repurposedstructures.world.structures.CityNetherStructure;
+import com.telepathicgrunt.repurposedstructures.world.structures.GenericJigsawStructure;
+import com.telepathicgrunt.repurposedstructures.world.structures.GenericNetherJigsawHighStructure;
+import com.telepathicgrunt.repurposedstructures.world.structures.LandBasedEndStructure;
+import com.telepathicgrunt.repurposedstructures.world.structures.MansionStructure;
+import com.telepathicgrunt.repurposedstructures.world.structures.OutpostNetherStructure;
+import com.telepathicgrunt.repurposedstructures.world.structures.RSMineshaftEndStructure;
+import com.telepathicgrunt.repurposedstructures.world.structures.RSMineshaftStructure;
+import com.telepathicgrunt.repurposedstructures.world.structures.RSNetherStrongholdStructure;
+import com.telepathicgrunt.repurposedstructures.world.structures.ShipwreckEndStructure;
+import com.telepathicgrunt.repurposedstructures.world.structures.ShipwreckNetherStructure;
+import com.telepathicgrunt.repurposedstructures.world.structures.TempleNetherStructure;
+import com.telepathicgrunt.repurposedstructures.world.structures.VillageNetherStructure;
 import com.telepathicgrunt.repurposedstructures.world.structures.configs.NetherShipwreckConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.MansionPieces;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.StructurePiecesBehavior;
@@ -80,11 +94,11 @@ public class RSStructures {
     public static StructureFeature<DefaultFeatureConfig> GRASSY_IGLOO = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "igloos/grassy_top"), 20, 0, 0, 0, new HashSet<>());
     public static StructureFeature<DefaultFeatureConfig> STONE_IGLOO = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "igloos/stone_top"), 20, 0, 0, 0, new HashSet<>());
 
-    public static StructureFeature<DefaultFeatureConfig> NETHER_WASTELAND_TEMPLE = new TempleNetherStructure(new Identifier(RepurposedStructures.MODID, "temples/temple_nether_wasteland"));
-    public static StructureFeature<DefaultFeatureConfig> NETHER_BASALT_TEMPLE = new TempleNetherStructure(new Identifier(RepurposedStructures.MODID, "temples/temple_nether_basalt"));
-    public static StructureFeature<DefaultFeatureConfig> NETHER_WARPED_TEMPLE = new TempleNetherStructure(new Identifier(RepurposedStructures.MODID, "temples/temple_nether_warped"));
-    public static StructureFeature<DefaultFeatureConfig> NETHER_CRIMSON_TEMPLE = new TempleNetherStructure(new Identifier(RepurposedStructures.MODID, "temples/temple_nether_crimson"));
-    public static StructureFeature<DefaultFeatureConfig> NETHER_SOUL_TEMPLE = new TempleNetherStructure(new Identifier(RepurposedStructures.MODID, "temples/temple_nether_soul"));
+    public static StructureFeature<DefaultFeatureConfig> NETHER_WASTELAND_TEMPLE = new TempleNetherStructure(new Identifier(RepurposedStructures.MODID, "temples/nether_wasteland"));
+    public static StructureFeature<DefaultFeatureConfig> NETHER_BASALT_TEMPLE = new TempleNetherStructure(new Identifier(RepurposedStructures.MODID, "temples/nether_basalt"));
+    public static StructureFeature<DefaultFeatureConfig> NETHER_WARPED_TEMPLE = new TempleNetherStructure(new Identifier(RepurposedStructures.MODID, "temples/nether_warped"));
+    public static StructureFeature<DefaultFeatureConfig> NETHER_CRIMSON_TEMPLE = new TempleNetherStructure(new Identifier(RepurposedStructures.MODID, "temples/nether_crimson"));
+    public static StructureFeature<DefaultFeatureConfig> NETHER_SOUL_TEMPLE = new TempleNetherStructure(new Identifier(RepurposedStructures.MODID, "temples/nether_soul"));
 
     public static StructureFeature<DefaultFeatureConfig> NETHER_BRICK_OUTPOST = new OutpostNetherStructure(new Identifier(RepurposedStructures.MODID, "outposts/nether_brick/base_plates"));
     public static StructureFeature<DefaultFeatureConfig> WARPED_OUTPOST = new OutpostNetherStructure(new Identifier(RepurposedStructures.MODID, "outposts/warped/base_plates"));
@@ -100,34 +114,34 @@ public class RSStructures {
     public static StructureFeature<DefaultFeatureConfig> OUTPOST_OAK = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "outposts/oak/base_plates"), 11, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.VILLAGE).collect(Collectors.toSet()), PillagerOutpostFeatureAccessor.repurposedstructures_getMONSTER_SPAWNS(), Pool.empty());
     public static StructureFeature<DefaultFeatureConfig> OUTPOST_END = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "outposts/end/base_plates"), 11, 0, 2, 4, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.END_AVOID_STRUCTURE).collect(Collectors.toSet()), 15, 3, Pool.of(ImmutableList.of(new SpawnSettings.SpawnEntry(EntityType.PHANTOM, 10, 1, 1))), Pool.empty(), 55);
 
-    public static StructureFeature<DefaultFeatureConfig> NETHER_PYRAMID = new GenericNetherJigsawHighStructure(new Identifier(RepurposedStructures.MODID, "temples/pyramid_nether"), 1, -4, 0);
-    public static StructureFeature<DefaultFeatureConfig> BADLANDS_PYRAMID = new BuriableStructure(new Identifier(RepurposedStructures.MODID, "temples/pyramid_badlands"));
-    public static StructureFeature<DefaultFeatureConfig> PYRAMID_SNOWY = new BuriableStructure(new Identifier(RepurposedStructures.MODID, "temples/pyramid_snowy"));
-    public static StructureFeature<DefaultFeatureConfig> PYRAMID_END = new LandBasedEndStructure(new Identifier(RepurposedStructures.MODID, "temples/pyramid_end"), 11, -2, 0, 0, new HashSet<>());
-    public static StructureFeature<DefaultFeatureConfig> PYRAMID_ICY = new BuriableStructure(new Identifier(RepurposedStructures.MODID, "temples/pyramid_icy"));
-    public static StructureFeature<DefaultFeatureConfig> PYRAMID_JUNGLE = new BuriableStructure(new Identifier(RepurposedStructures.MODID, "temples/pyramid_jungle"), 20);
-    public static StructureFeature<DefaultFeatureConfig> PYRAMID_MUSHROOM = new BuriableStructure(new Identifier(RepurposedStructures.MODID, "temples/pyramid_mushroom"));
-    public static StructureFeature<DefaultFeatureConfig> PYRAMID_OCEAN = new BuriableStructure(new Identifier(RepurposedStructures.MODID, "temples/pyramid_ocean"), false);
-    public static StructureFeature<DefaultFeatureConfig> PYRAMID_GIANT_TREE_TAIGA = new BuriableStructure(new Identifier(RepurposedStructures.MODID, "temples/pyramid_giant_tree_taiga"));
-    public static StructureFeature<DefaultFeatureConfig> PYRAMID_FLOWER_FOREST = new BuriableStructure(new Identifier(RepurposedStructures.MODID, "temples/pyramid_flower_forest"));
+    public static StructureFeature<DefaultFeatureConfig> NETHER_PYRAMID = new GenericNetherJigsawHighStructure(new Identifier(RepurposedStructures.MODID, "pyramids/nether"), 1, -4, 0);
+    public static StructureFeature<DefaultFeatureConfig> BADLANDS_PYRAMID = new BuriableStructure(new Identifier(RepurposedStructures.MODID, "pyramids/badlands"));
+    public static StructureFeature<DefaultFeatureConfig> PYRAMID_SNOWY = new BuriableStructure(new Identifier(RepurposedStructures.MODID, "pyramids/snowy"));
+    public static StructureFeature<DefaultFeatureConfig> PYRAMID_END = new LandBasedEndStructure(new Identifier(RepurposedStructures.MODID, "pyramids/end"), 11, -2, 0, 0, new HashSet<>());
+    public static StructureFeature<DefaultFeatureConfig> PYRAMID_ICY = new BuriableStructure(new Identifier(RepurposedStructures.MODID, "pyramids/icy"));
+    public static StructureFeature<DefaultFeatureConfig> PYRAMID_JUNGLE = new BuriableStructure(new Identifier(RepurposedStructures.MODID, "pyramids/jungle"), 20);
+    public static StructureFeature<DefaultFeatureConfig> PYRAMID_MUSHROOM = new BuriableStructure(new Identifier(RepurposedStructures.MODID, "pyramids/mushroom"));
+    public static StructureFeature<DefaultFeatureConfig> PYRAMID_OCEAN = new BuriableStructure(new Identifier(RepurposedStructures.MODID, "pyramids/ocean"), false);
+    public static StructureFeature<DefaultFeatureConfig> PYRAMID_GIANT_TREE_TAIGA = new BuriableStructure(new Identifier(RepurposedStructures.MODID, "pyramids/giant_tree_taiga"));
+    public static StructureFeature<DefaultFeatureConfig> PYRAMID_FLOWER_FOREST = new BuriableStructure(new Identifier(RepurposedStructures.MODID, "pyramids/flower_forest"));
 
     public static StructureFeature<DefaultFeatureConfig> END_SHIPWRECK = new ShipwreckEndStructure();
     public static StructureFeature<NetherShipwreckConfig> NETHER_BRICKS_SHIPWRECK = new ShipwreckNetherStructure(new Identifier(RepurposedStructures.MODID, "shipwrecks/nether_bricks"), -3);
     public static StructureFeature<NetherShipwreckConfig> CRIMSON_SHIPWRECK = new ShipwreckNetherStructure(new Identifier(RepurposedStructures.MODID, "shipwrecks/crimson"), -4);
     public static StructureFeature<NetherShipwreckConfig> WARPED_SHIPWRECK = new ShipwreckNetherStructure(new Identifier(RepurposedStructures.MODID, "shipwrecks/warped"), -4);
 
-    public static StructureFeature<DefaultFeatureConfig> BADLANDS_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/badlands/town_centers"), 10, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.MANSION).collect(Collectors.toSet()), 20, 2);
-    public static StructureFeature<DefaultFeatureConfig> BIRCH_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/birch/town_centers"), 6, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.MANSION).collect(Collectors.toSet()));
-    public static StructureFeature<DefaultFeatureConfig> DARK_FOREST_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/dark_forest/town_centers"), 6, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.MANSION).collect(Collectors.toSet()));
-    public static StructureFeature<DefaultFeatureConfig> JUNGLE_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/jungle/town_centers"), 8, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.MANSION, RSStructureTagMap.STRUCTURE_TAGS.FORTRESS).collect(Collectors.toSet()));
-    public static StructureFeature<DefaultFeatureConfig> SWAMP_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/swamp/town_centers"), 6, -1, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.MANSION).collect(Collectors.toSet()));
-    public static StructureFeature<DefaultFeatureConfig> MOUNTAINS_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/mountains/town_centers"), 6, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.MANSION).collect(Collectors.toSet()));
-    public static StructureFeature<DefaultFeatureConfig> GIANT_TAIGA_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/giant_taiga/town_centers"), 6, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.MANSION).collect(Collectors.toSet()));
-    public static StructureFeature<DefaultFeatureConfig> CRIMSON_VILLAGE = new VillageNetherStructure(new Identifier(RepurposedStructures.MODID, "village/crimson/town_centers"), 6, 0, 1, 0, new HashSet<>());
-    public static StructureFeature<DefaultFeatureConfig> WARPED_VILLAGE = new VillageNetherStructure(new Identifier(RepurposedStructures.MODID, "village/warped/town_centers"), 6, 0, 1, 0, new HashSet<>());
-    public static StructureFeature<DefaultFeatureConfig> VILLAGE_OAK = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "village/oak/town_centers"), 6, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.MANSION).collect(Collectors.toSet()));
+    public static StructureFeature<DefaultFeatureConfig> BADLANDS_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "villages/badlands/town_centers"), 10, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.MANSION).collect(Collectors.toSet()), 20, 2);
+    public static StructureFeature<DefaultFeatureConfig> BIRCH_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "villages/birch/town_centers"), 6, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.MANSION).collect(Collectors.toSet()));
+    public static StructureFeature<DefaultFeatureConfig> DARK_FOREST_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "villages/dark_forest/town_centers"), 6, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.MANSION).collect(Collectors.toSet()));
+    public static StructureFeature<DefaultFeatureConfig> JUNGLE_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "villages/jungle/town_centers"), 8, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.MANSION, RSStructureTagMap.STRUCTURE_TAGS.FORTRESS).collect(Collectors.toSet()));
+    public static StructureFeature<DefaultFeatureConfig> SWAMP_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "villages/swamp/town_centers"), 6, -1, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.MANSION).collect(Collectors.toSet()));
+    public static StructureFeature<DefaultFeatureConfig> MOUNTAINS_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "villages/mountains/town_centers"), 6, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.MANSION).collect(Collectors.toSet()));
+    public static StructureFeature<DefaultFeatureConfig> GIANT_TAIGA_VILLAGE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "villages/giant_taiga/town_centers"), 6, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.MANSION).collect(Collectors.toSet()));
+    public static StructureFeature<DefaultFeatureConfig> CRIMSON_VILLAGE = new VillageNetherStructure(new Identifier(RepurposedStructures.MODID, "villages/crimson/town_centers"), 6, 0, 1, 0, new HashSet<>());
+    public static StructureFeature<DefaultFeatureConfig> WARPED_VILLAGE = new VillageNetherStructure(new Identifier(RepurposedStructures.MODID, "villages/warped/town_centers"), 6, 0, 1, 0, new HashSet<>());
+    public static StructureFeature<DefaultFeatureConfig> VILLAGE_OAK = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "villages/oak/town_centers"), 6, 0, 1, 5, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.MANSION).collect(Collectors.toSet()));
 
-    public static StructureFeature<DefaultFeatureConfig> RUINED_PORTAL_END = new LandBasedEndStructure(new Identifier(RepurposedStructures.MODID, "ruined_portal/end"), 20, -6, 0, 0, new HashSet<>());
+    public static StructureFeature<DefaultFeatureConfig> RUINED_PORTAL_END = new LandBasedEndStructure(new Identifier(RepurposedStructures.MODID, "ruined_portals/end"), 20, -6, 0, 0, new HashSet<>());
 
     public static StructureFeature<DefaultFeatureConfig> RUINS_NETHER = new GenericNetherJigsawHighStructure(new Identifier(RepurposedStructures.MODID, "ruins/nether/start_pool"), 1, -4, -1);
     public static StructureFeature<DefaultFeatureConfig> RUINS_LAND_WARM = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "ruins/land_warm/start_pool"), 2, 0, 0, 0, new HashSet<>(), 5, 2);

@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.structures.pieces;
 
 import com.google.common.collect.Lists;
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePieces;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -981,7 +982,7 @@ public class MansionPieces{
         }
 
         public Piece(StructureManager structureManager, String template, BlockPos pos, BlockRotation rotation, BlockMirror mirror, MANSIONTYPE type) {
-            super(RSStructurePieces.MANSION_PIECE, 0, structureManager, getId(template), template, createPlacementData(mirror, rotation), pos);
+            super(RSStructurePieces.MANSION_PIECE, 0, structureManager, getId(template, type), template, createPlacementData(mirror, rotation), pos);
             this.type = type;
         }
 
@@ -995,11 +996,11 @@ public class MansionPieces{
         }
 
         protected Identifier getId() {
-            return getId(this.identifier);
+            return getId(this.identifier, this.type);
         }
 
-        private static Identifier getId(String identifier) {
-            return new Identifier("woodland_mansion/" + identifier);
+        private static Identifier getId(String identifier, MANSIONTYPE type) {
+            return new Identifier(RepurposedStructures.MODID, "mansions/" + type.name().toLowerCase() + "/" + identifier);
         }
 
         private static StructurePlacementData createPlacementData(BlockMirror mirror, BlockRotation rotation) {

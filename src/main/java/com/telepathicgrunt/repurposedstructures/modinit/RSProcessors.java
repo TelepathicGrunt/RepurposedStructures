@@ -1,7 +1,21 @@
 package com.telepathicgrunt.repurposedstructures.modinit;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.world.processors.*;
+import com.telepathicgrunt.repurposedstructures.world.processors.AirProcessor;
+import com.telepathicgrunt.repurposedstructures.world.processors.CeilingVinePostProcessor;
+import com.telepathicgrunt.repurposedstructures.world.processors.CloseOffAirSourcesProcessor;
+import com.telepathicgrunt.repurposedstructures.world.processors.CloseOffFluidSourcesProcessor;
+import com.telepathicgrunt.repurposedstructures.world.processors.DataBlockProcessor;
+import com.telepathicgrunt.repurposedstructures.world.processors.FillEndPortalFrameProcessor;
+import com.telepathicgrunt.repurposedstructures.world.processors.FloodWithWaterProcessor;
+import com.telepathicgrunt.repurposedstructures.world.processors.RandomReplaceWithPropertiesProcessor;
+import com.telepathicgrunt.repurposedstructures.world.processors.RemoveFloatingBlocksProcessor;
+import com.telepathicgrunt.repurposedstructures.world.processors.ReplaceAirOnlyProcessor;
+import com.telepathicgrunt.repurposedstructures.world.processors.ReplaceLiquidOnlyProcessor;
+import com.telepathicgrunt.repurposedstructures.world.processors.SpawnerRandomizingProcessor;
+import com.telepathicgrunt.repurposedstructures.world.processors.StructureVoidProcessor;
+import com.telepathicgrunt.repurposedstructures.world.processors.WallVinePostProcessor;
+import com.telepathicgrunt.repurposedstructures.world.processors.WaterloggingFixProcessor;
 import net.minecraft.structure.processor.StructureProcessorType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;

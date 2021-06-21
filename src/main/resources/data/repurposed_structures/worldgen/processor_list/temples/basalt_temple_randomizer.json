@@ -75,7 +75,7 @@
     },
     {
       "processor_type": "repurposed_structures:spawner_randomizing_processor",
-      "rs_spawner_resourcelocation": "repurposed_structures:temple_basalt"
+      "rs_spawner_resourcelocation": "repurposed_structures:temples/basalt"
     }
   ]
 }

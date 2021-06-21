@@ -25,7 +25,7 @@
     },
     {
       "processor_type": "repurposed_structures:spawner_randomizing_processor",
-      "rs_spawner_resourcelocation": "repurposed_structures:dungeon_end"
+      "rs_spawner_resourcelocation": "repurposed_structures:dungeons/end"
     }
   ]
 }

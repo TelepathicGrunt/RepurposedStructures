@@ -6,8 +6,6 @@ import net.minecraft.world.gen.feature.PillagerOutpostFeature;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
-import java.util.List;
-
 @Mixin(PillagerOutpostFeature.class)
 public interface PillagerOutpostFeatureAccessor {
     @Accessor("MONSTER_SPAWNS")

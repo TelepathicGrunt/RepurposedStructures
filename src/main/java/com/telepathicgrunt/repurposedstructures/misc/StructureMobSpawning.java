@@ -11,8 +11,6 @@ import net.minecraft.world.biome.SpawnSettings;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.feature.StructureFeature;
 
-import java.util.List;
-
 public class StructureMobSpawning {
 
     /**

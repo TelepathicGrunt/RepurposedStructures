@@ -399,7 +399,7 @@
     },
     {
       "processor_type": "repurposed_structures:spawner_randomizing_processor",
-      "rs_spawner_resourcelocation": "repurposed_structures:dungeon_ocean_frozen"
+      "rs_spawner_resourcelocation": "repurposed_structures:dungeons/ocean_frozen"
     }
   ]
 }
