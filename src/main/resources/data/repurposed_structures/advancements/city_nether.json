@@ -2,29 +2,32 @@
   "parent": "repurposed_structures:root",
   "display": {
     "icon": {
-      "item": "minecraft:ender_eye"
+      "item": "minecraft:red_banner"
     },
     "title": {
-      "translate": "RS Strongholds"
+      "translate": "Blazing Cities"
     },
     "description": {
-      "translate": "Find all new Strongholds!"
+      "translate": "Enter a Nether City"
     },
     "show_toast": true,
     "announce_to_chat": true,
     "hidden": false
   },
+  "rewards": {
+    "experience": 500
+  },
   "criteria": {
-    "in_stronghold_nether": {
+    "in_city_nether": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:stronghold_nether"
+        "feature": "repurposed_structures:city_nether"
       }
     }
   },
   "requirements": [
     [
-      "in_stronghold_nether"
+      "in_city_nether"
     ]
   ]
 }

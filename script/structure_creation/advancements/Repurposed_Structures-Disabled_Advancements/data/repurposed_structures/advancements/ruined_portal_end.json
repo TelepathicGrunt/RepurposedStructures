@@ -2,17 +2,20 @@
   "parent": "repurposed_structures:root",
   "display": {
     "icon": {
-      "item": "minecraft:tnt"
+      "item": "minecraft:crying_obsidian"
     },
     "title": {
-      "translate": "RS Pyramids"
+      "translate": "The Useless Portal"
     },
     "description": {
-      "translate": "Find all new Pyramids!"
+      "translate": "Find an End themed Ruined Portal!"
     },
     "show_toast": false,
     "announce_to_chat": false,
     "hidden": true
+  },
+  "rewards": {
+    "experience": 50
   },
   "criteria": {
     "impossible": {

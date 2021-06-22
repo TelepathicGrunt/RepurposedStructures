@@ -5,18 +5,26 @@
       "item": "minecraft:ender_eye"
     },
     "title": {
-      "translate": "Strongholds"
+      "translate": "RS Strongholds"
     },
     "description": {
-      "translate": "Go look for a Stronghold!"
+      "translate": "Find all new Strongholds!"
     },
-    "show_toast": false,
-    "announce_to_chat": false,
-    "hidden": true
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
   },
   "criteria": {
-    "always": {
-      "trigger": "minecraft:tick"
+    "in_stronghold_nether": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:stronghold_nether"
+      }
     }
-  }
+  },
+  "requirements": [
+    [
+      "in_stronghold_nether"
+    ]
+  ]
 }

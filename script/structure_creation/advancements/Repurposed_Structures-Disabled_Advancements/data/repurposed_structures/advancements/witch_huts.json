@@ -2,13 +2,13 @@
   "parent": "repurposed_structures:root",
   "display": {
     "icon": {
-      "item": "minecraft:dark_oak_fence"
+      "item": "minecraft:water_cauldron"
     },
     "title": {
-      "translate": "Witch Huts"
+      "translate": "RS Witch Huts"
     },
     "description": {
-      "translate": "Go look for a Witch Hut!"
+      "translate": "Find all new Witch Huts!"
     },
     "show_toast": false,
     "announce_to_chat": false,
@@ -18,5 +18,10 @@
     "impossible": {
       "trigger": "minecraft:impossible"
     }
-  }
+  },
+  "requirements": [
+    [
+      "impossible"
+    ]
+  ]
 }

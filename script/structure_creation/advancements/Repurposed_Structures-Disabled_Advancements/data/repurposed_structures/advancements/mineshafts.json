@@ -5,10 +5,10 @@
       "item": "minecraft:stone_pickaxe"
     },
     "title": {
-      "translate": "Mineshafts"
+      "translate": "RS Mineshafts"
     },
     "description": {
-      "translate": "Go look for a Mineshaft!"
+      "translate": "Find all new Mineshafts!"
     },
     "show_toast": false,
     "announce_to_chat": false,
@@ -18,5 +18,10 @@
     "impossible": {
       "trigger": "minecraft:impossible"
     }
-  }
+  },
+  "requirements": [
+    [
+      "impossible"
+    ]
+  ]
 }

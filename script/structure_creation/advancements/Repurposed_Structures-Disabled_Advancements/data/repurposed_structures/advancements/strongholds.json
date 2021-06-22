@@ -5,10 +5,10 @@
       "item": "minecraft:ender_eye"
     },
     "title": {
-      "translate": "Strongholds"
+      "translate": "RS Strongholds"
     },
     "description": {
-      "translate": "Go look for a Stronghold!"
+      "translate": "Find all new Strongholds!"
     },
     "show_toast": false,
     "announce_to_chat": false,
@@ -18,5 +18,10 @@
     "impossible": {
       "trigger": "minecraft:impossible"
     }
-  }
+  },
+  "requirements": [
+    [
+      "impossible"
+    ]
+  ]
 }

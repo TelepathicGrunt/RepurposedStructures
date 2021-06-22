@@ -5,10 +5,10 @@
       "item": "minecraft:arrow"
     },
     "title": {
-      "translate": "Temples"
+      "translate": "RS Temples"
     },
     "description": {
-      "translate": "Go look for a Temple!"
+      "translate": "Find all new Temples!"
     },
     "show_toast": false,
     "announce_to_chat": false,
@@ -18,5 +18,10 @@
     "impossible": {
       "trigger": "minecraft:impossible"
     }
-  }
+  },
+  "requirements": [
+    [
+      "impossible"
+    ]
+  ]
 }

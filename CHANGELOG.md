@@ -6,6 +6,10 @@
 * File paths in the resources/data folder has been significantly redone to be more consistant and cleaner. 
   1.16.5 or older datapacks for Repurposed Structures may not work anymore and have to be updated.
 
+##### Advancements:
+* All advancements has been condensed. Now there's one advancement for finding all variants of one structure type. 
+  For example, you have to find and enter all Repurposed Structures villages to get the advancement for RS Villages.
+
 ##### Nether Cities:
 * The topmost small tower tops will now spawn Wither Skeletons with Bows,
 

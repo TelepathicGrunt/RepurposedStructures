@@ -2,17 +2,20 @@
   "parent": "repurposed_structures:root",
   "display": {
     "icon": {
-      "item": "minecraft:tnt"
+      "item": "minecraft:mossy_stone_bricks"
     },
     "title": {
-      "translate": "RS Pyramids"
+      "translate": "Decaying Glory"
     },
     "description": {
-      "translate": "Find all new Pyramids!"
+      "translate": "Enter a Jungle Fortress"
     },
     "show_toast": false,
     "announce_to_chat": false,
     "hidden": true
+  },
+  "rewards": {
+    "experience": 100
   },
   "criteria": {
     "impossible": {

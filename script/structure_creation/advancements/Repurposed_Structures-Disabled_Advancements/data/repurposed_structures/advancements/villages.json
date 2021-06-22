@@ -5,10 +5,10 @@
       "item": "minecraft:emerald"
     },
     "title": {
-      "translate": "Villages"
+      "translate": "RS Villages"
     },
     "description": {
-      "translate": "Go look for a Village!"
+      "translate": "Find all new Villages!"
     },
     "show_toast": false,
     "announce_to_chat": false,
@@ -18,5 +18,10 @@
     "impossible": {
       "trigger": "minecraft:impossible"
     }
-  }
+  },
+  "requirements": [
+    [
+      "impossible"
+    ]
+  ]
 }

@@ -1,9 +1,8 @@
 from pathlib import Path
-import collections.abc
 import os
 import sys
 import random
-import re
+import json
 
 # Helper method from https://stackoverflow.com/a/49001704
 def bend(w, s):
@@ -91,10 +90,7 @@ while restart:
         innate_tag = input()
     innate_tags = innate_tags[2:]
 
-    advancement_title = input("\nadvancement title\n")
-    advancement_description = input("\nadvancement description\n")
-    advancement_icon = input("\nadvancement icon\n")
-    advancement_exp = str(input("\nadvancement exp\n"))
+    advancement_file = input("\nadvancement file name\n")
     inject_into_code = input("\nInject generated code into codebase directly? (y/n)\n")
     fabric_src = ""
     forge_src = ""
@@ -318,41 +314,33 @@ while restart:
 
     #  --------------ADVANCEMENTS--------------
 
-    with open(os.path.join('template', 'translated_advancement.json'), "r") as file:
-        file_content = file.read().replace("$1", structure_registry_name).replace("$2", advancement_icon).replace("$3", advancement_title) \
-                                .replace("$4", advancement_description).replace("$5", advancement_exp).replace("$6", config_subcategory)
-    filename = os.path.join('advancements', 'Repurposed_Structures-English_Translated_Advancements', "data", "repurposed_structures", "advancements", config_subcategory, structure_registry_name+'.json')
-    os.makedirs(os.path.dirname(filename), exist_ok=True)
-    with open(filename, "w") as file:
-        file.write(file_content)
+    path = os.path.join(fabric_src, 'main','resources','data','repurposed_structures','advancements', advancement_file)
+    with open(path, "r+") as file:
+        jsonData = json.load(file)
+        jsonData["criteria"]["in_"+structure_registry_name] = { 
+            "trigger": "minecraft:location",
+            "conditions": {
+                "feature": "repurposed_structures:"+structure_registry_name
+            } 
+        }
+        jsonData["requirements"].append(["in_"+structure_registry_name])
+        file.seek(0)
+        file.write(jsonData, indent=4, sort_keys=True)
+        file.truncate()
 
-
-    with open(os.path.join('template', 'translatable_advancement.json'), "r") as file:
-        file_content = file.read().replace("$1", structure_registry_name).replace("$2", advancement_icon).replace("$3", advancement_title) \
-                                .replace("$4", advancement_description).replace("$5", advancement_exp).replace("$6", config_subcategory)
-    filename = os.path.join('advancements', 'Repurposed_Structures-Translatable_Advancements', "data", "repurposed_structures", "advancements", config_subcategory, structure_registry_name+'.json')
-    os.makedirs(os.path.dirname(filename), exist_ok=True)
-    with open(filename, "w") as file:
-        file.write(file_content)
-
-
-    with open(os.path.join('template', 'hidden_advancement.json'), "r") as file:
-        file_content = file.read().replace("$1", structure_registry_name).replace("$2", advancement_icon).replace("$3", advancement_title) \
-                                .replace("$4", advancement_description).replace("$5", advancement_exp).replace("$6", config_subcategory)
-    filename = os.path.join('advancements', 'Repurposed_Structures-Hidden_Advancements', "data", "repurposed_structures", "advancements", config_subcategory, structure_registry_name+'.json')
-    os.makedirs(os.path.dirname(filename), exist_ok=True)
-    with open(filename, "w") as file:
-        file.write(file_content)
-
-
-    with open(os.path.join('template', 'disabled_advancement.json'), "r") as file:
-        file_content = file.read().replace("$1", structure_registry_name).replace("$2", advancement_icon).replace("$3", advancement_title) \
-                                .replace("$4", advancement_description).replace("$5", advancement_exp).replace("$6", config_subcategory)
-    filename = os.path.join('advancements', 'Repurposed_Structures-Disabled_Advancements', "data", "repurposed_structures", "advancements", config_subcategory, structure_registry_name+'.json')
-    os.makedirs(os.path.dirname(filename), exist_ok=True)
-    with open(filename, "w") as file:
-        file.write(file_content)
-
+    path = os.path.join(forge_src, 'main','resources','data','repurposed_structures','advancements', advancement_file)
+    with open(path, "r+") as file:
+        jsonData = json.load(file)
+        jsonData["criteria"]["in_"+structure_registry_name] = { 
+            "trigger": "minecraft:location",
+            "conditions": {
+                "feature": "repurposed_structures:"+structure_registry_name
+            } 
+        }
+        jsonData["requirements"].append(["in_"+structure_registry_name])
+        file.seek(0)
+        file.write(jsonData, indent=4, sort_keys=True)
+        file.truncate()
 
 
     path = os.path.join('code', 'raw_output', structure_registry_name+'.txt')

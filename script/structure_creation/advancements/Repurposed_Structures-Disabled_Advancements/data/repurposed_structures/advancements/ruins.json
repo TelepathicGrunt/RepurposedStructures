@@ -2,13 +2,13 @@
   "parent": "repurposed_structures:root",
   "display": {
     "icon": {
-      "item": "minecraft:cracked_polished_blackstone_bricks"
+      "item": "minecraft:magma_block"
     },
     "title": {
-      "translate": "Ruins"
+      "translate": "RS Ruins"
     },
     "description": {
-      "translate": "Go look for a Ruins!"
+      "translate": "Find all new Ruins!"
     },
     "show_toast": false,
     "announce_to_chat": false,
@@ -18,5 +18,10 @@
     "impossible": {
       "trigger": "minecraft:impossible"
     }
-  }
+  },
+  "requirements": [
+    [
+      "impossible"
+    ]
+  ]
 }

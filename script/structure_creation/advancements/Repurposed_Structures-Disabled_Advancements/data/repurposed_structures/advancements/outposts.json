@@ -5,10 +5,10 @@
       "item": "minecraft:crossbow"
     },
     "title": {
-      "translate": "Outposts"
+      "translate": "RS Outposts"
     },
     "description": {
-      "translate": "Go look for a Outpost!"
+      "translate": "Find all new Outposts!"
     },
     "show_toast": false,
     "announce_to_chat": false,
@@ -18,5 +18,10 @@
     "impossible": {
       "trigger": "minecraft:impossible"
     }
-  }
+  },
+  "requirements": [
+    [
+      "impossible"
+    ]
+  ]
 }

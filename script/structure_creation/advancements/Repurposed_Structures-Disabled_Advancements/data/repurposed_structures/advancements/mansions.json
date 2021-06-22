@@ -2,13 +2,13 @@
   "parent": "repurposed_structures:root",
   "display": {
     "icon": {
-      "item": "minecraft:dark_oak_stairs"
+      "item": "minecraft:totem_of_undying"
     },
     "title": {
-      "translate": "Mansions"
+      "translate": "RS Mansions"
     },
     "description": {
-      "translate": "Go look for a Mansion!"
+      "translate": "Find all new Mansions!"
     },
     "show_toast": false,
     "announce_to_chat": false,
@@ -18,5 +18,10 @@
     "impossible": {
       "trigger": "minecraft:impossible"
     }
-  }
+  },
+  "requirements": [
+    [
+      "impossible"
+    ]
+  ]
 }

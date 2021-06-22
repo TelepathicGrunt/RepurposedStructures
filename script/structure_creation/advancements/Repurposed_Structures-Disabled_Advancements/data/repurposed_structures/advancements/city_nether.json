@@ -2,17 +2,20 @@
   "parent": "repurposed_structures:root",
   "display": {
     "icon": {
-      "item": "minecraft:tnt"
+      "item": "minecraft:red_banner"
     },
     "title": {
-      "translate": "RS Pyramids"
+      "translate": "Blazing Cities"
     },
     "description": {
-      "translate": "Find all new Pyramids!"
+      "translate": "Enter a Nether City"
     },
     "show_toast": false,
     "announce_to_chat": false,
     "hidden": true
+  },
+  "rewards": {
+    "experience": 500
   },
   "criteria": {
     "impossible": {

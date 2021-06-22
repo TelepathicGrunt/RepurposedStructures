@@ -2,29 +2,32 @@
   "parent": "repurposed_structures:root",
   "display": {
     "icon": {
-      "item": "minecraft:ender_eye"
+      "item": "minecraft:bone"
     },
     "title": {
-      "translate": "RS Strongholds"
+      "translate": "Bastions, Evil, and Bones..."
     },
     "description": {
-      "translate": "Find all new Strongholds!"
+      "translate": "Enter a Underground Bastion"
     },
     "show_toast": true,
     "announce_to_chat": true,
     "hidden": false
   },
+  "rewards": {
+    "experience": 100
+  },
   "criteria": {
-    "in_stronghold_nether": {
+    "in_bastion_underground": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:stronghold_nether"
+        "feature": "repurposed_structures:bastion_underground"
       }
     }
   },
   "requirements": [
     [
-      "in_stronghold_nether"
+      "in_bastion_underground"
     ]
   ]
 }

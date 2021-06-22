@@ -5,10 +5,10 @@
       "item": "minecraft:red_bed"
     },
     "title": {
-      "translate": "Igloos"
+      "translate": "RS Igloos"
     },
     "description": {
-      "translate": "Go look for a Igloo!"
+      "translate": "Find all new igloos!"
     },
     "show_toast": false,
     "announce_to_chat": false,
@@ -18,5 +18,10 @@
     "impossible": {
       "trigger": "minecraft:impossible"
     }
-  }
+  },
+  "requirements": [
+    [
+      "impossible"
+    ]
+  ]
 }

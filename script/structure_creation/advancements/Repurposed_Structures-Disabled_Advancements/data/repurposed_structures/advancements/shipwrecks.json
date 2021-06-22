@@ -5,10 +5,10 @@
       "item": "minecraft:oak_boat"
     },
     "title": {
-      "translate": "Shipwrecks"
+      "translate": "RS Shipwrecks"
     },
     "description": {
-      "translate": "Go look for a Shipwreck!"
+      "translate": "Find all new Shipwrecks!"
     },
     "show_toast": false,
     "announce_to_chat": false,
@@ -18,5 +18,10 @@
     "impossible": {
       "trigger": "minecraft:impossible"
     }
-  }
+  },
+  "requirements": [
+    [
+      "impossible"
+    ]
+  ]
 }

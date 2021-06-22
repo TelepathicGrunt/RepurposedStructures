@@ -2,17 +2,20 @@
   "parent": "repurposed_structures:root",
   "display": {
     "icon": {
-      "item": "minecraft:tnt"
+      "item": "minecraft:bone"
     },
     "title": {
-      "translate": "RS Pyramids"
+      "translate": "Bastions, Evil, and Bones..."
     },
     "description": {
-      "translate": "Find all new Pyramids!"
+      "translate": "Enter a Underground Bastion"
     },
     "show_toast": false,
     "announce_to_chat": false,
     "hidden": true
+  },
+  "rewards": {
+    "experience": 100
   },
   "criteria": {
     "impossible": {
