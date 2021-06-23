@@ -20,7 +20,7 @@
             "Name": "minecraft:moss_block"
           },
           "input_predicate": {
-            "block": "minecraft:grass_path",
+            "block": "minecraft:dirt_path",
             "probability": 0.1,
             "predicate_type": "minecraft:random_block_match"
           },

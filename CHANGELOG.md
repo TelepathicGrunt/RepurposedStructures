@@ -17,7 +17,9 @@
 
 * Copper Ore spawns in Underground Bastions like Redstone Ores and Redstone Block do
   
-* Nerfed the rate of randomly placed Redstone Block and Redstone Ore a bit
+* Nerfed the rate of randomly placed Redstone Block and Redstone Ore a 
+  
+* Added Deepslate layer to bottom of Unit and Stables giant rooms in Underground Bastions to reduce chances of it getting burned down by lava
 
 ##### Nether Cities:
 * The topmost small tower tops will now spawn Wither Skeletons with Bows

@@ -10,6 +10,32 @@
       "rules": [
         {
           "output_state": {
+            "Name": "minecraft:cracked_deepslate_tiles"
+          },
+          "input_predicate": {
+            "block": "minecraft:deepslate",
+            "probability": 0.3,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:magma_block"
+          },
+          "input_predicate": {
+            "block": "minecraft:deepslate",
+            "probability": 0.04,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
             "Name": "minecraft:cracked_deepslate_bricks"
           },
           "input_predicate": {

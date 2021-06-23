@@ -8,7 +8,7 @@
         "location": "repurposed_structures:villages/swamp/zombie/houses/small_house_1",
         "processors": "repurposed_structures:villages/swamp/zombify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -17,7 +17,7 @@
         "location": "repurposed_structures:villages/swamp/zombie/houses/small_house_2",
         "processors": "repurposed_structures:villages/swamp/zombify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -26,7 +26,7 @@
         "location": "repurposed_structures:villages/swamp/zombie/houses/small_house_3",
         "processors": "repurposed_structures:villages/swamp/zombify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -35,7 +35,7 @@
         "location": "repurposed_structures:villages/swamp/zombie/houses/small_house_4",
         "processors": "repurposed_structures:villages/swamp/zombify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -44,7 +44,7 @@
         "location": "repurposed_structures:villages/swamp/zombie/houses/small_house_5",
         "processors": "repurposed_structures:villages/swamp/zombify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -53,7 +53,7 @@
         "location": "repurposed_structures:villages/swamp/zombie/houses/small_house_6",
         "processors": "repurposed_structures:villages/swamp/zombify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -62,7 +62,7 @@
         "location": "repurposed_structures:villages/swamp/zombie/houses/small_house_7",
         "processors": "repurposed_structures:villages/swamp/zombify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -71,7 +71,7 @@
         "location": "repurposed_structures:villages/swamp/zombie/houses/small_house_8",
         "processors": "repurposed_structures:villages/swamp/zombify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -80,7 +80,7 @@
         "location": "repurposed_structures:villages/swamp/zombie/houses/medium_house_1",
         "processors": "repurposed_structures:villages/swamp/zombify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -89,7 +89,7 @@
         "location": "repurposed_structures:villages/swamp/zombie/houses/medium_house_2",
         "processors": "repurposed_structures:villages/swamp/zombify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -98,7 +98,7 @@
         "location": "repurposed_structures:villages/swamp/zombie/houses/medium_house_3",
         "processors": "repurposed_structures:villages/swamp/zombify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -107,7 +107,7 @@
         "location": "repurposed_structures:villages/swamp/houses/butcher_shop_1",
         "processors": "repurposed_structures:villages/swamp/zombify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -116,7 +116,7 @@
         "location": "repurposed_structures:villages/swamp/houses/butcher_shop_2",
         "processors": "repurposed_structures:villages/swamp/zombify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -125,7 +125,7 @@
         "location": "repurposed_structures:villages/swamp/houses/tool_smith_1",
         "processors": "repurposed_structures:villages/swamp/zombify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -134,7 +134,7 @@
         "location": "repurposed_structures:villages/swamp/houses/fletcher_house_1",
         "processors": "repurposed_structures:villages/swamp/zombify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -143,7 +143,7 @@
         "location": "repurposed_structures:villages/swamp/houses/shepherds_house_1",
         "processors": "repurposed_structures:villages/swamp/zombify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -152,7 +152,7 @@
         "location": "repurposed_structures:villages/swamp/houses/armorer_house_1",
         "processors": "repurposed_structures:villages/swamp/zombify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -161,7 +161,7 @@
         "location": "repurposed_structures:villages/swamp/houses/armorer_house_2",
         "processors": "repurposed_structures:villages/swamp/zombify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -170,7 +170,7 @@
         "location": "repurposed_structures:villages/swamp/houses/fisher_cottage",
         "processors": "repurposed_structures:villages/swamp/zombify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -179,7 +179,7 @@
         "location": "repurposed_structures:villages/swamp/houses/tannery_1",
         "processors": "repurposed_structures:villages/swamp/zombify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -188,7 +188,7 @@
         "location": "repurposed_structures:villages/swamp/houses/cartographer_house_1",
         "processors": "repurposed_structures:villages/swamp/zombify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -197,7 +197,7 @@
         "location": "repurposed_structures:villages/swamp/houses/library_1",
         "processors": "repurposed_structures:villages/swamp/zombify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -206,7 +206,7 @@
         "location": "repurposed_structures:villages/swamp/houses/masons_house_1",
         "processors": "repurposed_structures:villages/swamp/zombify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -215,7 +215,7 @@
         "location": "repurposed_structures:villages/swamp/houses/masons_house_2",
         "processors": "repurposed_structures:villages/swamp/zombify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -224,7 +224,7 @@
         "location": "repurposed_structures:villages/swamp/houses/weapon_smith_1",
         "processors": "repurposed_structures:villages/swamp/zombify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -233,7 +233,7 @@
         "location": "repurposed_structures:villages/swamp/houses/temple_1",
         "processors": "repurposed_structures:villages/swamp/zombify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -242,7 +242,7 @@
         "location": "repurposed_structures:villages/swamp/houses/farm_1",
         "processors": "repurposed_structures:villages/swamp/zombify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -251,7 +251,7 @@
         "location": "repurposed_structures:villages/swamp/houses/farm_2",
         "processors": "repurposed_structures:villages/swamp/zombify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -260,7 +260,7 @@
         "location": "repurposed_structures:villages/swamp/houses/animal_pen_1",
         "processors": "repurposed_structures:villages/swamp/zombify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -269,7 +269,7 @@
         "location": "repurposed_structures:villages/swamp/houses/animal_pen_2",
         "processors": "repurposed_structures:villages/swamp/zombify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {

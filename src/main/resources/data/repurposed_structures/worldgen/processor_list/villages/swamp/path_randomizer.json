@@ -7,7 +7,7 @@
             "Name": "minecraft:brown_terracotta"
           },
           "input_predicate": {
-            "block": "minecraft:grass_path",
+            "block": "minecraft:dirt_path",
             "probability": 0.3,
             "predicate_type": "minecraft:random_block_match"
           },
@@ -20,7 +20,7 @@
             "Name": "minecraft:coarse_dirt"
           },
           "input_predicate": {
-            "block": "minecraft:grass_path",
+            "block": "minecraft:dirt_path",
             "probability": 0.1,
             "predicate_type": "minecraft:random_block_match"
           },
@@ -33,7 +33,7 @@
             "Name": "minecraft:moss_block"
           },
           "input_predicate": {
-            "block": "minecraft:grass_path",
+            "block": "minecraft:dirt_path",
             "probability": 0.1,
             "predicate_type": "minecraft:random_block_match"
           },
@@ -49,7 +49,7 @@
             "Name": "minecraft:grass_block"
           },
           "input_predicate": {
-            "block": "minecraft:grass_path",
+            "block": "minecraft:dirt_path",
             "probability": 0.1,
             "predicate_type": "minecraft:random_block_match"
           },
@@ -62,7 +62,7 @@
             "Name": "minecraft:gray_terracotta"
           },
           "input_predicate": {
-            "block": "minecraft:grass_path",
+            "block": "minecraft:dirt_path",
             "probability": 0.2,
             "predicate_type": "minecraft:random_block_match"
           },
@@ -75,7 +75,7 @@
             "Name": "minecraft:gray_terracotta"
           },
           "input_predicate": {
-            "block": "minecraft:grass_path",
+            "block": "minecraft:dirt_path",
             "probability": 0.55,
             "predicate_type": "minecraft:random_block_match"
           },
@@ -89,7 +89,7 @@
             "Name": "minecraft:brown_terracotta"
           },
           "input_predicate": {
-            "block": "minecraft:grass_path",
+            "block": "minecraft:dirt_path",
             "probability": 0.85,
             "predicate_type": "minecraft:random_block_match"
           },
@@ -106,7 +106,7 @@
             "Name": "minecraft:water"
           },
           "input_predicate": {
-            "block": "minecraft:grass_path",
+            "block": "minecraft:dirt_path",
             "predicate_type": "minecraft:block_match"
           },
           "location_predicate": {
