@@ -51,12 +51,7 @@ string_blacklist = []
 conversion_partial_dict = {
 }
 conversion_exact_dict = {
-    "minecraft:polished_andesite": "minecraft:polished_deepslate",
-    "minecraft:cracked_stone_bricks": "minecraft:cracked_deepslate_bricks",
-    "minecraft:redstone_ore": "minecraft:deepslate_redstone_ore",
-    "minecraft:stone_bricks": "minecraft:deepslate_bricks",
-    "minecraft:stone": "minecraft:deepslate",
-    "minecraft:chiseled_stone_bricks": "minecraft:chiseled_deepslate"
+    "minecraft:grass_path": "minecraft:dirt_path"
 }
 
 #-------------------------------------------------------------------------------------------
