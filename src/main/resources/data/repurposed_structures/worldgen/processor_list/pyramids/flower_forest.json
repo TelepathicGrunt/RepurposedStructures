@@ -8,7 +8,7 @@
           },
           "input_predicate": {
             "block": "minecraft:spore_blossom",
-            "probability": 0.9875,
+            "probability": 0.9885,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -21,7 +21,7 @@
           },
           "input_predicate": {
             "block": "minecraft:red_tulip",
-            "probability": 0.02,
+            "probability": 0.01,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -47,7 +47,7 @@
           },
           "input_predicate": {
             "block": "minecraft:red_tulip",
-            "probability": 0.1,
+            "probability": 0.11,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -60,7 +60,7 @@
           },
           "input_predicate": {
             "block": "minecraft:red_tulip",
-            "probability": 0.11,
+            "probability": 0.12,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -73,7 +73,7 @@
           },
           "input_predicate": {
             "block": "minecraft:red_tulip",
-            "probability": 0.12,
+            "probability": 0.13,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -86,7 +86,7 @@
           },
           "input_predicate": {
             "block": "minecraft:red_tulip",
-            "probability": 0.13,
+            "probability": 0.14,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -99,7 +99,7 @@
           },
           "input_predicate": {
             "block": "minecraft:red_tulip",
-            "probability": 0.14,
+            "probability": 0.15,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -112,7 +112,7 @@
           },
           "input_predicate": {
             "block": "minecraft:red_tulip",
-            "probability": 0.15,
+            "probability": 0.16,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -125,7 +125,7 @@
           },
           "input_predicate": {
             "block": "minecraft:red_tulip",
-            "probability": 0.16,
+            "probability": 0.17,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -138,7 +138,7 @@
           },
           "input_predicate": {
             "block": "minecraft:red_tulip",
-            "probability": 0.17,
+            "probability": 0.18,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -152,25 +152,7 @@
       "processor_type": "repurposed_structures:data_block_processor"
     },
     {
-      "ignore_block": [
-        "minecraft:poppy",
-        "minecraft:allium",
-        "minecraft:lily_of_the_valley",
-        "minecraft:cornflower",
-        "minecraft:pink_tulip",
-        "minecraft:white_tulip",
-        "minecraft:orange_tulip",
-        "minecraft:red_tulip",
-        "minecraft:lilac",
-        "minecraft:rose_bush",
-        "minecraft:peony",
-        "minecraft:oxeye_daisy",
-        "minecraft:azure_bluet"
-      ],
       "processor_type": "repurposed_structures:air_processor"
-    },
-    {
-      "processor_type": "repurposed_structures:water_fix_processor"
     }
   ]
 }

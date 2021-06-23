@@ -25,7 +25,9 @@
 * The topmost small tower tops will now spawn Wither Skeletons with Bows
 
 ##### Mineshafts:
-* Ocean Mineshafts now uses waterlogged Rails instead of waterlogged Trapdoors
+* Ocean Mineshafts now uses waterlogged Rails instead of waterlogged 
+  
+* Swamp Mineshaft's floor now uses Moss Blocks instead of Grass Blocks
 
 ##### Igloos:
 * Grassy Igloos are now made of Moss Blocks

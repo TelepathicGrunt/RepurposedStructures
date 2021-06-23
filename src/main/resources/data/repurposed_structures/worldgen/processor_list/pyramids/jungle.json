@@ -240,13 +240,7 @@
       "processor_type": "repurposed_structures:data_block_processor"
     },
     {
-      "ignore_block": [
-        "minecraft:vine"
-      ],
       "processor_type": "repurposed_structures:air_processor"
-    },
-    {
-      "processor_type": "repurposed_structures:water_fix_processor"
     }
   ]
 }

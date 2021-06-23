@@ -8,7 +8,7 @@
           },
           "input_predicate": {
             "block": "minecraft:spore_blossom",
-            "probability": 0.95,
+            "probability": 0.94,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -35,27 +35,7 @@
       "processor_type": "repurposed_structures:data_block_processor"
     },
     {
-      "ignore_block": [
-        "minecraft:poppy",
-        "minecraft:allium",
-        "minecraft:lily_of_the_valley",
-        "minecraft:cornflower",
-        "minecraft:pink_tulip",
-        "minecraft:white_tulip",
-        "minecraft:orange_tulip",
-        "minecraft:red_tulip",
-        "minecraft:lilac",
-        "minecraft:rose_bush",
-        "minecraft:peony",
-        "minecraft:oxeye_daisy",
-        "minecraft:azure_bluet",
-        "minecraft:grass",
-        "minecraft:tall_grass"
-      ],
       "processor_type": "repurposed_structures:air_processor"
-    },
-    {
-      "processor_type": "repurposed_structures:water_fix_processor"
     }
   ]
 }

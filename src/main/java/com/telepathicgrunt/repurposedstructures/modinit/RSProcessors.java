@@ -15,7 +15,6 @@ import com.telepathicgrunt.repurposedstructures.world.processors.ReplaceLiquidOn
 import com.telepathicgrunt.repurposedstructures.world.processors.SpawnerRandomizingProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.StructureVoidProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.WallVinePostProcessor;
-import com.telepathicgrunt.repurposedstructures.world.processors.WaterloggingFixProcessor;
 import net.minecraft.structure.processor.StructureProcessorType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -24,7 +23,6 @@ public class RSProcessors {
 
     public static StructureProcessorType<AirProcessor> AIR_PROCESSOR = () -> AirProcessor.CODEC;
     public static StructureProcessorType<DataBlockProcessor> DATA_BLOCK_PROCESSOR = () -> DataBlockProcessor.CODEC;
-    public static StructureProcessorType<WaterloggingFixProcessor> WATER_FIX_PROCESSOR = () -> WaterloggingFixProcessor.CODEC;
     public static StructureProcessorType<StructureVoidProcessor> STRUCTURE_VOID_PROCESSOR = () -> StructureVoidProcessor.CODEC;
     public static StructureProcessorType<FloodWithWaterProcessor> FLOOD_WITH_WATER_PROCESSOR = () -> FloodWithWaterProcessor.CODEC;
     public static StructureProcessorType<ReplaceAirOnlyProcessor> REPLACE_AIR_ONLY_PROCESSOR = () -> ReplaceAirOnlyProcessor.CODEC;
@@ -42,7 +40,6 @@ public class RSProcessors {
     public static void registerProcessors() {
         Registry.register(Registry.STRUCTURE_PROCESSOR, new Identifier(RepurposedStructures.MODID, "air_processor"), AIR_PROCESSOR);
         Registry.register(Registry.STRUCTURE_PROCESSOR, new Identifier(RepurposedStructures.MODID, "data_block_processor"), DATA_BLOCK_PROCESSOR);
-        Registry.register(Registry.STRUCTURE_PROCESSOR, new Identifier(RepurposedStructures.MODID, "water_fix_processor"), WATER_FIX_PROCESSOR);
         Registry.register(Registry.STRUCTURE_PROCESSOR, new Identifier(RepurposedStructures.MODID, "structure_void_processor"), STRUCTURE_VOID_PROCESSOR);
         Registry.register(Registry.STRUCTURE_PROCESSOR, new Identifier(RepurposedStructures.MODID, "flood_with_water_processor"), FLOOD_WITH_WATER_PROCESSOR);
         Registry.register(Registry.STRUCTURE_PROCESSOR, new Identifier(RepurposedStructures.MODID, "replace_air_only_processor"), REPLACE_AIR_ONLY_PROCESSOR);
