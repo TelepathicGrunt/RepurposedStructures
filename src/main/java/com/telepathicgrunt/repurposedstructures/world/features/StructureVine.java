@@ -25,9 +25,9 @@ public class StructureVine extends Feature<StructureTargetLengthRangeConfig> {
 
         for(int i = 0; i < context.getConfig().attempts; i++){
             mutable.set(context.getOrigin()).move(
-                    context.getRandom().nextInt((context.getConfig().range * 2) + 1) - context.getConfig().range,
-                    context.getRandom().nextInt(5) - 1,
-                    context.getRandom().nextInt((context.getConfig().range * 2) + 1) - context.getConfig().range
+                    context.getRandom().nextInt((context.getConfig().xzRange * 2) + 1) - context.getConfig().xzRange,
+                    context.getRandom().nextInt(context.getConfig().heightRange) - 1,
+                    context.getRandom().nextInt((context.getConfig().xzRange * 2) + 1) - context.getConfig().xzRange
             );
 
             if(!context.getWorld().isAir(mutable)){

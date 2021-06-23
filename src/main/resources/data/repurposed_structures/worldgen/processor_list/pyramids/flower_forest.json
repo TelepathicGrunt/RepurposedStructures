@@ -7,6 +7,32 @@
             "Name": "minecraft:air"
           },
           "input_predicate": {
+            "block": "minecraft:spore_blossom",
+            "probability": 0.99,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:flowering_azalea"
+          },
+          "input_predicate": {
+            "block": "minecraft:red_tulip",
+            "probability": 0.033,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:air"
+          },
+          "input_predicate": {
             "block": "minecraft:red_tulip",
             "probability": 0.5,
             "predicate_type": "minecraft:random_block_match"

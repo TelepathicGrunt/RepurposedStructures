@@ -4,6 +4,19 @@
       "rules": [
         {
           "output_state": {
+            "Name": "minecraft:air"
+          },
+          "input_predicate": {
+            "block": "minecraft:moss_carpet",
+            "probability": 0.22,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
             "Name": "minecraft:mossy_stone_bricks"
           },
           "input_predicate": {

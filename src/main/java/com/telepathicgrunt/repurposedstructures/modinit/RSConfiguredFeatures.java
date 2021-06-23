@@ -249,6 +249,7 @@ public class RSConfiguredFeatures {
     public static ConfiguredFeature<?, ?> OCEAN_PYRAMID_STRUCTURE_PLANTS = RSFeatures.STRUCTURE_SEAGRASS.configure(new StructureTargetConfig(RSStructures.PYRAMID_OCEAN, 12));
     public static ConfiguredFeature<?, ?> FLOWER_FOREST_PYRAMID_STRUCTURE_GRASS = RSFeatures.STRUCTURE_GRASS.configure(new StructureTargetAndRangeConfig(RSStructures.PYRAMID_FLOWER_FOREST, 24, 3));
     public static ConfiguredFeature<?, ?> FLOWER_FOREST_PYRAMID_STRUCTURE_FLOWERS = RSFeatures.STRUCTURE_FLOWERS.configure(new StructureTargetAndRangeConfig(RSStructures.PYRAMID_FLOWER_FOREST, 8, 3));
+    public static ConfiguredFeature<?, ?> SWAMP_VILLAGE_STRUCTURE_VINES = RSFeatures.STRUCTURE_VINES.configure(new StructureTargetLengthRangeConfig(RSStructures.SWAMP_VILLAGE, 10, 3, 4, 10));
 
     public static ConfiguredFeature<?, ?> WARM_LAND_RUINS_STRUCTURE_GRASS = Feature.RANDOM_PATCH
             .configure(ConfiguredFeatures.Configs.TALL_GRASS_CONFIG)

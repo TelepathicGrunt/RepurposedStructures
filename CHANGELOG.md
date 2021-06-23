@@ -10,8 +10,28 @@
 * All advancements has been condensed. Now there's one advancement for finding all variants of one structure type. 
   For example, you have to find and enter all Repurposed Structures villages to get the advancement for RS Villages.
 
+##### Bastions:
+* Underground Bastions now uses Deepslate instead of Stone Bricks
+
 ##### Nether Cities:
-* The topmost small tower tops will now spawn Wither Skeletons with Bows,
+* The topmost small tower tops will now spawn Wither Skeletons with Bows
+
+##### Mineshafts:
+* Ocean Mineshafts now uses waterlogged Rails instead of waterlogged Trapdoors
+
+##### Igloos:
+* Grassy Igloos are now made of Moss Blocks
+
+##### Pyramids:
+* Jungle Pyramids now has a bit of Moss Carpet
+  
+* Flower Forest Pyramids now has Moss Block, Spore Blossom, Small Dripleaf, and Flowering Azalea
+
+##### Villages:
+* Swamp Villages now utilizes Moss Blocks heavily and has more Vines
+
+##### Outposts:
+* Jungle Outposts tents is made of Moss Blocks and has Moss Carpet under them
 
 ##### Pool Additions:
 * Will now print out to the logs if a merging pool has a typo in its nbt file entries.

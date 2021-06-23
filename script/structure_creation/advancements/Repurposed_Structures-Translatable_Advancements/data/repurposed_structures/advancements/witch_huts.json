@@ -2,7 +2,7 @@
   "parent": "repurposed_structures:root",
   "display": {
     "icon": {
-      "item": "minecraft:water_cauldron"
+      "item": "minecraft:cauldron"
     },
     "title": {
       "translate": "RS Witch Huts"

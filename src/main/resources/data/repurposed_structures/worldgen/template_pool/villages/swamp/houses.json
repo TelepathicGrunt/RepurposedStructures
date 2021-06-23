@@ -1,6 +1,6 @@
 {
   "name": "repurposed_structures:villages/swamp/houses",
-  "fallback": "repurposed_structures:villages/swamp/terminators",
+  "fallback": "repurposed_structures:villages/swamp/vines",
   "elements": [
     {
       "weight": 1,

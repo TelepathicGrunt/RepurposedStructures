@@ -51,24 +51,12 @@ string_blacklist = []
 conversion_partial_dict = {
 }
 conversion_exact_dict = {
-    "repurposed_structures:chests/temple/nether_basalt_chest": "repurposed_structures:chests/temples/nether_basalt",
-    "repurposed_structures:chests/temple/nether_crimson_chest": "repurposed_structures:chests/temples/nether_crimson",
-    "repurposed_structures:chests/temple/nether_soul_chest": "repurposed_structures:chests/temples/nether_soul",
-    "repurposed_structures:chests/temple/nether_warped_chest": "repurposed_structures:chests/temples/nether_warped",
-    "repurposed_structures:chests/temple/nether_wasteland_chest": "repurposed_structures:chests/temples/nether_wasteland",
-    "repurposed_structures:chests/temple/nether_warped_trapped_chest": "repurposed_structures:trapped_chests/temples/nether_warped",
-    "repurposed_structures:chests/temple/nether_warped_dispenser": "repurposed_structures:dispensers/temples/nether_warped",
-    "repurposed_structures:chests/temple/nether_wasteland_dispenser": "repurposed_structures:dispensers/temples/nether_wasteland",
-    "repurposed_structures:chests/temple/nether_basalt_dispenser": "repurposed_structures:dispensers/temples/nether_basalt",
-    "repurposed_structures:chests/temple/nether_crimson_dispenser": "repurposed_structures:dispensers/temples/nether_crimson",
-    "repurposed_structures:chests/temple/nether_soul_dispenser": "repurposed_structures:dispensers/temples/nether_soul",
-    "repurposed_structures:mansion/birch": "repurposed_structures:mansions/birch",
-    "repurposed_structures:mansion/desert": "repurposed_structures:mansions/desert",
-    "repurposed_structures:mansion/jungle": "repurposed_structures:mansions/jungle",
-    "repurposed_structures:mansion/oak": "repurposed_structures:mansions/oak",
-    "repurposed_structures:mansion/savanna": "repurposed_structures:mansions/savanna",
-    "repurposed_structures:mansion/snowy": "repurposed_structures:mansions/snowy",
-    "repurposed_structures:mansion/taiga": "repurposed_structures:mansions/taiga"
+    "minecraft:polished_andesite": "minecraft:polished_deepslate",
+    "minecraft:cracked_stone_bricks": "minecraft:cracked_deepslate_bricks",
+    "minecraft:redstone_ore": "minecraft:deepslate_redstone_ore",
+    "minecraft:stone_bricks": "minecraft:deepslate_bricks",
+    "minecraft:stone": "minecraft:deepslate",
+    "minecraft:chiseled_stone_bricks": "minecraft:chiseled_deepslate"
 }
 
 #-------------------------------------------------------------------------------------------

@@ -10,7 +10,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:cracked_stone_bricks"
+            "Name": "minecraft:cracked_deepslate_bricks"
           },
           "input_predicate": {
             "block": "minecraft:magma_block",
@@ -23,10 +23,10 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:polished_andesite"
+            "Name": "minecraft:polished_deepslate"
           },
           "input_predicate": {
-            "block": "minecraft:cracked_stone_bricks",
+            "block": "minecraft:cracked_deepslate_bricks",
             "probability": 0.15,
             "predicate_type": "minecraft:random_block_match"
           },
@@ -36,10 +36,10 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:stone_bricks"
+            "Name": "minecraft:deepslate_bricks"
           },
           "input_predicate": {
-            "block": "minecraft:redstone_ore",
+            "block": "minecraft:deepslate_redstone_ore",
             "probability": 0.5,
             "predicate_type": "minecraft:random_block_match"
           },
@@ -52,10 +52,10 @@
             "Properties": {
               "lit": "false"
             },
-            "Name": "minecraft:redstone_ore"
+            "Name": "minecraft:deepslate_redstone_ore"
           },
           "input_predicate": {
-            "block": "minecraft:stone_bricks",
+            "block": "minecraft:deepslate_bricks",
             "probability": 0.01,
             "predicate_type": "minecraft:random_block_match"
           },
@@ -72,7 +72,7 @@
       "if_air_in_world": true,
       "weighted_list_of_replacement_blocks": [
         {
-          "block" : "minecraft:stone",
+          "block" : "minecraft:deepslate",
           "weight": 1
         }
       ]

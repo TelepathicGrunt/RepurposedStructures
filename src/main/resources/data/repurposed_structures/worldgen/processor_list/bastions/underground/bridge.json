@@ -10,10 +10,10 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:cracked_stone_bricks"
+            "Name": "minecraft:cracked_deepslate_bricks"
           },
           "input_predicate": {
-            "block": "minecraft:polished_andesite",
+            "block": "minecraft:polished_deepslate",
             "probability": 0.3,
             "predicate_type": "minecraft:random_block_match"
           },
@@ -26,7 +26,7 @@
             "Name": "minecraft:air"
           },
           "input_predicate": {
-            "block": "minecraft:stone_bricks",
+            "block": "minecraft:deepslate_bricks",
             "probability": 1.0E-4,
             "predicate_type": "minecraft:random_block_match"
           },
@@ -43,7 +43,7 @@
       "if_air_in_world": true,
       "weighted_list_of_replacement_blocks": [
         {
-          "block" : "minecraft:stone",
+          "block" : "minecraft:deepslate",
           "weight": 1
         }
       ]

@@ -49,7 +49,7 @@ if (project.use_third_party_mods) {
 	}
 
 	dependencies {
-		modImplementation "com.telepathicgrunt:LoadNbtBlock:1.17-2.0.0-fabric"
+		modImplementation "com.telepathicgrunt:LoadNbtBlock:2.0.4+1.17"
 		modImplementation "curse.maven:structure_void_toggle-357304:3349168"
 		modImplementation "com.telepathicgrunt:Blame-Fabric:1.17-4.0.0-fabric"
 	}

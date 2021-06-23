@@ -1,0 +1,14 @@
+{
+  "name": "repurposed_structures:villages/swamp/vines",
+  "fallback": "repurposed_structures:villages/swamp/vines",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "feature": "repurposed_structures:swamp_village_structure_vines",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    }
+  ]
+}

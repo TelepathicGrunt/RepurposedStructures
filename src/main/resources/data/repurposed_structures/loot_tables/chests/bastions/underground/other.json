@@ -289,7 +289,7 @@
       },
       "entries": [
         {
-          "name": "minecraft:redstone_ore",
+          "name": "minecraft:deepslate_redstone_ore",
           "type": "minecraft:item",
           "weight": 2,
           "functions": [
