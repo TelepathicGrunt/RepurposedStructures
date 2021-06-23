@@ -54,7 +54,7 @@ public class StructureVine extends Feature<StructureTargetLengthRangeConfig> {
                         currentBlockstate = Blocks.VINE.getDefaultState().with(VineBlock.getFacingProperty(direction), Boolean.TRUE);
                         aboveBlockstate = context.getWorld().getBlockState(vineMutablePos.up());
 
-                        if (currentBlockstate.canPlaceAt(context.getWorld(), vineMutablePos)) {
+                        if (currentBlockstate.canPlaceAt(context.getWorld(), vineMutablePos) && context.getWorld().getBlockState(vineMutablePos.offset(direction)).getBlock() != Blocks.MOSS_CARPET) {
                             //places topmost vine that can face upward
                             context.getWorld().setBlockState(vineMutablePos, currentBlockstate.with(VineBlock.UP, aboveBlockstate.isOpaque()), 2);
                             length++;
