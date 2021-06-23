@@ -12,6 +12,12 @@
 
 ##### Bastions:
 * Underground Bastions now uses Deepslate instead of Stone Bricks
+  
+* Fixed Bastion Treasure room chest not having loot
+
+* Copper Ore spawns in Underground Bastions like Redstone Ores and Redstone Block do
+  
+* Nerfed the rate of randomly placed Redstone Block and Redstone Ore a bit
 
 ##### Nether Cities:
 * The topmost small tower tops will now spawn Wither Skeletons with Bows

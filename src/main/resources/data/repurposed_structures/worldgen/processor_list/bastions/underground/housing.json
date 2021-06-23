@@ -49,6 +49,19 @@
         },
         {
           "output_state": {
+            "Name": "minecraft:deepslate_copper_ore"
+          },
+          "input_predicate": {
+            "block": "minecraft:deepslate_redstone_ore",
+            "probability": 0.1,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
             "Properties": {
               "lit": "false"
             },
@@ -56,7 +69,20 @@
           },
           "input_predicate": {
             "block": "minecraft:deepslate_bricks",
-            "probability": 0.01,
+            "probability": 0.008,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:deepslate_copper_ore"
+          },
+          "input_predicate": {
+            "block": "minecraft:deepslate_bricks",
+            "probability": 0.002,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
