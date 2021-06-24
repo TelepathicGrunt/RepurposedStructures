@@ -9,25 +9,6 @@ import me.shedaniel.cloth.clothconfig.shadowed.blue.endless.jankson.Comment;
 @Config(name = "Mineshafts")
 public class RSMineshaftsConfig implements ConfigData {
 
-
-    @ConfigEntry.Gui.Tooltip(count = 0)
-    @ConfigEntry.Gui.PrefixText
-    @Comment("Controls whether loot chests spawn or not in modded Mineshafts.")
-    public boolean lootChestsMS = true;
-
-    @ConfigEntry.Gui.Tooltip(count = 0)
-    @ConfigEntry.Gui.PrefixText
-    @Comment("Add the custom Mineshafts to modded biomes of the same categories/type.")
-    public boolean addMineshaftsToModdedBiomes = true;
-
-    @ConfigEntry.Gui.Tooltip(count = 0)
-    @ConfigEntry.Gui.PrefixText
-    @Comment("Add the ID/resource location of the biome you don't want"
-            +"\nRS's mineshafts to spawn in. Separate each ID with a comma ,"
-            +"\n"
-            +"\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
-    public String blacklistedMineshaftBiomes = "betterend:sulphur_springs";
-
     @ConfigEntry.Gui.CollapsibleObject
     public Spawnrate spawnrate = new Spawnrate();
 

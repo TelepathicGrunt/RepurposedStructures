@@ -114,9 +114,8 @@ public class Mineshafts {
                 context -> context.getGenerationSettings().removeStructure(StructureFeature.MINESHAFT));
     }
 
-    private static boolean genericMineshaftCheck(BiomeSelectionContext context) {
+    private static boolean genericMineshaftCheck(BiomeSelectionContext context, StructureFeature<?> structureFeature) {
         return BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.MINESHAFT)
-                && BiomeSelection.isBiomeAllowed(context, "mineshafts")
-                && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSMineshaftsConfig.addMineshaftsToModdedBiomes);
+                && BiomeSelection.isBiomeAllowed(context, structureFeature);
     }
 }

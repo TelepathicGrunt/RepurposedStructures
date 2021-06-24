@@ -1,6 +1,5 @@
         GeneralUtils.addToBiome("pyramid_mushroom",
                 (context) -> 
 						&& BiomeSelection.isBiomeAllowed(context, "pyramids")
-                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.maxChunkDistance.pyramidMushroomMaxChunkDistance != 1001
-                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSTemplesConfig.blacklist.addPyramidMushroomToModdedBiomes),
+                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.maxChunkDistance.pyramidMushroomMaxChunkDistance != 1001),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.PYRAMID_MUSHROOM));

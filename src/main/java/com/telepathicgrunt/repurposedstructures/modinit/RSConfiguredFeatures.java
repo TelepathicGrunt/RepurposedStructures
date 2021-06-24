@@ -168,29 +168,29 @@ public class RSConfiguredFeatures {
     // Wells
     public static ConfiguredFeature<?, ?> BADLANDS_WELL = RSFeatures.BADLANDS_WELL.configure(FeatureConfig.DEFAULT)
             .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.OCEAN_FLOOR_WG)).spreadHorizontally())
-            .applyChance(RepurposedStructures.RSAllConfig.RSWellsConfig.rarityPerChunk.badlandsWellRarityPerChunk);
+            .applyChance(RepurposedStructures.RSAllConfig.RSWellsConfig.badlandsWellRarityPerChunk);
 
     public static ConfiguredFeature<?, ?> NETHER_WELL = RSFeatures.NETHER_WELL.configure(FeatureConfig.DEFAULT)
             .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(UniformHeightProvider.create(
                     YOffset.aboveBottom(30),
                     YOffset.belowTop(35)))))
-            .applyChance(RepurposedStructures.RSAllConfig.RSWellsConfig.rarityPerChunk.netherWellRarityPerChunk);
+            .applyChance(RepurposedStructures.RSAllConfig.RSWellsConfig.netherWellRarityPerChunk);
 
     public static ConfiguredFeature<?, ?> SNOW_WELL = RSFeatures.SNOW_WELL.configure(FeatureConfig.DEFAULT)
             .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.OCEAN_FLOOR_WG)).spreadHorizontally())
-            .applyChance(RepurposedStructures.RSAllConfig.RSWellsConfig.rarityPerChunk.snowWellRarityPerChunk);
+            .applyChance(RepurposedStructures.RSAllConfig.RSWellsConfig.snowWellRarityPerChunk);
 
     public static ConfiguredFeature<?, ?> MOSSY_STONE_WELL = RSFeatures.MOSSY_STONE_WELL.configure(FeatureConfig.DEFAULT)
             .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.OCEAN_FLOOR_WG)).spreadHorizontally())
-            .applyChance(RepurposedStructures.RSAllConfig.RSWellsConfig.rarityPerChunk.mossyStoneWellRarityPerChunk);
+            .applyChance(RepurposedStructures.RSAllConfig.RSWellsConfig.mossyStoneWellRarityPerChunk);
 
     public static ConfiguredFeature<?, ?> FOREST_WELL = RSFeatures.FOREST_WELL.configure(FeatureConfig.DEFAULT)
             .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.OCEAN_FLOOR_WG)).spreadHorizontally())
-            .applyChance(RepurposedStructures.RSAllConfig.RSWellsConfig.rarityPerChunk.forestWellRarityPerChunk);
+            .applyChance(RepurposedStructures.RSAllConfig.RSWellsConfig.forestWellRarityPerChunk);
 
     public static ConfiguredFeature<?, ?> MUSHROOM_WELL = RSFeatures.MUSHROOM_WELL.configure(FeatureConfig.DEFAULT)
             .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.OCEAN_FLOOR_WG)).spreadHorizontally())
-            .applyChance(RepurposedStructures.RSAllConfig.RSWellsConfig.rarityPerChunk.mushroomWellRarityPerChunk);
+            .applyChance(RepurposedStructures.RSAllConfig.RSWellsConfig.mushroomWellRarityPerChunk);
 
     public static List<ConfiguredFeature<?, ?>> RS_WELLS = new ArrayList<>();
 

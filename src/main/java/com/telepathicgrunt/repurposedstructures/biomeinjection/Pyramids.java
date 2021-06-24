@@ -15,15 +15,13 @@ public class Pyramids {
         GeneralUtils.addToBiome("nether_pyramid",
                 (context) -> BiomeSelection.haveCategories(context, Category.NETHER)
                         && RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.netherPyramidMaxChunkDistance != 1001
-                        && BiomeSelection.isBiomeAllowed(context, "temples")
-                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.addNetherPyramidToModdedBiomes),
+                        && BiomeSelection.isBiomeAllowed(context, "temples")),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.NETHER_PYRAMID));
 
         GeneralUtils.addToBiome("badlands_pyramid",
                 (context) -> BiomeSelection.haveCategories(context, Category.MESA)
                         && RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.badlandsPyramidMaxChunkDistance != 1001
-                        && BiomeSelection.isBiomeAllowed(context, "temples")
-                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.addBadlandsPyramidToModdedBiomes),
+                        && BiomeSelection.isBiomeAllowed(context, "temples")),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.BADLANDS_PYRAMID));
 
         GeneralUtils.addToBiome("pyramid_snowy",
@@ -33,8 +31,7 @@ public class Pyramids {
                         || (BiomeSelection.haveCategories(context, Category.TAIGA)
                             && context.getBiome().getPrecipitation() == Biome.Precipitation.SNOW))
                         && BiomeSelection.isBiomeAllowed(context, "pyramids")
-                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidSnowyMaxChunkDistance != 1001
-                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.addPyramidSnowyToModdedBiomes),
+                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidSnowyMaxChunkDistance != 1001),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.PYRAMID_SNOWY));
 
         GeneralUtils.addToBiome("pyramid_end",
@@ -51,38 +48,33 @@ public class Pyramids {
                         && (BiomeSelection.hasName(context, "icy", "ice", "frozen")
                             || (context.getBiome().getTemperature() < 0 && !BiomeSelection.hasName(context, "snow")))
 						&& BiomeSelection.isBiomeAllowed(context, "pyramids")
-                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidIcyMaxChunkDistance != 1001
-                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.addPyramidIcyToModdedBiomes),
+                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidIcyMaxChunkDistance != 1001),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.PYRAMID_ICY));
 
         GeneralUtils.addToBiome("pyramid_jungle",
                 (context) -> BiomeSelection.haveCategories(context, Category.JUNGLE)
 						&& BiomeSelection.isBiomeAllowed(context, "pyramids")
-                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidJungleMaxChunkDistance != 1001
-                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.addPyramidJungleToModdedBiomes),
+                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidJungleMaxChunkDistance != 1001),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.PYRAMID_JUNGLE));
 
         GeneralUtils.addToBiome("pyramid_mushroom",
                 (context) -> BiomeSelection.haveCategories(context, Category.MUSHROOM)
 						&& BiomeSelection.isBiomeAllowed(context, "pyramids")
-                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidMushroomMaxChunkDistance != 1001
-                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.addPyramidMushroomToModdedBiomes),
+                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidMushroomMaxChunkDistance != 1001),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.PYRAMID_MUSHROOM));
 
         GeneralUtils.addToBiome("pyramid_ocean",
                 (context) -> BiomeSelection.haveCategories(context, Category.OCEAN)
                         && !BiomeSelection.isBiome(context, BiomeKeys.MUSHROOM_FIELD_SHORE)
 						&& BiomeSelection.isBiomeAllowed(context, "pyramids")
-                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidOceanMaxChunkDistance != 1001
-                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.addPyramidOceanToModdedBiomes),
+                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidOceanMaxChunkDistance != 1001),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.PYRAMID_OCEAN));
 
         GeneralUtils.addToBiome("pyramid_giant_tree_taiga",
                 (context) -> BiomeSelection.haveCategories(context, Category.TAIGA)
                         && BiomeSelection.hasName(context, "giant", "redwood")
 						&& BiomeSelection.isBiomeAllowed(context, "pyramids")
-                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidGiantTreeTaigaMaxChunkDistance != 1001
-                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.addPyramidGiantTreeTaigaToModdedBiomes),
+                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidGiantTreeTaigaMaxChunkDistance != 1001),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.PYRAMID_GIANT_TREE_TAIGA));
 
         GeneralUtils.addToBiome("pyramid_flower_forest",
@@ -90,8 +82,7 @@ public class Pyramids {
                         && !BiomeSelection.isBiome(context, BiomeKeys.SUNFLOWER_PLAINS)
                         && BiomeSelection.hasName(context, "flower", "blossom")
 						&& BiomeSelection.isBiomeAllowed(context, "pyramids")
-                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidFlowerForestMaxChunkDistance != 1001
-                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.addPyramidFlowerForestToModdedBiomes),
+                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.pyramids.pyramidFlowerForestMaxChunkDistance != 1001),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.PYRAMID_FLOWER_FOREST));
     }
 }

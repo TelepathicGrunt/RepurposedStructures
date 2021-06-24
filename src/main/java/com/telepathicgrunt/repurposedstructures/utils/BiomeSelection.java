@@ -1,15 +1,23 @@
 package com.telepathicgrunt.repurposedstructures.utils;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.misc.BiomeDimensionAllowDisallow;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.BuiltinRegistries;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.StructureFeature;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 public class BiomeSelection {
 
@@ -43,7 +51,28 @@ public class BiomeSelection {
         return RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(tag).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().hasStructureFeature(structure));
     }
 
-    public static boolean isBiomeAllowed(BiomeSelectionContext context, String structureType) {
-        return RepurposedStructures.ALL_BIOME_BLACKLISTS.get(structureType).stream().noneMatch(blacklistedBiome -> blacklistedBiome.equals(context.getBiomeKey().getValue().toString()));
+
+    public static boolean isBiomeAllowed(BiomeSelectionContext context, StructureFeature<?> structureFeature, Supplier<Boolean> defaultCondition) {
+        return (BiomeSelection.isBiomeAllowed(context, structureFeature, Registry.STRUCTURE_FEATURE) ||
+                    (!BiomeSelection.isBiomeDisallowed(context, structureFeature, Registry.STRUCTURE_FEATURE) &&
+                            defaultCondition.get()));
+    }
+
+    public static boolean isBiomeAllowed(BiomeSelectionContext context, ConfiguredFeature<?, ?> configuredFeature, Supplier<Boolean> defaultCondition) {
+        return (BiomeSelection.isBiomeAllowed(context, configuredFeature, BuiltinRegistries.CONFIGURED_FEATURE) ||
+                (!BiomeSelection.isBiomeDisallowed(context, configuredFeature, BuiltinRegistries.CONFIGURED_FEATURE) &&
+                        defaultCondition.get()));
+    }
+
+    public static <T> boolean isBiomeAllowed(BiomeSelectionContext context, T worldgenObject, Registry<T> registry) {
+        Identifier registryId = registry.getId(worldgenObject);
+        String biomeID = context.getBiomeKey().toString();
+        return BiomeDimensionAllowDisallow.BIOME_ALLOW.get(registryId).stream().anyMatch(pattern -> pattern.matcher(biomeID).matches());
+    }
+
+    public static <T> boolean isBiomeDisallowed(BiomeSelectionContext context, T worldgenObject, Registry<T> registry) {
+        Identifier registryId = registry.getId(worldgenObject);
+        String biomeID = context.getBiomeKey().toString();
+        return BiomeDimensionAllowDisallow.BIOME_DISALLOW.get(registryId).stream().anyMatch(pattern -> pattern.matcher(biomeID).matches());
     }
 }

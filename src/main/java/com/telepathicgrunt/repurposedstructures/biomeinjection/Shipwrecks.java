@@ -28,8 +28,7 @@ public class Shipwrecks {
                         && BiomeSelection.hasName(context, "crimson", "red_")
                         && RepurposedStructures.RSAllConfig.RSShipwrecksConfig.maxChunkDistance.crimsonShipwreckMaxChunkDistance != 1001
                         && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.NETHER_SHIPWRECK)
-                        && BiomeSelection.isBiomeAllowed(context, "shipwrecks")
-                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSShipwrecksConfig.blacklist.addCrimsonShipwreckToModdedBiomes),
+                        && BiomeSelection.isBiomeAllowed(context, "shipwrecks")),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.CRIMSON_SHIPWRECK));
 
         GeneralUtils.addToBiome("warped_shipwreck",
@@ -37,8 +36,7 @@ public class Shipwrecks {
                         && BiomeSelection.hasName(context, "warped", "blue")
                         && RepurposedStructures.RSAllConfig.RSShipwrecksConfig.maxChunkDistance.warpedShipwreckMaxChunkDistance != 1001
                         && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.NETHER_SHIPWRECK)
-                        && BiomeSelection.isBiomeAllowed(context, "shipwrecks")
-                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSShipwrecksConfig.blacklist.addWarpedShipwreckToModdedBiomes),
+                        && BiomeSelection.isBiomeAllowed(context, "shipwrecks")),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.WARPED_SHIPWRECK));
 
         GeneralUtils.addToBiome("nether_bricks_shipwreck",
@@ -47,8 +45,7 @@ public class Shipwrecks {
                         && !BiomeSelection.hasName(context, "crimson", "red_", "warped", "blue")
                         && RepurposedStructures.RSAllConfig.RSShipwrecksConfig.maxChunkDistance.netherBricksShipwreckMaxChunkDistance != 1001
                         && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.NETHER_SHIPWRECK)
-                        && BiomeSelection.isBiomeAllowed(context, "shipwrecks")
-                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSShipwrecksConfig.blacklist.addNetherBricksShipwreckToModdedBiomes),
+                        && BiomeSelection.isBiomeAllowed(context, "shipwrecks")),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.NETHER_BRICKS_SHIPWRECK_FLYING));
 
         GeneralUtils.addToBiome("nether_bricks_shipwreck_flying",
@@ -56,8 +53,7 @@ public class Shipwrecks {
                         && !BiomeSelection.hasName(context, "crimson", "red_", "warped", "blue", "soul")
                         && RepurposedStructures.RSAllConfig.RSShipwrecksConfig.maxChunkDistance.netherBricksShipwreckMaxChunkDistance != 1001
                         && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.NETHER_SHIPWRECK)
-                        && BiomeSelection.isBiomeAllowed(context, "shipwrecks")
-                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSShipwrecksConfig.blacklist.addNetherBricksShipwreckToModdedBiomes),
+                        && BiomeSelection.isBiomeAllowed(context, "shipwrecks")),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.NETHER_BRICKS_SHIPWRECK));
 
     }

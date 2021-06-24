@@ -6,12 +6,13 @@ import me.shedaniel.autoconfig.annotation.ConfigEntry;
 import me.shedaniel.cloth.clothconfig.shadowed.blue.endless.jankson.Comment;
 
 
-@Config(name = "Bastions")
-public class RSBastionsConfig implements ConfigData {
+@Config(name = "Cities")
+public class RSCitiesConfig implements ConfigData {
 
     @ConfigEntry.Gui.Tooltip(count = 0)
     @ConfigEntry.Gui.PrefixText
-    @Comment("How rare are Underground Bastions in non-ocean and non-beach Overworld biomes. 1 for spawning in most chunks and 10001 for none.")
-    @ConfigEntry.BoundedDiscrete(min = 1, max = 10001)
-    public int bastionUndergroundMaxChunkDistance = 500;
+    @Comment("How rare are Nether Cities in Nether biomes."
+            + "\n1 for spawning in most chunks and 1001 for none.")
+    @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+    public int cityNetherMaxChunkDistance = 120;
 }

@@ -53,7 +53,6 @@ public class Wells {
 
     private static boolean genericWellCheck(BiomeSelectionContext context) {
         return RSConfiguredFeatures.RS_WELLS.stream().noneMatch(context::hasBuiltInFeature)
-                && BiomeSelection.isBiomeAllowed(context, "wells")
-                && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSWellsConfig.addWellsToModdedBiomes);
+                && BiomeSelection.isBiomeAllowed(context, "wells"));
     }
 }

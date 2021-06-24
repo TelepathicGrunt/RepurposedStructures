@@ -1,6 +1,5 @@
         GeneralUtils.addToBiome("pyramid_giant_tree_taiga",
                 (context) -> 
 						&& BiomeSelection.isBiomeAllowed(context, "pyramids")
-                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.maxChunkDistance.pyramidGiantTreeTaigaMaxChunkDistance != 1001
-                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSTemplesConfig.blacklist.addPyramidGiantTreeTaigaToModdedBiomes),
+                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.maxChunkDistance.pyramidGiantTreeTaigaMaxChunkDistance != 1001),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.PYRAMID_GIANT_TREE_TAIGA));

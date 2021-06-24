@@ -8,13 +8,37 @@ import me.shedaniel.autoconfig.annotation.ConfigEntry;
 @Config(name = "repurposed_structures-main")
 public class RSAllConfig implements ConfigData {
 
+    @ConfigEntry.Category("Biome/Dimension/Modded Loot")
+    @ConfigEntry.Gui.TransitiveObject
+    public RSAllowDisallowConfig RSAllowDisallowConfig = new RSAllowDisallowConfig();
+
+    @ConfigEntry.Category("Cities")
+    @ConfigEntry.Gui.TransitiveObject
+    public RSCitiesConfig RSCitiesConfig = new RSCitiesConfig();
+
+    @ConfigEntry.Category("Fortresses")
+    @ConfigEntry.Gui.TransitiveObject
+    public RSFortressesConfig RSFortressesConfig = new RSFortressesConfig();
+
+    @ConfigEntry.Category("Igloos")
+    @ConfigEntry.Gui.TransitiveObject
+    public RSigloosConfig RSigloosConfig = new RSigloosConfig();
+
+    @ConfigEntry.Category("Ruined Portals")
+    @ConfigEntry.Gui.TransitiveObject
+    public RSRuinedPortalsConfig RSRuinedPortalsConfig = new RSRuinedPortalsConfig();
+
+    @ConfigEntry.Category("Ruins")
+    @ConfigEntry.Gui.TransitiveObject
+    public RSRuinsConfig RSRuinsConfig = new RSRuinsConfig();
+
     @ConfigEntry.Category("Dungeons")
     @ConfigEntry.Gui.TransitiveObject
     public RSDungeonsConfig RSDungeonsConfig = new RSDungeonsConfig();
 
-    @ConfigEntry.Category("Main")
+    @ConfigEntry.Category("Pyramids")
     @ConfigEntry.Gui.TransitiveObject
-    public RSMainConfig RSMainConfig = new RSMainConfig();
+    public RSPyramidsConfig RSPyramidsConfig = new RSPyramidsConfig();
 
     @ConfigEntry.Category("Temples")
     @ConfigEntry.Gui.TransitiveObject

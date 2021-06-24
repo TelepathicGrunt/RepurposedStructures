@@ -9,14 +9,6 @@ import me.shedaniel.cloth.clothconfig.shadowed.blue.endless.jankson.Comment;
 @Config(name = "Strongholds")
 public class RSStrongholdsConfig implements ConfigData
 {
-	@ConfigEntry.Gui.Tooltip(count = 0)
-	@ConfigEntry.Gui.PrefixText
-	@Comment("Add the ID/resource location of the biome you don't want"
-			+"\nRS's strongholds to spawn in. Separate each ID with a comma ,"
-			+"\n"
-			+"\nExample: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
-	public String blacklistedStrongholdBiomes = "";
-
 	@ConfigEntry.Gui.CollapsibleObject
 	public RSStrongholdsConfig.Nether nether = new RSStrongholdsConfig.Nether();
 
@@ -30,17 +22,12 @@ public class RSStrongholdsConfig implements ConfigData
 
 		@ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
-		@Comment("How rare are Nether-styled Strongholds in Nether-category biomes."
-				+ "\n1 for spawning in most chunks and 1001 for no spawn."
-				+ "\nNote: Eyes of Ender will work and show the closest Nether Stronghold too.")
+		@Comment("""
+				How rare are Nether-styled Strongholds in Nether-category biomes.
+				1 for spawning in most chunks and 1001 for no spawn.
+				Note: Eyes of Ender will work and show the closest Nether Stronghold too.""")
 		@ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
 		public int netherStrongholdMaxChunkDistance = 100;
-
-		@ConfigEntry.Gui.Tooltip(count = 0)
-        @ConfigEntry.Gui.PrefixText
-		@Comment("Allow Nether-styled Stronghold to"
-				+ "\ngenerate in modded Nether biomes.")
-		public boolean addNetherStrongholdToModdedBiomes = true;
 
 		@ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
@@ -51,9 +38,10 @@ public class RSStrongholdsConfig implements ConfigData
 
 		@ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
-		@Comment("Max Y height that the starting point can spawn at."
-				+"\nDefault is 35."
-				+ "\nIf below min height, this will be read as min.")
+		@Comment("""
+				Max Y height that the starting point can spawn at.
+				Default is 35.
+				If below min height, this will be read as min.""")
 		@ConfigEntry.BoundedDiscrete(min = 0, max = 255)
 		public int netherStrongholdMaxHeight = 36;
 	}

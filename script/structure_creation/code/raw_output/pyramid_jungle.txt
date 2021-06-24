@@ -13,8 +13,7 @@
         GeneralUtils.addToBiome("pyramid_jungle",
                 (context) -> 
 						&& BiomeSelection.isBiomeAllowed(context, "pyramids")
-                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.maxChunkDistance.pyramidJungleMaxChunkDistance != 1001
-                        && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.RSTemplesConfig.blacklist.addPyramidJungleToModdedBiomes),
+                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.maxChunkDistance.pyramidJungleMaxChunkDistance != 1001),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.PYRAMID_JUNGLE));
 
         @ConfigEntry.Gui.Tooltip(count = 0)

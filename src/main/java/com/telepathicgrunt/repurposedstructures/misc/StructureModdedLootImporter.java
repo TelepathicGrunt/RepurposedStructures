@@ -47,6 +47,7 @@ public class StructureModdedLootImporter {
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/mineshafts/swamp"), new Identifier("minecraft:chests/abandoned_mineshaft"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/mineshafts/taiga"), new Identifier("minecraft:chests/abandoned_mineshaft"));
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/mineshafts/warped"), new Identifier("minecraft:chests/abandoned_mineshaft"));
+        tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/bastions/underground/treasure"), new Identifier("minecraft:chests/stronghold_corridor")); // new Identifier("minecraft:chests/bastion_treasure")
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/bastions/underground/bridge"), new Identifier("minecraft:chests/stronghold_corridor")); // new Identifier("minecraft:chests/bastion_bridge")
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/bastions/underground/other"), new Identifier("minecraft:chests/stronghold_corridor")); // new Identifier("minecraft:chests/bastion_other")
         tableMap.put(new Identifier(RepurposedStructures.MODID, "chests/bastions/underground/skeleton_horse_stable"), new Identifier("minecraft:chests/stronghold_corridor")); // new Identifier("minecraft:chests/bastion_hoglin_stable")
@@ -209,7 +210,7 @@ public class StructureModdedLootImporter {
 
     private static boolean isInBlacklist(Identifier lootTableID){
         if(BLACKLISTED_LOOTTABLES == null){
-            String cleanedBlacklist = RepurposedStructures.RSAllConfig.RSMainConfig.blacklistedRSLoottablesFromImportingModdedItems.replace(" ", "");
+            String cleanedBlacklist = RepurposedStructures.RSAllConfig.RSAllowDisallowConfig.blacklistedRSLoottablesFromImportingModdedItems.trim();
 
             if(cleanedBlacklist.equals("")){
                 BLACKLISTED_LOOTTABLES = new HashSet<>(); // make empty set instead of ["minecraft:"].
@@ -217,6 +218,7 @@ public class StructureModdedLootImporter {
             else {
                 BLACKLISTED_LOOTTABLES =
                         Arrays.stream(cleanedBlacklist.split(","))
+                            .map(String::trim)
                             .map(Identifier::new)
                             .collect(Collectors.toSet());
             }
