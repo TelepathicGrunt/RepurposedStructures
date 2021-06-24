@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.mixin.structures;
 
 import net.minecraft.structure.pool.StructurePool;
+import org.spongepowered.asm.mixin.Debug;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
@@ -14,7 +15,7 @@ public class StructurePoolMixin {
      * @return - The higher weight that is a more reasonable limit.
      */
     @ModifyConstant(
-            method = "method_28886(Lcom/mojang/serialization/codecs/RecordCodecBuilder$Instance;)Lcom/mojang/datafixers/kinds/App",
+            method = "method_28886",
             constant = @Constant(intValue = 150), require = 0
     )
     private static int repurposedstructures_increaseWeightLimit(int constant) {
