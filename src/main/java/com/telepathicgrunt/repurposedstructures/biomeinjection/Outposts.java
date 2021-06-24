@@ -24,7 +24,7 @@ public class Outposts {
                             () -> BiomeSelection.haveCategories(context, Category.NETHER)
                             && BiomeSelection.hasName(context, "crimson", "red_")
                             && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.NETHER_OUTPOST))
-                        && RepurposedStructures.RSAllConfig.RSOutpostsConfig.crimsonOutpostMaxChunkDistance != 1001,
+                        && RepurposedStructures.RSAllConfig.RSOutpostsConfig.crimsonOutpostMaxChunkDistance != 10001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.CRIMSON_OUTPOST));
 
         GeneralUtils.addToBiome("warped_outpost",
@@ -33,7 +33,7 @@ public class Outposts {
                             () -> BiomeSelection.haveCategories(context, Category.NETHER)
                             && BiomeSelection.hasName(context, "warped", "blue")
                             && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.NETHER_OUTPOST))
-                        && RepurposedStructures.RSAllConfig.RSOutpostsConfig.warpedOutpostMaxChunkDistance != 1001,
+                        && RepurposedStructures.RSAllConfig.RSOutpostsConfig.warpedOutpostMaxChunkDistance != 10001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.WARPED_OUTPOST));
 
         GeneralUtils.addToBiome("nether_brick_outpost",
@@ -42,7 +42,7 @@ public class Outposts {
                             () -> BiomeSelection.haveCategories(context, Category.NETHER)
                             && !BiomeSelection.hasName(context, "crimson", "red_", "warped", "blue")
                             && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.NETHER_OUTPOST))
-                        && RepurposedStructures.RSAllConfig.RSOutpostsConfig.netherBrickOutpostMaxChunkDistance != 1001,
+                        && RepurposedStructures.RSAllConfig.RSOutpostsConfig.netherBrickOutpostMaxChunkDistance != 10001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.NETHER_BRICK_OUTPOST));
 
 
@@ -51,7 +51,7 @@ public class Outposts {
                         BiomeSelection.isBiomeAllowed(context, RSStructures.OUTPOST_BIRCH,
                             () -> BiomeSelection.hasName(context, "birch")
                             && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.OVERWORLD_OUTPOST))
-                        && RepurposedStructures.RSAllConfig.RSOutpostsConfig.outpostBirchMaxChunkDistance != 1001,
+                        && RepurposedStructures.RSAllConfig.RSOutpostsConfig.outpostBirchMaxChunkDistance != 10001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.OUTPOST_BIRCH));
 
 
@@ -60,7 +60,7 @@ public class Outposts {
                         BiomeSelection.isBiomeAllowed(context, RSStructures.OUTPOST_JUNGLE,
                             () -> BiomeSelection.haveCategories(context, Category.JUNGLE)
                             && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.OVERWORLD_OUTPOST))
-                        && RepurposedStructures.RSAllConfig.RSOutpostsConfig.outpostJungleMaxChunkDistance != 1001,
+                        && RepurposedStructures.RSAllConfig.RSOutpostsConfig.outpostJungleMaxChunkDistance != 10001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.OUTPOST_JUNGLE));
 
         GeneralUtils.addToBiome("outpost_giant_tree_taiga",
@@ -69,7 +69,7 @@ public class Outposts {
                             () -> (BiomeSelection.haveCategories(context, Category.TAIGA)
                             && BiomeSelection.hasName(context, "giant", "redwood"))
                         && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.OVERWORLD_OUTPOST))
-                        && RepurposedStructures.RSAllConfig.RSOutpostsConfig.outpostGiantTreeTaigaMaxChunkDistance != 1001,
+                        && RepurposedStructures.RSAllConfig.RSOutpostsConfig.outpostGiantTreeTaigaMaxChunkDistance != 10001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.OUTPOST_GIANT_TREE_TAIGA));
 
         GeneralUtils.addToBiome("outpost_desert",
@@ -77,7 +77,7 @@ public class Outposts {
                         BiomeSelection.isBiomeAllowed(context, RSStructures.OUTPOST_DESERT,
                             () -> BiomeSelection.haveCategories(context, Category.DESERT)
                             && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.OVERWORLD_OUTPOST))
-                        && RepurposedStructures.RSAllConfig.RSOutpostsConfig.outpostDesertMaxChunkDistance != 1001,
+                        && RepurposedStructures.RSAllConfig.RSOutpostsConfig.outpostDesertMaxChunkDistance != 10001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.OUTPOST_DESERT));
 
         GeneralUtils.addToBiome("outpost_badlands",
@@ -85,7 +85,7 @@ public class Outposts {
                         BiomeSelection.isBiomeAllowed(context, RSStructures.OUTPOST_BADLANDS,
                             () -> BiomeSelection.haveCategories(context, Category.MESA)
                             && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.OVERWORLD_OUTPOST))
-                        && RepurposedStructures.RSAllConfig.RSOutpostsConfig.outpostBadlandsMaxChunkDistance != 1001,
+                        && RepurposedStructures.RSAllConfig.RSOutpostsConfig.outpostBadlandsMaxChunkDistance != 10001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.OUTPOST_BADLANDS));
 
         GeneralUtils.addToBiome("outpost_snowy",
@@ -94,7 +94,7 @@ public class Outposts {
                             () -> (BiomeSelection.hasName(context, "snow")
                             || (BiomeSelection.haveCategories(context, Category.ICY) && !(BiomeSelection.hasName(context, "ice", "icy", "glacier", "frozen"))))
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.OVERWORLD_OUTPOST))
-                        && RepurposedStructures.RSAllConfig.RSOutpostsConfig.outpostSnowyMaxChunkDistance != 1001,
+                        && RepurposedStructures.RSAllConfig.RSOutpostsConfig.outpostSnowyMaxChunkDistance != 10001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.OUTPOST_SNOWY));
 
         GeneralUtils.addToBiome("outpost_icy",
@@ -103,7 +103,7 @@ public class Outposts {
                             () -> BiomeSelection.haveCategories(context, Category.ICY)
                             && BiomeSelection.hasName(context, "ice", "icy", "glacier", "frozen")
                             && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.OVERWORLD_OUTPOST))
-                        && RepurposedStructures.RSAllConfig.RSOutpostsConfig.outpostIcyMaxChunkDistance != 1001,
+                        && RepurposedStructures.RSAllConfig.RSOutpostsConfig.outpostIcyMaxChunkDistance != 10001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.OUTPOST_ICY));
 
         GeneralUtils.addToBiome("outpost_taiga",
@@ -111,7 +111,7 @@ public class Outposts {
                         BiomeSelection.isBiomeAllowed(context, RSStructures.OUTPOST_TAIGA,
                             () -> BiomeSelection.haveCategories(context, Category.TAIGA)
                             && !BiomeSelection.hasName(context, "giant", "redwood", "snow", "ice", "icy", "glacier", "frozen")
-                        && RepurposedStructures.RSAllConfig.RSOutpostsConfig.outpostTaigaMaxChunkDistance != 1001),
+                        && RepurposedStructures.RSAllConfig.RSOutpostsConfig.outpostTaigaMaxChunkDistance != 10001),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.OUTPOST_TAIGA));
 
         GeneralUtils.addToBiome("outpost_oak",
@@ -119,7 +119,7 @@ public class Outposts {
                         BiomeSelection.isBiomeAllowed(context, RSStructures.OUTPOST_OAK,
                             () -> BiomeSelection.haveCategories(context, Category.FOREST)
                             && !(BiomeSelection.hasName(context, "birch", "dark", "spooky", "dead", "haunted"))
-                        && RepurposedStructures.RSAllConfig.RSOutpostsConfig.outpostOakMaxChunkDistance != 1001),
+                        && RepurposedStructures.RSAllConfig.RSOutpostsConfig.outpostOakMaxChunkDistance != 10001),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.OUTPOST_OAK));
 
         GeneralUtils.addToBiome("outpost_end",
@@ -127,7 +127,7 @@ public class Outposts {
                         BiomeSelection.isBiomeAllowed(context, RSStructures.OUTPOST_END,
                             () -> BiomeSelection.haveCategories(context, Category.THEEND)
                             && !BiomeSelection.isBiome(context, BiomeKeys.THE_END, BiomeKeys.SMALL_END_ISLANDS, BiomeKeys.END_BARRENS)
-                        && RepurposedStructures.RSAllConfig.RSOutpostsConfig.outpostEndMaxChunkDistance != 1001),
+                        && RepurposedStructures.RSAllConfig.RSOutpostsConfig.outpostEndMaxChunkDistance != 10001),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.OUTPOST_END));
 
         //Remove vanilla outposts from biomes we added our outpost to

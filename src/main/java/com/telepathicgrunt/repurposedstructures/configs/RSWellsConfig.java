@@ -13,6 +13,9 @@ public class RSWellsConfig implements ConfigData {
         @ConfigEntry.Gui.PrefixText
         @ConfigEntry.Gui.RequiresRestart
         @Comment("""
+
+
+
                 Adds Badlands themed wells to Badlands biomes`.
                 Changes how often wells attempt to spawn per chunk.
                 Chance of a well generating in a chunk is 1/rarityPerChunk.
@@ -24,6 +27,9 @@ public class RSWellsConfig implements ConfigData {
         @ConfigEntry.Gui.PrefixText
         @ConfigEntry.Gui.RequiresRestart
         @Comment("""
+
+
+
                 Adds Nether themed wells to Nether biomes.
                 Changes how often wells attempt to spawn per chunk.
                 Chance of a well generating in a chunk is 1/rarityPerChunk.
@@ -35,6 +41,9 @@ public class RSWellsConfig implements ConfigData {
         @ConfigEntry.Gui.PrefixText
         @ConfigEntry.Gui.RequiresRestart
         @Comment("""
+
+
+
                 Adds Snow themed wells to snowy and icy biomes.
                 Changes how often wells attempt to spawn per chunk.
                 Chance of a well generating in a chunk is 1/rarityPerChunk.
@@ -46,6 +55,9 @@ public class RSWellsConfig implements ConfigData {
         @ConfigEntry.Gui.PrefixText
         @ConfigEntry.Gui.RequiresRestart
         @Comment("""
+
+
+
                 Adds mossy stone themed wells to Jungles, Dark Oak, and Swamp biomes.
                 Changes how often wells attempt to spawn per chunk.
                 Chance of a well generating in a chunk is 1/rarityPerChunk.
@@ -57,6 +69,9 @@ public class RSWellsConfig implements ConfigData {
         @ConfigEntry.Gui.PrefixText
         @ConfigEntry.Gui.RequiresRestart
         @Comment("""
+
+
+
                 Adds a wood themed wells to Forest and Birch Forest biomes.
                 Changes how often wells attempt to spawn per chunk.
                 Chance of a well generating in a chunk is 1/rarityPerChunk.
@@ -68,6 +83,9 @@ public class RSWellsConfig implements ConfigData {
         @ConfigEntry.Gui.PrefixText
         @ConfigEntry.Gui.RequiresRestart
         @Comment("""
+
+
+
                 Adds a mushroom themed wells to Mushroom biomes.
                 Changes how often wells attempt to spawn per chunk.
                 Chance of a well generating in a chunk is 1/rarityPerChunk.

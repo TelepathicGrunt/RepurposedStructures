@@ -1,5 +1,5 @@
         GeneralUtils.addToBiome("outpost_end",
                 (context) -> 
 						&& BiomeSelection.isBiomeAllowed(context, "outposts")
-                        && RepurposedStructures.RSAllConfig.RSOutpostsConfig.maxChunkDistance.outpostEndMaxChunkDistance != 1001),
+                        && RepurposedStructures.RSAllConfig.RSOutpostsConfig.maxChunkDistance.outpostEndMaxChunkDistance != 10001),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.OUTPOST_END));

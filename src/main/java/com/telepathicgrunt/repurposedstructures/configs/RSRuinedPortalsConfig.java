@@ -13,9 +13,12 @@ public class RSRuinedPortalsConfig implements ConfigData {
     @ConfigEntry.Gui.PrefixText
     @ConfigEntry.Gui.RequiresRestart
     @Comment("""
+
+
+
             How rare are End themed Ruined Portals in
             End category biomes. 1 for spawning in most
-            chunks and 1001 for none.""")
-    @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+            chunks and 10001 for none.""")
+    @ConfigEntry.BoundedDiscrete(min = 1, max = 10001)
     public int ruinedPortalEndMaxChunkDistance = 57;
 }

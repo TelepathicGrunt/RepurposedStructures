@@ -1,5 +1,5 @@
         GeneralUtils.addToBiome("pyramid_jungle",
                 (context) -> 
 						&& BiomeSelection.isBiomeAllowed(context, "pyramids")
-                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.maxChunkDistance.pyramidJungleMaxChunkDistance != 1001),
+                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.maxChunkDistance.pyramidJungleMaxChunkDistance != 10001),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.PYRAMID_JUNGLE));

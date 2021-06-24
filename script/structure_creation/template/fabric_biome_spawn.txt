@@ -1,6 +1,6 @@
         GeneralUtils.addToBiome("$1",
                 (context) -> 
 						&& BiomeSelection.isBiomeAllowed(context, "$2")
-                        && RepurposedStructures.RSAllConfig.$3.maxChunkDistance.$4 != 1001
+                        && RepurposedStructures.RSAllConfig.$3.maxChunkDistance.$4 != 10001
                         && (BiomeSelection.hasNamespace(context, "minecraft") || RepurposedStructures.RSAllConfig.$3.blacklist.$5),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.$6));

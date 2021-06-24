@@ -5,7 +5,7 @@ import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
 
 
-@Config(name = "repurposed_structures-main")
+@Config(name = "repurposed_structures-fabric")
 public class RSAllConfig implements ConfigData {
 
     @ConfigEntry.Category("Biome/Dimension/Modded Loot")

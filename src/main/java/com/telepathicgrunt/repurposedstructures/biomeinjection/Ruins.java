@@ -14,7 +14,7 @@ public class Ruins {
                 (context) ->
                         BiomeSelection.isBiomeAllowed(context, RSStructures.RUINS_NETHER,
                                 () -> BiomeSelection.haveCategories(context, Category.NETHER))
-                && RepurposedStructures.RSAllConfig.RSRuinsConfig.ruinsNetherMaxChunkDistance != 1001,
+                && RepurposedStructures.RSAllConfig.RSRuinsConfig.ruinsNetherMaxChunkDistance != 10001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.RUINS_NETHER));
 
         GeneralUtils.addToBiome("ruins_land_warm",
@@ -23,14 +23,14 @@ public class Ruins {
                                 () -> BiomeSelection.haveCategories(context, Category.PLAINS, Category.FOREST, Category.TAIGA, Category.SWAMP)
                                 && !BiomeSelection.hasName(context, "snow", "ice", "frozen")
                                 && context.getBiome().getTemperature() >= 0.25f)
-                        && RepurposedStructures.RSAllConfig.RSRuinsConfig.ruinsLandWarmMaxChunkDistance != 1001,
+                        && RepurposedStructures.RSAllConfig.RSRuinsConfig.ruinsLandWarmMaxChunkDistance != 10001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.RUINS_LAND_WARM));
 
         GeneralUtils.addToBiome("ruins_land_hot",
                 (context) ->
                         BiomeSelection.isBiomeAllowed(context, RSStructures.RUINS_LAND_HOT,
                                 () -> BiomeSelection.haveCategories(context, Category.DESERT))
-                        && RepurposedStructures.RSAllConfig.RSRuinsConfig.ruinsLandHotMaxChunkDistance != 1001,
+                        && RepurposedStructures.RSAllConfig.RSRuinsConfig.ruinsLandHotMaxChunkDistance != 10001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.RUINS_LAND_HOT));
         // regexpos1
     }

@@ -11,6 +11,6 @@
         @ConfigEntry.Gui.RequiresRestart
         @Comment("How rare are Icy Pyramid in biomes that are super"
                 + "\ncold or has icy words in its name. 1 for spawning"
-                + "\nin most chunks and 1001 for none.")
-        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+                + "\nin most chunks and 10001 for none.")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 10001)
         public int pyramidIcyMaxChunkDistance = 37;

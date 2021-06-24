@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
@@ -70,12 +71,40 @@ public class BiomeSelection {
     public static <T> boolean isBiomeAllowed(BiomeSelectionContext context, T worldgenObject, Registry<T> registry) {
         Identifier registryId = registry.getId(worldgenObject);
         String biomeID = context.getBiomeKey().toString();
-        return BiomeDimensionAllowDisallow.BIOME_ALLOW.getOrDefault(registryId, new ArrayList<>()).stream().anyMatch(pattern -> pattern.matcher(biomeID).matches());
+        return BiomeDimensionAllowDisallow.BIOME_ALLOW.getOrDefault(registryId, new ArrayList<>()).stream()
+                .anyMatch(pattern -> {
+                    if(pattern.pattern().startsWith("#")){
+                        String cleanedUpCategoryString = pattern.pattern().trim().toLowerCase(Locale.ROOT).replace("#", "");
+                        Biome.Category category = Biome.Category.byName(cleanedUpCategoryString);
+                        if(category == null){
+                            RepurposedStructures.LOGGER.warn("Unknown biome category detected in one of the biome allow configs: {}", cleanedUpCategoryString);
+                        }
+                        else{
+                            return context.getBiome().getCategory().equals(category);
+                        }
+                    }
+
+                    return pattern.matcher(biomeID).matches();
+                });
     }
 
     public static <T> boolean isBiomeDisallowed(BiomeSelectionContext context, T worldgenObject, Registry<T> registry) {
         Identifier registryId = registry.getId(worldgenObject);
         String biomeID = context.getBiomeKey().toString();
-        return BiomeDimensionAllowDisallow.BIOME_DISALLOW.getOrDefault(registryId, new ArrayList<>()).stream().anyMatch(pattern -> pattern.matcher(biomeID).matches());
+        return BiomeDimensionAllowDisallow.BIOME_DISALLOW.getOrDefault(registryId, new ArrayList<>()).stream()
+                .anyMatch(pattern -> {
+                    if(pattern.pattern().startsWith("#")){
+                        String cleanedUpCategoryString = pattern.pattern().trim().toLowerCase(Locale.ROOT).replace("#", "");
+                        Biome.Category category = Biome.Category.byName(cleanedUpCategoryString);
+                        if(category == null){
+                            RepurposedStructures.LOGGER.warn("Unknown biome category detected in one of the biome disallow configs: {}", cleanedUpCategoryString);
+                        }
+                        else{
+                            return context.getBiome().getCategory().equals(category);
+                        }
+                    }
+
+                    return pattern.matcher(biomeID).matches();
+                });
     }
 }
