@@ -38,7 +38,7 @@ public class Dungeons {
                 (context) ->
                         genericDungeonCheck(context, RSConfiguredFeatures.DARK_FOREST_DUNGEONS,
                                 () -> BiomeSelection.haveCategories(context, Category.FOREST)
-                                        && BiomeSelection.hasName(context, "dark", "spooky", "dead", "haunted"))
+                                && BiomeSelection.hasName(context, "dark", "spooky", "dead", "haunted"))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.darkForestDungeonAttemptsPerChunk != 0,
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.DARK_FOREST_DUNGEONS));
 
@@ -80,9 +80,9 @@ public class Dungeons {
                 (context) -> 
                         genericDungeonCheck(context, RSConfiguredFeatures.SNOW_DUNGEONS,
                                 () -> BiomeSelection.haveCategories(context, Category.ICY)
-                                        // inverted icy check
-                                        && !(BiomeSelection.hasName(context, "icy", "ice", "frozen") ||
-                                        (context.getBiome().getTemperature() < 0 && !BiomeSelection.hasName(context, "snow"))))
+                                // inverted icy check
+                                && !(BiomeSelection.hasName(context, "icy", "ice", "frozen") ||
+                                (context.getBiome().getTemperature() < 0 && !BiomeSelection.hasName(context, "snow"))))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.snowDungeonAttemptsPerChunk != 0,
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.SNOW_DUNGEONS));
 
@@ -90,8 +90,8 @@ public class Dungeons {
                 (context) -> 
                         genericDungeonCheck(context, RSConfiguredFeatures.ICY_DUNGEONS,
                                 () -> BiomeSelection.haveCategories(context, Category.ICY)
-                                        && (BiomeSelection.hasName(context, "icy", "ice", "frozen") ||
-                                        (context.getBiome().getTemperature() < 0 && !BiomeSelection.hasName(context, "snow"))))
+                                && (BiomeSelection.hasName(context, "icy", "ice", "frozen") ||
+                                (context.getBiome().getTemperature() < 0 && !BiomeSelection.hasName(context, "snow"))))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.icyDungeonAttemptsPerChunk != 0,
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.ICY_DUNGEONS));
 
@@ -108,7 +108,7 @@ public class Dungeons {
                 (context) -> 
                         genericDungeonCheck(context, RSConfiguredFeatures.END_DUNGEONS,
                                 () -> BiomeSelection.haveCategories(context, Category.THEEND)
-                                        && !BiomeSelection.isBiome(context, BiomeKeys.THE_END, BiomeKeys.SMALL_END_ISLANDS))
+                                && !BiomeSelection.isBiome(context, BiomeKeys.THE_END, BiomeKeys.SMALL_END_ISLANDS))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.endDungeonAttemptsPerChunk != 0,
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.END_DUNGEONS));
 
@@ -118,8 +118,9 @@ public class Dungeons {
                 (context) -> 
                         genericDungeonCheck(context, RSConfiguredFeatures.OCEAN_NEUTRAL_DUNGEONS,
                                 () -> BiomeSelection.haveCategories(context, Category.OCEAN)
-                                        && (!BiomeSelection.hasName(context, "cold", "frozen", "snow", "ice", "warm", "hot", "tropic", "lukewarm") || // Thanks to vanilla oceans all being same temperature...
-                                        (!BiomeSelection.hasNamespace(context, "minecraft") && context.getBiome().getTemperature() >= 0.5f && context.getBiome().getTemperature() < 0.9f)))
+                                && (!BiomeSelection.hasName(context, "cold", "frozen", "snow", "ice", "warm", "hot", "tropic", "lukewarm") || // Thanks to vanilla oceans all being same temperature...
+                                (!BiomeSelection.hasNamespace(context, "minecraft")
+                                        && context.getBiome().getTemperature() >= 0.5f && context.getBiome().getTemperature() < 0.9f)))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.oceanDungeonAttemptsPerChunk != 0,
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.OCEAN_NEUTRAL_DUNGEONS));
 
@@ -127,8 +128,9 @@ public class Dungeons {
                 (context) -> 
                         genericDungeonCheck(context, RSConfiguredFeatures.OCEAN_COLD_DUNGEONS,
                                 () -> BiomeSelection.haveCategories(context, Category.OCEAN)
-                                        && (BiomeSelection.hasName(context, "cold") || // Thanks to vanilla oceans all being same temperature...
-                                        (!BiomeSelection.hasNamespace(context, "minecraft") && context.getBiome().getTemperature() >= 0.0f && context.getBiome().getTemperature() < 0.5f)))
+                                && (BiomeSelection.hasName(context, "cold") || // Thanks to vanilla oceans all being same temperature...
+                                (!BiomeSelection.hasNamespace(context, "minecraft")
+                                        && context.getBiome().getTemperature() >= 0.0f && context.getBiome().getTemperature() < 0.5f)))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.oceanDungeonAttemptsPerChunk != 0,
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.OCEAN_COLD_DUNGEONS));
 
@@ -136,8 +138,9 @@ public class Dungeons {
                 (context) -> 
                         genericDungeonCheck(context, RSConfiguredFeatures.OCEAN_FROZEN_DUNGEONS,
                                 () -> BiomeSelection.haveCategories(context, Category.OCEAN)
-                                        && (BiomeSelection.hasName(context, "frozen", "snow", "ice") || // Thanks to vanilla oceans all being same temperature...
-                                        (!BiomeSelection.hasNamespace(context, "minecraft") && context.getBiome().getTemperature() < 0f)))
+                                && (BiomeSelection.hasName(context, "frozen", "snow", "ice") || // Thanks to vanilla oceans all being same temperature...
+                                (!BiomeSelection.hasNamespace(context, "minecraft")
+                                        && context.getBiome().getTemperature() < 0f)))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.oceanDungeonAttemptsPerChunk != 0,
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.OCEAN_FROZEN_DUNGEONS));
 
@@ -145,8 +148,9 @@ public class Dungeons {
                 (context) -> 
                         genericDungeonCheck(context, RSConfiguredFeatures.OCEAN_LUKEWARM_DUNGEONS,
                                 () -> BiomeSelection.haveCategories(context, Category.OCEAN)
-                                        && (BiomeSelection.hasName(context, "lukewarm") || // Thanks to vanilla oceans all being same temperature...
-                                        (!BiomeSelection.hasNamespace(context, "minecraft") && context.getBiome().getTemperature() >= 0.9f && context.getBiome().getTemperature() < 1.5f)))
+                                && (BiomeSelection.hasName(context, "lukewarm") || // Thanks to vanilla oceans all being same temperature...
+                                (!BiomeSelection.hasNamespace(context, "minecraft")
+                                        && context.getBiome().getTemperature() >= 0.9f && context.getBiome().getTemperature() < 1.5f)))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.oceanDungeonAttemptsPerChunk != 0,
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.OCEAN_LUKEWARM_DUNGEONS));
 
@@ -154,8 +158,9 @@ public class Dungeons {
                 (context) -> 
                         genericDungeonCheck(context, RSConfiguredFeatures.OCEAN_WARM_DUNGEONS,
                                 () -> BiomeSelection.haveCategories(context, Category.OCEAN)
-                                        && (BiomeSelection.hasName(context, "warm", "hot", "tropic") || // Thanks to vanilla oceans all being same temperature...
-                                        (!BiomeSelection.hasNamespace(context, "minecraft") && context.getBiome().getTemperature() >= 1.5f)))
+                                && (BiomeSelection.hasName(context, "warm", "hot", "tropic") || // Thanks to vanilla oceans all being same temperature...
+                                (!BiomeSelection.hasNamespace(context, "minecraft")
+                                        && context.getBiome().getTemperature() >= 1.5f)))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.oceanDungeonAttemptsPerChunk != 0,
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.OCEAN_WARM_DUNGEONS));
 

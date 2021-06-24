@@ -22,7 +22,7 @@ public class Igloos {
                 (context) ->
                         BiomeSelection.isBiomeAllowed(context, RSStructures.STONE_IGLOO,
                                 () -> BiomeSelection.haveCategories(context, Category.TAIGA)
-                                        && BiomeSelection.hasName(context, "giant", "redwood"))
+                                && BiomeSelection.hasName(context, "giant", "redwood"))
                         && RepurposedStructures.RSAllConfig.RSigloosConfig.stoneIglooMaxChunkDistance != 1001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.STONE_IGLOO));
     }

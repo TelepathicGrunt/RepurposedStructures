@@ -30,7 +30,7 @@ public class Mansions {
                 (context) ->
                         BiomeSelection.isBiomeAllowed(context, RSStructures.MANSION_OAK,
                                 () -> BiomeSelection.haveCategories(context, Category.FOREST)
-                                        && !(BiomeSelection.hasName(context, "birch", "dark", "spooky", "dead", "haunted")))
+                                && !(BiomeSelection.hasName(context, "birch", "dark", "spooky", "dead", "haunted")))
                         && RepurposedStructures.RSAllConfig.RSMansionsConfig.mansionOakMaxChunkDistance != 1001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.MANSION_OAK));
 
@@ -38,7 +38,7 @@ public class Mansions {
                 (context) ->
                         BiomeSelection.isBiomeAllowed(context, RSStructures.MANSION_SAVANNA,
                                 () -> BiomeSelection.haveCategories(context, Category.SAVANNA)
-                                        && !BiomeSelection.isBiome(context, BiomeKeys.SAVANNA_PLATEAU))
+                                && !BiomeSelection.isBiome(context, BiomeKeys.SAVANNA_PLATEAU))
                         && RepurposedStructures.RSAllConfig.RSMansionsConfig.mansionSavannaMaxChunkDistance != 1001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.MANSION_SAVANNA));
 
@@ -46,7 +46,7 @@ public class Mansions {
                 (context) ->
                         BiomeSelection.isBiomeAllowed(context, RSStructures.MANSION_TAIGA,
                                 () -> BiomeSelection.haveCategories(context, Category.TAIGA) && context.getBiome().getPrecipitation() != Biome.Precipitation.SNOW
-                                        && !BiomeSelection.hasName(context, "giant", "redwood", "snow", "ice", "icy", "glacier", "frozen"))
+                                && !BiomeSelection.hasName(context, "giant", "redwood", "snow", "ice", "icy", "glacier", "frozen"))
                         && RepurposedStructures.RSAllConfig.RSMansionsConfig.mansionTaigaMaxChunkDistance != 1001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.MANSION_TAIGA));
 
@@ -61,7 +61,7 @@ public class Mansions {
                 (context) ->
                         BiomeSelection.isBiomeAllowed(context, RSStructures.MANSION_SNOWY,
                                 () -> (BiomeSelection.haveCategories(context, Category.ICY)
-                                        || (BiomeSelection.haveCategories(context, Category.TAIGA) && context.getBiome().getPrecipitation() == Biome.Precipitation.SNOW)))
+                                || (BiomeSelection.haveCategories(context, Category.TAIGA) && context.getBiome().getPrecipitation() == Biome.Precipitation.SNOW)))
                         && RepurposedStructures.RSAllConfig.RSMansionsConfig.mansionSnowyMaxChunkDistance != 1001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.MANSION_SNOWY));
     }
