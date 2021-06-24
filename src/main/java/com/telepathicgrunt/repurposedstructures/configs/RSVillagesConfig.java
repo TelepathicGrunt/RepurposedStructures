@@ -11,6 +11,7 @@ public class RSVillagesConfig implements ConfigData {
 
     @ConfigEntry.Gui.Tooltip(count = 0)
     @ConfigEntry.Gui.PrefixText
+    @ConfigEntry.Gui.RequiresRestart
     @Comment("""
             How rare are Badlands Villages in Badland biomes.
             1 for spawning in most chunks and 1001 for no spawn.""")
@@ -19,6 +20,7 @@ public class RSVillagesConfig implements ConfigData {
     
     @ConfigEntry.Gui.Tooltip(count = 0)
     @ConfigEntry.Gui.PrefixText
+    @ConfigEntry.Gui.RequiresRestart
     @Comment("""
             How rare are Birch Villages in Birch biomes.
             1 for spawning in most chunks and 1001 for no spawn.""")
@@ -27,6 +29,7 @@ public class RSVillagesConfig implements ConfigData {
 
     @ConfigEntry.Gui.Tooltip(count = 0)
     @ConfigEntry.Gui.PrefixText
+    @ConfigEntry.Gui.RequiresRestart
     @Comment("""
             How rare are Dark Forest Villages in Dark Forest biomes.
             1 for spawning in most chunks and 1001 for no spawn.""")
@@ -35,6 +38,7 @@ public class RSVillagesConfig implements ConfigData {
 
     @ConfigEntry.Gui.Tooltip(count = 0)
     @ConfigEntry.Gui.PrefixText
+    @ConfigEntry.Gui.RequiresRestart
     @Comment("""
             How rare are Jungle Villages in Jungle biomes.
             1 for spawning in most chunks and 1001 for no spawn.""")
@@ -43,6 +47,7 @@ public class RSVillagesConfig implements ConfigData {
 
     @ConfigEntry.Gui.Tooltip(count = 0)
     @ConfigEntry.Gui.PrefixText
+    @ConfigEntry.Gui.RequiresRestart
     @Comment("""
             How rare are Swamp Villages in Swamp biomes.
             1 for spawning in most chunks and 1001 for no spawn.""")
@@ -51,6 +56,7 @@ public class RSVillagesConfig implements ConfigData {
 
     @ConfigEntry.Gui.Tooltip(count = 0)
     @ConfigEntry.Gui.PrefixText
+    @ConfigEntry.Gui.RequiresRestart
     @Comment("""
             How rare are Mountains Villages in Mountains biomes.
             1 for spawning in most chunks and 1001 for no spawn.""")
@@ -59,6 +65,7 @@ public class RSVillagesConfig implements ConfigData {
 
     @ConfigEntry.Gui.Tooltip(count = 0)
     @ConfigEntry.Gui.PrefixText
+    @ConfigEntry.Gui.RequiresRestart
     @Comment("""
             How rare are Giant Taiga Villages in Giant Taiga biomes.
             1 for spawning in most chunks and 1001 for no spawn.""")
@@ -68,6 +75,7 @@ public class RSVillagesConfig implements ConfigData {
 
     @ConfigEntry.Gui.Tooltip(count = 0)
     @ConfigEntry.Gui.PrefixText
+    @ConfigEntry.Gui.RequiresRestart
     @Comment("""
             How rare are Crimson Village in Crimson Forest biomes.
             1 for spawning in most chunks and 1001 for none.""")
@@ -76,6 +84,7 @@ public class RSVillagesConfig implements ConfigData {
 
     @ConfigEntry.Gui.Tooltip(count = 0)
     @ConfigEntry.Gui.PrefixText
+    @ConfigEntry.Gui.RequiresRestart
     @Comment("""
             How rare are Warped Village in Warped Forest biomes.
             1 for spawning in most chunks and 1001 for none.""")
@@ -84,6 +93,7 @@ public class RSVillagesConfig implements ConfigData {
 
     @ConfigEntry.Gui.Tooltip(count = 0)
     @ConfigEntry.Gui.PrefixText
+    @ConfigEntry.Gui.RequiresRestart
     @Comment("""
             How rare are Oak Villages in forest category
             biomes that are not birch or dark forest.""")

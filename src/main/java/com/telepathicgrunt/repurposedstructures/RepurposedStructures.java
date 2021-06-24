@@ -31,6 +31,7 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSPredicates;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.StructurePiecesBehavior;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
@@ -86,22 +87,11 @@ public class RepurposedStructures implements ModInitializer {
         ServerWorldEvents.LOAD.register((MinecraftServer minecraftServer, ServerWorld serverWorld) -> {
 
             //add our structure spacing to all chunkgenerators including modded one and datapack ones.
-            Identifier worldID = serverWorld.getRegistryKey().getValue();
-
-            // Apply disallow first. (Default behavior is it adds to all dimensions)
-            boolean allowInDim = BiomeDimensionAllowDisallow.DIMENSION_DISALLOW.get(worldID)
-                    .stream().noneMatch(pattern -> pattern.matcher(worldID.toString()).find());
-
-            // Apply allow to override disallow if dimension is targeted in both.
-            // Lets disallow to turn off spawn for a group of dimensions while allow can turn it back one for one of them.
-            if(!allowInDim && BiomeDimensionAllowDisallow.DIMENSION_ALLOW.get(worldID)
-                    .stream().anyMatch(pattern -> pattern.matcher(worldID.toString()).find())){
-                allowInDim = true;
-            }
+            boolean isWorldBlacklisted = GeneralUtils.isWorldBlacklisted(serverWorld);
 
             // Need temp map as some mods use custom chunk generators with immutable maps in themselves.
             Map<StructureFeature<?>, StructureConfig> tempMap = new HashMap<>(serverWorld.getChunkManager().getChunkGenerator().getStructuresConfig().getStructures());
-            if (allowInDim){
+            if (isWorldBlacklisted){
                 // make absolutely sure dimension cannot spawn RS structures
                 tempMap.keySet().removeAll(RSStructures.RS_STRUCTURES.keySet());
             }

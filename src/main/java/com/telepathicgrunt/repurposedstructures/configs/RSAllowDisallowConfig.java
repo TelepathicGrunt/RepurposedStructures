@@ -18,6 +18,7 @@ public class RSAllowDisallowConfig implements ConfigData {
 
     @ConfigEntry.Gui.Tooltip(count = 0)
     @ConfigEntry.Gui.PrefixText
+    @ConfigEntry.Gui.RequiresRestart
     @Comment("""
             Add the identifiers for Repurposed Structures's loottable you want to
              turn off the automatic modded item importing code for.\s
@@ -27,6 +28,14 @@ public class RSAllowDisallowConfig implements ConfigData {
 
     @ConfigEntry.Gui.Tooltip(count = 0)
     @ConfigEntry.Gui.PrefixText
+    @Comment("""
+             If you are looking for the config to allow or disallow
+             Repurposed Structure's structures from dimensions or biomes,
+             please take a look at the config file in the config folder.
+             Cloth Config API cannot show maps so you will need to edit the file itself.""")
+    public String seeConfigFileForBiomeAndDimensionAllowDisallow = "";
+
+    @ConfigEntry.Gui.Excluded
     @Comment("""
             Add the identifiers for the dimension that you want
              no Repurposed Structures structure to spawn in.

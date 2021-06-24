@@ -25,6 +25,7 @@ import com.telepathicgrunt.repurposedstructures.world.structures.configs.NetherS
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.MansionPieces;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.StructurePiecesBehavior;
 import net.fabricmc.fabric.api.structure.v1.FabricStructureBuilder;
+import net.fabricmc.fabric.impl.structure.FabricStructureImpl;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.Pool;
@@ -261,6 +262,7 @@ public class RSStructures {
         FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "bastion_underground"), BASTION_UNDERGROUND).step(GenerationStep.Feature.UNDERGROUND_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSBastionsConfig.bastionUndergroundMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSBastionsConfig.bastionUndergroundMaxChunkDistance * 0.5f), 1359301629)).superflatFeature(BASTION_UNDERGROUND.configure(FeatureConfig.DEFAULT)).register();
 
         RS_STRUCTURES.putAll(StructuresConfig.DEFAULT_STRUCTURES);
+        RS_STRUCTURES.putAll(FabricStructureImpl.STRUCTURE_TO_CONFIG_MAP); // Override DEFAULT_STRUCTURES by default for same key as FabricStructureImpl is what is used for worldgen
         RS_STRUCTURES.keySet().removeIf(key -> key.getName() == null || !key.getName().contains(RepurposedStructures.MODID));
 
         //registers the structure pieces.

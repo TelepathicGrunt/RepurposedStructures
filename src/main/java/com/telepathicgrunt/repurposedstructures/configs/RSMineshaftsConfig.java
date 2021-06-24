@@ -28,124 +28,152 @@ public class RSMineshaftsConfig implements ConfigData {
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
-        @Comment("Replaces Mineshafts in Birch biomes."
-                + "\nHow often Mineshafts will spawn."
-                + "\n0 for no Mineshafts and 1000 for max spawnrate."
-                + "\nNote: Set this to 0 and restart to spawn Vanilla Mineshafts.")
+        @ConfigEntry.Gui.RequiresRestart
+        @Comment("""
+                Replaces Mineshafts in Birch biomes.
+                How often Mineshafts will spawn.
+                0 for no Mineshafts and 1000 for max spawnrate.
+                Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
         public int birchMineshaftSpawnrate = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
-        @Comment("Replaces Mineshafts in Jungle biomes."
-                + "\nHow often Mineshafts will spawn."
-                + "\n0 for no Mineshafts and 1000 for max spawnrate."
-                + "\nNote: Set this to 0 and restart to spawn Vanilla Mineshafts.")
+        @ConfigEntry.Gui.RequiresRestart
+        @Comment("""
+                Replaces Mineshafts in Jungle biomes.
+                How often Mineshafts will spawn.
+                0 for no Mineshafts and 1000 for max spawnrate.
+                Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
         public int jungleMineshaftSpawnrate = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
-        @Comment("Replaces Mineshafts in Desert biomes."
-                + "\nHow often Mineshafts will spawn."
-                + "\n0 for no Mineshafts and 1000 for max spawnrate."
-                + "\nNote: Set this to 0 and restart to spawn Vanilla Mineshafts.")
+        @ConfigEntry.Gui.RequiresRestart
+        @Comment("""
+                Replaces Mineshafts in Desert biomes.
+                How often Mineshafts will spawn.
+                0 for no Mineshafts and 1000 for max spawnrate.
+                Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
         public int desertMineshaftSpawnrate = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
-        @Comment("Replaces Mineshafts in Mountain (Extreme Hills) biomes."
-                + "\nHow often Mineshafts will spawn."
-                + "\n0 for no Mineshafts and 1000 for max spawnrate."
-                + "\nNote: Set this to 0 and restart to spawn Vanilla Mineshafts.")
+        @ConfigEntry.Gui.RequiresRestart
+        @Comment("""
+                Replaces Mineshafts in Mountain (Extreme Hills) biomes.
+                How often Mineshafts will spawn.
+                0 for no Mineshafts and 1000 for max spawnrate.
+                Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
         public int stoneMineshaftSpawnrate = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
-        @Comment("Replaces Mineshafts in Savanna biomes."
-                + "\nHow often Mineshafts will spawn."
-                + "\n0 for no Mineshafts and 1000 for max spawnrate."
-                + "\nNote: Set this to 0 and restart to spawn Vanilla Mineshafts.")
+        @ConfigEntry.Gui.RequiresRestart
+        @Comment("""
+                Replaces Mineshafts in Savanna biomes.
+                How often Mineshafts will spawn.
+                0 for no Mineshafts and 1000 for max spawnrate.
+                Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
         public int savannaMineshaftSpawnrate = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
-        @Comment("Replaces Mineshafts in Snowy/Icy biomes."
-                + "\nNote: Snowy Taiga Biomes will get Ice Mineshaft instead of Taiga theme."
-                + "\nHow often Mineshafts will spawn."
-                + "\n0 for no Mineshafts and 1000 for max spawnrate."
-                + "\nNote: Set this to 0 and restart to spawn Vanilla Mineshafts.")
+        @ConfigEntry.Gui.RequiresRestart
+        @Comment("""
+                Replaces Mineshafts in Snowy/Icy biomes.
+                Note: Snowy Taiga Biomes will get Ice Mineshaft instead of Taiga theme.
+                How often Mineshafts will spawn.
+                0 for no Mineshafts and 1000 for max spawnrate.
+                Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
         public int icyMineshaftSpawnrate = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
-        @Comment("Replaces Mineshafts in Ocean biomes."
-                + "\nHow often Mineshafts will spawn."
-                + "\n0 for no Mineshafts and 1000 for max spawnrate."
-                + "\nNote: Set this to 0 and restart to spawn Vanilla Mineshafts.")
+        @ConfigEntry.Gui.RequiresRestart
+        @Comment("""
+                Replaces Mineshafts in Ocean biomes.
+                How often Mineshafts will spawn.
+                0 for no Mineshafts and 1000 for max spawnrate.
+                Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
         public int oceanMineshaftSpawnrate = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
-        @Comment("Replaces Mineshafts in Taiga biomes."
-                + "\nHow often Mineshafts will spawn."
-                + "\n0 for no Mineshafts and 1000 for max spawnrate."
-                + "\nNote: Set this to 0 and restart to spawn Vanilla Mineshafts.")
+        @ConfigEntry.Gui.RequiresRestart
+        @Comment("""
+                Replaces Mineshafts in Taiga biomes.
+                How often Mineshafts will spawn.
+                0 for no Mineshafts and 1000 for max spawnrate.
+                Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
         public int taigaMineshaftSpawnrate = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
-        @Comment("Replaces Mineshafts in Swamps."
-                + "\nHow often Mineshafts will spawn."
-                + "\n0 for no Mineshafts and 1000 for max spawnrate."
-                + "\nNote: Set this to 0 and restart to spawn Vanilla Mineshafts.")
+        @ConfigEntry.Gui.RequiresRestart
+        @Comment("""
+                Replaces Mineshafts in Swamps.
+                How often Mineshafts will spawn.
+                0 for no Mineshafts and 1000 for max spawnrate.
+                Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
         public int swampMineshaftSpawnrate = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
-        @Comment("Replaces Mineshafts in Dark Forests."
-                + "\nHow often Mineshafts will spawn."
-                + "\n0 for no Mineshafts and 1000 for max spawnrate."
-                + "\nNote: Set this to 0 and restart to spawn Vanilla Mineshafts.")
+        @ConfigEntry.Gui.RequiresRestart
+        @Comment("""
+                Replaces Mineshafts in Dark Forests.
+                How often Mineshafts will spawn.
+                0 for no Mineshafts and 1000 for max spawnrate.
+                Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
         public int darkForestMineshaftSpawnrate = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
-        @Comment("Add End themed Mineshafts to biomes outside the Enderdragon island."
-                + "\nHow often Mineshafts will spawn."
-                + "\n0 for no Mineshafts and 1000 for max spawnrate.")
+        @ConfigEntry.Gui.RequiresRestart
+        @Comment("""
+                Add End themed Mineshafts to biomes outside the Enderdragon island.
+                How often Mineshafts will spawn.
+                0 for no Mineshafts and 1000 for max spawnrate.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
         public int endMineshaftSpawnrate = 60;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
-        @Comment("Add Nether themed Mineshafts to non-crimson and non-warped Nether biomes."
-                + "\nHow often Mineshafts will spawn."
-                + "\n0 for no Mineshafts and 1000 for max spawnrate.")
+        @ConfigEntry.Gui.RequiresRestart
+        @Comment("""
+                Add Nether themed Mineshafts to non-crimson and non-warped Nether biomes.
+                How often Mineshafts will spawn.
+                0 for no Mineshafts and 1000 for max spawnrate.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
         public int netherMineshaftSpawnrate = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
-        @Comment("Add Crimson themed Mineshafts to Crimson Nether biomes."
-                + "\nHow often Mineshafts will spawn."
-                + "\n0 for no Mineshafts and 1000 for max spawnrate.")
+        @ConfigEntry.Gui.RequiresRestart
+        @Comment("""
+                Add Crimson themed Mineshafts to Crimson Nether biomes.
+                How often Mineshafts will spawn.
+                0 for no Mineshafts and 1000 for max spawnrate.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
         public int crimsonMineshaftSpawnrate = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
-        @Comment("Add Warped themed Mineshafts to Warped Nether biomes."
-                + "\nHow often Mineshafts will spawn."
-                + "\n0 for no Mineshafts and 1000 for max spawnrate.")
+        @ConfigEntry.Gui.RequiresRestart
+        @Comment("""
+                Add Warped themed Mineshafts to Warped Nether biomes.
+                How often Mineshafts will spawn.
+                0 for no Mineshafts and 1000 for max spawnrate.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
         public int warpedMineshaftSpawnrate = 40;
     }
@@ -155,6 +183,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("Min Y height of Mineshaft. Default is 8.")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int birchMineshaftMinHeight = 8;
@@ -230,6 +259,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("Max Y height of Mineshaft. Default is 45."
                 + "\nIf below min height, this will be read as min.")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
@@ -316,6 +346,7 @@ public class RSMineshaftsConfig implements ConfigData {
     public static class Size {
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("Size of the mineshaft. This is how many pieces long a branch can be from the start piece.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 18)
         public int birchMineshaftSize = 9;

@@ -15,6 +15,7 @@ public class RSStrongholdsConfig implements ConfigData
 	public static class Nether {
 		@ConfigEntry.Gui.Tooltip(count = 0)
 		@ConfigEntry.Gui.PrefixText
+		@ConfigEntry.Gui.RequiresRestart
 		@Comment("Size of Nether Stronghold. This number is how many pieces deep a branch can go from the center piece."
 				+ "\n1 for supertiny and 20 for supermassive Strongholds.")
 		@ConfigEntry.BoundedDiscrete(min = 1, max = 30)
@@ -22,6 +23,7 @@ public class RSStrongholdsConfig implements ConfigData
 
 		@ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
+        @ConfigEntry.Gui.RequiresRestart
 		@Comment("""
 				How rare are Nether-styled Strongholds in Nether-category biomes.
 				1 for spawning in most chunks and 1001 for no spawn.
@@ -31,6 +33,7 @@ public class RSStrongholdsConfig implements ConfigData
 
 		@ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
+        @ConfigEntry.Gui.RequiresRestart
 		@Comment("Min Y height that the starting point can spawn at."
 				+"\nDefault is 30.")
 		@ConfigEntry.BoundedDiscrete(min = 0, max = 255)
@@ -38,6 +41,7 @@ public class RSStrongholdsConfig implements ConfigData
 
 		@ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
+        @ConfigEntry.Gui.RequiresRestart
 		@Comment("""
 				Max Y height that the starting point can spawn at.
 				Default is 35.

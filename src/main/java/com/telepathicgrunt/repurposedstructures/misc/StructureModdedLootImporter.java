@@ -152,7 +152,7 @@ public class StructureModdedLootImporter {
 
 
     public static List<ItemStack> checkAndGetModifiedLoot(LootContext context, LootTable currentLootTable, List<ItemStack> originalLoot){
-        if(RepurposedStructures.RSAllConfig.RSMainConfig.importModdedItems)
+        if(RepurposedStructures.RSAllConfig.RSAllowDisallowConfig.importModdedItems)
         {
             // Cache the result of the loottable to the id into our own map.
             Identifier lootTableID = REVERSED_TABLES.computeIfAbsent(

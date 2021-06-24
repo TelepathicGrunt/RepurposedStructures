@@ -73,7 +73,7 @@ public abstract class WellAbstract extends Feature<DefaultFeatureConfig> {
      */
     protected static void addBells(String function, BlockPos position, StructureWorldAccess world, Random random, Collection<Block> allOreBlocks) {
         if (function.equals("bell")) {
-            if (RepurposedStructures.RSAllConfig.RSWellsConfig.canHaveBells && random.nextInt(100) == 0) {
+            if (random.nextInt(100) == 0) {
                 world.setBlockState(position, Blocks.BELL.getDefaultState().with(Properties.ATTACHMENT, Attachment.CEILING), 2);
             } else {
                 world.setBlockState(position, Blocks.AIR.getDefaultState(), 2);

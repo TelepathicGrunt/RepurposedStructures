@@ -6,6 +6,10 @@
 * File paths in the resources/data folder has been significantly redone to be more consistant and cleaner. 
   1.16.5 or older datapacks for Repurposed Structures may not work anymore and have to be updated.
 
+##### Configs:
+* Heavily cleaned up and improved the configs. Fixed some structures and features not working with the dimension/biome configs correctly.
+  For allow/disallowing structures in biome/dimensions, see the actual config file itself as Cloth Config API cannot show maps in GUI screen. 
+
 ##### Advancements:
 * All advancements has been condensed. Now there's one advancement for finding all variants of one structure type. 
   For example, you have to find and enter all Repurposed Structures villages to get the advancement for RS Villages.

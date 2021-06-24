@@ -2,6 +2,7 @@ package com.telepathicgrunt.repurposedstructures.utils;
 
 import com.mojang.datafixers.util.Pair;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.misc.BiomeDimensionAllowDisallow;
 import net.fabricmc.fabric.api.biome.v1.BiomeModificationContext;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
@@ -11,6 +12,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalFacingBlock;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -21,8 +23,10 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -92,13 +96,30 @@ public class GeneralUtils {
     //////////////////////////////////////////////
 
     private static Set<RegistryKey<World>> BLACKLISTED_WORLDS = null;
-    public static boolean isWorldBlacklisted(ServerWorldAccess world){
+    public static boolean isWorldBlacklisted(ServerWorldAccess currentWorld){
         if(BLACKLISTED_WORLDS == null){
-            BLACKLISTED_WORLDS = Arrays.stream(RepurposedStructures.RSAllConfig.RSMainConfig.blacklistedDimensions.split(","))
-                    .map(String::trim).map(dimensionName -> RegistryKey.of(Registry.WORLD_KEY, new Identifier(dimensionName)))
-                    .collect(Collectors.toSet());
+            BLACKLISTED_WORLDS = new HashSet<>();
+
+            for(ServerWorld serverWorld : currentWorld.toServerWorld().getServer().getWorlds()){
+                Identifier worldID = serverWorld.getRegistryKey().getValue();
+
+                // Apply disallow first. (Default behavior is it adds to all dimensions)
+                boolean allowInDim = BiomeDimensionAllowDisallow.DIMENSION_DISALLOW.getOrDefault(worldID, new ArrayList<>())
+                        .stream().noneMatch(pattern -> pattern.matcher(worldID.toString()).find());
+
+                // Apply allow to override disallow if dimension is targeted in both.
+                // Lets disallow to turn off spawn for a group of dimensions while allow can turn it back one for one of them.
+                if(!allowInDim && BiomeDimensionAllowDisallow.DIMENSION_ALLOW.getOrDefault(worldID, new ArrayList<>())
+                        .stream().anyMatch(pattern -> pattern.matcher(worldID.toString()).find())){
+                    allowInDim = true;
+                }
+
+                if(!allowInDim){
+                    BLACKLISTED_WORLDS.add(RegistryKey.of(Registry.WORLD_KEY, worldID));
+                }
+            }
         }
-        return BLACKLISTED_WORLDS.contains(world.toServerWorld().getRegistryKey());
+        return BLACKLISTED_WORLDS.contains(currentWorld.toServerWorld().getRegistryKey());
     }
 
     //////////////////////////////

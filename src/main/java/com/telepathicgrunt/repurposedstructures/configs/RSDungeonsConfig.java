@@ -22,6 +22,7 @@ public class RSDungeonsConfig implements ConfigData {
     public static class AttemptsPerChunk {
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
                 Replaces vanilla dungeon in Badlands biomes.
                 Spawn attempts per chunk.
@@ -111,6 +112,7 @@ public class RSDungeonsConfig implements ConfigData {
 
         @ConfigEntry.Gui.Tooltip(count = 0)
     @ConfigEntry.Gui.PrefixText
+    @ConfigEntry.Gui.RequiresRestart
         @Comment("""
                 Add ocean themed dungeon to ocean biomes. Will spawn on
                 ocean floor and in water filled caves and ravines.
@@ -128,6 +130,7 @@ public class RSDungeonsConfig implements ConfigData {
 
         @ConfigEntry.Gui.Tooltip(count = 0)
     @ConfigEntry.Gui.PrefixText
+    @ConfigEntry.Gui.RequiresRestart
         @Comment("Minimum Y height that this dungeon can spawn at. Default is 2."
                 + "\nNote: The dungeon will spawn between min and max y height set in config.")
         @ConfigEntry.BoundedDiscrete(min = 2, max = 255)
@@ -199,6 +202,7 @@ public class RSDungeonsConfig implements ConfigData {
 
         @ConfigEntry.Gui.Tooltip(count = 0)
     @ConfigEntry.Gui.PrefixText
+    @ConfigEntry.Gui.RequiresRestart
         @Comment("""
                 Maximum Y height that this dungeon can spawn at. Default is 255.
                 Note: The dungeon will spawn between min and max y height set in config.

@@ -13,11 +13,14 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.StructureFeature;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
+import java.util.regex.Pattern;
 
 public class BiomeSelection {
 
@@ -67,12 +70,12 @@ public class BiomeSelection {
     public static <T> boolean isBiomeAllowed(BiomeSelectionContext context, T worldgenObject, Registry<T> registry) {
         Identifier registryId = registry.getId(worldgenObject);
         String biomeID = context.getBiomeKey().toString();
-        return BiomeDimensionAllowDisallow.BIOME_ALLOW.get(registryId).stream().anyMatch(pattern -> pattern.matcher(biomeID).matches());
+        return BiomeDimensionAllowDisallow.BIOME_ALLOW.getOrDefault(registryId, new ArrayList<>()).stream().anyMatch(pattern -> pattern.matcher(biomeID).matches());
     }
 
     public static <T> boolean isBiomeDisallowed(BiomeSelectionContext context, T worldgenObject, Registry<T> registry) {
         Identifier registryId = registry.getId(worldgenObject);
         String biomeID = context.getBiomeKey().toString();
-        return BiomeDimensionAllowDisallow.BIOME_DISALLOW.get(registryId).stream().anyMatch(pattern -> pattern.matcher(biomeID).matches());
+        return BiomeDimensionAllowDisallow.BIOME_DISALLOW.getOrDefault(registryId, new ArrayList<>()).stream().anyMatch(pattern -> pattern.matcher(biomeID).matches());
     }
 }
