@@ -12,9 +12,10 @@ public class Cities {
 
     public static void addCities() {
         GeneralUtils.addToBiome("city_nether",
-                (context) -> BiomeSelection.isBiomeAllowed(context, RSStructures.CITY_NETHER)
-                        && RepurposedStructures.RSAllConfig.RSCitiesConfig.cityNetherMaxChunkDistance != 1001
-                        && BiomeSelection.haveCategories(context, Category.NETHER),
+                (context) ->
+                        BiomeSelection.isBiomeAllowed(context, RSStructures.CITY_NETHER,
+                            () -> BiomeSelection.haveCategories(context, Category.NETHER))
+                        && RepurposedStructures.RSAllConfig.RSCitiesConfig.cityNetherMaxChunkDistance != 1001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.CITY_NETHER));
     }
 }
