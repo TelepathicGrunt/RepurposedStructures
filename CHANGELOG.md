@@ -45,6 +45,10 @@
   
 * Flower Forest Pyramids now has Moss Block, Spore Blossom, Small Dripleaf, and Flowering Azalea
 
+* Mushroom Pyramid's pit is slightly adjusted to not be so cramped
+
+* Slightly adjusted Icy Pyramid's pit to make it harder to not set off trap
+
 ##### Villages:
 * Swamp Villages now utilizes Moss Blocks heavily and has more Vines
 
