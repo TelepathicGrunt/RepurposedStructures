@@ -55,5 +55,11 @@
 ##### Outposts:
 * Jungle Outposts tents is made of Moss Blocks and has Moss Carpet under them
 
+##### Wells:
+* All wells now use processor lists to randomize their chances of having ores or bells. 
+  The well's block tags and bell config entry have been deleted as they are no longer needed.
+  
+* Increase default chance of Nether Wells spawning.
+
 ##### Pool Additions:
 * Will now print out to the logs if a merging pool has a typo in its nbt file entries.

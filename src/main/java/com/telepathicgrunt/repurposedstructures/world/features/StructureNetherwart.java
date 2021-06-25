@@ -31,10 +31,7 @@ public class StructureNetherwart extends Feature<StructureTargetConfig> {
             );
 
             if(netherwart.canPlaceAt(context.getWorld(), mutable)){
-                // expensive. Do this check very last
-                if(!context.getWorld().toServerWorld().getStructureAccessor().getStructureAt(mutable, true, context.getConfig().targetStructure).hasChildren()){
-                    continue;
-                }
+                
 
                 context.getWorld().setBlockState(mutable, netherwart.with(NetherWartBlock.AGE, context.getRandom().nextInt(4)), 3);
             }

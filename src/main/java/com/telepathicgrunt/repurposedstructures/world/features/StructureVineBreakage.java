@@ -48,7 +48,7 @@ public class StructureVineBreakage extends Feature<StructureTargetAndLengthConfi
                     context.getRandom().nextInt(7) - 3
             );
 
-            if(!FORTRESS_BLOCKS.test(context.getWorld().getBlockState(mutable)) || !context.getWorld().isAir(mutable.down()) || !context.getWorld().toServerWorld().getStructureAccessor().getStructureAt(mutable, true, context.getConfig().targetStructure).hasChildren()){
+            if(!FORTRESS_BLOCKS.test(context.getWorld().getBlockState(mutable)) || !context.getWorld().isAir(mutable.down())){
                 continue;
             }
 

@@ -52,10 +52,6 @@ public class StructureFlowers extends Feature<StructureTargetAndRangeConfig> {
                 BlockState chosenFlower = FLOWERS.get(context.getRandom().nextInt(FLOWERS.size()));
 
                 if(chosenFlower.canPlaceAt(context.getWorld(), mutable)){
-                    // expensive. Do this check very last
-                    if(!context.getWorld().toServerWorld().getStructureAccessor().getStructureAt(mutable, true, context.getConfig().targetStructure).hasChildren()){
-                        continue;
-                    }
 
                     if(chosenFlower.getBlock() instanceof TallPlantBlock && context.getWorld().getBlockState(mutable.up()).isAir()){
                         context.getWorld().setBlockState(mutable, chosenFlower.with(TallPlantBlock.HALF, DoubleBlockHalf.LOWER), 3);

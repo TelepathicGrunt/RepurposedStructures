@@ -31,7 +31,7 @@ public class StructureChains extends Feature<StructureTargetConfig> {
                     context.getRandom().nextInt(11) - 5
             );
 
-            if(!context.getWorld().getBlockState(mutable).isAir() || !context.getWorld().toServerWorld().getStructureAccessor().getStructureAt(mutable, true, context.getConfig().targetStructure).hasChildren()){
+            if(!context.getWorld().getBlockState(mutable).isAir()){
                 continue;
             }
 

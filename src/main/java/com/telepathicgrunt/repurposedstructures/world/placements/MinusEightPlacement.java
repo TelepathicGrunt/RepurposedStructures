@@ -9,9 +9,9 @@ import net.minecraft.world.gen.decorator.NopeDecoratorConfig;
 import java.util.Random;
 import java.util.stream.Stream;
 
-public class RSMinusEightPlacement extends Decorator<NopeDecoratorConfig>
+public class MinusEightPlacement extends Decorator<NopeDecoratorConfig>
 {
-    public RSMinusEightPlacement(Codec<NopeDecoratorConfig> config) {
+    public MinusEightPlacement(Codec<NopeDecoratorConfig> config) {
 	super(config);
     }
 

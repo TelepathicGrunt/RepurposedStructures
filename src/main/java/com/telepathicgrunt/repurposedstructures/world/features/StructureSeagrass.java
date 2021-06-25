@@ -38,19 +38,13 @@ public class StructureSeagrass extends Feature<StructureTargetConfig> {
 
             boolean isWaterAbove = context.getWorld().getBlockState(mutable.up()).isOf(Blocks.WATER);
             if(isWaterAbove && context.getRandom().nextFloat() < 0.33f && tallSeagrass.canPlaceAt(context.getWorld(), mutable)){
-                // expensive. Do this check very last
-                if(!context.getWorld().toServerWorld().getStructureAccessor().getStructureAt(mutable, true, context.getConfig().targetStructure).hasChildren()){
-                    continue;
-                }
+                
 
                 context.getWorld().setBlockState(mutable, tallSeagrass.with(TallSeagrassBlock.HALF, DoubleBlockHalf.LOWER), 3);
                 context.getWorld().setBlockState(mutable.move(Direction.UP), tallSeagrass.with(TallSeagrassBlock.HALF, DoubleBlockHalf.UPPER), 3);
             }
             else if(seagrass.canPlaceAt(context.getWorld(), mutable)){
-                // expensive. Do this check very last
-                if(!context.getWorld().toServerWorld().getStructureAccessor().getStructureAt(mutable, true, context.getConfig().targetStructure).hasChildren()){
-                    continue;
-                }
+                
 
                 context.getWorld().setBlockState(mutable, Blocks.SEAGRASS.getDefaultState(), 3);
             }

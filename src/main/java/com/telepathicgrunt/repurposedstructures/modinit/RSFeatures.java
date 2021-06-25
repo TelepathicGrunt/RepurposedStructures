@@ -4,6 +4,7 @@ import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.features.*;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.GenericMobConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.NbtDungeonConfig;
+import com.telepathicgrunt.repurposedstructures.world.features.configs.NbtFeatureConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetAndLengthConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetAndRangeConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetChanceConfig;
@@ -30,12 +31,12 @@ public class RSFeatures {
     public static Feature<NbtDungeonConfig> JUNGLE_DUNGEONS = new NbtDungeon(NbtDungeonConfig.CODEC);
     public static Feature<NbtDungeonConfig> OCEAN_DUNGEONS = new NbtDungeon(NbtDungeonConfig.CODEC);
 
-    public static Feature<DefaultFeatureConfig> BADLANDS_WELL = new WellBadlands();
-    public static Feature<DefaultFeatureConfig> NETHER_WELL = new WellNether();
-    public static Feature<DefaultFeatureConfig> SNOW_WELL = new WellSnow();
-    public static Feature<DefaultFeatureConfig> MOSSY_STONE_WELL = new WellMossyStone();
-    public static Feature<DefaultFeatureConfig> FOREST_WELL = new WellForest();
-    public static Feature<DefaultFeatureConfig> MUSHROOM_WELL = new WellMushroom();
+    public static Feature<NbtFeatureConfig> BADLANDS_WELL = new NbtFeature();
+    public static Feature<NbtFeatureConfig> NETHER_WELL = new NbtFeature();
+    public static Feature<NbtFeatureConfig> SNOW_WELL = new NbtFeature();
+    public static Feature<NbtFeatureConfig> MOSSY_STONE_WELL = new NbtFeature();
+    public static Feature<NbtFeatureConfig> FOREST_WELL = new NbtFeature();
+    public static Feature<NbtFeatureConfig> MUSHROOM_WELL = new NbtFeature();
 
     public static Feature<DefaultFeatureConfig> WITHER_SKELETON_WITH_BOW = new WitherSkeletonWithBow();
     public static Feature<DefaultFeatureConfig> SHULKER_MOB = new ShulkerMob();

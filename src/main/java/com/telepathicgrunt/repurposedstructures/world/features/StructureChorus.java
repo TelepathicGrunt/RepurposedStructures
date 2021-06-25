@@ -34,10 +34,7 @@ public class StructureChorus extends Feature<StructureTargetConfig> {
             );
 
             if(context.getWorld().getBlockState(mutable).isAir() && context.getWorld().getBlockState(mutable.up()).isAir() && context.getWorld().getBlockState(mutable.move(Direction.DOWN)).isOpaque()){
-                // expensive. Do this check very last
-                if(!context.getWorld().toServerWorld().getStructureAccessor().getStructureAt(mutable, true, context.getConfig().targetStructure).hasChildren()){
-                    continue;
-                }
+                
 
                 context.getWorld().setBlockState(mutable, Blocks.END_STONE.getDefaultState(), 3);
                 if(context.getRandom().nextFloat() < 0.33f){

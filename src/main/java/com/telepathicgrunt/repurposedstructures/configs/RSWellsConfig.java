@@ -35,7 +35,7 @@ public class RSWellsConfig implements ConfigData {
                 Chance of a well generating in a chunk is 1/rarityPerChunk.
                 1 for spawning in every chunk and 10000 for no wells.""")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 10000)
-        public int netherWellRarityPerChunk = 350;
+        public int netherWellRarityPerChunk = 250;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText

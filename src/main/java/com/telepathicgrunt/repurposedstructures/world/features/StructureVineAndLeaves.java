@@ -30,7 +30,7 @@ public class StructureVineAndLeaves extends Feature<StructureTargetAndLengthConf
                     context.getRandom().nextInt(7) - 3
             );
 
-            if(!context.getWorld().isAir(mutable) || !context.getWorld().toServerWorld().getStructureAccessor().getStructureAt(mutable, true, context.getConfig().targetStructure).hasChildren()){
+            if(!context.getWorld().isAir(mutable)){
                 continue;
             }
 

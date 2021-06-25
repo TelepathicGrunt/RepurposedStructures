@@ -9,9 +9,9 @@ import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
 import java.util.Random;
 import java.util.stream.Stream;
 
-public class RSDungeonPlacement extends Decorator<RangeDecoratorConfig>
+public class DungeonPlacement extends Decorator<RangeDecoratorConfig>
 {
-    public RSDungeonPlacement(Codec<RangeDecoratorConfig> config) {
+    public DungeonPlacement(Codec<RangeDecoratorConfig> config) {
 		super(config);
     }
 

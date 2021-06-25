@@ -36,34 +36,18 @@ public class StructureWarpedPlants extends Feature<StructureTargetAndLengthConfi
 
             if(context.getWorld().getBlockState(mutable).isAir()){
                 if(context.getRandom().nextFloat() < 0.5f && netherSprouts.canPlaceAt(context.getWorld(), mutable)){
-                    // expensive. Do this check very last
-                    if(!context.getWorld().toServerWorld().getStructureAccessor().getStructureAt(mutable, true, context.getConfig().targetStructure).hasChildren()){
-                        continue;
-                    }
 
                     context.getWorld().setBlockState(mutable, netherSprouts, 3);
                 }
                 else if(context.getRandom().nextFloat() < 0.4f && twistingRoots.canPlaceAt(context.getWorld(), mutable)){
-                    // expensive. Do this check very last
-                    if(!context.getWorld().toServerWorld().getStructureAccessor().getStructureAt(mutable, true, context.getConfig().targetStructure).hasChildren()){
-                        continue;
-                    }
 
                     context.getWorld().setBlockState(mutable, twistingRoots, 3);
                 }
                 else if(context.getRandom().nextFloat() < 0.3f && twistingFungus.canPlaceAt(context.getWorld(), mutable)){
-                    // expensive. Do this check very last
-                    if(!context.getWorld().toServerWorld().getStructureAccessor().getStructureAt(mutable, true, context.getConfig().targetStructure).hasChildren()){
-                        continue;
-                    }
 
                     context.getWorld().setBlockState(mutable, twistingFungus, 3);
                 }
                 else if(twistingVines.canPlaceAt(context.getWorld(), mutable)){
-                    // expensive. Do this check very last
-                    if(!context.getWorld().toServerWorld().getStructureAccessor().getStructureAt(mutable, true, context.getConfig().targetStructure).hasChildren()){
-                        continue;
-                    }
 
                     // Biased towards max length if greater than 3
                     int length = context.getConfig().length > 3 ? context.getConfig().length - context.getRandom().nextInt(context.getRandom().nextInt(context.getConfig().length) + 1) : context.getRandom().nextInt(context.getConfig().length);

@@ -45,10 +45,6 @@ public class StructureFire extends Feature<StructureTargetConfig> {
 
             Block belowBlock = context.getWorld().getBlockState(mutable.down()).getBlock();
             if(context.getWorld().getBlockState(mutable).isAir() && (belowBlock == Blocks.NETHER_BRICKS || infiniteBurningBlocks.contains(belowBlock))){
-                // expensive. Do this check very last
-                if(!context.getWorld().toServerWorld().getStructureAccessor().getStructureAt(mutable, true, context.getConfig().targetStructure).hasChildren()){
-                    continue;
-                }
 
                 if(belowBlock == Blocks.NETHER_BRICKS){
                     context.getWorld().setBlockState(mutable.down(), Blocks.NETHERRACK.getDefaultState(), 3);

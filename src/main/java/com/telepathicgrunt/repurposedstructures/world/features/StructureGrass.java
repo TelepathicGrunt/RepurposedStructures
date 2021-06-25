@@ -35,18 +35,10 @@ public class StructureGrass extends Feature<StructureTargetAndRangeConfig> {
 
             if(context.getWorld().getBlockState(mutable).isAir()){
                 if((context.getRandom().nextFloat() < 0.45f || !context.getWorld().getBlockState(mutable.up()).isAir()) && grass.canPlaceAt(context.getWorld(), mutable)){
-                    // expensive. Do this check very last
-                    if(!context.getWorld().toServerWorld().getStructureAccessor().getStructureAt(mutable, true, context.getConfig().targetStructure).hasChildren()){
-                        continue;
-                    }
 
                     context.getWorld().setBlockState(mutable, grass, 3);
                 }
                 else if(tallGrass.canPlaceAt(context.getWorld(), mutable)){
-                    // expensive. Do this check very last
-                    if(!context.getWorld().toServerWorld().getStructureAccessor().getStructureAt(mutable, true, context.getConfig().targetStructure).hasChildren()){
-                        continue;
-                    }
 
                     context.getWorld().setBlockState(mutable, tallGrass.with(TallPlantBlock.HALF, DoubleBlockHalf.LOWER), 3);
                     context.getWorld().setBlockState(mutable.move(Direction.UP), tallGrass.with(TallPlantBlock.HALF, DoubleBlockHalf.UPPER), 3);

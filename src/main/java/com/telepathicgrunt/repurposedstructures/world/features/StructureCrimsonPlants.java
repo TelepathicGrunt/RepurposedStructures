@@ -35,26 +35,14 @@ public class StructureCrimsonPlants extends Feature<StructureTargetAndLengthConf
 
             if(context.getWorld().getBlockState(mutable).isAir()){
                 if(context.getRandom().nextFloat() < 0.8f && crimsonRoots.canPlaceAt(context.getWorld(), mutable)){
-                    // expensive. Do this check very last
-                    if(!context.getWorld().toServerWorld().getStructureAccessor().getStructureAt(mutable, true, context.getConfig().targetStructure).hasChildren()){
-                        continue;
-                    }
 
                     context.getWorld().setBlockState(mutable, crimsonRoots, 3);
                 }
                 else if(crimsonFungus.canPlaceAt(context.getWorld(), mutable)){
-                    // expensive. Do this check very last
-                    if(!context.getWorld().toServerWorld().getStructureAccessor().getStructureAt(mutable, true, context.getConfig().targetStructure).hasChildren()){
-                        continue;
-                    }
 
                     context.getWorld().setBlockState(mutable, crimsonFungus, 3);
                 }
                 else if(weepingVines.canPlaceAt(context.getWorld(), mutable)){
-                    // expensive. Do this check very last
-                    if(!context.getWorld().toServerWorld().getStructureAccessor().getStructureAt(mutable, true, context.getConfig().targetStructure).hasChildren()){
-                        continue;
-                    }
 
                     // Biased towards max length if greater than 3
                     int length = context.getConfig().length > 3 ? context.getConfig().length - context.getRandom().nextInt(context.getRandom().nextInt(context.getConfig().length) + 1) : context.getRandom().nextInt(context.getConfig().length);

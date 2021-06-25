@@ -1,13 +1,17 @@
 package com.telepathicgrunt.repurposedstructures.modinit;
 
+import com.google.common.collect.ImmutableList;
+import com.mojang.datafixers.util.Pair;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.GenericMobConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.NbtDungeonConfig;
+import com.telepathicgrunt.repurposedstructures.world.features.configs.NbtFeatureConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetAndLengthConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetAndRangeConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetChanceConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetLengthRangeConfig;
+import com.telepathicgrunt.repurposedstructures.world.placements.configs.SingleIntConfig;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
@@ -46,66 +50,66 @@ public class RSConfiguredFeatures {
 
     private static final NbtDungeonConfig BADLANDS_DUNGEON_CONFIG = new NbtDungeonConfig("badlands", EMPTY_ID);
     public static ConfiguredFeature<?, ?> BADLANDS_DUNGEONS = RSFeatures.BADLANDS_DUNGEONS.configure(BADLANDS_DUNGEON_CONFIG)
-            .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(UniformHeightProvider.create(
+            .decorate(RSPlacements.DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(UniformHeightProvider.create(
                     YOffset.fixed(RepurposedStructures.RSAllConfig.RSDungeonsConfig.minHeight.badlandsDungeonMinHeight),
                     YOffset.fixed(RepurposedStructures.RSAllConfig.RSDungeonsConfig.maxHeight.badlandsDungeonMaxHeight))))
-                    .decorate(RSPlacements.RS_UNLIMITED_COUNT.configure(new CountConfig(RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.badlandsDungeonAttemptsPerChunk))));
+                    .decorate(RSPlacements.UNLIMITED_COUNT.configure(new CountConfig(RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.badlandsDungeonAttemptsPerChunk))));
 
     private static final NbtDungeonConfig DARK_FOREST_DUNGEON_CONFIG = new NbtDungeonConfig("dark_forest", new Identifier(RepurposedStructures.MODID, "dungeons/dark_forest_post_process"));
     public static ConfiguredFeature<?, ?> DARK_FOREST_DUNGEONS = RSFeatures.DARK_FOREST_DUNGEONS.configure(DARK_FOREST_DUNGEON_CONFIG)
-            .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(UniformHeightProvider.create(
+            .decorate(RSPlacements.DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(UniformHeightProvider.create(
                     YOffset.fixed(RepurposedStructures.RSAllConfig.RSDungeonsConfig.minHeight.darkForestDungeonMinHeight),
                     YOffset.fixed(RepurposedStructures.RSAllConfig.RSDungeonsConfig.maxHeight.darkForestDungeonMaxHeight))))
-                    .decorate(RSPlacements.RS_UNLIMITED_COUNT.configure(new CountConfig(RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.darkForestDungeonAttemptsPerChunk))));
+                    .decorate(RSPlacements.UNLIMITED_COUNT.configure(new CountConfig(RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.darkForestDungeonAttemptsPerChunk))));
 
     private static final NbtDungeonConfig DESERT_DUNGEON_CONFIG = new NbtDungeonConfig("desert", EMPTY_ID);
     public static ConfiguredFeature<?, ?> DESERT_DUNGEONS = RSFeatures.DESERT_DUNGEONS.configure(DESERT_DUNGEON_CONFIG)
-            .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(UniformHeightProvider.create(
+            .decorate(RSPlacements.DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(UniformHeightProvider.create(
                     YOffset.fixed(RepurposedStructures.RSAllConfig.RSDungeonsConfig.minHeight.desertDungeonMinHeight),
                     YOffset.fixed(RepurposedStructures.RSAllConfig.RSDungeonsConfig.maxHeight.desertDungeonMaxHeight))))
-            .decorate(RSPlacements.RS_UNLIMITED_COUNT.configure(new CountConfig(RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.desertDungeonAttemptsPerChunk))));
+            .decorate(RSPlacements.UNLIMITED_COUNT.configure(new CountConfig(RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.desertDungeonAttemptsPerChunk))));
 
     private static final NbtDungeonConfig END_DUNGEON_CONFIG = new NbtDungeonConfig("end", "shulker_boxes", EMPTY_ID, 20, Blocks.SHULKER_BOX.getDefaultState());
     public static ConfiguredFeature<?, ?> END_DUNGEONS = RSFeatures.END_DUNGEONS.configure(END_DUNGEON_CONFIG)
-            .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(UniformHeightProvider.create(
+            .decorate(RSPlacements.DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(UniformHeightProvider.create(
                     YOffset.fixed(RepurposedStructures.RSAllConfig.RSDungeonsConfig.minHeight.endDungeonMinHeight),
                     YOffset.fixed(RepurposedStructures.RSAllConfig.RSDungeonsConfig.maxHeight.endDungeonMaxHeight))))
-            .decorate(RSPlacements.RS_UNLIMITED_COUNT.configure(new CountConfig(RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.endDungeonAttemptsPerChunk))));
+            .decorate(RSPlacements.UNLIMITED_COUNT.configure(new CountConfig(RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.endDungeonAttemptsPerChunk))));
 
     private static final NbtDungeonConfig NETHER_DUNGEON_CONFIG = new NbtDungeonConfig("nether", EMPTY_ID);
     public static ConfiguredFeature<?, ?> NETHER_DUNGEONS = RSFeatures.NETHER_DUNGEONS.configure(NETHER_DUNGEON_CONFIG)
-            .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(UniformHeightProvider.create(
+            .decorate(RSPlacements.DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(UniformHeightProvider.create(
                     YOffset.fixed(RepurposedStructures.RSAllConfig.RSDungeonsConfig.minHeight.netherDungeonMinHeight),
                     YOffset.fixed(RepurposedStructures.RSAllConfig.RSDungeonsConfig.maxHeight.netherDungeonMaxHeight))))
-            .decorate(RSPlacements.RS_UNLIMITED_COUNT.configure(new CountConfig(RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.netherDungeonAttemptsPerChunk))));
+            .decorate(RSPlacements.UNLIMITED_COUNT.configure(new CountConfig(RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.netherDungeonAttemptsPerChunk))));
 
     private static final NbtDungeonConfig SNOW_DUNGEON_CONFIG = new NbtDungeonConfig("snow", EMPTY_ID);
     public static ConfiguredFeature<?, ?> SNOW_DUNGEONS = RSFeatures.SNOW_DUNGEONS.configure(SNOW_DUNGEON_CONFIG)
-            .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(UniformHeightProvider.create(
+            .decorate(RSPlacements.DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(UniformHeightProvider.create(
                     YOffset.fixed(RepurposedStructures.RSAllConfig.RSDungeonsConfig.minHeight.snowDungeonMinHeight),
                     YOffset.fixed(RepurposedStructures.RSAllConfig.RSDungeonsConfig.maxHeight.snowDungeonMaxHeight))))
-            .decorate(RSPlacements.RS_UNLIMITED_COUNT.configure(new CountConfig(RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.snowDungeonAttemptsPerChunk))));
+            .decorate(RSPlacements.UNLIMITED_COUNT.configure(new CountConfig(RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.snowDungeonAttemptsPerChunk))));
 
     private static final NbtDungeonConfig ICY_DUNGEON_CONFIG = new NbtDungeonConfig("icy", EMPTY_ID);
     public static ConfiguredFeature<?, ?> ICY_DUNGEONS = RSFeatures.ICY_DUNGEONS.configure(ICY_DUNGEON_CONFIG)
-            .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(UniformHeightProvider.create(
+            .decorate(RSPlacements.DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(UniformHeightProvider.create(
                     YOffset.fixed(RepurposedStructures.RSAllConfig.RSDungeonsConfig.minHeight.icyDungeonMinHeight),
                     YOffset.fixed(RepurposedStructures.RSAllConfig.RSDungeonsConfig.maxHeight.icyDungeonMaxHeight))))
-                    .decorate(RSPlacements.RS_UNLIMITED_COUNT.configure(new CountConfig(RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.icyDungeonAttemptsPerChunk))));
+                    .decorate(RSPlacements.UNLIMITED_COUNT.configure(new CountConfig(RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.icyDungeonAttemptsPerChunk))));
 
     private static final NbtDungeonConfig SWAMP_DUNGEON_CONFIG = new NbtDungeonConfig("swamp", EMPTY_ID);
     public static ConfiguredFeature<?, ?> SWAMP_DUNGEONS = RSFeatures.SWAMP_DUNGEONS.configure(SWAMP_DUNGEON_CONFIG)
-            .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(UniformHeightProvider.create(
+            .decorate(RSPlacements.DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(UniformHeightProvider.create(
                     YOffset.fixed(RepurposedStructures.RSAllConfig.RSDungeonsConfig.minHeight.swampDungeonMinHeight),
                     YOffset.fixed(RepurposedStructures.RSAllConfig.RSDungeonsConfig.maxHeight.swampDungeonMaxHeight))))
-            .decorate(RSPlacements.RS_UNLIMITED_COUNT.configure(new CountConfig(RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.swampDungeonAttemptsPerChunk))));
+            .decorate(RSPlacements.UNLIMITED_COUNT.configure(new CountConfig(RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.swampDungeonAttemptsPerChunk))));
 
     private static final NbtDungeonConfig MUSHROOM_HIGH_DUNGEON_CONFIG = new NbtDungeonConfig("mushroom", "mushroom_high", new Identifier(RepurposedStructures.MODID, "dungeons/mushroom_high"), EMPTY_ID);
     public static ConfiguredFeature<?, ?> MUSHROOM_HIGH_DUNGEONS = RSFeatures.MUSHROOM_DUNGEONS.configure(MUSHROOM_HIGH_DUNGEON_CONFIG)
-            .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(UniformHeightProvider.create(
+            .decorate(RSPlacements.DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(UniformHeightProvider.create(
                     YOffset.fixed(Math.max(63, RepurposedStructures.RSAllConfig.RSDungeonsConfig.minHeight.mushroomDungeonMinHeight)),
                     YOffset.fixed(RepurposedStructures.RSAllConfig.RSDungeonsConfig.maxHeight.mushroomDungeonMaxHeight))))
-            .decorate(RSPlacements.RS_UNLIMITED_COUNT.configure(new CountConfig(Math.round(Math.max(0,
+            .decorate(RSPlacements.UNLIMITED_COUNT.configure(new CountConfig(Math.round(Math.max(0,
                     ((RepurposedStructures.RSAllConfig.RSDungeonsConfig.maxHeight.mushroomDungeonMaxHeight - 62F) /
                     (RepurposedStructures.RSAllConfig.RSDungeonsConfig.maxHeight.mushroomDungeonMaxHeight - RepurposedStructures.RSAllConfig.RSDungeonsConfig.minHeight.mushroomDungeonMinHeight)) *
                     RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.mushroomDungeonAttemptsPerChunk
@@ -113,10 +117,10 @@ public class RSConfiguredFeatures {
 
     private static final NbtDungeonConfig MUSHROOM_LOW_DUNGEON_CONFIG = new NbtDungeonConfig("mushroom", "mushroom_low", new Identifier(RepurposedStructures.MODID, "dungeons/mushroom_low"), EMPTY_ID);
     public static ConfiguredFeature<?, ?> MUSHROOM_LOW_DUNGEONS = RSFeatures.MUSHROOM_DUNGEONS.configure(MUSHROOM_LOW_DUNGEON_CONFIG)
-            .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(UniformHeightProvider.create(
+            .decorate(RSPlacements.DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(UniformHeightProvider.create(
                     YOffset.fixed(RepurposedStructures.RSAllConfig.RSDungeonsConfig.minHeight.mushroomDungeonMinHeight),
                     YOffset.fixed(Math.min(62, RepurposedStructures.RSAllConfig.RSDungeonsConfig.maxHeight.mushroomDungeonMaxHeight)))))
-            .decorate(RSPlacements.RS_UNLIMITED_COUNT.configure(new CountConfig(Math.round(Math.max(0,
+            .decorate(RSPlacements.UNLIMITED_COUNT.configure(new CountConfig(Math.round(Math.max(0,
                     ((62F - RepurposedStructures.RSAllConfig.RSDungeonsConfig.minHeight.mushroomDungeonMinHeight) /
                     (RepurposedStructures.RSAllConfig.RSDungeonsConfig.maxHeight.mushroomDungeonMaxHeight - RepurposedStructures.RSAllConfig.RSDungeonsConfig.minHeight.mushroomDungeonMinHeight)) *
                     RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.mushroomDungeonAttemptsPerChunk
@@ -124,72 +128,103 @@ public class RSConfiguredFeatures {
 
     private static final NbtDungeonConfig JUNGLE_DUNGEON_CONFIG = new NbtDungeonConfig("jungle", new Identifier(RepurposedStructures.MODID, "dungeons/jungle_post_process"));
     public static ConfiguredFeature<?, ?> JUNGLE_DUNGEONS = RSFeatures.JUNGLE_DUNGEONS.configure(JUNGLE_DUNGEON_CONFIG)
-            .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(UniformHeightProvider.create(
+            .decorate(RSPlacements.DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(UniformHeightProvider.create(
                     YOffset.fixed(RepurposedStructures.RSAllConfig.RSDungeonsConfig.minHeight.jungleDungeonMinHeight),
                     YOffset.fixed(RepurposedStructures.RSAllConfig.RSDungeonsConfig.maxHeight.jungleDungeonMaxHeight))))
-            .decorate(RSPlacements.RS_UNLIMITED_COUNT.configure(new CountConfig(RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.jungleDungeonAttemptsPerChunk))));
+            .decorate(RSPlacements.UNLIMITED_COUNT.configure(new CountConfig(RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.jungleDungeonAttemptsPerChunk))));
 
     private static final NbtDungeonConfig NEUTRAL_DUNGEON_CONFIG = new NbtDungeonConfig("ocean", "ocean_neutral", new Identifier(RepurposedStructures.MODID, "dungeons/ocean_neutral"), EMPTY_ID, 55, true, -2);
     public static ConfiguredFeature<?, ?> OCEAN_NEUTRAL_DUNGEONS = RSFeatures.OCEAN_DUNGEONS.configure(NEUTRAL_DUNGEON_CONFIG)
-            .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(UniformHeightProvider.create(
+            .decorate(RSPlacements.DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(UniformHeightProvider.create(
                     YOffset.fixed(RepurposedStructures.RSAllConfig.RSDungeonsConfig.minHeight.oceanDungeonMinHeight),
                     YOffset.fixed(RepurposedStructures.RSAllConfig.RSDungeonsConfig.maxHeight.oceanDungeonMaxHeight))))
-            .decorate(RSPlacements.RS_UNLIMITED_COUNT.configure(new CountConfig(RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.oceanDungeonAttemptsPerChunk))));
+            .decorate(RSPlacements.UNLIMITED_COUNT.configure(new CountConfig(RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.oceanDungeonAttemptsPerChunk))));
 
     private static final NbtDungeonConfig COLD_DUNGEON_CONFIG = new NbtDungeonConfig("ocean", "ocean_cold", new Identifier(RepurposedStructures.MODID, "dungeons/ocean_cold"), EMPTY_ID, 55, true, -2);
     public static ConfiguredFeature<?, ?> OCEAN_COLD_DUNGEONS = RSFeatures.OCEAN_DUNGEONS.configure(COLD_DUNGEON_CONFIG)
-            .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(UniformHeightProvider.create(
+            .decorate(RSPlacements.DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(UniformHeightProvider.create(
                     YOffset.fixed(RepurposedStructures.RSAllConfig.RSDungeonsConfig.minHeight.oceanDungeonMinHeight),
                     YOffset.fixed(RepurposedStructures.RSAllConfig.RSDungeonsConfig.maxHeight.oceanDungeonMaxHeight))))
-                    .decorate(RSPlacements.RS_UNLIMITED_COUNT.configure(new CountConfig(RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.oceanDungeonAttemptsPerChunk))));
+                    .decorate(RSPlacements.UNLIMITED_COUNT.configure(new CountConfig(RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.oceanDungeonAttemptsPerChunk))));
 
     private static final NbtDungeonConfig FROZEN_DUNGEON_CONFIG = new NbtDungeonConfig("ocean", "ocean_frozen", new Identifier(RepurposedStructures.MODID, "dungeons/ocean_frozen"), EMPTY_ID, 55, true, -2);
     public static ConfiguredFeature<?, ?> OCEAN_FROZEN_DUNGEONS = RSFeatures.OCEAN_DUNGEONS.configure(FROZEN_DUNGEON_CONFIG)
-            .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(UniformHeightProvider.create(
+            .decorate(RSPlacements.DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(UniformHeightProvider.create(
                     YOffset.fixed(RepurposedStructures.RSAllConfig.RSDungeonsConfig.minHeight.oceanDungeonMinHeight),
                     YOffset.fixed(RepurposedStructures.RSAllConfig.RSDungeonsConfig.maxHeight.oceanDungeonMaxHeight))))
-                    .decorate(RSPlacements.RS_UNLIMITED_COUNT.configure(new CountConfig(RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.oceanDungeonAttemptsPerChunk))));
+                    .decorate(RSPlacements.UNLIMITED_COUNT.configure(new CountConfig(RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.oceanDungeonAttemptsPerChunk))));
 
     private static final NbtDungeonConfig LUKEWARM_DUNGEON_CONFIG = new NbtDungeonConfig("ocean", "ocean_lukewarm", new Identifier(RepurposedStructures.MODID, "dungeons/ocean_lukewarm"), EMPTY_ID, 55, true, -2);
     public static ConfiguredFeature<?, ?> OCEAN_LUKEWARM_DUNGEONS = RSFeatures.OCEAN_DUNGEONS.configure(LUKEWARM_DUNGEON_CONFIG)
-            .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(UniformHeightProvider.create(
+            .decorate(RSPlacements.DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(UniformHeightProvider.create(
                     YOffset.fixed(RepurposedStructures.RSAllConfig.RSDungeonsConfig.minHeight.oceanDungeonMinHeight),
                     YOffset.fixed(RepurposedStructures.RSAllConfig.RSDungeonsConfig.maxHeight.oceanDungeonMaxHeight))))
-                    .decorate(RSPlacements.RS_UNLIMITED_COUNT.configure(new CountConfig(RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.oceanDungeonAttemptsPerChunk))));
+                    .decorate(RSPlacements.UNLIMITED_COUNT.configure(new CountConfig(RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.oceanDungeonAttemptsPerChunk))));
 
     private static final NbtDungeonConfig WARM_DUNGEON_CONFIG = new NbtDungeonConfig("ocean", "ocean_warm", new Identifier(RepurposedStructures.MODID, "dungeons/ocean_warm"), EMPTY_ID, 55, true, -2);
     public static ConfiguredFeature<?, ?> OCEAN_WARM_DUNGEONS = RSFeatures.OCEAN_DUNGEONS.configure(WARM_DUNGEON_CONFIG)
-            .decorate(RSPlacements.RS_DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(UniformHeightProvider.create(
+            .decorate(RSPlacements.DUNGEON_PLACEMENT.configure(new RangeDecoratorConfig(UniformHeightProvider.create(
                     YOffset.fixed(RepurposedStructures.RSAllConfig.RSDungeonsConfig.minHeight.oceanDungeonMinHeight),
                     YOffset.fixed(RepurposedStructures.RSAllConfig.RSDungeonsConfig.maxHeight.oceanDungeonMaxHeight))))
-                    .decorate(RSPlacements.RS_UNLIMITED_COUNT.configure(new CountConfig(RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.oceanDungeonAttemptsPerChunk))));
+                    .decorate(RSPlacements.UNLIMITED_COUNT.configure(new CountConfig(RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.oceanDungeonAttemptsPerChunk))));
 
 
     // Wells
-    public static ConfiguredFeature<?, ?> BADLANDS_WELL = RSFeatures.BADLANDS_WELL.configure(FeatureConfig.DEFAULT)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.OCEAN_FLOOR_WG)).spreadHorizontally())
+    public static ConfiguredFeature<?, ?> BADLANDS_WELL = RSFeatures.BADLANDS_WELL
+            .configure(new NbtFeatureConfig(
+                    false,
+                    -2,
+                    ImmutableList.of(Pair.of(new Identifier(RepurposedStructures.MODID, "wells/badlands"), 1)),
+                    new Identifier(RepurposedStructures.MODID, "wells/badlands")))
+            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.WORLD_SURFACE_WG)).spreadHorizontally())
             .applyChance(RepurposedStructures.RSAllConfig.RSWellsConfig.badlandsWellRarityPerChunk);
 
-    public static ConfiguredFeature<?, ?> NETHER_WELL = RSFeatures.NETHER_WELL.configure(FeatureConfig.DEFAULT)
+    public static ConfiguredFeature<?, ?> NETHER_WELL = RSFeatures.NETHER_WELL
+            .configure(new NbtFeatureConfig(
+                    false,
+                    -1,
+                    ImmutableList.of(Pair.of(new Identifier(RepurposedStructures.MODID, "wells/nether"), 1)),
+                    new Identifier(RepurposedStructures.MODID, "wells/nether")))
+            .decorate(RSPlacements.SNAP_TO_LOWER_NON_AIR_PLACEMENT.configure(NopeDecoratorConfig.INSTANCE))
             .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(UniformHeightProvider.create(
                     YOffset.aboveBottom(30),
                     YOffset.belowTop(35)))))
             .applyChance(RepurposedStructures.RSAllConfig.RSWellsConfig.netherWellRarityPerChunk);
 
-    public static ConfiguredFeature<?, ?> SNOW_WELL = RSFeatures.SNOW_WELL.configure(FeatureConfig.DEFAULT)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.OCEAN_FLOOR_WG)).spreadHorizontally())
+    public static ConfiguredFeature<?, ?> SNOW_WELL = RSFeatures.SNOW_WELL
+            .configure(new NbtFeatureConfig(
+                    false,
+                    -2,
+                    ImmutableList.of(Pair.of(new Identifier(RepurposedStructures.MODID, "wells/snow"), 1)),
+                    new Identifier(RepurposedStructures.MODID, "wells/snow")))
+            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.WORLD_SURFACE_WG)).spreadHorizontally())
             .applyChance(RepurposedStructures.RSAllConfig.RSWellsConfig.snowWellRarityPerChunk);
 
-    public static ConfiguredFeature<?, ?> MOSSY_STONE_WELL = RSFeatures.MOSSY_STONE_WELL.configure(FeatureConfig.DEFAULT)
+    public static ConfiguredFeature<?, ?> MOSSY_STONE_WELL = RSFeatures.MOSSY_STONE_WELL
+            .configure(new NbtFeatureConfig(
+                    true,
+                    -2,
+                    ImmutableList.of(Pair.of(new Identifier(RepurposedStructures.MODID, "wells/mossy"), 1)),
+                    new Identifier(RepurposedStructures.MODID, "wells/mossy")))
             .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.OCEAN_FLOOR_WG)).spreadHorizontally())
             .applyChance(RepurposedStructures.RSAllConfig.RSWellsConfig.mossyStoneWellRarityPerChunk);
 
-    public static ConfiguredFeature<?, ?> FOREST_WELL = RSFeatures.FOREST_WELL.configure(FeatureConfig.DEFAULT)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.OCEAN_FLOOR_WG)).spreadHorizontally())
+    public static ConfiguredFeature<?, ?> FOREST_WELL = RSFeatures.FOREST_WELL
+            .configure(new NbtFeatureConfig(
+                    true,
+                    -6,
+                    ImmutableList.of(Pair.of(new Identifier(RepurposedStructures.MODID, "wells/forest"), 1)),
+                    new Identifier(RepurposedStructures.MODID, "wells/forest")))
+            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.WORLD_SURFACE_WG)).spreadHorizontally())
             .applyChance(RepurposedStructures.RSAllConfig.RSWellsConfig.forestWellRarityPerChunk);
 
-    public static ConfiguredFeature<?, ?> MUSHROOM_WELL = RSFeatures.MUSHROOM_WELL.configure(FeatureConfig.DEFAULT)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.OCEAN_FLOOR_WG)).spreadHorizontally())
+    public static ConfiguredFeature<?, ?> MUSHROOM_WELL = RSFeatures.MUSHROOM_WELL
+            .configure(new NbtFeatureConfig(
+                    false,
+                    -2,
+                    ImmutableList.of(Pair.of(new Identifier(RepurposedStructures.MODID, "wells/mushroom"), 1)),
+                    new Identifier(RepurposedStructures.MODID, "wells/mushroom")))
+            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.WORLD_SURFACE_WG)).spreadHorizontally())
             .applyChance(RepurposedStructures.RSAllConfig.RSWellsConfig.mushroomWellRarityPerChunk);
 
     public static List<ConfiguredFeature<?, ?>> RS_WELLS = new ArrayList<>();
@@ -254,13 +289,13 @@ public class RSConfiguredFeatures {
     public static ConfiguredFeature<?, ?> WARM_LAND_RUINS_STRUCTURE_GRASS = Feature.RANDOM_PATCH
             .configure(ConfiguredFeatures.Configs.TALL_GRASS_CONFIG)
             .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.OCEAN_FLOOR_WG)).spreadHorizontally())
-                .decorate(RSPlacements.RS_MINUS_EIGHT_PLACEMENT.configure(NopeDecoratorConfig.DEFAULT))
+                .decorate(RSPlacements.MINUS_EIGHT_PLACEMENT.configure(NopeDecoratorConfig.DEFAULT))
                 .repeat(2);
 
     public static ConfiguredFeature<?, ?> HOT_LAND_RUINS_STRUCTURE_DEAD_BUSH = Feature.RANDOM_PATCH
             .configure(ConfiguredFeatures.Configs.DEAD_BUSH_CONFIG)
             .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.OCEAN_FLOOR_WG)).spreadHorizontally())
-                .decorate(RSPlacements.RS_MINUS_EIGHT_PLACEMENT.configure(NopeDecoratorConfig.DEFAULT))
+                .decorate(RSPlacements.MINUS_EIGHT_PLACEMENT.configure(NopeDecoratorConfig.DEFAULT))
                 .repeat(8);
 
     public static void registerConfiguredFeatures() {

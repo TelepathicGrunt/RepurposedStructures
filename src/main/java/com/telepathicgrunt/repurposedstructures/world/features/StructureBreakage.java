@@ -60,7 +60,7 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
                 foundSurface = findSurface(context.getWorld(), mutable, Direction.DOWN);
             }
 
-            if(!foundSurface && !context.getWorld().toServerWorld().getStructureAccessor().getStructureAt(mutable, true, context.getConfig().targetStructure).hasChildren()){
+            if(!foundSurface){
                 return false;
             }
             mutable.move(Direction.UP, 2);
