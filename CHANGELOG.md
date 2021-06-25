@@ -3,13 +3,17 @@
 ##### Major:
 * Updated to 1.17!!! Note, putting this mod on a world made with 1.16.5 or older Repurposed Structures may cause weird stuff.
 
-* File paths in the resources/data folder has been significantly redone to be more consistant and cleaner. 
+* File paths in the resources/data folder has been significantly redone to be more consistent and cleaner. 
   1.16.5 or older datapacks for Repurposed Structures may not work anymore and have to be updated.
+
+* Added mixin to make a deep copy of the Noise Settings of each dimension to assign to those dimensions.
+  This may automatically fix the dimension whitelisting/blacklisting that some structure mods do so it now works properly.
 
 ##### Configs:
 * Heavily cleaned up and improved the configs. Fixed some structures and features not working with the dimension/biome configs correctly.
-  For allow/disallowing structures in biome/dimensions, see the actual config file itself as Cloth Config API cannot show maps in GUI screen. 
-
+  For allow/disallowing structures in dimension/biome, see the actual config file itself as Cloth Config API cannot show maps in GUI screen.
+  NOTE: As of v5.0.34 Cloth Config API, the maps for dimension/biome allowing and disallowing is not working. Please wait for future Cloth update to fix this.
+  
 ##### Advancements:
 * All advancements has been condensed. Now there's one advancement for finding all variants of one structure type. 
   For example, you have to find and enter all Repurposed Structures villages to get the advancement for RS Villages.

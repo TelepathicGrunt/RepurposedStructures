@@ -4,7 +4,6 @@
   "package": "com.telepathicgrunt.repurposedstructures.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "structures.ListPoolElementAccessor",
     "blocks.RailBlockMixin",
     "entities.CatEntityMixin",
     "entities.ShulkerEntityInvoker",
@@ -19,6 +18,7 @@
     "resources.NamespaceResourceManagerAccessor",
     "resources.ReloadableResourceManagerImplAccessor",
     "structures.EnderEyeStrongholdLocatingMixin",
+    "structures.ListPoolElementAccessor",
     "structures.PillagerOutpostFeatureAccessor",
     "structures.SinglePoolElementAccessor",
     "structures.StructureManagerAccessor",
@@ -26,7 +26,9 @@
     "structures.StructurePoolAccessor",
     "structures.StructurePoolMixin",
     "structures.StructuresConfigAccessor",
-    "structures.TemplateAccessor"
+    "structures.TemplateAccessor",
+    "world.ChunkGeneratorMixin",
+    "world.StructuresConfigMixin"
   ],
   "client": [
     "blocks.StructureBlockScreenMixin"
