@@ -11,7 +11,6 @@ import java.util.function.Function;
 
 public class StructureTargetLengthRangeConfig implements FeatureConfig {
     public static final Codec<StructureTargetLengthRangeConfig> CODEC = RecordCodecBuilder.<StructureTargetLengthRangeConfig>create((configInstance) -> configInstance.group(
-            Registry.STRUCTURE_FEATURE.fieldOf("target_structure").forGetter(config -> config.targetStructure),
             Codec.intRange(1, 1000000).fieldOf("attempts").forGetter(config -> config.attempts),
             Codec.intRange(1, 200).fieldOf("length").forGetter(config -> config.length),
             Codec.intRange(1, 200).fieldOf("xz_range").forGetter(config -> config.xzRange),
@@ -20,24 +19,21 @@ public class StructureTargetLengthRangeConfig implements FeatureConfig {
             .comapFlatMap((config) -> config.heightRange <= 0 ?
                     DataResult.error("height must be greater than 0") : DataResult.success(config), Function.identity());
 
-    public final StructureFeature<?> targetStructure;
     public final int attempts;
     public final int length;
     public final int xzRange;
     public final int heightRange;
 
-    public StructureTargetLengthRangeConfig(StructureFeature<?> targetStructure, int attempts, int length, int xzRange)
+    public StructureTargetLengthRangeConfig(int attempts, int length, int xzRange)
     {
-        this.targetStructure = targetStructure;
         this.attempts = attempts;
         this.length = length;
         this.xzRange = xzRange;
         this.heightRange = 5;
     }
 
-    public StructureTargetLengthRangeConfig(StructureFeature<?> targetStructure, int attempts, int length, int xzRange, int heightRange)
+    public StructureTargetLengthRangeConfig(int attempts, int length, int xzRange, int heightRange)
     {
-        this.targetStructure = targetStructure;
         this.attempts = attempts;
         this.length = length;
         this.xzRange = xzRange;
