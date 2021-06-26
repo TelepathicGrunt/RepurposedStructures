@@ -14,18 +14,21 @@ import java.util.function.Supplier;
 
 public class NbtFeatureConfig implements FeatureConfig {
     public static final Codec<NbtFeatureConfig> CODEC = RecordCodecBuilder.create((configInstance) -> configInstance.group(
+            Identifier.CODEC.fieldOf("configured_feature_name").forGetter(nbtFeatureConfig -> nbtFeatureConfig.cfID),
             Codec.BOOL.fieldOf("allow_liquid").orElse(false).forGetter(nbtFeatureConfig -> nbtFeatureConfig.allowInWater),
             Codec.INT.fieldOf("height_offset").orElse(0).forGetter(nbtFeatureConfig -> nbtFeatureConfig.heightOffset),
             Codec.mapPair(Identifier.CODEC.fieldOf("resourcelocation"), Codec.intRange(1, Integer.MAX_VALUE).fieldOf("weight")).codec().listOf().fieldOf("nbt_entries").forGetter(nbtFeatureConfig -> nbtFeatureConfig.nbtResourcelocationsAndWeights),
             Identifier.CODEC.fieldOf("processors").orElse(null).forGetter(nbtFeatureConfig -> nbtFeatureConfig.processor)
             ).apply(configInstance, NbtFeatureConfig::new));
 
+    public final Identifier cfID;
     public final boolean allowInWater;
     public final int heightOffset;
     public final List<Pair<Identifier, Integer>> nbtResourcelocationsAndWeights;
     public final Identifier processor;
 
-    public NbtFeatureConfig(boolean allowInWater, int heightOffset, List<Pair<Identifier, Integer>> nbtResourcelocationsAndWeights, Identifier processor) {
+    public NbtFeatureConfig(Identifier cfID, boolean allowInWater, int heightOffset, List<Pair<Identifier, Integer>> nbtResourcelocationsAndWeights, Identifier processor) {
+        this.cfID = cfID;
         this.allowInWater = allowInWater;
         this.heightOffset = heightOffset;
         this.nbtResourcelocationsAndWeights = nbtResourcelocationsAndWeights;

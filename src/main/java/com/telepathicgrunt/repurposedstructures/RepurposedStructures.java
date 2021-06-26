@@ -18,6 +18,7 @@ import com.telepathicgrunt.repurposedstructures.biomeinjection.Villages;
 import com.telepathicgrunt.repurposedstructures.biomeinjection.Wells;
 import com.telepathicgrunt.repurposedstructures.biomeinjection.WitchHuts;
 import com.telepathicgrunt.repurposedstructures.configs.RSAllConfig;
+import com.telepathicgrunt.repurposedstructures.configs.RSAllowDisallowOmegaConfig;
 import com.telepathicgrunt.repurposedstructures.misc.BiomeDimensionAllowDisallow;
 import com.telepathicgrunt.repurposedstructures.misc.MobMapTrades;
 import com.telepathicgrunt.repurposedstructures.misc.MobSpawnerManager;
@@ -33,6 +34,7 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.StructurePiecesBehavior;
+import draylar.omegaconfig.OmegaConfig;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
@@ -41,7 +43,7 @@ import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.minecraft.resource.ResourceType;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.chunk.FlatChunkGenerator;
 import net.minecraft.world.gen.chunk.StructureConfig;
@@ -59,6 +61,7 @@ public class RepurposedStructures implements ModInitializer {
     public static MobSpawnerManager mobSpawnerManager = new MobSpawnerManager();
 
 	public static RSAllConfig RSAllConfig = null;
+    public static final RSAllowDisallowOmegaConfig omegaConfig = OmegaConfig.register(RSAllowDisallowOmegaConfig.class);
 
     @Override
     public void onInitialize() {
@@ -87,21 +90,26 @@ public class RepurposedStructures implements ModInitializer {
         ServerWorldEvents.LOAD.register((MinecraftServer minecraftServer, ServerWorld serverWorld) -> {
 
             //add our structure spacing to all chunkgenerators including modded one and datapack ones.
-            boolean isWorldBlacklisted = GeneralUtils.isWorldBlacklisted(serverWorld);
-
             // Need temp map as some mods use custom chunk generators with immutable maps in themselves.
             Map<StructureFeature<?>, StructureConfig> tempMap = new HashMap<>(serverWorld.getChunkManager().getChunkGenerator().getStructuresConfig().getStructures());
-            if (isWorldBlacklisted){
-                // make absolutely sure dimension cannot spawn RS structures
+
+            // make absolutely sure superflat dimension cannot spawn RS structures
+            if (serverWorld.getChunkManager().getChunkGenerator() instanceof FlatChunkGenerator && serverWorld.getRegistryKey().equals(World.OVERWORLD)) {
                 tempMap.keySet().removeAll(RSStructures.RS_STRUCTURES.keySet());
             }
-            else if (serverWorld.getChunkManager().getChunkGenerator() instanceof FlatChunkGenerator && serverWorld.getRegistryKey().equals(World.OVERWORLD)) {
-                // make absolutely sure superflat dimension cannot spawn RS structures
-                tempMap.keySet().removeAll(RSStructures.RS_STRUCTURES.keySet());
-            }
-            else {
-                // make absolutely sure dimension can spawn RS structures
-                tempMap.forEach(RSStructures.RS_STRUCTURES::putIfAbsent);
+            // Not superflat overworld. Do normal behavior now
+            else{
+                for(Map.Entry<StructureFeature<?>, StructureConfig> structureFeatureEntry : RSStructures.RS_STRUCTURES.entrySet()){
+                    boolean isWorldBlacklisted = GeneralUtils.isBlacklistedForWorld(serverWorld, Registry.STRUCTURE_FEATURE.getId(structureFeatureEntry.getKey()));
+                    if (isWorldBlacklisted){
+                        // make absolutely sure dimension cannot spawn the RS structure
+                        tempMap.remove(structureFeatureEntry.getKey());
+                    }
+                    else {
+                        // make absolutely sure dimension can spawn the RS structure
+                        tempMap.putIfAbsent(structureFeatureEntry.getKey(), structureFeatureEntry.getValue());
+                    }
+                }
             }
             ((StructuresConfigAccessor) serverWorld.getChunkManager().getChunkGenerator().getStructuresConfig()).repurposedstructures_setStructures(tempMap);
         });

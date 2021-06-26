@@ -48,7 +48,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
 
     @Override
     public boolean generate(FeatureContext<NbtDungeonConfig> context) {
-        if(GeneralUtils.isWorldBlacklisted(context.getWorld())) return false;
+        if(GeneralUtils.isBlacklistedForWorld(context.getWorld(), context.getConfig().cfID)) return false;
 
         BlockPos position = context.getOrigin().up(-1);
         Identifier nbtRL = GeneralUtils.getRandomEntry(context.getConfig().nbtResourcelocationsAndWeights, context.getRandom());

@@ -70,7 +70,7 @@ public class BiomeSelection {
 
     public static <T> boolean isBiomeAllowed(BiomeSelectionContext context, T worldgenObject, Registry<T> registry) {
         Identifier registryId = registry.getId(worldgenObject);
-        String biomeID = context.getBiomeKey().toString();
+        String biomeID = context.getBiomeKey().getValue().toString();
         return BiomeDimensionAllowDisallow.BIOME_ALLOW.getOrDefault(registryId, new ArrayList<>()).stream()
                 .anyMatch(pattern -> {
                     if(pattern.pattern().startsWith("#")){
@@ -90,7 +90,7 @@ public class BiomeSelection {
 
     public static <T> boolean isBiomeDisallowed(BiomeSelectionContext context, T worldgenObject, Registry<T> registry) {
         Identifier registryId = registry.getId(worldgenObject);
-        String biomeID = context.getBiomeKey().toString();
+        String biomeID = context.getBiomeKey().getValue().toString();
         return BiomeDimensionAllowDisallow.BIOME_DISALLOW.getOrDefault(registryId, new ArrayList<>()).stream()
                 .anyMatch(pattern -> {
                     if(pattern.pattern().startsWith("#")){

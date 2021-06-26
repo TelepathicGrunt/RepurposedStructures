@@ -33,7 +33,7 @@ public class NbtFeature extends Feature<NbtFeatureConfig> {
 
     @Override
     public boolean generate(FeatureContext<NbtFeatureConfig> context) {
-        if(GeneralUtils.isWorldBlacklisted(context.getWorld())) return false;
+        if(GeneralUtils.isBlacklistedForWorld(context.getWorld(), context.getConfig().cfID)) return false;
 
         // move to top land block below position
         BlockPos.Mutable mutable = new BlockPos.Mutable().set(context.getOrigin());

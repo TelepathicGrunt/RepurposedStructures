@@ -46,24 +46,28 @@ public class BiomeDimensionAllowDisallow {
         });
 
         // Parse and add all the allow/disallows
-        setupMap(DIMENSION_DISALLOW, RepurposedStructures.RSAllConfig.RSAllowDisallowConfig.disallowedDimensions, "dimension disallow");
-        setupMap(DIMENSION_ALLOW, RepurposedStructures.RSAllConfig.RSAllowDisallowConfig.allowedDimensions, "dimension allow");
-        setupMap(BIOME_DISALLOW, RepurposedStructures.RSAllConfig.RSAllowDisallowConfig.disallowedBiomes, "biome disallow");
-        setupMap(BIOME_ALLOW, RepurposedStructures.RSAllConfig.RSAllowDisallowConfig.allowedBiomes, "biome allow");
+        setupMap(DIMENSION_DISALLOW, RepurposedStructures.omegaConfig.disallowedDimensions, "dimension disallow");
+        setupMap(DIMENSION_ALLOW, RepurposedStructures.omegaConfig.allowedDimensions, "dimension allow");
+        setupMap(BIOME_DISALLOW, RepurposedStructures.omegaConfig.disallowedBiomes, "biome disallow");
+        setupMap(BIOME_ALLOW, RepurposedStructures.omegaConfig.allowedBiomes, "biome allow");
     }
 
-    private static void setupMap(Map<Identifier, List<Pattern>> map, Map<String, String> config, String errorMsg) {
-        for(Map.Entry<String, String> dimDisEntry : config.entrySet()){
-            List<String> parsedValues = Arrays.stream(dimDisEntry.getValue().split(",")).map(String::trim).collect(Collectors.toList());
-            Identifier id = new Identifier(dimDisEntry.getKey());
-            if(dimDisEntry.getKey().equals("all")){
-                map.values().forEach(list -> parsedValues.forEach(dim -> list.add(Pattern.compile(dim))));
+    private static void setupMap(Map<Identifier, List<Pattern>> mapToFillWithPatterns, Map<String, String> configMap, String errorMsg) {
+        for(Map.Entry<String, String> configMapEntry : configMap.entrySet()){
+            List<String> parsedValues = Arrays.stream(configMapEntry.getValue().split(",")).map(String::trim).collect(Collectors.toList());
+            Identifier worldgenObjectID = new Identifier(configMapEntry.getKey());
+
+            // If the key is "all", take the value patterns and give it to all of the entries in the map
+            if(configMapEntry.getKey().equals("all")){
+                mapToFillWithPatterns.values().forEach(patternList -> parsedValues.forEach(pattern -> patternList.add(Pattern.compile(pattern))));
             }
-            else if(map.containsKey(id)){
-                parsedValues.forEach(dim -> map.get(id).add(Pattern.compile(dim)));
+            // Add the patterns to the key ID of the worldgen thing.
+            else if(mapToFillWithPatterns.containsKey(worldgenObjectID)){
+                parsedValues.forEach(patternList -> mapToFillWithPatterns.get(worldgenObjectID).add(Pattern.compile(patternList)));
             }
+            // Error msg for unknown keys (typo'ed structure registry names etc)
             else{
-                RepurposedStructures.LOGGER.warn("Unknown key {} was found in the {} config. Skipping that entry...", id, errorMsg);
+                RepurposedStructures.LOGGER.warn("Unknown key {} was found in the {} config. Skipping that entry...", worldgenObjectID, errorMsg);
             }
         }
     }
