@@ -5,7 +5,6 @@ import com.telepathicgrunt.repurposedstructures.world.placements.configs.SingleI
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.decorator.DecoratorContext;
-import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
 
 import java.util.Random;
 import java.util.stream.Stream;

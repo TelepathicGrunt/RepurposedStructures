@@ -1,15 +1,9 @@
 package com.telepathicgrunt.repurposedstructures.configs;
 
 
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.Lists;
 import com.telepathicgrunt.repurposedstructures.misc.MobSpawningOverTime;
 import draylar.omegaconfig.api.Comment;
 import draylar.omegaconfig.api.Config;
-import net.minecraft.entity.EntityType;
-import net.minecraft.util.collection.Pool;
-import net.minecraft.util.collection.Weighted;
-import net.minecraft.world.biome.SpawnSettings;
 
 import java.util.List;
 import java.util.Map;

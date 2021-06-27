@@ -1,9 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.mixin.world;
 
 import com.google.common.collect.Maps;
-import com.telepathicgrunt.repurposedstructures.misc.NoiseSettingsDeepCopier;
-import net.minecraft.world.biome.source.BiomeSource;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.chunk.StrongholdConfig;
 import net.minecraft.world.gen.chunk.StructureConfig;
 import net.minecraft.world.gen.chunk.StructuresConfig;

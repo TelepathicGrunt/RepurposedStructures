@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
+import net.minecraft.block.BlockState;
 import net.minecraft.structure.PoolStructurePiece;
 import net.minecraft.structure.StructureManager;
 import net.minecraft.structure.StructureStart;
@@ -14,7 +15,10 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.world.HeightLimitView;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.source.BiomeSource;
+import net.minecraft.world.gen.ChunkRandom;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
+import net.minecraft.world.gen.chunk.VerticalBlockSample;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
@@ -25,27 +29,42 @@ public class BuriableStructure extends AbstractBaseStructure<DefaultFeatureConfi
     private final Identifier startPool;
     private final int offsetAmount;
     private final boolean onLand;
+    private final boolean cannotSpawnInWater;
 
     public BuriableStructure(Identifier startPool) {
-        this(startPool, 14, true);
+        this(startPool, 14, true, true);
     }
 
-    public BuriableStructure(Identifier startPool, boolean onLand) {
-        this(startPool, 14, onLand);
+    public BuriableStructure(Identifier startPool, boolean onLand, boolean cannotSpawnInWater) {
+        this(startPool, 14, onLand, cannotSpawnInWater);
     }
 
     public BuriableStructure(Identifier startPool, int offsetAmount) {
-        this(startPool, offsetAmount, true);
+        this(startPool, offsetAmount, true, true);
     }
 
-    public BuriableStructure(Identifier startPool, int offsetAmount, boolean onLand) {
+    public BuriableStructure(Identifier startPool, int offsetAmount, boolean onLand, boolean cannotSpawnInWater) {
         super(DefaultFeatureConfig.CODEC);
         this.startPool = startPool;
         RSStructures.RS_STRUCTURE_START_PIECES.add(this.startPool);
         this.offsetAmount = offsetAmount;
         this.onLand = onLand;
+        this.cannotSpawnInWater = cannotSpawnInWater;
     }
 
+    @Override
+    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, ChunkPos chunkPos1, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig defaultFeatureConfig, HeightLimitView heightLimitView) {
+
+        if(cannotSpawnInWater){
+            BlockPos centerOfChunk = chunkPos.getCenterAtY(0);
+            int landHeight = chunkGenerator.getHeightInGround(centerOfChunk.getX(), centerOfChunk.getZ(), Heightmap.Type.WORLD_SURFACE_WG, heightLimitView);
+            VerticalBlockSample columnOfBlocks = chunkGenerator.getColumnSample(centerOfChunk.getX(), centerOfChunk.getZ(), heightLimitView);
+            BlockState topBlock = columnOfBlocks.getState(centerOfChunk.up(landHeight));
+            return topBlock.getFluidState().isEmpty();
+        }
+
+        return true;
+    }
 
     @Override
     public StructureFeature.StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {

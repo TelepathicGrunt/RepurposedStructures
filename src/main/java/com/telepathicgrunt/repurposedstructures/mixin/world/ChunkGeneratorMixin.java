@@ -1,11 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.mixin.world;
 
 import com.telepathicgrunt.repurposedstructures.misc.NoiseSettingsDeepCopier;
-import com.telepathicgrunt.repurposedstructures.utils.StructureLocator;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 import net.minecraft.world.biome.source.BiomeSource;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.chunk.StructuresConfig;

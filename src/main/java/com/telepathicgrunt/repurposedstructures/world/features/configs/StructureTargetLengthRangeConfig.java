@@ -3,9 +3,7 @@ package com.telepathicgrunt.repurposedstructures.world.features.configs;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.feature.FeatureConfig;
-import net.minecraft.world.gen.feature.StructureFeature;
 
 import java.util.function.Function;
 

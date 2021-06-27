@@ -6,7 +6,6 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.world.biome.Biome.Category;
-import net.minecraft.world.gen.feature.StructureFeature;
 
 public class Cities {
 

@@ -85,8 +85,8 @@ public class RSStructures {
             false,
             RepurposedStructures.RSAllConfig.RSFortressesConfig.jungleFortress.jungleFortressVerticalRange);
 
-    public static StructureFeature<DefaultFeatureConfig> GRASSY_IGLOO = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "igloos/grassy_top"), 20, 0, 0, 0, new HashSet<>());
-    public static StructureFeature<DefaultFeatureConfig> STONE_IGLOO = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "igloos/stone_top"), 20, 0, 0, 0, new HashSet<>());
+    public static StructureFeature<DefaultFeatureConfig> GRASSY_IGLOO = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "igloos/grassy_top"), 20, 0, 0, 0, new HashSet<>(), true);
+    public static StructureFeature<DefaultFeatureConfig> STONE_IGLOO = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "igloos/stone_top"), 20, 0, 0, 0, new HashSet<>(), true);
 
     public static StructureFeature<DefaultFeatureConfig> NETHER_WASTELAND_TEMPLE = new TempleNetherStructure(new Identifier(RepurposedStructures.MODID, "temples/nether_wasteland"));
     public static StructureFeature<DefaultFeatureConfig> NETHER_BASALT_TEMPLE = new TempleNetherStructure(new Identifier(RepurposedStructures.MODID, "temples/nether_basalt"));
@@ -115,7 +115,7 @@ public class RSStructures {
     public static StructureFeature<DefaultFeatureConfig> PYRAMID_ICY = new BuriableStructure(new Identifier(RepurposedStructures.MODID, "pyramids/icy"));
     public static StructureFeature<DefaultFeatureConfig> PYRAMID_JUNGLE = new BuriableStructure(new Identifier(RepurposedStructures.MODID, "pyramids/jungle"), 20);
     public static StructureFeature<DefaultFeatureConfig> PYRAMID_MUSHROOM = new BuriableStructure(new Identifier(RepurposedStructures.MODID, "pyramids/mushroom"));
-    public static StructureFeature<DefaultFeatureConfig> PYRAMID_OCEAN = new BuriableStructure(new Identifier(RepurposedStructures.MODID, "pyramids/ocean"), false);
+    public static StructureFeature<DefaultFeatureConfig> PYRAMID_OCEAN = new BuriableStructure(new Identifier(RepurposedStructures.MODID, "pyramids/ocean"), false, false);
     public static StructureFeature<DefaultFeatureConfig> PYRAMID_GIANT_TREE_TAIGA = new BuriableStructure(new Identifier(RepurposedStructures.MODID, "pyramids/giant_tree_taiga"));
     public static StructureFeature<DefaultFeatureConfig> PYRAMID_FLOWER_FOREST = new BuriableStructure(new Identifier(RepurposedStructures.MODID, "pyramids/flower_forest"));
 
@@ -138,8 +138,8 @@ public class RSStructures {
     public static StructureFeature<DefaultFeatureConfig> RUINED_PORTAL_END = new LandBasedEndStructure(new Identifier(RepurposedStructures.MODID, "ruined_portals/end"), 20, -6, 0, 0, new HashSet<>());
 
     public static StructureFeature<DefaultFeatureConfig> RUINS_NETHER = new GenericNetherJigsawHighStructure(new Identifier(RepurposedStructures.MODID, "ruins/nether/start_pool"), 1, -4, -1);
-    public static StructureFeature<DefaultFeatureConfig> RUINS_LAND_WARM = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "ruins/land_warm/start_pool"), 2, 0, 0, 0, new HashSet<>(), 5, 2);
-    public static StructureFeature<DefaultFeatureConfig> RUINS_LAND_HOT = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "ruins/land_hot/start_pool"), 2, 0, 0, 0, new HashSet<>(), 5, 2);
+    public static StructureFeature<DefaultFeatureConfig> RUINS_LAND_WARM = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "ruins/land_warm/start_pool"), 2, 0, 0, 0, new HashSet<>(), 5, 2, true);
+    public static StructureFeature<DefaultFeatureConfig> RUINS_LAND_HOT = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "ruins/land_hot/start_pool"), 2, 0, 0, 0, new HashSet<>(), 5, 2, true);
     // regexpos1
 
     public static StructureFeature<DefaultFeatureConfig> CITY_NETHER = new CityNetherStructure(new Identifier(RepurposedStructures.MODID, "cities/nether/start_pool"), 5, 0, 0, 4, Stream.of(RSStructureTagMap.STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));

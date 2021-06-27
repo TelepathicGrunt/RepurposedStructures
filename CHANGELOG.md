@@ -47,6 +47,14 @@
 * Mushroom Pyramid's pit is slightly adjusted to not be so cramped
 
 * Slightly adjusted Icy Pyramid's pit to make it harder to not set off trap
+  
+* Overworld land pyramids will try to not spawn in middle of large bodies of water
+
+##### Ruins:
+* Overworld land ruins will try to not spawn in middle of large bodies of water
+
+##### Igloos:
+* Igloos will try to not spawn in middle of large bodies of water
 
 ##### Villages:
 * Swamp Villages now utilizes Moss Blocks heavily and has more Vines

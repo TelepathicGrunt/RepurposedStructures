@@ -11,7 +11,6 @@ import com.telepathicgrunt.repurposedstructures.world.features.configs.Structure
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetChanceConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetLengthRangeConfig;
-import com.telepathicgrunt.repurposedstructures.world.placements.configs.SingleIntConfig;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;

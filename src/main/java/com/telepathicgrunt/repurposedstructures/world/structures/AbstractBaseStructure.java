@@ -5,7 +5,6 @@ import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.misc.MobSpawningOverTime;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.structure.StructureStart;
-import net.minecraft.util.Lazy;
 import net.minecraft.util.collection.Pool;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
@@ -21,7 +20,6 @@ import net.minecraft.world.gen.feature.FeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.function.Supplier;
 
 public abstract class AbstractBaseStructure<C extends FeatureConfig> extends StructureFeature<C> {

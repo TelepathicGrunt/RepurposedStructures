@@ -1,12 +1,9 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
-import com.google.common.collect.Lists;
 import com.telepathicgrunt.repurposedstructures.misc.PieceLimitedJigsawManager;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.StructurePiecesBehavior;
-import net.minecraft.entity.EntityType;
 import net.minecraft.structure.StructureManager;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.collection.Pool;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.Direction;
@@ -14,7 +11,6 @@ import net.minecraft.util.registry.DynamicRegistryManager;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.HeightLimitView;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.SpawnSettings;
 import net.minecraft.world.biome.source.BiomeSource;
 import net.minecraft.world.gen.ChunkRandom;
 import net.minecraft.world.gen.chunk.ChunkGenerator;

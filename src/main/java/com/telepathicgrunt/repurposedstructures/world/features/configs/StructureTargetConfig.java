@@ -2,9 +2,7 @@ package com.telepathicgrunt.repurposedstructures.world.features.configs;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.feature.FeatureConfig;
-import net.minecraft.world.gen.feature.StructureFeature;
 
 public class StructureTargetConfig implements FeatureConfig {
     public static final Codec<StructureTargetConfig> CODEC = RecordCodecBuilder.<StructureTargetConfig>create((configInstance) -> configInstance.group(

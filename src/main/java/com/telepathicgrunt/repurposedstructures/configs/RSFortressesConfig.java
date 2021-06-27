@@ -1,9 +1,5 @@
 package com.telepathicgrunt.repurposedstructures.configs;
 
-import com.telepathicgrunt.repurposedstructures.biomeinjection.Cities;
-import com.telepathicgrunt.repurposedstructures.biomeinjection.Igloos;
-import com.telepathicgrunt.repurposedstructures.biomeinjection.RuinedPortals;
-import com.telepathicgrunt.repurposedstructures.biomeinjection.Ruins;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;

@@ -5,9 +5,6 @@ import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
 import me.shedaniel.cloth.clothconfig.shadowed.blue.endless.jankson.Comment;
 
-import java.util.HashMap;
-import java.util.Map;
-
 
 @Config(name = "Biome/Dimension/Modded Loot")
 public class RSAllowDisallowConfig implements ConfigData {

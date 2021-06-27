@@ -3,6 +3,7 @@ package com.telepathicgrunt.repurposedstructures.configs;
 
 import draylar.omegaconfig.api.Comment;
 import draylar.omegaconfig.api.Config;
+
 import java.util.Map;
 
 

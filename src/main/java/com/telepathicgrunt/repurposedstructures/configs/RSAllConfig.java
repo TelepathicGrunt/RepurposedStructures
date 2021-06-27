@@ -15,7 +15,7 @@ public class RSAllConfig implements ConfigData {
     @ConfigEntry.Category("Structure Natural Mob Spawning")
     @ConfigEntry.Gui.TransitiveObject
     public RSNaturalMobSpawningConfig RSNaturalMobSpawningConfig = new RSNaturalMobSpawningConfig();
-    
+
     @ConfigEntry.Category("Bastions")
     @ConfigEntry.Gui.TransitiveObject
     public RSBastionsConfig RSBastionsConfig = new RSBastionsConfig();
