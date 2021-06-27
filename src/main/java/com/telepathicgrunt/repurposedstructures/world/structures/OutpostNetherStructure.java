@@ -23,7 +23,6 @@ import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 
 public class OutpostNetherStructure extends AbstractBaseStructure<DefaultFeatureConfig> {
     private final Identifier START_POOL;
-    private static final Pool<SpawnSettings.SpawnEntry> MONSTER_SPAWNS = Pool.of(Lists.newArrayList(new SpawnSettings.SpawnEntry(EntityType.PIGLIN, 10, 1, 1)));
 
     public OutpostNetherStructure(Identifier pieceRL) {
         super(DefaultFeatureConfig.CODEC);
@@ -34,11 +33,6 @@ public class OutpostNetherStructure extends AbstractBaseStructure<DefaultFeature
     @Override
     public StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
         return OutpostNetherStructure.Start::new;
-    }
-
-    @Override
-    public Pool<SpawnSettings.SpawnEntry> getMonsterSpawns() {
-        return MONSTER_SPAWNS;
     }
 
     public class Start extends AbstractNetherStructure.AbstractStart{

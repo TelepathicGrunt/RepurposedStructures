@@ -35,8 +35,6 @@ public class GenericJigsawStructure extends AbstractBaseStructure<DefaultFeature
     protected final int biomeRange;
     protected final int structureBlacklistRange;
     protected final Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet;
-    protected final Pool<SpawnSettings.SpawnEntry> monsterSpawns;
-    protected final Pool<SpawnSettings.SpawnEntry> creatureSpawns;
     protected final int allowTerrainHeightRange;
     protected final int terrainHeightRadius;
     protected final int minHeightLimit;
@@ -48,26 +46,13 @@ public class GenericJigsawStructure extends AbstractBaseStructure<DefaultFeature
     }
 
     public GenericJigsawStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange, int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet, int allowTerrainHeightRange, int terrainHeightRadius) {
-        this(poolID, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet, allowTerrainHeightRange, terrainHeightRadius, Pool.empty(), Pool.empty());
-    }
-
-    public GenericJigsawStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange, int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet, Pool<SpawnSettings.SpawnEntry> monsterSpawns, Pool<SpawnSettings.SpawnEntry> creatureSpawns) {
-        this(poolID, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet, -1, 0, monsterSpawns, creatureSpawns);
-    }
-
-    public GenericJigsawStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange,
-                                  int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet,
-                                  int allowTerrainHeightRange, int terrainHeightRadius,
-                                  Pool<SpawnSettings.SpawnEntry> monsterSpawns, Pool<SpawnSettings.SpawnEntry> creatureSpawns)
-    {
-        this(poolID, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet, allowTerrainHeightRange, terrainHeightRadius, monsterSpawns, creatureSpawns, Integer.MIN_VALUE);
+        this(poolID, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet, allowTerrainHeightRange, terrainHeightRadius, -1);
     }
 
     public GenericJigsawStructure(Identifier poolID, int biomeRange, int structureSize, int structureBlacklistRange,
-                                  Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet,
-                                  Pool<SpawnSettings.SpawnEntry> monsterSpawns, int fixedHeight)
+                                  Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet, int fixedHeight)
     {
-        this(poolID, structureSize, 0, biomeRange, structureBlacklistRange, avoidStructuresSet, -1, 0, monsterSpawns, Pool.empty(), Integer.MIN_VALUE);
+        this(poolID, structureSize, 0, biomeRange, structureBlacklistRange, avoidStructuresSet, -1, 0, Integer.MIN_VALUE);
         this.fixedYSpawn = fixedHeight;
         this.useHeightmap = false;
     }
@@ -75,7 +60,6 @@ public class GenericJigsawStructure extends AbstractBaseStructure<DefaultFeature
     public GenericJigsawStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange,
                                   int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet,
                                   int allowTerrainHeightRange, int terrainHeightRadius,
-                                  Pool<SpawnSettings.SpawnEntry> monsterSpawns, Pool<SpawnSettings.SpawnEntry> creatureSpawns,
                                   int minHeightLimit)
     {
         super(DefaultFeatureConfig.CODEC);
@@ -86,24 +70,11 @@ public class GenericJigsawStructure extends AbstractBaseStructure<DefaultFeature
         this.biomeRange = biomeRange;
         this.structureBlacklistRange = structureBlacklistRange;
         this.avoidStructuresSet = avoidStructuresSet;
-        this.monsterSpawns = monsterSpawns;
-        this.creatureSpawns = creatureSpawns;
         this.allowTerrainHeightRange = allowTerrainHeightRange;
         this.terrainHeightRadius = terrainHeightRadius;
         this.minHeightLimit = minHeightLimit;
 
         RSStructures.RS_STRUCTURE_START_PIECES.add(startPool);
-    }
-
-
-    @Override
-    public Pool<SpawnSettings.SpawnEntry> getMonsterSpawns() {
-        return monsterSpawns;
-    }
-
-    @Override
-    public Pool<SpawnSettings.SpawnEntry> getCreatureSpawns() {
-        return creatureSpawns;
     }
 
     @Override

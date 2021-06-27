@@ -12,6 +12,10 @@ public class RSAllConfig implements ConfigData {
     @ConfigEntry.Gui.TransitiveObject
     public RSAllowDisallowConfig RSAllowDisallowConfig = new RSAllowDisallowConfig();
 
+    @ConfigEntry.Category("Structure Natural Mob Spawning")
+    @ConfigEntry.Gui.TransitiveObject
+    public RSNaturalMobSpawningConfig RSNaturalMobSpawningConfig = new RSNaturalMobSpawningConfig();
+
     @ConfigEntry.Category("Cities")
     @ConfigEntry.Gui.TransitiveObject
     public RSCitiesConfig RSCitiesConfig = new RSCitiesConfig();

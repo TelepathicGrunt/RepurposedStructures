@@ -27,16 +27,15 @@ import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 import java.util.Set;
 
 public class CityNetherStructure extends GenericJigsawStructure {
-    public CityNetherStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange, int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet, Pool<SpawnSettings.SpawnEntry> monsterSpawns, Pool<SpawnSettings.SpawnEntry> creatureSpawns) {
-        this(poolID, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet, -1, 0, monsterSpawns, creatureSpawns);
+    public CityNetherStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange, int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet) {
+        this(poolID, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet, -1, 0);
     }
 
     public CityNetherStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange,
                                int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet,
-                               int allowTerrainHeightRange, int terrainHeightRadius,
-                               Pool<SpawnSettings.SpawnEntry> monsterSpawns, Pool<SpawnSettings.SpawnEntry> creatureSpawns)
+                               int allowTerrainHeightRange, int terrainHeightRadius)
     {
-        super(poolID, structureSize, centerOffset, biomeRange,structureBlacklistRange, avoidStructuresSet, allowTerrainHeightRange, terrainHeightRadius, monsterSpawns, creatureSpawns);
+        super(poolID, structureSize, centerOffset, biomeRange,structureBlacklistRange, avoidStructuresSet, allowTerrainHeightRange, terrainHeightRadius);
     }
 
     @Override

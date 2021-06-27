@@ -25,16 +25,6 @@ public class RSMineshaftEndStructure extends RSMineshaftStructure {
         super(poolID, structureSize, requiredPieces, maxY, minY, probability, environmentCheck);
     }
 
-    private static final Pool<SpawnSettings.SpawnEntry> MONSTER_SPAWNS = Pool.of(Lists.newArrayList(
-        new SpawnSettings.SpawnEntry(EntityType.ENDERMITE, 10, 2, 5),
-        new SpawnSettings.SpawnEntry(EntityType.ENDERMAN, 5, 1, 3)
-    ));
-
-    @Override
-    public Pool<SpawnSettings.SpawnEntry> getMonsterSpawns() {
-        return MONSTER_SPAWNS;
-    }
-
     @Override
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, ChunkPos chunkPos1, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig featureConfig, HeightLimitView heightLimitView) {
         StructureConfig structureConfig = chunkGenerator.getStructuresConfig().getForType(this);

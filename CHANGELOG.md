@@ -13,7 +13,9 @@
 * Heavily cleaned up and improved the configs. Fixed some structures and features not working with the dimension/biome configs correctly.
   For allow/disallowing structures in dimension/biome, see the actual config file itself as Cloth Config API cannot show maps in GUI screen.
   NOTE: As of v5.0.34 Cloth Config API, the maps for dimension/biome allowing and disallowing is not working. Please wait for future Cloth update to fix this.
-  
+
+* Added configs to control natural mob spawning over time in structures!
+
 ##### Advancements:
 * All advancements has been condensed. Now there's one advancement for finding all variants of one structure type. 
   For example, you have to find and enter all Repurposed Structures villages to get the advancement for RS Villages.

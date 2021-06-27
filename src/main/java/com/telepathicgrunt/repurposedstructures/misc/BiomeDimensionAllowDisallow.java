@@ -46,10 +46,10 @@ public class BiomeDimensionAllowDisallow {
         });
 
         // Parse and add all the allow/disallows
-        setupMap(DIMENSION_DISALLOW, RepurposedStructures.omegaConfig.disallowedDimensions, "dimension disallow");
-        setupMap(DIMENSION_ALLOW, RepurposedStructures.omegaConfig.allowedDimensions, "dimension allow");
-        setupMap(BIOME_DISALLOW, RepurposedStructures.omegaConfig.disallowedBiomes, "biome disallow");
-        setupMap(BIOME_ALLOW, RepurposedStructures.omegaConfig.allowedBiomes, "biome allow");
+        setupMap(DIMENSION_DISALLOW, RepurposedStructures.omegaBiomeDimConfig.disallowedDimensions, "dimension disallow");
+        setupMap(DIMENSION_ALLOW, RepurposedStructures.omegaBiomeDimConfig.allowedDimensions, "dimension allow");
+        setupMap(BIOME_DISALLOW, RepurposedStructures.omegaBiomeDimConfig.disallowedBiomes, "biome disallow");
+        setupMap(BIOME_ALLOW, RepurposedStructures.omegaBiomeDimConfig.allowedBiomes, "biome allow");
     }
 
     private static void setupMap(Map<Identifier, List<Pattern>> mapToFillWithPatterns, Map<String, String> configMap, String errorMsg) {

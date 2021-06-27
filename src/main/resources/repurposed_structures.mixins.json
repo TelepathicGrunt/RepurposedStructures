@@ -19,7 +19,6 @@
     "resources.ReloadableResourceManagerImplAccessor",
     "structures.EnderEyeStrongholdLocatingMixin",
     "structures.ListPoolElementAccessor",
-    "structures.PillagerOutpostFeatureAccessor",
     "structures.SinglePoolElementAccessor",
     "structures.StructureManagerAccessor",
     "structures.StructureMobSpawningMixin",

@@ -91,14 +91,6 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NetherShipwr
         return super.shouldStartAt(chunkGenerator, biomeSource, seed, chunkRandom, chunkPos1, biome, chunkPos, config, heightLimitView);
     }
 
-    private static final Pool<SpawnSettings.SpawnEntry> MONSTER_SPAWNS =
-            Pool.of(Lists.newArrayList(new SpawnSettings.SpawnEntry(EntityType.WITHER_SKELETON, 25, 1, 1)));
-
-    @Override
-    public Pool<SpawnSettings.SpawnEntry> getMonsterSpawns() {
-        return MONSTER_SPAWNS;
-    }
-
     @Override
     public StructureStartFactory<NetherShipwreckConfig> getStructureStartFactory() {
         return ShipwreckNetherStructure.Start::new;

@@ -19,9 +19,11 @@ import com.telepathicgrunt.repurposedstructures.biomeinjection.Wells;
 import com.telepathicgrunt.repurposedstructures.biomeinjection.WitchHuts;
 import com.telepathicgrunt.repurposedstructures.configs.RSAllConfig;
 import com.telepathicgrunt.repurposedstructures.configs.RSAllowDisallowOmegaConfig;
+import com.telepathicgrunt.repurposedstructures.configs.RSNaturalMobSpawningOmegaConfig;
 import com.telepathicgrunt.repurposedstructures.misc.BiomeDimensionAllowDisallow;
 import com.telepathicgrunt.repurposedstructures.misc.MobMapTrades;
 import com.telepathicgrunt.repurposedstructures.misc.MobSpawnerManager;
+import com.telepathicgrunt.repurposedstructures.misc.MobSpawningOverTime;
 import com.telepathicgrunt.repurposedstructures.misc.PoolAdditionMerger;
 import com.telepathicgrunt.repurposedstructures.mixin.structures.StructuresConfigAccessor;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredFeatures;
@@ -61,7 +63,8 @@ public class RepurposedStructures implements ModInitializer {
     public static MobSpawnerManager mobSpawnerManager = new MobSpawnerManager();
 
 	public static RSAllConfig RSAllConfig = null;
-    public static final RSAllowDisallowOmegaConfig omegaConfig = OmegaConfig.register(RSAllowDisallowOmegaConfig.class);
+    public static final RSAllowDisallowOmegaConfig omegaBiomeDimConfig = OmegaConfig.register(RSAllowDisallowOmegaConfig.class);
+    public static final RSNaturalMobSpawningOmegaConfig omegaMobSpawnConfig = OmegaConfig.register(RSNaturalMobSpawningOmegaConfig.class);
 
     @Override
     public void onInitialize() {
@@ -77,6 +80,7 @@ public class RepurposedStructures implements ModInitializer {
         RSConfiguredStructures.registerConfiguredStructures();
 
         BiomeDimensionAllowDisallow.setupAllowDisallowMaps();
+        MobSpawningOverTime.setupMobSpawningMaps();
         setupBiomeModifications();
         allowStructureSpawningPerDimension();
         MobMapTrades.addMapTrades();

@@ -26,15 +26,9 @@ import java.util.Map;
 
 
 public class RSNetherStrongholdStructure extends AdvancedJigsawStructure {
-    private static final Pool<SpawnSettings.SpawnEntry> MONSTER_SPAWNS = Pool.of(Lists.newArrayList(
-            new SpawnSettings.SpawnEntry(EntityType.BLAZE, 10, 2, 3),
-            new SpawnSettings.SpawnEntry(EntityType.ZOMBIFIED_PIGLIN, 3, 4, 4),
-            new SpawnSettings.SpawnEntry(EntityType.WITHER_SKELETON, 10, 5, 5),
-            new SpawnSettings.SpawnEntry(EntityType.SKELETON, 2, 5, 5),
-            new SpawnSettings.SpawnEntry(EntityType.MAGMA_CUBE, 3, 4, 4)));
 
     public RSNetherStrongholdStructure(Identifier poolID, int structureSize, Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces, int maxY, int minY) {
-        super(poolID, structureSize, MONSTER_SPAWNS, requiredPieces, maxY, minY);
+        super(poolID, structureSize, requiredPieces, maxY, minY);
     }
 
     @Override

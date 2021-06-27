@@ -1,11 +1,17 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
+import com.google.common.base.Suppliers;
 import com.mojang.serialization.Codec;
+import com.telepathicgrunt.repurposedstructures.misc.MobSpawningOverTime;
+import net.minecraft.entity.SpawnGroup;
 import net.minecraft.structure.StructureStart;
+import net.minecraft.util.Lazy;
+import net.minecraft.util.collection.Pool;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.ChunkSectionPos;
 import net.minecraft.world.WorldView;
+import net.minecraft.world.biome.SpawnSettings;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkStatus;
 import net.minecraft.world.gen.ChunkRandom;
@@ -13,6 +19,10 @@ import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.StructureConfig;
 import net.minecraft.world.gen.feature.FeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Supplier;
 
 public abstract class AbstractBaseStructure<C extends FeatureConfig> extends StructureFeature<C> {
 
@@ -23,6 +33,20 @@ public abstract class AbstractBaseStructure<C extends FeatureConfig> extends Str
     @Override
     public BlockPos locateStructure(WorldView world, StructureAccessor structureAccessor, BlockPos searchStartPos, int searchRadius, boolean skipExistingChunks, long worldSeed, StructureConfig config) {
         return AbstractBaseStructure.locateStructureFast(world, structureAccessor, searchStartPos, searchRadius, skipExistingChunks, worldSeed, config, this);
+    }
+
+    // We do this so that if another mod needs monster or creature spawns for whatever reason, they can get the right pool.
+    private final Supplier<Pool<SpawnSettings.SpawnEntry>> monsterSpawns = Suppliers.memoize(() -> Pool.of(MobSpawningOverTime.REPLACE_MOB_SPAWNING.get(SpawnGroup.MONSTER).getOrDefault(this, new ArrayList<>())));
+    private final Supplier<Pool<SpawnSettings.SpawnEntry>> creatureSpawns = Suppliers.memoize(() -> Pool.of(MobSpawningOverTime.REPLACE_MOB_SPAWNING.get(SpawnGroup.CREATURE).getOrDefault(this, new ArrayList<>())));
+
+    @Override
+    public Pool<SpawnSettings.SpawnEntry> getMonsterSpawns() {
+        return monsterSpawns.get();
+    }
+
+    @Override
+    public Pool<SpawnSettings.SpawnEntry> getCreatureSpawns() {
+        return creatureSpawns.get();
     }
 
     public static <C extends FeatureConfig> BlockPos locateStructureFast(WorldView worldView, StructureAccessor structureAccessor, BlockPos blockPos, int radius, boolean skipExistingChunks, long seed, StructureConfig structureConfig, StructureFeature<C> structure) {

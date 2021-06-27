@@ -31,29 +31,17 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<DefaultFeatur
     protected final Identifier startPool;
     protected final int structureSize;
     protected final int biomeRange;
-    protected final Pool<SpawnSettings.SpawnEntry> monsterSpawns;
-    protected final Pool<SpawnSettings.SpawnEntry> creatureSpawns;
     protected final Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces;
     protected final int maxY;
     protected final int minY;
     protected final boolean clipOutOfBoundsPieces;
     protected final Integer verticalRange;
 
-
     public AdvancedJigsawStructure(Identifier poolID, int structureSize, Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces, int maxY, int minY) {
-        this(poolID, structureSize, 0, Pool.empty(), Pool.empty(), requiredPieces, maxY, minY, true, null);
-    }
-
-    public AdvancedJigsawStructure(Identifier poolID, int structureSize, Pool<SpawnSettings.SpawnEntry> monsterSpawns, Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces, int maxY, int minY) {
-        this(poolID, structureSize, 0, monsterSpawns, Pool.empty(), requiredPieces, maxY, minY, true, null);
-    }
-
-    public AdvancedJigsawStructure(Identifier poolID, int structureSize, int biomeRange, Pool<SpawnSettings.SpawnEntry> monsterSpawns, Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces, int maxY, int minY, boolean clipOutOfBoundsPieces, Integer verticalRange) {
-        this(poolID, structureSize, biomeRange, monsterSpawns, Pool.empty(), requiredPieces, maxY, minY, clipOutOfBoundsPieces, verticalRange);
+        this(poolID, structureSize, 0, requiredPieces, maxY, minY, true, null);
     }
 
     public AdvancedJigsawStructure(Identifier poolID, int structureSize, int biomeRange,
-                                   Pool<SpawnSettings.SpawnEntry> monsterSpawns, Pool<SpawnSettings.SpawnEntry> creatureSpawns,
                                    Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces, int maxY, int minY,
                                    boolean clipOutOfBoundsPieces, Integer verticalRange)
     {
@@ -62,8 +50,6 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<DefaultFeatur
         this.startPool = poolID;
         this.structureSize = structureSize;
         this.biomeRange = biomeRange;
-        this.monsterSpawns = monsterSpawns;
-        this.creatureSpawns = creatureSpawns;
         this.requiredPieces = requiredPieces;
         this.maxY = maxY;
         this.minY = minY;
@@ -71,16 +57,6 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<DefaultFeatur
         this.verticalRange = verticalRange;
 
         RSStructures.RS_STRUCTURE_START_PIECES.add(startPool);
-    }
-
-    @Override
-    public Pool<SpawnSettings.SpawnEntry> getMonsterSpawns() {
-        return monsterSpawns;
-    }
-
-    @Override
-    public Pool<SpawnSettings.SpawnEntry> getCreatureSpawns() {
-        return creatureSpawns;
     }
 
     @Override
