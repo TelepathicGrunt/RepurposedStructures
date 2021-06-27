@@ -10,18 +10,30 @@
     "description": {
       "translate": "Find all new igloos!"
     },
-    "show_toast": false,
-    "announce_to_chat": false,
-    "hidden": true
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
   },
   "criteria": {
-    "impossible": {
-      "trigger": "minecraft:impossible"
+    "in_igloo_stone": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:igloo_stone"
+      }
+    },
+    "in_igloo_grassy": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:igloo_grassy"
+      }
     }
   },
   "requirements": [
     [
-      "impossible"
+      "in_igloo_grassy"
+    ],
+    [
+      "in_igloo_stone"
     ]
   ]
 }

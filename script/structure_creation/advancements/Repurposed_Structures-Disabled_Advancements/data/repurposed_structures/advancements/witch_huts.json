@@ -10,18 +10,57 @@
     "description": {
       "translate": "Find all new Witch Huts!"
     },
-    "show_toast": false,
-    "announce_to_chat": false,
-    "hidden": true
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
   },
   "criteria": {
-    "impossible": {
-      "trigger": "minecraft:impossible"
+    "in_witch_hut_birch": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:witch_hut_birch"
+      }
+    },
+    "in_witch_hut_dark_forest": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:witch_hut_dark_forest"
+      }
+    },
+    "in_witch_hut_giant_tree_taiga": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:witch_hut_giant_tree_taiga"
+      }
+    },
+    "in_witch_hut_oak": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:witch_hut_oak"
+      }
+    },
+    "in_witch_hut_taiga": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:witch_hut_taiga"
+      }
     }
   },
   "requirements": [
     [
-      "impossible"
+      "in_witch_hut_birch"
+    ],
+    [
+      "in_witch_hut_dark_forest"
+    ],
+    [
+      "in_witch_hut_giant_tree_taiga"
+    ],
+    [
+      "in_witch_hut_oak"
+    ],
+    [
+      "in_witch_hut_taiga"
     ]
   ]
 }

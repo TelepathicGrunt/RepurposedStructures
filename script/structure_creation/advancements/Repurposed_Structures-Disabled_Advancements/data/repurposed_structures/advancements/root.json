@@ -15,13 +15,8 @@
     "background": "minecraft:textures/block/green_terracotta.png"
   },
   "criteria": {
-    "impossible": {
-      "trigger": "minecraft:impossible"
+    "always": {
+      "trigger": "minecraft:tick"
     }
-  },
-  "requirements": [
-    [
-      "impossible"
-    ]
-  ]
+  }
 }

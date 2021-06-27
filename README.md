@@ -34,7 +34,11 @@ dependencies {
 <img src="https://i.imgur.com/lD8Pa6U.png" alt="Picture that shows the title of this mod with a Stonebrick Fortress during sunset behind the text" width="1519" height="516"></img>
 ## CURRENTLY FOR 1.17.0 MC
 #### Works serverside too so vanilla clients can connect!
-#### CLICK HERE FOR FORGE 1.16.5 MC PORT: https://modrinth.com/mod/repurposed-structures-forge
+###### CLICK HERE FOR FORGE 1.16.5 MC PORT: https://modrinth.com/mod/repurposed-structures-forge
+
+**Recent News:** Updated to 1.17!!! Huge changes to config files including ability to change what mobs spawns over time in my structures! Advancements are condensed into fewer files and less spammy! Underground Bastion is now made of Deepslate! And a ton of bug fixes and file paths renamed for loot tables and stuff to be more consistent! See changelog for more info.
+
+Also, Charm Compatibility datapack is now released in the datapack section further down to add Charm houses to RS's villages!
 
 <br/>
 ____________________________________________________________________________
@@ -109,7 +113,7 @@ A: Highly unlikely. My mod adds structures to biomes directly so any conflict wo
 Q: The advancements are annoying! I want to turn them off!
 
 <br/>
-A: There are datapacks to turn off the advancements or hide them. Scroll down to the "PRE-MADE DATAPACKS" section farther down and open the spoiler to get the disable/hidden advancements datapacks!
+A: There are datapacks to turn off the advancements. Scroll down to the "PRE-MADE DATAPACKS" section farther down and open the spoiler to get the disable advancements datapacks!
 
 <br/>
 <br/>
@@ -1070,6 +1074,8 @@ And some structure pieces such as Wells, Villages, Outposts, Shipwrecks, Pyramid
 <br/>
 
 For the expert datapackers, there's actually a hidden neat way to add new pieces to any Jigsaw Structure without overriding their pool file! (Villages, outposts, all of RS's structures minus mansions, etc) For example, instead of overriding `data\repurposed_structures\worldgen\template_pool\village\birch\houses.json` to add new houses to my Birch Village, replace `worldgen\template` in the datapack with `pool_additions` and have the template pool file only have the entries you want merged into the main pool file. Repurposed Structures will detect these files from ALL datapacks and merge the pool_additions pool entries into the actual template pool file that the path points to. Yes, Repurposed Structures will read all pool_additions files from all datapacks that even have the same path so that the datapacks do not override each other's pool_additions! Neat stuff! And it works with other pools too! Just make sure the piece you are adding has a Jigsaw Block with the right name so the actual structure can connect and spawn the piece.
+
+To help you with this cool pool_additions feature, this 18 minute tutorial should help walk you through creating a building, saving it, and adding it to RS's structures with a datapack! https://youtu.be/kzRQrQqlYjw
 </details>
 
 <br/>
@@ -1093,8 +1099,23 @@ Since the overwhelming majority of my structures uses nbt files, template pools,
 
 <details>
 
-###  [Landmark Compatibility pack!](https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/tag/0.0.4)
+### [Charm Compatibility pack!](https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/tag/2.0.0)
 
+<br/>
+
+Want lumberjacks and beekeeper houses in Repurposed Structures's villages in 1.17+ MC? No problem! Slap on this datapack and problem solved!
+
+<br/>
+
+Charm mod: [https://www.curseforge.com/minecraft/mc-mods/charm]
+
+Download link: [Repurposed_Structures-Charm](https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/tag/2.0.0)
+
+<br/>
+<br/>
+<br/>
+
+###  [Landmark Compatibility pack!](https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/tag/0.0.4)
 <br/>
 
 Add this datapack to the world's datapack folder to add compatibility between Repurposed Structures and Landmark mod!

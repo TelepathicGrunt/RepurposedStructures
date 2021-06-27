@@ -10,18 +10,21 @@
     "description": {
       "translate": "Find all new Strongholds!"
     },
-    "show_toast": false,
-    "announce_to_chat": false,
-    "hidden": true
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
   },
   "criteria": {
-    "impossible": {
-      "trigger": "minecraft:impossible"
+    "in_stronghold_nether": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:stronghold_nether"
+      }
     }
   },
   "requirements": [
     [
-      "impossible"
+      "in_stronghold_nether"
     ]
   ]
 }

@@ -10,21 +10,24 @@
     "description": {
       "translate": "Enter a Jungle Fortress"
     },
-    "show_toast": false,
-    "announce_to_chat": false,
-    "hidden": true
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
   },
   "rewards": {
     "experience": 100
   },
   "criteria": {
-    "impossible": {
-      "trigger": "minecraft:impossible"
+    "in_jungle_fortress": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:fortress_jungle"
+      }
     }
   },
   "requirements": [
     [
-      "impossible"
+      "in_jungle_fortress"
     ]
   ]
 }
