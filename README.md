@@ -16,14 +16,14 @@ repositories {
 
 &nbsp;
 
-Don't forget to change 1.11.0 with the actual latest version of this mod.
+Don't forget to change 2.0.0 with the actual latest version of this mod.
 
 <blockquote>
 dependencies {
 
 ...
 
-&nbsp;&nbsp;&nbsp;&nbsp;modImplementation "com.telepathicgrunt:RepurposedStructures-Fabric:1.16.5-1.11.0-fabric"
+&nbsp;&nbsp;&nbsp;&nbsp;modImplementation "com.telepathicgrunt:RepurposedStructures-Fabric:2.0.0+1.16.5"
 
 }</blockquote>
 
@@ -32,7 +32,7 @@ dependencies {
 &nbsp;
 
 <img src="https://i.imgur.com/lD8Pa6U.png" alt="Picture that shows the title of this mod with a Stonebrick Fortress during sunset behind the text" width="1519" height="516"></img>
-## CURRENTLY FOR 1.16.5 MC
+## CURRENTLY FOR 1.17.0 MC
 #### Works serverside too so vanilla clients can connect!
 #### CLICK HERE FOR FORGE 1.16.5 MC PORT: https://modrinth.com/mod/repurposed-structures-forge
 
@@ -79,7 +79,7 @@ If you have trouble finding one of these structures, just start typing `/locate 
 Q: Does this mod work with [YUNG's Better Strongholds](https://www.curseforge.com/minecraft/mc-mods/yungs-better-strongholds-fabric) mod?
 
 <br/>
-A: Yes indeed it will on latest version of Repurposed Structures. Do note, RS's Nether Stronghold will still spawn in Nether biomes and be unchanged.
+A: Yes indeed it will. Do note, RS's Nether Stronghold will still spawn in Nether biomes and be unchanged.
 
 <br/>
 <br/>

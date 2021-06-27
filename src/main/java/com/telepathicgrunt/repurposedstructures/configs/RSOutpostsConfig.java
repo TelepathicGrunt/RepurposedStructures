@@ -52,7 +52,7 @@ public class RSOutpostsConfig implements ConfigData {
                 How rare are Birch Outposts in Birch Forest biomes.
                 1 for spawning in most chunks and 1001 for none.""")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int outpostBirchAverageChunkDistance = 45;
+        public int outpostBirchAverageChunkDistance = 49;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -63,7 +63,7 @@ public class RSOutpostsConfig implements ConfigData {
                 How rare are Jungle Outposts in Jungle biomes.
                 1 for spawning in most chunks and 1001 for none.""")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int outpostJungleAverageChunkDistance = 45;
+        public int outpostJungleAverageChunkDistance = 49;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -74,7 +74,7 @@ public class RSOutpostsConfig implements ConfigData {
                 How rare are Giant Tree Taiga Outposts in Giant Tree Taiga biomes.
                 1 for spawning in most chunks and 1001 for none.""")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int outpostGiantTreeTaigaAverageChunkDistance = 45;
+        public int outpostGiantTreeTaigaAverageChunkDistance = 49;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -85,7 +85,7 @@ public class RSOutpostsConfig implements ConfigData {
                 How rare are Desert Outposts in Desert biomes.
                 1 for spawning in most chunks and 1001 for none.""")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int outpostDesertAverageChunkDistance = 45;
+        public int outpostDesertAverageChunkDistance = 49;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -96,7 +96,7 @@ public class RSOutpostsConfig implements ConfigData {
                 How rare are Badlands Outposts in Badlands biomes.
                 1 for spawning in most chunks and 1001 for none.""")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int outpostBadlandsAverageChunkDistance = 45;
+        public int outpostBadlandsAverageChunkDistance = 49;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -107,7 +107,7 @@ public class RSOutpostsConfig implements ConfigData {
                 How rare are Snowy Outposts in snowy biomes.
                 1 for spawning in most chunks and 1001 for none.""")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int outpostSnowyAverageChunkDistance = 45;
+        public int outpostSnowyAverageChunkDistance = 49;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -129,7 +129,7 @@ public class RSOutpostsConfig implements ConfigData {
                 How rare are Taiga Outposts in non-snowy and non-giant taiga biomes.
                 1 for spawning in most chunks and 1001 for none.""")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int outpostTaigaAverageChunkDistance = 45;
+        public int outpostTaigaAverageChunkDistance = 49;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -140,7 +140,7 @@ public class RSOutpostsConfig implements ConfigData {
                 How rare are Oak Outposts in forest biomes that are not birch or dark forest.
                 1 for spawning in most chunks and 1001 for none.""")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int outpostOakAverageChunkDistance = 45;
+        public int outpostOakAverageChunkDistance = 49;
 
 
         @ConfigEntry.Gui.Tooltip(count = 0)

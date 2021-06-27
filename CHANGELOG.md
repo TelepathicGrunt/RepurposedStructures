@@ -49,9 +49,17 @@
 * Slightly adjusted Icy Pyramid's pit to make it harder to not set off trap
   
 * Added Chains to Ocean Pyramids so the Drowned won't walk into the Magma Block and take damage
+  
+* Made Icy and Flower Forest Pyramid's average spawn distance config's default value be slightly smaller to make them be more common 
 
 * Overworld land pyramids will try to not spawn in middle of large bodies of 
-  
+
+##### Mansions:
+* Made the average spawn distance config's default value for many mansions be a bit larger to space out the mansions more
+
+##### Cities:
+* Made the average spawn distance config's default value for Nether Cities be a bit smaller to make them be more common
+
 ##### Ruins:
 * Overworld land ruins will try to not spawn in middle of large bodies of water
 
@@ -63,6 +71,8 @@
 
 ##### Outposts:
 * Jungle Outposts tents is made of Moss Blocks and has Moss Carpet under them
+  
+* Made the average spawn distance config's default value for Overworld outposts be a tiny bit larger to space out the outposts more
 
 ##### Dungeons:
 * Fixed vanilla dungeons being removed from cold, frozen, warm, and lukewarm ocean biomes.

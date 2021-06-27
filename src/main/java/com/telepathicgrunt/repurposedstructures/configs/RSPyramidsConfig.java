@@ -63,7 +63,7 @@ public class RSPyramidsConfig implements ConfigData {
                 How rare are Icy Pyramid in biomes that are super cold or has icy words in its name.
                 1 for spawning in most chunks and 1001 for none.""")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int pyramidIcyAverageChunkDistance = 37;
+        public int pyramidIcyAverageChunkDistance = 34;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -119,5 +119,5 @@ public class RSPyramidsConfig implements ConfigData {
                 1 for spawning in most chunks and 1001 for none.
                 """)
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int pyramidFlowerForestAverageChunkDistance = 36;
+        public int pyramidFlowerForestAverageChunkDistance = 34;
 }
