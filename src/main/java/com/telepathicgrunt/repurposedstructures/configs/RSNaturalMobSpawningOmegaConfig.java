@@ -29,6 +29,10 @@ public class RSNaturalMobSpawningOmegaConfig implements Config {
 
     @Override
     public void save() {
+        // Add logic here when adding new mob spawn structures to config.
+        // The logic needs to do a putIfAbsent to add the missing structures between the config versions when updating.
+        configVersion = 1;
+
         Config.super.save();
     }
 
@@ -141,4 +145,15 @@ public class RSNaturalMobSpawningOmegaConfig implements Config {
             Map.entry("repurposed_structures:fortress_jungle", List.of(
                     new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:wither_skeleton", 27, 1, 1)))
     );
+
+
+    @Comment("""
+
+
+
+
+
+            // for internal use only. Do not change this.
+            """)
+    public int configVersion = 1;
 }

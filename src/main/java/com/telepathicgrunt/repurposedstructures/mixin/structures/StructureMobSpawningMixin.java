@@ -23,6 +23,6 @@ public class StructureMobSpawningMixin {
     )
     private void repurposedstructures_structureMobs(Biome biome, StructureAccessor accessor, SpawnGroup group, BlockPos pos, CallbackInfoReturnable<Pool<SpawnSettings.SpawnEntry>> cir) {
         Pool<SpawnSettings.SpawnEntry> pool = MobSpawningOverTime.getStructureSpawns(biome, accessor, group, pos);
-        if(pool != null) cir.setReturnValue(pool);
+        if(pool != null && !pool.isEmpty()) cir.setReturnValue(pool);
     }
 }
