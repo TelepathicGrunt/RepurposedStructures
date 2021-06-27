@@ -5,6 +5,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.RSPredicates;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.structure.rule.RuleTest;
 import net.minecraft.structure.rule.RuleTestType;
 import net.minecraft.util.StringIdentifiable;
@@ -16,7 +17,7 @@ import java.util.Random;
 public class MatterPhaseRuleTest extends RuleTest {
     public static final Codec<MatterPhaseRuleTest> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
             StringIdentifiable.createCodec(MATTER_PHASE::values, MATTER_PHASE::byName).fieldOf("phase_to_test_for").stable().forGetter((ruletest) -> ruletest.phaseToTestFor),
-            Codec.BOOL.fieldOf("invert_condition").forGetter((ruletest) -> ruletest.invertCondition))
+            Codec.BOOL.fieldOf("invert_condition").orElse(false).forGetter((ruletest) -> ruletest.invertCondition))
             .apply(instance, instance.stable(MatterPhaseRuleTest::new)));
 
     private final MATTER_PHASE phaseToTestFor;
@@ -40,6 +41,12 @@ public class MatterPhaseRuleTest extends RuleTest {
             case SOLID:
                 if(!state.isAir() && state.getFluidState().isEmpty() && state.isOpaque()) phaseMatch = true;
                 break;
+            case ALL_DRY_NON_AIR:
+                if(!state.isAir() && state.getFluidState().isEmpty()) phaseMatch = true;
+                break;
+            case AIR_RAIL_OR_CHAIN:
+                if(state.isAir() || state.isOf(Blocks.CHAIN) || state.isOf(Blocks.RAIL)) phaseMatch = true;
+                break;
         }
 
         if(invertCondition){
@@ -57,7 +64,9 @@ public class MatterPhaseRuleTest extends RuleTest {
     public enum MATTER_PHASE implements StringIdentifiable {
         SOLID("SOLID"),
         LIQUID("LIQUID"),
-        AIR("AIR");
+        AIR("AIR"),
+        ALL_DRY_NON_AIR("ALL_DRY_NON_AIR"),
+        AIR_RAIL_OR_CHAIN("AIR_RAIL_OR_CHAIN");
 
         private final String name;
 

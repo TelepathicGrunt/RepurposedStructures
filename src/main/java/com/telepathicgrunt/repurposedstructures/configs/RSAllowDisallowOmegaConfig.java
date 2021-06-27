@@ -10,7 +10,7 @@ public class RSAllowDisallowOmegaConfig implements Config {
 
     @Override
     public String getName() {
-        return "repurposed_structures-fabric-biome_dimension_allow_disallow_configs";
+        return "repurposed_structures-fabric/biome_dimension_allow_disallow_configs";
     }
 
     @Override
