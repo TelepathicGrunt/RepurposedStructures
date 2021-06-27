@@ -17,60 +17,55 @@ public class RSPyramidsConfig implements ConfigData {
 
 
                 How rare are Nether Pyramids in Nether.
-                1 for spawning in most chunks and 10001 for none.""")
-        @ConfigEntry.BoundedDiscrete(min = 1, max = 10001)
-        public int netherPyramidMaxChunkDistance = 37;
+                1 for spawning in most chunks and 1001 for none.""")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int pyramidNetherAverageChunkDistance = 37;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-        @ConfigEntry.Gui.PrefixText
         @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
 
                 How rare are Badlands Pyramid in Badlands biomes.
-                1 for spawning in most chunks and 10001 for none.""")
-        @ConfigEntry.BoundedDiscrete(min = 1, max = 10001)
-        public int badlandsPyramidMaxChunkDistance = 40;
+                1 for spawning in most chunks and 1001 for none.""")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int pyramidBadlandsAverageChunkDistance = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-        @ConfigEntry.Gui.PrefixText
         @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
 
                 How rare are Snowy Pyramid in snowy biomes.
-                1 for spawning in most chunks and 10001 for none.""")
-        @ConfigEntry.BoundedDiscrete(min = 1, max = 10001)
-        public int pyramidSnowyMaxChunkDistance = 40;
+                1 for spawning in most chunks and 1001 for none.""")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int pyramidSnowyAverageChunkDistance = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-        @ConfigEntry.Gui.PrefixText
         @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
 
                 How rare are End Pyramid in End biomes.
-                1 for spawning in most chunks and 10001 for none.""")
-        @ConfigEntry.BoundedDiscrete(min = 1, max = 10001)
-        public int pyramidEndMaxChunkDistance = 68;
+                1 for spawning in most chunks and 1001 for none.""")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int pyramidEndAverageChunkDistance = 68;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-        @ConfigEntry.Gui.PrefixText
         @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
 
                 How rare are Icy Pyramid in biomes that are super cold or has icy words in its name.
-                1 for spawning in most chunks and 10001 for none.""")
-        @ConfigEntry.BoundedDiscrete(min = 1, max = 10001)
-        public int pyramidIcyMaxChunkDistance = 37;
+                1 for spawning in most chunks and 1001 for none.""")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int pyramidIcyAverageChunkDistance = 37;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-        @ConfigEntry.Gui.PrefixText
         @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
@@ -79,10 +74,9 @@ public class RSPyramidsConfig implements ConfigData {
                 How rare are Jungle Pyramid in Jungle biomes.
                 1 for spawning in most chunks and 1001 for none.""")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int pyramidJungleMaxChunkDistance = 44;
+        public int pyramidJungleAverageChunkDistance = 44;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-        @ConfigEntry.Gui.PrefixText
         @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
@@ -91,10 +85,9 @@ public class RSPyramidsConfig implements ConfigData {
                 How rare are Mushroom Pyramid in Mushroom biomes.
                 1 for spawning in most chunks and 1001 for none.""")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int pyramidMushroomMaxChunkDistance = 24;
+        public int pyramidMushroomAverageChunkDistance = 24;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-        @ConfigEntry.Gui.PrefixText
         @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
@@ -103,10 +96,9 @@ public class RSPyramidsConfig implements ConfigData {
                 How rare are Ocean Pyramid in Ocean biomes.
                 1 for spawning in most chunks and 1001 for none.""")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int pyramidOceanMaxChunkDistance = 40;
+        public int pyramidOceanAverageChunkDistance = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-        @ConfigEntry.Gui.PrefixText
         @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
@@ -115,10 +107,9 @@ public class RSPyramidsConfig implements ConfigData {
                 How rare are Giant Tree Taiga Pyramid in Giant Tree Taiga biomes.
                 1 for spawning in most chunks and 1001 for none.""")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int pyramidGiantTreeTaigaMaxChunkDistance = 40;
+        public int pyramidGiantTreeTaigaAverageChunkDistance = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-        @ConfigEntry.Gui.PrefixText
         @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
@@ -128,5 +119,5 @@ public class RSPyramidsConfig implements ConfigData {
                 1 for spawning in most chunks and 1001 for none.
                 """)
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int pyramidFlowerForestMaxChunkDistance = 36;
+        public int pyramidFlowerForestAverageChunkDistance = 36;
 }

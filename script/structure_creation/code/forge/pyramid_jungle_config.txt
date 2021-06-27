@@ -1,11 +1,11 @@
-		public ConfigValueListener<Integer> pyramidJungleMaxChunkDistance;
+		public ConfigValueListener<Integer> pyramidJungleAverageChunkDistance;
 		public ConfigValueListener<Boolean> addPyramidJungleToModdedBiomes;
 
-                pyramidJungleMaxChunkDistance = subscriber.subscribe(builder
+                pyramidJungleAverageChunkDistance = subscriber.subscribe(builder
                     .comment("How rare are Jungle Pyramid in Jungle biomes. 1"
                 + "\nfor spawning in most chunks and 1001 for none.")
                     .translation("repurposedstructures.config.pyramids.pyramidjunglemaxchunkdistance")
-                    .defineInRange("pyramidJungleMaxChunkDistance", 48, 1, 1001));
+                    .defineInRange("pyramidJungleAverageChunkDistance", 48, 1, 1001));
 
                 addPyramidJungleToModdedBiomes = subscriber.subscribe(builder
                     .comment("\n Add Jungle Pyramid to modded Jungle biomes."\n )

@@ -76,7 +76,7 @@ while restart:
     config_modded_biome_entry = "add" + structure_registry_name.replace("_", " ").title().replace(" ", "") +"ToModdedBiomes"
     config_modded_biome_comment = input("\nconfig modded biome comment\n")
 
-    config_spawnrate_entry = structure_registry_name[0].lower() + structure_registry_name.replace("_", " ").title().replace(" ", "")[1:] +"MaxChunkDistance"
+    config_spawnrate_entry = structure_registry_name[0].lower() + structure_registry_name.replace("_", " ").title().replace(" ", "")[1:] +"AverageChunkDistance"
     config_spawnrate_comment = input("\nconfig spawnrate comment\n")
 
     spacing_default_value = input("\nspacing default value\n")

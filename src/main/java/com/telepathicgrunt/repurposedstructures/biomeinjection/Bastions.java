@@ -15,7 +15,7 @@ public class Bastions {
                 (context) ->
                         BiomeSelection.isBiomeAllowed(context, RSStructures.BASTION_UNDERGROUND,
                                 () -> !BiomeSelection.haveCategories(context, Category.OCEAN, Category.BEACH, Category.NETHER, Category.NONE, Category.THEEND))
-                        && RepurposedStructures.RSAllConfig.RSBastionsConfig.bastionUndergroundMaxChunkDistance != 10001,
+                        && RepurposedStructures.RSAllConfig.RSBastionsConfig.bastionUndergroundAverageChunkDistance != 10001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.BASTION_UNDERGROUND));
     }
 }

@@ -2,7 +2,7 @@
 
     public static StructureFeature<DefaultFeatureConfig> PYRAMID_JUNGLE = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "temples/pyramid_jungle"), 11, 0, 0, 0, new HashSet<>());
 
-        FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "pyramid_jungle"), PYRAMID_JUNGLE).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSTemplesConfig.maxChunkDistance.pyramidJungleMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSTemplesConfig.maxChunkDistance.pyramidJungleMaxChunkDistance * 0.5f), 1483015905)).superflatFeature(PYRAMID_JUNGLE.configure(FeatureConfig.DEFAULT)).register();
+        FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "pyramid_jungle"), PYRAMID_JUNGLE).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSTemplesConfig.maxChunkDistance.pyramidJungleAverageChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSTemplesConfig.maxChunkDistance.pyramidJungleAverageChunkDistance * 0.5f), 1483015905)).superflatFeature(PYRAMID_JUNGLE.configure(FeatureConfig.DEFAULT)).register();
 
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> PYRAMID_JUNGLE = RSStructures.PYRAMID_JUNGLE.configure(FeatureConfig.DEFAULT);
 
@@ -13,7 +13,7 @@
         GeneralUtils.addToBiome("pyramid_jungle",
                 (context) -> 
 						&& BiomeSelection.isBiomeAllowed(context, "pyramids")
-                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.maxChunkDistance.pyramidJungleMaxChunkDistance != 10001),
+                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.maxChunkDistance.pyramidJungleAverageChunkDistance != 10001),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.PYRAMID_JUNGLE));
 
         @ConfigEntry.Gui.Tooltip(count = 0)
@@ -28,13 +28,13 @@
         @Comment("How rare are Jungle Pyramid in Jungle biomes. 1"
                 + "\nfor spawning in most chunks and 10001 for none.")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 10001)
-        public int pyramidJungleMaxChunkDistance = 48;
+        public int pyramidJungleAverageChunkDistance = 48;
 
 --------------FORGE-------------
 
     public static final RegistryObject<Structure<NoFeatureConfig>> PYRAMID_JUNGLE = addToStructureMaps("pyramid_jungle", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "temples/pyramid_jungle"), 11, 0, 0, 0, new HashSet<>())));
 
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "pyramid_jungle"), PYRAMID_JUNGLE.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSTemplesConfig.pyramidJungleMaxChunkDistance.get(), (int) (RepurposedStructures.RSTemplesConfig.pyramidJungleMaxChunkDistance.get() * 0.5f), 1483015905));
+        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "pyramid_jungle"), PYRAMID_JUNGLE.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSTemplesConfig.pyramidJungleAverageChunkDistance.get(), (int) (RepurposedStructures.RSTemplesConfig.pyramidJungleAverageChunkDistance.get() * 0.5f), 1483015905));
 
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> PYRAMID_JUNGLE = RSStructures.PYRAMID_JUNGLE.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);
 
@@ -43,20 +43,20 @@
         addTags(RSStructures.PYRAMID_JUNGLE.get(), Stream.of(STRUCTURE_TAGS.PYRAMID).collect(Collectors.toSet()));
 
         if ( &&
-            RepurposedStructures.RSTemplesConfig.pyramidJungleMaxChunkDistance.get() != 10001 &&
+            RepurposedStructures.RSTemplesConfig.pyramidJungleAverageChunkDistance.get() != 10001 &&
             (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSTemplesConfig.addPyramidJungleToModdedBiomes.get()))
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.PYRAMID_JUNGLE);
         }
 
-		public ConfigValueListener<Integer> pyramidJungleMaxChunkDistance;
+		public ConfigValueListener<Integer> pyramidJungleAverageChunkDistance;
 		public ConfigValueListener<Boolean> addPyramidJungleToModdedBiomes;
 
-                pyramidJungleMaxChunkDistance = subscriber.subscribe(builder
+                pyramidJungleAverageChunkDistance = subscriber.subscribe(builder
                     .comment("How rare are Jungle Pyramid in Jungle biomes. 1"
                 + "\nfor spawning in most chunks and 10001 for none.")
                     .translation("repurposedstructures.config.pyramids.pyramidjunglemaxchunkdistance")
-                    .defineInRange("pyramidJungleMaxChunkDistance", 48, 1, 10001));
+                    .defineInRange("pyramidJungleAverageChunkDistance", 48, 1, 10001));
 
                 addPyramidJungleToModdedBiomes = subscriber.subscribe(builder
                     .comment("\n Add Jungle Pyramid to modded Jungle biomes."\n )

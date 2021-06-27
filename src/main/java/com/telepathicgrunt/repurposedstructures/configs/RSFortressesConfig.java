@@ -26,9 +26,9 @@ public class RSFortressesConfig implements ConfigData {
 
 
                 How rare are Jungle Fortresses.
-                1 for spawning in most chunks and 10001 for none.""")
-        @ConfigEntry.BoundedDiscrete(min = 1, max = 10001)
-        public int jungleFortressMaxChunkDistance = 50;
+                1 for spawning in most chunks and 1001 for none.""")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int jungleFortressAverageChunkDistance = 50;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText

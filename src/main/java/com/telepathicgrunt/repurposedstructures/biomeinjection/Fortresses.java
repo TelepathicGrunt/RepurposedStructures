@@ -14,7 +14,7 @@ public class Fortresses {
         GeneralUtils.addToBiome("jungle_fortress",
                 (context) -> BiomeSelection.isBiomeAllowed(context, RSStructures.JUNGLE_FORTRESS,
                             () -> BiomeSelection.haveCategories(context, Category.JUNGLE))
-                        && RepurposedStructures.RSAllConfig.RSFortressesConfig.jungleFortress.jungleFortressMaxChunkDistance != 10001,
+                        && RepurposedStructures.RSAllConfig.RSFortressesConfig.jungleFortress.jungleFortressAverageChunkDistance != 1001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.JUNGLE_FORTRESS));
     }
 }

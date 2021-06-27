@@ -34,10 +34,10 @@ public class RSStrongholdsConfig implements ConfigData
 
 
 				How rare are Nether-styled Strongholds in Nether-category biomes.
-				1 for spawning in most chunks and 10001 for no spawn.
+				1 for spawning in most chunks and 1001 for no spawn.
 				Note: Eyes of Ender will work and show the closest Nether Stronghold too.""")
-		@ConfigEntry.BoundedDiscrete(min = 1, max = 10001)
-		public int netherStrongholdMaxChunkDistance = 100;
+		@ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+		public int netherStrongholdAverageChunkDistance = 100;
 
 		@ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText

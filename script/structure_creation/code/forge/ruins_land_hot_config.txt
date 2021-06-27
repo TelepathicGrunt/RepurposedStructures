@@ -1,11 +1,11 @@
-		public ConfigValueListener<Integer> ruinsLandHotMaxChunkDistance;
+		public ConfigValueListener<Integer> ruinsLandHotAverageChunkDistance;
 		public ConfigValueListener<Boolean> addRuinsLandHotToModdedBiomes;
 
-                ruinsLandHotMaxChunkDistance = subscriber.subscribe(builder
+                ruinsLandHotAverageChunkDistance = subscriber.subscribe(builder
                     .comment("How rare are Hot Land Ruins in Desert biomes. 1"
                 + "\nfor spawning in most chunks and 1001 for none.")
                     .translation("repurposedstructures.config.ruins.ruinslandhotmaxchunkdistance")
-                    .defineInRange("ruinsLandHotMaxChunkDistance", 48, 1, 1001));
+                    .defineInRange("ruinsLandHotAverageChunkDistance", 48, 1, 1001));
 
                 addRuinsLandHotToModdedBiomes = subscriber.subscribe(builder
                     .comment("\n Add Hot Land Ruins to modded Desert biomes."\n )

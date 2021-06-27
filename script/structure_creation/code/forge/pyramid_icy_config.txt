@@ -1,10 +1,10 @@
-		public ConfigValueListener<Integer> pyramidIcyMaxChunkDistance;
+		public ConfigValueListener<Integer> pyramidIcyAverageChunkDistance;
 		public ConfigValueListener<Boolean> addPyramidIcyToModdedBiomes;
 
-                pyramidIcyMaxChunkDistance = subscriber.subscribe(builder
+                pyramidIcyAverageChunkDistance = subscriber.subscribe(builder
                     .comment("Add Icy Pyramid to modded icy biomes.")
                     .translation("repurposedstructures.config.pyramids.pyramidicymaxchunkdistance")
-                    .defineInRange("pyramidIcyMaxChunkDistance", 37, 1, 1001));
+                    .defineInRange("pyramidIcyAverageChunkDistance", 37, 1, 1001));
 
                 addPyramidIcyToModdedBiomes = subscriber.subscribe(builder
                     .comment("Add Icy Pyramid to modded icy biomes.")

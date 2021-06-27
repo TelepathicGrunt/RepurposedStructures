@@ -16,7 +16,7 @@ public class Strongholds {
                         BiomeSelection.isBiomeAllowed(context, RSStructures.NETHER_STRONGHOLD,
                                 () -> BiomeSelection.haveCategories(context, Category.NETHER)
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.STRONGHOLD))
-                        && RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdMaxChunkDistance != 10001,
+                        && RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdAverageChunkDistance != 1001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.NETHER_STRONGHOLD));
     }
 }

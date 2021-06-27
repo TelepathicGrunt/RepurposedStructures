@@ -1,5 +1,5 @@
         GeneralUtils.addToBiome("ruins_land_warm",
                 (context) -> 
 						&& BiomeSelection.isBiomeAllowed(context, "ruins")
-                        && RepurposedStructures.RSAllConfig.RSRuinsConfig.maxChunkDistance.ruinsLandWarmMaxChunkDistance != 10001),
+                        && RepurposedStructures.RSAllConfig.RSRuinsConfig.maxChunkDistance.ruinsLandWarmAverageChunkDistance != 10001),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.RUINS_LAND_WARM));

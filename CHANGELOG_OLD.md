@@ -642,7 +642,7 @@
 
 * Overworld Outposts now mesh much better with the surrounding terrain.
 
-* Lowered default value for outpostBadlandsMaxChunkDistance config entry from 37 to 31
+* Lowered default value for outpostBadlandsAverageChunkDistance config entry from 37 to 31
   so that the Badlands Outpost isn't as extremely rare as it was before.
 
 ##### Backend:

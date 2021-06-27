@@ -35,6 +35,7 @@ public class RSDungeonsConfig implements ConfigData {
         public int badlandsDungeonAttemptsPerChunk = 8;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -47,6 +48,7 @@ public class RSDungeonsConfig implements ConfigData {
         public int darkForestDungeonAttemptsPerChunk = 8;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -59,6 +61,7 @@ public class RSDungeonsConfig implements ConfigData {
         public int desertDungeonAttemptsPerChunk = 8;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -71,6 +74,7 @@ public class RSDungeonsConfig implements ConfigData {
         public int jungleDungeonAttemptsPerChunk = 8;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -83,6 +87,7 @@ public class RSDungeonsConfig implements ConfigData {
         public int mushroomDungeonAttemptsPerChunk = 8;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -95,6 +100,7 @@ public class RSDungeonsConfig implements ConfigData {
         public int snowDungeonAttemptsPerChunk = 8;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -107,6 +113,7 @@ public class RSDungeonsConfig implements ConfigData {
         public int icyDungeonAttemptsPerChunk = 8;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -119,6 +126,7 @@ public class RSDungeonsConfig implements ConfigData {
         public int swampDungeonAttemptsPerChunk = 8;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -130,6 +138,7 @@ public class RSDungeonsConfig implements ConfigData {
         public int endDungeonAttemptsPerChunk = 12;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -141,8 +150,7 @@ public class RSDungeonsConfig implements ConfigData {
         public int netherDungeonAttemptsPerChunk = 12;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-    @ConfigEntry.Gui.PrefixText
-    @ConfigEntry.Gui.RequiresRestart
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -162,8 +170,8 @@ public class RSDungeonsConfig implements ConfigData {
     public static class MinHeight {
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-    @ConfigEntry.Gui.PrefixText
-    @ConfigEntry.Gui.RequiresRestart
+        @ConfigEntry.Gui.PrefixText
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -174,6 +182,7 @@ public class RSDungeonsConfig implements ConfigData {
         public int badlandsDungeonMinHeight = 2;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -184,6 +193,7 @@ public class RSDungeonsConfig implements ConfigData {
         public int darkForestDungeonMinHeight = 2;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -194,6 +204,7 @@ public class RSDungeonsConfig implements ConfigData {
         public int desertDungeonMinHeight = 2;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -204,6 +215,7 @@ public class RSDungeonsConfig implements ConfigData {
         public int jungleDungeonMinHeight = 2;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -214,6 +226,7 @@ public class RSDungeonsConfig implements ConfigData {
         public int mushroomDungeonMinHeight = 2;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -224,6 +237,7 @@ public class RSDungeonsConfig implements ConfigData {
         public int snowDungeonMinHeight = 2;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -234,6 +248,7 @@ public class RSDungeonsConfig implements ConfigData {
         public int icyDungeonMinHeight = 2;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -244,6 +259,7 @@ public class RSDungeonsConfig implements ConfigData {
         public int swampDungeonMinHeight = 2;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -254,6 +270,7 @@ public class RSDungeonsConfig implements ConfigData {
         public int endDungeonMinHeight = 2;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -264,6 +281,7 @@ public class RSDungeonsConfig implements ConfigData {
         public int netherDungeonMinHeight = 2;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -278,8 +296,8 @@ public class RSDungeonsConfig implements ConfigData {
     public static class MaxHeight {
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-    @ConfigEntry.Gui.PrefixText
-    @ConfigEntry.Gui.RequiresRestart
+        @ConfigEntry.Gui.PrefixText
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -291,6 +309,7 @@ public class RSDungeonsConfig implements ConfigData {
         public int badlandsDungeonMaxHeight = 255;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -302,6 +321,7 @@ public class RSDungeonsConfig implements ConfigData {
         public int darkForestDungeonMaxHeight = 255;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -313,6 +333,7 @@ public class RSDungeonsConfig implements ConfigData {
         public int desertDungeonMaxHeight = 255;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -324,6 +345,7 @@ public class RSDungeonsConfig implements ConfigData {
         public int jungleDungeonMaxHeight = 255;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -335,6 +357,7 @@ public class RSDungeonsConfig implements ConfigData {
         public int mushroomDungeonMaxHeight = 255;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -346,6 +369,7 @@ public class RSDungeonsConfig implements ConfigData {
         public int snowDungeonMaxHeight = 255;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -357,6 +381,7 @@ public class RSDungeonsConfig implements ConfigData {
         public int icyDungeonMaxHeight = 255;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -368,6 +393,7 @@ public class RSDungeonsConfig implements ConfigData {
         public int swampDungeonMaxHeight = 255;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -379,6 +405,7 @@ public class RSDungeonsConfig implements ConfigData {
         public int endDungeonMaxHeight = 255;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -390,6 +417,7 @@ public class RSDungeonsConfig implements ConfigData {
         public int netherDungeonMaxHeight = 255;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 

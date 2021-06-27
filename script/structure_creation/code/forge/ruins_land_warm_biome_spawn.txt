@@ -1,5 +1,5 @@
         if ( &&
-            RepurposedStructures.RSRuinsConfig.ruinsLandWarmMaxChunkDistance.get() != 1001 &&
+            RepurposedStructures.RSRuinsConfig.ruinsLandWarmAverageChunkDistance.get() != 1001 &&
             (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSRuinsConfig.addRuinsLandWarmToModdedBiomes.get()))
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.RUINS_LAND_WARM);

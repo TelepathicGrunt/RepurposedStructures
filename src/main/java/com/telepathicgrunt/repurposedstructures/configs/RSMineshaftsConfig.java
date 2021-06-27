@@ -41,7 +41,6 @@ public class RSMineshaftsConfig implements ConfigData {
         public int birchMineshaftSpawnrate = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-        @ConfigEntry.Gui.PrefixText
         @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
@@ -55,7 +54,6 @@ public class RSMineshaftsConfig implements ConfigData {
         public int jungleMineshaftSpawnrate = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-        @ConfigEntry.Gui.PrefixText
         @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
@@ -69,7 +67,6 @@ public class RSMineshaftsConfig implements ConfigData {
         public int desertMineshaftSpawnrate = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-        @ConfigEntry.Gui.PrefixText
         @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
@@ -83,7 +80,6 @@ public class RSMineshaftsConfig implements ConfigData {
         public int stoneMineshaftSpawnrate = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-        @ConfigEntry.Gui.PrefixText
         @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
@@ -97,7 +93,6 @@ public class RSMineshaftsConfig implements ConfigData {
         public int savannaMineshaftSpawnrate = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-        @ConfigEntry.Gui.PrefixText
         @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
@@ -112,7 +107,6 @@ public class RSMineshaftsConfig implements ConfigData {
         public int icyMineshaftSpawnrate = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-        @ConfigEntry.Gui.PrefixText
         @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
@@ -126,7 +120,6 @@ public class RSMineshaftsConfig implements ConfigData {
         public int oceanMineshaftSpawnrate = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-        @ConfigEntry.Gui.PrefixText
         @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
@@ -140,7 +133,6 @@ public class RSMineshaftsConfig implements ConfigData {
         public int taigaMineshaftSpawnrate = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-        @ConfigEntry.Gui.PrefixText
         @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
@@ -154,7 +146,6 @@ public class RSMineshaftsConfig implements ConfigData {
         public int swampMineshaftSpawnrate = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-        @ConfigEntry.Gui.PrefixText
         @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
@@ -168,7 +159,6 @@ public class RSMineshaftsConfig implements ConfigData {
         public int darkForestMineshaftSpawnrate = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-        @ConfigEntry.Gui.PrefixText
         @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
@@ -181,7 +171,6 @@ public class RSMineshaftsConfig implements ConfigData {
         public int endMineshaftSpawnrate = 60;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-        @ConfigEntry.Gui.PrefixText
         @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
@@ -194,7 +183,6 @@ public class RSMineshaftsConfig implements ConfigData {
         public int netherMineshaftSpawnrate = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-        @ConfigEntry.Gui.PrefixText
         @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
@@ -207,7 +195,6 @@ public class RSMineshaftsConfig implements ConfigData {
         public int crimsonMineshaftSpawnrate = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-        @ConfigEntry.Gui.PrefixText
         @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 

@@ -170,6 +170,10 @@ public class Dungeons {
                 ModificationPhase.REMOVALS,
                 context -> RSConfiguredFeatures.RS_DUNGEONS.stream().anyMatch(dungeon ->
                         dungeon != RSConfiguredFeatures.OCEAN_NEUTRAL_DUNGEONS &&
+                        dungeon != RSConfiguredFeatures.OCEAN_COLD_DUNGEONS &&
+                        dungeon != RSConfiguredFeatures.OCEAN_FROZEN_DUNGEONS &&
+                        dungeon != RSConfiguredFeatures.OCEAN_LUKEWARM_DUNGEONS &&
+                        dungeon != RSConfiguredFeatures.OCEAN_WARM_DUNGEONS &&
                         dungeon != RSConfiguredFeatures.NETHER_DUNGEONS &&
                         dungeon != RSConfiguredFeatures.END_DUNGEONS &&
                         context.hasBuiltInFeature(dungeon)),

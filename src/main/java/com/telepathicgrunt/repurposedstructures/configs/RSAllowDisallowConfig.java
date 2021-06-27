@@ -42,8 +42,8 @@ public class RSAllowDisallowConfig implements ConfigData {
 
 
              If you are in the config GUI in-game and are looking for the configs to
-             allow or disallow Repurposed Structure's structures from dimensions
-             or biomes, please take a look at the config file in the config folder.
+             allow or disallow Repurposed Structure's structures from dimensions or biomes,
+             please take a look at the biome_dimension_allow_disallow_configs.json5 file in the config folder.
              Cloth Config API cannot show maps so you will need to edit the file itself.""")
-    public String seeConfigFileForBiomeAndDimensionAllowDisallow = "";
+    public String seeConfigFileForBiomeAndDimensionAllowDisallow = "Read comment above";
 }

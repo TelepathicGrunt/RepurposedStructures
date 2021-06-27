@@ -54,6 +54,9 @@
 ##### Outposts:
 * Jungle Outposts tents is made of Moss Blocks and has Moss Carpet under them
 
+##### Dungeons:
+* Fixed vanilla dungeons being removed from cold, frozen, warm, and lukewarm ocean biomes.
+
 ##### Wells:
 * All wells now use processor lists to randomize their chances of having ores or bells. 
   The well's block tags and bell config entry have been deleted as they are no longer needed.

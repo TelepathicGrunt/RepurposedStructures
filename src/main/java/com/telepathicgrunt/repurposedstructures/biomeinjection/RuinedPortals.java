@@ -16,7 +16,7 @@ public class RuinedPortals {
                         BiomeSelection.isBiomeAllowed(context, RSStructures.RUINED_PORTAL_END,
                                 () -> BiomeSelection.haveCategories(context, Category.THEEND)
                                 && !BiomeSelection.isBiome(context, BiomeKeys.THE_END))
-                        && RepurposedStructures.RSAllConfig.RSRuinedPortalsConfig.ruinedPortalEndMaxChunkDistance != 1001,
+                        && RepurposedStructures.RSAllConfig.RSRuinedPortalsConfig.ruinedPortalEndAverageChunkDistance != 1001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.RUINED_PORTAL_END));
     }
 }

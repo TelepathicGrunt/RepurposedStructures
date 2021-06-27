@@ -18,7 +18,7 @@ public class Temples {
                                 () -> BiomeSelection.haveCategories(context, Category.NETHER)
                                 && BiomeSelection.hasName(context, "basalt", "blackstone")
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.NETHER_TEMPLE))
-                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.netherBasaltTempleMaxChunkDistance != 10001,
+                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.netherBasaltTempleAverageChunkDistance != 1001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.NETHER_BASALT_TEMPLE));
 
         GeneralUtils.addToBiome("nether_crimson_temple",
@@ -27,7 +27,7 @@ public class Temples {
                                 () -> BiomeSelection.haveCategories(context, Category.NETHER)
                                 && BiomeSelection.hasName(context, "crimson", "red_")
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.NETHER_TEMPLE))
-                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.netherCrimsonTempleMaxChunkDistance != 10001,
+                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.netherCrimsonTempleAverageChunkDistance != 1001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.NETHER_CRIMSON_TEMPLE));
 
         GeneralUtils.addToBiome("nether_warped_temple",
@@ -36,7 +36,7 @@ public class Temples {
                                 () -> BiomeSelection.haveCategories(context, Category.NETHER)
                                 && BiomeSelection.hasName(context, "warped", "blue")
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.NETHER_TEMPLE)
-                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.netherWarpedTempleMaxChunkDistance != 10001),
+                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.netherWarpedTempleAverageChunkDistance != 1001),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.NETHER_WARPED_TEMPLE));
 
         GeneralUtils.addToBiome("nether_soul_temple",
@@ -45,7 +45,7 @@ public class Temples {
                                 () -> BiomeSelection.haveCategories(context, Category.NETHER)
                                 && BiomeSelection.hasName(context, "soul")
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.NETHER_TEMPLE)
-                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.netherSoulTempleMaxChunkDistance != 10001),
+                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.netherSoulTempleAverageChunkDistance != 1001),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.NETHER_SOUL_TEMPLE));
 
         GeneralUtils.addToBiome("nether_wasteland_temple",
@@ -54,7 +54,7 @@ public class Temples {
                                 () -> BiomeSelection.haveCategories(context, Category.NETHER)
                                 && !BiomeSelection.hasName(context, "crimson", "red_", "warped", "blue", "soul", "basalt", "blackstone")
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.NETHER_TEMPLE))
-                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.netherWastelandTempleMaxChunkDistance != 10001,
+                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.netherWastelandTempleAverageChunkDistance != 1001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.NETHER_WASTELAND_TEMPLE));
 
     }

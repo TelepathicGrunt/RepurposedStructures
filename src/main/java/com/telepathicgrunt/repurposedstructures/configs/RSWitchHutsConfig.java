@@ -9,11 +9,6 @@ import me.shedaniel.cloth.clothconfig.shadowed.blue.endless.jankson.Comment;
 @Config(name = "WitchHuts")
 public class RSWitchHutsConfig implements ConfigData {
 
-    @ConfigEntry.Gui.CollapsibleObject
-    public MaxChunkDistance maxChunkDistance = new MaxChunkDistance();
-
-    public static class MaxChunkDistance {
-
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
         @ConfigEntry.Gui.RequiresRestart
@@ -22,56 +17,51 @@ public class RSWitchHutsConfig implements ConfigData {
 
 
                 How rare are Oak Witch Huts in Forest biomes that are not birch or dark oak.
-                1 for spawning in most chunks and 10001 for none.""")
-        @ConfigEntry.BoundedDiscrete(min = 1, max = 10001)
-        public int witchHutsOakMaxChunkDistance = 48;
+                1 for spawning in most chunks and 1001 for none.""")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int witchHutsOakAverageChunkDistance = 48;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-        @ConfigEntry.Gui.PrefixText
         @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
 
                  How rare are Taiga Witch Huts in Taiga biomes.
-                 1 for spawning in most chunks and 10001 for none.""")
-        @ConfigEntry.BoundedDiscrete(min = 1, max = 10001)
-        public int witchHutsTaigaMaxChunkDistance = 48;
+                 1 for spawning in most chunks and 1001 for none.""")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int witchHutsTaigaAverageChunkDistance = 48;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-        @ConfigEntry.Gui.PrefixText
         @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
 
                 How rare are Birch Witch Huts in Birch biomes.
-                1 for spawning in most chunks and 10001 for none.""")
-        @ConfigEntry.BoundedDiscrete(min = 1, max = 10001)
-        public int witchHutsBirchMaxChunkDistance = 48;
+                1 for spawning in most chunks and 1001 for none.""")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int witchHutsBirchAverageChunkDistance = 48;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-        @ConfigEntry.Gui.PrefixText
         @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
 
                 How rare are Dark Forest Witch Huts in Dark Forest biomes.
-                1 for spawning in most chunks and 10001 for none.""")
-        @ConfigEntry.BoundedDiscrete(min = 1, max = 10001)
-        public int witchHutsDarkForestMaxChunkDistance = 48;
+                1 for spawning in most chunks and 1001 for none.""")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int witchHutsDarkForestAverageChunkDistance = 48;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
-        @ConfigEntry.Gui.PrefixText
         @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
 
                 How rare are Giant Tree Taiga Witch Huts in Giant Tree Taiga biomes.
-                1 for spawning in most chunks and 10001 for none.""")
-        @ConfigEntry.BoundedDiscrete(min = 1, max = 10001)
-        public int witchHutsGiantTreeTaigaMaxChunkDistance = 48;
-    }
+                1 for spawning in most chunks and 1001 for none.""")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int witchHutsGiantTreeTaigaAverageChunkDistance = 48;
 }

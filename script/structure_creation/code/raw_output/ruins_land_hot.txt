@@ -2,7 +2,7 @@
 
     public static StructureFeature<DefaultFeatureConfig> RUINS_LAND_HOT = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "ruins/land_hot"), 2, 0, 0, 0, new HashSet<>());
 
-        FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "ruins_land_hot"), RUINS_LAND_HOT).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSRuinsConfig.maxChunkDistance.ruinsLandHotMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSRuinsConfig.maxChunkDistance.ruinsLandHotMaxChunkDistance * 0.5f), 1243670027)).superflatFeature(RUINS_LAND_HOT.configure(FeatureConfig.DEFAULT)).adjustsSurface().register();
+        FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "ruins_land_hot"), RUINS_LAND_HOT).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSRuinsConfig.maxChunkDistance.ruinsLandHotAverageChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSRuinsConfig.maxChunkDistance.ruinsLandHotAverageChunkDistance * 0.5f), 1243670027)).superflatFeature(RUINS_LAND_HOT.configure(FeatureConfig.DEFAULT)).adjustsSurface().register();
 
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> RUINS_LAND_HOT = RSStructures.RUINS_LAND_HOT.configure(FeatureConfig.DEFAULT);
 
@@ -13,7 +13,7 @@
         GeneralUtils.addToBiome("ruins_land_hot",
                 (context) -> 
 						&& BiomeSelection.isBiomeAllowed(context, "ruins")
-                        && RepurposedStructures.RSAllConfig.RSRuinsConfig.maxChunkDistance.ruinsLandHotMaxChunkDistance != 1001),
+                        && RepurposedStructures.RSAllConfig.RSRuinsConfig.maxChunkDistance.ruinsLandHotAverageChunkDistance != 1001),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.RUINS_LAND_HOT));
 
         @ConfigEntry.Gui.Tooltip(count = 0)
@@ -27,13 +27,13 @@
         @ConfigEntry.Gui.RequiresRestart
         @Comment("How rare are Hot Land Ruins in Desert biomes. 1 for spawning in most chunks and 1001 for none. ")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int ruinsLandHotMaxChunkDistance = 48;
+        public int ruinsLandHotAverageChunkDistance = 48;
 
 --------------FORGE-------------
 
     public static final RegistryObject<Structure<NoFeatureConfig>> RUINS_LAND_HOT = addToStructureMaps("ruins_land_hot", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "ruins/land_hot"), 2, 0, 0, 0, new HashSet<>())));
 
-        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "ruins_land_hot"), RUINS_LAND_HOT.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSRuinsConfig.ruinsLandHotMaxChunkDistance.get(), (int) (RepurposedStructures.RSRuinsConfig.ruinsLandHotMaxChunkDistance.get() * 0.5f), 1243670027));
+        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "ruins_land_hot"), RUINS_LAND_HOT.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSRuinsConfig.ruinsLandHotAverageChunkDistance.get(), (int) (RepurposedStructures.RSRuinsConfig.ruinsLandHotAverageChunkDistance.get() * 0.5f), 1243670027));
 
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> RUINS_LAND_HOT = RSStructures.RUINS_LAND_HOT.get().configured(IFeatureConfig.NONE);
 
@@ -42,20 +42,20 @@
         addTags(RSStructures.RUINS_LAND_HOT.get(), Stream.of(STRUCTURE_TAGS.RUIN).collect(Collectors.toSet()));
 
         if ( &&
-            RepurposedStructures.RSRuinsConfig.ruinsLandHotMaxChunkDistance.get() != 1001 &&
+            RepurposedStructures.RSRuinsConfig.ruinsLandHotAverageChunkDistance.get() != 1001 &&
             (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSRuinsConfig.addRuinsLandHotToModdedBiomes.get()))
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.RUINS_LAND_HOT);
         }
 
-		public ConfigValueListener<Integer> ruinsLandHotMaxChunkDistance;
+		public ConfigValueListener<Integer> ruinsLandHotAverageChunkDistance;
 		public ConfigValueListener<Boolean> addRuinsLandHotToModdedBiomes;
 
-                ruinsLandHotMaxChunkDistance = subscriber.subscribe(builder
+                ruinsLandHotAverageChunkDistance = subscriber.subscribe(builder
                     .comment("How rare are Hot Land Ruins in Desert biomes. 1"
                 + "\nfor spawning in most chunks and 1001 for none.")
                     .translation("repurposedstructures.config.ruins.ruinslandhotmaxchunkdistance")
-                    .defineInRange("ruinsLandHotMaxChunkDistance", 48, 1, 1001));
+                    .defineInRange("ruinsLandHotAverageChunkDistance", 48, 1, 1001));
 
                 addRuinsLandHotToModdedBiomes = subscriber.subscribe(builder
                     .comment("\n Add Hot Land Ruins to modded Desert biomes."\n )

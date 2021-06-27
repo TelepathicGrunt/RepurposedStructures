@@ -1,5 +1,5 @@
         if ( &&
-            RepurposedStructures.RSTemplesConfig.pyramidIcyMaxChunkDistance.get() != 1001 &&
+            RepurposedStructures.RSTemplesConfig.pyramidIcyAverageChunkDistance.get() != 1001 &&
             (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSTemplesConfig.addPyramidIcyToModdedBiomes.get()))
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.PYRAMID_ICY);

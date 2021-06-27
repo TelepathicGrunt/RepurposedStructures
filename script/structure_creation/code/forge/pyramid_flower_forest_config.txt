@@ -1,12 +1,12 @@
-		public ConfigValueListener<Integer> pyramidFlowerForestMaxChunkDistance;
+		public ConfigValueListener<Integer> pyramidFlowerForestAverageChunkDistance;
 		public ConfigValueListener<Boolean> addPyramidFlowerForestToModdedBiomes;
 
-                pyramidFlowerForestMaxChunkDistance = subscriber.subscribe(builder
+                pyramidFlowerForestAverageChunkDistance = subscriber.subscribe(builder
                     .comment("How rare are Flower Forest Pyramid in Flower"
                 + "\nForest biomes. 1 for spawning in most chunks and"
                 + "\n1001 for none.")
                     .translation("repurposedstructures.config.pyramids.pyramidflowerforestmaxchunkdistance")
-                    .defineInRange("pyramidFlowerForestMaxChunkDistance", 34, 1, 1001));
+                    .defineInRange("pyramidFlowerForestAverageChunkDistance", 34, 1, 1001));
 
                 addPyramidFlowerForestToModdedBiomes = subscriber.subscribe(builder
                     .comment("\n Add Flower Forest Pyramid to modded Plains or"\n 

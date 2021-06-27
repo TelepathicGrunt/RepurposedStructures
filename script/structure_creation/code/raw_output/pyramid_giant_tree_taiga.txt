@@ -2,7 +2,7 @@
 
     public static StructureFeature<DefaultFeatureConfig> PYRAMID_GIANT_TREE_TAIGA = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "temples/pyramid_giant_tree_taiga"), 11, 0, 0, 0, new HashSet<>());
 
-        FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "pyramid_giant_tree_taiga"), PYRAMID_GIANT_TREE_TAIGA).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSTemplesConfig.maxChunkDistance.pyramidGiantTreeTaigaMaxChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSTemplesConfig.maxChunkDistance.pyramidGiantTreeTaigaMaxChunkDistance * 0.5f), 1977974973)).superflatFeature(PYRAMID_GIANT_TREE_TAIGA.configure(FeatureConfig.DEFAULT)).register();
+        FabricStructureBuilder.create(new Identifier(RepurposedStructures.MODID, "pyramid_giant_tree_taiga"), PYRAMID_GIANT_TREE_TAIGA).step(GenerationStep.Feature.SURFACE_STRUCTURES).defaultConfig(new StructureConfig(RepurposedStructures.RSAllConfig.RSTemplesConfig.maxChunkDistance.pyramidGiantTreeTaigaAverageChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSTemplesConfig.maxChunkDistance.pyramidGiantTreeTaigaAverageChunkDistance * 0.5f), 1977974973)).superflatFeature(PYRAMID_GIANT_TREE_TAIGA.configure(FeatureConfig.DEFAULT)).register();
 
     public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> PYRAMID_GIANT_TREE_TAIGA = RSStructures.PYRAMID_GIANT_TREE_TAIGA.configure(FeatureConfig.DEFAULT);
 
@@ -13,7 +13,7 @@
         GeneralUtils.addToBiome("pyramid_giant_tree_taiga",
                 (context) -> 
 						&& BiomeSelection.isBiomeAllowed(context, "pyramids")
-                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.maxChunkDistance.pyramidGiantTreeTaigaMaxChunkDistance != 10001),
+                        && RepurposedStructures.RSAllConfig.RSTemplesConfig.maxChunkDistance.pyramidGiantTreeTaigaAverageChunkDistance != 10001),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.PYRAMID_GIANT_TREE_TAIGA));
 
         @ConfigEntry.Gui.Tooltip(count = 0)
@@ -27,13 +27,13 @@
         @ConfigEntry.Gui.RequiresRestart
         @Comment("How rare are Giant Tree Taiga Pyramid in Giant Tree Taiga biomes. 1 for spawning in most chunks and 10001 for none. ")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 10001)
-        public int pyramidGiantTreeTaigaMaxChunkDistance = 37;
+        public int pyramidGiantTreeTaigaAverageChunkDistance = 37;
 
 --------------FORGE-------------
 
     public static final RegistryObject<Structure<NoFeatureConfig>> PYRAMID_GIANT_TREE_TAIGA = addToStructureMaps("pyramid_giant_tree_taiga", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "temples/pyramid_giant_tree_taiga"), 11, 0, 0, 0, new HashSet<>())));
 
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "pyramid_giant_tree_taiga"), PYRAMID_GIANT_TREE_TAIGA.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSTemplesConfig.pyramidGiantTreeTaigaMaxChunkDistance.get(), (int) (RepurposedStructures.RSTemplesConfig.pyramidGiantTreeTaigaMaxChunkDistance.get() * 0.5f), 1977974973));
+        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "pyramid_giant_tree_taiga"), PYRAMID_GIANT_TREE_TAIGA.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSTemplesConfig.pyramidGiantTreeTaigaAverageChunkDistance.get(), (int) (RepurposedStructures.RSTemplesConfig.pyramidGiantTreeTaigaAverageChunkDistance.get() * 0.5f), 1977974973));
 
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> PYRAMID_GIANT_TREE_TAIGA = RSStructures.PYRAMID_GIANT_TREE_TAIGA.get().configured(IFeatureConfig.NONE);
 
@@ -42,21 +42,21 @@
         addTags(RSStructures.PYRAMID_GIANT_TREE_TAIGA.get(), Stream.of(STRUCTURE_TAGS.PYRAMID).collect(Collectors.toSet()));
 
         if ( &&
-            RepurposedStructures.RSTemplesConfig.pyramidGiantTreeTaigaMaxChunkDistance.get() != 10001 &&
+            RepurposedStructures.RSTemplesConfig.pyramidGiantTreeTaigaAverageChunkDistance.get() != 10001 &&
             (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSTemplesConfig.addPyramidGiantTreeTaigaToModdedBiomes.get()))
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.PYRAMID_GIANT_TREE_TAIGA);
         }
 
-		public ConfigValueListener<Integer> pyramidGiantTreeTaigaMaxChunkDistance;
+		public ConfigValueListener<Integer> pyramidGiantTreeTaigaAverageChunkDistance;
 		public ConfigValueListener<Boolean> addPyramidGiantTreeTaigaToModdedBiomes;
 
-                pyramidGiantTreeTaigaMaxChunkDistance = subscriber.subscribe(builder
+                pyramidGiantTreeTaigaAverageChunkDistance = subscriber.subscribe(builder
                     .comment("How rare are Giant Tree Taiga Pyramid in Giant"
                 + "\nTree Taiga biomes. 1 for spawning in most chunks"
                 + "\nand 10001 for none.")
                     .translation("repurposedstructures.config.pyramids.pyramidgianttreetaigamaxchunkdistance")
-                    .defineInRange("pyramidGiantTreeTaigaMaxChunkDistance", 37, 1, 10001));
+                    .defineInRange("pyramidGiantTreeTaigaAverageChunkDistance", 37, 1, 10001));
 
                 addPyramidGiantTreeTaigaToModdedBiomes = subscriber.subscribe(builder
                     .comment("\n Add Giant Tree Taiga Pyramid to modded taiga"\n 
