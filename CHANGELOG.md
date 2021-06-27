@@ -37,9 +37,6 @@
   
 * Swamp Mineshaft's floor now uses Moss Blocks instead of Grass Blocks
 
-##### Igloos:
-* Grassy Igloos are now made of Moss Blocks
-
 ##### Pyramids:
 * Jungle Pyramids now has a bit of Moss Carpet
   
