@@ -48,8 +48,10 @@
 
 * Slightly adjusted Icy Pyramid's pit to make it harder to not set off trap
   
-* Overworld land pyramids will try to not spawn in middle of large bodies of water
+* Added Chains to Ocean Pyramids so the Drowned won't walk into the Magma Block and take damage
 
+* Overworld land pyramids will try to not spawn in middle of large bodies of 
+  
 ##### Ruins:
 * Overworld land ruins will try to not spawn in middle of large bodies of water
 
