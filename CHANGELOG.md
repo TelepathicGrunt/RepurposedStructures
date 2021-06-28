@@ -27,8 +27,8 @@
 
 * Copper Ore spawns in Underground Bastions like Redstone Ores and Redstone Block do
   
-* Nerfed the rate of randomly placed Redstone Block and Redstone Ore a 
-  
+* Nerfed the rate of randomly placed Redstone Block and Redstone Ore in Underground Bastions
+
 * Added Deepslate layer to bottom of Unit and Stables giant rooms in Underground Bastions to reduce chances of it getting burned down by lava
 
 ##### Nether Cities:
