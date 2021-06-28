@@ -31,8 +31,10 @@
 
 * Added Deepslate layer to bottom of Unit and Stables giant rooms in Underground Bastions to reduce chances of it getting burned down by lava
 
-##### Nether Cities:
-* The topmost small tower tops will now spawn Wither Skeletons with Bows
+##### Cities:
+* In Nether Cities, the topmost small tower tops will now spawn Wither Skeletons with Bows
+  
+* Made the average spawn distance config's default value for Nether Cities be a bit smaller to make them be more common
 
 ##### Mineshafts:
 * Ocean Mineshafts now uses waterlogged Rails instead of waterlogged 
@@ -56,9 +58,6 @@
 
 ##### Mansions:
 * Made the average spawn distance config's default value for many mansions be a bit larger to space out the mansions more
-
-##### Cities:
-* Made the average spawn distance config's default value for Nether Cities be a bit smaller to make them be more common
 
 ##### Ruins:
 * Overworld land ruins will try to not spawn in middle of large bodies of water
