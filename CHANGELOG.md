@@ -1,4 +1,4 @@
-### **(V.2.7.7 Changes) (1.16.5 Minecraft)**
+### **(V.2.7.6 Changes) (1.16.5 Minecraft)**
 
 ##### Misc:
 * Decided to bite the bullet and implement the #7777 Forge PR into my mod directly https://github.com/MinecraftForge/MinecraftForge/pull/7777
@@ -23,9 +23,6 @@
 * Slightly adjusted Icy Pyramid's pit to make it harder to not set off trap
 
 * Added Chains to Ocean Pyramids so the Drowned won't walk into the Magma Block and take damage
-
-
-### **(V.2.7.6 Changes) (1.16.5 Minecraft)**
 
 ##### Mineshafts:
 * Lowered default config value for the max height of Ocean mineshafts from 31 to 26 to reduce amount of Ocean Mineshafts exposed on ocean floor.
