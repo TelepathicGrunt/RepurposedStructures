@@ -6,12 +6,13 @@
   "mixins": [
     "CatEntityMixin",
     "ChunkGeneratorAccessor",
+    "ChunkGeneratorMixin",
     "DungeonFeatureAccessor",
     "EnderEyeStrongholdLocatingMixin",
     "FallbackResourceManagerAccessor",
     "JigsawPatternAccessor",
-    "LootContextAccessor",
     "LessjungleBushInStructuresMixin",
+    "LootContextAccessor",
     "NoLakesInStructuresMixin",
     "NoLavaFallsInStructuresMixin",
     "PillagerOutpostStructureAccessor",
@@ -19,6 +20,7 @@
     "SingleJigsawPieceAccessor",
     "StructureMobSpawningMixin",
     "StructurePieceAccessor",
+    "DimensionStructuresSettingsMixin",
     "TemplateAccessor",
     "TemplateManagerAccessor",
     "TemplateManagerMixin"

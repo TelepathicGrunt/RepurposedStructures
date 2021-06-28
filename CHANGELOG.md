@@ -1,5 +1,10 @@
 ### **(V.2.7.7 Changes) (1.16.5 Minecraft)**
 
+##### Misc:
+* Decided to bite the bullet and implement the #7777 Forge PR into my mod directly https://github.com/MinecraftForge/MinecraftForge/pull/7777
+  I take full responsibility for any noise setting issues this cause for other mods but honestly, no mod should be negatively hurt by it.
+  Instead, this PR-implemented-as-mixin will make Repurposed Structures's and a few other mod's dimensional whitelisting/blacklisting now work properly for structures.
+
 ##### Advancements:
 * All advancements has been condensed. Now there's one advancement for finding all variants of one structure type. 
   For example, you have to find and enter all Repurposed Structures villages to get the advancement for RS Villages.
