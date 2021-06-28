@@ -5,6 +5,9 @@
 
 * Fixed Bastion Treasure room chest not having loot
 
+##### Nether Cities:
+* The topmost small tower tops will now spawn Wither Skeletons with Bows
+
 
 ### **(V.2.7.6 Changes) (1.16.5 Minecraft)**
 
