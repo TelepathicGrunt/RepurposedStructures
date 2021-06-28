@@ -5,18 +5,35 @@
       "item": "minecraft:red_bed"
     },
     "title": {
-      "translate": "Igloos"
+      "translate": "RS Igloos"
     },
     "description": {
-      "translate": "Go look for a Igloo!"
+      "translate": "Find all new igloos!"
     },
-    "show_toast": false,
-    "announce_to_chat": false,
-    "hidden": true
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
   },
   "criteria": {
-    "always": {
-      "trigger": "minecraft:tick"
+    "in_igloo_stone": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:igloo_stone"
+      }
+    },
+    "in_igloo_grassy": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:igloo_grassy"
+      }
     }
-  }
+  },
+  "requirements": [
+    [
+      "in_igloo_grassy"
+    ],
+    [
+      "in_igloo_stone"
+    ]
+  ]
 }

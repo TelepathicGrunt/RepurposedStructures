@@ -2,21 +2,47 @@
   "parent": "repurposed_structures:root",
   "display": {
     "icon": {
-      "item": "minecraft:cracked_polished_blackstone_bricks"
+      "item": "minecraft:magma_block"
     },
     "title": {
-      "translate": "Ruins"
+      "translate": "RS Ruins"
     },
     "description": {
-      "translate": "Go look for a Ruins!"
+      "translate": "Find all new Ruins!"
     },
-    "show_toast": false,
-    "announce_to_chat": false,
-    "hidden": true
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
   },
   "criteria": {
-    "always": {
-      "trigger": "minecraft:tick"
+    "in_ruins_land_hot": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:ruins_land_hot"
+      }
+    },
+    "in_ruins_land_warm": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:ruins_land_warm"
+      }
+    },
+    "in_ruins_nether": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:ruins_nether"
+      }
     }
-  }
+  },
+  "requirements": [
+    [
+      "in_ruins_land_hot"
+    ],
+    [
+      "in_ruins_land_warm"
+    ],
+    [
+      "in_ruins_nether"
+    ]
+  ]
 }
