@@ -12,6 +12,13 @@
 ##### Nether Cities:
 * The topmost small tower tops will now spawn Wither Skeletons with Bows
 
+##### Pyramids:
+* Mushroom Pyramid's pit is slightly adjusted to not be so cramped
+
+* Slightly adjusted Icy Pyramid's pit to make it harder to not set off trap
+
+* Added Chains to Ocean Pyramids so the Drowned won't walk into the Magma Block and take damage
+
 
 ### **(V.2.7.6 Changes) (1.16.5 Minecraft)**
 
