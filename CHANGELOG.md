@@ -1,3 +1,14 @@
+### **(V.2.0.1 Changes) (1.17.0 Minecraft)**
+
+##### Misc:
+* Fixed my fabric.mod.json file so it now requires an up-to-date Fabric API in order to prevent issues.
+
+##### Pyramids:
+* Changed the Drowned used for debugging in Ocean Pyramid to not have enchanted boots anymore or green armor.
+  
+* Fixed Icy Pyramid's chests being able to be opened safely. Now it is actually harder to not trigger trap lol. 
+
+
 ### **(V.2.0.0 Changes) (1.17.0 Minecraft)**
 
 ##### Major:

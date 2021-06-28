@@ -32,8 +32,8 @@
   "accessWidener" : "repurposed_structures.accesswidener",
   "depends": {
     "fabricloader": ">=0.10.6",
-    "minecraft": ">=1.16.2",
-    "fabric": ">=0.25.0",
-    "cloth-config2": ">=4.11.0"
+    "minecraft": ">=1.17.0",
+    "fabric": ">=0.36.0",
+    "cloth-config2": ">=5.0.0"
   }
 }
