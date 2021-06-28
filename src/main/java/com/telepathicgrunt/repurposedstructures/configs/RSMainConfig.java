@@ -174,7 +174,7 @@ public class RSMainConfig {
 
             builder.pop();
 
-            builder.push("Ruins");
+            builder.push("Bastions");
 
             blacklistedUndergroundBastionBiomes = subscriber.subscribe(builder
                     .comment("\n Add the ID/resource location of the biome you don't want",
@@ -187,7 +187,7 @@ public class RSMainConfig {
                     .comment("How rare are Underground Bastions in non-ocean and non-beach Overworld biomes.",
                             "1 for spawning in most chunks and 10001 for none.")
                     .translation("repurposedstructures.config.pyramids.bastionundergroundmaxchunkdistance")
-                    .defineInRange("bastionUndergroundMaxChunkDistance", 500, 1, 1001));
+                    .defineInRange("bastionUndergroundMaxChunkDistance", 500, 1, 10001));
 
                 addBastionUndergroundToModdedBiomes = subscriber.subscribe(builder
                     .comment("\n Add Underground Bastions to modded non-ocean and non-beach Overworld biomes.")

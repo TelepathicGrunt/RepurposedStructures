@@ -1,3 +1,9 @@
+### **(V.2.7.7 Changes) (1.16.5 Minecraft)**
+
+##### Bastions:
+* Fixed Underground Bastion config max value so it is 10001. Now you can make Underground Bastion rarer and properly turn them off as I check for 10001 to know when to not spawn them.
+
+
 ### **(V.2.7.6 Changes) (1.16.5 Minecraft)**
 
 ##### Mineshafts:
