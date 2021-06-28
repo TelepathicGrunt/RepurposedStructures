@@ -6,7 +6,11 @@ import com.telepathicgrunt.repurposedstructures.world.placements.RSMinusEightPla
 import com.telepathicgrunt.repurposedstructures.world.placements.RSVinePlacement;
 import net.minecraft.world.gen.feature.FeatureSpread;
 import net.minecraft.world.gen.feature.FeatureSpreadConfig;
-import net.minecraft.world.gen.placement.*;
+import net.minecraft.world.gen.placement.CountPlacement;
+import net.minecraft.world.gen.placement.NoPlacementConfig;
+import net.minecraft.world.gen.placement.Placement;
+import net.minecraft.world.gen.placement.SimplePlacement;
+import net.minecraft.world.gen.placement.TopSolidRangeConfig;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;

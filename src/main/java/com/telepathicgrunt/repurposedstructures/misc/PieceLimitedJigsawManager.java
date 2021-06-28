@@ -21,7 +21,12 @@ import net.minecraft.util.registry.MutableRegistry;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
-import net.minecraft.world.gen.feature.jigsaw.*;
+import net.minecraft.world.gen.feature.jigsaw.EmptyJigsawPiece;
+import net.minecraft.world.gen.feature.jigsaw.JigsawJunction;
+import net.minecraft.world.gen.feature.jigsaw.JigsawPattern;
+import net.minecraft.world.gen.feature.jigsaw.JigsawPatternRegistry;
+import net.minecraft.world.gen.feature.jigsaw.JigsawPiece;
+import net.minecraft.world.gen.feature.jigsaw.SingleJigsawPiece;
 import net.minecraft.world.gen.feature.structure.AbstractVillagePiece;
 import net.minecraft.world.gen.feature.structure.StructurePiece;
 import net.minecraft.world.gen.feature.structure.VillageConfig;
@@ -29,7 +34,15 @@ import net.minecraft.world.gen.feature.template.Template;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 import org.apache.commons.lang3.mutable.MutableObject;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.Random;
 
 /**
  * Special thanks to YUNGNICKYOUNG for allowing me to use his piece count limiting jigsaw manager!

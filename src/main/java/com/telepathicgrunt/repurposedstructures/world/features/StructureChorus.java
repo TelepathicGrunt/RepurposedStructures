@@ -2,7 +2,11 @@ package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetConfig;
-import net.minecraft.block.*;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.ChorusFlowerBlock;
+import net.minecraft.block.ChorusPlantBlock;
+import net.minecraft.block.SixWayBlock;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
