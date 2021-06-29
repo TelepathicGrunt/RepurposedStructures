@@ -52,7 +52,7 @@ public class RSAllowDisallowOmegaConfig implements Config {
             //  https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/blob/7f8021cbc073c9919fa0b08dc3b746f9a0e854af/src/main/java/com/telepathicgrunt/repurposedstructures/modinit/RSConfiguredFeatures.java#L268-L290
             """)
     public final Map<String, String> disallowedDimensions = Map.of(
-            "all", "the_bumblezone:the_bumblezone, the_aether:the_aether"
+            "all", "the_bumblezone:the_bumblezone, the_aether:the_aether, agape:.+"
     );
 
     @Comment("""
