@@ -120,6 +120,9 @@
     },
     {
       "processor_type": "repurposed_structures:air_processor"
+    },
+    {
+      "processor_type": "repurposed_structures:waterlogging_fix_processor"
     }
   ]
 }

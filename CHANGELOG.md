@@ -1,3 +1,12 @@
+### **(V.2.0.2 Changes) (1.17.0 Minecraft)**
+
+##### Mineshafts:
+* Fixed Birch Mineshafts being flooded with water.
+
+##### Pyramids:
+* Fixed chests in dry Pyramids from being flooded if they replace a water block in the world.
+
+
 ### **(V.2.0.1 Changes) (1.17.0 Minecraft)**
 
 ##### Misc:

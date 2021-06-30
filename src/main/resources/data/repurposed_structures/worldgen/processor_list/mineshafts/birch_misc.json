@@ -1,26 +1,6 @@
 {
   "processors": [
     {
-      "rules":[
-        {
-          "output_state":{
-            "Properties": {
-              "level": "0"
-            },
-            "Name": "minecraft:water"
-          },
-          "input_predicate": {
-            "block": "minecraft:cave_air",
-            "predicate_type": "minecraft:block_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          }
-        }
-      ],
-      "processor_type": "minecraft:rule"
-    },
-    {
       "processor_type": "repurposed_structures:close_off_air_sources_processor",
       "weighted_list_of_replacement_blocks": [
         {
