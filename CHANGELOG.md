@@ -6,6 +6,9 @@
 ##### Pyramids:
 * Fixed chests in dry Pyramids from being flooded if they replace a water block in the world.
 
+##### Configs:
+* Added agape mod's dimension to the dimension disallow config's default value.
+
 
 ### **(V.2.0.1 Changes) (1.17.0 Minecraft)**
 
