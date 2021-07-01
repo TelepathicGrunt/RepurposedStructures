@@ -1,3 +1,9 @@
+### **(V.2.0.3 Changes) (1.17.0 Minecraft)**
+
+##### Mineshafts:
+* Added Glowberries as possible Chest Minecart loot for Birch, Dark Forest, Jungle, Savanna, Stone, Swamp, and Taiga Mineshafts.
+
+
 ### **(V.2.0.2 Changes) (1.17.0 Minecraft)**
 
 ##### Mineshafts:
