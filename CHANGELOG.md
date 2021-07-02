@@ -1,3 +1,9 @@
+### **(V.2.7.7 Changes) (1.16.5 Minecraft)**
+
+##### Mineshafts:
+* Fixed id for Swamp Mineshafts from "repurposed_structures:mineshaft_swamp_forest" to "repurposed_structures:mineshaft_swamp"
+
+
 ### **(V.2.7.6 Changes) (1.16.5 Minecraft)**
 
 ##### Misc:
