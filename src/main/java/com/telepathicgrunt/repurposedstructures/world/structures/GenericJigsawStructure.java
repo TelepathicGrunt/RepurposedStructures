@@ -158,7 +158,7 @@ public class GenericJigsawStructure extends AbstractBaseStructure<DefaultFeature
     }
 
     public static class Builder<T extends Builder<?>> {
-        protected Identifier startPool;
+        protected final Identifier startPool;
         protected int structureSize = 1;
         protected int centerOffset = 0;
         protected int biomeRange = 0;

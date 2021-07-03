@@ -31,18 +31,6 @@ public class BuriableStructure extends AbstractBaseStructure<DefaultFeatureConfi
     private final boolean onLand;
     private final boolean cannotSpawnInWater;
 
-    public BuriableStructure(Identifier startPool) {
-        this(startPool, 14, true, true);
-    }
-
-    public BuriableStructure(Identifier startPool, boolean onLand, boolean cannotSpawnInWater) {
-        this(startPool, 14, onLand, cannotSpawnInWater);
-    }
-
-    public BuriableStructure(Identifier startPool, int offsetAmount) {
-        this(startPool, offsetAmount, true, true);
-    }
-
     public BuriableStructure(Identifier startPool, int offsetAmount, boolean onLand, boolean cannotSpawnInWater) {
         super(DefaultFeatureConfig.CODEC);
         this.startPool = startPool;
@@ -105,6 +93,47 @@ public class BuriableStructure extends AbstractBaseStructure<DefaultFeatureConfi
             highestLandPos = Math.min(highestLandPos, chunkGenerator.getHeight(blockpos.getX(), blockpos.getZ(), heightMapToUse, heightLimitView));
 
             this.randomUpwardTranslation(this.random, highestLandPos-(offsetAmount+1), highestLandPos-offsetAmount);
+        }
+    }
+
+
+    public static class Builder<T extends BuriableStructure.Builder<?>> {
+        private final Identifier startPool;
+        private int offsetAmount = 14;
+        private boolean onLand = true;
+        private boolean cannotSpawnInWater = true;
+
+        public Builder(Identifier startPool) {
+            this.startPool = startPool;
+        }
+
+        @SuppressWarnings("unchecked")
+        protected T getThis() {
+            return (T) this;
+        }
+
+        public T setOffsetAmount(int offsetAmount){
+            this.offsetAmount = offsetAmount;
+            return getThis();
+        }
+
+        public T useOceanHeightmap(){
+            this.onLand = false;
+            return getThis();
+        }
+
+        public T cannotSpawnInWater(){
+            this.cannotSpawnInWater = false;
+            return getThis();
+        }
+
+        public BuriableStructure build() {
+            return new BuriableStructure(
+                    startPool,
+                    offsetAmount,
+                    onLand,
+                    cannotSpawnInWater
+            );
         }
     }
 }

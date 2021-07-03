@@ -17,8 +17,9 @@ import java.util.Map;
 
 
 public class RSMineshaftEndStructure extends RSMineshaftStructure {
-    public RSMineshaftEndStructure(Identifier poolID, int structureSize, Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces, int maxY, int minY, float probability, ENVIRONMENT_CHECK environmentCheck) {
-        super(poolID, structureSize, requiredPieces, maxY, minY, probability, environmentCheck);
+
+    public RSMineshaftEndStructure(Identifier poolID, int structureSize, Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces, int maxY, int minY, float probability) {
+        super(poolID, structureSize, requiredPieces, maxY, minY, probability);
     }
 
     @Override

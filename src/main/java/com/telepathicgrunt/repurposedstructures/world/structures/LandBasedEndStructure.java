@@ -23,11 +23,6 @@ import java.util.Set;
 
 public class LandBasedEndStructure extends GenericJigsawStructure {
 
-//    public LandBasedEndStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange,
-//                                 int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet) {
-//        super(poolID, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet);
-//    }
-
     public LandBasedEndStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange,
                                   int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet,
                                   int allowTerrainHeightRange, int terrainHeightRadius,
@@ -101,7 +96,6 @@ public class LandBasedEndStructure extends GenericJigsawStructure {
             this.setBoundingBoxFromChildren();
         }
     }
-
 
     public static class Builder<T extends GenericJigsawStructure.Builder<?>> extends GenericJigsawStructure.Builder<T> {
 

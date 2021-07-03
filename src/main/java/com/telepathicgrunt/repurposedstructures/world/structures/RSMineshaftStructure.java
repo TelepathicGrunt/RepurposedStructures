@@ -18,17 +18,10 @@ import java.util.Map;
 public class RSMineshaftStructure extends AdvancedJigsawStructure {
 
     protected final double probability;
-    protected final ENVIRONMENT_CHECK environmentCheck;
-    public enum ENVIRONMENT_CHECK {
-        NONE,
-        LIQUID,
-        AIR
-    }
 
-    public RSMineshaftStructure(Identifier poolID, int structureSize, Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces, int maxY, int minY, float probability, ENVIRONMENT_CHECK environmentCheck) {
+    public RSMineshaftStructure(Identifier poolID, int structureSize, Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces, int maxY, int minY, float probability) {
         super(poolID, structureSize, requiredPieces, maxY, minY);
         this.probability = probability;
-        this.environmentCheck = environmentCheck;
     }
 
     @Override
@@ -40,18 +33,5 @@ public class RSMineshaftStructure extends AdvancedJigsawStructure {
             return chunkRandom.nextDouble() < d;
         }
         return false;
-    }
-
-    @Override
-    public StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
-        return RSMineshaftStructure.Start::new;
-    }
-
-
-    public class Start extends AdvancedJigsawStructure.MainStart {
-
-        public Start(StructureFeature<DefaultFeatureConfig> structureIn, ChunkPos chunkPos1, int referenceIn, long seedIn) {
-            super(structureIn, chunkPos1, referenceIn, seedIn);
-        }
     }
 }
