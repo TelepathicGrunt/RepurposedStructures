@@ -10,15 +10,20 @@ import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalFacingBlock;
+import net.minecraft.block.Material;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.BlockView;
+import net.minecraft.world.HeightLimitView;
 import net.minecraft.world.ServerWorldAccess;
+import net.minecraft.world.gen.chunk.ChunkGenerator;
+import net.minecraft.world.gen.chunk.VerticalBlockSample;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -130,5 +135,48 @@ public class GeneralUtils {
         }
 
         return itemToEnchant;
+    }
+
+    //////////////////////////////
+
+    public static BlockPos getHighestLand(ChunkGenerator chunkGenerator, BlockBox boundingBox, HeightLimitView heightLimitView, int sealevelOffset, boolean canBeOnLiquid) {
+        BlockPos.Mutable mutable = new BlockPos.Mutable().set(boundingBox.getCenter().getX(), chunkGenerator.getWorldHeight() - 20, boundingBox.getCenter().getZ());
+        VerticalBlockSample blockView = chunkGenerator.getColumnSample(mutable.getX(), mutable.getZ(), heightLimitView);
+        BlockState currentBlockstate;
+        while (mutable.getY() > chunkGenerator.getSeaLevel() + sealevelOffset) {
+            currentBlockstate = blockView.getState(mutable);
+            if (!currentBlockstate.isOpaque()) {
+                mutable.move(Direction.DOWN);
+                continue;
+            }
+            else if (blockView.getState(mutable.add(0, 3, 0)).getMaterial() == Material.AIR && (canBeOnLiquid ? !currentBlockstate.isAir() : currentBlockstate.isOpaque())) {
+                break;
+            }
+            mutable.move(Direction.DOWN);
+        }
+
+        return mutable;
+    }
+
+
+    public static BlockPos getLowestLand(ChunkGenerator chunkGenerator, BlockBox boundingBox, HeightLimitView heightLimitView, int sealevelOffset, boolean canBeOnLiquid){
+        BlockPos.Mutable mutable = new BlockPos.Mutable().set(boundingBox.getCenter().getX(), chunkGenerator.getSeaLevel() + sealevelOffset, boundingBox.getCenter().getZ());
+        VerticalBlockSample blockView = chunkGenerator.getColumnSample(mutable.getX(), mutable.getZ(), heightLimitView);
+        BlockState currentBlockstate = blockView.getState(mutable);
+        while (mutable.getY() <= chunkGenerator.getWorldHeight()) {
+
+            if((canBeOnLiquid ? !currentBlockstate.isAir() : currentBlockstate.isOpaque()) &&
+                    blockView.getState(mutable.up()).getMaterial() == Material.AIR &&
+                    blockView.getState(mutable.up(5)).getMaterial() == Material.AIR)
+            {
+                mutable.move(Direction.UP);
+                break;
+            }
+
+            mutable.move(Direction.UP);
+            currentBlockstate = blockView.getState(mutable);
+        }
+
+        return mutable;
     }
 }

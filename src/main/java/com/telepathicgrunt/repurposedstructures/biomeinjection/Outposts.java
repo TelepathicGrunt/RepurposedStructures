@@ -20,7 +20,7 @@ public class Outposts {
         //Nether based Outposts
         GeneralUtils.addToBiome("crimson_outpost",
                 (context) ->
-                        BiomeSelection.isBiomeAllowed(context, RSStructures.CRIMSON_OUTPOST,
+                        BiomeSelection.isBiomeAllowed(context, RSStructures.OUTPOST_CRIMSON,
                             () -> BiomeSelection.haveCategories(context, Category.NETHER)
                             && BiomeSelection.hasName(context, "crimson", "red_")
                             && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.NETHER_OUTPOST))
@@ -29,7 +29,7 @@ public class Outposts {
 
         GeneralUtils.addToBiome("warped_outpost",
                 (context) ->
-                        BiomeSelection.isBiomeAllowed(context, RSStructures.WARPED_OUTPOST,
+                        BiomeSelection.isBiomeAllowed(context, RSStructures.OUTPOST_WARPED,
                             () -> BiomeSelection.haveCategories(context, Category.NETHER)
                             && BiomeSelection.hasName(context, "warped", "blue")
                             && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.NETHER_OUTPOST))
@@ -38,7 +38,7 @@ public class Outposts {
 
         GeneralUtils.addToBiome("nether_brick_outpost",
                 (context) ->
-                        BiomeSelection.isBiomeAllowed(context, RSStructures.NETHER_BRICK_OUTPOST,
+                        BiomeSelection.isBiomeAllowed(context, RSStructures.OUTPOST_NETHER_BRICK,
                             () -> BiomeSelection.haveCategories(context, Category.NETHER)
                             && !BiomeSelection.hasName(context, "crimson", "red_", "warped", "blue")
                             && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.NETHER_OUTPOST))

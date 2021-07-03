@@ -14,7 +14,7 @@ public class Temples {
 
         GeneralUtils.addToBiome("nether_basalt_temple",
                 (context) ->
-                        BiomeSelection.isBiomeAllowed(context, RSStructures.NETHER_BASALT_TEMPLE,
+                        BiomeSelection.isBiomeAllowed(context, RSStructures.TEMPLE_NETHER_BASALT,
                                 () -> BiomeSelection.haveCategories(context, Category.NETHER)
                                 && BiomeSelection.hasName(context, "basalt", "blackstone")
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.NETHER_TEMPLE))
@@ -23,7 +23,7 @@ public class Temples {
 
         GeneralUtils.addToBiome("nether_crimson_temple",
                 (context) ->
-                        BiomeSelection.isBiomeAllowed(context, RSStructures.NETHER_CRIMSON_TEMPLE,
+                        BiomeSelection.isBiomeAllowed(context, RSStructures.TEMPLE_NETHER_CRIMSON,
                                 () -> BiomeSelection.haveCategories(context, Category.NETHER)
                                 && BiomeSelection.hasName(context, "crimson", "red_")
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.NETHER_TEMPLE))
@@ -32,7 +32,7 @@ public class Temples {
 
         GeneralUtils.addToBiome("nether_warped_temple",
                 (context) ->
-                        BiomeSelection.isBiomeAllowed(context, RSStructures.NETHER_WARPED_TEMPLE,
+                        BiomeSelection.isBiomeAllowed(context, RSStructures.TEMPLE_NETHER_WARPED,
                                 () -> BiomeSelection.haveCategories(context, Category.NETHER)
                                 && BiomeSelection.hasName(context, "warped", "blue")
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.NETHER_TEMPLE)
@@ -41,7 +41,7 @@ public class Temples {
 
         GeneralUtils.addToBiome("nether_soul_temple",
                 (context) ->
-                        BiomeSelection.isBiomeAllowed(context, RSStructures.NETHER_SOUL_TEMPLE,
+                        BiomeSelection.isBiomeAllowed(context, RSStructures.TEMPLE_NETHER_SOUL,
                                 () -> BiomeSelection.haveCategories(context, Category.NETHER)
                                 && BiomeSelection.hasName(context, "soul")
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.NETHER_TEMPLE)
@@ -50,7 +50,7 @@ public class Temples {
 
         GeneralUtils.addToBiome("nether_wasteland_temple",
                 (context) ->
-                        BiomeSelection.isBiomeAllowed(context, RSStructures.NETHER_WASTELAND_TEMPLE,
+                        BiomeSelection.isBiomeAllowed(context, RSStructures.TEMPLE_NETHER_WASTELAND,
                                 () -> BiomeSelection.haveCategories(context, Category.NETHER)
                                 && !BiomeSelection.hasName(context, "crimson", "red_", "warped", "blue", "soul", "basalt", "blackstone")
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.NETHER_TEMPLE))

@@ -25,6 +25,7 @@ import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -45,36 +46,6 @@ public class GenericJigsawStructure extends AbstractBaseStructure<DefaultFeature
     protected int fixedYSpawn = 0;
     protected boolean useHeightmap = true;
     protected boolean cannotSpawnInWater = false;
-
-    public GenericJigsawStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange, int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet) {
-        this(poolID, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet, -1, 0);
-    }
-
-    public GenericJigsawStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange, int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet, boolean cannotSpawnInWater) {
-        this(poolID, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet, -1, 0);
-        this.cannotSpawnInWater = cannotSpawnInWater;
-    }
-
-    public GenericJigsawStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange, int structureBlacklistRange,
-                                  Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet, int allowTerrainHeightRange, int terrainHeightRadius)
-    {
-        this(poolID, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet, allowTerrainHeightRange, terrainHeightRadius, -1);
-    }
-
-    public GenericJigsawStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange, int structureBlacklistRange,
-                                  Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet, int allowTerrainHeightRange, int terrainHeightRadius, boolean cannotSpawnInWater)
-    {
-        this(poolID, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet, allowTerrainHeightRange, terrainHeightRadius, -1);
-        this.cannotSpawnInWater = cannotSpawnInWater;
-    }
-
-    public GenericJigsawStructure(Identifier poolID, int biomeRange, int structureSize, int structureBlacklistRange,
-                                  Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet, int fixedHeight)
-    {
-        this(poolID, structureSize, 0, biomeRange, structureBlacklistRange, avoidStructuresSet, -1, 0, Integer.MIN_VALUE);
-        this.fixedYSpawn = fixedHeight;
-        this.useHeightmap = false;
-    }
 
     public GenericJigsawStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange,
                                   int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet,
@@ -183,6 +154,99 @@ public class GenericJigsawStructure extends AbstractBaseStructure<DefaultFeature
                     heightLimitView);
             this.setBoundingBoxFromChildren();
             this.children.get(0).translate(0, centerOffset, 0);
+        }
+    }
+
+    public static class Builder<T extends Builder<?>> {
+        protected Identifier startPool;
+        protected int structureSize = 1;
+        protected int centerOffset = 0;
+        protected int biomeRange = 0;
+        protected int structureBlacklistRange = 0;
+        protected Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet = new HashSet<>();
+        protected int allowTerrainHeightRange = -1;
+        protected int terrainHeightRadius = 0;
+        protected int minHeightLimit = Integer.MIN_VALUE;
+        protected int fixedYSpawn = 0;
+        protected boolean useHeightmap = true;
+        protected boolean cannotSpawnInWater = false;
+
+        public Builder(Identifier startPool) {
+            this.startPool = startPool;
+        }
+
+        @SuppressWarnings("unchecked")
+        protected T getThis() {
+            return (T) this;
+        }
+
+        public T setStructureSize(int structureSize){
+            this.structureSize = structureSize;
+            return getThis();
+        }
+
+        public T setCenterOffset(int centerOffset){
+            this.centerOffset = centerOffset;
+            return getThis();
+        }
+
+        public T setBiomeRange(int biomeRange){
+            this.biomeRange = biomeRange;
+            return getThis();
+        }
+
+        public T setStructureBlacklistRange(int structureBlacklistRange){
+            this.structureBlacklistRange = structureBlacklistRange;
+            return getThis();
+        }
+
+        public T setAvoidStructuresSet(Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet){
+            this.avoidStructuresSet = avoidStructuresSet;
+            return getThis();
+        }
+
+        public T setAllowTerrainHeightRange(int allowTerrainHeightRange){
+            this.allowTerrainHeightRange = allowTerrainHeightRange;
+            return getThis();
+        }
+
+        public T setTerrainHeightRadius(int terrainHeightRadius){
+            this.terrainHeightRadius = terrainHeightRadius;
+            return getThis();
+        }
+
+        public T setMinHeightLimit(int minHeightLimit){
+            this.minHeightLimit = minHeightLimit;
+            return getThis();
+        }
+
+        public T setFixedYSpawn(int fixedYSpawn){
+            this.fixedYSpawn = fixedYSpawn;
+            return getThis();
+        }
+
+        public T doNotUseHeightmap(){
+            this.useHeightmap = false;
+            return getThis();
+        }
+
+        public T cannotSpawnInWater(){
+            this.cannotSpawnInWater = true;
+            return getThis();
+        }
+
+        public GenericJigsawStructure build() {
+            return new GenericJigsawStructure(
+                    startPool,
+                    structureSize,
+                    centerOffset,
+                    biomeRange,
+                    structureBlacklistRange,
+                    avoidStructuresSet,
+                    allowTerrainHeightRange,
+                    terrainHeightRadius,
+                    minHeightLimit
+            );
         }
     }
 }

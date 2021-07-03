@@ -25,15 +25,23 @@ import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 import java.util.Set;
 
 public class CityNetherStructure extends GenericJigsawStructure {
-    public CityNetherStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange, int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet) {
-        this(poolID, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet, -1, 0);
-    }
 
     public CityNetherStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange,
-                               int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet,
-                               int allowTerrainHeightRange, int terrainHeightRadius)
+                                  int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet,
+                                  int allowTerrainHeightRange, int terrainHeightRadius,
+                                  int minHeightLimit)
     {
-        super(poolID, structureSize, centerOffset, biomeRange,structureBlacklistRange, avoidStructuresSet, allowTerrainHeightRange, terrainHeightRadius);
+        super(
+                poolID,
+                structureSize,
+                centerOffset,
+                biomeRange,
+                structureBlacklistRange,
+                avoidStructuresSet,
+                allowTerrainHeightRange,
+                terrainHeightRadius,
+                minHeightLimit
+        );
     }
 
     @Override
@@ -94,6 +102,28 @@ public class CityNetherStructure extends GenericJigsawStructure {
                     heightLimitView);
             this.setBoundingBoxFromChildren();
             this.children.get(0).translate(0, centerOffset, 0);
+        }
+    }
+
+
+    public static class Builder<T extends GenericJigsawStructure.Builder<?>> extends GenericJigsawStructure.Builder<T> {
+
+        public Builder(Identifier startPool) {
+            super(startPool);
+        }
+
+        public CityNetherStructure build() {
+            return new CityNetherStructure(
+                    startPool,
+                    structureSize,
+                    centerOffset,
+                    biomeRange,
+                    structureBlacklistRange,
+                    avoidStructuresSet,
+                    allowTerrainHeightRange,
+                    terrainHeightRadius,
+                    minHeightLimit
+            );
         }
     }
 }

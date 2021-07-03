@@ -15,7 +15,7 @@ public class Villages {
 
         GeneralUtils.addToBiome("badlands_village",
                 (context) ->
-                        BiomeSelection.isBiomeAllowed(context, RSStructures.BADLANDS_VILLAGE,
+                        BiomeSelection.isBiomeAllowed(context, RSStructures.VILLAGE_BADLANDS,
                                 () -> BiomeSelection.haveCategories(context, Category.MESA)
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.VILLAGE))
                         && RepurposedStructures.RSAllConfig.RSVillagesConfig.badlandsVillageAverageChunkDistance != 1001,
@@ -23,7 +23,7 @@ public class Villages {
 
         GeneralUtils.addToBiome("birch_village",
                 (context) ->
-                        BiomeSelection.isBiomeAllowed(context, RSStructures.BIRCH_VILLAGE,
+                        BiomeSelection.isBiomeAllowed(context, RSStructures.VILLAGE_BIRCH,
                                 () -> BiomeSelection.hasName(context, "birch")
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.VILLAGE))
                         && RepurposedStructures.RSAllConfig.RSVillagesConfig.birchVillageAverageChunkDistance != 1001,
@@ -31,7 +31,7 @@ public class Villages {
 
         GeneralUtils.addToBiome("dark_forest_village",
                 (context) ->
-                        BiomeSelection.isBiomeAllowed(context, RSStructures.DARK_FOREST_VILLAGE,
+                        BiomeSelection.isBiomeAllowed(context, RSStructures.VILLAGE_DARK_FOREST,
                                 () -> BiomeSelection.haveCategories(context, Category.FOREST)
                                 && BiomeSelection.hasName(context, "dark", "spooky", "dead", "haunted")
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.VILLAGE))
@@ -40,7 +40,7 @@ public class Villages {
 
         GeneralUtils.addToBiome("jungle_village",
                 (context) ->
-                        BiomeSelection.isBiomeAllowed(context, RSStructures.JUNGLE_VILLAGE,
+                        BiomeSelection.isBiomeAllowed(context, RSStructures.VILLAGE_JUNGLE,
                                 () -> BiomeSelection.haveCategories(context, Category.JUNGLE)
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.VILLAGE))
                         && RepurposedStructures.RSAllConfig.RSVillagesConfig.jungleVillageAverageChunkDistance != 1001,
@@ -48,7 +48,7 @@ public class Villages {
 
         GeneralUtils.addToBiome("swamp_village",
                 (context) ->
-                        BiomeSelection.isBiomeAllowed(context, RSStructures.SWAMP_VILLAGE,
+                        BiomeSelection.isBiomeAllowed(context, RSStructures.VILLAGE_SWAMP,
                                 () -> BiomeSelection.haveCategories(context, Category.SWAMP)
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.VILLAGE))
                         && RepurposedStructures.RSAllConfig.RSVillagesConfig.swampVillageAverageChunkDistance != 1001,
@@ -56,7 +56,7 @@ public class Villages {
 
         GeneralUtils.addToBiome("mountains_village",
                 (context) ->
-                        BiomeSelection.isBiomeAllowed(context, RSStructures.MOUNTAINS_VILLAGE,
+                        BiomeSelection.isBiomeAllowed(context, RSStructures.VILLAGE_MOUNTAINS,
                                 () -> BiomeSelection.haveCategories(context, Category.EXTREME_HILLS)
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.VILLAGE))
                         && RepurposedStructures.RSAllConfig.RSVillagesConfig.mountainsVillageAverageChunkDistance != 1001,
@@ -64,7 +64,7 @@ public class Villages {
 
         GeneralUtils.addToBiome("giant_taiga_village",
                 (context) ->
-                        BiomeSelection.isBiomeAllowed(context, RSStructures.GIANT_TAIGA_VILLAGE,
+                        BiomeSelection.isBiomeAllowed(context, RSStructures.VILLAGE_GIANT_TAIGA,
                                 () -> (BiomeSelection.isBiome(context, BiomeKeys.GIANT_SPRUCE_TAIGA, BiomeKeys.GIANT_TREE_TAIGA)
                                 || (BiomeSelection.haveCategories(context, Category.TAIGA) && BiomeSelection.hasName(context, "giant", "redwood")))
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.VILLAGE))
@@ -73,7 +73,7 @@ public class Villages {
 
         GeneralUtils.addToBiome("crimson_village",
                 (context) ->
-                        BiomeSelection.isBiomeAllowed(context, RSStructures.CRIMSON_VILLAGE,
+                        BiomeSelection.isBiomeAllowed(context, RSStructures.VILLAGE_CRIMSON,
                                 () -> BiomeSelection.haveCategories(context, Category.NETHER)
                                 && BiomeSelection.hasName(context, "crimson", "red_")
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.VILLAGE))
@@ -83,7 +83,7 @@ public class Villages {
 
         GeneralUtils.addToBiome("warped_village",
                 (context) ->
-                        BiomeSelection.isBiomeAllowed(context, RSStructures.WARPED_VILLAGE,
+                        BiomeSelection.isBiomeAllowed(context, RSStructures.VILLAGE_WARPED,
                                 () -> BiomeSelection.haveCategories(context, Category.NETHER)
                                 && BiomeSelection.hasName(context, "warped", "blue")
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.VILLAGE))

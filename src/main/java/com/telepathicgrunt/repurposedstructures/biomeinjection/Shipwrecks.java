@@ -15,7 +15,7 @@ public class Shipwrecks {
 
         GeneralUtils.addToBiome("end_shipwreck",
                 (context) ->
-                        BiomeSelection.isBiomeAllowed(context, RSStructures.END_SHIPWRECK,
+                        BiomeSelection.isBiomeAllowed(context, RSStructures.SHIPWRECK_END,
                                 () -> BiomeSelection.haveCategories(context, Category.THEEND)
                                 && !BiomeSelection.isBiome(context, BiomeKeys.THE_END, BiomeKeys.SMALL_END_ISLANDS, BiomeKeys.END_BARRENS))
                         && RepurposedStructures.RSAllConfig.RSShipwrecksConfig.endShipwreckAverageChunkDistance != 1001,
@@ -25,7 +25,7 @@ public class Shipwrecks {
         //Nether based Shipwrecks
         GeneralUtils.addToBiome("crimson_shipwreck",
                 (context) ->
-                        BiomeSelection.isBiomeAllowed(context, RSStructures.CRIMSON_SHIPWRECK,
+                        BiomeSelection.isBiomeAllowed(context, RSStructures.SHIPWRECK_CRIMSON,
                                 () -> BiomeSelection.haveCategories(context, Category.NETHER)
                                 && BiomeSelection.hasName(context, "crimson", "red_")
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.NETHER_SHIPWRECK))
@@ -34,7 +34,7 @@ public class Shipwrecks {
 
         GeneralUtils.addToBiome("warped_shipwreck",
                 (context) ->
-                        BiomeSelection.isBiomeAllowed(context, RSStructures.WARPED_SHIPWRECK,
+                        BiomeSelection.isBiomeAllowed(context, RSStructures.SHIPWRECK_WARPED,
                                 () -> BiomeSelection.haveCategories(context, Category.NETHER)
                                 && BiomeSelection.hasName(context, "warped", "blue")
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.NETHER_SHIPWRECK))
@@ -43,7 +43,7 @@ public class Shipwrecks {
 
         GeneralUtils.addToBiome("nether_bricks_shipwreck",
                 (context) ->
-                        BiomeSelection.isBiomeAllowed(context, RSStructures.NETHER_BRICKS_SHIPWRECK,
+                        BiomeSelection.isBiomeAllowed(context, RSStructures.SHIPWRECK_NETHER_BRICKS,
                                 () -> BiomeSelection.haveCategories(context, Category.NETHER)
                                 && BiomeSelection.hasName(context, "soul")
                                 && !BiomeSelection.hasName(context, "crimson", "red_", "warped", "blue")
@@ -53,7 +53,7 @@ public class Shipwrecks {
 
         GeneralUtils.addToBiome("nether_bricks_shipwreck_flying",
                 (context) ->
-                        BiomeSelection.isBiomeAllowed(context, RSStructures.NETHER_BRICKS_SHIPWRECK,
+                        BiomeSelection.isBiomeAllowed(context, RSStructures.SHIPWRECK_NETHER_BRICKS,
                                 () -> BiomeSelection.haveCategories(context, Category.NETHER)
                                 && !BiomeSelection.hasName(context, "crimson", "red_", "warped", "blue", "soul")
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.NETHER_SHIPWRECK))

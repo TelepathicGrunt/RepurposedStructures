@@ -16,10 +16,10 @@ public class MobMapTrades {
 
         // Villagers
         // Level 3 trades
-        addTrade(VillagerProfession.CARTOGRAPHER, 3, new TradeOffers.SellMapFactory(13, RSStructures.JUNGLE_FORTRESS, MapIcon.Type.BANNER_GREEN, 12, 5));
+        addTrade(VillagerProfession.CARTOGRAPHER, 3, new TradeOffers.SellMapFactory(13, RSStructures.FORTRESS_JUNGLE, MapIcon.Type.BANNER_GREEN, 12, 5));
         
         // Level 4 trades
-        addTrade(VillagerProfession.CARTOGRAPHER, 4, new TradeOffers.SellMapFactory(14, RSStructures.JUNGLE_FORTRESS, MapIcon.Type.BANNER_GREEN, 12, 10));
+        addTrade(VillagerProfession.CARTOGRAPHER, 4, new TradeOffers.SellMapFactory(14, RSStructures.FORTRESS_JUNGLE, MapIcon.Type.BANNER_GREEN, 12, 10));
         addTrade(VillagerProfession.CARTOGRAPHER, 4, new TradeOffers.SellMapFactory(14, RSStructures.MANSION_BIRCH, MapIcon.Type.MANSION, 12, 10));
         addTrade(VillagerProfession.CARTOGRAPHER, 4, new TradeOffers.SellMapFactory(14, RSStructures.MANSION_DESERT, MapIcon.Type.MANSION, 12, 10));
         addTrade(VillagerProfession.CARTOGRAPHER, 4, new TradeOffers.SellMapFactory(14, RSStructures.MANSION_JUNGLE, MapIcon.Type.MANSION, 12, 10));

@@ -23,8 +23,27 @@ import java.util.Set;
 
 public class LandBasedEndStructure extends GenericJigsawStructure {
 
-    public LandBasedEndStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange, int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet) {
-        super(poolID, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet);
+//    public LandBasedEndStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange,
+//                                 int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet) {
+//        super(poolID, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet);
+//    }
+
+    public LandBasedEndStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange,
+                                  int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet,
+                                  int allowTerrainHeightRange, int terrainHeightRadius,
+                                  int minHeightLimit)
+    {
+        super(
+                poolID,
+                structureSize,
+                centerOffset,
+                biomeRange,
+                structureBlacklistRange,
+                avoidStructuresSet,
+                allowTerrainHeightRange,
+                terrainHeightRadius,
+                minHeightLimit
+        );
     }
 
     @Override
@@ -80,6 +99,27 @@ public class LandBasedEndStructure extends GenericJigsawStructure {
             int offsetAmount = (avgHeight - parentHeight) + centerOffset;
             this.children.forEach(child -> child.translate(0, offsetAmount, 0));
             this.setBoundingBoxFromChildren();
+        }
+    }
+
+
+    public static class Builder<T extends GenericJigsawStructure.Builder<?>> extends GenericJigsawStructure.Builder<T> {
+
+        public Builder(Identifier startPool) {
+            super(startPool);
+        }
+
+        public LandBasedEndStructure build() {
+            return new LandBasedEndStructure(
+                    startPool,
+                    structureSize,
+                    centerOffset,
+                    biomeRange,
+                    structureBlacklistRange,
+                    avoidStructuresSet,
+                    allowTerrainHeightRange,
+                    terrainHeightRadius,
+                    minHeightLimit);
         }
     }
 }
