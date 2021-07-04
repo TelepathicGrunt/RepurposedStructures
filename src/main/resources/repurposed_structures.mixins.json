@@ -9,11 +9,11 @@
     "CatEntityMixin",
     "DungeonFeatureAccessor",
     "EnderEyeStrongholdLocatingMixin",
+    "LessjungleBushInStructuresMixin",
     "LootContextAccessor",
     "LootManagerAccessor",
     "LootTableMixin",
     "NamespaceResourceManagerAccessor",
-    "LessjungleBushInStructuresMixin",
     "NoLakesInStructuresMixin",
     "NoLavaFallsInStructuresMixin",
     "PillagerOutpostFeatureAccessor",
@@ -25,7 +25,9 @@
     "StructurePoolAccessor",
     "StructuresConfigAccessor",
     "TemplateAccessor",
-    "VoxelShapesMixin"
+    "VoxelShapesMixin",
+    "ChunkGeneratorMixin",
+    "StructuresConfigMixin"
   ],
   "client": [
     "StructureBlockScreenMixin"

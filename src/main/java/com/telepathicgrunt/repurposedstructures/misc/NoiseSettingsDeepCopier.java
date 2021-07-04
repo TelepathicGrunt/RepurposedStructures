@@ -1,0 +1,28 @@
+package com.telepathicgrunt.repurposedstructures.misc;
+
+import net.minecraft.world.gen.chunk.StrongholdConfig;
+import net.minecraft.world.gen.chunk.StructuresConfig;
+
+import java.util.Optional;
+
+public class NoiseSettingsDeepCopier {
+
+    public static StructuresConfig deepCopyDimensionStructuresSettings(StructuresConfig settings)
+    {
+        // Grab old copy of stronghold spacing settings
+        StrongholdConfig oldStrongholdSettings = settings.getStronghold();
+
+        // Make a deep copy and wrap it in an optional as DimensionStructuresSettings requires an optional
+        Optional<StrongholdConfig> newStrongholdSettings = oldStrongholdSettings == null ?
+                Optional.empty() :
+                Optional.of(new StrongholdConfig(
+                        oldStrongholdSettings.getDistance(),
+                        oldStrongholdSettings.getSpread(),
+                        oldStrongholdSettings.getCount()));
+
+        // Create new deep copied DimensionStructuresSettings
+        // We do not need to create a new structure spacing map instance here as our patch into
+        // DimensionStructuresSettings will already create the new map instance for us.
+        return new StructuresConfig(newStrongholdSettings, settings.getStructures());
+    }
+}

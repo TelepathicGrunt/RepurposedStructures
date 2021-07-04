@@ -1,5 +1,5 @@
 {
-  "parent": "repurposed_structures:bastions",
+  "parent": "repurposed_structures:root",
   "display": {
     "icon": {
       "item": "minecraft:bone"
@@ -10,7 +10,9 @@
     "description": {
       "translate": "Enter a Underground Bastion"
     },
-    "hidden": true
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
   },
   "rewards": {
     "experience": 100

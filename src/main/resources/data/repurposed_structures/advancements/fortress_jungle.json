@@ -1,5 +1,5 @@
 {
-  "parent": "repurposed_structures:fortresses",
+  "parent": "repurposed_structures:root",
   "display": {
     "icon": {
       "item": "minecraft:mossy_stone_bricks"
@@ -10,7 +10,9 @@
     "description": {
       "translate": "Enter a Jungle Fortress"
     },
-    "hidden": true
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
   },
   "rewards": {
     "experience": 100

@@ -1,5 +1,5 @@
 {
-  "parent": "repurposed_structures:ruined_portals",
+  "parent": "repurposed_structures:root",
   "display": {
     "icon": {
       "item": "minecraft:crying_obsidian"
@@ -10,7 +10,9 @@
     "description": {
       "translate": "Find an End themed Ruined Portal!"
     },
-    "hidden": true
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
   },
   "rewards": {
     "experience": 50
