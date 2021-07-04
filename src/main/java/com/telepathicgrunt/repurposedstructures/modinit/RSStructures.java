@@ -181,6 +181,7 @@ public class RSStructures {
             .setMaxY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.endMineshaftMaxHeight)
             .setMinY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.endMineshaftMinHeight)
             .setProbability(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.endMineshaftSpawnrate)
+            .doNotClipOutOfBoundsPieces()
             .build();
 
     // STRONGHOLDS
@@ -209,6 +210,7 @@ public class RSStructures {
             .setMaxY(RepurposedStructures.RSAllConfig.RSFortressesConfig.jungleFortress.jungleFortressMaxHeight)
             .setMinY(RepurposedStructures.RSAllConfig.RSFortressesConfig.jungleFortress.jungleFortressMinHeight)
             .setVerticalRange(RepurposedStructures.RSAllConfig.RSFortressesConfig.jungleFortress.jungleFortressVerticalRange)
+            .doNotClipOutOfBoundsPieces()
             .build();
 
     // IGLOOS
@@ -218,17 +220,17 @@ public class RSStructures {
 
     // TEMPLES
 
-    public static StructureFeature<DefaultFeatureConfig> TEMPLE_NETHER_WASTELAND = new GenericNetherJigsawStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "temples/nether_wasteland")).setStructureSize(8).setSearchSealevelOffset(3).canSpawnOnLiquid().setLedgeSpotOffset(-16).setLiquidSpotOffset(-16).build();
-    public static StructureFeature<DefaultFeatureConfig> TEMPLE_NETHER_BASALT = new GenericNetherJigsawStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "temples/nether_basalt")).setStructureSize(8).setSearchSealevelOffset(3).canSpawnOnLiquid().setLedgeSpotOffset(-16).setLiquidSpotOffset(-16).build();
-    public static StructureFeature<DefaultFeatureConfig> TEMPLE_NETHER_WARPED = new GenericNetherJigsawStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "temples/nether_warped")).setStructureSize(8).setSearchSealevelOffset(3).canSpawnOnLiquid().setLedgeSpotOffset(-16).setLiquidSpotOffset(-16).build();
-    public static StructureFeature<DefaultFeatureConfig> TEMPLE_NETHER_CRIMSON = new GenericNetherJigsawStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "temples/nether_crimson")).setStructureSize(8).setSearchSealevelOffset(3).canSpawnOnLiquid().setLedgeSpotOffset(-16).setLiquidSpotOffset(-16).build();
-    public static StructureFeature<DefaultFeatureConfig> TEMPLE_NETHER_SOUL = new GenericNetherJigsawStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "temples/nether_soul")).setStructureSize(8).setSearchSealevelOffset(3).canSpawnOnLiquid().setLedgeSpotOffset(-16).setLiquidSpotOffset(-16).build();
+    public static StructureFeature<DefaultFeatureConfig> TEMPLE_NETHER_WASTELAND = new GenericNetherJigsawStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "temples/nether_wasteland")).setStructureSize(8).canSpawnOnLiquid().setLedgeSpotOffset(-16).setLiquidSpotOffset(-16).build();
+    public static StructureFeature<DefaultFeatureConfig> TEMPLE_NETHER_BASALT = new GenericNetherJigsawStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "temples/nether_basalt")).setStructureSize(8).canSpawnOnLiquid().setLedgeSpotOffset(-16).setLiquidSpotOffset(-16).build();
+    public static StructureFeature<DefaultFeatureConfig> TEMPLE_NETHER_WARPED = new GenericNetherJigsawStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "temples/nether_warped")).setStructureSize(8).canSpawnOnLiquid().setLedgeSpotOffset(-16).setLiquidSpotOffset(-16).build();
+    public static StructureFeature<DefaultFeatureConfig> TEMPLE_NETHER_CRIMSON = new GenericNetherJigsawStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "temples/nether_crimson")).setStructureSize(8).canSpawnOnLiquid().setLedgeSpotOffset(-16).setLiquidSpotOffset(-16).build();
+    public static StructureFeature<DefaultFeatureConfig> TEMPLE_NETHER_SOUL = new GenericNetherJigsawStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "temples/nether_soul")).setStructureSize(8).canSpawnOnLiquid().setLedgeSpotOffset(-16).setLiquidSpotOffset(-16).build();
 
     // OUTPOSTS
 
-    public static StructureFeature<DefaultFeatureConfig> OUTPOST_NETHER_BRICK = new GenericNetherJigsawStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "outposts/nether_brick/base_plates")).setStructureSize(11).searchForHighestLand().setSearchSealevelOffset(3).canSpawnOnLiquid().setLedgeSpotOffset(-13).setLiquidSpotOffset(-15).build();
-    public static StructureFeature<DefaultFeatureConfig> OUTPOST_WARPED = new GenericNetherJigsawStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "outposts/warped/base_plates")).setStructureSize(11).searchForHighestLand().setSearchSealevelOffset(3).canSpawnOnLiquid().setLedgeSpotOffset(-13).setLiquidSpotOffset(-15).build();
-    public static StructureFeature<DefaultFeatureConfig> OUTPOST_CRIMSON = new GenericNetherJigsawStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "outposts/crimson/base_plates")).setStructureSize(11).searchForHighestLand().setSearchSealevelOffset(3).canSpawnOnLiquid().setLedgeSpotOffset(-13).setLiquidSpotOffset(-15).build();
+    public static StructureFeature<DefaultFeatureConfig> OUTPOST_NETHER_BRICK = new GenericNetherJigsawStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "outposts/nether_brick/base_plates")).setStructureSize(11).canSpawnOnLiquid().setLedgeSpotOffset(-13).setLiquidSpotOffset(-11).build();
+    public static StructureFeature<DefaultFeatureConfig> OUTPOST_WARPED = new GenericNetherJigsawStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "outposts/warped/base_plates")).setStructureSize(11).canSpawnOnLiquid().setLedgeSpotOffset(-13).setLiquidSpotOffset(-11).build();
+    public static StructureFeature<DefaultFeatureConfig> OUTPOST_CRIMSON = new GenericNetherJigsawStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "outposts/crimson/base_plates")).setStructureSize(11).canSpawnOnLiquid().setLedgeSpotOffset(-13).setLiquidSpotOffset(-11).build();
     public static StructureFeature<DefaultFeatureConfig> OUTPOST_BIRCH = new GenericJigsawStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "outposts/birch/base_plates")).setStructureSize(11).setStructureBlacklistRange(5).setAvoidStructuresSet(Stream.of(RSStructureTagMap.STRUCTURE_TAGS.VILLAGE).collect(Collectors.toSet())).build();
     public static StructureFeature<DefaultFeatureConfig> OUTPOST_JUNGLE = new GenericJigsawStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "outposts/jungle/base_plates")).setStructureSize(11).setBiomeRange(1).setStructureBlacklistRange(5).setAvoidStructuresSet(Stream.of(RSStructureTagMap.STRUCTURE_TAGS.VILLAGE).collect(Collectors.toSet())).build();
     public static StructureFeature<DefaultFeatureConfig> OUTPOST_GIANT_TREE_TAIGA = new GenericJigsawStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "outposts/giant_tree_taiga/base_plates")).setStructureSize(11).setStructureBlacklistRange(5).setAvoidStructuresSet(Stream.of(RSStructureTagMap.STRUCTURE_TAGS.VILLAGE).collect(Collectors.toSet())).build();
@@ -242,7 +244,7 @@ public class RSStructures {
 
     // PYRAMIDS
 
-    public static StructureFeature<DefaultFeatureConfig> PYRAMID_NETHER = new GenericNetherJigsawStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "pyramids/nether")).setStructureSize(8).searchForHighestLand().canSpawnOnLiquid().setLedgeSpotOffset(-3).setLiquidSpotOffset(-2).build();
+    public static StructureFeature<DefaultFeatureConfig> PYRAMID_NETHER = new GenericNetherJigsawStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "pyramids/nether")).setStructureSize(8).searchForHighestLand().canSpawnOnLiquid().setLedgeSpotOffset(-14).setLiquidSpotOffset(-13).build();
     public static StructureFeature<DefaultFeatureConfig> PYRAMID_BADLANDS = new BuriableStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "pyramids/badlands")).build();
     public static StructureFeature<DefaultFeatureConfig> PYRAMID_SNOWY = new BuriableStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "pyramids/snowy")).build();
     public static StructureFeature<DefaultFeatureConfig> PYRAMID_END = new LandBasedEndStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "pyramids/end")).setStructureSize(11).setCenterOffset(-2).build();
@@ -270,8 +272,8 @@ public class RSStructures {
     public static StructureFeature<DefaultFeatureConfig> VILLAGE_MOUNTAINS = new GenericJigsawStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "villages/birch/town_centers")).setStructureSize(6).setBiomeRange(1).setStructureBlacklistRange(5).setAvoidStructuresSet(Stream.of(RSStructureTagMap.STRUCTURE_TAGS.MANSION).collect(Collectors.toSet())).build();
     public static StructureFeature<DefaultFeatureConfig> VILLAGE_GIANT_TAIGA = new GenericJigsawStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "villages/birch/town_centers")).setStructureSize(6).setBiomeRange(1).setStructureBlacklistRange(5).setAvoidStructuresSet(Stream.of(RSStructureTagMap.STRUCTURE_TAGS.MANSION).collect(Collectors.toSet())).build();
     public static StructureFeature<DefaultFeatureConfig> VILLAGE_OAK = new GenericJigsawStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "villages/birch/town_centers")).setStructureSize(6).setBiomeRange(1).setStructureBlacklistRange(5).setAvoidStructuresSet(Stream.of(RSStructureTagMap.STRUCTURE_TAGS.MANSION).collect(Collectors.toSet())).build();
-    public static StructureFeature<DefaultFeatureConfig> VILLAGE_CRIMSON = new GenericNetherJigsawStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "villages/crimson/town_centers")).setStructureSize(6).searchForHighestLand().setSearchSealevelOffset(1).setLedgeSpotOffset(-12).setLiquidSpotOffset(-13).setBiomeRange(1).setStructureBlacklistRange(10).setAvoidStructuresSet(Stream.of(RSStructureTagMap.STRUCTURE_TAGS.NETHER_OUTPOST).collect(Collectors.toSet())).build();
-    public static StructureFeature<DefaultFeatureConfig> VILLAGE_WARPED = new GenericNetherJigsawStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "villages/warped/town_centers")).setStructureSize(6).searchForHighestLand().setSearchSealevelOffset(1).setLedgeSpotOffset(-12).setLiquidSpotOffset(-13).setBiomeRange(1).setStructureBlacklistRange(10).setAvoidStructuresSet(Stream.of(RSStructureTagMap.STRUCTURE_TAGS.NETHER_OUTPOST).collect(Collectors.toSet())).build();
+    public static StructureFeature<DefaultFeatureConfig> VILLAGE_CRIMSON = new GenericNetherJigsawStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "villages/crimson/town_centers")).setStructureSize(6).searchForHighestLand().setLedgeSpotOffset(-12).setLiquidSpotOffset(-11).setBiomeRange(1).setStructureBlacklistRange(10).setAvoidStructuresSet(Stream.of(RSStructureTagMap.STRUCTURE_TAGS.NETHER_OUTPOST).collect(Collectors.toSet())).build();
+    public static StructureFeature<DefaultFeatureConfig> VILLAGE_WARPED = new GenericNetherJigsawStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "villages/warped/town_centers")).setStructureSize(6).searchForHighestLand().setLedgeSpotOffset(-12).setLiquidSpotOffset(-11).setBiomeRange(1).setStructureBlacklistRange(10).setAvoidStructuresSet(Stream.of(RSStructureTagMap.STRUCTURE_TAGS.NETHER_OUTPOST).collect(Collectors.toSet())).build();
 
     // RUINED PORTALS
 
@@ -279,7 +281,7 @@ public class RSStructures {
 
     // RUINS
 
-    public static StructureFeature<DefaultFeatureConfig> RUINS_NETHER = new GenericNetherJigsawStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "ruins/nether/start_pool")).setStructureSize(1).searchForHighestLand().canSpawnOnLiquid().setLedgeSpotOffset(-3).setLiquidSpotOffset(-2).build();
+    public static StructureFeature<DefaultFeatureConfig> RUINS_NETHER = new GenericNetherJigsawStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "ruins/nether/start_pool")).setStructureSize(1).searchForHighestLand().canSpawnOnLiquid().setLedgeSpotOffset(-14).setLiquidSpotOffset(-13).build();
     public static StructureFeature<DefaultFeatureConfig> RUINS_LAND_WARM = new GenericJigsawStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "ruins/land_warm/start_pool")).setStructureSize(2).setTerrainHeightRadius(2).setAllowTerrainHeightRange(5).cannotSpawnInWater().build();
     public static StructureFeature<DefaultFeatureConfig> RUINS_LAND_HOT = new GenericJigsawStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "ruins/land_hot/start_pool")).setStructureSize(2).setTerrainHeightRadius(2).setAllowTerrainHeightRange(5).cannotSpawnInWater().build();
     // regexpos1

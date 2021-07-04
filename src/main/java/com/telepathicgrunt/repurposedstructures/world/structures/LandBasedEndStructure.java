@@ -25,8 +25,8 @@ public class LandBasedEndStructure extends GenericJigsawStructure {
 
     public LandBasedEndStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange,
                                   int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet,
-                                  int allowTerrainHeightRange, int terrainHeightRadius,
-                                  int minHeightLimit)
+                                  int allowTerrainHeightRange, int terrainHeightRadius, int minHeightLimit,
+                                 int fixedYSpawn, boolean useHeightmap, boolean cannotSpawnInWater)
     {
         super(
                 poolID,
@@ -37,7 +37,10 @@ public class LandBasedEndStructure extends GenericJigsawStructure {
                 avoidStructuresSet,
                 allowTerrainHeightRange,
                 terrainHeightRadius,
-                minHeightLimit
+                minHeightLimit,
+                fixedYSpawn,
+                useHeightmap,
+                cannotSpawnInWater
         );
     }
 
@@ -113,7 +116,10 @@ public class LandBasedEndStructure extends GenericJigsawStructure {
                     avoidStructuresSet,
                     allowTerrainHeightRange,
                     terrainHeightRadius,
-                    minHeightLimit);
+                    minHeightLimit,
+                    fixedYSpawn,
+                    useHeightmap,
+                    cannotSpawnInWater);
         }
     }
 }

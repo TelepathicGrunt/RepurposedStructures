@@ -126,7 +126,7 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<DefaultFeatur
         protected Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces = new HashMap<>();
         protected int maxY = 255;
         protected int minY = 0;
-        protected boolean clipOutOfBoundsPieces = false;
+        protected boolean clipOutOfBoundsPieces = true;
         protected Integer verticalRange = null;
 
         public Builder(Identifier startPool) {
@@ -168,8 +168,8 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<DefaultFeatur
             return getThis();
         }
 
-        public T clipOutOfBoundsPieces(){
-            this.clipOutOfBoundsPieces = true;
+        public T doNotClipOutOfBoundsPieces(){
+            this.clipOutOfBoundsPieces = false;
             return getThis();
         }
 

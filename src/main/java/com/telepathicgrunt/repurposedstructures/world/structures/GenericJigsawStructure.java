@@ -43,14 +43,14 @@ public class GenericJigsawStructure extends AbstractBaseStructure<DefaultFeature
     protected final int allowTerrainHeightRange;
     protected final int terrainHeightRadius;
     protected final int minHeightLimit;
-    protected int fixedYSpawn = 0;
-    protected boolean useHeightmap = true;
-    protected boolean cannotSpawnInWater = false;
+    protected int fixedYSpawn;
+    protected boolean useHeightmap;
+    protected boolean cannotSpawnInWater;
 
     public GenericJigsawStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange,
                                   int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet,
-                                  int allowTerrainHeightRange, int terrainHeightRadius,
-                                  int minHeightLimit)
+                                  int allowTerrainHeightRange, int terrainHeightRadius, int minHeightLimit,
+                                  int fixedYSpawn, boolean useHeightmap, boolean cannotSpawnInWater)
     {
         super(DefaultFeatureConfig.CODEC);
 
@@ -63,6 +63,9 @@ public class GenericJigsawStructure extends AbstractBaseStructure<DefaultFeature
         this.allowTerrainHeightRange = allowTerrainHeightRange;
         this.terrainHeightRadius = terrainHeightRadius;
         this.minHeightLimit = minHeightLimit;
+        this.fixedYSpawn = fixedYSpawn;
+        this.useHeightmap = useHeightmap;
+        this.cannotSpawnInWater = cannotSpawnInWater;
 
         RSStructures.RS_STRUCTURE_START_PIECES.add(startPool);
     }
@@ -245,7 +248,10 @@ public class GenericJigsawStructure extends AbstractBaseStructure<DefaultFeature
                     avoidStructuresSet,
                     allowTerrainHeightRange,
                     terrainHeightRadius,
-                    minHeightLimit
+                    minHeightLimit,
+                    fixedYSpawn,
+                    useHeightmap,
+                    cannotSpawnInWater
             );
         }
     }

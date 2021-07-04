@@ -27,9 +27,9 @@ import java.util.Set;
 public class CityNetherStructure extends GenericJigsawStructure {
 
     public CityNetherStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange,
-                                  int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet,
-                                  int allowTerrainHeightRange, int terrainHeightRadius,
-                                  int minHeightLimit)
+                               int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet,
+                               int allowTerrainHeightRange, int terrainHeightRadius, int minHeightLimit,
+                               int fixedYSpawn, boolean useHeightmap, boolean cannotSpawnInWater)
     {
         super(
                 poolID,
@@ -40,7 +40,10 @@ public class CityNetherStructure extends GenericJigsawStructure {
                 avoidStructuresSet,
                 allowTerrainHeightRange,
                 terrainHeightRadius,
-                minHeightLimit
+                minHeightLimit,
+                fixedYSpawn,
+                useHeightmap,
+                cannotSpawnInWater
         );
     }
 
@@ -122,7 +125,10 @@ public class CityNetherStructure extends GenericJigsawStructure {
                     avoidStructuresSet,
                     allowTerrainHeightRange,
                     terrainHeightRadius,
-                    minHeightLimit
+                    minHeightLimit,
+                    fixedYSpawn,
+                    useHeightmap,
+                    cannotSpawnInWater
             );
         }
     }

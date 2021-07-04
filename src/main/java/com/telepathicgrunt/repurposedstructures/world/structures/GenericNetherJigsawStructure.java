@@ -18,7 +18,6 @@ import java.util.Set;
 public class GenericNetherJigsawStructure extends GenericJigsawStructure {
 
     protected final boolean highestLandSearch;
-    protected final int searchSealevelOffset;
     protected final boolean canPlaceOnLiquid;
     protected final int ledgeSpotOffset;
     protected final int liquidSpotOffset;
@@ -26,7 +25,8 @@ public class GenericNetherJigsawStructure extends GenericJigsawStructure {
     public GenericNetherJigsawStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange,
                                         int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet,
                                         int allowTerrainHeightRange, int terrainHeightRadius,
-                                        int minHeightLimit, boolean highestLandSearch, int searchSealevelOffset,
+                                        int minHeightLimit, int fixedYSpawn, boolean useHeightmap,
+                                        boolean cannotSpawnInWater, boolean highestLandSearch,
                                         boolean canPlaceOnLiquid, int ledgeSpotOffset, int liquidSpotOffset)
     {
         super(
@@ -38,10 +38,12 @@ public class GenericNetherJigsawStructure extends GenericJigsawStructure {
                 avoidStructuresSet,
                 allowTerrainHeightRange,
                 terrainHeightRadius,
-                minHeightLimit
+                minHeightLimit,
+                fixedYSpawn,
+                useHeightmap,
+                cannotSpawnInWater
         );
         this.highestLandSearch = highestLandSearch;
-        this.searchSealevelOffset = searchSealevelOffset;
         this.canPlaceOnLiquid = canPlaceOnLiquid;
         this.ledgeSpotOffset = ledgeSpotOffset;
         this.liquidSpotOffset = liquidSpotOffset;
@@ -62,24 +64,23 @@ public class GenericNetherJigsawStructure extends GenericJigsawStructure {
 
             BlockPos placementPos;
             if(highestLandSearch){
-                placementPos = GeneralUtils.getHighestLand(chunkGenerator, this.calculateBoundingBox(), heightLimitView, searchSealevelOffset, canPlaceOnLiquid);
+                placementPos = GeneralUtils.getHighestLand(chunkGenerator, this.calculateBoundingBox(), heightLimitView, canPlaceOnLiquid);
             }
             else{
-                placementPos = GeneralUtils.getLowestLand(chunkGenerator, this.calculateBoundingBox(), heightLimitView, searchSealevelOffset, canPlaceOnLiquid);
+                placementPos = GeneralUtils.getLowestLand(chunkGenerator, this.calculateBoundingBox(), heightLimitView, canPlaceOnLiquid);
             }
 
             if (placementPos.getY() >= chunkGenerator.getWorldHeight() || placementPos.getY() <= chunkGenerator.getSeaLevel() + 1) {
-                this.randomUpwardTranslation(this.random, chunkGenerator.getSeaLevel() - ledgeSpotOffset, chunkGenerator.getSeaLevel() - (ledgeSpotOffset + 1));
+                this.randomUpwardTranslation(this.random, chunkGenerator.getSeaLevel() + ledgeSpotOffset, chunkGenerator.getSeaLevel() + (ledgeSpotOffset + 1));
             }
             else {
-                this.randomUpwardTranslation(this.random, placementPos.getY() - liquidSpotOffset, placementPos.getY() - (liquidSpotOffset + 1));
+                this.randomUpwardTranslation(this.random, placementPos.getY() + liquidSpotOffset, placementPos.getY() + (liquidSpotOffset + 1));
             }
         }
     }
 
     public static class Builder<T extends GenericNetherJigsawStructure.Builder<?>> extends GenericJigsawStructure.Builder<T> {
         protected boolean highestLandSearch = false;
-        protected int searchSealevelOffset;
         protected boolean canPlaceOnLiquid = false;
         protected int ledgeSpotOffset;
         protected int liquidSpotOffset;
@@ -90,11 +91,6 @@ public class GenericNetherJigsawStructure extends GenericJigsawStructure {
 
         public T searchForHighestLand(){
             this.highestLandSearch = true;
-            return getThis();
-        }
-
-        public T setSearchSealevelOffset(int searchSealevelOffset){
-            this.searchSealevelOffset = searchSealevelOffset;
             return getThis();
         }
 
@@ -124,8 +120,10 @@ public class GenericNetherJigsawStructure extends GenericJigsawStructure {
                     allowTerrainHeightRange,
                     terrainHeightRadius,
                     minHeightLimit,
+                    fixedYSpawn,
+                    useHeightmap,
+                    cannotSpawnInWater,
                     highestLandSearch,
-                    searchSealevelOffset,
                     canPlaceOnLiquid,
                     ledgeSpotOffset,
                     liquidSpotOffset);

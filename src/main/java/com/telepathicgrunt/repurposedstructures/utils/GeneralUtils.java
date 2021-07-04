@@ -139,18 +139,18 @@ public class GeneralUtils {
 
     //////////////////////////////
 
-    public static BlockPos getHighestLand(ChunkGenerator chunkGenerator, BlockBox boundingBox, HeightLimitView heightLimitView, int sealevelOffset, boolean canBeOnLiquid) {
+    public static BlockPos getHighestLand(ChunkGenerator chunkGenerator, BlockBox boundingBox, HeightLimitView heightLimitView, boolean canBeOnLiquid) {
         BlockPos.Mutable mutable = new BlockPos.Mutable().set(boundingBox.getCenter().getX(), chunkGenerator.getWorldHeight() - 20, boundingBox.getCenter().getZ());
         VerticalBlockSample blockView = chunkGenerator.getColumnSample(mutable.getX(), mutable.getZ(), heightLimitView);
         BlockState currentBlockstate;
-        while (mutable.getY() > chunkGenerator.getSeaLevel() + sealevelOffset) {
+        while (mutable.getY() > chunkGenerator.getSeaLevel()) {
             currentBlockstate = blockView.getState(mutable);
             if (!currentBlockstate.isOpaque()) {
                 mutable.move(Direction.DOWN);
                 continue;
             }
             else if (blockView.getState(mutable.add(0, 3, 0)).getMaterial() == Material.AIR && (canBeOnLiquid ? !currentBlockstate.isAir() : currentBlockstate.isOpaque())) {
-                break;
+                return mutable;
             }
             mutable.move(Direction.DOWN);
         }
@@ -159,24 +159,24 @@ public class GeneralUtils {
     }
 
 
-    public static BlockPos getLowestLand(ChunkGenerator chunkGenerator, BlockBox boundingBox, HeightLimitView heightLimitView, int sealevelOffset, boolean canBeOnLiquid){
-        BlockPos.Mutable mutable = new BlockPos.Mutable().set(boundingBox.getCenter().getX(), chunkGenerator.getSeaLevel() + sealevelOffset, boundingBox.getCenter().getZ());
+    public static BlockPos getLowestLand(ChunkGenerator chunkGenerator, BlockBox boundingBox, HeightLimitView heightLimitView, boolean canBeOnLiquid){
+        BlockPos.Mutable mutable = new BlockPos.Mutable().set(boundingBox.getCenter().getX(), chunkGenerator.getSeaLevel() + 1, boundingBox.getCenter().getZ());
         VerticalBlockSample blockView = chunkGenerator.getColumnSample(mutable.getX(), mutable.getZ(), heightLimitView);
         BlockState currentBlockstate = blockView.getState(mutable);
-        while (mutable.getY() <= chunkGenerator.getWorldHeight()) {
+        while (mutable.getY() <= chunkGenerator.getWorldHeight() - 20) {
 
             if((canBeOnLiquid ? !currentBlockstate.isAir() : currentBlockstate.isOpaque()) &&
                     blockView.getState(mutable.up()).getMaterial() == Material.AIR &&
                     blockView.getState(mutable.up(5)).getMaterial() == Material.AIR)
             {
                 mutable.move(Direction.UP);
-                break;
+                return mutable;
             }
 
             mutable.move(Direction.UP);
             currentBlockstate = blockView.getState(mutable);
         }
 
-        return mutable;
+        return mutable.set(mutable.getX(), chunkGenerator.getSeaLevel(), mutable.getZ());
     }
 }
