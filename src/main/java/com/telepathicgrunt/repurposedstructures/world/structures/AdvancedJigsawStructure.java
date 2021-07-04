@@ -119,7 +119,7 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<DefaultFeatur
         }
     }
 
-    public static class Builder<T extends AdvancedJigsawStructure.Builder<?>> {
+    public static class Builder<T extends AdvancedJigsawStructure.Builder<T>> {
         protected final Identifier startPool;
         protected int structureSize = 1;
         protected int biomeRange = 0;

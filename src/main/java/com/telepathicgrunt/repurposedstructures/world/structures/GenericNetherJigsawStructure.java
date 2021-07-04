@@ -79,7 +79,7 @@ public class GenericNetherJigsawStructure extends GenericJigsawStructure {
         }
     }
 
-    public static class Builder<T extends GenericNetherJigsawStructure.Builder<?>> extends GenericJigsawStructure.Builder<T> {
+    public static class Builder<T extends GenericNetherJigsawStructure.Builder<T>> extends GenericJigsawStructure.Builder<T> {
         protected boolean highestLandSearch = false;
         protected boolean canPlaceOnLiquid = false;
         protected int ledgeSpotOffset;

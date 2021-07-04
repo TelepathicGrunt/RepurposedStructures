@@ -3,6 +3,7 @@ package com.telepathicgrunt.repurposedstructures.modinit;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.world.structures.AdvancedDistanceJigsawStructure;
 import com.telepathicgrunt.repurposedstructures.world.structures.AdvancedJigsawStructure;
 import com.telepathicgrunt.repurposedstructures.world.structures.BuriableStructure;
 import com.telepathicgrunt.repurposedstructures.world.structures.CityNetherStructure;
@@ -42,164 +43,32 @@ public class RSStructures {
 
     // MINESHAFTS
 
-    public static StructureFeature<DefaultFeatureConfig> MINESHAFT_BIRCH = new MineshaftStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "mineshafts/birch/start_pool"))
-            .setStructureSize(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.birchMineshaftSize)
-            .setRequiredPieces(ImmutableMap.of(
-                    new Identifier(RepurposedStructures.MODID, "mineshafts/birch/spawner_4_end"),
-                    new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.birchMineshaftSize))))
-            .setMaxY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.birchMineshaftMaxHeight)
-            .setMinY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.birchMineshaftMinHeight)
-            .setProbability(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.birchMineshaftSpawnrate)
-            .build();
-
-    public static StructureFeature<DefaultFeatureConfig> MINESHAFT_DARK_FOREST = new MineshaftStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "mineshafts/dark_forest/start_pool"))
-            .setStructureSize(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.darkForestMineshaftSize)
-            .setRequiredPieces(ImmutableMap.of(
-                    new Identifier(RepurposedStructures.MODID, "mineshafts/dark_forest/spawner_4_end"),
-                    new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.darkForestMineshaftSize))))
-            .setMaxY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.darkForestMineshaftMaxHeight)
-            .setMinY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.darkForestMineshaftMinHeight)
-            .setProbability(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.darkForestMineshaftSpawnrate)
-            .build();
-
-    public static StructureFeature<DefaultFeatureConfig> MINESHAFT_DESERT = new MineshaftStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "mineshafts/desert/start_pool"))
-            .setStructureSize(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.desertMineshaftSize)
-            .setRequiredPieces(ImmutableMap.of(
-                    new Identifier(RepurposedStructures.MODID, "mineshafts/desert/spawner_4_end"),
-                    new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.desertMineshaftSize))))
-            .setMaxY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.desertMineshaftMaxHeight)
-            .setMinY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.desertMineshaftMinHeight)
-            .setProbability(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.desertMineshaftSpawnrate)
-            .build();
-
-    public static StructureFeature<DefaultFeatureConfig> MINESHAFT_NETHER = new MineshaftStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "mineshafts/nether/start_pool"))
-            .setStructureSize(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.netherMineshaftSize)
-            .setRequiredPieces(ImmutableMap.of(
-                    new Identifier(RepurposedStructures.MODID, "mineshafts/nether/spawner_4_end"),
-                    new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.netherMineshaftSize))))
-            .setMaxY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.netherMineshaftMaxHeight)
-            .setMinY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.netherMineshaftMinHeight)
-            .setProbability(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.netherMineshaftSpawnrate)
-            .build();
-
-    public static StructureFeature<DefaultFeatureConfig> MINESHAFT_CRIMSON = new MineshaftStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "mineshafts/crimson/start_pool"))
-            .setStructureSize(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.crimsonMineshaftSize)
-            .setRequiredPieces(ImmutableMap.of(
-                    new Identifier(RepurposedStructures.MODID, "mineshafts/crimson/spawner_4_end"),
-                    new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.crimsonMineshaftSize))))
-            .setMaxY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.crimsonMineshaftMaxHeight)
-            .setMinY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.crimsonMineshaftMinHeight)
-            .setProbability(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.crimsonMineshaftSpawnrate)
-            .build();
-
-    public static StructureFeature<DefaultFeatureConfig> MINESHAFT_WARPED = new MineshaftStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "mineshafts/warped/start_pool"))
-            .setStructureSize(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.warpedMineshaftSize)
-            .setRequiredPieces(ImmutableMap.of(
-                    new Identifier(RepurposedStructures.MODID, "mineshafts/warped/spawner_4_end"),
-                    new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.warpedMineshaftSize))))
-            .setMaxY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.warpedMineshaftMaxHeight)
-            .setMinY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.warpedMineshaftMinHeight)
-            .setProbability(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.warpedMineshaftSpawnrate)
-            .build();
-
-    public static StructureFeature<DefaultFeatureConfig> MINESHAFT_ICY = new MineshaftStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "mineshafts/icy/start_pool"))
-            .setStructureSize(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.icyMineshaftSize)
-            .setRequiredPieces(ImmutableMap.of(
-                    new Identifier(RepurposedStructures.MODID, "mineshafts/icy/spawner_4_end"),
-                    new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.icyMineshaftSize))))
-            .setMaxY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.icyMineshaftMaxHeight)
-            .setMinY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.icyMineshaftMinHeight)
-            .setProbability(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.icyMineshaftSpawnrate)
-            .build();
-
-    public static StructureFeature<DefaultFeatureConfig> MINESHAFT_JUNGLE = new MineshaftStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "mineshafts/jungle/start_pool"))
-            .setStructureSize(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.jungleMineshaftSize)
-            .setRequiredPieces(ImmutableMap.of(
-                    new Identifier(RepurposedStructures.MODID, "mineshafts/jungle/spawner_4_end"),
-                    new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.jungleMineshaftSize))))
-            .setMaxY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.jungleMineshaftMaxHeight)
-            .setMinY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.jungleMineshaftMinHeight)
-            .setProbability(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.jungleMineshaftSpawnrate)
-            .build();
-
-    public static StructureFeature<DefaultFeatureConfig> MINESHAFT_OCEAN = new MineshaftStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "mineshafts/ocean/start_pool"))
-            .setStructureSize(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.oceanMineshaftSize)
-            .setRequiredPieces(ImmutableMap.of(
-                    new Identifier(RepurposedStructures.MODID, "mineshafts/ocean/spawner_4_end"),
-                    new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.oceanMineshaftSize))))
-            .setMaxY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.oceanMineshaftMaxHeight)
-            .setMinY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.oceanMineshaftMinHeight)
-            .setProbability(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.oceanMineshaftSpawnrate)
-            .build();
-
-    public static StructureFeature<DefaultFeatureConfig> MINESHAFT_SAVANNA = new MineshaftStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "mineshafts/savanna/start_pool"))
-            .setStructureSize(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.savannaMineshaftSize)
-            .setRequiredPieces(ImmutableMap.of(
-                    new Identifier(RepurposedStructures.MODID, "mineshafts/savanna/spawner_4_end"),
-                    new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.savannaMineshaftSize))))
-            .setMaxY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.savannaMineshaftMaxHeight)
-            .setMinY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.savannaMineshaftMinHeight)
-            .setProbability(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.savannaMineshaftSpawnrate)
-            .build();
-
-    public static StructureFeature<DefaultFeatureConfig> MINESHAFT_STONE = new MineshaftStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "mineshafts/stone/start_pool"))
-            .setStructureSize(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.stoneMineshaftSize)
-            .setRequiredPieces(ImmutableMap.of(
-                    new Identifier(RepurposedStructures.MODID, "mineshafts/stone/spawner_4_end"),
-                    new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.stoneMineshaftSize))))
-            .setMaxY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.stoneMineshaftMaxHeight)
-            .setMinY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.stoneMineshaftMinHeight)
-            .setProbability(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.stoneMineshaftSpawnrate)
-            .build();
-
-    public static StructureFeature<DefaultFeatureConfig> MINESHAFT_SWAMP = new MineshaftStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "mineshafts/swamp/start_pool"))
-            .setStructureSize(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.swampMineshaftSize)
-            .setRequiredPieces(ImmutableMap.of(
-                    new Identifier(RepurposedStructures.MODID, "mineshafts/swamp/spawner_4_end"),
-                    new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.swampMineshaftSize))))
-            .setMaxY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.swampMineshaftMaxHeight)
-            .setMinY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.swampMineshaftMinHeight)
-            .setProbability(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.swampMineshaftSpawnrate)
-            .build();
-
-    public static StructureFeature<DefaultFeatureConfig> MINESHAFT_TAIGA = new MineshaftStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "mineshafts/taiga/start_pool"))
-            .setStructureSize(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.taigaMineshaftSize)
-            .setRequiredPieces(ImmutableMap.of(
-                    new Identifier(RepurposedStructures.MODID, "mineshafts/taiga/spawner_4_end"),
-                    new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.taigaMineshaftSize))))
-            .setMaxY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.taigaMineshaftMaxHeight)
-            .setMinY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.taigaMineshaftMinHeight)
-            .setProbability(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.taigaMineshaftSpawnrate)
-            .build();
-
-
-    public static StructureFeature<DefaultFeatureConfig> MINESHAFT_END = new MineshaftEndStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "mineshafts/end/start_pool"))
-            .setStructureSize(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.endMineshaftSize)
-            .setRequiredPieces(ImmutableMap.of(
-                    new Identifier(RepurposedStructures.MODID, "mineshafts/end/spawner_4_end"),
-                    new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.endMineshaftSize))))
-            .setMaxY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.endMineshaftMaxHeight)
-            .setMinY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.endMineshaftMinHeight)
-            .setProbability(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.endMineshaftSpawnrate)
-            .doNotClipOutOfBoundsPieces()
-            .build();
+    public static StructureFeature<DefaultFeatureConfig> MINESHAFT_BIRCH = new MineshaftStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "mineshafts/birch/start_pool")).setStructureSize(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.birchMineshaftSize).setRequiredPieces(ImmutableMap.of(new Identifier(RepurposedStructures.MODID, "mineshafts/birch/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.birchMineshaftSize)))).setMaxY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.birchMineshaftMaxHeight).setMinY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.birchMineshaftMinHeight).setProbability(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.birchMineshaftSpawnrate).build();
+    public static StructureFeature<DefaultFeatureConfig> MINESHAFT_DARK_FOREST = new MineshaftStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "mineshafts/dark_forest/start_pool")).setStructureSize(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.darkForestMineshaftSize).setRequiredPieces(ImmutableMap.of(new Identifier(RepurposedStructures.MODID, "mineshafts/dark_forest/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.darkForestMineshaftSize)))).setMaxY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.darkForestMineshaftMaxHeight).setMinY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.darkForestMineshaftMinHeight).setProbability(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.darkForestMineshaftSpawnrate).build();
+    public static StructureFeature<DefaultFeatureConfig> MINESHAFT_DESERT = new MineshaftStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "mineshafts/desert/start_pool")).setStructureSize(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.desertMineshaftSize).setRequiredPieces(ImmutableMap.of(new Identifier(RepurposedStructures.MODID, "mineshafts/desert/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.desertMineshaftSize)))).setMaxY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.desertMineshaftMaxHeight).setMinY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.desertMineshaftMinHeight).setProbability(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.desertMineshaftSpawnrate).build();
+    public static StructureFeature<DefaultFeatureConfig> MINESHAFT_NETHER = new MineshaftStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "mineshafts/nether/start_pool")).setStructureSize(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.netherMineshaftSize).setRequiredPieces(ImmutableMap.of(new Identifier(RepurposedStructures.MODID, "mineshafts/nether/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.netherMineshaftSize)))).setMaxY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.netherMineshaftMaxHeight).setMinY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.netherMineshaftMinHeight).setProbability(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.netherMineshaftSpawnrate).build();
+    public static StructureFeature<DefaultFeatureConfig> MINESHAFT_CRIMSON = new MineshaftStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "mineshafts/crimson/start_pool")).setStructureSize(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.crimsonMineshaftSize).setRequiredPieces(ImmutableMap.of(new Identifier(RepurposedStructures.MODID, "mineshafts/crimson/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.crimsonMineshaftSize)))).setMaxY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.crimsonMineshaftMaxHeight).setMinY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.crimsonMineshaftMinHeight).setProbability(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.crimsonMineshaftSpawnrate).build();
+    public static StructureFeature<DefaultFeatureConfig> MINESHAFT_WARPED = new MineshaftStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "mineshafts/warped/start_pool")).setStructureSize(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.warpedMineshaftSize).setRequiredPieces(ImmutableMap.of(new Identifier(RepurposedStructures.MODID, "mineshafts/warped/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.warpedMineshaftSize)))).setMaxY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.warpedMineshaftMaxHeight).setMinY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.warpedMineshaftMinHeight).setProbability(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.warpedMineshaftSpawnrate).build();
+    public static StructureFeature<DefaultFeatureConfig> MINESHAFT_ICY = new MineshaftStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "mineshafts/icy/start_pool")).setStructureSize(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.icyMineshaftSize).setRequiredPieces(ImmutableMap.of(new Identifier(RepurposedStructures.MODID, "mineshafts/icy/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.icyMineshaftSize)))).setMaxY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.icyMineshaftMaxHeight).setMinY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.icyMineshaftMinHeight).setProbability(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.icyMineshaftSpawnrate).build();
+    public static StructureFeature<DefaultFeatureConfig> MINESHAFT_JUNGLE = new MineshaftStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "mineshafts/jungle/start_pool")).setStructureSize(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.jungleMineshaftSize).setRequiredPieces(ImmutableMap.of(new Identifier(RepurposedStructures.MODID, "mineshafts/jungle/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.jungleMineshaftSize)))).setMaxY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.jungleMineshaftMaxHeight).setMinY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.jungleMineshaftMinHeight).setProbability(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.jungleMineshaftSpawnrate).build();
+    public static StructureFeature<DefaultFeatureConfig> MINESHAFT_OCEAN = new MineshaftStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "mineshafts/ocean/start_pool")).setStructureSize(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.oceanMineshaftSize).setRequiredPieces(ImmutableMap.of(new Identifier(RepurposedStructures.MODID, "mineshafts/ocean/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.oceanMineshaftSize)))).setMaxY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.oceanMineshaftMaxHeight).setMinY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.oceanMineshaftMinHeight).setProbability(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.oceanMineshaftSpawnrate).build();
+    public static StructureFeature<DefaultFeatureConfig> MINESHAFT_SAVANNA = new MineshaftStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "mineshafts/savanna/start_pool")).setStructureSize(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.savannaMineshaftSize).setRequiredPieces(ImmutableMap.of(new Identifier(RepurposedStructures.MODID, "mineshafts/savanna/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.savannaMineshaftSize)))).setMaxY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.savannaMineshaftMaxHeight).setMinY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.savannaMineshaftMinHeight).setProbability(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.savannaMineshaftSpawnrate).build();
+    public static StructureFeature<DefaultFeatureConfig> MINESHAFT_STONE = new MineshaftStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "mineshafts/stone/start_pool")).setStructureSize(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.stoneMineshaftSize).setRequiredPieces(ImmutableMap.of(new Identifier(RepurposedStructures.MODID, "mineshafts/stone/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.stoneMineshaftSize)))).setMaxY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.stoneMineshaftMaxHeight).setMinY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.stoneMineshaftMinHeight).setProbability(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.stoneMineshaftSpawnrate).build();
+    public static StructureFeature<DefaultFeatureConfig> MINESHAFT_SWAMP = new MineshaftStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "mineshafts/swamp/start_pool")).setStructureSize(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.swampMineshaftSize).setRequiredPieces(ImmutableMap.of(new Identifier(RepurposedStructures.MODID, "mineshafts/swamp/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.swampMineshaftSize)))).setMaxY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.swampMineshaftMaxHeight).setMinY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.swampMineshaftMinHeight).setProbability(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.swampMineshaftSpawnrate).build();
+    public static StructureFeature<DefaultFeatureConfig> MINESHAFT_TAIGA = new MineshaftStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "mineshafts/taiga/start_pool")).setStructureSize(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.taigaMineshaftSize).setRequiredPieces(ImmutableMap.of(new Identifier(RepurposedStructures.MODID, "mineshafts/taiga/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.taigaMineshaftSize)))).setMaxY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.taigaMineshaftMaxHeight).setMinY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.taigaMineshaftMinHeight).setProbability(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.taigaMineshaftSpawnrate).build();
+    public static StructureFeature<DefaultFeatureConfig> MINESHAFT_END = new MineshaftEndStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "mineshafts/end/start_pool")).setStructureSize(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.endMineshaftSize).setRequiredPieces(ImmutableMap.of(new Identifier(RepurposedStructures.MODID, "mineshafts/end/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.endMineshaftSize)))).setMaxY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.maxHeight.endMineshaftMaxHeight).setMinY(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.minHeight.endMineshaftMinHeight).setProbability(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.endMineshaftSpawnrate).doNotClipOutOfBoundsPieces().build();
 
     // STRONGHOLDS
 
-    public static StructureFeature<DefaultFeatureConfig> STRONGHOLD_NETHER = new AdvancedJigsawStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "strongholds/nether/start_pool"))
-            .setStructureSize(RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdSize)
+    public static StructureFeature<DefaultFeatureConfig> STRONGHOLD_NETHER = new AdvancedDistanceJigsawStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "strongholds/nether/start_pool")).setStructureSize(RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdSize).setMaxY(RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdMaxHeight).setMinY(RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdMinHeight).setDistanceFromWorldOrigin(2817)
             .setRequiredPieces(ImmutableMap.of(
                     new Identifier(RepurposedStructures.MODID, "strongholds/nether/portal_room"),
                     new StructurePiecesBehavior.RequiredPieceNeeds(1, (int) (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdSize * 0.6D))))
-            .setMaxY(RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdMaxHeight)
-            .setMinY(RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdMinHeight)
             .build();
 
     // FORTRESSES
 
-    public static StructureFeature<DefaultFeatureConfig> FORTRESS_JUNGLE = new AdvancedJigsawStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "fortresses/jungle/start_pool"))
-            .setStructureSize(RepurposedStructures.RSAllConfig.RSFortressesConfig.jungleFortress.jungleFortressSize)
-            .setBiomeRange(4)
+    public static StructureFeature<DefaultFeatureConfig> FORTRESS_JUNGLE = new AdvancedJigsawStructure.Builder<>(new Identifier(RepurposedStructures.MODID, "fortresses/jungle/start_pool")).setStructureSize(RepurposedStructures.RSAllConfig.RSFortressesConfig.jungleFortress.jungleFortressSize).setBiomeRange(4).setMaxY(RepurposedStructures.RSAllConfig.RSFortressesConfig.jungleFortress.jungleFortressMaxHeight).setMinY(RepurposedStructures.RSAllConfig.RSFortressesConfig.jungleFortress.jungleFortressMinHeight).setVerticalRange(RepurposedStructures.RSAllConfig.RSFortressesConfig.jungleFortress.jungleFortressVerticalRange).doNotClipOutOfBoundsPieces()
             .setRequiredPieces(ImmutableMap.of(
                     new Identifier(RepurposedStructures.MODID, "fortresses/jungle/spawner"),
                     new StructurePiecesBehavior.RequiredPieceNeeds(2, (int) (RepurposedStructures.RSAllConfig.RSFortressesConfig.jungleFortress.jungleFortressSize * 0.6D)),
@@ -207,10 +76,6 @@ public class RSStructures {
                     new StructurePiecesBehavior.RequiredPieceNeeds(1, (int) (RepurposedStructures.RSAllConfig.RSFortressesConfig.jungleFortress.jungleFortressSize * 0.2D)),
                     new Identifier(RepurposedStructures.MODID, "fortresses/jungle/turn_inside_chest"),
                     new StructurePiecesBehavior.RequiredPieceNeeds(4, (int) (RepurposedStructures.RSAllConfig.RSFortressesConfig.jungleFortress.jungleFortressSize * 0.6D))))
-            .setMaxY(RepurposedStructures.RSAllConfig.RSFortressesConfig.jungleFortress.jungleFortressMaxHeight)
-            .setMinY(RepurposedStructures.RSAllConfig.RSFortressesConfig.jungleFortress.jungleFortressMinHeight)
-            .setVerticalRange(RepurposedStructures.RSAllConfig.RSFortressesConfig.jungleFortress.jungleFortressVerticalRange)
-            .doNotClipOutOfBoundsPieces()
             .build();
 
     // IGLOOS

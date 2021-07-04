@@ -79,7 +79,7 @@ public class AdvancedDistanceJigsawStructure extends AdvancedJigsawStructure {
     }
 
 
-    public static class Builder<T extends AdvancedDistanceJigsawStructure.Builder<?>> extends AdvancedJigsawStructure.Builder<T> {
+    public static class Builder<T extends AdvancedDistanceJigsawStructure.Builder<T>> extends AdvancedJigsawStructure.Builder<T> {
 
         protected int distanceFromWorldOrigin = 2817;
 

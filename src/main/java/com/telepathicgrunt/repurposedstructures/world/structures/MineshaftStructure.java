@@ -38,7 +38,7 @@ public class MineshaftStructure extends AdvancedJigsawStructure {
         return false;
     }
 
-    public static class Builder<T extends MineshaftStructure.Builder<?>> extends AdvancedJigsawStructure.Builder<T> {
+    public static class Builder<T extends MineshaftStructure.Builder<T>> extends AdvancedJigsawStructure.Builder<T> {
 
         protected double probability = 0.01;
 

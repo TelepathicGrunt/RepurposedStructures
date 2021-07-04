@@ -100,7 +100,7 @@ public class LandBasedEndStructure extends GenericJigsawStructure {
         }
     }
 
-    public static class Builder<T extends GenericJigsawStructure.Builder<?>> extends GenericJigsawStructure.Builder<T> {
+    public static class Builder<T extends GenericJigsawStructure.Builder<T>> extends GenericJigsawStructure.Builder<T> {
 
         public Builder(Identifier startPool) {
             super(startPool);

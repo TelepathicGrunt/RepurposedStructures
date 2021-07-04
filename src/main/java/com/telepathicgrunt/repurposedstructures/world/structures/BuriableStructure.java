@@ -97,7 +97,7 @@ public class BuriableStructure extends AbstractBaseStructure<DefaultFeatureConfi
     }
 
 
-    public static class Builder<T extends BuriableStructure.Builder<?>> {
+    public static class Builder<T extends BuriableStructure.Builder<T>> {
         private final Identifier startPool;
         private int offsetAmount = 14;
         private boolean onLand = true;
