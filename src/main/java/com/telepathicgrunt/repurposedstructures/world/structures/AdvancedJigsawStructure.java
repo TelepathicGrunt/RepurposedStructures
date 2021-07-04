@@ -22,6 +22,7 @@ import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class AdvancedJigsawStructure extends AbstractBaseStructure<DefaultFeatureConfig> {
@@ -35,13 +36,9 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<DefaultFeatur
     protected final boolean clipOutOfBoundsPieces;
     protected final Integer verticalRange;
 
-    public AdvancedJigsawStructure(Identifier poolID, int structureSize, Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces, int maxY, int minY) {
-        this(poolID, structureSize, 0, requiredPieces, maxY, minY, true, null);
-    }
-
     public AdvancedJigsawStructure(Identifier poolID, int structureSize, int biomeRange,
-                                   Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces, int maxY, int minY,
-                                   boolean clipOutOfBoundsPieces, Integer verticalRange)
+                                   Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces,
+                                   int maxY, int minY, boolean clipOutOfBoundsPieces, Integer verticalRange)
     {
         super(DefaultFeatureConfig.CODEC);
 
@@ -119,6 +116,74 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<DefaultFeatur
                     bottomClipOff);
 
             this.setBoundingBoxFromChildren();
+        }
+    }
+
+    public static class Builder<T extends AdvancedJigsawStructure.Builder<?>> {
+        protected final Identifier startPool;
+        protected int structureSize = 1;
+        protected int biomeRange = 0;
+        protected Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces = new HashMap<>();
+        protected int maxY = 255;
+        protected int minY = 0;
+        protected boolean clipOutOfBoundsPieces = false;
+        protected Integer verticalRange = null;
+
+        public Builder(Identifier startPool) {
+            this.startPool = startPool;
+        }
+
+        @SuppressWarnings("unchecked")
+        protected T getThis() {
+            return (T) this;
+        }
+
+        public T setStructureSize(int structureSize){
+            this.structureSize = structureSize;
+            return getThis();
+        }
+
+        public T setBiomeRange(int biomeRange){
+            this.biomeRange = biomeRange;
+            return getThis();
+        }
+
+        public T setRequiredPieces(Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces){
+            this.requiredPieces = requiredPieces;
+            return getThis();
+        }
+
+        public T setMaxY(int maxY){
+            this.maxY = maxY;
+            return getThis();
+        }
+
+        public T setMinY(int minY){
+            this.minY = minY;
+            return getThis();
+        }
+
+        public T setVerticalRange(int verticalRange){
+            this.verticalRange = verticalRange;
+            return getThis();
+        }
+
+        public T clipOutOfBoundsPieces(){
+            this.clipOutOfBoundsPieces = true;
+            return getThis();
+        }
+
+        public AdvancedJigsawStructure build() {
+            return new AdvancedJigsawStructure(
+                    startPool,
+                    structureSize,
+                    biomeRange,
+                    requiredPieces,
+                    maxY,
+                    minY,
+                    clipOutOfBoundsPieces,
+                    verticalRange
+            );
         }
     }
 }

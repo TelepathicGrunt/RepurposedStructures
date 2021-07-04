@@ -16,10 +16,14 @@ import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import java.util.Map;
 
 
-public class RSMineshaftEndStructure extends RSMineshaftStructure {
+public class MineshaftEndStructure extends MineshaftStructure {
 
-    public RSMineshaftEndStructure(Identifier poolID, int structureSize, Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces, int maxY, int minY, float probability) {
-        super(poolID, structureSize, requiredPieces, maxY, minY, probability);
+    public MineshaftEndStructure(Identifier poolID, int structureSize, int biomeRange,
+                                 Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces,
+                                 int maxY, int minY, boolean clipOutOfBoundsPieces, Integer verticalRange,
+                                 double probability)
+    {
+        super(poolID, structureSize, biomeRange, requiredPieces, maxY, minY, clipOutOfBoundsPieces, verticalRange, probability);
     }
 
     @Override
@@ -51,5 +55,33 @@ public class RSMineshaftEndStructure extends RSMineshaftStructure {
             }
         }
         return false;
+    }
+
+
+    public static class Builder<T extends MineshaftEndStructure.Builder<?>> extends AdvancedJigsawStructure.Builder<T> {
+
+        protected double probability = 0.01;
+
+        public Builder(Identifier startPool) {
+            super(startPool);
+        }
+
+        public T setProbability(double probability){
+            this.probability = probability;
+            return getThis();
+        }
+
+        public MineshaftEndStructure build() {
+            return new MineshaftEndStructure(
+                    startPool,
+                    structureSize,
+                    biomeRange,
+                    requiredPieces,
+                    maxY,
+                    minY,
+                    clipOutOfBoundsPieces,
+                    verticalRange,
+                    probability);
+        }
     }
 }

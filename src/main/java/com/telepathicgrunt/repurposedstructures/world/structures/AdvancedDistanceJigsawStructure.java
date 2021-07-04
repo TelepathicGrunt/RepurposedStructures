@@ -21,15 +21,22 @@ import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 import java.util.Map;
 
 
-public class RSNetherStrongholdStructure extends AdvancedJigsawStructure {
+public class AdvancedDistanceJigsawStructure extends AdvancedJigsawStructure {
 
-    public RSNetherStrongholdStructure(Identifier poolID, int structureSize, Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces, int maxY, int minY) {
-        super(poolID, structureSize, requiredPieces, maxY, minY);
+    protected final int distanceFromWorldOrigin;
+
+    public AdvancedDistanceJigsawStructure(Identifier poolID, int structureSize, int biomeRange,
+                                           Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces,
+                                           int maxY, int minY, boolean clipOutOfBoundsPieces, Integer verticalRange,
+                                           int distanceFromWorldOrigin)
+    {
+        super(poolID, structureSize, biomeRange, requiredPieces, maxY, minY, clipOutOfBoundsPieces, verticalRange);
+        this.distanceFromWorldOrigin = distanceFromWorldOrigin;
     }
 
     @Override
     protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, ChunkPos chunkPos1, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig featureConfig, HeightLimitView heightLimitView) {
-        int radius = 2817;
+        int radius = distanceFromWorldOrigin;
         int xBlockPos = chunkPos1.getStartX();
         int zBlockPos = chunkPos1.getStartZ();
         return (xBlockPos * xBlockPos) + (zBlockPos * zBlockPos) > radius * radius;
@@ -37,7 +44,7 @@ public class RSNetherStrongholdStructure extends AdvancedJigsawStructure {
 
     @Override
     public StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
-        return RSNetherStrongholdStructure.Start::new;
+        return AdvancedDistanceJigsawStructure.Start::new;
     }
 
     public class Start extends MainStart {
@@ -68,6 +75,34 @@ public class RSNetherStrongholdStructure extends AdvancedJigsawStructure {
                     minY);
 
             this.setBoundingBoxFromChildren();
+        }
+    }
+
+
+    public static class Builder<T extends AdvancedDistanceJigsawStructure.Builder<?>> extends AdvancedJigsawStructure.Builder<T> {
+
+        protected int distanceFromWorldOrigin = 2817;
+
+        public Builder(Identifier startPool) {
+            super(startPool);
+        }
+
+        public T setDistanceFromWorldOrigin(int distanceFromWorldOrigin){
+            this.distanceFromWorldOrigin = distanceFromWorldOrigin;
+            return getThis();
+        }
+
+        public AdvancedDistanceJigsawStructure build() {
+            return new AdvancedDistanceJigsawStructure(
+                    startPool,
+                    structureSize,
+                    biomeRange,
+                    requiredPieces,
+                    maxY,
+                    minY,
+                    clipOutOfBoundsPieces,
+                    verticalRange,
+                    distanceFromWorldOrigin);
         }
     }
 }
