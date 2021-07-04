@@ -48,8 +48,12 @@ public class AdvancedDistanceJigsawStructure extends AdvancedJigsawStructure {
     }
 
     public class Start extends MainStart {
+
+        private final Identifier structureID;
+
         public Start(StructureFeature<DefaultFeatureConfig> structureIn, ChunkPos chunkPos1, int referenceIn, long seedIn) {
             super(structureIn, chunkPos1, referenceIn, seedIn);
+            structureID = Registry.STRUCTURE_FEATURE.getId(structureIn);
         }
 
         @Override
@@ -70,7 +74,7 @@ public class AdvancedDistanceJigsawStructure extends AdvancedJigsawStructure {
                     false,
                     false,
                     heightLimitView,
-                    requiredPieces,
+                    structureID,
                     maxY,
                     minY);
 

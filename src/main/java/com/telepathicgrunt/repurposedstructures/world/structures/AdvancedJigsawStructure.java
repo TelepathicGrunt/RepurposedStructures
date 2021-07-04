@@ -76,8 +76,11 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<DefaultFeatur
 
     public class MainStart extends MarginedStructureStart<DefaultFeatureConfig> {
 
+        private final Identifier structureID;
+
         public MainStart(StructureFeature<DefaultFeatureConfig> structureIn, ChunkPos chunkPos1, int referenceIn, long seedIn) {
             super(structureIn, chunkPos1, referenceIn, seedIn);
+            structureID = Registry.STRUCTURE_FEATURE.getId(structureIn);
         }
 
         public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, ChunkPos chunkPos1, Biome biome, DefaultFeatureConfig defaultFeatureConfig, HeightLimitView heightLimitView) {
@@ -111,7 +114,7 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<DefaultFeatur
                     false,
                     false,
                     heightLimitView,
-                    requiredPieces,
+                    structureID,
                     topClipOff,
                     bottomClipOff);
 

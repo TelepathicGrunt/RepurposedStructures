@@ -62,7 +62,7 @@ public class PieceLimitedJigsawManager {
             boolean doBoundaryAdjustments,
             boolean useHeightmap,
             HeightLimitView heightLimitView,
-            Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces,
+            Identifier structureID,
             int maxY,
             int minY
     ) {
@@ -104,6 +104,7 @@ public class PieceLimitedJigsawManager {
         startPiece.translate(0, pieceCenterY - yAdjustment, 0);
 
         int attempts = 0;
+        Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces = StructurePiecesBehavior.REQUIRED_PIECES_COUNT.get(structureID);
         while(doesNotHaveAllRequiredPieces(components, requiredPieces)){
             if(attempts == 100){
                 RepurposedStructures.LOGGER.error("Failed to create valid structure with all required pieces starting from this pool file: {}. Required pieces are: {}", startPool.getId(), Arrays.toString(requiredPieces.keySet().toArray()));
