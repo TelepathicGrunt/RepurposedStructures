@@ -1,7 +1,13 @@
 ### **(V.2.0.3 Changes) (1.17.0 Minecraft)**
 
+##### Mansions:
+* Adjusted the default config value for mansion's average chunk distance between spawn attempts so mansions are much more rarer.
+
 ##### Mineshafts:
 * Added Glowberries as possible Chest Minecart loot for Birch, Dark Forest, Jungle, Savanna, Stone, Swamp, and Taiga Mineshafts.
+
+##### Misc:
+* Redid a lot of code behind the scenes to clean up the codebase significantly. Hopefully I didn't miss any bugs. 
 
 
 ### **(V.2.0.2 Changes) (1.17.0 Minecraft)**

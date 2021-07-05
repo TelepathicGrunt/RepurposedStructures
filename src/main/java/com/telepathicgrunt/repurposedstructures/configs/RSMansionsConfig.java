@@ -19,7 +19,7 @@ public class RSMansionsConfig implements ConfigData {
                 How rare are Birch Mansions in Birch biomes.
                 1 for spawning in most chunks and 1001 for none.""")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int mansionBirchAverageChunkDistance = 140;
+        public int mansionBirchAverageChunkDistance = 180;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -27,7 +27,7 @@ public class RSMansionsConfig implements ConfigData {
                 How rare are Jungle Mansions in Jungle biomes.
                 1 for spawning in most chunks and 1001 for none.""")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int mansionJungleAverageChunkDistance = 175;
+        public int mansionJungleAverageChunkDistance = 225;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -39,7 +39,7 @@ public class RSMansionsConfig implements ConfigData {
                 biomes that are not birch or dark forest.
                 1 for spawning in most chunks and 1001 for none.""")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int mansionOakAverageChunkDistance = 140;
+        public int mansionOakAverageChunkDistance = 205;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -50,7 +50,7 @@ public class RSMansionsConfig implements ConfigData {
                 How rare are Savanna Mansions in Savanna biomes.
                 1 for spawning in most chunks and 1001 for none.""")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int mansionSavannaAverageChunkDistance = 175;
+        public int mansionSavannaAverageChunkDistance = 225;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -61,7 +61,7 @@ public class RSMansionsConfig implements ConfigData {
                 How rare are Taiga Mansions in non-snowy Taiga biomes.
                 1 for spawning in most chunks and 1001 for none.""")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int mansionTaigaAverageChunkDistance = 165;
+        public int mansionTaigaAverageChunkDistance = 205;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -72,7 +72,7 @@ public class RSMansionsConfig implements ConfigData {
                 How rare are Desert Mansions in Desert biomes.
                 1 for spawning in most chunks and 1001 for none.""")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int mansionDesertAverageChunkDistance = 175;
+        public int mansionDesertAverageChunkDistance = 225;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -83,5 +83,5 @@ public class RSMansionsConfig implements ConfigData {
                 How rare are Snowy Mansions in Snowy biomes.
                 1 for spawning in most chunks and 1001 for none.""")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int mansionSnowyAverageChunkDistance = 175;
+        public int mansionSnowyAverageChunkDistance = 225;
 }
