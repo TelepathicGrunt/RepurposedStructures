@@ -14,6 +14,9 @@
     "announce_to_chat": true,
     "hidden": false
   },
+  "rewards": {
+    "experience": 200
+  },
   "criteria": {
     "in_village_badlands": {
       "trigger": "minecraft:location",

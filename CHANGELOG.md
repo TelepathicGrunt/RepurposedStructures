@@ -21,6 +21,9 @@
 ##### Bastions:
 * Underground Bastion maps are now sold by Wandering Traders rarely and very expensive
 
+##### Advancements:
+* Added experience reward for completing each of RS's advancements
+
 ##### Misc:
 * Redid a lot of code behind the scenes to clean up the codebase significantly. Hopefully I didn't miss any bugs.
   

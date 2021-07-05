@@ -14,6 +14,9 @@
     "announce_to_chat": true,
     "hidden": false
   },
+  "rewards": {
+    "experience": 310
+  },
   "criteria": {
     "in_mineshaft_birch": {
       "trigger": "minecraft:location",

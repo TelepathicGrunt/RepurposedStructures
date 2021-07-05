@@ -39,6 +39,6 @@ public class MobMapTrades {
 
         // Wandering Traders
         if(RepurposedStructures.RSAllConfig.RSBastionsConfig.bastionUndergroundAverageChunkDistance != 10001)
-            TradeOfferHelper.registerWanderingTraderOffers(2, (factories) -> factories.add(new TradeOffers.SellMapFactory(42, RSStructures.BASTION_UNDERGROUND, MapIcon.Type.MANSION, 1, 100)));
+            TradeOfferHelper.registerWanderingTraderOffers(2, (factories) -> factories.add(new TradeOffers.SellMapFactory(38, RSStructures.BASTION_UNDERGROUND, MapIcon.Type.BANNER_GRAY, 1, 100)));
     }
 }

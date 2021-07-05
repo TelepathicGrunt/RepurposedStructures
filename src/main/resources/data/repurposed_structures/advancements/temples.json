@@ -14,6 +14,9 @@
     "announce_to_chat": true,
     "hidden": false
   },
+  "rewards": {
+    "experience": 100
+  },
   "criteria": {
     "in_temple_nether_basalt": {
       "trigger": "minecraft:location",
