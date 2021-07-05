@@ -1,3 +1,9 @@
+### **(V.2.0.4 Changes) (1.17.0 Minecraft)**
+
+##### Villages:
+* Fixed some villages not spawning or having trouble spawning when William Wythers Overhauled datapack/mod is on
+
+
 ### **(V.2.0.3 Changes) (1.17.0 Minecraft)**
 
 ##### Mansions:

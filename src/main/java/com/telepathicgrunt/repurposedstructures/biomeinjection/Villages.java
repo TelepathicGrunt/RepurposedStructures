@@ -65,8 +65,7 @@ public class Villages {
         GeneralUtils.addToBiome("giant_taiga_village",
                 (context) ->
                         BiomeSelection.isBiomeAllowed(context, RSStructures.VILLAGE_GIANT_TAIGA,
-                                () -> (BiomeSelection.isBiome(context, BiomeKeys.GIANT_SPRUCE_TAIGA, BiomeKeys.GIANT_TREE_TAIGA)
-                                || (BiomeSelection.haveCategories(context, Category.TAIGA) && BiomeSelection.hasName(context, "giant", "redwood")))
+                                () -> BiomeSelection.haveCategories(context, Category.TAIGA) && BiomeSelection.hasName(context, "giant", "redwood")
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.VILLAGE))
                         && RepurposedStructures.RSAllConfig.RSVillagesConfig.giantTaigaVillageAverageChunkDistance != 1001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.GIANT_TAIGA_VILLAGE));

@@ -14,7 +14,7 @@ public class WitchHuts {
                 (context) ->
                         BiomeSelection.isBiomeAllowed(context, RSStructures.WITCH_HUTS_OAK,
                                 () -> BiomeSelection.haveCategories(context, Category.FOREST)
-                                        && !(BiomeSelection.hasName(context, "birch", "dark", "spooky", "dead", "haunted"))
+                                && !BiomeSelection.hasName(context, "birch", "dark", "spooky", "dead", "haunted")
                         && RepurposedStructures.RSAllConfig.RSWitchHutsConfig.witchHutsOakAverageChunkDistance != 1001),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.WITCH_HUTS_OAK));
 
@@ -22,7 +22,7 @@ public class WitchHuts {
                 (context) ->
 						BiomeSelection.isBiomeAllowed(context, RSStructures.WITCH_HUTS_TAIGA,
                                 () -> BiomeSelection.haveCategories(context, Category.TAIGA)
-                                        && !BiomeSelection.hasName(context, "giant", "redwood")
+                                && !BiomeSelection.hasName(context, "giant", "redwood")
                         && RepurposedStructures.RSAllConfig.RSWitchHutsConfig.witchHutsTaigaAverageChunkDistance != 1001),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.WITCH_HUTS_TAIGA));
 
@@ -37,7 +37,7 @@ public class WitchHuts {
                 (context) ->
 						BiomeSelection.isBiomeAllowed(context, RSStructures.WITCH_HUTS_DARK_FOREST,
                                 () -> BiomeSelection.haveCategories(context, Category.FOREST)
-                                        && BiomeSelection.hasName(context, "dark", "spooky", "dead", "haunted")
+                                && BiomeSelection.hasName(context, "dark", "spooky", "dead", "haunted")
                         && RepurposedStructures.RSAllConfig.RSWitchHutsConfig.witchHutsDarkForestAverageChunkDistance != 1001),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.WITCH_HUTS_DARK_FOREST));
 
@@ -45,7 +45,7 @@ public class WitchHuts {
                 (context) ->
 						BiomeSelection.isBiomeAllowed(context, RSStructures.WITCH_HUTS_GIANT_TREE_TAIGA,
                                 () -> BiomeSelection.haveCategories(context, Category.TAIGA)
-                                        && BiomeSelection.hasName(context, "giant", "redwood")
+                                && BiomeSelection.hasName(context, "giant", "redwood")
                         && RepurposedStructures.RSAllConfig.RSWitchHutsConfig.witchHutsGiantTreeTaigaAverageChunkDistance != 1001),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.WITCH_HUTS_GIANT_TREE_TAIGA));
     }
