@@ -14,6 +14,9 @@
     "announce_to_chat": true,
     "hidden": false
   },
+  "rewards": {
+    "experience": 60
+  },
   "criteria": {
     "in_ruins_land_hot": {
       "trigger": "minecraft:location",
