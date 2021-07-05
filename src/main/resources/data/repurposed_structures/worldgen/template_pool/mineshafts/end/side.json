@@ -1,6 +1,6 @@
 {
   "name": "repurposed_structures:mineshafts/end/side",
-  "fallback": "repurposed_structures:mineshafts/common/post_process",
+  "fallback": "minecraft:empty",
   "elements": [
     {
       "weight": 1500,

@@ -1,6 +1,6 @@
 {
   "name": "repurposed_structures:mineshafts/swamp/vines",
-  "fallback": "minecraft:empty",
+  "fallback": "repurposed_structures:mineshafts/swamp/vines",
   "elements": [
     {
       "weight": 1,

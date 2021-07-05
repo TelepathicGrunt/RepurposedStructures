@@ -1,6 +1,6 @@
 {
   "name": "repurposed_structures:mineshafts/ocean/plants_dense",
-  "fallback": "minecraft:empty",
+  "fallback": "repurposed_structures:mineshafts/ocean/plants_dense",
   "elements": [
     {
       "weight": 1,

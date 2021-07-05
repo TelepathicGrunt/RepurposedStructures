@@ -5,6 +5,8 @@
 
 ##### Mineshafts:
 * Added Glowberries as possible Chest Minecart loot for Birch, Dark Forest, Jungle, Savanna, Stone, Swamp, and Taiga Mineshafts
+  
+* Fixed issue where the ending pieces of some Mineshafts won't have decorative blocks like vines or seagrass
 
 ##### Ruins:
 * Adjusted looks of Warm Land Ruins so it doesn't look as bad as it was before
