@@ -1,6 +1,6 @@
 {
   "name": "repurposed_structures:ruins/land_hot/side_pool",
-  "fallback": "repurposed_structures:ruins/land_hot/dead_bush",
+  "fallback": "minecraft:empty",
   "elements": [
     {
       "weight": 1,

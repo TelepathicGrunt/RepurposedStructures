@@ -1,6 +1,6 @@
 {
   "name": "repurposed_structures:ruins/land_warm/side_pool",
-  "fallback": "repurposed_structures:ruins/land_warm/grass",
+  "fallback": "minecraft:empty",
   "elements": [
     {
       "weight": 1,

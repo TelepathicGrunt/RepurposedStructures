@@ -1,13 +1,23 @@
 ### **(V.2.0.3 Changes) (1.17.0 Minecraft)**
 
 ##### Mansions:
-* Adjusted the default config value for mansion's average chunk distance between spawn attempts so mansions are much more rarer.
+* Adjusted the default config value for mansion's average chunk distance between spawn attempts so mansions are much more rarer
 
 ##### Mineshafts:
-* Added Glowberries as possible Chest Minecart loot for Birch, Dark Forest, Jungle, Savanna, Stone, Swamp, and Taiga Mineshafts.
+* Added Glowberries as possible Chest Minecart loot for Birch, Dark Forest, Jungle, Savanna, Stone, Swamp, and Taiga Mineshafts
+
+##### Ruins:
+* Adjusted looks of Warm Land Ruins so it doesn't look as bad as it was before
+  
+* Fixed Warm Land Ruins not having enough Tall Grass placed and Hot Land Ruins not having enough Dead Bush placed
+  
+* Removed the random Grass Block that Hot Land Ruins spawned by mistake
+
+##### Pyramids:
+* Fixed Tropical Fish dying in Mushroom Pyramid's pit at generation
 
 ##### Misc:
-* Redid a lot of code behind the scenes to clean up the codebase significantly. Hopefully I didn't miss any bugs. 
+* Redid a lot of code behind the scenes to clean up the codebase significantly. Hopefully I didn't miss any bugs.
 
 
 ### **(V.2.0.2 Changes) (1.17.0 Minecraft)**

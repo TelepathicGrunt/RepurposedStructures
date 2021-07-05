@@ -31,13 +31,13 @@
         {
           "output_state": {
             "Properties": {
-              "age": "6"
+              "snowy": "false"
             },
-            "Name": "minecraft:wheat"
+            "Name": "minecraft:grass_block"
           },
           "input_predicate": {
-            "block": "minecraft:wheat",
-            "probability": 0.1,
+            "block": "minecraft:dirt_path",
+            "probability": 0.25,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -47,13 +47,42 @@
         {
           "output_state": {
             "Properties": {
-              "age": "7"
+              "snowy": "false"
             },
-            "Name": "minecraft:potatoes"
+            "Name": "minecraft:podzol"
+          },
+          "input_predicate": {
+            "block": "minecraft:grass_block",
+            "probability": 0.25,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:air"
           },
           "input_predicate": {
             "block": "minecraft:wheat",
-            "probability": 0.033,
+            "probability": 0.6,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "age": "6"
+            },
+            "Name": "minecraft:wheat"
+          },
+          "input_predicate": {
+            "block": "minecraft:wheat",
+            "probability": 0.25,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
