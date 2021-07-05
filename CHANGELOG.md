@@ -18,8 +18,14 @@
 ##### Pyramids:
 * Fixed Tropical Fish dying in Mushroom Pyramid's pit at generation
 
+##### Bastions:
+* Underground Bastion maps are now sold by Wandering Traders rarely and very expensive
+
 ##### Misc:
 * Redid a lot of code behind the scenes to clean up the codebase significantly. Hopefully I didn't miss any bugs.
+  
+* Maps to Jungle Fortress, Underground Bastion, and all RS Mansions will no longer be added to Cartographers and 
+  Wandering Trader's trades if you set the structure's average chunk distance to the 'turn off' value in the config.
 
 
 ### **(V.2.0.2 Changes) (1.17.0 Minecraft)**
