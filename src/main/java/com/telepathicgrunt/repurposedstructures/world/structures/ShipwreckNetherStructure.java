@@ -113,7 +113,7 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NetherShipwr
             }
 
             BlockPos blockpos = new BlockPos(chunkPos1.getStartX(), placementHeight, chunkPos1.getStartZ());
-            StructurePoolBasedGenerator.method_30419(
+            StructurePoolBasedGenerator.generate(
                     dynamicRegistryManager,
                     new StructurePoolFeatureConfig(() -> dynamicRegistryManager.get(Registry.STRUCTURE_POOL_KEY).get(startPool), 6),
                     PoolStructurePiece::new,

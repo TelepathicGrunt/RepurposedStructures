@@ -77,7 +77,7 @@ public class ShipwreckEndStructure extends AbstractBaseStructure<DefaultFeatureC
         @Override
         public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, ChunkPos chunkPos1, Biome biome, DefaultFeatureConfig defaultFeatureConfig, HeightLimitView heightLimitView) {
             BlockPos blockpos = new BlockPos(chunkPos1.getStartX(), 64, chunkPos1.getStartZ());
-            StructurePoolBasedGenerator.method_30419(
+            StructurePoolBasedGenerator.generate(
                     dynamicRegistryManager,
                     new StructurePoolFeatureConfig(() -> dynamicRegistryManager.get(Registry.STRUCTURE_POOL_KEY).get(START_POOL), 1),
                     PoolStructurePiece::new,

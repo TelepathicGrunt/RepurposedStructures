@@ -91,7 +91,7 @@ public class CityNetherStructure extends GenericJigsawStructure {
 
         public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, ChunkPos chunkPos1, Biome biome, DefaultFeatureConfig defaultFeatureConfig, HeightLimitView heightLimitView) {
             BlockPos blockpos = new BlockPos(chunkPos1.getStartX(), chunkGenerator.getSeaLevel(), chunkPos1.getStartZ());
-            StructurePoolBasedGenerator.method_30419(
+            StructurePoolBasedGenerator.generate(
                     dynamicRegistryManager,
                     new StructurePoolFeatureConfig(() -> dynamicRegistryManager.get(Registry.STRUCTURE_POOL_KEY).get(startPool), structureSize),
                     PoolStructurePiece::new,

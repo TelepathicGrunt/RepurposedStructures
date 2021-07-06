@@ -42,9 +42,6 @@ public class StructurePostProcessConnectiveBlocks extends Feature<DefaultFeature
                     BlockState currentBlock = currentChunk.getBlockState(currentBlockMutable);
                     if(currentBlock.getBlock() instanceof WallBlock){
                         BlockState currentState = currentBlock.getBlock().getDefaultState();
-                        if(currentState.contains(Properties.WATERLOGGED)){
-                            currentBlock.with(Properties.WATERLOGGED, currentBlock.get(Properties.WATERLOGGED));
-                        }
                         for(Direction direction : Direction.values()){
                             offsetMutable.set(currentBlockMutable).move(direction);
                             if (currentChunkPos.x != offsetMutable.getX() >> 4 || currentChunkPos.z != offsetMutable.getZ() >> 4) {
@@ -59,13 +56,13 @@ public class StructurePostProcessConnectiveBlocks extends Feature<DefaultFeature
                                     offsetMutable
                             );
                         }
+                        if(currentState.contains(Properties.WATERLOGGED)){
+                            currentState = currentState.with(Properties.WATERLOGGED, currentBlock.get(Properties.WATERLOGGED));
+                        }
                         context.getWorld().setBlockState(currentBlockMutable, currentState, 3);
                     }
                     else if(currentBlock.getBlock() instanceof FenceBlock){
                         BlockState currentState = currentBlock.getBlock().getDefaultState();
-                        if(currentState.contains(Properties.WATERLOGGED)){
-                            currentBlock.with(Properties.WATERLOGGED, currentBlock.get(Properties.WATERLOGGED));
-                        }
                         for(Direction direction : Direction.Type.HORIZONTAL){
                             offsetMutable.set(currentBlockMutable).move(direction);
                             if (currentChunkPos.x != offsetMutable.getX() >> 4 || currentChunkPos.z != offsetMutable.getZ() >> 4) {
@@ -79,6 +76,9 @@ public class StructurePostProcessConnectiveBlocks extends Feature<DefaultFeature
                                     currentBlockMutable,
                                     offsetMutable
                             );
+                        }
+                        if(currentState.contains(Properties.WATERLOGGED)){
+                            currentState = currentState.with(Properties.WATERLOGGED, currentBlock.get(Properties.WATERLOGGED));
                         }
                         context.getWorld().setBlockState(currentBlockMutable, currentState, 3);
                     }

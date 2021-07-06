@@ -68,5 +68,10 @@
     "vertical_spacing": 12,
     "vertical_separation": 6,
     "max_y": 11
+  },
+  "repurposed_structures:bastion_underground": {
+    "vertical_spacing": 20,
+    "vertical_separation": 10,
+    "max_y": 64
   }
 }
