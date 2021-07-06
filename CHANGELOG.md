@@ -2,6 +2,8 @@
 
 ##### Mineshafts:
 * Fixed wall blocks or rails in Ocean Mineshafts not always being waterlogged
+  
+* Fixed walls blocks in Ocean Mineshafts sometimes being in a weird state
 
 ##### Mod Compat:
 * Added Cubic Chunks file to make Mineshafts and Nether Strongholds spawn repeatedly downward when Cubic Chunks is on
