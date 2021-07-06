@@ -1,3 +1,9 @@
+### **(V.2.7.8 Changes) (1.16.5 Minecraft)**
+
+##### Mod Compat:
+* Added code to made sure RS will not remove dungeons if BetterDungeons mod is on
+
+
 ### **(V.2.7.7 Changes) (1.16.5 Minecraft)**
 
 ##### Mineshafts:

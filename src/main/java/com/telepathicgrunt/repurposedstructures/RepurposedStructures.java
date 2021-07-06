@@ -96,6 +96,7 @@ public class RepurposedStructures {
     public static MobSpawnerManager mobSpawnerManager = new MobSpawnerManager();
 
     public static boolean yungsBetterMineshaftIsNotOn = true;
+    public static boolean yungsBetterDungeonsIsNotOn = true;
 
     public RepurposedStructures() {
         // Setup configs
@@ -130,6 +131,7 @@ public class RepurposedStructures {
 
         //For mod compat by checking if other mod is on
         yungsBetterMineshaftIsNotOn = !ModList.get().isLoaded("bettermineshafts");
+        yungsBetterDungeonsIsNotOn = !ModList.get().isLoaded("betterdungeons");
         EndRemasteredDedicatedLoot.isEndRemasteredOn = ModList.get().isLoaded("endrem");
 
         // Silences logspam due to me changing my piece's namespace from minecraft to my modid.
