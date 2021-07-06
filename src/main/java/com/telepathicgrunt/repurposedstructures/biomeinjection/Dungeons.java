@@ -165,19 +165,21 @@ public class Dungeons {
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.OCEAN_WARM_DUNGEONS));
 
 
-        //Remove vanilla dungeons from non-ocean/nether/end biomes we added our dungeons to
-        BiomeModifications.create(new Identifier(RepurposedStructures.MODID, "remove_vanilla_dungeons")).add(
-                ModificationPhase.REMOVALS,
-                context -> RSConfiguredFeatures.RS_DUNGEONS.stream().anyMatch(dungeon ->
-                        dungeon != RSConfiguredFeatures.OCEAN_NEUTRAL_DUNGEONS &&
-                        dungeon != RSConfiguredFeatures.OCEAN_COLD_DUNGEONS &&
-                        dungeon != RSConfiguredFeatures.OCEAN_FROZEN_DUNGEONS &&
-                        dungeon != RSConfiguredFeatures.OCEAN_LUKEWARM_DUNGEONS &&
-                        dungeon != RSConfiguredFeatures.OCEAN_WARM_DUNGEONS &&
-                        dungeon != RSConfiguredFeatures.NETHER_DUNGEONS &&
-                        dungeon != RSConfiguredFeatures.END_DUNGEONS &&
-                        context.hasBuiltInFeature(dungeon)),
-                context -> context.getGenerationSettings().removeBuiltInFeature(ConfiguredFeatures.MONSTER_ROOM));
+        if(!RepurposedStructures.betterDungeons) {
+            //Remove vanilla dungeons from non-ocean/nether/end biomes we added our dungeons to
+            BiomeModifications.create(new Identifier(RepurposedStructures.MODID, "remove_vanilla_dungeons")).add(
+                    ModificationPhase.REMOVALS,
+                    context -> RSConfiguredFeatures.RS_DUNGEONS.stream().anyMatch(dungeon ->
+                            dungeon != RSConfiguredFeatures.OCEAN_NEUTRAL_DUNGEONS &&
+                                    dungeon != RSConfiguredFeatures.OCEAN_COLD_DUNGEONS &&
+                                    dungeon != RSConfiguredFeatures.OCEAN_FROZEN_DUNGEONS &&
+                                    dungeon != RSConfiguredFeatures.OCEAN_LUKEWARM_DUNGEONS &&
+                                    dungeon != RSConfiguredFeatures.OCEAN_WARM_DUNGEONS &&
+                                    dungeon != RSConfiguredFeatures.NETHER_DUNGEONS &&
+                                    dungeon != RSConfiguredFeatures.END_DUNGEONS &&
+                                    context.hasBuiltInFeature(dungeon)),
+                    context -> context.getGenerationSettings().removeBuiltInFeature(ConfiguredFeatures.MONSTER_ROOM));
+        }
     }
 
     private static boolean genericDungeonCheck(BiomeSelectionContext context, ConfiguredFeature<?,?> configuredFeatures, Supplier<Boolean> condition) {

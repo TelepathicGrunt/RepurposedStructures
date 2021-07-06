@@ -6,7 +6,7 @@
 ##### Mod Compat:
 * Added Cubic Chunks file to make Mineshafts and Nether Strongholds spawn repeatedly downward when Cubic Chunks is on
 
-* 
+* Added code to made sure I will not remove dungeons or mineshafts if BetterDungeons or BetterMineshafts mod is on
 
 
 ### **(V.2.0.4 Changes) (1.17.0 Minecraft)**

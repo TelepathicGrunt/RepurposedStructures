@@ -42,6 +42,7 @@ import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerWorldEvents;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.resource.ResourceType;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.world.ServerWorld;
@@ -65,11 +66,22 @@ public class RepurposedStructures implements ModInitializer {
 	public static RSAllConfig RSAllConfig = null;
     public static final RSAllowDisallowOmegaConfig omegaBiomeDimConfig = OmegaConfig.register(RSAllowDisallowOmegaConfig.class);
     public static final RSNaturalMobSpawningOmegaConfig omegaMobSpawnConfig = OmegaConfig.register(RSNaturalMobSpawningOmegaConfig.class);
+    public static boolean betterMineshafts = false;
+    public static boolean betterDungeons = false;
+
 
     @Override
     public void onInitialize() {
         AutoConfig.register(RSAllConfig.class, JanksonConfigSerializer::new);
         RSAllConfig = AutoConfig.getConfigHolder(RSAllConfig.class).getConfig();
+
+        if (FabricLoader.getInstance().isModLoaded("bettermineshafts")) {
+            betterMineshafts = true;
+        }
+        if (FabricLoader.getInstance().isModLoaded("betterdungeons")) {
+            betterDungeons = true;
+        }
+
         RSPlacements.registerPlacements();
         RSFeatures.registerFeatures();
         RSProcessors.registerProcessors();

@@ -125,11 +125,13 @@ public class Mineshafts {
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.WARPED_MINESHAFT));
 
 
-        //Remove vanilla mineshafts from biomes we added our mineshafts to
-        BiomeModifications.create(new Identifier(RepurposedStructures.MODID, "remove_vanilla_mineshafts")).add(
-                ModificationPhase.REMOVALS,
-                context -> BiomeSelection.hasStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.MINESHAFT),
-                context -> context.getGenerationSettings().removeStructure(StructureFeature.MINESHAFT));
+        if(!RepurposedStructures.betterMineshafts){
+            //Remove vanilla mineshafts from biomes we added our mineshafts to
+            BiomeModifications.create(new Identifier(RepurposedStructures.MODID, "remove_vanilla_mineshafts")).add(
+                    ModificationPhase.REMOVALS,
+                    context -> BiomeSelection.hasStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.MINESHAFT),
+                    context -> context.getGenerationSettings().removeStructure(StructureFeature.MINESHAFT));
+        }
     }
 
     private static boolean genericMineshaftCheck(BiomeSelectionContext context, StructureFeature<?> structureFeature, Supplier<Boolean> condition) {
