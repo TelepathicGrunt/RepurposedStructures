@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FenceBlock;
 import net.minecraft.block.WallBlock;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.Direction;
@@ -38,9 +39,12 @@ public class StructurePostProcessConnectiveBlocks extends Feature<DefaultFeature
                         currentChunkPos = new ChunkPos(currentBlockMutable);
                     }
 
-                    Block currentBlock = currentChunk.getBlockState(currentBlockMutable).getBlock();
-                    if(currentBlock instanceof WallBlock){
-                        BlockState currentState = currentBlock.getDefaultState();
+                    BlockState currentBlock = currentChunk.getBlockState(currentBlockMutable);
+                    if(currentBlock.getBlock() instanceof WallBlock){
+                        BlockState currentState = currentBlock.getBlock().getDefaultState();
+                        if(currentState.contains(Properties.WATERLOGGED)){
+                            currentBlock.with(Properties.WATERLOGGED, currentBlock.get(Properties.WATERLOGGED));
+                        }
                         for(Direction direction : Direction.values()){
                             offsetMutable.set(currentBlockMutable).move(direction);
                             if (currentChunkPos.x != offsetMutable.getX() >> 4 || currentChunkPos.z != offsetMutable.getZ() >> 4) {
@@ -57,8 +61,11 @@ public class StructurePostProcessConnectiveBlocks extends Feature<DefaultFeature
                         }
                         context.getWorld().setBlockState(currentBlockMutable, currentState, 3);
                     }
-                    else if(currentBlock instanceof FenceBlock){
-                        BlockState currentState = currentBlock.getDefaultState();
+                    else if(currentBlock.getBlock() instanceof FenceBlock){
+                        BlockState currentState = currentBlock.getBlock().getDefaultState();
+                        if(currentState.contains(Properties.WATERLOGGED)){
+                            currentBlock.with(Properties.WATERLOGGED, currentBlock.get(Properties.WATERLOGGED));
+                        }
                         for(Direction direction : Direction.Type.HORIZONTAL){
                             offsetMutable.set(currentBlockMutable).move(direction);
                             if (currentChunkPos.x != offsetMutable.getX() >> 4 || currentChunkPos.z != offsetMutable.getZ() >> 4) {
