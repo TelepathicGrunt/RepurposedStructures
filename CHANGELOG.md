@@ -1,3 +1,9 @@
+### **(V.2.0.6 Changes) (1.17.0 Minecraft)**
+
+##### Villages:
+* Fixed Oak Villages using Birch Village pieces by mistake. Oops...
+
+
 ### **(V.2.0.5 Changes) (1.17.0 Minecraft)**
 
 ##### Mineshafts:
