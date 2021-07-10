@@ -1,3 +1,9 @@
+### **(V.2.0.7 Changes) (1.17.0 Minecraft)**
+
+##### Mod Compat:
+* Fixed possible crash with mods that makes their blocks implement Waterloggable but doesn't actually have the Waterloggable block property...
+
+
 ### **(V.2.0.6 Changes) (1.17.0 Minecraft)**
 
 ##### Villages:

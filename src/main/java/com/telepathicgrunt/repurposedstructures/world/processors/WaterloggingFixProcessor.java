@@ -26,7 +26,7 @@ public class WaterloggingFixProcessor extends StructureProcessor {
 
         // ONLY RUN THIS IF STRUCTURE'S BLOCK IS A DRY WATERLOGGABLE BLOCK
         ChunkPos currentChunkPos = new ChunkPos(infoIn2.pos);
-        if (infoIn2.state.getBlock() instanceof Waterloggable && !infoIn2.state.get(Properties.WATERLOGGED)) {
+        if (infoIn2.state.contains(Properties.WATERLOGGED) && !infoIn2.state.get(Properties.WATERLOGGED)) {
             Chunk currentChunk = worldReader.getChunk(currentChunkPos.x, currentChunkPos.z);
             if (worldReader.getFluidState(infoIn2.pos).isIn(FluidTags.WATER)) {
                 currentChunk.setBlockState(infoIn2.pos, Blocks.STONE.getDefaultState(), false);
