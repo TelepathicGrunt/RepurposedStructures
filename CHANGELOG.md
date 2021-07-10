@@ -1,3 +1,9 @@
+### **(V.2.7.9 Changes) (1.16.5 Minecraft)**
+
+##### Mod Compat:
+* Fixed possible crash with mods that makes their blocks implement IWaterLoggable but doesn't actually have the Waterloggable block property...
+
+
 ### **(V.2.7.8 Changes) (1.16.5 Minecraft)**
 
 ##### Mod Compat:

@@ -3,7 +3,6 @@ package com.telepathicgrunt.repurposedstructures.world.processors;
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.IWaterLoggable;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.Direction;
@@ -34,7 +33,7 @@ public class WaterloggingFixProcessor extends StructureProcessor {
         // Idea of workaround is detect if we are placing a waterloggable block and if so, remove the water in the world instead.
         // ONLY RUN THIS IF STRUCTURE BLOCK IS A DRY WATERLOGGABLE BLOCK
         ChunkPos currentChunkPos = new ChunkPos(infoIn2.pos);
-        if(infoIn2.state.getBlock() instanceof IWaterLoggable && !infoIn2.state.getValue(BlockStateProperties.WATERLOGGED)){
+        if(infoIn2.state.hasProperty(BlockStateProperties.WATERLOGGED) && !infoIn2.state.getValue(BlockStateProperties.WATERLOGGED)){
             IChunk currentChunk = worldReader.getChunk(currentChunkPos.x, currentChunkPos.z);
             if(worldReader.getFluidState(infoIn2.pos).is(FluidTags.WATER)){
                 currentChunk.setBlockState(infoIn2.pos, Blocks.STONE.defaultBlockState(), false);
