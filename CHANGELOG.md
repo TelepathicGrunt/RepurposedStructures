@@ -3,6 +3,9 @@
 ##### Mod Compat:
 * Fixed possible crash with mods that makes their blocks implement Waterloggable but doesn't actually have the Waterloggable block property...
 
+##### Configs:
+* Fixed possible race condition with Fabric API that breaks RS's structure dimension deny list config.
+
 
 ### **(V.2.0.6 Changes) (1.17.0 Minecraft)**
 

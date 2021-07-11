@@ -40,6 +40,7 @@ import draylar.omegaconfig.OmegaConfig;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerWorldEvents;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.loader.api.FabricLoader;
@@ -94,7 +95,6 @@ public class RepurposedStructures implements ModInitializer {
         BiomeDimensionAllowDisallow.setupAllowDisallowMaps();
         MobSpawningOverTime.setupMobSpawningMaps();
         setupBiomeModifications();
-        allowStructureSpawningPerDimension();
         MobMapTrades.addMapTrades();
         StructurePiecesBehavior.init();
         PoolAdditionMerger.mergeAdditionPools();
