@@ -7,8 +7,6 @@ import net.minecraft.item.map.MapIcon;
 import net.minecraft.village.TradeOffers;
 import net.minecraft.village.VillagerProfession;
 
-import static net.minecraft.village.TradeOffers.PROFESSION_TO_LEVELED_TRADE;
-
 public class MobMapTrades {
 
     public static void addMapTrades(){

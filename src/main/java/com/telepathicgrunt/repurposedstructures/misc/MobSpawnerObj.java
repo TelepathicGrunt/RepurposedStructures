@@ -1,7 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.misc;
 
 import com.google.gson.annotations.Expose;
-import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
