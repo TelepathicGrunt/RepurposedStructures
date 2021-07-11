@@ -25,10 +25,10 @@
       "com.telepathicgrunt.repurposedstructures.configs.ModMenuConfig"
     ],
     "client": [
-      "com.telepathicgrunt.repurposedstructures.misc.RSClientModInit"
+      "com.telepathicgrunt.repurposedstructures.RepurposedStructures"
     ],
     "server": [
-      "com.telepathicgrunt.repurposedstructures.misc.RSDedicatedModInit"
+      "com.telepathicgrunt.repurposedstructures.RepurposedStructures"
     ]
   },
   "mixins": [

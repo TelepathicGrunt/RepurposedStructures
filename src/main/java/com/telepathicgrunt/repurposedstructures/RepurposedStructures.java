@@ -39,6 +39,8 @@ import com.telepathicgrunt.repurposedstructures.world.structures.pieces.Structur
 import draylar.omegaconfig.OmegaConfig;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
+import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.api.DedicatedServerModInitializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerWorldEvents;
@@ -59,7 +61,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class RepurposedStructures implements ModInitializer {
+public class RepurposedStructures implements ModInitializer, DedicatedServerModInitializer, ClientModInitializer {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MODID = "repurposed_structures";
     public static MobSpawnerManager mobSpawnerManager = new MobSpawnerManager();
@@ -99,6 +101,17 @@ public class RepurposedStructures implements ModInitializer {
         StructurePiecesBehavior.init();
         PoolAdditionMerger.mergeAdditionPools();
         ResourceManagerHelper.get(ResourceType.SERVER_DATA).registerReloadListener(RepurposedStructures.mobSpawnerManager);
+    }
+
+    // These two are for making sure our ServerWorldEvents.LOAD event always fires after Fabric API's so our changes don't get overwritten
+    @Override
+    public void onInitializeServer() {
+        RepurposedStructures.allowStructureSpawningPerDimension();
+    }
+
+    @Override
+    public void onInitializeClient() {
+        RepurposedStructures.allowStructureSpawningPerDimension();
     }
 
     public static void allowStructureSpawningPerDimension() {
