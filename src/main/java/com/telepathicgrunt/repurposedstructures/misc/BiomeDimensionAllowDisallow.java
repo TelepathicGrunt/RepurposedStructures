@@ -67,7 +67,7 @@ public class BiomeDimensionAllowDisallow {
             }
             // Error msg for unknown keys (typo'ed structure registry names etc)
             else{
-                RepurposedStructures.LOGGER.warn("Unknown key {} was found in the {} config. Skipping that entry...", worldgenObjectID, errorMsg);
+                RepurposedStructures.LOGGER.warn("Repurposed Structures: Unknown key {} was found in the {} config. Skipping that entry...", worldgenObjectID, errorMsg);
             }
         }
     }

@@ -75,7 +75,7 @@ public class PieceLimitedJigsawManager {
         // Get starting pool
         StructurePool startPool = jigsawConfig.getStartPool().get();
         if(startPool.getElementCount() == 0){
-            RepurposedStructures.LOGGER.warn("Empty or nonexistent start pool: {}  Crash is imminent", startPool.getId());
+            RepurposedStructures.LOGGER.warn("Repurposed Structures: Empty or nonexistent start pool: {}  Crash is imminent", startPool.getId());
         }
 
         // Grab a random starting piece from the start pool. This is just the piece design itself, without rotation or position information.
@@ -107,7 +107,7 @@ public class PieceLimitedJigsawManager {
         Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces = StructurePiecesBehavior.REQUIRED_PIECES_COUNT.get(structureID);
         while(doesNotHaveAllRequiredPieces(components, requiredPieces)){
             if(attempts == 100){
-                RepurposedStructures.LOGGER.error("Failed to create valid structure with all required pieces starting from this pool file: {}. Required pieces are: {}", startPool.getId(), Arrays.toString(requiredPieces.keySet().toArray()));
+                RepurposedStructures.LOGGER.error("Repurposed Structures: Failed to create valid structure with all required pieces starting from this pool file: {}. Required pieces are: {}", startPool.getId(), Arrays.toString(requiredPieces.keySet().toArray()));
                 break;
             }
 
@@ -215,7 +215,7 @@ public class PieceLimitedJigsawManager {
 
                 // Only continue if we are using the jigsaw pattern registry and if it is not empty
                 if (!(poolOptional.isPresent() && (poolOptional.get().getElementCount() != 0 || Objects.equals(jigsawBlockPool, StructurePools.EMPTY.getValue())))) {
-                    RepurposedStructures.LOGGER.warn("Empty or nonexistent pool: {} which is being called from {}", jigsawBlockPool, pieceBlueprint instanceof SinglePoolElement ? ((SinglePoolElementAccessor) pieceBlueprint).repurposedstructures_getLocation().left().get() : "not a SinglePoolElement class");
+                    RepurposedStructures.LOGGER.warn("Repurposed Structures: Empty or nonexistent pool: {} which is being called from {}", jigsawBlockPool, pieceBlueprint instanceof SinglePoolElement ? ((SinglePoolElementAccessor) pieceBlueprint).repurposedstructures_getLocation().left().get() : "not a SinglePoolElement class");
                     continue;
                 }
 
@@ -225,7 +225,7 @@ public class PieceLimitedJigsawManager {
 
                 // Only continue if the fallback pool is present and valid
                 if (!(fallbackOptional.isPresent() && (fallbackOptional.get().getElementCount() != 0 || Objects.equals(jigsawBlockFallback, StructurePools.EMPTY.getValue())))) {
-                    RepurposedStructures.LOGGER.warn("Empty or nonexistent pool: {} which is being called from {}", jigsawBlockFallback, pieceBlueprint instanceof SinglePoolElement ? ((SinglePoolElementAccessor) pieceBlueprint).repurposedstructures_getLocation().left().get() : "not a SinglePoolElement class");
+                    RepurposedStructures.LOGGER.warn("Repurposed Structures: Empty or nonexistent pool: {} which is being called from {}", jigsawBlockFallback, pieceBlueprint instanceof SinglePoolElement ? ((SinglePoolElementAccessor) pieceBlueprint).repurposedstructures_getLocation().left().get() : "not a SinglePoolElement class");
                     continue;
                 }
 

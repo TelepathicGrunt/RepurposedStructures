@@ -43,12 +43,12 @@ public class SafeDecodingRegistryOps<T> extends RegistryOps<T> {
     protected <E> DataResult<Pair<Supplier<E>, T>> decodeOrId(T object, RegistryKey<? extends Registry<E>> registryKey, Codec<E> codec, boolean allowInlineDefinitions) {
         Optional<MutableRegistry<E>> optional = this.dynamicRegistryManager.getOptionalMutable(registryKey);
         if (!optional.isPresent()) {
-            return DataResult.error("(RepurposedStructures SafeDecodingRegistryOps) Unknown registry: " + registryKey);
+            return DataResult.error("(Repurposed Structures SafeDecodingRegistryOps) Unknown registry: " + registryKey);
         } else {
             DataResult<Pair<Identifier, T>> dataResult = Identifier.CODEC.decode(this.delegate, object);
             if (!dataResult.result().isPresent()) {
                 return !allowInlineDefinitions ?
-                        DataResult.error("(RepurposedStructures SafeDecodingRegistryOps) Inline definitions not allowed here") :
+                        DataResult.error("(Repurposed Structures SafeDecodingRegistryOps) Inline definitions not allowed here") :
                         codec.decode(this, object).map((pair) -> pair.mapFirst((object2) -> () -> object2));
             } else {
                 MutableRegistry<E> mutableRegistry = optional.get();
@@ -74,7 +74,7 @@ public class SafeDecodingRegistryOps<T> extends RegistryOps<T> {
             Supplier<E> supplier = Suppliers.memoize(() -> {
                 E object = mutableRegistry.get(elementRegistryKey);
                 if (object == null) {
-                    throw new RuntimeException("(RepurposedStructures SafeDecodingRegistryOps) Error during recursive registry parsing, element resolved too early: " + elementRegistryKey);
+                    throw new RuntimeException("(Repurposed Structures SafeDecodingRegistryOps) Error during recursive registry parsing, element resolved too early: " + elementRegistryKey);
                 } else {
                     return object;
                 }

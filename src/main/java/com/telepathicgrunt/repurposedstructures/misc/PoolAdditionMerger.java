@@ -96,7 +96,7 @@ public class PoolAdditionMerger {
                         }
                         else {
                             RepurposedStructures.LOGGER.error(
-                                    "(POOL MERGER) Couldn't load data file {} from {} as it's null or empty",
+                                    "(Repurposed Structures POOL MERGER) Couldn't load data file {} from {} as it's null or empty",
                                     fileID,
                                     fileIDWithExtension);
                         }
@@ -105,7 +105,7 @@ public class PoolAdditionMerger {
             }
             catch (IllegalArgumentException | IOException | JsonParseException exception) {
                 RepurposedStructures.LOGGER.error(
-                        "(POOL MERGER) Couldn't parse data file {} from {}",
+                        "(Repurposed Structures POOL MERGER) Couldn't parse data file {} from {}",
                         fileID,
                         fileIDWithExtension,
                         exception);
@@ -179,7 +179,7 @@ public class PoolAdditionMerger {
                 if(nbtID.isEmpty()) continue;
                 Optional<Structure> structureTemplate = structureManager.getStructure(nbtID.get());
                 if(structureTemplate.isEmpty()){
-                    RepurposedStructures.LOGGER.error("(POOL MERGER) Found an entry in {} that points to the non-existent nbt file called {}", feedingPool.getId(), nbtID.get());
+                    RepurposedStructures.LOGGER.error("(Repurposed Structures POOL MERGER) Found an entry in {} that points to the non-existent nbt file called {}", feedingPool.getId(), nbtID.get());
                 }
             }
             else if(element instanceof ListPoolElement listPoolElement){
@@ -189,7 +189,7 @@ public class PoolAdditionMerger {
                         if (nbtID.isEmpty()) continue;
                         Optional<Structure> structureTemplate = structureManager.getStructure(nbtID.get());
                         if (structureTemplate.isEmpty()) {
-                            RepurposedStructures.LOGGER.error("(POOL MERGER) Found an entry in {} that points to the non-existent nbt file called {}", feedingPool.getId(), nbtID.get());
+                            RepurposedStructures.LOGGER.error("(Repurposed Structures POOL MERGER) Found an entry in {} that points to the non-existent nbt file called {}", feedingPool.getId(), nbtID.get());
                         }
                     }
                 }
@@ -204,6 +204,6 @@ public class PoolAdditionMerger {
      * Log out the pool that failed to be parsed and what the error is.
      */
     private static void logBadData(Identifier poolPath, String messageString) {
-        RepurposedStructures.LOGGER.error("(POOL MERGER) Failed to parse {} additions file. Error is: {}", poolPath, messageString);
+        RepurposedStructures.LOGGER.error("(Repurposed Structures POOL MERGER) Failed to parse {} additions file. Error is: {}", poolPath, messageString);
     }
 }
