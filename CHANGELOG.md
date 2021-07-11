@@ -1,5 +1,9 @@
 ### **(V.2.0.7 Changes) (1.17.0 Minecraft)**
 
+##### RS Spawners:
+* Made it so that setting a mob to a weight of 0 in an RS_Spawner file by datapack will no longer crash. 
+  Instead, that mob won't be picked anymore. I did add a more detailed error message if a weight of -1 or lower is attempted.
+
 ##### Mod Compat:
 * Fixed possible crash with mods that makes their blocks implement Waterloggable but doesn't actually have the Waterloggable block property...
 

@@ -36,12 +36,21 @@ public class MobSpawnerManager extends JsonDataLoader implements IdentifiableRes
         loader.forEach((fileIdentifier, jsonElement) -> {
             try {
                 List<MobSpawnerObj> spawnerMobEntries = GSON.fromJson(jsonElement.getAsJsonObject().get("mobs"), new TypeToken<List<MobSpawnerObj>>(){}.getType());
-                for(MobSpawnerObj entry : spawnerMobEntries)
+                for(int i = spawnerMobEntries.size() - 1; i >= 0; i--){
+                    MobSpawnerObj entry = spawnerMobEntries.get(i);
                     entry.setEntityType();
+                    if(entry.weight == 0){
+                        // Make 0 remove the mob automatically so it doesn't spawn.
+                        spawnerMobEntries.remove(i);
+                    }
+                    else if(entry.weight < 0){
+                        throw new Exception("Error: Found " + entry.name + " entry has a weight less than 0. Please remove the entry if you don't want a mob to be picked");
+                    }
+                }
                 builder.put(fileIdentifier, spawnerMobEntries);
             }
             catch (Exception e) {
-                RepurposedStructures.LOGGER.error(" Couldn't parse spawner mob list {}", fileIdentifier, e);
+                RepurposedStructures.LOGGER.error("Repurposed Structures Error: Couldn't parse spawner mob list {}", fileIdentifier, e);
             }
         });
         this.spawnerMap =  builder.build();
