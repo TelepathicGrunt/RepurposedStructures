@@ -8,7 +8,6 @@ import com.telepathicgrunt.repurposedstructures.world.processors.CloseOffFluidSo
 import com.telepathicgrunt.repurposedstructures.world.processors.DataBlockProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.FillEndPortalFrameProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.FloodWithWaterProcessor;
-import com.telepathicgrunt.repurposedstructures.world.processors.PillarChainDataBlockProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.RandomReplaceWithPropertiesProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.RemoveFloatingBlocksProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.ReplaceAirOnlyProcessor;
@@ -27,7 +26,6 @@ public class RSProcessors {
     public static StructureProcessorType<AirProcessor> AIR_PROCESSOR = () -> AirProcessor.CODEC;
     public static StructureProcessorType<SkyViewProcessor> SKY_VIEW_PROCESSOR = () -> SkyViewProcessor.CODEC;
     public static StructureProcessorType<DataBlockProcessor> DATA_BLOCK_PROCESSOR = () -> DataBlockProcessor.CODEC;
-    public static StructureProcessorType<PillarChainDataBlockProcessor> PILLAR_CHAIN_DATA_BLOCK_PROCESSOR = () -> PillarChainDataBlockProcessor.CODEC;
     public static StructureProcessorType<StructureVoidProcessor> STRUCTURE_VOID_PROCESSOR = () -> StructureVoidProcessor.CODEC;
     public static StructureProcessorType<FloodWithWaterProcessor> FLOOD_WITH_WATER_PROCESSOR = () -> FloodWithWaterProcessor.CODEC;
     public static StructureProcessorType<ReplaceAirOnlyProcessor> REPLACE_AIR_ONLY_PROCESSOR = () -> ReplaceAirOnlyProcessor.CODEC;
@@ -47,7 +45,6 @@ public class RSProcessors {
         Registry.register(Registry.STRUCTURE_PROCESSOR, new Identifier(RepurposedStructures.MODID, "air_processor"), AIR_PROCESSOR);
         Registry.register(Registry.STRUCTURE_PROCESSOR, new Identifier(RepurposedStructures.MODID, "sky_view_processor"), SKY_VIEW_PROCESSOR);
         Registry.register(Registry.STRUCTURE_PROCESSOR, new Identifier(RepurposedStructures.MODID, "data_block_processor"), DATA_BLOCK_PROCESSOR);
-        Registry.register(Registry.STRUCTURE_PROCESSOR, new Identifier(RepurposedStructures.MODID, "pillar_chain_data_block_processor"), PILLAR_CHAIN_DATA_BLOCK_PROCESSOR);
         Registry.register(Registry.STRUCTURE_PROCESSOR, new Identifier(RepurposedStructures.MODID, "structure_void_processor"), STRUCTURE_VOID_PROCESSOR);
         Registry.register(Registry.STRUCTURE_PROCESSOR, new Identifier(RepurposedStructures.MODID, "flood_with_water_processor"), FLOOD_WITH_WATER_PROCESSOR);
         Registry.register(Registry.STRUCTURE_PROCESSOR, new Identifier(RepurposedStructures.MODID, "replace_air_only_processor"), REPLACE_AIR_ONLY_PROCESSOR);
