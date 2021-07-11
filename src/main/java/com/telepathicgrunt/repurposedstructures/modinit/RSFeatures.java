@@ -3,6 +3,8 @@ package com.telepathicgrunt.repurposedstructures.modinit;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.features.*;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.GenericMobConfig;
+import com.telepathicgrunt.repurposedstructures.world.features.configs.MinecartConfig;
+import com.telepathicgrunt.repurposedstructures.world.features.configs.MineshaftSupportConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.NbtDungeonConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.NbtFeatureConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetAndLengthConfig;
@@ -59,6 +61,9 @@ public class RSFeatures {
     public static Feature<StructureTargetAndRangeConfig> STRUCTURE_GRASS = new StructureGrass(StructureTargetAndRangeConfig.CODEC);
     public static Feature<StructureTargetAndRangeConfig> STRUCTURE_FLOWERS = new StructureFlowers(StructureTargetAndRangeConfig.CODEC);
 
+    public static Feature<MinecartConfig> MINESHAFT_MINECARTS = new MinecartFeature(MinecartConfig.CODEC);
+    public static Feature<MineshaftSupportConfig> MINESHAFT_SUPPORTS = new MineshaftSupport(MineshaftSupportConfig.CODEC);
+
     public static void registerFeatures() {
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "dungeons_badlands"), BADLANDS_DUNGEONS);
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "dungeons_dark_forest"), DARK_FOREST_DUNGEONS);
@@ -99,5 +104,8 @@ public class RSFeatures {
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "structure_vine_breakage"), STRUCTURE_VINE_BREAKAGE);
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "structure_grass"), STRUCTURE_GRASS);
         Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "structure_flowers"), STRUCTURE_FLOWERS);
+
+        Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "mineshaft_minecarts"), MINESHAFT_MINECARTS);
+        Registry.register(Registry.FEATURE, new Identifier(RepurposedStructures.MODID, "mineshaft_supports"), MINESHAFT_SUPPORTS);
     }
 }

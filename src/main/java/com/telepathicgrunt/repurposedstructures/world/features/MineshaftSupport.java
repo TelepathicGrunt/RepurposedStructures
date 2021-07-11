@@ -41,6 +41,7 @@ public class MineshaftSupport extends Feature<MineshaftSupportConfig> {
 
             BlockState tempBlock;
             boolean canMakePillar = false;
+            mutable.move(Direction.DOWN);
             while (mutable.getY() > chunk.getBottomY()) {
                 tempBlock = chunk.getBlockState(mutable);
 
@@ -77,6 +78,7 @@ public class MineshaftSupport extends Feature<MineshaftSupportConfig> {
                 if (!chunk.getBlockState(mutable.up(3)).isOpaque()) {
 
                     boolean canMakeChain = false;
+                    mutable.move(Direction.UP);
                     while (mutable.getY() < world.getTopY()) {
                         tempBlock = chunk.getBlockState(mutable);
 
@@ -127,6 +129,7 @@ public class MineshaftSupport extends Feature<MineshaftSupportConfig> {
     protected boolean canReplace(BlockState state) {
         return state.isAir() ||
                 state.getMaterial().isLiquid() ||
+                state.isOf(Blocks.COBWEB) ||
                 state.isOf(Blocks.GLOW_LICHEN) ||
                 state.isOf(Blocks.SEAGRASS) ||
                 state.isOf(Blocks.TALL_SEAGRASS);

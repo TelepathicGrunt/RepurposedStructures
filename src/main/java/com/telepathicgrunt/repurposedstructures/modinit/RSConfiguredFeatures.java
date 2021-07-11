@@ -4,6 +4,8 @@ import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.GenericMobConfig;
+import com.telepathicgrunt.repurposedstructures.world.features.configs.MinecartConfig;
+import com.telepathicgrunt.repurposedstructures.world.features.configs.MineshaftSupportConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.NbtDungeonConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.NbtFeatureConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetAndLengthConfig;
@@ -11,6 +13,7 @@ import com.telepathicgrunt.repurposedstructures.world.features.configs.Structure
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetChanceConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetLengthRangeConfig;
+import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
@@ -303,6 +306,9 @@ public class RSConfiguredFeatures {
                 .decorate(RSPlacements.MINUS_EIGHT_PLACEMENT.configure(NopeDecoratorConfig.DEFAULT))
                 .repeat(8);
 
+    public static ConfiguredFeature<?, ?> SAVANNA_MINESHAFT_MINECART = RSFeatures.MINESHAFT_MINECARTS.configure(new MinecartConfig(new Identifier(RepurposedStructures.MODID, "mineshafts/savanna/minecart")));
+    public static ConfiguredFeature<?, ?> SAVANNA_MINESHAFT_SUPPORT = RSFeatures.MINESHAFT_SUPPORTS.configure(new MineshaftSupportConfig(Blocks.ACACIA_LOG.getDefaultState(), Blocks.ACACIA_FENCE.getDefaultState(), Blocks.ACACIA_PLANKS, false));
+
     public static void registerConfiguredFeatures() {
         Registry<ConfiguredFeature<?, ?>> registry = BuiltinRegistries.CONFIGURED_FEATURE;
         RS_DUNGEONS.add(Registry.register(registry, new Identifier(RepurposedStructures.MODID, "dungeons_badlands"), BADLANDS_DUNGEONS));
@@ -379,5 +385,7 @@ public class RSConfiguredFeatures {
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "swamp_village_structure_vines"), SWAMP_VILLAGE_STRUCTURE_VINES);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "warm_land_ruins_structure_grass"), WARM_LAND_RUINS_STRUCTURE_GRASS);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "hot_land_ruins_structure_dead_bush"), HOT_LAND_RUINS_STRUCTURE_DEAD_BUSH);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "savanna_mineshaft_minecart"), SAVANNA_MINESHAFT_MINECART);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "savanna_mineshaft_support"), SAVANNA_MINESHAFT_SUPPORT);
     }
 }
