@@ -22,7 +22,7 @@ public class MobSpawnerObj {
     public void setEntityType() throws Exception {
         ResourceLocation entity_id = new ResourceLocation(this.name);
         if(!ForgeRegistries.ENTITIES.containsKey(entity_id))
-            throw new Exception("Error: "+entity_id+" is not a valid entity ID!");
+            throw new Exception("Error: " + entity_id + " is not a valid entity ID!");
         entityType = ForgeRegistries.ENTITIES.getValue(entity_id);
     }
 }
