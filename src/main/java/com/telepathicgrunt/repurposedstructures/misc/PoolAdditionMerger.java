@@ -86,7 +86,7 @@ public class PoolAdditionMerger {
                         }
                         else {
                             RepurposedStructures.LOGGER.error(
-                                    "(POOL MERGER) Couldn't load data file {} from {} as it's null or empty",
+                                    "(Repurposed Structures POOL MERGER) Couldn't load data file {} from {} as it's null or empty",
                                     fileID,
                                     fileIDWithExtension);
                         }
@@ -95,7 +95,7 @@ public class PoolAdditionMerger {
             }
             catch (IllegalArgumentException | IOException | JsonParseException exception) {
                 RepurposedStructures.LOGGER.error(
-                        "(POOL MERGER) Couldn't parse data file {} from {}",
+                        "(Repurposed Structures POOL MERGER) Couldn't parse data file {} from {}",
                         fileID,
                         fileIDWithExtension,
                         exception);
@@ -170,6 +170,6 @@ public class PoolAdditionMerger {
      * Log out the pool that failed to be parsed and what the error is.
      */
     private static void logBadData(ResourceLocation poolPath, String messageString) {
-        RepurposedStructures.LOGGER.error("(POOL MERGER) Failed to parse {} additions file. Error is: {}", poolPath, messageString);
+        RepurposedStructures.LOGGER.error("(Repurposed Structures POOL MERGER) Failed to parse {} additions file. Error is: {}", poolPath, messageString);
     }
 }
