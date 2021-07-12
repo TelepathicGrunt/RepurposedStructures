@@ -13,6 +13,9 @@
 * Made it so that setting a mob to a weight of 0 in an RS_Spawner file by datapack will no longer crash. 
   Instead, that mob won't be picked anymore. I did add a more detailed error message if a weight of -1 or lower is attempted.
 
+* Made empty rs_spawner files in datapacks now give a clear error instead.
+  It'll still crash later but scroll up and you'll see the error msg explaining why the files need at least 1 entitytype with a weight of 1 or more
+
 ##### Mod Compat:
 * Fixed possible crash with mods that makes their blocks implement Waterloggable but doesn't actually have the Waterloggable block property...
 

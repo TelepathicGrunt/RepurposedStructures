@@ -64,6 +64,15 @@ public class MobSpawnerManager extends JsonDataLoader implements IdentifiableRes
         }
 
         int totalWeight = spawnerMobEntries.stream().mapToInt(mobEntry -> mobEntry.weight).sum();
+        if(totalWeight == 0){
+            RepurposedStructures.LOGGER.log(Level.ERROR, """
+                    ***************************************
+                    Empty %s.json found. At least 1 entitytype with a weight of 1 or more must be specified. If you want to remove spawner block, override the structure's nbt file or processor file and replace the spawner block that way instead.
+                    ***************************************
+                    """.formatted(spawnerJsonEntry));
+            return EntityType.PIG;
+        }
+
         int randomWeight = random.nextInt(totalWeight) + 1;
         int index = 0;
 
@@ -71,7 +80,7 @@ public class MobSpawnerManager extends JsonDataLoader implements IdentifiableRes
             while(true){
                 randomWeight -= spawnerMobEntries.get(index).weight;
                 if(randomWeight <= 0)
-                    return  Registry.ENTITY_TYPE.get(new Identifier(spawnerMobEntries.get(index).name));
+                    return Registry.ENTITY_TYPE.get(new Identifier(spawnerMobEntries.get(index).name));
 
                 index++;
             }
