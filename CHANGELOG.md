@@ -1,3 +1,9 @@
+### **(V.2.7.10 Changes) (1.16.5 Minecraft)**
+
+##### Mod Compat:
+* Fixed a check so that it checks for Better Dungeons mod instead of Better Mineshafts to know when to not remove vanilla dungeons
+
+
 ### **(V.2.7.9 Changes) (1.16.5 Minecraft)**
 
 ##### RS Spawners:
