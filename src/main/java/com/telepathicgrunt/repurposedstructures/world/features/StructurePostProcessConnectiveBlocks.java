@@ -34,7 +34,7 @@ public class StructurePostProcessConnectiveBlocks extends Feature<NoFeatureConfi
                 // only run the connection code in adjacent spots
                 if(Math.abs(x) + Math.abs(z) != 1) continue;
 
-                for(int y = -1; y <= 0; y++){
+                for(int y = -2; y <= 0; y++){
                     currentBlockMutable.set(position).move(x, y, z);
 
                     if (currentChunkPos.x != currentBlockMutable.getX() >> 4 || currentChunkPos.z != currentBlockMutable.getZ() >> 4) {
