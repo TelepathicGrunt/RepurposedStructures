@@ -22,12 +22,7 @@
             "invert_condition": false,
             "predicate_type": "repurposed_structures:matter_phase_rule_test"
           }
-        }
-      ],
-      "processor_type": "minecraft:rule"
-    },
-    {
-      "rules": [
+        },
         {
           "output_state": {
             "Name": "minecraft:structure_void"
@@ -49,7 +44,12 @@
             "invert_condition": true,
             "predicate_type": "repurposed_structures:matter_phase_rule_test"
           }
-        },
+        }
+      ],
+      "processor_type": "minecraft:rule"
+    },
+    {
+      "rules": [
         {
           "output_state": {
             "Name": "minecraft:structure_void"
@@ -89,6 +89,9 @@
       "processor_type": "minecraft:rule"
     },
     {
+      "processor_type": "repurposed_structures:mineshaft_sky_view_processor"
+    },
+    {
       "processor_type": "repurposed_structures:close_off_fluid_sources_processor",
       "weighted_list_of_replacement_blocks": [
         {
@@ -96,9 +99,6 @@
           "weight": 1
         }
       ]
-    },
-    {
-      "processor_type": "repurposed_structures:mineshaft_sky_view_processor"
     },
     {
       "processor_type": "repurposed_structures:structure_void_processor"

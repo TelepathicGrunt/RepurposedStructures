@@ -1,0 +1,14 @@
+{
+  "name": "repurposed_structures:mineshafts/warped/support",
+  "fallback": "repurposed_structures:mineshafts/warped/support",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "feature": "repurposed_structures:warped_mineshaft_support",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    }
+  ]
+}

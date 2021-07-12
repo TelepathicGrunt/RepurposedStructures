@@ -7,6 +7,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FallingBlock;
 import net.minecraft.block.LanternBlock;
+import net.minecraft.block.Material;
 import net.minecraft.state.property.Properties;
 import net.minecraft.tag.FluidTags;
 import net.minecraft.util.math.BlockPos;
@@ -129,9 +130,7 @@ public class MineshaftSupport extends Feature<MineshaftSupportConfig> {
     protected boolean canReplace(BlockState state) {
         return state.isAir() ||
                 state.getMaterial().isLiquid() ||
-                state.isOf(Blocks.COBWEB) ||
-                state.isOf(Blocks.GLOW_LICHEN) ||
-                state.isOf(Blocks.SEAGRASS) ||
-                state.isOf(Blocks.TALL_SEAGRASS);
+                state.getMaterial().equals(Material.REPLACEABLE_PLANT) ||
+                state.isOf(Blocks.COBWEB);
     }
 }

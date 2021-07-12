@@ -1,18 +1,17 @@
 {
   "name": "repurposed_structures:mineshafts/crimson/minecarts",
-  "fallback": "minecraft:empty",
+  "fallback": "repurposed_structures:mineshafts/crimson/minecarts",
   "elements": [
     {
       "weight": 1,
       "element": {
-        "location": "repurposed_structures:mineshafts/crimson/minecart",
-        "processors": "minecraft:empty",
+        "feature": "repurposed_structures:crimson_mineshaft_minecart",
         "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
+        "element_type": "minecraft:feature_pool_element"
       }
     },
     {
-      "weight": 100,
+      "weight": 149,
       "element": {
         "element_type": "minecraft:empty_pool_element"
       }

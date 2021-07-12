@@ -1,14 +1,13 @@
 {
   "name": "repurposed_structures:mineshafts/ocean/minecarts",
-  "fallback": "minecraft:empty",
+  "fallback": "repurposed_structures:mineshafts/ocean/minecarts",
   "elements": [
     {
       "weight": 1,
       "element": {
-        "location": "repurposed_structures:mineshafts/ocean/minecart",
-        "processors": "repurposed_structures:mineshafts/ocean_misc",
+        "feature": "repurposed_structures:ocean_mineshaft_minecart",
         "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
+        "element_type": "minecraft:feature_pool_element"
       }
     },
     {

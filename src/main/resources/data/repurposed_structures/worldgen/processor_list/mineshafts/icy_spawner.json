@@ -121,6 +121,61 @@
       "processor_type": "minecraft:rule"
     },
     {
+      "rules": [
+        {
+          "output_state": {
+            "Name": "minecraft:structure_void"
+          },
+          "position_predicate": {
+            "min_chance": 0,
+            "max_chance": 1,
+            "min_dist": 0,
+            "max_dist": 1,
+            "axis": "y",
+            "predicate_type": "repurposed_structures:piece_origin_axis_aligned_linear_pos_rule_test"
+          },
+          "input_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "location_predicate": {
+            "phase_to_test_for": "AIR_RAIL_OR_CHAIN",
+            "invert_condition": false,
+            "predicate_type": "repurposed_structures:matter_phase_rule_test"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:structure_void"
+          },
+          "input_predicate": {
+            "block": "minecraft:cave_air",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "block": "minecraft:chain",
+            "predicate_type": "minecraft:block_match"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:structure_void"
+          },
+          "input_predicate": {
+            "block": "minecraft:cobweb",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "block": "minecraft:chain",
+            "predicate_type": "minecraft:block_match"
+          }
+        }
+      ],
+      "processor_type": "minecraft:rule"
+    },
+    {
+      "processor_type": "repurposed_structures:mineshaft_sky_view_processor"
+    },
+    {
       "processor_type": "repurposed_structures:spawner_randomizing_processor",
       "rs_spawner_resourcelocation": "repurposed_structures:mineshafts/icy"
     },

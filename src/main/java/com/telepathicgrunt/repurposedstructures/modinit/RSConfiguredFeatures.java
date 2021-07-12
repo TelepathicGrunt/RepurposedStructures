@@ -306,8 +306,33 @@ public class RSConfiguredFeatures {
                 .decorate(RSPlacements.MINUS_EIGHT_PLACEMENT.configure(NopeDecoratorConfig.DEFAULT))
                 .repeat(8);
 
+    public static ConfiguredFeature<?, ?> BIRCH_MINESHAFT_MINECART = RSFeatures.MINESHAFT_MINECARTS.configure(new MinecartConfig(new Identifier(RepurposedStructures.MODID, "mineshafts/birch/minecart")));
+    public static ConfiguredFeature<?, ?> CRIMSON_MINESHAFT_MINECART = RSFeatures.MINESHAFT_MINECARTS.configure(new MinecartConfig(new Identifier(RepurposedStructures.MODID, "mineshafts/crimson/minecart")));
+    public static ConfiguredFeature<?, ?> DARK_FOREST_MINESHAFT_MINECART = RSFeatures.MINESHAFT_MINECARTS.configure(new MinecartConfig(new Identifier(RepurposedStructures.MODID, "mineshafts/dark_forest/minecart")));
+    public static ConfiguredFeature<?, ?> DESERT_MINESHAFT_MINECART = RSFeatures.MINESHAFT_MINECARTS.configure(new MinecartConfig(new Identifier(RepurposedStructures.MODID, "mineshafts/desert/minecart")));
+    public static ConfiguredFeature<?, ?> ICY_MINESHAFT_MINECART = RSFeatures.MINESHAFT_MINECARTS.configure(new MinecartConfig(new Identifier(RepurposedStructures.MODID, "mineshafts/icy/minecart")));
+    public static ConfiguredFeature<?, ?> JUNGLE_MINESHAFT_MINECART = RSFeatures.MINESHAFT_MINECARTS.configure(new MinecartConfig(new Identifier(RepurposedStructures.MODID, "mineshafts/jungle/minecart")));
+    public static ConfiguredFeature<?, ?> NETHER_MINESHAFT_MINECART = RSFeatures.MINESHAFT_MINECARTS.configure(new MinecartConfig(new Identifier(RepurposedStructures.MODID, "mineshafts/nether/minecart")));
+    public static ConfiguredFeature<?, ?> OCEAN_MINESHAFT_MINECART = RSFeatures.MINESHAFT_MINECARTS.configure(new MinecartConfig(new Identifier(RepurposedStructures.MODID, "mineshafts/ocean/minecart")));
     public static ConfiguredFeature<?, ?> SAVANNA_MINESHAFT_MINECART = RSFeatures.MINESHAFT_MINECARTS.configure(new MinecartConfig(new Identifier(RepurposedStructures.MODID, "mineshafts/savanna/minecart")));
+    public static ConfiguredFeature<?, ?> STONE_MINESHAFT_MINECART = RSFeatures.MINESHAFT_MINECARTS.configure(new MinecartConfig(new Identifier(RepurposedStructures.MODID, "mineshafts/stone/minecart")));
+    public static ConfiguredFeature<?, ?> SWAMP_MINESHAFT_MINECART = RSFeatures.MINESHAFT_MINECARTS.configure(new MinecartConfig(new Identifier(RepurposedStructures.MODID, "mineshafts/swamp/minecart")));
+    public static ConfiguredFeature<?, ?> TAIGA_MINESHAFT_MINECART = RSFeatures.MINESHAFT_MINECARTS.configure(new MinecartConfig(new Identifier(RepurposedStructures.MODID, "mineshafts/taiga/minecart")));
+    public static ConfiguredFeature<?, ?> WARPED_MINESHAFT_MINECART = RSFeatures.MINESHAFT_MINECARTS.configure(new MinecartConfig(new Identifier(RepurposedStructures.MODID, "mineshafts/warped/minecart")));
+
+    public static ConfiguredFeature<?, ?> BIRCH_MINESHAFT_SUPPORT = RSFeatures.MINESHAFT_SUPPORTS.configure(new MineshaftSupportConfig(Blocks.BIRCH_LOG.getDefaultState(), Blocks.BIRCH_FENCE.getDefaultState(), Blocks.BIRCH_PLANKS, false));
+    public static ConfiguredFeature<?, ?> CRIMSON_MINESHAFT_SUPPORT = RSFeatures.MINESHAFT_SUPPORTS.configure(new MineshaftSupportConfig(Blocks.CRIMSON_HYPHAE.getDefaultState(), Blocks.CRIMSON_FENCE.getDefaultState(), Blocks.CRIMSON_NYLIUM, false));
+    public static ConfiguredFeature<?, ?> DARK_FOREST_MINESHAFT_SUPPORT = RSFeatures.MINESHAFT_SUPPORTS.configure(new MineshaftSupportConfig(Blocks.DARK_OAK_LOG.getDefaultState(), Blocks.DARK_OAK_FENCE.getDefaultState(), Blocks.DARK_OAK_PLANKS, false));
+    public static ConfiguredFeature<?, ?> DESERT_MINESHAFT_SUPPORT = RSFeatures.MINESHAFT_SUPPORTS.configure(new MineshaftSupportConfig(Blocks.SMOOTH_SANDSTONE.getDefaultState(), Blocks.SANDSTONE_WALL.getDefaultState(), Blocks.SMOOTH_SANDSTONE, false));
+    public static ConfiguredFeature<?, ?> ICY_MINESHAFT_SUPPORT = RSFeatures.MINESHAFT_SUPPORTS.configure(new MineshaftSupportConfig(Blocks.PACKED_ICE.getDefaultState(), Blocks.DIORITE_WALL.getDefaultState(), Blocks.ICE, false));
+    public static ConfiguredFeature<?, ?> JUNGLE_MINESHAFT_SUPPORT = RSFeatures.MINESHAFT_SUPPORTS.configure(new MineshaftSupportConfig(Blocks.JUNGLE_LOG.getDefaultState(), Blocks.JUNGLE_FENCE.getDefaultState(), Blocks.JUNGLE_PLANKS, false));
+    public static ConfiguredFeature<?, ?> NETHER_MINESHAFT_SUPPORT = RSFeatures.MINESHAFT_SUPPORTS.configure(new MineshaftSupportConfig(Blocks.CRACKED_NETHER_BRICKS.getDefaultState(), Blocks.NETHER_BRICK_FENCE.getDefaultState(), Blocks.NETHER_BRICKS, false));
+    public static ConfiguredFeature<?, ?> OCEAN_MINESHAFT_SUPPORT = RSFeatures.MINESHAFT_SUPPORTS.configure(new MineshaftSupportConfig(Blocks.DARK_PRISMARINE.getDefaultState(), Blocks.PRISMARINE_WALL.getDefaultState(), Blocks.PRISMARINE_BRICKS, true));
     public static ConfiguredFeature<?, ?> SAVANNA_MINESHAFT_SUPPORT = RSFeatures.MINESHAFT_SUPPORTS.configure(new MineshaftSupportConfig(Blocks.ACACIA_LOG.getDefaultState(), Blocks.ACACIA_FENCE.getDefaultState(), Blocks.ACACIA_PLANKS, false));
+    public static ConfiguredFeature<?, ?> STONE_MINESHAFT_SUPPORT = RSFeatures.MINESHAFT_SUPPORTS.configure(new MineshaftSupportConfig(Blocks.ANDESITE.getDefaultState(), Blocks.COBBLESTONE_WALL.getDefaultState(), Blocks.ANDESITE, false));
+    public static ConfiguredFeature<?, ?> SWAMP_MINESHAFT_SUPPORT = RSFeatures.MINESHAFT_SUPPORTS.configure(new MineshaftSupportConfig(Blocks.MOSSY_STONE_BRICKS.getDefaultState(), Blocks.MOSSY_STONE_BRICK_WALL.getDefaultState(), Blocks.GRASS_BLOCK, false));
+    public static ConfiguredFeature<?, ?> TAIGA_MINESHAFT_SUPPORT = RSFeatures.MINESHAFT_SUPPORTS.configure(new MineshaftSupportConfig(Blocks.SPRUCE_LOG.getDefaultState(), Blocks.SPRUCE_FENCE.getDefaultState(), Blocks.SPRUCE_PLANKS, false));
+    public static ConfiguredFeature<?, ?> WARPED_MINESHAFT_SUPPORT = RSFeatures.MINESHAFT_SUPPORTS.configure(new MineshaftSupportConfig(Blocks.WARPED_HYPHAE.getDefaultState(), Blocks.WARPED_FENCE.getDefaultState(), Blocks.WARPED_NYLIUM, false));
 
     public static void registerConfiguredFeatures() {
         Registry<ConfiguredFeature<?, ?>> registry = BuiltinRegistries.CONFIGURED_FEATURE;
@@ -385,7 +410,33 @@ public class RSConfiguredFeatures {
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "swamp_village_structure_vines"), SWAMP_VILLAGE_STRUCTURE_VINES);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "warm_land_ruins_structure_grass"), WARM_LAND_RUINS_STRUCTURE_GRASS);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "hot_land_ruins_structure_dead_bush"), HOT_LAND_RUINS_STRUCTURE_DEAD_BUSH);
+
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "birch_mineshaft_minecart"), BIRCH_MINESHAFT_MINECART);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "crimson_mineshaft_minecart"), CRIMSON_MINESHAFT_MINECART);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "dark_forest_mineshaft_minecart"), DARK_FOREST_MINESHAFT_MINECART);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "desert_mineshaft_minecart"), DESERT_MINESHAFT_MINECART);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "icy_mineshaft_minecart"), ICY_MINESHAFT_MINECART);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "jungle_mineshaft_minecart"), JUNGLE_MINESHAFT_MINECART);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "nether_mineshaft_minecart"), NETHER_MINESHAFT_MINECART);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "ocean_mineshaft_minecart"), OCEAN_MINESHAFT_MINECART);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "savanna_mineshaft_minecart"), SAVANNA_MINESHAFT_MINECART);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "stone_mineshaft_minecart"), STONE_MINESHAFT_MINECART);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "swamp_mineshaft_minecart"), SWAMP_MINESHAFT_MINECART);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "taiga_mineshaft_minecart"), TAIGA_MINESHAFT_MINECART);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "warped_mineshaft_minecart"), WARPED_MINESHAFT_MINECART);
+
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "birch_mineshaft_support"), BIRCH_MINESHAFT_SUPPORT);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "crimson_mineshaft_support"), CRIMSON_MINESHAFT_SUPPORT);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "dark_forest_mineshaft_support"), DARK_FOREST_MINESHAFT_SUPPORT);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "desert_mineshaft_support"), DESERT_MINESHAFT_SUPPORT);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "icy_mineshaft_support"), ICY_MINESHAFT_SUPPORT);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "jungle_mineshaft_support"), JUNGLE_MINESHAFT_SUPPORT);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "nether_mineshaft_support"), NETHER_MINESHAFT_SUPPORT);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "ocean_mineshaft_support"), OCEAN_MINESHAFT_SUPPORT);
         Registry.register(registry, new Identifier(RepurposedStructures.MODID, "savanna_mineshaft_support"), SAVANNA_MINESHAFT_SUPPORT);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "stone_mineshaft_support"), STONE_MINESHAFT_SUPPORT);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "swamp_mineshaft_support"), SWAMP_MINESHAFT_SUPPORT);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "taiga_mineshaft_support"), TAIGA_MINESHAFT_SUPPORT);
+        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "warped_mineshaft_support"), WARPED_MINESHAFT_SUPPORT);
     }
 }
