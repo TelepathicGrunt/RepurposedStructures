@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.mojang.serialization.Codec;
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.MineshaftSupportConfig;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -33,7 +34,16 @@ public class MineshaftSupport extends Feature<MineshaftSupportConfig> {
         BlockPos.Mutable mutable = new BlockPos.Mutable().set(jigsawPos);
         StructureWorldAccess world = context.getWorld();
         Chunk chunk = world.getChunk(mutable);
-        
+
+        // Repair arch if we can at this spot (doesn't repair all arches. That requires a redesign of these jigsaw mineshafts)
+        if (chunk.getBlockState(mutable.up(3)).isOpaque()) {
+            for(int  i = 0; i <= 1; i++){
+                if(!chunk.getBlockState(mutable.move(Direction.UP)).getMaterial().blocksMovement()){
+                    chunk.setBlockState(mutable, context.getConfig().fenceState, false);
+                }
+            }
+        }
+
         // Only do support if floor block is placed
         if(world.getBlockState(mutable).isOf(context.getConfig().targetFloorState)) {
             if (world.isSkyVisibleAllowingSea(mutable.up())) {
@@ -76,7 +86,7 @@ public class MineshaftSupport extends Feature<MineshaftSupportConfig> {
                 }
             } else {
                 mutable.set(jigsawPos);
-                if (!chunk.getBlockState(mutable.up(3)).isOpaque()) {
+                if (!chunk.getBlockState(mutable.up(context.getConfig().waterBased ? 4 : 3)).isOpaque()) {
 
                     boolean canMakeChain = false;
                     mutable.move(Direction.UP);
@@ -129,7 +139,7 @@ public class MineshaftSupport extends Feature<MineshaftSupportConfig> {
 
     protected boolean canReplace(BlockState state) {
         return state.isAir() ||
-                state.getMaterial().isLiquid() ||
+                (state.getMaterial().isLiquid() && !state.getFluidState().isIn(FluidTags.LAVA)) ||
                 state.getMaterial().equals(Material.REPLACEABLE_PLANT) ||
                 state.isOf(Blocks.COBWEB);
     }

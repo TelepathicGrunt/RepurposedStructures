@@ -8,11 +8,13 @@ import com.telepathicgrunt.repurposedstructures.world.features.configs.MinecartC
 import com.telepathicgrunt.repurposedstructures.world.features.configs.MineshaftSupportConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.NbtFeatureConfig;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.structure.Structure;
 import net.minecraft.structure.StructureManager;
 import net.minecraft.structure.StructurePlacementData;
 import net.minecraft.structure.processor.BlockIgnoreStructureProcessor;
+import net.minecraft.tag.FluidTags;
 import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.Identifier;
@@ -40,6 +42,14 @@ public class MinecartFeature extends Feature<MinecartConfig> {
         // Check if below block is solid
         BlockPos.Mutable mutable = new BlockPos.Mutable().set(context.getOrigin());
         if(!context.getWorld().getBlockState(mutable.down()).isOpaque()){
+            return false;
+        }
+
+        // Check if spot allows for cart (liquid or non-liquid spot)
+        BlockState worldBlock = context.getWorld().getBlockState(mutable);
+        if(context.getConfig().waterBased ?
+                worldBlock.isAir() || worldBlock.getFluidState().isIn(FluidTags.LAVA) :
+                !worldBlock.getFluidState().isEmpty()){
             return false;
         }
 

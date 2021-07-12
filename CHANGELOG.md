@@ -1,4 +1,13 @@
-### **(V.2.0.7 Changes) (1.17.1 Minecraft)**
+### **(V.2.1.0 Changes) (1.17.1 Minecraft)**
+
+##### Mineshafts:
+* Redesigned RS Mineshafts so they all now can have pillars or chain supports when in midair! (except for End Mineshafts)
+
+* All overworld RS Mineshafts (except for Ocean Mineshafts) will now no longer place blocks that are in view of the sky to match vanilla Mineshaft behavior better
+  
+* Nerfed Blue Ice rates in Icy Mineshafts.
+
+* Adjusted rates of Shroomlight in Warped Mineshafts
 
 ##### RS Spawners:
 * Made it so that setting a mob to a weight of 0 in an RS_Spawner file by datapack will no longer crash. 

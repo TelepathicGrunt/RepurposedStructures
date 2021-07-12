@@ -313,7 +313,7 @@ public class RSConfiguredFeatures {
     public static ConfiguredFeature<?, ?> ICY_MINESHAFT_MINECART = RSFeatures.MINESHAFT_MINECARTS.configure(new MinecartConfig(new Identifier(RepurposedStructures.MODID, "mineshafts/icy/minecart")));
     public static ConfiguredFeature<?, ?> JUNGLE_MINESHAFT_MINECART = RSFeatures.MINESHAFT_MINECARTS.configure(new MinecartConfig(new Identifier(RepurposedStructures.MODID, "mineshafts/jungle/minecart")));
     public static ConfiguredFeature<?, ?> NETHER_MINESHAFT_MINECART = RSFeatures.MINESHAFT_MINECARTS.configure(new MinecartConfig(new Identifier(RepurposedStructures.MODID, "mineshafts/nether/minecart")));
-    public static ConfiguredFeature<?, ?> OCEAN_MINESHAFT_MINECART = RSFeatures.MINESHAFT_MINECARTS.configure(new MinecartConfig(new Identifier(RepurposedStructures.MODID, "mineshafts/ocean/minecart")));
+    public static ConfiguredFeature<?, ?> OCEAN_MINESHAFT_MINECART = RSFeatures.MINESHAFT_MINECARTS.configure(new MinecartConfig(new Identifier(RepurposedStructures.MODID, "mineshafts/ocean/minecart"), true));
     public static ConfiguredFeature<?, ?> SAVANNA_MINESHAFT_MINECART = RSFeatures.MINESHAFT_MINECARTS.configure(new MinecartConfig(new Identifier(RepurposedStructures.MODID, "mineshafts/savanna/minecart")));
     public static ConfiguredFeature<?, ?> STONE_MINESHAFT_MINECART = RSFeatures.MINESHAFT_MINECARTS.configure(new MinecartConfig(new Identifier(RepurposedStructures.MODID, "mineshafts/stone/minecart")));
     public static ConfiguredFeature<?, ?> SWAMP_MINESHAFT_MINECART = RSFeatures.MINESHAFT_MINECARTS.configure(new MinecartConfig(new Identifier(RepurposedStructures.MODID, "mineshafts/swamp/minecart")));
@@ -330,7 +330,7 @@ public class RSConfiguredFeatures {
     public static ConfiguredFeature<?, ?> OCEAN_MINESHAFT_SUPPORT = RSFeatures.MINESHAFT_SUPPORTS.configure(new MineshaftSupportConfig(Blocks.DARK_PRISMARINE.getDefaultState(), Blocks.PRISMARINE_WALL.getDefaultState(), Blocks.PRISMARINE_BRICKS, true));
     public static ConfiguredFeature<?, ?> SAVANNA_MINESHAFT_SUPPORT = RSFeatures.MINESHAFT_SUPPORTS.configure(new MineshaftSupportConfig(Blocks.ACACIA_LOG.getDefaultState(), Blocks.ACACIA_FENCE.getDefaultState(), Blocks.ACACIA_PLANKS, false));
     public static ConfiguredFeature<?, ?> STONE_MINESHAFT_SUPPORT = RSFeatures.MINESHAFT_SUPPORTS.configure(new MineshaftSupportConfig(Blocks.ANDESITE.getDefaultState(), Blocks.COBBLESTONE_WALL.getDefaultState(), Blocks.ANDESITE, false));
-    public static ConfiguredFeature<?, ?> SWAMP_MINESHAFT_SUPPORT = RSFeatures.MINESHAFT_SUPPORTS.configure(new MineshaftSupportConfig(Blocks.MOSSY_STONE_BRICKS.getDefaultState(), Blocks.MOSSY_STONE_BRICK_WALL.getDefaultState(), Blocks.GRASS_BLOCK, false));
+    public static ConfiguredFeature<?, ?> SWAMP_MINESHAFT_SUPPORT = RSFeatures.MINESHAFT_SUPPORTS.configure(new MineshaftSupportConfig(Blocks.MOSSY_STONE_BRICKS.getDefaultState(), Blocks.MOSSY_STONE_BRICK_WALL.getDefaultState(), Blocks.MOSS_BLOCK, false));
     public static ConfiguredFeature<?, ?> TAIGA_MINESHAFT_SUPPORT = RSFeatures.MINESHAFT_SUPPORTS.configure(new MineshaftSupportConfig(Blocks.SPRUCE_LOG.getDefaultState(), Blocks.SPRUCE_FENCE.getDefaultState(), Blocks.SPRUCE_PLANKS, false));
     public static ConfiguredFeature<?, ?> WARPED_MINESHAFT_SUPPORT = RSFeatures.MINESHAFT_SUPPORTS.configure(new MineshaftSupportConfig(Blocks.WARPED_HYPHAE.getDefaultState(), Blocks.WARPED_FENCE.getDefaultState(), Blocks.WARPED_NYLIUM, false));
 
