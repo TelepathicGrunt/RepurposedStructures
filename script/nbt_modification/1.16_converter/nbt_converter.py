@@ -45,12 +45,15 @@ conversion_exact_dict = {
 
 blockPalette = {""}
 
-originalBiome = ""
-newBiome = ""
+originalBiome = "savanna"
+newBiome = "jungle"
 string_blacklist = []
 conversion_partial_dict = {
+    "acacia":"jungle"
 }
 conversion_exact_dict = {
+    "minecraft:village/savanna/villagers":"repurposed_structures:villages/jungle/villagers",
+    "minecraft:orange_terracotta":"minecraft:yellow_terracotta"
 }
 
 #-------------------------------------------------------------------------------------------
@@ -83,19 +86,19 @@ def traverse_dicts(nbt_list):
     if isinstance(nbt_list, collections.abc.Mapping):
         for key, entry in nbt_list.items():
 
-            property_replacer(key, entry, "east", "true", "false")
-            property_replacer(key, entry, "north", "true", "false")
-            property_replacer(key, entry, "south", "true", "false")
-            property_replacer(key, entry, "west", "true", "false")
-            property_replacer(key, entry, "east", "tall", "none")
-            property_replacer(key, entry, "north", "tall", "none")
-            property_replacer(key, entry, "south", "tall", "none")
-            property_replacer(key, entry, "west", "tall", "none")
-            property_replacer(key, entry, "east", "low", "none")
-            property_replacer(key, entry, "north", "low", "none")
-            property_replacer(key, entry, "south", "low", "none")
-            property_replacer(key, entry, "west", "low", "none")
-            property_replacer(key, entry, "up", "false", "true")
+            #property_replacer(key, entry, "east", "true", "false")
+            #property_replacer(key, entry, "north", "true", "false")
+            #property_replacer(key, entry, "south", "true", "false")
+            #property_replacer(key, entry, "west", "true", "false")
+            #property_replacer(key, entry, "east", "tall", "none")
+            #property_replacer(key, entry, "north", "tall", "none")
+            #property_replacer(key, entry, "south", "tall", "none")
+            #property_replacer(key, entry, "west", "tall", "none")
+            #property_replacer(key, entry, "east", "low", "none")
+            #property_replacer(key, entry, "north", "low", "none")
+            #property_replacer(key, entry, "south", "low", "none")
+            #property_replacer(key, entry, "west", "low", "none")
+            #property_replacer(key, entry, "up", "false", "true")
 
             if isinstance(entry, nbt.NBTTagList) or isinstance(entry, nbt.NBTTagCompound):
                 traverse_dicts(entry)
