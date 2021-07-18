@@ -1,3 +1,10 @@
+### **(V.2.1.1 Changes) (1.17.1 Minecraft)**
+
+##### Villages:
+* Fixed Mountains and Giant Tree Taiga Villages using Birch Village pieces by mistake. 
+  Special thanks to SidraKlyara for catching the mistake and fixing it in a PR!
+
+
 ### **(V.2.1.0 Changes) (1.17.1 Minecraft)**
 
 ##### Mineshafts:
