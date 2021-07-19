@@ -1,3 +1,10 @@
+### **(V.2.7.11 Changes) (1.16.5 Minecraft)**
+
+##### Mod Compat:
+* Turned the Noise Setting Deep Copying mixin into a high priority WorldEvent.Load.
+  This is so that RS will not break a potential future Forge PR that is currently being made in Forge.
+
+
 ### **(V.2.7.10 Changes) (1.16.5 Minecraft)**
 
 ##### Mod Compat:

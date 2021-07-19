@@ -34,6 +34,7 @@ import com.telepathicgrunt.repurposedstructures.configs.RSWitchHutsConfig.RSWitc
 import com.telepathicgrunt.repurposedstructures.misc.EndRemasteredDedicatedLoot;
 import com.telepathicgrunt.repurposedstructures.misc.MobMapTrades;
 import com.telepathicgrunt.repurposedstructures.misc.MobSpawnerManager;
+import com.telepathicgrunt.repurposedstructures.misc.NoiseSettingsDeepCopier;
 import com.telepathicgrunt.repurposedstructures.misc.PoolAdditionMerger;
 import com.telepathicgrunt.repurposedstructures.mixin.ChunkGeneratorAccessor;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredFeatures;
@@ -53,6 +54,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.World;
+import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.FlatChunkGenerator;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.settings.StructureSeparationSettings;
@@ -61,6 +63,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.AddReloadListenerEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.event.world.WorldEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
@@ -118,6 +121,7 @@ public class RepurposedStructures {
 
         forgeBus.addListener(this::biomeModification);
         forgeBus.addListener(this::registerDatapackListener);
+        forgeBus.addListener(EventPriority.HIGHEST, this::deepCopyDimensionalSpacing);
         forgeBus.addListener(this::addDimensionalSpacing);
         forgeBus.addListener(MobMapTrades::onVillagerTradesEvent);
         forgeBus.addListener(PoolAdditionMerger::mergeAdditionPools);
@@ -189,6 +193,23 @@ public class RepurposedStructures {
         RepurposedStructures.addFeaturesAndStructuresToBiomes(event, allBiomeBlacklists);
     }
 
+    /**
+     * This is a high priority worldevent.load instead of a mixin because the mixin form is too early
+     * and could break a potential future Forge PR that is currently being worked on.
+     */
+    public void deepCopyDimensionalSpacing(final WorldEvent.Load event) {
+        if (event.getWorld() instanceof ServerWorld) {
+            ServerWorld serverWorld = (ServerWorld) event.getWorld();
+
+            // Workaround for Terraforged
+            ResourceLocation cgRL = Registry.CHUNK_GENERATOR.getKey(((ChunkGeneratorAccessor) serverWorld.getChunkSource().generator).repurposedstructures_getCodec());
+            if (cgRL != null && cgRL.getNamespace().equals("terraforged")) return;
+
+            ChunkGenerator chunkGenerator = serverWorld.getChunkSource().generator;
+            ((ChunkGeneratorAccessor) chunkGenerator).repurposedstructures_setSettings(NoiseSettingsDeepCopier.deepCopyDimensionStructuresSettings(chunkGenerator.getSettings()));
+        }
+    }
+
     public void addDimensionalSpacing(final WorldEvent.Load event) {
         //add our structure spacing to all chunkgenerators including modded one and datapack ones.
         List<String> dimensionBlacklist = Arrays.stream(RepurposedStructures.RSMainConfig.blacklistedDimensions.get().split(",")).map(String::trim).collect(Collectors.toList());
@@ -196,8 +217,7 @@ public class RepurposedStructures {
         if (event.getWorld() instanceof ServerWorld) {
             ServerWorld serverWorld = (ServerWorld) event.getWorld();
 
-            // Workaround for Terraforged. Not thrilled they take control over my structure's configs but nothing I can do about that without breaking structure gen/locating or ASM into Terraforged.
-            // They took the stance of locking down their ChunkGenerator and breaking mods that modifies the structure configs in it due to a perceived idea that malicious mods exist to mess with other structure's spacings... Dont ask me. I dont even know anymore.
+            // Workaround for Terraforged
             ResourceLocation cgRL = Registry.CHUNK_GENERATOR.getKey(((ChunkGeneratorAccessor) serverWorld.getChunkSource().generator).repurposedstructures_getCodec());
             if (cgRL != null && cgRL.getNamespace().equals("terraforged")) return;
 

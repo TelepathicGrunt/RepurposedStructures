@@ -20,7 +20,6 @@
     "SingleJigsawPieceAccessor",
     "StructureMobSpawningMixin",
     "StructurePieceAccessor",
-    "DimensionStructuresSettingsMixin",
     "TemplateAccessor",
     "TemplateManagerAccessor",
     "TemplateManagerMixin"
