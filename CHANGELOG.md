@@ -1,3 +1,12 @@
+### **(V.2.7.12 Changes) (1.16.5 Minecraft)**
+
+##### Misc:
+* Fixed Vines features in various structures being able to cause a hang/deadlock.
+
+##### Mod Compat:
+* Forgot to remove the mixin mentioned in v2.7.11 changelog lol. Oops
+
+
 ### **(V.2.7.11 Changes) (1.16.5 Minecraft)**
 
 ##### Mod Compat:

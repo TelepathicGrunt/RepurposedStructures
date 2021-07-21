@@ -6,7 +6,6 @@
   "mixins": [
     "CatEntityMixin",
     "ChunkGeneratorAccessor",
-    "ChunkGeneratorMixin",
     "DungeonFeatureAccessor",
     "EnderEyeStrongholdLocatingMixin",
     "FallbackResourceManagerAccessor",

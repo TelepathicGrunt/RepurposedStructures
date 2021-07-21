@@ -43,10 +43,12 @@ public class StructureVineAndLeaves extends Feature<StructureTargetAndLengthConf
             ChunkPos currentChunkPos = new ChunkPos(vineMutablePos);
             BlockState currentBlockstate;
             BlockState aboveBlockstate;
+
             // Biased towards max length
             int maxLength = config.length - random.nextInt(random.nextInt(config.length) + 1);
+            int targetY = vineMutablePos.getY() - maxLength;
 
-            for (; length < maxLength; vineMutablePos.move(Direction.DOWN)) {
+            for (; vineMutablePos.getY() >= targetY; vineMutablePos.move(Direction.DOWN)) {
                 if (world.isEmptyBlock(vineMutablePos)) {
                     for (Direction direction : Direction.Plane.HORIZONTAL) {
                         mutable.set(vineMutablePos).move(direction);

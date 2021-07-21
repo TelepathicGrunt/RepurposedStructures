@@ -38,15 +38,16 @@ public class StructureVine extends Feature<StructureTargetLengthRangeConfig> {
             }
 
             // generates vines from given position down length number of blocks if path is clear and the given position is valid
-            int length = 0;
             BlockPos.Mutable vineMutablePos = new BlockPos.Mutable().set(mutable);
             ChunkPos currentChunkPos = new ChunkPos(vineMutablePos);
             BlockState currentBlockstate;
             BlockState aboveBlockstate;
+
             // Biased towards max length
             int maxLength = config.length - random.nextInt(random.nextInt(config.length) + 1);
+            int targetY = vineMutablePos.getY() - maxLength;
 
-            for (; length < maxLength; vineMutablePos.move(Direction.DOWN)) {
+            for (; vineMutablePos.getY() >= targetY; vineMutablePos.move(Direction.DOWN)) {
                 if (world.isEmptyBlock(vineMutablePos)) {
                     for (Direction direction : Direction.Plane.HORIZONTAL) {
                         mutable.set(vineMutablePos).move(direction);
@@ -60,13 +61,11 @@ public class StructureVine extends Feature<StructureTargetLengthRangeConfig> {
                         if (currentBlockstate.canSurvive(world, vineMutablePos)) {
                             //places topmost vine that can face upward
                             world.setBlock(vineMutablePos, currentBlockstate.setValue(VineBlock.UP, aboveBlockstate.canOcclude()), 2);
-                            length++;
                             break;
                         }
                         else if (aboveBlockstate.is(Blocks.VINE)) {
                             //places rest of the vine as long as vine is above
                             world.setBlock(vineMutablePos, aboveBlockstate.setValue(VineBlock.UP, false), 2);
-                            length++;
                             break;
                         }
                     }
