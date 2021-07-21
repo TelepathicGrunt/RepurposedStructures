@@ -42,8 +42,9 @@ public class StructureVineAndLeaves extends Feature<StructureTargetAndLengthConf
             BlockState aboveBlockstate;
             // Biased towards max length
             int maxLength = context.getConfig().length - context.getRandom().nextInt(context.getRandom().nextInt(context.getConfig().length) + 1);
+            int targetY = vineMutablePos.getY() - maxLength;
 
-            for (; length < maxLength; vineMutablePos.move(Direction.DOWN)) {
+            for (; vineMutablePos.getY() >= targetY; vineMutablePos.move(Direction.DOWN)) {
                 if (context.getWorld().isAir(vineMutablePos)) {
                     for (Direction direction : Direction.Type.HORIZONTAL) {
                         mutable.set(vineMutablePos).move(direction);

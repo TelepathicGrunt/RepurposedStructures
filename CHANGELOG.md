@@ -1,3 +1,9 @@
+### **(V.2.1.2 Changes) (1.17.1 Minecraft)**
+
+##### Misc:
+* Fixed Vines features in various structures being able to cause a hang/deadlock.
+
+
 ### **(V.2.1.1 Changes) (1.17.1 Minecraft)**
 
 ##### Villages:

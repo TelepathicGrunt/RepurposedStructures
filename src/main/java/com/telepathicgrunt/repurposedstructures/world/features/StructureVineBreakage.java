@@ -73,15 +73,15 @@ public class StructureVineBreakage extends Feature<StructureTargetAndLengthConfi
             }
 
             // generates vines from given position down length number of blocks if path is clear and the given position is valid
-            int length = 0;
             vineMutablePos.set(mutable);
             ChunkPos currentChunkPos = new ChunkPos(vineMutablePos);
             BlockState currentBlockstate;
             BlockState aboveBlockstate;
             // Biased towards max length
             int maxLength = context.getConfig().length - context.getRandom().nextInt(context.getRandom().nextInt(context.getConfig().length) + 1);
+            int targetY = vineMutablePos.getY() - maxLength;
 
-            for (; length < maxLength; vineMutablePos.move(Direction.DOWN)) {
+            for (; vineMutablePos.getY() >= targetY; vineMutablePos.move(Direction.DOWN)) {
                 if (context.getWorld().isAir(vineMutablePos)) {
                     for (Direction direction : Direction.Type.HORIZONTAL) {
                         mutable.set(vineMutablePos).move(direction);
@@ -95,13 +95,11 @@ public class StructureVineBreakage extends Feature<StructureTargetAndLengthConfi
                         if (currentBlockstate.canPlaceAt(context.getWorld(), vineMutablePos) && context.getWorld().getBlockState(vineMutablePos.offset(direction)).getBlock() != Blocks.MOSS_CARPET) {
                             //places topmost vine that can face upward
                             context.getWorld().setBlockState(vineMutablePos, currentBlockstate.with(VineBlock.UP, aboveBlockstate.isOpaque()), 2);
-                            length++;
                             break;
                         }
                         else if (aboveBlockstate.isOf(Blocks.VINE)) {
                             //places rest of the vine as long as vine is above
                             context.getWorld().setBlockState(vineMutablePos, aboveBlockstate.with(VineBlock.UP, false), 2);
-                            length++;
                             break;
                         }
                     }
