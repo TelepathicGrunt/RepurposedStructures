@@ -5,6 +5,7 @@ import com.telepathicgrunt.repurposedstructures.misc.MobSpawningOverTime;
 import draylar.omegaconfig.api.Comment;
 import draylar.omegaconfig.api.Config;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -25,8 +26,22 @@ public class RSNaturalMobSpawningOmegaConfig implements Config {
     public void save() {
         // Add logic here when adding new mob spawn structures to config.
         // The logic needs to do a putIfAbsent to add the missing structures between the config versions when updating.
-        configVersion = 1;
 
+        // Fix typo in old config value
+        if(configVersion == 1){
+            List<MobSpawningOverTime.PublicMobSpawnEntry> mobList = appendMobSpawns.get("repurposed_structures:mineshaft_end");
+            for(int i = 0; i < mobList.size(); i++){
+                if(mobList.get(i).type.equals("minecraft:endermen")){
+                    mobList.set(i, new MobSpawningOverTime.PublicMobSpawnEntry(
+                                    "minecraft:enderman",
+                                    mobList.get(i).weight,
+                                    mobList.get(i).minGroupSize,
+                                    mobList.get(i).maxGroupSize));
+                }
+            }
+        }
+
+        configVersion = 2;
         Config.super.save();
     }
 
@@ -129,7 +144,7 @@ public class RSNaturalMobSpawningOmegaConfig implements Config {
     public final Map<String, List<MobSpawningOverTime.PublicMobSpawnEntry>> appendMobSpawns = Map.ofEntries(
             Map.entry("repurposed_structures:mineshaft_end", List.of(
                     new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:endermite", 10, 2, 5),
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:endermen", 5, 1, 3))),
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:enderman", 5, 1, 3))),
             Map.entry("repurposed_structures:shipwreck_nether_bricks", List.of(
                     new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:wither_skeleton", 25, 1, 1))),
             Map.entry("repurposed_structures:shipwreck_crimson", List.of(

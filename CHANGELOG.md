@@ -1,3 +1,12 @@
+### **(V.2.1.3 Changes) (1.17.1 Minecraft)**
+
+##### Configs:
+* Fixed natural mob spawning config's error message to actually say which mob entity name was unable to be resolved into an entity.
+
+* Fixed End Mineshaft's natural mob spawning having "minecraft:endermen" instead of "minecraft:enderman". 
+  Now they can spawn Endermen again and this fix will retroactively fix old config files as well automatically.
+
+
 ### **(V.2.1.2 Changes) (1.17.1 Minecraft)**
 
 ##### Misc:

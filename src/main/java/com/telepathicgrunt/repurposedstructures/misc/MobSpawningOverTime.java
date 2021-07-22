@@ -68,7 +68,7 @@ public class MobSpawningOverTime {
                         // Parse and make sure the entity type exists
                         Optional<EntityType<?>> entityType = Registry.ENTITY_TYPE.getOrEmpty(new Identifier(spawnEntry.type));
                         if(entityType.isEmpty()){
-                            RepurposedStructures.LOGGER.warn("Repurposed Structures: Unknown EntityType {} was found in the {} config. Skipping that entry...", entityType.toString(), errorMsg);
+                            RepurposedStructures.LOGGER.warn("Repurposed Structures (first): Unknown EntityType {} was found in the {} config. Skipping that entry...", spawnEntry.type, errorMsg);
                             continue;
                         }
                         SpawnSettings.SpawnEntry entryToAdd = new SpawnSettings.SpawnEntry(
@@ -103,7 +103,7 @@ public class MobSpawningOverTime {
                     // Parse and make sure the entity type exists
                     Optional<EntityType<?>> entityType = Registry.ENTITY_TYPE.getOrEmpty(new Identifier(spawnEntry.type));
                     if(entityType.isEmpty()){
-                        RepurposedStructures.LOGGER.warn("Repurposed Structures: Unknown EntityType {} was found in the {} config. Skipping that entry...", entityType.toString(), errorMsg);
+                        RepurposedStructures.LOGGER.warn("Repurposed Structures (second): Unknown EntityType {} was found in the {} config. Skipping that entry...", spawnEntry.type, errorMsg);
                         continue;
                     }
                     SpawnSettings.SpawnEntry entryToAdd = new SpawnSettings.SpawnEntry(
