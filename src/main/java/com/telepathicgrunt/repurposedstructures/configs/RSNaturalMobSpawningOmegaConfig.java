@@ -164,5 +164,5 @@ public class RSNaturalMobSpawningOmegaConfig implements Config {
 
             // for internal use only. Do not change this.
             """)
-    public int configVersion = 1;
+    public int configVersion = 2;
 }
