@@ -3,34 +3,34 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.world.structures.configs.NetherShipwreckConfig;
-import net.minecraft.structure.MarginedStructureStart;
-import net.minecraft.structure.PoolStructurePiece;
-import net.minecraft.structure.StructureManager;
-import net.minecraft.structure.pool.StructurePoolBasedGenerator;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkPos;
-import net.minecraft.util.registry.DynamicRegistryManager;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.HeightLimitView;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.source.BiomeSource;
-import net.minecraft.world.gen.ChunkRandom;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.chunk.StructureConfig;
-import net.minecraft.world.gen.chunk.VerticalBlockSample;
-import net.minecraft.world.gen.feature.StructureFeature;
-import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Registry;
+import net.minecraft.core.RegistryAccess;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.LevelHeightAccessor;
+import net.minecraft.world.level.NoiseColumn;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.BiomeSource;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.WorldgenRandom;
+import net.minecraft.world.level.levelgen.feature.StructureFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.StructureFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.structures.JigsawPlacement;
+import net.minecraft.world.level.levelgen.structure.NoiseAffectingStructureStart;
+import net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 
 
 public class ShipwreckNetherStructure extends AbstractBaseStructure<NetherShipwreckConfig> {
     // Special thanks to cannon_foddr and miguelforge for allowing me to use their nether shipwreck design!
 
-    private final Identifier startPool;
+    private final ResourceLocation startPool;
     private final int sealevelOffset;
 
 
-    public ShipwreckNetherStructure(Identifier startPool, int sealevelOffset) {
+    public ShipwreckNetherStructure(ResourceLocation startPool, int sealevelOffset) {
         super(NetherShipwreckConfig.CODEC);
         this.startPool = startPool;
         this.sealevelOffset = sealevelOffset;
@@ -38,29 +38,29 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NetherShipwr
     }
 
     @Override
-    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, ChunkPos chunkPos1, Biome biome, ChunkPos chunkPos, NetherShipwreckConfig config, HeightLimitView heightLimitView) {
+    protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, WorldgenRandom chunkRandom, ChunkPos chunkPos1, Biome biome, ChunkPos chunkPos, NetherShipwreckConfig config, LevelHeightAccessor heightLimitView) {
 
         // Check to see if there some air where the structure wants to spawn.
         // Doesn't account for rotation of structure.
         BlockPos blockPos;
         if(!config.isFlying){
-            blockPos = new BlockPos(chunkPos1.getStartX(), chunkGenerator.getSeaLevel() + 1, chunkPos1.getStartZ());
+            blockPos = new BlockPos(chunkPos1.getMinBlockX(), chunkGenerator.getSeaLevel() + 1, chunkPos1.getMinBlockZ());
         }
         else{
-            ChunkRandom random = new ChunkRandom(seed + (chunkPos1.x * (chunkPos1.z * 17L)));
-            int height = chunkGenerator.getSeaLevel() + random.nextInt(Math.max(chunkGenerator.getWorldHeight() - (chunkGenerator.getSeaLevel() + 30), 1));
-            blockPos = new BlockPos(chunkPos1.getStartX(), height, chunkPos1.getStartZ());
+            WorldgenRandom random = new WorldgenRandom(seed + (chunkPos1.x * (chunkPos1.z * 17L)));
+            int height = chunkGenerator.getSeaLevel() + random.nextInt(Math.max(chunkGenerator.getGenDepth() - (chunkGenerator.getSeaLevel() + 30), 1));
+            blockPos = new BlockPos(chunkPos1.getMinBlockX(), height, chunkPos1.getMinBlockZ());
         }
 
         int checkRadius = 16;
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 
         for(int xOffset = -checkRadius; xOffset <= checkRadius; xOffset += 8){
             for(int zOffset = -checkRadius; zOffset <= checkRadius; zOffset += 8){
-                VerticalBlockSample blockView = chunkGenerator.getColumnSample(xOffset + blockPos.getX(), zOffset + blockPos.getZ(), heightLimitView);
+                NoiseColumn blockView = chunkGenerator.getBaseColumn(xOffset + blockPos.getX(), zOffset + blockPos.getZ(), heightLimitView);
                 for(int yOffset = 0; yOffset <= 30; yOffset += 5){
                     mutable.set(blockPos).move(xOffset, yOffset, zOffset);
-                    if (!blockView.getState(mutable).isAir()) {
+                    if (!blockView.getBlockState(mutable).isAir()) {
                         return false;
                     }
                 }
@@ -73,9 +73,9 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NetherShipwr
                 if(curChunkX == chunkPos1.x && curChunkZ == chunkPos1.z) continue; // Prevent detecting the structure itself and thus, never spawning if structure is in its own blacklist
 
                 for(StructureFeature<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE)){
-                    StructureConfig structureConfig = chunkGenerator.getStructuresConfig().getForType(structureFeature);
-                    if(structureConfig != null && structureConfig.getSpacing() > 8){
-                        ChunkPos chunkPos2 = structureFeature.getStartChunk(structureConfig, seed, chunkRandom, curChunkX, curChunkZ);
+                    StructureFeatureConfiguration structureConfig = chunkGenerator.getSettings().getConfig(structureFeature);
+                    if(structureConfig != null && structureConfig.spacing() > 8){
+                        ChunkPos chunkPos2 = structureFeature.getPotentialFeatureChunk(structureConfig, seed, chunkRandom, curChunkX, curChunkZ);
                         if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
                             return false;
                         }
@@ -84,15 +84,15 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NetherShipwr
             }
         }
 
-        return super.shouldStartAt(chunkGenerator, biomeSource, seed, chunkRandom, chunkPos1, biome, chunkPos, config, heightLimitView);
+        return super.isFeatureChunk(chunkGenerator, biomeSource, seed, chunkRandom, chunkPos1, biome, chunkPos, config, heightLimitView);
     }
 
     @Override
-    public StructureStartFactory<NetherShipwreckConfig> getStructureStartFactory() {
+    public StructureStartFactory<NetherShipwreckConfig> getStartFactory() {
         return ShipwreckNetherStructure.Start::new;
     }
 
-    public class Start extends MarginedStructureStart<NetherShipwreckConfig> {
+    public class Start extends NoiseAffectingStructureStart<NetherShipwreckConfig> {
         private final long seed;
 
         public Start(StructureFeature<NetherShipwreckConfig> structureIn, ChunkPos chunkPos1, int referenceIn, long seedIn) {
@@ -101,22 +101,22 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NetherShipwr
         }
 
         @Override
-        public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, ChunkPos chunkPos1, Biome biome, NetherShipwreckConfig config, HeightLimitView heightLimitView) {
+        public void generatePieces(RegistryAccess dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, ChunkPos chunkPos1, Biome biome, NetherShipwreckConfig config, LevelHeightAccessor heightLimitView) {
             int placementHeight = chunkGenerator.getSeaLevel();
 
             if(!config.isFlying){
                 placementHeight = placementHeight + sealevelOffset;
             }
             else{
-                ChunkRandom random = new ChunkRandom(seed + (chunkPos1.x * (chunkPos1.z * 17L)));
-                placementHeight = placementHeight + random.nextInt(Math.max(chunkGenerator.getWorldHeight() - (placementHeight + 30), 1));
+                WorldgenRandom random = new WorldgenRandom(seed + (chunkPos1.x * (chunkPos1.z * 17L)));
+                placementHeight = placementHeight + random.nextInt(Math.max(chunkGenerator.getGenDepth() - (placementHeight + 30), 1));
             }
 
-            BlockPos blockpos = new BlockPos(chunkPos1.getStartX(), placementHeight, chunkPos1.getStartZ());
-            StructurePoolBasedGenerator.generate(
+            BlockPos blockpos = new BlockPos(chunkPos1.getMinBlockX(), placementHeight, chunkPos1.getMinBlockZ());
+            JigsawPlacement.addPieces(
                     dynamicRegistryManager,
-                    new StructurePoolFeatureConfig(() -> dynamicRegistryManager.get(Registry.STRUCTURE_POOL_KEY).get(startPool), 6),
-                    PoolStructurePiece::new,
+                    new JigsawConfiguration(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(startPool), 6),
+                    PoolElementStructurePiece::new,
                     chunkGenerator,
                     structureManager,
                     blockpos,
@@ -125,7 +125,7 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NetherShipwr
                     false,
                     false,
                     heightLimitView);
-            this.setBoundingBoxFromChildren();
+            this.getBoundingBox();
         }
     }
 }

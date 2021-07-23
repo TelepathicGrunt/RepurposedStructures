@@ -5,40 +5,39 @@ import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.mixin.structures.TemplateAccessor;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.NbtDungeonConfig;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.ChestBlock;
-import net.minecraft.block.HorizontalFacingBlock;
-import net.minecraft.block.SlabBlock;
-import net.minecraft.block.SpawnerBlock;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.LootableContainerBlockEntity;
-import net.minecraft.block.entity.MobSpawnerBlockEntity;
-import net.minecraft.block.enums.ChestType;
-import net.minecraft.block.enums.SlabType;
-import net.minecraft.entity.EntityType;
-import net.minecraft.state.property.Properties;
-import net.minecraft.structure.Structure;
-import net.minecraft.structure.StructureManager;
-import net.minecraft.structure.StructurePlacementData;
-import net.minecraft.structure.processor.StructureProcessorList;
-import net.minecraft.structure.processor.StructureProcessorLists;
-import net.minecraft.tag.BlockTags;
-import net.minecraft.tag.FluidTags;
-import net.minecraft.util.BlockRotation;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.StructureWorldAccess;
-import net.minecraft.world.chunk.Chunk;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.util.FeatureContext;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.Registry;
+import net.minecraft.data.worldgen.ProcessorLists;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.FluidTags;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ChestBlock;
+import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.SpawnerBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
+import net.minecraft.world.level.block.entity.SpawnerBlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.ChestType;
+import net.minecraft.world.level.block.state.properties.SlabType;
+import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
 public class NbtDungeon extends Feature<NbtDungeonConfig>{
 
@@ -47,19 +46,19 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
     }
 
     @Override
-    public boolean generate(FeatureContext<NbtDungeonConfig> context) {
-        if(GeneralUtils.isBlacklistedForWorld(context.getWorld(), context.getConfig().cfID)) return false;
+    public boolean place(FeaturePlaceContext<NbtDungeonConfig> context) {
+        if(GeneralUtils.isBlacklistedForWorld(context.level(), context.config().cfID)) return false;
 
-        BlockPos position = context.getOrigin().up(-1);
-        Identifier nbtRL = GeneralUtils.getRandomEntry(context.getConfig().nbtResourcelocationsAndWeights, context.getRandom());
+        BlockPos position = context.origin().above(-1);
+        ResourceLocation nbtRL = GeneralUtils.getRandomEntry(context.config().nbtResourcelocationsAndWeights, context.random());
 
-        StructureManager structureManager = context.getWorld().toServerWorld().getStructureManager();
-        Structure template = structureManager.getStructureOrBlank(nbtRL);
+        StructureManager structureManager = context.level().getLevel().getStructureManager();
+        StructureTemplate template = structureManager.getOrCreate(nbtRL);
         if(template == null){
             RepurposedStructures.LOGGER.error("Identifier to the specified nbt file was not found! : {}", nbtRL);
             return false;
         }
-        BlockRotation rotation = BlockRotation.random(context.getRandom());
+        Rotation rotation = Rotation.getRandom(context.random());
         BlockPos size = new BlockPos(template.getSize());
 
         // For proper offsetting the dungeon so it rotate properly around position parameter.
@@ -80,8 +79,8 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                 fullLengths.getY() / 2,
                 fullLengths.getZ() / 2);
 
-        BlockPos.Mutable mutable = new BlockPos.Mutable().set(position);
-        Chunk cachedChunk = context.getWorld().getChunk(mutable);
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(position);
+        ChunkAccess cachedChunk = context.level().getChunk(mutable);
 
         int xMin = -halfLengthsRotated.getX();
         int xMax = halfLengthsRotated.getX();
@@ -96,22 +95,22 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                 for (int y = 0; y <= ceiling; y++) {
                     mutable.set(position).move(x, y, z);
                     if(mutable.getX() >> 4 != cachedChunk.getPos().x || mutable.getZ() >> 4 != cachedChunk.getPos().z)
-                        cachedChunk = context.getWorld().getChunk(mutable);
+                        cachedChunk = context.level().getChunk(mutable);
 
                     BlockState state = cachedChunk.getBlockState(mutable);
 
                     // Dungeons cannot touch fluids if set to air mode and reverse if opposite
-                    if(context.getConfig().airRequirementIsNowWater ?
-                            state.isAir() || state.getFluidState().isIn(FluidTags.LAVA) :
+                    if(context.config().airRequirementIsNowWater ?
+                            state.isAir() || state.getFluidState().is(FluidTags.LAVA) :
                             !state.getFluidState().isEmpty()){
                         return false;
                     }
                     // Floor must be complete
-                    else if(!GeneralUtils.isFullCube(context.getWorld(), mutable, state)){
+                    else if(!GeneralUtils.isFullCube(context.level(), mutable, state)){
                         if (y == 0 && !state.getMaterial().isSolid()) {
                             return false;
                         }
-                        else if(state.isIn(BlockTags.LEAVES)){
+                        else if(state.is(BlockTags.LEAVES)){
                             continue; // ignore leaves
                         }
                         else if (y == ceiling) {
@@ -120,10 +119,10 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                     }
 
                     // Check only along wall bottoms for openings
-                    if ((x == xMin || x == xMax || z == zMin || z == zMax) && y == 1 && isValidNonSolidBlock(context.getConfig(), state))
+                    if ((x == xMin || x == xMax || z == zMin || z == zMax) && y == 1 && isValidNonSolidBlock(context.config(), state))
                     {
                         BlockState aboveState = cachedChunk.getBlockState(mutable);
-                        if(context.getConfig().airRequirementIsNowWater ?
+                        if(context.config().airRequirementIsNowWater ?
                             !aboveState.getFluidState().isEmpty() :
                             aboveState.isAir())
                         {
@@ -132,7 +131,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                     }
 
                     // Too much open space. Quit
-                    if(wallOpenings > context.getConfig().maxAirSpace || ceilingOpenings > context.getConfig().maxAirSpace){
+                    if(wallOpenings > context.config().maxAirSpace || ceilingOpenings > context.config().maxAirSpace){
                         return false;
                     }
                 }
@@ -140,28 +139,28 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
         }
 
         // Check if we meet minimum for open space.
-        if (wallOpenings >= context.getConfig().minAirSpace) {
+        if (wallOpenings >= context.config().minAirSpace) {
 
             // offset the dungeon such as ocean dungeons down 1
-            position = position.up(context.getConfig().structureYOffset);
+            position = position.above(context.config().structureYOffset);
 
             //RepurposedStructures.LOGGER.log(Level.INFO, nbtRL + " at X: "+position.getX() +", "+position.getY()+", "+position.getZ());
-            StructurePlacementData placementsettings = (new StructurePlacementData()).setRotation(rotation).setPosition(halfLengths).setIgnoreEntities(false);
-            Optional<StructureProcessorList> processor = context.getWorld().toServerWorld().getServer().getRegistryManager().get(Registry.STRUCTURE_PROCESSOR_LIST_KEY).getOrEmpty(context.getConfig().processor);
-            processor.orElse(StructureProcessorLists.EMPTY).getList().forEach(placementsettings::addProcessor); // add all processors
+            StructurePlaceSettings placementsettings = (new StructurePlaceSettings()).setRotation(rotation).setRotationPivot(halfLengths).setIgnoreEntities(false);
+            Optional<StructureProcessorList> processor = context.level().getLevel().getServer().registryAccess().registryOrThrow(Registry.PROCESSOR_LIST_REGISTRY).getOptional(context.config().processor);
+            processor.orElse(ProcessorLists.EMPTY).list().forEach(placementsettings::addProcessor); // add all processors
             BlockPos finalPos = mutable.set(position).move(-halfLengths.getX(), 0, -halfLengths.getZ());
-            template.place(context.getWorld(), finalPos, finalPos, placementsettings, context.getRandom(), Block.NO_REDRAW);
+            template.placeInWorld(context.level(), finalPos, finalPos, placementsettings, context.random(), Block.UPDATE_INVISIBLE);
 
             // Post-processors
             // For all processors that are sensitive to neighboring blocks such as vines.
             // Post processors will place the blocks themselves so we will not do anything with the return of Structure.process
             placementsettings.clearProcessors();
-            Optional<StructureProcessorList> postProcessor = context.getWorld().toServerWorld().getServer().getRegistryManager().get(Registry.STRUCTURE_PROCESSOR_LIST_KEY).getOrEmpty(context.getConfig().postProcessor);
-            postProcessor.orElse(StructureProcessorLists.EMPTY).getList().forEach(placementsettings::addProcessor); // add all post processors
-            List<Structure.StructureBlockInfo> list = placementsettings.getRandomBlockInfos(((TemplateAccessor)template).repurposedstructures_getBlocks(), mutable).getAll();
-            Structure.process(context.getWorld(), mutable, mutable, placementsettings, list);
+            Optional<StructureProcessorList> postProcessor = context.level().getLevel().getServer().registryAccess().registryOrThrow(Registry.PROCESSOR_LIST_REGISTRY).getOptional(context.config().postProcessor);
+            postProcessor.orElse(ProcessorLists.EMPTY).list().forEach(placementsettings::addProcessor); // add all post processors
+            List<StructureTemplate.StructureBlockInfo> list = placementsettings.getRandomPalette(((TemplateAccessor)template).repurposedstructures_getPalettes(), mutable).blocks();
+            StructureTemplate.processBlockInfos(context.level(), mutable, mutable, placementsettings, list);
 
-            spawnLootBlocks(context.getWorld(), context.getRandom(), position, context.getConfig(), fullLengths, halfLengthsRotated, mutable);
+            spawnLootBlocks(context.level(), context.random(), position, context.config(), fullLengths, halfLengthsRotated, mutable);
             return true;
         }
 
@@ -181,10 +180,10 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
     /**
      * Makes the given block entity now have the correct spawner mob
      */
-    private void SetMobSpawnerEntity(Random random, NbtDungeonConfig config, MobSpawnerBlockEntity blockEntity) {
+    private void SetMobSpawnerEntity(Random random, NbtDungeonConfig config, SpawnerBlockEntity blockEntity) {
         EntityType<?> entity = RepurposedStructures.mobSpawnerManager.getSpawnerMob(config.rsSpawnerResourcelocation, random);
         if(entity != null){
-            blockEntity.getLogic().setEntityId(entity);
+            blockEntity.getSpawner().setEntityId(entity);
         }
         else{
             RepurposedStructures.LOGGER.warn("EntityType in a dungeon does not exist in registry! : {}", config.rsSpawnerResourcelocation);
@@ -194,17 +193,17 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
     /**
      * Makes the targeted slab block now a full block.
      */
-    private void SolidifyBlock(StructureWorldAccess world, BlockPos pos) {
+    private void SolidifyBlock(WorldGenLevel world, BlockPos pos) {
         BlockState blockBelow = world.getBlockState(pos);
-        if (blockBelow.contains(SlabBlock.TYPE)) {
-            world.setBlockState(pos, blockBelow.with(SlabBlock.TYPE, SlabType.DOUBLE), 3);
+        if (blockBelow.hasProperty(SlabBlock.TYPE)) {
+            world.setBlock(pos, blockBelow.setValue(SlabBlock.TYPE, SlabType.DOUBLE), 3);
         }
     }
 
     /**
      * Places and connects chests on walls of dungeon space
      */
-    private void spawnLootBlocks(StructureWorldAccess world, Random random, BlockPos position, NbtDungeonConfig config, BlockPos fullLengths, BlockPos halfLengths, BlockPos.Mutable mutable) {
+    private void spawnLootBlocks(WorldGenLevel world, Random random, BlockPos position, NbtDungeonConfig config, BlockPos fullLengths, BlockPos halfLengths, BlockPos.MutableBlockPos mutable) {
         boolean isPlacingChestLikeBlock = config.lootBlock.getBlock() instanceof ChestBlock;
 
         // Add chests that are wall based
@@ -219,27 +218,27 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
 
                 BlockState currentBlock = world.getBlockState(mutable);
                 if (isValidNonSolidBlock(config, currentBlock)) {
-                    if(world.getBlockState(mutable.move(Direction.DOWN)).isSideSolidFullSquare(world, mutable, Direction.UP)){
+                    if(world.getBlockState(mutable.move(Direction.DOWN)).isFaceSturdy(world, mutable, Direction.UP)){
                         mutable.move(Direction.UP);
                         boolean isOnWall = false;
 
-                        for(Direction neighborDirection : Direction.Type.HORIZONTAL){
+                        for(Direction neighborDirection : Direction.Plane.HORIZONTAL){
                             mutable.move(neighborDirection);
                             BlockState neighboringState = world.getBlockState(mutable);
                             mutable.move(neighborDirection.getOpposite());
 
                             if(isPlacingChestLikeBlock && neighboringState.getBlock() instanceof ChestBlock){
                                 // Only connect to single chests
-                                if(neighboringState.get(ChestBlock.CHEST_TYPE) == ChestType.SINGLE){
+                                if(neighboringState.getValue(ChestBlock.TYPE) == ChestType.SINGLE){
 
                                     BlockState currentStateForChest = GeneralUtils.orientateChest(world, mutable, config.lootBlock);
-                                    Direction currentDirection = currentStateForChest.get(HorizontalFacingBlock.FACING);
+                                    Direction currentDirection = currentStateForChest.getValue(HorizontalDirectionalBlock.FACING);
 
                                     // If oriented is on same axis as neighboring chest, find a new direction on sides.
                                     if(neighborDirection.getAxis() == currentDirection.getAxis()){
-                                        currentDirection = currentDirection.rotateYClockwise();
-                                        BlockPos wallCheckPos = mutable.offset(currentDirection);
-                                        BlockPos wallCheckPos2 = wallCheckPos.offset(neighborDirection);
+                                        currentDirection = currentDirection.getClockWise();
+                                        BlockPos wallCheckPos = mutable.relative(currentDirection);
+                                        BlockPos wallCheckPos2 = wallCheckPos.relative(neighborDirection);
                                         BlockState blockState = world.getBlockState(wallCheckPos);
                                         BlockState blockState2 = world.getBlockState(wallCheckPos2);
 
@@ -252,28 +251,28 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                                         }
                                     }
 
-                                    boolean chestTyping = neighborDirection.getDirection() == currentDirection.getDirection();
+                                    boolean chestTyping = neighborDirection.getAxisDirection() == currentDirection.getAxisDirection();
                                     if(neighborDirection.getAxis() == Direction.Axis.Z){
                                         chestTyping = !chestTyping;
                                     }
 
                                     // Place chest
-                                    world.setBlockState(mutable,
+                                    world.setBlock(mutable,
                                             config.lootBlock
-                                                    .with(ChestBlock.WATERLOGGED, currentBlock.getFluidState().isIn(FluidTags.WATER))
-                                                    .with(ChestBlock.FACING, currentDirection)
-                                                    .with(ChestBlock.CHEST_TYPE, chestTyping ? ChestType.RIGHT : ChestType.LEFT),
+                                                    .setValue(ChestBlock.WATERLOGGED, currentBlock.getFluidState().is(FluidTags.WATER))
+                                                    .setValue(ChestBlock.FACING, currentDirection)
+                                                    .setValue(ChestBlock.TYPE, chestTyping ? ChestType.RIGHT : ChestType.LEFT),
                                             2);
 
                                     // Set neighboring chest to face same way too
-                                    world.setBlockState(mutable.move(neighborDirection),
+                                    world.setBlock(mutable.move(neighborDirection),
                                             neighboringState
-                                                    .with(ChestBlock.FACING, currentDirection)
-                                                    .with(ChestBlock.CHEST_TYPE, chestTyping ? ChestType.LEFT : ChestType.RIGHT),
+                                                    .setValue(ChestBlock.FACING, currentDirection)
+                                                    .setValue(ChestBlock.TYPE, chestTyping ? ChestType.LEFT : ChestType.RIGHT),
                                             2);
 
-                                    LootableContainerBlockEntity.setLootTable(world, random, mutable, config.chestResourcelocation);
-                                    SolidifyBlock(world, mutable.down());
+                                    RandomizableContainerBlockEntity.setLootTable(world, random, mutable, config.chestResourcelocation);
+                                    SolidifyBlock(world, mutable.below());
 
                                     isOnWall = false; // Skip wall code as we already placed chest
                                     currentChestAttempt++;
@@ -292,25 +291,25 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                         // Is not next to another chest.
                         if(isOnWall){
                             BlockState lootBlock = config.lootBlock;
-                            if(lootBlock.contains(Properties.WATERLOGGED)){
-                                lootBlock.with(Properties.WATERLOGGED, currentBlock.getFluidState().isIn(FluidTags.WATER));
+                            if(lootBlock.hasProperty(BlockStateProperties.WATERLOGGED)){
+                                lootBlock.setValue(BlockStateProperties.WATERLOGGED, currentBlock.getFluidState().is(FluidTags.WATER));
                             }
-                            if(lootBlock.contains(Properties.HORIZONTAL_FACING)){
+                            if(lootBlock.hasProperty(BlockStateProperties.HORIZONTAL_FACING)){
                                 lootBlock = GeneralUtils.orientateChest(world, mutable, lootBlock);
                             }
 
                             // Set chest to face away from wall.
-                            world.setBlockState(mutable, lootBlock, 2);
+                            world.setBlock(mutable, lootBlock, 2);
                             currentChestAttempt++;
                             addedChestThisAttempt = true;
 
-                            LootableContainerBlockEntity.setLootTable(world, random, mutable, config.chestResourcelocation);
+                            RandomizableContainerBlockEntity.setLootTable(world, random, mutable, config.chestResourcelocation);
                             mutable.move(Direction.DOWN);
                             if(lootBlock.getBlock() == Blocks.SHULKER_BOX){
-                                world.setBlockState(mutable, Blocks.SPAWNER.getDefaultState(), 2);
+                                world.setBlock(mutable, Blocks.SPAWNER.defaultBlockState(), 2);
                                 BlockEntity blockEntity = world.getBlockEntity(mutable);
-                                if (blockEntity instanceof MobSpawnerBlockEntity) {
-                                    SetMobSpawnerEntity(random, config, (MobSpawnerBlockEntity) blockEntity);
+                                if (blockEntity instanceof SpawnerBlockEntity) {
+                                    SetMobSpawnerEntity(random, config, (SpawnerBlockEntity) blockEntity);
                                 }
                             }
                             else{

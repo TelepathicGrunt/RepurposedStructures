@@ -8,31 +8,31 @@ import com.google.gson.reflect.TypeToken;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.mixin.features.DungeonFeatureAccessor;
 import net.fabricmc.fabric.api.resource.IdentifiableResourceReloadListener;
-import net.minecraft.entity.EntityType;
-import net.minecraft.resource.JsonDataLoader;
-import net.minecraft.resource.ResourceManager;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.Util;
-import net.minecraft.util.profiler.Profiler;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.Util;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.resources.ResourceManager;
+import net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener;
+import net.minecraft.util.profiling.ProfilerFiller;
+import net.minecraft.world.entity.EntityType;
 import org.apache.logging.log4j.Level;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-public class MobSpawnerManager extends JsonDataLoader implements IdentifiableResourceReloadListener {
+public class MobSpawnerManager extends SimpleJsonResourceReloadListener implements IdentifiableResourceReloadListener {
     private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().setLenient().disableHtmlEscaping().create();
-    private Map<Identifier, List<MobSpawnerObj>> spawnerMap = ImmutableMap.of();
-    private final Identifier MOB_SPAWNER_MANAGER_ID = new Identifier(RepurposedStructures.MODID, "mob_spawner_manager");
+    private Map<ResourceLocation, List<MobSpawnerObj>> spawnerMap = ImmutableMap.of();
+    private final ResourceLocation MOB_SPAWNER_MANAGER_ID = new ResourceLocation(RepurposedStructures.MODID, "mob_spawner_manager");
 
     public MobSpawnerManager() {
         super(GSON, "rs_spawners");
     }
 
     @Override
-    protected void apply(Map<Identifier, JsonElement> loader, ResourceManager manager, Profiler profiler) {
-        ImmutableMap.Builder<Identifier, List<MobSpawnerObj>> builder = ImmutableMap.builder();
+    protected void apply(Map<ResourceLocation, JsonElement> loader, ResourceManager manager, ProfilerFiller profiler) {
+        ImmutableMap.Builder<ResourceLocation, List<MobSpawnerObj>> builder = ImmutableMap.builder();
         loader.forEach((fileIdentifier, jsonElement) -> {
             try {
                 List<MobSpawnerObj> spawnerMobEntries = GSON.fromJson(jsonElement.getAsJsonObject().get("mobs"), new TypeToken<List<MobSpawnerObj>>(){}.getType());
@@ -56,11 +56,11 @@ public class MobSpawnerManager extends JsonDataLoader implements IdentifiableRes
         this.spawnerMap =  builder.build();
     }
 
-    public EntityType<?> getSpawnerMob(Identifier spawnerJsonEntry, Random random) {
+    public EntityType<?> getSpawnerMob(ResourceLocation spawnerJsonEntry, Random random) {
         List<MobSpawnerObj> spawnerMobEntries = this.spawnerMap.get(spawnerJsonEntry);
         if(spawnerMobEntries == null){
             RepurposedStructures.LOGGER.log(Level.ERROR,"\n***************************************\nFailed to get mob. Please check that "+spawnerJsonEntry+".json is correct or that no other mod is interfering with how vanilla reads data folders. Let TelepathicGrunt know about this too!\n***************************************");
-            return Util.getRandom(DungeonFeatureAccessor.repurposedstructures_getMOB_SPAWNER_ENTITIES(), random);
+            return Util.getRandom(DungeonFeatureAccessor.repurposedstructures_getMOBS(), random);
         }
 
         int totalWeight = spawnerMobEntries.stream().mapToInt(mobEntry -> mobEntry.weight).sum();
@@ -80,7 +80,7 @@ public class MobSpawnerManager extends JsonDataLoader implements IdentifiableRes
             while(true){
                 randomWeight -= spawnerMobEntries.get(index).weight;
                 if(randomWeight <= 0)
-                    return Registry.ENTITY_TYPE.get(new Identifier(spawnerMobEntries.get(index).name));
+                    return Registry.ENTITY_TYPE.get(new ResourceLocation(spawnerMobEntries.get(index).name));
 
                 index++;
             }
@@ -92,7 +92,7 @@ public class MobSpawnerManager extends JsonDataLoader implements IdentifiableRes
     }
 
     @Override
-    public Identifier getFabricId() {
+    public ResourceLocation getFabricId() {
         return MOB_SPAWNER_MANAGER_ID;
     }
 }

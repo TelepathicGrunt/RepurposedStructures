@@ -15,22 +15,22 @@ import com.telepathicgrunt.repurposedstructures.mixin.structures.StructureManage
 import com.telepathicgrunt.repurposedstructures.mixin.structures.StructurePoolAccessor;
 import com.telepathicgrunt.repurposedstructures.utils.SafeDecodingRegistryOps;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
-import net.minecraft.resource.NamespaceResourceManager;
-import net.minecraft.resource.ResourceManager;
-import net.minecraft.resource.ResourcePack;
-import net.minecraft.resource.ResourceType;
+import net.minecraft.core.Registry;
+import net.minecraft.core.RegistryAccess;
+import net.minecraft.core.WritableRegistry;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.structure.Structure;
-import net.minecraft.structure.StructureManager;
-import net.minecraft.structure.pool.ListPoolElement;
-import net.minecraft.structure.pool.SinglePoolElement;
-import net.minecraft.structure.pool.StructurePool;
-import net.minecraft.structure.pool.StructurePoolElement;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.JsonHelper;
-import net.minecraft.util.registry.DynamicRegistryManager;
-import net.minecraft.util.registry.MutableRegistry;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.server.packs.PackResources;
+import net.minecraft.server.packs.PackType;
+import net.minecraft.server.packs.resources.FallbackResourceManager;
+import net.minecraft.server.packs.resources.ResourceManager;
+import net.minecraft.util.GsonHelper;
+import net.minecraft.world.level.levelgen.feature.structures.ListPoolElement;
+import net.minecraft.world.level.levelgen.feature.structures.SinglePoolElement;
+import net.minecraft.world.level.levelgen.feature.structures.StructurePoolElement;
+import net.minecraft.world.level.levelgen.feature.structures.StructureTemplatePool;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -57,8 +57,8 @@ public class PoolAdditionMerger {
     public static void mergeAdditionPools() {
         ServerLifecycleEvents.SERVER_STARTING.register((MinecraftServer minecraftServer) -> {
             ResourceManager resourceManager = ((StructureManagerAccessor) minecraftServer.getStructureManager()).repurposedstructures_getResourceManager();
-            Map<Identifier, List<JsonElement>> poolAdditionJSON = getPoolAdditionJSON(resourceManager);
-            parsePoolsAndBeginMerger(poolAdditionJSON, minecraftServer.getRegistryManager(), minecraftServer.getStructureManager());
+            Map<ResourceLocation, List<JsonElement>> poolAdditionJSON = getPoolAdditionJSON(resourceManager);
+            parsePoolsAndBeginMerger(poolAdditionJSON, minecraftServer.registryAccess(), minecraftServer.getStructureManager());
         });
     }
 
@@ -67,14 +67,14 @@ public class PoolAdditionMerger {
      *
      * @return - A map of paths (identifiers) to a list of all JSON elements found under it from all datapacks.
      */
-    private static Map<Identifier, List<JsonElement>> getPoolAdditionJSON(ResourceManager resourceManager) {
-        Map<Identifier, List<JsonElement>> map = new HashMap<>();
+    private static Map<ResourceLocation, List<JsonElement>> getPoolAdditionJSON(ResourceManager resourceManager) {
+        Map<ResourceLocation, List<JsonElement>> map = new HashMap<>();
         int dataTypeLength = DATA_TYPE.length() + 1;
 
         // Finds all JSON files paths within the pool_additions folder. NOTE: this is just the path rn. Not the actual files yet.
-        for (Identifier fileIDWithExtension : resourceManager.findResources(DATA_TYPE, (fileString) -> fileString.endsWith(".json"))) {
+        for (ResourceLocation fileIDWithExtension : resourceManager.listResources(DATA_TYPE, (fileString) -> fileString.endsWith(".json"))) {
             String identifierPath = fileIDWithExtension.getPath();
-            Identifier fileID = new Identifier(
+            ResourceLocation fileID = new ResourceLocation(
                     fileIDWithExtension.getNamespace(),
                     identifierPath.substring(dataTypeLength, identifierPath.length() - FILE_SUFFIX_LENGTH));
 
@@ -84,7 +84,7 @@ public class PoolAdditionMerger {
                     try (Reader bufferedReader = new BufferedReader(new InputStreamReader(fileStream, StandardCharsets.UTF_8))) {
 
                         // Get the JSON from the file
-                        JsonElement poolJSONElement = JsonHelper.deserialize(GSON, bufferedReader, (Class<? extends JsonElement>) JsonElement.class);
+                        JsonElement poolJSONElement = GsonHelper.fromJson(GSON, bufferedReader, (Class<? extends JsonElement>) JsonElement.class);
                         if (poolJSONElement != null) {
 
                             // Create list in map for the ID if non exists yet for that ID
@@ -121,16 +121,16 @@ public class PoolAdditionMerger {
      *
      * @return - Filestream list of all files found with id
      */
-    private static List<InputStream> getAllFileStreams(ResourceManager resourceManager, Identifier fileID) throws IOException {
+    private static List<InputStream> getAllFileStreams(ResourceManager resourceManager, ResourceLocation fileID) throws IOException {
         List<InputStream> fileStreams = new ArrayList<>();
 
-        NamespaceResourceManager namespaceResourceManager = ((ReloadableResourceManagerImplAccessor) resourceManager).repurposedstructures_getNamespaceManagers().get(fileID.getNamespace());
-        List<ResourcePack> allResourcePacks = ((NamespaceResourceManagerAccessor) namespaceResourceManager).repurposedstructures_getPackList();
+        FallbackResourceManager namespaceResourceManager = ((ReloadableResourceManagerImplAccessor) resourceManager).repurposedstructures_getNamespacedPacks().get(fileID.getNamespace());
+        List<PackResources> allResourcePacks = ((NamespaceResourceManagerAccessor) namespaceResourceManager).repurposedstructures_getFallbacks();
 
         // Find the file with the given id and add its filestream to the list
-        for (ResourcePack resourcePack : allResourcePacks) {
-            if (resourcePack.contains(ResourceType.SERVER_DATA, fileID)) {
-                InputStream inputStream = ((NamespaceResourceManagerAccessor) namespaceResourceManager).repurposedstructures_callOpen(fileID, resourcePack);
+        for (PackResources resourcePack : allResourcePacks) {
+            if (resourcePack.hasResource(PackType.SERVER_DATA, fileID)) {
+                InputStream inputStream = ((NamespaceResourceManagerAccessor) namespaceResourceManager).repurposedstructures_callGetWrappedResource(fileID, resourcePack);
                 if (inputStream != null) fileStreams.add(inputStream);
             }
         }
@@ -143,18 +143,18 @@ public class PoolAdditionMerger {
      * Using the given dynamic registry, will now parse the JSON objects of pools and resolve their processors with the dynamic registry.
      * Afterwards, it will merge the parsed pool into the targeted pool found in the dynamic registry.
      */
-    private static void parsePoolsAndBeginMerger(Map<Identifier, List<JsonElement>> poolAdditionJSON, DynamicRegistryManager dynamicRegistryManager, StructureManager structureManager) {
-        MutableRegistry<StructurePool> poolRegistry = dynamicRegistryManager.getMutable(Registry.STRUCTURE_POOL_KEY);
+    private static void parsePoolsAndBeginMerger(Map<ResourceLocation, List<JsonElement>> poolAdditionJSON, RegistryAccess dynamicRegistryManager, StructureManager structureManager) {
+        WritableRegistry<StructureTemplatePool> poolRegistry = dynamicRegistryManager.ownedRegistryOrThrow(Registry.TEMPLATE_POOL_REGISTRY);
         // A RegistryOps that doesn't break everything under the sun and can take a DynamicRegistryManager instead of DynamicRegistryManager.Impl.
         SafeDecodingRegistryOps<JsonElement> customRegistryOps = new SafeDecodingRegistryOps<>(JsonOps.INSTANCE, dynamicRegistryManager);
 
         // Will iterate over all of our found pool additions and make sure the target pool exists before we parse our JSON objects
-        for (Map.Entry<Identifier, List<JsonElement>> entry : poolAdditionJSON.entrySet()) {
+        for (Map.Entry<ResourceLocation, List<JsonElement>> entry : poolAdditionJSON.entrySet()) {
             if (poolRegistry.get(entry.getKey()) == null) continue;
 
             // Parse the given pool addition JSON objects and add their pool to the dynamic registry pool
             for (JsonElement jsonElement : entry.getValue()) {
-                StructurePool.CODEC.parse(customRegistryOps, jsonElement)
+                StructureTemplatePool.DIRECT_CODEC.parse(customRegistryOps, jsonElement)
                         .resultOrPartial(messageString -> logBadData(entry.getKey(), messageString))
                         .ifPresent(validPool -> mergeIntoExistingPool(validPool, poolRegistry.get(entry.getKey()), structureManager));
             }
@@ -164,46 +164,46 @@ public class PoolAdditionMerger {
     /**
      * Merges the incoming pool with the given target pool in an additive manner that does not affect any other pools and can be stacked safely.
      */
-    private static void mergeIntoExistingPool(StructurePool feedingPool, StructurePool gluttonyPool, StructureManager structureManager) {
+    private static void mergeIntoExistingPool(StructureTemplatePool feedingPool, StructureTemplatePool gluttonyPool, StructureManager structureManager) {
         // Make new copies of lists as the originals are immutable lists and we want to make sure our changes only stays with this pool element
-        List<StructurePoolElement> elements = new ArrayList<>(((StructurePoolAccessor) gluttonyPool).repurposedstructures_getElements());
-        List<Pair<StructurePoolElement, Integer>> elementCounts = new ArrayList<>(((StructurePoolAccessor) gluttonyPool).repurposedstructures_getElementCounts());
+        List<StructurePoolElement> elements = new ArrayList<>(((StructurePoolAccessor) gluttonyPool).repurposedstructures_getTemplates());
+        List<Pair<StructurePoolElement, Integer>> elementCounts = new ArrayList<>(((StructurePoolAccessor) gluttonyPool).repurposedstructures_getRawTemplates());
 
-        elements.addAll(((StructurePoolAccessor) feedingPool).repurposedstructures_getElements());
-        elementCounts.addAll(((StructurePoolAccessor) feedingPool).repurposedstructures_getElementCounts());
+        elements.addAll(((StructurePoolAccessor) feedingPool).repurposedstructures_getTemplates());
+        elementCounts.addAll(((StructurePoolAccessor) feedingPool).repurposedstructures_getRawTemplates());
 
         // Helps people know if they typoed their merger pool's nbt file paths
         for(StructurePoolElement element : elements){
             if(element instanceof SinglePoolElement singlePoolElement){
-                Optional<Identifier> nbtID = ((SinglePoolElementAccessor)singlePoolElement).repurposedstructures_getLocation().left();
+                Optional<ResourceLocation> nbtID = ((SinglePoolElementAccessor)singlePoolElement).repurposedstructures_getTemplate().left();
                 if(nbtID.isEmpty()) continue;
-                Optional<Structure> structureTemplate = structureManager.getStructure(nbtID.get());
+                Optional<StructureTemplate> structureTemplate = structureManager.get(nbtID.get());
                 if(structureTemplate.isEmpty()){
-                    RepurposedStructures.LOGGER.error("(Repurposed Structures POOL MERGER) Found an entry in {} that points to the non-existent nbt file called {}", feedingPool.getId(), nbtID.get());
+                    RepurposedStructures.LOGGER.error("(Repurposed Structures POOL MERGER) Found an entry in {} that points to the non-existent nbt file called {}", feedingPool.getName(), nbtID.get());
                 }
             }
             else if(element instanceof ListPoolElement listPoolElement){
                 for(StructurePoolElement listElement : ((ListPoolElementAccessor)listPoolElement).repurposedstructures_getElements()){
                     if(listElement instanceof SinglePoolElement singlePoolElement) {
-                        Optional<Identifier> nbtID = ((SinglePoolElementAccessor) singlePoolElement).repurposedstructures_getLocation().left();
+                        Optional<ResourceLocation> nbtID = ((SinglePoolElementAccessor) singlePoolElement).repurposedstructures_getTemplate().left();
                         if (nbtID.isEmpty()) continue;
-                        Optional<Structure> structureTemplate = structureManager.getStructure(nbtID.get());
+                        Optional<StructureTemplate> structureTemplate = structureManager.get(nbtID.get());
                         if (structureTemplate.isEmpty()) {
-                            RepurposedStructures.LOGGER.error("(Repurposed Structures POOL MERGER) Found an entry in {} that points to the non-existent nbt file called {}", feedingPool.getId(), nbtID.get());
+                            RepurposedStructures.LOGGER.error("(Repurposed Structures POOL MERGER) Found an entry in {} that points to the non-existent nbt file called {}", feedingPool.getName(), nbtID.get());
                         }
                     }
                 }
             }
         }
 
-        ((StructurePoolAccessor) gluttonyPool).repurposedstructures_setElements(elements);
-        ((StructurePoolAccessor) gluttonyPool).repurposedstructures_setElementCounts(elementCounts);
+        ((StructurePoolAccessor) gluttonyPool).repurposedstructures_setTemplates(elements);
+        ((StructurePoolAccessor) gluttonyPool).repurposedstructures_setRawTemplates(elementCounts);
     }
 
     /**
      * Log out the pool that failed to be parsed and what the error is.
      */
-    private static void logBadData(Identifier poolPath, String messageString) {
+    private static void logBadData(ResourceLocation poolPath, String messageString) {
         RepurposedStructures.LOGGER.error("(Repurposed Structures POOL MERGER) Failed to parse {} additions file. Error is: {}", poolPath, messageString);
     }
 }

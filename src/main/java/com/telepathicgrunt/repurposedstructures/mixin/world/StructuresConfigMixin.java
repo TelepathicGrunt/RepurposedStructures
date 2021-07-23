@@ -1,10 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.mixin.world;
 
 import com.google.common.collect.Maps;
-import net.minecraft.world.gen.chunk.StrongholdConfig;
-import net.minecraft.world.gen.chunk.StructureConfig;
-import net.minecraft.world.gen.chunk.StructuresConfig;
-import net.minecraft.world.gen.feature.StructureFeature;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Mutable;
@@ -15,18 +11,22 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Map;
 import java.util.Optional;
+import net.minecraft.world.level.levelgen.StructureSettings;
+import net.minecraft.world.level.levelgen.feature.StructureFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.StrongholdConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.StructureFeatureConfiguration;
 
-@Mixin(StructuresConfig.class)
+@Mixin(StructureSettings.class)
 public class StructuresConfigMixin {
 
     @Mutable
     @Final
     @Shadow
-    private Map<StructureFeature<?>, StructureConfig> structures;
+    private Map<StructureFeature<?>, StructureFeatureConfiguration> structureConfig;
 
     @Inject(method = "<init>(Ljava/util/Optional;Ljava/util/Map;)V",
             at = @At(value = "RETURN"))
-    private void repurposedstructures_deepCopyStructuresConfig(Optional<StrongholdConfig> stronghold, Map<StructureFeature<?>, StructureConfig> structures, CallbackInfo ci) {
-        structures = Maps.newHashMap(structures);
+    private void repurposedstructures_deepCopyStructuresConfig(Optional<StrongholdConfiguration> stronghold, Map<StructureFeature<?>, StructureFeatureConfiguration> structures, CallbackInfo ci) {
+        structureConfig = Maps.newHashMap(structures);
     }
 }

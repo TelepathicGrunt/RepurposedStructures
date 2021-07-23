@@ -1,14 +1,14 @@
 package com.telepathicgrunt.repurposedstructures.mixin.resources;
 
-import net.minecraft.resource.NamespaceResourceManager;
-import net.minecraft.resource.ReloadableResourceManagerImpl;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
 import java.util.Map;
+import net.minecraft.server.packs.resources.FallbackResourceManager;
+import net.minecraft.server.packs.resources.SimpleReloadableResourceManager;
 
-@Mixin(ReloadableResourceManagerImpl.class)
+@Mixin(SimpleReloadableResourceManager.class)
 public interface ReloadableResourceManagerImplAccessor {
-    @Accessor("namespaceManagers")
-    Map<String, NamespaceResourceManager> repurposedstructures_getNamespaceManagers();
+    @Accessor("namespacedPacks")
+    Map<String, FallbackResourceManager> repurposedstructures_getNamespacedPacks();
 }

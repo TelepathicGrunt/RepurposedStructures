@@ -1,38 +1,38 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
-import net.minecraft.block.BlockState;
-import net.minecraft.structure.PoolStructurePiece;
-import net.minecraft.structure.StructureManager;
-import net.minecraft.structure.StructureStart;
-import net.minecraft.structure.pool.StructurePoolBasedGenerator;
-import net.minecraft.util.BlockRotation;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkPos;
-import net.minecraft.util.registry.DynamicRegistryManager;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.HeightLimitView;
-import net.minecraft.world.Heightmap;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.source.BiomeSource;
-import net.minecraft.world.gen.ChunkRandom;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.chunk.VerticalBlockSample;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
-import net.minecraft.world.gen.feature.StructureFeature;
-import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Registry;
+import net.minecraft.core.RegistryAccess;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.LevelHeightAccessor;
+import net.minecraft.world.level.NoiseColumn;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.BiomeSource;
+import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.levelgen.WorldgenRandom;
+import net.minecraft.world.level.levelgen.feature.StructureFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.structures.JigsawPlacement;
+import net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece;
+import net.minecraft.world.level.levelgen.structure.StructureStart;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 
 
-public class BuriableStructure extends AbstractBaseStructure<DefaultFeatureConfig> {
+public class BuriableStructure extends AbstractBaseStructure<NoneFeatureConfiguration> {
 
-    private final Identifier startPool;
+    private final ResourceLocation startPool;
     private final int offsetAmount;
     private final boolean onLand;
     private final boolean cannotSpawnInWater;
 
-    public BuriableStructure(Identifier startPool, int offsetAmount, boolean onLand, boolean cannotSpawnInWater) {
-        super(DefaultFeatureConfig.CODEC);
+    public BuriableStructure(ResourceLocation startPool, int offsetAmount, boolean onLand, boolean cannotSpawnInWater) {
+        super(NoneFeatureConfiguration.CODEC);
         this.startPool = startPool;
         RSStructures.RS_STRUCTURE_START_PIECES.add(this.startPool);
         this.offsetAmount = offsetAmount;
@@ -41,13 +41,13 @@ public class BuriableStructure extends AbstractBaseStructure<DefaultFeatureConfi
     }
 
     @Override
-    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, ChunkPos chunkPos1, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig defaultFeatureConfig, HeightLimitView heightLimitView) {
+    protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, WorldgenRandom chunkRandom, ChunkPos chunkPos1, Biome biome, ChunkPos chunkPos, NoneFeatureConfiguration defaultFeatureConfig, LevelHeightAccessor heightLimitView) {
 
         if(cannotSpawnInWater){
-            BlockPos centerOfChunk = chunkPos.getCenterAtY(0);
-            int landHeight = chunkGenerator.getHeightInGround(centerOfChunk.getX(), centerOfChunk.getZ(), Heightmap.Type.WORLD_SURFACE_WG, heightLimitView);
-            VerticalBlockSample columnOfBlocks = chunkGenerator.getColumnSample(centerOfChunk.getX(), centerOfChunk.getZ(), heightLimitView);
-            BlockState topBlock = columnOfBlocks.getState(centerOfChunk.up(landHeight));
+            BlockPos centerOfChunk = chunkPos.getMiddleBlockPosition(0);
+            int landHeight = chunkGenerator.getFirstOccupiedHeight(centerOfChunk.getX(), centerOfChunk.getZ(), Heightmap.Types.WORLD_SURFACE_WG, heightLimitView);
+            NoiseColumn columnOfBlocks = chunkGenerator.getBaseColumn(centerOfChunk.getX(), centerOfChunk.getZ(), heightLimitView);
+            BlockState topBlock = columnOfBlocks.getBlockState(centerOfChunk.above(landHeight));
             return topBlock.getFluidState().isEmpty();
         }
 
@@ -55,23 +55,23 @@ public class BuriableStructure extends AbstractBaseStructure<DefaultFeatureConfi
     }
 
     @Override
-    public StructureFeature.StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
+    public StructureFeature.StructureStartFactory<NoneFeatureConfiguration> getStartFactory() {
         return BuriableStructure.Start::new;
     }
 
-    public class Start extends StructureStart<DefaultFeatureConfig> {
+    public class Start extends StructureStart<NoneFeatureConfiguration> {
 
-        public Start(StructureFeature<DefaultFeatureConfig> structureIn, ChunkPos chunkPos1, int referenceIn, long seedIn) {
+        public Start(StructureFeature<NoneFeatureConfiguration> structureIn, ChunkPos chunkPos1, int referenceIn, long seedIn) {
             super(structureIn, chunkPos1, referenceIn, seedIn);
         }
 
         @Override
-        public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, ChunkPos chunkPos1, Biome biome, DefaultFeatureConfig defaultFeatureConfig, HeightLimitView heightLimitView) {
-            BlockPos blockpos = new BlockPos(chunkPos1.getStartX(), chunkGenerator.getSeaLevel(), chunkPos1.getStartZ());
-            StructurePoolBasedGenerator.generate(
+        public void generatePieces(RegistryAccess dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, ChunkPos chunkPos1, Biome biome, NoneFeatureConfiguration defaultFeatureConfig, LevelHeightAccessor heightLimitView) {
+            BlockPos blockpos = new BlockPos(chunkPos1.getMinBlockX(), chunkGenerator.getSeaLevel(), chunkPos1.getMinBlockZ());
+            JigsawPlacement.addPieces(
                     dynamicRegistryManager,
-                    new StructurePoolFeatureConfig(() -> dynamicRegistryManager.get(Registry.STRUCTURE_POOL_KEY).get(startPool), 11),
-                    PoolStructurePiece::new,
+                    new JigsawConfiguration(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(startPool), 11),
+                    PoolElementStructurePiece::new,
                     chunkGenerator,
                     structureManager,
                     blockpos,
@@ -80,30 +80,30 @@ public class BuriableStructure extends AbstractBaseStructure<DefaultFeatureConfi
                     false,
                     false,
                     heightLimitView);
-            this.setBoundingBoxFromChildren();
+            this.getBoundingBox();
 
-            BlockRotation rotation = this.children.get(0).getRotation();
-            BlockPos maxCorner = new BlockPos(this.children.get(0).getBoundingBox().getBlockCountX(), 0, this.children.get(0).getBoundingBox().getBlockCountZ()).rotate(rotation);
+            Rotation rotation = this.pieces.get(0).getRotation();
+            BlockPos maxCorner = new BlockPos(this.pieces.get(0).getBoundingBox().getXSpan(), 0, this.pieces.get(0).getBoundingBox().getZSpan()).rotate(rotation);
 
-            Heightmap.Type heightMapToUse = onLand ? Heightmap.Type.WORLD_SURFACE_WG : Heightmap.Type.OCEAN_FLOOR_WG;
+            Heightmap.Types heightMapToUse = onLand ? Heightmap.Types.WORLD_SURFACE_WG : Heightmap.Types.OCEAN_FLOOR_WG;
 
-            int highestLandPos = chunkGenerator.getHeight(blockpos.getX() + maxCorner.getX(), blockpos.getZ() + maxCorner.getZ(), heightMapToUse, heightLimitView);
-            highestLandPos = Math.min(highestLandPos, chunkGenerator.getHeight(blockpos.getX(), blockpos.getZ() + maxCorner.getZ(), heightMapToUse, heightLimitView));
-            highestLandPos = Math.min(highestLandPos, chunkGenerator.getHeight(blockpos.getX() + maxCorner.getX(), blockpos.getZ(), heightMapToUse, heightLimitView));
-            highestLandPos = Math.min(highestLandPos, chunkGenerator.getHeight(blockpos.getX(), blockpos.getZ(), heightMapToUse, heightLimitView));
+            int highestLandPos = chunkGenerator.getBaseHeight(blockpos.getX() + maxCorner.getX(), blockpos.getZ() + maxCorner.getZ(), heightMapToUse, heightLimitView);
+            highestLandPos = Math.min(highestLandPos, chunkGenerator.getBaseHeight(blockpos.getX(), blockpos.getZ() + maxCorner.getZ(), heightMapToUse, heightLimitView));
+            highestLandPos = Math.min(highestLandPos, chunkGenerator.getBaseHeight(blockpos.getX() + maxCorner.getX(), blockpos.getZ(), heightMapToUse, heightLimitView));
+            highestLandPos = Math.min(highestLandPos, chunkGenerator.getBaseHeight(blockpos.getX(), blockpos.getZ(), heightMapToUse, heightLimitView));
 
-            this.randomUpwardTranslation(this.random, highestLandPos-(offsetAmount+1), highestLandPos-offsetAmount);
+            this.moveInsideHeights(this.random, highestLandPos-(offsetAmount+1), highestLandPos-offsetAmount);
         }
     }
 
 
     public static class Builder<T extends BuriableStructure.Builder<T>> {
-        private final Identifier startPool;
+        private final ResourceLocation startPool;
         private int offsetAmount = 14;
         private boolean onLand = true;
         private boolean cannotSpawnInWater = true;
 
-        public Builder(Identifier startPool) {
+        public Builder(ResourceLocation startPool) {
             this.startPool = startPool;
         }
 

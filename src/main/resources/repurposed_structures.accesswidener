@@ -1,4 +1,3 @@
 accessWidener v1 named
-accessible class net/minecraft/village/TradeOffers$SellMapFactory
-accessible class net/minecraft/util/shape/PairList
-accessible method net/minecraft/util/dynamic/RegistryOps <init> (Lcom/mojang/serialization/DynamicOps;Lnet/minecraft/util/dynamic/RegistryOps$EntryLoader;Lnet/minecraft/util/registry/DynamicRegistryManager;Ljava/util/IdentityHashMap;)V
+accessible class net/minecraft/world/entity/npc/VillagerTrades$TreasureMapForEmeralds
+accessible method net/minecraft/resources/RegistryReadOps <init> (Lcom/mojang/serialization/DynamicOps;Lnet/minecraft/resources/RegistryReadOps$ResourceAccess;Lnet/minecraft/core/RegistryAccess;Ljava/util/IdentityHashMap;)V

@@ -2,31 +2,30 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.telepathicgrunt.repurposedstructures.misc.PieceLimitedJigsawManager;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.StructurePiecesBehavior;
-import net.minecraft.structure.StructureManager;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.registry.DynamicRegistryManager;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.HeightLimitView;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.source.BiomeSource;
-import net.minecraft.world.gen.ChunkRandom;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
-import net.minecraft.world.gen.feature.StructureFeature;
-import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
-
 import java.util.Map;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.Registry;
+import net.minecraft.core.RegistryAccess;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.LevelHeightAccessor;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.BiomeSource;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.WorldgenRandom;
+import net.minecraft.world.level.levelgen.feature.StructureFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 
 
 public class AdvancedDistanceJigsawStructure extends AdvancedJigsawStructure {
 
     protected final int distanceFromWorldOrigin;
 
-    public AdvancedDistanceJigsawStructure(Identifier poolID, int structureSize, int biomeRange,
-                                           Map<Identifier, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces,
+    public AdvancedDistanceJigsawStructure(ResourceLocation poolID, int structureSize, int biomeRange,
+                                           Map<ResourceLocation, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces,
                                            int maxY, int minY, boolean clipOutOfBoundsPieces, Integer verticalRange,
                                            int distanceFromWorldOrigin)
     {
@@ -35,41 +34,41 @@ public class AdvancedDistanceJigsawStructure extends AdvancedJigsawStructure {
     }
 
     @Override
-    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, ChunkPos chunkPos1, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig featureConfig, HeightLimitView heightLimitView) {
+    protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, WorldgenRandom chunkRandom, ChunkPos chunkPos1, Biome biome, ChunkPos chunkPos, NoneFeatureConfiguration featureConfig, LevelHeightAccessor heightLimitView) {
         int radius = distanceFromWorldOrigin;
-        int xBlockPos = chunkPos1.getStartX();
-        int zBlockPos = chunkPos1.getStartZ();
+        int xBlockPos = chunkPos1.getMinBlockX();
+        int zBlockPos = chunkPos1.getMinBlockZ();
         return (xBlockPos * xBlockPos) + (zBlockPos * zBlockPos) > radius * radius;
     }
 
     @Override
-    public StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
+    public StructureStartFactory<NoneFeatureConfiguration> getStartFactory() {
         return AdvancedDistanceJigsawStructure.Start::new;
     }
 
     public class Start extends MainStart {
 
-        private final Identifier structureID;
+        private final ResourceLocation structureID;
 
-        public Start(StructureFeature<DefaultFeatureConfig> structureIn, ChunkPos chunkPos1, int referenceIn, long seedIn) {
+        public Start(StructureFeature<NoneFeatureConfiguration> structureIn, ChunkPos chunkPos1, int referenceIn, long seedIn) {
             super(structureIn, chunkPos1, referenceIn, seedIn);
-            structureID = Registry.STRUCTURE_FEATURE.getId(structureIn);
+            structureID = Registry.STRUCTURE_FEATURE.getKey(structureIn);
         }
 
         @Override
-        public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, ChunkPos chunkPos1, Biome biome, DefaultFeatureConfig defaultFeatureConfig, HeightLimitView heightLimitView) {
-            BlockPos.Mutable blockpos = new BlockPos.Mutable(chunkPos1.getStartX(), 0, chunkPos1.getStartZ());
+        public void generatePieces(RegistryAccess dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, ChunkPos chunkPos1, Biome biome, NoneFeatureConfiguration defaultFeatureConfig, LevelHeightAccessor heightLimitView) {
+            BlockPos.MutableBlockPos blockpos = new BlockPos.MutableBlockPos(chunkPos1.getMinBlockX(), 0, chunkPos1.getMinBlockZ());
 
             // -5 so that the start piece's bottom 2 jigsaw blocks can spawn extra pieces and the rest of the stronghold wont go as high as start stairway
             blockpos.move(Direction.UP, maxY - 5);
 
             PieceLimitedJigsawManager.assembleJigsawStructure(
                     dynamicRegistryManager,
-                    new StructurePoolFeatureConfig(() -> dynamicRegistryManager.get(Registry.STRUCTURE_POOL_KEY).get(startPool), structureSize),
+                    new JigsawConfiguration(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(startPool), structureSize),
                     chunkGenerator,
                     structureManager,
                     blockpos,
-                    this.children,
+                    this.pieces,
                     this.random,
                     false,
                     false,
@@ -78,7 +77,7 @@ public class AdvancedDistanceJigsawStructure extends AdvancedJigsawStructure {
                     maxY,
                     minY);
 
-            this.setBoundingBoxFromChildren();
+            this.getBoundingBox();
         }
     }
 
@@ -87,7 +86,7 @@ public class AdvancedDistanceJigsawStructure extends AdvancedJigsawStructure {
 
         protected int distanceFromWorldOrigin = 2817;
 
-        public Builder(Identifier startPool) {
+        public Builder(ResourceLocation startPool) {
             super(startPool);
         }
 

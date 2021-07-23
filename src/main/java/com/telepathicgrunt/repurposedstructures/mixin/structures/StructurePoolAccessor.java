@@ -1,27 +1,27 @@
 package com.telepathicgrunt.repurposedstructures.mixin.structures;
 
 import com.mojang.datafixers.util.Pair;
-import net.minecraft.structure.pool.StructurePool;
-import net.minecraft.structure.pool.StructurePoolElement;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Mutable;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
 import java.util.List;
+import net.minecraft.world.level.levelgen.feature.structures.StructurePoolElement;
+import net.minecraft.world.level.levelgen.feature.structures.StructureTemplatePool;
 
-@Mixin(StructurePool.class)
+@Mixin(StructureTemplatePool.class)
 public interface StructurePoolAccessor {
-    @Accessor("elementCounts")
-    List<Pair<StructurePoolElement, Integer>> repurposedstructures_getElementCounts();
+    @Accessor("rawTemplates")
+    List<Pair<StructurePoolElement, Integer>> repurposedstructures_getRawTemplates();
 
     @Mutable
-    @Accessor("elementCounts")
-    void repurposedstructures_setElementCounts(List<Pair<StructurePoolElement, Integer>> elementCounts);
+    @Accessor("rawTemplates")
+    void repurposedstructures_setRawTemplates(List<Pair<StructurePoolElement, Integer>> elementCounts);
 
-    @Accessor("elements")
-    List<StructurePoolElement> repurposedstructures_getElements();
+    @Accessor("templates")
+    List<StructurePoolElement> repurposedstructures_getTemplates();
 
     @Mutable
-    @Accessor("elements")
-    void repurposedstructures_setElements(List<StructurePoolElement> elements);
+    @Accessor("templates")
+    void repurposedstructures_setTemplates(List<StructurePoolElement> elements);
 }

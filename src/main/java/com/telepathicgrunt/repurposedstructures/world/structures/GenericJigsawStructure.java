@@ -2,39 +2,38 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
-import net.minecraft.block.BlockState;
-import net.minecraft.structure.MarginedStructureStart;
-import net.minecraft.structure.PoolStructurePiece;
-import net.minecraft.structure.StructureManager;
-import net.minecraft.structure.pool.StructurePoolBasedGenerator;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkPos;
-import net.minecraft.util.registry.DynamicRegistryManager;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.HeightLimitView;
-import net.minecraft.world.Heightmap;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.source.BiomeSource;
-import net.minecraft.world.biome.source.CheckerboardBiomeSource;
-import net.minecraft.world.gen.ChunkRandom;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.chunk.StructureConfig;
-import net.minecraft.world.gen.chunk.VerticalBlockSample;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
-import net.minecraft.world.gen.feature.StructureFeature;
-import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
-
 import java.util.HashSet;
 import java.util.Set;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Registry;
+import net.minecraft.core.RegistryAccess;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.LevelHeightAccessor;
+import net.minecraft.world.level.NoiseColumn;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.BiomeSource;
+import net.minecraft.world.level.biome.CheckerboardColumnBiomeSource;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.levelgen.WorldgenRandom;
+import net.minecraft.world.level.levelgen.feature.StructureFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.StructureFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.structures.JigsawPlacement;
+import net.minecraft.world.level.levelgen.structure.NoiseAffectingStructureStart;
+import net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 
 /**
  * TODO: Turn GenericJigsawStructure and other classes of it into a builder system.
  * I bet that would be cleaner and more readable.
  */
-public class GenericJigsawStructure extends AbstractBaseStructure<DefaultFeatureConfig> {
+public class GenericJigsawStructure extends AbstractBaseStructure<NoneFeatureConfiguration> {
 
-    protected final Identifier startPool;
+    protected final ResourceLocation startPool;
     protected final int structureSize;
     protected final int centerOffset;
     protected final int biomeRange;
@@ -47,12 +46,12 @@ public class GenericJigsawStructure extends AbstractBaseStructure<DefaultFeature
     protected boolean useHeightmap;
     protected boolean cannotSpawnInWater;
 
-    public GenericJigsawStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange,
+    public GenericJigsawStructure(ResourceLocation poolID, int structureSize, int centerOffset, int biomeRange,
                                   int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet,
                                   int allowTerrainHeightRange, int terrainHeightRadius, int minHeightLimit,
                                   int fixedYSpawn, boolean useHeightmap, boolean cannotSpawnInWater)
     {
-        super(DefaultFeatureConfig.CODEC);
+        super(NoneFeatureConfiguration.CODEC);
 
         this.startPool = poolID;
         this.structureSize = structureSize;
@@ -71,11 +70,11 @@ public class GenericJigsawStructure extends AbstractBaseStructure<DefaultFeature
     }
 
     @Override
-    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, ChunkPos chunkPos1, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig defaultFeatureConfig, HeightLimitView heightLimitView) {
-        if(!(biomeSource instanceof CheckerboardBiomeSource)) {
+    protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, WorldgenRandom chunkRandom, ChunkPos chunkPos1, Biome biome, ChunkPos chunkPos, NoneFeatureConfiguration defaultFeatureConfig, LevelHeightAccessor heightLimitView) {
+        if(!(biomeSource instanceof CheckerboardColumnBiomeSource)) {
             for (int curChunkX = chunkPos1.x - biomeRange; curChunkX <= chunkPos1.x + biomeRange; curChunkX++) {
                 for (int curChunkZ = chunkPos1.z - biomeRange; curChunkZ <= chunkPos1.z + biomeRange; curChunkZ++) {
-                    if (!biomeSource.getBiomeForNoiseGen(curChunkX << 2, 64, curChunkZ << 2).getGenerationSettings().hasStructureFeature(this)) {
+                    if (!biomeSource.getNoiseBiome(curChunkX << 2, 64, curChunkZ << 2).getGenerationSettings().isValidStart(this)) {
                         return false;
                     }
                 }
@@ -89,9 +88,9 @@ public class GenericJigsawStructure extends AbstractBaseStructure<DefaultFeature
 
                 for(RSStructureTagMap.STRUCTURE_TAGS tag : avoidStructuresSet){
                     for(StructureFeature<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(tag)){
-                        StructureConfig structureConfig = chunkGenerator.getStructuresConfig().getForType(structureFeature);
-                        if(structureConfig != null && structureConfig.getSpacing() > 8){
-                            ChunkPos chunkPos2 = structureFeature.getStartChunk(structureConfig, seed, chunkRandom, curChunkX, curChunkZ);
+                        StructureFeatureConfiguration structureConfig = chunkGenerator.getSettings().getConfig(structureFeature);
+                        if(structureConfig != null && structureConfig.spacing() > 8){
+                            ChunkPos chunkPos2 = structureFeature.getPotentialFeatureChunk(structureConfig, seed, chunkRandom, curChunkX, curChunkZ);
                             if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
                                 return false;
                             }
@@ -107,7 +106,7 @@ public class GenericJigsawStructure extends AbstractBaseStructure<DefaultFeature
 
             for (int curChunkX = chunkPos1.x - terrainHeightRadius; curChunkX <= chunkPos1.x + terrainHeightRadius; curChunkX++) {
                 for (int curChunkZ = chunkPos1.z - terrainHeightRadius; curChunkZ <= chunkPos1.z + terrainHeightRadius; curChunkZ++) {
-                    int height = chunkGenerator.getHeight((curChunkX << 4) + 7, (curChunkZ << 4) + 7, Heightmap.Type.WORLD_SURFACE_WG, heightLimitView);
+                    int height = chunkGenerator.getBaseHeight((curChunkX << 4) + 7, (curChunkZ << 4) + 7, Heightmap.Types.WORLD_SURFACE_WG, heightLimitView);
                     maxTerrainHeight = Math.max(maxTerrainHeight, height);
                     minTerrainHeight = Math.min(minTerrainHeight, height);
 
@@ -121,10 +120,10 @@ public class GenericJigsawStructure extends AbstractBaseStructure<DefaultFeature
         }
 
         if(cannotSpawnInWater){
-            BlockPos centerOfChunk = chunkPos.getCenterAtY(0);
-            int landHeight = chunkGenerator.getHeightInGround(centerOfChunk.getX(), centerOfChunk.getZ(), Heightmap.Type.WORLD_SURFACE_WG, heightLimitView);
-            VerticalBlockSample columnOfBlocks = chunkGenerator.getColumnSample(centerOfChunk.getX(), centerOfChunk.getZ(), heightLimitView);
-            BlockState topBlock = columnOfBlocks.getState(centerOfChunk.up(landHeight));
+            BlockPos centerOfChunk = chunkPos.getMiddleBlockPosition(0);
+            int landHeight = chunkGenerator.getFirstOccupiedHeight(centerOfChunk.getX(), centerOfChunk.getZ(), Heightmap.Types.WORLD_SURFACE_WG, heightLimitView);
+            NoiseColumn columnOfBlocks = chunkGenerator.getBaseColumn(centerOfChunk.getX(), centerOfChunk.getZ(), heightLimitView);
+            BlockState topBlock = columnOfBlocks.getBlockState(centerOfChunk.above(landHeight));
             return topBlock.getFluidState().isEmpty();
         }
 
@@ -132,21 +131,21 @@ public class GenericJigsawStructure extends AbstractBaseStructure<DefaultFeature
     }
 
     @Override
-    public StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
+    public StructureStartFactory<NoneFeatureConfiguration> getStartFactory() {
         return GenericJigsawStructure.MainStart::new;
     }
 
-    public class MainStart extends MarginedStructureStart<DefaultFeatureConfig> {
-        public MainStart(StructureFeature<DefaultFeatureConfig> structureIn, ChunkPos chunkPos1, int referenceIn, long seedIn) {
+    public class MainStart extends NoiseAffectingStructureStart<NoneFeatureConfiguration> {
+        public MainStart(StructureFeature<NoneFeatureConfiguration> structureIn, ChunkPos chunkPos1, int referenceIn, long seedIn) {
             super(structureIn, chunkPos1, referenceIn, seedIn);
         }
 
-        public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, ChunkPos chunkPos1, Biome biome, DefaultFeatureConfig defaultFeatureConfig, HeightLimitView heightLimitView) {
-            BlockPos blockpos = new BlockPos(chunkPos1.getStartX(), fixedYSpawn, chunkPos1.getStartZ());
-            StructurePoolBasedGenerator.generate(
+        public void generatePieces(RegistryAccess dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, ChunkPos chunkPos1, Biome biome, NoneFeatureConfiguration defaultFeatureConfig, LevelHeightAccessor heightLimitView) {
+            BlockPos blockpos = new BlockPos(chunkPos1.getMinBlockX(), fixedYSpawn, chunkPos1.getMinBlockZ());
+            JigsawPlacement.addPieces(
                     dynamicRegistryManager,
-                    new StructurePoolFeatureConfig(() -> dynamicRegistryManager.get(Registry.STRUCTURE_POOL_KEY).get(startPool), structureSize),
-                    PoolStructurePiece::new,
+                    new JigsawConfiguration(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(startPool), structureSize),
+                    PoolElementStructurePiece::new,
                     chunkGenerator,
                     structureManager,
                     blockpos,
@@ -155,13 +154,13 @@ public class GenericJigsawStructure extends AbstractBaseStructure<DefaultFeature
                     useHeightmap,
                     useHeightmap,
                     heightLimitView);
-            this.setBoundingBoxFromChildren();
-            this.children.get(0).translate(0, centerOffset, 0);
+            this.getBoundingBox();
+            this.pieces.get(0).move(0, centerOffset, 0);
         }
     }
 
     public static class Builder<T extends Builder<T>> {
-        protected final Identifier startPool;
+        protected final ResourceLocation startPool;
         protected int structureSize = 1;
         protected int centerOffset = 0;
         protected int biomeRange = 0;
@@ -174,7 +173,7 @@ public class GenericJigsawStructure extends AbstractBaseStructure<DefaultFeature
         protected boolean useHeightmap = true;
         protected boolean cannotSpawnInWater = false;
 
-        public Builder(Identifier startPool) {
+        public Builder(ResourceLocation startPool) {
             this.startPool = startPool;
         }
 

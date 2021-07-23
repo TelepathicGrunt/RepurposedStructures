@@ -1,9 +1,9 @@
 package com.telepathicgrunt.repurposedstructures.mixin.world;
 
 import com.telepathicgrunt.repurposedstructures.misc.NoiseSettingsDeepCopier;
-import net.minecraft.world.biome.source.BiomeSource;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.chunk.StructuresConfig;
+import net.minecraft.world.level.biome.BiomeSource;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.StructureSettings;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Mutable;
@@ -18,11 +18,11 @@ public class ChunkGeneratorMixin {
     @Mutable
     @Final
     @Shadow
-    private StructuresConfig structuresConfig;
+    private StructureSettings settings;
 
-    @Inject(method = "<init>(Lnet/minecraft/world/biome/source/BiomeSource;Lnet/minecraft/world/biome/source/BiomeSource;Lnet/minecraft/world/gen/chunk/StructuresConfig;J)V",
+    @Inject(method = "<init>(Lnet/minecraft/world/level/biome/BiomeSource;Lnet/minecraft/world/level/biome/BiomeSource;Lnet/minecraft/world/level/levelgen/StructureSettings;J)V",
             at = @At(value = "RETURN"))
-    private void repurposedstructures_deepCopyNoiseSettings(BiomeSource populationSource, BiomeSource biomeSource, StructuresConfig structuresConfig, long worldSeed, CallbackInfo ci) {
-        structuresConfig = NoiseSettingsDeepCopier.deepCopyDimensionStructuresSettings(structuresConfig);
+    private void repurposedstructures_deepCopyNoiseSettings(BiomeSource populationSource, BiomeSource biomeSource, StructureSettings structuresConfig, long worldSeed, CallbackInfo ci) {
+        settings = NoiseSettingsDeepCopier.deepCopyDimensionStructuresSettings(structuresConfig);
     }
 }

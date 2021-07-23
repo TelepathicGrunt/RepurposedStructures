@@ -1,10 +1,10 @@
 package com.telepathicgrunt.repurposedstructures.mixin.blocks;
 
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.RailBlock;
-import net.minecraft.block.enums.RailShape;
-import net.minecraft.util.BlockRotation;
+import net.minecraft.world.level.block.RailBlock;
+import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.RailShape;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -17,11 +17,11 @@ public class RailBlockMixin {
      * Fixes https://bugs.mojang.com/browse/MC-196102
      * @author TelepathicGrunt
      */
-    @Inject(method = "rotate(Lnet/minecraft/block/BlockState;Lnet/minecraft/util/BlockRotation;)Lnet/minecraft/block/BlockState;",
+    @Inject(method = "rotate(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/Rotation;)Lnet/minecraft/world/level/block/state/BlockState;",
             at = @At(value = "RETURN"), cancellable = true)
-    private void repurposedstructures_fixMC196102Bug(BlockState state, BlockRotation rotation, CallbackInfoReturnable<BlockState> cir){
-        if(rotation == BlockRotation.CLOCKWISE_180){
-            RailShape railShape = state.get(RailBlock.SHAPE);
+    private void repurposedstructures_fixMC196102Bug(BlockState state, Rotation rotation, CallbackInfoReturnable<BlockState> cir){
+        if(rotation == Rotation.CLOCKWISE_180){
+            RailShape railShape = state.getValue(RailBlock.SHAPE);
             if(railShape == RailShape.NORTH_SOUTH || railShape == RailShape.EAST_WEST){
                 cir.setReturnValue(state);
             }

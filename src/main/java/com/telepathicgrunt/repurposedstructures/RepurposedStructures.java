@@ -45,14 +45,14 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerWorldEvents;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.resource.ResourceType;
+import net.minecraft.core.Registry;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.World;
-import net.minecraft.world.gen.chunk.FlatChunkGenerator;
-import net.minecraft.world.gen.chunk.StructureConfig;
-import net.minecraft.world.gen.feature.StructureFeature;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.packs.PackType;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.levelgen.FlatLevelSource;
+import net.minecraft.world.level.levelgen.feature.StructureFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.StructureFeatureConfiguration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -99,7 +99,7 @@ public class RepurposedStructures implements ModInitializer, DedicatedServerModI
         MobMapTrades.addMapTrades();
         StructurePiecesBehavior.init();
         PoolAdditionMerger.mergeAdditionPools();
-        ResourceManagerHelper.get(ResourceType.SERVER_DATA).registerReloadListener(RepurposedStructures.mobSpawnerManager);
+        ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(RepurposedStructures.mobSpawnerManager);
     }
 
     // These two are for making sure our ServerWorldEvents.LOAD event always fires after Fabric API's so our changes don't get overwritten
@@ -115,20 +115,20 @@ public class RepurposedStructures implements ModInitializer, DedicatedServerModI
 
     public static void allowStructureSpawningPerDimension() {
         // Controls the dimension blacklisting
-        ServerWorldEvents.LOAD.register((MinecraftServer minecraftServer, ServerWorld serverWorld) -> {
+        ServerWorldEvents.LOAD.register((MinecraftServer minecraftServer, ServerLevel serverWorld) -> {
 
             //add our structure spacing to all chunkgenerators including modded one and datapack ones.
             // Need temp map as some mods use custom chunk generators with immutable maps in themselves.
-            Map<StructureFeature<?>, StructureConfig> tempMap = new HashMap<>(serverWorld.getChunkManager().getChunkGenerator().getStructuresConfig().getStructures());
+            Map<StructureFeature<?>, StructureFeatureConfiguration> tempMap = new HashMap<>(serverWorld.getChunkSource().getGenerator().getSettings().structureConfig());
 
             // make absolutely sure superflat dimension cannot spawn RS structures
-            if (serverWorld.getChunkManager().getChunkGenerator() instanceof FlatChunkGenerator && serverWorld.getRegistryKey().equals(World.OVERWORLD)) {
+            if (serverWorld.getChunkSource().getGenerator() instanceof FlatLevelSource && serverWorld.dimension().equals(Level.OVERWORLD)) {
                 tempMap.keySet().removeAll(RSStructures.RS_STRUCTURES.keySet());
             }
             // Not superflat overworld. Do normal behavior now
             else{
-                for(Map.Entry<StructureFeature<?>, StructureConfig> structureFeatureEntry : RSStructures.RS_STRUCTURES.entrySet()){
-                    boolean isWorldBlacklisted = GeneralUtils.isBlacklistedForWorld(serverWorld, Registry.STRUCTURE_FEATURE.getId(structureFeatureEntry.getKey()));
+                for(Map.Entry<StructureFeature<?>, StructureFeatureConfiguration> structureFeatureEntry : RSStructures.RS_STRUCTURES.entrySet()){
+                    boolean isWorldBlacklisted = GeneralUtils.isBlacklistedForWorld(serverWorld, Registry.STRUCTURE_FEATURE.getKey(structureFeatureEntry.getKey()));
                     if (isWorldBlacklisted){
                         // make absolutely sure dimension cannot spawn the RS structure
                         tempMap.remove(structureFeatureEntry.getKey());
@@ -139,7 +139,7 @@ public class RepurposedStructures implements ModInitializer, DedicatedServerModI
                     }
                 }
             }
-            ((StructuresConfigAccessor) serverWorld.getChunkManager().getChunkGenerator().getStructuresConfig()).repurposedstructures_setStructures(tempMap);
+            ((StructuresConfigAccessor) serverWorld.getChunkSource().getGenerator().getSettings()).repurposedstructures_setStructureConfig(tempMap);
         });
     }
 

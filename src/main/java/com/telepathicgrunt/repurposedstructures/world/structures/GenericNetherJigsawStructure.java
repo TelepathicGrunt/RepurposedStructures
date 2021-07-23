@@ -2,18 +2,17 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
-import net.minecraft.structure.StructureManager;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkPos;
-import net.minecraft.util.registry.DynamicRegistryManager;
-import net.minecraft.world.HeightLimitView;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
-import net.minecraft.world.gen.feature.StructureFeature;
-
 import java.util.Set;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.RegistryAccess;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.LevelHeightAccessor;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.StructureFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 
 public class GenericNetherJigsawStructure extends GenericJigsawStructure {
 
@@ -22,7 +21,7 @@ public class GenericNetherJigsawStructure extends GenericJigsawStructure {
     protected final int ledgeSpotOffset;
     protected final int liquidSpotOffset;
 
-    public GenericNetherJigsawStructure(Identifier poolID, int structureSize, int centerOffset, int biomeRange,
+    public GenericNetherJigsawStructure(ResourceLocation poolID, int structureSize, int centerOffset, int biomeRange,
                                         int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet,
                                         int allowTerrainHeightRange, int terrainHeightRadius,
                                         int minHeightLimit, int fixedYSpawn, boolean useHeightmap,
@@ -50,31 +49,31 @@ public class GenericNetherJigsawStructure extends GenericJigsawStructure {
     }
 
     @Override
-    public StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
+    public StructureStartFactory<NoneFeatureConfiguration> getStartFactory() {
         return GenericNetherJigsawStructure.Start::new;
     }
 
     public class Start extends MainStart {
-        public Start(StructureFeature<DefaultFeatureConfig> structureIn, ChunkPos chunkPos1, int referenceIn, long seedIn) {
+        public Start(StructureFeature<NoneFeatureConfiguration> structureIn, ChunkPos chunkPos1, int referenceIn, long seedIn) {
             super(structureIn, chunkPos1, referenceIn, seedIn);
         }
 
-        public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, ChunkPos chunkPos1, Biome biome, DefaultFeatureConfig defaultFeatureConfig, HeightLimitView heightLimitView) {
-            super.init(dynamicRegistryManager, chunkGenerator, structureManager, chunkPos1, biome, defaultFeatureConfig, heightLimitView);
+        public void generatePieces(RegistryAccess dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, ChunkPos chunkPos1, Biome biome, NoneFeatureConfiguration defaultFeatureConfig, LevelHeightAccessor heightLimitView) {
+            super.generatePieces(dynamicRegistryManager, chunkGenerator, structureManager, chunkPos1, biome, defaultFeatureConfig, heightLimitView);
 
             BlockPos placementPos;
             if(highestLandSearch){
-                placementPos = GeneralUtils.getHighestLand(chunkGenerator, this.calculateBoundingBox(), heightLimitView, canPlaceOnLiquid);
+                placementPos = GeneralUtils.getHighestLand(chunkGenerator, this.createBoundingBox(), heightLimitView, canPlaceOnLiquid);
             }
             else{
-                placementPos = GeneralUtils.getLowestLand(chunkGenerator, this.calculateBoundingBox(), heightLimitView, canPlaceOnLiquid);
+                placementPos = GeneralUtils.getLowestLand(chunkGenerator, this.createBoundingBox(), heightLimitView, canPlaceOnLiquid);
             }
 
-            if (placementPos.getY() >= chunkGenerator.getWorldHeight() || placementPos.getY() <= chunkGenerator.getSeaLevel() + 1) {
-                this.randomUpwardTranslation(this.random, chunkGenerator.getSeaLevel() + ledgeSpotOffset, chunkGenerator.getSeaLevel() + (ledgeSpotOffset + 1));
+            if (placementPos.getY() >= chunkGenerator.getGenDepth() || placementPos.getY() <= chunkGenerator.getSeaLevel() + 1) {
+                this.moveInsideHeights(this.random, chunkGenerator.getSeaLevel() + ledgeSpotOffset, chunkGenerator.getSeaLevel() + (ledgeSpotOffset + 1));
             }
             else {
-                this.randomUpwardTranslation(this.random, placementPos.getY() + liquidSpotOffset, placementPos.getY() + (liquidSpotOffset + 1));
+                this.moveInsideHeights(this.random, placementPos.getY() + liquidSpotOffset, placementPos.getY() + (liquidSpotOffset + 1));
             }
         }
     }
@@ -85,7 +84,7 @@ public class GenericNetherJigsawStructure extends GenericJigsawStructure {
         protected int ledgeSpotOffset;
         protected int liquidSpotOffset;
 
-        public Builder(Identifier startPool) {
+        public Builder(ResourceLocation startPool) {
             super(startPool);
         }
 

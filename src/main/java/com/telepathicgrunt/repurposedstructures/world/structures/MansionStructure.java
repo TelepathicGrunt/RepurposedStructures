@@ -2,50 +2,49 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.google.common.collect.Lists;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.MansionPieces;
-import net.minecraft.structure.StructureManager;
-import net.minecraft.structure.StructurePiece;
-import net.minecraft.structure.StructureStart;
-import net.minecraft.util.BlockRotation;
-import net.minecraft.util.math.BlockBox;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkPos;
-import net.minecraft.util.registry.DynamicRegistryManager;
-import net.minecraft.world.HeightLimitView;
-import net.minecraft.world.Heightmap;
-import net.minecraft.world.StructureWorldAccess;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.source.BiomeSource;
-import net.minecraft.world.biome.source.CheckerboardBiomeSource;
-import net.minecraft.world.gen.ChunkRandom;
-import net.minecraft.world.gen.StructureAccessor;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
-import net.minecraft.world.gen.feature.StructureFeature;
-
 import java.util.List;
 import java.util.Random;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.RegistryAccess;
+import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.LevelHeightAccessor;
+import net.minecraft.world.level.StructureFeatureManager;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.BiomeSource;
+import net.minecraft.world.level.biome.CheckerboardColumnBiomeSource;
+import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.levelgen.WorldgenRandom;
+import net.minecraft.world.level.levelgen.feature.StructureFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.structure.BoundingBox;
+import net.minecraft.world.level.levelgen.structure.StructurePiece;
+import net.minecraft.world.level.levelgen.structure.StructureStart;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 
 
-public class MansionStructure extends AbstractBaseStructure<DefaultFeatureConfig> {
+public class MansionStructure extends AbstractBaseStructure<NoneFeatureConfiguration> {
 
     protected final MansionPieces.Piece.MANSIONTYPE type;
     public MansionStructure(MansionPieces.Piece.MANSIONTYPE type) {
-        super(DefaultFeatureConfig.CODEC);
+        super(NoneFeatureConfiguration.CODEC);
         this.type = type;
     }
 
     @Override
-    protected boolean isUniformDistribution() {
+    protected boolean linearSeparation() {
         return false;
     }
 
     @Override
-    protected boolean shouldStartAt(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkRandom chunkRandom, ChunkPos chunkPos1, Biome biome, ChunkPos chunkPos, DefaultFeatureConfig defaultFeatureConfig, HeightLimitView heightLimitView) {
-        if(!(biomeSource instanceof CheckerboardBiomeSource)) {
+    protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, WorldgenRandom chunkRandom, ChunkPos chunkPos1, Biome biome, ChunkPos chunkPos, NoneFeatureConfiguration defaultFeatureConfig, LevelHeightAccessor heightLimitView) {
+        if(!(biomeSource instanceof CheckerboardColumnBiomeSource)) {
             int biomeRange = 2;
             for (int curChunkX = chunkPos1.x - biomeRange; curChunkX <= chunkPos1.x + biomeRange; curChunkX++) {
                 for (int curChunkZ = chunkPos1.z - biomeRange; curChunkZ <= chunkPos1.z + biomeRange; curChunkZ++) {
-                    if (!biomeSource.getBiomeForNoiseGen(curChunkX << 2, 64, curChunkZ << 2).getGenerationSettings().hasStructureFeature(this)) {
+                    if (!biomeSource.getNoiseBiome(curChunkX << 2, 64, curChunkZ << 2).getGenerationSettings().isValidStart(this)) {
                         return false;
                     }
                 }
@@ -56,54 +55,54 @@ public class MansionStructure extends AbstractBaseStructure<DefaultFeatureConfig
     }
 
     @Override
-    public StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
+    public StructureStartFactory<NoneFeatureConfiguration> getStartFactory() {
         return MansionStructure.Start::new;
     }
 
-    public class Start extends StructureStart<DefaultFeatureConfig> {
-        public Start(StructureFeature<DefaultFeatureConfig> structureIn, ChunkPos chunkPos1, int referenceIn, long seedIn) {
+    public class Start extends StructureStart<NoneFeatureConfiguration> {
+        public Start(StructureFeature<NoneFeatureConfiguration> structureIn, ChunkPos chunkPos1, int referenceIn, long seedIn) {
             super(structureIn, chunkPos1, referenceIn, seedIn);
         }
 
         @Override
-        public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, ChunkPos chunkPos1, Biome biome, DefaultFeatureConfig defaultFeatureConfig, HeightLimitView heightLimitView) {
-            BlockRotation blockRotation = BlockRotation.random(this.random);
+        public void generatePieces(RegistryAccess dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, ChunkPos chunkPos1, Biome biome, NoneFeatureConfiguration defaultFeatureConfig, LevelHeightAccessor heightLimitView) {
+            Rotation blockRotation = Rotation.getRandom(this.random);
             int xOffset = 5;
             int zOffset = 5;
-            if (blockRotation == BlockRotation.CLOCKWISE_90) {
+            if (blockRotation == Rotation.CLOCKWISE_90) {
                 xOffset = -5;
-            } else if (blockRotation == BlockRotation.CLOCKWISE_180) {
+            } else if (blockRotation == Rotation.CLOCKWISE_180) {
                 xOffset = -5;
                 zOffset = -5;
-            } else if (blockRotation == BlockRotation.COUNTERCLOCKWISE_90) {
+            } else if (blockRotation == Rotation.COUNTERCLOCKWISE_90) {
                 zOffset = -5;
             }
 
-            int centerX = chunkPos1.getCenterX();
-            int centerZ = chunkPos1.getCenterZ();
-            int firstHeight = chunkGenerator.getHeightInGround(centerX, centerZ, Heightmap.Type.WORLD_SURFACE_WG, heightLimitView);
-            int secondHeight = chunkGenerator.getHeightInGround(centerX, centerZ + zOffset, Heightmap.Type.WORLD_SURFACE_WG, heightLimitView);
-            int thirdHeight = chunkGenerator.getHeightInGround(centerX + xOffset, centerZ, Heightmap.Type.WORLD_SURFACE_WG, heightLimitView);
-            int forthheight = chunkGenerator.getHeightInGround(centerX + xOffset, centerZ + zOffset, Heightmap.Type.WORLD_SURFACE_WG, heightLimitView);
+            int centerX = chunkPos1.getMiddleBlockX();
+            int centerZ = chunkPos1.getMiddleBlockZ();
+            int firstHeight = chunkGenerator.getFirstOccupiedHeight(centerX, centerZ, Heightmap.Types.WORLD_SURFACE_WG, heightLimitView);
+            int secondHeight = chunkGenerator.getFirstOccupiedHeight(centerX, centerZ + zOffset, Heightmap.Types.WORLD_SURFACE_WG, heightLimitView);
+            int thirdHeight = chunkGenerator.getFirstOccupiedHeight(centerX + xOffset, centerZ, Heightmap.Types.WORLD_SURFACE_WG, heightLimitView);
+            int forthheight = chunkGenerator.getFirstOccupiedHeight(centerX + xOffset, centerZ + zOffset, Heightmap.Types.WORLD_SURFACE_WG, heightLimitView);
             int finalheight = Math.min(Math.min(firstHeight, secondHeight), Math.min(thirdHeight, forthheight));
-            BlockPos blockPos = new BlockPos(chunkPos1.getCenterX(), finalheight + 1, chunkPos1.getCenterZ());
+            BlockPos blockPos = new BlockPos(chunkPos1.getMiddleBlockX(), finalheight + 1, chunkPos1.getMiddleBlockZ());
             List<MansionPieces.Piece> list = Lists.newLinkedList();
             MansionPieces.createMansionLayout(structureManager, blockPos, blockRotation, list, this.random, type);
-            this.children.addAll(list);
-            this.setBoundingBoxFromChildren();
+            this.pieces.addAll(list);
+            this.getBoundingBox();
         }
 
-        public void generateStructure(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox box, ChunkPos chunkPos) {
-            super.generateStructure(world, structureAccessor, chunkGenerator, random, box, chunkPos);
-            int structureBottomY = this.calculateBoundingBox().getMinY();
+        public void placeInChunk(WorldGenLevel world, StructureFeatureManager structureAccessor, ChunkGenerator chunkGenerator, Random random, BoundingBox box, ChunkPos chunkPos) {
+            super.placeInChunk(world, structureAccessor, chunkGenerator, random, box, chunkPos);
+            int structureBottomY = this.createBoundingBox().minY();
 
-            for(int x = box.getMinX(); x <= box.getMaxX(); ++x) {
-                for(int z = box.getMinZ(); z <= box.getMaxZ(); ++z) {
+            for(int x = box.minX(); x <= box.maxX(); ++x) {
+                for(int z = box.minZ(); z <= box.maxZ(); ++z) {
                     BlockPos blockPos = new BlockPos(x, structureBottomY, z);
-                    if (!world.isAir(blockPos) && this.calculateBoundingBox().contains(blockPos)) {
+                    if (!world.isEmptyBlock(blockPos) && this.createBoundingBox().isInside(blockPos)) {
                         boolean bl = false;
-                        for (StructurePiece structurePiece : this.children) {
-                            if (structurePiece.getBoundingBox().contains(blockPos)) {
+                        for (StructurePiece structurePiece : this.pieces) {
+                            if (structurePiece.getBoundingBox().isInside(blockPos)) {
                                 bl = true;
                                 break;
                             }
@@ -112,11 +111,11 @@ public class MansionStructure extends AbstractBaseStructure<DefaultFeatureConfig
                         if (bl) {
                             for(int currentY = structureBottomY - 1; currentY > 1; --currentY) {
                                 BlockPos blockPos2 = new BlockPos(x, currentY, z);
-                                if (!world.isAir(blockPos2) && !world.getBlockState(blockPos2).getMaterial().isLiquid()) {
+                                if (!world.isEmptyBlock(blockPos2) && !world.getBlockState(blockPos2).getMaterial().isLiquid()) {
                                     break;
                                 }
 
-                                world.setBlockState(blockPos2, type.getFoundationBlock(), 2);
+                                world.setBlock(blockPos2, type.getFoundationBlock(), 2);
                             }
                         }
                     }
