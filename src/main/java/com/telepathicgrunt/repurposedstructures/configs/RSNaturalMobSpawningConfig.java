@@ -68,7 +68,8 @@ public class RSNaturalMobSpawningConfig implements Config {
             "\n// You can find entity's identifiers by doing \"/effect @e[type=\" command in game."+
             "\n// All of RS's structure identifiers can be found by doing \"/locate\" command in game."+
             "\n"+
-            "\n// NOTE: replaceMobSpawns will always override appendMobSpawns for the same structure and mob's SpawnGroups."
+            "\n// NOTE: replaceMobSpawns will always override appendMobSpawns for the same structure and mob's SpawnGroups."+
+            "\n// And if you add   \"optionalSpawn\": true   under maxGroupSize for an entry, RS will not print a warning if the entity is not found."
     )
     public final Map<String, List<MobSpawningOverTime.PublicMobSpawnEntry>> replaceMobSpawns = new HashMap<String, List<MobSpawningOverTime.PublicMobSpawnEntry>>() {{
         put("repurposed_structures:bastion_underground", Arrays.asList(
@@ -140,7 +141,8 @@ public class RSNaturalMobSpawningConfig implements Config {
             "\n"+
             "\n// Use \"all\" as the key to affect all of RS's structures."+
             "\n// You can find entity's identifiers by doing \"/effect @e[type=\" command in game."+
-            "\n// All of RS's structure identifiers can be found by doing \"/locate\" command in game."
+            "\n// All of RS's structure identifiers can be found by doing \"/locate\" command in game."+
+            "\n// And if you add   \"optionalSpawn\": true   under maxGroupSize for an entry, RS will not print a warning if the entity is not found."
     )
     public final Map<String, List<MobSpawningOverTime.PublicMobSpawnEntry>> appendMobSpawns = new HashMap<String, List<MobSpawningOverTime.PublicMobSpawnEntry>>() {{
             put("repurposed_structures:mineshaft_end", Arrays.asList(
