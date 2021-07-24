@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
@@ -80,6 +81,7 @@ public class BuriableStructure extends AbstractBaseStructure<NoneFeatureConfigur
                     false,
                     false,
                     heightLimitView);
+            GeneralUtils.centerAllPieces(blockpos, this.pieces);
             this.getBoundingBox();
 
             Rotation rotation = this.pieces.get(0).getRotation();

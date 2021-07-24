@@ -9,6 +9,9 @@
 ##### Wells:
 * Fixed internals so now you can have multiple RS wells spawn in a single biome if you chose to do so by config.
 
+##### Misc:
+* Properly centered several structures so they match up with their land/water/terrain checks centered on the structure itself.
+
 
 ### **(V.2.1.3 Changes) (1.17.1 Minecraft)**
 
@@ -197,7 +200,7 @@
   
 * Made Icy and Flower Forest Pyramid's average spawn distance config's default value be slightly smaller to make them be more common 
 
-* Overworld land pyramids will try to not spawn in middle of large bodies of 
+* Overworld land pyramids will try to not spawn in middle of large bodies of water
 
 ##### Mansions:
 * Made the average spawn distance config's default value for many mansions be a bit larger to space out the mansions more

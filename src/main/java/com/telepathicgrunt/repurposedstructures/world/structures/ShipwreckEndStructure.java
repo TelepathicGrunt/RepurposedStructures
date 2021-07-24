@@ -3,6 +3,8 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import java.util.Random;
+
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
@@ -46,26 +48,13 @@ public class ShipwreckEndStructure extends AbstractBaseStructure<NoneFeatureConf
     }
 
     private static int getGenerationHeight(ChunkPos chunkPos1, ChunkGenerator chunkGenerator, LevelHeightAccessor heightLimitView) {
-        Random random = new Random(chunkPos1.x + chunkPos1.z * 10387313L);
-        Rotation blockRotation = Rotation.getRandom(random);
-        int i = 5;
-        int j = 5;
-        if (blockRotation == Rotation.CLOCKWISE_90) {
-            i = -5;
-        } else if (blockRotation == Rotation.CLOCKWISE_180) {
-            i = -5;
-            j = -5;
-        } else if (blockRotation == Rotation.COUNTERCLOCKWISE_90) {
-            j = -5;
-        }
-
-        int k = (chunkPos1.x << 4) + 7;
-        int l = (chunkPos1.z << 4) + 7;
-        int m = chunkGenerator.getFirstOccupiedHeight(k, l, Heightmap.Types.WORLD_SURFACE_WG, heightLimitView);
-        int n = chunkGenerator.getFirstOccupiedHeight(k, l + j, Heightmap.Types.WORLD_SURFACE_WG, heightLimitView);
-        int o = chunkGenerator.getFirstOccupiedHeight(k + i, l, Heightmap.Types.WORLD_SURFACE_WG, heightLimitView);
-        int p = chunkGenerator.getFirstOccupiedHeight(k + i, l + j, Heightmap.Types.WORLD_SURFACE_WG, heightLimitView);
-        return Math.min(Math.min(m, n), Math.min(o, p));
+        int x = chunkPos1.x * 16;
+        int z = chunkPos1.z * 16;
+        int heightmap1 = chunkGenerator.getFirstOccupiedHeight(x + 5, z, Heightmap.Types.WORLD_SURFACE_WG, heightLimitView);
+        int heightmap2 = chunkGenerator.getFirstOccupiedHeight(x, z + 5, Heightmap.Types.WORLD_SURFACE_WG, heightLimitView);
+        int heightmap3 = chunkGenerator.getFirstOccupiedHeight(x - 5, z, Heightmap.Types.WORLD_SURFACE_WG, heightLimitView);
+        int heightmap4 = chunkGenerator.getFirstOccupiedHeight(x, z - 5, Heightmap.Types.WORLD_SURFACE_WG, heightLimitView);
+        return Math.min(Math.min(heightmap1, heightmap2), Math.min(heightmap3, heightmap4));
     }
 
     public class Start extends StructureStart<NoneFeatureConfiguration> {
@@ -88,6 +77,7 @@ public class ShipwreckEndStructure extends AbstractBaseStructure<NoneFeatureConf
                     true,
                     false,
                     heightLimitView);
+            GeneralUtils.centerAllPieces(blockpos, this.pieces);
             this.getBoundingBox();
 
             BlockPos blockPos = new BlockPos(this.pieces.get(0).getBoundingBox().getCenter());

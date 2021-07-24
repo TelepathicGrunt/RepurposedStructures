@@ -10,6 +10,7 @@ import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
+import net.minecraft.core.Vec3i;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.ItemStack;
@@ -23,6 +24,7 @@ import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
+import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.material.Material;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -177,5 +179,20 @@ public class GeneralUtils {
         }
 
         return mutable.set(mutable.getX(), chunkGenerator.getSeaLevel(), mutable.getZ());
+    }
+
+
+    //////////////////////////////////////////////
+
+    public static void centerAllPieces(BlockPos targetPos, List<StructurePiece> pieces){
+        if(pieces.isEmpty()) return;
+
+        Vec3i structureCenter = pieces.get(0).getBoundingBox().getCenter();
+        int xOffset = targetPos.getX() - structureCenter.getX();
+        int zOffset = targetPos.getZ() - structureCenter.getZ();
+
+        for(StructurePiece structurePiece : pieces){
+            structurePiece.move(xOffset, 0, zOffset);
+        }
     }
 }

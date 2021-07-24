@@ -21,6 +21,8 @@ public class RSAllowDisallowOmegaConfig implements Config {
 
     @Override
     public void save() {
+
+        configVersion = 1;
         Config.super.save();
     }
 
@@ -153,4 +155,17 @@ public class RSAllowDisallowOmegaConfig implements Config {
             //  https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/blob/7f8021cbc073c9919fa0b08dc3b746f9a0e854af/src/main/java/com/telepathicgrunt/repurposedstructures/modinit/RSConfiguredFeatures.java#L268-L290
             """)
     public final Map<String, String> allowedBiomes = Map.of();
+
+
+    @Comment("""
+
+
+
+
+
+
+
+            // for internal use only. Do not change this."""
+    )
+    public int configVersion = 1;
 }

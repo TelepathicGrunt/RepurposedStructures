@@ -4,6 +4,8 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import java.util.HashSet;
 import java.util.Set;
+
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
@@ -150,6 +152,7 @@ public class GenericJigsawStructure extends AbstractBaseStructure<NoneFeatureCon
                     useHeightmap,
                     useHeightmap,
                     heightLimitView);
+            GeneralUtils.centerAllPieces(blockpos, this.pieces);
             this.getBoundingBox();
             this.pieces.get(0).move(0, centerOffset, 0);
         }

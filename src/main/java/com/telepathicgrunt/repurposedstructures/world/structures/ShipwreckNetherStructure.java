@@ -2,6 +2,7 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import com.telepathicgrunt.repurposedstructures.world.structures.configs.NetherShipwreckConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
@@ -125,6 +126,7 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NetherShipwr
                     false,
                     false,
                     heightLimitView);
+            GeneralUtils.centerAllPieces(blockpos, this.pieces);
             this.getBoundingBox();
         }
     }

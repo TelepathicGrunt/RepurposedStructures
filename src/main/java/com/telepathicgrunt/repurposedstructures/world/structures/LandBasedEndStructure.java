@@ -4,6 +4,8 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.RegistryAccess;
@@ -91,10 +93,11 @@ public class LandBasedEndStructure extends GenericJigsawStructure {
             }
 
             // Offset structure to average land around it
-            int avgHeight = (int) Math.max(landHeights.stream().mapToInt(val -> val).average().orElse(0), 50);
+            int avgHeight = (int) Math.max(landHeights.stream().mapToInt(Integer::intValue).average().orElse(0), 50);
             int parentHeight = this.pieces.get(0).getBoundingBox().minY();
             int offsetAmount = (avgHeight - parentHeight) + centerOffset;
             this.pieces.forEach(child -> child.move(0, offsetAmount, 0));
+            GeneralUtils.centerAllPieces(centerPos, this.pieces);
             this.getBoundingBox();
         }
     }

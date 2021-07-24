@@ -34,7 +34,7 @@ public class RSAllConfig implements ConfigData {
 
     @ConfigEntry.Category("Igloos")
     @ConfigEntry.Gui.TransitiveObject
-    public com.telepathicgrunt.repurposedstructures.configs.RSIgloosConfig RSIgloosConfig = new RSIgloosConfig();
+    public RSIgloosConfig RSIgloosConfig = new RSIgloosConfig();
 
     @ConfigEntry.Category("Mansions")
     @ConfigEntry.Gui.TransitiveObject

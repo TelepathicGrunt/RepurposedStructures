@@ -29,7 +29,7 @@ public class RSAllowDisallowConfig implements ConfigData {
             Add the identifiers for Repurposed Structures's loottable you want to
              turn off the automatic modded item importing code for.\s
              Separate multiple entries with a comma.
-            Example: "repurposed_structures:chests/mansions/birch,repurposed_structures:chests/mineshafts/jungle\"""")
+            Example: "repurposed_structures:chests/mansions/birch, repurposed_structures:chests/mineshafts/jungle\"""")
     public String blacklistedRSLoottablesFromImportingModdedItems = "";
 
     @ConfigEntry.Gui.Tooltip(count = 0)
