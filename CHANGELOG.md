@@ -8,6 +8,8 @@
 
 ##### Wells:
 * Fixed internals so now you can have multiple RS wells spawn in a single biome if you chose to do so by config.
+  
+* Wells are more likely to have a Bell now.
 
 ##### Misc:
 * Properly centered several structures so they match up with their land/water/terrain checks centered on the structure itself.
