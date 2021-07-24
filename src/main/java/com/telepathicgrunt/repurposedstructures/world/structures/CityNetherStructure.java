@@ -15,13 +15,13 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.jigsaw.JigsawManager;
 import net.minecraft.world.gen.feature.structure.AbstractVillagePiece;
 import net.minecraft.world.gen.feature.structure.MarginedStructureStart;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.VillageConfig;
 import net.minecraft.world.gen.feature.template.TemplateManager;
+
 import java.util.Set;
 
 public class CityNetherStructure extends GenericJigsawStructure {
@@ -57,7 +57,7 @@ public class CityNetherStructure extends GenericJigsawStructure {
             BlockPos.Mutable mutable = new BlockPos.Mutable();
             for (int curChunkX = chunkX - 1; curChunkX <= chunkX + 1; curChunkX++) {
                 for (int curChunkZ = chunkZ - 1; curChunkZ <= chunkZ + 1; curChunkZ++) {
-                    mutable.set(curChunkX << 4, chunkGenerator.getSeaLevel() + 10, curChunkZ << 4);
+                    mutable.set(curChunkX * 16, chunkGenerator.getSeaLevel() + 10, curChunkZ * 16);
                     IBlockReader blockView = chunkGenerator.getBaseColumn(mutable.getX(), mutable.getZ());
                     int minValidSpace = 65;
                     int maxHeight = Math.min(chunkGenerator.getGenDepth(), chunkGenerator.getSeaLevel() + minValidSpace);
@@ -90,7 +90,7 @@ public class CityNetherStructure extends GenericJigsawStructure {
         }
 
         public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig defaultFeatureConfig) {
-            BlockPos blockpos = new BlockPos(chunkX << 4, chunkGenerator.getSeaLevel(), chunkZ << 4);
+            BlockPos blockpos = new BlockPos(chunkX * 16, chunkGenerator.getSeaLevel(), chunkZ * 16);
             JigsawManager.addPieces(
                     dynamicRegistryManager,
                     new VillageConfig(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(startPool), structureSize),

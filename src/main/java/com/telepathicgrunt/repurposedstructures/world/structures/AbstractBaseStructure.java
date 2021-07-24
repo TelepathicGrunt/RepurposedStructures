@@ -5,7 +5,6 @@ import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.misc.MobSpawningOverTime;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.util.SharedSeedRandom;
-import net.minecraft.util.WeightedRandom;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.SectionPos;
@@ -14,7 +13,6 @@ import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.chunk.ChunkStatus;
 import net.minecraft.world.chunk.IChunk;
 import net.minecraft.world.gen.feature.IFeatureConfig;
-import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.StructureManager;
 import net.minecraft.world.gen.feature.structure.StructureStart;
@@ -30,11 +28,7 @@ public abstract class AbstractBaseStructure<C extends IFeatureConfig> extends St
         super(codec);
     }
 
-    @Override
-    public BlockPos getNearestGeneratedFeature(IWorldReader world, StructureManager structureAccessor, BlockPos searchStartPos, int searchRadius, boolean skipExistingChunks, long worldSeed, StructureSeparationSettings config) {
-        return AbstractBaseStructure.locateStructureFast(world, structureAccessor, searchStartPos, searchRadius, skipExistingChunks, worldSeed, config, this);
-    }
-
+    // Forge will spawn monster/creature structure mobs for us that replaces biome spawns
     private final Supplier<List<MobSpawnInfo.Spawners>> monsterSpawns = Suppliers.memoize(() -> new ArrayList<>(MobSpawningOverTime.REPLACE_MOB_SPAWNING.get(EntityClassification.MONSTER).getOrDefault(this, new ArrayList<>())));
     private final Supplier<List<MobSpawnInfo.Spawners>> creatureSpawns = Suppliers.memoize(() -> new ArrayList<>(MobSpawningOverTime.REPLACE_MOB_SPAWNING.get(EntityClassification.CREATURE).getOrDefault(this, new ArrayList<>())));
 
@@ -46,6 +40,11 @@ public abstract class AbstractBaseStructure<C extends IFeatureConfig> extends St
     @Override
     public List<MobSpawnInfo.Spawners> getDefaultCreatureSpawnList() {
         return creatureSpawns.get();
+    }
+
+    @Override
+    public BlockPos getNearestGeneratedFeature(IWorldReader world, StructureManager structureAccessor, BlockPos searchStartPos, int searchRadius, boolean skipExistingChunks, long worldSeed, StructureSeparationSettings config) {
+        return AbstractBaseStructure.locateStructureFast(world, structureAccessor, searchStartPos, searchRadius, skipExistingChunks, worldSeed, config, this);
     }
 
     public static <C extends IFeatureConfig> BlockPos locateStructureFast(IWorldReader worldView, StructureManager structureAccessor, BlockPos blockPos, int radius, boolean skipExistingChunks, long seed, StructureSeparationSettings structureConfig, Structure<C> structure) {

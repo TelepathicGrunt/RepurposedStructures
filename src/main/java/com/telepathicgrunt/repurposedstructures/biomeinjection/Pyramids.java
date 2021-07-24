@@ -17,14 +17,14 @@ public class Pyramids {
             BiomeSelection.isBiomeAllowed(event, RSStructures.PYRAMID_NETHER.get(),
                     () -> BiomeSelection.haveCategories(event, Category.NETHER)))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_PYRAMID);
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.PYRAMID_NETHER);
         }
 
         if (RepurposedStructures.RSPyramidsConfig.badlandsPyramidMaxChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowed(event, RSStructures.PYRAMID_BADLANDS.get(),
                     () -> BiomeSelection.haveCategories(event, Category.MESA)))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.BADLANDS_TEMPLE);
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.PYRAMID_BADLANDS);
         }
 
         if (RepurposedStructures.RSPyramidsConfig.pyramidIcyMaxChunkDistance.get() != 1001 &&

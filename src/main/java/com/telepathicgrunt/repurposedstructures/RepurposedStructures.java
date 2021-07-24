@@ -26,6 +26,8 @@ import com.telepathicgrunt.repurposedstructures.configs.RSFortressesConfig.RSFor
 import com.telepathicgrunt.repurposedstructures.configs.RSIgloosConfig.RSIgloosConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSMansionsConfig.RSMansionsConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSMineshaftsConfig.RSMineshaftsConfigValues;
+import com.telepathicgrunt.repurposedstructures.configs.RSModdedLootConfig.RSModdedLootConfigValues;
+import com.telepathicgrunt.repurposedstructures.configs.RSNaturalMobSpawningConfig;
 import com.telepathicgrunt.repurposedstructures.configs.RSOutpostsConfig.RSOutpostsConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSPyramidsConfig.RSPyramidsConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSRuinedPortalsConfig.RSRuinedPortalsConfigValues;
@@ -36,6 +38,8 @@ import com.telepathicgrunt.repurposedstructures.configs.RSTemplesConfig.RSTemple
 import com.telepathicgrunt.repurposedstructures.configs.RSVillagesConfig.RSVillagesConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSWellsConfig.RSWellsConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSWitchHutsConfig.RSWitchHutsConfigValues;
+import com.telepathicgrunt.repurposedstructures.configs.omegaconfig.OmegaConfig;
+import com.telepathicgrunt.repurposedstructures.misc.BiomeDimensionAllowDisallow;
 import com.telepathicgrunt.repurposedstructures.misc.EndRemasteredDedicatedLoot;
 import com.telepathicgrunt.repurposedstructures.misc.MobMapTrades;
 import com.telepathicgrunt.repurposedstructures.misc.MobSpawnerManager;
@@ -92,6 +96,9 @@ import java.util.Map;
 public class RepurposedStructures {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MODID = "repurposed_structures";
+    public static final RSBiomeDimConfig RSOmegaBiomeDimConfig = OmegaConfig.register(RSBiomeDimConfig.class);
+    public static final RSNaturalMobSpawningConfig RSNaturalMobSpawningConfig = OmegaConfig.register(RSNaturalMobSpawningConfig.class);
+    public static RSModdedLootConfigValues RSModdedLootConfig = null;
     public static RSDungeonsConfigValues RSDungeonsConfig = null;
     public static RSMineshaftsConfigValues RSMineshaftsConfig = null;
     public static RSStrongholdsConfigValues RSStrongholdsConfig = null;
@@ -118,7 +125,7 @@ public class RepurposedStructures {
 
         // Setup configs
         FileUtils.getOrCreateDirectory(FMLPaths.CONFIGDIR.get().resolve("repurposed_structures-forge"), "repurposed_structures-forge");
-        RSBiomeDimConfig.createAndReadConfig();
+        RSModdedLootConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSModdedLootConfigValues::new, "repurposed_structures-forge/modded_loot.toml");
         RSDungeonsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSDungeonsConfigValues::new, "repurposed_structures-forge/dungeons.toml");
         RSMineshaftsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSMineshaftsConfigValues::new, "repurposed_structures-forge/mineshafts.toml");
         RSStrongholdsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSStrongholdsConfigValues::new, "repurposed_structures-forge/strongholds.toml");
@@ -174,7 +181,6 @@ public class RepurposedStructures {
     public void setup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
             //Moved the methods below into enqueue to make sure they dont cause issues during registration - andrew
-            MobSpawningOverTime.setupMobSpawningMaps();
             StructurePiecesBehavior.init();
             RSProcessors.registerProcessors();
             RSPredicates.registerPredicates();
@@ -184,6 +190,8 @@ public class RepurposedStructures {
             RSStructureTagMap.setupTags();
             RSGlobalLootModifier.registerLootData();
             BiomeSelection.setupOverworldBiomesSet();
+            BiomeDimensionAllowDisallow.setupAllowDisallowMaps();
+            MobSpawningOverTime.setupMobSpawningMaps();
 
             // Workaround for Terraforged
             WorldGenRegistries.NOISE_GENERATOR_SETTINGS.entrySet().forEach(settings -> {
@@ -230,7 +238,6 @@ public class RepurposedStructures {
     public void addDimensionalSpacing(final WorldEvent.Load event) {
         //add our structure spacing to all chunkgenerators including modded one and datapack ones.
         List<String> dimensionBlacklist = new ArrayList<>();
-                //Arrays.stream(RepurposedStructures.RSMainConfig.blacklistedDimensions.get().split(",")).map(String::trim).collect(Collectors.toList());
 
         if (event.getWorld() instanceof ServerWorld) {
             ServerWorld serverWorld = (ServerWorld) event.getWorld();

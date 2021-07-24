@@ -49,9 +49,7 @@ minecraft {
 }
 
 repositories {
-    maven { url "https://maven.tterrag.com/" }
     maven { url "https://nexus.resourcefulbees.com/repository/maven-public/" }
-    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
@@ -61,7 +59,6 @@ dependencies {
     }
 
     runtimeOnly fg.deobf("com.telepathicgrunt:Blame:1.16.5-3.2.0-forge")
-    implementation "com.github.brimworks.json5.java:databind:1.0.0"
 }
 
 apply from: 'gradle/processresources.gradle'

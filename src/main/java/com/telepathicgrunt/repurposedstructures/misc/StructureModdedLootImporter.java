@@ -11,14 +11,20 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
 import net.minecraftforge.common.loot.LootModifier;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class StructureModdedLootImporter extends LootModifier {
 
     // Need to map loottables by hand to the vanilla structure that our structure is based on. (usually...)
     private static final Map<ResourceLocation, ResourceLocation> TABLE_IMPORTS = createMap();
+    private static Set<ResourceLocation> BLACKLISTED_LOOTTABLES;
+
     private static Map<ResourceLocation, ResourceLocation> createMap() {
         Map<ResourceLocation, ResourceLocation> tableMap = new HashMap<>();
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshaft/birch"), new ResourceLocation("minecraft:chests/abandoned_mineshaft"));
@@ -142,8 +148,12 @@ public class StructureModdedLootImporter extends LootModifier {
 
     @Override
     protected List<ItemStack> doApply(List<ItemStack> generatedLoot, LootContext context) {
+        if(!RepurposedStructures.RSModdedLootConfig.importModdedItems.get() || isInBlacklist(context.getQueriedLootTableId()))
+            return generatedLoot; // easier blacklist for users
+
         ResourceLocation tableToImportLoot = TABLE_IMPORTS.get(context.getQueriedLootTableId());
-        if(tableToImportLoot == null) return generatedLoot; // Safety net
+        if(tableToImportLoot == null)
+            return generatedLoot; // Safety net
 
         // Generate random loot that would've been in vanilla chests. (Need to make new context or else we recursively call ourselves infinitely)
         LootContext newContext = copyLootContextWithNewQueryID(context, tableToImportLoot);
@@ -158,6 +168,25 @@ public class StructureModdedLootImporter extends LootModifier {
         // Add modded loot to my structure's chests
         generatedLoot.addAll(newlyGeneratedLoot);
         return generatedLoot;
+    }
+
+    private static boolean isInBlacklist(ResourceLocation lootTableID){
+        if(BLACKLISTED_LOOTTABLES == null){
+            String cleanedBlacklist = RepurposedStructures.RSModdedLootConfig.blacklistedRSLoottablesFromImportingModdedItems.get().trim();
+
+            if(cleanedBlacklist.equals("")){
+                BLACKLISTED_LOOTTABLES = new HashSet<>(); // make empty set instead of ["minecraft:"].
+            }
+            else {
+                BLACKLISTED_LOOTTABLES =
+                        Arrays.stream(cleanedBlacklist.split(","))
+                                .map(String::trim)
+                                .map(ResourceLocation::new)
+                                .collect(Collectors.toSet());
+            }
+        }
+
+        return BLACKLISTED_LOOTTABLES.contains(lootTableID);
     }
 
     public static class Serializer extends GlobalLootModifierSerializer<StructureModdedLootImporter> {

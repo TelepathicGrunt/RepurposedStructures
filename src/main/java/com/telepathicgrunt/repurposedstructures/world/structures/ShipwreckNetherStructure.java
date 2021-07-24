@@ -2,6 +2,7 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import com.telepathicgrunt.repurposedstructures.world.structures.configs.NetherShipwreckConfig;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SharedSeedRandom;
@@ -14,7 +15,6 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.jigsaw.JigsawManager;
 import net.minecraft.world.gen.feature.structure.AbstractVillagePiece;
 import net.minecraft.world.gen.feature.structure.MarginedStructureStart;
@@ -45,12 +45,12 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NetherShipwr
         // Doesn't account for rotation of structure.
         BlockPos blockPos;
         if(!config.isFlying){
-            blockPos = new BlockPos(chunkX << 4, chunkGenerator.getSeaLevel() + 1, chunkZ << 4);
+            blockPos = new BlockPos(chunkX * 16, chunkGenerator.getSeaLevel() + 1, chunkZ * 16);
         }
         else{
             SharedSeedRandom random = new SharedSeedRandom(seed + (chunkX * (chunkZ * 17L)));
             int height = chunkGenerator.getSeaLevel() + random.nextInt(Math.max(chunkGenerator.getGenDepth() - (chunkGenerator.getSeaLevel() + 30), 1));
-            blockPos = new BlockPos(chunkX << 4, height, chunkZ << 4);
+            blockPos = new BlockPos(chunkX * 16, height, chunkZ * 16);
         }
 
         int checkRadius = 16;
@@ -113,7 +113,7 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NetherShipwr
                 placementHeight = placementHeight + random.nextInt(Math.max(chunkGenerator.getGenDepth() - (placementHeight + 30), 1));
             }
 
-            BlockPos blockpos = new BlockPos(chunkX << 4, placementHeight, chunkZ << 4);
+            BlockPos blockpos = new BlockPos(chunkX * 16, placementHeight, chunkZ * 16);
             JigsawManager.addPieces(
                     dynamicRegistryManager,
                     new VillageConfig(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(startPool), 6),
@@ -125,7 +125,8 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NetherShipwr
                     random,
                     false,
                     false);
-            this.getBoundingBox();
+            GeneralUtils.centerAllPieces(blockpos, this.pieces);
+            this.calculateBoundingBox();
         }
     }
 }

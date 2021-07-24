@@ -14,6 +14,9 @@
     "announce_to_chat": true,
     "hidden": false
   },
+  "rewards": {
+    "experience": 40
+  },
   "criteria": {
     "in_igloo_stone": {
       "trigger": "minecraft:location",

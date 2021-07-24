@@ -45,11 +45,11 @@ public class BiomeDimensionAllowDisallow {
             BIOME_DISALLOW.put(id, new ArrayList<>());
         });
 
-        // Parse and add all the allow/disallows
-//        setupMap(DIMENSION_DISALLOW, RepurposedStructures.omegaBiomeDimConfig.disallowedDimensions, "dimension disallow");
-//        setupMap(DIMENSION_ALLOW, RepurposedStructures.omegaBiomeDimConfig.allowedDimensions, "dimension allow");
-//        setupMap(BIOME_DISALLOW, RepurposedStructures.omegaBiomeDimConfig.disallowedBiomes, "biome disallow");
-//        setupMap(BIOME_ALLOW, RepurposedStructures.omegaBiomeDimConfig.allowedBiomes, "biome allow");
+        // Parse and add all the allow/disallowsRepurposedStructures.RSOmegaBiomeDimConfig.disallowedDimensions = {LinkedTreeMap@14149}  size = 1
+        setupMap(DIMENSION_DISALLOW, RepurposedStructures.RSOmegaBiomeDimConfig.disallowedDimensions, "dimension disallow");
+        setupMap(DIMENSION_ALLOW, RepurposedStructures.RSOmegaBiomeDimConfig.allowedDimensions, "dimension allow");
+        setupMap(BIOME_DISALLOW, RepurposedStructures.RSOmegaBiomeDimConfig.disallowedBiomes, "biome disallow");
+        setupMap(BIOME_ALLOW, RepurposedStructures.RSOmegaBiomeDimConfig.allowedBiomes, "biome allow");
     }
 
     private static void setupMap(Map<ResourceLocation, List<Pattern>> mapToFillWithPatterns, Map<String, String> configMap, String errorMsg) {

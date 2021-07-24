@@ -1,7 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
-import javafx.geometry.BoundingBox;
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SharedSeedRandom;
@@ -51,8 +51,8 @@ public class LandBasedEndStructure extends GenericJigsawStructure {
 
     // must be on land
     private static int getTerrainHeight(ChunkPos chunkPos1, ChunkGenerator chunkGenerator) {
-        int xPos = chunkPos1.x << 4;
-        int zPos = chunkPos1.z << 4;
+        int xPos = chunkPos1.x * 16;
+        int zPos = chunkPos1.z * 16;
         int height = chunkGenerator.getFirstOccupiedHeight(xPos, zPos, Heightmap.Type.WORLD_SURFACE_WG);
 
         BlockPos pos = new BlockPos(xPos, chunkGenerator.getGenDepth(), zPos);
@@ -92,10 +92,11 @@ public class LandBasedEndStructure extends GenericJigsawStructure {
             }
 
             // Offset structure to average land around it
-            int avgHeight = (int) Math.max(landHeights.stream().mapToInt(val -> val).average().orElse(0), 50);
+            int avgHeight = (int) Math.max(landHeights.stream().mapToInt(Integer::intValue).average().orElse(0), 50);
             int parentHeight = this.pieces.get(0).getBoundingBox().y0;
             int offsetAmount = (avgHeight - parentHeight) + centerOffset;
             this.pieces.forEach(child -> child.move(0, offsetAmount, 0));
+            GeneralUtils.centerAllPieces(centerPos, this.pieces);
             this.calculateBoundingBox();
         }
     }

@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
@@ -16,7 +17,6 @@ import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.jigsaw.JigsawManager;
 import net.minecraft.world.gen.feature.structure.AbstractVillagePiece;
 import net.minecraft.world.gen.feature.structure.Structure;
@@ -45,7 +45,7 @@ public class BuriableStructure extends AbstractBaseStructure<NoFeatureConfig> {
     protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig defaultFeatureConfig) {
 
         if(cannotSpawnInWater){
-            BlockPos centerOfChunk = chunkPos.getWorldPosition().offset(8, 0, 8);
+            BlockPos centerOfChunk = chunkPos.getWorldPosition();
             int landHeight = chunkGenerator.getFirstOccupiedHeight(centerOfChunk.getX(), centerOfChunk.getZ(), Heightmap.Type.WORLD_SURFACE_WG);
             IBlockReader columnOfBlocks = chunkGenerator.getBaseColumn(centerOfChunk.getX(), centerOfChunk.getZ());
             BlockState topBlock = columnOfBlocks.getBlockState(centerOfChunk.above(landHeight));
@@ -68,7 +68,7 @@ public class BuriableStructure extends AbstractBaseStructure<NoFeatureConfig> {
 
         @Override
         public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig defaultFeatureConfig) {
-            BlockPos blockpos = new BlockPos(chunkX << 4, chunkGenerator.getSeaLevel(), chunkZ << 4);
+            BlockPos blockpos = new BlockPos(chunkX * 16, chunkGenerator.getSeaLevel(), chunkZ * 16);
             JigsawManager.addPieces(
                     dynamicRegistryManager,
                     new VillageConfig(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(startPool), 11),
@@ -80,6 +80,7 @@ public class BuriableStructure extends AbstractBaseStructure<NoFeatureConfig> {
                     random,
                     false,
                     false);
+            GeneralUtils.centerAllPieces(blockpos, this.pieces);
             this.calculateBoundingBox();
 
             Rotation rotation = this.pieces.get(0).getRotation();

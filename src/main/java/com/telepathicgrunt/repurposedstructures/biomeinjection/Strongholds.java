@@ -15,7 +15,7 @@ public class Strongholds {
             BiomeSelection.isBiomeAllowed(event, RSStructures.STRONGHOLD_NETHER.get(),
                     () -> BiomeSelection.haveCategories(event, Category.NETHER)))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_STRONGHOLD);
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.STRONGHOLD_NETHER);
         }
     }
 }

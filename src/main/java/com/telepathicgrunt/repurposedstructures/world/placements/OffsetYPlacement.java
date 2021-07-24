@@ -2,11 +2,7 @@ package com.telepathicgrunt.repurposedstructures.world.placements;
 
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.world.placements.configs.SingleIntConfig;
-import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.gen.feature.WorldDecoratingHelper;
-import net.minecraft.world.gen.placement.NoPlacementConfig;
-import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.placement.SimplePlacement;
 
 import java.util.Random;

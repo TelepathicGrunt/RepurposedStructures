@@ -36,8 +36,8 @@ public class MineshaftEndStructure extends MineshaftStructure {
                     return true;
 
                 int minLandHeight = Math.min(chunkGenerator.getGenDepth(), 45);
-                int xPos = chunkX << 4;
-                int zPos = chunkZ << 4;
+                int xPos = chunkX * 16;
+                int zPos = chunkZ * 16 ;
                 int landHeight = chunkGenerator.getFirstOccupiedHeight(xPos, zPos, Heightmap.Type.WORLD_SURFACE_WG);
 
                 landHeight = Math.min(landHeight, chunkGenerator.getFirstOccupiedHeight(xPos + 70, zPos, Heightmap.Type.WORLD_SURFACE_WG));

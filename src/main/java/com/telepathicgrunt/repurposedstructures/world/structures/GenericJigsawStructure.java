@@ -2,6 +2,7 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SharedSeedRandom;
@@ -103,7 +104,7 @@ public class GenericJigsawStructure extends AbstractBaseStructure<NoFeatureConfi
 
             for (int curChunkX = chunkX - terrainHeightRadius; curChunkX <= chunkX + terrainHeightRadius; curChunkX++) {
                 for (int curChunkZ = chunkZ- terrainHeightRadius; curChunkZ <= chunkZ+ terrainHeightRadius; curChunkZ++) {
-                    int height = chunkGenerator.getBaseHeight((curChunkX << 4) + 7, (curChunkZ << 4) + 7, Heightmap.Type.WORLD_SURFACE_WG);
+                    int height = chunkGenerator.getBaseHeight(curChunkX * 16, curChunkZ * 16, Heightmap.Type.WORLD_SURFACE_WG);
                     maxTerrainHeight = Math.max(maxTerrainHeight, height);
                     minTerrainHeight = Math.min(minTerrainHeight, height);
 
@@ -117,7 +118,7 @@ public class GenericJigsawStructure extends AbstractBaseStructure<NoFeatureConfi
         }
 
         if(cannotSpawnInWater){
-            BlockPos centerOfChunk = new BlockPos(chunkX << 4 + 8, 0, chunkZ << 4 + 8);
+            BlockPos centerOfChunk = new BlockPos(chunkX * 16, 0, chunkZ * 16);
             int landHeight = chunkGenerator.getFirstOccupiedHeight(centerOfChunk.getX(), centerOfChunk.getZ(), Heightmap.Type.WORLD_SURFACE_WG);
             IBlockReader columnOfBlocks = chunkGenerator.getBaseColumn(centerOfChunk.getX(), centerOfChunk.getZ());
             BlockState topBlock = columnOfBlocks.getBlockState(centerOfChunk.above(landHeight));
@@ -138,7 +139,8 @@ public class GenericJigsawStructure extends AbstractBaseStructure<NoFeatureConfi
         }
 
         public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig defaultFeatureConfig) {
-            BlockPos blockpos = new BlockPos(chunkX << 4, fixedYSpawn, chunkX << 4);
+            BlockPos blockpos = new BlockPos(chunkX * 16, fixedYSpawn, chunkZ * 16);
+
             JigsawManager.addPieces(
                     dynamicRegistryManager,
                     new VillageConfig(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(startPool), structureSize),
@@ -150,6 +152,7 @@ public class GenericJigsawStructure extends AbstractBaseStructure<NoFeatureConfi
                     this.random,
                     useHeightmap,
                     useHeightmap);
+            GeneralUtils.centerAllPieces(blockpos, this.pieces);
             this.calculateBoundingBox();
             this.pieces.get(0).move(0, centerOffset, 0);
         }

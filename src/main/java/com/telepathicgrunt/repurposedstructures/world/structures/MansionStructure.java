@@ -2,7 +2,6 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.google.common.collect.Lists;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.MansionPieces;
-import javafx.geometry.BoundingBox;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.BlockPos;
@@ -79,8 +78,8 @@ public class MansionStructure extends AbstractBaseStructure<NoFeatureConfig> {
                 zOffset = -5;
             }
 
-            int centerX = chunkX << 4;
-            int centerZ = chunkZ << 4;
+            int centerX = chunkX * 16;
+            int centerZ = chunkZ * 16;
             int firstHeight = chunkGenerator.getFirstOccupiedHeight(centerX, centerZ, Heightmap.Type.WORLD_SURFACE_WG);
             int secondHeight = chunkGenerator.getFirstOccupiedHeight(centerX, centerZ + zOffset, Heightmap.Type.WORLD_SURFACE_WG);
             int thirdHeight = chunkGenerator.getFirstOccupiedHeight(centerX + xOffset, centerZ, Heightmap.Type.WORLD_SURFACE_WG);

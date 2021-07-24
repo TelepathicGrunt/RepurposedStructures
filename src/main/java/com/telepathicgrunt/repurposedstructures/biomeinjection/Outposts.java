@@ -18,7 +18,7 @@ public class Outposts {
                     () -> BiomeSelection.haveCategories(event, Category.NETHER) &&
                     BiomeSelection.hasName(event, "crimson", "red_")))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.CRIMSON_OUTPOST);
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_CRIMSON);
         }
 
         if (RepurposedStructures.RSOutpostsConfig.warpedOutpostMaxChunkDistance.get() != 1001 &&
@@ -26,7 +26,7 @@ public class Outposts {
                     () -> BiomeSelection.haveCategories(event, Category.NETHER) &&
                     BiomeSelection.hasName(event, "warped", "blue")))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.WARPED_OUTPOST);
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_WARPED);
         }
 
         if (RepurposedStructures.RSOutpostsConfig.netherBrickOutpostMaxChunkDistance.get() != 1001 &&
@@ -34,7 +34,7 @@ public class Outposts {
                     () -> BiomeSelection.haveCategories(event, Category.NETHER) &&
                     !BiomeSelection.hasName(event, "crimson", "red_", "warped", "blue")))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_BRICK_OUTPOST);
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_NETHER_BRICK);
         }
 
         if (RepurposedStructures.RSOutpostsConfig.outpostEndMaxChunkDistance.get() != 1001 &&

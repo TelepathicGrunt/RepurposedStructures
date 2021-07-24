@@ -37,8 +37,8 @@ public class AdvancedDistanceJigsawStructure extends AdvancedJigsawStructure {
     @Override
     protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig featureConfig) {
         int radius = distanceFromWorldOrigin;
-        int xBlockPos = chunkX << 4;
-        int zBlockPos = chunkZ << 4;
+        int xBlockPos = chunkX * 16;
+        int zBlockPos = chunkZ * 16;
         return (xBlockPos * xBlockPos) + (zBlockPos * zBlockPos) > radius * radius;
     }
 
@@ -58,7 +58,7 @@ public class AdvancedDistanceJigsawStructure extends AdvancedJigsawStructure {
 
         @Override
         public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig defaultFeatureConfig) {
-            BlockPos.Mutable blockpos = new BlockPos.Mutable(chunkX << 4, 0, chunkZ << 4);
+            BlockPos.Mutable blockpos = new BlockPos.Mutable(chunkX * 16, 0, chunkZ * 16);
 
             // -5 so that the start piece's bottom 2 jigsaw blocks can spawn extra pieces and the rest of the stronghold wont go as high as start stairway
             blockpos.move(Direction.UP, maxY - 5);

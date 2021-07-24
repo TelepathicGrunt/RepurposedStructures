@@ -9,6 +9,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.MobSpawnInfo;
+import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.StructureManager;
 
@@ -44,8 +45,8 @@ public class MobSpawningOverTime {
         Arrays.stream(EntityClassification.values()).forEach(group -> APPEND_MOB_SPAWNING.put(group, new HashMap<>()));
 
         // Parse and add all the structure mobs to the maps
-//        setupMap(REPLACE_MOB_SPAWNING, RepurposedStructures.omegaMobSpawnConfig.replaceMobSpawns, "replace mob spawning");
-//        setupMap(APPEND_MOB_SPAWNING, RepurposedStructures.omegaMobSpawnConfig.appendMobSpawns, "append mob spawning");
+        setupMap(REPLACE_MOB_SPAWNING, RepurposedStructures.RSNaturalMobSpawningConfig.replaceMobSpawns, "replace mob spawning");
+        setupMap(APPEND_MOB_SPAWNING, RepurposedStructures.RSNaturalMobSpawningConfig.appendMobSpawns, "append mob spawning");
     }
 
     private static void setupMap(Map<EntityClassification, Map<Structure<?>, List<MobSpawnInfo.Spawners>>> mapToFillWithMobSpawns,
@@ -131,7 +132,15 @@ public class MobSpawningOverTime {
      * Handles actual structure mob spacing. Call this in StructureMobSpawningMixin that hooks into NoiseChunkGenerator
      */
     public static List<MobSpawnInfo.Spawners> getStructureSpawns(Biome biome, StructureManager accessor, EntityClassification spawnGroup, BlockPos pos){
-        // Forge already handles replacing mob spawns for us
+
+        // Forge already handles replacing creatures and monster mob spawns for us
+        if(spawnGroup != EntityClassification.CREATURE && spawnGroup != EntityClassification.MONSTER){
+            for(Map.Entry<Structure<?>, List<MobSpawnInfo.Spawners>> structureEntry : MobSpawningOverTime.REPLACE_MOB_SPAWNING.get(spawnGroup).entrySet()){
+                if (!structureEntry.getValue().isEmpty() && accessor.getStructureAt(pos, true, structureEntry.getKey()).isValid()) {
+                    return structureEntry.getValue();
+                }
+            }
+        }
 
         // Appended spawns (combined with other structure appended spawns and to biome spawns)
         List<MobSpawnInfo.Spawners> appendedSpawn = null;

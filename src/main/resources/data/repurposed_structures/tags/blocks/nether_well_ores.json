@@ -1,8 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "minecraft:chiseled_quartz_block",
-    "minecraft:nether_quartz_ore",
-    "minecraft:nether_gold_ore"
-  ]
-}

@@ -3,7 +3,6 @@ package com.telepathicgrunt.repurposedstructures.world.features;
 import com.google.common.collect.ImmutableList;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
-import com.telepathicgrunt.repurposedstructures.world.features.configs.NbtDungeonConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.NbtFeatureConfig;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
@@ -15,13 +14,11 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.structure.StructureManager;
 import net.minecraft.world.gen.feature.template.BlockIgnoreStructureProcessor;
 import net.minecraft.world.gen.feature.template.PlacementSettings;
 import net.minecraft.world.gen.feature.template.Template;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
-import java.util.Optional;
 import java.util.Random;
 
 

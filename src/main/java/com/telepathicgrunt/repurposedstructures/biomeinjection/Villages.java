@@ -16,14 +16,14 @@ public class Villages {
             BiomeSelection.isBiomeAllowed(event, RSStructures.VILLAGE_BADLANDS.get(),
                     () -> BiomeSelection.haveCategories(event, Category.FOREST, Category.MESA)))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.BADLANDS_VILLAGE);
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.VILLAGE_BADLANDS);
         }
 
         if (RepurposedStructures.RSVillagesConfig.birchVillageMaxChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowed(event, RSStructures.VILLAGE_BIRCH.get(),
                     () -> BiomeSelection.hasName(event, "birch")))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.BIRCH_VILLAGE);
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.VILLAGE_BIRCH);
         }
 
         if (RepurposedStructures.RSVillagesConfig.darkForestVillageMaxChunkDistance.get() != 1001 &&
@@ -31,28 +31,28 @@ public class Villages {
                     () -> BiomeSelection.haveCategories(event, Category.FOREST) &&
                     BiomeSelection.hasName(event, "dark", "spooky", "dead", "haunted")))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.DARK_FOREST_VILLAGE);
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.VILLAGE_DARK_FOREST);
         }
 
         if (RepurposedStructures.RSVillagesConfig.jungleVillageMaxChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowed(event, RSStructures.VILLAGE_JUNGLE.get(),
                     () -> BiomeSelection.haveCategories(event, Category.JUNGLE)))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.JUNGLE_VILLAGE);
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.VILLAGE_JUNGLE);
         }
 
         if (RepurposedStructures.RSVillagesConfig.swampVillageMaxChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowed(event, RSStructures.VILLAGE_SWAMP.get(),
                     () -> BiomeSelection.haveCategories(event, Category.SWAMP)))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.SWAMP_VILLAGE);
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.VILLAGE_SWAMP);
         }
 
         if (RepurposedStructures.RSVillagesConfig.mountainsVillageMaxChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowed(event, RSStructures.VILLAGE_MOUNTAINS.get(),
                     () -> BiomeSelection.haveCategories(event, Category.EXTREME_HILLS)))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.MOUNTAINS_VILLAGE);
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.VILLAGE_MOUNTAINS);
         }
 
         if (RepurposedStructures.RSVillagesConfig.giantTaigaVillageMaxChunkDistance.get() != 1001 &&
@@ -61,7 +61,7 @@ public class Villages {
                     () -> BiomeSelection.isBiome(event, Biomes.GIANT_SPRUCE_TAIGA, Biomes.GIANT_TREE_TAIGA) ||
                     (!BiomeSelection.hasNamespace(event, "minecraft") && BiomeSelection.haveCategories(event, Category.TAIGA) && BiomeSelection.hasName(event, "giant", "redwood"))))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.GIANT_TAIGA_VILLAGE);
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.VILLAGE_GIANT_TAIGA);
         }
 
         if (RepurposedStructures.RSVillagesConfig.crimsonVillageMaxChunkDistance.get() != 1001 &&
@@ -69,7 +69,7 @@ public class Villages {
                     () -> BiomeSelection.haveCategories(event, Category.NETHER) &&
                     BiomeSelection.hasName(event, "crimson", "red_")))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.CRIMSON_VILLAGE);
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.VILLAGE_CRIMSON);
         }
 
         if (RepurposedStructures.RSVillagesConfig.warpedVillageMaxChunkDistance.get() != 1001 &&
@@ -77,7 +77,7 @@ public class Villages {
                     () -> BiomeSelection.haveCategories(event, Category.NETHER) &&
                     BiomeSelection.hasName(event, "warped", "blue")))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.WARPED_VILLAGE);
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.VILLAGE_WARPED);
         }
 
         if (RepurposedStructures.RSVillagesConfig.villageOakMaxChunkDistance.get() != 1001 &&

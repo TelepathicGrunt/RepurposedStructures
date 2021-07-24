@@ -14,6 +14,9 @@
     "announce_to_chat": true,
     "hidden": false
   },
+  "rewards": {
+    "experience": 220
+  },
   "criteria": {
     "in_pyramid_badlands": {
       "trigger": "minecraft:location",

@@ -16,7 +16,7 @@ public class Temples {
                     () -> BiomeSelection.haveCategories(event, Category.NETHER) &&
                     BiomeSelection.hasName(event, "basalt", "blackstone")))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_BASALT_TEMPLE);
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.TEMPLE_NETHER_BASALT);
         }
 
         if (RepurposedStructures.RSTemplesConfig.netherCrimsonTempleMaxChunkDistance.get() != 1001 &&
@@ -24,7 +24,7 @@ public class Temples {
                     () -> BiomeSelection.haveCategories(event, Category.NETHER) &&
                     BiomeSelection.hasName(event, "crimson", "red_")))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_CRIMSON_TEMPLE);
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.TEMPLE_NETHER_CRIMSON);
         }
 
         if (RepurposedStructures.RSTemplesConfig.netherWarpedTempleMaxChunkDistance.get() != 1001 &&
@@ -32,7 +32,7 @@ public class Temples {
                     () -> BiomeSelection.haveCategories(event, Category.NETHER) &&
                     BiomeSelection.hasName(event, "warped", "blue")))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_WARPED_TEMPLE);
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.TEMPLE_NETHER_WARPED);
         }
 
         if (RepurposedStructures.RSTemplesConfig.netherSoulTempleMaxChunkDistance.get() != 1001 &&
@@ -40,7 +40,7 @@ public class Temples {
                     () -> BiomeSelection.haveCategories(event, Category.NETHER) &&
                     BiomeSelection.hasName(event, "soul")))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_SOUL_TEMPLE);
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.TEMPLE_NETHER_SOUL);
         }
 
         if (RepurposedStructures.RSTemplesConfig.netherWastelandTempleMaxChunkDistance.get() != 1001 &&
@@ -48,7 +48,7 @@ public class Temples {
                     () -> BiomeSelection.haveCategories(event, Category.NETHER) &&
                     !BiomeSelection.hasName(event, "basalt", "blackstone", "crimson", "red_", "warped", "blue", "soul")))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_WASTELAND_TEMPLE);
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.TEMPLE_NETHER_WASTELAND);
         }
     }
 }

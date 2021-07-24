@@ -2,6 +2,7 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.SharedSeedRandom;
@@ -47,26 +48,13 @@ public class ShipwreckEndStructure extends AbstractBaseStructure<NoFeatureConfig
     }
 
     private static int getGenerationHeight(ChunkPos chunkPos1, ChunkGenerator chunkGenerator) {
-        Random random = new Random(chunkPos1.x + chunkPos1.z * 10387313L);
-        Rotation blockRotation = Rotation.getRandom(random);
-        int i = 5;
-        int j = 5;
-        if (blockRotation == Rotation.CLOCKWISE_90) {
-            i = -5;
-        } else if (blockRotation == Rotation.CLOCKWISE_180) {
-            i = -5;
-            j = -5;
-        } else if (blockRotation == Rotation.COUNTERCLOCKWISE_90) {
-            j = -5;
-        }
-
-        int k = (chunkPos1.x << 4) + 7;
-        int l = (chunkPos1.z << 4) + 7;
-        int m = chunkGenerator.getFirstOccupiedHeight(k, l, Heightmap.Type.WORLD_SURFACE_WG);
-        int n = chunkGenerator.getFirstOccupiedHeight(k, l + j, Heightmap.Type.WORLD_SURFACE_WG);
-        int o = chunkGenerator.getFirstOccupiedHeight(k + i, l, Heightmap.Type.WORLD_SURFACE_WG);
-        int p = chunkGenerator.getFirstOccupiedHeight(k + i, l + j, Heightmap.Type.WORLD_SURFACE_WG);
-        return Math.min(Math.min(m, n), Math.min(o, p));
+        int x = chunkPos1.x * 16;
+        int z = chunkPos1.z * 16;
+        int heightmap1 = chunkGenerator.getFirstOccupiedHeight(x + 5, z, Heightmap.Type.WORLD_SURFACE_WG);
+        int heightmap2 = chunkGenerator.getFirstOccupiedHeight(x, z + 5, Heightmap.Type.WORLD_SURFACE_WG);
+        int heightmap3 = chunkGenerator.getFirstOccupiedHeight(x - 5, z, Heightmap.Type.WORLD_SURFACE_WG);
+        int heightmap4 = chunkGenerator.getFirstOccupiedHeight(x, z - 5, Heightmap.Type.WORLD_SURFACE_WG);
+        return Math.min(Math.min(heightmap1, heightmap2), Math.min(heightmap3, heightmap4));
     }
 
     public class Start extends StructureStart<NoFeatureConfig> {
@@ -76,7 +64,7 @@ public class ShipwreckEndStructure extends AbstractBaseStructure<NoFeatureConfig
 
         @Override
         public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig defaultFeatureConfig) {
-            BlockPos blockpos = new BlockPos(chunkX << 4, 64, chunkZ << 4);
+            BlockPos blockpos = new BlockPos(chunkX * 16, 64, chunkZ * 16);
             JigsawManager.addPieces(
                     dynamicRegistryManager,
                     new VillageConfig(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(START_POOL), 1),
@@ -88,6 +76,7 @@ public class ShipwreckEndStructure extends AbstractBaseStructure<NoFeatureConfig
                     random,
                     true,
                     false);
+            GeneralUtils.centerAllPieces(blockpos, this.pieces);
             this.calculateBoundingBox();
 
             BlockPos blockPos = new BlockPos(this.pieces.get(0).getBoundingBox().getCenter());

@@ -18,7 +18,7 @@ public class Fortresses {
             BiomeSelection.isBiomeAllowed(event, RSStructures.FORTRESS_JUNGLE.get(),
                     () -> BiomeSelection.haveCategories(event, Category.JUNGLE)))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.JUNGLE_FORTRESS);
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.FORTRESS_JUNGLE);
         }
     }
 }

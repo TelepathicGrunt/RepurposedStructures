@@ -15,7 +15,7 @@ public class Igloos {
             BiomeSelection.isBiomeAllowed(event, RSStructures.IGLOO_GRASSY.get(),
                     () -> BiomeSelection.haveCategories(event, Category.FOREST, Category.PLAINS)))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.GRASSY_IGLOO);
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.IGLOO_GRASSY);
         }
 
         if (RepurposedStructures.RSIgloosConfig.stoneIglooMaxChunkDistance.get() != 1001 &&
@@ -23,7 +23,7 @@ public class Igloos {
                         () -> BiomeSelection.haveCategories(event, Category.TAIGA) &&
                         BiomeSelection.hasName(event, "giant", "redwood")))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.STONE_IGLOO);
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.IGLOO_STONE);
         }
     }
 }

@@ -17,7 +17,7 @@ public class Shipwrecks {
                     () -> BiomeSelection.haveCategories(event, Category.THEEND) &&
                     !BiomeSelection.isBiome(event, Biomes.THE_END, Biomes.SMALL_END_ISLANDS, Biomes.END_BARRENS)))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.END_SHIPWRECK);
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.SHIPWRECK_END);
         }
 
         //Nether based Shipwrecks
@@ -26,7 +26,7 @@ public class Shipwrecks {
                     () -> BiomeSelection.haveCategories(event, Category.NETHER) &&
                     BiomeSelection.hasName(event, "crimson", "red_")))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.CRIMSON_SHIPWRECK);
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.SHIPWRECK_CRIMSON);
         }
 
         if (RepurposedStructures.RSShipwrecksConfig.warpedShipwreckMaxChunkDistance.get() != 1001 &&
@@ -34,7 +34,7 @@ public class Shipwrecks {
                     () -> BiomeSelection.haveCategories(event, Category.NETHER) &&
                     BiomeSelection.hasName(event, "warped", "blue")))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.WARPED_SHIPWRECK);
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.SHIPWRECK_WARPED);
         }
 
         if (RepurposedStructures.RSShipwrecksConfig.netherBricksShipwreckMaxChunkDistance.get() != 1001 &&
@@ -43,10 +43,10 @@ public class Shipwrecks {
                     !BiomeSelection.hasName(event, "crimson", "red_", "warped", "blue")))
         {
             if(BiomeSelection.hasName(event, "soul")){
-                event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_BRICKS_SHIPWRECK_FLYING);
+                event.getGeneration().getStructures().add(() -> RSConfiguredStructures.SHIPWRECK_NETHER_BRICKS_FLYING);
             }
             else{
-                event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_BRICKS_SHIPWRECK);
+                event.getGeneration().getStructures().add(() -> RSConfiguredStructures.SHIPWRECK_NETHER_BRICKS);
             }
         }
     }
