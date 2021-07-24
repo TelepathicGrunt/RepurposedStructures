@@ -2,12 +2,6 @@ package com.telepathicgrunt.repurposedstructures.misc;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
@@ -19,6 +13,13 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.feature.StructureFeature;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+
 public class MobSpawningOverTime {
 
     // Needed so that config api can handle reading/writing the entry to and from file.
@@ -27,18 +28,18 @@ public class MobSpawningOverTime {
         public final int weight;
         public final int minGroupSize;
         public final int maxGroupSize;
-        public final boolean optionalSpawn;
+        public final boolean logErrorIfNotFound;
 
-        public PublicMobSpawnEntry(String type, int weight, int minGroupSize, int maxGroupSize, boolean optionalSpawn){
+        public PublicMobSpawnEntry(String type, int weight, int minGroupSize, int maxGroupSize, boolean logErrorIfNotFound){
             this.type = type;
             this.weight = weight;
             this.minGroupSize = minGroupSize;
             this.maxGroupSize = maxGroupSize;
-            this.optionalSpawn = optionalSpawn;
+            this.logErrorIfNotFound = logErrorIfNotFound;
         }
 
         public PublicMobSpawnEntry(String type, int weight, int minGroupSize, int maxGroupSize){
-            this(type, weight, minGroupSize, maxGroupSize, false);
+            this(type, weight, minGroupSize, maxGroupSize, true);
         }
     }
 
@@ -73,7 +74,7 @@ public class MobSpawningOverTime {
                         // Parse and make sure the entity type exists
                         Optional<EntityType<?>> entityType = Registry.ENTITY_TYPE.getOptional(new ResourceLocation(spawnEntry.type));
                         if(entityType.isEmpty()){
-                            if(!spawnEntry.optionalSpawn) {
+                            if(spawnEntry.logErrorIfNotFound) {
                                 RepurposedStructures.LOGGER.warn("Repurposed Structures (first): Unknown EntityType {} was found in the {} config. Skipping that entry...", spawnEntry.type, errorMsg);
                             }
                             continue;
@@ -110,7 +111,7 @@ public class MobSpawningOverTime {
                     // Parse and make sure the entity type exists
                     Optional<EntityType<?>> entityType = Registry.ENTITY_TYPE.getOptional(new ResourceLocation(spawnEntry.type));
                     if(entityType.isEmpty()){
-                        if(!spawnEntry.optionalSpawn) {
+                        if(spawnEntry.logErrorIfNotFound) {
                             RepurposedStructures.LOGGER.warn("Repurposed Structures (second): Unknown EntityType {} was found in the {} config. Skipping that entry...", spawnEntry.type, errorMsg);
                         }
                         continue;

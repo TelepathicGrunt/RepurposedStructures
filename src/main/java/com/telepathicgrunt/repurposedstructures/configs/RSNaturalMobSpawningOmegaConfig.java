@@ -5,7 +5,6 @@ import com.telepathicgrunt.repurposedstructures.misc.MobSpawningOverTime;
 import draylar.omegaconfig.api.Comment;
 import draylar.omegaconfig.api.Config;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -68,11 +67,10 @@ public class RSNaturalMobSpawningOmegaConfig implements Config {
             // All of RS's structure identifiers can be found by doing "/locate" command in game.
             
             // NOTE: replaceMobSpawns will always override appendMobSpawns for the same structure and mob's SpawnGroups.
-            // And if you add   "optionalSpawn": true   under maxGroupSize for an entry, RS will not print a warning if the entity is not found.
             """)
     public final Map<String, List<MobSpawningOverTime.PublicMobSpawnEntry>> replaceMobSpawns = Map.ofEntries(
             Map.entry("repurposed_structures:bastion_underground", List.of(
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:skeleton", 1, 1, 4))),
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:skeleton", 10, 1, 4))),
             Map.entry("repurposed_structures:stronghold_nether", List.of(
                     new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:blaze", 10, 2, 3),
                     new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:zombified_piglin", 3, 4, 4),
@@ -83,20 +81,20 @@ public class RSNaturalMobSpawningOmegaConfig implements Config {
                     new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:blaze", 120, 1, 4),
                     new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:wither_skeleton", 10, 2, 3))),
             Map.entry("repurposed_structures:witch_hut_oak", List.of(
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:witch", 1, 1, 1),
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:cat", 1, 1, 1))),
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:witch", 10, 1, 1),
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:cat", 10, 1, 1))),
             Map.entry("repurposed_structures:witch_hut_taiga", List.of(
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:witch", 1, 1, 1),
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:cat", 1, 1, 1))),
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:witch", 10, 1, 1),
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:cat", 10, 1, 1))),
             Map.entry("repurposed_structures:witch_hut_birch", List.of(
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:witch", 1, 1, 1),
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:cat", 1, 1, 1))),
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:witch", 10, 1, 1),
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:cat", 10, 1, 1))),
             Map.entry("repurposed_structures:witch_hut_dark_forest", List.of(
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:witch", 1, 1, 1),
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:cat", 1, 1, 1))),
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:witch", 10, 1, 1),
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:cat", 10, 1, 1))),
             Map.entry("repurposed_structures:witch_hut_giant_tree_taiga", List.of(
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:witch", 1, 1, 1),
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:cat", 1, 1, 1))),
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:witch", 10, 1, 1),
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:cat", 10, 1, 1))),
             Map.entry("repurposed_structures:outpost_nether_brick", List.of(
                     new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:piglin", 10, 1, 1))),
             Map.entry("repurposed_structures:outpost_warped", List.of(
@@ -104,23 +102,23 @@ public class RSNaturalMobSpawningOmegaConfig implements Config {
             Map.entry("repurposed_structures:outpost_crimson", List.of(
                     new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:piglin", 10, 1, 1))),
             Map.entry("repurposed_structures:outpost_birch", List.of(
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:pillager", 1, 1, 1))),
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:pillager", 10, 1, 1))),
             Map.entry("repurposed_structures:outpost_giant_tree_taiga", List.of(
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:pillager", 1, 1, 1))),
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:pillager", 10, 1, 1))),
             Map.entry("repurposed_structures:outpost_desert", List.of(
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:pillager", 1, 1, 1))),
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:pillager", 10, 1, 1))),
             Map.entry("repurposed_structures:outpost_jungle", List.of(
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:pillager", 1, 1, 1))),
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:pillager", 10, 1, 1))),
             Map.entry("repurposed_structures:outpost_badlands", List.of(
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:pillager", 1, 1, 1))),
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:pillager", 10, 1, 1))),
             Map.entry("repurposed_structures:outpost_icy", List.of(
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:pillager", 1, 1, 1))),
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:pillager", 10, 1, 1))),
             Map.entry("repurposed_structures:outpost_snowy", List.of(
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:pillager", 1, 1, 1))),
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:pillager", 10, 1, 1))),
             Map.entry("repurposed_structures:outpost_taiga", List.of(
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:pillager", 1, 1, 1))),
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:pillager", 10, 1, 1))),
             Map.entry("repurposed_structures:outpost_oak", List.of(
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:pillager", 1, 1, 1))),
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:pillager", 10, 1, 1))),
             Map.entry("repurposed_structures:outpost_end", List.of(
                     new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:phantom", 10, 1, 1)))
     );
@@ -141,7 +139,6 @@ public class RSNaturalMobSpawningOmegaConfig implements Config {
             // Use "all" as the key to affect all of RS's structures.
             // You can find entity's identifiers by doing "/effect @e[type=" command in game.
             // All of RS's structure identifiers can be found by doing "/locate" command in game.
-            // And if you add   "optionalSpawn": true   under maxGroupSize for an entry, RS will not print a warning if the entity is not found.
             """)
     public final Map<String, List<MobSpawningOverTime.PublicMobSpawnEntry>> appendMobSpawns = Map.ofEntries(
             Map.entry("repurposed_structures:mineshaft_end", List.of(

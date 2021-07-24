@@ -8,11 +8,11 @@ import com.telepathicgrunt.repurposedstructures.world.processors.CloseOffFluidSo
 import com.telepathicgrunt.repurposedstructures.world.processors.DataBlockProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.FillEndPortalFrameProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.FloodWithWaterProcessor;
+import com.telepathicgrunt.repurposedstructures.world.processors.MineshaftSkyViewProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.RandomReplaceWithPropertiesProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.RemoveFloatingBlocksProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.ReplaceAirOnlyProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.ReplaceLiquidOnlyProcessor;
-import com.telepathicgrunt.repurposedstructures.world.processors.MineshaftSkyViewProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.SpawnerRandomizingProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.StructureVoidProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.WallVinePostProcessor;

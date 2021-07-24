@@ -2,9 +2,10 @@ package com.telepathicgrunt.repurposedstructures.world.structures.pieces;
 
 import com.google.common.collect.ImmutableMap;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import net.minecraft.resources.ResourceLocation;
+
 import java.util.HashMap;
 import java.util.Map;
-import net.minecraft.resources.ResourceLocation;
 
 public class StructurePiecesBehavior {
 

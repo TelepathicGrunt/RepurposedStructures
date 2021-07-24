@@ -3,8 +3,6 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 import com.google.common.base.Suppliers;
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.misc.MobSpawningOverTime;
-import java.util.ArrayList;
-import java.util.function.Supplier;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.SectionPos;
 import net.minecraft.util.random.WeightedRandomList;
@@ -20,6 +18,9 @@ import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.StructureFeatureConfiguration;
 import net.minecraft.world.level.levelgen.structure.StructureStart;
+
+import java.util.ArrayList;
+import java.util.function.Supplier;
 
 public abstract class AbstractBaseStructure<C extends FeatureConfiguration> extends StructureFeature<C> {
 

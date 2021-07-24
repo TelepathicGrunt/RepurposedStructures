@@ -1,12 +1,13 @@
 package com.telepathicgrunt.repurposedstructures.world.placements;
 
 import com.mojang.serialization.Codec;
-import java.util.Random;
-import java.util.stream.Stream;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.levelgen.feature.configurations.RangeDecoratorConfiguration;
 import net.minecraft.world.level.levelgen.placement.DecorationContext;
 import net.minecraft.world.level.levelgen.placement.FeatureDecorator;
+
+import java.util.Random;
+import java.util.stream.Stream;
 
 public class DungeonPlacement extends FeatureDecorator<RangeDecoratorConfiguration>
 {

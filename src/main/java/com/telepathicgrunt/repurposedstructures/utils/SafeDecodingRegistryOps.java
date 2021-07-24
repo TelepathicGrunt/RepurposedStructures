@@ -7,16 +7,16 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.DynamicOps;
 import com.mojang.serialization.Lifecycle;
-import com.telepathicgrunt.repurposedstructures.utils.SafeDecodingRegistryOps.ValueHolder;
-import java.util.Map;
-import java.util.Optional;
-import java.util.function.Supplier;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.WritableRegistry;
 import net.minecraft.resources.RegistryReadOps;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+
+import java.util.Map;
+import java.util.Optional;
+import java.util.function.Supplier;
 
 /**
  * This is a modified RegistryOps that takes a DynamicRegistryManager instead of a DynamicRegistryManager.Impl

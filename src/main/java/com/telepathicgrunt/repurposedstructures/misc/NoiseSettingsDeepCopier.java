@@ -1,8 +1,9 @@
 package com.telepathicgrunt.repurposedstructures.misc;
 
-import java.util.Optional;
 import net.minecraft.world.level.levelgen.StructureSettings;
 import net.minecraft.world.level.levelgen.feature.configurations.StrongholdConfiguration;
+
+import java.util.Optional;
 
 public class NoiseSettingsDeepCopier {
 

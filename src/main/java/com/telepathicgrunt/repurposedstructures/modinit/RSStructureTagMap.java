@@ -1,12 +1,13 @@
 package com.telepathicgrunt.repurposedstructures.modinit;
 
+import net.minecraft.world.level.levelgen.feature.StructureFeature;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import net.minecraft.world.level.levelgen.feature.StructureFeature;
 
 public class RSStructureTagMap {
     public enum STRUCTURE_TAGS {

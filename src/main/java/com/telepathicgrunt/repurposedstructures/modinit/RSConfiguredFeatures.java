@@ -13,8 +13,6 @@ import com.telepathicgrunt.repurposedstructures.world.features.configs.Structure
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetChanceConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetLengthRangeConfig;
-import java.util.ArrayList;
-import java.util.List;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.data.worldgen.Features;
@@ -37,6 +35,9 @@ import net.minecraft.world.level.levelgen.feature.configurations.RangeDecoratorC
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 import net.minecraft.world.level.levelgen.heightproviders.UniformHeight;
 import net.minecraft.world.level.levelgen.placement.FeatureDecorator;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class RSConfiguredFeatures {

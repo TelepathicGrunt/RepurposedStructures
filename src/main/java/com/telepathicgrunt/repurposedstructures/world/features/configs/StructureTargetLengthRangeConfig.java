@@ -3,8 +3,9 @@ package com.telepathicgrunt.repurposedstructures.world.features.configs;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import java.util.function.Function;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+
+import java.util.function.Function;
 
 public class StructureTargetLengthRangeConfig implements FeatureConfiguration {
     public static final Codec<StructureTargetLengthRangeConfig> CODEC = RecordCodecBuilder.<StructureTargetLengthRangeConfig>create((configInstance) -> configInstance.group(

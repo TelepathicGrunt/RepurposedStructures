@@ -2,8 +2,6 @@ package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetChanceConfig;
-import java.util.BitSet;
-import java.util.function.Predicate;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
@@ -18,6 +16,9 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.material.Material;
+
+import java.util.BitSet;
+import java.util.function.Predicate;
 
 
 public class StructureBreakage extends Feature<StructureTargetChanceConfig> {

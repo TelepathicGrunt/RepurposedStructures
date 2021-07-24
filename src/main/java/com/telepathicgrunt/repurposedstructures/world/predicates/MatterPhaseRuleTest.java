@@ -4,14 +4,15 @@ import com.google.common.collect.Maps;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.RSPredicates;
-import java.util.Map;
-import java.util.Random;
 import net.minecraft.Util;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTestType;
+
+import java.util.Map;
+import java.util.Random;
 
 public class MatterPhaseRuleTest extends RuleTest {
     public static final Codec<MatterPhaseRuleTest> CODEC = RecordCodecBuilder.create((instance) -> instance.group(

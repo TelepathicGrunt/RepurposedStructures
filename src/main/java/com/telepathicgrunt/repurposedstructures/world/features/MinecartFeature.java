@@ -3,11 +3,7 @@ package com.telepathicgrunt.repurposedstructures.world.features;
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.MinecartConfig;
-import com.telepathicgrunt.repurposedstructures.world.features.configs.MineshaftSupportConfig;
-import com.telepathicgrunt.repurposedstructures.world.features.configs.NbtFeatureConfig;
-import java.util.Optional;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.level.block.Block;
@@ -21,6 +17,8 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.BlockIgnorePr
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
+
+import java.util.Optional;
 
 
 public class MinecartFeature extends Feature<MinecartConfig> {

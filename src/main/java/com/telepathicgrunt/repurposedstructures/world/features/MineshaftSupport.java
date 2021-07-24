@@ -1,7 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.mojang.serialization.Codec;
-import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.MineshaftSupportConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

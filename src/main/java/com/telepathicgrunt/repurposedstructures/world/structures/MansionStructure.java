@@ -2,8 +2,6 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.google.common.collect.Lists;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.MansionPieces;
-import java.util.List;
-import java.util.Random;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.world.level.ChunkPos;
@@ -23,6 +21,9 @@ import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.StructureStart;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
+
+import java.util.List;
+import java.util.Random;
 
 
 public class MansionStructure extends AbstractBaseStructure<NoneFeatureConfiguration> {

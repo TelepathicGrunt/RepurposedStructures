@@ -26,6 +26,7 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.material.Material;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

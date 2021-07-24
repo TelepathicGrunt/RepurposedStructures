@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
 import net.minecraft.world.level.biome.Biome.BiomeCategory;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+
 import java.util.function.Supplier;
 
 public class Wells {
