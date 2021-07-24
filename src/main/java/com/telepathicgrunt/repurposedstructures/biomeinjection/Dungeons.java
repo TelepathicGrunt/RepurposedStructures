@@ -182,7 +182,7 @@ public class Dungeons {
     }
 
     private static boolean genericDungeonCheck(BiomeSelectionContext context, ConfiguredFeature<?,?> configuredFeatures, Supplier<Boolean> condition) {
-        return RSConfiguredFeatures.RS_DUNGEONS.stream().noneMatch(context::hasBuiltInFeature)
-                && BiomeSelection.isBiomeAllowed(context, configuredFeatures, condition);
+        return BiomeSelection.isBiomeAllowed(context, configuredFeatures,
+                () -> RSConfiguredFeatures.RS_DUNGEONS.stream().noneMatch(context::hasBuiltInFeature) && condition.get());
     }
 }

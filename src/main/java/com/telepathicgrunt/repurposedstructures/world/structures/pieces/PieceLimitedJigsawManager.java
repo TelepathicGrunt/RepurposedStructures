@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.misc;
+package com.telepathicgrunt.repurposedstructures.world.structures.pieces;
 
 import com.google.common.collect.Queues;
 import com.mojang.datafixers.util.Pair;

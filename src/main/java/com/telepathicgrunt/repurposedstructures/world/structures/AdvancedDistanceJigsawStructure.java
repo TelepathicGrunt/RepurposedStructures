@@ -1,6 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
-import com.telepathicgrunt.repurposedstructures.misc.PieceLimitedJigsawManager;
+import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PieceLimitedJigsawManager;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.StructurePiecesBehavior;
 import java.util.Map;
 import net.minecraft.core.BlockPos;

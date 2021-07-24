@@ -27,10 +27,6 @@ import net.minecraft.world.level.levelgen.structure.NoiseAffectingStructureStart
 import net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 
-/**
- * TODO: Turn GenericJigsawStructure and other classes of it into a builder system.
- * I bet that would be cleaner and more readable.
- */
 public class GenericJigsawStructure extends AbstractBaseStructure<NoneFeatureConfiguration> {
 
     protected final ResourceLocation startPool;

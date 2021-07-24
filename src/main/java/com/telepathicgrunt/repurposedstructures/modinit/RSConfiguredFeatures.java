@@ -44,6 +44,7 @@ public class RSConfiguredFeatures {
 
     // Dungeons
 
+    // Need this field for dimension/biome blacklisting
     // Need this field so we can test to make sure we do not add the dungeons to biomes that
     // we already added an RS dungeon to. (Due to BiomeModification API running separately for each feature)
     public static List<ConfiguredFeature<?, ?>> RS_DUNGEONS = new ArrayList<>();
@@ -170,6 +171,10 @@ public class RSConfiguredFeatures {
 
 
     // Wells
+
+    // Need this field for dimension/biome blacklisting
+    public static List<ConfiguredFeature<?, ?>> RS_WELLS = new ArrayList<>();
+
     public static ConfiguredFeature<?, ?> BADLANDS_WELL = RSFeatures.BADLANDS_WELL
             .configured(new NbtFeatureConfig(
                     new ResourceLocation(RepurposedStructures.MODID, "well_badlands"),
@@ -233,7 +238,6 @@ public class RSConfiguredFeatures {
             .decorated(FeatureDecorator.HEIGHTMAP.configured(new HeightmapConfiguration(Heightmap.Types.WORLD_SURFACE_WG)).squared())
             .rarity(RepurposedStructures.RSAllConfig.RSWellsConfig.mushroomWellRarityPerChunk);
 
-    public static List<ConfiguredFeature<?, ?>> RS_WELLS = new ArrayList<>();
 
     // Misc
 

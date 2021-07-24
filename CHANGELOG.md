@@ -1,3 +1,15 @@
+### **(V.2.1.4 Changes) (1.17.1 Minecraft)**
+
+##### Mineshafts:
+* Fixed internals so now you can have multiple RS mineshafts spawn in a single biome if you chose to do so by config.
+
+##### Dungeons:
+* Fixed internals so now you can have multiple RS dungeons spawn in a single biome if you chose to do so by config.
+
+##### Wells:
+* Fixed internals so now you can have multiple RS wells spawn in a single biome if you chose to do so by config.
+
+
 ### **(V.2.1.3 Changes) (1.17.1 Minecraft)**
 
 ##### Configs:

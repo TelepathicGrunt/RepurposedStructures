@@ -60,7 +60,7 @@ public class Wells {
     }
 
     private static boolean genericWellCheck(BiomeSelectionContext context, ConfiguredFeature<?,?> configuredFeatures, Supplier<Boolean> condition) {
-        return RSConfiguredFeatures.RS_WELLS.stream().noneMatch(context::hasBuiltInFeature)
-                && BiomeSelection.isBiomeAllowed(context, configuredFeatures, condition);
+        return BiomeSelection.isBiomeAllowed(context, configuredFeatures,
+                () -> RSConfiguredFeatures.RS_WELLS.stream().noneMatch(context::hasBuiltInFeature) && condition.get());
     }
 }

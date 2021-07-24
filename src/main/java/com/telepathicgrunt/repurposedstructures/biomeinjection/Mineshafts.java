@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.biomeinjection;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredFeatures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
@@ -133,7 +134,7 @@ public class Mineshafts {
     }
 
     private static boolean genericMineshaftCheck(BiomeSelectionContext context, StructureFeature<?> structureFeature, Supplier<Boolean> condition) {
-        return BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.MINESHAFT)
-                && BiomeSelection.isBiomeAllowed(context, structureFeature, condition);
+        return BiomeSelection.isBiomeAllowed(context, structureFeature,
+                () -> BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.MINESHAFT) && condition.get());
     }
 }
