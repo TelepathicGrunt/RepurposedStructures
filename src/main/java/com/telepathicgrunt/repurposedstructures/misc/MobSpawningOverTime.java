@@ -27,12 +27,18 @@ public class MobSpawningOverTime {
         public final int weight;
         public final int minGroupSize;
         public final int maxGroupSize;
+        public final boolean optionalSpawn;
 
-        public PublicMobSpawnEntry(String type, int weight, int minGroupSize, int maxGroupSize){
+        public PublicMobSpawnEntry(String type, int weight, int minGroupSize, int maxGroupSize, boolean optionalSpawn){
             this.type = type;
             this.weight = weight;
             this.minGroupSize = minGroupSize;
             this.maxGroupSize = maxGroupSize;
+            this.optionalSpawn = optionalSpawn;
+        }
+
+        public PublicMobSpawnEntry(String type, int weight, int minGroupSize, int maxGroupSize){
+            this(type, weight, minGroupSize, maxGroupSize, false);
         }
     }
 
@@ -67,7 +73,9 @@ public class MobSpawningOverTime {
                         // Parse and make sure the entity type exists
                         Optional<EntityType<?>> entityType = Registry.ENTITY_TYPE.getOptional(new ResourceLocation(spawnEntry.type));
                         if(entityType.isEmpty()){
-                            RepurposedStructures.LOGGER.warn("Repurposed Structures (first): Unknown EntityType {} was found in the {} config. Skipping that entry...", spawnEntry.type, errorMsg);
+                            if(!spawnEntry.optionalSpawn) {
+                                RepurposedStructures.LOGGER.warn("Repurposed Structures (first): Unknown EntityType {} was found in the {} config. Skipping that entry...", spawnEntry.type, errorMsg);
+                            }
                             continue;
                         }
                         MobSpawnSettings.SpawnerData entryToAdd = new MobSpawnSettings.SpawnerData(
@@ -102,7 +110,9 @@ public class MobSpawningOverTime {
                     // Parse and make sure the entity type exists
                     Optional<EntityType<?>> entityType = Registry.ENTITY_TYPE.getOptional(new ResourceLocation(spawnEntry.type));
                     if(entityType.isEmpty()){
-                        RepurposedStructures.LOGGER.warn("Repurposed Structures (second): Unknown EntityType {} was found in the {} config. Skipping that entry...", spawnEntry.type, errorMsg);
+                        if(!spawnEntry.optionalSpawn) {
+                            RepurposedStructures.LOGGER.warn("Repurposed Structures (second): Unknown EntityType {} was found in the {} config. Skipping that entry...", spawnEntry.type, errorMsg);
+                        }
                         continue;
                     }
                     MobSpawnSettings.SpawnerData entryToAdd = new MobSpawnSettings.SpawnerData(

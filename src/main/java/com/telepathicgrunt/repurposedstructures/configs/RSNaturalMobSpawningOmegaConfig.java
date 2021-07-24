@@ -68,6 +68,7 @@ public class RSNaturalMobSpawningOmegaConfig implements Config {
             // All of RS's structure identifiers can be found by doing "/locate" command in game.
             
             // NOTE: replaceMobSpawns will always override appendMobSpawns for the same structure and mob's SpawnGroups.
+            // And if you add   "optionalSpawn": true   under maxGroupSize for an entry, RS will not print a warning if the entity is not found.
             """)
     public final Map<String, List<MobSpawningOverTime.PublicMobSpawnEntry>> replaceMobSpawns = Map.ofEntries(
             Map.entry("repurposed_structures:bastion_underground", List.of(
@@ -140,6 +141,7 @@ public class RSNaturalMobSpawningOmegaConfig implements Config {
             // Use "all" as the key to affect all of RS's structures.
             // You can find entity's identifiers by doing "/effect @e[type=" command in game.
             // All of RS's structure identifiers can be found by doing "/locate" command in game.
+            // And if you add   "optionalSpawn": true   under maxGroupSize for an entry, RS will not print a warning if the entity is not found.
             """)
     public final Map<String, List<MobSpawningOverTime.PublicMobSpawnEntry>> appendMobSpawns = Map.ofEntries(
             Map.entry("repurposed_structures:mineshaft_end", List.of(

@@ -11,6 +11,11 @@
   
 * Wells are more likely to have a Bell now.
 
+##### Configs:
+* Added optionalSpawn entry that you can put into the natural mob spawning over time config entries.
+  If optionalSpawn is added and set to true, that mob entry will not print a warning to the log if the mob is not found.
+  This is good for optional mod compat if you want to add another mod's entity to spawn in RS's structure but you think you might remove the mod later.
+
 ##### Misc:
 * Properly centered several structures so they match up with their land/water/terrain checks centered on the structure itself.
 
