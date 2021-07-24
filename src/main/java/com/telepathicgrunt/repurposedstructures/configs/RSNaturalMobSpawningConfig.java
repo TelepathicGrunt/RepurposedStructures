@@ -68,12 +68,11 @@ public class RSNaturalMobSpawningConfig implements Config {
             "\n// You can find entity's identifiers by doing \"/effect @e[type=\" command in game."+
             "\n// All of RS's structure identifiers can be found by doing \"/locate\" command in game."+
             "\n"+
-            "\n// NOTE: replaceMobSpawns will always override appendMobSpawns for the same structure and mob's SpawnGroups."+
-            "\n// And if you add   \"optionalSpawn\": true   under maxGroupSize for an entry, RS will not print a warning if the entity is not found."
+            "\n// NOTE: replaceMobSpawns will always override appendMobSpawns for the same structure and mob's SpawnGroups."
     )
     public final Map<String, List<MobSpawningOverTime.PublicMobSpawnEntry>> replaceMobSpawns = new HashMap<String, List<MobSpawningOverTime.PublicMobSpawnEntry>>() {{
         put("repurposed_structures:bastion_underground", Arrays.asList(
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:skeleton", 1, 1, 4)));
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:skeleton", 10, 1, 4)));
         put("repurposed_structures:stronghold_nether", Arrays.asList(
                     new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:blaze", 10, 2, 3),
                     new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:zombified_piglin", 3, 4, 4),
@@ -84,20 +83,20 @@ public class RSNaturalMobSpawningConfig implements Config {
                     new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:blaze", 120, 1, 4),
                     new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:wither_skeleton", 10, 2, 3)));
         put("repurposed_structures:witch_hut_oak", Arrays.asList(
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:witch", 1, 1, 1),
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:cat", 1, 1, 1)));
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:witch", 10, 1, 1),
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:cat", 10, 1, 1)));
         put("repurposed_structures:witch_hut_taiga", Arrays.asList(
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:witch", 1, 1, 1),
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:cat", 1, 1, 1)));
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:witch", 10, 1, 1),
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:cat", 10, 1, 1)));
         put("repurposed_structures:witch_hut_birch", Arrays.asList(
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:witch", 1, 1, 1),
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:cat", 1, 1, 1)));
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:witch", 10, 1, 1),
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:cat", 10, 1, 1)));
         put("repurposed_structures:witch_hut_dark_forest", Arrays.asList(
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:witch", 1, 1, 1),
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:cat", 1, 1, 1)));
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:witch", 10, 1, 1),
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:cat", 10, 1, 1)));
         put("repurposed_structures:witch_hut_giant_tree_taiga", Arrays.asList(
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:witch", 1, 1, 1),
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:cat", 1, 1, 1)));
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:witch", 10, 1, 1),
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:cat", 10, 1, 1)));
         put("repurposed_structures:outpost_nether_brick", Arrays.asList(
                     new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:piglin", 10, 1, 1)));
         put("repurposed_structures:outpost_warped", Arrays.asList(
@@ -107,21 +106,21 @@ public class RSNaturalMobSpawningConfig implements Config {
         put("repurposed_structures:outpost_birch", Arrays.asList(
                     new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:pillager", 1, 1, 1)));
         put("repurposed_structures:outpost_giant_tree_taiga", Arrays.asList(
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:pillager", 1, 1, 1)));
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:pillager", 10, 1, 1)));
         put("repurposed_structures:outpost_desert", Arrays.asList(
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:pillager", 1, 1, 1)));
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:pillager", 10, 1, 1)));
         put("repurposed_structures:outpost_jungle", Arrays.asList(
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:pillager", 1, 1, 1)));
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:pillager", 10, 1, 1)));
         put("repurposed_structures:outpost_badlands", Arrays.asList(
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:pillager", 1, 1, 1)));
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:pillager", 10, 1, 1)));
         put("repurposed_structures:outpost_icy", Arrays.asList(
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:pillager", 1, 1, 1)));
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:pillager", 10, 1, 1)));
         put("repurposed_structures:outpost_snowy", Arrays.asList(
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:pillager", 1, 1, 1)));
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:pillager", 10, 1, 1)));
         put("repurposed_structures:outpost_taiga", Arrays.asList(
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:pillager", 1, 1, 1)));
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:pillager", 10, 1, 1)));
         put("repurposed_structures:outpost_oak", Arrays.asList(
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:pillager", 1, 1, 1)));
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:pillager", 10, 1, 1)));
         put("repurposed_structures:outpost_end", Arrays.asList(
                     new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:phantom", 10, 1, 1)));
     }};
@@ -141,8 +140,7 @@ public class RSNaturalMobSpawningConfig implements Config {
             "\n"+
             "\n// Use \"all\" as the key to affect all of RS's structures."+
             "\n// You can find entity's identifiers by doing \"/effect @e[type=\" command in game."+
-            "\n// All of RS's structure identifiers can be found by doing \"/locate\" command in game."+
-            "\n// And if you add   \"optionalSpawn\": true   under maxGroupSize for an entry, RS will not print a warning if the entity is not found."
+            "\n// All of RS's structure identifiers can be found by doing \"/locate\" command in game."
     )
     public final Map<String, List<MobSpawningOverTime.PublicMobSpawnEntry>> appendMobSpawns = new HashMap<String, List<MobSpawningOverTime.PublicMobSpawnEntry>>() {{
             put("repurposed_structures:mineshaft_end", Arrays.asList(

@@ -9,7 +9,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.MobSpawnInfo;
-import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.StructureManager;
 
@@ -28,18 +27,18 @@ public class MobSpawningOverTime {
         public final int weight;
         public final int minGroupSize;
         public final int maxGroupSize;
-        public final boolean optionalSpawn;
+        public final boolean logErrorIfNotFound;
 
-        public PublicMobSpawnEntry(String type, int weight, int minGroupSize, int maxGroupSize, boolean optionalSpawn){
+        public PublicMobSpawnEntry(String type, int weight, int minGroupSize, int maxGroupSize, boolean logErrorIfNotFound){
             this.type = type;
             this.weight = weight;
             this.minGroupSize = minGroupSize;
             this.maxGroupSize = maxGroupSize;
-            this.optionalSpawn = optionalSpawn;
+            this.logErrorIfNotFound = logErrorIfNotFound;
         }
 
         public PublicMobSpawnEntry(String type, int weight, int minGroupSize, int maxGroupSize){
-            this(type, weight, minGroupSize, maxGroupSize, false);
+            this(type, weight, minGroupSize, maxGroupSize, true);
         }
     }
 
@@ -74,7 +73,7 @@ public class MobSpawningOverTime {
                         // Parse and make sure the entity type exists
                         Optional<EntityType<?>> entityType = Registry.ENTITY_TYPE.getOptional(new ResourceLocation(spawnEntry.type));
                         if(!entityType.isPresent()){
-                            if(!spawnEntry.optionalSpawn){
+                            if(spawnEntry.logErrorIfNotFound){
                                 RepurposedStructures.LOGGER.warn("Repurposed Structures (first): Unknown EntityType {} was found in the {} config. Skipping that entry...", spawnEntry.type, errorMsg);
                             }
                             continue;
@@ -111,7 +110,7 @@ public class MobSpawningOverTime {
                     // Parse and make sure the entity type exists
                     Optional<EntityType<?>> entityType = Registry.ENTITY_TYPE.getOptional(new ResourceLocation(spawnEntry.type));
                     if(!entityType.isPresent()){
-                        if(!spawnEntry.optionalSpawn) {
+                        if(spawnEntry.logErrorIfNotFound) {
                             RepurposedStructures.LOGGER.warn("Repurposed Structures (second): Unknown EntityType {} was found in the {} config. Skipping that entry...", spawnEntry.type, errorMsg);
                         }
                         continue;
