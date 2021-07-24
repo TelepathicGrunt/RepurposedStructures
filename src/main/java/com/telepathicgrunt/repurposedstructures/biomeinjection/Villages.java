@@ -14,7 +14,7 @@ public class Villages {
         
         if (RepurposedStructures.RSVillagesConfig.badlandsVillageMaxChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowed(event, RSStructures.VILLAGE_BADLANDS.get(),
-                    () -> BiomeSelection.haveCategories(event, Category.FOREST, Category.MESA)))
+                    () -> BiomeSelection.haveCategories(event, Category.MESA)))
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.VILLAGE_BADLANDS);
         }
@@ -64,6 +64,14 @@ public class Villages {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.VILLAGE_GIANT_TAIGA);
         }
 
+        if (RepurposedStructures.RSVillagesConfig.villageOakMaxChunkDistance.get() != 1001 &&
+                BiomeSelection.isBiomeAllowed(event, RSStructures.VILLAGE_OAK.get(),
+                        () -> BiomeSelection.haveCategories(event, Category.FOREST) &&
+                                !BiomeSelection.hasName(event, "birch", "dark", "spooky", "dead", "haunted")))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.VILLAGE_OAK);
+        }
+
         if (RepurposedStructures.RSVillagesConfig.crimsonVillageMaxChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowed(event, RSStructures.VILLAGE_CRIMSON.get(),
                     () -> BiomeSelection.haveCategories(event, Category.NETHER) &&
@@ -78,14 +86,6 @@ public class Villages {
                     BiomeSelection.hasName(event, "warped", "blue")))
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.VILLAGE_WARPED);
-        }
-
-        if (RepurposedStructures.RSVillagesConfig.villageOakMaxChunkDistance.get() != 1001 &&
-            BiomeSelection.isBiomeAllowed(event, RSStructures.VILLAGE_OAK.get(),
-                    () -> BiomeSelection.haveCategories(event, Category.FOREST) &&
-                    !BiomeSelection.hasName(event, "birch", "dark", "spooky", "dead", "haunted")))
-        {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.VILLAGE_OAK);
         }
     }
 }

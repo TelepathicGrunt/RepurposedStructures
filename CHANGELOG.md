@@ -34,6 +34,8 @@
 
 * Increase default chance of Nether Wells spawning.
 
+* Wells are more likely to have a Bell now.
+
 ##### Advancements:
 * Forgot to add xp reward for several advancements.
 

@@ -127,6 +127,6 @@ public class Mineshafts {
 
     private static boolean genericMineshaftCheck(BiomeLoadingEvent context, Structure<?> structureFeature, Supplier<Boolean> condition) {
         return BiomeSelection.isBiomeAllowed(context, structureFeature,
-                () -> BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.MINESHAFT));
+                () -> BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.MINESHAFT) && condition.get());
     }
 }

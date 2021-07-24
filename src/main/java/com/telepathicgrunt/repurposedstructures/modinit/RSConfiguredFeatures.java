@@ -203,7 +203,7 @@ public class RSConfiguredFeatures {
                     -2,
                     ImmutableList.of(Pair.of(new ResourceLocation(RepurposedStructures.MODID, "wells/mossy"), 1)),
                     new ResourceLocation(RepurposedStructures.MODID, "wells/mossy")))
-            .decorated(Features.Placements.HEIGHTMAP_SQUARE)
+            .decorated(Features.Placements.TOP_SOLID_HEIGHTMAP_SQUARE)
             .chance(RepurposedStructures.RSWellsConfig.mossyStoneWellRarityPerChunk.get());
 
     public static ConfiguredFeature<?, ?> FOREST_WELL = RSFeatures.FOREST_WELL.get()

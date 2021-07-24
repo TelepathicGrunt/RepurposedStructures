@@ -8,7 +8,7 @@
           },
           "input_predicate": {
             "block": "minecraft:bell",
-            "probability": 0.99,
+            "probability": 0.95,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
