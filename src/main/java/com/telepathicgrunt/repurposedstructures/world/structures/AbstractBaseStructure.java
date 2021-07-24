@@ -1,44 +1,51 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
+import com.google.common.base.Suppliers;
 import com.mojang.serialization.Codec;
+import com.telepathicgrunt.repurposedstructures.misc.MobSpawningOverTime;
+import net.minecraft.entity.EntityClassification;
 import net.minecraft.util.SharedSeedRandom;
+import net.minecraft.util.WeightedRandom;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.SectionPos;
 import net.minecraft.world.IWorldReader;
+import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.chunk.ChunkStatus;
 import net.minecraft.world.chunk.IChunk;
 import net.minecraft.world.gen.feature.IFeatureConfig;
+import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.StructureManager;
 import net.minecraft.world.gen.feature.structure.StructureStart;
 import net.minecraft.world.gen.settings.StructureSeparationSettings;
 
-public abstract class AbstractBaseStructure <C extends IFeatureConfig> extends Structure<C> {
-    /**
-     * --------------------------------------------------------------------------
-     * |															        	|
-     * |			HELLO READERS! IF YOU'RE HERE, YOU'RE PROBABLY		    	|
-     * |			LOOKING FOR A TUTORIAL ON HOW TO DO STRUCTURES	    		|
-     * |																        |
-     * -------------------------------------------------------------------------
-     *
-     * Don't worry, I actually have a structure tutorial
-     * mod already setup for you to check out! It's full
-     * of comments on what does what and how to make structures.
-     *
-     * Here's the link! https://github.com/TelepathicGrunt/StructureTutorialMod
-     *
-     * Good luck and have fun modding!
-     */
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Supplier;
+
+public abstract class AbstractBaseStructure<C extends IFeatureConfig> extends Structure<C> {
 
     public AbstractBaseStructure(Codec<C> codec) {
         super(codec);
     }
 
     @Override
-    public BlockPos getNearestGeneratedFeature(IWorldReader worldView, StructureManager structureAccessor, BlockPos blockPos, int radius, boolean skipExistingChunks, long seed, StructureSeparationSettings structureConfig) {
-        return locateStructureFast(worldView, structureAccessor, blockPos, radius, skipExistingChunks, seed, structureConfig, this);
+    public BlockPos getNearestGeneratedFeature(IWorldReader world, StructureManager structureAccessor, BlockPos searchStartPos, int searchRadius, boolean skipExistingChunks, long worldSeed, StructureSeparationSettings config) {
+        return AbstractBaseStructure.locateStructureFast(world, structureAccessor, searchStartPos, searchRadius, skipExistingChunks, worldSeed, config, this);
+    }
+
+    private final Supplier<List<MobSpawnInfo.Spawners>> monsterSpawns = Suppliers.memoize(() -> new ArrayList<>(MobSpawningOverTime.REPLACE_MOB_SPAWNING.get(EntityClassification.MONSTER).getOrDefault(this, new ArrayList<>())));
+    private final Supplier<List<MobSpawnInfo.Spawners>> creatureSpawns = Suppliers.memoize(() -> new ArrayList<>(MobSpawningOverTime.REPLACE_MOB_SPAWNING.get(EntityClassification.CREATURE).getOrDefault(this, new ArrayList<>())));
+
+    @Override
+    public List<MobSpawnInfo.Spawners> getDefaultSpawnList() {
+        return monsterSpawns.get();
+    }
+
+    @Override
+    public List<MobSpawnInfo.Spawners> getDefaultCreatureSpawnList() {
+        return creatureSpawns.get();
     }
 
     public static <C extends IFeatureConfig> BlockPos locateStructureFast(IWorldReader worldView, StructureManager structureAccessor, BlockPos blockPos, int radius, boolean skipExistingChunks, long seed, StructureSeparationSettings structureConfig, Structure<C> structure) {

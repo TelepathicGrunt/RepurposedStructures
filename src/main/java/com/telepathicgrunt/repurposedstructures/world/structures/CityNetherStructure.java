@@ -12,38 +12,46 @@ import net.minecraft.util.registry.DynamicRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.jigsaw.JigsawManager;
 import net.minecraft.world.gen.feature.structure.AbstractVillagePiece;
 import net.minecraft.world.gen.feature.structure.MarginedStructureStart;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.VillageConfig;
 import net.minecraft.world.gen.feature.template.TemplateManager;
-
-import java.util.List;
 import java.util.Set;
 
 public class CityNetherStructure extends GenericJigsawStructure {
-    public CityNetherStructure(ResourceLocation poolID, int structureSize, int centerOffset, int biomeRange, int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet, List<MobSpawnInfo.Spawners> monsterSpawns, List<MobSpawnInfo.Spawners> creatureSpawns) {
-        this(poolID, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet, -1, 0, monsterSpawns, creatureSpawns);
-    }
 
     public CityNetherStructure(ResourceLocation poolID, int structureSize, int centerOffset, int biomeRange,
                                int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet,
-                               int allowTerrainHeightRange, int terrainHeightRadius,
-                               List<MobSpawnInfo.Spawners> monsterSpawns, List<MobSpawnInfo.Spawners> creatureSpawns)
+                               int allowTerrainHeightRange, int terrainHeightRadius, int minHeightLimit,
+                               int fixedYSpawn, boolean useHeightmap, boolean cannotSpawnInWater)
     {
-        super(poolID, structureSize, centerOffset, biomeRange,structureBlacklistRange, avoidStructuresSet, allowTerrainHeightRange, terrainHeightRadius, monsterSpawns, creatureSpawns);
+        super(
+                poolID,
+                structureSize,
+                centerOffset,
+                biomeRange,
+                structureBlacklistRange,
+                avoidStructuresSet,
+                allowTerrainHeightRange,
+                terrainHeightRadius,
+                minHeightLimit,
+                fixedYSpawn,
+                useHeightmap,
+                cannotSpawnInWater
+        );
     }
 
     @Override
-    protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig noFeatureConfig) {
+    protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig defaultFeatureConfig) {
 
         // do cheaper checks first
-        if(super.isFeatureChunk(chunkGenerator, biomeSource, seed, chunkRandom, chunkX, chunkZ, biome, chunkPos, noFeatureConfig)){
+        if(super.isFeatureChunk(chunkGenerator, biomeSource, seed, chunkRandom, chunkX, chunkZ, biome, chunkPos, defaultFeatureConfig)){
 
             // make sure land is open enough for city
             BlockPos.Mutable mutable = new BlockPos.Mutable();
@@ -77,17 +85,15 @@ public class CityNetherStructure extends GenericJigsawStructure {
     }
 
     public class MainStart extends MarginedStructureStart<NoFeatureConfig> {
-        public MainStart(Structure<NoFeatureConfig> structureIn, int chunkX, int chunkZ, MutableBoundingBox mutableBoundingBox, int referenceIn, long seedIn) {
-            super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
+        public MainStart(Structure<NoFeatureConfig> structureIn, int chunkX, int chunkZ, MutableBoundingBox box, int referenceIn, long seedIn) {
+            super(structureIn, chunkX, chunkZ, box, referenceIn, seedIn);
         }
 
         public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig defaultFeatureConfig) {
-            BlockPos blockpos = new BlockPos(chunkX * 16, chunkGenerator.getSeaLevel(), chunkZ * 16);
+            BlockPos blockpos = new BlockPos(chunkX << 4, chunkGenerator.getSeaLevel(), chunkZ << 4);
             JigsawManager.addPieces(
                     dynamicRegistryManager,
-                    new VillageConfig(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY)
-                            .get(startPool),
-                            structureSize),
+                    new VillageConfig(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(startPool), structureSize),
                     AbstractVillagePiece::new,
                     chunkGenerator,
                     structureManager,
@@ -98,6 +104,31 @@ public class CityNetherStructure extends GenericJigsawStructure {
                     false);
             this.calculateBoundingBox();
             this.pieces.get(0).move(0, centerOffset, 0);
+        }
+    }
+
+
+    public static class Builder<T extends GenericJigsawStructure.Builder<T>> extends GenericJigsawStructure.Builder<T> {
+
+        public Builder(ResourceLocation startPool) {
+            super(startPool);
+        }
+
+        public CityNetherStructure build() {
+            return new CityNetherStructure(
+                    startPool,
+                    structureSize,
+                    centerOffset,
+                    biomeRange,
+                    structureBlacklistRange,
+                    avoidStructuresSet,
+                    allowTerrainHeightRange,
+                    terrainHeightRadius,
+                    minHeightLimit,
+                    fixedYSpawn,
+                    useHeightmap,
+                    cannotSpawnInWater
+            );
         }
     }
 }

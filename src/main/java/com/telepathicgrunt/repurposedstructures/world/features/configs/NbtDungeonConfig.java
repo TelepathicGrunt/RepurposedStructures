@@ -16,6 +16,7 @@ import java.util.function.Function;
 
 public class NbtDungeonConfig implements IFeatureConfig {
     public static final Codec<NbtDungeonConfig> CODEC = RecordCodecBuilder.<NbtDungeonConfig>create((configInstance) -> configInstance.group(
+            ResourceLocation.CODEC.fieldOf("configured_feature_name").forGetter(nbtFeatureConfig -> nbtFeatureConfig.cfID),
             Codec.BOOL.fieldOf("replace_air").orElse(false).forGetter(nbtDungeonConfig -> nbtDungeonConfig.replaceAir),
             Codec.intRange(0, Integer.MAX_VALUE).fieldOf("min_air_space").forGetter(nbtFeatureConfig -> nbtFeatureConfig.minAirSpace),
             Codec.intRange(0, Integer.MAX_VALUE).fieldOf("max_air_space").forGetter(nbtFeatureConfig -> nbtFeatureConfig.maxAirSpace),
@@ -32,6 +33,7 @@ public class NbtDungeonConfig implements IFeatureConfig {
             .comapFlatMap((nbtDungeonConfig) -> nbtDungeonConfig.maxAirSpace <= nbtDungeonConfig.minAirSpace ?
                     DataResult.error("min_air_space has to be smaller than max_air_space") : DataResult.success(nbtDungeonConfig), Function.identity());
 
+    public final ResourceLocation cfID;
     public final boolean replaceAir;
     public final int minAirSpace;
     public final int maxAirSpace;
@@ -45,12 +47,13 @@ public class NbtDungeonConfig implements IFeatureConfig {
     public final int structureYOffset;
     public final BlockState lootBlock;
 
-    public NbtDungeonConfig(boolean replaceAir, int minAirSpace, int maxAirSpace,
+    public NbtDungeonConfig(ResourceLocation cfID,boolean replaceAir, int minAirSpace, int maxAirSpace,
                             int maxNumOfChests, boolean airRequirementIsNowWater, int structureYOffset,
                             BlockState lootBlock, ResourceLocation chestIdentifier,
                             ResourceLocation rsSpawnerResourceLocation, ResourceLocation processor, ResourceLocation postProcessor,
                             List<Pair<ResourceLocation, Integer>> nbtResourceLocationsAndWeights)
     {
+        this.cfID = cfID;
         this.replaceAir = replaceAir;
         this.minAirSpace = minAirSpace;
         this.maxAirSpace = maxAirSpace;
@@ -73,18 +76,18 @@ public class NbtDungeonConfig implements IFeatureConfig {
         this(dungeonType, spawnerType, postProcessor, 13, false, 0);
     }
 
-    public NbtDungeonConfig(String dungeonType, String spawnerType, ResourceLocation processor, ResourceLocation postProcessor){
-        this(dungeonType, spawnerType, processor, postProcessor, 13, false, 0);
+    public NbtDungeonConfig(ResourceLocation cfID, String dungeonType, String spawnerType, ResourceLocation processor, ResourceLocation postProcessor){
+        this(cfID, dungeonType, spawnerType, processor, postProcessor, 13, false, 0);
     }
 
     public NbtDungeonConfig(String dungeonType, String spawnerType, ResourceLocation postProcessor,
                             int maxAirSpace, boolean airRequirementIsNowWater, int structureYOffset){
-        this(dungeonType, spawnerType, new ResourceLocation(RepurposedStructures.MODID, "dungeons/"+dungeonType), postProcessor, maxAirSpace, airRequirementIsNowWater, structureYOffset);
+        this(new ResourceLocation(RepurposedStructures.MODID, "dungeon_" + dungeonType), dungeonType, spawnerType, new ResourceLocation(RepurposedStructures.MODID, "dungeons/"+dungeonType), postProcessor, maxAirSpace, airRequirementIsNowWater, structureYOffset);
     }
 
-    public NbtDungeonConfig(String dungeonType, String spawnerType, ResourceLocation processor, ResourceLocation postProcessor,
+    public NbtDungeonConfig(ResourceLocation cfID, String dungeonType, String spawnerType, ResourceLocation processor, ResourceLocation postProcessor,
                             int maxAirSpace, boolean airRequirementIsNowWater, int structureYOffset){
-        this(false,1, maxAirSpace, 2,
+        this(cfID, false, 1, maxAirSpace, 2,
                 airRequirementIsNowWater,
                 structureYOffset, Blocks.CHEST.defaultBlockState(),
                 new ResourceLocation(RepurposedStructures.MODID, "chests/dungeon/"+dungeonType),
@@ -100,7 +103,7 @@ public class NbtDungeonConfig implements IFeatureConfig {
 
     public NbtDungeonConfig(String dungeonType, ResourceLocation postProcessor,
                             int maxAirSpace, BlockState lootBlock){
-        this(false, 1, maxAirSpace, 2,
+        this(new ResourceLocation(RepurposedStructures.MODID, "dungeon_" + dungeonType), false, 1, maxAirSpace, 2,
                 false, 0, lootBlock,
                 new ResourceLocation(RepurposedStructures.MODID, "chests/dungeon/"+dungeonType),
                 new ResourceLocation(RepurposedStructures.MODID, "dungeon_"+dungeonType),

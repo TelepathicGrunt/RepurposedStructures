@@ -12,36 +12,36 @@ import net.minecraft.world.gen.feature.structure.Structure;
 
 public class RSConfiguredStructures {
 
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> BIRCH_MINESHAFT = RSStructures.BIRCH_MINESHAFT.get().configured(IFeatureConfig.NONE);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> DARK_FOREST_MINESHAFT = RSStructures.DARK_FOREST_MINESHAFT.get().configured(IFeatureConfig.NONE);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> DESERT_MINESHAFT = RSStructures.DESERT_MINESHAFT.get().configured(IFeatureConfig.NONE);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> END_MINESHAFT = RSStructures.END_MINESHAFT.get().configured(IFeatureConfig.NONE);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_MINESHAFT = RSStructures.NETHER_MINESHAFT.get().configured(IFeatureConfig.NONE);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> CRIMSON_MINESHAFT = RSStructures.CRIMSON_MINESHAFT.get().configured(IFeatureConfig.NONE);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> WARPED_MINESHAFT = RSStructures.WARPED_MINESHAFT.get().configured(IFeatureConfig.NONE);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> ICY_MINESHAFT = RSStructures.ICY_MINESHAFT.get().configured(IFeatureConfig.NONE);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> JUNGLE_MINESHAFT = RSStructures.JUNGLE_MINESHAFT.get().configured(IFeatureConfig.NONE);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> OCEAN_MINESHAFT = RSStructures.OCEAN_MINESHAFT.get().configured(IFeatureConfig.NONE);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> SAVANNA_MINESHAFT = RSStructures.SAVANNA_MINESHAFT.get().configured(IFeatureConfig.NONE);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> STONE_MINESHAFT = RSStructures.STONE_MINESHAFT.get().configured(IFeatureConfig.NONE);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> SWAMP_MINESHAFT = RSStructures.SWAMP_MINESHAFT.get().configured(IFeatureConfig.NONE);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> TAIGA_MINESHAFT = RSStructures.TAIGA_MINESHAFT.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> BIRCH_MINESHAFT = RSStructures.MINESHAFT_BIRCH.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> DARK_FOREST_MINESHAFT = RSStructures.MINESHAFT_DARK_FOREST.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> DESERT_MINESHAFT = RSStructures.MINESHAFT_DESERT.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> END_MINESHAFT = RSStructures.MINESHAFT_END.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_MINESHAFT = RSStructures.MINESHAFT_NETHER.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> CRIMSON_MINESHAFT = RSStructures.MINESHAFT_CRIMSON.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> WARPED_MINESHAFT = RSStructures.MINESHAFT_WARPED.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> ICY_MINESHAFT = RSStructures.MINESHAFT_ICY.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> JUNGLE_MINESHAFT = RSStructures.MINESHAFT_JUNGLE.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> OCEAN_MINESHAFT = RSStructures.MINESHAFT_OCEAN.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> SAVANNA_MINESHAFT = RSStructures.MINESHAFT_SAVANNA.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> STONE_MINESHAFT = RSStructures.MINESHAFT_STONE.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> SWAMP_MINESHAFT = RSStructures.MINESHAFT_SWAMP.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> TAIGA_MINESHAFT = RSStructures.MINESHAFT_TAIGA.get().configured(IFeatureConfig.NONE);
 
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_STRONGHOLD = RSStructures.NETHER_STRONGHOLD.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_STRONGHOLD = RSStructures.STRONGHOLD_NETHER.get().configured(IFeatureConfig.NONE);
 
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> JUNGLE_FORTRESS = RSStructures.JUNGLE_FORTRESS.get().configured(IFeatureConfig.NONE);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> GRASSY_IGLOO = RSStructures.GRASSY_IGLOO.get().configured(IFeatureConfig.NONE);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> STONE_IGLOO = RSStructures.STONE_IGLOO.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> JUNGLE_FORTRESS = RSStructures.FORTRESS_JUNGLE.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> GRASSY_IGLOO = RSStructures.IGLOO_GRASSY.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> STONE_IGLOO = RSStructures.IGLOO_STONE.get().configured(IFeatureConfig.NONE);
 
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_WASTELAND_TEMPLE = RSStructures.NETHER_WASTELAND_TEMPLE.get().configured(IFeatureConfig.NONE);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_BASALT_TEMPLE = RSStructures.NETHER_BASALT_TEMPLE.get().configured(IFeatureConfig.NONE);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_WARPED_TEMPLE = RSStructures.NETHER_WARPED_TEMPLE.get().configured(IFeatureConfig.NONE);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_CRIMSON_TEMPLE = RSStructures.NETHER_CRIMSON_TEMPLE.get().configured(IFeatureConfig.NONE);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_SOUL_TEMPLE = RSStructures.NETHER_SOUL_TEMPLE.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_WASTELAND_TEMPLE = RSStructures.TEMPLE_NETHER_WASTELAND.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_BASALT_TEMPLE = RSStructures.TEMPLE_NETHER_BASALT.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_WARPED_TEMPLE = RSStructures.TEMPLE_NETHER_WARPED.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_CRIMSON_TEMPLE = RSStructures.TEMPLE_NETHER_CRIMSON.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_SOUL_TEMPLE = RSStructures.TEMPLE_NETHER_SOUL.get().configured(IFeatureConfig.NONE);
 
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_BRICK_OUTPOST = RSStructures.NETHER_BRICK_OUTPOST.get().configured(IFeatureConfig.NONE);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> WARPED_OUTPOST = RSStructures.WARPED_OUTPOST.get().configured(IFeatureConfig.NONE);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> CRIMSON_OUTPOST = RSStructures.CRIMSON_OUTPOST.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_BRICK_OUTPOST = RSStructures.OUTPOST_NETHER_BRICK.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> WARPED_OUTPOST = RSStructures.OUTPOST_WARPED.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> CRIMSON_OUTPOST = RSStructures.OUTPOST_CRIMSON.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> OUTPOST_BIRCH = RSStructures.OUTPOST_BIRCH.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> OUTPOST_JUNGLE = RSStructures.OUTPOST_JUNGLE.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> OUTPOST_GIANT_TREE_TAIGA = RSStructures.OUTPOST_GIANT_TREE_TAIGA.get().configured(IFeatureConfig.NONE);
@@ -53,8 +53,8 @@ public class RSConfiguredStructures {
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> OUTPOST_OAK = RSStructures.OUTPOST_OAK.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> OUTPOST_END = RSStructures.OUTPOST_END.get().configured(IFeatureConfig.NONE);
 
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_PYRAMID = RSStructures.NETHER_PYRAMID.get().configured(IFeatureConfig.NONE);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> BADLANDS_TEMPLE = RSStructures.BADLANDS_PYRAMID.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> NETHER_PYRAMID = RSStructures.PYRAMID_NETHER.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> BADLANDS_TEMPLE = RSStructures.PYRAMID_BADLANDS.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> PYRAMID_SNOWY = RSStructures.PYRAMID_SNOWY.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> PYRAMID_END = RSStructures.PYRAMID_END.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> PYRAMID_ICY = RSStructures.PYRAMID_ICY.get().configured(IFeatureConfig.NONE);
@@ -64,21 +64,21 @@ public class RSConfiguredStructures {
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> PYRAMID_GIANT_TREE_TAIGA = RSStructures.PYRAMID_GIANT_TREE_TAIGA.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> PYRAMID_FLOWER_FOREST = RSStructures.PYRAMID_FLOWER_FOREST.get().configured(IFeatureConfig.NONE);
 
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> END_SHIPWRECK = RSStructures.END_SHIPWRECK.get().configured(IFeatureConfig.NONE);
-    public static StructureFeature<NetherShipwreckConfig, ? extends Structure<NetherShipwreckConfig>> NETHER_BRICKS_SHIPWRECK_FLYING = RSStructures.NETHER_BRICKS_SHIPWRECK.get().configured(new NetherShipwreckConfig(true));
-    public static StructureFeature<NetherShipwreckConfig, ? extends Structure<NetherShipwreckConfig>> NETHER_BRICKS_SHIPWRECK = RSStructures.NETHER_BRICKS_SHIPWRECK.get().configured(new NetherShipwreckConfig(false));
-    public static StructureFeature<NetherShipwreckConfig, ? extends Structure<NetherShipwreckConfig>> CRIMSON_SHIPWRECK = RSStructures.CRIMSON_SHIPWRECK.get().configured( new NetherShipwreckConfig(false));
-    public static StructureFeature<NetherShipwreckConfig, ? extends Structure<NetherShipwreckConfig>> WARPED_SHIPWRECK = RSStructures.WARPED_SHIPWRECK.get().configured(new NetherShipwreckConfig(false));
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> END_SHIPWRECK = RSStructures.SHIPWRECK_END.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NetherShipwreckConfig, ? extends Structure<NetherShipwreckConfig>> NETHER_BRICKS_SHIPWRECK_FLYING = RSStructures.SHIPWRECK_NETHER_BRICKS.get().configured(new NetherShipwreckConfig(true));
+    public static StructureFeature<NetherShipwreckConfig, ? extends Structure<NetherShipwreckConfig>> NETHER_BRICKS_SHIPWRECK = RSStructures.SHIPWRECK_NETHER_BRICKS.get().configured(new NetherShipwreckConfig(false));
+    public static StructureFeature<NetherShipwreckConfig, ? extends Structure<NetherShipwreckConfig>> CRIMSON_SHIPWRECK = RSStructures.SHIPWRECK_CRIMSON.get().configured( new NetherShipwreckConfig(false));
+    public static StructureFeature<NetherShipwreckConfig, ? extends Structure<NetherShipwreckConfig>> WARPED_SHIPWRECK = RSStructures.SHIPWRECK_WARPED.get().configured(new NetherShipwreckConfig(false));
 
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> BADLANDS_VILLAGE = RSStructures.BADLANDS_VILLAGE.get().configured(IFeatureConfig.NONE);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> BIRCH_VILLAGE = RSStructures.BIRCH_VILLAGE.get().configured(IFeatureConfig.NONE);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> DARK_FOREST_VILLAGE = RSStructures.DARK_FOREST_VILLAGE.get().configured(IFeatureConfig.NONE);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> JUNGLE_VILLAGE = RSStructures.JUNGLE_VILLAGE.get().configured(IFeatureConfig.NONE);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> SWAMP_VILLAGE = RSStructures.SWAMP_VILLAGE.get().configured(IFeatureConfig.NONE);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> MOUNTAINS_VILLAGE = RSStructures.MOUNTAINS_VILLAGE.get().configured(IFeatureConfig.NONE);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> GIANT_TAIGA_VILLAGE = RSStructures.GIANT_TAIGA_VILLAGE.get().configured(IFeatureConfig.NONE);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> CRIMSON_VILLAGE = RSStructures.CRIMSON_VILLAGE.get().configured(IFeatureConfig.NONE);
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> WARPED_VILLAGE = RSStructures.WARPED_VILLAGE.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> BADLANDS_VILLAGE = RSStructures.VILLAGE_BADLANDS.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> BIRCH_VILLAGE = RSStructures.VILLAGE_BIRCH.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> DARK_FOREST_VILLAGE = RSStructures.VILLAGE_DARK_FOREST.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> JUNGLE_VILLAGE = RSStructures.VILLAGE_JUNGLE.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> SWAMP_VILLAGE = RSStructures.VILLAGE_SWAMP.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> MOUNTAINS_VILLAGE = RSStructures.VILLAGE_MOUNTAINS.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> GIANT_TAIGA_VILLAGE = RSStructures.VILLAGE_GIANT_TAIGA.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> CRIMSON_VILLAGE = RSStructures.VILLAGE_CRIMSON.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> WARPED_VILLAGE = RSStructures.VILLAGE_WARPED.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> VILLAGE_OAK = RSStructures.VILLAGE_OAK.get().configured(IFeatureConfig.NONE);
 
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> RUINED_PORTAL_END = RSStructures.RUINED_PORTAL_END.get().configured(IFeatureConfig.NONE);

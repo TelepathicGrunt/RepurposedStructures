@@ -1,6 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.mixin;
 
-import com.telepathicgrunt.repurposedstructures.misc.StructureMobSpawning;
+import com.telepathicgrunt.repurposedstructures.misc.MobSpawningOverTime;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
@@ -32,7 +32,7 @@ public class StructureMobSpawningMixin {
             cancellable = true
     )
     private void repurposedstructures_structureMobs(Biome biome, StructureManager accessor, EntityClassification group, BlockPos pos, CallbackInfoReturnable<List<MobSpawnInfo.Spawners>> cir) {
-        List<MobSpawnInfo.Spawners> list = StructureMobSpawning.getStructureSpawns(biome, accessor, group, pos);
+        List<MobSpawnInfo.Spawners> list = MobSpawningOverTime.getStructureSpawns(biome, accessor, group, pos);
         if(list != null) cir.setReturnValue(list);
     }
 }

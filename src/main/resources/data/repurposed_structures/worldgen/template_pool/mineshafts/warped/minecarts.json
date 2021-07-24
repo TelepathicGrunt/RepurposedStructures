@@ -1,6 +1,6 @@
 {
   "name": "repurposed_structures:mineshafts/warped/minecarts",
-  "fallback": "minecraft:empty",
+  "fallback": "repurposed_structures:mineshafts/warped/minecarts",
   "elements": [
     {
       "weight": 1,

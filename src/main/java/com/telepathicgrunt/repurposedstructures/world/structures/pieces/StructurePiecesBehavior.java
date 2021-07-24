@@ -1,10 +1,12 @@
 package com.telepathicgrunt.repurposedstructures.world.structures.pieces;
 
+import com.google.common.collect.ImmutableMap;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.util.Lazy;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class StructurePiecesBehavior {
 
@@ -28,8 +30,59 @@ public class StructurePiecesBehavior {
         }
     }
 
+    public static HashMap<ResourceLocation, Map<ResourceLocation, RequiredPieceNeeds>> REQUIRED_PIECES_COUNT = new HashMap<>();
+    static {
+        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "stronghold_nether"), ImmutableMap.of(
+                new ResourceLocation(RepurposedStructures.MODID, "strongholds/nether/portal_room"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Lazy.of(() -> (int) (RepurposedStructures.RSStrongholdsConfig.netherStrongholdSize.get() * 0.6D)))));
 
+        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "fortress_jungle"), ImmutableMap.of(
+                new ResourceLocation(RepurposedStructures.MODID, "fortresses/jungle/spawner"), new StructurePiecesBehavior.RequiredPieceNeeds(2, Lazy.of(() -> (int) (RepurposedStructures.RSFortressesConfig.jungleFortressSize.get() * 0.6D))),
+                new ResourceLocation(RepurposedStructures.MODID, "fortresses/jungle/balcony"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Lazy.of(() -> (int) (RepurposedStructures.RSFortressesConfig.jungleFortressSize.get() * 0.2D))),
+                new ResourceLocation(RepurposedStructures.MODID, "fortresses/jungle/turn_inside_chest"), new StructurePiecesBehavior.RequiredPieceNeeds(4, Lazy.of(() -> (int) (RepurposedStructures.RSFortressesConfig.jungleFortressSize.get() * 0.6D)))));
 
+        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_birch"), ImmutableMap.of(
+                new ResourceLocation(RepurposedStructures.MODID, "mineshafts/birch/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Lazy.of(() -> Math.min(5, RepurposedStructures.RSMineshaftsConfig.birchMineshaftSize.get())))));
+
+        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_dark_forest"), ImmutableMap.of(
+                new ResourceLocation(RepurposedStructures.MODID, "mineshafts/dark_forest/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Lazy.of(() -> Math.min(5, RepurposedStructures.RSMineshaftsConfig.darkForestMineshaftSize.get())))));
+
+        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_desert"), ImmutableMap.of(
+                new ResourceLocation(RepurposedStructures.MODID, "mineshafts/desert/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Lazy.of(() -> Math.min(5, RepurposedStructures.RSMineshaftsConfig.desertMineshaftSize.get())))));
+
+        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_nether"), ImmutableMap.of(
+                new ResourceLocation(RepurposedStructures.MODID, "mineshafts/nether/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Lazy.of(() -> Math.min(5, RepurposedStructures.RSMineshaftsConfig.netherMineshaftSize.get())))));
+
+        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_crimson"), ImmutableMap.of(
+                new ResourceLocation(RepurposedStructures.MODID, "mineshafts/crimson/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Lazy.of(() -> Math.min(5, RepurposedStructures.RSMineshaftsConfig.crimsonMineshaftSize.get())))));
+
+        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_warped"), ImmutableMap.of(
+                new ResourceLocation(RepurposedStructures.MODID, "mineshafts/warped/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Lazy.of(() -> Math.min(5, RepurposedStructures.RSMineshaftsConfig.warpedMineshaftSize.get())))));
+
+        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_icy"), ImmutableMap.of(
+                new ResourceLocation(RepurposedStructures.MODID, "mineshafts/icy/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Lazy.of(() -> Math.min(5, RepurposedStructures.RSMineshaftsConfig.icyMineshaftSize.get())))));
+
+        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_jungle"), ImmutableMap.of(
+                new ResourceLocation(RepurposedStructures.MODID, "mineshafts/jungle/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Lazy.of(() -> Math.min(5, RepurposedStructures.RSMineshaftsConfig.jungleMineshaftSize.get())))));
+
+        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_ocean"), ImmutableMap.of(
+                new ResourceLocation(RepurposedStructures.MODID, "mineshafts/ocean/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Lazy.of(() -> Math.min(5, RepurposedStructures.RSMineshaftsConfig.oceanMineshaftSize.get())))));
+
+        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_savanna"), ImmutableMap.of(
+                new ResourceLocation(RepurposedStructures.MODID, "mineshafts/savanna/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Lazy.of(() -> Math.min(5, RepurposedStructures.RSMineshaftsConfig.savannaMineshaftSize.get())))));
+
+        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_stone"), ImmutableMap.of(
+                new ResourceLocation(RepurposedStructures.MODID, "mineshafts/stone/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Lazy.of(() -> Math.min(5, RepurposedStructures.RSMineshaftsConfig.stoneMineshaftSize.get())))));
+
+        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_swamp"), ImmutableMap.of(
+                new ResourceLocation(RepurposedStructures.MODID, "mineshafts/swamp/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Lazy.of(() -> Math.min(5, RepurposedStructures.RSMineshaftsConfig.swampMineshaftSize.get())))));
+
+        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_taiga"), ImmutableMap.of(
+                new ResourceLocation(RepurposedStructures.MODID, "mineshafts/taiga/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Lazy.of(() -> Math.min(5, RepurposedStructures.RSMineshaftsConfig.taigaMineshaftSize.get())))));
+
+        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_end"), ImmutableMap.of(
+                new ResourceLocation(RepurposedStructures.MODID, "mineshafts/end/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Lazy.of(() -> Math.min(5, RepurposedStructures.RSMineshaftsConfig.endMineshaftSize.get())))));
+    }
+    
     public static HashMap<ResourceLocation, Integer> PIECES_COUNT = new HashMap<>();
     static {
         double scaleLimitBasedOnSize = 0.066D;

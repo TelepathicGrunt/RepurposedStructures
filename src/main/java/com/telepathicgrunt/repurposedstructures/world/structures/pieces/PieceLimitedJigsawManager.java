@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.misc;
+package com.telepathicgrunt.repurposedstructures.world.structures.pieces;
 
 import com.google.common.collect.Queues;
 import com.mojang.datafixers.util.Pair;
@@ -60,7 +60,7 @@ public class PieceLimitedJigsawManager {
             Random random,
             boolean doBoundaryAdjustments,
             boolean useHeightmap,
-            Map<ResourceLocation, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces,
+            ResourceLocation structureID,
             int maxY,
             int minY
     ) {
@@ -102,6 +102,7 @@ public class PieceLimitedJigsawManager {
         startPiece.move(0, pieceCenterY - yAdjustment, 0);
 
         int attempts = 0;
+        Map<ResourceLocation, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces = StructurePiecesBehavior.REQUIRED_PIECES_COUNT.get(structureID);
         while(doesNotHaveAllRequiredPieces(components, requiredPieces)){
             if(attempts == 100){
                 RepurposedStructures.LOGGER.error("Repurposed Structures: Failed to create valid structure with all required pieces starting from this pool file: {}. Required pieces are: {}", startPool.getName(), Arrays.toString(requiredPieces.keySet().toArray()));

@@ -4,11 +4,13 @@ import com.google.gson.JsonElement;
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.JsonOps;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.misc.BiomeDimensionAllowDisallow;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalBlock;
 import net.minecraft.block.LeavesBlock;
+import net.minecraft.block.material.Material;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Direction;
@@ -19,8 +21,11 @@ import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.util.math.SectionPos;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.IBlockReader;
+import net.minecraft.world.ISeedReader;
 import net.minecraft.world.IServerWorld;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
@@ -128,14 +133,21 @@ public class GeneralUtils {
 
     //////////////////////////////////////////////
 
-    private static Set<RegistryKey<World>> BLACKLISTED_WORLDS = null;
-    public static boolean isWorldBlacklisted(IServerWorld world){
-        if(BLACKLISTED_WORLDS == null){
-            BLACKLISTED_WORLDS = Arrays.stream(RepurposedStructures.RSMainConfig.blacklistedDimensions.get().split(","))
-                    .map(String::trim).map(dimensionName -> RegistryKey.create(Registry.DIMENSION_REGISTRY, new ResourceLocation(dimensionName)))
-                    .collect(Collectors.toSet());
+    public static boolean isBlacklistedForWorld(ISeedReader currentWorld, ResourceLocation worldgenObjectID){
+        ResourceLocation worldID = currentWorld.getLevel().dimension().location();
+
+        // Apply disallow first. (Default behavior is it adds to all dimensions)
+        boolean allowInDim = BiomeDimensionAllowDisallow.DIMENSION_DISALLOW.getOrDefault(worldgenObjectID, new ArrayList<>())
+                .stream().noneMatch(pattern -> pattern.matcher(worldID.toString()).find());
+
+        // Apply allow to override disallow if dimension is targeted in both.
+        // Lets disallow to turn off spawn for a group of dimensions while allow can turn it back one for one of them.
+        if(!allowInDim && BiomeDimensionAllowDisallow.DIMENSION_ALLOW.getOrDefault(worldgenObjectID, new ArrayList<>())
+                .stream().anyMatch(pattern -> pattern.matcher(worldID.toString()).find())){
+            allowInDim = true;
         }
-        return BLACKLISTED_WORLDS.contains(world.getLevel().dimension());
+
+        return !allowInDim;
     }
 
     //////////////////////////////////////////////
@@ -148,7 +160,7 @@ public class GeneralUtils {
 
                         ServerWorld serverWorld = (ServerWorld) event.getWorld();
                         ChunkGenerator chunkGenerator = serverWorld.getChunkSource().getGenerator();
-                        StructureSeparationSettings structureseparationsettings = chunkGenerator.getSettings().getConfig(RSStructures.NETHER_STRONGHOLD.get());
+                        StructureSeparationSettings structureseparationsettings = chunkGenerator.getSettings().getConfig(RSStructures.STRONGHOLD_NETHER.get());
                         Structure<?> structureToFind = structure.get();
                         List<Pair<BlockPos, Integer>> structureStarts = new ArrayList<>();
 
@@ -216,5 +228,55 @@ public class GeneralUtils {
         }
 
         return itemToEnchant;
+    }
+    //////////////////////////////
+
+    public static BlockPos getHighestLand(ChunkGenerator chunkGenerator, MutableBoundingBox boundingBox, boolean canBeOnLiquid) {
+        BlockPos.Mutable mutable = new BlockPos.Mutable().set(
+                boundingBox.getCenter().getX(),
+                chunkGenerator.getGenDepth() - 20,
+                boundingBox.getCenter().getZ());
+
+        IBlockReader blockView = chunkGenerator.getBaseColumn(mutable.getX(), mutable.getZ());
+        BlockState currentBlockstate;
+        while (mutable.getY() > chunkGenerator.getSeaLevel()) {
+            currentBlockstate = blockView.getBlockState(mutable);
+            if (!currentBlockstate.canOcclude()) {
+                mutable.move(Direction.DOWN);
+                continue;
+            }
+            else if (blockView.getBlockState(mutable.offset(0, 3, 0)).getMaterial() == Material.AIR && (canBeOnLiquid ? !currentBlockstate.isAir() : currentBlockstate.canOcclude())) {
+                return mutable;
+            }
+            mutable.move(Direction.DOWN);
+        }
+
+        return mutable;
+    }
+
+
+    public static BlockPos getLowestLand(ChunkGenerator chunkGenerator, MutableBoundingBox boundingBox, boolean canBeOnLiquid){
+        BlockPos.Mutable mutable = new BlockPos.Mutable().set(
+                boundingBox.getCenter().getX(),
+                chunkGenerator.getSeaLevel() + 1,
+                boundingBox.getCenter().getZ());
+
+        IBlockReader blockView = chunkGenerator.getBaseColumn(mutable.getX(), mutable.getZ());
+        BlockState currentBlockstate = blockView.getBlockState(mutable);
+        while (mutable.getY() <= chunkGenerator.getGenDepth() - 20) {
+
+            if((canBeOnLiquid ? !currentBlockstate.isAir() : currentBlockstate.canOcclude()) &&
+                    blockView.getBlockState(mutable.above()).getMaterial() == Material.AIR &&
+                    blockView.getBlockState(mutable.above(5)).getMaterial() == Material.AIR)
+            {
+                mutable.move(Direction.UP);
+                return mutable;
+            }
+
+            mutable.move(Direction.UP);
+            currentBlockstate = blockView.getBlockState(mutable);
+        }
+
+        return mutable.set(mutable.getX(), chunkGenerator.getSeaLevel(), mutable.getZ());
     }
 }

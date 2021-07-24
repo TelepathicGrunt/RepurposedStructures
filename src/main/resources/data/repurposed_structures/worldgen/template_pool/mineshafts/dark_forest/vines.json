@@ -1,6 +1,6 @@
 {
   "name": "repurposed_structures:mineshafts/dark_forest/vines",
-  "fallback": "minecraft:empty",
+  "fallback": "repurposed_structures:mineshafts/dark_forest/vines",
   "elements": [
     {
       "weight": 1,

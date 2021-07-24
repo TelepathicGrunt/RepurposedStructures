@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
+import javafx.geometry.BoundingBox;
 import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SharedSeedRandom;
@@ -21,19 +22,37 @@ import java.util.List;
 import java.util.Set;
 
 public class LandBasedEndStructure extends GenericJigsawStructure {
-    public LandBasedEndStructure(ResourceLocation poolRL, int structureSize, int centerOffset, int biomeRange, int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet) {
-        super(poolRL, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet);
+
+    public LandBasedEndStructure(ResourceLocation poolID, int structureSize, int centerOffset, int biomeRange,
+                                 int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet,
+                                 int allowTerrainHeightRange, int terrainHeightRadius, int minHeightLimit,
+                                 int fixedYSpawn, boolean useHeightmap, boolean cannotSpawnInWater)
+    {
+        super(
+                poolID,
+                structureSize,
+                centerOffset,
+                biomeRange,
+                structureBlacklistRange,
+                avoidStructuresSet,
+                allowTerrainHeightRange,
+                terrainHeightRadius,
+                minHeightLimit,
+                fixedYSpawn,
+                useHeightmap,
+                cannotSpawnInWater
+        );
     }
 
     @Override
-    protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig noFeatureConfig) {
-        return getTerrainHeight(chunkX, chunkZ, chunkGenerator) >= Math.min(chunkGenerator.getGenDepth(), 50);
+    protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig defaultFeatureConfig) {
+        return getTerrainHeight(new ChunkPos(chunkX, chunkZ), chunkGenerator) >= Math.min(chunkGenerator.getGenDepth(), 50);
     }
 
     // must be on land
-    private static int getTerrainHeight(int chunkX, int chunkZ, ChunkGenerator chunkGenerator) {
-        int xPos = chunkX << 4;
-        int zPos = chunkZ << 4;
+    private static int getTerrainHeight(ChunkPos chunkPos1, ChunkGenerator chunkGenerator) {
+        int xPos = chunkPos1.x << 4;
+        int zPos = chunkPos1.z << 4;
         int height = chunkGenerator.getFirstOccupiedHeight(xPos, zPos, Heightmap.Type.WORLD_SURFACE_WG);
 
         BlockPos pos = new BlockPos(xPos, chunkGenerator.getGenDepth(), zPos);
@@ -46,23 +65,23 @@ public class LandBasedEndStructure extends GenericJigsawStructure {
         return height;
     }
 
-
     @Override
     public IStartFactory<NoFeatureConfig> getStartFactory() {
-        return LandBasedEndStructure.Start::new;
+        return Start::new;
     }
 
+
     public class Start extends MainStart {
-        public Start(Structure<NoFeatureConfig> structureIn, int chunkX, int chunkZ, MutableBoundingBox mutableBoundingBox, int referenceIn, long seedIn) {
-            super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
+        public Start(Structure<NoFeatureConfig> structureIn, int chunkX, int chunkZ, MutableBoundingBox box, int referenceIn, long seedIn) {
+            super(structureIn, chunkX, chunkZ, box, referenceIn, seedIn);
         }
 
-        public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
-            super.generatePieces(dynamicRegistryManager, chunkGenerator, structureManager, chunkX, chunkZ, biome, NoFeatureConfig);
+        public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig defaultFeatureConfig) {
+            super.generatePieces(dynamicRegistryManager, chunkGenerator, structureManager, chunkX, chunkZ, biome, defaultFeatureConfig);
 
             MutableBoundingBox box = this.pieces.get(0).getBoundingBox();
             BlockPos centerPos = new BlockPos(box.getCenter());
-            int radius = (int) Math.sqrt((box.getLength().getX() * box.getLength().getX()) + (box.getLength().getZ() * box.getLength().getZ()));
+            int radius = (int) Math.sqrt((box.getLength().getX() * box.getLength().getX()) + (box.getLength().getZ() * box.getLength().getZ())) / 2;
 
             List<Integer> landHeights = new ArrayList<>();
             for(int xOffset = -radius; xOffset <= radius; xOffset += (radius/2)){
@@ -78,6 +97,29 @@ public class LandBasedEndStructure extends GenericJigsawStructure {
             int offsetAmount = (avgHeight - parentHeight) + centerOffset;
             this.pieces.forEach(child -> child.move(0, offsetAmount, 0));
             this.calculateBoundingBox();
+        }
+    }
+
+    public static class Builder<T extends GenericJigsawStructure.Builder<T>> extends GenericJigsawStructure.Builder<T> {
+
+        public Builder(ResourceLocation startPool) {
+            super(startPool);
+        }
+
+        public LandBasedEndStructure build() {
+            return new LandBasedEndStructure(
+                    startPool,
+                    structureSize,
+                    centerOffset,
+                    biomeRange,
+                    structureBlacklistRange,
+                    avoidStructuresSet,
+                    allowTerrainHeightRange,
+                    terrainHeightRadius,
+                    minHeightLimit,
+                    fixedYSpawn,
+                    useHeightmap,
+                    cannotSpawnInWater);
         }
     }
 }

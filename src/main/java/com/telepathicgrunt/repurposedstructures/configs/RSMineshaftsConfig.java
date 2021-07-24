@@ -7,9 +7,6 @@ import net.minecraftforge.common.ForgeConfigSpec;
 public class RSMineshaftsConfig {
 
     public static class RSMineshaftsConfigValues {
-        public ConfigValueListener<Boolean> lootChestsMS;
-        public ConfigValueListener<Boolean> addMineshaftsToModdedBiomes;
-        public ConfigValueListener<String> blacklistedMineshaftBiomes;
         public ConfigValueListener<Double> birchMineshaftSpawnrate;
         public ConfigValueListener<Double> jungleMineshaftSpawnrate;
         public ConfigValueListener<Double> desertMineshaftSpawnrate;
@@ -73,26 +70,6 @@ public class RSMineshaftsConfig {
         public ConfigValueListener<Boolean> barrensIslandsEndMineshafts;
 
         public RSMineshaftsConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber) {
-
-            builder.push("Mineshaft");
-
-            lootChestsMS = subscriber.subscribe(builder
-                    .comment("\n Controls whether loot chests spawn or not in modded Mineshafts.")
-                    .translation("repurposedstructures.config.mineshaft.lootchestsms")
-                    .define("lootChestsMS", true));
-
-            addMineshaftsToModdedBiomes = subscriber.subscribe(builder
-                    .comment("\n Add the custom Mineshafts to modded biomes of the same categories/type.")
-                    .translation("repurposedstructures.config.mineshaft.addmineshaftstomoddedbiomes")
-                    .define("addMineshaftsToModdedBiomes", true));
-
-            blacklistedMineshaftBiomes = subscriber.subscribe(builder
-                    .comment("\n Add the ID/resource location of the biome you don't want",
-                            " RS's mineshafts to spawn in. Separate each ID with a comma ,",
-                            "   Example: \"minecraft:ice_spikes,awesome_mod:awesome_biome\"")
-                    .translation("repurposedstructures.config.mineshaft.blacklistedmineshaftbiomes")
-                    .define("blacklistedMineshaftBiomes", "betterendforge:sulphur_springs"));
-
             builder.push("Spawnrate");
 
             birchMineshaftSpawnrate = subscriber.subscribe(builder
@@ -463,8 +440,6 @@ public class RSMineshaftsConfig {
                     .comment("\n Add End Mineshafts to End Barrens and End Islands biome.")
                     .translation("repurposedstructures.config.mineshaft.barrensislandsendmineshafts")
                     .define("barrensIslandsEndMineshafts", false));
-
-            builder.pop();
 
             builder.pop();
         }

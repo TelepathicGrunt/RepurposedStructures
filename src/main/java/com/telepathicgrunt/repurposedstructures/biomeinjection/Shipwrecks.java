@@ -2,6 +2,7 @@ package com.telepathicgrunt.repurposedstructures.biomeinjection;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredStructures;
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.biome.Biomes;
@@ -12,40 +13,40 @@ public class Shipwrecks {
     public static void addShipwrecks(BiomeLoadingEvent event) {
 
         if (RepurposedStructures.RSShipwrecksConfig.endShipwreckMaxChunkDistance.get() != 1001 &&
-            BiomeSelection.haveCategories(event, Category.THEEND) &&
-           !BiomeSelection.isBiome(event, Biomes.THE_END, Biomes.SMALL_END_ISLANDS, Biomes.END_BARRENS) &&
-            (BiomeSelection.hasNamespace(event, "minecraft") ||
-                RepurposedStructures.RSShipwrecksConfig.addEndShipwreckToModdedBiomes.get()))
+            BiomeSelection.isBiomeAllowed(event, RSStructures.SHIPWRECK_END.get(),
+                    () -> BiomeSelection.haveCategories(event, Category.THEEND) &&
+                    !BiomeSelection.isBiome(event, Biomes.THE_END, Biomes.SMALL_END_ISLANDS, Biomes.END_BARRENS)))
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.END_SHIPWRECK);
         }
 
         //Nether based Shipwrecks
-        if(BiomeSelection.haveCategories(event, Category.NETHER))
+        if (RepurposedStructures.RSShipwrecksConfig.crimsonShipwreckMaxChunkDistance.get() != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.SHIPWRECK_CRIMSON.get(),
+                    () -> BiomeSelection.haveCategories(event, Category.NETHER) &&
+                    BiomeSelection.hasName(event, "crimson", "red_")))
         {
-            if (BiomeSelection.hasName(event, "crimson", "red_") &&
-                RepurposedStructures.RSShipwrecksConfig.crimsonShipwreckMaxChunkDistance.get() != 1001 &&
-                (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSShipwrecksConfig.addCrimsonShipwreckToModdedBiomes.get()))
-            {
-                event.getGeneration().getStructures().add(() -> RSConfiguredStructures.CRIMSON_SHIPWRECK);
-            }
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.CRIMSON_SHIPWRECK);
+        }
 
-            else if (BiomeSelection.hasName(event, "warped", "blue") &&
-                    RepurposedStructures.RSShipwrecksConfig.warpedShipwreckMaxChunkDistance.get() != 1001 &&
-                    (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSShipwrecksConfig.addWarpedShipwreckToModdedBiomes.get()))
-            {
-                event.getGeneration().getStructures().add(() -> RSConfiguredStructures.WARPED_SHIPWRECK);
-            }
+        if (RepurposedStructures.RSShipwrecksConfig.warpedShipwreckMaxChunkDistance.get() != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.SHIPWRECK_WARPED.get(),
+                    () -> BiomeSelection.haveCategories(event, Category.NETHER) &&
+                    BiomeSelection.hasName(event, "warped", "blue")))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.WARPED_SHIPWRECK);
+        }
 
-            else if (RepurposedStructures.RSShipwrecksConfig.netherBricksShipwreckMaxChunkDistance.get() != 1001 &&
-                    (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSShipwrecksConfig.addNetherBricksShipwreckToModdedBiomes.get()))
-            {
-                if(BiomeSelection.hasName(event, "soul")){
-                    event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_BRICKS_SHIPWRECK_FLYING);
-                }
-                else{
-                    event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_BRICKS_SHIPWRECK);
-                }
+        if (RepurposedStructures.RSShipwrecksConfig.netherBricksShipwreckMaxChunkDistance.get() != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.SHIPWRECK_NETHER_BRICKS.get(),
+                    () -> BiomeSelection.haveCategories(event, Category.NETHER) &&
+                    !BiomeSelection.hasName(event, "crimson", "red_", "warped", "blue")))
+        {
+            if(BiomeSelection.hasName(event, "soul")){
+                event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_BRICKS_SHIPWRECK_FLYING);
+            }
+            else{
+                event.getGeneration().getStructures().add(() -> RSConfiguredStructures.NETHER_BRICKS_SHIPWRECK);
             }
         }
     }

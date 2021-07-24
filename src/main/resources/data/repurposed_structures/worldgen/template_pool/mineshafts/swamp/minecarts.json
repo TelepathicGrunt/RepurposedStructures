@@ -1,6 +1,6 @@
 {
   "name": "repurposed_structures:mineshafts/swamp/minecarts",
-  "fallback": "minecraft:empty",
+  "fallback": "repurposed_structures:mineshafts/swamp/minecarts",
   "elements": [
     {
       "weight": 1,

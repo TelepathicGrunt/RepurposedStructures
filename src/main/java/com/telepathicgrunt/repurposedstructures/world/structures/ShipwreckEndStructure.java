@@ -29,6 +29,7 @@ public class ShipwreckEndStructure extends AbstractBaseStructure<NoFeatureConfig
     // Special thanks to cannon_foddr for allowing me to use his End Shipwreck design!
 
     private final ResourceLocation START_POOL;
+
     public ShipwreckEndStructure() {
         super(NoFeatureConfig.CODEC);
         START_POOL = new ResourceLocation(RepurposedStructures.MODID, "shipwrecks/end");
@@ -36,63 +37,61 @@ public class ShipwreckEndStructure extends AbstractBaseStructure<NoFeatureConfig
     }
 
     @Override
-    public Structure.IStartFactory<NoFeatureConfig> getStartFactory() {
-        return ShipwreckEndStructure.Start::new;
+    public IStartFactory<NoFeatureConfig> getStartFactory() {
+        return Start::new;
     }
 
     @Override
-    protected boolean isFeatureChunk(ChunkGenerator generator, BiomeProvider biomeProvider, long seed, SharedSeedRandom random, int x, int z, Biome biome, ChunkPos chunkPos, NoFeatureConfig config) {
-        return getYPosForStructure(x, z, generator) >= Math.min(generator.getGenDepth(), 20);
+    protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig defaultFeatureConfig) {
+        return getGenerationHeight(new ChunkPos(chunkX, chunkZ), chunkGenerator) >= Math.min(chunkGenerator.getGenDepth(), 20);
     }
 
-    private static int getYPosForStructure(int x, int z, ChunkGenerator generator) {
-        Random random = new Random(x + z * 10387313);
-        Rotation rotation = Rotation.getRandom(random);
+    private static int getGenerationHeight(ChunkPos chunkPos1, ChunkGenerator chunkGenerator) {
+        Random random = new Random(chunkPos1.x + chunkPos1.z * 10387313L);
+        Rotation blockRotation = Rotation.getRandom(random);
         int i = 5;
         int j = 5;
-        if (rotation == Rotation.CLOCKWISE_90) {
+        if (blockRotation == Rotation.CLOCKWISE_90) {
             i = -5;
-        } else if (rotation == Rotation.CLOCKWISE_180) {
+        } else if (blockRotation == Rotation.CLOCKWISE_180) {
             i = -5;
             j = -5;
-        } else if (rotation == Rotation.COUNTERCLOCKWISE_90) {
+        } else if (blockRotation == Rotation.COUNTERCLOCKWISE_90) {
             j = -5;
         }
 
-        int k = (x << 4) + 7;
-        int l = (z << 4) + 7;
-        int i1 = generator.getFirstOccupiedHeight(k, l, Heightmap.Type.WORLD_SURFACE_WG);
-        int j1 = generator.getFirstOccupiedHeight(k, l + j, Heightmap.Type.WORLD_SURFACE_WG);
-        int k1 = generator.getFirstOccupiedHeight(k + i, l, Heightmap.Type.WORLD_SURFACE_WG);
-        int l1 = generator.getFirstOccupiedHeight(k + i, l + j, Heightmap.Type.WORLD_SURFACE_WG);
-        return Math.min(Math.min(i1, j1), Math.min(k1, l1));
+        int k = (chunkPos1.x << 4) + 7;
+        int l = (chunkPos1.z << 4) + 7;
+        int m = chunkGenerator.getFirstOccupiedHeight(k, l, Heightmap.Type.WORLD_SURFACE_WG);
+        int n = chunkGenerator.getFirstOccupiedHeight(k, l + j, Heightmap.Type.WORLD_SURFACE_WG);
+        int o = chunkGenerator.getFirstOccupiedHeight(k + i, l, Heightmap.Type.WORLD_SURFACE_WG);
+        int p = chunkGenerator.getFirstOccupiedHeight(k + i, l + j, Heightmap.Type.WORLD_SURFACE_WG);
+        return Math.min(Math.min(m, n), Math.min(o, p));
     }
 
     public class Start extends StructureStart<NoFeatureConfig> {
-        public Start(Structure<NoFeatureConfig> structureIn, int chunkX, int chunkZ, MutableBoundingBox mutableBoundingBox, int referenceIn, long seedIn) {
-            super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
+        public Start(Structure<NoFeatureConfig> structureIn, int chunkX, int chunkZ, MutableBoundingBox box, int referenceIn, long seedIn) {
+            super(structureIn, chunkX, chunkZ, box, referenceIn, seedIn);
         }
 
         @Override
-        public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
-            BlockPos blockPos = new BlockPos(chunkX * 16, 64, chunkZ * 16);
+        public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig defaultFeatureConfig) {
+            BlockPos blockpos = new BlockPos(chunkX << 4, 64, chunkZ << 4);
             JigsawManager.addPieces(
                     dynamicRegistryManager,
-                    new VillageConfig(() -> dynamicRegistryManager.registryOrThrow(
-                            Registry.TEMPLATE_POOL_REGISTRY).get(START_POOL),
-                            1),
+                    new VillageConfig(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(START_POOL), 1),
                     AbstractVillagePiece::new,
                     chunkGenerator,
                     structureManager,
-                    blockPos,
+                    blockpos,
                     this.pieces,
-                    this.random,
+                    random,
                     true,
                     false);
             this.calculateBoundingBox();
 
-            BlockPos blockPos2 = new BlockPos(this.pieces.get(0).getBoundingBox().getCenter());
-            int highestLandPos = chunkGenerator.getBaseHeight(blockPos2.getX(), blockPos2.getZ(), Heightmap.Type.WORLD_SURFACE_WG);
+            BlockPos blockPos = new BlockPos(this.pieces.get(0).getBoundingBox().getCenter());
+            int highestLandPos = chunkGenerator.getBaseHeight(blockPos.getX(), blockPos.getZ(), Heightmap.Type.WORLD_SURFACE_WG);
             highestLandPos = Math.max(30, highestLandPos);
             this.moveInsideHeights(this.random, highestLandPos-5, highestLandPos-3);
         }

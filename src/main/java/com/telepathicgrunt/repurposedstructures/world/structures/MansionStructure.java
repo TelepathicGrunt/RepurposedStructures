@@ -2,6 +2,7 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.google.common.collect.Lists;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.MansionPieces;
+import javafx.geometry.BoundingBox;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.BlockPos;
@@ -24,6 +25,7 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
 import java.util.List;
 import java.util.Random;
 
+
 public class MansionStructure extends AbstractBaseStructure<NoFeatureConfig> {
 
     protected final MansionPieces.MansionTemplate.MANSIONTYPE type;
@@ -38,7 +40,7 @@ public class MansionStructure extends AbstractBaseStructure<NoFeatureConfig> {
     }
 
     @Override
-    protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom random, int chunkX, int chunkZ, Biome biome1, ChunkPos chunkPos, NoFeatureConfig config) {
+    protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig defaultFeatureConfig) {
         if(!(biomeSource instanceof CheckerboardBiomeProvider)) {
             int biomeRange = 2;
             for (int curChunkX = chunkX - biomeRange; curChunkX <= chunkX + biomeRange; curChunkX++) {
@@ -55,73 +57,73 @@ public class MansionStructure extends AbstractBaseStructure<NoFeatureConfig> {
 
     @Override
     public IStartFactory<NoFeatureConfig> getStartFactory() {
-        return MansionStructure.Start::new;
+        return Start::new;
     }
 
     public class Start extends StructureStart<NoFeatureConfig> {
-        public Start(Structure<NoFeatureConfig> structureIn, int chunkX, int chunkZ, MutableBoundingBox mutableBoundingBox, int referenceIn, long seedIn) {
-            super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
+        public Start(Structure<NoFeatureConfig> structureIn, int chunkX, int chunkZ, MutableBoundingBox box, int referenceIn, long seedIn) {
+            super(structureIn, chunkX, chunkZ, box, referenceIn, seedIn);
         }
 
         @Override
-        public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig NoFeatureConfig) {
-            Rotation rotation = Rotation.getRandom(this.random);
-            int i = 5;
-            int j = 5;
-            if (rotation == Rotation.CLOCKWISE_90) {
-                i = -5;
-            } else if (rotation == Rotation.CLOCKWISE_180) {
-                i = -5;
-                j = -5;
-            } else if (rotation == Rotation.COUNTERCLOCKWISE_90) {
-                j = -5;
+        public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig defaultFeatureConfig) {
+            Rotation blockRotation = Rotation.getRandom(this.random);
+            int xOffset = 5;
+            int zOffset = 5;
+            if (blockRotation == Rotation.CLOCKWISE_90) {
+                xOffset = -5;
+            } else if (blockRotation == Rotation.CLOCKWISE_180) {
+                xOffset = -5;
+                zOffset = -5;
+            } else if (blockRotation == Rotation.COUNTERCLOCKWISE_90) {
+                zOffset = -5;
             }
 
-            int k = (chunkX << 4) + 7;
-            int l = (chunkZ << 4) + 7;
-            int i1 = chunkGenerator.getFirstOccupiedHeight(k, l, Heightmap.Type.WORLD_SURFACE_WG);
-            int j1 = chunkGenerator.getFirstOccupiedHeight(k, l + j, Heightmap.Type.WORLD_SURFACE_WG);
-            int k1 = chunkGenerator.getFirstOccupiedHeight(k + i, l, Heightmap.Type.WORLD_SURFACE_WG);
-            int l1 = chunkGenerator.getFirstOccupiedHeight(k + i, l + j, Heightmap.Type.WORLD_SURFACE_WG);
-            int y = Math.min(Math.min(i1, j1), Math.min(k1, l1));
-            BlockPos blockpos = new BlockPos(chunkX * 16 + 8, y + 1, chunkZ * 16 + 8);
+            int centerX = chunkX << 4;
+            int centerZ = chunkZ << 4;
+            int firstHeight = chunkGenerator.getFirstOccupiedHeight(centerX, centerZ, Heightmap.Type.WORLD_SURFACE_WG);
+            int secondHeight = chunkGenerator.getFirstOccupiedHeight(centerX, centerZ + zOffset, Heightmap.Type.WORLD_SURFACE_WG);
+            int thirdHeight = chunkGenerator.getFirstOccupiedHeight(centerX + xOffset, centerZ, Heightmap.Type.WORLD_SURFACE_WG);
+            int forthheight = chunkGenerator.getFirstOccupiedHeight(centerX + xOffset, centerZ + zOffset, Heightmap.Type.WORLD_SURFACE_WG);
+            int finalheight = Math.min(Math.min(firstHeight, secondHeight), Math.min(thirdHeight, forthheight));
+            BlockPos blockPos = new BlockPos(centerX, finalheight + 1, centerZ);
             List<MansionPieces.MansionTemplate> list = Lists.newLinkedList();
-            MansionPieces.generateMansion(structureManager, blockpos, rotation, list, this.random, type);
+            MansionPieces.generateMansion(structureManager, blockPos, blockRotation, list, this.random, type);
             this.pieces.addAll(list);
             this.calculateBoundingBox();
         }
 
+        @Override
+        public void placeInChunk(ISeedReader world, StructureManager structureAccessor, ChunkGenerator chunkGenerator, Random random, MutableBoundingBox box, ChunkPos chunkPos) {
+            super.placeInChunk(world, structureAccessor, chunkGenerator, random, box, chunkPos);
+            int structureBottomY = this.getBoundingBox().y0;
 
-        public void placeInChunk(ISeedReader world, StructureManager structureManager, ChunkGenerator chunkGenerator, Random random, MutableBoundingBox boundingBox, ChunkPos chunkPos) {
-            super.placeInChunk(world, structureManager, chunkGenerator, random, boundingBox, chunkPos);
-            int i = this.boundingBox.y0;
-
-            for(int j = boundingBox.x0; j <= boundingBox.x1; ++j) {
-                for(int k = boundingBox.z0; k <= boundingBox.z1; ++k) {
-                    BlockPos blockpos = new BlockPos(j, i, k);
-                    if (!world.isEmptyBlock(blockpos) && this.boundingBox.isInside(blockpos)) {
-                        boolean flag = false;
-
-                        for(StructurePiece structurepiece : this.pieces) {
-                            if (structurepiece.getBoundingBox().isInside(blockpos)) {
-                                flag = true;
+            for(int x = box.x0; x <= box.x1; ++x) {
+                for(int z = box.z0; z <= box.z1; ++z) {
+                    BlockPos blockPos = new BlockPos(x, structureBottomY, z);
+                    if (!world.isEmptyBlock(blockPos) && this.getBoundingBox().isInside(blockPos)) {
+                        boolean bl = false;
+                        for (StructurePiece structurePiece : this.pieces) {
+                            if (structurePiece.getBoundingBox().isInside(blockPos)) {
+                                bl = true;
                                 break;
                             }
                         }
 
-                        if (flag) {
-                            for(int l = i - 1; l > 1; --l) {
-                                BlockPos blockpos1 = new BlockPos(j, l, k);
-                                if (!world.isEmptyBlock(blockpos1) && !world.getBlockState(blockpos1).getMaterial().isLiquid()) {
+                        if (bl) {
+                            for(int currentY = structureBottomY - 1; currentY > 1; --currentY) {
+                                BlockPos blockPos2 = new BlockPos(x, currentY, z);
+                                if (!world.isEmptyBlock(blockPos2) && !world.getBlockState(blockPos2).getMaterial().isLiquid()) {
                                     break;
                                 }
 
-                                world.setBlock(blockpos1, type.getFoundationBlock(), 2);
+                                world.setBlock(blockPos2, type.getFoundationBlock(), 2);
                             }
                         }
                     }
                 }
             }
+
         }
     }
 }

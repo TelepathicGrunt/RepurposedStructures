@@ -1,7 +1,6 @@
 package com.telepathicgrunt.repurposedstructures;
 
 import com.google.common.collect.ImmutableMap;
-import com.mojang.datafixers.util.Pair;
 import com.telepathicgrunt.repurposedstructures.biomeinjection.Bastions;
 import com.telepathicgrunt.repurposedstructures.biomeinjection.Cities;
 import com.telepathicgrunt.repurposedstructures.biomeinjection.Dungeons;
@@ -19,12 +18,18 @@ import com.telepathicgrunt.repurposedstructures.biomeinjection.Temples;
 import com.telepathicgrunt.repurposedstructures.biomeinjection.Villages;
 import com.telepathicgrunt.repurposedstructures.biomeinjection.Wells;
 import com.telepathicgrunt.repurposedstructures.biomeinjection.WitchHuts;
+import com.telepathicgrunt.repurposedstructures.configs.RSBastionsConfig.RSBastionsConfigValues;
+import com.telepathicgrunt.repurposedstructures.configs.RSBiomeDimConfig;
+import com.telepathicgrunt.repurposedstructures.configs.RSCitiesConfig.RSCitiesConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSDungeonsConfig.RSDungeonsConfigValues;
-import com.telepathicgrunt.repurposedstructures.configs.RSMainConfig;
-import com.telepathicgrunt.repurposedstructures.configs.RSMainConfig.RSConfigValues;
+import com.telepathicgrunt.repurposedstructures.configs.RSFortressesConfig.RSFortressesConfigValues;
+import com.telepathicgrunt.repurposedstructures.configs.RSIgloosConfig.RSIgloosConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSMansionsConfig.RSMansionsConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSMineshaftsConfig.RSMineshaftsConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSOutpostsConfig.RSOutpostsConfigValues;
+import com.telepathicgrunt.repurposedstructures.configs.RSPyramidsConfig.RSPyramidsConfigValues;
+import com.telepathicgrunt.repurposedstructures.configs.RSRuinedPortalsConfig.RSRuinedPortalsConfigValues;
+import com.telepathicgrunt.repurposedstructures.configs.RSRuinsConfig.RSRuinsConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSShipwrecksConfig.RSShipwrecksConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSStrongholdsConfig.RSStrongholdsConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.RSTemplesConfig.RSTemplesConfigValues;
@@ -34,6 +39,7 @@ import com.telepathicgrunt.repurposedstructures.configs.RSWitchHutsConfig.RSWitc
 import com.telepathicgrunt.repurposedstructures.misc.EndRemasteredDedicatedLoot;
 import com.telepathicgrunt.repurposedstructures.misc.MobMapTrades;
 import com.telepathicgrunt.repurposedstructures.misc.MobSpawnerManager;
+import com.telepathicgrunt.repurposedstructures.misc.MobSpawningOverTime;
 import com.telepathicgrunt.repurposedstructures.misc.NoiseSettingsDeepCopier;
 import com.telepathicgrunt.repurposedstructures.misc.PoolAdditionMerger;
 import com.telepathicgrunt.repurposedstructures.mixin.ChunkGeneratorAccessor;
@@ -48,8 +54,9 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
 import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import com.telepathicgrunt.repurposedstructures.utils.LogSpamFiltering;
-import it.unimi.dsi.fastutil.objects.Reference2ObjectOpenHashMap;
+import com.telepathicgrunt.repurposedstructures.world.structures.pieces.StructurePiecesBehavior;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
@@ -70,22 +77,21 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.loading.FMLPaths;
+import net.minecraftforge.fml.loading.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Consumer;
-import java.util.stream.Collectors;
 
 
 @Mod(RepurposedStructures.MODID)
 public class RepurposedStructures {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MODID = "repurposed_structures";
-    public static RSMainConfig.RSConfigValues RSMainConfig = null;
     public static RSDungeonsConfigValues RSDungeonsConfig = null;
     public static RSMineshaftsConfigValues RSMineshaftsConfig = null;
     public static RSStrongholdsConfigValues RSStrongholdsConfig = null;
@@ -96,24 +102,40 @@ public class RepurposedStructures {
     public static RSShipwrecksConfigValues RSShipwrecksConfig = null;
     public static RSMansionsConfigValues RSMansionsConfig = null;
     public static RSWitchHutsConfigValues RSWitchHutsConfig = null;
+    public static RSBastionsConfigValues RSBastionsConfig = null;
+    public static RSCitiesConfigValues RSCitiesConfig = null;
+    public static RSFortressesConfigValues RSFortressesConfig = null;
+    public static RSIgloosConfigValues RSIgloosConfig = null;
+    public static RSRuinedPortalsConfigValues RSRuinedPortalsConfig = null;
+    public static RSRuinsConfigValues RSRuinsConfig = null;
+    public static RSPyramidsConfigValues RSPyramidsConfig = null;
     public static MobSpawnerManager mobSpawnerManager = new MobSpawnerManager();
 
     public static boolean yungsBetterMineshaftIsNotOn = true;
     public static boolean yungsBetterDungeonsIsNotOn = true;
 
     public RepurposedStructures() {
+
         // Setup configs
-        RSMainConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSConfigValues::new, "repurposed_structures-common.toml");
-        RSDungeonsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSDungeonsConfigValues::new, "repurposed_structures-dungeons.toml");
-        RSMineshaftsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSMineshaftsConfigValues::new, "repurposed_structures-mineshafts.toml");
-        RSStrongholdsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSStrongholdsConfigValues::new, "repurposed_structures-strongholds.toml");
-        RSWellsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSWellsConfigValues::new, "repurposed_structures-wells.toml");
-        RSShipwrecksConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSShipwrecksConfigValues::new, "repurposed_structures-shipwrecks.toml");
-        RSOutpostsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSOutpostsConfigValues::new, "repurposed_structures-outposts.toml");
-        RSTemplesConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSTemplesConfigValues::new, "repurposed_structures-temples.toml");
-        RSVillagesConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSVillagesConfigValues::new, "repurposed_structures-villages.toml");
-        RSMansionsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSMansionsConfigValues::new, "repurposed_structures-mansions.toml");
-        RSWitchHutsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSWitchHutsConfigValues::new, "repurposed_structures-witch_huts.toml");
+        FileUtils.getOrCreateDirectory(FMLPaths.CONFIGDIR.get().resolve("repurposed_structures-forge"), "repurposed_structures-forge");
+        RSBiomeDimConfig.createAndReadConfig();
+        RSDungeonsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSDungeonsConfigValues::new, "repurposed_structures-forge/dungeons.toml");
+        RSMineshaftsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSMineshaftsConfigValues::new, "repurposed_structures-forge/mineshafts.toml");
+        RSStrongholdsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSStrongholdsConfigValues::new, "repurposed_structures-forge/strongholds.toml");
+        RSWellsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSWellsConfigValues::new, "repurposed_structures-forge/wells.toml");
+        RSShipwrecksConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSShipwrecksConfigValues::new, "repurposed_structures-forge/shipwrecks.toml");
+        RSOutpostsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSOutpostsConfigValues::new, "repurposed_structures-forge/outposts.toml");
+        RSTemplesConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSTemplesConfigValues::new, "repurposed_structures-forge/temples.toml");
+        RSVillagesConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSVillagesConfigValues::new, "repurposed_structures-forge/villages.toml");
+        RSMansionsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSMansionsConfigValues::new, "repurposed_structures-forge/mansions.toml");
+        RSWitchHutsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSWitchHutsConfigValues::new, "repurposed_structures-forge/witch_huts.toml");
+        RSBastionsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSBastionsConfigValues::new, "repurposed_structures-forge/bastions.toml");
+        RSCitiesConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSCitiesConfigValues::new, "repurposed_structures-forge/cities.toml");
+        RSFortressesConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSFortressesConfigValues::new, "repurposed_structures-forge/fortresses.toml");
+        RSIgloosConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSIgloosConfigValues::new, "repurposed_structures-forge/igloos.toml");
+        RSRuinedPortalsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSRuinedPortalsConfigValues::new, "repurposed_structures-forge/ruined_portals.toml");
+        RSRuinsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSRuinsConfigValues::new, "repurposed_structures-forge/ruins.toml");
+        RSPyramidsConfig = ConfigHelper.register(ModConfig.Type.COMMON, RSPyramidsConfigValues::new, "repurposed_structures-forge/pyramids.toml");
 
         // Register the setup method for modloading
         IEventBus forgeBus = MinecraftForge.EVENT_BUS;
@@ -149,15 +171,14 @@ public class RepurposedStructures {
 
     }
 
-    /*
-     * Here, we will use this to add our structures/features to all biomes.
-     */
     public void setup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
             //Moved the methods below into enqueue to make sure they dont cause issues during registration - andrew
-            RSConfiguredFeatures.registerConfiguredFeatures();
+            MobSpawningOverTime.setupMobSpawningMaps();
+            StructurePiecesBehavior.init();
             RSProcessors.registerProcessors();
             RSPredicates.registerPredicates();
+            RSConfiguredFeatures.registerConfiguredFeatures();
             RSStructures.setupStructures();
             RSConfiguredStructures.registerStructureFeatures();
             RSStructureTagMap.setupTags();
@@ -185,12 +206,8 @@ public class RepurposedStructures {
     }
 
     public void biomeModification(final BiomeLoadingEvent event) {
-        //Gets blacklisted biome IDs for each structure type
-        //Done here so the map can be garbage collected later
-        Map<String, Pair<List<String>, Consumer<BiomeLoadingEvent>>> allBiomeBlacklists = RepurposedStructures.getBiomeBlacklists();
-
         //Add our structures and features
-        RepurposedStructures.addFeaturesAndStructuresToBiomes(event, allBiomeBlacklists);
+        RepurposedStructures.addFeaturesAndStructuresToBiomes(event);
     }
 
     /**
@@ -212,7 +229,8 @@ public class RepurposedStructures {
 
     public void addDimensionalSpacing(final WorldEvent.Load event) {
         //add our structure spacing to all chunkgenerators including modded one and datapack ones.
-        List<String> dimensionBlacklist = Arrays.stream(RepurposedStructures.RSMainConfig.blacklistedDimensions.get().split(",")).map(String::trim).collect(Collectors.toList());
+        List<String> dimensionBlacklist = new ArrayList<>();
+                //Arrays.stream(RepurposedStructures.RSMainConfig.blacklistedDimensions.get().split(",")).map(String::trim).collect(Collectors.toList());
 
         if (event.getWorld() instanceof ServerWorld) {
             ServerWorld serverWorld = (ServerWorld) event.getWorld();
@@ -221,29 +239,27 @@ public class RepurposedStructures {
             ResourceLocation cgRL = Registry.CHUNK_GENERATOR.getKey(((ChunkGeneratorAccessor) serverWorld.getChunkSource().generator).repurposedstructures_getCodec());
             if (cgRL != null && cgRL.getNamespace().equals("terraforged")) return;
 
-
+            //add our structure spacing to all chunkgenerators including modded one and datapack ones.
             // Need temp map as some mods use custom chunk generators with immutable maps in themselves.
-            Map<Structure<?>, StructureSeparationSettings> tempMap = new HashMap<>(serverWorld.getChunkSource().generator.getSettings().structureConfig());
-            if (dimensionBlacklist.stream().anyMatch(blacklist -> blacklist.equals((serverWorld.dimension().location().toString())))) {
-                // make absolutely sure dimension cannot spawn RS structures
-                tempMap.keySet().removeAll(RSStructures.RS_STRUCTURES.keySet());
-            }
-            else if (serverWorld.getChunkSource().getGenerator() instanceof FlatChunkGenerator && serverWorld.dimension().equals(World.OVERWORLD)) {
-                // Make absolutely sure superflat dimension cannot spawn RS structures as it is glitchy and weird.
-                // Also, users don't like structures in superflat worlds.
-                tempMap.keySet().removeAll(RSStructures.RS_STRUCTURES.keySet());
-            }
-            else {
-                // make absolutely sure dimension can spawn RS structures
-                Map<Structure<?>, StructureSeparationSettings> spacingToAdd = new Reference2ObjectOpenHashMap<>();
-                spacingToAdd.putAll(RSStructures.RS_STRUCTURES);
+            Map<Structure<?>, StructureSeparationSettings> tempMap = new HashMap<>(serverWorld.getChunkSource().getGenerator().getSettings().structureConfig());
 
-                // Do not spawn strongholds in end.
-                if (serverWorld.dimension().equals(World.END)) {
-                    spacingToAdd.remove(RSStructures.NETHER_STRONGHOLD.get());
+            // make absolutely sure superflat dimension cannot spawn RS structures
+            if (serverWorld.getChunkSource().getGenerator() instanceof FlatChunkGenerator && serverWorld.dimension().equals(World.OVERWORLD)) {
+                tempMap.keySet().removeAll(RSStructures.RS_STRUCTURES.keySet());
+            }
+            // Not superflat overworld. Do normal behavior now
+            else{
+                for(Map.Entry<Structure<?>, StructureSeparationSettings> structureFeatureEntry : RSStructures.RS_STRUCTURES.entrySet()){
+                    boolean isWorldBlacklisted = GeneralUtils.isBlacklistedForWorld(serverWorld, Registry.STRUCTURE_FEATURE.getKey(structureFeatureEntry.getKey()));
+                    if (isWorldBlacklisted){
+                        // make absolutely sure dimension cannot spawn the RS structure
+                        tempMap.remove(structureFeatureEntry.getKey());
+                    }
+                    else {
+                        // make absolutely sure dimension can spawn the RS structure
+                        tempMap.putIfAbsent(structureFeatureEntry.getKey(), structureFeatureEntry.getValue());
+                    }
                 }
-
-                spacingToAdd.forEach(tempMap::putIfAbsent);
             }
             serverWorld.getChunkSource().generator.getSettings().structureConfig = tempMap;
         }
@@ -252,46 +268,23 @@ public class RepurposedStructures {
     /*
      * Here, we will use this to add our structures/features to all biomes.
      */
-    public static void addFeaturesAndStructuresToBiomes(BiomeLoadingEvent event, Map<String, Pair<List<String>, Consumer<BiomeLoadingEvent>>> allBiomeBlacklists) {
-
-        for (Map.Entry<String, Pair<List<String>, Consumer<BiomeLoadingEvent>>> entry : allBiomeBlacklists.entrySet()) {
-            if (isBiomeAllowed(entry.getKey(), event.getName(), allBiomeBlacklists)) {
-                entry.getValue().getSecond().accept(event);
-            }
-        }
-    }
-
-    private static boolean isBiomeAllowed(String structureType, ResourceLocation biomeID, Map<String, Pair<List<String>, Consumer<BiomeLoadingEvent>>> allBiomeBlacklists) {
-        return allBiomeBlacklists.get(structureType).getFirst().stream().noneMatch(blacklistedBiome -> blacklistedBiome.equals(biomeID.toString()));
-    }
-
-    /**
-     * Grabs and parses the Biome blacklist from configs and stores it into
-     * a map of structure/feature type to their specific blacklist.
-     *
-     * @return - A map of structure/feature type to their biome blacklist
-     */
-    public static Map<String, Pair<List<String>, Consumer<BiomeLoadingEvent>>> getBiomeBlacklists() {
-        Map<String, Pair<List<String>, Consumer<BiomeLoadingEvent>>> allBiomeBlacklists = new HashMap<>();
-
-        allBiomeBlacklists.put("dungeons", Pair.of(Arrays.asList(RepurposedStructures.RSDungeonsConfig.blacklistedDungeonBiomes.get().replace(" ", "").split(",")), Dungeons::addDungeons));
-        allBiomeBlacklists.put("fortresses", Pair.of(Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedFortressBiomes.get().replace(" ", "").split(",")), Fortresses::addJungleFortress));
-        allBiomeBlacklists.put("igloos", Pair.of(Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedIglooBiomes.get().replace(" ", "").split(",")), Igloos::addIgloos));
-        allBiomeBlacklists.put("mineshafts", Pair.of(Arrays.asList(RepurposedStructures.RSMineshaftsConfig.blacklistedMineshaftBiomes.get().replace(" ", "").split(",")), Mineshafts::addMineshafts));
-        allBiomeBlacklists.put("outposts", Pair.of(Arrays.asList(RepurposedStructures.RSOutpostsConfig.blacklistedOutpostBiomes.get().replace(" ", "").split(",")), Outposts::addOutposts));
-        allBiomeBlacklists.put("shipwrecks", Pair.of(Arrays.asList(RepurposedStructures.RSShipwrecksConfig.blacklistedShipwreckBiomes.get().replace(" ", "").split(",")), Shipwrecks::addShipwrecks));
-        allBiomeBlacklists.put("strongholds", Pair.of(Arrays.asList(RepurposedStructures.RSStrongholdsConfig.blacklistedStrongholdBiomes.get().replace(" ", "").split(",")), Strongholds::addStrongholds));
-        allBiomeBlacklists.put("temples", Pair.of(Arrays.asList(RepurposedStructures.RSTemplesConfig.blacklistedTempleBiomes.get().replace(" ", "").split(",")), Temples::addTemples));
-        allBiomeBlacklists.put("pyramids", Pair.of(Arrays.asList(RepurposedStructures.RSTemplesConfig.blacklistedPyramidBiomes.get().replace(" ", "").split(",")), Pyramids::addPyramids));
-        allBiomeBlacklists.put("villages", Pair.of(Arrays.asList(RepurposedStructures.RSVillagesConfig.blacklistedVillageBiomes.get().replace(" ", "").split(",")), Villages::addVillages));
-        allBiomeBlacklists.put("wells", Pair.of(Arrays.asList(RepurposedStructures.RSWellsConfig.blacklistedWellBiomes.get().replace(" ", "").split(",")), Wells::addWells));
-        allBiomeBlacklists.put("ruinedPortals", Pair.of(Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedRuinedPortalsBiomes.get().replace(" ", "").split(",")), RuinedPortals::addRuinedPortals));
-        allBiomeBlacklists.put("ruins", Pair.of(Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedRuinsBiomes.get().replace(" ", "").split(",")), Ruins::addRuins));
-        allBiomeBlacklists.put("cities", Pair.of(Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedCitiesBiomes.get().replace(" ", "").split(",")), Cities::addCities));
-        allBiomeBlacklists.put("mansions", Pair.of(Arrays.asList(RepurposedStructures.RSMansionsConfig.blacklistedMansionBiomes.get().replace(" ", "").split(",")), Mansions::addMansions));
-        allBiomeBlacklists.put("witch_huts", Pair.of(Arrays.asList(RepurposedStructures.RSWitchHutsConfig.blacklistedWitchHutBiomes.get().replace(" ", "").split(",")), WitchHuts::addWitchHuts));
-        allBiomeBlacklists.put("underground_bastions", Pair.of(Arrays.asList(RepurposedStructures.RSMainConfig.blacklistedUndergroundBastionBiomes.get().replace(" ", "").split(",")), Bastions::addBastions));
-
-        return allBiomeBlacklists;
+    public static void addFeaturesAndStructuresToBiomes(BiomeLoadingEvent event) {
+        Mineshafts.addMineshafts(event);
+        Dungeons.addDungeons(event);
+        Wells.addWells(event);
+        Strongholds.addStrongholds(event);
+        Outposts.addOutposts(event);
+        Shipwrecks.addShipwrecks(event);
+        Fortresses.addJungleFortress(event);
+        Temples.addTemples(event);
+        Pyramids.addPyramids(event);
+        Igloos.addIgloos(event);
+        Villages.addVillages(event);
+        RuinedPortals.addRuinedPortals(event);
+        Ruins.addRuins(event);
+        Cities.addCities(event);
+        Mansions.addMansions(event);
+        WitchHuts.addWitchHuts(event);
+        Bastions.addBastions(event);
     }
 }
