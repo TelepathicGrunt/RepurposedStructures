@@ -6,6 +6,10 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
+ * A part of Omega Config that RS needs for serverside configs without syncs.
+ * Original repo of Omega Config by Draylar (MIT License at the time of this comment):
+ * https://github.com/Draylar/omega-config
+ *
  * Represents a description on a config entry.
  *
  * <p>

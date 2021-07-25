@@ -22,6 +22,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * A part of Omega Config that RS needs for serverside configs without syncs.
+ * Original repo of Omega Config by Draylar (MIT License at the time of this comment):
+ * https://github.com/Draylar/omega-config
+ */
 public class OmegaConfig {
     private static final Logger LOGGER = LogManager.getLogger();
     public static final String MODID = "omega-config";

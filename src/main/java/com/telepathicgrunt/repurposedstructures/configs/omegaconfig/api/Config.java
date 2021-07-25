@@ -3,6 +3,11 @@ package com.telepathicgrunt.repurposedstructures.configs.omegaconfig.api;
 
 import com.telepathicgrunt.repurposedstructures.configs.omegaconfig.OmegaConfig;
 
+/**
+ * A part of Omega Config that RS needs for serverside configs without syncs.
+ * Original repo of Omega Config by Draylar (MIT License at the time of this comment):
+ * https://github.com/Draylar/omega-config
+ */
 public interface Config {
 
     /**
