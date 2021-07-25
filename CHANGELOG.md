@@ -1,6 +1,6 @@
 ### **(V.2.1.5 Changes) (1.17.1 Minecraft)**
 
-##### Misc:s
+##### Misc:
 Fixed crash with other mods due to a modifyconstant mixin being marked as required when it shouldn't be
 
 
