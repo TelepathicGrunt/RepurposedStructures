@@ -50,6 +50,7 @@ minecraft {
 
 repositories {
     maven { url "https://nexus.resourcefulbees.com/repository/maven-public/" }
+    //flatDir { dirs 'deps' }
 }
 
 dependencies {
@@ -59,6 +60,7 @@ dependencies {
     }
 
     runtimeOnly fg.deobf("com.telepathicgrunt:Blame:1.16.5-3.2.0-forge")
+    //runtimeOnly fg.deobf("patrigan:loadnbtblock:1.0")
 }
 
 apply from: 'gradle/processresources.gradle'
