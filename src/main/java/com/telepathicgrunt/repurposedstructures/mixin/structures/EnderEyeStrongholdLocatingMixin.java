@@ -15,7 +15,7 @@ public class EnderEyeStrongholdLocatingMixin {
 
     @ModifyVariable(
             method = "use",
-            at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/world/gen/chunk/ChunkGenerator;locateStructure(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/world/gen/feature/StructureFeature;Lnet/minecraft/util/math/BlockPos;IZ)Lnet/minecraft/util/math/BlockPos;")
+            at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/world/level/chunk/ChunkGenerator;findNearestMapFeature(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/level/levelgen/feature/StructureFeature;Lnet/minecraft/core/BlockPos;IZ)Lnet/minecraft/core/BlockPos;")
     )
     private BlockPos repurposedstructures_locateRSStrongholds(BlockPos blockPos, Level world, Player user) {
         return StructureLocator.returnClosestStronghold(blockPos, (ServerLevel)world, user.blockPosition());
