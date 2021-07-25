@@ -1,3 +1,9 @@
+### **(V.3.0.1 Changes) (1.16.5 Minecraft)**
+
+##### Ruins:
+* Removed the random Grass Block that Hot Land Ruins spawned by mistake
+
+
 ### **(V.3.0.0 Changes) (1.16.5 Minecraft)**
 
 ##### Configs:
@@ -25,8 +31,6 @@
 * Adjusted looks of Warm Land Ruins so it doesn't look as bad as it was before
 
 * Fixed Warm Land Ruins not having enough Tall Grass placed and Hot Land Ruins not having enough Dead Bush placed
-
-* Removed the random Grass Block that Hot Land Ruins spawned by mistake
 
 ##### Wells:
 * All wells now use processor lists to randomize their chances of having ores or bells.
