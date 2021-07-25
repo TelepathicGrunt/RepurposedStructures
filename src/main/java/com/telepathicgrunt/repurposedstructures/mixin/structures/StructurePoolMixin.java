@@ -15,7 +15,6 @@ public class StructurePoolMixin {
      * @author - TelepathicGrunt
      * @return - The higher weight that is a more reasonable limit.
      */
-    @Group(name = "repurposedstructures_structurepoolmixin")
     @ModifyConstant(
             method = "lambda$static$1",
             constant = @Constant(intValue = 150),
@@ -26,7 +25,11 @@ public class StructurePoolMixin {
         return 5000;
     }
 
-    @Group(name = "repurposedstructures_structurepoolmixin")
+    /**
+     * Increases the weight limit that mojang slapped on that was a workaround for https://bugs.mojang.com/browse/MC-203131
+     * @author - TelepathicGrunt
+     * @return - The higher weight that is a more reasonable limit.
+     */
     @ModifyConstant(
             method = "method_28886",
             constant = @Constant(intValue = 150),
