@@ -1,3 +1,9 @@
+### **(V.2.1.5 Changes) (1.17.1 Minecraft)**
+
+##### Misc:s
+Fixed crash with other mods due to a modifyconstant mixin being marked as required when it shouldn't be
+
+
 ### **(V.2.1.4 Changes) (1.17.1 Minecraft)**
 
 ##### Fortresses:
