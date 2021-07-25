@@ -28,21 +28,7 @@ public class RSNaturalMobSpawningConfig implements Config {
         // Add logic here when adding new mob spawn structures to config."
         // The logic needs to do a putIfAbsent to add the missing structures between the config versions when updating."
 
-        // Fix typo in old config value"
-        if(configVersion == 1){
-            List<MobSpawningOverTime.PublicMobSpawnEntry> mobList = appendMobSpawns.get("repurposed_structures:mineshaft_end");
-            for(int i = 0; i < mobList.size(); i++){
-                if(mobList.get(i).type.equals("minecraft:endermen")){
-                    mobList.set(i, new MobSpawningOverTime.PublicMobSpawnEntry(
-                                    "minecraft:enderman",
-                                    mobList.get(i).weight,
-                                    mobList.get(i).minGroupSize,
-                                    mobList.get(i).maxGroupSize));
-                }
-            }
-        }
-
-        configVersion = 2;
+        configVersion = 1;
         Config.super.save();
     }
 
@@ -165,5 +151,5 @@ public class RSNaturalMobSpawningConfig implements Config {
             "\n"+
             "\n// for internal use only. Do not change this."
     )
-    public int configVersion = 2;
+    public int configVersion = 1;
 }
