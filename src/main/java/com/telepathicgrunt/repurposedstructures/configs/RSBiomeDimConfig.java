@@ -53,7 +53,7 @@ public class RSBiomeDimConfig implements Config {
             "\n// You can find dimension identifiers by doing \"/execute in\" command in game."+
             "\n// All of RS's structure identifiers can be found by doing \"/locate\" command in game."+
             "\n// RS's dungeons and wells identifiers can be found here on GitHub:"+
-            "\n//  https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/blob/7f8021cbc073c9919fa0b08dc3b746f9a0e854af/src/main/java/com/telepathicgrunt/repurposedstructures/modinit/RSConfiguredFeatures.java#L268-L290"
+            "\n//  https://github.com/TelepathicGrunt/RepurposedStructures/blob/27c8c23d5b6ee1ba1f894df874d62e5982d39fd5/src/main/java/com/telepathicgrunt/repurposedstructures/modinit/RSConfiguredFeatures.java#L251-L273"
     )
     public final Map<String, String> disallowedDimensions = Stream.of(new AbstractMap.SimpleEntry<>(
             "all", "the_bumblezone:the_bumblezone, " +
@@ -102,7 +102,7 @@ public class RSBiomeDimConfig implements Config {
             "\n// You can find dimension identifiers by doing \"/execute in\" command in game."+
             "\n// All of RS's structure identifiers can be found by doing \"/locate\" command in game."+
             "\n// RS's dungeons and wells identifiers can be found here on GitHub:"+
-            "\n//  https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/blob/7f8021cbc073c9919fa0b08dc3b746f9a0e854af/src/main/java/com/telepathicgrunt/repurposedstructures/modinit/RSConfiguredFeatures.java#L268-L290"
+            "\n//  https://github.com/TelepathicGrunt/RepurposedStructures/blob/27c8c23d5b6ee1ba1f894df874d62e5982d39fd5/src/main/java/com/telepathicgrunt/repurposedstructures/modinit/RSConfiguredFeatures.java#L251-L273"
     )
     public final Map<String, String> allowedDimensions = new HashMap<>();
 
@@ -135,7 +135,7 @@ public class RSBiomeDimConfig implements Config {
             "\n// You can find biome identifiers by doing \"/locatebiome\" command in game."+
             "\n// All of RS's structure identifiers can be found by doing \"/locate\" command in game."+
             "\n// RS's dungeons and wells identifiers can be found here on GitHub:"+
-            "\n//  https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/blob/7f8021cbc073c9919fa0b08dc3b746f9a0e854af/src/main/java/com/telepathicgrunt/repurposedstructures/modinit/RSConfiguredFeatures.java#L268-L290"
+            "\n//  https://github.com/TelepathicGrunt/RepurposedStructures/blob/27c8c23d5b6ee1ba1f894df874d62e5982d39fd5/src/main/java/com/telepathicgrunt/repurposedstructures/modinit/RSConfiguredFeatures.java#L251-L273"
     )
     public final Map<String, String> disallowedBiomes = new HashMap<>();
 
@@ -169,7 +169,7 @@ public class RSBiomeDimConfig implements Config {
             "\n// You can find biome identifiers by doing \"/locatebiome\" command in game."+
             "\n// All of RS's structure identifiers can be found by doing \"/locate\" command in game."+
             "\n// RS's dungeons and wells identifiers can be found here on GitHub:"+
-            "\n//  https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/blob/7f8021cbc073c9919fa0b08dc3b746f9a0e854af/src/main/java/com/telepathicgrunt/repurposedstructures/modinit/RSConfiguredFeatures.java#L268-L290"
+            "\n//  https://github.com/TelepathicGrunt/RepurposedStructures/blob/27c8c23d5b6ee1ba1f894df874d62e5982d39fd5/src/main/java/com/telepathicgrunt/repurposedstructures/modinit/RSConfiguredFeatures.java#L251-L273"
     )
     public final Map<String, String> allowedBiomes = new HashMap<>();
 
