@@ -42,8 +42,6 @@ Added Chains to Ocean Pyramids so the Drowned won't walk into the Magma Block an
 ##### Ruins:
 Adjusted looks of Warm Land Ruins so it doesn't look as bad as it was before
 
-Fixed Warm Land Ruins not having enough Tall Grass placed and Hot Land Ruins not having enough Dead Bush placed
-
 ##### Wells:
 All wells now use processor lists to randomize their chances of having ores or bells.
   The well's block tags and bell config entry have been deleted as they are no longer needed.
