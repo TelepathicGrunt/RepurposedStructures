@@ -24,6 +24,8 @@ Added Stonebricks layer to bottom of Unit and Stables giant rooms in Underground
 ##### Misc:
 Changed versioning format in jar and jar name to match semantic versioning format
 
+Improved error message from structures that can fail to spawn their pieces due to the height range being set to be too narrow in RS's configs.
+
 
 ### **(V.3.0.0 Changes) (1.16.5 Minecraft)**
 
