@@ -3,6 +3,12 @@
 ##### Pyramids:
 Fixed Bubble Columns in Ocean Pyramids not fully creating their column after pyramid generation
 
+Prevent Ocean Pyramids from generating above sealevel. 
+ Instead, they may be entirely buried below sealevel if the land is above sealevel.
+
+##### Misc:
+Improved error message from structures that can fail to spawn their pieces due to the height range being set to be too narrow in RS's configs.
+
 
 ### **(V.2.1.6 Changes) (1.17.1 Minecraft)**
 

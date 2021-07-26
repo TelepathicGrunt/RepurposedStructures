@@ -106,7 +106,17 @@ public class PieceLimitedJigsawManager {
         Map<ResourceLocation, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces = StructurePiecesBehavior.REQUIRED_PIECES_COUNT.get(structureID);
         while(doesNotHaveAllRequiredPieces(components, requiredPieces)){
             if(attempts == 100){
-                RepurposedStructures.LOGGER.error("Repurposed Structures: Failed to create valid structure with all required pieces starting from this pool file: {}. Required pieces are: {}", startPool.getName(), Arrays.toString(requiredPieces.keySet().toArray()));
+                RepurposedStructures.LOGGER.error(
+                """
+
+                        -------------------------------------------------------------------
+                        Repurposed Structures: Failed to create valid structure with all required pieces starting from this pool file: {}. Required pieces are: {}
+                          Make sure the max height and min height for this structure in the config is not too close together.
+                          If min and max height is super close together, the structure's pieces may not be able to fit in the narrow range and spawn.
+                          Otherwise, if the min and max height ranges aren't close and this message still appears, please report the issue to Repurposed Structures's dev with latest.log file!
+
+                        """,
+                        startPool.getName(), Arrays.toString(requiredPieces.keySet().toArray()));
                 break;
             }
 
