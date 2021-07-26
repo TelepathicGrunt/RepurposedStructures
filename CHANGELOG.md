@@ -5,6 +5,9 @@ Jungle Fortresses end pieces now can spawn decoration properly
 
 Nerfed rate of Drowned in Jungle Fortresses a bit
 
+##### Pyramids:
+Fixed Bubble Columns in Ocean Pyramids not fully creating their column after pyramid generation
+
 ##### Ruins:
 Removed the random Grass Block that Hot Land Ruins spawned by mistake
 
@@ -14,6 +17,9 @@ Fixed Tall Grass not generating in side pieces of Warm Land Ruins
 
 ##### Bastions:
 Added Stonebricks layer to bottom of Unit and Stables giant rooms in Underground Bastions to reduce chances of it getting burned down by lava
+
+##### Misc:
+Changed versioning format in jar and jar name to match semantic versioning format
 
 
 ### **(V.3.0.0 Changes) (1.16.5 Minecraft)**

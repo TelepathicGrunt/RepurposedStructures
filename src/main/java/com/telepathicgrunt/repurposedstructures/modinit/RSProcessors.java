@@ -2,6 +2,7 @@ package com.telepathicgrunt.repurposedstructures.modinit;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.processors.AirProcessor;
+import com.telepathicgrunt.repurposedstructures.world.processors.BubbleColumnProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.CeilingVinePostProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.CloseOffAirSourcesProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.CloseOffFluidSourcesProcessor;
@@ -23,6 +24,7 @@ import net.minecraft.world.gen.feature.template.IStructureProcessorType;
 public class RSProcessors {
 
     public static IStructureProcessorType<AirProcessor> AIR_PROCESSOR = () -> AirProcessor.CODEC;
+    public static IStructureProcessorType<BubbleColumnProcessor> BUBBLE_COLUMN_PROCESSOR = () -> BubbleColumnProcessor.CODEC;
     public static IStructureProcessorType<DataBlockProcessor> DATA_BLOCK_PROCESSOR = () -> DataBlockProcessor.CODEC;
     public static IStructureProcessorType<StructureVoidProcessor> STRUCTURE_VOID_PROCESSOR = () -> StructureVoidProcessor.CODEC;
     public static IStructureProcessorType<FloodWithWaterProcessor> FLOOD_WITH_WATER_PROCESSOR = () -> FloodWithWaterProcessor.CODEC;
@@ -41,6 +43,7 @@ public class RSProcessors {
 
     public static void registerProcessors() {
         Registry.register(Registry.STRUCTURE_PROCESSOR, new ResourceLocation(RepurposedStructures.MODID, "air_processor"), AIR_PROCESSOR);
+        Registry.register(Registry.STRUCTURE_PROCESSOR, new ResourceLocation(RepurposedStructures.MODID, "bubble_column_processor"), BUBBLE_COLUMN_PROCESSOR);
         Registry.register(Registry.STRUCTURE_PROCESSOR, new ResourceLocation(RepurposedStructures.MODID, "data_block_processor"), DATA_BLOCK_PROCESSOR);
         Registry.register(Registry.STRUCTURE_PROCESSOR, new ResourceLocation(RepurposedStructures.MODID, "water_fix_processor"), WATER_FIX_PROCESSOR);
         Registry.register(Registry.STRUCTURE_PROCESSOR, new ResourceLocation(RepurposedStructures.MODID, "structure_void_processor"), STRUCTURE_VOID_PROCESSOR);
