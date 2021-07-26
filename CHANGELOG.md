@@ -8,6 +8,9 @@ Nerfed rate of Drowned in Jungle Fortresses a bit
 ##### Pyramids:
 Fixed Bubble Columns in Ocean Pyramids not fully creating their column after pyramid generation
 
+Prevent Ocean Pyramids from generating above sealevel.
+ Instead, they may be entirely buried below sealevel if the land is above sealevel.
+
 ##### Ruins:
 Removed the random Grass Block that Hot Land Ruins spawned by mistake
 

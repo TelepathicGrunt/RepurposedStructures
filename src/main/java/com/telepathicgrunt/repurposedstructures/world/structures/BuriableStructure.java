@@ -93,6 +93,11 @@ public class BuriableStructure extends AbstractBaseStructure<NoFeatureConfig> {
             highestLandPos = Math.min(highestLandPos, chunkGenerator.getBaseHeight(blockpos.getX() + maxCorner.getX(), blockpos.getZ(), heightMapToUse));
             highestLandPos = Math.min(highestLandPos, chunkGenerator.getBaseHeight(blockpos.getX(), blockpos.getZ(), heightMapToUse));
 
+            if(!onLand){
+                int maxHeightForSubmerging = chunkGenerator.getSeaLevel() - this.pieces.get(0).getBoundingBox().getYSpan();
+                highestLandPos = Math.min(highestLandPos, maxHeightForSubmerging);
+            }
+
             this.moveInsideHeights(this.random, highestLandPos-(offsetAmount+1), highestLandPos-offsetAmount);
         }
     }
