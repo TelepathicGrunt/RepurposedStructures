@@ -21,7 +21,7 @@ public class StructureBlockScreenMixin {
     private EditBox nameEdit;
 
     @Inject(method = "init",
-            at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/widget/TextFieldWidget;setText(Ljava/lang/String;)V", ordinal = 0))
+            at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/components/EditBox;setMaxLength(I)V", ordinal = 0))
     private void repurposedstructures_makeFileNameLonger(CallbackInfo ci) {
         nameEdit.setMaxLength(128);
     }

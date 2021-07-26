@@ -20,31 +20,23 @@ import java.util.HashSet;
 /**
  * FOR ELEMENTS USING legacy_single_pool_element AND WANTS AIR TO REPLACE TERRAIN.
  */
-public class AirProcessor extends StructureProcessor {
+public class BubbleColumnProcessor extends StructureProcessor {
 
-    public static final Codec<AirProcessor> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
-            Registry.BLOCK.listOf().fieldOf("ignore_block").orElse(new ArrayList<>()).xmap(HashSet::new, ArrayList::new).forGetter(config -> config.blocksToIgnore)
-    ).apply(instance, instance.stable(AirProcessor::new)));
+    public static final Codec<BubbleColumnProcessor> CODEC = Codec.unit(BubbleColumnProcessor::new);
 
-    private final HashSet<Block> blocksToIgnore;
-
-    private AirProcessor(HashSet<Block> blocksToIgnore) {
-        this.blocksToIgnore = blocksToIgnore;
-    }
+    private BubbleColumnProcessor() {}
 
     @Override
     public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldView, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
-        if (structureBlockInfoWorld.state.isAir()) {
+        if(structureBlockInfoWorld.state.getBlock() == Blocks.BUBBLE_COLUMN){
             ChunkAccess chunk = worldView.getChunk(structureBlockInfoWorld.pos);
-            if(!blocksToIgnore.contains(chunk.getBlockState(structureBlockInfoWorld.pos).getBlock())){
-                chunk.setBlockState(structureBlockInfoWorld.pos, structureBlockInfoWorld.state, false);
-            }
+            chunk.getBlockTicks().scheduleTick(structureBlockInfoWorld.pos,  structureBlockInfoWorld.state.getBlock(), 0);
         }
         return structureBlockInfoWorld;
     }
 
     @Override
     protected StructureProcessorType<?> getType() {
-        return RSProcessors.AIR_PROCESSOR;
+        return RSProcessors.BUBBLE_COLUMN_PROCESSOR;
     }
 }

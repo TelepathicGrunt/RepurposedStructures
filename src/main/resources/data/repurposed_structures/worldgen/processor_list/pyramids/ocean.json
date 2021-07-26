@@ -5,6 +5,9 @@
     },
     {
       "processor_type": "repurposed_structures:air_processor"
+    },
+    {
+      "processor_type": "repurposed_structures:bubble_column_processor"
     }
   ]
 }

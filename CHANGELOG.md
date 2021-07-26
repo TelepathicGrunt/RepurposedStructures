@@ -1,3 +1,15 @@
+### **(V.2.1.7 Changes) (1.17.1 Minecraft)**
+
+##### Pyramids:
+Fixed Bubble Columns in Ocean Pyramids not fully creating their column after pyramid generation
+
+
+### **(V.2.1.6 Changes) (1.17.1 Minecraft)**
+
+##### Misc:
+Fixed crash with Structure Block name field mixin (I was switching to Mojmap which is why these errors came up)
+
+
 ### **(V.2.1.5 Changes) (1.17.1 Minecraft)**
 
 ##### Misc:
