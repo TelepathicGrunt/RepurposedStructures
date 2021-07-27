@@ -1,5 +1,10 @@
 ### **(V.3.0.1 Changes) (1.16.5 Minecraft)**
 
+##### Mod Compat:
+Updated loot table references so compat with End Remastered's loot now works again for newer versions of that mod
+
+Added End Remastered eyes to the rest of the Overworld RS Pyramids and to Underground Bastions as well
+
 ##### Fortresses:
 Jungle Fortresses end pieces now can spawn decoration properly
 

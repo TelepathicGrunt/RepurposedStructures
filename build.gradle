@@ -50,6 +50,7 @@ minecraft {
 
 repositories {
     maven { url "https://nexus.resourcefulbees.com/repository/maven-public/" }
+    maven { url "https://www.cursemaven.com" }
     //flatDir { dirs 'deps' }
 }
 
@@ -60,6 +61,7 @@ dependencies {
     }
 
     runtimeOnly fg.deobf("com.telepathicgrunt:Blame:1.16.5-3.2.0-forge")
+    //runtimeOnly fg.deobf("curse.maven:endremastered-404183:3385636")
     //runtimeOnly fg.deobf("patrigan:loadnbtblock:1.0")
 }
 
