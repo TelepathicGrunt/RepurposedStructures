@@ -25,43 +25,49 @@ public class RSVillagesConfig
 				.comment("\n How rare are Badlands Villages in Badland biomes.",
 					" 1 for spawning in most chunks and 1001 for no spawn.")
 				.translation("repurposedstructures.config.villages.badlandsvillagemaxchunkdistance")
-				.defineInRange("badlandsVillageMaxChunkDistance", 30, 1, 1001));
+				.defineInRange("badlandsVillageMaxChunkDistance", 34, 1, 1001));
 
 			birchVillageMaxChunkDistance = subscriber.subscribe(builder
 				.comment("\n How rare are Birch Villages in Birch biomes.",
 					" 1 for spawning in most chunks and 1001 for no spawn.")
 				.translation("repurposedstructures.config.villages.birchvillagemaxchunkdistance")
-				.defineInRange("birchVillageMaxChunkDistance", 38, 1, 1001));
+				.defineInRange("birchVillageMaxChunkDistance", 47, 1, 1001));
 
 			darkForestVillageMaxChunkDistance = subscriber.subscribe(builder
 				.comment("\n How rare are Dark Forest Villages in Dark Forest biomes.",
 					" 1 for spawning in most chunks and 1001 for no spawn.")
 				.translation("repurposedstructures.config.villages.darkforestvillagemaxchunkdistance")
-				.defineInRange("darkForestVillageMaxChunkDistance", 38, 1, 1001));
+				.defineInRange("darkForestVillageMaxChunkDistance", 47, 1, 1001));
 
 			jungleVillageMaxChunkDistance = subscriber.subscribe(builder
 				.comment("\n How rare are Jungle Villages in Jungle biomes.",
 					" 1 for spawning in most chunks and 1001 for no spawn.")
 				.translation("repurposedstructures.config.villages.junglevillagemaxchunkdistance")
-				.defineInRange("jungleVillageMaxChunkDistance", 38, 1, 1001));
+				.defineInRange("jungleVillageMaxChunkDistance", 47, 1, 1001));
 
 			swampVillageMaxChunkDistance = subscriber.subscribe(builder
 				.comment("\n How rare are Swamp Villages in Swamp biomes.",
 					" 1 for spawning in most chunks and 1001 for no spawn.")
 				.translation("repurposedstructures.config.villages.swampvillagemaxchunkdistance")
-				.defineInRange("swampVillageMaxChunkDistance", 38, 1, 1001));
+				.defineInRange("swampVillageMaxChunkDistance", 47, 1, 1001));
 
 			mountainsVillageMaxChunkDistance = subscriber.subscribe(builder
 				.comment("\n How rare are Mountains Villages in Mountains biomes.",
 					" 1 for spawning in most chunks and 1001 for no spawn.")
 				.translation("repurposedstructures.config.villages.mountainsvillagemaxchunkdistance")
-				.defineInRange("mountainsVillageMaxChunkDistance", 38, 1, 1001));
+				.defineInRange("mountainsVillageMaxChunkDistance", 47, 1, 1001));
 
 			giantTaigaVillageMaxChunkDistance = subscriber.subscribe(builder
 				.comment("\n How rare are Giant Taiga Villages in Giant Taiga biomes.",
 					" 1 for spawning in most chunks and 1001 for no spawn.")
 				.translation("repurposedstructures.config.villages.gianttaigavillagemaxchunkdistance")
-				.defineInRange("giantTaigaVillageMaxChunkDistance", 38, 1, 1001));
+				.defineInRange("giantTaigaVillageMaxChunkDistance", 47, 1, 1001));
+
+			villageOakMaxChunkDistance = subscriber.subscribe(builder
+					.comment("\n How rare are Oak Villages in forest category",
+							" biomes that are not birch or dark forest.")
+					.translation("repurposedstructures.config.village.villageoakmaxchunkdistance")
+					.defineInRange("villageOakMaxChunkDistance", 47, 1, 1001));
 
 			crimsonVillageMaxChunkDistance = subscriber.subscribe(builder
 				.comment("\n How rare are Crimson Village in Crimson Forest biomes.",
@@ -74,12 +80,6 @@ public class RSVillagesConfig
 						 " 1 for spawning in most chunks and 1001 for none.")
 				.translation("repurposedstructures.config.villages.warpedvillagemaxchunkdistance")
 				.defineInRange("warpedVillageMaxChunkDistance", 30, 1, 1001));
-
-			villageOakMaxChunkDistance = subscriber.subscribe(builder
-				.comment("\n How rare are Oak Villages in forest category",
-						 " biomes that are not birch or dark forest.")
-				.translation("repurposedstructures.config.village.villageoakmaxchunkdistance")
-				.defineInRange("villageOakMaxChunkDistance", 38, 1, 1001));
 		}
 	}
 }

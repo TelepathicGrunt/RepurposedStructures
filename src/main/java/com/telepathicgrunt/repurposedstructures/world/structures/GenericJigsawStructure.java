@@ -71,7 +71,7 @@ public class GenericJigsawStructure extends AbstractBaseStructure<NoFeatureConfi
     protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig defaultFeatureConfig) {
         if(!(biomeSource instanceof CheckerboardBiomeProvider)) {
             for (int curChunkX = chunkX - biomeRange; curChunkX <= chunkX + biomeRange; curChunkX++) {
-                for (int curChunkZ = chunkZ- biomeRange; curChunkZ <= chunkZ+ biomeRange; curChunkZ++) {
+                for (int curChunkZ = chunkZ - biomeRange; curChunkZ <= chunkZ + biomeRange; curChunkZ++) {
                     if (!biomeSource.getNoiseBiome(curChunkX << 2, 64, curChunkZ << 2).getGenerationSettings().isValidStart(this)) {
                         return false;
                     }
@@ -81,11 +81,13 @@ public class GenericJigsawStructure extends AbstractBaseStructure<NoFeatureConfi
 
         //cannot be near other specified structure
         for (int curChunkX = chunkX - structureBlacklistRange; curChunkX <= chunkX + structureBlacklistRange; curChunkX++) {
-            for (int curChunkZ = chunkZ- structureBlacklistRange; curChunkZ <= chunkZ+ structureBlacklistRange; curChunkZ++) {
+            for (int curChunkZ = chunkZ - structureBlacklistRange; curChunkZ <= chunkZ + structureBlacklistRange; curChunkZ++) {
                 if(curChunkX == chunkX && curChunkZ == chunkZ) continue; // Prevent detecting the structure itself and thus, never spawning if structure is in its own blacklist
 
                 for(RSStructureTagMap.STRUCTURE_TAGS tag : avoidStructuresSet){
                     for(Structure<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(tag)){
+                        if(structureFeature == this) continue;
+
                         StructureSeparationSettings structureConfig = chunkGenerator.getSettings().getConfig(structureFeature);
                         if(structureConfig != null && structureConfig.spacing() > 8){
                             ChunkPos chunkPos2 = structureFeature.getPotentialFeatureChunk(structureConfig, seed, chunkRandom, curChunkX, curChunkZ);
@@ -103,7 +105,7 @@ public class GenericJigsawStructure extends AbstractBaseStructure<NoFeatureConfi
             int minTerrainHeight = Integer.MAX_VALUE;
 
             for (int curChunkX = chunkX - terrainHeightRadius; curChunkX <= chunkX + terrainHeightRadius; curChunkX++) {
-                for (int curChunkZ = chunkZ- terrainHeightRadius; curChunkZ <= chunkZ+ terrainHeightRadius; curChunkZ++) {
+                for (int curChunkZ = chunkZ - terrainHeightRadius; curChunkZ <= chunkZ + terrainHeightRadius; curChunkZ++) {
                     int height = chunkGenerator.getBaseHeight(curChunkX * 16, curChunkZ * 16, Heightmap.Type.WORLD_SURFACE_WG);
                     maxTerrainHeight = Math.max(maxTerrainHeight, height);
                     minTerrainHeight = Math.min(minTerrainHeight, height);

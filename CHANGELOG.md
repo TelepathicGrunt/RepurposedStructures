@@ -1,3 +1,11 @@
+### **(V.3.0.2 Changes) (1.16.5 Minecraft)**
+
+##### Villages:
+Increased the default separation config value for RS's Overworld Villages to make them less cluttered in the world
+
+RS Overworld Villages centers will not spawn within 6 chunks of Vanilla Villages or Outposts. 
+
+
 ### **(V.3.0.1 Changes) (1.16.5 Minecraft)**
 
 ##### Mod Compat:

@@ -74,6 +74,8 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NetherShipwr
                 if(curChunkX == chunkX && curChunkZ == chunkZ) continue; // Prevent detecting the structure itself and thus, never spawning if structure is in its own blacklist
 
                 for(Structure<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE)){
+                    if(structureFeature == this) continue;
+
                     StructureSeparationSettings structureConfig = chunkGenerator.getSettings().getConfig(structureFeature);
                     if(structureConfig != null && structureConfig.spacing() > 8){
                         ChunkPos chunkPos2 = structureFeature.getPotentialFeatureChunk(structureConfig, seed, chunkRandom, curChunkX, curChunkZ);

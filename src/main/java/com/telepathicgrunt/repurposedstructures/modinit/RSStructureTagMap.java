@@ -39,6 +39,7 @@ public class RSStructureTagMap {
         END_AVOID_STRUCTURE,
         BASTION_AVOID_STRUCTURE,
         OUTPOST_AVOID_STRUCTURE,
+        VILLAGE_AVOID_STRUCTURE,
         
         // Other
         NO_LAKES,
@@ -147,7 +148,8 @@ public class RSStructureTagMap {
 
         addTags(Structure.NETHER_BRIDGE, Stream.of(STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
         addTags(Structure.BASTION_REMNANT, Stream.of(STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
-        addTags(Structure.VILLAGE, Stream.of(STRUCTURE_TAGS.VILLAGE, STRUCTURE_TAGS.BASTION_AVOID_STRUCTURE).collect(Collectors.toSet()));
+        addTags(Structure.VILLAGE, Stream.of(STRUCTURE_TAGS.BASTION_AVOID_STRUCTURE, STRUCTURE_TAGS.VILLAGE_AVOID_STRUCTURE).collect(Collectors.toSet()));
+        addTags(Structure.PILLAGER_OUTPOST, Stream.of(STRUCTURE_TAGS.VILLAGE_AVOID_STRUCTURE).collect(Collectors.toSet()));
         addTags(Structure.STRONGHOLD, Stream.of(STRUCTURE_TAGS.BASTION_AVOID_STRUCTURE).collect(Collectors.toSet()));
         addTags(Structure.END_CITY, Stream.of(STRUCTURE_TAGS.END_AVOID_STRUCTURE).collect(Collectors.toSet()));
     }
