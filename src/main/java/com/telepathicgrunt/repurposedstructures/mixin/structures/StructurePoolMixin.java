@@ -3,7 +3,6 @@ package com.telepathicgrunt.repurposedstructures.mixin.structures;
 import net.minecraft.world.level.levelgen.feature.structures.StructureTemplatePool;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;
-import org.spongepowered.asm.mixin.injection.Group;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
 @SuppressWarnings("UnresolvedMixinReference")

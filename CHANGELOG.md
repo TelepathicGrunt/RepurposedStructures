@@ -6,6 +6,11 @@ Fixed Bubble Columns in Ocean Pyramids not fully creating their column after pyr
 Prevent Ocean Pyramids from generating above sealevel. 
  Instead, they may be entirely buried below sealevel if the land is above sealevel.
 
+##### Villages:
+Increased the default separation config value for RS's Overworld Villages to make them less cluttered in the world
+
+RS Overworld Villages centers will not spawn within 6 chunks of Vanilla Villages or Outposts.
+
 ##### Misc:
 Improved error message from structures that can fail to spawn their pieces due to the height range being set to be too narrow in RS's configs.
 
