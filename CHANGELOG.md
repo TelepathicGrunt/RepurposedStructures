@@ -5,6 +5,10 @@ Increased the default separation config value for RS's Overworld Villages to mak
 
 RS Overworld Villages centers will not spawn within 6 chunks of Vanilla Villages or Outposts. 
 
+##### Config:
+Added more dimension allow/disallow config entries. 
+ The new entries will be automatically added to your current entries the first time you launch v3.0.2 RS. 
+
 
 ### **(V.3.0.1 Changes) (1.16.5 Minecraft)**
 

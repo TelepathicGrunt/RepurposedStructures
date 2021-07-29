@@ -24,8 +24,42 @@ public class RSBiomeDimConfig implements Config {
     @Override
     public void save() {
 
-        configVersion = 1;
+        if(configVersion == 1){
+            // Simplify abyss config entries
+            String blacklistedDims = disallowedDimensions.get("all");
+            disallowedDimensions.put("all", blacklistedDims.replace("theabyss:theabyssdim, theabyss:theabyssiceworld, theabyss:death, theabyss:the_end_of_time, theabyss:the_end_of_time_2, theabyss:dream, theabyss:dream_2, theabyss:dream_3, theabyss:radio, theabyss:theabyssdimgroundlands, theabyss:theabyssdimskylands",
+                    "theabyss:.+"));
+
+            // Add new config entries if they don't exist as we update the config version
+            addEntries(disallowedDimensions, "repurposed_structures:village_badlands", "aoa3:barathos");
+            addEntries(disallowedDimensions, "repurposed_structures:outpost_badlands", "aoa3:barathos");
+            addEntries(disallowedDimensions, "repurposed_structures:well_badlands", "aoa3:barathos");
+            addEntries(disallowedDimensions, "repurposed_structures:mineshaft_desert", "atum:atum");
+            addEntries(disallowedDimensions, "repurposed_structures:outpost_jungle", "tropicraft:tropics");
+            addEntries(disallowedDimensions, "repurposed_structures:mansion_jungle", "tropicraft:tropics");
+
+            addEntries(allowedDimensions, "repurposed_structures:bastion_underground", "dystopia:dystopia");
+            addEntries(allowedDimensions, "repurposed_structures:bastion_underground", "elvenation:elvenia_dimension");
+            addEntries(allowedDimensions, "repurposed_structures:bastion_underground", "futurepack:tyros");
+            addEntries(allowedDimensions, "repurposed_structures:ruins_land_warm", "dystopia:dystopia");
+            addEntries(allowedDimensions, "repurposed_structures:ruins_land_warm", "elvenation:elvenia_dimension");
+            addEntries(allowedDimensions, "repurposed_structures:ruins_land_warm", "futurepack:tyros");
+            addEntries(allowedDimensions, "repurposed_structures:igloo_grassy", "elvenation:elvenia_dimension");
+            addEntries(allowedDimensions, "repurposed_structures:mineshaft_jungle", "futurepack:tyros");
+            addEntries(allowedDimensions, "repurposed_structures:pyramid_jungle", "futurepack:tyros");
+            addEntries(allowedDimensions, "repurposed_structures:dungeon_jungle", "futurepack:tyros");
+            addEntries(allowedDimensions, "repurposed_structures:well_mossy_stone", "futurepack:tyros");
+        }
+
+        configVersion = 2;
         Config.super.save();
+    }
+
+    private void addEntries(Map<String, String> map, String key, String entry){
+        // assign entry
+        if(map.putIfAbsent(key, entry) != null && !map.get(key).contains(entry)){
+            map.put(key, map.get(key) + ", " + entry); // append entry
+        }
     }
 
 
@@ -55,23 +89,27 @@ public class RSBiomeDimConfig implements Config {
             "\n// RS's dungeons and wells identifiers can be found here on GitHub:"+
             "\n//  https://github.com/TelepathicGrunt/RepurposedStructures/blob/27c8c23d5b6ee1ba1f894df874d62e5982d39fd5/src/main/java/com/telepathicgrunt/repurposedstructures/modinit/RSConfiguredFeatures.java#L251-L273"
     )
-    public final Map<String, String> disallowedDimensions = Stream.of(new AbstractMap.SimpleEntry<>(
-            "all", "the_bumblezone:the_bumblezone, " +
-                "twilightforest:twilightforest, " +
-                "undergarden:undergarden, " +
-                "the_midnight:the_midnight, " +
-                "advancedrocketry:space, " +
-                "theabyss:theabyssdim, " +
-                "theabyss:theabyssiceworld, " +
-                "theabyss:death, " +
-                "theabyss:the_end_of_time, " +
-                "theabyss:the_end_of_time_2, " +
-                "theabyss:dream, " +
-                "theabyss:dream_2, " +
-                "theabyss:dream_3, " +
-                "theabyss:radio, " +
-                "theabyss:theabyssdimgroundlands, " +
-                "theabyss:theabyssdimskylands")
+    public final Map<String, String> disallowedDimensions = Stream.of(
+            new AbstractMap.SimpleEntry<>("all",
+                    "the_bumblezone:the_bumblezone, " +
+                    "twilightforest:twilightforest, " +
+                    "undergarden:undergarden, " +
+                    "the_midnight:the_midnight, " +
+                    "advancedrocketry:space, " +
+                    "theabyss:.+, " +
+                    "pokecube:secret_base, " +
+                    "pokecube_legends:distorted_world, " +
+                    "pokecube_legends:ultraspace, " +
+                    "dystopia:dystopia, " +
+                    "elvenation:elvenia_dimension, " +
+                    "futurepack:.+, " +
+                    "the_afterlight:.+"),
+            new AbstractMap.SimpleEntry<>("repurposed_structures:village_badlands", "aoa3:barathos"),
+            new AbstractMap.SimpleEntry<>("repurposed_structures:outpost_badlands", "aoa3:barathos"),
+            new AbstractMap.SimpleEntry<>("repurposed_structures:well_badlands", "aoa3:barathos"),
+            new AbstractMap.SimpleEntry<>("repurposed_structures:mineshaft_desert", "atum:atum"),
+            new AbstractMap.SimpleEntry<>("repurposed_structures:outpost_jungle", "tropicraft:tropics"),
+            new AbstractMap.SimpleEntry<>("repurposed_structures:mansion_jungle", "tropicraft:tropics")
     ).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 
     @Comment("\n"+
@@ -104,7 +142,15 @@ public class RSBiomeDimConfig implements Config {
             "\n// RS's dungeons and wells identifiers can be found here on GitHub:"+
             "\n//  https://github.com/TelepathicGrunt/RepurposedStructures/blob/27c8c23d5b6ee1ba1f894df874d62e5982d39fd5/src/main/java/com/telepathicgrunt/repurposedstructures/modinit/RSConfiguredFeatures.java#L251-L273"
     )
-    public final Map<String, String> allowedDimensions = new HashMap<>();
+    public final Map<String, String> allowedDimensions = Stream.of(
+            new AbstractMap.SimpleEntry<>("repurposed_structures:bastion_underground", "dystopia:dystopia, elvenation:elvenia_dimension, futurepack:tyros"),
+            new AbstractMap.SimpleEntry<>("repurposed_structures:ruins_land_warm", "dystopia:dystopia, elvenation:elvenia_dimension, futurepack:tyros"),
+            new AbstractMap.SimpleEntry<>("repurposed_structures:igloo_grassy", "elvenation:elvenia_dimension"),
+            new AbstractMap.SimpleEntry<>("repurposed_structures:mineshaft_jungle", "futurepack:tyros"),
+            new AbstractMap.SimpleEntry<>("repurposed_structures:pyramid_jungle", "futurepack:tyros"),
+            new AbstractMap.SimpleEntry<>("repurposed_structures:dungeon_jungle", "futurepack:tyros"),
+            new AbstractMap.SimpleEntry<>("repurposed_structures:well_mossy_stone", "futurepack:tyros")
+    ).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 
     @Comment("\n"+
             "\n"+
@@ -182,5 +228,5 @@ public class RSBiomeDimConfig implements Config {
             "\n"+
             "\n// for internal use only. Do not change this."
     )
-    public int configVersion = 1;
+    public int configVersion = 2;
 }

@@ -56,8 +56,7 @@ public class Villages {
         }
 
         if (RepurposedStructures.RSVillagesConfig.giantTaigaVillageMaxChunkDistance.get() != 1001 &&
-
-        BiomeSelection.isBiomeAllowed(event, RSStructures.VILLAGE_GIANT_TAIGA.get(),
+            BiomeSelection.isBiomeAllowed(event, RSStructures.VILLAGE_GIANT_TAIGA.get(),
                     () -> BiomeSelection.isBiome(event, Biomes.GIANT_SPRUCE_TAIGA, Biomes.GIANT_TREE_TAIGA) ||
                     (!BiomeSelection.hasNamespace(event, "minecraft") && BiomeSelection.haveCategories(event, Category.TAIGA) && BiomeSelection.hasName(event, "giant", "redwood"))))
         {
@@ -65,9 +64,9 @@ public class Villages {
         }
 
         if (RepurposedStructures.RSVillagesConfig.villageOakMaxChunkDistance.get() != 1001 &&
-                BiomeSelection.isBiomeAllowed(event, RSStructures.VILLAGE_OAK.get(),
-                        () -> BiomeSelection.haveCategories(event, Category.FOREST) &&
-                                !BiomeSelection.hasName(event, "birch", "dark", "spooky", "dead", "haunted")))
+            BiomeSelection.isBiomeAllowed(event, RSStructures.VILLAGE_OAK.get(),
+                    () -> BiomeSelection.haveCategories(event, Category.FOREST) &&
+                    !BiomeSelection.hasName(event, "birch", "dark", "spooky", "dead", "haunted")))
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.VILLAGE_OAK);
         }
