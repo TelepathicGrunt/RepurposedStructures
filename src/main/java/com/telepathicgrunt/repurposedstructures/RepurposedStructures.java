@@ -237,8 +237,6 @@ public class RepurposedStructures {
 
     public void addDimensionalSpacing(final WorldEvent.Load event) {
         //add our structure spacing to all chunkgenerators including modded one and datapack ones.
-        List<String> dimensionBlacklist = new ArrayList<>();
-
         if (event.getWorld() instanceof ServerWorld) {
             ServerWorld serverWorld = (ServerWorld) event.getWorld();
 

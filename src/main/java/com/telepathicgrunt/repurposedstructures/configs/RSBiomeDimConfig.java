@@ -37,6 +37,13 @@ public class RSBiomeDimConfig implements Config {
             addEntries(disallowedDimensions, "repurposed_structures:mineshaft_desert", "atum:atum");
             addEntries(disallowedDimensions, "repurposed_structures:outpost_jungle", "tropicraft:tropics");
             addEntries(disallowedDimensions, "repurposed_structures:mansion_jungle", "tropicraft:tropics");
+            addEntries(disallowedDimensions, "repurposed_structures:mineshaft_desert", "lotr:middle_earth");
+            addEntries(disallowedDimensions, "repurposed_structures:mansion_desert", "lotr:middle_earth");
+            addEntries(disallowedDimensions, "repurposed_structures:dungeon_desert", "lotr:middle_earth");
+            addEntries(disallowedDimensions, "repurposed_structures:ruins_land_hot", "lotr:middle_earth");
+            addEntries(disallowedDimensions, "repurposed_structures:outpost_desert", "lotr:middle_earth");
+            addEntries(disallowedDimensions, "repurposed_structures:outpost_oak", "lotr:middle_earth");
+            addEntries(disallowedDimensions, "repurposed_structures:outpost_snowy", "lotr:middle_earth");
 
             addEntries(allowedDimensions, "repurposed_structures:bastion_underground", "dystopia:dystopia");
             addEntries(allowedDimensions, "repurposed_structures:bastion_underground", "elvenation:elvenia_dimension");
@@ -49,6 +56,15 @@ public class RSBiomeDimConfig implements Config {
             addEntries(allowedDimensions, "repurposed_structures:pyramid_jungle", "futurepack:tyros");
             addEntries(allowedDimensions, "repurposed_structures:dungeon_jungle", "futurepack:tyros");
             addEntries(allowedDimensions, "repurposed_structures:well_mossy_stone", "futurepack:tyros");
+
+            addEntries(disallowedBiomes, "repurposed_structures:village_oak", "lotr:lindon_woodlands");
+            addEntries(disallowedBiomes, "repurposed_structures:village_oak", "lotr:snowy_northlands_forest");
+            addEntries(disallowedBiomes, "repurposed_structures:witch_hut_oak", "lotr:lindon_woodlands");
+            addEntries(disallowedBiomes, "repurposed_structures:witch_hut_oak", "lotr:snowy_northlands_forest");
+
+            addEntries(allowedBiomes, "repurposed_structures:village_birch", "lotr:lindon_woodlands");
+            addEntries(allowedBiomes, "repurposed_structures:witch_hut_birch", "lotr:lindon_woodlands");
+            addEntries(allowedBiomes, "repurposed_structures:witch_hut_taiga", "lotr:snowy_northlands_forest");
         }
 
         configVersion = 2;
@@ -107,9 +123,15 @@ public class RSBiomeDimConfig implements Config {
             new AbstractMap.SimpleEntry<>("repurposed_structures:village_badlands", "aoa3:barathos"),
             new AbstractMap.SimpleEntry<>("repurposed_structures:outpost_badlands", "aoa3:barathos"),
             new AbstractMap.SimpleEntry<>("repurposed_structures:well_badlands", "aoa3:barathos"),
-            new AbstractMap.SimpleEntry<>("repurposed_structures:mineshaft_desert", "atum:atum"),
+            new AbstractMap.SimpleEntry<>("repurposed_structures:mineshaft_desert", "atum:atum, lotr:middle_earth"),
             new AbstractMap.SimpleEntry<>("repurposed_structures:outpost_jungle", "tropicraft:tropics"),
-            new AbstractMap.SimpleEntry<>("repurposed_structures:mansion_jungle", "tropicraft:tropics")
+            new AbstractMap.SimpleEntry<>("repurposed_structures:mansion_jungle", "tropicraft:tropics"),
+            new AbstractMap.SimpleEntry<>("repurposed_structures:mansion_desert", "lotr:middle_earth"),
+            new AbstractMap.SimpleEntry<>("repurposed_structures:dungeon_desert", "lotr:middle_earth"),
+            new AbstractMap.SimpleEntry<>("repurposed_structures:ruins_land_hot", "lotr:middle_earth"),
+            new AbstractMap.SimpleEntry<>("repurposed_structures:outpost_desert", "lotr:middle_earth"),
+            new AbstractMap.SimpleEntry<>("repurposed_structures:outpost_oak", "lotr:middle_earth"),
+            new AbstractMap.SimpleEntry<>("repurposed_structures:outpost_snowy", "lotr:middle_earth")
     ).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 
     @Comment("\n"+
@@ -183,7 +205,10 @@ public class RSBiomeDimConfig implements Config {
             "\n// RS's dungeons and wells identifiers can be found here on GitHub:"+
             "\n//  https://github.com/TelepathicGrunt/RepurposedStructures/blob/27c8c23d5b6ee1ba1f894df874d62e5982d39fd5/src/main/java/com/telepathicgrunt/repurposedstructures/modinit/RSConfiguredFeatures.java#L251-L273"
     )
-    public final Map<String, String> disallowedBiomes = new HashMap<>();
+    public final Map<String, String> disallowedBiomes = Stream.of(
+            new AbstractMap.SimpleEntry<>("repurposed_structures:village_oak", "lotr:lindon_woodlands, lotr:snowy_northlands_forest"),
+            new AbstractMap.SimpleEntry<>("repurposed_structures:witch_hut_oak", "lotr:lindon_woodlands, lotr:snowy_northlands_forest")
+    ).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 
     @Comment("\n"+
             "\n"+
@@ -217,7 +242,11 @@ public class RSBiomeDimConfig implements Config {
             "\n// RS's dungeons and wells identifiers can be found here on GitHub:"+
             "\n//  https://github.com/TelepathicGrunt/RepurposedStructures/blob/27c8c23d5b6ee1ba1f894df874d62e5982d39fd5/src/main/java/com/telepathicgrunt/repurposedstructures/modinit/RSConfiguredFeatures.java#L251-L273"
     )
-    public final Map<String, String> allowedBiomes = new HashMap<>();
+    public final Map<String, String> allowedBiomes = Stream.of(
+            new AbstractMap.SimpleEntry<>("repurposed_structures:village_birch", "lotr:lindon_woodlands"),
+            new AbstractMap.SimpleEntry<>("repurposed_structures:witch_hut_birch", "lotr:lindon_woodlands"),
+            new AbstractMap.SimpleEntry<>("repurposed_structures:witch_hut_taiga", "lotr:snowy_northlands_forest")
+    ).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 
 
     @Comment("\n"+

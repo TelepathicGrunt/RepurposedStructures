@@ -3,7 +3,9 @@
 ##### Villages:
 Increased the default separation config value for RS's Overworld Villages to make them less cluttered in the world
 
-RS Overworld Villages centers will not spawn within 6 chunks of Vanilla Villages or Outposts. 
+RS Overworld Villages centers will not spawn within 6 chunks of Vanilla Villages or Outposts
+
+Fixed Oak Villages placing Birch Planks when roads go into water
 
 ##### Config:
 Added more dimension allow/disallow config entries. 
