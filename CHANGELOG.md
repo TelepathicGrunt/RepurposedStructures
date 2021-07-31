@@ -11,6 +11,9 @@ Fixed Oak Villages placing Birch Planks when roads go into water
 Added more dimension allow/disallow config entries. 
  The new entries will be automatically added to your current entries the first time you launch v3.0.2 RS. 
 
+##### Advancement/Lang:
+Fixed typo with underground bastion advancement name and typo with igloo advancement description
+
 
 ### **(V.3.0.1 Changes) (1.16.5 Minecraft)**
 
