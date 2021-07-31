@@ -3,6 +3,9 @@
 ##### Villages:
 Fixed Oak Villages placing Birch Planks when roads go into water
 
+##### Advancement/Lang:
+Fixed typo with underground bastion advancement name and typo with igloo advancement description
+
 
 ### **(V.2.1.7 Changes) (1.17.1 Minecraft)**
 
