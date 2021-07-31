@@ -4,6 +4,8 @@
 Fixed Oak Villages placing Birch Planks when roads go into water
 
 ##### Mineshafts:
+Significantly sped up /locate for RS Mineshafts
+
 Slightly improved End Mineshaft's behavior when raising the minimum y value of the dimension by datapack
 
 Lowered the default config height values for End Mineshafts
