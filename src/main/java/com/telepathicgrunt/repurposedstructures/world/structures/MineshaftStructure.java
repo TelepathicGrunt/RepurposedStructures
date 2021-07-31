@@ -47,7 +47,7 @@ public class MineshaftStructure extends AdvancedJigsawStructure {
         int chunkPosZ = blockPos.getZ() >> 4;
         int currentRadius = 0;
         WorldgenRandom msRandom = new WorldgenRandom();
-        
+
         for(WorldgenRandom chunkRandom = new WorldgenRandom(); currentRadius <= 100000; ++currentRadius) {
             for(int xRadius = -currentRadius; xRadius <= currentRadius; ++xRadius) {
                 boolean xEdge = xRadius == -currentRadius || xRadius == currentRadius;
@@ -59,7 +59,7 @@ public class MineshaftStructure extends AdvancedJigsawStructure {
                         int trueChunkZ = chunkPosZ + spacing * zRadius;
                         ChunkPos chunkPos = structure.getPotentialFeatureChunk(structureConfig, seed, chunkRandom, trueChunkX, trueChunkZ);
 
-                        // Speedup for mineshafts by checking probaility chance before getChunk or grabbing biome.
+                        // Speedup for mineshafts by checking probability chance before getChunk or grabbing biome.
                         msRandom.setLargeFeatureSeed(seed + structureConfig.salt(), chunkPos.x, chunkPos.z);
                         double d = (probability / 10000D);
                         if(msRandom.nextDouble() < d && worldView.getNoiseBiome((chunkPos.x << 2) + 2, 60, (chunkPos.z << 2) + 2).getGenerationSettings().isValidStart(structure)) {
