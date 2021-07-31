@@ -8,6 +8,8 @@ RS Overworld Villages centers will not spawn within 6 chunks of Vanilla Villages
 Fixed Oak Villages placing Birch Planks when roads go into water
 
 ##### Mineshafts:
+Significantly sped up /locate for RS Mineshafts
+
 Lowered the default config height values for End Mineshafts
 
 ##### Config:
