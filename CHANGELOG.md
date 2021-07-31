@@ -7,12 +7,15 @@ RS Overworld Villages centers will not spawn within 6 chunks of Vanilla Villages
 
 Fixed Oak Villages placing Birch Planks when roads go into water
 
+##### Mineshafts:
+Lowered the default config height values for End Mineshafts
+
 ##### Config:
 Added more dimension allow/disallow config entries. 
  The new entries will be automatically added to your current entries the first time you launch v3.0.2 RS. 
 
 ##### Advancement/Lang:
-Fixed typo with underground bastion advancement name and typo with igloo advancement description
+Fixed typo with Underground Bastion advancement name and typo with Igloo advancement description
 
 
 ### **(V.3.0.1 Changes) (1.16.5 Minecraft)**

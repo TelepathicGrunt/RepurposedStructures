@@ -65,7 +65,7 @@ public class RSPyramidsConfig
 				.defineInRange("pyramidMushroomMaxChunkDistance", 24, 1, 1001));
 
 			pyramidOceanMaxChunkDistance = subscriber.subscribe(builder
-				.comment("\n How rare are Ocean Pyramid in Ocean biomes. ",
+				.comment("\n How rare are Ocean Pyramid in Ocean biomes.",
 						" 1 for spawning in most chunks and 1001 for none.")
 				.translation("repurposedstructures.config.pyramids.pyramidoceanmaxchunkdistance")
 				.defineInRange("pyramidOceanMaxChunkDistance", 40, 1, 1001));
@@ -77,7 +77,7 @@ public class RSPyramidsConfig
 				.defineInRange("pyramidGiantTreeTaigaMaxChunkDistance", 40, 1, 1001));
 
 			pyramidFlowerForestMaxChunkDistance = subscriber.subscribe(builder
-				.comment("\n How rare are Flower Forest Pyramid in Flower Forest biomes. ",
+				.comment("\n How rare are Flower Forest Pyramid in Flower Forest biomes.",
 						" 1 for spawning in most chunks and 1001 for none.")
 				.translation("repurposedstructures.config.pyramids.pyramidflowerforestmaxchunkdistance")
 				.defineInRange("pyramidFlowerForestMaxChunkDistance", 36, 1, 1001));

@@ -97,7 +97,7 @@ public class RSDungeonsConfig
 					.defineInRange("snowDungeonAttemptsPerChunk", 8, 0, 1000));
 
 				icyDungeonAttemptsPerChunk = subscriber.subscribe(builder
-					.comment("\n Replaces vanilla dungeon in icy biomes with ice themed dungeons. ",
+					.comment("\n Replaces vanilla dungeon in icy biomes with ice themed dungeons.",
 							"\n (targets non-ocean biomes that are super cold or has frozen/ice/icy in name)",
 							" How often dungeons will attempt to spawn per chunk.",
 							" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.",
@@ -144,67 +144,67 @@ public class RSDungeonsConfig
 			builder.push("Min Height");
 
 				badlandsDungeonMinHeight = subscriber.subscribe(builder
-						.comment("\n Minimum Y height that this dungeon can spawn at. Default is 2.",
+						.comment("\n Minimum Y height that this dungeon can spawn at.",
 							" Note: The dungeon will spawn between min and max y height set in config.")
 					.translation("repurposedstructures.config.dungeons.badlandsdungeonminheight")
 					.defineInRange("badlandsDungeonMinHeight", 2, 2, 255));
 
 				darkForestDungeonMinHeight = subscriber.subscribe(builder
-						.comment("\n Minimum Y height that this dungeon can spawn at. Default is 2.",
+						.comment("\n Minimum Y height that this dungeon can spawn at.",
 							" Note: The dungeon will spawn between min and max y height set in config.")
 					.translation("repurposedstructures.config.dungeons.darkforestdungeonminheight")
 					.defineInRange("darkForestDungeonMinHeight", 2, 2, 255));
 
 				desertDungeonMinHeight = subscriber.subscribe(builder
-						.comment("\n Minimum Y height that this dungeon can spawn at. Default is 2.",
+						.comment("\n Minimum Y height that this dungeon can spawn at.",
 							" Note: The dungeon will spawn between min and max y height set in config.")
 					.translation("repurposedstructures.config.dungeons.desertdungeonminheight")
 					.defineInRange("desertDungeonMinHeight", 2, 2, 255));
 
 				jungleDungeonMinHeight = subscriber.subscribe(builder
-						.comment("\n Minimum Y height that this dungeon can spawn at. Default is 2.",
+						.comment("\n Minimum Y height that this dungeon can spawn at.",
 							" Note: The dungeon will spawn between min and max y height set in config.")
 					.translation("repurposedstructures.config.dungeons.jungledungeonminheight")
 					.defineInRange("jungleDungeonMinHeight", 2, 2, 255));
 
 				mushroomDungeonMinHeight = subscriber.subscribe(builder
-						.comment("\n Minimum Y height that this dungeon can spawn at. Default is 2.",
+						.comment("\n Minimum Y height that this dungeon can spawn at.",
 							" Note: The dungeon will spawn between min and max y height set in config.")
 					.translation("repurposedstructures.config.dungeons.mushroomdungeonminheight")
 					.defineInRange("mushroomDungeonMinHeight", 2, 2, 255));
 
 				snowDungeonMinHeight = subscriber.subscribe(builder
-						.comment("\n Minimum Y height that this dungeon can spawn at. Default is 2.",
+						.comment("\n Minimum Y height that this dungeon can spawn at.",
 							" Note: The dungeon will spawn between min and max y height set in config.")
 					.translation("repurposedstructures.config.dungeons.snowdungeonminheight")
 					.defineInRange("snowDungeonMinHeight", 2, 2, 255));
 
 				icyDungeonMinHeight = subscriber.subscribe(builder
-						.comment("\n Minimum Y height that this dungeon can spawn at. Default is 2.",
+						.comment("\n Minimum Y height that this dungeon can spawn at.",
 							" Note: The dungeon will spawn between min and max y height set in config.")
 					.translation("repurposedstructures.config.dungeons.icydungeonminheight")
 					.defineInRange("icyDungeonMinHeight", 2, 2, 255));
 
 				swampDungeonMinHeight = subscriber.subscribe(builder
-						.comment("\n Minimum Y height that this dungeon can spawn at. Default is 2.",
+						.comment("\n Minimum Y height that this dungeon can spawn at.",
 							" Note: The dungeon will spawn between min and max y height set in config.")
 					.translation("repurposedstructures.config.dungeons.swampdungeonminheight")
 					.defineInRange("swampDungeonMinHeight", 2, 2, 255));
 
 				endDungeonMinHeight = subscriber.subscribe(builder
-						.comment("\n Minimum Y height that this dungeon can spawn at. Default is 2.",
+						.comment("\n Minimum Y height that this dungeon can spawn at.",
 							" Note: The dungeon will spawn between min and max y height set in config.")
 					.translation("repurposedstructures.config.dungeons.enddungeonminheight")
 					.defineInRange("endDungeonMinHeight", 2, 2, 255));
 
 				netherDungeonMinHeight = subscriber.subscribe(builder
-						.comment("\n Minimum Y height that this dungeon can spawn at. Default is 2.",
+						.comment("\n Minimum Y height that this dungeon can spawn at.",
 							" Note: The dungeon will spawn between min and max y height set in config.")
 					.translation("repurposedstructures.config.dungeons.netherdungeonminheight")
 					.defineInRange("netherDungeonMinHeight", 2, 2, 255));
 
 				oceanDungeonMinHeight = subscriber.subscribe(builder
-						.comment("\n Minimum Y height that this dungeon can spawn at. Default is 3.",
+						.comment("\n Minimum Y height that this dungeon can spawn at.",
 							" Note: The dungeon will spawn between min and max y height set in config.")
 					.translation("repurposedstructures.config.dungeons.oceandungeonminheight")
 					.defineInRange("oceanDungeonMinHeight", 3, 3, 255));
@@ -215,77 +215,77 @@ public class RSDungeonsConfig
 			builder.push("Max Height");
 
 				badlandsDungeonMaxHeight = subscriber.subscribe(builder
-						.comment("\n Maximum Y height that this dungeon can spawn at. Default is 255.",
+						.comment("\n Maximum Y height that this dungeon can spawn at.",
 							" Note: The dungeon will spawn between min and max y height set in config.",
 							" Setting this to below min height config will make dungeon spawn only at min height.")
 					.translation("repurposedstructures.config.dungeons.badlandsdungeonmaxheight")
 					.defineInRange("badlandsDungeonMaxHeight", 255, 2, 255));
 
 				darkForestDungeonMaxHeight = subscriber.subscribe(builder
-						.comment("\n Maximum Y height that this dungeon can spawn at. Default is 255.",
+						.comment("\n Maximum Y height that this dungeon can spawn at.",
 							" Note: The dungeon will spawn between min and max y height set in config.",
 							" Setting this to below min height config will make dungeon spawn only at min height.")
 					.translation("repurposedstructures.config.dungeons.darkforestdungeonmaxheight")
 					.defineInRange("darkForestDungeonMaxHeight", 255, 2, 255));
 
 				desertDungeonMaxHeight = subscriber.subscribe(builder
-						.comment("\n Maximum Y height that this dungeon can spawn at. Default is 255.",
+						.comment("\n Maximum Y height that this dungeon can spawn at.",
 							" Note: The dungeon will spawn between min and max y height set in config.",
 							" Setting this to below min height config will make dungeon spawn only at min height.")
 					.translation("repurposedstructures.config.dungeons.desertdungeonmaxheight")
 					.defineInRange("desertDungeonMaxHeight", 255, 2, 255));
 
 				jungleDungeonMaxHeight = subscriber.subscribe(builder
-						.comment("\n Maximum Y height that this dungeon can spawn at. Default is 255.",
+						.comment("\n Maximum Y height that this dungeon can spawn at.",
 							" Note: The dungeon will spawn between min and max y height set in config.",
 							" Setting this to below min height config will make dungeon spawn only at min height.")
 					.translation("repurposedstructures.config.dungeons.jungledungeonmaxheight")
 					.defineInRange("jungleDungeonMaxHeight", 255, 2, 255));
 
 				mushroomDungeonMaxHeight = subscriber.subscribe(builder
-						.comment("\n Maximum Y height that this dungeon can spawn at. Default is 255.",
+						.comment("\n Maximum Y height that this dungeon can spawn at.",
 							" Note: The dungeon will spawn between min and max y height set in config.",
 							" Setting this to below min height config will make dungeon spawn only at min height.")
 					.translation("repurposedstructures.config.dungeons.mushroomdungeonmaxheight")
 					.defineInRange("mushroomDungeonMaxHeight", 255, 2, 255));
 
 				snowDungeonMaxHeight = subscriber.subscribe(builder
-						.comment("\n Maximum Y height that this dungeon can spawn at. Default is 255.",
+						.comment("\n Maximum Y height that this dungeon can spawn at.",
 							" Note: The dungeon will spawn between min and max y height set in config.",
 							" Setting this to below min height config will make dungeon spawn only at min height.")
 					.translation("repurposedstructures.config.dungeons.snowdungeonmaxheight")
 					.defineInRange("snowDungeonMaxHeight", 255, 2, 255));
 
 				icyDungeonMaxHeight = subscriber.subscribe(builder
-						.comment("\n Maximum Y height that this dungeon can spawn at. Default is 255.",
+						.comment("\n Maximum Y height that this dungeon can spawn at.",
 							" Note: The dungeon will spawn between min and max y height set in config.",
 							" Setting this to below min height config will make dungeon spawn only at min height.")
 					.translation("repurposedstructures.config.dungeons.icydungeonmaxheight")
 					.defineInRange("icyDungeonMaxHeight", 255, 2, 255));
 
 				swampDungeonMaxHeight = subscriber.subscribe(builder
-						.comment("\n Maximum Y height that this dungeon can spawn at. Default is 255.",
+						.comment("\n Maximum Y height that this dungeon can spawn at.",
 							" Note: The dungeon will spawn between min and max y height set in config.",
 							" Setting this to below min height config will make dungeon spawn only at min height.")
 					.translation("repurposedstructures.config.dungeons.swampdungeonmaxheight")
 					.defineInRange("swampDungeonMaxHeight", 255, 2, 255));
 
 				endDungeonMaxHeight = subscriber.subscribe(builder
-						.comment("\n Maximum Y height that this dungeon can spawn at. Default is 255.",
+						.comment("\n Maximum Y height that this dungeon can spawn at.",
 							" Note: The dungeon will spawn between min and max y height set in config.",
 							" Setting this to below min height config will make dungeon spawn only at min height.")
 					.translation("repurposedstructures.config.dungeons.enddungeonmaxheight")
 					.defineInRange("endDungeonMaxHeight", 255, 2, 255));
 
 				netherDungeonMaxHeight = subscriber.subscribe(builder
-						.comment("\n Maximum Y height that this dungeon can spawn at. Default is 255.",
+						.comment("\n Maximum Y height that this dungeon can spawn at.",
 							" Note: The dungeon will spawn between min and max y height set in config.",
 							" Setting this to below min height config will make dungeon spawn only at min height.")
 					.translation("repurposedstructures.config.dungeons.netherdungeonmaxheight")
 					.defineInRange("netherDungeonMaxHeight", 255, 2, 255));
 
 				oceanDungeonMaxHeight = subscriber.subscribe(builder
-						.comment("\n Maximum Y height that this dungeon can spawn at. Default is 255.",
+						.comment("\n Maximum Y height that this dungeon can spawn at.",
 							" Note: The dungeon will spawn between min and max y height set in config.",
 							" Setting this to below min height config will make dungeon spawn only at min height.")
 					.translation("repurposedstructures.config.dungeons.oceandungeonmaxheight")

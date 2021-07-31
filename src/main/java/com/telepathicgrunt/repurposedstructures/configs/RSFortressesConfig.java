@@ -28,15 +28,13 @@ public class RSFortressesConfig
 					.defineInRange("jungleFortressSize", 10, 1, 18));
 
 			jungleFortressMinHeight = subscriber.subscribe(builder
-					.comment("\n Min Y height that the starting point can spawn at."
-							+ "\nDefault is 56.")
+					.comment("\n Min Y height that the starting point can spawn at.")
 					.translation("repurposedstructures.config.junglefortress.junglefortressminheight")
 					.defineInRange("jungleFortressMinHeight", 56, 0, 255));
 
 			jungleFortressMaxHeight = subscriber.subscribe(builder
-					.comment("\n Max Y height that the starting point can spawn at."
-							+ "\nDefault is 63."
-							+ "\nIf below min height, this will be read as min.")
+					.comment("\n Max Y height that the starting point can spawn at.",
+							"\nIf below min height, this will be read as min.")
 					.translation("repurposedstructures.config.junglefortress.junglefortressmaxheight")
 					.defineInRange("jungleFortressMaxHeight", 63, 0, 255));
 
