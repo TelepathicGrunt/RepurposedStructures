@@ -32,7 +32,7 @@ public class MineshaftStructure extends AdvancedJigsawStructure {
         StructureFeatureConfiguration structureConfig = chunkGenerator.getSettings().getConfig(this);
         if(structureConfig != null) {
             chunkRandom.setLargeFeatureSeed(seed + structureConfig.salt(), chunkPos1.x, chunkPos1.z);
-            double d = (probability / 10000D);
+            double d = (this.probability / 10000D);
             return chunkRandom.nextDouble() < d;
         }
         return false;

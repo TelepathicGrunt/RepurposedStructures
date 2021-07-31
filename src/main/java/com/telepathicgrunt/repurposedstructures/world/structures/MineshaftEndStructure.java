@@ -28,34 +28,30 @@ public class MineshaftEndStructure extends MineshaftStructure {
 
     @Override
     protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, WorldgenRandom chunkRandom, ChunkPos chunkPos1, Biome biome, ChunkPos chunkPos, NoneFeatureConfiguration featureConfig, LevelHeightAccessor heightLimitView) {
-        StructureFeatureConfiguration structureConfig = chunkGenerator.getSettings().getConfig(this);
-        if(structureConfig != null) {
-            chunkRandom.setLargeFeatureSeed(seed + structureConfig.salt(), chunkPos1.x, chunkPos1.z);
-            double d = (probability / 10000D);
-            if (chunkRandom.nextDouble() < d) {
-                if(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.misc.barrensIslandsEndMineshafts)
-                    return true;
+        boolean superCheck = super.isFeatureChunk(chunkGenerator, biomeSource, seed, chunkRandom, chunkPos1, biome, chunkPos, featureConfig, heightLimitView);
+        if(!superCheck)
+            return false;
 
-                int minLandHeight = Math.min(chunkGenerator.getGenDepth(), chunkGenerator.getMinY() + 45);
-                int xPos = chunkPos1.getMinBlockX();
-                int zPos = chunkPos1.getMinBlockZ();
-                int landHeight = chunkGenerator.getFirstOccupiedHeight(xPos, zPos, Heightmap.Types.WORLD_SURFACE_WG, heightLimitView);
-                if(landHeight < minLandHeight) return false;
+        if(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.misc.barrensIslandsEndMineshafts)
+            return true;
 
-                landHeight = Math.min(landHeight, chunkGenerator.getFirstOccupiedHeight(xPos + 70, zPos, Heightmap.Types.WORLD_SURFACE_WG, heightLimitView));
-                if(landHeight < minLandHeight) return false;
+        int minLandHeight = Math.min(chunkGenerator.getGenDepth(), chunkGenerator.getMinY() + 45);
+        int xPos = chunkPos1.getMinBlockX();
+        int zPos = chunkPos1.getMinBlockZ();
+        int landHeight = chunkGenerator.getFirstOccupiedHeight(xPos, zPos, Heightmap.Types.WORLD_SURFACE_WG, heightLimitView);
+        if(landHeight < minLandHeight) return false;
 
-                landHeight = Math.min(landHeight, chunkGenerator.getFirstOccupiedHeight(xPos, zPos + 70, Heightmap.Types.WORLD_SURFACE_WG, heightLimitView));
-                if(landHeight < minLandHeight) return false;
+        landHeight = Math.min(landHeight, chunkGenerator.getFirstOccupiedHeight(xPos + 70, zPos, Heightmap.Types.WORLD_SURFACE_WG, heightLimitView));
+        if(landHeight < minLandHeight) return false;
 
-                landHeight = Math.min(landHeight, chunkGenerator.getFirstOccupiedHeight(xPos - 70, zPos, Heightmap.Types.WORLD_SURFACE_WG, heightLimitView));
-                if(landHeight < minLandHeight) return false;
+        landHeight = Math.min(landHeight, chunkGenerator.getFirstOccupiedHeight(xPos, zPos + 70, Heightmap.Types.WORLD_SURFACE_WG, heightLimitView));
+        if(landHeight < minLandHeight) return false;
 
-                landHeight = Math.min(landHeight, chunkGenerator.getFirstOccupiedHeight(xPos, zPos - 70, Heightmap.Types.WORLD_SURFACE_WG, heightLimitView));
-                return landHeight >= minLandHeight;
-            }
-        }
-        return false;
+        landHeight = Math.min(landHeight, chunkGenerator.getFirstOccupiedHeight(xPos - 70, zPos, Heightmap.Types.WORLD_SURFACE_WG, heightLimitView));
+        if(landHeight < minLandHeight) return false;
+
+        landHeight = Math.min(landHeight, chunkGenerator.getFirstOccupiedHeight(xPos, zPos - 70, Heightmap.Types.WORLD_SURFACE_WG, heightLimitView));
+        return landHeight >= minLandHeight;
     }
 
 

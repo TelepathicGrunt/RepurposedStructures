@@ -3,8 +3,13 @@
 ##### Villages:
 Fixed Oak Villages placing Birch Planks when roads go into water
 
+##### Mineshafts:
+Slightly improved End Mineshaft's behavior when raising the minimum y value of the dimension by datapack
+
+Lowered the default config height values for End Mineshafts
+
 ##### Advancement/Lang:
-Fixed typo with underground bastion advancement name and typo with igloo advancement description
+Fixed typo with Underground Bastion advancement name and typo with Igloo advancement description
 
 
 ### **(V.2.1.7 Changes) (1.17.1 Minecraft)**
