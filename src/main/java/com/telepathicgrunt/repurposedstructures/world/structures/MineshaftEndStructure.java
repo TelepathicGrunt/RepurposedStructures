@@ -10,7 +10,6 @@ import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.settings.StructureSeparationSettings;
 
 import java.util.Map;
 
@@ -36,7 +35,7 @@ public class MineshaftEndStructure extends MineshaftStructure {
 
         int minLandHeight = Math.min(chunkGenerator.getGenDepth(), 45);
         int xPos = chunkX * 16;
-        int zPos = chunkZ * 16 ;
+        int zPos = chunkZ * 16;
         int landHeight = chunkGenerator.getFirstOccupiedHeight(xPos, zPos, Heightmap.Type.WORLD_SURFACE_WG);
 
         landHeight = Math.min(landHeight, chunkGenerator.getFirstOccupiedHeight(xPos + 70, zPos, Heightmap.Type.WORLD_SURFACE_WG));
