@@ -31,7 +31,7 @@ public class MineshaftStructure extends AdvancedJigsawStructure {
         StructureSeparationSettings structureConfig = chunkGenerator.getSettings().getConfig(this);
         if(structureConfig != null) {
             chunkRandom.setLargeFeatureSeed(seed + structureConfig.salt(), chunkX, chunkZ);
-            double d = (probability / 10000D);
+            double d = (this.probability / 10000D);
             return chunkRandom.nextDouble() < d;
         }
         return false;
