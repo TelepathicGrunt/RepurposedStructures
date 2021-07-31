@@ -64,9 +64,20 @@ public class RSBiomeDimConfig implements Config {
             addEntries(allowedBiomes, "repurposed_structures:village_birch", "lotr:lindon_woodlands");
             addEntries(allowedBiomes, "repurposed_structures:witch_hut_birch", "lotr:lindon_woodlands");
             addEntries(allowedBiomes, "repurposed_structures:witch_hut_taiga", "lotr:snowy_northlands_forest");
+            configVersion = 2;
         }
 
-        configVersion = 2;
+        if(configVersion == 2){
+            removeEntries(disallowedBiomes, "repurposed_structures:village_oak", "lotr:lindon_woodlands");
+            removeEntries(disallowedBiomes, "repurposed_structures:village_oak", "lotr:snowy_northlands_forest");
+            removeEntries(allowedBiomes, "repurposed_structures:village_birch", "lotr:lindon_woodlands");
+
+            addEntries(disallowedDimensions, "repurposed_structures:village_oak", "lotr:middle_earth");
+            addEntries(disallowedDimensions, "repurposed_structures:village_mountain", "lotr:middle_earth");
+            addEntries(disallowedDimensions, "repurposed_structures:village_swamp", "lotr:middle_earth");
+        }
+
+        configVersion = 3;
         Config.super.save();
     }
 
@@ -74,6 +85,22 @@ public class RSBiomeDimConfig implements Config {
         // assign entry
         if(map.putIfAbsent(key, entry) != null && !map.get(key).contains(entry)){
             map.put(key, map.get(key) + ", " + entry); // append entry
+        }
+    }
+
+    private void removeEntries(Map<String, String> map, String key, String entry){
+        if(map.containsKey(key) && map.get(key).contains(entry)){
+            String newEntry = map.get(key)
+                    .replace(entry+", ", "")
+                    .replace(entry+",", "")
+                    .replace(entry, "");
+
+            if(newEntry.isEmpty()){
+                map.remove(key);
+            }
+            else{
+                map.put(key, newEntry);
+            }
         }
     }
 
@@ -130,7 +157,10 @@ public class RSBiomeDimConfig implements Config {
             new AbstractMap.SimpleEntry<>("repurposed_structures:ruins_land_hot", "lotr:middle_earth"),
             new AbstractMap.SimpleEntry<>("repurposed_structures:outpost_desert", "lotr:middle_earth"),
             new AbstractMap.SimpleEntry<>("repurposed_structures:outpost_oak", "lotr:middle_earth"),
-            new AbstractMap.SimpleEntry<>("repurposed_structures:outpost_snowy", "lotr:middle_earth")
+            new AbstractMap.SimpleEntry<>("repurposed_structures:outpost_snowy", "lotr:middle_earth"),
+            new AbstractMap.SimpleEntry<>("repurposed_structures:village_oak", "lotr:middle_earth"),
+            new AbstractMap.SimpleEntry<>("repurposed_structures:village_mountain", "lotr:middle_earth"),
+            new AbstractMap.SimpleEntry<>("repurposed_structures:village_swamp", "lotr:middle_earth")
     ).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 
     @Comment("\n"+
@@ -205,7 +235,6 @@ public class RSBiomeDimConfig implements Config {
             "\n//  https://github.com/TelepathicGrunt/RepurposedStructures/blob/27c8c23d5b6ee1ba1f894df874d62e5982d39fd5/src/main/java/com/telepathicgrunt/repurposedstructures/modinit/RSConfiguredFeatures.java#L251-L273"
     )
     public final Map<String, String> disallowedBiomes = Stream.of(
-            new AbstractMap.SimpleEntry<>("repurposed_structures:village_oak", "lotr:lindon_woodlands, lotr:snowy_northlands_forest"),
             new AbstractMap.SimpleEntry<>("repurposed_structures:witch_hut_oak", "lotr:lindon_woodlands, lotr:snowy_northlands_forest")
     ).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 
@@ -242,7 +271,6 @@ public class RSBiomeDimConfig implements Config {
             "\n//  https://github.com/TelepathicGrunt/RepurposedStructures/blob/27c8c23d5b6ee1ba1f894df874d62e5982d39fd5/src/main/java/com/telepathicgrunt/repurposedstructures/modinit/RSConfiguredFeatures.java#L251-L273"
     )
     public final Map<String, String> allowedBiomes = Stream.of(
-            new AbstractMap.SimpleEntry<>("repurposed_structures:village_birch", "lotr:lindon_woodlands"),
             new AbstractMap.SimpleEntry<>("repurposed_structures:witch_hut_birch", "lotr:lindon_woodlands"),
             new AbstractMap.SimpleEntry<>("repurposed_structures:witch_hut_taiga", "lotr:snowy_northlands_forest")
     ).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
@@ -256,5 +284,5 @@ public class RSBiomeDimConfig implements Config {
             "\n"+
             "\n// for internal use only. Do not change this."
     )
-    public int configVersion = 2;
+    public int configVersion = 3;
 }

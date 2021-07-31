@@ -1,3 +1,11 @@
+### **(V.3.0.3 Changes) (1.16.5 Minecraft)**
+
+##### Config:
+Changed default values to disallow villages in lotr mod's dimension.
+  The modified entries will be automatically added to your current entries the first time you launch v3.0.3 RS.
+
+
+
 ### **(V.3.0.2 Changes) (1.16.5 Minecraft)**
 
 ##### Villages:

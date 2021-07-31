@@ -58,7 +58,7 @@ public class MineshaftStructure extends AdvancedJigsawStructure {
                         int trueChunkZ = chunkZ + spacing * zRadius;
                         ChunkPos chunkPos = structure.getPotentialFeatureChunk(structureConfig, seed, chunkRandom, trueChunkX, trueChunkZ);
 
-                        // Speedup for mineshafts by checking probaility chance before getChunk or grabbing biome.
+                        // Speedup for mineshafts by checking probability chance before getChunk or grabbing biome.
                         msRandom.setLargeFeatureSeed(seed + structureConfig.salt(), chunkPos.x, chunkPos.z);
                         double d = (probability / 10000D);
                         if(msRandom.nextDouble() < d && worldView.getNoiseBiome((chunkPos.x << 2) + 2, 60, (chunkPos.z << 2) + 2).getGenerationSettings().isValidStart(structure)) {
