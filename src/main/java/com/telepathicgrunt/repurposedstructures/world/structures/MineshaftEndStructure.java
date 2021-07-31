@@ -36,10 +36,11 @@ public class MineshaftEndStructure extends MineshaftStructure {
                 if(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.misc.barrensIslandsEndMineshafts)
                     return true;
 
-                int minLandHeight = Math.min(chunkGenerator.getGenDepth(), 45);
+                int minLandHeight = Math.min(chunkGenerator.getGenDepth(), chunkGenerator.getMinY() + 45);
                 int xPos = chunkPos1.getMinBlockX();
                 int zPos = chunkPos1.getMinBlockZ();
                 int landHeight = chunkGenerator.getFirstOccupiedHeight(xPos, zPos, Heightmap.Types.WORLD_SURFACE_WG, heightLimitView);
+                if(landHeight < minLandHeight) return false;
 
                 landHeight = Math.min(landHeight, chunkGenerator.getFirstOccupiedHeight(xPos + 70, zPos, Heightmap.Types.WORLD_SURFACE_WG, heightLimitView));
                 if(landHeight < minLandHeight) return false;
