@@ -115,6 +115,12 @@ public class ConfigHelper
 			this.value = this.configValue.get();
 		}
 
+		public void setAndSave(T newValue)
+		{
+			this.configValue.set(newValue);
+			this.configValue.save();
+		}
+
 		@Override
 		public T get()
 		{
