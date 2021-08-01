@@ -1,5 +1,8 @@
 ### **(V.3.0.3 Changes) (1.16.5 Minecraft)**
 
+##### Dungeons:
+Fixed double chests only having loot for 1 chest instead of 2 in RS Dunegons.
+
 ##### Config:
 Changed default values to disallow villages in lotr mod's dimension.
   The modified entries will be automatically added to your current entries the first time you launch v3.0.3 RS.
