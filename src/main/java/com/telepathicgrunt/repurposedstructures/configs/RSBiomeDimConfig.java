@@ -75,6 +75,7 @@ public class RSBiomeDimConfig implements Config {
             addEntries(disallowedDimensions, "repurposed_structures:village_oak", "lotr:middle_earth");
             addEntries(disallowedDimensions, "repurposed_structures:village_mountain", "lotr:middle_earth");
             addEntries(disallowedDimensions, "repurposed_structures:village_swamp", "lotr:middle_earth");
+            addEntries(disallowedDimensions, "repurposed_structures:igloo_grassy", "lotr:middle_earth");
         }
 
         configVersion = 3;
@@ -160,7 +161,8 @@ public class RSBiomeDimConfig implements Config {
             new AbstractMap.SimpleEntry<>("repurposed_structures:outpost_snowy", "lotr:middle_earth"),
             new AbstractMap.SimpleEntry<>("repurposed_structures:village_oak", "lotr:middle_earth"),
             new AbstractMap.SimpleEntry<>("repurposed_structures:village_mountain", "lotr:middle_earth"),
-            new AbstractMap.SimpleEntry<>("repurposed_structures:village_swamp", "lotr:middle_earth")
+            new AbstractMap.SimpleEntry<>("repurposed_structures:village_swamp", "lotr:middle_earth"),
+            new AbstractMap.SimpleEntry<>("repurposed_structures:igloo_grassy", "lotr:middle_earth")
     ).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 
     @Comment("\n"+
