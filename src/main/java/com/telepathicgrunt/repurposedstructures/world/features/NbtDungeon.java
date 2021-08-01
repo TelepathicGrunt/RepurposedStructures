@@ -264,6 +264,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                                                     .setValue(ChestBlock.FACING, currentDirection)
                                                     .setValue(ChestBlock.TYPE, chestTyping ? ChestType.RIGHT : ChestType.LEFT),
                                             2);
+                                    RandomizableContainerBlockEntity.setLootTable(world, random, mutable, config.chestResourcelocation);
 
                                     // Set neighboring chest to face same way too
                                     world.setBlock(mutable.move(neighborDirection),
@@ -271,7 +272,6 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                                                     .setValue(ChestBlock.FACING, currentDirection)
                                                     .setValue(ChestBlock.TYPE, chestTyping ? ChestType.LEFT : ChestType.RIGHT),
                                             2);
-
                                     RandomizableContainerBlockEntity.setLootTable(world, random, mutable, config.chestResourcelocation);
                                     SolidifyBlock(world, mutable.below());
 

@@ -1,3 +1,9 @@
+### **(V.2.1.9 Changes) (1.17.1 Minecraft)**
+
+##### Dungeons:
+Fixed double chests only having loot for 1 chest instead of 2 in RS Dunegons.
+
+
 ### **(V.2.1.8 Changes) (1.17.1 Minecraft)**
 
 ##### Villages:
