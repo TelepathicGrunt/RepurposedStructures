@@ -3,6 +3,9 @@
 ##### Dungeons:
 Fixed double chests only having loot for 1 chest instead of 2 in RS Dunegons.
 
+##### Misc:
+Fix potential issue where the structure check code may not work for preventing two specific structures from spawning on top of each other.
+
 
 ### **(V.2.1.8 Changes) (1.17.1 Minecraft)**
 

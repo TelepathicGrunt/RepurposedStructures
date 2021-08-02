@@ -71,9 +71,9 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NetherShipwr
         //cannot be near any other structure
         for (int curChunkX = chunkPos1.x - 3; curChunkX <= chunkPos1.x + 3; curChunkX++) {
             for (int curChunkZ = chunkPos1.z - 3; curChunkZ <= chunkPos1.z + 3; curChunkZ++) {
-                if(curChunkX == chunkPos1.x && curChunkZ == chunkPos1.z) continue; // Prevent detecting the structure itself and thus, never spawning if structure is in its own blacklist
-
                 for(StructureFeature<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE)){
+                    if(structureFeature == this) continue;
+
                     StructureFeatureConfiguration structureConfig = chunkGenerator.getSettings().getConfig(structureFeature);
                     if(structureConfig != null && structureConfig.spacing() > 8){
                         ChunkPos chunkPos2 = structureFeature.getPotentialFeatureChunk(structureConfig, seed, chunkRandom, curChunkX, curChunkZ);

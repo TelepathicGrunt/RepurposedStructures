@@ -82,10 +82,10 @@ public class GenericJigsawStructure extends AbstractBaseStructure<NoneFeatureCon
         //cannot be near other specified structure
         for (int curChunkX = chunkPos1.x - structureBlacklistRange; curChunkX <= chunkPos1.x + structureBlacklistRange; curChunkX++) {
             for (int curChunkZ = chunkPos1.z - structureBlacklistRange; curChunkZ <= chunkPos1.z + structureBlacklistRange; curChunkZ++) {
-                if(curChunkX == chunkPos1.x && curChunkZ == chunkPos1.z) continue; // Prevent detecting the structure itself and thus, never spawning if structure is in its own blacklist
-
                 for(RSStructureTagMap.STRUCTURE_TAGS tag : avoidStructuresSet){
                     for(StructureFeature<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(tag)){
+                        if(structureFeature == this) continue;
+
                         StructureFeatureConfiguration structureConfig = chunkGenerator.getSettings().getConfig(structureFeature);
                         if(structureConfig != null && structureConfig.spacing() > 8){
                             ChunkPos chunkPos2 = structureFeature.getPotentialFeatureChunk(structureConfig, seed, chunkRandom, curChunkX, curChunkZ);
