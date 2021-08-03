@@ -1,5 +1,8 @@
 ### **(V.3.0.3 Changes) (1.16.5 Minecraft)**
 
+##### Lang:
+Russian translation added by DrHesperus! Thank you!
+
 ##### Dungeons:
 Fixed double chests only having loot for 1 chest instead of 2 in RS Dunegons.
 
