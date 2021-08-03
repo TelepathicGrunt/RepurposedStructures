@@ -4,7 +4,8 @@
 Fixed double chests only having loot for 1 chest instead of 2 in RS Dunegons.
 
 ##### Config:
-Changed default values to disallow villages in lotr mod's dimension.
+Simplified and finalized the default configs for what structure spawns in lotr mod's dimension. 
+  No RS Structure with mobs will now spawn in that dimension.
   The modified entries will be automatically added to your current entries the first time you launch v3.0.3 RS.
 
 ##### Misc:
