@@ -6,6 +6,9 @@ Russian translation added by DrHesperus! Thank you!
 ##### Dungeons:
 Fixed double chests only having loot for 1 chest instead of 2 in RS Dunegons.
 
+##### Strongholds:
+Fixed prison trapped Wither Skeletons in Nether Strongholds so they spawn with more health now.
+
 ##### Config:
 Simplified and finalized the default configs for what structure spawns in lotr mod's dimension. 
   No RS Structure with mobs will now spawn in that dimension.
