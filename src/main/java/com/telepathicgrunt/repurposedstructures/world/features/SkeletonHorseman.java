@@ -59,6 +59,7 @@ public class SkeletonHorseman extends Feature<GenericMobConfig> {
 
         skeletonEntity.setPersistenceRequired();
         skeletonEntity.setHealth(context.config().health);
+        skeletonEntity.getAttribute(Attributes.MAX_HEALTH).setBaseValue(context.config().health);
         skeletonEntity.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(context.config().speedModifier);
         skeletonEntity.moveTo(
                 (double)context.origin().getX() + 0.5D,

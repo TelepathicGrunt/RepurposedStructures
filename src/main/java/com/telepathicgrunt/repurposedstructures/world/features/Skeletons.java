@@ -55,6 +55,7 @@ public class Skeletons extends Feature<GenericMobConfig> {
                 0.0F);
 
         skeletonEntity.setHealth(context.config().health);
+        skeletonEntity.getAttribute(Attributes.MAX_HEALTH).setBaseValue(context.config().health);
         skeletonEntity.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(context.config().speedModifier);
         context.level().addFreshEntityWithPassengers(skeletonEntity);
         return true;
