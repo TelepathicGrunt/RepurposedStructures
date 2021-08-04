@@ -207,15 +207,12 @@ public class RSBiomeDimConfig implements Config {
             new AbstractMap.SimpleEntry<>("repurposed_structures:igloo_grassy", "elvenation:elvenia_dimension"),
             new AbstractMap.SimpleEntry<>("repurposed_structures:mineshaft_jungle", "futurepack:tyros"),
             new AbstractMap.SimpleEntry<>("repurposed_structures:pyramid_jungle", "futurepack:tyros"),
-            new AbstractMap.SimpleEntry<>("repurposed_structures:dungeon_jungle", "futurepack:tyros"),
-            new AbstractMap.SimpleEntry<>("repurposed_structures:well_mossy_stone", "futurepack:tyros"),
             new AbstractMap.SimpleEntry<>("repurposed_structures:pyramid_snowy", "lotr:middle_earth"),
-            new AbstractMap.SimpleEntry<>("repurposed_structures:warm_land_ruins", "lotr:middle_earth"),
-            new AbstractMap.SimpleEntry<>("repurposed_structures:warm_land_ruins", "lotr:middle_earth"),
+            new AbstractMap.SimpleEntry<>("repurposed_structures:dungeon_jungle", "futurepack:tyros"),
             new AbstractMap.SimpleEntry<>("repurposed_structures:warm_land_ruins", "lotr:middle_earth"),
             new AbstractMap.SimpleEntry<>("repurposed_structures:well_forest", "lotr:middle_earth"),
             new AbstractMap.SimpleEntry<>("repurposed_structures:well_snow", "lotr:middle_earth"),
-            new AbstractMap.SimpleEntry<>("repurposed_structures:well_mossy_stone", "lotr:middle_earth")
+            new AbstractMap.SimpleEntry<>("repurposed_structures:well_mossy_stone", "futurepack:tyros, lotr:middle_earth")
     ).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 
     @Comment("\n"+
