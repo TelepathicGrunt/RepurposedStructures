@@ -5,6 +5,7 @@ import com.mojang.datafixers.util.Pair;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.mixin.JigsawPatternAccessor;
 import com.telepathicgrunt.repurposedstructures.mixin.SingleJigsawPieceAccessor;
+import com.telepathicgrunt.repurposedstructures.utils.BoxOctree;
 import net.minecraft.block.JigsawBlock;
 import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
@@ -12,9 +13,6 @@ import net.minecraft.util.Rotation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
-import net.minecraft.util.math.shapes.IBooleanFunction;
-import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.util.registry.DynamicRegistries;
 import net.minecraft.util.registry.MutableRegistry;
 import net.minecraft.util.registry.Registry;
@@ -120,24 +118,16 @@ public class PieceLimitedJigsawManager {
 
             if (jigsawConfig.maxDepth() > 0) {
                 AxisAlignedBB axisAlignedBB = new AxisAlignedBB(pieceCenterX - 80, pieceCenterY - 120, pieceCenterZ - 80, pieceCenterX + 80 + 1, pieceCenterY + 180 + 1, pieceCenterZ + 80 + 1);
+                BoxOctree boxOctree = new BoxOctree(axisAlignedBB); // The maximum boundary of the entire structure
+                Entry startPieceEntry = new Entry(startPiece, pieceCenterY + 80, 0);
+
                 Assembler assembler = new Assembler(jigsawPoolRegistry, jigsawConfig.maxDepth(), chunkGenerator, templateManager, components, random, requiredPieces, maxY, minY);
-                Entry startPieceEntry = new Entry(
-                        startPiece,
-                        new MutableObject<>(
-                                VoxelShapes.join(
-                                        VoxelShapes.create(axisAlignedBB),
-                                        VoxelShapes.create(AxisAlignedBB.of(pieceBoundingBox)),
-                                        IBooleanFunction.ONLY_FIRST
-                                )
-                        ),
-                        pieceCenterY + 80,
-                        0
-                );
                 assembler.availablePieces.addLast(startPieceEntry);
+                boxOctree.addBox(AxisAlignedBB.of(startPieceEntry.piece.getBoundingBox()));
 
                 while (!assembler.availablePieces.isEmpty()) {
                     Entry entry = assembler.availablePieces.removeFirst();
-                    assembler.generatePiece(entry.piece, entry.pieceShape, entry.minY, entry.depth, doBoundaryAdjustments);
+                    assembler.generatePiece(entry.piece, boxOctree, entry.minY, entry.depth, doBoundaryAdjustments);
                 }
             }
         }
@@ -192,7 +182,7 @@ public class PieceLimitedJigsawManager {
             this.requiredPieces.forEach((key, value) -> this.pieceCounts.putIfAbsent(key, value.getRequiredAmount()));
         }
 
-        public void generatePiece(AbstractVillagePiece piece, MutableObject<VoxelShape> voxelShape, int minY, int depth, boolean doBoundaryAdjustments) {
+        public void generatePiece(AbstractVillagePiece piece, BoxOctree boxOctree, int minY, int depth, boolean doBoundaryAdjustments) {
             // Collect data from params regarding piece to process
             JigsawPiece pieceBlueprint = piece.getElement();
             BlockPos piecePos = piece.getPosition();
@@ -201,7 +191,7 @@ public class PieceLimitedJigsawManager {
             int pieceMinY = pieceBoundingBox.y0;
 
             // I think this is a holder variable for reuse
-            MutableObject<VoxelShape> tempNewPieceVoxelShape = new MutableObject<>();
+            MutableObject<AxisAlignedBB> tempNewPieceAABB = new MutableObject<>();
 
             // Get list of all jigsaw blocks in this piece
             List<Template.BlockInfo> pieceJigsawBlocks = pieceBlueprint.getShuffledJigsawBlocks(this.templateManager, piecePos, pieceRotation, this.rand);
@@ -234,27 +224,27 @@ public class PieceLimitedJigsawManager {
 
                 // Adjustments for if the target block position is inside the current piece
                 boolean isTargetInsideCurrentPiece = pieceBoundingBox.isInside(jigsawBlockTargetPos);
-                MutableObject<VoxelShape> pieceVoxelShape;
+                MutableObject<AxisAlignedBB> pieceAABB;
                 int targetPieceBoundsTop;
                 if (isTargetInsideCurrentPiece) {
-                    pieceVoxelShape = tempNewPieceVoxelShape;
+                    pieceAABB = tempNewPieceAABB;
                     targetPieceBoundsTop = pieceMinY;
-                    if (tempNewPieceVoxelShape.getValue() == null) {
-                        tempNewPieceVoxelShape.setValue(VoxelShapes.create(AxisAlignedBB.of(pieceBoundingBox)));
+                    if (tempNewPieceAABB.getValue() == null) {
+                        tempNewPieceAABB.setValue(AxisAlignedBB.of(pieceBoundingBox));
                     }
                 } else {
-                    pieceVoxelShape = voxelShape;
+                    pieceAABB = null;
                     targetPieceBoundsTop = minY;
                 }
 
                 // Process the pool pieces, randomly choosing different pieces from the pool to spawn
                 if (depth != this.maxDepth) {
-                    JigsawPiece generatedPiece = this.processList(new ArrayList<>(((JigsawPatternAccessor)poolOptional.get()).repurposedstructures_getRawTemplates()), doBoundaryAdjustments, jigsawBlock, jigsawBlockTargetPos, pieceMinY, jigsawBlockPos, pieceVoxelShape, piece, depth, targetPieceBoundsTop);
+                    JigsawPiece generatedPiece = this.processList(new ArrayList<>(((JigsawPatternAccessor)poolOptional.get()).repurposedstructures_getRawTemplates()), doBoundaryAdjustments, jigsawBlock, jigsawBlockTargetPos, pieceMinY, jigsawBlockPos, pieceAABB, boxOctree, piece, depth, targetPieceBoundsTop);
                     if (generatedPiece != null) continue; // Stop here since we've already generated the piece
                 }
 
                 // Process the fallback pieces in the event none of the pool pieces work
-                this.processList(new ArrayList<>(((JigsawPatternAccessor)fallbackOptional.get()).repurposedstructures_getRawTemplates()), doBoundaryAdjustments, jigsawBlock, jigsawBlockTargetPos, pieceMinY, jigsawBlockPos, pieceVoxelShape, piece, depth, targetPieceBoundsTop);
+                this.processList(new ArrayList<>(((JigsawPatternAccessor)fallbackOptional.get()).repurposedstructures_getRawTemplates()), doBoundaryAdjustments, jigsawBlock, jigsawBlockTargetPos, pieceMinY, jigsawBlockPos, pieceAABB, boxOctree, piece, depth, targetPieceBoundsTop);
             }
         }
 
@@ -270,7 +260,8 @@ public class PieceLimitedJigsawManager {
                 BlockPos jigsawBlockTargetPos,
                 int pieceMinY,
                 BlockPos jigsawBlockPos,
-                MutableObject<VoxelShape> pieceVoxelShape,
+                MutableObject<AxisAlignedBB> parentBox,
+                BoxOctree boxOctree,
                 AbstractVillagePiece piece,
                 int depth,
                 int targetPieceBoundsTop
@@ -425,22 +416,24 @@ public class PieceLimitedJigsawManager {
                                 continue;
                             }
 
-                            // Some sort of final boundary check before adding the new piece.
-                            // Not sure why the candidate box is shrunk by 0.25.
-                            if (!VoxelShapes.joinIsNotEmpty
-                                    (
-                                            pieceVoxelShape.getValue(),
-                                            VoxelShapes.create(AxisAlignedBB.of(adjustedCandidateBoundingBox).deflate(0.25D)),
-                                            IBooleanFunction.ONLY_SECOND
-                                    )
-                            ) {
-                                pieceVoxelShape.setValue(
-                                        VoxelShapes.joinUnoptimized(
-                                                pieceVoxelShape.getValue(),
-                                                VoxelShapes.create(AxisAlignedBB.of(adjustedCandidateBoundingBox)),
-                                                IBooleanFunction.ONLY_FIRST
-                                        )
-                                );
+                            AxisAlignedBB axisAlignedBB = AxisAlignedBB.of(adjustedCandidateBoundingBox);
+                            boolean validBounds = false;
+
+                            // Make sure this inner child piece is entirely within the parent piece
+                            if(parentBox != null){
+                                if(parentBox.getValue().contains(axisAlignedBB.minX + 0.25f, axisAlignedBB.minY + 0.25f, axisAlignedBB.minZ + 0.25f) &&
+                                    parentBox.getValue().contains(axisAlignedBB.maxX - 0.25f, axisAlignedBB.maxY - 0.25f, axisAlignedBB.maxZ - 0.25f))
+                                {
+                                    validBounds = true;
+                                }
+                            }
+                            // Make sure we do not intersect our own structure anywhere
+                            else if (boxOctree.boundaryContains(axisAlignedBB) && !boxOctree.intersectsAnyBox(axisAlignedBB)) {
+                                boxOctree.addBox(axisAlignedBB);
+                                validBounds = true;
+                            }
+
+                            if (validBounds) {
 
                                 // Determine ground level delta for this new piece
                                 int newPieceGroundLevelDelta = piece.getGroundLevelDelta();
@@ -498,7 +491,7 @@ public class PieceLimitedJigsawManager {
                                 // Add the piece
                                 this.structurePieces.add(newPiece);
                                 if (depth + 1 <= this.maxDepth) {
-                                    this.availablePieces.addLast(new Entry(newPiece, pieceVoxelShape, targetPieceBoundsTop, depth + 1));
+                                    this.availablePieces.addLast(new Entry(newPiece, targetPieceBoundsTop, depth + 1));
                                 }
                                 // Update piece count, if an entry exists for this piece
                                 if (pieceName != null && this.pieceCounts.containsKey(pieceName)) {
@@ -518,13 +511,11 @@ public class PieceLimitedJigsawManager {
 
     public static final class Entry {
         public final AbstractVillagePiece piece;
-        public final MutableObject<VoxelShape> pieceShape;
         public final int minY;
         public final int depth;
 
-        public Entry(AbstractVillagePiece piece, MutableObject<VoxelShape> pieceShape, int minY, int depth) {
+        public Entry(AbstractVillagePiece piece, int minY, int depth) {
             this.piece = piece;
-            this.pieceShape = pieceShape;
             this.minY = minY;
             this.depth = depth;
         }

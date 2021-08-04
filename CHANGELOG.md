@@ -1,5 +1,8 @@
 ### **(V.3.0.3 Changes) (1.16.5 Minecraft)**
 
+##### Optimzation:
+Optimized RS Mineshafts, Nether Stronghold, and Jungle Fortress so they check their piece's bounding boxes more efficiently at generation.
+
 ##### Lang:
 Russian translation added by DrHesperus! Thank you!
 
