@@ -6,6 +6,9 @@ Russian translation added by DrHesperus! Thank you!
 ##### Dungeons:
 Fixed double chests only having loot for 1 chest instead of 2 in RS Dunegons.
 
+##### Bastions:
+Fixed Skeletons in Underground Bastions so they spawn with correct amount of health.
+
 ##### Strongholds:
 Fixed prison trapped Wither Skeletons in Nether Strongholds so they spawn with more health now.
 
