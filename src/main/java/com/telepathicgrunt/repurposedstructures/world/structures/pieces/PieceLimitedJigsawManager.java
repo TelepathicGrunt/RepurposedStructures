@@ -416,15 +416,10 @@ public class PieceLimitedJigsawManager {
 
                             AxisAlignedBB axisAlignedBB = AxisAlignedBB.of(adjustedCandidateBoundingBox);
                             AxisAlignedBB axisAlignedBBDeflated = axisAlignedBB.deflate(0.25D);
-                            boolean validBounds = false;
-
+                            
                             // Make sure new piece fits within the chosen octree without intersecting any other piece.
                             if (boxOctree.getValue().boundaryContains(axisAlignedBBDeflated) && !boxOctree.getValue().intersectsAnyBox(axisAlignedBBDeflated)) {
                                 boxOctree.getValue().addBox(axisAlignedBB);
-                                validBounds = true;
-                            }
-
-                            if (validBounds) {
 
                                 // Determine ground level delta for this new piece
                                 int newPieceGroundLevelDelta = piece.getGroundLevelDelta();
