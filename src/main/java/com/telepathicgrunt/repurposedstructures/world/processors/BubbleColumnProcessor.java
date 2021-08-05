@@ -23,8 +23,10 @@ public class BubbleColumnProcessor extends StructureProcessor {
     @Override
     public Template.BlockInfo processBlock(IWorldReader worldView, BlockPos pos, BlockPos blockPos, Template.BlockInfo structureBlockInfoLocal, Template.BlockInfo structureBlockInfoWorld, PlacementSettings structurePlacementData) {
         if(structureBlockInfoWorld.state.getBlock() == Blocks.BUBBLE_COLUMN){
-            IChunk chunk = worldView.getChunk(structureBlockInfoWorld.pos);
-            chunk.getBlockTicks().scheduleTick(structureBlockInfoWorld.pos,  structureBlockInfoWorld.state.getBlock(), 0);
+            if(structureBlockInfoWorld.pos.getY() > 0 && structureBlockInfoWorld.pos.getY() < worldView.dimensionType().logicalHeight()){
+                IChunk chunk = worldView.getChunk(structureBlockInfoWorld.pos);
+                chunk.getBlockTicks().scheduleTick(structureBlockInfoWorld.pos,  structureBlockInfoWorld.state.getBlock(), 0);
+            }
         }
         return structureBlockInfoWorld;
     }

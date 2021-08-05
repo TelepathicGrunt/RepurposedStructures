@@ -1,3 +1,9 @@
+### **(V.3.0.4 Changes) (1.16.5 Minecraft)**
+
+##### Pyramids:
+Restrict y range for the Bubble Column processor so that Ocean Pyramids do not crash if it tries to spawn below y = 0 or above y = 255.
+
+
 ### **(V.3.0.3 Changes) (1.16.5 Minecraft)**
 
 ##### Optimzation:
