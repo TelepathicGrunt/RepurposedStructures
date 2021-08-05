@@ -1,3 +1,9 @@
+### **(V2.1.11 Changes) (1.17.1 Minecraft)**
+
+##### Pyramids:
+Epic TelepathicGrunt moment lol. Hotfix to fix the broken Ocean Pyramid Bubble Processor fix.
+
+
 ### **(V2.1.10 Changes) (1.17.1 Minecraft)**
 
 ##### Pyramids:

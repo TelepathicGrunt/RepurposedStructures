@@ -26,10 +26,12 @@ public class BubbleColumnProcessor extends StructureProcessor {
         if(structureBlockInfoWorld.state.getBlock() == Blocks.BUBBLE_COLUMN){
             ChunkAccess chunk = worldView.getChunk(structureBlockInfoWorld.pos);
 
-            if(chunk.getMinBuildHeight() >= structureBlockInfoWorld.pos.getY() &&
-                chunk.getMaxBuildHeight() <= structureBlockInfoWorld.pos.getY())
+            int minY = chunk.getMinBuildHeight();
+            int maxY = chunk.getMaxBuildHeight();
+            int currentY = structureBlockInfoWorld.pos.getY();
+            if(currentY >= minY && currentY <= maxY)
             {
-                chunk.getBlockTicks().scheduleTick(structureBlockInfoWorld.pos,  structureBlockInfoWorld.state.getBlock(), 0);
+                chunk.getBlockTicks().scheduleTick(structureBlockInfoWorld.pos, structureBlockInfoWorld.state.getBlock(), 0);
             }
         }
         return structureBlockInfoWorld;
