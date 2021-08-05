@@ -300,15 +300,15 @@
     },
     {
       "rolls": {
-        "min": 3.0,
-        "max": 4.0,
+        "min": 4.0,
+        "max": 5.0,
         "type": "minecraft:uniform"
       },
       "entries": [
         {
           "name": "minecraft:redstone_ore",
           "type": "minecraft:item",
-          "weight": 2,
+          "weight": 3,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -323,7 +323,7 @@
         {
           "name": "minecraft:slime_ball",
           "type": "minecraft:item",
-          "weight": 2,
+          "weight": 3,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -338,7 +338,7 @@
         {
           "name": "minecraft:tipped_arrow",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 2,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -372,7 +372,7 @@
         {
           "name": "minecraft:chain",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 2,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -387,7 +387,7 @@
         {
           "name": "minecraft:bone_block",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 2,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -402,7 +402,7 @@
         {
           "name": "minecraft:iron_nugget",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 2,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -432,7 +432,7 @@
         {
           "name": "minecraft:redstone",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 2,
           "functions": [
             {
               "function": "minecraft:set_count",
