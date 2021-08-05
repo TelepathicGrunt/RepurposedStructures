@@ -13,6 +13,7 @@ import net.minecraft.util.Rotation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
+import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.util.registry.DynamicRegistries;
 import net.minecraft.util.registry.MutableRegistry;
 import net.minecraft.util.registry.Registry;
@@ -99,7 +100,8 @@ public class PieceLimitedJigsawManager {
         startPiece.move(0, pieceCenterY - yAdjustment, 0);
 
         Map<ResourceLocation, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces = StructurePiecesBehavior.REQUIRED_PIECES_COUNT.get(structureID);
-        for(int attempts = 0; doesNotHaveAllRequiredPieces(components, requiredPieces); attempts++){
+        boolean runOnce = requiredPieces == null;
+        for(int attempts = 0; runOnce || doesNotHaveAllRequiredPieces(components, requiredPieces); attempts++){
             if(attempts == 100){
                 RepurposedStructures.LOGGER.error(
                         "\n-------------------------------------------------------------------\n"+
@@ -128,6 +130,8 @@ public class PieceLimitedJigsawManager {
                     assembler.generatePiece(entry.piece, boxOctree, entry.minY, entry.depth, doBoundaryAdjustments);
                 }
             }
+
+            if(runOnce) break;
         }
     }
 
@@ -174,7 +178,7 @@ public class PieceLimitedJigsawManager {
             this.minY = minY;
 
             // Create map clone so we do not modify the original map.
-            this.requiredPieces = new HashMap<>(requiredPieces);
+            this.requiredPieces = requiredPieces == null ? new HashMap<>() : new HashMap<>(requiredPieces);
             this.pieceCounts = new HashMap<>(StructurePiecesBehavior.PIECES_COUNT);
             // pieceCounts will keep track of how many required pieces were spawned
             this.requiredPieces.forEach((key, value) -> this.pieceCounts.putIfAbsent(key, value.getRequiredAmount()));
@@ -187,9 +191,7 @@ public class PieceLimitedJigsawManager {
             Rotation pieceRotation = piece.getRotation();
             MutableBoundingBox pieceBoundingBox = piece.getBoundingBox();
             int pieceMinY = pieceBoundingBox.y0;
-
-            // I think this is a holder variable for reuse
-            MutableObject<AxisAlignedBB> tempNewPieceAABB = new MutableObject<>();
+            BoxOctree innerBoxOctree = null;
 
             // Get list of all jigsaw blocks in this piece
             List<Template.BlockInfo> pieceJigsawBlocks = pieceBlueprint.getShuffledJigsawBlocks(this.templateManager, piecePos, pieceRotation, this.rand);
@@ -222,27 +224,26 @@ public class PieceLimitedJigsawManager {
 
                 // Adjustments for if the target block position is inside the current piece
                 boolean isTargetInsideCurrentPiece = pieceBoundingBox.isInside(jigsawBlockTargetPos);
-                MutableObject<AxisAlignedBB> pieceAABB;
                 int targetPieceBoundsTop;
                 if (isTargetInsideCurrentPiece) {
-                    pieceAABB = tempNewPieceAABB;
                     targetPieceBoundsTop = pieceMinY;
-                    if (tempNewPieceAABB.getValue() == null) {
-                        tempNewPieceAABB.setValue(AxisAlignedBB.of(pieceBoundingBox));
+                    if (innerBoxOctree == null) {
+                        innerBoxOctree = new BoxOctree(AxisAlignedBB.of(pieceBoundingBox));
                     }
-                } else {
-                    pieceAABB = null;
+                }
+                else {
+                    innerBoxOctree = null;
                     targetPieceBoundsTop = minY;
                 }
 
                 // Process the pool pieces, randomly choosing different pieces from the pool to spawn
                 if (depth != this.maxDepth) {
-                    JigsawPiece generatedPiece = this.processList(new ArrayList<>(((JigsawPatternAccessor)poolOptional.get()).repurposedstructures_getRawTemplates()), doBoundaryAdjustments, jigsawBlock, jigsawBlockTargetPos, pieceMinY, jigsawBlockPos, pieceAABB, boxOctree, piece, depth, targetPieceBoundsTop);
+                    JigsawPiece generatedPiece = this.processList(new ArrayList<>(((JigsawPatternAccessor)poolOptional.get()).repurposedstructures_getRawTemplates()), doBoundaryAdjustments, jigsawBlock, jigsawBlockTargetPos, pieceMinY, jigsawBlockPos, isTargetInsideCurrentPiece, innerBoxOctree, boxOctree, piece, depth, targetPieceBoundsTop);
                     if (generatedPiece != null) continue; // Stop here since we've already generated the piece
                 }
 
                 // Process the fallback pieces in the event none of the pool pieces work
-                this.processList(new ArrayList<>(((JigsawPatternAccessor)fallbackOptional.get()).repurposedstructures_getRawTemplates()), doBoundaryAdjustments, jigsawBlock, jigsawBlockTargetPos, pieceMinY, jigsawBlockPos, pieceAABB, boxOctree, piece, depth, targetPieceBoundsTop);
+                this.processList(new ArrayList<>(((JigsawPatternAccessor)fallbackOptional.get()).repurposedstructures_getRawTemplates()), doBoundaryAdjustments, jigsawBlock, jigsawBlockTargetPos, pieceMinY, jigsawBlockPos, isTargetInsideCurrentPiece, innerBoxOctree, boxOctree, piece, depth, targetPieceBoundsTop);
             }
         }
 
@@ -258,7 +259,8 @@ public class PieceLimitedJigsawManager {
                 BlockPos jigsawBlockTargetPos,
                 int pieceMinY,
                 BlockPos jigsawBlockPos,
-                MutableObject<AxisAlignedBB> parentBox,
+                boolean insideMode,
+                BoxOctree innerBoxOctree,
                 BoxOctree boxOctree,
                 AbstractVillagePiece piece,
                 int depth,
@@ -405,8 +407,8 @@ public class PieceLimitedJigsawManager {
 
                             // Final adjustments to the bounding box.
                             if (candidateHeightAdjustments > 0) {
-                                int k2 = Math.max(candidateHeightAdjustments + 1, adjustedCandidateBoundingBox.y1 - adjustedCandidateBoundingBox.y0);
-                                adjustedCandidateBoundingBox.y1 = adjustedCandidateBoundingBox.y0 + k2;
+                                int heightAdjustement = Math.max(candidateHeightAdjustments + 1, adjustedCandidateBoundingBox.y1 - adjustedCandidateBoundingBox.y0);
+                                adjustedCandidateBoundingBox.y1 = adjustedCandidateBoundingBox.y0 + heightAdjustement;
                             }
 
                             // Prevent pieces from spawning above max Y or below min Y
@@ -415,18 +417,19 @@ public class PieceLimitedJigsawManager {
                             }
 
                             AxisAlignedBB axisAlignedBB = AxisAlignedBB.of(adjustedCandidateBoundingBox);
+                            AxisAlignedBB axisAlignedBBDeflated = axisAlignedBB.deflate(0.25D);
                             boolean validBounds = false;
 
                             // Make sure this inner child piece is entirely within the parent piece
-                            if(parentBox != null){
-                                if(parentBox.getValue().contains(axisAlignedBB.minX + 0.25f, axisAlignedBB.minY + 0.25f, axisAlignedBB.minZ + 0.25f) &&
-                                    parentBox.getValue().contains(axisAlignedBB.maxX - 0.25f, axisAlignedBB.maxY - 0.25f, axisAlignedBB.maxZ - 0.25f))
+                            if(insideMode && innerBoxOctree != null){
+                                if(innerBoxOctree.boundaryContains(axisAlignedBBDeflated) && !innerBoxOctree.intersectsAnyBox(axisAlignedBBDeflated))
                                 {
+                                    innerBoxOctree.addBox(axisAlignedBB);
                                     validBounds = true;
                                 }
                             }
                             // Make sure we do not intersect our own structure anywhere
-                            else if (boxOctree.boundaryContains(axisAlignedBB) && !boxOctree.intersectsAnyBox(axisAlignedBB)) {
+                            else if (boxOctree.boundaryContains(axisAlignedBBDeflated) && !boxOctree.intersectsAnyBox(axisAlignedBBDeflated)) {
                                 boxOctree.addBox(axisAlignedBB);
                                 validBounds = true;
                             }

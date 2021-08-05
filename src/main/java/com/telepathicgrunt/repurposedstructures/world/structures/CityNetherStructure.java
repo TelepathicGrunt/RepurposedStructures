@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
+import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PieceLimitedJigsawManager;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
@@ -91,17 +92,20 @@ public class CityNetherStructure extends GenericJigsawStructure {
 
         public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig defaultFeatureConfig) {
             BlockPos blockpos = new BlockPos(chunkX * 16, chunkGenerator.getSeaLevel(), chunkZ * 16);
-            JigsawManager.addPieces(
+            PieceLimitedJigsawManager.assembleJigsawStructure(
                     dynamicRegistryManager,
                     new VillageConfig(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(startPool), structureSize),
-                    AbstractVillagePiece::new,
                     chunkGenerator,
                     structureManager,
                     blockpos,
                     this.pieces,
                     this.random,
                     false,
-                    false);
+                    false,
+                    null,
+                    Integer.MAX_VALUE,
+                    Integer.MIN_VALUE);
+
             this.calculateBoundingBox();
             this.pieces.get(0).move(0, centerOffset, 0);
         }
