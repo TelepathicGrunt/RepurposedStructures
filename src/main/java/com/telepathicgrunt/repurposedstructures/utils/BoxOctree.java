@@ -116,7 +116,7 @@ public class BoxOctree {
     }
 
     public boolean boundaryContains(AxisAlignedBB axisAlignedBB){
-        return boundary.intersects(axisAlignedBB);
+        return boundary.contains(axisAlignedBB.minX, axisAlignedBB.minY, axisAlignedBB.minZ) && boundary.contains(axisAlignedBB.maxX, axisAlignedBB.maxY, axisAlignedBB.maxZ);
     }
 
     public boolean intersectsAnyBox(AxisAlignedBB axisAlignedBB){
@@ -136,5 +136,10 @@ public class BoxOctree {
         }
 
         return false;
+    }
+
+
+    public String toString() {
+        return String.format("<%s | %s | %s | %s>", this.getClass().getSimpleName(), this.boundary.toString(), this.innerBoxes, this.childrenOctants);
     }
 }

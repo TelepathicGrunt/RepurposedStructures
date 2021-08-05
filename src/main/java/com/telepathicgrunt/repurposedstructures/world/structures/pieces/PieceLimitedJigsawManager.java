@@ -13,7 +13,6 @@ import net.minecraft.util.Rotation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
-import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.util.registry.DynamicRegistries;
 import net.minecraft.util.registry.MutableRegistry;
 import net.minecraft.util.registry.Registry;
@@ -119,7 +118,7 @@ public class PieceLimitedJigsawManager {
             if (jigsawConfig.maxDepth() > 0) {
                 AxisAlignedBB axisAlignedBB = new AxisAlignedBB(pieceCenterX - 80, pieceCenterY - 120, pieceCenterZ - 80, pieceCenterX + 80 + 1, pieceCenterY + 180 + 1, pieceCenterZ + 80 + 1);
                 BoxOctree boxOctree = new BoxOctree(axisAlignedBB); // The maximum boundary of the entire structure
-                Entry startPieceEntry = new Entry(startPiece, pieceCenterY + 80, 0);
+                Entry startPieceEntry = new Entry(startPiece, new MutableObject<>(boxOctree), pieceCenterY + 80, 0);
 
                 Assembler assembler = new Assembler(jigsawPoolRegistry, jigsawConfig.maxDepth(), chunkGenerator, templateManager, components, random, requiredPieces, maxY, minY);
                 assembler.availablePieces.addLast(startPieceEntry);
@@ -127,7 +126,7 @@ public class PieceLimitedJigsawManager {
 
                 while (!assembler.availablePieces.isEmpty()) {
                     Entry entry = assembler.availablePieces.removeFirst();
-                    assembler.generatePiece(entry.piece, boxOctree, entry.minY, entry.depth, doBoundaryAdjustments);
+                    assembler.generatePiece(entry.piece, entry.parentBoxOctree, entry.minY, entry.depth, doBoundaryAdjustments);
                 }
             }
 
@@ -184,7 +183,7 @@ public class PieceLimitedJigsawManager {
             this.requiredPieces.forEach((key, value) -> this.pieceCounts.putIfAbsent(key, value.getRequiredAmount()));
         }
 
-        public void generatePiece(AbstractVillagePiece piece, BoxOctree boxOctree, int minY, int depth, boolean doBoundaryAdjustments) {
+        public void generatePiece(AbstractVillagePiece piece, MutableObject<BoxOctree> boxOctree, int minY, int depth, boolean doBoundaryAdjustments) {
             // Collect data from params regarding piece to process
             JigsawPiece pieceBlueprint = piece.getElement();
             BlockPos piecePos = piece.getPosition();
@@ -223,17 +222,18 @@ public class PieceLimitedJigsawManager {
                 }
 
                 // Adjustments for if the target block position is inside the current piece
+                // Sets which octree to use for bounds checking
                 boolean isTargetInsideCurrentPiece = pieceBoundingBox.isInside(jigsawBlockTargetPos);
                 int targetPieceBoundsTop;
                 if (isTargetInsideCurrentPiece) {
                     targetPieceBoundsTop = pieceMinY;
-                    if (octreeToUse.getValue() == null) {
+                    if(octreeToUse.getValue() == null) {
                         octreeToUse.setValue(new BoxOctree(AxisAlignedBB.of(pieceBoundingBox)));
                     }
                 }
                 else {
                     targetPieceBoundsTop = minY;
-                    octreeToUse.setValue(boxOctree);
+                    octreeToUse = boxOctree;
                 }
 
                 // Process the pool pieces, randomly choosing different pieces from the pool to spawn
@@ -259,7 +259,7 @@ public class PieceLimitedJigsawManager {
                 BlockPos jigsawBlockTargetPos,
                 int pieceMinY,
                 BlockPos jigsawBlockPos,
-                MutableObject<BoxOctree> boxOctree,
+                MutableObject<BoxOctree> mutableObjectBoxOctree,
                 AbstractVillagePiece piece,
                 int depth,
                 int targetPieceBoundsTop
@@ -415,11 +415,18 @@ public class PieceLimitedJigsawManager {
                             }
 
                             AxisAlignedBB axisAlignedBB = AxisAlignedBB.of(adjustedCandidateBoundingBox);
-                            AxisAlignedBB axisAlignedBBDeflated = axisAlignedBB.deflate(0.25D);
-                            
+                            AxisAlignedBB axisAlignedBBDeflated = axisAlignedBB.deflate(0.25D); // Avoid any edge case weirdness if size is exact with bounding boxes.
+
+                            // debugging
+//                            if(!(mutableObjectBoxOctree.getValue().boundaryContains(axisAlignedBBDeflated) && !mutableObjectBoxOctree.getValue().intersectsAnyBox(axisAlignedBBDeflated))){
+//                                if(piece.toString().contains("bastion")){
+//                                    RepurposedStructures.LOGGER.warn(" Failed to spawn pieces. Parent: {} - General info: {} - Child: {} - General info: {} - Octree: {}", piece.getBoundingBox().toString(), piece.toString(), axisAlignedBBDeflated.toString(), candidatePiece.toString(), mutableObjectBoxOctree.toString());
+//                                }
+//                            }
+
                             // Make sure new piece fits within the chosen octree without intersecting any other piece.
-                            if (boxOctree.getValue().boundaryContains(axisAlignedBBDeflated) && !boxOctree.getValue().intersectsAnyBox(axisAlignedBBDeflated)) {
-                                boxOctree.getValue().addBox(axisAlignedBB);
+                            if (mutableObjectBoxOctree.getValue().boundaryContains(axisAlignedBBDeflated) && !mutableObjectBoxOctree.getValue().intersectsAnyBox(axisAlignedBBDeflated)) {
+                                mutableObjectBoxOctree.getValue().addBox(axisAlignedBB);
 
                                 // Determine ground level delta for this new piece
                                 int newPieceGroundLevelDelta = piece.getGroundLevelDelta();
@@ -477,7 +484,7 @@ public class PieceLimitedJigsawManager {
                                 // Add the piece
                                 this.structurePieces.add(newPiece);
                                 if (depth + 1 <= this.maxDepth) {
-                                    this.availablePieces.addLast(new Entry(newPiece, targetPieceBoundsTop, depth + 1));
+                                    this.availablePieces.addLast(new Entry(newPiece, mutableObjectBoxOctree, targetPieceBoundsTop, depth + 1));
                                 }
                                 // Update piece count, if an entry exists for this piece
                                 if (pieceName != null && this.pieceCounts.containsKey(pieceName)) {
@@ -497,11 +504,13 @@ public class PieceLimitedJigsawManager {
 
     public static final class Entry {
         public final AbstractVillagePiece piece;
+        public final MutableObject<BoxOctree> parentBoxOctree;
         public final int minY;
         public final int depth;
 
-        public Entry(AbstractVillagePiece piece, int minY, int depth) {
+        public Entry(AbstractVillagePiece piece, MutableObject<BoxOctree> parentBoxOctree, int minY, int depth) {
             this.piece = piece;
+            this.parentBoxOctree = parentBoxOctree;
             this.minY = minY;
             this.depth = depth;
         }
