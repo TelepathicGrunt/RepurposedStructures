@@ -2,7 +2,7 @@
   "type": "minecraft:chest",
   "pools": [
     {
-      "rolls": 8.0,
+      "rolls": 8,
       "bonus_rolls": 1.0,
       "entries": [
         {
@@ -243,6 +243,25 @@
           ]
         },
         {
+          "name": "minecraft:tipped_arrow",
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 20.0,
+                "max": 30.0,
+                "type": "minecraft:uniform"
+              }
+            },
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{Potion:\"minecraft:strong_harming\"}"
+            }
+          ]
+        },
+        {
           "name": "minecraft:redstone_block",
           "type": "minecraft:item",
           "functions": [
@@ -266,7 +285,7 @@
               "count": {
                 "type": "minecraft:uniform",
                 "min": 1.0,
-                "max": 3.0
+                "max": 5.0
               },
               "add": false
             }
@@ -280,8 +299,8 @@
               "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
-                "min": 5.0,
-                "max": 20.0
+                "min": 17.0,
+                "max": 33.0
               },
               "add": false
             }
