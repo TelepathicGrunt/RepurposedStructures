@@ -15,6 +15,9 @@ Fixed Skeletons in Underground Bastions so they spawn with correct amount of hea
 ##### Strongholds:
 Fixed prison trapped Wither Skeletons in Nether Strongholds so they spawn with more health now.
 
+##### Mineshafts:
+Fixed Ocean Mineshaft center room sometimes have random Prismarine placed awkwardly.
+
 ##### Config:
 Simplified and finalized the default configs for what structure spawns in lotr mod's dimension. 
   No RS Structure with mobs will now spawn in that dimension.
