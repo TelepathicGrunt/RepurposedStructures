@@ -4,6 +4,9 @@
 Buffed Underground Bastion loot a bit more and added "bonus_roll" to more of their loot tables.
   If you have increased Luck attribute (usually from another mod), you may find increased loot in Underground Bastion's chests.
 
+##### Ruins:
+Made the default config value for Hot Land Ruins and Warm Land Ruins higher so those ruins are a bit more rare.
+
 
 ### **(V.3.0.4 Changes) (1.16.5 Minecraft)**
 
