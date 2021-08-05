@@ -191,7 +191,7 @@ public class PieceLimitedJigsawManager {
             Rotation pieceRotation = piece.getRotation();
             MutableBoundingBox pieceBoundingBox = piece.getBoundingBox();
             int pieceMinY = pieceBoundingBox.y0;
-            BoxOctree innerBoxOctree = null;
+            MutableObject<BoxOctree> octreeToUse = new MutableObject<>();
 
             // Get list of all jigsaw blocks in this piece
             List<Template.BlockInfo> pieceJigsawBlocks = pieceBlueprint.getShuffledJigsawBlocks(this.templateManager, piecePos, pieceRotation, this.rand);
@@ -227,23 +227,23 @@ public class PieceLimitedJigsawManager {
                 int targetPieceBoundsTop;
                 if (isTargetInsideCurrentPiece) {
                     targetPieceBoundsTop = pieceMinY;
-                    if (innerBoxOctree == null) {
-                        innerBoxOctree = new BoxOctree(AxisAlignedBB.of(pieceBoundingBox));
+                    if (octreeToUse.getValue() == null) {
+                        octreeToUse.setValue(new BoxOctree(AxisAlignedBB.of(pieceBoundingBox)));
                     }
                 }
                 else {
-                    innerBoxOctree = null;
                     targetPieceBoundsTop = minY;
+                    octreeToUse.setValue(boxOctree);
                 }
 
                 // Process the pool pieces, randomly choosing different pieces from the pool to spawn
                 if (depth != this.maxDepth) {
-                    JigsawPiece generatedPiece = this.processList(new ArrayList<>(((JigsawPatternAccessor)poolOptional.get()).repurposedstructures_getRawTemplates()), doBoundaryAdjustments, jigsawBlock, jigsawBlockTargetPos, pieceMinY, jigsawBlockPos, isTargetInsideCurrentPiece, innerBoxOctree, boxOctree, piece, depth, targetPieceBoundsTop);
+                    JigsawPiece generatedPiece = this.processList(new ArrayList<>(((JigsawPatternAccessor)poolOptional.get()).repurposedstructures_getRawTemplates()), doBoundaryAdjustments, jigsawBlock, jigsawBlockTargetPos, pieceMinY, jigsawBlockPos, octreeToUse, piece, depth, targetPieceBoundsTop);
                     if (generatedPiece != null) continue; // Stop here since we've already generated the piece
                 }
 
                 // Process the fallback pieces in the event none of the pool pieces work
-                this.processList(new ArrayList<>(((JigsawPatternAccessor)fallbackOptional.get()).repurposedstructures_getRawTemplates()), doBoundaryAdjustments, jigsawBlock, jigsawBlockTargetPos, pieceMinY, jigsawBlockPos, isTargetInsideCurrentPiece, innerBoxOctree, boxOctree, piece, depth, targetPieceBoundsTop);
+                this.processList(new ArrayList<>(((JigsawPatternAccessor)fallbackOptional.get()).repurposedstructures_getRawTemplates()), doBoundaryAdjustments, jigsawBlock, jigsawBlockTargetPos, pieceMinY, jigsawBlockPos, octreeToUse, piece, depth, targetPieceBoundsTop);
             }
         }
 
@@ -259,9 +259,7 @@ public class PieceLimitedJigsawManager {
                 BlockPos jigsawBlockTargetPos,
                 int pieceMinY,
                 BlockPos jigsawBlockPos,
-                boolean insideMode,
-                BoxOctree innerBoxOctree,
-                BoxOctree boxOctree,
+                MutableObject<BoxOctree> boxOctree,
                 AbstractVillagePiece piece,
                 int depth,
                 int targetPieceBoundsTop
@@ -420,17 +418,9 @@ public class PieceLimitedJigsawManager {
                             AxisAlignedBB axisAlignedBBDeflated = axisAlignedBB.deflate(0.25D);
                             boolean validBounds = false;
 
-                            // Make sure this inner child piece is entirely within the parent piece
-                            if(insideMode && innerBoxOctree != null){
-                                if(innerBoxOctree.boundaryContains(axisAlignedBBDeflated) && !innerBoxOctree.intersectsAnyBox(axisAlignedBBDeflated))
-                                {
-                                    innerBoxOctree.addBox(axisAlignedBB);
-                                    validBounds = true;
-                                }
-                            }
-                            // Make sure we do not intersect our own structure anywhere
-                            else if (boxOctree.boundaryContains(axisAlignedBBDeflated) && !boxOctree.intersectsAnyBox(axisAlignedBBDeflated)) {
-                                boxOctree.addBox(axisAlignedBB);
+                            // Make sure new piece fits within the chosen octree without intersecting any other piece.
+                            if (boxOctree.getValue().boundaryContains(axisAlignedBBDeflated) && !boxOctree.getValue().intersectsAnyBox(axisAlignedBBDeflated)) {
+                                boxOctree.getValue().addBox(axisAlignedBB);
                                 validBounds = true;
                             }
 
