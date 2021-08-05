@@ -19,13 +19,11 @@ public class BoxOctree {
     private final List<BoxOctree> childrenOctants = new ArrayList<>();
 
     public BoxOctree(AABB axisAlignedBB){
-        boundary = axisAlignedBB.move(0, 0, 0);
-        size = new Vec3i(boundary.getXsize(), boundary.getYsize(), boundary.getZsize());
-        depth = 1;
+        this(axisAlignedBB, 0);
     }
 
     private BoxOctree(AABB axisAlignedBB, int parentDepth){
-        boundary = axisAlignedBB.move(0, 0, 0);
+        boundary = axisAlignedBB.move(0, 0, 0); // deep copy
         size = new Vec3i(boundary.getXsize(), boundary.getYsize(), boundary.getZsize());
         depth = parentDepth + 1;
     }
