@@ -15,6 +15,9 @@ Fixed Skeletons in Underground Bastions so they spawn with correct amount of hea
 ##### Strongholds:
 Fixed prison trapped Wither Skeletons in Nether Strongholds so they spawn with more health now.
 
+##### Mineshafts:
+Fixed Ocean Mineshaft center room sometimes have random Prismarine placed awkwardly.
+
 ##### Misc:
 Fix potential issue where the structure check code may not work for preventing two specific structures from spawning on top of each other.
 
