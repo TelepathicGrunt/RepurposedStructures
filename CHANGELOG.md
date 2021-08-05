@@ -1,3 +1,10 @@
+### **(V.3.0.5 Changes) (1.16.5 Minecraft)**
+
+##### Bastions:
+Buffed Underground Bastion loot a bit more and added "bonus_roll" to more of their loot tables.
+  If you have increased Luck attribute (usually from another mod), you may find increased loot in Underground Bastion's chests.
+
+
 ### **(V.3.0.4 Changes) (1.16.5 Minecraft)**
 
 ##### Pyramids:
