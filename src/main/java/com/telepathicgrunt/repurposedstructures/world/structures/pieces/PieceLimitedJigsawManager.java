@@ -98,9 +98,8 @@ public class PieceLimitedJigsawManager {
         int yAdjustment = pieceBoundingBox.y0 + startPiece.getGroundLevelDelta();
         startPiece.move(0, pieceCenterY - yAdjustment, 0);
 
-        int attempts = 0;
         Map<ResourceLocation, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces = StructurePiecesBehavior.REQUIRED_PIECES_COUNT.get(structureID);
-        while(doesNotHaveAllRequiredPieces(components, requiredPieces)){
+        for(int attempts = 0; doesNotHaveAllRequiredPieces(components, requiredPieces); attempts++){
             if(attempts == 100){
                 RepurposedStructures.LOGGER.error(
                         "\n-------------------------------------------------------------------\n"+
@@ -112,7 +111,6 @@ public class PieceLimitedJigsawManager {
                 break;
             }
 
-            attempts++;
             components.clear();
             components.add(startPiece); // Add start piece to list of pieces
 

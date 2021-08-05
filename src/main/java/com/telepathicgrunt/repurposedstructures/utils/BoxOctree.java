@@ -1,9 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.utils;
 
 import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.shapes.IBooleanFunction;
-import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.util.math.vector.Vector3i;
 
 import java.util.ArrayList;
@@ -141,23 +138,5 @@ public class BoxOctree {
         }
 
         return false;
-    }
-
-
-    public void mergeInVoxelShape(VoxelShape mutableVoxelShape){
-        if(!childrenOctants.isEmpty()){
-            for(BoxOctree octree : childrenOctants){
-                octree.mergeInVoxelShape(mutableVoxelShape);
-            }
-        }
-        else{
-            for(AxisAlignedBB innerBox : innerBoxes) {
-                VoxelShapes.joinUnoptimized(
-                        mutableVoxelShape,
-                        VoxelShapes.create(innerBox),
-                        IBooleanFunction.ONLY_FIRST
-                );
-            }
-        }
     }
 }
