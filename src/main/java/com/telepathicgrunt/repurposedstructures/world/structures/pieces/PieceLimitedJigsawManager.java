@@ -50,7 +50,7 @@ import java.util.Random;
 public class PieceLimitedJigsawManager {
 
     // Record for entries
-    public record Entry(PoolElementStructurePiece piece, int minY, int depth) { }
+    public record Entry(PoolElementStructurePiece piece, MutableObject<BoxOctree> boxOctreeMutableObject, int minY, int depth) { }
 
     public static void assembleJigsawStructure(
             RegistryAccess dynamicRegistryManager,
@@ -129,7 +129,7 @@ public class PieceLimitedJigsawManager {
             if (jigsawConfig.maxDepth() > 0) {
                 AABB axisAlignedBB = new AABB(pieceCenterX - 80, pieceCenterY - 120, pieceCenterZ - 80, pieceCenterX + 80 + 1, pieceCenterY + 180 + 1, pieceCenterZ + 80 + 1);
                 BoxOctree boxOctree = new BoxOctree(axisAlignedBB); // The maximum boundary of the entire structure
-                Entry startPieceEntry = new Entry(startPiece, pieceCenterY + 80, 0);
+                Entry startPieceEntry = new Entry(startPiece, new MutableObject<>(boxOctree), pieceCenterY + 80, 0);
 
                 Assembler assembler = new Assembler(jigsawPoolRegistry, jigsawConfig.maxDepth(), chunkGenerator, templateManager, components, random, requiredPieces, maxY, minY);
                 assembler.availablePieces.addLast(startPieceEntry);
@@ -137,7 +137,7 @@ public class PieceLimitedJigsawManager {
 
                 while (!assembler.availablePieces.isEmpty()) {
                     Entry entry = assembler.availablePieces.removeFirst();
-                    assembler.generatePiece(entry.piece, boxOctree, entry.minY, entry.depth, doBoundaryAdjustments, heightLimitView);
+                    assembler.generatePiece(entry.piece, entry.boxOctreeMutableObject, entry.minY, entry.depth, doBoundaryAdjustments, heightLimitView);
                 }
             }
 
@@ -194,7 +194,7 @@ public class PieceLimitedJigsawManager {
             this.requiredPieces.forEach((key, value) -> this.pieceCounts.putIfAbsent(key, value.getRequiredAmount()));
         }
 
-        public void generatePiece(PoolElementStructurePiece piece, BoxOctree boxOctree, int minY, int depth, boolean doBoundaryAdjustments, LevelHeightAccessor heightLimitView) {
+        public void generatePiece(PoolElementStructurePiece piece, MutableObject<BoxOctree> boxOctree, int minY, int depth, boolean doBoundaryAdjustments, LevelHeightAccessor heightLimitView) {
             // Collect data from params regarding piece to process
             StructurePoolElement pieceBlueprint = piece.getElement();
             BlockPos piecePos = piece.getPosition();
@@ -241,7 +241,7 @@ public class PieceLimitedJigsawManager {
                         octreeToUse.setValue(new BoxOctree(AABB.of(pieceBoundingBox)));
                     }
                 } else {
-                    octreeToUse.setValue(boxOctree);
+                    octreeToUse = boxOctree;
                     targetPieceBoundsTop = minY;
                 }
 
@@ -268,7 +268,7 @@ public class PieceLimitedJigsawManager {
                 BlockPos jigsawBlockTargetPos,
                 int pieceMinY,
                 BlockPos jigsawBlockPos,
-                MutableObject<BoxOctree> boxOctree,
+                MutableObject<BoxOctree> boxOctreeMutableObject,
                 PoolElementStructurePiece piece,
                 int depth,
                 int targetPieceBoundsTop,
@@ -429,8 +429,8 @@ public class PieceLimitedJigsawManager {
                             boolean validBounds = false;
 
                             // Make sure new piece fits within the chosen octree without intersecting any other piece.
-                            if (boxOctree.getValue().boundaryContains(axisAlignedBBDeflated) && !boxOctree.getValue().intersectsAnyBox(axisAlignedBBDeflated)) {
-                                boxOctree.getValue().addBox(axisAlignedBB);
+                            if (boxOctreeMutableObject.getValue().boundaryContains(axisAlignedBBDeflated) && !boxOctreeMutableObject.getValue().intersectsAnyBox(axisAlignedBBDeflated)) {
+                                boxOctreeMutableObject.getValue().addBox(axisAlignedBB);
                                 validBounds = true;
                             }
 
@@ -492,7 +492,7 @@ public class PieceLimitedJigsawManager {
                                 // Add the piece
                                 this.structurePieces.add(newPiece);
                                 if (depth + 1 <= this.maxDepth) {
-                                    this.availablePieces.addLast(new Entry(newPiece, targetPieceBoundsTop, depth + 1));
+                                    this.availablePieces.addLast(new Entry(newPiece, boxOctreeMutableObject, targetPieceBoundsTop, depth + 1));
                                 }
                                 // Update piece count, if an entry exists for this piece
                                 if (pieceName != null && this.pieceCounts.containsKey(pieceName)) {
