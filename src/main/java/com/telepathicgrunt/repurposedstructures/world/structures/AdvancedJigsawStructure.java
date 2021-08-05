@@ -103,6 +103,10 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<NoneFeatureCo
                 bottomClipOff = structureStartHeight - verticalRange;
             }
 
+//            long startTime = System.currentTimeMillis();
+//            for(int i = 0; i < 50; i++){
+//                this.pieces.clear();
+
             PieceLimitedJigsawManager.assembleJigsawStructure(
                     dynamicRegistryManager,
                     new JigsawConfiguration(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(startPool), structureSize),
@@ -117,6 +121,11 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<NoneFeatureCo
                     structureID,
                     topClipOff,
                     bottomClipOff);
+
+//            }
+//            long endTime = System.currentTimeMillis();
+//            long duration = (endTime - startTime);
+//            RepurposedStructures.LOGGER.warn("Time taken {} milliseconds at {}, {} for {}", duration, chunkPos1.x, chunkPos1.z, startPool);
 
             this.getBoundingBox();
         }
