@@ -117,7 +117,8 @@ public class BoxOctree {
     }
 
     public boolean boundaryContains(AABB axisAlignedBB){
-        return boundary.intersects(axisAlignedBB);
+        return boundary.contains(axisAlignedBB.minX, axisAlignedBB.minY, axisAlignedBB.minZ) &&
+                boundary.contains(axisAlignedBB.maxX, axisAlignedBB.maxY, axisAlignedBB.maxZ);
     }
 
     public boolean intersectsAnyBox(AABB axisAlignedBB){

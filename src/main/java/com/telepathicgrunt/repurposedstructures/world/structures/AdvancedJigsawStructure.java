@@ -94,7 +94,7 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<NoneFeatureCo
             int topClipOff;
             int bottomClipOff;
             if(verticalRange == null){
-                // Help make sure the Jigsaw Blocks have room to spawn new pieces if structure is right on edge of maxY or minY
+                // Help make sure the Jigsaw Blocks have room to spawn new pieces if structure is right on edge of maxY or topYLimit
                 topClipOff = clipOutOfBoundsPieces ? maxY + 5 : Integer.MAX_VALUE;
                 bottomClipOff = clipOutOfBoundsPieces ? minY - 5 : Integer.MIN_VALUE;
             }

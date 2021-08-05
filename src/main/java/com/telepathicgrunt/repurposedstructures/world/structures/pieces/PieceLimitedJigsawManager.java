@@ -50,7 +50,7 @@ import java.util.Random;
 public class PieceLimitedJigsawManager {
 
     // Record for entries
-    public record Entry(PoolElementStructurePiece piece, MutableObject<BoxOctree> boxOctreeMutableObject, int minY, int depth) { }
+    public record Entry(PoolElementStructurePiece piece, MutableObject<BoxOctree> boxOctreeMutableObject, int topYLimit, int depth) { }
 
     public static void assembleJigsawStructure(
             RegistryAccess dynamicRegistryManager,
@@ -129,15 +129,15 @@ public class PieceLimitedJigsawManager {
             if (jigsawConfig.maxDepth() > 0) {
                 AABB axisAlignedBB = new AABB(pieceCenterX - 80, pieceCenterY - 120, pieceCenterZ - 80, pieceCenterX + 80 + 1, pieceCenterY + 180 + 1, pieceCenterZ + 80 + 1);
                 BoxOctree boxOctree = new BoxOctree(axisAlignedBB); // The maximum boundary of the entire structure
+                boxOctree.addBox(AABB.of(pieceBoundingBox));
                 Entry startPieceEntry = new Entry(startPiece, new MutableObject<>(boxOctree), pieceCenterY + 80, 0);
 
                 Assembler assembler = new Assembler(jigsawPoolRegistry, jigsawConfig.maxDepth(), chunkGenerator, templateManager, components, random, requiredPieces, maxY, minY);
                 assembler.availablePieces.addLast(startPieceEntry);
-                boxOctree.addBox(AABB.of(startPieceEntry.piece.getBoundingBox()));
 
                 while (!assembler.availablePieces.isEmpty()) {
                     Entry entry = assembler.availablePieces.removeFirst();
-                    assembler.generatePiece(entry.piece, entry.boxOctreeMutableObject, entry.minY, entry.depth, doBoundaryAdjustments, heightLimitView);
+                    assembler.generatePiece(entry.piece, entry.boxOctreeMutableObject, entry.topYLimit, entry.depth, doBoundaryAdjustments, heightLimitView);
                 }
             }
 
@@ -201,7 +201,7 @@ public class PieceLimitedJigsawManager {
             Rotation pieceRotation = piece.getRotation();
             BoundingBox pieceBoundingBox = piece.getBoundingBox();
             int pieceMinY = pieceBoundingBox.minY();
-            MutableObject<BoxOctree> octreeToUse = new MutableObject<>();
+            MutableObject<BoxOctree> parentOctree = new MutableObject<>();
 
             // Get list of all jigsaw blocks in this piece
             List<StructureTemplate.StructureBlockInfo> pieceJigsawBlocks = pieceBlueprint.getShuffledJigsawBlocks(this.structureManager, piecePos, pieceRotation, this.rand);
@@ -235,10 +235,12 @@ public class PieceLimitedJigsawManager {
                 // Adjustments for if the target block position is inside the current piece
                 boolean isTargetInsideCurrentPiece = pieceBoundingBox.isInside(jigsawBlockTargetPos);
                 int targetPieceBoundsTop;
+                MutableObject<BoxOctree> octreeToUse;
                 if (isTargetInsideCurrentPiece) {
+                    octreeToUse = parentOctree;
                     targetPieceBoundsTop = pieceMinY;
-                    if (octreeToUse.getValue() == null) {
-                        octreeToUse.setValue(new BoxOctree(AABB.of(pieceBoundingBox)));
+                    if (parentOctree.getValue() == null) {
+                        parentOctree.setValue(new BoxOctree(AABB.of(pieceBoundingBox)));
                     }
                 } else {
                     octreeToUse = boxOctree;

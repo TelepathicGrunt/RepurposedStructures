@@ -3,6 +3,7 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
+import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PieceLimitedJigsawManager;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
@@ -140,18 +141,20 @@ public class GenericJigsawStructure extends AbstractBaseStructure<NoneFeatureCon
 
         public void generatePieces(RegistryAccess dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, ChunkPos chunkPos1, Biome biome, NoneFeatureConfiguration defaultFeatureConfig, LevelHeightAccessor heightLimitView) {
             BlockPos blockpos = new BlockPos(chunkPos1.getMinBlockX(), fixedYSpawn, chunkPos1.getMinBlockZ());
-            JigsawPlacement.addPieces(
+            PieceLimitedJigsawManager.assembleJigsawStructure(
                     dynamicRegistryManager,
                     new JigsawConfiguration(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(startPool), structureSize),
-                    PoolElementStructurePiece::new,
                     chunkGenerator,
                     structureManager,
                     blockpos,
-                    this,
+                    this.pieces,
                     this.random,
                     useHeightmap,
                     useHeightmap,
-                    heightLimitView);
+                    heightLimitView,
+                    null,
+                    Integer.MAX_VALUE,
+                    Integer.MIN_VALUE);
             GeneralUtils.centerAllPieces(blockpos, this.pieces);
             this.getBoundingBox();
             this.pieces.get(0).move(0, centerOffset, 0);
