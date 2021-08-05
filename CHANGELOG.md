@@ -1,7 +1,8 @@
 ### **(V.3.0.3 Changes) (1.16.5 Minecraft)**
 
 ##### Optimzation:
-Optimized RS Mineshafts, Nether Stronghold, and Jungle Fortress so they check their piece's bounding boxes more efficiently at generation.
+Optimized many RS structures so they check their piece's bounding boxes more efficiently at generation! 
+  Some people reported having lag spikes once in a while when a RS Mineshaft spawns. This should reduce that significantly.
 
 ##### Lang:
 Russian translation added by DrHesperus! Thank you!
