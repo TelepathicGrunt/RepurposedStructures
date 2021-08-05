@@ -22,9 +22,41 @@ public class RSAllowDisallowOmegaConfig implements Config {
     @Override
     public void save() {
 
-        configVersion = 1;
+        if(configVersion == 1){
+            addEntries(disallowedBiomes, "repurposed_structures:dungeons_neutral_ocean", "terrestria:lush_desert");
+            addEntries(disallowedBiomes, "repurposed_structures:dungeons_lukewarm_ocean", "terrestria:lush_desert");
+            addEntries(disallowedBiomes, "repurposed_structures:dungeons_frozen_ocean", "terrestria:lush_desert");
+            addEntries(disallowedBiomes, "repurposed_structures:dungeons_cold_ocean", "terrestria:lush_desert");
+            addEntries(disallowedBiomes, "repurposed_structures:dungeons_warm_ocean", "terrestria:lush_desert");
+        }
+
+        configVersion = 2;
         Config.super.save();
     }
+
+    private void addEntries(Map<String, String> map, String key, String entry){
+        // assign entry
+        if(map.putIfAbsent(key, entry) != null && !map.get(key).contains(entry)){
+            map.put(key, map.get(key) + ", " + entry); // append entry
+        }
+    }
+
+    private void removeEntries(Map<String, String> map, String key, String entry){
+        if(map.containsKey(key) && map.get(key).contains(entry)){
+            String newEntry = map.get(key)
+                    .replace(entry+", ", "")
+                    .replace(entry+",", "")
+                    .replace(entry, "");
+
+            if(newEntry.isEmpty()){
+                map.remove(key);
+            }
+            else{
+                map.put(key, newEntry);
+            }
+        }
+    }
+
 
 
     @Comment("""
@@ -167,5 +199,5 @@ public class RSAllowDisallowOmegaConfig implements Config {
 
             // for internal use only. Do not change this."""
     )
-    public int configVersion = 1;
+    public int configVersion = 2;
 }

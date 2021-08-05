@@ -9,6 +9,8 @@ Russian translation added by DrHesperus! Thank you!
 ##### Dungeons:
 Fixed double chests only having loot for 1 chest instead of 2 in RS Dunegons.
 
+Added config entry to remove RS Ocean Dungeons from Terrestria's Lush Desert biome.
+
 ##### Bastions:
 Fixed Skeletons in Underground Bastions so they spawn with correct amount of health.
 
