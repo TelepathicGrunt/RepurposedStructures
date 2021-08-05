@@ -10,6 +10,7 @@ import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraftforge.common.util.Lazy;
 
 import java.util.Map;
 
@@ -18,8 +19,8 @@ public class MineshaftEndStructure extends MineshaftStructure {
 
     public MineshaftEndStructure(ResourceLocation poolID, int structureSize, int biomeRange,
                                  Map<ResourceLocation, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces,
-                                 int maxY, int minY, boolean clipOutOfBoundsPieces, Integer verticalRange,
-                                 double probability)
+                                 Lazy<Integer> maxY, Lazy<Integer> minY, boolean clipOutOfBoundsPieces, Integer verticalRange,
+                                 Lazy<Double> probability)
     {
         super(poolID, structureSize, biomeRange, requiredPieces, maxY, minY, clipOutOfBoundsPieces, verticalRange, probability);
     }
@@ -54,13 +55,13 @@ public class MineshaftEndStructure extends MineshaftStructure {
 
     public static class Builder<T extends Builder<T>> extends AdvancedJigsawStructure.Builder<T> {
 
-        protected double probability = 0.01;
+        protected Lazy<Double> probability = Lazy.of(() -> 0.01D);
 
         public Builder(ResourceLocation startPool) {
             super(startPool);
         }
 
-        public T setProbability(double probability){
+        public T setProbability(Lazy<Double> probability){
             this.probability = probability;
             return getThis();
         }

@@ -24,6 +24,12 @@ Simplified and finalized the default configs for what structure spawns in lotr m
   No RS Structure with mobs will now spawn in that dimension.
   The modified entries will be automatically added to your current entries the first time you launch v3.0.3 RS.
 
+Fixed spawnrate, min y, and max y configs not working for Mineshafts.
+
+Fixed spawnrate, min y, and max y configs not working for Nether Strongholds.
+
+Fixed spawnrate, min y, and max y configs not working for Jungle Fortresses.
+
 ##### Misc:
 Fix potential issue where the structure check code may not work for preventing two specific structures from spawning on top of each other.
 

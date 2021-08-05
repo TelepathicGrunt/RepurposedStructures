@@ -18,18 +18,19 @@ import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.StructureManager;
 import net.minecraft.world.gen.feature.structure.StructureStart;
 import net.minecraft.world.gen.settings.StructureSeparationSettings;
+import net.minecraftforge.common.util.Lazy;
 
 import java.util.Map;
 
 
 public class MineshaftStructure extends AdvancedJigsawStructure {
 
-    protected final double probability;
+    protected final Lazy<Double> probability;
 
     public MineshaftStructure(ResourceLocation poolID, int structureSize, int biomeRange,
                               Map<ResourceLocation, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces,
-                              int maxY, int minY, boolean clipOutOfBoundsPieces, Integer verticalRange,
-                              double probability)
+                              Lazy<Integer> maxY, Lazy<Integer> minY, boolean clipOutOfBoundsPieces, Integer verticalRange,
+                              Lazy<Double> probability)
     {
         super(poolID, structureSize, biomeRange, requiredPieces, maxY, minY, clipOutOfBoundsPieces, verticalRange);
         this.probability = probability;
@@ -37,7 +38,7 @@ public class MineshaftStructure extends AdvancedJigsawStructure {
 
     @Override
     public BlockPos getNearestGeneratedFeature(IWorldReader world, StructureManager structureAccessor, BlockPos searchStartPos, int searchRadius, boolean skipExistingChunks, long worldSeed, StructureSeparationSettings config) {
-        return MineshaftStructure.locateStructureFast(world, structureAccessor, searchStartPos, searchRadius, skipExistingChunks, worldSeed, config, this, this.probability);
+        return MineshaftStructure.locateStructureFast(world, structureAccessor, searchStartPos, searchRadius, skipExistingChunks, worldSeed, config, this, this.probability.get());
     }
 
     public static <C extends IFeatureConfig> BlockPos locateStructureFast(IWorldReader worldView, StructureManager structureAccessor, BlockPos blockPos, int radius, boolean skipExistingChunks, long seed, StructureSeparationSettings structureConfig, Structure<C> structure, double probability) {
@@ -92,7 +93,7 @@ public class MineshaftStructure extends AdvancedJigsawStructure {
         StructureSeparationSettings structureConfig = chunkGenerator.getSettings().getConfig(this);
         if(structureConfig != null) {
             chunkRandom.setLargeFeatureSeed(seed + structureConfig.salt(), chunkX, chunkZ);
-            double d = (this.probability / 10000D);
+            double d = (this.probability.get() / 10000D);
             return chunkRandom.nextDouble() < d;
         }
         return false;
@@ -100,13 +101,13 @@ public class MineshaftStructure extends AdvancedJigsawStructure {
 
     public static class Builder<T extends Builder<T>> extends AdvancedJigsawStructure.Builder<T> {
 
-        protected double probability = 0.01;
+        protected Lazy<Double> probability = Lazy.of(() -> 0.01D);
 
         public Builder(ResourceLocation startPool) {
             super(startPool);
         }
 
-        public T setProbability(double probability){
+        public T setProbability(Lazy<Double> probability){
             this.probability = probability;
             return getThis();
         }

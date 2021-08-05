@@ -21,6 +21,7 @@ import net.minecraft.world.gen.feature.structure.MarginedStructureStart;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.VillageConfig;
 import net.minecraft.world.gen.feature.template.TemplateManager;
+import net.minecraftforge.common.util.Lazy;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -31,14 +32,14 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<NoFeatureConf
     protected final int structureSize;
     protected final int biomeRange;
     protected final Map<ResourceLocation, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces;
-    protected final int maxY;
-    protected final int minY;
+    protected final Lazy<Integer> maxY;
+    protected final Lazy<Integer> minY;
     protected final boolean clipOutOfBoundsPieces;
     protected final Integer verticalRange;
 
     public AdvancedJigsawStructure(ResourceLocation poolID, int structureSize, int biomeRange,
                                    Map<ResourceLocation, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces,
-                                   int maxY, int minY, boolean clipOutOfBoundsPieces, Integer verticalRange)
+                                   Lazy<Integer> maxY, Lazy<Integer> minY, boolean clipOutOfBoundsPieces, Integer verticalRange)
     {
         super(NoFeatureConfig.CODEC);
 
@@ -85,18 +86,18 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<NoFeatureConf
 
         public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig defaultFeatureConfig) {
             BlockPos.Mutable blockpos = new BlockPos.Mutable(chunkX * 16, 0, chunkZ * 16);
-            if(maxY - minY <= 0){
+            if(maxY.get() - minY.get() <= 0){
                 RepurposedStructures.LOGGER.error("MinY should always be less than MaxY or else a crash will occur or no pieces will spawn. Problematic structure is:" + Registry.STRUCTURE_FEATURE.getKey(this.getFeature()));
             }
-            int structureStartHeight = random.nextInt(maxY - minY) + minY;
+            int structureStartHeight = random.nextInt(maxY.get() - minY.get()) + minY.get();
             blockpos.move(Direction.UP, structureStartHeight);
 
             int topClipOff;
             int bottomClipOff;
             if(verticalRange == null){
                 // Help make sure the Jigsaw Blocks have room to spawn new pieces if structure is right on edge of maxY or minY
-                topClipOff = clipOutOfBoundsPieces ? maxY + 5 : Integer.MAX_VALUE;
-                bottomClipOff = clipOutOfBoundsPieces ? minY - 5 : Integer.MIN_VALUE;
+                topClipOff = clipOutOfBoundsPieces ? maxY.get() + 5 : Integer.MAX_VALUE;
+                bottomClipOff = clipOutOfBoundsPieces ? minY.get() - 5 : Integer.MIN_VALUE;
             }
             else{
                 topClipOff = structureStartHeight + verticalRange;
@@ -136,8 +137,8 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<NoFeatureConf
         protected int structureSize = 1;
         protected int biomeRange = 0;
         protected Map<ResourceLocation, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces = new HashMap<>();
-        protected int maxY = 255;
-        protected int minY = 0;
+        protected Lazy<Integer> maxY = Lazy.of(() -> 255);
+        protected Lazy<Integer> minY = Lazy.of(() -> 0);
         protected boolean clipOutOfBoundsPieces = true;
         protected Integer verticalRange = null;
 
@@ -165,12 +166,12 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<NoFeatureConf
             return getThis();
         }
 
-        public T setMaxY(int maxY){
+        public T setMaxY(Lazy<Integer> maxY){
             this.maxY = maxY;
             return getThis();
         }
 
-        public T setMinY(int minY){
+        public T setMinY(Lazy<Integer> minY){
             this.minY = minY;
             return getThis();
         }

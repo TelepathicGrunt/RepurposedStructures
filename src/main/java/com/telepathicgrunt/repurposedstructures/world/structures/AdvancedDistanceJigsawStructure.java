@@ -17,6 +17,7 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.VillageConfig;
 import net.minecraft.world.gen.feature.template.TemplateManager;
+import net.minecraftforge.common.util.Lazy;
 
 import java.util.Map;
 
@@ -27,7 +28,7 @@ public class AdvancedDistanceJigsawStructure extends AdvancedJigsawStructure {
 
     public AdvancedDistanceJigsawStructure(ResourceLocation poolID, int structureSize, int biomeRange,
                                            Map<ResourceLocation, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces,
-                                           int maxY, int minY, boolean clipOutOfBoundsPieces, Integer verticalRange,
+                                           Lazy<Integer> maxY, Lazy<Integer> minY, boolean clipOutOfBoundsPieces, Integer verticalRange,
                                            int distanceFromWorldOrigin)
     {
         super(poolID, structureSize, biomeRange, requiredPieces, maxY, minY, clipOutOfBoundsPieces, verticalRange);
@@ -61,7 +62,7 @@ public class AdvancedDistanceJigsawStructure extends AdvancedJigsawStructure {
             BlockPos.Mutable blockpos = new BlockPos.Mutable(chunkX * 16, 0, chunkZ * 16);
 
             // -5 so that the start piece's bottom 2 jigsaw blocks can spawn extra pieces and the rest of the stronghold wont go as high as start stairway
-            blockpos.move(Direction.UP, maxY - 5);
+            blockpos.move(Direction.UP, maxY.get() - 5);
 
             PieceLimitedJigsawManager.assembleJigsawStructure(
                     dynamicRegistryManager,
@@ -74,8 +75,8 @@ public class AdvancedDistanceJigsawStructure extends AdvancedJigsawStructure {
                     false,
                     false,
                     structureID,
-                    maxY,
-                    minY);
+                    maxY.get(),
+                    minY.get());
 
             this.calculateBoundingBox();
         }
