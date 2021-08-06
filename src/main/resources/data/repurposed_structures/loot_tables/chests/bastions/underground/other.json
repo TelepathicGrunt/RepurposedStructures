@@ -129,6 +129,11 @@
           "weight": 4
         },
         {
+          "name": "minecraft:enchanted_golden_apple",
+          "type": "minecraft:item",
+          "weight": 3
+        },
+        {
           "name": "minecraft:stone_pickaxe",
           "type": "minecraft:item",
           "weight": 2,

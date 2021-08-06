@@ -223,6 +223,11 @@
           "name": "minecraft:iron_horse_armor",
           "type": "minecraft:item",
           "weight": 1
+        },
+        {
+          "name": "minecraft:enchanted_golden_apple",
+          "type": "minecraft:item",
+          "weight": 1
         }
       ]
     },
