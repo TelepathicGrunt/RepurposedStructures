@@ -31,7 +31,7 @@ public class RSShipwrecksConfig implements ConfigData {
             How rare are Nether Bricks Shipwreck in any non-warped or non-crimson Nether biome.
             1 for spawning in most chunks and 1001 for none.""")
     @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-    public int netherBricksShipwreckAverageChunkDistance = 51;
+    public int netherBricksShipwreckAverageChunkDistance = 29;
 
 
     @ConfigEntry.Gui.Tooltip(count = 0)
@@ -43,7 +43,7 @@ public class RSShipwrecksConfig implements ConfigData {
             How rare are Crimson Shipwreck in Crimson Nether biome.
             1 for spawning in most chunks and 1001 for none.""")
     @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-    public int crimsonShipwreckAverageChunkDistance = 41;
+    public int crimsonShipwreckAverageChunkDistance = 27;
 
 
     @ConfigEntry.Gui.Tooltip(count = 0)
@@ -55,5 +55,5 @@ public class RSShipwrecksConfig implements ConfigData {
             How rare are Warped Shipwreck in Warped Nether biome.
             1 for spawning in most chunks and 1001 for none.""")
     @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-    public int warpedShipwreckAverageChunkDistance = 41;
+    public int warpedShipwreckAverageChunkDistance = 27;
 }
