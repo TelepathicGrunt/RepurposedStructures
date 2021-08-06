@@ -4,12 +4,20 @@
 Buffed Underground Bastion loot a bit more and added "bonus_roll" to more of their loot tables.
   If you have increased Luck attribute (usually from another mod), you may find increased loot in Underground Bastion's chests.
 
+Wandering Traders will now have a rare chance to sell a map to an Underground Bastion.
+
 ##### Shripwrecks:
 Crimson, Warped, and Nether Bricks Shipwreck's spawnrate default config value has been changed to make them significantly more common.
   The old config values will not change when updating so either delete the RS Shipwreck config file or edit the rates yourself to be 27 or 29.
 
 ##### Ruins:
 Made the default config value for Hot Land Ruins and Warm Land Ruins higher so those ruins are a bit more rare.
+
+##### Mansions:
+RS Mansions turned off with the spawnrate configs will remove their map trades from Cartographers.
+
+##### Fortresses:
+Jungle Fortresses turned off with the spawnrate configs will remove their map trades from Cartographers.
 
 
 ### **(V.3.0.4 Changes) (1.16.5 Minecraft)**

@@ -151,6 +151,7 @@ public class RepurposedStructures {
         forgeBus.addListener(EventPriority.HIGHEST, this::deepCopyDimensionalSpacing);
         forgeBus.addListener(this::addDimensionalSpacing);
         forgeBus.addListener(MobMapTrades::onVillagerTradesEvent);
+        forgeBus.addListener(MobMapTrades::onWandererTradesEvent);
         forgeBus.addListener(PoolAdditionMerger::mergeAdditionPools);
         //GeneralUtils.registerStructureDebugging(RSStructures.STONEBRICK_STRONGHOLD);
 
