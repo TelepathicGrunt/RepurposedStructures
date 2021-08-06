@@ -27,19 +27,19 @@ public class RSShipwrecksConfig
 					.comment("\n How rare are Nether Bricks Shipwreck in any non-warped or non-crimson Nether biome.",
 							 " 1 for spawning in most chunks and 1001 for none.")
 					.translation("repurposedstructures.config.shipwrecks.netherbricksshipwreckmaxchunkdistance")
-					.defineInRange("netherBricksShipwreckMaxChunkDistance", 51, 1, 1001));
+					.defineInRange("netherBricksShipwreckMaxChunkDistance", 29, 1, 1001));
 
 				crimsonShipwreckMaxChunkDistance = subscriber.subscribe(builder
 					.comment("\n How rare are Crimson Shipwreck in Crimson Nether biomes.",
 							 " 1 for spawning in most chunks and 1001 for none.")
 					.translation("repurposedstructures.config.shipwrecks.crimsonshipwreckmaxchunkdistance")
-					.defineInRange("crimsonShipwreckMaxChunkDistance", 41, 1, 1001));
+					.defineInRange("crimsonShipwreckMaxChunkDistance", 27, 1, 1001));
 
 				warpedShipwreckMaxChunkDistance = subscriber.subscribe(builder
 					.comment("\n How rare are Warped Shipwreck in Warped Nether biomes.",
 							 " 1 for spawning in most chunks and 1001 for none.")
 					.translation("repurposedstructures.config.shipwrecks.warpedshipwreckmaxchunkdistance")
-					.defineInRange("warpedShipwreckMaxChunkDistance", 41, 1, 1001));
+					.defineInRange("warpedShipwreckMaxChunkDistance", 27, 1, 1001));
 
 			builder.pop();
 		}
