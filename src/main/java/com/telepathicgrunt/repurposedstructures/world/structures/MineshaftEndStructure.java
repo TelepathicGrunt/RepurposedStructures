@@ -2,7 +2,6 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
-import com.telepathicgrunt.repurposedstructures.world.structures.pieces.StructurePiecesBehavior;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelHeightAccessor;
@@ -14,8 +13,6 @@ import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.StructureFeatureConfiguration;
-
-import java.util.Map;
 
 
 public class MineshaftEndStructure extends MineshaftStructure {
@@ -40,7 +37,7 @@ public class MineshaftEndStructure extends MineshaftStructure {
         int structureCheckRadius = 6;
         for (int curChunkX = chunkPos1.x - structureCheckRadius; curChunkX <= chunkPos1.x + structureCheckRadius; curChunkX++) {
             for (int curChunkZ = chunkPos1.z - structureCheckRadius; curChunkZ <= chunkPos1.z + structureCheckRadius; curChunkZ++) {
-                for(StructureFeature<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.END_MINESHAFT_AVOID)){
+                for(StructureFeature<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.END_MINESHAFT_AVOID_STRUCTURE)){
                     if(structureFeature == this) continue;
 
                     StructureFeatureConfiguration structureConfig = chunkGenerator.getSettings().getConfig(structureFeature);

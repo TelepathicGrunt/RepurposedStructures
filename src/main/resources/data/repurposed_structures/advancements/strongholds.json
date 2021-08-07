@@ -15,7 +15,7 @@
     "hidden": false
   },
   "rewards": {
-    "experience": 50
+    "experience": 500
   },
   "criteria": {
     "in_stronghold_nether": {
