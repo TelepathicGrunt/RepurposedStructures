@@ -1,9 +1,6 @@
 outpost_end
 11
 outposts/outpost_end
-0
-0
-exit
 surface_structures
 RSOutpostsConfig
 outposts

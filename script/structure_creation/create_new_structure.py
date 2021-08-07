@@ -58,15 +58,6 @@ while restart:
 
     structure_size = input("\nsize of structure\n")
     start_pool = input("\nstart pool path\n").strip()
-    biome_spacing = input("\nbiome spacing\n")
-    structure_spacing = input("\navoid structure spacing\n")
-
-    avoid_tags = ""
-    avoid_tag = input("\nEnter structure tags to avoid. Type 'exit' to quit\n")
-    while(avoid_tag != 'exit'): 
-        avoid_tags = avoid_tags + ", RSStructureTagMap.STRUCTURE_TAGS." + avoid_tags.upper().strip()
-        avoid_tag = input()
-    avoid_tags = avoid_tags[2:]
 
     generation_step = input("\ngeneration step\n").upper().strip()
 
@@ -103,9 +94,7 @@ while restart:
     raw_output = "--------------FABRIC-------------"
 
     with open(os.path.join('template', 'fabric_structure_init.txt'), "r") as file:
-        file_content = file.read().replace("$1", structure_variable_name).replace("$2", start_pool).replace("$3", structure_size)  \
-                                .replace("$4", biome_spacing).replace("$5", structure_spacing) \
-                                .replace("$6", ("new HashSet<>()", "Stream.of("+avoid_tags+").collect(Collectors.toSet())")[bool(avoid_tags)])
+        file_content = file.read().replace("$1", structure_variable_name).replace("$2", start_pool).replace("$3", structure_size)
     path = os.path.join('code', 'fabric', structure_registry_name+'_structure_init.txt')
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w") as file:
@@ -181,8 +170,7 @@ while restart:
                             "regexpos1", file_content)
 
     with open(os.path.join('template', 'fabric_config.txt'), "r") as file:
-        file_content = file.read().replace("$1", "\"" + config_modded_biome_comment + "\"").replace("$2", config_modded_biome_entry) \
-                                .replace("$3", "\"" + config_spawnrate_comment + "\"").replace("$4", config_spawnrate_entry).replace("$5", spacing_default_value)
+        file_content = file.read().replace("$1", "\"" + config_spawnrate_comment + "\"").replace("$2", config_spawnrate_entry).replace("$3", spacing_default_value)
     path = os.path.join('code', 'fabric', structure_registry_name+'_config.txt')
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w") as file:
@@ -197,19 +185,13 @@ while restart:
                         f.seek(0)
                         insertLine(os.path.join(directory, filename), \
                             "regexpos1", file_content.rsplit(";\n")[0] + ";")
-                    if "regexpos2" in tempRead:
-                        f.seek(0)
-                        insertLine(os.path.join(directory, filename), \
-                            "regexpos2", file_content.rsplit(";\n")[1] + ";")
 
 
     raw_output += "\n\n--------------FORGE-------------"
 
    
     with open(os.path.join('template', 'forge_structure_init.txt'), "r") as file:
-        file_content = file.read().replace("$1", structure_variable_name).replace("$2", structure_registry_name).replace("$3", start_pool) \
-                                .replace("$4", structure_size).replace("$5", biome_spacing).replace("$6", structure_spacing) \
-                                .replace("$7", ("new HashSet<>()", "Stream.of("+avoid_tags+").collect(Collectors.toSet())")[bool(avoid_tags)])
+        file_content = file.read().replace("$1", structure_variable_name).replace("$2", structure_registry_name).replace("$3", start_pool).replace("$4", structure_size)
     path = os.path.join('code', 'forge', structure_registry_name+'_structure_init.txt')
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w") as file:
@@ -285,9 +267,7 @@ while restart:
 
     with open(os.path.join('template', 'forge_config.txt'), "r") as file:
         file_content = file.read().replace("$1", config_spawnrate_entry).replace("$2", config_spawnrate_entry.lower()) \
-                                .replace("$3", config_spawnrate_comment).replace("$4", config_subcategory).replace("$5", spacing_default_value) \
-                                .replace("$6", config_modded_biome_entry).replace("$7", config_modded_biome_entry.lower()) \
-                                .replace("$8", config_modded_biome_comment.replace("\"", "\"\\n "))
+                                .replace("$3", config_spawnrate_comment).replace("$4", config_subcategory).replace("$5", spacing_default_value)
     path = os.path.join('code', 'forge', structure_registry_name+'_config.txt')
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w") as file:
@@ -301,15 +281,15 @@ while restart:
                     if "regexpos1" in tempRead:
                         f.seek(0)
                         groups = file_content.split('(;)')
-                        result = ''.join(groups[:2])
+                        result = ''.join(groups[:1])
                         insertLine(os.path.join(directory, filename), \
                             "regexpos1", result)
                     if "regexpos2" in tempRead:
                         f.seek(0)
                         groups = file_content.split('(;)')
-                        result = ''.join(groups[2:])
+                        result = ''.join(groups[1:])
                         insertLine(os.path.join(directory, filename), \
-                            "regexpos2", result[2:])
+                            "regexpos2", result[1:])
 
 
     #  --------------ADVANCEMENTS--------------
