@@ -81,6 +81,7 @@ public class RSStructures {
 
     //Strongholds
     public static final RegistryObject<Structure<NoFeatureConfig>> STRONGHOLD_NETHER = addToStructureMaps("stronghold_nether", () -> (new AdvancedDistanceJigsawStructure.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "strongholds/nether/start_pool")).setStructureSize(RepurposedStructures.RSStrongholdsConfig.netherStrongholdSize.get()).setMaxY(Lazy.of(() -> RepurposedStructures.RSStrongholdsConfig.netherStrongholdMaxHeight.get())).setMinY(Lazy.of(() -> RepurposedStructures.RSStrongholdsConfig.netherStrongholdMinHeight.get())).setDistanceFromWorldOrigin(2817).build()));
+    // regexpos1
 
     //Igloos and Fortress
     public static final RegistryObject<Structure<NoFeatureConfig>> FORTRESS_JUNGLE = addToStructureMaps("fortress_jungle", () -> (new AdvancedJigsawStructure.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "fortresses/jungle/start_pool")).setStructureSize(RepurposedStructures.RSFortressesConfig.jungleFortressSize.get()).setBiomeRange(4).setMaxY(Lazy.of(() -> RepurposedStructures.RSFortressesConfig.jungleFortressMaxHeight.get())).setMinY(Lazy.of(() -> RepurposedStructures.RSFortressesConfig.jungleFortressMinHeight.get())).setVerticalRange(RepurposedStructures.RSFortressesConfig.jungleFortressVerticalRange.get()).doNotClipOutOfBoundsPieces().build()));
@@ -147,7 +148,6 @@ public class RSStructures {
     public static final RegistryObject<Structure<NoFeatureConfig>> RUINS_NETHER = addToStructureMaps("ruins_nether", () -> (new GenericNetherJigsawStructure.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "ruins/nether/start_pool")).setStructureSize(1).searchForHighestLand().canSpawnOnLiquid().setLedgeSpotOffset(-14).setLiquidSpotOffset(-13).build()));
     public static final RegistryObject<Structure<NoFeatureConfig>> RUINS_LAND_WARM = addToStructureMaps("ruins_land_warm", () -> (new GenericJigsawStructure.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "ruins/land_warm/start_pool")).setStructureSize(2).setTerrainHeightRadius(2).setAllowTerrainHeightRange(5).cannotSpawnInWater().build()));
     public static final RegistryObject<Structure<NoFeatureConfig>> RUINS_LAND_HOT = addToStructureMaps("ruins_land_hot", () -> (new GenericJigsawStructure.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "ruins/land_hot/start_pool")).setStructureSize(2).setTerrainHeightRadius(2).setAllowTerrainHeightRange(5).cannotSpawnInWater().build()));
-    // regexpos1
 
     //Cities
     public static final RegistryObject<Structure<NoFeatureConfig>> CITY_NETHER = addToStructureMaps("city_nether", () -> (new CityNetherStructure.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "cities/nether/start_pool")).setStructureSize(5).setStructureBlacklistRange(4).setAvoidStructuresSet(Stream.of(RSStructureTagMap.STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet())).build()));
@@ -193,6 +193,7 @@ public class RSStructures {
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_taiga"), MINESHAFT_TAIGA.get(), GenerationStage.Decoration.UNDERGROUND_STRUCTURES, new StructureSeparationSettings(1, 0, 1383003172));
 
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "stronghold_nether"), STRONGHOLD_NETHER.get(), GenerationStage.Decoration.TOP_LAYER_MODIFICATION, createSpacingAndSalt(RepurposedStructures.RSStrongholdsConfig.netherStrongholdMaxChunkDistance.get(), 0.5f, 1731422513));
+        // regexpos2
 
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "fortress_jungle"), FORTRESS_JUNGLE.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RepurposedStructures.RSFortressesConfig.jungleFortressMaxChunkDistance.get(), 0.5f, 1464189157));
         addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "igloo_grassy"), IGLOO_GRASSY.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RepurposedStructures.RSIgloosConfig.grassyIglooMaxChunkDistance.get(), 0.5f, 1460835582));
@@ -249,7 +250,6 @@ public class RSStructures {
         addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "ruins_nether"), RUINS_NETHER.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RepurposedStructures.RSRuinsConfig.ruinsNetherMaxChunkDistance.get(), 0.5f, 1336047555));
         addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "ruins_land_warm"), RUINS_LAND_WARM.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RepurposedStructures.RSRuinsConfig.ruinsLandWarmMaxChunkDistance.get(), 0.25f, 18646107));
         addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "ruins_land_hot"), RUINS_LAND_HOT.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RepurposedStructures.RSRuinsConfig.ruinsLandHotMaxChunkDistance.get(), 0.25f, 1243670027));
-        // regexpos2
 
         addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "city_nether"), CITY_NETHER.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RepurposedStructures.RSCitiesConfig.citiesNetherMaxChunkDistance.get(), 0.5f, 2082652405));
 

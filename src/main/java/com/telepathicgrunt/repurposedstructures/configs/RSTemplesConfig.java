@@ -14,8 +14,6 @@ public class RSTemplesConfig
 		public ConfigValueListener<Integer> netherWarpedTempleMaxChunkDistance;
 		public ConfigValueListener<Integer> netherSoulTempleMaxChunkDistance;
 
-		// regexpos1
-
 		public RSTemplesConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
 		{
 			netherWastelandTempleMaxChunkDistance = subscriber.subscribe(builder

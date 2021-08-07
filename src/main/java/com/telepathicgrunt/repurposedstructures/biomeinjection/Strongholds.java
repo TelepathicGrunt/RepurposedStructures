@@ -17,5 +17,7 @@ public class Strongholds {
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.STRONGHOLD_NETHER);
         }
+
+        // regexpos1
     }
 }

@@ -12,12 +12,13 @@ Crimson, Warped, and Nether Bricks Shipwreck's spawnrate default config value ha
 
 ##### Ruins:
 Made the default config value for Hot Land Ruins and Warm Land Ruins higher so those ruins are a bit more rare.
+  The old config values will not change when updating so either delete the RS Ruins config file or edit the rates yourself to be 42 or 45.
 
 ##### Mansions:
-RS Mansions turned off with the spawnrate configs will remove their map trades from Cartographers.
+If RS Mansions are turned off in the spawnrate configs, they will remove their map trades from Cartographers.
 
 ##### Fortresses:
-Jungle Fortresses turned off with the spawnrate configs will remove their map trades from Cartographers.
+If Jungle Fortresses are turned off in the spawnrate configs, they will remove their map trades from Cartographers.
 
 
 ### **(V.3.0.4 Changes) (1.16.5 Minecraft)**
@@ -28,7 +29,7 @@ Restrict y range for the Bubble Column processor so that Ocean Pyramids do not c
 
 ### **(V.3.0.3 Changes) (1.16.5 Minecraft)**
 
-##### Optimzation:
+##### Optimization:
 Optimized many RS structures so they check their piece's bounding boxes more efficiently at generation! 
   Some people reported having lag spikes once in a while when a RS Mineshaft spawns. This should reduce that significantly.
 

@@ -19,8 +19,6 @@ public class RSPyramidsConfig
 		public ConfigValueListener<Integer> pyramidGiantTreeTaigaMaxChunkDistance;
 		public ConfigValueListener<Integer> pyramidFlowerForestMaxChunkDistance;
 
-		// regexpos1
-
 		public RSPyramidsConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
 		{
 			netherPyramidMaxChunkDistance = subscriber.subscribe(builder

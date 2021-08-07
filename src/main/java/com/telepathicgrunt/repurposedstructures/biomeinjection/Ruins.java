@@ -33,6 +33,5 @@ public class Ruins {
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.RUINS_LAND_HOT);
         }
-        // regexpos1
     }
 }

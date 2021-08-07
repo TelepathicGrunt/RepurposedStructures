@@ -12,6 +12,8 @@ public class RSStrongholdsConfig
 		public ConfigValueListener<Integer> netherStrongholdMinHeight;
 		public ConfigValueListener<Integer> netherStrongholdMaxHeight;
 		public ConfigValueListener<Integer> netherStrongholdSize;
+
+		// regexpos1
 		
 		public RSStrongholdsConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
 		{
