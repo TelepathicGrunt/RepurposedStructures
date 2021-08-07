@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.StructurePiecesBehavior;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.ChunkPos;
@@ -10,7 +11,9 @@ import net.minecraft.world.level.biome.BiomeSource;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
+import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.StructureFeatureConfiguration;
 
 import java.util.Map;
 
@@ -18,11 +21,10 @@ import java.util.Map;
 public class MineshaftEndStructure extends MineshaftStructure {
 
     public MineshaftEndStructure(ResourceLocation poolID, int structureSize, int biomeRange,
-                                 Map<ResourceLocation, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces,
                                  int maxY, int minY, boolean clipOutOfBoundsPieces, Integer verticalRange,
                                  double probability)
     {
-        super(poolID, structureSize, biomeRange, requiredPieces, maxY, minY, clipOutOfBoundsPieces, verticalRange, probability);
+        super(poolID, structureSize, biomeRange, maxY, minY, clipOutOfBoundsPieces, verticalRange, probability);
     }
 
     @Override
@@ -33,6 +35,24 @@ public class MineshaftEndStructure extends MineshaftStructure {
 
         if(RepurposedStructures.RSAllConfig.RSMineshaftsConfig.misc.barrensIslandsEndMineshafts)
             return true;
+
+        //cannot be near end strongholds
+        int structureCheckRadius = 6;
+        for (int curChunkX = chunkPos1.x - structureCheckRadius; curChunkX <= chunkPos1.x + structureCheckRadius; curChunkX++) {
+            for (int curChunkZ = chunkPos1.z - structureCheckRadius; curChunkZ <= chunkPos1.z + structureCheckRadius; curChunkZ++) {
+                for(StructureFeature<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.END_MINESHAFT_AVOID)){
+                    if(structureFeature == this) continue;
+
+                    StructureFeatureConfiguration structureConfig = chunkGenerator.getSettings().getConfig(structureFeature);
+                    if(structureConfig != null && structureConfig.spacing() > 10){
+                        ChunkPos chunkPos2 = structureFeature.getPotentialFeatureChunk(structureConfig, seed, chunkRandom, curChunkX, curChunkZ);
+                        if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
 
         int minLandHeight = Math.min(chunkGenerator.getGenDepth(), chunkGenerator.getMinY() + 45);
         int xPos = chunkPos1.getMinBlockX();
@@ -72,7 +92,6 @@ public class MineshaftEndStructure extends MineshaftStructure {
                     startPool,
                     structureSize,
                     biomeRange,
-                    requiredPieces,
                     maxY,
                     minY,
                     clipOutOfBoundsPieces,

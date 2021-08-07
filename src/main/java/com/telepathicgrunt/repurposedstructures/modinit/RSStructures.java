@@ -14,6 +14,7 @@ import com.telepathicgrunt.repurposedstructures.world.structures.MineshaftEndStr
 import com.telepathicgrunt.repurposedstructures.world.structures.MineshaftStructure;
 import com.telepathicgrunt.repurposedstructures.world.structures.ShipwreckEndStructure;
 import com.telepathicgrunt.repurposedstructures.world.structures.ShipwreckNetherStructure;
+import com.telepathicgrunt.repurposedstructures.world.structures.StrongholdEndStructure;
 import com.telepathicgrunt.repurposedstructures.world.structures.configs.NetherShipwreckConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.MansionPieces;
 import net.fabricmc.fabric.api.structure.v1.FabricStructureBuilder;
@@ -59,6 +60,7 @@ public class RSStructures {
     // STRONGHOLDS
 
     public static StructureFeature<NoneFeatureConfiguration> STRONGHOLD_NETHER = new AdvancedDistanceJigsawStructure.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "strongholds/nether/start_pool")).setStructureSize(RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdSize).setMaxY(RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdMaxHeight).setMinY(RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdMinHeight).setDistanceFromWorldOrigin(2817).build();
+    public static StructureFeature<NoneFeatureConfiguration> STRONGHOLD_END = new StrongholdEndStructure.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "strongholds/end/start_pool")).setStructureSize(RepurposedStructures.RSAllConfig.RSStrongholdsConfig.end.endStrongholdSize).setMaxY(RepurposedStructures.RSAllConfig.RSStrongholdsConfig.end.endStrongholdMaxHeight).setMinY(RepurposedStructures.RSAllConfig.RSStrongholdsConfig.end.endStrongholdMinHeight).doNotClipOutOfBoundsPieces().setDistanceFromWorldOrigin(8000).build();
     // regexpos1
 
     // FORTRESSES
@@ -182,6 +184,7 @@ public class RSStructures {
         FabricStructureBuilder.create(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_end"), MINESHAFT_END).step(GenerationStep.Decoration.UNDERGROUND_STRUCTURES).defaultConfig(new StructureFeatureConfiguration(1, 0, 2057488602)).superflatFeature(MINESHAFT_END.configured(FeatureConfiguration.NONE)).register();
 
         FabricStructureBuilder.create(new ResourceLocation(RepurposedStructures.MODID, "stronghold_nether"), STRONGHOLD_NETHER).step(GenerationStep.Decoration.TOP_LAYER_MODIFICATION).defaultConfig(new StructureFeatureConfiguration(RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdAverageChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdAverageChunkDistance * 0.5f), 1731422513)).superflatFeature(STRONGHOLD_NETHER.configured(FeatureConfiguration.NONE)).register();
+        FabricStructureBuilder.create(new ResourceLocation(RepurposedStructures.MODID, "stronghold_end"), STRONGHOLD_END).step(GenerationStep.Decoration.STRONGHOLDS).defaultConfig(new StructureFeatureConfiguration(RepurposedStructures.RSAllConfig.RSStrongholdsConfig.end.endStrongholdAverageChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.end.endStrongholdAverageChunkDistance * 0.5f), 1922886435)).superflatFeature(STRONGHOLD_END.configured(FeatureConfiguration.NONE)).register();
         // regexpos2
 
         FabricStructureBuilder.create(new ResourceLocation(RepurposedStructures.MODID, "fortress_jungle"), FORTRESS_JUNGLE).step(GenerationStep.Decoration.SURFACE_STRUCTURES).defaultConfig(new StructureFeatureConfiguration(RepurposedStructures.RSAllConfig.RSFortressesConfig.jungleFortress.jungleFortressAverageChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSFortressesConfig.jungleFortress.jungleFortressAverageChunkDistance * 0.5f), 1464189157)).superflatFeature(FORTRESS_JUNGLE.configured(FeatureConfiguration.NONE)).register();

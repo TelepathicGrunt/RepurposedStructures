@@ -29,7 +29,8 @@ public class RSConfiguredStructures {
     public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> SWAMP_MINESHAFT = RSStructures.MINESHAFT_SWAMP.configured(FeatureConfiguration.NONE);
     public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> TAIGA_MINESHAFT = RSStructures.MINESHAFT_TAIGA.configured(FeatureConfiguration.NONE);
 
-    public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> NETHER_STRONGHOLD = RSStructures.STRONGHOLD_NETHER.configured(FeatureConfiguration.NONE);
+    public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> STRONGHOLD_NETHER = RSStructures.STRONGHOLD_NETHER.configured(FeatureConfiguration.NONE);
+    public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> STRONGHOLD_END = RSStructures.STRONGHOLD_END.configured(FeatureConfiguration.NONE);
     // regexpos1
 
     public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> JUNGLE_FORTRESS = RSStructures.FORTRESS_JUNGLE.configured(FeatureConfiguration.NONE);
@@ -125,7 +126,8 @@ public class RSConfiguredStructures {
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "swamp_mineshaft"), SWAMP_MINESHAFT);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "taiga_mineshaft"), TAIGA_MINESHAFT);
 
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "nether_stronghold"), NETHER_STRONGHOLD);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "nether_stronghold"), STRONGHOLD_NETHER);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "stronghold_end"), STRONGHOLD_END);
         // regexpos2
 
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "jungle_fortress"), JUNGLE_FORTRESS);

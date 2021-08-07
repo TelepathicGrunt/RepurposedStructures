@@ -89,10 +89,10 @@ public class RSStrongholdsConfig implements ConfigData
 
 
 				How rare are End-styled Strongholds in End-category biome's islands.
-				1 for spawning in most chunks and 1001 for no spawn.
+				1 for spawning in most chunks and 10001 for no spawn.
 				Note: Eyes of Ender will work and show the closest End Stronghold too.""")
-		@ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-		public int endStrongholdAverageChunkDistance = 200;
+		@ConfigEntry.BoundedDiscrete(min = 1, max = 10001)
+		public int endStrongholdAverageChunkDistance = 180;
 
 		@ConfigEntry.Gui.Tooltip(count = 0)
 		@ConfigEntry.Gui.PrefixText
@@ -103,7 +103,7 @@ public class RSStrongholdsConfig implements ConfigData
 
 				Min Y height that the starting point can spawn at.""")
 		@ConfigEntry.BoundedDiscrete(min = 0, max = 255)
-		public int endStrongholdMinHeight = 15;
+		public int endStrongholdMinHeight = 10;
 
 		@ConfigEntry.Gui.Tooltip(count = 0)
 		@ConfigEntry.Gui.PrefixText
@@ -115,7 +115,7 @@ public class RSStrongholdsConfig implements ConfigData
 				Max Y height that the starting point can spawn at.
 				If below min height, this will be read as min.""")
 		@ConfigEntry.BoundedDiscrete(min = 0, max = 255)
-		public int endStrongholdMaxHeight = 19;
+		public int endStrongholdMaxHeight = 13;
 
 		// regexpos1
 	}

@@ -1,1 +1,1 @@
-    public static StructureFeature<DefaultFeatureConfig> $1 = new GenericJigsawStructure.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "$2")).setStructureSize($3).build();
+    public static StructureFeature<NoneFeatureConfiguration> $1 = new GenericJigsawStructure.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "$2")).setStructureSize($3).build();

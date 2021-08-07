@@ -62,7 +62,7 @@ public class StructureEndRodChains extends Feature<StructureTargetConfig> {
 
             //attaches end rod at end at a decent chance
             if(mutable.getY() != world.getMaxBuildHeight() - 3 &&
-                context.random().nextFloat() < 0.15f &&
+                context.random().nextFloat() < 0.475f &&
                 world.isEmptyBlock(mutable.above()) &&
                 world.isEmptyBlock(mutable))
             {

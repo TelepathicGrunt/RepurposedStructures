@@ -148,7 +148,7 @@ while restart:
 
 
     with open(os.path.join('template', 'fabric_biome_spawn.txt'), "r") as file:
-        file_content = file.read().replace("$1", structure_registry_name).replace("$2", config_category).replace("$3", config_spawnrate_entry)
+        file_content = file.read().replace("$1", structure_variable_name).replace("$2", config_category).replace("$3", config_spawnrate_entry)
     path = os.path.join('code', 'fabric', structure_registry_name+'_biome_spawn.txt')
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w") as file:
@@ -301,7 +301,7 @@ while restart:
         }
         jsonData["requirements"].append(["in_"+structure_registry_name])
         file.seek(0)
-        file.write(json.dump(jsonData, indent=4, sort_keys=True))
+        file.write(json.dumps(jsonData, indent=4))
         file.truncate()
 
     path = os.path.join(forge_src, 'main','resources','data','repurposed_structures','advancements', advancement_file + ".json")
@@ -315,7 +315,7 @@ while restart:
         }
         jsonData["requirements"].append(["in_"+structure_registry_name])
         file.seek(0)
-        file.write(json.dump(jsonData, indent=4, sort_keys=True))
+        file.write(json.dumps(jsonData, indent=4))
         file.truncate()
 
 

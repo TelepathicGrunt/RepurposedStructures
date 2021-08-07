@@ -1,7 +1,7 @@
         GeneralUtils.addToBiome("$1",
                 (context) -> 
-						&& BiomeSelection.isBiomeAllowed(context, RSStructures.$1,
+						BiomeSelection.isBiomeAllowed(context, RSStructures.$1,
                                 () -> )
-						&& RepurposedStructures.RSAllConfig.$2.averageChunkDistance.$3 != 10001,
+						&& RepurposedStructures.RSAllConfig.$2.$3 != 1001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.$1));
 				

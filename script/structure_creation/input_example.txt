@@ -3,7 +3,6 @@ stronghold_end
 strongholds/end/start_pool
 STRONGHOLDS
 RSStrongholdsConfig
-Add End Outposts to modded End biomes.
 How rare are End Strongholds in End biome's islands. 1 for spawning in most chunks and 10001 for none. 
 200
 y

@@ -28,6 +28,9 @@ public class StructurePiecesBehavior {
         REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "stronghold_nether"), ImmutableMap.of(
                 new ResourceLocation(RepurposedStructures.MODID, "strongholds/nether/portal_room"), new StructurePiecesBehavior.RequiredPieceNeeds(1, (int) (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdSize * 0.6D))));
 
+        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "stronghold_end"), ImmutableMap.of(
+                new ResourceLocation(RepurposedStructures.MODID, "strongholds/end/portal_room"), new StructurePiecesBehavior.RequiredPieceNeeds(1, (int) (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.end.endStrongholdSize * 0.6D))));
+
         REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "fortress_jungle"), ImmutableMap.of(
                 new ResourceLocation(RepurposedStructures.MODID, "fortresses/jungle/spawner"), new StructurePiecesBehavior.RequiredPieceNeeds(2, (int) (RepurposedStructures.RSAllConfig.RSFortressesConfig.jungleFortress.jungleFortressSize * 0.6D)),
                 new ResourceLocation(RepurposedStructures.MODID, "fortresses/jungle/balcony"), new StructurePiecesBehavior.RequiredPieceNeeds(1, (int) (RepurposedStructures.RSAllConfig.RSFortressesConfig.jungleFortress.jungleFortressSize * 0.2D)),
@@ -90,6 +93,20 @@ public class StructurePiecesBehavior {
         PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "strongholds/nether/stairs_straight"), (int) (7 * (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdSize * netherStrongholdLimitScale)));
         PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "strongholds/nether/stairs"), (int) (7 * (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdSize * netherStrongholdLimitScale)));
         PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "strongholds/nether/chest_corridor"), (int) (16 * (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdSize * netherStrongholdLimitScale)));
+
+        double endStrongholdLimitScale = 0.072D;
+        PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "strongholds/end/library_big"), (int) (4 * (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.end.endStrongholdSize * endStrongholdLimitScale)));
+        PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "strongholds/end/library_small"), (int) (2 * (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.end.endStrongholdSize * endStrongholdLimitScale)));
+        PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "strongholds/end/prison"), (int) (8 * (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.end.endStrongholdSize * endStrongholdLimitScale)));
+        PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "strongholds/end/crossing"), (int) (7 * (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.end.endStrongholdSize * endStrongholdLimitScale)));
+        PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "strongholds/end/empty_crossing"), (int) (2 * (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.end.endStrongholdSize * endStrongholdLimitScale)));
+        PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "strongholds/end/pillar_crossing"), (int) (3 * (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.end.endStrongholdSize * endStrongholdLimitScale)));
+        PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "strongholds/end/fountain_crossing"), (int) (3 * (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.end.endStrongholdSize * endStrongholdLimitScale)));
+        PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "strongholds/end/storage_crossing"), (int) (4 * (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.end.endStrongholdSize * endStrongholdLimitScale)));
+        PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "strongholds/end/stairs_straight"), (int) (7 * (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.end.endStrongholdSize * endStrongholdLimitScale)));
+        PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "strongholds/end/stairs"), (int) (7 * (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.end.endStrongholdSize * endStrongholdLimitScale)));
+        PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "strongholds/end/chest_corridor"), (int) (16 * (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.end.endStrongholdSize * endStrongholdLimitScale)));
+
         PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshafts/birch/spawner_1"), 1);
         PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshafts/birch/spawner_2"), 1);
         PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshafts/birch/spawner_3_end"), 1);

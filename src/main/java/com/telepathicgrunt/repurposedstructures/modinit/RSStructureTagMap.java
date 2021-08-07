@@ -38,6 +38,7 @@ public class RSStructureTagMap {
         BASTION_AVOID_STRUCTURE,
         OUTPOST_AVOID_STRUCTURE,
         VILLAGE_AVOID_STRUCTURE,
+        END_MINESHAFT_AVOID,
 
         // Other
         NO_LAKES,
@@ -71,6 +72,7 @@ public class RSStructureTagMap {
         addTags(RSStructures.IGLOO_STONE, Stream.of(STRUCTURE_TAGS.IGLOO).collect(Collectors.toSet()));
 
         addTags(RSStructures.STRONGHOLD_NETHER, Stream.of(STRUCTURE_TAGS.STRONGHOLD).collect(Collectors.toSet()));
+        addTags(RSStructures.STRONGHOLD_END, Stream.of(STRUCTURE_TAGS.STRONGHOLD, STRUCTURE_TAGS.END_MINESHAFT_AVOID).collect(Collectors.toSet()));
         // regexpos1
         addTags(RSStructures.PYRAMID_BADLANDS, Stream.of(STRUCTURE_TAGS.PYRAMID).collect(Collectors.toSet()));
         addTags(RSStructures.PYRAMID_NETHER, Stream.of(STRUCTURE_TAGS.PYRAMID).collect(Collectors.toSet()));

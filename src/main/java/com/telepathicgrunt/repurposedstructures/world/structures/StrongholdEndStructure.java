@@ -15,13 +15,13 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 import java.util.Map;
 
 
-public class StrongholdEndStructure extends AdvancedJigsawStructure {
+public class StrongholdEndStructure extends AdvancedDistanceJigsawStructure {
 
     public StrongholdEndStructure(ResourceLocation poolID, int structureSize, int biomeRange,
-                                  Map<ResourceLocation, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces,
-                                  int maxY, int minY, boolean clipOutOfBoundsPieces, Integer verticalRange)
+                                  int maxY, int minY, boolean clipOutOfBoundsPieces, Integer verticalRange,
+                                  int distanceFromWorldOrigin)
     {
-        super(poolID, structureSize, biomeRange, requiredPieces, maxY, minY, clipOutOfBoundsPieces, verticalRange);
+        super(poolID, structureSize, biomeRange, maxY, minY, clipOutOfBoundsPieces, verticalRange, distanceFromWorldOrigin);
     }
 
     @Override
@@ -50,7 +50,7 @@ public class StrongholdEndStructure extends AdvancedJigsawStructure {
     }
 
 
-    public static class Builder<T extends StrongholdEndStructure.Builder<T>> extends AdvancedJigsawStructure.Builder<T> {
+    public static class Builder<T extends StrongholdEndStructure.Builder<T>> extends AdvancedDistanceJigsawStructure.Builder<T> {
 
         public Builder(ResourceLocation startPool) {
             super(startPool);
@@ -61,11 +61,11 @@ public class StrongholdEndStructure extends AdvancedJigsawStructure {
                     startPool,
                     structureSize,
                     biomeRange,
-                    requiredPieces,
                     maxY,
                     minY,
                     clipOutOfBoundsPieces,
-                    verticalRange);
+                    verticalRange,
+                    distanceFromWorldOrigin);
         }
     }
 }

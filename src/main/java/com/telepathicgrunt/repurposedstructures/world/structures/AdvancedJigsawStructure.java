@@ -30,14 +30,12 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<NoneFeatureCo
     protected final ResourceLocation startPool;
     protected final int structureSize;
     protected final int biomeRange;
-    protected final Map<ResourceLocation, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces;
     protected final int maxY;
     protected final int minY;
     protected final boolean clipOutOfBoundsPieces;
     protected final Integer verticalRange;
 
     public AdvancedJigsawStructure(ResourceLocation poolID, int structureSize, int biomeRange,
-                                   Map<ResourceLocation, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces,
                                    int maxY, int minY, boolean clipOutOfBoundsPieces, Integer verticalRange)
     {
         super(NoneFeatureConfiguration.CODEC);
@@ -45,7 +43,6 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<NoneFeatureCo
         this.startPool = poolID;
         this.structureSize = structureSize;
         this.biomeRange = biomeRange;
-        this.requiredPieces = requiredPieces;
         this.maxY = maxY;
         this.minY = minY;
         this.clipOutOfBoundsPieces = clipOutOfBoundsPieces;
@@ -135,7 +132,6 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<NoneFeatureCo
         protected final ResourceLocation startPool;
         protected int structureSize = 1;
         protected int biomeRange = 0;
-        protected Map<ResourceLocation, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces = new HashMap<>();
         protected int maxY = 255;
         protected int minY = 0;
         protected boolean clipOutOfBoundsPieces = true;
@@ -157,11 +153,6 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<NoneFeatureCo
 
         public T setBiomeRange(int biomeRange){
             this.biomeRange = biomeRange;
-            return getThis();
-        }
-
-        public T setRequiredPieces(Map<ResourceLocation, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces){
-            this.requiredPieces = requiredPieces;
             return getThis();
         }
 
@@ -190,7 +181,6 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<NoneFeatureCo
                     startPool,
                     structureSize,
                     biomeRange,
-                    requiredPieces,
                     maxY,
                     minY,
                     clipOutOfBoundsPieces,

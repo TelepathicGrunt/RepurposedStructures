@@ -271,7 +271,7 @@ public class RSConfiguredFeatures {
     public static ConfiguredFeature<?, ?> JUNGLE_FORTRESS_STRUCTURE_VINE_BREAKAGE = RSFeatures.STRUCTURE_VINE_BREAKAGE.configured(new StructureTargetAndLengthConfig(15, 4));
     public static ConfiguredFeature<?, ?> JUNGLE_FORTRESS_STRUCTURE_VINES = RSFeatures.STRUCTURE_VINES.configured(new StructureTargetLengthRangeConfig(10, 3, 3));
     public static ConfiguredFeature<?, ?> NETHER_STRONGHOLD_CHAINS = RSFeatures.STRUCTURE_CHAINS.configured(new StructureTargetConfig(7));
-    public static ConfiguredFeature<?, ?> END_STRONGHOLD_CHAINS = RSFeatures.STRUCTURE_CHAINS.configured(new StructureTargetConfig(5));
+    public static ConfiguredFeature<?, ?> END_STRONGHOLD_CHAINS = RSFeatures.STRUCTURE_END_ROD_CHAINS.configured(new StructureTargetConfig(5));
     public static ConfiguredFeature<?, ?> END_MINESHAFT_CHORUS = RSFeatures.STRUCTURE_CHORUS.configured(new StructureTargetConfig(4));
     public static ConfiguredFeature<?, ?> END_MINESHAFT_DENSE_CHORUS = RSFeatures.STRUCTURE_CHORUS.configured(new StructureTargetConfig(60));
     public static ConfiguredFeature<?, ?> CRIMSON_MINESHAFT_PLANTS = RSFeatures.STRUCTURE_CRIMSON_PLANTS.configured(new StructureTargetAndLengthConfig(40, 3));

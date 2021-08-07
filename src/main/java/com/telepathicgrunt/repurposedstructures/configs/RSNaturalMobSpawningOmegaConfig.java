@@ -38,12 +38,23 @@ public class RSNaturalMobSpawningOmegaConfig implements Config {
                                     mobList.get(i).maxGroupSize));
                 }
             }
+            configVersion = 2;
         }
 
-        configVersion = 2;
+        if(configVersion == 2){
+            addEntries(appendMobSpawns, "repurposed_structures:stronghold_end", List.of(new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:endermite", 100, 2, 4)));
+        }
+
+        configVersion = 3;
         Config.super.save();
     }
 
+    private void addEntries(Map<String, List<MobSpawningOverTime.PublicMobSpawnEntry>> map, String key, List<MobSpawningOverTime.PublicMobSpawnEntry> entry){
+        // assign entry
+        if(map.putIfAbsent(key, entry) != null){
+            map.get(key).addAll(entry); // append entry
+        }
+    }
 
     @Comment("""
 
@@ -151,7 +162,9 @@ public class RSNaturalMobSpawningOmegaConfig implements Config {
             Map.entry("repurposed_structures:shipwreck_warped", List.of(
                     new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:wither_skeleton", 25, 1, 1))),
             Map.entry("repurposed_structures:fortress_jungle", List.of(
-                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:wither_skeleton", 27, 1, 1)))
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:wither_skeleton", 27, 1, 1))),
+            Map.entry("repurposed_structures:stronghold_end", List.of(
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:endermite", 100, 2, 4)))
     );
 
 
@@ -163,5 +176,5 @@ public class RSNaturalMobSpawningOmegaConfig implements Config {
 
             // for internal use only. Do not change this.
             """)
-    public int configVersion = 2;
+    public int configVersion = 3;
 }

@@ -1,0 +1,1 @@
+    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> STRONGHOLD_END = RSStructures.STRONGHOLD_END.configure(FeatureConfig.DEFAULT);
