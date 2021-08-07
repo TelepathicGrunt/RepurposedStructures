@@ -32,6 +32,5 @@ public class Ruins {
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.DESERT))
                         && RepurposedStructures.RSAllConfig.RSRuinsConfig.ruinsLandHotAverageChunkDistance != 1001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.RUINS_LAND_HOT));
-        // regexpos1
     }
 }

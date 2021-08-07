@@ -32,7 +32,6 @@ public class RSRuinsConfig implements ConfigData {
     @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
     public int ruinsLandWarmAverageChunkDistance = 42;
 
-    // regexpos1
 
     @ConfigEntry.Gui.Tooltip(count = 0)
     @ConfigEntry.Gui.RequiresRestart
@@ -44,5 +43,4 @@ public class RSRuinsConfig implements ConfigData {
             1 for spawning in most chunks and 1001 for none.""")
     @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
     public int ruinsLandHotAverageChunkDistance = 45;
-    // regexpos2
 }

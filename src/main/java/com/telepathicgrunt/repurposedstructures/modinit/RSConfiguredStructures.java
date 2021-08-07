@@ -30,6 +30,7 @@ public class RSConfiguredStructures {
     public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> TAIGA_MINESHAFT = RSStructures.MINESHAFT_TAIGA.configured(FeatureConfiguration.NONE);
 
     public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> NETHER_STRONGHOLD = RSStructures.STRONGHOLD_NETHER.configured(FeatureConfiguration.NONE);
+    // regexpos1
 
     public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> JUNGLE_FORTRESS = RSStructures.FORTRESS_JUNGLE.configured(FeatureConfiguration.NONE);
     public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> GRASSY_IGLOO = RSStructures.IGLOO_GRASSY.configured(FeatureConfiguration.NONE);
@@ -87,7 +88,6 @@ public class RSConfiguredStructures {
     public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> RUINS_NETHER = RSStructures.RUINS_NETHER.configured(FeatureConfiguration.NONE);
     public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> RUINS_LAND_WARM = RSStructures.RUINS_LAND_WARM.configured(FeatureConfiguration.NONE);
     public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> RUINS_LAND_HOT = RSStructures.RUINS_LAND_HOT.configured(FeatureConfiguration.NONE);
-    // regexpos1
 
     public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> CITY_NETHER = RSStructures.CITY_NETHER.configured(FeatureConfiguration.NONE);
 
@@ -126,6 +126,7 @@ public class RSConfiguredStructures {
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "taiga_mineshaft"), TAIGA_MINESHAFT);
 
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "nether_stronghold"), NETHER_STRONGHOLD);
+        // regexpos2
 
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "jungle_fortress"), JUNGLE_FORTRESS);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "grassy_igloo"), GRASSY_IGLOO);
@@ -183,7 +184,6 @@ public class RSConfiguredStructures {
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "ruins_nether"), RUINS_NETHER);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "ruins_land_warm"), RUINS_LAND_WARM);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "ruins_land_hot"), RUINS_LAND_HOT);
-        // regexpos2
 
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "city_nether"), CITY_NETHER);
 

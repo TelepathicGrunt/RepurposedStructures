@@ -59,6 +59,7 @@ public class RSStructures {
     // STRONGHOLDS
 
     public static StructureFeature<NoneFeatureConfiguration> STRONGHOLD_NETHER = new AdvancedDistanceJigsawStructure.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "strongholds/nether/start_pool")).setStructureSize(RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdSize).setMaxY(RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdMaxHeight).setMinY(RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdMinHeight).setDistanceFromWorldOrigin(2817).build();
+    // regexpos1
 
     // FORTRESSES
 
@@ -135,7 +136,6 @@ public class RSStructures {
     public static StructureFeature<NoneFeatureConfiguration> RUINS_NETHER = new GenericNetherJigsawStructure.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "ruins/nether/start_pool")).setStructureSize(1).searchForHighestLand().canSpawnOnLiquid().setLedgeSpotOffset(-14).setLiquidSpotOffset(-13).build();
     public static StructureFeature<NoneFeatureConfiguration> RUINS_LAND_WARM = new GenericJigsawStructure.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "ruins/land_warm/start_pool")).setStructureSize(2).setTerrainHeightRadius(2).setAllowTerrainHeightRange(5).cannotSpawnInWater().build();
     public static StructureFeature<NoneFeatureConfiguration> RUINS_LAND_HOT = new GenericJigsawStructure.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "ruins/land_hot/start_pool")).setStructureSize(2).setTerrainHeightRadius(2).setAllowTerrainHeightRange(5).cannotSpawnInWater().build();
-    // regexpos1
 
     // CITIES
 
@@ -182,6 +182,7 @@ public class RSStructures {
         FabricStructureBuilder.create(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_end"), MINESHAFT_END).step(GenerationStep.Decoration.UNDERGROUND_STRUCTURES).defaultConfig(new StructureFeatureConfiguration(1, 0, 2057488602)).superflatFeature(MINESHAFT_END.configured(FeatureConfiguration.NONE)).register();
 
         FabricStructureBuilder.create(new ResourceLocation(RepurposedStructures.MODID, "stronghold_nether"), STRONGHOLD_NETHER).step(GenerationStep.Decoration.TOP_LAYER_MODIFICATION).defaultConfig(new StructureFeatureConfiguration(RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdAverageChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdAverageChunkDistance * 0.5f), 1731422513)).superflatFeature(STRONGHOLD_NETHER.configured(FeatureConfiguration.NONE)).register();
+        // regexpos2
 
         FabricStructureBuilder.create(new ResourceLocation(RepurposedStructures.MODID, "fortress_jungle"), FORTRESS_JUNGLE).step(GenerationStep.Decoration.SURFACE_STRUCTURES).defaultConfig(new StructureFeatureConfiguration(RepurposedStructures.RSAllConfig.RSFortressesConfig.jungleFortress.jungleFortressAverageChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSFortressesConfig.jungleFortress.jungleFortressAverageChunkDistance * 0.5f), 1464189157)).superflatFeature(FORTRESS_JUNGLE.configured(FeatureConfiguration.NONE)).register();
 
@@ -239,7 +240,6 @@ public class RSStructures {
         FabricStructureBuilder.create(new ResourceLocation(RepurposedStructures.MODID, "ruins_nether"), RUINS_NETHER).step(GenerationStep.Decoration.SURFACE_STRUCTURES).defaultConfig(new StructureFeatureConfiguration(RepurposedStructures.RSAllConfig.RSRuinsConfig.ruinsNetherAverageChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSRuinsConfig.ruinsNetherAverageChunkDistance * 0.5f), 1336047555)).superflatFeature(RUINS_NETHER.configured(FeatureConfiguration.NONE)).adjustsSurface().register();
         FabricStructureBuilder.create(new ResourceLocation(RepurposedStructures.MODID, "ruins_land_warm"), RUINS_LAND_WARM).step(GenerationStep.Decoration.SURFACE_STRUCTURES).defaultConfig(new StructureFeatureConfiguration(RepurposedStructures.RSAllConfig.RSRuinsConfig.ruinsLandWarmAverageChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSRuinsConfig.ruinsLandWarmAverageChunkDistance * 0.25f), 18646107)).superflatFeature(RUINS_LAND_WARM.configured(FeatureConfiguration.NONE)).adjustsSurface().register();
         FabricStructureBuilder.create(new ResourceLocation(RepurposedStructures.MODID, "ruins_land_hot"), RUINS_LAND_HOT).step(GenerationStep.Decoration.SURFACE_STRUCTURES).defaultConfig(new StructureFeatureConfiguration(RepurposedStructures.RSAllConfig.RSRuinsConfig.ruinsLandHotAverageChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSRuinsConfig.ruinsLandHotAverageChunkDistance * 0.25f), 1243670027)).superflatFeature(RUINS_LAND_HOT.configured(FeatureConfiguration.NONE)).adjustsSurface().register();
-        // regexpos2
 
         FabricStructureBuilder.create(new ResourceLocation(RepurposedStructures.MODID, "city_nether"), CITY_NETHER).step(GenerationStep.Decoration.SURFACE_STRUCTURES).defaultConfig(new StructureFeatureConfiguration(RepurposedStructures.RSAllConfig.RSCitiesConfig.cityNetherAverageChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSCitiesConfig.cityNetherAverageChunkDistance * 0.5f), 2082652405)).superflatFeature(CITY_NETHER.configured(FeatureConfiguration.NONE)).adjustsSurface().register();
 

@@ -71,7 +71,7 @@ public class RSStructureTagMap {
         addTags(RSStructures.IGLOO_STONE, Stream.of(STRUCTURE_TAGS.IGLOO).collect(Collectors.toSet()));
 
         addTags(RSStructures.STRONGHOLD_NETHER, Stream.of(STRUCTURE_TAGS.STRONGHOLD).collect(Collectors.toSet()));
-        
+        // regexpos1
         addTags(RSStructures.PYRAMID_BADLANDS, Stream.of(STRUCTURE_TAGS.PYRAMID).collect(Collectors.toSet()));
         addTags(RSStructures.PYRAMID_NETHER, Stream.of(STRUCTURE_TAGS.PYRAMID).collect(Collectors.toSet()));
         addTags(RSStructures.PYRAMID_SNOWY, Stream.of(STRUCTURE_TAGS.PYRAMID).collect(Collectors.toSet()));
@@ -149,7 +149,7 @@ public class RSStructureTagMap {
         addTags(StructureFeature.PILLAGER_OUTPOST, Stream.of(STRUCTURE_TAGS.VILLAGE_AVOID_STRUCTURE).collect(Collectors.toSet()));
         addTags(StructureFeature.STRONGHOLD, Stream.of(STRUCTURE_TAGS.BASTION_AVOID_STRUCTURE).collect(Collectors.toSet()));
         addTags(StructureFeature.END_CITY, Stream.of(STRUCTURE_TAGS.END_AVOID_STRUCTURE).collect(Collectors.toSet()));
-        // regexpos1
+
     }
 
 
