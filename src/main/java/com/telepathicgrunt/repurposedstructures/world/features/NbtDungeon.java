@@ -309,7 +309,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
 
                             RandomizableContainerBlockEntity.setLootTable(world, random, mutable, config.chestResourcelocation);
                             mutable.move(Direction.DOWN);
-                            if(lootBlock.getBlock() == Blocks.SHULKER_BOX && world.getBlockEntity(mutable) != null){
+                            if(lootBlock.getBlock() == Blocks.SHULKER_BOX && world.getBlockEntity(mutable) == null){
                                 world.setBlock(mutable, Blocks.SPAWNER.defaultBlockState(), 2);
                                 BlockEntity blockEntity = world.getBlockEntity(mutable);
                                 if (blockEntity instanceof SpawnerBlockEntity) {
