@@ -62,10 +62,6 @@ while restart:
     generation_step = input("\ngeneration step\n").upper().strip()
 
     config_category = input("\nconfig category\n")
-    config_subcategory = input("\nconfig subcategory\n")
-
-    config_modded_biome_entry = "add" + structure_registry_name.replace("_", " ").title().replace(" ", "") +"ToModdedBiomes"
-    config_modded_biome_comment = input("\nconfig modded biome comment\n")
 
     config_spawnrate_entry = structure_registry_name[0].lower() + structure_registry_name.replace("_", " ").title().replace(" ", "")[1:] +"AverageChunkDistance"
     config_spawnrate_comment = input("\nconfig spawnrate comment\n")
@@ -106,8 +102,8 @@ while restart:
 
     with open(os.path.join('template', 'fabric_structure_registration.txt'), "r") as file:
         file_content = file.read().replace("$1", structure_registry_name).replace("$2", structure_variable_name).replace("$3", generation_step)  \
-                                .replace("$4", config_category).replace("$5", config_subcategory).replace("$6", config_spawnrate_entry) \
-                                .replace("$7", spacing_seed).replace("$8", ("", ".adjustsSurface()")[adjusts_surface == 'y'])
+                                .replace("$4", config_category).replace("$5", config_spawnrate_entry) \
+                                .replace("$6", spacing_seed).replace("$7", ("", ".adjustsSurface()")[adjusts_surface == 'y'])
     path = os.path.join('code', 'fabric', structure_registry_name+'_structure_registration.txt')
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w") as file:
@@ -152,8 +148,7 @@ while restart:
 
 
     with open(os.path.join('template', 'fabric_biome_spawn.txt'), "r") as file:
-        file_content = file.read().replace("$1", structure_registry_name).replace("$2", config_subcategory).replace("$3", config_category) \
-                                .replace("$4", config_spawnrate_entry).replace("$5", config_modded_biome_entry).replace("$6", structure_variable_name)
+        file_content = file.read().replace("$1", structure_registry_name).replace("$2", config_category).replace("$3", config_spawnrate_entry)
     path = os.path.join('code', 'fabric', structure_registry_name+'_biome_spawn.txt')
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w") as file:
@@ -184,7 +179,7 @@ while restart:
                     if "regexpos1" in tempRead:
                         f.seek(0)
                         insertLine(os.path.join(directory, filename), \
-                            "regexpos1", file_content.rsplit(";\n")[0] + ";")
+                            "regexpos1", file_content)
 
 
     raw_output += "\n\n--------------FORGE-------------"
@@ -248,8 +243,7 @@ while restart:
                 "regexpos1", file_content)
 
     with open(os.path.join('template', 'forge_biome_spawn.txt'), "r") as file:
-        file_content = file.read().replace("$1", config_spawnrate_entry).replace("$2", config_category) \
-                                .replace("$3", config_modded_biome_entry).replace("$4", structure_variable_name)
+        file_content = file.read().replace("$1", config_category).replace("$2", structure_variable_name)
     path = os.path.join('code', 'forge', structure_registry_name+'_biome_spawn.txt')
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w") as file:
@@ -267,7 +261,7 @@ while restart:
 
     with open(os.path.join('template', 'forge_config.txt'), "r") as file:
         file_content = file.read().replace("$1", config_spawnrate_entry).replace("$2", config_spawnrate_entry.lower()) \
-                                .replace("$3", config_spawnrate_comment).replace("$4", config_subcategory).replace("$5", spacing_default_value)
+                                .replace("$3", config_spawnrate_comment).replace("$4", structure_variable_name).replace("$5", spacing_default_value)
     path = os.path.join('code', 'forge', structure_registry_name+'_config.txt')
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w") as file:
@@ -276,6 +270,8 @@ while restart:
         if bool(inject_into_code):
             directory = os.path.join(forge_src, 'main','java','com','telepathicgrunt','repurposedstructures','configs')
             for filename in os.listdir(directory):
+                if os.path.isfile(os.path.join(directory, filename)):
+                    pass
                 with open(os.path.join(directory, filename), 'r+') as f:
                     tempRead = f.read()
                     if "regexpos1" in tempRead:

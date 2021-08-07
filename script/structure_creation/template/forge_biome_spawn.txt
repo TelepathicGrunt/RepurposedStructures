@@ -1,6 +1,6 @@
-        if ( &&
-            RepurposedStructures.$2.$1.get() != 1001 &&
-            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.$2.$3.get()))
+        if (RepurposedStructures.$1.maxChunkDistance.get() != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.$2.get(),
+                    () -> ))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.$4);
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.$2);
         }

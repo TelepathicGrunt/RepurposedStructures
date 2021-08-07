@@ -1,15 +1,16 @@
-outpost_end
-11
-outposts/outpost_end
-surface_structures
-RSOutpostsConfig
-outposts
+stronghold_end
+12
+strongholds/end/start_pool
+STRONGHOLDS
+RSStrongholdsConfig
 Add End Outposts to modded End biomes.
-How rare are End Outposts in End biomes. 1 for spawning in most chunks and 1001 for none. 
-55
+How rare are End Strongholds in End biome's islands. 1 for spawning in most chunks and 10001 for none. 
+200
 y
-OUTPOST
+STRONGHOLD
+END_MINESHAFT_AVOID
 exit
+strongholds
 y
 C:\Users\MSI Laptop\Documents\ModdingWorkspace\RepurposedStructures-Fabric\src
 C:\Users\MSI Laptop\Documents\ModdingWorkspace\RepurposedStructures\src
