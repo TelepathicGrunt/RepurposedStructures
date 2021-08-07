@@ -1,5 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PieceLimitedJigsawManager;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.StructurePiecesBehavior;
 import net.minecraft.util.Direction;
@@ -27,11 +28,10 @@ public class AdvancedDistanceJigsawStructure extends AdvancedJigsawStructure {
     protected final int distanceFromWorldOrigin;
 
     public AdvancedDistanceJigsawStructure(ResourceLocation poolID, int structureSize, int biomeRange,
-                                           Map<ResourceLocation, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces,
-                                           Lazy<Integer> maxY, Lazy<Integer> minY, boolean clipOutOfBoundsPieces, Integer verticalRange,
-                                           int distanceFromWorldOrigin)
+                                           Lazy<Integer> maxY, Lazy<Integer> minY, boolean clipOutOfBoundsPieces,
+                                           Integer verticalRange, int distanceFromWorldOrigin)
     {
-        super(poolID, structureSize, biomeRange, requiredPieces, maxY, minY, clipOutOfBoundsPieces, verticalRange);
+        super(poolID, structureSize, biomeRange, maxY, minY, clipOutOfBoundsPieces, verticalRange);
         this.distanceFromWorldOrigin = distanceFromWorldOrigin;
     }
 
@@ -60,9 +60,23 @@ public class AdvancedDistanceJigsawStructure extends AdvancedJigsawStructure {
         @Override
         public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig defaultFeatureConfig) {
             BlockPos.Mutable blockpos = new BlockPos.Mutable(chunkX * 16, 0, chunkZ * 16);
+            if(maxY.get() - minY.get() <= 0){
+                RepurposedStructures.LOGGER.error("MinY should always be less than MaxY or else a crash will occur or no pieces will spawn. Problematic structure is:" + Registry.STRUCTURE_FEATURE.getKey(this.getFeature()));
+            }
+            int structureStartHeight = random.nextInt(maxY.get() - minY.get()) + minY.get();
+            blockpos.move(Direction.UP, structureStartHeight);
 
-            // -5 so that the start piece's bottom 2 jigsaw blocks can spawn extra pieces and the rest of the stronghold wont go as high as start stairway
-            blockpos.move(Direction.UP, maxY.get() - 5);
+            int topClipOff;
+            int bottomClipOff;
+            if(verticalRange == null){
+                // Help make sure the Jigsaw Blocks have room to spawn new pieces if structure is right on edge of maxY or minY
+                topClipOff = clipOutOfBoundsPieces ? maxY.get() + 5 : Integer.MAX_VALUE;
+                bottomClipOff = clipOutOfBoundsPieces ? minY.get() - 5 : Integer.MIN_VALUE;
+            }
+            else{
+                topClipOff = structureStartHeight + verticalRange;
+                bottomClipOff = structureStartHeight - verticalRange;
+            }
 
             PieceLimitedJigsawManager.assembleJigsawStructure(
                     dynamicRegistryManager,
@@ -75,8 +89,8 @@ public class AdvancedDistanceJigsawStructure extends AdvancedJigsawStructure {
                     false,
                     false,
                     structureID,
-                    maxY.get(),
-                    minY.get());
+                    topClipOff,
+                    bottomClipOff);
 
             this.calculateBoundingBox();
         }
@@ -101,7 +115,6 @@ public class AdvancedDistanceJigsawStructure extends AdvancedJigsawStructure {
                     startPool,
                     structureSize,
                     biomeRange,
-                    requiredPieces,
                     maxY,
                     minY,
                     clipOutOfBoundsPieces,

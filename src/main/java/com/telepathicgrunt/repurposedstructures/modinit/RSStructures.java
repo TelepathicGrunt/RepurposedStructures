@@ -81,6 +81,8 @@ public class RSStructures {
 
     //Strongholds
     public static final RegistryObject<Structure<NoFeatureConfig>> STRONGHOLD_NETHER = addToStructureMaps("stronghold_nether", () -> (new AdvancedDistanceJigsawStructure.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "strongholds/nether/start_pool")).setStructureSize(RepurposedStructures.RSStrongholdsConfig.netherStrongholdSize.get()).setMaxY(Lazy.of(() -> RepurposedStructures.RSStrongholdsConfig.netherStrongholdMaxHeight.get())).setMinY(Lazy.of(() -> RepurposedStructures.RSStrongholdsConfig.netherStrongholdMinHeight.get())).setDistanceFromWorldOrigin(2817).build()));
+    public static final RegistryObject<Structure<NoFeatureConfig>> STRONGHOLD_END = addToStructureMaps("stronghold_end", () -> (new AdvancedDistanceJigsawStructure.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "strongholds/end/start_pool")).setStructureSize(RepurposedStructures.RSStrongholdsConfig.strongholdEndSize.get()).setMaxY(Lazy.of(() -> RepurposedStructures.RSStrongholdsConfig.strongholdEndMaxHeight.get())).setMinY(Lazy.of(() -> RepurposedStructures.RSStrongholdsConfig.strongholdEndMinHeight.get())).setDistanceFromWorldOrigin(8000).build()));
+
     // regexpos1
 
     //Igloos and Fortress
@@ -193,6 +195,7 @@ public class RSStructures {
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_taiga"), MINESHAFT_TAIGA.get(), GenerationStage.Decoration.UNDERGROUND_STRUCTURES, new StructureSeparationSettings(1, 0, 1383003172));
 
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "stronghold_nether"), STRONGHOLD_NETHER.get(), GenerationStage.Decoration.TOP_LAYER_MODIFICATION, createSpacingAndSalt(RepurposedStructures.RSStrongholdsConfig.netherStrongholdMaxChunkDistance.get(), 0.5f, 1731422513));
+        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "stronghold_end"), STRONGHOLD_END.get(), GenerationStage.Decoration.STRONGHOLDS, new StructureSeparationSettings(RepurposedStructures.RSStrongholdsConfig.strongholdEndMaxChunkDistance.get(), (int) (RepurposedStructures.RSStrongholdsConfig.strongholdEndMaxChunkDistance.get() * 0.5f), 1922886435));
         // regexpos2
 
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "fortress_jungle"), FORTRESS_JUNGLE.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RepurposedStructures.RSFortressesConfig.jungleFortressMaxChunkDistance.get(), 0.5f, 1464189157));

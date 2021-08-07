@@ -1,7 +1,9 @@
 package com.telepathicgrunt.repurposedstructures.world.processors;
 
+import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -15,6 +17,8 @@ import net.minecraft.world.gen.feature.template.PlacementSettings;
 import net.minecraft.world.gen.feature.template.StructureProcessor;
 import net.minecraft.world.gen.feature.template.Template;
 
+import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 
 /**
@@ -24,17 +28,20 @@ public class RandomReplaceWithPropertiesProcessor extends StructureProcessor {
 
     public static final Codec<RandomReplaceWithPropertiesProcessor> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
             Registry.BLOCK.fieldOf("input_block").forGetter(config -> config.inputBlock),
-            Registry.BLOCK.fieldOf("output_block").forGetter(config -> config.outputBlock),
+            Registry.BLOCK.optionalFieldOf("output_block").forGetter(config -> config.outputBlock),
+            Registry.BLOCK.listOf().optionalFieldOf("output_blocks", ImmutableList.of()).forGetter(config -> config.outputBlocks),
             Codec.floatRange(0, 1).fieldOf("probability").forGetter(config -> config.probability)
     ).apply(instance, instance.stable(RandomReplaceWithPropertiesProcessor::new)));
 
     private final Block inputBlock;
-    private final Block outputBlock;
+    private final Optional<Block> outputBlock;
+    private final List<Block> outputBlocks;
     private final float probability;
 
-    public RandomReplaceWithPropertiesProcessor(Block inputBlock, Block outputBlock, float probability) {
+    public RandomReplaceWithPropertiesProcessor(Block inputBlock, Optional<Block> outputBlock, List<Block> outputBlocks, float probability) {
         this.inputBlock = inputBlock;
         this.outputBlock = outputBlock;
+        this.outputBlocks = outputBlocks;
         this.probability = probability;
     }
 
@@ -45,14 +52,26 @@ public class RandomReplaceWithPropertiesProcessor extends StructureProcessor {
             Random random = new SharedSeedRandom();
             random.setSeed(worldPos.asLong() * worldPos.getY());
 
-            if(random.nextFloat() < probability){
-                BlockState newBlockState = outputBlock.defaultBlockState();
-                for(Property<?> property : infoIn2.state.getProperties()){
-                    if(newBlockState.hasProperty(property)){
-                        newBlockState = getStateWithProperty(newBlockState, infoIn2.state, property);
+            if(random.nextFloat() < probability) {
+                if (outputBlock.isPresent()) {
+                    BlockState newBlockState = outputBlock.get().defaultBlockState();
+                    for (Property<?> property : infoIn2.state.getProperties()) {
+                        if (newBlockState.hasProperty(property)) {
+                            newBlockState = getStateWithProperty(newBlockState, infoIn2.state, property);
+                        }
                     }
+                    return new Template.BlockInfo(infoIn2.pos, newBlockState, infoIn2.nbt);
+                } else if (!outputBlocks.isEmpty()) {
+                    BlockState newBlockState = outputBlocks.get(random.nextInt(outputBlocks.size())).defaultBlockState();
+                    for (Property<?> property : infoIn2.state.getProperties()) {
+                        if (newBlockState.hasProperty(property)) {
+                            newBlockState = getStateWithProperty(newBlockState, infoIn2.state, property);
+                        }
+                    }
+                    return new Template.BlockInfo(infoIn2.pos, newBlockState, infoIn2.nbt);
+                } else {
+                    RepurposedStructures.LOGGER.warn("Repurposed Structures: repurposed_structures:random_replace_with_properties_processor in a processor file has no replacement block of any kind.");
                 }
-                return new Template.BlockInfo(infoIn2.pos, newBlockState, infoIn2.nbt);
             }
         }
         return infoIn2;

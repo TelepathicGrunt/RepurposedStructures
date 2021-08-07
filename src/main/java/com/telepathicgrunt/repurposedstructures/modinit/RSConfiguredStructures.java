@@ -28,6 +28,7 @@ public class RSConfiguredStructures {
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> MINESHAFT_END = RSStructures.MINESHAFT_END.get().configured(IFeatureConfig.NONE);
 
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> STRONGHOLD_NETHER = RSStructures.STRONGHOLD_NETHER.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> STRONGHOLD_END = RSStructures.STRONGHOLD_END.get().configured(IFeatureConfig.NONE);
     // regexpos1
 
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> FORTRESS_JUNGLE = RSStructures.FORTRESS_JUNGLE.get().configured(IFeatureConfig.NONE);
@@ -124,6 +125,7 @@ public class RSConfiguredStructures {
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "taiga_mineshaft"), MINESHAFT_TAIGA);
 
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "nether_stronghold"), STRONGHOLD_NETHER);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "stronghold_end"), STRONGHOLD_END);
         // regexpos2
 
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "jungle_fortress"), FORTRESS_JUNGLE);

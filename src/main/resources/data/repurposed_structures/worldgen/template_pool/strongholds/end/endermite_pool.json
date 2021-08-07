@@ -1,0 +1,21 @@
+{
+  "name": "repurposed_structures:strongholds/end/endermite_pool",
+  "fallback": "repurposed_structures:strongholds/end/endermite_pool",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:strongholds/end/mobs/endermite",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      }
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "processors": [
+    {
+      "processor_type": "repurposed_structures:noise_replace_with_properties_processor",
+      "input_block": "minecraft:obsidian",
+      "output_block": "minecraft:crying_obsidian",
+      "threshold": 0.40,
+      "xz_scale": 0.25,
+      "y_scale": 0.25
+    }
+  ]
+}

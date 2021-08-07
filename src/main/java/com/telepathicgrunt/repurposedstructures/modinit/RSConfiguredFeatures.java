@@ -255,6 +255,7 @@ public class RSConfiguredFeatures {
     public static ConfiguredFeature<?, ?> JUNGLE_FORTRESS_STRUCTURE_VINE_BREAKAGE = RSFeatures.STRUCTURE_VINE_BREAKAGE.get().configured(new StructureTargetAndLengthConfig(RSStructures.FORTRESS_JUNGLE.get(), 15, 4));
     public static ConfiguredFeature<?, ?> JUNGLE_FORTRESS_STRUCTURE_VINES = RSFeatures.STRUCTURE_VINES.get().configured(new StructureTargetLengthRangeConfig(RSStructures.FORTRESS_JUNGLE.get(), 10, 3, 3));
     public static ConfiguredFeature<?, ?> NETHER_STRONGHOLD_CHAINS = RSFeatures.STRUCTURE_CHAINS.get().configured(new StructureTargetConfig(RSStructures.STRONGHOLD_NETHER.get(), 7));
+    public static ConfiguredFeature<?, ?> END_STRONGHOLD_CHAINS = RSFeatures.STRUCTURE_END_ROD_CHAINS.get().configured(new StructureTargetConfig(RSStructures.STRONGHOLD_END.get(), 4));
     public static ConfiguredFeature<?, ?> END_MINESHAFT_CHORUS = RSFeatures.STRUCTURE_CHORUS.get().configured(new StructureTargetConfig(RSStructures.MINESHAFT_END.get(), 4));
     public static ConfiguredFeature<?, ?> END_MINESHAFT_DENSE_CHORUS = RSFeatures.STRUCTURE_CHORUS.get().configured(new StructureTargetConfig(RSStructures.MINESHAFT_END.get(), 60));
     public static ConfiguredFeature<?, ?> CRIMSON_MINESHAFT_PLANTS = RSFeatures.STRUCTURE_CRIMSON_PLANTS.get().configured(new StructureTargetAndLengthConfig(RSStructures.MINESHAFT_CRIMSON.get(), 40, 3));
@@ -342,6 +343,7 @@ public class RSConfiguredFeatures {
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "jungle_fortress_structure_vine_breakage"), JUNGLE_FORTRESS_STRUCTURE_VINE_BREAKAGE);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "jungle_fortress_structure_vines"), JUNGLE_FORTRESS_STRUCTURE_VINES);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "nether_stronghold_chains"), NETHER_STRONGHOLD_CHAINS);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "end_stronghold_chains"), END_STRONGHOLD_CHAINS);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "end_mineshaft_chorus"), END_MINESHAFT_CHORUS);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "end_mineshaft_dense_chorus"), END_MINESHAFT_DENSE_CHORUS);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "crimson_mineshaft_plants"), CRIMSON_MINESHAFT_PLANTS);

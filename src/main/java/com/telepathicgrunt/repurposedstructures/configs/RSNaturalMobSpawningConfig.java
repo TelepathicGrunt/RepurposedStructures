@@ -28,8 +28,19 @@ public class RSNaturalMobSpawningConfig implements Config {
         // Add logic here when adding new mob spawn structures to config."
         // The logic needs to do a putIfAbsent to add the missing structures between the config versions when updating."
 
-        configVersion = 1;
+        if(configVersion == 1){
+            addEntries(appendMobSpawns, "repurposed_structures:stronghold_end", Arrays.asList(new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:endermite", 100, 2, 4)));
+        }
+
+        configVersion = 2;
         Config.super.save();
+    }
+
+    private void addEntries(Map<String, List<MobSpawningOverTime.PublicMobSpawnEntry>> map, String key, List<MobSpawningOverTime.PublicMobSpawnEntry> entry){
+        // assign entry
+        if(map.putIfAbsent(key, entry) != null){
+            map.get(key).addAll(entry); // append entry
+        }
     }
 
 
@@ -140,6 +151,8 @@ public class RSNaturalMobSpawningConfig implements Config {
                     new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:wither_skeleton", 25, 1, 1)));
             put("repurposed_structures:fortress_jungle", Arrays.asList(
                     new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:wither_skeleton", 27, 1, 1)));
+            put("repurposed_structures:stronghold_end", Arrays.asList(
+                    new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:endermite", 100, 2, 4)));
         }};
 
 
@@ -151,5 +164,5 @@ public class RSNaturalMobSpawningConfig implements Config {
             "\n"+
             "\n// for internal use only. Do not change this."
     )
-    public int configVersion = 1;
+    public int configVersion = 2;
 }

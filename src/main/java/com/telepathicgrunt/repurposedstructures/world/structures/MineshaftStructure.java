@@ -28,11 +28,10 @@ public class MineshaftStructure extends AdvancedJigsawStructure {
     protected final Lazy<Double> probability;
 
     public MineshaftStructure(ResourceLocation poolID, int structureSize, int biomeRange,
-                              Map<ResourceLocation, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces,
                               Lazy<Integer> maxY, Lazy<Integer> minY, boolean clipOutOfBoundsPieces, Integer verticalRange,
                               Lazy<Double> probability)
     {
-        super(poolID, structureSize, biomeRange, requiredPieces, maxY, minY, clipOutOfBoundsPieces, verticalRange);
+        super(poolID, structureSize, biomeRange, maxY, minY, clipOutOfBoundsPieces, verticalRange);
         this.probability = probability;
     }
 
@@ -117,7 +116,6 @@ public class MineshaftStructure extends AdvancedJigsawStructure {
                     startPool,
                     structureSize,
                     biomeRange,
-                    requiredPieces,
                     maxY,
                     minY,
                     clipOutOfBoundsPieces,

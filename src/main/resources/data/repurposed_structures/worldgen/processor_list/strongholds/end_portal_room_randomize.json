@@ -1,0 +1,20 @@
+{
+  "processors": [
+    {
+      "processor_type": "repurposed_structures:spawner_randomizing_processor",
+      "rs_spawner_resourcelocation": "repurposed_structures:stronghold_end_portal_room"
+    },
+    {
+      "processor_type": "repurposed_structures:fill_end_portal_frame_processor",
+      "probability_per_block": 0.1
+    },
+    {
+      "processor_type": "repurposed_structures:noise_replace_with_properties_processor",
+      "input_block": "minecraft:obsidian",
+      "output_block": "minecraft:crying_obsidian",
+      "threshold": 0.40,
+      "xz_scale": 0.25,
+      "y_scale": 0.25
+    }
+  ]
+}

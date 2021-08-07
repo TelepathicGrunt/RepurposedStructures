@@ -210,7 +210,8 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
 
                 BlockState currentBlock = world.getBlockState(mutable);
                 if (isValidNonSolidBlock(config, currentBlock)) {
-                    if(world.getBlockState(mutable.move(Direction.DOWN)).isFaceSturdy(world, mutable, Direction.UP)){
+                    BlockState belowState = world.getBlockState(mutable.move(Direction.DOWN));
+                    if(belowState.isFaceSturdy(world, mutable, Direction.UP) && belowState.getBlock() != config.lootBlock.getBlock()){
                         mutable.move(Direction.UP);
                         boolean isOnWall = false;
 
@@ -295,7 +296,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                             LockableLootTileEntity.setLootTable(world, random, mutable, config.chestIdentifier);
 
                             mutable.move(Direction.DOWN);
-                            if(lootBlock.getBlock() == Blocks.SHULKER_BOX){
+                            if(lootBlock.getBlock() == Blocks.SHULKER_BOX && world.getBlockEntity(mutable) == null){
                                 world.setBlock(mutable, Blocks.SPAWNER.defaultBlockState(), 2);
                                 TileEntity blockEntity = world.getBlockEntity(mutable);
                                 if (blockEntity instanceof MobSpawnerTileEntity) {

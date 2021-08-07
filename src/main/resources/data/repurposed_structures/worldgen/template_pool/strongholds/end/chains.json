@@ -1,0 +1,14 @@
+{
+  "name": "repurposed_structures:strongholds/end/chains",
+  "fallback": "repurposed_structures:strongholds/end/chains",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "feature": "repurposed_structures:end_stronghold_chains",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    }
+  ]
+}

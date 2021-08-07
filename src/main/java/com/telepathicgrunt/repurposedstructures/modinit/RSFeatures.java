@@ -47,6 +47,7 @@ public class RSFeatures {
 	public static final RegistryObject<Feature<NoFeatureConfig>> POST_PROCESS_CONNECTING_BLOCKS = FEATURES.register("post_process_connecting_blocks", StructurePostProcessConnectiveBlocks::new);
 	public static final RegistryObject<Feature<StructureTargetChanceConfig>> STRUCTURE_BREAKAGE = FEATURES.register("structure_breakage", () -> new StructureBreakage(StructureTargetChanceConfig.CODEC));
 	public static final RegistryObject<Feature<StructureTargetConfig>> STRUCTURE_CHAINS = FEATURES.register("structure_chains", () -> new StructureChains(StructureTargetConfig.CODEC));
+	public static final RegistryObject<Feature<StructureTargetConfig>> STRUCTURE_END_ROD_CHAINS = FEATURES.register("structure_end_rod_chains", () -> new StructureEndRodChains(StructureTargetConfig.CODEC));
 	public static final RegistryObject<Feature<StructureTargetConfig>> STRUCTURE_CHORUS = FEATURES.register("structure_chorus", () -> new StructureChorus(StructureTargetConfig.CODEC));
 	public static final RegistryObject<Feature<StructureTargetAndLengthConfig>> STRUCTURE_CRIMSON_PLANTS = FEATURES.register("structure_crimson_plants", () -> new StructureCrimsonPlants(StructureTargetAndLengthConfig.CODEC));
 	public static final RegistryObject<Feature<StructureTargetConfig>> STRUCTURE_FIRE = FEATURES.register("structure_fire", () -> new StructureFire(StructureTargetConfig.CODEC));

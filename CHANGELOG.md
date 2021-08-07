@@ -1,10 +1,18 @@
-### **(V.3.0.5 Changes) (1.16.5 Minecraft)**
+### **(V.3.1.0 Changes) (1.16.5 Minecraft)**
+
+##### Strongholds:
+Added End Strongholds! Super rare and only spawns on within islands beyond 8000 blocks of the center of the End Dimension!
+You better bring your Elytra as the entrance is actually not on the surface but underside!
+But beware! It is very dangerous and massive to explore! And it also seems... off somehow... Can you figure out what is strange about it?
 
 ##### Bastions:
 Buffed Underground Bastion loot a bit more and added "bonus_roll" to more of their loot tables.
   If you have increased Luck attribute (usually from another mod), you may find increased loot in Underground Bastion's chests.
 
 Wandering Traders will now have a rare chance to sell a map to an Underground Bastion.
+
+##### Dungeons:
+In End Dungeons, Shulker Boxes now won't try and spawn on top of Shulker Boxes or turn the below Shulker Box into a Pig Spawner.
 
 ##### Shripwrecks:
 Crimson, Warped, and Nether Bricks Shipwreck's spawnrate default config value has been changed to make them significantly more common.

@@ -18,11 +18,10 @@ import java.util.Map;
 public class MineshaftEndStructure extends MineshaftStructure {
 
     public MineshaftEndStructure(ResourceLocation poolID, int structureSize, int biomeRange,
-                                 Map<ResourceLocation, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces,
                                  Lazy<Integer> maxY, Lazy<Integer> minY, boolean clipOutOfBoundsPieces, Integer verticalRange,
                                  Lazy<Double> probability)
     {
-        super(poolID, structureSize, biomeRange, requiredPieces, maxY, minY, clipOutOfBoundsPieces, verticalRange, probability);
+        super(poolID, structureSize, biomeRange, maxY, minY, clipOutOfBoundsPieces, verticalRange, probability);
     }
 
     @Override
@@ -71,7 +70,6 @@ public class MineshaftEndStructure extends MineshaftStructure {
                     startPool,
                     structureSize,
                     biomeRange,
-                    requiredPieces,
                     maxY,
                     minY,
                     clipOutOfBoundsPieces,
