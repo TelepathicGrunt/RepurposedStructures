@@ -1,0 +1,15 @@
+{
+  "name": "repurposed_structures:strongholds/end/start_pool",
+  "fallback": "repurposed_structures:strongholds/end/terminators",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:strongholds/end/start_stairs",
+        "processors": "repurposed_structures:strongholds/end_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

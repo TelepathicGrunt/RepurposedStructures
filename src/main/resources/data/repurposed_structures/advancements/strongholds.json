@@ -23,11 +23,18 @@
       "conditions": {
         "feature": "repurposed_structures:stronghold_nether"
       }
+    },
+    "in_stronghold_end": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:stronghold_end"
+      }
     }
   },
   "requirements": [
     [
-      "in_stronghold_nether"
+      "in_stronghold_nether",
+      "in_stronghold_end"
     ]
   ]
 }

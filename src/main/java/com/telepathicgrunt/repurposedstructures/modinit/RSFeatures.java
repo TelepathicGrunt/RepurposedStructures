@@ -49,6 +49,7 @@ public class RSFeatures {
     public static Feature<NoneFeatureConfiguration> POST_PROCESS_CONNECTING_BLOCKS = new StructurePostProcessConnectiveBlocks();
     public static Feature<StructureTargetChanceConfig> STRUCTURE_BREAKAGE = new StructureBreakage(StructureTargetChanceConfig.CODEC);
     public static Feature<StructureTargetConfig> STRUCTURE_CHAINS = new StructureChains(StructureTargetConfig.CODEC);
+    public static Feature<StructureTargetConfig> STRUCTURE_END_ROD_CHAINS = new StructureEndRodChains(StructureTargetConfig.CODEC);
     public static Feature<StructureTargetConfig> STRUCTURE_CHORUS = new StructureChorus(StructureTargetConfig.CODEC);
     public static Feature<StructureTargetAndLengthConfig> STRUCTURE_CRIMSON_PLANTS = new StructureCrimsonPlants(StructureTargetAndLengthConfig.CODEC);
     public static Feature<StructureTargetConfig> STRUCTURE_FIRE = new StructureFire(StructureTargetConfig.CODEC);
@@ -93,6 +94,7 @@ public class RSFeatures {
         Registry.register(Registry.FEATURE, new ResourceLocation(RepurposedStructures.MODID, "post_process_connecting_blocks"), POST_PROCESS_CONNECTING_BLOCKS);
         Registry.register(Registry.FEATURE, new ResourceLocation(RepurposedStructures.MODID, "structure_breakage"), STRUCTURE_BREAKAGE);
         Registry.register(Registry.FEATURE, new ResourceLocation(RepurposedStructures.MODID, "structure_chains"), STRUCTURE_CHAINS);
+        Registry.register(Registry.FEATURE, new ResourceLocation(RepurposedStructures.MODID, "structure_end_rod_chains"), STRUCTURE_END_ROD_CHAINS);
         Registry.register(Registry.FEATURE, new ResourceLocation(RepurposedStructures.MODID, "structure_chorus"), STRUCTURE_CHORUS);
         Registry.register(Registry.FEATURE, new ResourceLocation(RepurposedStructures.MODID, "structure_crimson_plants"), STRUCTURE_CRIMSON_PLANTS);
         Registry.register(Registry.FEATURE, new ResourceLocation(RepurposedStructures.MODID, "structure_fire"), STRUCTURE_FIRE);

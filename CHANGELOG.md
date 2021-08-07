@@ -1,4 +1,4 @@
-### **(V2.1.12 Changes) (1.17.1 Minecraft)**
+### **(V2.2.0 Changes) (1.17.1 Minecraft)**
 
 ##### Bastions:
 Buffed Underground Bastion loot a bit more and added "bonus_roll" to more of their loot tables.
@@ -10,6 +10,7 @@ Crimson, Warped, and Nether Bricks Shipwreck's spawnrate default config value ha
 
 ##### Ruins:
 Made the default config value for Hot Land Ruins and Warm Land Ruins higher so those ruins are a bit more rare.
+  The old config values will not change when updating so either delete the RS Ruins config file or edit the rates yourself to be 42 or 45.
 
 
 ### **(V2.1.11 Changes) (1.17.1 Minecraft)**
@@ -26,7 +27,7 @@ Restrict y range for the Bubble Column processor so that Ocean Pyramids do not c
 
 ### **(V.2.1.9 Changes) (1.17.1 Minecraft)**
 
-##### Optimzation:
+##### Optimization:
 Optimized RS Mineshafts, Nether Stronghold, and Jungle Fortress so they check their piece's bounding boxes more efficiently at generation.
 
 ##### Lang:

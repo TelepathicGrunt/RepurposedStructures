@@ -1,0 +1,20 @@
+{
+  "name": "repurposed_structures:strongholds/end/shulker_pool",
+  "fallback": "repurposed_structures:strongholds/end/shulker_pool",
+  "elements": [
+    {
+      "weight": 7,
+      "element": {
+        "feature": "repurposed_structures:shulker_mob",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      }
+    }
+  ]
+}
