@@ -33,7 +33,9 @@
   },
   "requirements": [
     [
-      "in_stronghold_nether",
+      "in_stronghold_nether"
+    ],
+    [
       "in_stronghold_end"
     ]
   ]

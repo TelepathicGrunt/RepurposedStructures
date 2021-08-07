@@ -92,7 +92,7 @@ public class RSStrongholdsConfig implements ConfigData
 				1 for spawning in most chunks and 10001 for no spawn.
 				Note: Eyes of Ender will work and show the closest End Stronghold too.""")
 		@ConfigEntry.BoundedDiscrete(min = 1, max = 10001)
-		public int endStrongholdAverageChunkDistance = 180;
+		public int endStrongholdAverageChunkDistance = 160;
 
 		@ConfigEntry.Gui.Tooltip(count = 0)
 		@ConfigEntry.Gui.PrefixText
@@ -103,7 +103,7 @@ public class RSStrongholdsConfig implements ConfigData
 
 				Min Y height that the starting point can spawn at.""")
 		@ConfigEntry.BoundedDiscrete(min = 0, max = 255)
-		public int endStrongholdMinHeight = 10;
+		public int endStrongholdMinHeight = 4;
 
 		@ConfigEntry.Gui.Tooltip(count = 0)
 		@ConfigEntry.Gui.PrefixText
@@ -115,7 +115,7 @@ public class RSStrongholdsConfig implements ConfigData
 				Max Y height that the starting point can spawn at.
 				If below min height, this will be read as min.""")
 		@ConfigEntry.BoundedDiscrete(min = 0, max = 255)
-		public int endStrongholdMaxHeight = 13;
+		public int endStrongholdMaxHeight = 5;
 
 		// regexpos1
 	}
