@@ -7,6 +7,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.EndRodBlock;
 import net.minecraft.world.level.block.LanternBlock;
@@ -14,13 +15,23 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 
+import java.util.Set;
+
 
 public class StructureEndRodChains extends Feature<StructureTargetConfig> {
+
+    private static final Set<Block> ALLOWED_ATTACHEMENT_BLOCKS = Set.of(
+            Blocks.CHAIN,
+            Blocks.OBSIDIAN,
+            Blocks.CRYING_OBSIDIAN,
+            Blocks.PURPUR_BLOCK,
+            Blocks.PURPUR_PILLAR,
+            Blocks.PURPUR_SLAB,
+            Blocks.PURPUR_STAIRS);
 
     public StructureEndRodChains(Codec<StructureTargetConfig> config) {
         super(config);
     }
-
 
     @Override
     public boolean place(FeaturePlaceContext<StructureTargetConfig> context) {
@@ -48,7 +59,7 @@ public class StructureEndRodChains extends Feature<StructureTargetConfig> {
                 if (world.isEmptyBlock(mutable)) {
                     belowBlockstate = world.getBlockState(mutable.below());
 
-                    if (belowBlockstate.is(Blocks.CHAIN) || belowBlockstate.isFaceSturdy(world, mutable.below(), Direction.DOWN)) {
+                    if (ALLOWED_ATTACHEMENT_BLOCKS.contains(belowBlockstate.getBlock())) {
                         world.setBlock(mutable, Blocks.CHAIN.defaultBlockState(), 2);
                         length++;
                     }

@@ -11,24 +11,6 @@
       "threshold": 0.40,
       "xz_scale": 0.25,
       "y_scale": 0.25
-    },
-    {
-      "rules": [
-        {
-          "output_state": {
-            "Name": "minecraft:cave_air"
-          },
-          "input_predicate": {
-            "block": "minecraft:stone_button",
-            "probability": 0.1,
-            "predicate_type": "minecraft:random_block_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          }
-        }
-      ],
-      "processor_type": "minecraft:rule"
     }
   ]
 }

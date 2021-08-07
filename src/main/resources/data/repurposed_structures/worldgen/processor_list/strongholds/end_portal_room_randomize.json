@@ -30,9 +30,40 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:cave_air"
+          },
+          "input_predicate": {
+            "block": "minecraft:small_amethyst_bud",
+            "probability": 0.8,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
         }
       ],
       "processor_type": "minecraft:rule"
+    },
+    {
+      "input_block": "minecraft:medium_amethyst_bud",
+      "output_block": "minecraft:small_amethyst_bud",
+      "probability": 0.2,
+      "processor_type": "repurposed_structures:random_replace_with_properties_processor"
+    },
+    {
+      "input_block": "minecraft:large_amethyst_bud",
+      "output_block": "minecraft:small_amethyst_bud",
+      "probability": 0.25,
+      "processor_type": "repurposed_structures:random_replace_with_properties_processor"
+    },
+    {
+      "input_block": "minecraft:amethyst_cluster",
+      "output_block": "minecraft:small_amethyst_bud",
+      "probability": 0.3,
+      "processor_type": "repurposed_structures:random_replace_with_properties_processor"
     }
   ]
 }

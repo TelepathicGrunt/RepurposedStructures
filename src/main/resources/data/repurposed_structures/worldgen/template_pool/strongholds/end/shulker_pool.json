@@ -3,7 +3,7 @@
   "fallback": "repurposed_structures:strongholds/end/shulker_pool",
   "elements": [
     {
-      "weight": 3,
+      "weight": 1,
       "element": {
         "feature": "repurposed_structures:shulker_mob",
         "projection": "rigid",
