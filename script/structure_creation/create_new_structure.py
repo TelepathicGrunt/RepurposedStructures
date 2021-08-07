@@ -270,8 +270,8 @@ while restart:
         if bool(inject_into_code):
             directory = os.path.join(forge_src, 'main','java','com','telepathicgrunt','repurposedstructures','configs')
             for filename in os.listdir(directory):
-                if os.path.isfile(os.path.join(directory, filename)):
-                    pass
+                if os.path.isdir(os.path.join(directory, filename)):
+                    continue
                 with open(os.path.join(directory, filename), 'r+') as f:
                     tempRead = f.read()
                     if "regexpos1" in tempRead:
@@ -290,7 +290,7 @@ while restart:
 
     #  --------------ADVANCEMENTS--------------
 
-    path = os.path.join(fabric_src, 'main','resources','data','repurposed_structures','advancements', advancement_file)
+    path = os.path.join(fabric_src, 'main','resources','data','repurposed_structures','advancements', advancement_file + ".json")
     with open(path, "r+") as file:
         jsonData = json.load(file)
         jsonData["criteria"]["in_"+structure_registry_name] = { 
@@ -301,10 +301,10 @@ while restart:
         }
         jsonData["requirements"].append(["in_"+structure_registry_name])
         file.seek(0)
-        file.write(jsonData, indent=4, sort_keys=True)
+        file.write(json.dump(jsonData, indent=4, sort_keys=True))
         file.truncate()
 
-    path = os.path.join(forge_src, 'main','resources','data','repurposed_structures','advancements', advancement_file)
+    path = os.path.join(forge_src, 'main','resources','data','repurposed_structures','advancements', advancement_file + ".json")
     with open(path, "r+") as file:
         jsonData = json.load(file)
         jsonData["criteria"]["in_"+structure_registry_name] = { 
@@ -315,7 +315,7 @@ while restart:
         }
         jsonData["requirements"].append(["in_"+structure_registry_name])
         file.seek(0)
-        file.write(jsonData, indent=4, sort_keys=True)
+        file.write(json.dump(jsonData, indent=4, sort_keys=True))
         file.truncate()
 
 
