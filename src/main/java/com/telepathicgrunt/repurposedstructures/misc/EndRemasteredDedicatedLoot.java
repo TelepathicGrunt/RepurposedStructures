@@ -14,52 +14,52 @@ public class EndRemasteredDedicatedLoot {
     private static final Map<ResourceLocation, ResourceLocation> END_REMASTERED_DEDICATED_TABLE_IMPORTS = createEndRemasteredMap();
     private static Map<ResourceLocation, ResourceLocation> createEndRemasteredMap() {
         Map<ResourceLocation, ResourceLocation> tableMap = new HashMap<>();
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshaft/birch"), new ResourceLocation("endrem:minecraft_chest/abandoned_mineshaft"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshaft/savanna"), new ResourceLocation("endrem:minecraft_chest/abandoned_mineshaft"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshaft/stone"), new ResourceLocation("endrem:minecraft_chest/abandoned_mineshaft"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshaft/swamp"), new ResourceLocation("endrem:minecraft_chest/abandoned_mineshaft"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshaft/dark_forest"), new ResourceLocation("endrem:minecraft_chest/abandoned_mineshaft"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshaft/taiga"), new ResourceLocation("endrem:minecraft_chest/abandoned_mineshaft"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/igloos/stone_chest"), new ResourceLocation("endrem:minecraft_chest/abandoned_mineshaft"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshaft/birch"), new ResourceLocation("endrem:minecraft/chest/abandoned_mineshaft"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshaft/savanna"), new ResourceLocation("endrem:minecraft/chest/abandoned_mineshaft"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshaft/stone"), new ResourceLocation("endrem:minecraft/chest/abandoned_mineshaft"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshaft/swamp"), new ResourceLocation("endrem:minecraft/chest/abandoned_mineshaft"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshaft/dark_forest"), new ResourceLocation("endrem:minecraft/chest/abandoned_mineshaft"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshaft/taiga"), new ResourceLocation("endrem:minecraft/chest/abandoned_mineshaft"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/igloos/stone_chest"), new ResourceLocation("endrem:minecraft/chest/abandoned_mineshaft"));
 
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/fortress/jungle_shrine_chest"), new ResourceLocation("endrem:minecraft_chest/jungle_temple"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshaft/jungle"), new ResourceLocation("endrem:minecraft_chest/jungle_temple"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramid/jungle_chest"), new ResourceLocation("endrem:minecraft_chest/jungle_temple"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramid/flower_forest_chest"), new ResourceLocation("endrem:minecraft_chest/jungle_temple"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/fortress/jungle_shrine_chest"), new ResourceLocation("endrem:minecraft/chest/jungle_temple"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshaft/jungle"), new ResourceLocation("endrem:minecraft/chest/jungle_temple"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramid/jungle_chest"), new ResourceLocation("endrem:minecraft/chest/jungle_temple"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramid/flower_forest_chest"), new ResourceLocation("endrem:minecraft/chest/jungle_temple"));
 
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramid/badlands_chest"), new ResourceLocation("endrem:minecraft_chest/desert_pyramid"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramid/giant_tree_taiga_chest"), new ResourceLocation("endrem:minecraft_chest/desert_pyramid"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramid/mushroom_chest"), new ResourceLocation("endrem:minecraft_chest/desert_pyramid"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramid/ocean_chest"), new ResourceLocation("endrem:minecraft_chest/desert_pyramid"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshaft/desert"), new ResourceLocation("endrem:minecraft_chest/desert_pyramid"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramid/badlands_chest"), new ResourceLocation("endrem:minecraft/chest/desert_pyramid"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramid/giant_tree_taiga_chest"), new ResourceLocation("endrem:minecraft/chest/desert_pyramid"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramid/mushroom_chest"), new ResourceLocation("endrem:minecraft/chest/desert_pyramid"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramid/ocean_chest"), new ResourceLocation("endrem:minecraft/chest/desert_pyramid"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshaft/desert"), new ResourceLocation("endrem:minecraft/chest/desert_pyramid"));
 
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshaft/icy"), new ResourceLocation("endrem:minecraft_chest/igloo_chest"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramid/snowy_chest"), new ResourceLocation("endrem:minecraft_chest/igloo_chest"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramid/icy_chest"), new ResourceLocation("endrem:minecraft_chest/igloo_chest"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshaft/icy"), new ResourceLocation("endrem:minecraft/chest/igloo_chest"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramid/snowy_chest"), new ResourceLocation("endrem:minecraft/chest/igloo_chest"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramid/icy_chest"), new ResourceLocation("endrem:minecraft/chest/igloo_chest"));
 
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outpost/icy_chest"), new ResourceLocation("endrem:minecraft_chest/pillager_outpost"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outpost/snowy_chest"), new ResourceLocation("endrem:minecraft_chest/pillager_outpost"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outpost/desert_chest"), new ResourceLocation("endrem:minecraft_chest/pillager_outpost"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outpost/jungle_chest"), new ResourceLocation("endrem:minecraft_chest/pillager_outpost"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outpost/badlands_chest"), new ResourceLocation("endrem:minecraft_chest/pillager_outpost"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outpost/birch_chest"), new ResourceLocation("endrem:minecraft_chest/pillager_outpost"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outpost/giant_tree_taiga_chest"), new ResourceLocation("endrem:minecraft_chest/pillager_outpost"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outpost/oak_chest"), new ResourceLocation("endrem:minecraft_chest/pillager_outpost"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outpost/taiga_chest"), new ResourceLocation("endrem:minecraft_chest/pillager_outpost"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outpost/icy_chest"), new ResourceLocation("endrem:minecraft/chest/pillager_outpost"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outpost/snowy_chest"), new ResourceLocation("endrem:minecraft/chest/pillager_outpost"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outpost/desert_chest"), new ResourceLocation("endrem:minecraft/chest/pillager_outpost"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outpost/jungle_chest"), new ResourceLocation("endrem:minecraft/chest/pillager_outpost"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outpost/badlands_chest"), new ResourceLocation("endrem:minecraft/chest/pillager_outpost"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outpost/birch_chest"), new ResourceLocation("endrem:minecraft/chest/pillager_outpost"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outpost/giant_tree_taiga_chest"), new ResourceLocation("endrem:minecraft/chest/pillager_outpost"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outpost/oak_chest"), new ResourceLocation("endrem:minecraft/chest/pillager_outpost"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outpost/taiga_chest"), new ResourceLocation("endrem:minecraft/chest/pillager_outpost"));
 
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramid/nether_chest"), new ResourceLocation("endrem:minecraft_chest/nether_bridge"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/temple/nether_basalt_chest"), new ResourceLocation("endrem:minecraft_chest/nether_bridge"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/temple/nether_crimson_chest"), new ResourceLocation("endrem:minecraft_chest/nether_bridge"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/temple/nether_soul_chest"), new ResourceLocation("endrem:minecraft_chest/nether_bridge"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/temple/nether_warped_chest"), new ResourceLocation("endrem:minecraft_chest/nether_bridge"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/temple/nether_wasteland_chest"), new ResourceLocation("endrem:minecraft_chest/nether_bridge"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramid/nether_chest"), new ResourceLocation("endrem:minecraft/chest/nether_bridge"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/temple/nether_basalt_chest"), new ResourceLocation("endrem:minecraft/chest/nether_bridge"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/temple/nether_crimson_chest"), new ResourceLocation("endrem:minecraft/chest/nether_bridge"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/temple/nether_soul_chest"), new ResourceLocation("endrem:minecraft/chest/nether_bridge"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/temple/nether_warped_chest"), new ResourceLocation("endrem:minecraft/chest/nether_bridge"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/temple/nether_wasteland_chest"), new ResourceLocation("endrem:minecraft/chest/nether_bridge"));
 
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/shipwreck/crimson/treasure_chest"), new ResourceLocation("endrem:minecraft_chest/buried_treasure"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/shipwreck/nether_bricks/treasure_chest"), new ResourceLocation("endrem:minecraft_chest/buried_treasure"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/shipwreck/warped/treasure_chest"), new ResourceLocation("endrem:minecraft_chest/buried_treasure"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/bastions/underground/treasure"), new ResourceLocation("endrem:minecraft_chest/buried_treasure"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/bastions/underground/bridge"), new ResourceLocation("endrem:minecraft_chest/buried_treasure"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/bastions/underground/skeleton_horse_stable"), new ResourceLocation("endrem:minecraft_chest/buried_treasure"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/shipwreck/crimson/treasure_chest"), new ResourceLocation("endrem:minecraft/chest/buried_treasure"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/shipwreck/nether_bricks/treasure_chest"), new ResourceLocation("endrem:minecraft/chest/buried_treasure"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/shipwreck/warped/treasure_chest"), new ResourceLocation("endrem:minecraft/chest/buried_treasure"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/bastions/underground/treasure"), new ResourceLocation("endrem:minecraft/chest/buried_treasure"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/bastions/underground/bridge"), new ResourceLocation("endrem:minecraft/chest/buried_treasure"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/bastions/underground/skeleton_horse_stable"), new ResourceLocation("endrem:minecraft/chest/buried_treasure"));
 
         return tableMap;
     }

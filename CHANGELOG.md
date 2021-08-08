@@ -28,6 +28,10 @@ If RS Mansions are turned off in the spawnrate configs, they will remove their m
 ##### Fortresses:
 If Jungle Fortresses are turned off in the spawnrate configs, they will remove their map trades from Cartographers.
 
+##### Mod Compat:
+Fixed using the wrong path for importing End Remastered's loot into RS's structures chests.
+
+
 
 ### **(V.3.0.4 Changes) (1.16.5 Minecraft)**
 
