@@ -92,7 +92,7 @@ public class RSStrongholdsConfig implements ConfigData
 				1 for spawning in most chunks and 10001 for no spawn.
 				Note: Eyes of Ender will work and show the closest End Stronghold too.""")
 		@ConfigEntry.BoundedDiscrete(min = 1, max = 10001)
-		public int endStrongholdAverageChunkDistance = 160;
+		public int endStrongholdAverageChunkDistance = 130;
 
 		@ConfigEntry.Gui.Tooltip(count = 0)
 		@ConfigEntry.Gui.PrefixText

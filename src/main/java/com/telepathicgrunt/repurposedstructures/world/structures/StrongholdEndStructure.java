@@ -1,5 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
+import com.mojang.math.Vector3f;
+import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelHeightAccessor;
@@ -29,20 +31,24 @@ public class StrongholdEndStructure extends AdvancedDistanceJigsawStructure {
         int minLandHeight = Math.min(chunkGenerator.getGenDepth(), chunkGenerator.getMinY() + 45);
         int xPos = chunkPos1.getMinBlockX();
         int zPos = chunkPos1.getMinBlockZ();
-        int landHeight = chunkGenerator.getFirstOccupiedHeight(xPos, zPos, Heightmap.Types.WORLD_SURFACE_WG, heightLimitView);
+        int landHeight = getHeightAt(chunkGenerator, heightLimitView, xPos, zPos, Integer.MAX_VALUE);
         if(landHeight < minLandHeight) return false;
 
-        landHeight = Math.min(landHeight, chunkGenerator.getFirstOccupiedHeight(xPos + 70, zPos, Heightmap.Types.WORLD_SURFACE_WG, heightLimitView));
-        if(landHeight < minLandHeight) return false;
+        for(int i = 1; i <= 2; i++){
+            for(Direction direction : Direction.Plane.HORIZONTAL){
+                Vector3f offsetPos = direction.step();
+                offsetPos.mul(35f * i);
+                landHeight = getHeightAt(chunkGenerator, heightLimitView, xPos + (int)offsetPos.x(), zPos + (int)offsetPos.z(), landHeight);
+                if(landHeight < minLandHeight) return false;
+            }
+        }
 
-        landHeight = Math.min(landHeight, chunkGenerator.getFirstOccupiedHeight(xPos, zPos + 70, Heightmap.Types.WORLD_SURFACE_WG, heightLimitView));
-        if(landHeight < minLandHeight) return false;
+        return true;
+    }
 
-        landHeight = Math.min(landHeight, chunkGenerator.getFirstOccupiedHeight(xPos - 70, zPos, Heightmap.Types.WORLD_SURFACE_WG, heightLimitView));
-        if(landHeight < minLandHeight) return false;
-
-        landHeight = Math.min(landHeight, chunkGenerator.getFirstOccupiedHeight(xPos, zPos - 70, Heightmap.Types.WORLD_SURFACE_WG, heightLimitView));
-        return landHeight >= minLandHeight;
+    private int getHeightAt(ChunkGenerator chunkGenerator, LevelHeightAccessor heightLimitView, int xPos, int zPos, int landHeight) {
+        landHeight = Math.min(landHeight, chunkGenerator.getFirstOccupiedHeight(xPos, zPos, Heightmap.Types.WORLD_SURFACE_WG, heightLimitView));
+        return landHeight;
     }
 
 
