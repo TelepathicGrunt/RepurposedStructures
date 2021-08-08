@@ -34,7 +34,7 @@ public class RSStrongholdsConfig
 					.comment("\n Size of Nether Stronghold. This number is how many pieces deep a branch can go from the center piece.",
 							" 1 for supertiny and 30 for supermassive Strongholds.")
 					.translation("repurposedstructures.config.stronghold.netherstrongholdsizesh")
-					.defineInRange("strongholdSizeSH", 15, 1, 30));
+					.defineInRange("netherStrongholdSizeSH", 15, 1, 30));
 
 			netherStrongholdMinHeight = subscriber.subscribe(builder
 					.comment("\n Minimum Y height that Nether stronghold's starting point can spawn at.",
@@ -57,26 +57,26 @@ public class RSStrongholdsConfig
 					.comment("\nHow rare are End Strongholds in End biome's islands.",
 							" 1 for spawning in most chunks and 10001 for none.")
 					.translation("repurposedstructures.config.stronghold_end.strongholdendaveragechunkdistance")
-					.defineInRange("strongholdEndAverageChunkDistance", 160 , 1, 1001));
+					.defineInRange("strongholdEndAverageChunkDistance", 130 , 1, 1001));
 
 			strongholdEndSize = subscriber.subscribe(builder
 					.comment("\n Size of End Stronghold. This number is how many pieces deep a branch can go from the center piece.",
 							" 1 for supertiny and 30 for supermassive Strongholds.")
 					.translation("repurposedstructures.config.stronghold.endstrongholdsizesh")
-					.defineInRange("strongholdSizeSH", 15, 1, 30));
+					.defineInRange("endStrongholdSizeSH", 15, 1, 30));
 
 			strongholdEndMinHeight = subscriber.subscribe(builder
 					.comment("\n Minimum Y height that End stronghold's starting point can spawn at.",
 							" Note: Strongholds will spawn between min and max y height set in config.")
 					.translation("repurposedstructures.config.feature.stronghold.endstrongholdminheight")
-					.defineInRange("netherStrongholdMinHeight", 5, 0, 255));
+					.defineInRange("endStrongholdMinHeight", 5, 0, 255));
 
 			strongholdEndMaxHeight = subscriber.subscribe(builder
 					.comment("\n Maximum Y height that End stronghold's starting point can spawn at.",
 							" Note: Strongholds will spawn between min and max y height set in config.",
 							" Setting this to below min height config will make strongholds spawn only at min height.")
 					.translation("repurposedstructures.config.feature.stronghold.endstrongholdmaxheight")
-					.defineInRange("netherStrongholdMaxHeight", 6, 0, 255));
+					.defineInRange("endStrongholdMaxHeight", 6, 0, 255));
 
 			builder.pop();
 		}

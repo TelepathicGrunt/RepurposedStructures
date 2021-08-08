@@ -9,22 +9,12 @@
       "y_scale": 0.25
     },
     {
-      "rules": [
-        {
-          "output_state": {
-            "Name": "minecraft:blue_stained_glass"
-          },
-          "input_predicate": {
-            "block": "minecraft:lapis_block",
-            "probability": 0.33,
-            "predicate_type": "minecraft:random_block_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          }
-        }
-      ],
-      "processor_type": "minecraft:rule"
+      "processor_type": "repurposed_structures:noise_replace_with_properties_processor",
+      "input_block": "minecraft:lapis_block",
+      "output_block": "minecraft:blue_stained_glass",
+      "threshold": 0.52,
+      "xz_scale": 0.15,
+      "y_scale": 0.15
     }
   ]
 }
