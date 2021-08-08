@@ -63,7 +63,7 @@ public class RSStrongholdsConfig
 					.comment("\n Size of End Stronghold. This number is how many pieces deep a branch can go from the center piece.",
 							" 1 for supertiny and 20 for supermassive Strongholds.")
 					.translation("repurposedstructures.config.stronghold.endstrongholdsizesh")
-					.defineInRange("strongholdSizeSH", 12, 1, 30));
+					.defineInRange("strongholdSizeSH", 15, 1, 30));
 
 			strongholdEndMinHeight = subscriber.subscribe(builder
 					.comment("\n Minimum Y height that End stronghold's starting point can spawn at.",

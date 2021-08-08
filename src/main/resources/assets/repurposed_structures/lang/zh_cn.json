@@ -46,5 +46,7 @@
     "filled_map.repurposed_structures:mansion_savanna": "大草原大厦地图",
     "filled_map.repurposed_structures:mansion_oak": "橡树大厦地图",
     "filled_map.repurposed_structures:mansion_snowy": "雪域大厦地图",
-    "filled_map.repurposed_structures:mansion_taiga": "大河大厦地图"
+    "filled_map.repurposed_structures:mansion_taiga": "大河大厦地图",
+    "filled_map.repurposed_structures:stronghold_end": "末日堡垒地图",
+    "filled_map.repurposed_structures:pyramid_end": "终端金字塔地图"
 }

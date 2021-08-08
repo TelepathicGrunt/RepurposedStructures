@@ -46,5 +46,7 @@
     "filled_map.repurposed_structures:mansion_savanna": "Savannenanwesen-Karte",
     "filled_map.repurposed_structures:mansion_oak": "Eichenanwesen-Karte",
     "filled_map.repurposed_structures:mansion_snowy": "Schneeanwesen-Karte",
-    "filled_map.repurposed_structures:mansion_taiga": "Taigaanwesen-Karte"
+    "filled_map.repurposed_structures:mansion_taiga": "Taigaanwesen-Karte",
+    "filled_map.repurposed_structures:stronghold_end": "Ende der Festungen-Karte",
+    "filled_map.repurposed_structures:pyramid_end": "Ende der Pyramiden-Karte"
 }
