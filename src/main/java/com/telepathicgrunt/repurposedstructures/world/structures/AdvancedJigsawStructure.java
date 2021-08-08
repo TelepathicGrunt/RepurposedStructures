@@ -30,10 +30,11 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<NoFeatureConf
     protected final Lazy<Integer> maxY;
     protected final Lazy<Integer> minY;
     protected final boolean clipOutOfBoundsPieces;
-    protected final Integer verticalRange;
+    protected final Lazy<Integer> verticalRange;
 
     public AdvancedJigsawStructure(ResourceLocation poolID, int structureSize, int biomeRange,
-                                   Lazy<Integer> maxY, Lazy<Integer> minY, boolean clipOutOfBoundsPieces, Integer verticalRange)
+                                   Lazy<Integer> maxY, Lazy<Integer> minY, boolean clipOutOfBoundsPieces, 
+                                   Lazy<Integer> verticalRange)
     {
         super(NoFeatureConfig.CODEC);
 
@@ -93,8 +94,8 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<NoFeatureConf
                 bottomClipOff = clipOutOfBoundsPieces ? minY.get() - 5 : Integer.MIN_VALUE;
             }
             else{
-                topClipOff = structureStartHeight + verticalRange;
-                bottomClipOff = structureStartHeight - verticalRange;
+                topClipOff = structureStartHeight + verticalRange.get();
+                bottomClipOff = structureStartHeight - verticalRange.get();
             }
 
 //            long startTime = System.currentTimeMillis();
@@ -132,7 +133,7 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<NoFeatureConf
         protected Lazy<Integer> maxY = Lazy.of(() -> 255);
         protected Lazy<Integer> minY = Lazy.of(() -> 0);
         protected boolean clipOutOfBoundsPieces = true;
-        protected Integer verticalRange = null;
+        protected Lazy<Integer> verticalRange = null;
 
         public Builder(ResourceLocation startPool) {
             this.startPool = startPool;
@@ -163,7 +164,7 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<NoFeatureConf
             return getThis();
         }
 
-        public T setVerticalRange(int verticalRange){
+        public T setVerticalRange(Lazy<Integer> verticalRange){
             this.verticalRange = verticalRange;
             return getThis();
         }

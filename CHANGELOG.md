@@ -33,6 +33,8 @@ If Jungle Fortresses are turned off in the spawnrate configs, they will remove t
 
 Increased maximum config value allowed for Jungle Fortresses size up to 30.
 
+Fixed vertical range config for Jungle Fortresses not actually applying when changed.
+
 ##### Mineshafts:
 Increased maximum config value allowed for RS Mineshaft size up to 30.
 

@@ -26,7 +26,7 @@ public class MineshaftStructure extends AdvancedJigsawStructure {
 
     public MineshaftStructure(ResourceLocation poolID, int structureSize, int biomeRange,
                               Lazy<Integer> maxY, Lazy<Integer> minY, boolean clipOutOfBoundsPieces,
-                              Integer verticalRange, Lazy<Double> probability)
+                              Lazy<Integer> verticalRange, Lazy<Double> probability)
     {
         super(poolID, structureSize, biomeRange, maxY, minY, clipOutOfBoundsPieces, verticalRange);
         this.probability = probability;

@@ -22,7 +22,7 @@ public class MineshaftEndStructure extends MineshaftStructure {
 
     public MineshaftEndStructure(ResourceLocation poolID, int structureSize, int biomeRange,
                                  Lazy<Integer> maxY, Lazy<Integer> minY, boolean clipOutOfBoundsPieces,
-                                 Integer verticalRange, Lazy<Double> probability)
+                                 Lazy<Integer> verticalRange, Lazy<Double> probability)
     {
         super(poolID, structureSize, biomeRange, maxY, minY, clipOutOfBoundsPieces, verticalRange, probability);
     }

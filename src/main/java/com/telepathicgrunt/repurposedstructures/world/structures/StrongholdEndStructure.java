@@ -18,7 +18,7 @@ public class StrongholdEndStructure extends AdvancedDistanceJigsawStructure {
 
     public StrongholdEndStructure(ResourceLocation poolID, int structureSize, int biomeRange,
                                   Lazy<Integer> maxY, Lazy<Integer> minY, boolean clipOutOfBoundsPieces,
-                                  Integer verticalRange, int distanceFromWorldOrigin)
+                                  Lazy<Integer> verticalRange, int distanceFromWorldOrigin)
     {
         super(poolID, structureSize, biomeRange, maxY, minY, clipOutOfBoundsPieces, verticalRange, distanceFromWorldOrigin);
     }
