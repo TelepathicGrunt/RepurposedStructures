@@ -16,6 +16,7 @@ import com.telepathicgrunt.repurposedstructures.world.structures.MineshaftEndStr
 import com.telepathicgrunt.repurposedstructures.world.structures.MineshaftStructure;
 import com.telepathicgrunt.repurposedstructures.world.structures.ShipwreckEndStructure;
 import com.telepathicgrunt.repurposedstructures.world.structures.ShipwreckNetherStructure;
+import com.telepathicgrunt.repurposedstructures.world.structures.StrongholdEndStructure;
 import com.telepathicgrunt.repurposedstructures.world.structures.configs.NetherShipwreckConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.MansionPieces;
 import net.minecraft.util.ResourceLocation;
@@ -81,7 +82,7 @@ public class RSStructures {
 
     //Strongholds
     public static final RegistryObject<Structure<NoFeatureConfig>> STRONGHOLD_NETHER = addToStructureMaps("stronghold_nether", () -> (new AdvancedDistanceJigsawStructure.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "strongholds/nether/start_pool")).setStructureSize(RepurposedStructures.RSStrongholdsConfig.netherStrongholdSize.get()).setMaxY(Lazy.of(() -> RepurposedStructures.RSStrongholdsConfig.netherStrongholdMaxHeight.get())).setMinY(Lazy.of(() -> RepurposedStructures.RSStrongholdsConfig.netherStrongholdMinHeight.get())).setDistanceFromWorldOrigin(2817).build()));
-    public static final RegistryObject<Structure<NoFeatureConfig>> STRONGHOLD_END = addToStructureMaps("stronghold_end", () -> (new AdvancedDistanceJigsawStructure.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "strongholds/end/start_pool")).setStructureSize(RepurposedStructures.RSStrongholdsConfig.strongholdEndSize.get()).setMaxY(Lazy.of(() -> RepurposedStructures.RSStrongholdsConfig.strongholdEndMaxHeight.get())).setMinY(Lazy.of(() -> RepurposedStructures.RSStrongholdsConfig.strongholdEndMinHeight.get())).setDistanceFromWorldOrigin(8000).build()));
+    public static final RegistryObject<Structure<NoFeatureConfig>> STRONGHOLD_END = addToStructureMaps("stronghold_end", () -> (new StrongholdEndStructure.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "strongholds/end/start_pool")).setStructureSize(RepurposedStructures.RSStrongholdsConfig.strongholdEndSize.get()).setMaxY(Lazy.of(() -> RepurposedStructures.RSStrongholdsConfig.strongholdEndMaxHeight.get())).setMinY(Lazy.of(() -> RepurposedStructures.RSStrongholdsConfig.strongholdEndMinHeight.get())).setDistanceFromWorldOrigin(8000).doNotClipOutOfBoundsPieces().build()));
 
     // regexpos1
 

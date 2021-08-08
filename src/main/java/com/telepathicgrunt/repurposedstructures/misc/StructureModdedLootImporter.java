@@ -107,6 +107,9 @@ public class StructureModdedLootImporter extends LootModifier {
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/shipwreck/warped/supply_chest"), new ResourceLocation("minecraft:chests/shipwreck_supply"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/shipwreck/warped/treasure_chest"), new ResourceLocation("minecraft:chests/shipwreck_treasure"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/shipwreck/nether_bricks/treasure_chest"), new ResourceLocation("minecraft:chests/shipwreck_treasure"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "shulker_boxes/stronghold/end_storage_room"), new ResourceLocation("minecraft:chests/end_city_treasure")); // new ResourceLocation("minecraft:chests/stronghold_crossing")
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "shulker_boxes/stronghold/end_hallway"), new ResourceLocation("minecraft:chests/end_city_treasure")); // new ResourceLocation("minecraft:chests/stronghold_corridor")
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "shulker_boxes/stronghold/end_library"), new ResourceLocation("minecraft:chests/end_city_treasure")); // new ResourceLocation("minecraft:chests/stronghold_library")
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/stronghold/nether_storage_room"), new ResourceLocation("minecraft:chests/stronghold_crossing"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/stronghold/nether_hallway"), new ResourceLocation("minecraft:chests/stronghold_corridor"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/stronghold/nether_library"), new ResourceLocation("minecraft:chests/stronghold_library"));

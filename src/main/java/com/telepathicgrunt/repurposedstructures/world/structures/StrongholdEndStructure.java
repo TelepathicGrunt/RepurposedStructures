@@ -1,6 +1,5 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
-import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.ChunkPos;
@@ -12,13 +11,13 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraftforge.common.util.Lazy;
 
 
-public class MineshaftEndStructure extends MineshaftStructure {
+public class StrongholdEndStructure extends AdvancedDistanceJigsawStructure {
 
-    public MineshaftEndStructure(ResourceLocation poolID, int structureSize, int biomeRange,
-                                 Lazy<Integer> maxY, Lazy<Integer> minY, boolean clipOutOfBoundsPieces,
-                                 Integer verticalRange, Lazy<Double> probability)
+    public StrongholdEndStructure(ResourceLocation poolID, int structureSize, int biomeRange,
+                                  Lazy<Integer> maxY, Lazy<Integer> minY, boolean clipOutOfBoundsPieces,
+                                  Integer verticalRange, int distanceFromWorldOrigin)
     {
-        super(poolID, structureSize, biomeRange, maxY, minY, clipOutOfBoundsPieces, verticalRange, probability);
+        super(poolID, structureSize, biomeRange, maxY, minY, clipOutOfBoundsPieces, verticalRange, distanceFromWorldOrigin);
     }
 
     @Override
@@ -26,9 +25,6 @@ public class MineshaftEndStructure extends MineshaftStructure {
         boolean superCheck = super.isFeatureChunk(chunkGenerator, biomeSource, seed, chunkRandom, chunkX, chunkZ, biome, chunkPos, featureConfig);
         if(!superCheck)
             return false;
-
-        if(RepurposedStructures.RSMineshaftsConfig.barrensIslandsEndMineshafts.get())
-            return true;
 
         int minLandHeight = Math.min(chunkGenerator.getGenDepth(), 45);
         int xPos = chunkX * 16;
@@ -48,22 +44,14 @@ public class MineshaftEndStructure extends MineshaftStructure {
         return landHeight >= minLandHeight;
     }
 
-
-    public static class Builder<T extends Builder<T>> extends AdvancedJigsawStructure.Builder<T> {
-
-        protected Lazy<Double> probability = Lazy.of(() -> 0.01D);
+    public static class Builder<T extends StrongholdEndStructure.Builder<T>> extends AdvancedDistanceJigsawStructure.Builder<T> {
 
         public Builder(ResourceLocation startPool) {
             super(startPool);
         }
 
-        public T setProbability(Lazy<Double> probability){
-            this.probability = probability;
-            return getThis();
-        }
-
-        public MineshaftEndStructure build() {
-            return new MineshaftEndStructure(
+        public StrongholdEndStructure build() {
+            return new StrongholdEndStructure(
                     startPool,
                     structureSize,
                     biomeRange,
@@ -71,7 +59,7 @@ public class MineshaftEndStructure extends MineshaftStructure {
                     minY,
                     clipOutOfBoundsPieces,
                     verticalRange,
-                    probability);
+                    distanceFromWorldOrigin);
         }
     }
 }

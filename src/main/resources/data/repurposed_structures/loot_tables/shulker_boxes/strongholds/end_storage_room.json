@@ -10,7 +10,7 @@
       "bonus_rolls": 1.0,
       "entries": [
         {
-          "name": "minecraft:amethyst_shard",
+          "name": "minecraft:lapis_lazuli",
           "type": "minecraft:item",
           "weight": 4,
           "functions": [
@@ -170,7 +170,7 @@
           ]
         },
         {
-          "name": "minecraft:bundle",
+          "name": "minecraft:shulker_shell",
           "type": "minecraft:item",
           "weight": 2
         },

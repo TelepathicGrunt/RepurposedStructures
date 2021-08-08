@@ -32,7 +32,7 @@
           "weight": 8
         },
         {
-          "name": "minecraft:spyglass",
+          "name": "minecraft:lapis_block",
           "type": "minecraft:item",
           "weight": 8
         },
@@ -76,7 +76,7 @@
           ]
         },
         {
-          "name": "minecraft:amethyst_shard",
+          "name": "minecraft:lapis_lazuli",
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
