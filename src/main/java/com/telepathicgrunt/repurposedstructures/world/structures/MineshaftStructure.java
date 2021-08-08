@@ -1,6 +1,5 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
-import com.telepathicgrunt.repurposedstructures.world.structures.pieces.StructurePiecesBehavior;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.SectionPos;
 import net.minecraft.resources.ResourceLocation;
@@ -20,16 +19,14 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 import net.minecraft.world.level.levelgen.feature.configurations.StructureFeatureConfiguration;
 import net.minecraft.world.level.levelgen.structure.StructureStart;
 
-import java.util.Map;
-
 
 public class MineshaftStructure extends AdvancedJigsawStructure {
 
     protected final double probability;
 
     public MineshaftStructure(ResourceLocation poolID, int structureSize, int biomeRange,
-                              int maxY, int minY, boolean clipOutOfBoundsPieces, Integer verticalRange,
-                              double probability)
+                              int maxY, int minY, boolean clipOutOfBoundsPieces,
+                              Integer verticalRange, double probability)
     {
         super(poolID, structureSize, biomeRange, maxY, minY, clipOutOfBoundsPieces, verticalRange);
         this.probability = probability;

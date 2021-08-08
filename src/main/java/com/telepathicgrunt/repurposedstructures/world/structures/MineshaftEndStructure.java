@@ -18,8 +18,8 @@ import net.minecraft.world.level.levelgen.feature.configurations.StructureFeatur
 public class MineshaftEndStructure extends MineshaftStructure {
 
     public MineshaftEndStructure(ResourceLocation poolID, int structureSize, int biomeRange,
-                                 int maxY, int minY, boolean clipOutOfBoundsPieces, Integer verticalRange,
-                                 double probability)
+                                 int maxY, int minY, boolean clipOutOfBoundsPieces,
+                                 Integer verticalRange, double probability)
     {
         super(poolID, structureSize, biomeRange, maxY, minY, clipOutOfBoundsPieces, verticalRange, probability);
     }

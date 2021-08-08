@@ -1,7 +1,5 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
-import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.world.structures.pieces.StructurePiecesBehavior;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelHeightAccessor;
@@ -12,14 +10,12 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
-import java.util.Map;
-
 
 public class StrongholdEndStructure extends AdvancedDistanceJigsawStructure {
 
     public StrongholdEndStructure(ResourceLocation poolID, int structureSize, int biomeRange,
-                                  int maxY, int minY, boolean clipOutOfBoundsPieces, Integer verticalRange,
-                                  int distanceFromWorldOrigin)
+                                  int maxY, int minY, boolean clipOutOfBoundsPieces,
+                                  Integer verticalRange, int distanceFromWorldOrigin)
     {
         super(poolID, structureSize, biomeRange, maxY, minY, clipOutOfBoundsPieces, verticalRange, distanceFromWorldOrigin);
     }
