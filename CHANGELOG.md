@@ -20,6 +20,12 @@ Crimson, Warped, and Nether Bricks Shipwreck's spawnrate default config value ha
 Made the default config value for Hot Land Ruins and Warm Land Ruins higher so those ruins are a bit more rare.
   The old config values will not change when updating so either delete the RS Ruins config file or edit the rates yourself to be 42 or 45.
 
+##### Mineshafts:
+Increased maximum config value allowed for RS Mineshaft size up to 30.
+
+##### Fortresses:
+Increased maximum config value allowed for Jungle Fortresses size up to 30.
+
 
 ### **(V2.1.11 Changes) (1.17.1 Minecraft)**
 

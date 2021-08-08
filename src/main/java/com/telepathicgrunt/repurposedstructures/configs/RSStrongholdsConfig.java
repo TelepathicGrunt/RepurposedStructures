@@ -25,7 +25,7 @@ public class RSStrongholdsConfig implements ConfigData
     
 				Size of Nether Stronghold.
 				This number is how many pieces deep a branch can go from the center piece.
-				1 for supertiny and 20 for supermassive Strongholds.""")
+				1 for supertiny and 30 for supermassive Strongholds.""")
 		@ConfigEntry.BoundedDiscrete(min = 1, max = 30)
 		public int netherStrongholdSize = 15;
 
@@ -51,7 +51,7 @@ public class RSStrongholdsConfig implements ConfigData
 
 				Min Y height that the starting point can spawn at.""")
 		@ConfigEntry.BoundedDiscrete(min = 0, max = 255)
-		public int netherStrongholdMinHeight = 6;
+		public int netherStrongholdMinHeight = 10;
 
 		@ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
@@ -63,7 +63,7 @@ public class RSStrongholdsConfig implements ConfigData
 				Max Y height that the starting point can spawn at.
 				If below min height, this will be read as min.""")
 		@ConfigEntry.BoundedDiscrete(min = 0, max = 255)
-		public int netherStrongholdMaxHeight = 36;
+		public int netherStrongholdMaxHeight = 31;
 	}
 
 
@@ -77,7 +77,7 @@ public class RSStrongholdsConfig implements ConfigData
     
 				Size of End Stronghold.
 				This number is how many pieces deep a branch can go from the center piece.
-				1 for supertiny and 20 for supermassive Strongholds.""")
+				1 for supertiny and 30 for supermassive Strongholds.""")
 		@ConfigEntry.BoundedDiscrete(min = 1, max = 30)
 		public int endStrongholdSize = 15;
 

@@ -176,7 +176,7 @@ public class RSDungeonsConfig implements ConfigData {
 
 
 
-                Minimum Y height that this dungeon can spawn at. Default is 2.
+                Minimum Y height that this dungeon can spawn at.
                 Note: The dungeon will spawn between min and max y height set in config.""")
         @ConfigEntry.BoundedDiscrete(min = 2, max = 255)
         public int badlandsDungeonMinHeight = 2;
@@ -187,7 +187,7 @@ public class RSDungeonsConfig implements ConfigData {
 
 
 
-                Minimum Y height that this dungeon can spawn at. Default is 2.
+                Minimum Y height that this dungeon can spawn at.
                 Note: The dungeon will spawn between min and max y height set in config.""")
         @ConfigEntry.BoundedDiscrete(min = 2, max = 255)
         public int darkForestDungeonMinHeight = 2;
@@ -198,7 +198,7 @@ public class RSDungeonsConfig implements ConfigData {
 
 
 
-                Minimum Y height that this dungeon can spawn at. Default is 2.
+                Minimum Y height that this dungeon can spawn at.
                 Note: The dungeon will spawn between min and max y height set in config.""")
         @ConfigEntry.BoundedDiscrete(min = 2, max = 255)
         public int desertDungeonMinHeight = 2;
@@ -209,7 +209,7 @@ public class RSDungeonsConfig implements ConfigData {
 
 
 
-                Minimum Y height that this dungeon can spawn at. Default is 2.
+                Minimum Y height that this dungeon can spawn at.
                 Note: The dungeon will spawn between min and max y height set in config.""")
         @ConfigEntry.BoundedDiscrete(min = 2, max = 255)
         public int jungleDungeonMinHeight = 2;
@@ -220,7 +220,7 @@ public class RSDungeonsConfig implements ConfigData {
 
 
 
-                Minimum Y height that this dungeon can spawn at. Default is 2.
+                Minimum Y height that this dungeon can spawn at.
                 Note: The dungeon will spawn between min and max y height set in config.""")
         @ConfigEntry.BoundedDiscrete(min = 2, max = 255)
         public int mushroomDungeonMinHeight = 2;
@@ -231,7 +231,7 @@ public class RSDungeonsConfig implements ConfigData {
 
 
 
-                Minimum Y height that this dungeon can spawn at. Default is 2.
+                Minimum Y height that this dungeon can spawn at.
                 Note: The dungeon will spawn between min and max y height set in config.""")
         @ConfigEntry.BoundedDiscrete(min = 2, max = 255)
         public int snowDungeonMinHeight = 2;
@@ -242,7 +242,7 @@ public class RSDungeonsConfig implements ConfigData {
 
 
 
-                Minimum Y height that this dungeon can spawn at. Default is 2.
+                Minimum Y height that this dungeon can spawn at.
                 Note: The dungeon will spawn between min and max y height set in config.""")
         @ConfigEntry.BoundedDiscrete(min = 2, max = 255)
         public int icyDungeonMinHeight = 2;
@@ -253,7 +253,7 @@ public class RSDungeonsConfig implements ConfigData {
 
 
 
-                Minimum Y height that this dungeon can spawn at. Default is 2.
+                Minimum Y height that this dungeon can spawn at.
                 Note: The dungeon will spawn between min and max y height set in config.""")
         @ConfigEntry.BoundedDiscrete(min = 2, max = 255)
         public int swampDungeonMinHeight = 2;
@@ -264,7 +264,7 @@ public class RSDungeonsConfig implements ConfigData {
 
 
 
-                Minimum Y height that this dungeon can spawn at. Default is 2.
+                Minimum Y height that this dungeon can spawn at.
                 Note: The dungeon will spawn between min and max y height set in config.""")
         @ConfigEntry.BoundedDiscrete(min = 2, max = 255)
         public int endDungeonMinHeight = 2;
@@ -275,7 +275,7 @@ public class RSDungeonsConfig implements ConfigData {
 
 
 
-                Minimum Y height that this dungeon can spawn at. Default is 2.
+                Minimum Y height that this dungeon can spawn at.
                 Note: The dungeon will spawn between min and max y height set in config.""")
         @ConfigEntry.BoundedDiscrete(min = 2, max = 255)
         public int netherDungeonMinHeight = 2;
@@ -286,7 +286,7 @@ public class RSDungeonsConfig implements ConfigData {
 
 
 
-                Minimum Y height that this dungeon can spawn at. Default is 3.
+                Minimum Y height that this dungeon can spawn at.
                 Note: The dungeon will spawn between min and max y height set in config.""")
         @ConfigEntry.BoundedDiscrete(min = 3, max = 255)
         public int oceanDungeonMinHeight = 3;
@@ -302,7 +302,7 @@ public class RSDungeonsConfig implements ConfigData {
 
 
 
-                Maximum Y height that this dungeon can spawn at. Default is 255.
+                Maximum Y height that this dungeon can spawn at.
                 Note: The dungeon will spawn between min and max y height set in config.
                 Setting this to below min height config will make dungeon spawn only at min height.""")
         @ConfigEntry.BoundedDiscrete(min = 2, max = 255)
@@ -314,7 +314,7 @@ public class RSDungeonsConfig implements ConfigData {
 
 
 
-                Maximum Y height that this dungeon can spawn at. Default is 255.
+                Maximum Y height that this dungeon can spawn at.
                 Note: The dungeon will spawn between min and max y height set in config.
                 Setting this to below min height config will make dungeon spawn only at min height.""")
         @ConfigEntry.BoundedDiscrete(min = 2, max = 255)
@@ -326,7 +326,7 @@ public class RSDungeonsConfig implements ConfigData {
 
 
 
-                Maximum Y height that this dungeon can spawn at. Default is 255.
+                Maximum Y height that this dungeon can spawn at.
                 Note: The dungeon will spawn between min and max y height set in config.
                 Setting this to below min height config will make dungeon spawn only at min height.""")
         @ConfigEntry.BoundedDiscrete(min = 2, max = 255)
@@ -338,7 +338,7 @@ public class RSDungeonsConfig implements ConfigData {
 
 
 
-                Maximum Y height that this dungeon can spawn at. Default is 255.
+                Maximum Y height that this dungeon can spawn at.
                 Note: The dungeon will spawn between min and max y height set in config.
                 Setting this to below min height config will make dungeon spawn only at min height.""")
         @ConfigEntry.BoundedDiscrete(min = 2, max = 255)
@@ -350,7 +350,7 @@ public class RSDungeonsConfig implements ConfigData {
 
 
 
-                Maximum Y height that this dungeon can spawn at. Default is 255.
+                Maximum Y height that this dungeon can spawn at.
                 Note: The dungeon will spawn between min and max y height set in config.
                 Setting this to below min height config will make dungeon spawn only at min height.""")
         @ConfigEntry.BoundedDiscrete(min = 2, max = 255)
@@ -362,7 +362,7 @@ public class RSDungeonsConfig implements ConfigData {
 
 
 
-                Maximum Y height that this dungeon can spawn at. Default is 255.
+                Maximum Y height that this dungeon can spawn at.
                 Note: The dungeon will spawn between min and max y height set in config.
                 Setting this to below min height config will make dungeon spawn only at min height.""")
         @ConfigEntry.BoundedDiscrete(min = 2, max = 255)
@@ -374,7 +374,7 @@ public class RSDungeonsConfig implements ConfigData {
 
 
 
-                Maximum Y height that this dungeon can spawn at. Default is 255.
+                Maximum Y height that this dungeon can spawn at.
                 Note: The dungeon will spawn between min and max y height set in config.
                 Setting this to below min height config will make dungeon spawn only at min height.""")
         @ConfigEntry.BoundedDiscrete(min = 2, max = 255)
@@ -386,7 +386,7 @@ public class RSDungeonsConfig implements ConfigData {
 
 
 
-                Maximum Y height that this dungeon can spawn at. Default is 255.
+                Maximum Y height that this dungeon can spawn at.
                 Note: The dungeon will spawn between min and max y height set in config.
                 Setting this to below min height config will make dungeon spawn only at min height.""")
         @ConfigEntry.BoundedDiscrete(min = 2, max = 255)
@@ -398,7 +398,7 @@ public class RSDungeonsConfig implements ConfigData {
 
 
 
-                Maximum Y height that this dungeon can spawn at. Default is 255.
+                Maximum Y height that this dungeon can spawn at.
                 Note: The dungeon will spawn between min and max y height set in config.
                 Setting this to below min height config will make dungeon spawn only at min height.""")
         @ConfigEntry.BoundedDiscrete(min = 2, max = 255)
@@ -410,7 +410,7 @@ public class RSDungeonsConfig implements ConfigData {
 
 
 
-                Maximum Y height that this dungeon can spawn at. Default is 255.
+                Maximum Y height that this dungeon can spawn at.
                 Note: The dungeon will spawn between min and max y height set in config.
                 Setting this to below min height config will make dungeon spawn only at min height.""")
         @ConfigEntry.BoundedDiscrete(min = 2, max = 255)
@@ -422,7 +422,7 @@ public class RSDungeonsConfig implements ConfigData {
 
 
 
-                Maximum Y height that this dungeon can spawn at. Default is 255.
+                Maximum Y height that this dungeon can spawn at.
                 Note: The dungeon will spawn between min and max y height set in config.
                 Setting this to below min height config will make dungeon spawn only at min height.""")
         @ConfigEntry.BoundedDiscrete(min = 3, max = 255)

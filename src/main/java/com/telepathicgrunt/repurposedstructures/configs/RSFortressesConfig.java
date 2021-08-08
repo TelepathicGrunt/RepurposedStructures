@@ -34,7 +34,7 @@ public class RSFortressesConfig implements ConfigData {
 
 
                 Size of the fortress. This is how many pieces long a branch can be from the start piece.""")
-        @ConfigEntry.BoundedDiscrete(min = 1, max = 18)
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 30)
         public int jungleFortressSize = 10;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
@@ -44,8 +44,7 @@ public class RSFortressesConfig implements ConfigData {
 
 
 
-                Min Y height that the starting point can spawn at.
-                Default is 56.""")
+                Min Y height that the starting point can spawn at.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 255)
         public int jungleFortressMinHeight = 56;
 
@@ -57,7 +56,6 @@ public class RSFortressesConfig implements ConfigData {
 
 
                 Max Y height that the starting point can spawn at.
-                Default is 63.
                 If below min height, this will be read as min.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 255)
         public int jungleFortressMaxHeight = 63;

@@ -217,7 +217,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
 
-                Min Y height of Mineshaft. Default is 8.""")
+                Min Y height of Mineshaft.max = 30""")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int birchMineshaftMinHeight = 8;
 
@@ -226,7 +226,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
 
-                Min Y height of Mineshaft. Default is 8.""")
+                Min Y height of Mineshaft.max = 30""")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int jungleMineshaftMinHeight = 8;
 
@@ -235,7 +235,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
 
-                Min Y height of Mineshaft. Default is 8.""")
+                Min Y height of Mineshaft.max = 30""")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int desertMineshaftMinHeight = 8;
 
@@ -244,7 +244,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
 
-                Min Y height of Mineshaft. Default is 8.""")
+                Min Y height of Mineshaft.max = 30""")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int stoneMineshaftMinHeight = 8;
 
@@ -253,7 +253,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
 
-                Min Y height of Mineshaft. Default is 8.""")
+                Min Y height of Mineshaft.max = 30""")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int savannaMineshaftMinHeight = 8;
 
@@ -262,7 +262,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
 
-                Min Y height of Mineshaft. Default is 8.""")
+                Min Y height of Mineshaft.max = 30""")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int icyMineshaftMinHeight = 8;
 
@@ -271,7 +271,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
 
-                Min Y height of Mineshaft. Default is 8.""")
+                Min Y height of Mineshaft.max = 30""")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int oceanMineshaftMinHeight = 8;
 
@@ -280,7 +280,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
 
-                Min Y height of Mineshaft. Default is 8.""")
+                Min Y height of Mineshaft.max = 30""")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int taigaMineshaftMinHeight = 8;
 
@@ -289,7 +289,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
 
-                Min Y height of Mineshaft. Default is 8.""")
+                Min Y height of Mineshaft.max = 30""")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int swampMineshaftMinHeight = 8;
 
@@ -298,7 +298,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
 
-                Min Y height of Mineshaft. Default is 8.""")
+                Min Y height of Mineshaft.max = 30""")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int darkForestMineshaftMinHeight = 8;
 
@@ -307,7 +307,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
 
-                Min Y height of Mineshaft. Default is 27.""")
+                Min Y height of Mineshaft.max = 30""")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int endMineshaftMinHeight = 27;
 
@@ -316,7 +316,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
 
-                Min Y height of Mineshaft. Default is 8.""")
+                Min Y height of Mineshaft.max = 30""")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int netherMineshaftMinHeight = 6;
 
@@ -325,7 +325,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
 
-                Min Y height of Mineshaft. Default is 8.""")
+                Min Y height of Mineshaft.max = 30""")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int crimsonMineshaftMinHeight = 6;
 
@@ -334,7 +334,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
 
-                Min Y height of Mineshaft. Default is 8.""")
+                Min Y height of Mineshaft.max = 30""")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int warpedMineshaftMinHeight = 6;
     }
@@ -349,7 +349,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
 
-                Max Y height of Mineshaft. Default is 45.
+                Max Y height of Mineshaft.max = 30
                 If below min height, this will be read as min.""")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int birchMineshaftMaxHeight = 45;
@@ -359,7 +359,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
 
-                Max Y height of Mineshaft. Default is 45.
+                Max Y height of Mineshaft.max = 30
                 If below min height, this will be read as min.""")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int jungleMineshaftMaxHeight = 45;
@@ -369,7 +369,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
 
-                Max Y height of Mineshaft. Default is 45.
+                Max Y height of Mineshaft.max = 30
                 If below min height, this will be read as min.""")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int desertMineshaftMaxHeight = 45;
@@ -379,7 +379,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
 
-                Max Y height of Mineshaft. Default is 45.
+                Max Y height of Mineshaft.max = 30
                 If below min height, this will be read as min.""")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int stoneMineshaftMaxHeight = 45;
@@ -389,7 +389,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
 
-                Max Y height of Mineshaft. Default is 45.
+                Max Y height of Mineshaft.max = 30
                 If below min height, this will be read as min.""")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int savannaMineshaftMaxHeight = 45;
@@ -399,7 +399,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
 
-                Max Y height of Mineshaft. Default is 45.
+                Max Y height of Mineshaft.max = 30
                 If below min height, this will be read as min.""")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int icyMineshaftMaxHeight = 45;
@@ -409,7 +409,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
 
-                Max Y height of Mineshaft. Default is 26.
+                Max Y height of Mineshaft.max = 30
                 If below min height, this will be read as min.""")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int oceanMineshaftMaxHeight = 26;
@@ -419,7 +419,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
 
-                Max Y height of Mineshaft. Default is 45.
+                Max Y height of Mineshaft.max = 30
                 If below min height, this will be read as min.""")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int taigaMineshaftMaxHeight = 45;
@@ -429,7 +429,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
 
-                Max Y height of Mineshaft. Default is 45.
+                Max Y height of Mineshaft.max = 30
                 If below min height, this will be read as min.""")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int swampMineshaftMaxHeight = 45;
@@ -439,7 +439,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
 
-                Max Y height of Mineshaft. Default is 45.
+                Max Y height of Mineshaft.max = 30
                 If below min height, this will be read as min.""")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int darkForestMineshaftMaxHeight = 45;
@@ -449,7 +449,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
 
-                Max Y height of Mineshaft. Default is 35.
+                Max Y height of Mineshaft.max = 30
                 If below min height, this will be read as min.""")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int endMineshaftMaxHeight = 35;
@@ -459,7 +459,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
 
-                Max Y height of Mineshaft. Default is 13.
+                Max Y height of Mineshaft.max = 30
                 If below min height, this will be read as min.""")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int netherMineshaftMaxHeight = 17;
@@ -469,7 +469,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
 
-                Max Y height of Mineshaft. Default is 13.
+                Max Y height of Mineshaft.max = 30
                 If below min height, this will be read as min.""")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int crimsonMineshaftMaxHeight = 14;
@@ -479,7 +479,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
 
-                Max Y height of Mineshaft. Default is 13.
+                Max Y height of Mineshaft.max = 30
                 If below min height, this will be read as min.""")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int warpedMineshaftMaxHeight = 14;
@@ -493,7 +493,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
                 Size of the mineshaft. This is how many pieces long a branch can be from the start piece.""")
-        @ConfigEntry.BoundedDiscrete(min = 1, max = 18)
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 30)
         public int birchMineshaftSize = 9;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
@@ -502,7 +502,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
                 Size of the mineshaft. This is how many pieces long a branch can be from the start piece.""")
-        @ConfigEntry.BoundedDiscrete(min = 1, max = 18)
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 30)
         public int jungleMineshaftSize = 9;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
@@ -511,7 +511,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
                 Size of the mineshaft. This is how many pieces long a branch can be from the start piece.""")
-        @ConfigEntry.BoundedDiscrete(min = 1, max = 18)
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 30)
         public int desertMineshaftSize = 9;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
@@ -520,7 +520,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
                 Size of the mineshaft. This is how many pieces long a branch can be from the start piece.""")
-        @ConfigEntry.BoundedDiscrete(min = 1, max = 18)
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 30)
         public int stoneMineshaftSize = 9;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
@@ -529,7 +529,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
                 Size of the mineshaft. This is how many pieces long a branch can be from the start piece.""")
-        @ConfigEntry.BoundedDiscrete(min = 1, max = 18)
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 30)
         public int savannaMineshaftSize = 9;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
@@ -538,7 +538,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
                 Size of the mineshaft. This is how many pieces long a branch can be from the start piece.""")
-        @ConfigEntry.BoundedDiscrete(min = 1, max = 18)
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 30)
         public int icyMineshaftSize = 9;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
@@ -547,7 +547,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
                 Size of the mineshaft. This is how many pieces long a branch can be from the start piece.""")
-        @ConfigEntry.BoundedDiscrete(min = 1, max = 18)
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 30)
         public int oceanMineshaftSize = 9;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
@@ -556,7 +556,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
                 Size of the mineshaft. This is how many pieces long a branch can be from the start piece.""")
-        @ConfigEntry.BoundedDiscrete(min = 1, max = 18)
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 30)
         public int taigaMineshaftSize = 9;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
@@ -565,7 +565,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
                 Size of the mineshaft. This is how many pieces long a branch can be from the start piece.""")
-        @ConfigEntry.BoundedDiscrete(min = 1, max = 18)
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 30)
         public int swampMineshaftSize = 9;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
@@ -574,7 +574,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
                 Size of the mineshaft. This is how many pieces long a branch can be from the start piece.""")
-        @ConfigEntry.BoundedDiscrete(min = 1, max = 18)
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 30)
         public int darkForestMineshaftSize = 9;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
@@ -583,7 +583,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
                 Size of the mineshaft. This is how many pieces long a branch can be from the start piece.""")
-        @ConfigEntry.BoundedDiscrete(min = 1, max = 18)
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 30)
         public int endMineshaftSize = 11;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
@@ -592,7 +592,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
                 Size of the mineshaft. This is how many pieces long a branch can be from the start piece.""")
-        @ConfigEntry.BoundedDiscrete(min = 1, max = 18)
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 30)
         public int netherMineshaftSize = 10;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
@@ -601,7 +601,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
                 Size of the mineshaft. This is how many pieces long a branch can be from the start piece.""")
-        @ConfigEntry.BoundedDiscrete(min = 1, max = 18)
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 30)
         public int crimsonMineshaftSize = 10;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
@@ -610,7 +610,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
                 Size of the mineshaft. This is how many pieces long a branch can be from the start piece.""")
-        @ConfigEntry.BoundedDiscrete(min = 1, max = 18)
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 30)
         public int warpedMineshaftSize = 10;
     }
 
