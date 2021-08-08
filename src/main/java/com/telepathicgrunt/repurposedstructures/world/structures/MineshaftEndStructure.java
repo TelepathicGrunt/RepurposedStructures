@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.ChunkPos;
@@ -9,6 +10,9 @@ import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.StructureFeature;
+import net.minecraft.world.gen.feature.structure.Structure;
+import net.minecraft.world.gen.settings.StructureSeparationSettings;
 import net.minecraftforge.common.util.Lazy;
 
 
@@ -29,6 +33,25 @@ public class MineshaftEndStructure extends MineshaftStructure {
 
         if(RepurposedStructures.RSMineshaftsConfig.barrensIslandsEndMineshafts.get())
             return true;
+
+
+        //cannot be near end strongholds
+        int structureCheckRadius = 6;
+        for (int curChunkX = chunkX - structureCheckRadius; curChunkX <= chunkZ + structureCheckRadius; curChunkX++) {
+            for (int curChunkZ = chunkX - structureCheckRadius; curChunkZ <= chunkZ + structureCheckRadius; curChunkZ++) {
+                for(Structure<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.END_MINESHAFT_AVOID_STRUCTURE)){
+                    if(structureFeature == this) continue;
+
+                    StructureSeparationSettings structureConfig = chunkGenerator.getSettings().getConfig(structureFeature);
+                    if(structureConfig != null && structureConfig.spacing() > 10){
+                        ChunkPos chunkPos2 = structureFeature.getPotentialFeatureChunk(structureConfig, seed, chunkRandom, curChunkX, curChunkZ);
+                        if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
 
         int minLandHeight = Math.min(chunkGenerator.getGenDepth(), 45);
         int xPos = chunkX * 16;
