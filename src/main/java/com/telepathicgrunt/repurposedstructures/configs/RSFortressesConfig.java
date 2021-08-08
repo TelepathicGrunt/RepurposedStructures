@@ -25,7 +25,7 @@ public class RSFortressesConfig
 			jungleFortressSize = subscriber.subscribe(builder
 					.comment("\n Size of the fortress. This is how many pieces long a branch can be from the start piece.")
 					.translation("repurposedstructures.config.junglefortress.jungleFortressSize")
-					.defineInRange("jungleFortressSize", 10, 1, 18));
+					.defineInRange("jungleFortressSize", 10, 1, 30));
 
 			jungleFortressMinHeight = subscriber.subscribe(builder
 					.comment("\n Min Y height that the starting point can spawn at.")
