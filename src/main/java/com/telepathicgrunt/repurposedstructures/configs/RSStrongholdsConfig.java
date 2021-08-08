@@ -117,6 +117,17 @@ public class RSStrongholdsConfig implements ConfigData
 		@ConfigEntry.BoundedDiscrete(min = 0, max = 255)
 		public int endStrongholdMaxHeight = 5;
 
+		@ConfigEntry.Gui.Tooltip(count = 0)
+		@ConfigEntry.Gui.PrefixText
+		@ConfigEntry.Gui.RequiresRestart
+		@Comment("""
+
+
+
+                How far above or below the End Stronghold's pieces can generate away from the center piece.""")
+		@ConfigEntry.BoundedDiscrete(min = 0, max = 255)
+		public int endStrongholdVerticalRange = 45;
+
 		// regexpos1
 	}
 }
