@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTestType;
 
+import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
 
@@ -78,7 +79,7 @@ public class MatterPhaseRuleTest extends RuleTest {
         });
 
         public static MATTER_PHASE byName(String name) {
-            return BY_NAME.get(name.toUpperCase());
+            return BY_NAME.get(name.toUpperCase(Locale.ROOT));
         }
 
         @Override

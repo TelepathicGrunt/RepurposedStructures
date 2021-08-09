@@ -23,6 +23,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 
 public class MansionPieces{
@@ -993,7 +994,7 @@ public class MansionPieces{
         }
 
         private static ResourceLocation getId(String identifier, MANSIONTYPE type) {
-            return new ResourceLocation(RepurposedStructures.MODID, "mansions/" + type.name().toLowerCase() + "/" + identifier);
+            return new ResourceLocation(RepurposedStructures.MODID, "mansions/" + type.name().toLowerCase(Locale.ROOT) + "/" + identifier);
         }
 
         private static StructurePlaceSettings createPlacementData(Mirror mirror, Rotation rotation) {

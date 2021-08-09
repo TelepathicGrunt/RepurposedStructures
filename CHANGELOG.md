@@ -1,3 +1,10 @@
+### **(V2.2.1 Changes) (1.17.1 Minecraft)**
+
+##### Misc:
+Fixed potential problems that could arise internally in code if user is using Turkish language settings. 
+(Java's toUpperCase/toLowerCase infamous interaction with Turkish)
+
+
 ### **(V2.2.0 Changes) (1.17.1 Minecraft)**
 
 ##### Strongholds:
