@@ -16,6 +16,8 @@ import net.minecraft.world.gen.feature.template.StructureProcessor;
 import net.minecraft.world.gen.feature.template.Template;
 import org.apache.commons.lang3.math.NumberUtils;
 
+import java.util.Locale;
+
 import static java.lang.Integer.parseInt;
 
 /**
@@ -48,7 +50,7 @@ public class DataBlockProcessor extends StructureProcessor {
                     String[] splitString = metadata.split(DATA_PROCESSOR_MODE.PILLARS.symbol);
 
                     // Parses the data block's name field to get direction, blockstate, and depth
-                    Direction direction = Direction.valueOf(splitString[0].toUpperCase());
+                    Direction direction = Direction.valueOf(splitString[0].toUpperCase(Locale.ROOT));
                     BlockStateParser blockArgumentParser = new BlockStateParser(new StringReader(splitString[1]), false);
                     blockArgumentParser.parse(true);
                     BlockState replacementState = blockArgumentParser.getState();

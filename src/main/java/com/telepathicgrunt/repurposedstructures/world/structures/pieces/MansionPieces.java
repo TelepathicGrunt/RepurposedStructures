@@ -23,6 +23,7 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
 import javax.annotation.Nullable;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 
 public class MansionPieces  {
@@ -982,7 +983,7 @@ public class MansionPieces  {
         }
 
         private void loadTemplate(TemplateManager templateManager) {
-            Template template = templateManager.getOrCreate(new ResourceLocation(RepurposedStructures.MODID, "mansions/" + type.name().toLowerCase() + "/" + this.templateName));
+            Template template = templateManager.getOrCreate(new ResourceLocation(RepurposedStructures.MODID, "mansions/" + type.name().toLowerCase(Locale.ROOT) + "/" + this.templateName));
             PlacementSettings placementsettings = (new PlacementSettings()).setIgnoreEntities(false).setRotation(this.rotation).setMirror(this.mirror).addProcessor(BlockIgnoreStructureProcessor.STRUCTURE_BLOCK);
             this.setup(template, this.templatePosition, placementsettings);
         }

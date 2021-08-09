@@ -1,3 +1,10 @@
+### **(V.3.1.1 Changes) (1.16.5 Minecraft)**
+
+##### Misc:
+Fixed potential problems that could arise internally in code if user is using Turkish language settings.
+(Java's toUpperCase/toLowerCase infamous interaction with Turkish)
+
+
 ### **(V.3.1.0 Changes) (1.16.5 Minecraft)**
 
 ##### Mod Compat:

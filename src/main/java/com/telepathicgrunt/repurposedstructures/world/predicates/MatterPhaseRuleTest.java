@@ -10,6 +10,7 @@ import net.minecraft.util.Util;
 import net.minecraft.world.gen.feature.template.IRuleTestType;
 import net.minecraft.world.gen.feature.template.RuleTest;
 
+import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
 
@@ -73,7 +74,7 @@ public class MatterPhaseRuleTest extends RuleTest {
         });
 
         public static MATTER_PHASE byName(String name) {
-            return BY_NAME.get(name.toUpperCase());
+            return BY_NAME.get(name.toUpperCase(Locale.ROOT));
         }
 
         @Override
