@@ -54,7 +54,7 @@ public class NoiseReplaceWithPropertiesProcessor extends StructureProcessor {
 
     @Override
     public Template.BlockInfo processBlock(IWorldReader worldReader, BlockPos pos, BlockPos pos2, Template.BlockInfo infoIn1, Template.BlockInfo infoIn2, PlacementSettings settings) {
-        setSeed(((WorldGenRegion) worldReader).getSeed());
+        setSeed(worldReader instanceof WorldGenRegion ? ((WorldGenRegion) worldReader).getSeed() : 0);
 
         if(infoIn2.state.getBlock() == inputBlock){
             BlockPos worldPos = infoIn2.pos;
