@@ -1,5 +1,8 @@
 ### **(V.3.1.1 Changes) (1.16.5 Minecraft)**
 
+##### Temples:
+Removed possible Enderman spawners from Warped Nether Temples.
+
 ##### Misc:
 Fixed potential problems that could arise internally in code if user is using Turkish language settings.
 (Java's toUpperCase/toLowerCase infamous interaction with Turkish)
