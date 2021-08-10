@@ -3,9 +3,14 @@
 ##### Temples:
 Removed possible Enderman spawners from Warped Nether Temples.
 
+Hard nerfed the Enchanted Golden Apple rates for End Pyramids.
+
 ##### Misc:
 Fixed potential problems that could arise internally in code if user is using Turkish language settings. 
-(Java's toUpperCase/toLowerCase infamous interaction with Turkish)
+  (Java's toUpperCase/toLowerCase infamous interaction with Turkish)
+
+Fixed a possible crash if trying to spawn spawn certain structure pieces by Jigsaw Blocks manually placed by players.
+  Worldgen was safe. This is just a rare edge case scenario 99.9% of people won't know about lol.
 
 
 ### **(V2.2.0 Changes) (1.17.1 Minecraft)**

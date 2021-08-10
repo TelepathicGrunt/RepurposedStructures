@@ -14,17 +14,17 @@
           "weight": 1
         },
         {
+          "name": "minecraft:enchanted_golden_apple",
+          "type": "minecraft:item",
+          "weight": 5
+        },
+        {
           "name": "minecraft:end_crystal",
           "type": "minecraft:item",
           "weight": 9
         },
         {
           "name": "minecraft:shulker_shell",
-          "type": "minecraft:item",
-          "weight": 40
-        },
-        {
-          "name": "minecraft:enchanted_golden_apple",
           "type": "minecraft:item",
           "weight": 40
         },
@@ -46,7 +46,7 @@
         {
           "name": "minecraft:experience_bottle",
           "type": "minecraft:item",
-          "weight": 60,
+          "weight": 65,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -61,7 +61,7 @@
         {
           "name": "minecraft:obsidian",
           "type": "minecraft:item",
-          "weight": 60,
+          "weight": 65,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -76,7 +76,7 @@
         {
           "name": "minecraft:purpur_block",
           "type": "minecraft:item",
-          "weight": 60,
+          "weight": 65,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -91,7 +91,7 @@
         {
           "name": "minecraft:diamond",
           "type": "minecraft:item",
-          "weight": 100,
+          "weight": 105,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -106,7 +106,7 @@
         {
           "name": "minecraft:emerald",
           "type": "minecraft:item",
-          "weight": 100,
+          "weight": 105,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -120,12 +120,12 @@
         },
         {
           "type": "minecraft:empty",
-          "weight": 140
+          "weight": 145
         },
         {
           "name": "minecraft:book",
           "type": "minecraft:item",
-          "weight": 160,
+          "weight": 165,
           "functions": [
             {
               "function": "minecraft:enchant_with_levels",
