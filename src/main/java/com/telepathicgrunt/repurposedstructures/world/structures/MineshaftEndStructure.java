@@ -62,7 +62,7 @@ public class MineshaftEndStructure extends MineshaftStructure {
         if(landHeight < minLandHeight) return false;
 
         for(Direction direction : Direction.Plane.HORIZONTAL){
-            Vector3f offsetPos = direction.step();
+            Vector3f offsetPos = new Vector3f(direction.getStepX(), direction.getStepY(), direction.getStepZ());
             offsetPos.mul(70f);
             landHeight = getHeightAt(chunkGenerator, xPos + (int)offsetPos.x(), zPos + (int)offsetPos.z(), landHeight);
             if(landHeight < minLandHeight) return false;

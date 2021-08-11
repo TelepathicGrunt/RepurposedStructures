@@ -1,5 +1,8 @@
 ### **(V.3.1.1 Changes) (1.16.5 Minecraft)**
 
+##### Major:
+Fixed serverside crash when generating End Mineshafts and End Strongholds. Sorry about that!
+
 ##### Mansions:
 All RS Mansions spawnrate default config value has been changed to make them much less common and better spaced out in the world.
   The old config values will not change when updating so either delete the RS Mansions config file or edit the rates yourself to be around 225.
