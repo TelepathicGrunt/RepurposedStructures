@@ -6,6 +6,7 @@
   "mixins": [
     "blocks.RailBlockMixin",
     "entities.CatEntityMixin",
+    "entities.DolphinEntityDolphinSwimToTreasureGoalMixin",
     "entities.ShulkerEntityInvoker",
     "features.DungeonFeatureAccessor",
     "features.LessjungleBushInStructuresMixin",

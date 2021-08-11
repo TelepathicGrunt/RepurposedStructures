@@ -5,6 +5,9 @@ Removed possible Enderman spawners from Warped Nether Temples.
 
 Hard nerfed the Enchanted Golden Apple rates for End Pyramids.
 
+##### Pyramids:
+Fed Dolphins have a 24% chance of leading the player to an Ocean Pyramid!
+
 ##### Misc:
 Fixed potential problems that could arise internally in code if user is using Turkish language settings. 
   (Java's toUpperCase/toLowerCase infamous interaction with Turkish)
