@@ -10,7 +10,11 @@ Fed Dolphins have a 24% chance of leading the player to an Ocean Pyramid!
 Hard nerfed the Enchanted Golden Apple rates for End Pyramids.
 
 ##### Temples:
-Removed possible Enderman spawners from Warped Nether Temples.
+Removed chance of spawning Enderman spawners in Warped Nether Temples.
+
+Soul Nether Temple and Warped Nether Temple now only have 1 mob spawners instead of 2.
+
+Warped Nether Temple now has 2 hidden puzzle chests instead of 1.
 
 ##### Igloos:
 Grassy Igloos will now utilize the surface blocks of biomes it is in. So if the Grassy Igloo is added to a modded biome
