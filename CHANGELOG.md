@@ -7,10 +7,14 @@ All RS Mansions spawnrate default config value has been changed to make them muc
 ##### Pyramids:
 Fed Dolphins have a 24% chance of leading the player to an Ocean Pyramid!
 
+Hard nerfed the Enchanted Golden Apple rates for End Pyramids.
+
 ##### Temples:
 Removed possible Enderman spawners from Warped Nether Temples.
 
-Hard nerfed the Enchanted Golden Apple rates for End Pyramids.
+##### Igloos:
+Grassy Igloos will now utilize the surface blocks of biomes it is in. So if the Grassy Igloo is added to a modded biome
+  with their own custom grass block, the Grassy Igloo will be made of that modded block now to blend in better!
 
 ##### Misc:
 Fixed potential problems that could arise internally in code if user is using Turkish language settings.
