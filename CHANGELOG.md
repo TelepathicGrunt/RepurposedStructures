@@ -4,6 +4,9 @@
 All RS Mansions spawnrate default config value has been changed to make them much less common and better spaced out in the world.
   The old config values will not change when updating so either delete the RS Mansions config file or edit the rates yourself to be around 225.
 
+##### Pyramids:
+Fed Dolphins have a 24% chance of leading the player to an Ocean Pyramid!
+
 ##### Temples:
 Removed possible Enderman spawners from Warped Nether Temples.
 

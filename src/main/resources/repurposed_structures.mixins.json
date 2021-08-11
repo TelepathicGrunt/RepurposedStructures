@@ -6,6 +6,7 @@
   "mixins": [
     "CatEntityMixin",
     "ChunkGeneratorAccessor",
+    "DolphinEntitySwimToTreasureGoalMixin",
     "DungeonFeatureAccessor",
     "EnderEyeStrongholdLocatingMixin",
     "FallbackResourceManagerAccessor",
