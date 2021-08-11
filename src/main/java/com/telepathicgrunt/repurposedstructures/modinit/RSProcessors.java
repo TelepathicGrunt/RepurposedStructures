@@ -2,6 +2,7 @@ package com.telepathicgrunt.repurposedstructures.modinit;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.processors.AirProcessor;
+import com.telepathicgrunt.repurposedstructures.world.processors.BiomeSurfaceProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.BubbleColumnProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.CeilingVinePostProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.CloseOffAirSourcesProcessor;
@@ -30,6 +31,7 @@ public class RSProcessors {
     public static StructureProcessorType<MineshaftSkyViewProcessor> MINESHAFT_SKY_VIEW_PROCESSOR = () -> MineshaftSkyViewProcessor.CODEC;
     public static StructureProcessorType<DataBlockProcessor> DATA_BLOCK_PROCESSOR = () -> DataBlockProcessor.CODEC;
     public static StructureProcessorType<StructureVoidProcessor> STRUCTURE_VOID_PROCESSOR = () -> StructureVoidProcessor.CODEC;
+    public static StructureProcessorType<BiomeSurfaceProcessor> BIOME_SURFACE_PROCESSOR = () -> BiomeSurfaceProcessor.CODEC;
     public static StructureProcessorType<FloodWithWaterProcessor> FLOOD_WITH_WATER_PROCESSOR = () -> FloodWithWaterProcessor.CODEC;
     public static StructureProcessorType<ReplaceAirOnlyProcessor> REPLACE_AIR_ONLY_PROCESSOR = () -> ReplaceAirOnlyProcessor.CODEC;
     public static StructureProcessorType<ReplaceLiquidOnlyProcessor> REPLACE_LIQUIDS_ONLY_PROCESSOR = () -> ReplaceLiquidOnlyProcessor.CODEC;
@@ -51,6 +53,7 @@ public class RSProcessors {
         Registry.register(Registry.STRUCTURE_PROCESSOR, new ResourceLocation(RepurposedStructures.MODID, "mineshaft_sky_view_processor"), MINESHAFT_SKY_VIEW_PROCESSOR);
         Registry.register(Registry.STRUCTURE_PROCESSOR, new ResourceLocation(RepurposedStructures.MODID, "data_block_processor"), DATA_BLOCK_PROCESSOR);
         Registry.register(Registry.STRUCTURE_PROCESSOR, new ResourceLocation(RepurposedStructures.MODID, "structure_void_processor"), STRUCTURE_VOID_PROCESSOR);
+        Registry.register(Registry.STRUCTURE_PROCESSOR, new ResourceLocation(RepurposedStructures.MODID, "biome_surface_processor"), BIOME_SURFACE_PROCESSOR);
         Registry.register(Registry.STRUCTURE_PROCESSOR, new ResourceLocation(RepurposedStructures.MODID, "flood_with_water_processor"), FLOOD_WITH_WATER_PROCESSOR);
         Registry.register(Registry.STRUCTURE_PROCESSOR, new ResourceLocation(RepurposedStructures.MODID, "replace_air_only_processor"), REPLACE_AIR_ONLY_PROCESSOR);
         Registry.register(Registry.STRUCTURE_PROCESSOR, new ResourceLocation(RepurposedStructures.MODID, "replace_liquids_only_processor"), REPLACE_LIQUIDS_ONLY_PROCESSOR);
