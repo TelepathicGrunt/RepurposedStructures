@@ -154,6 +154,32 @@
           ]
         }
       ]
+    },
+    {
+      "rolls": 0,
+      "bonus_rolls": 1,
+      "entries": [
+        {
+          "name": "minecraft:writable_book",
+          "type": "minecraft:item",
+          "weight": 3
+        },
+        {
+          "name": "minecraft:book",
+          "type": "minecraft:item",
+          "weight": 8,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2.0,
+                "max": 8.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ]
+        }
+      ]
     }
   ]
 }

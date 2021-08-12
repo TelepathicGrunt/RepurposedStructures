@@ -258,6 +258,80 @@
           "weight": 1
         }
       ]
+    },
+    {
+      "rolls": 0,
+      "bonus_rolls": 1,
+      "entries": [
+        {
+          "name": "minecraft:suspicious_stew",
+          "type": "minecraft:item",
+          "weight": 8,
+          "functions": [
+            {
+              "function": "minecraft:set_stew_effect",
+              "effects": [
+                {
+                  "type": "minecraft:blindness",
+                  "duration": {
+                    "min": 10.0,
+                    "max": 25.0
+                  }
+                },
+                {
+                  "type": "minecraft:wither",
+                  "duration": {
+                    "min": 10.0,
+                    "max": 20.0
+                  }
+                },
+                {
+                  "type": "minecraft:weakness",
+                  "duration": {
+                    "min": 30.0,
+                    "max": 50.0
+                  }
+                },
+                {
+                  "type": "minecraft:poison",
+                  "duration": {
+                    "min": 15.0,
+                    "max": 30.0
+                  }
+                },
+                {
+                  "type": "minecraft:unluck",
+                  "duration": {
+                    "min": 200.0,
+                    "max": 400.0
+                  }
+                },
+                {
+                  "type": "minecraft:fire_resistance",
+                  "duration": {
+                    "min": 360.0,
+                    "max": 600.0
+                  }
+                },
+                {
+                  "type": "minecraft:night_vision",
+                  "duration": {
+                    "min": 60.0,
+                    "max": 120.0
+                  }
+                },
+                {
+                  "type": "minecraft:saturation",
+                  "duration": {
+                    "min": 10.0,
+                    "max": 12.0
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

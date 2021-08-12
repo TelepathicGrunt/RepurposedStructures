@@ -1,3 +1,12 @@
+### **(V2.2.3 Changes) (1.17.1 Minecraft)**
+
+##### Loot Tables:
+Added special "bonus_rolls" pool to RS Shipwrecks loot. If you have a mod that gives you the luck attribute or luck status effect, 
+  you may start to see extra items in RS's loot of certain kinds of items! The items from luck shouldn't break balance too much as
+  it will not spawn stuff like Enchanted Golden Apple. Instead, maybe more Writable Books or Suspicious Stew! 
+  See what you can find when you are lucky!
+
+
 ### **(V2.2.2 Changes) (1.17.1 Minecraft)**
 
 ##### Major:
