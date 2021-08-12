@@ -21,7 +21,7 @@ public abstract class DolphinEntityDolphinSwimToTreasureGoalMixin {
      * Allow Dolphins to find Ocean Pyramids
      * @author TelepathicGrunt
      */
-    @ModifyArg(method = "start",
+    @ModifyArg(method = "Lnet/minecraft/world/entity/animal/Dolphin$DolphinSwimToTreasureGoal;start()V",
             at = @At(value = "INVOKE", target = "Lnet/minecraft/server/level/ServerLevel;findNearestMapFeature(Lnet/minecraft/world/level/levelgen/feature/StructureFeature;Lnet/minecraft/core/BlockPos;IZ)Lnet/minecraft/core/BlockPos;", ordinal = 0))
     private StructureFeature<?> repurposedstructures_dolphinStructureLocate(StructureFeature<?> structure){
         if(RepurposedStructures.RSAllConfig.RSPyramidsConfig.pyramidOceanAverageChunkDistance != 1001 && dolphin.level.random.nextFloat() < 0.24f){
