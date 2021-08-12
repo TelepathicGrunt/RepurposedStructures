@@ -1,3 +1,9 @@
+### **(V.3.1.2 Changes) (1.16.5 Minecraft)**
+
+##### Major:
+Fixed Dolphin mixin crashing because I screw up again in my rush to release a fix aaaaaa
+
+
 ### **(V.3.1.1 Changes) (1.16.5 Minecraft)**
 
 ##### Major:
