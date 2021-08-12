@@ -1,3 +1,9 @@
+### **(V2.2.2 Changes) (1.17.1 Minecraft)**
+
+##### Major:
+Fixed Dolphin mixin crashing because I screw up again in my rush to release a fix aaaaaa
+
+
 ### **(V2.2.1 Changes) (1.17.1 Minecraft)**
 
 ##### Pyramids:
