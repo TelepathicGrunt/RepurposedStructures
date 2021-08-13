@@ -1,3 +1,10 @@
+### **(V.3.1.3 Changes) (1.16.5 Minecraft)**
+
+##### Major:
+Fixed ANOTHER serverside crash due to clientsided code called. 
+  RS should be stable now hopefully and I ran it on server to make double sure.
+
+
 ### **(V.3.1.2 Changes) (1.16.5 Minecraft)**
 
 ##### Major:

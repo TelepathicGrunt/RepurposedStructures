@@ -38,7 +38,7 @@ public class StrongholdEndStructure extends AdvancedDistanceJigsawStructure {
         for(int i = 1; i <= 2; i++){
             for(Direction direction : Direction.Plane.HORIZONTAL){
                 Vector3f offsetPos = new Vector3f(direction.getStepX(), direction.getStepY(), direction.getStepZ());
-                offsetPos.mul(35f * i);
+                offsetPos = new Vector3f(offsetPos.x() * 35f * i, offsetPos.y() * 35f * i, offsetPos.z() * 35f * i);
                 landHeight = getHeightAt(chunkGenerator, xPos + (int)offsetPos.x(), zPos + (int)offsetPos.z(), landHeight);
                 if(landHeight < minLandHeight) return false;
             }
