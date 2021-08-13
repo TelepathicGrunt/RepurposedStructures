@@ -473,7 +473,7 @@
       "bonus_rolls": 1,
       "entries": [
         {
-          "name": "minecraft:black_banner",
+          "name": "minecraft:light_gray_banner",
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
@@ -487,7 +487,7 @@
             },
             {
               "function":"set_nbt",
-              "tag":"{BlockEntityTag:{Patterns:[{Pattern:hhb,Color:7},{Pattern:bts,Color:15},{Pattern:hh,Color:7},{Pattern:bo,Color:13},{Pattern:tts,Color:15},{Pattern:bo,Color:15},{Pattern:mr,Color:5},{Pattern:mr,Color:5},{Pattern:bri,Color:7},{Pattern:mr,Color:13},{Pattern:mr,Color:7},{Pattern:flo,Color:15}]}}"
+              "tag":"{BlockEntityTag:{Patterns:[{Pattern:cr,Color:15},{Pattern:cr,Color:8},{Pattern:cbo,Color:15},{Pattern:cbo,Color:8},{Pattern:bo,Color:15},{Pattern:mr,Color:15},{Pattern:mr,Color:8},{Pattern:bo,Color:8},{Pattern:mc,Color:15},{Pattern:mc,Color:15},{Pattern:mc,Color:15},{Pattern:mc,Color:8}]}}"
             }
           ]
         },
