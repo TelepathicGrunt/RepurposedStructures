@@ -92,6 +92,46 @@
           "type": "minecraft:item"
         }
       ]
+    },
+    {
+      "rolls": 0,
+      "bonus_rolls": 1,
+      "entries": [
+        {
+          "name": "minecraft:green_banner",
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "probability": 0.5,
+                "result_count": 1,
+                "type": "repurposed_structures:probability"
+              }
+            },
+            {
+              "function":"set_nbt",
+              "tag":"{BlockEntityTag:{Patterns:[{Pattern:hh,Color:14},{Pattern:mr,Color:14},{Pattern:bt,Color:13},{Pattern:tt,Color:13},{Pattern:cs,Color:13},{Pattern:tt,Color:13},{Pattern:ts,Color:13},{Pattern:ss,Color:15},{Pattern:ss,Color:7},{Pattern:bts,Color:15},{Pattern:tts,Color:15},{Pattern:gru,Color:15}]}}"
+            }
+          ]
+        },
+        {
+          "name": "minecraft:emerald",
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "probability": 0.5,
+                "result_count": 2,
+                "type": "repurposed_structures:probability"
+              }
+            }
+          ]
+        }
+      ]
     }
   ]
 }
