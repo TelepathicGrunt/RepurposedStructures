@@ -347,7 +347,7 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "probability": 0.85,
+                "probability": 0.75,
                 "result_count": 2,
                 "type": "repurposed_structures:probability"
               }

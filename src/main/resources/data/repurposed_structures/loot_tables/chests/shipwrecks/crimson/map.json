@@ -167,7 +167,7 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "probability": 0.9,
+                "probability": 0.70,
                 "result_count": 1,
                 "type": "repurposed_structures:probability"
               }
@@ -182,7 +182,7 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "probability": 0.85,
+                "probability": 0.75,
                 "result_count": 3,
                 "type": "repurposed_structures:probability"
               }
