@@ -162,7 +162,17 @@
         {
           "name": "minecraft:writable_book",
           "type": "minecraft:item",
-          "weight": 3
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "probability": 0.9,
+                "result_count": 1,
+                "type": "repurposed_structures:probability"
+              }
+            }
+          ]
         },
         {
           "name": "minecraft:book",
@@ -172,9 +182,9 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 2.0,
-                "max": 8.0,
-                "type": "minecraft:uniform"
+                "probability": 0.85,
+                "result_count": 3,
+                "type": "repurposed_structures:probability"
               }
             }
           ]

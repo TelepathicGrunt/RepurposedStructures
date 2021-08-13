@@ -341,6 +341,14 @@
           "weight": 10,
           "functions": [
             {
+              "function": "minecraft:set_count",
+              "count": {
+                "probability": 0.85,
+                "result_count": 1,
+                "type": "repurposed_structures:probability"
+              }
+            },
+            {
               "function": "minecraft:set_stew_effect",
               "effects": [
                 {
@@ -418,9 +426,9 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 1.0,
-                "max": 3.0,
-                "type": "minecraft:uniform"
+                "probability": 0.75,
+                "result_count": 3,
+                "type": "repurposed_structures:probability"
               }
             },
             {
@@ -437,9 +445,9 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 1.0,
-                "max": 3.0,
-                "type": "minecraft:uniform"
+                "probability": 0.75,
+                "result_count": 3,
+                "type": "repurposed_structures:probability"
               }
             },
             {

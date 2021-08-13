@@ -29,6 +29,7 @@ import com.telepathicgrunt.repurposedstructures.mixin.structures.StructuresConfi
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredFeatures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSFeatures;
+import com.telepathicgrunt.repurposedstructures.modinit.RSNumberProviders;
 import com.telepathicgrunt.repurposedstructures.modinit.RSPlacements;
 import com.telepathicgrunt.repurposedstructures.modinit.RSPredicates;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
@@ -88,6 +89,7 @@ public class RepurposedStructures implements ModInitializer, DedicatedServerModI
         RSFeatures.registerFeatures();
         RSProcessors.registerProcessors();
         RSPredicates.registerPredicates();
+        RSNumberProviders.registerNumberProviders();
         RSStructures.registerStructures();
         RSStructureTagMap.setupTags();
         RSConfiguredFeatures.registerConfiguredFeatures();

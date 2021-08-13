@@ -177,9 +177,9 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 1.0,
-                "max": 2.0,
-                "type": "minecraft:uniform"
+                "probability": 0.85,
+                "result_count": 2,
+                "type": "repurposed_structures:probability"
               }
             }
           ]
@@ -192,9 +192,9 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 1.0,
-                "max": 2.0,
-                "type": "minecraft:uniform"
+                "probability": 0.6,
+                "result_count": 2,
+                "type": "repurposed_structures:probability"
               }
             }
           ]
