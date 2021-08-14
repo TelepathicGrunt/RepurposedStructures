@@ -6,6 +6,9 @@ Added special "bonus_rolls" pool to RS Shipwrecks/Cities loot. If you have a mod
   it will not spawn stuff like Enchanted Golden Apple. Instead, maybe more Writable Books or Suspicious Stew! 
   See what you can find when you are lucky!
 
+##### Mansions:
+Fixed Snowy, Desert, and Birch Mansions using the wrong loot table or had the wrong loot table path in the chests.
+
 
 ### **(V2.2.2 Changes) (1.17.1 Minecraft)**
 
