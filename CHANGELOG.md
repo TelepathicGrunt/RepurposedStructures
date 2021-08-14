@@ -1,14 +1,22 @@
-### **(V.3.1.3 Changes) (1.16.5 Minecraft)**
+### **(V.3.1.4 Changes) (1.16.5 Minecraft)**
 
-##### Major:
-Fixed ANOTHER serverside crash due to clientsided code called. 
-  RS should be stable now hopefully and I ran it on server to make double sure.
+##### Loot Tables:
+Added special "bonus_rolls" pool to all RS's structure loot! If you have a mod that gives you the luck attribute or luck status effect,
+you may start to see certain kinds of new items in RS's chests! Especially new banner designs! Every RS Structure has a unique banner
+so get a mod or datapack that gives you luck and start collecting all the banners! See what you can find when you are lucky!
 
 ##### Mansions:
 Fixed Snowy, Desert, and Birch Mansions using the wrong loot table or had the wrong loot table path in the chests.
 
 ##### Configs:
 Fixed typos in 2 of the default values in the allowDimensions config entry.
+
+
+### **(V.3.1.3 Changes) (1.16.5 Minecraft)**
+
+##### Major:
+Fixed ANOTHER serverside crash due to clientsided code called. 
+  RS should be stable now hopefully and I ran it on server to make double sure.
 
 
 ### **(V.3.1.2 Changes) (1.16.5 Minecraft)**
