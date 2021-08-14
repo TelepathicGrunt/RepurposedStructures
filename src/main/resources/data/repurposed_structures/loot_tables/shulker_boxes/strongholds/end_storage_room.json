@@ -245,7 +245,7 @@
       "bonus_rolls": 1,
       "entries": [
         {
-          "name": "minecraft:black_banner",
+          "name": "minecraft:purple_banner",
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
@@ -259,9 +259,8 @@
             },
             {
               "function":"set_nbt",
-              "tag":"{BlockEntityTag:{Patterns:[{Pattern:flo,Color:10},{Pattern:flo,Color:2},{Pattern:flo,Color:15},{Pattern:bt,Color:9},{Pattern:tt,Color:9},{Pattern:bo,Color:10},{Pattern:bs,Color:15},{Pattern:ts,Color:15},{Pattern:cbo,Color:10},{Pattern:cbo,Color:15},{Pattern:bo,Color:2},{Pattern:bo,Color:15}]}}"
-            }
-          ]
+              "tag":"{BlockEntityTag:{Patterns:[{Pattern:gra,Color:15},{Pattern:gru,Color:15},{Pattern:sc,Color:2},{Pattern:sc,Color:10},{Pattern:sc,Color:15},{Pattern:flo,Color:2},{Pattern:flo,Color:2},{Pattern:mr,Color:15},{Pattern:mc,Color:10},{Pattern:flo,Color:15},{Pattern:cbo,Color:15},{Pattern:bo,Color:15}]}}"
+            },
         },
         {
           "name": "minecraft:ender_eye",
