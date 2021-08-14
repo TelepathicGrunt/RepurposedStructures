@@ -5,6 +5,9 @@ Added special "bonus_rolls" pool to all RS's structure loot! If you have a mod t
 you may start to see certain kinds of new items in RS's chests! Especially new banner designs! Every RS Structure has a unique banner
 so get a mod or datapack that gives you luck and start collecting all the banners! See what you can find when you are lucky!
 
+##### Mineshafts:
+Harshly nerfed the rates of Minecarts in all RS Mineshafts as it was spawning too many Minecarts.
+
 ##### Mansions:
 Fixed Snowy, Desert, and Birch Mansions using the wrong loot table or had the wrong loot table path in the chests.
 
