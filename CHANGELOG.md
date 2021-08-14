@@ -4,6 +4,9 @@
 Fixed ANOTHER serverside crash due to clientsided code called. 
   RS should be stable now hopefully and I ran it on server to make double sure.
 
+##### Mansions:
+Fixed Snowy, Desert, and Birch Mansions using the wrong loot table or had the wrong loot table path in the chests.
+
 
 ### **(V.3.1.2 Changes) (1.16.5 Minecraft)**
 
