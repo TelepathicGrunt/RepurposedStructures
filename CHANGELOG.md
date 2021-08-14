@@ -1,10 +1,9 @@
 ### **(V2.2.3 Changes) (1.17.1 Minecraft)**
 
 ##### Loot Tables:
-Added special "bonus_rolls" pool to RS Shipwrecks/Cities loot. If you have a mod that gives you the luck attribute or luck status effect, 
-  you may start to see extra items in RS's loot of certain kinds of items! The items from luck shouldn't break balance too much as
-  it will not spawn stuff like Enchanted Golden Apple. Instead, maybe more Writable Books or Suspicious Stew! 
-  See what you can find when you are lucky!
+Added special "bonus_rolls" pool to all RS's structure loot! If you have a mod that gives you the luck attribute or luck status effect, 
+  you may start to see certain kinds of new items in RS's chests! Especially new banner designs! Every RS Structure has a unique banner
+  so get a mod or datapack that gives you luck and start collecting all the banners! See what you can find when you are lucky!
 
 ##### Mansions:
 Fixed Snowy, Desert, and Birch Mansions using the wrong loot table or had the wrong loot table path in the chests.
