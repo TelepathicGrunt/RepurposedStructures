@@ -300,6 +300,46 @@
           ]
         }
       ]
+    },
+    {
+      "rolls": 0,
+      "bonus_rolls": 1,
+      "entries": [
+        {
+          "name": "minecraft:black_banner",
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "probability": 0.35,
+                "result_count": 1,
+                "type": "repurposed_structures:probability"
+              }
+            },
+            {
+              "function":"set_nbt",
+              "tag":"{BlockEntityTag:{Patterns:[{Pattern:cr,Color:0},{Pattern:cr,Color:15},{Pattern:cbo,Color:0},{Pattern:cbo,Color:15},{Pattern:bo,Color:0},{Pattern:bo,Color:0},{Pattern:mr,Color:8},{Pattern:mr,Color:8},{Pattern:mr,Color:15},{Pattern:bo,Color:15},{Pattern:mc,Color:7},{Pattern:mc,Color:15}]}}"
+            }
+          ]
+        },
+        {
+          "name": "minecraft:skeleton_skull",
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "probability": 0.033,
+                "result_count": 1,
+                "type": "repurposed_structures:probability"
+              }
+            }
+          ]
+        }
+      ]
     }
   ]
 }

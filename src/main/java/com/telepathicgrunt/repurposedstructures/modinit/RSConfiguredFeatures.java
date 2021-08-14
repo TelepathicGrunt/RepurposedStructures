@@ -304,9 +304,9 @@ public class RSConfiguredFeatures {
         RS_DUNGEONS.add(Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dungeons_snow"), SNOW_DUNGEONS));
         RS_DUNGEONS.add(Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dungeons_icy"), ICY_DUNGEONS));
         RS_DUNGEONS.add(Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dungeons_swamp"), SWAMP_DUNGEONS));
-        RS_DUNGEONS.add(Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dungeons_mushroom"), MUSHROOM_HIGH_DUNGEONS));
-        RS_DUNGEONS.add(Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dungeons_mushroom_high"), MUSHROOM_LOW_DUNGEONS));
-        RS_DUNGEONS.add(Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dungeons_jungle_low"), JUNGLE_DUNGEONS));
+        RS_DUNGEONS.add(Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dungeons_mushroom_high"), MUSHROOM_HIGH_DUNGEONS));
+        RS_DUNGEONS.add(Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dungeons_mushroom_low"), MUSHROOM_LOW_DUNGEONS));
+        RS_DUNGEONS.add(Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dungeons_jungle"), JUNGLE_DUNGEONS));
         RS_DUNGEONS.add(Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dungeons_neutral_ocean"), OCEAN_NEUTRAL_DUNGEONS));
         RS_DUNGEONS.add(Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dungeons_lukewarm_ocean"), OCEAN_LUKEWARM_DUNGEONS));
         RS_DUNGEONS.add(Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dungeons_frozen_ocean"), OCEAN_FROZEN_DUNGEONS));

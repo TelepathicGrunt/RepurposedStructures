@@ -5,6 +5,7 @@ import com.telepathicgrunt.repurposedstructures.configs.omegaconfig.api.Config;
 
 import java.util.AbstractMap;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -95,8 +96,20 @@ public class RSBiomeDimConfig implements Config {
             addEntries(allowedDimensions, "repurposed_structures:well_mossy_stone", "lotr:middle_earth");
         }
 
-        configVersion = 3;
+        if(configVersion == 3){
+            fixKeyEntry(allowedDimensions, "repurposed_structures:dungeon_jungle", "repurposed_structures:dungeons_jungle");
+            fixKeyEntry(allowedDimensions, "repurposed_structures:warm_land_ruins", "repurposed_structures:ruins_land_warm");
+        }
+
+        configVersion = 4;
         Config.super.save();
+    }
+
+    private void fixKeyEntry(Map<String, String> map, String oldKey, String newKey){
+        for(String entry : map.get(oldKey).split(",")){
+            addEntries(map, newKey, entry.trim());
+        }
+        map.remove(oldKey);
     }
 
     private void addEntries(Map<String, String> map, String key, String entry){
@@ -203,13 +216,12 @@ public class RSBiomeDimConfig implements Config {
     )
     public final Map<String, String> allowedDimensions = Stream.of(
             new AbstractMap.SimpleEntry<>("repurposed_structures:bastion_underground", "dystopia:dystopia, elvenation:elvenia_dimension, futurepack:tyros"),
-            new AbstractMap.SimpleEntry<>("repurposed_structures:ruins_land_warm", "dystopia:dystopia, elvenation:elvenia_dimension, futurepack:tyros"),
+            new AbstractMap.SimpleEntry<>("repurposed_structures:ruins_land_warm", "dystopia:dystopia, elvenation:elvenia_dimension, futurepack:tyros, lotr:middle_earth"),
             new AbstractMap.SimpleEntry<>("repurposed_structures:igloo_grassy", "elvenation:elvenia_dimension"),
             new AbstractMap.SimpleEntry<>("repurposed_structures:mineshaft_jungle", "futurepack:tyros"),
             new AbstractMap.SimpleEntry<>("repurposed_structures:pyramid_jungle", "futurepack:tyros"),
             new AbstractMap.SimpleEntry<>("repurposed_structures:pyramid_snowy", "lotr:middle_earth"),
-            new AbstractMap.SimpleEntry<>("repurposed_structures:dungeon_jungle", "futurepack:tyros"),
-            new AbstractMap.SimpleEntry<>("repurposed_structures:warm_land_ruins", "lotr:middle_earth"),
+            new AbstractMap.SimpleEntry<>("repurposed_structures:dungeons_jungle", "futurepack:tyros"),
             new AbstractMap.SimpleEntry<>("repurposed_structures:well_forest", "lotr:middle_earth"),
             new AbstractMap.SimpleEntry<>("repurposed_structures:well_snow", "lotr:middle_earth"),
             new AbstractMap.SimpleEntry<>("repurposed_structures:well_mossy_stone", "futurepack:tyros, lotr:middle_earth")
@@ -291,5 +303,5 @@ public class RSBiomeDimConfig implements Config {
             "\n"+
             "\n// for internal use only. Do not change this."
     )
-    public int configVersion = 3;
+    public int configVersion = 4;
 }
