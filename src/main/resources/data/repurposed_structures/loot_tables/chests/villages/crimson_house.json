@@ -221,7 +221,7 @@
           ]
         },
         {
-          "name": "minecraft:gold_hoe",
+          "name": "minecraft:golden_hoe",
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
