@@ -241,6 +241,62 @@
           ]
         }
       ]
+    },
+    {
+      "rolls": 0,
+      "bonus_rolls": 1,
+      "entries": [
+        {
+          "name": "minecraft:black_banner",
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "probability": 0.35,
+                "result_count": 1,
+                "type": "repurposed_structures:probability"
+              }
+            },
+            {
+              "function":"set_nbt",
+              "tag":"{BlockEntityTag:{Patterns:[{Pattern:gru,Color:1},{Pattern:gra,Color:14},{Pattern:mc,Color:15},{Pattern:cbo,Color:15},{Pattern:ss,Color:15}]}}"
+            }
+          ]
+        },
+        {
+          "name": "minecraft:golden_hoe",
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "probability": 0.5,
+                "result_count": 1,
+                "type": "repurposed_structures:probability"
+              }
+            },
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.1,
+                "max": 0.75
+              }
+            },
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "min": 5.0,
+                "max": 25.0,
+                "type": "minecraft:uniform"
+              },
+              "treasure": true
+            }
+          ]
+        }
+      ]
     }
   ]
 }

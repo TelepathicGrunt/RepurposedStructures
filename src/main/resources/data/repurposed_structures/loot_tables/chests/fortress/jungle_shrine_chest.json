@@ -467,6 +467,61 @@
           ]
         }
       ]
+    },
+    {
+      "rolls": 0,
+      "bonus_rolls": 1,
+      "entries": [
+        {
+          "name": "minecraft:light_gray_banner",
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "probability": 0.35,
+                "result_count": 1,
+                "type": "repurposed_structures:probability"
+              }
+            },
+            {
+              "function":"set_nbt",
+              "tag":"{BlockEntityTag:{Patterns:[{Pattern:cr,Color:15},{Pattern:cr,Color:8},{Pattern:cbo,Color:15},{Pattern:cbo,Color:8},{Pattern:bo,Color:15},{Pattern:mr,Color:15},{Pattern:mr,Color:8},{Pattern:bo,Color:8},{Pattern:mc,Color:15},{Pattern:mc,Color:15},{Pattern:mc,Color:15},{Pattern:mc,Color:8}]}}"
+            }
+          ]
+        },
+        {
+          "name": "minecraft:compass",
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "probability": 0.5,
+                "result_count": 1,
+                "type": "repurposed_structures:probability"
+              }
+            }
+          ]
+        },
+        {
+          "name": "minecraft:lead",
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "probability": 0.35,
+                "result_count": 1,
+                "type": "repurposed_structures:probability"
+              }
+            }
+          ]
+        }
+      ]
     }
   ]
 }

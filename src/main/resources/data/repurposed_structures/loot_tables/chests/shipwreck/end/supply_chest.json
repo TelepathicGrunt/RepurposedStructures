@@ -330,6 +330,133 @@
           ]
         }
       ]
+    },
+    {
+      "rolls": 0,
+      "bonus_rolls": 1,
+      "entries": [
+        {
+          "name": "minecraft:suspicious_stew",
+          "type": "minecraft:item",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "probability": 0.75,
+                "result_count": 1,
+                "type": "repurposed_structures:probability"
+              }
+            },
+            {
+              "function": "minecraft:set_stew_effect",
+              "effects": [
+                {
+                  "type": "minecraft:blindness",
+                  "duration": {
+                    "min": 10.0,
+                    "max": 25.0
+                  }
+                },
+                {
+                  "type": "minecraft:levitation",
+                  "duration": {
+                    "min": 25.0,
+                    "max": 55.0
+                  }
+                },
+                {
+                  "type": "minecraft:weakness",
+                  "duration": {
+                    "min": 30.0,
+                    "max": 50.0
+                  }
+                },
+                {
+                  "type": "minecraft:jump_boost",
+                  "duration": {
+                    "min": 60.0,
+                    "max": 120.0
+                  }
+                },
+                {
+                  "type": "minecraft:night_vision",
+                  "duration": {
+                    "min": 60.0,
+                    "max": 120.0
+                  }
+                },
+                {
+                  "type": "minecraft:saturation",
+                  "duration": {
+                    "min": 10.0,
+                    "max": 12.0
+                  }
+                },
+                {
+                  "type": "minecraft:invisibility",
+                  "duration": {
+                    "min": 30.0,
+                    "max": 120.0
+                  }
+                },
+                {
+                  "type": "minecraft:slow_falling",
+                  "duration": {
+                    "min": 30.0,
+                    "max": 120.0
+                  }
+                },
+                {
+                  "type": "minecraft:glowing",
+                  "duration": {
+                    "min": 30.0,
+                    "max": 120.0
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "minecraft:firework_star",
+          "type": "minecraft:item",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "probability": 0.75,
+                "result_count": 3,
+                "type": "repurposed_structures:probability"
+              }
+            },
+            {
+              "function":"set_nbt",
+              "tag":"{Explosion:{Colors:[I;8073150], FadeColors:[I;12801229], Trail:1b, Flicker:1b, Type:2b}}"
+            }
+          ]
+        },
+        {
+          "name": "minecraft:firework_star",
+          "type": "minecraft:item",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "probability": 0.75,
+                "result_count": 3,
+                "type": "repurposed_structures:probability"
+              }
+            },
+            {
+              "function":"set_nbt",
+              "tag":"{Explosion:{Colors:[I;12801229], FadeColors:[I;8073150], Trail:1b, Flicker:1b, Type:2b}}"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

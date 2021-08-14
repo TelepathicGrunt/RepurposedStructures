@@ -184,6 +184,46 @@
           "weight": 1
         }
       ]
+    },
+    {
+      "rolls": 0,
+      "bonus_rolls": 1,
+      "entries": [
+        {
+          "name": "minecraft:red_banner",
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "probability": 0.35,
+                "result_count": 1,
+                "type": "repurposed_structures:probability"
+              }
+            },
+            {
+              "function":"set_nbt",
+              "tag":"{BlockEntityTag:{Patterns:[{Pattern:bl,Color:15},{Pattern:tr,Color:15},{Pattern:bri,Color:15},{Pattern:bri,Color:14},{Pattern:gru,Color:14},{Pattern:bo,Color:15},{Pattern:tts,Color:15},{Pattern:bts,Color:15},{Pattern:cs,Color:15},{Pattern:mr,Color:15},{Pattern:mc,Color:14},{Pattern:mc,Color:15}]}}"
+            }
+          ]
+        },
+        {
+          "name": "minecraft:ender_eye",
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "probability": 0.5,
+                "result_count": 1,
+                "type": "repurposed_structures:probability"
+              }
+            }
+          ]
+        }
+      ]
     }
   ]
 }

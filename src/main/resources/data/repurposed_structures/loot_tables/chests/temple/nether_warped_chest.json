@@ -213,6 +213,61 @@
           ]
         }
       ]
+    },
+    {
+      "rolls": 0,
+      "bonus_rolls": 1,
+      "entries": [
+        {
+          "name": "minecraft:black_banner",
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "probability": 0.5,
+                "result_count": 1,
+                "type": "repurposed_structures:probability"
+              }
+            },
+            {
+              "function":"set_nbt",
+              "tag":"{BlockEntityTag:{Patterns:[{Pattern:bt,Color:11},{Pattern:bts,Color:9},{Pattern:tt,Color:11},{Pattern:tts,Color:9},{Pattern:mr,Color:15},{Pattern:bri,Color:15},{Pattern:bri,Color:15},{Pattern:bo,Color:9},{Pattern:bo,Color:11},{Pattern:bo,Color:15},{Pattern:moj,Color:14},{Pattern:moj,Color:4}]}}"
+            }
+          ]
+        },
+        {
+          "name": "minecraft:comparator",
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "probability": 0.5,
+                "result_count": 2,
+                "type": "repurposed_structures:probability"
+              }
+            }
+          ]
+        },
+        {
+          "name": "minecraft:target",
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "probability": 0.5,
+                "result_count": 2,
+                "type": "repurposed_structures:probability"
+              }
+            }
+          ]
+        }
+      ]
     }
   ]
 }

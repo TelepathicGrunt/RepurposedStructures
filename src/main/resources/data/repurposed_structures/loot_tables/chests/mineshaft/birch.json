@@ -247,6 +247,46 @@
           ]
         }
       ]
+    },
+    {
+      "rolls": 0,
+      "bonus_rolls": 1,
+      "entries": [
+        {
+          "name": "minecraft:black_banner",
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "probability": 0.5,
+                "result_count": 1,
+                "type": "repurposed_structures:probability"
+              }
+            },
+            {
+              "function":"set_nbt",
+              "tag":"{BlockEntityTag:{Patterns:[{Pattern:rud,Color:0},{Pattern:mr,Color:12},{Pattern:gra,Color:15},{Pattern:gra,Color:12},{Pattern:tt,Color:12},{Pattern:lud,Color:12},{Pattern:gru,Color:0},{Pattern:gru,Color:0},{Pattern:cbo,Color:15},{Pattern:bo,Color:15},{Pattern:drs,Color:0},{Pattern:ss,Color:15}]}}"
+            }
+          ]
+        },
+        {
+          "name": "minecraft:tnt",
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "probability": 0.5,
+                "result_count": 2,
+                "type": "repurposed_structures:probability"
+              }
+            }
+          ]
+        }
+      ]
     }
   ]
 }
