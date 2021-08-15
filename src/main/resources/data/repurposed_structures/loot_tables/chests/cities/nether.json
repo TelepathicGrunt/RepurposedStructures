@@ -470,7 +470,7 @@
             },
             {
               "function":"set_nbt",
-              "tag":"{BlockEntityTag:{Patterns:[{Color:1,Pattern:gra},{Color:4,Pattern:ss},{Color:15,Pattern:tt},{Color:15,Pattern:flo},{Color:4,Pattern:sku},{Color:15,Pattern:cbo}]}}"
+              "tag":"{BlockEntityTag:{Patterns:[{Pattern:ss,Color:4},{Pattern:gra,Color:14},{Pattern:gra,Color:4},{Pattern:cbo,Color:15},{Pattern:glb,Color:4},{Pattern:flo,Color:1},{Pattern:flo,Color:15},{Pattern:mr,Color:15},{Pattern:tt,Color:15},{Pattern:sku,Color:14},{Pattern:sku,Color:4},{Pattern:cre,Color:15}]}}"
             }
           ]
         },
