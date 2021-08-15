@@ -17,6 +17,9 @@ Fixed Stone Igloo basement chest not using the right loot table file.
 ##### Configs:
 Fixed typos in 2 of the default values in the allowDimensions config entry.
 
+##### lang:
+Corrected two entries in the ru_ru.json lang file (Thank you DrHesperus!)
+
 
 ### **(V.3.1.3 Changes) (1.16.5 Minecraft)**
 
