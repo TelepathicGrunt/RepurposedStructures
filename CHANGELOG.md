@@ -14,6 +14,9 @@ Fixed Snowy, Desert, and Birch Mansions using the wrong loot table or had the wr
 ##### Igloos:
 Fixed Stone Igloo basement chest not using the right loot table file.
 
+##### lang:
+Corrected two entries in the ru_ru.json lang file (Thank you DrHesperus!)
+
 
 ### **(V2.2.2 Changes) (1.17.1 Minecraft)**
 
