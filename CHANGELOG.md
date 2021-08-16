@@ -1,4 +1,4 @@
-### **(V.3.1.4 Changes) (1.16.5 Minecraft)**
+### **(V.3.2.0 Changes) (1.16.5 Minecraft)**
 
 ##### Loot Tables:
 Added special "bonus_rolls" pool to all RS's structure loot! If you have a mod that gives you the luck attribute or luck status effect,
