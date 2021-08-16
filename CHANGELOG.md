@@ -11,6 +11,8 @@ Harshly nerfed the rates of Minecarts in all RS Mineshafts as it was spawning to
 ##### Mansions:
 Fixed Snowy, Desert, and Birch Mansions using the wrong loot table or had the wrong loot table path in the chests.
 
+All RS Mansions storage room chests may contain loot, make the dirt room chest have loot, and fixed a non-moisturized farmland block for farm room.
+
 ##### Igloos:
 Fixed Stone Igloo basement chest not using the right loot table file.
 

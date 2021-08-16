@@ -45,16 +45,13 @@ conversion_exact_dict = {
 
 blockPalette = {""}
 
-originalBiome = "savanna"
-newBiome = "jungle"
+originalBiome = ""
+newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {
-    "acacia":"jungle"
+    "repurposed_structures:mansions/":"repurposed_structures:chests/mansion/"
 }
-conversion_exact_dict = {
-    "minecraft:village/savanna/villagers":"repurposed_structures:villages/jungle/villagers",
-    "minecraft:orange_terracotta":"minecraft:yellow_terracotta"
-}
+conversion_exact_dict = {}
 
 #-------------------------------------------------------------------------------------------
 
