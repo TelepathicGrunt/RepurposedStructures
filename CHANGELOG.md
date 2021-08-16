@@ -13,6 +13,10 @@ Fixed Snowy, Desert, and Birch Mansions using the wrong loot table or had the wr
 
 All RS Mansions storage room chests may contain loot, make the dirt room chest have loot, and fixed a non-moisturized farmland block for farm room.
 
+##### Pyramids:
+Added a secret extra chest to End Pyramids that will have loot based on luck. 
+  (The other chest's loot are generated automatically at creation due to the Comparator blocks)
+
 ##### Igloos:
 Fixed Stone Igloo basement chest not using the right loot table file.
 
