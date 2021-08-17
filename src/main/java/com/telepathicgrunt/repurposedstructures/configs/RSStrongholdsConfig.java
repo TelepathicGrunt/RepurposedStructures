@@ -34,8 +34,8 @@ public class RSStrongholdsConfig
 			netherStrongholdSize = subscriber.subscribe(builder
 					.comment("\n Size of Nether Stronghold. This number is how many pieces deep a branch can go from the center piece.",
 							" 1 for supertiny and 30 for supermassive Strongholds.")
-					.translation("repurposedstructures.config.stronghold.netherstrongholdsizesh")
-					.defineInRange("netherStrongholdSizeSH", 15, 1, 30));
+					.translation("repurposedstructures.config.stronghold.netherstrongholdsize")
+					.defineInRange("netherStrongholdSize", 15, 1, 30));
 
 			netherStrongholdMinHeight = subscriber.subscribe(builder
 					.comment("\n Minimum Y height that Nether stronghold's starting point can spawn at.",
@@ -63,8 +63,8 @@ public class RSStrongholdsConfig
 			strongholdEndSize = subscriber.subscribe(builder
 					.comment("\n Size of End Stronghold. This number is how many pieces deep a branch can go from the center piece.",
 							" 1 for supertiny and 30 for supermassive Strongholds.")
-					.translation("repurposedstructures.config.stronghold.endstrongholdsizesh")
-					.defineInRange("endStrongholdSizeSH", 15, 1, 30));
+					.translation("repurposedstructures.config.stronghold.endstrongholdsize")
+					.defineInRange("endStrongholdSize", 15, 1, 30));
 
 			strongholdEndMinHeight = subscriber.subscribe(builder
 					.comment("\n Minimum Y height that End stronghold's starting point can spawn at.",

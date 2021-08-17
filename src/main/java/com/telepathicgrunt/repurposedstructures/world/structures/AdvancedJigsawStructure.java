@@ -2,6 +2,7 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
+import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PieceLimitedJigsawManager;
 import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
@@ -25,14 +26,14 @@ import net.minecraftforge.common.util.Lazy;
 public class AdvancedJigsawStructure extends AbstractBaseStructure<NoFeatureConfig> {
 
     protected final ResourceLocation startPool;
-    protected final int structureSize;
+    protected final Lazy<Integer> structureSize;
     protected final int biomeRange;
     protected final Lazy<Integer> maxY;
     protected final Lazy<Integer> minY;
     protected final boolean clipOutOfBoundsPieces;
     protected final Lazy<Integer> verticalRange;
 
-    public AdvancedJigsawStructure(ResourceLocation poolID, int structureSize, int biomeRange,
+    public AdvancedJigsawStructure(ResourceLocation poolID, Lazy<Integer> structureSize, int biomeRange,
                                    Lazy<Integer> maxY, Lazy<Integer> minY, boolean clipOutOfBoundsPieces, 
                                    Lazy<Integer> verticalRange)
     {
@@ -105,7 +106,7 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<NoFeatureConf
 
                 PieceLimitedJigsawManager.assembleJigsawStructure(
                         dynamicRegistryManager,
-                        new VillageConfig(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(startPool), structureSize),
+                        new VillageConfig(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(startPool), structureSize.get()),
                         chunkGenerator,
                         structureManager,
                         blockpos,
@@ -128,7 +129,7 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<NoFeatureConf
 
     public static class Builder<T extends Builder<T>> {
         protected final ResourceLocation startPool;
-        protected int structureSize = 1;
+        protected Lazy<Integer> structureSize = Lazy.of(() -> 1);
         protected int biomeRange = 0;
         protected Lazy<Integer> maxY = Lazy.of(() -> 255);
         protected Lazy<Integer> minY = Lazy.of(() -> 0);
@@ -144,8 +145,8 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<NoFeatureConf
             return (T) this;
         }
 
-        public T setStructureSize(int structureSize){
-            this.structureSize = structureSize;
+        public T setStructureSize(ConfigHelper.ConfigValueListener<Integer> structureSize){
+            this.structureSize = Lazy.of(structureSize);
             return getThis();
         }
 
@@ -154,18 +155,18 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<NoFeatureConf
             return getThis();
         }
 
-        public T setMaxY(Lazy<Integer> maxY){
-            this.maxY = maxY;
+        public T setMaxY(ConfigHelper.ConfigValueListener<Integer> maxY){
+            this.maxY = Lazy.of(maxY);
             return getThis();
         }
 
-        public T setMinY(Lazy<Integer> minY){
-            this.minY = minY;
+        public T setMinY(ConfigHelper.ConfigValueListener<Integer> minY){
+            this.minY = Lazy.of(minY);
             return getThis();
         }
 
-        public T setVerticalRange(Lazy<Integer> verticalRange){
-            this.verticalRange = verticalRange;
+        public T setVerticalRange(ConfigHelper.ConfigValueListener<Integer> verticalRange){
+            this.verticalRange = Lazy.of(verticalRange);
             return getThis();
         }
 

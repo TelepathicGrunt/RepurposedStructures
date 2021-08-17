@@ -63,7 +63,7 @@ public class Villages {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.VILLAGE_GIANT_TAIGA);
         }
 
-        if (RepurposedStructures.RSVillagesConfig.villageOakMaxChunkDistance.get() != 1001 &&
+        if (RepurposedStructures.RSVillagesConfig.oakVillageMaxChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowed(event, RSStructures.VILLAGE_OAK.get(),
                     () -> BiomeSelection.haveCategories(event, Category.FOREST) &&
                     !BiomeSelection.hasName(event, "birch", "dark", "spooky", "dead", "haunted")))

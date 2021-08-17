@@ -16,6 +16,7 @@ import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.template.TemplateManager;
+import net.minecraftforge.common.util.Lazy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +24,7 @@ import java.util.Set;
 
 public class LandBasedEndStructure extends GenericJigsawStructure {
 
-    public LandBasedEndStructure(ResourceLocation poolID, int structureSize, int centerOffset, int biomeRange,
+    public LandBasedEndStructure(ResourceLocation poolID, Lazy<Integer> structureSize, int centerOffset, int biomeRange,
                                  int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet,
                                  int allowTerrainHeightRange, int terrainHeightRadius, int minHeightLimit,
                                  int fixedYSpawn, boolean useHeightmap, boolean cannotSpawnInWater)

@@ -1,5 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
+import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.BlockPos;
@@ -24,7 +25,7 @@ public class MineshaftStructure extends AdvancedJigsawStructure {
 
     protected final Lazy<Double> probability;
 
-    public MineshaftStructure(ResourceLocation poolID, int structureSize, int biomeRange,
+    public MineshaftStructure(ResourceLocation poolID, Lazy<Integer> structureSize, int biomeRange,
                               Lazy<Integer> maxY, Lazy<Integer> minY, boolean clipOutOfBoundsPieces,
                               Lazy<Integer> verticalRange, Lazy<Double> probability)
     {
@@ -103,8 +104,8 @@ public class MineshaftStructure extends AdvancedJigsawStructure {
             super(startPool);
         }
 
-        public T setProbability(Lazy<Double> probability){
-            this.probability = probability;
+        public T setProbability(ConfigHelper.ConfigValueListener<Double> probability){
+            this.probability = Lazy.of(probability);
             return getThis();
         }
 

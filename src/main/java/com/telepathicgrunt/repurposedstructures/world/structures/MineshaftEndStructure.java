@@ -20,7 +20,7 @@ import net.minecraftforge.common.util.Lazy;
 
 public class MineshaftEndStructure extends MineshaftStructure {
 
-    public MineshaftEndStructure(ResourceLocation poolID, int structureSize, int biomeRange,
+    public MineshaftEndStructure(ResourceLocation poolID, Lazy<Integer> structureSize, int biomeRange,
                                  Lazy<Integer> maxY, Lazy<Integer> minY, boolean clipOutOfBoundsPieces,
                                  Lazy<Integer> verticalRange, Lazy<Double> probability)
     {
@@ -77,17 +77,10 @@ public class MineshaftEndStructure extends MineshaftStructure {
     }
 
 
-    public static class Builder<T extends Builder<T>> extends AdvancedJigsawStructure.Builder<T> {
-
-        protected Lazy<Double> probability = Lazy.of(() -> 0.01D);
+    public static class Builder<T extends Builder<T>> extends MineshaftStructure.Builder<T> {
 
         public Builder(ResourceLocation startPool) {
             super(startPool);
-        }
-
-        public T setProbability(Lazy<Double> probability){
-            this.probability = probability;
-            return getThis();
         }
 
         public MineshaftEndStructure build() {

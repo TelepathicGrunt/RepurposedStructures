@@ -2,6 +2,7 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
+import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PieceLimitedJigsawManager;
 import net.minecraft.block.BlockState;
@@ -24,6 +25,7 @@ import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.VillageConfig;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 import net.minecraft.world.gen.settings.StructureSeparationSettings;
+import net.minecraftforge.common.util.Lazy;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -31,7 +33,7 @@ import java.util.Set;
 public class GenericJigsawStructure extends AbstractBaseStructure<NoFeatureConfig> {
 
     protected final ResourceLocation startPool;
-    protected final int structureSize;
+    protected final Lazy<Integer> structureSize;
     protected final int centerOffset;
     protected final int biomeRange;
     protected final int structureBlacklistRange;
@@ -43,7 +45,7 @@ public class GenericJigsawStructure extends AbstractBaseStructure<NoFeatureConfi
     protected boolean useHeightmap;
     protected boolean cannotSpawnInWater;
 
-    public GenericJigsawStructure(ResourceLocation poolID, int structureSize, int centerOffset, int biomeRange,
+    public GenericJigsawStructure(ResourceLocation poolID, Lazy<Integer> structureSize, int centerOffset, int biomeRange,
                                   int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet,
                                   int allowTerrainHeightRange, int terrainHeightRadius, int minHeightLimit,
                                   int fixedYSpawn, boolean useHeightmap, boolean cannotSpawnInWater)
@@ -142,7 +144,7 @@ public class GenericJigsawStructure extends AbstractBaseStructure<NoFeatureConfi
 
             PieceLimitedJigsawManager.assembleJigsawStructure(
                     dynamicRegistryManager,
-                    new VillageConfig(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(startPool), structureSize),
+                    new VillageConfig(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(startPool), structureSize.get()),
                     chunkGenerator,
                     structureManager,
                     blockpos,
@@ -162,7 +164,7 @@ public class GenericJigsawStructure extends AbstractBaseStructure<NoFeatureConfi
 
     public static class Builder<T extends Builder<T>> {
         protected final ResourceLocation startPool;
-        protected int structureSize = 1;
+        protected Lazy<Integer> structureSize = Lazy.of(() -> 1);
         protected int centerOffset = 0;
         protected int biomeRange = 0;
         protected int structureBlacklistRange = 0;
@@ -183,8 +185,13 @@ public class GenericJigsawStructure extends AbstractBaseStructure<NoFeatureConfi
             return (T) this;
         }
 
+        public T setStructureSize(ConfigHelper.ConfigValueListener<Integer> structureSize){
+            this.structureSize = Lazy.of(structureSize);
+            return getThis();
+        }
+
         public T setStructureSize(int structureSize){
-            this.structureSize = structureSize;
+            this.structureSize = Lazy.of(() -> structureSize);
             return getThis();
         }
 

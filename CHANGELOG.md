@@ -1,3 +1,13 @@
+### **(V.3.2.1 Changes) (1.16.5 Minecraft)**
+
+##### Configs:
+Fixed config values not properly working for changing size of RS Mineshafts, RS Fortresses, and RS Strongholds structures. Should be working correctly now.
+
+Added configs to allow changing of RS Villages size. Note, you will need to re-add the changes you have done to RS Village config for spawnrates if you edit it before.
+
+Renamed netherStrongholdSizeSH and endStrongholdSizeSH configs entries to netherStrongholdSize and endStrongholdSize.
+
+
 ### **(V.3.2.0 Changes) (1.16.5 Minecraft)**
 
 ##### Loot Tables:

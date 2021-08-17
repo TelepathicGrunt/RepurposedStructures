@@ -24,7 +24,7 @@ public class AdvancedDistanceJigsawStructure extends AdvancedJigsawStructure {
 
     protected final int distanceFromWorldOrigin;
 
-    public AdvancedDistanceJigsawStructure(ResourceLocation poolID, int structureSize, int biomeRange,
+    public AdvancedDistanceJigsawStructure(ResourceLocation poolID, Lazy<Integer> structureSize, int biomeRange,
                                            Lazy<Integer> maxY, Lazy<Integer> minY, boolean clipOutOfBoundsPieces,
                                            Lazy<Integer> verticalRange, int distanceFromWorldOrigin)
     {
@@ -77,7 +77,7 @@ public class AdvancedDistanceJigsawStructure extends AdvancedJigsawStructure {
 
             PieceLimitedJigsawManager.assembleJigsawStructure(
                     dynamicRegistryManager,
-                    new VillageConfig(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(startPool), structureSize),
+                    new VillageConfig(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(startPool), structureSize.get()),
                     chunkGenerator,
                     structureManager,
                     blockpos,

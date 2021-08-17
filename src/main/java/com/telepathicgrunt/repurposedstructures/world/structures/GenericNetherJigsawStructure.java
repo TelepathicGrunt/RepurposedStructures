@@ -11,6 +11,7 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.template.TemplateManager;
+import net.minecraftforge.common.util.Lazy;
 
 import java.util.Set;
 
@@ -21,7 +22,7 @@ public class GenericNetherJigsawStructure extends GenericJigsawStructure {
     protected final int ledgeSpotOffset;
     protected final int liquidSpotOffset;
 
-    public GenericNetherJigsawStructure(ResourceLocation poolID, int structureSize, int centerOffset, int biomeRange,
+    public GenericNetherJigsawStructure(ResourceLocation poolID, Lazy<Integer> structureSize, int centerOffset, int biomeRange,
                                         int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet,
                                         int allowTerrainHeightRange, int terrainHeightRadius,
                                         int minHeightLimit, int fixedYSpawn, boolean useHeightmap,

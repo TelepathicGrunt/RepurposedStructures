@@ -16,7 +16,7 @@ import net.minecraftforge.common.util.Lazy;
 
 public class StrongholdEndStructure extends AdvancedDistanceJigsawStructure {
 
-    public StrongholdEndStructure(ResourceLocation poolID, int structureSize, int biomeRange,
+    public StrongholdEndStructure(ResourceLocation poolID, Lazy<Integer> structureSize, int biomeRange,
                                   Lazy<Integer> maxY, Lazy<Integer> minY, boolean clipOutOfBoundsPieces,
                                   Lazy<Integer> verticalRange, int distanceFromWorldOrigin)
     {

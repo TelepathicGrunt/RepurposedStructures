@@ -20,12 +20,13 @@ import net.minecraft.world.gen.feature.structure.MarginedStructureStart;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.VillageConfig;
 import net.minecraft.world.gen.feature.template.TemplateManager;
+import net.minecraftforge.common.util.Lazy;
 
 import java.util.Set;
 
 public class CityNetherStructure extends GenericJigsawStructure {
 
-    public CityNetherStructure(ResourceLocation poolID, int structureSize, int centerOffset, int biomeRange,
+    public CityNetherStructure(ResourceLocation poolID, Lazy<Integer> structureSize, int centerOffset, int biomeRange,
                                int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet,
                                int allowTerrainHeightRange, int terrainHeightRadius, int minHeightLimit,
                                int fixedYSpawn, boolean useHeightmap, boolean cannotSpawnInWater)
@@ -92,7 +93,7 @@ public class CityNetherStructure extends GenericJigsawStructure {
             BlockPos blockpos = new BlockPos(chunkX * 16, chunkGenerator.getSeaLevel(), chunkZ * 16);
             PieceLimitedJigsawManager.assembleJigsawStructure(
                     dynamicRegistryManager,
-                    new VillageConfig(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(startPool), structureSize),
+                    new VillageConfig(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(startPool), structureSize.get()),
                     chunkGenerator,
                     structureManager,
                     blockpos,
