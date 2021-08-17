@@ -17,7 +17,7 @@ public class Villages {
                         BiomeSelection.isBiomeAllowed(context, RSStructures.VILLAGE_BADLANDS,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.MESA)
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.VILLAGE))
-                        && RepurposedStructures.RSAllConfig.RSVillagesConfig.badlandsVillageAverageChunkDistance != 1001,
+                        && RepurposedStructures.RSAllConfig.RSVillagesConfig.spawnrate.badlandsVillageAverageChunkDistance != 1001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.BADLANDS_VILLAGE));
 
         GeneralUtils.addToBiome("birch_village",
@@ -25,7 +25,7 @@ public class Villages {
                         BiomeSelection.isBiomeAllowed(context, RSStructures.VILLAGE_BIRCH,
                                 () -> BiomeSelection.hasName(context, "birch")
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.VILLAGE))
-                        && RepurposedStructures.RSAllConfig.RSVillagesConfig.birchVillageAverageChunkDistance != 1001,
+                        && RepurposedStructures.RSAllConfig.RSVillagesConfig.spawnrate.birchVillageAverageChunkDistance != 1001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.BIRCH_VILLAGE));
 
         GeneralUtils.addToBiome("dark_forest_village",
@@ -34,7 +34,7 @@ public class Villages {
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.FOREST)
                                 && BiomeSelection.hasName(context, "dark", "spooky", "dead", "haunted")
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.VILLAGE))
-                        && RepurposedStructures.RSAllConfig.RSVillagesConfig.darkForestVillageAverageChunkDistance != 1001,
+                        && RepurposedStructures.RSAllConfig.RSVillagesConfig.spawnrate.darkForestVillageAverageChunkDistance != 1001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.DARK_FOREST_VILLAGE));
 
         GeneralUtils.addToBiome("jungle_village",
@@ -42,7 +42,7 @@ public class Villages {
                         BiomeSelection.isBiomeAllowed(context, RSStructures.VILLAGE_JUNGLE,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.JUNGLE)
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.VILLAGE))
-                        && RepurposedStructures.RSAllConfig.RSVillagesConfig.jungleVillageAverageChunkDistance != 1001,
+                        && RepurposedStructures.RSAllConfig.RSVillagesConfig.spawnrate.jungleVillageAverageChunkDistance != 1001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.JUNGLE_VILLAGE));
 
         GeneralUtils.addToBiome("swamp_village",
@@ -50,7 +50,7 @@ public class Villages {
                         BiomeSelection.isBiomeAllowed(context, RSStructures.VILLAGE_SWAMP,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.SWAMP)
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.VILLAGE))
-                        && RepurposedStructures.RSAllConfig.RSVillagesConfig.swampVillageAverageChunkDistance != 1001,
+                        && RepurposedStructures.RSAllConfig.RSVillagesConfig.spawnrate.swampVillageAverageChunkDistance != 1001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.SWAMP_VILLAGE));
 
         GeneralUtils.addToBiome("mountains_village",
@@ -58,7 +58,7 @@ public class Villages {
                         BiomeSelection.isBiomeAllowed(context, RSStructures.VILLAGE_MOUNTAINS,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.EXTREME_HILLS)
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.VILLAGE))
-                        && RepurposedStructures.RSAllConfig.RSVillagesConfig.mountainsVillageAverageChunkDistance != 1001,
+                        && RepurposedStructures.RSAllConfig.RSVillagesConfig.spawnrate.mountainsVillageAverageChunkDistance != 1001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.MOUNTAINS_VILLAGE));
 
         GeneralUtils.addToBiome("giant_taiga_village",
@@ -66,7 +66,7 @@ public class Villages {
                         BiomeSelection.isBiomeAllowed(context, RSStructures.VILLAGE_GIANT_TAIGA,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.TAIGA) && BiomeSelection.hasName(context, "giant", "redwood")
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.VILLAGE))
-                        && RepurposedStructures.RSAllConfig.RSVillagesConfig.giantTaigaVillageAverageChunkDistance != 1001,
+                        && RepurposedStructures.RSAllConfig.RSVillagesConfig.spawnrate.giantTaigaVillageAverageChunkDistance != 1001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.GIANT_TAIGA_VILLAGE));
 
         GeneralUtils.addToBiome("crimson_village",
@@ -75,7 +75,7 @@ public class Villages {
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.NETHER)
                                 && BiomeSelection.hasName(context, "crimson", "red_")
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.VILLAGE))
-                        && RepurposedStructures.RSAllConfig.RSVillagesConfig.crimsonVillageAverageChunkDistance != 1001,
+                        && RepurposedStructures.RSAllConfig.RSVillagesConfig.spawnrate.crimsonVillageAverageChunkDistance != 1001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.CRIMSON_VILLAGE));
 
 
@@ -85,7 +85,7 @@ public class Villages {
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.NETHER)
                                 && BiomeSelection.hasName(context, "warped", "blue")
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.VILLAGE))
-                        && RepurposedStructures.RSAllConfig.RSVillagesConfig.warpedVillageAverageChunkDistance != 1001,
+                        && RepurposedStructures.RSAllConfig.RSVillagesConfig.spawnrate.warpedVillageAverageChunkDistance != 1001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.WARPED_VILLAGE));
 
         GeneralUtils.addToBiome("village_oak",
@@ -93,7 +93,7 @@ public class Villages {
                         BiomeSelection.isBiomeAllowed(context, RSStructures.VILLAGE_OAK,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.FOREST)
                                 && !(BiomeSelection.hasName(context, "birch", "dark", "spooky", "dead", "haunted")))
-                        && RepurposedStructures.RSAllConfig.RSVillagesConfig.oakVillageAverageChunkDistance != 1001,
+                        && RepurposedStructures.RSAllConfig.RSVillagesConfig.spawnrate.oakVillageAverageChunkDistance != 1001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.VILLAGE_OAK));
     }
 }

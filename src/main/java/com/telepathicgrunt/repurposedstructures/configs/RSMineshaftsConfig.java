@@ -222,6 +222,7 @@ public class RSMineshaftsConfig implements ConfigData {
         public int birchMineshaftMinHeight = 8;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -231,6 +232,7 @@ public class RSMineshaftsConfig implements ConfigData {
         public int jungleMineshaftMinHeight = 8;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -240,6 +242,7 @@ public class RSMineshaftsConfig implements ConfigData {
         public int desertMineshaftMinHeight = 8;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -249,6 +252,7 @@ public class RSMineshaftsConfig implements ConfigData {
         public int stoneMineshaftMinHeight = 8;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -258,6 +262,7 @@ public class RSMineshaftsConfig implements ConfigData {
         public int savannaMineshaftMinHeight = 8;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -267,6 +272,7 @@ public class RSMineshaftsConfig implements ConfigData {
         public int icyMineshaftMinHeight = 8;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -276,6 +282,7 @@ public class RSMineshaftsConfig implements ConfigData {
         public int oceanMineshaftMinHeight = 8;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -285,6 +292,7 @@ public class RSMineshaftsConfig implements ConfigData {
         public int taigaMineshaftMinHeight = 8;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -294,6 +302,7 @@ public class RSMineshaftsConfig implements ConfigData {
         public int swampMineshaftMinHeight = 8;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -303,6 +312,7 @@ public class RSMineshaftsConfig implements ConfigData {
         public int darkForestMineshaftMinHeight = 8;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -312,6 +322,7 @@ public class RSMineshaftsConfig implements ConfigData {
         public int endMineshaftMinHeight = 27;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -321,6 +332,7 @@ public class RSMineshaftsConfig implements ConfigData {
         public int netherMineshaftMinHeight = 6;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -330,6 +342,7 @@ public class RSMineshaftsConfig implements ConfigData {
         public int crimsonMineshaftMinHeight = 6;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -355,6 +368,7 @@ public class RSMineshaftsConfig implements ConfigData {
         public int birchMineshaftMaxHeight = 45;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -365,6 +379,7 @@ public class RSMineshaftsConfig implements ConfigData {
         public int jungleMineshaftMaxHeight = 45;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -375,6 +390,7 @@ public class RSMineshaftsConfig implements ConfigData {
         public int desertMineshaftMaxHeight = 45;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -385,6 +401,7 @@ public class RSMineshaftsConfig implements ConfigData {
         public int stoneMineshaftMaxHeight = 45;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -395,6 +412,7 @@ public class RSMineshaftsConfig implements ConfigData {
         public int savannaMineshaftMaxHeight = 45;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -405,6 +423,7 @@ public class RSMineshaftsConfig implements ConfigData {
         public int icyMineshaftMaxHeight = 45;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -415,6 +434,7 @@ public class RSMineshaftsConfig implements ConfigData {
         public int oceanMineshaftMaxHeight = 26;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -425,6 +445,7 @@ public class RSMineshaftsConfig implements ConfigData {
         public int taigaMineshaftMaxHeight = 45;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -435,6 +456,7 @@ public class RSMineshaftsConfig implements ConfigData {
         public int swampMineshaftMaxHeight = 45;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -445,6 +467,7 @@ public class RSMineshaftsConfig implements ConfigData {
         public int darkForestMineshaftMaxHeight = 45;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -455,6 +478,7 @@ public class RSMineshaftsConfig implements ConfigData {
         public int endMineshaftMaxHeight = 35;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -465,6 +489,7 @@ public class RSMineshaftsConfig implements ConfigData {
         public int netherMineshaftMaxHeight = 17;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -475,6 +500,7 @@ public class RSMineshaftsConfig implements ConfigData {
         public int crimsonMineshaftMaxHeight = 14;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -494,27 +520,30 @@ public class RSMineshaftsConfig implements ConfigData {
 
                 Size of the mineshaft. This is how many pieces long a branch can be from the start piece.""")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 30)
-        public int birchMineshaftSize = 9;
+        public int birchMineshaftSize = 10;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
 
                 Size of the mineshaft. This is how many pieces long a branch can be from the start piece.""")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 30)
-        public int jungleMineshaftSize = 9;
+        public int jungleMineshaftSize = 6;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
 
                 Size of the mineshaft. This is how many pieces long a branch can be from the start piece.""")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 30)
-        public int desertMineshaftSize = 9;
+        public int desertMineshaftSize = 6;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -524,6 +553,7 @@ public class RSMineshaftsConfig implements ConfigData {
         public int stoneMineshaftSize = 9;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -533,6 +563,7 @@ public class RSMineshaftsConfig implements ConfigData {
         public int savannaMineshaftSize = 9;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -542,6 +573,7 @@ public class RSMineshaftsConfig implements ConfigData {
         public int icyMineshaftSize = 9;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -551,6 +583,7 @@ public class RSMineshaftsConfig implements ConfigData {
         public int oceanMineshaftSize = 9;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -560,6 +593,7 @@ public class RSMineshaftsConfig implements ConfigData {
         public int taigaMineshaftSize = 9;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -569,6 +603,7 @@ public class RSMineshaftsConfig implements ConfigData {
         public int swampMineshaftSize = 9;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -578,6 +613,7 @@ public class RSMineshaftsConfig implements ConfigData {
         public int darkForestMineshaftSize = 9;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -587,6 +623,7 @@ public class RSMineshaftsConfig implements ConfigData {
         public int endMineshaftSize = 11;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -596,6 +633,7 @@ public class RSMineshaftsConfig implements ConfigData {
         public int netherMineshaftSize = 10;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -605,6 +643,7 @@ public class RSMineshaftsConfig implements ConfigData {
         public int crimsonMineshaftSize = 10;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 
 
@@ -615,12 +654,12 @@ public class RSMineshaftsConfig implements ConfigData {
     }
 
     public static class Misc {
-        @ConfigEntry.Gui.Tooltip
+        @ConfigEntry.Gui.Tooltip(count = 0)
         @Comment("""
 
 
 
-                Add End Mineshafts to End Barrens and End Islands biome.""")
+                Add End Mineshafts to End Barrens/End Islands biome""")
         public boolean barrensIslandsEndMineshafts = false;
     }
 }

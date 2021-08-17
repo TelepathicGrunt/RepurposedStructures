@@ -1,3 +1,9 @@
+### **(V2.3.1 Changes) (1.17.1 Minecraft)**
+
+##### Configs:
+Added configs to allow changing of RS Villages size. Note, you will need to re-add the changes you have done to RS Village config for spawnrates if you edit it before.
+
+
 ### **(V2.3.0 Changes) (1.17.1 Minecraft)**
 
 ##### Loot Tables:
