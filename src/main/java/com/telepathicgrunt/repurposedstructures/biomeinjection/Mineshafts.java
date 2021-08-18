@@ -113,9 +113,8 @@ public class Mineshafts {
 
         if (RepurposedStructures.RSMineshaftsConfig.endMineshaftSpawnrate.get() != 0 &&
                 BiomeSelection.isBiomeAllowed(event, RSStructures.MINESHAFT_END.get(),
-                        () -> BiomeSelection.haveCategories(event, Category.THEEND) &&
-                                !BiomeSelection.isBiome(event, Biomes.THE_END) &&
-                                (RepurposedStructures.RSMineshaftsConfig.barrensIslandsEndMineshafts.get() || !BiomeSelection.isBiome(event, Biomes.END_BARRENS, Biomes.SMALL_END_ISLANDS))))
+                        () -> BiomeSelection.haveCategories(event, Category.THEEND) && !BiomeSelection.isBiome(event, Biomes.THE_END) &&
+                        (RepurposedStructures.RSMineshaftsConfig.endMineshaftMinIslandThickness.get() == 0 || !BiomeSelection.isBiome(event, Biomes.END_BARRENS, Biomes.SMALL_END_ISLANDS))))
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.MINESHAFT_END);
         }

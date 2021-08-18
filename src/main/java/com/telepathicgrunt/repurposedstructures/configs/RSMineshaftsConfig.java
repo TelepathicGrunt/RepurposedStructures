@@ -32,7 +32,6 @@ public class RSMineshaftsConfig {
         public ConfigValueListener<Integer> taigaMineshaftMinHeight;
         public ConfigValueListener<Integer> darkForestMineshaftMinHeight;
         public ConfigValueListener<Integer> swampMineshaftMinHeight;
-        public ConfigValueListener<Integer> endMineshaftMinHeight;
         public ConfigValueListener<Integer> netherMineshaftMinHeight;
         public ConfigValueListener<Integer> crimsonMineshaftMinHeight;
         public ConfigValueListener<Integer> warpedMineshaftMinHeight;
@@ -47,7 +46,6 @@ public class RSMineshaftsConfig {
         public ConfigValueListener<Integer> taigaMineshaftMaxHeight;
         public ConfigValueListener<Integer> darkForestMineshaftMaxHeight;
         public ConfigValueListener<Integer> swampMineshaftMaxHeight;
-        public ConfigValueListener<Integer> endMineshaftMaxHeight;
         public ConfigValueListener<Integer> netherMineshaftMaxHeight;
         public ConfigValueListener<Integer> crimsonMineshaftMaxHeight;
         public ConfigValueListener<Integer> warpedMineshaftMaxHeight;
@@ -67,7 +65,7 @@ public class RSMineshaftsConfig {
         public ConfigValueListener<Integer> crimsonMineshaftSize;
         public ConfigValueListener<Integer> warpedMineshaftSize;
 
-        public ConfigValueListener<Boolean> barrensIslandsEndMineshafts;
+        public ConfigValueListener<Integer> endMineshaftMinIslandThickness;
 
         public RSMineshaftsConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber) {
             builder.push("Spawnrate");
@@ -232,12 +230,6 @@ public class RSMineshaftsConfig {
                     .translation("repurposedstructures.config.mineshaft.swampmineshaftminheight")
                     .defineInRange("swampMineshaftMinHeight", 8, 5, 255));
 
-            endMineshaftMinHeight = subscriber.subscribe(builder
-                    .comment("\n Minimum Y height that this mineshaft can spawn at.",
-                            " Note: The mineshaft will spawn between min and max y height set in config.")
-                    .translation("repurposedstructures.config.mineshaft.endmineshaftminheight")
-                    .defineInRange("endMineshaftMinHeight", 30, 5, 255));
-
             netherMineshaftMinHeight = subscriber.subscribe(builder
                     .comment("\n Minimum Y height that this mineshaft can spawn at.",
                             " Note: The mineshaft will spawn between min and max y height set in config.")
@@ -329,13 +321,6 @@ public class RSMineshaftsConfig {
                             " Setting this to below min height config will make mineshaft spawn only at min height.")
                     .translation("repurposedstructures.config.mineshaft.swampmineshaftmaxheight")
                     .defineInRange("swampMineshaftMaxHeight", 45, 5, 255));
-
-            endMineshaftMaxHeight = subscriber.subscribe(builder
-                    .comment("\n Minimum Y height that this mineshaft can spawn at.",
-                            " Note: The mineshaft will spawn between min and max y height set in config.",
-                            " Setting this to below min height config will make mineshaft spawn only at min height.")
-                    .translation("repurposedstructures.config.mineshaft.endmineshaftmaxheight")
-                    .defineInRange("endMineshaftMaxHeight", 40, 5, 255));
 
             netherMineshaftMaxHeight = subscriber.subscribe(builder
                     .comment("\n Minimum Y height that this mineshaft can spawn at.",
@@ -436,10 +421,12 @@ public class RSMineshaftsConfig {
 
             builder.push("Misc");
 
-            barrensIslandsEndMineshafts = subscriber.subscribe(builder
-                    .comment("\n Add End Mineshafts to End Barrens and End Islands biome.")
-                    .translation("repurposedstructures.config.mineshaft.barrensislandsendmineshafts")
-                    .define("barrensIslandsEndMineshafts", false));
+            endMineshaftMinIslandThickness = subscriber.subscribe(builder
+                    .comment("\n The minimum thickness of End islands that the End Mineshaft can spawn in.",
+                            "So 30 means the End Mineshaft will spawn in land that is at least 30 blocks vertically in the area.",
+                            "Do 0 to turn off this check and allow the End Mineshaft to spawn anywhere including floating in midair.")
+                    .translation("repurposedstructures.config.mineshaft.endMineshaftMinIslandThickness")
+                    .defineInRange("endMineshaftMinIslandThickness", 30, 0, 256));
 
             builder.pop();
         }

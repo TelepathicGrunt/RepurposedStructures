@@ -1,3 +1,10 @@
+### **(V.3.2.2 Changes) (1.16.5 Minecraft)**
+
+##### Mineshafts:
+End Mineshafts now will try to spawn within islands a bit better. 
+  The minY and maxY config for End Mineshafts was deleted in favor of endMineshaftMinIslandThickness config entry.
+
+
 ### **(V.3.2.1 Changes) (1.16.5 Minecraft)**
 
 ##### Configs:
