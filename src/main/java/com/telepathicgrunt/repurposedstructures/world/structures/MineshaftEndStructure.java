@@ -72,10 +72,8 @@ public class MineshaftEndStructure extends MineshaftStructure {
         int xPos = chunkX * 16;
         int zPos = chunkZ * 16;
 
-        analyzeLand(chunkGenerator, xPos, zPos, islandTopBottomThickness);
-        if(islandTopBottomThickness.getZ() < minThickness) return false;
-
-        for(int i = 1; i <= 2; i++) {
+        // Surrounding far terrain is more likely to fail the check and exit early.
+        for(int i = 2; i >= 1; i--) {
             for (Direction direction : Direction.Plane.HORIZONTAL) {
                 Vector3f offsetPos = new Vector3f(direction.getStepX(), 0, direction.getStepZ());
                 offsetPos = new Vector3f(offsetPos.x() * 30f * i, 0, offsetPos.z() * 30f * i);
@@ -84,20 +82,26 @@ public class MineshaftEndStructure extends MineshaftStructure {
             }
         }
 
-        return true;
+        analyzeLand(chunkGenerator, xPos, zPos, islandTopBottomThickness);
+        return islandTopBottomThickness.getZ() >= minThickness;
     }
 
     private void analyzeLand(ChunkGenerator chunkGenerator, int xPos, int zPos, BlockPos.Mutable islandTopBottomThickness) {
         IBlockReader columnOfBlocks = chunkGenerator.getBaseColumn(xPos, zPos);
         BlockPos.Mutable currentPos = new BlockPos.Mutable(xPos, chunkGenerator.getGenDepth(), zPos);
         boolean isInIsland = false;
-        while(currentPos.getY() >= 0){
+
+        while(currentPos.getY() >= -1){
             BlockState state = columnOfBlocks.getBlockState(currentPos);
+
+            // Detects top of island
             if(!state.isAir() && !isInIsland){
                 isInIsland = true;
                 int topIslandY = Math.min(currentPos.getY(), islandTopBottomThickness.getX());
                 islandTopBottomThickness.set(topIslandY, islandTopBottomThickness.getY(), islandTopBottomThickness.getZ());
             }
+
+            // Detects bottom of island
             else if(state.isAir() && isInIsland){
                 int bottomIslandY = Math.max(currentPos.getY(), islandTopBottomThickness.getY());
                 islandTopBottomThickness.set(islandTopBottomThickness.getX(), bottomIslandY, islandTopBottomThickness.getZ());
@@ -106,7 +110,8 @@ public class MineshaftEndStructure extends MineshaftStructure {
 
             currentPos.move(Direction.DOWN);
         }
-        // Never hit land
+
+        // Never hit land since isInIsland was never set to true for terrain top.
         if(!isInIsland){
             islandTopBottomThickness.set(0, islandTopBottomThickness.getY(), islandTopBottomThickness.getZ());
         }

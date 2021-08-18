@@ -3,6 +3,7 @@
 ##### Mineshafts:
 End Mineshafts now will try to spawn within islands a bit better. 
   The minY and maxY config for End Mineshafts was deleted in favor of endMineshaftMinIslandThickness config entry.
+  The End Mineshaft config default value for spawnrate was bumped up to 70 due to the new more restrictive terrain checks.
 
 
 ### **(V.3.2.1 Changes) (1.16.5 Minecraft)**

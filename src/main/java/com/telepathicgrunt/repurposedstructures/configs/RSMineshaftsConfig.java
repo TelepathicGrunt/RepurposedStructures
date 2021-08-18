@@ -145,7 +145,7 @@ public class RSMineshaftsConfig {
                     .comment("\n Controls how often Mineshafts will spawn. 0 for no Mineshafts and 1000 for max spawnrate.",
                             " Adds End themed Mineshafts to End biomes outside the Enderdragon island.")
                     .translation("repurposedstructures.config.mineshaft.endmineshaftspawnrate")
-                    .defineInRange("endMineshaftSpawnrate", 40D, 0, 1000));
+                    .defineInRange("endMineshaftSpawnrate", 70D, 0, 1000));
 
             netherMineshaftSpawnrate = subscriber.subscribe(builder
                     .comment("\n Controls how often Mineshafts will spawn. 0 for no Mineshafts and 1000 for max spawnrate.",
