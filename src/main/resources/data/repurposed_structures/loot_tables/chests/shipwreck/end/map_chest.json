@@ -12,7 +12,7 @@
               "function": "minecraft:exploration_map",
               "destination": "endcity",
               "decoration": "banner_magenta",
-              "zoom": 2,
+              "zoom": 1,
               "skip_existing_chunks": false
             }
           ]

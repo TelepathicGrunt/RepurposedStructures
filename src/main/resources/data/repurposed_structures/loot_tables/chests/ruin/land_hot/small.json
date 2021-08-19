@@ -211,7 +211,7 @@
               "function": "minecraft:exploration_map",
               "destination": "repurposed_structures:bastion_underground",
               "decoration": "banner_gray",
-              "zoom": 4,
+              "zoom": 2,
               "skip_existing_chunks": false
             }
           ]

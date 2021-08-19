@@ -225,12 +225,12 @@
       "entries": [
         {
           "type": "minecraft:empty",
-          "weight": 20
+          "weight": 1
         },
         {
           "name": "minecraft:ender_eye",
           "type": "minecraft:item",
-          "weight": 20,
+          "weight": 1,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -251,7 +251,7 @@
               "function": "minecraft:exploration_map",
               "destination": "repurposed_structures:stronghold_end",
               "decoration": "banner_black",
-              "zoom": 4,
+              "zoom": 1,
               "skip_existing_chunks": false
             }
           ]
