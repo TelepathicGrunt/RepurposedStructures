@@ -80,7 +80,7 @@
               "destination": "repurposed_structures:ruins_nether",
               "decoration": "banner_black",
               "zoom": 3,
-              "skip_existing_chunks": true
+              "skip_existing_chunks": false
             }
           ]
         },
@@ -94,7 +94,7 @@
               "destination": "bastion_remnant",
               "decoration": "banner_black",
               "zoom": 2,
-              "skip_existing_chunks": true
+              "skip_existing_chunks": false
             }
           ]
         },
@@ -108,7 +108,7 @@
               "destination": "repurposed_structures:city_nether",
               "decoration": "banner_gray",
               "zoom": 4,
-              "skip_existing_chunks": true
+              "skip_existing_chunks": false
             }
           ]
         }

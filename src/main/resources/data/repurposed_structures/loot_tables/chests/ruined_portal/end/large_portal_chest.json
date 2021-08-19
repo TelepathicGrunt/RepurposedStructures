@@ -435,7 +435,7 @@
               "destination": "endcity",
               "decoration": "banner_magenta",
               "zoom": 2,
-              "skip_existing_chunks": true
+              "skip_existing_chunks": false
             }
           ]
         }
