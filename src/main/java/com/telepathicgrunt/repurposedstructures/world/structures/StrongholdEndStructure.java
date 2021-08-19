@@ -31,10 +31,9 @@ public class StrongholdEndStructure extends AdvancedDistanceJigsawStructure {
         int minLandHeight = Math.min(chunkGenerator.getGenDepth(), chunkGenerator.getMinY() + 45);
         int xPos = chunkPos1.getMinBlockX();
         int zPos = chunkPos1.getMinBlockZ();
-        int landHeight = getHeightAt(chunkGenerator, heightLimitView, xPos, zPos, Integer.MAX_VALUE);
-        if(landHeight < minLandHeight) return false;
+        int landHeight = Integer.MAX_VALUE;
 
-        for(int i = 1; i <= 2; i++){
+        for(int i = 2; i >= 1; i--){
             for(Direction direction : Direction.Plane.HORIZONTAL){
                 Vector3f offsetPos = direction.step();
                 offsetPos.mul(35f * i);
@@ -43,7 +42,8 @@ public class StrongholdEndStructure extends AdvancedDistanceJigsawStructure {
             }
         }
 
-        return true;
+        landHeight = getHeightAt(chunkGenerator, heightLimitView, xPos, zPos, landHeight);
+        return landHeight >= minLandHeight;
     }
 
     private int getHeightAt(ChunkGenerator chunkGenerator, LevelHeightAccessor heightLimitView, int xPos, int zPos, int landHeight) {

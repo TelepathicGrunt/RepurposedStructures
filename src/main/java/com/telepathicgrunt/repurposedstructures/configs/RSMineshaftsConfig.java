@@ -168,7 +168,7 @@ public class RSMineshaftsConfig implements ConfigData {
                 How often Mineshafts will spawn.
                 0 for no Mineshafts and 1000 for max spawnrate.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int endMineshaftSpawnrate = 60;
+        public int endMineshaftSpawnrate = 70;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -319,16 +319,6 @@ public class RSMineshaftsConfig implements ConfigData {
 
                 Min Y height of Mineshaft.max = 30""")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
-        public int endMineshaftMinHeight = 27;
-
-        @ConfigEntry.Gui.Tooltip(count = 0)
-        @ConfigEntry.Gui.RequiresRestart
-        @Comment("""
-
-
-
-                Min Y height of Mineshaft.max = 30""")
-        @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int netherMineshaftMinHeight = 6;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
@@ -465,17 +455,6 @@ public class RSMineshaftsConfig implements ConfigData {
                 If below min height, this will be read as min.""")
         @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
         public int darkForestMineshaftMaxHeight = 45;
-
-        @ConfigEntry.Gui.Tooltip(count = 0)
-        @ConfigEntry.Gui.RequiresRestart
-        @Comment("""
-
-
-
-                Max Y height of Mineshaft.max = 30
-                If below min height, this will be read as min.""")
-        @ConfigEntry.BoundedDiscrete(min = 5, max = 255)
-        public int endMineshaftMaxHeight = 35;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -654,12 +633,16 @@ public class RSMineshaftsConfig implements ConfigData {
     }
 
     public static class Misc {
+        @ConfigEntry.Gui.PrefixText
         @ConfigEntry.Gui.Tooltip(count = 0)
         @Comment("""
 
 
 
-                Add End Mineshafts to End Barrens/End Islands biome""")
-        public boolean barrensIslandsEndMineshafts = false;
+                The minimum thickness of End islands that the End Mineshaft can spawn in.
+                So 30 means the End Mineshaft will spawn in land that is at least 30 blocks vertically in the area.
+                Do 0 to turn off this check and allow the End Mineshaft to spawn anywhere including floating in midair""")
+        @ConfigEntry.BoundedDiscrete(min = 0, max = 255)
+        public Integer endMineshaftMinIslandThickness = 30;
     }
 }

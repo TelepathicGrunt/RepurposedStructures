@@ -91,9 +91,8 @@ public class Mineshafts {
                 (context) -> 
                         genericMineshaftCheck(context, RSStructures.MINESHAFT_END,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.THEEND) && !BiomeSelection.isBiome(context, Biomes.THE_END)
-                                && (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.misc.barrensIslandsEndMineshafts
-                                || (!BiomeSelection.isBiome(context, Biomes.END_BARRENS) &&
-                                !BiomeSelection.isBiome(context, Biomes.SMALL_END_ISLANDS))))
+                                && (RepurposedStructures.RSAllConfig.RSMineshaftsConfig.misc.endMineshaftMinIslandThickness == 0
+                                || (!BiomeSelection.isBiome(context, Biomes.END_BARRENS) && !BiomeSelection.isBiome(context, Biomes.SMALL_END_ISLANDS))))
                         && RepurposedStructures.RSAllConfig.RSMineshaftsConfig.spawnrate.endMineshaftSpawnrate != 0,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.END_MINESHAFT));
 
