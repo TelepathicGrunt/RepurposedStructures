@@ -6,6 +6,9 @@ End Mineshafts now will try to spawn within islands a bit better.
   The End Mineshaft config default value for spawnrate was bumped up to 70 due to the new more restrictive terrain checks.
 
 ##### Loot Tables:
+Explorer maps in the RS structures now only have zoom level 2 or 1 to massively speed up creation of these maps in chests.
+  This is most noticeable with the explorer maps created in the End themed RS structures. May even prevent servers from stalling.
+
 Changed the explorer maps in the RS structures to no longer skip existing chunks for finding structures.
   This means maps may locate structures that you already found before but this should reduce the lag on pre-generated servers.
   By now checking already generated chunks, maps should load much faster from RS's loot blocks.

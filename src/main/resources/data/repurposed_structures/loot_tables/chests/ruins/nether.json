@@ -221,7 +221,7 @@
               "function": "minecraft:exploration_map",
               "destination": "bastion_remnant",
               "decoration": "banner_black",
-              "zoom": 3,
+              "zoom": 2,
               "skip_existing_chunks": false
             }
           ]
@@ -235,7 +235,7 @@
               "function": "minecraft:exploration_map",
               "destination": "repurposed_structures:city_nether",
               "decoration": "banner_gray",
-              "zoom": 4,
+              "zoom": 2,
               "skip_existing_chunks": false
             }
           ]

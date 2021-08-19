@@ -251,7 +251,7 @@
               "function": "minecraft:exploration_map",
               "destination": "repurposed_structures:stronghold_end",
               "decoration": "banner_black",
-              "zoom": 4,
+              "zoom": 1,
               "skip_existing_chunks": false
             }
           ]
