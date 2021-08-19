@@ -113,7 +113,7 @@ public class MineshaftEndStructure extends MineshaftStructure {
 
         // Never hit land since isInIsland was never set to true for terrain top.
         if(!isInIsland){
-            islandTopBottomThickness.set(0, islandTopBottomThickness.getY(), islandTopBottomThickness.getZ());
+            islandTopBottomThickness.set(0, 0, 0);
         }
 
         int thickness = islandTopBottomThickness.getX() - islandTopBottomThickness.getY();
