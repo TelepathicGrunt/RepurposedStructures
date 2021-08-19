@@ -5,6 +5,13 @@ End Mineshafts now will try to spawn within islands a bit better.
   The minY and maxY config for End Mineshafts was deleted in favor of endMineshaftMinIslandThickness config entry.
   The End Mineshaft config default value for spawnrate was bumped up to 70 due to the new more restrictive terrain checks.
 
+##### Loot Tables:
+Changed the explorer maps in the RS structures to no longer skip existing chunks for finding structures.
+  This means maps may locate structures that you already found before but this should reduce the lag on pre-generated servers.
+  By now checking already generated chunks, maps should load much faster from RS's loot blocks.
+  If you wish for the maps to find unexplored structures again, download the loot table datapack from here: https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/tag/0.0.11
+  Then change `"skip_existing_chunks": false` to `"skip_existing_chunks": true` for all minecraft:exploration_map entries.
+
 
 ### **(V2.3.1 Changes) (1.17.1 Minecraft)**
 

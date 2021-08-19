@@ -212,7 +212,7 @@
               "destination": "repurposed_structures:bastion_underground",
               "decoration": "banner_gray",
               "zoom": 4,
-              "skip_existing_chunks": true
+              "skip_existing_chunks": false
             }
           ]
         }

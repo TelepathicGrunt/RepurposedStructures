@@ -252,7 +252,7 @@
               "destination": "repurposed_structures:stronghold_end",
               "decoration": "banner_black",
               "zoom": 4,
-              "skip_existing_chunks": true
+              "skip_existing_chunks": false
             }
           ]
         }

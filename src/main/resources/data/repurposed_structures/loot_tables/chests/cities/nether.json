@@ -445,7 +445,7 @@
               "destination": "bastion_remnant",
               "decoration": "banner_black",
               "zoom": 2,
-              "skip_existing_chunks": true
+              "skip_existing_chunks": false
             }
           ]
         }
