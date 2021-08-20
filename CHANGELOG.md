@@ -7,6 +7,12 @@ End Mineshafts now will try to spawn within islands a bit better.
 ##### Dungeons:
 Slightly lowered Ocean Dungeons default config value for spawn attempts per chunk from 5 to 4.
 
+##### Strongholds:
+Nether Strongholds library chest cannot have more than 1 kind of explorer map at a time in a single chest now.
+
+##### Ruined Portals:
+End Ruined Portals chests cannot ever have more than 1 End City explorer map in a single chest.
+
 ##### Loot Tables:
 Explorer maps in the RS structures now only have zoom level 2 or 1 to massively speed up creation of these maps in chests.
   This is most noticeable with the explorer maps created in the End themed RS structures. May even prevent servers from stalling.

@@ -103,11 +103,20 @@
           "name": "minecraft:dragon_breath",
           "type": "minecraft:item",
           "weight": 5
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:empty",
+          "weight": 29
         },
         {
           "name": "minecraft:elytra",
           "type": "minecraft:item",
-          "weight": 2
+          "weight": 1
         }
       ]
     },
