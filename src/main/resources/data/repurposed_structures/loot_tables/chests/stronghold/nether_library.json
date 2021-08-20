@@ -69,6 +69,15 @@
           "name": "minecraft:respawn_anchor",
           "type": "minecraft:item",
           "weight": 6
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:empty",
+          "weight": 25
         },
         {
           "name": "minecraft:map",
@@ -83,6 +92,15 @@
               "skip_existing_chunks": false
             }
           ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:empty",
+          "weight": 25
         },
         {
           "name": "minecraft:map",
@@ -97,6 +115,15 @@
               "skip_existing_chunks": false
             }
           ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:empty",
+          "weight": 26
         },
         {
           "name": "minecraft:map",

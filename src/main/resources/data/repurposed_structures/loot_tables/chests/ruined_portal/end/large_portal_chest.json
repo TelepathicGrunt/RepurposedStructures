@@ -424,6 +424,15 @@
           "name": "minecraft:dragon_breath",
           "type": "minecraft:item",
           "weight": 1
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:empty",
+          "weight": 20
         },
         {
           "name": "minecraft:map",

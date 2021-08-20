@@ -8,6 +8,15 @@ End Mineshafts now will try to spawn within islands a bit better.
 ##### Dungeons:
 Slightly lowered Ocean Dungeons default config value for spawn attempts per chunk from 5 to 4.
 
+##### Shipwrecks:
+End Shipwrecks treasure chest cannot have more than 1 Elytra and the Elytra is now more rare (from ~1/17 chance to now 1/30)
+
+##### Strongholds:
+Nether Strongholds library chest cannot have more than 1 kind of explorer map at a time now.
+
+##### Ruined Portals:
+End Ruined Portals chests cannot ever have more than 1 End City explorer map in a single chest.
+
 ##### Loot Tables:
 Explorer maps in the RS structures now only have zoom level 2 or 1 to massively speed up creation of these maps in chests.
   This is most noticeable with the explorer maps created in the End themed RS structures. May even prevent servers from stalling.
@@ -17,6 +26,8 @@ Changed the explorer maps in the RS structures to no longer skip existing chunks
   By now checking already generated chunks, maps should load much faster from RS's loot blocks.
   If you wish for the maps to find unexplored structures again, download the loot table datapack from here: https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/tag/0.0.11
   Then change `"skip_existing_chunks": false` to `"skip_existing_chunks": true` for all minecraft:exploration_map entries.
+
+
 
 
 ### **(V.3.2.1 Changes) (1.16.5 Minecraft)**
