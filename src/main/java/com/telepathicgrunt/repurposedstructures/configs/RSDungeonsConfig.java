@@ -136,7 +136,7 @@ public class RSDungeonsConfig
 							" them which is unlike the other modded dungeons from this mod",
 							" as those would normally replace the Vanilla Dungeons.")
 					.translation("repurposedstructures.config.dungeons.oceandungeonattemptsperchunk")
-					.defineInRange("oceanDungeonAttemptsPerChunk", 5, 0, 1000));
+					.defineInRange("oceanDungeonAttemptsPerChunk", 4, 0, 1000));
 
 
 			builder.pop();

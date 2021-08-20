@@ -3,7 +3,10 @@
 ##### Mineshafts:
 End Mineshafts now will try to spawn within islands a bit better. 
   The minY and maxY config for End Mineshafts was deleted in favor of endMineshaftMinIslandThickness config entry.
-  The End Mineshaft config default value for spawnrate was bumped up to 70 due to the new more restrictive terrain checks.
+  The End Mineshaft config default value for spawnrate was bumped up to 60 due to the new more restrictive terrain checks.
+
+##### Dungeons:
+Slightly lowered Ocean Dungeons default config value for spawn attempts per chunk from 5 to 4.
 
 ##### Loot Tables:
 Explorer maps in the RS structures now only have zoom level 2 or 1 to massively speed up creation of these maps in chests.
