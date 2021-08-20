@@ -163,7 +163,7 @@ public class RSDungeonsConfig implements ConfigData {
                 is on which is unlike the other dungeons from this mod
                 as those would normally replace the Vanilla Dungeons.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int oceanDungeonAttemptsPerChunk = 5;
+        public int oceanDungeonAttemptsPerChunk = 4;
 
     }
 
