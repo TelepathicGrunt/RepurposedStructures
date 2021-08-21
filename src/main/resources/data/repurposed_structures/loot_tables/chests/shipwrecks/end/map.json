@@ -164,7 +164,7 @@
       "entries": [
         {
           "type": "minecraft:empty",
-          "weight": 64
+          "weight": 45
         },
         {
           "name": "minecraft:writable_book",
@@ -174,7 +174,7 @@
         {
           "name": "minecraft:book",
           "type": "minecraft:item",
-          "weight": 100,
+          "weight": 20,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -185,7 +185,7 @@
         {
           "name": "minecraft:black_banner",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 15,
           "functions": [
             {
               "function":"set_nbt",
