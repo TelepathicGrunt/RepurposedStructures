@@ -125,32 +125,22 @@
       "bonus_rolls": 1,
       "entries": [
         {
+          "type": "minecraft:empty",
+          "weight": 64
+        },
+        {
           "name": "minecraft:writable_book",
           "type": "minecraft:item",
-          "weight": 3,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "probability": 0.70,
-                "result_count": 1,
-                "type": "repurposed_structures:probability"
-              }
-            }
-          ]
+          "weight": 35
         },
         {
           "name": "minecraft:book",
           "type": "minecraft:item",
-          "weight": 8,
+          "weight": 100,
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": {
-                "probability": 0.75,
-                "result_count": 3,
-                "type": "repurposed_structures:probability"
-              }
+              "count": 3
             }
           ]
         },
@@ -159,14 +149,6 @@
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "probability": 0.35,
-                "result_count": 1,
-                "type": "repurposed_structures:probability"
-              }
-            },
             {
               "function":"set_nbt",
               "tag":"{BlockEntityTag:{Patterns:[{Pattern:flo,Color:10},{Pattern:flo,Color:2},{Pattern:flo,Color:15},{Pattern:bt,Color:9},{Pattern:tt,Color:9},{Pattern:bo,Color:10},{Pattern:bs,Color:15},{Pattern:ts,Color:15},{Pattern:cbo,Color:10},{Pattern:cbo,Color:15},{Pattern:bo,Color:2},{Pattern:bo,Color:15}]}}"

@@ -264,18 +264,14 @@
       "bonus_rolls": 1,
       "entries": [
         {
+          "type": "minecraft:empty",
+          "weight": 22
+        },
+        {
           "name": "minecraft:suspicious_stew",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 19,
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "probability": 0.75,
-                "result_count": 1,
-                "type": "repurposed_structures:probability"
-              }
-            },
             {
               "function": "minecraft:set_stew_effect",
               "effects": [
@@ -342,16 +338,8 @@
         {
           "name": "minecraft:red_banner",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 9,
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "probability": 0.35,
-                "result_count": 1,
-                "type": "repurposed_structures:probability"
-              }
-            },
             {
               "function":"set_nbt",
               "tag":"{BlockEntityTag:{Patterns:[{Pattern:mr,Color:14},{Pattern:mr,Color:4},{Pattern:cbo,Color:14},{Pattern:cbo,Color:4},{Pattern:flo,Color:15},{Pattern:flo,Color:15},{Pattern:flo,Color:14},{Pattern:sku,Color:15},{Pattern:sku,Color:15},{Pattern:bo,Color:1},{Pattern:bo,Color:4},{Pattern:bo,Color:15}]}}"

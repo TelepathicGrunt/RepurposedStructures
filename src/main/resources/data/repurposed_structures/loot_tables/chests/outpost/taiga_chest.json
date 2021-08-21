@@ -164,18 +164,14 @@
       "bonus_rolls": 1,
       "entries": [
         {
+          "type": "minecraft:empty",
+          "weight": 25
+        },
+        {
           "name": "minecraft:brown_banner",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 35,
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "probability": 0.35,
-                "result_count": 1,
-                "type": "repurposed_structures:probability"
-              }
-            },
             {
               "function":"set_nbt",
               "tag":"{BlockEntityTag:{Patterns:[{Pattern:bri,Color:15},{Pattern:bri,Color:12},{Pattern:gra,Color:12},{Pattern:bts,Color:15},{Pattern:tts,Color:15},{Pattern:ms,Color:15},{Pattern:mr,Color:15},{Pattern:flo,Color:0},{Pattern:flo,Color:12},{Pattern:flo,Color:12},{Pattern:sc,Color:15},{Pattern:flo,Color:15}]}}"
@@ -185,15 +181,11 @@
         {
           "name": "minecraft:experience_bottle",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 40,
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": {
-                "probability": 0.5,
-                "result_count": 2,
-                "type": "repurposed_structures:probability"
-              }
+              "count": 2
             }
           ]
         }

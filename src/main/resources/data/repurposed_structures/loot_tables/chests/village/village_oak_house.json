@@ -127,23 +127,13 @@
       "bonus_rolls": 1,
       "entries": [
         {
+          "type": "minecraft:empty",
+          "weight": 1
+        },
+        {
           "name": "minecraft:brown_banner",
           "type": "minecraft:item",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "probability": 0.5,
-                "result_count": 1,
-                "type": "repurposed_structures:probability"
-              }
-            },
-            {
-              "function":"set_nbt",
-              "tag":"{BlockEntityTag:{Patterns:[{Pattern:gru,Color:1},{Pattern:gru,Color:12},{Pattern:bri,Color:15},{Pattern:bri,Color:12},{Pattern:tts,Color:15},{Pattern:tts,Color:5},{Pattern:bts,Color:15},{Pattern:bts,Color:5},{Pattern:mc,Color:13},{Pattern:flo,Color:15},{Pattern:flo,Color:14},{Pattern:flo,Color:4}]}}"
-            }
-          ]
+          "weight": 1
         },
         {
           "name": "minecraft:emerald",
@@ -152,11 +142,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": {
-                "probability": 0.5,
-                "result_count": 3,
-                "type": "repurposed_structures:probability"
-              }
+              "count": 3
             }
           ]
         },
@@ -165,14 +151,6 @@
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "probability": 0.45,
-                "result_count": 1,
-                "type": "repurposed_structures:probability"
-              }
-            },
             {
               "function": "minecraft:set_damage",
               "damage": {

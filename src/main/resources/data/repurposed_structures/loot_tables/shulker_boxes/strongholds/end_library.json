@@ -149,18 +149,14 @@
       "bonus_rolls": 1,
       "entries": [
         {
+          "type": "minecraft:empty",
+          "weight": 63
+        },
+        {
           "name": "minecraft:purple_banner",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 11,
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "probability": 0.35,
-                "result_count": 1,
-                "type": "repurposed_structures:probability"
-              }
-            },
             {
               "function":"set_nbt",
               "tag":"{BlockEntityTag:{Patterns:[{Pattern:gra,Color:15},{Pattern:gru,Color:15},{Pattern:sc,Color:2},{Pattern:sc,Color:10},{Pattern:sc,Color:15},{Pattern:flo,Color:2},{Pattern:flo,Color:2},{Pattern:mr,Color:15},{Pattern:mc,Color:10},{Pattern:flo,Color:15},{Pattern:cbo,Color:15},{Pattern:bo,Color:15}]}}"
@@ -170,31 +166,13 @@
         {
           "name": "minecraft:ender_eye",
           "type": "minecraft:item",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "probability": 0.5,
-                "result_count": 1,
-                "type": "repurposed_structures:probability"
-              }
-            }
-          ]
+          "weight": 15
         },
         {
           "name": "minecraft:book",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 11,
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "probability": 0.35,
-                "result_count": 1,
-                "type": "repurposed_structures:probability"
-              }
-            },
             {
               "function": "minecraft:enchant_with_levels",
               "levels": 30,
