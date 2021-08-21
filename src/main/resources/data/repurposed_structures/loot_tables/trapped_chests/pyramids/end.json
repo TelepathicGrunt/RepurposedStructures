@@ -263,18 +263,14 @@
       "bonus_rolls": 1,
       "entries": [
         {
+          "type": "minecraft:empty",
+          "weight": 1
+        },
+        {
           "name": "minecraft:black_banner",
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "probability": 0.75,
-                "result_count": 1,
-                "type": "repurposed_structures:probability"
-              }
-            },
             {
               "function":"set_nbt",
               "tag":"{BlockEntityTag:{Patterns:[{Pattern:bri,Color:10},{Pattern:bri,Color:15},{Pattern:ss,Color:15},{Pattern:flo,Color:10},{Pattern:flo,Color:15},{Pattern:gru,Color:10},{Pattern:bt,Color:10},{Pattern:bt,Color:10},{Pattern:bt,Color:15},{Pattern:bts,Color:6},{Pattern:bts,Color:15},{Pattern:gra,Color:15}]}}"
@@ -288,11 +284,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": {
-                "probability": 0.75,
-                "result_count": 2,
-                "type": "repurposed_structures:probability"
-              }
+              "count": 2
             }
           ]
         },
@@ -301,14 +293,6 @@
           "name": "minecraft:potion",
           "weight": 1,
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "probability": 0.75,
-                "result_count": 1,
-                "type": "repurposed_structures:probability"
-              }
-            },
             {
               "function": "minecraft:set_nbt",
               "tag": "{Potion:\"minecraft:levitation\"}"

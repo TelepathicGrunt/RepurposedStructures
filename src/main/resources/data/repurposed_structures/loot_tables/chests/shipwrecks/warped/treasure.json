@@ -340,48 +340,36 @@
       "bonus_rolls": 1,
       "entries": [
         {
+          "type": "minecraft:empty",
+          "weight": 20
+        },
+        {
           "name": "minecraft:magma_cream",
           "type": "minecraft:item",
-          "weight": 2,
+          "weight": 25,
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": {
-                "probability": 0.75,
-                "result_count": 2,
-                "type": "repurposed_structures:probability"
-              }
+              "count": 2
             }
           ]
         },
         {
           "name": "minecraft:experience_bottle",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 20,
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": {
-                "probability": 0.6,
-                "result_count": 2,
-                "type": "repurposed_structures:probability"
-              }
+              "count": 2
             }
           ]
         },
         {
           "name": "minecraft:black_banner",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 35,
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "probability": 0.35,
-                "result_count": 1,
-                "type": "repurposed_structures:probability"
-              }
-            },
             {
               "function":"set_nbt",
               "tag":"{BlockEntityTag:{Patterns:[{Pattern:gru,Color:11},{Pattern:glb,Color:15},{Pattern:mr,Color:11},{Pattern:mr,Color:3},{Pattern:mc,Color:9},{Pattern:cbo,Color:15},{Pattern:flo,Color:15},{Pattern:flo,Color:15},{Pattern:flo,Color:11},{Pattern:sku,Color:11},{Pattern:sku,Color:15},{Pattern:sku,Color:15}]}}"

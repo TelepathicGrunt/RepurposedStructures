@@ -247,18 +247,14 @@
       "bonus_rolls": 1,
       "entries": [
         {
+          "type": "minecraft:empty",
+          "weight": 40
+        },
+        {
           "name": "minecraft:black_banner",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 35,
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "probability": 0.35,
-                "result_count": 1,
-                "type": "repurposed_structures:probability"
-              }
-            },
             {
               "function":"set_nbt",
               "tag":"{BlockEntityTag:{Patterns:[{Pattern:gru,Color:1},{Pattern:gra,Color:14},{Pattern:mc,Color:15},{Pattern:cbo,Color:15},{Pattern:ss,Color:15}]}}"
@@ -268,16 +264,8 @@
         {
           "name": "minecraft:golden_hoe",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 25,
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "probability": 0.5,
-                "result_count": 1,
-                "type": "repurposed_structures:probability"
-              }
-            },
             {
               "function": "minecraft:set_damage",
               "damage": {

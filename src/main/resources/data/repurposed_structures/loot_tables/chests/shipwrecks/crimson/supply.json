@@ -286,18 +286,14 @@
       "bonus_rolls": 1,
       "entries": [
         {
+          "type": "minecraft:empty",
+          "weight": 1
+        },
+        {
           "name": "minecraft:suspicious_stew",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 3,
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "probability": 0.75,
-                "result_count": 1,
-                "type": "repurposed_structures:probability"
-              }
-            },
             {
               "function": "minecraft:set_stew_effect",
               "effects": [

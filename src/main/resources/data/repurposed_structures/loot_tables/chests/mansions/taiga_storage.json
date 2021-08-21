@@ -85,18 +85,14 @@
       "bonus_rolls": 1,
       "entries": [
         {
+          "type": "minecraft:empty",
+          "weight": 37
+        },
+        {
           "name": "minecraft:black_banner",
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "probability": 0.05,
-                "result_count": 1,
-                "type": "repurposed_structures:probability"
-              }
-            },
             {
               "function":"set_nbt",
               "tag":"{BlockEntityTag:{Patterns:[{Pattern:bt,Color:5},{Pattern:sku,Color:0},{Pattern:sku,Color:12},{Pattern:sku,Color:15},{Pattern:bs,Color:15},{Pattern:rs,Color:15},{Pattern:ls,Color:15},{Pattern:bo,Color:12},{Pattern:tts,Color:12},{Pattern:tts,Color:15},{Pattern:bts,Color:12},{Pattern:bts,Color:15}]}}"
@@ -110,11 +106,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": {
-                "probability": 0.065,
-                "result_count": 2,
-                "type": "repurposed_structures:probability"
-              }
+              "count": 2
             }
           ]
         }

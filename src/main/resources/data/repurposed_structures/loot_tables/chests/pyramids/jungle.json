@@ -249,18 +249,14 @@
       "bonus_rolls": 1,
       "entries": [
         {
+          "type": "minecraft:empty",
+          "weight": 6
+        },
+        {
           "name": "minecraft:red_banner",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 2,
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "probability": 0.20,
-                "result_count": 1,
-                "type": "repurposed_structures:probability"
-              }
-            },
             {
               "function":"set_nbt",
               "tag":"{BlockEntityTag:{Patterns:[{Pattern:ss,Color:14},{Pattern:flo,Color:15},{Pattern:flo,Color:15},{Pattern:flo,Color:14},{Pattern:gru,Color:14},{Pattern:bt,Color:15},{Pattern:bt,Color:15},{Pattern:bt,Color:8},{Pattern:tts,Color:15},{Pattern:bts,Color:15},{Pattern:bts,Color:8},{Pattern:gra,Color:13}]}}"
@@ -270,31 +266,13 @@
         {
           "name": "minecraft:diamond_horse_armor",
           "type": "minecraft:item",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "probability": 0.1,
-                "result_count": 1,
-                "type": "repurposed_structures:probability"
-              }
-            }
-          ]
+          "weight": 1
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:potion",
           "weight": 1,
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "probability": 0.1,
-                "result_count": 1,
-                "type": "repurposed_structures:probability"
-              }
-            },
             {
               "function": "minecraft:set_nbt",
               "tag": "{Potion:\"minecraft:regeneration\"}"

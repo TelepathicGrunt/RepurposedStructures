@@ -218,18 +218,14 @@
       "bonus_rolls": 1,
       "entries": [
         {
+          "type": "minecraft:empty",
+          "weight": 40
+        },
+        {
           "name": "minecraft:gray_banner",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 35,
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "probability": 0.35,
-                "result_count": 1,
-                "type": "repurposed_structures:probability"
-              }
-            },
             {
               "function":"set_nbt",
               "tag":"{BlockEntityTag:{Patterns:[{Pattern:gru,Color:1},{Pattern:gra,Color:1},{Pattern:gra,Color:1},{Pattern:gra,Color:4},{Pattern:gru,Color:4},{Pattern:flo,Color:15},{Pattern:mr,Color:15},{Pattern:mr,Color:1},{Pattern:mc,Color:4},{Pattern:flo,Color:1},{Pattern:tts,Color:1},{Pattern:bts,Color:1}]}}"
@@ -239,16 +235,8 @@
         {
           "name": "minecraft:iron_shovel",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 25,
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "probability": 0.25,
-                "result_count": 1,
-                "type": "repurposed_structures:probability"
-              }
-            },
             {
               "function": "minecraft:set_damage",
               "damage": {

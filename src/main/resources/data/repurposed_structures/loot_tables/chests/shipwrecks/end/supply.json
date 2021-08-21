@@ -336,18 +336,14 @@
       "bonus_rolls": 1,
       "entries": [
         {
+          "type": "minecraft:empty",
+          "weight": 25
+        },
+        {
           "name": "minecraft:suspicious_stew",
           "type": "minecraft:item",
-          "weight": 10,
+          "weight": 47,
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "probability": 0.75,
-                "result_count": 1,
-                "type": "repurposed_structures:probability"
-              }
-            },
             {
               "function": "minecraft:set_stew_effect",
               "effects": [
@@ -421,15 +417,11 @@
         {
           "name": "minecraft:firework_star",
           "type": "minecraft:item",
-          "weight": 3,
+          "weight": 14,
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": {
-                "probability": 0.75,
-                "result_count": 3,
-                "type": "repurposed_structures:probability"
-              }
+              "count": 3
             },
             {
               "function":"set_nbt",
@@ -440,15 +432,11 @@
         {
           "name": "minecraft:firework_star",
           "type": "minecraft:item",
-          "weight": 3,
+          "weight": 14,
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": {
-                "probability": 0.75,
-                "result_count": 3,
-                "type": "repurposed_structures:probability"
-              }
+              "count": 3
             },
             {
               "function":"set_nbt",

@@ -323,18 +323,14 @@
       "bonus_rolls": 1,
       "entries": [
         {
+          "type": "minecraft:empty",
+          "weight": 90
+        },
+        {
           "name": "minecraft:black_banner",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 23,
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "probability": 0.35,
-                "result_count": 1,
-                "type": "repurposed_structures:probability"
-              }
-            },
             {
               "function":"set_nbt",
               "tag":"{BlockEntityTag:{Patterns:[{Pattern:mr,Color:3},{Pattern:flo,Color:3},{Pattern:flo,Color:15},{Pattern:tts,Color:15},{Pattern:tts,Color:15},{Pattern:tts,Color:3},{Pattern:bts,Color:15},{Pattern:bts,Color:15},{Pattern:bts,Color:3},{Pattern:cbo,Color:7},{Pattern:bo,Color:3},{Pattern:cbo,Color:15}]}}"
@@ -344,32 +340,12 @@
         {
           "name": "minecraft:music_disc_11",
           "type": "minecraft:item",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "probability": 0.45,
-                "result_count": 1,
-                "type": "repurposed_structures:probability"
-              }
-            }
-          ]
+          "weight": 33
         },
         {
           "name": "minecraft:name_tag",
           "type": "minecraft:item",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "probability": 0.5,
-                "result_count": 1,
-                "type": "repurposed_structures:probability"
-              }
-            }
-          ]
+          "weight": 44
         }
       ]
     }

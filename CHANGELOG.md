@@ -13,6 +13,9 @@ Nether Strongholds library chest cannot have more than 1 kind of explorer map at
 ##### Ruined Portals:
 End Ruined Portals chests cannot ever have more than 1 End City explorer map in a single chest.
 
+##### Igloos:
+Stone Igloo chest should have loot now. The chest nbt was typo'ed again.
+
 ##### Loot Tables:
 Explorer maps in the RS structures now only have zoom level 2 or 1 to massively speed up creation of these maps in chests.
   This is most noticeable with the explorer maps created in the End themed RS structures. May even prevent servers from stalling.
@@ -22,6 +25,8 @@ Changed the explorer maps in the RS structures to no longer skip existing chunks
   By now checking already generated chunks, maps should load much faster from RS's loot blocks.
   If you wish for the maps to find unexplored structures again, download the loot table datapack from here: https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/tag/0.0.11
   Then change `"skip_existing_chunks": false` to `"skip_existing_chunks": true` for all minecraft:exploration_map entries.
+
+Cleaned up the lucky banner pools in RS loot tables so that it is 100% vanilla now and the updated loot table datapack can work on servers without RS on.
 
 
 ### **(V2.3.1 Changes) (1.17.1 Minecraft)**

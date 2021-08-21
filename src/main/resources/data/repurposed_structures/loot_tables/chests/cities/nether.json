@@ -456,18 +456,14 @@
       "bonus_rolls": 1,
       "entries": [
         {
+          "type": "minecraft:empty",
+          "weight": 6
+        },
+        {
           "name": "minecraft:black_banner",
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "probability": 0.35,
-                "result_count": 1,
-                "type": "repurposed_structures:probability"
-              }
-            },
             {
               "function":"set_nbt",
               "tag":"{BlockEntityTag:{Patterns:[{Pattern:ss,Color:4},{Pattern:gra,Color:14},{Pattern:gra,Color:4},{Pattern:cbo,Color:15},{Pattern:glb,Color:4},{Pattern:flo,Color:1},{Pattern:flo,Color:15},{Pattern:mr,Color:15},{Pattern:tt,Color:15},{Pattern:sku,Color:14},{Pattern:sku,Color:4},{Pattern:cre,Color:15}]}}"
@@ -480,14 +476,6 @@
           "weight": 1,
           "functions": [
             {
-              "function": "minecraft:set_count",
-              "count": {
-                "probability": 0.35,
-                "result_count": 3,
-                "type": "repurposed_structures:probability"
-              }
-            },
-            {
               "function":"set_nbt",
               "tag":"{Explosion:{Colors:[I;0], FadeColors:[I;12201518], Trail:1b, Flicker:1b, Type:4b}}"
             }
@@ -498,14 +486,6 @@
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "probability": 0.35,
-                "result_count": 3,
-                "type": "repurposed_structures:probability"
-              }
-            },
             {
               "function":"set_nbt",
               "tag":"{Explosion:{Colors:[I;12201518], FadeColors:[I;0], Trail:1b, Flicker:1b, Type:4b}}"
