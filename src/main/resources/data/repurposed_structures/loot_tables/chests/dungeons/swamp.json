@@ -59,8 +59,7 @@
                 "min": 1.0,
                 "max": 15.0,
                 "type": "minecraft:uniform"
-              },
-              "treasure": true
+              }
             }
           ]
         },

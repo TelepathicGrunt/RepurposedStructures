@@ -250,8 +250,7 @@
                 "min": 5.0,
                 "max": 25.0,
                 "type": "minecraft:uniform"
-              },
-              "treasure": true
+              }
             }
           ]
         }
