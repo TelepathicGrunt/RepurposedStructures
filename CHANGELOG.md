@@ -34,6 +34,8 @@ Changed the explorer maps in the RS structures to no longer skip existing chunks
 
 Cleaned up the lucky banner pools in RS loot tables so that it is 100% vanilla now and the updated loot table datapack can work on servers without RS on.
 
+Removed treasure enchant possibilities for tools in many non-End RS loot tables for better balance. (Mending is a treasure enchantment for example)
+
 
 ### **(V.3.2.1 Changes) (1.16.5 Minecraft)**
 
