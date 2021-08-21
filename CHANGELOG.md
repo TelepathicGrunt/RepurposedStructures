@@ -9,7 +9,12 @@ End Mineshafts now will try to spawn within islands a bit better.
 Slightly lowered Ocean Dungeons default config value for spawn attempts per chunk from 5 to 4.
 
 ##### Shipwrecks:
+Crimson, Warped, and Nether Bricks Shipwreck's spawnrate default config value has been changed to make them even more common.
+  The old config values will not change when updating so either delete the RS Shipwreck config file or edit the rates yourself to be 18 or 19.
+
 End Shipwrecks treasure chest cannot have more than 1 Elytra and the Elytra is now more rare (from ~1/17 chance to now 1/30)
+
+Increased chances of a lucky banner from End Shipwreck's map chest.
 
 ##### Strongholds:
 Nether Strongholds library chest cannot have more than 1 kind of explorer map at a time now.
@@ -28,8 +33,6 @@ Changed the explorer maps in the RS structures to no longer skip existing chunks
   Then change `"skip_existing_chunks": false` to `"skip_existing_chunks": true` for all minecraft:exploration_map entries.
 
 Cleaned up the lucky banner pools in RS loot tables so that it is 100% vanilla now and the updated loot table datapack can work on servers without RS on.
-
-Increased chances of a lucky banner from End Shipwreck's map chest.
 
 
 ### **(V.3.2.1 Changes) (1.16.5 Minecraft)**
