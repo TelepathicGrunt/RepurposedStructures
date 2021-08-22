@@ -5,9 +5,12 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
+import net.minecraft.core.SectionPos;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.chunk.LevelChunk;
+import net.minecraft.world.level.chunk.LevelChunkSection;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
@@ -34,9 +37,26 @@ public class AirProcessor extends StructureProcessor {
     @Override
     public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldView, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
         if (structureBlockInfoWorld.state.isAir()) {
-            ChunkAccess chunk = worldView.getChunk(structureBlockInfoWorld.pos);
-            if(!blocksToIgnore.contains(chunk.getBlockState(structureBlockInfoWorld.pos).getBlock())){
-                chunk.setBlockState(structureBlockInfoWorld.pos, structureBlockInfoWorld.state, false);
+            BlockPos currentPos = structureBlockInfoWorld.pos;
+            ChunkAccess chunk = worldView.getChunk(currentPos);
+            if (currentPos.getY() >= chunk.getMinBuildHeight() && currentPos.getY() < chunk.getMaxBuildHeight()){
+                if(!blocksToIgnore.contains(chunk.getBlockState(currentPos).getBlock())){
+
+                    // Copy what vanilla ores do.
+                    // This bypasses the PaletteContainer's lock as it was throwing `Accessing PalettedContainer from multiple threads` crash
+                    // even though everything seemed to be safe and fine.
+                    int sectionYIndex = chunk.getSectionIndex(currentPos.getY());
+                    LevelChunkSection levelChunkSection = chunk.getOrCreateSection(sectionYIndex);
+                    if (levelChunkSection != LevelChunk.EMPTY_SECTION) {
+
+                        levelChunkSection.setBlockState(
+                                SectionPos.sectionRelative(currentPos.getX()),
+                                SectionPos.sectionRelative(currentPos.getY()),
+                                SectionPos.sectionRelative(currentPos.getZ()),
+                                structureBlockInfoWorld.state,
+                                false);
+                    }
+                }
             }
         }
         return structureBlockInfoWorld;

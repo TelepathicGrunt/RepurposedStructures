@@ -8,11 +8,14 @@ import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
+import net.minecraft.core.SectionPos;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.chunk.LevelChunk;
+import net.minecraft.world.level.chunk.LevelChunkSection;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor;
@@ -64,18 +67,38 @@ public class CloseOffFluidSourcesProcessor extends StructureProcessor {
                 if(ignoreDown && direction == Direction.DOWN) continue;
 
                 mutable.set(infoIn2.pos).move(direction);
+                if (mutable.getY() < currentChunk.getMinBuildHeight() || mutable.getY() >= currentChunk.getMaxBuildHeight()){
+                    continue;
+                }
+
                 if (currentChunkPos.x != mutable.getX() >> 4 || currentChunkPos.z != mutable.getZ() >> 4) {
                     currentChunk = worldReader.getChunk(mutable);
                     currentChunkPos = new ChunkPos(mutable);
                 }
 
-                FluidState fluidState = currentChunk.getFluidState(mutable);
+                // Copy what vanilla ores do.
+                // This bypasses the PaletteContainer's lock as it was throwing `Accessing PalettedContainer from multiple threads` crash
+                // even though everything seemed to be safe and fine.
+                int sectionYIndex = currentChunk.getSectionIndex(mutable.getY());
+                LevelChunkSection levelChunkSection = currentChunk.getOrCreateSection(sectionYIndex);
+                if (levelChunkSection == LevelChunk.EMPTY_SECTION) continue;
+
+                FluidState fluidState = levelChunkSection.getFluidState(
+                        SectionPos.sectionRelative(mutable.getX()),
+                        SectionPos.sectionRelative(mutable.getY()),
+                        SectionPos.sectionRelative(mutable.getZ()));
+
                 if (fluidState.isSource()) {
                     Random random = new WorldgenRandom();
                     random.setSeed(mutable.asLong() * mutable.getY());
 
                     Block replacementBlock = GeneralUtils.getRandomEntry(weightedReplacementBlocks, random);
-                    currentChunk.setBlockState(mutable, replacementBlock.defaultBlockState(), false);
+                    levelChunkSection.setBlockState(
+                            SectionPos.sectionRelative(mutable.getX()),
+                            SectionPos.sectionRelative(mutable.getY()),
+                            SectionPos.sectionRelative(mutable.getZ()),
+                            replacementBlock.defaultBlockState(),
+                            false);
                 }
             }
         }

@@ -1,5 +1,10 @@
 ### **(V2.3.2 Changes) (1.17.1 Minecraft)**
 
+##### Misc:
+Tried to fix two processors that randomly crashes with certain datapacks due to `Accessing PalettedContainer from multiple threads`.
+  Note: My fix for this mimics what vanilla ores do. But they skip checking the lock on the PalettedContainer so I have no idea how safe this fix actually is.
+  It should be fine but let me know if any issues comes up!
+
 ##### Mineshafts:
 End Mineshafts now will try to spawn within islands a bit better.
   The minY and maxY config for End Mineshafts was deleted in favor of endMineshaftMinIslandThickness config entry.
