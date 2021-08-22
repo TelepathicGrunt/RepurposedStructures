@@ -12,7 +12,7 @@ Slightly lowered Ocean Dungeons default config value for spawn attempts per chun
 Crimson, Warped, and Nether Bricks Shipwreck's spawnrate default config value has been changed to make them even more common.
   The old config values will not change when updating so either delete the RS Shipwreck config file or edit the rates yourself to be 18 or 19.
 
-End Shipwrecks treasure chest cannot have more than 1 Elytra and the Elytra is now more rare (from ~1/17 chance to now 1/30)
+End Shipwrecks treasure chest cannot have more than 1 Elytra and the Elytra is now more rare (from ~1/17 chance to now 1/20)
 
 Increased chances of a lucky banner from End Shipwreck's map chest.
 
