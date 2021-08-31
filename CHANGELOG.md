@@ -1,3 +1,11 @@
+### **(V.3.2.3 Changes) (1.16.5 Minecraft)**
+
+##### Mod compat:
+Turned off the surrounding biome checks for RS structures when the Hexlands II mod is on. 
+  This will prevent using /locate or explorer maps on Jungle Fortress from freezing the game since there isn't a big enough area of jungle to pass the original checks.
+  Now all RS structures should spawn when Hexlands II mod is on and active. https://www.curseforge.com/minecraft/mc-mods/hexlands-ii
+
+
 ### **(V.3.2.2 Changes) (1.16.5 Minecraft)**
 
 ##### Mineshafts:

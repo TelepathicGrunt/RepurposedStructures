@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "repurposed_structures.refmap.json",
   "mixins": [
+    "BiomeProviderAccessor",
     "CatEntityMixin",
     "ChunkGeneratorAccessor",
     "DolphinEntitySwimToTreasureGoalMixin",

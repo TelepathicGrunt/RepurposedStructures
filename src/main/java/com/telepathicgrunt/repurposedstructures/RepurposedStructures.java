@@ -40,6 +40,7 @@ import com.telepathicgrunt.repurposedstructures.configs.RSWellsConfig.RSWellsCon
 import com.telepathicgrunt.repurposedstructures.configs.RSWitchHutsConfig.RSWitchHutsConfigValues;
 import com.telepathicgrunt.repurposedstructures.configs.omegaconfig.OmegaConfig;
 import com.telepathicgrunt.repurposedstructures.misc.BiomeDimensionAllowDisallow;
+import com.telepathicgrunt.repurposedstructures.misc.BiomeSourceChecks;
 import com.telepathicgrunt.repurposedstructures.misc.EndRemasteredDedicatedLoot;
 import com.telepathicgrunt.repurposedstructures.misc.MobMapTrades;
 import com.telepathicgrunt.repurposedstructures.misc.MobSpawnerManager;
@@ -167,6 +168,7 @@ public class RepurposedStructures {
         yungsBetterMineshaftIsNotOn = !ModList.get().isLoaded("bettermineshafts");
         yungsBetterDungeonsIsNotOn = !ModList.get().isLoaded("betterdungeons");
         EndRemasteredDedicatedLoot.isEndRemasteredOn = ModList.get().isLoaded("endrem");
+        BiomeSourceChecks.hexlandsiiIsOn = ModList.get().isLoaded("hexlands");
 
         // Silences logspam due to me changing my piece's namespace from minecraft to my modid.
         Logger rootLogger = LogManager.getRootLogger();

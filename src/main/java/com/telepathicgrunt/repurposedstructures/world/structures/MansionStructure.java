@@ -1,6 +1,8 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.google.common.collect.Lists;
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.misc.BiomeSourceChecks;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.MansionPieces;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.SharedSeedRandom;
@@ -40,7 +42,7 @@ public class MansionStructure extends AbstractBaseStructure<NoFeatureConfig> {
 
     @Override
     protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig defaultFeatureConfig) {
-        if(!(biomeSource instanceof CheckerboardBiomeProvider)) {
+        if(!BiomeSourceChecks.isCheckeredBiomeSource(biomeSource) && !BiomeSourceChecks.isHexlandBiomeSource(biomeSource)) {
             int biomeRange = 2;
             for (int curChunkX = chunkX - biomeRange; curChunkX <= chunkX + biomeRange; curChunkX++) {
                 for (int curChunkZ = chunkZ - biomeRange; curChunkZ <= chunkZ + biomeRange; curChunkZ++) {
