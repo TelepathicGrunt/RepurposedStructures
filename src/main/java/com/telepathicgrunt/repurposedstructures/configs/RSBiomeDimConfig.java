@@ -5,7 +5,6 @@ import com.telepathicgrunt.repurposedstructures.configs.omegaconfig.api.Config;
 
 import java.util.AbstractMap;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;

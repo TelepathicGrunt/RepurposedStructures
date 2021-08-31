@@ -1,7 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.google.common.collect.Lists;
-import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.misc.BiomeSourceChecks;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.MansionPieces;
 import net.minecraft.util.Rotation;
@@ -13,7 +12,6 @@ import net.minecraft.util.registry.DynamicRegistries;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.provider.BiomeProvider;
-import net.minecraft.world.biome.provider.CheckerboardBiomeProvider;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
