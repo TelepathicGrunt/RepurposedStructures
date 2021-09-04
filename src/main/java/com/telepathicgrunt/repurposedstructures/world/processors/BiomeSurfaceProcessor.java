@@ -14,6 +14,7 @@ import net.minecraft.world.gen.feature.template.Template;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.WeakHashMap;
 
 /**
  * FOR ELEMENTS THAT WANT TO CONVERT THEIR GRASS or DIRT INTO BIOME SPECIFIC BLOCKS
@@ -22,7 +23,7 @@ public class BiomeSurfaceProcessor extends StructureProcessor {
 
     public static final Codec<BiomeSurfaceProcessor> CODEC = Codec.unit(BiomeSurfaceProcessor::new);
 
-    private static final Map<IWorldReader, Map<Long, Biome>> MINI_BIOMEPOS_CACHE = new HashMap<>();
+    private static final Map<IWorldReader, Map<Long, Biome>> MINI_BIOMEPOS_CACHE = new WeakHashMap<>();
 
     private BiomeSurfaceProcessor() { }
 
