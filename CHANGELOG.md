@@ -1,7 +1,7 @@
 ### **(V.2.3.3 Changes) (1.17.1 Minecraft)**
 
 ##### Misc:
-Fixed a memory leak from the processor used on Grassy Igloos. The leak only happens if you keep making new world saves without restarting mc in single player.
+Fixed a memory leak from the processor used on Grassy Igloos. The leak only happens if you keep finding Grassy Igloos.
   Special thanks to BlueAmulet for catching this leak.
 
 ### **(V2.3.2 Changes) (1.17.1 Minecraft)**
