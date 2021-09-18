@@ -2,7 +2,6 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.mojang.math.Vector3f;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.configs.RSAllConfig;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PieceLimitedJigsawManager;
 import net.minecraft.core.BlockPos;
@@ -17,7 +16,6 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeSource;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
-import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
@@ -84,10 +82,13 @@ public class MineshaftEndStructure extends MineshaftStructure {
 
     private void analyzeLand(ChunkGenerator chunkGenerator, int xPos, int zPos, BlockPos.MutableBlockPos islandTopBottomThickness, LevelHeightAccessor heightLimitView) {
         NoiseColumn columnOfBlocks = chunkGenerator.getBaseColumn(xPos, zPos, heightLimitView);
-        BlockPos.MutableBlockPos currentPos = new BlockPos.MutableBlockPos(xPos, chunkGenerator.getGenDepth(), zPos);
+        int minY = chunkGenerator.getMinY();
+        int rangeHeight = chunkGenerator.getGenDepth();
+        int maxY = minY + rangeHeight;
+        BlockPos.MutableBlockPos currentPos = new BlockPos.MutableBlockPos(xPos, maxY, zPos);
         boolean isInIsland = false;
 
-        while(currentPos.getY() >= -1){
+        while(currentPos.getY() >= minY){
             BlockState state = columnOfBlocks.getBlockState(currentPos);
 
             // Detects top of island
@@ -97,8 +98,8 @@ public class MineshaftEndStructure extends MineshaftStructure {
                 islandTopBottomThickness.set(topIslandY, islandTopBottomThickness.getY(), islandTopBottomThickness.getZ());
             }
 
-            // Detects bottom of island
-            else if(state.isAir() && isInIsland){
+            // Detects bottom of island or land
+            else if((state.isAir() && isInIsland) || currentPos.getY() == minY){
                 int bottomIslandY = Math.max(currentPos.getY(), islandTopBottomThickness.getY());
                 islandTopBottomThickness.set(islandTopBottomThickness.getX(), bottomIslandY, islandTopBottomThickness.getZ());
                 break;
@@ -142,7 +143,7 @@ public class MineshaftEndStructure extends MineshaftStructure {
                 blockpos.move(Direction.UP, 35);
             }
             else{
-                int structureStartHeight = random.nextInt((islandTopBottomThickness.getZ() - minThickness) + 1) + islandTopBottomThickness.getY() + (minThickness / 2);
+                int structureStartHeight = random.nextInt(Math.max(islandTopBottomThickness.getZ() - minThickness + 1, 1)) + islandTopBottomThickness.getY() + (minThickness / 2);
                 blockpos.move(Direction.UP, structureStartHeight);
                 maxY = islandTopBottomThickness.getX() - 5;
                 minY = islandTopBottomThickness.getY();
