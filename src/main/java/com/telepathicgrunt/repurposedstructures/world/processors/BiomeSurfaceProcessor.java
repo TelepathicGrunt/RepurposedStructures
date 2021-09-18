@@ -36,6 +36,7 @@ public class BiomeSurfaceProcessor extends StructureProcessor {
             Biome biome = getCachedBiome(worldView, structurePos);
 
             BlockState topSurfaceBlock = biome.getGenerationSettings().getSurfaceBuilder().get().config.getTopMaterial();
+            if(topSurfaceBlock.isAir() || !topSurfaceBlock.getFluidState().isEmpty()) return structureBlockInfoWorld;
             return new StructureTemplate.StructureBlockInfo(structurePos, topSurfaceBlock, structureBlockInfoWorld.nbt);
         }
         else if (structureBlock.is(Blocks.DIRT)) {
@@ -43,6 +44,7 @@ public class BiomeSurfaceProcessor extends StructureProcessor {
             Biome biome = getCachedBiome(worldView, structurePos);
 
             BlockState underSurfaceBlock = biome.getGenerationSettings().getSurfaceBuilder().get().config.getUnderMaterial();
+            if(underSurfaceBlock.isAir() || !underSurfaceBlock.getFluidState().isEmpty()) return structureBlockInfoWorld;
             return new StructureTemplate.StructureBlockInfo(structurePos, underSurfaceBlock, structureBlockInfoWorld.nbt);
         }
         return structureBlockInfoWorld;
