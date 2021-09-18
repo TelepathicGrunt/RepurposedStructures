@@ -3,6 +3,9 @@
 ##### Igloos:
 Grassy Igloo will no longer replace its blocks with air or fluid blocks if the biome's surfacebuilder uses air or fluid blocks.
 
+##### Mineshafts:
+Fixed crash if End Mineshaft is attempted to be spawned in a dimension where terrain reaches down to world bottom.
+
 
 ### **(V.3.2.4 Changes) (1.16.5 Minecraft)**
 

@@ -97,7 +97,7 @@ public class MineshaftEndStructure extends MineshaftStructure {
             }
 
             // Detects bottom of island
-            else if(state.isAir() && isInIsland){
+            else if((state.isAir() && isInIsland) || currentPos.getY() == -1){
                 int bottomIslandY = Math.max(currentPos.getY(), islandTopBottomThickness.getY());
                 islandTopBottomThickness.set(islandTopBottomThickness.getX(), bottomIslandY, islandTopBottomThickness.getZ());
                 break;
@@ -142,7 +142,7 @@ public class MineshaftEndStructure extends MineshaftStructure {
                 blockpos.move(Direction.UP, 35);
             }
             else{
-                int structureStartHeight = random.nextInt((islandTopBottomThickness.getZ() - minThickness) + 1) + islandTopBottomThickness.getY() + (minThickness / 2);
+                int structureStartHeight = random.nextInt(Math.max((islandTopBottomThickness.getZ() - minThickness) + 1, 1)) + islandTopBottomThickness.getY() + (minThickness / 2);
                 blockpos.move(Direction.UP, structureStartHeight);
                 maxY = islandTopBottomThickness.getX() - 5;
                 minY = islandTopBottomThickness.getY();
