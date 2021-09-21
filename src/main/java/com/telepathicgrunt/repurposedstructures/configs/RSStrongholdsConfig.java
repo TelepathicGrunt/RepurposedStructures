@@ -50,7 +50,6 @@ public class RSStrongholdsConfig implements ConfigData
 
 
 				Min Y height that the starting point can spawn at.""")
-		@ConfigEntry.BoundedDiscrete(min = 0, max = 255)
 		public int netherStrongholdMinHeight = 10;
 
 		@ConfigEntry.Gui.Tooltip(count = 0)
@@ -62,7 +61,6 @@ public class RSStrongholdsConfig implements ConfigData
 
 				Max Y height that the starting point can spawn at.
 				If below min height, this will be read as min.""")
-		@ConfigEntry.BoundedDiscrete(min = 0, max = 255)
 		public int netherStrongholdMaxHeight = 31;
 	}
 
@@ -102,7 +100,6 @@ public class RSStrongholdsConfig implements ConfigData
 
 
 				Min Y height that the starting point can spawn at.""")
-		@ConfigEntry.BoundedDiscrete(min = 0, max = 255)
 		public int endStrongholdMinHeight = 4;
 
 		@ConfigEntry.Gui.Tooltip(count = 0)
@@ -114,7 +111,6 @@ public class RSStrongholdsConfig implements ConfigData
 
 				Max Y height that the starting point can spawn at.
 				If below min height, this will be read as min.""")
-		@ConfigEntry.BoundedDiscrete(min = 0, max = 255)
 		public int endStrongholdMaxHeight = 5;
 
 		@ConfigEntry.Gui.Tooltip(count = 0)

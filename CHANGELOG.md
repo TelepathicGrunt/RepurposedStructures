@@ -6,6 +6,10 @@ Grassy Igloo will no longer replace its blocks with air or fluid blocks if the b
 ##### Mineshafts:
 Fixed crash if End Mineshaft is attempted to be spawned in a dimension where terrain reaches down to world bottom.
 
+##### Configs:
+Min and Max height spawn configs are now unbounded for Mineshafts, Dungeons, Fortresses, and Strongholds. 
+  You can now specify for them to spawn below y = 0 if you wish.
+
 
 ### **(V.2.3.3 Changes) (1.17.1 Minecraft)**
 

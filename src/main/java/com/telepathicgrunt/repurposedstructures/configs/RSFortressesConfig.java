@@ -45,7 +45,6 @@ public class RSFortressesConfig implements ConfigData {
 
 
                 Min Y height that the starting point can spawn at.""")
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 255)
         public int jungleFortressMinHeight = 56;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
@@ -57,7 +56,6 @@ public class RSFortressesConfig implements ConfigData {
 
                 Max Y height that the starting point can spawn at.
                 If below min height, this will be read as min.""")
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 255)
         public int jungleFortressMaxHeight = 63;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
