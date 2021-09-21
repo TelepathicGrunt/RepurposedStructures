@@ -1,6 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.misc;
 
-import com.telepathicgrunt.repurposedstructures.mixin.BiomeProviderAccessor;
+import com.telepathicgrunt.repurposedstructures.mixin.BiomeProviderInvoker;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.provider.BiomeProvider;
@@ -11,7 +11,7 @@ public class BiomeSourceChecks {
 
     public static boolean isHexlandBiomeSource(BiomeProvider biomeSource){
         if(hexlandsiiIsOn){
-            ResourceLocation biomeSourceRL = Registry.BIOME_SOURCE.getKey(((BiomeProviderAccessor)biomeSource).repurposedstructures_callCodec());
+            ResourceLocation biomeSourceRL = Registry.BIOME_SOURCE.getKey(((BiomeProviderInvoker)biomeSource).repurposedstructures_callCodec());
             return biomeSourceRL.toString().equals("hexlands:hexlands");
         }
         return false;

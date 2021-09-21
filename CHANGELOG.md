@@ -1,4 +1,7 @@
-### **(V.3.2.5 Changes) (1.17.1 Minecraft)**
+### **(V.3.2.5 Changes) (1.16.5 Minecraft)**
+
+##### Misc:
+Fixed crash if trying to use Java 11+ with this 1.16.5 Forge Repurposed Structures (forgot to do @mutable on an accessor mixin)
 
 ##### Igloos:
 Grassy Igloo will no longer replace its blocks with air or fluid blocks if the biome's surfacebuilder uses air or fluid blocks.

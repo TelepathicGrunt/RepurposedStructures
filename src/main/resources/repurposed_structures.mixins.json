@@ -4,7 +4,7 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "repurposed_structures.refmap.json",
   "mixins": [
-    "BiomeProviderAccessor",
+    "BiomeProviderInvoker",
     "CatEntityMixin",
     "ChunkGeneratorAccessor",
     "DolphinEntitySwimToTreasureGoalMixin",
@@ -17,12 +17,10 @@
     "LootSerializersMixin",
     "NoLakesInStructuresMixin",
     "NoLavaFallsInStructuresMixin",
-    "PillagerOutpostStructureAccessor",
     "RandomRangesAccessor",
     "SimpleReloadableResourceManagerAccessor",
     "SingleJigsawPieceAccessor",
     "StructureMobSpawningMixin",
-    "StructurePieceAccessor",
     "TemplateAccessor",
     "TemplateManagerAccessor",
     "TemplateManagerMixin"

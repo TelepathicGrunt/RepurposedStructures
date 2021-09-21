@@ -6,7 +6,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Invoker;
 
 @Mixin(BiomeProvider.class)
-public interface BiomeProviderAccessor {
+public interface BiomeProviderInvoker {
     @Invoker("codec")
     Codec<? extends BiomeProvider> repurposedstructures_callCodec();
 }
