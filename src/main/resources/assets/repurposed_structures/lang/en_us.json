@@ -254,6 +254,8 @@
     "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSStrongholdsConfig.end.endStrongholdMaxHeight.@PrefixText": "\nMax Y height that the starting point can spawn at.\n If below min height, this will be read as min.",
     "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSStrongholdsConfig.end.endStrongholdMinHeight": "Minimum Spawnheight",
     "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSStrongholdsConfig.end.endStrongholdMinHeight.@PrefixText": "\nMin Y height that the starting point can spawn at.",
+    "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSStrongholdsConfig.end.endStrongholdVerticalRange": "Vertical Range",
+    "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSStrongholdsConfig.end.endStrongholdVerticalRange.@PrefixText": "\nHow far above the end stronghold's pieces can generate away from the center start piece.",
     "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSPyramidsConfig.pyramidNetherAverageChunkDistance.@PrefixText": "\nHow rare are Pyramid structures.\n 1 for spawning in most chunks and 1001 for none.",
     "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSPyramidsConfig.pyramidBadlandsAverageChunkDistance": "Badlands Pyramid Average Spacing",
     "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSPyramidsConfig.pyramidEndAverageChunkDistance": "End Pyramid Average Spacing",

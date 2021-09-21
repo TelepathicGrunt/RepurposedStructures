@@ -10,6 +10,8 @@ Fixed crash if End Mineshaft is attempted to be spawned in a dimension where ter
 Min and Max height spawn configs are now unbounded for Mineshafts, Dungeons, Fortresses, and Strongholds. 
   You can now specify for them to spawn below y = 0 if you wish.
 
+Fixed missing lang entry for End Stronghold Vertical Range config.
+
 
 ### **(V.2.3.3 Changes) (1.17.1 Minecraft)**
 
