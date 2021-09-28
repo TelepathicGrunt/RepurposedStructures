@@ -1,3 +1,9 @@
+### **(V.3.2.6 Changes) (1.16.5 Minecraft)**
+
+##### Fortresses:
+Fixed Jungle Fortress spawner not being affected by the rs_spawner datapack. Sorry about that.
+
+
 ### **(V.3.2.5 Changes) (1.16.5 Minecraft)**
 
 ##### Misc:
