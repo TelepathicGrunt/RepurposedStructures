@@ -8,26 +8,15 @@
       "translate": "Bastions, Evil, and Bones..."
     },
     "description": {
-      "translate": "Enter an Underground Bastion"
+      "translate": "Enter a Underground Bastion"
     },
-    "show_toast": true,
-    "announce_to_chat": true,
-    "hidden": false
-  },
-  "rewards": {
-    "experience": 100
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
   },
   "criteria": {
-    "in_bastion_underground": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "feature": "repurposed_structures:bastion_underground"
-      }
+    "impossible": {
+      "trigger": "minecraft:impossible"
     }
-  },
-  "requirements": [
-    [
-      "in_bastion_underground"
-    ]
-  ]
+  }
 }

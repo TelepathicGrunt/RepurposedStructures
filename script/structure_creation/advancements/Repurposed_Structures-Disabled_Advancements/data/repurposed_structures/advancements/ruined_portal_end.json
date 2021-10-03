@@ -10,24 +10,13 @@
     "description": {
       "translate": "Find an End themed Ruined Portal!"
     },
-    "show_toast": true,
-    "announce_to_chat": true,
-    "hidden": false
-  },
-  "rewards": {
-    "experience": 50
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
   },
   "criteria": {
-    "in_ruined_portal_end": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "feature": "repurposed_structures:ruined_portal_end"
-      }
+    "impossible": {
+      "trigger": "minecraft:impossible"
     }
-  },
-  "requirements": [
-    [
-      "in_ruined_portal_end"
-    ]
-  ]
+  }
 }
