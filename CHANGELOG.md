@@ -1,3 +1,9 @@
+### **(V.2.3.5 Changes) (1.17.1 Minecraft)**
+
+##### Pyramids:
+Fixed Flower Forest Pyramid's pit part from sometimes having plants not spawning.
+
+
 ### **(V.2.3.4 Changes) (1.17.1 Minecraft)**
 
 ##### Igloos:
