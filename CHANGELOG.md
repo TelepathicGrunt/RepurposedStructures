@@ -3,6 +3,9 @@
 ##### Fortresses:
 Fixed Jungle Fortress spawner not being affected by the rs_spawner datapack. Sorry about that.
 
+##### Pyramids:
+Fixed Flower Forest Pyramid's top part from sometimes having stacked flowers.
+
 
 ### **(V.3.2.5 Changes) (1.16.5 Minecraft)**
 
