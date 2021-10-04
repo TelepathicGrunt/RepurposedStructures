@@ -8,6 +8,22 @@ Fixed Flower Forest Pyramid's top part from sometimes having stacked flowers.
 
 Vanilla lakes should now not spawn inside Flower Forest Pyramids to help prevent floating plants.
 
+Basalt Delta's basalt and lava features will not spawn in the Nether Pyramid for good.
+
+##### Mineshafts:
+Nether Mineshaft is now in SURFACE_STRUCTURES generation stage.
+
+##### Temples:
+Basalt Temple is now in SURFACE_STRUCTURES generation stage.
+
+Basalt Delta's basalt and lava features will not spawn in the Basalt Temple for good.
+
+##### Ruins:
+Basalt Delta's basalt and lava features will not spawn in Nether Ruins's area.
+
+##### Outposts:
+Basalt Delta's basalt and lava features will not spawn within the tower for Nether Bricks Outpost structure.
+
 
 ### **(V.3.2.5 Changes) (1.16.5 Minecraft)**
 
