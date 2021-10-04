@@ -6,6 +6,8 @@ Fixed Jungle Fortress spawner not being affected by the rs_spawner datapack. Sor
 ##### Pyramids:
 Fixed Flower Forest Pyramid's top part from sometimes having stacked flowers.
 
+Vanilla lakes should now not spawn inside Flower Forest Pyramids to help prevent floating plants.
+
 
 ### **(V.3.2.5 Changes) (1.16.5 Minecraft)**
 
