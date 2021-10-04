@@ -3,6 +3,8 @@
 ##### Pyramids:
 Fixed Flower Forest Pyramid's pit part from sometimes having plants not spawning.
 
+Vanilla lakes should now not spawn inside Flower Forest Pyramids to help prevent floating plants.
+
 
 ### **(V.2.3.4 Changes) (1.17.1 Minecraft)**
 
