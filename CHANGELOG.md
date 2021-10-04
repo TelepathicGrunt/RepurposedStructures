@@ -1,5 +1,10 @@
 ### **(V.2.3.5 Changes) (1.17.1 Minecraft)**
 
+##### Misc:
+Setting an rs_spawner json file by datapack to have no mobs in it or have a total weight
+ of 0 will now replace the mob spawner block in that structure/feature with an air block.
+ A great new way to quickly remove spawners if you don't want them in RS structures/features.
+
 ##### Pyramids:
 Fixed Flower Forest Pyramid's pit part from sometimes having plants not spawning.
 

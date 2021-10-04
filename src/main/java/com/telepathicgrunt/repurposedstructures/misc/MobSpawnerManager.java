@@ -63,14 +63,10 @@ public class MobSpawnerManager extends SimpleJsonResourceReloadListener implemen
             return Util.getRandom(DungeonFeatureAccessor.repurposedstructures_getMOBS(), random);
         }
 
+        // Already did a check to make sure all entries do not have a negative weight earlier.
         int totalWeight = spawnerMobEntries.stream().mapToInt(mobEntry -> mobEntry.weight).sum();
-        if(totalWeight == 0){
-            RepurposedStructures.LOGGER.log(Level.ERROR, """
-                    ***************************************
-                    Empty %s.json found. At least 1 entitytype with a weight of 1 or more must be specified. If you want to remove spawner block, override the structure's nbt file or processor file and replace the spawner block that way instead.
-                    ***************************************
-                    """.formatted(spawnerJsonEntry));
-            return EntityType.PIG;
+        if(totalWeight == 0) {
+            return null;
         }
 
         int randomWeight = random.nextInt(totalWeight) + 1;

@@ -12,6 +12,7 @@ import net.minecraft.nbt.ListTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SpawnerBlock;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
@@ -39,11 +40,14 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
             BlockPos worldPos = structureBlockInfoWorld.pos;
             Random random = new WorldgenRandom();
             random.setSeed(worldPos.asLong() * worldPos.getY());
+            CompoundTag spawnerNBT = SetMobSpawnerEntity(random, structureBlockInfoWorld.nbt);
 
-            return new StructureTemplate.StructureBlockInfo(
-                    worldPos,
-                    structureBlockInfoWorld.state,
-                    SetMobSpawnerEntity(random, structureBlockInfoWorld.nbt));
+            if(spawnerNBT == null) {
+                return new StructureTemplate.StructureBlockInfo(worldPos, Blocks.AIR.defaultBlockState(), null);
+            }
+            else {
+                return new StructureTemplate.StructureBlockInfo(worldPos, structureBlockInfoWorld.state, spawnerNBT);
+            }
         }
         return structureBlockInfoWorld;
     }
@@ -105,10 +109,8 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
                 return compound;
             }
         }
-        else{
-            RepurposedStructures.LOGGER.warn("EntityType in a dungeon does not exist in registry! : {}", rsSpawnerResourcelocation);
-        }
-        return nbt;
+
+        return null;
     }
 
     @Override
