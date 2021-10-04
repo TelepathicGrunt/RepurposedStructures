@@ -42,8 +42,10 @@ public class RSStructureTagMap {
 
         // Other
         NO_LAKES,
+        NO_DELTAS,
         NO_LAVAFALLS,
-        LESS_JUNGLE_BUSH
+        LESS_JUNGLE_BUSH,
+        DELTA_CHECK_CENTER_PIECE
     }
 
     public static final Map<StructureFeature<?>, Set<STRUCTURE_TAGS>> TAGGED_STRUCTURES = new HashMap<>();
@@ -63,9 +65,9 @@ public class RSStructureTagMap {
         addTags(RSStructures.MINESHAFT_DARK_FOREST, Stream.of(STRUCTURE_TAGS.MINESHAFT).collect(Collectors.toSet()));
         addTags(RSStructures.MINESHAFT_SWAMP, Stream.of(STRUCTURE_TAGS.MINESHAFT).collect(Collectors.toSet()));
         addTags(RSStructures.MINESHAFT_TAIGA, Stream.of(STRUCTURE_TAGS.MINESHAFT).collect(Collectors.toSet()));
-        addTags(RSStructures.MINESHAFT_NETHER, Stream.of(STRUCTURE_TAGS.MINESHAFT).collect(Collectors.toSet()));
-        addTags(RSStructures.MINESHAFT_CRIMSON, Stream.of(STRUCTURE_TAGS.MINESHAFT).collect(Collectors.toSet()));
-        addTags(RSStructures.MINESHAFT_WARPED, Stream.of(STRUCTURE_TAGS.MINESHAFT).collect(Collectors.toSet()));
+        addTags(RSStructures.MINESHAFT_NETHER, Stream.of(STRUCTURE_TAGS.MINESHAFT, STRUCTURE_TAGS.NO_DELTAS).collect(Collectors.toSet()));
+        addTags(RSStructures.MINESHAFT_CRIMSON, Stream.of(STRUCTURE_TAGS.MINESHAFT, STRUCTURE_TAGS.NO_DELTAS).collect(Collectors.toSet()));
+        addTags(RSStructures.MINESHAFT_WARPED, Stream.of(STRUCTURE_TAGS.MINESHAFT, STRUCTURE_TAGS.NO_DELTAS).collect(Collectors.toSet()));
         addTags(RSStructures.MINESHAFT_END, Stream.of(STRUCTURE_TAGS.MINESHAFT).collect(Collectors.toSet()));
 
         addTags(RSStructures.IGLOO_GRASSY, Stream.of(STRUCTURE_TAGS.IGLOO).collect(Collectors.toSet()));
@@ -75,7 +77,7 @@ public class RSStructureTagMap {
         addTags(RSStructures.STRONGHOLD_END, Stream.of(STRUCTURE_TAGS.STRONGHOLD, STRUCTURE_TAGS.END_MINESHAFT_AVOID_STRUCTURE).collect(Collectors.toSet()));
         // regexpos1
         addTags(RSStructures.PYRAMID_BADLANDS, Stream.of(STRUCTURE_TAGS.PYRAMID).collect(Collectors.toSet()));
-        addTags(RSStructures.PYRAMID_NETHER, Stream.of(STRUCTURE_TAGS.PYRAMID).collect(Collectors.toSet()));
+        addTags(RSStructures.PYRAMID_NETHER, Stream.of(STRUCTURE_TAGS.PYRAMID, STRUCTURE_TAGS.NO_DELTAS).collect(Collectors.toSet()));
         addTags(RSStructures.PYRAMID_SNOWY, Stream.of(STRUCTURE_TAGS.PYRAMID).collect(Collectors.toSet()));
         addTags(RSStructures.PYRAMID_END, Stream.of(STRUCTURE_TAGS.PYRAMID).collect(Collectors.toSet()));
         addTags(RSStructures.PYRAMID_ICY, Stream.of(STRUCTURE_TAGS.PYRAMID).collect(Collectors.toSet()));
@@ -85,7 +87,7 @@ public class RSStructureTagMap {
         addTags(RSStructures.PYRAMID_GIANT_TREE_TAIGA, Stream.of(STRUCTURE_TAGS.PYRAMID).collect(Collectors.toSet()));
         addTags(RSStructures.PYRAMID_FLOWER_FOREST, Stream.of(STRUCTURE_TAGS.PYRAMID, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
 
-        addTags(RSStructures.TEMPLE_NETHER_BASALT, Stream.of(STRUCTURE_TAGS.TEMPLE, STRUCTURE_TAGS.NETHER_TEMPLE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
+        addTags(RSStructures.TEMPLE_NETHER_BASALT, Stream.of(STRUCTURE_TAGS.TEMPLE, STRUCTURE_TAGS.NETHER_TEMPLE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE, STRUCTURE_TAGS.NO_DELTAS).collect(Collectors.toSet()));
         addTags(RSStructures.TEMPLE_NETHER_CRIMSON, Stream.of(STRUCTURE_TAGS.TEMPLE, STRUCTURE_TAGS.NETHER_TEMPLE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
         addTags(RSStructures.TEMPLE_NETHER_SOUL, Stream.of(STRUCTURE_TAGS.TEMPLE, STRUCTURE_TAGS.NETHER_TEMPLE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
         addTags(RSStructures.TEMPLE_NETHER_WARPED, Stream.of(STRUCTURE_TAGS.TEMPLE, STRUCTURE_TAGS.NETHER_TEMPLE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
@@ -93,11 +95,11 @@ public class RSStructureTagMap {
 
         addTags(RSStructures.SHIPWRECK_CRIMSON, Stream.of(STRUCTURE_TAGS.SHIPWRECK, STRUCTURE_TAGS.NETHER_SHIPWRECK, STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
         addTags(RSStructures.SHIPWRECK_WARPED, Stream.of(STRUCTURE_TAGS.SHIPWRECK, STRUCTURE_TAGS.NETHER_SHIPWRECK, STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
-        addTags(RSStructures.SHIPWRECK_NETHER_BRICKS, Stream.of(STRUCTURE_TAGS.SHIPWRECK, STRUCTURE_TAGS.NETHER_SHIPWRECK, STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
+        addTags(RSStructures.SHIPWRECK_NETHER_BRICKS, Stream.of(STRUCTURE_TAGS.SHIPWRECK, STRUCTURE_TAGS.NETHER_SHIPWRECK, STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE, STRUCTURE_TAGS.NO_DELTAS).collect(Collectors.toSet()));
         addTags(RSStructures.SHIPWRECK_END, Stream.of(STRUCTURE_TAGS.SHIPWRECK).collect(Collectors.toSet()));
 
+        addTags(RSStructures.OUTPOST_NETHER_BRICK, Stream.of(STRUCTURE_TAGS.OUTPOST, STRUCTURE_TAGS.NETHER_OUTPOST, STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE, STRUCTURE_TAGS.NO_DELTAS, STRUCTURE_TAGS.DELTA_CHECK_CENTER_PIECE).collect(Collectors.toSet()));
         addTags(RSStructures.OUTPOST_CRIMSON, Stream.of(STRUCTURE_TAGS.OUTPOST, STRUCTURE_TAGS.NETHER_OUTPOST, STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
-        addTags(RSStructures.OUTPOST_NETHER_BRICK, Stream.of(STRUCTURE_TAGS.OUTPOST, STRUCTURE_TAGS.NETHER_OUTPOST, STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
         addTags(RSStructures.OUTPOST_WARPED, Stream.of(STRUCTURE_TAGS.OUTPOST, STRUCTURE_TAGS.NETHER_OUTPOST, STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
         addTags(RSStructures.OUTPOST_BIRCH, Stream.of(STRUCTURE_TAGS.OUTPOST, STRUCTURE_TAGS.OVERWORLD_OUTPOST).collect(Collectors.toSet()));
         addTags(RSStructures.OUTPOST_JUNGLE, Stream.of(STRUCTURE_TAGS.OUTPOST, STRUCTURE_TAGS.OVERWORLD_OUTPOST).collect(Collectors.toSet()));
@@ -117,13 +119,13 @@ public class RSStructureTagMap {
         addTags(RSStructures.VILLAGE_JUNGLE, Stream.of(STRUCTURE_TAGS.VILLAGE, STRUCTURE_TAGS.OUTPOST_AVOID_STRUCTURE, STRUCTURE_TAGS.NO_LAKES, STRUCTURE_TAGS.LESS_JUNGLE_BUSH).collect(Collectors.toSet()));
         addTags(RSStructures.VILLAGE_MOUNTAINS, Stream.of(STRUCTURE_TAGS.VILLAGE, STRUCTURE_TAGS.OUTPOST_AVOID_STRUCTURE, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
         addTags(RSStructures.VILLAGE_SWAMP, Stream.of(STRUCTURE_TAGS.VILLAGE, STRUCTURE_TAGS.OUTPOST_AVOID_STRUCTURE, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
-        addTags(RSStructures.VILLAGE_CRIMSON, Stream.of(STRUCTURE_TAGS.VILLAGE, STRUCTURE_TAGS.OUTPOST_AVOID_STRUCTURE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
-        addTags(RSStructures.VILLAGE_WARPED, Stream.of(STRUCTURE_TAGS.VILLAGE, STRUCTURE_TAGS.OUTPOST_AVOID_STRUCTURE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
+        addTags(RSStructures.VILLAGE_CRIMSON, Stream.of(STRUCTURE_TAGS.VILLAGE, STRUCTURE_TAGS.OUTPOST_AVOID_STRUCTURE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE, STRUCTURE_TAGS.NO_DELTAS).collect(Collectors.toSet()));
+        addTags(RSStructures.VILLAGE_WARPED, Stream.of(STRUCTURE_TAGS.VILLAGE, STRUCTURE_TAGS.OUTPOST_AVOID_STRUCTURE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE, STRUCTURE_TAGS.NO_DELTAS).collect(Collectors.toSet()));
         addTags(RSStructures.VILLAGE_OAK, Stream.of(STRUCTURE_TAGS.VILLAGE, STRUCTURE_TAGS.OUTPOST_AVOID_STRUCTURE, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
 
         addTags(RSStructures.FORTRESS_JUNGLE, Stream.of(STRUCTURE_TAGS.FORTRESS).collect(Collectors.toSet()));
         addTags(RSStructures.RUINED_PORTAL_END, Stream.of(STRUCTURE_TAGS.RUINED_PORTAL).collect(Collectors.toSet()));
-        addTags(RSStructures.RUINS_NETHER, Stream.of(STRUCTURE_TAGS.RUINS).collect(Collectors.toSet()));
+        addTags(RSStructures.RUINS_NETHER, Stream.of(STRUCTURE_TAGS.RUINS, STRUCTURE_TAGS.NO_DELTAS).collect(Collectors.toSet()));
         addTags(RSStructures.RUINS_LAND_WARM, Stream.of(STRUCTURE_TAGS.RUINS, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
         addTags(RSStructures.RUINS_LAND_HOT, Stream.of(STRUCTURE_TAGS.RUINS, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
 

@@ -10,6 +10,8 @@
     "entities.ShulkerEntityInvoker",
     "features.DungeonFeatureAccessor",
     "features.LessjungleBushInStructuresMixin",
+    "features.NoBasaltColumnsInStructuresMixin",
+    "features.NoDeltasInStructuresMixin",
     "features.NoLakesInStructuresMixin",
     "features.NoLavaFallsInStructuresMixin",
     "resources.BuilderAccessor",
