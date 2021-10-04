@@ -4,6 +4,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.SpawnerBlock;
 import net.minecraft.entity.EntityType;
 import net.minecraft.nbt.CompoundNBT;
@@ -39,11 +40,14 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
             BlockPos worldPos = structureBlockInfoWorld.pos;
             Random random = new SharedSeedRandom();
             random.setSeed(worldPos.asLong() * worldPos.getY());
+            CompoundNBT spawnerNBT = SetMobSpawnerEntity(random, structureBlockInfoWorld.nbt);
 
-            return new Template.BlockInfo(
-                    worldPos,
-                    structureBlockInfoWorld.state,
-                    SetMobSpawnerEntity(random, structureBlockInfoWorld.nbt));
+            if(spawnerNBT == null) {
+                return new Template.BlockInfo(worldPos, Blocks.AIR.defaultBlockState(), null);
+            }
+            else {
+                return new Template.BlockInfo(worldPos, structureBlockInfoWorld.state, spawnerNBT);
+            }
         }
         return structureBlockInfoWorld;
     }
@@ -106,10 +110,8 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
                 return compound;
             }
         }
-        else{
-            RepurposedStructures.LOGGER.warn("EntityType in a dungeon does not exist in registry! : {}", rsSpawnerResourcelocation);
-        }
-        return nbt;
+
+        return null;
     }
 
     @Override

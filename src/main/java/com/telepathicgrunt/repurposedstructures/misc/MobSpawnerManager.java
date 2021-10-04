@@ -60,27 +60,21 @@ public class MobSpawnerManager extends JsonReloadListener {
             return Util.getRandom(DungeonFeatureAccessor.repurposedstructures_getMOB_SPAWNER_ENTITIES(), random);
         }
 
+        // Already did a check to make sure all entries do not have a negative weight earlier.
         int totalWeight = spawnerMobEntries.stream().mapToInt(mobEntry -> mobEntry.weight).sum();
-        if(totalWeight == 0){
-            RepurposedStructures.LOGGER.log(Level.ERROR, "\n***************************************\nEmpty "+spawnerJsonEntry+".json found. At least 1 entitytype with a weight of 1 or more must be specified. If you want to remove spawner block, override the structure's nbt file or processor file and replace the spawner block that way instead.\n***************************************\n");
-            return EntityType.PIG;
+        if(totalWeight == 0) {
+            return null;
         }
 
         int randomWeight = random.nextInt(totalWeight) + 1;
         int index = 0;
 
-        try{
-            while(true){
-                randomWeight -= spawnerMobEntries.get(index).weight;
-                if(randomWeight <= 0)
-                    return ForgeRegistries.ENTITIES.getValue(new ResourceLocation(spawnerMobEntries.get(index).name));
+        while(true){
+            randomWeight -= spawnerMobEntries.get(index).weight;
+            if(randomWeight <= 0)
+                return ForgeRegistries.ENTITIES.getValue(new ResourceLocation(spawnerMobEntries.get(index).name));
 
-                index++;
-            }
-        }
-        catch(Exception e){
-            RepurposedStructures.LOGGER.log(Level.ERROR,"\n***************************************\nFailed to get mob. Please check that "+spawnerJsonEntry+".json is correct and let Telepathicgrunt (mod author) know he broke the mob spawner code!\n***************************************");
-            return EntityType.PIG;
+            index++;
         }
     }
 }
