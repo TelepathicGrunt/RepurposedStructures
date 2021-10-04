@@ -2,7 +2,7 @@ package com.telepathicgrunt.repurposedstructures.misc;
 
 import com.google.gson.JsonObject;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.mixin.LootContextAccessor;
+import com.telepathicgrunt.repurposedstructures.mixin.resources.LootContextAccessor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.loot.LootContext;
 import net.minecraft.loot.LootParameterSets;

@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.mixin;
+package com.telepathicgrunt.repurposedstructures.mixin.structures;
 
 import com.telepathicgrunt.repurposedstructures.misc.MobSpawningOverTime;
 import net.minecraft.entity.EntityClassification;

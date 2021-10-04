@@ -6,7 +6,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.mixin.DungeonFeatureAccessor;
+import com.telepathicgrunt.repurposedstructures.mixin.features.DungeonFeatureAccessor;
 import net.minecraft.client.resources.JsonReloadListener;
 import net.minecraft.entity.EntityType;
 import net.minecraft.profiler.IProfiler;

@@ -1,7 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.modinit;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.mixin.RandomRangesAccessor;
+import com.telepathicgrunt.repurposedstructures.mixin.resources.RandomRangesAccessor;
 import com.telepathicgrunt.repurposedstructures.world.numberproviders.ProbabilityValue;
 import net.minecraft.util.ResourceLocation;
 

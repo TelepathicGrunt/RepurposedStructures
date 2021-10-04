@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.mixin;
+package com.telepathicgrunt.repurposedstructures.mixin.world;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.world.gen.ChunkGenerator;

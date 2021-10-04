@@ -10,8 +10,10 @@ Vanilla lakes should now not spawn inside Flower Forest Pyramids to help prevent
 
 Basalt Delta's basalt and lava features will not spawn in the Nether Pyramid for good.
 
+Nether Pyramid is now in SURFACE_STRUCTURES generation stage.
+
 ##### Mineshafts:
-Nether Mineshaft is now in SURFACE_STRUCTURES generation stage.
+Nether, Crimson, and Warped Mineshaft are now in UNDERGROUND_STRUCTURES generation stage.
 
 ##### Temples:
 Basalt Temple is now in SURFACE_STRUCTURES generation stage.

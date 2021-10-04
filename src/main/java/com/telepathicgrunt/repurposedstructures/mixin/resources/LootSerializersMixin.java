@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.mixin;
+package com.telepathicgrunt.repurposedstructures.mixin.resources;
 
 import com.google.gson.GsonBuilder;
 import com.telepathicgrunt.repurposedstructures.world.numberproviders.ProbabilityValue;

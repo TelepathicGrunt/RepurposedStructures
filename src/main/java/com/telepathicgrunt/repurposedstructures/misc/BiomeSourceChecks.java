@@ -1,6 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.misc;
 
-import com.telepathicgrunt.repurposedstructures.mixin.BiomeProviderInvoker;
+import com.telepathicgrunt.repurposedstructures.mixin.world.BiomeProviderInvoker;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.provider.BiomeProvider;
