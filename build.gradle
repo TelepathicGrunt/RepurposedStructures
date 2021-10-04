@@ -64,6 +64,8 @@ dependencies {
     runtimeOnly fg.deobf("com.telepathicgrunt:Blame:1.16.5-3.2.0-forge")
     //runtimeOnly fg.deobf("patrigan:loadnbtblock:1.0")
 
+    // implementation fg.deobf("curse.maven:immersiveengineering-231951:3431122")
+    // implementation fg.deobf("curse.maven:jellyfishing-397703:3458825")
     // implementation fg.deobf("curse.maven:savageandravage-381736:3226442")
     // implementation fg.deobf("curse.maven:abnormalcore-382216:3351059")
     // implementation fg.deobf("curse.maven:dungeonsgear-401247:3377033")
@@ -71,6 +73,7 @@ dependencies {
     // implementation fg.deobf("vazkii.autoreglib:AutoRegLib:1.6-49.90")
     // implementation fg.deobf("vazkii.quark:Quark:r2.4-316.1925") { transitive = false }
     // runtimeOnly fg.deobf("curse.maven:hexlands_ii-522216:${hexlands_ii_file_id}")
+    // runtimeOnly fg.deobf("com.resourcefulbees:ResourcefulBees:${resourcefulbees_version}")
 }
 
 apply from: 'gradle/processresources.gradle'

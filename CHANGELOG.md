@@ -31,6 +31,9 @@ Basalt Delta's basalt and lava features will not spawn in Nether Ruins's area.
 ##### Outposts:
 Basalt Delta's basalt and lava features will not spawn within the tower for Nether Bricks Outpost structure.
 
+##### Villages:
+Added a longer and bigger street piece to Badlands Villages so their larger temple piece can actually have a better chance of spawning.
+
 
 ### **(V.3.2.5 Changes) (1.16.5 Minecraft)**
 
