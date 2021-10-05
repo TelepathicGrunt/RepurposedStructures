@@ -84,7 +84,7 @@
       }
     },
     {
-      "weight": 2,
+      "weight": 3,
       "element": {
         "location": "repurposed_structures:villages/giant_taiga/streets/crossroad_01",
         "processors": "repurposed_structures:villages/giant_taiga/path_randomizer",
@@ -102,7 +102,7 @@
       }
     },
     {
-      "weight": 2,
+      "weight": 6,
       "element": {
         "location": "repurposed_structures:villages/giant_taiga/streets/crossroad_03",
         "processors": "repurposed_structures:villages/giant_taiga/path_randomizer",

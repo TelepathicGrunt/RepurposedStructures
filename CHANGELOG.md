@@ -31,6 +31,8 @@ Basalt Delta's basalt and lava features will not spawn within the tower for Neth
 ##### Villages:
 Added a longer and bigger street piece to Badlands Villages so their larger temple piece can actually have a better chance of spawning.
 
+Adjusted rates of some street pieces to help make birch, dark forest, giant taiga, mountains, and oak villages have a few more branching paths.
+
 
 ### **(V.2.3.4 Changes) (1.17.1 Minecraft)**
 
