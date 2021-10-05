@@ -64,8 +64,9 @@ dependencies {
     runtimeOnly fg.deobf("com.telepathicgrunt:Blame:1.16.5-3.2.0-forge")
     //runtimeOnly fg.deobf("patrigan:loadnbtblock:1.0")
 
-    // implementation fg.deobf("curse.maven:immersiveengineering-231951:3431122")
-    // implementation fg.deobf("curse.maven:jellyfishing-397703:3458825")
+//    implementation fg.deobf("curse.maven:pneumaticcraftrepressurized-281849:3470048")
+//    implementation fg.deobf("curse.maven:immersiveengineering-231951:3431122")
+//    implementation fg.deobf("curse.maven:jellyfishing-397703:3458825")
     // implementation fg.deobf("curse.maven:savageandravage-381736:3226442")
     // implementation fg.deobf("curse.maven:abnormalcore-382216:3351059")
     // implementation fg.deobf("curse.maven:dungeonsgear-401247:3377033")

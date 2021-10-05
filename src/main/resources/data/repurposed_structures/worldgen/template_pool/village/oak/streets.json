@@ -84,7 +84,7 @@
       }
     },
     {
-      "weight": 2,
+      "weight": 3,
       "element": {
         "location": "repurposed_structures:village/oak/streets/crossroad_01",
         "processors": "repurposed_structures:village/oak/path_randomizer",
@@ -102,7 +102,7 @@
       }
     },
     {
-      "weight": 2,
+      "weight": 6,
       "element": {
         "location": "repurposed_structures:village/oak/streets/crossroad_03",
         "processors": "repurposed_structures:village/oak/path_randomizer",
