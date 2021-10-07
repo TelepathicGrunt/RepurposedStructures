@@ -1,3 +1,11 @@
+### **(V.2.3.6 Changes) (1.17.1 Minecraft)**
+
+##### Villages:
+Removed some dropped items from one Birch Village house that was not supposed to be there.
+
+Replaced most Moss Blocks with Grass Blocks on the ground of many Swamp Village houses.
+
+
 ### **(V.2.3.5 Changes) (1.17.1 Minecraft)**
 
 ##### Misc:
