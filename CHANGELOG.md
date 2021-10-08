@@ -2,6 +2,8 @@
 
 ##### Misc:
 Improved the error reporting a bit if a datapack has a typo within its pool_additions folder for Repurposed Structures.
+ (If you were using the Farmer's Delight datapack or Environmental datapack from here: https://github.com/TelepathicGrunt/RepurposedStructures/releases
+  Please go redownload them as the Farmer's Delight pack and Environmental pack were broken. They should work properly now and not cause crashes)
 
 
 ### **(V.3.2.6 Changes) (1.16.5 Minecraft)**
