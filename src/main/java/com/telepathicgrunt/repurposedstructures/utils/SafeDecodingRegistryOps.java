@@ -2,11 +2,13 @@ package com.telepathicgrunt.repurposedstructures.utils;
 
 import com.google.common.base.Suppliers;
 import com.google.common.collect.Maps;
+import com.google.gson.JsonNull;
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.DynamicOps;
 import com.mojang.serialization.Lifecycle;
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.DynamicRegistries;
@@ -50,12 +52,24 @@ public class SafeDecodingRegistryOps<T> extends WorldSettingsImport<T> {
                 return !allowInlineDefinitions ?
                         DataResult.error("(Repurposed Structures SafeDecodingRegistryOps) Inline definitions not allowed here") :
                         codec.decode(this, object).map((pair) -> pair.mapFirst((object2) -> () -> object2));
-            } else {
+            }
+            else {
                 MutableRegistry<E> mutableRegistry = optional.get();
                 Pair<ResourceLocation, T> pair = dataResult.result().get();
                 ResourceLocation resourceLocation = pair.getFirst();
-                return this.readSupplier(registryKey, mutableRegistry, codec, resourceLocation)
-                        .map((supplier) -> Pair.of(supplier, pair.getSecond()));
+
+                try {
+                    return this.readSupplier(registryKey, mutableRegistry, codec, resourceLocation)
+                            .map((supplier) -> Pair.of(supplier, pair.getSecond()));
+                }
+                catch (Exception e) {
+                    RepurposedStructures.LOGGER.error(
+                            "\n Repurposed Structures: Crash is about to occur because an entry in a datapack does not exist in a registry or failed to resolve an entry." +
+                            "\n Entry failed to be resolved: {}" +
+                            "\n Registry being used: {}",
+                            registryKey, object);
+                    throw e;
+                }
             }
         }
     }
