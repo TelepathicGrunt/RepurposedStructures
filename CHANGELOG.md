@@ -1,3 +1,9 @@
+### **(V.3.2.8 Changes) (1.16.5 Minecraft)**
+
+##### Misc:
+Slightly rebalanced loot tables in all structures to be a bit better.
+
+
 ### **(V.3.2.7 Changes) (1.16.5 Minecraft)**
 
 ##### Misc:
