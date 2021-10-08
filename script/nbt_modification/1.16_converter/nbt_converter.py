@@ -48,10 +48,10 @@ blockPalette = {""}
 originalBiome = ""
 newBiome = ""
 string_blacklist = []
-conversion_partial_dict = {
-    "repurposed_structures:mansions/":"repurposed_structures:chests/mansion/"
+conversion_partial_dict = {}
+conversion_exact_dict = {
+    "minecraft:grass_path":"minecraft:dirt_path"
 }
-conversion_exact_dict = {}
 
 #-------------------------------------------------------------------------------------------
 

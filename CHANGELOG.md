@@ -1,3 +1,9 @@
+### **(V.2.3.7 Changes) (1.17.1 Minecraft)**
+
+##### Misc:
+Improved the error reporting a bit if a datapack has a typo within its pool_additions folder for Repurposed Structures.
+
+
 ### **(V.2.3.6 Changes) (1.17.1 Minecraft)**
 
 ##### Villages:

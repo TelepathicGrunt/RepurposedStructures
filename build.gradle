@@ -54,6 +54,7 @@ if (project.use_third_party_mods) {
 		modRuntime "curse.maven:structure_void_toggle-357304:3349168"
 		modRuntime "com.telepathicgrunt:Blame-Fabric:1.17-4.0.0-fabric"
 		// modRuntime "curse.maven:more_villagers-486080:3480631"
+		// modRuntime "curse.maven:farmers_delight-482834:3466296"
 	}
 }
 

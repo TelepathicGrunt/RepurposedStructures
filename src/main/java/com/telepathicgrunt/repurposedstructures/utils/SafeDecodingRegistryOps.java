@@ -7,6 +7,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.DynamicOps;
 import com.mojang.serialization.Lifecycle;
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.WritableRegistry;
@@ -42,11 +43,11 @@ public class SafeDecodingRegistryOps<T> extends RegistryReadOps<T> {
     @Override
     protected <E> DataResult<Pair<Supplier<E>, T>> decodeElement(T object, ResourceKey<? extends Registry<E>> registryKey, Codec<E> codec, boolean allowInlineDefinitions) {
         Optional<WritableRegistry<E>> optional = this.dynamicRegistryManager.ownedRegistry(registryKey);
-        if (!optional.isPresent()) {
+        if (optional.isEmpty()) {
             return DataResult.error("(Repurposed Structures SafeDecodingRegistryOps) Unknown registry: " + registryKey);
         } else {
             DataResult<Pair<ResourceLocation, T>> dataResult = ResourceLocation.CODEC.decode(this.delegate, object);
-            if (!dataResult.result().isPresent()) {
+            if (dataResult.result().isEmpty()) {
                 return !allowInlineDefinitions ?
                         DataResult.error("(Repurposed Structures SafeDecodingRegistryOps) Inline definitions not allowed here") :
                         codec.decode(this, object).map((pair) -> pair.mapFirst((object2) -> () -> object2));
@@ -54,8 +55,21 @@ public class SafeDecodingRegistryOps<T> extends RegistryReadOps<T> {
                 WritableRegistry<E> mutableRegistry = optional.get();
                 Pair<ResourceLocation, T> pair = dataResult.result().get();
                 ResourceLocation identifier = pair.getFirst();
-                return this.readAndRegisterElement(registryKey, mutableRegistry, codec, identifier)
-                        .map((supplier) -> Pair.of(supplier, pair.getSecond()));
+
+                try {
+                    return this.readAndRegisterElement(registryKey, mutableRegistry, codec, identifier)
+                            .map((supplier) -> Pair.of(supplier, pair.getSecond()));
+                }
+                catch (Exception e) {
+                    RepurposedStructures.LOGGER.error(
+                            """
+
+                            Repurposed Structures: Crash is about to occur because an entry in a datapack does not exist in a registry or failed to resolve an entry.
+                            Entry failed to be resolved: {}
+                            Registry being used: {}""".indent(1),
+                            registryKey, object);
+                    throw e;
+                }
             }
         }
     }
