@@ -1,11 +1,23 @@
-### **(V.3.2.8 Changes) (1.16.5 Minecraft)**
+### **(V.3.2.9 Changes) (1.16.5 Minecraft)**
 
 ##### Misc:
 Slightly rebalanced loot tables in all structures to be a bit better.
 
 ##### Mansions:
 RS Mansions will no longer spawn at world bottom and will not make support pillars to the very bottom of the world.
-  This makes mansions spawn much better for floating island worlds.
+This makes mansions spawn much better for floating island worlds.
+
+##### Pyramids:
+Many pyramids will now no longer make a support pillar to the very bottom of the world in worlds like floating island worldtypes.
+
+##### Fortresses:
+Jungle Fortress will now no longer make a support pillar to the very bottom of the world in worlds like floating island worldtypes.
+
+
+### **(V.3.2.8 Changes) (1.16.5 Minecraft)**
+
+##### Misc:
+Slightly rebalanced loot tables in all structures to be a bit better.
 
 
 ### **(V.3.2.7 Changes) (1.16.5 Minecraft)**

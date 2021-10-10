@@ -280,6 +280,26 @@ public class GeneralUtils {
 
     //////////////////////////////////////////////
 
+    public static int getFirstLandYFromPos(IWorldReader worldView, BlockPos pos) {
+        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        mutable.set(pos);
+        IChunk currentChunk = worldView.getChunk(mutable);
+        BlockState currentState = currentChunk.getBlockState(mutable);
+
+        while(mutable.getY() >= 0 && isReplaceableByStructures(currentState)) {
+            mutable.move(Direction.DOWN);
+            currentState = currentChunk.getBlockState(mutable);
+        }
+
+        return mutable.getY();
+    }
+
+    private static boolean isReplaceableByStructures(BlockState blockState) {
+        return blockState.isAir() || blockState.getMaterial().isLiquid() || blockState.getMaterial().isReplaceable();
+    }
+
+    //////////////////////////////////////////////
+
     public static void centerAllPieces(BlockPos targetPos, List<StructurePiece> pieces){
         if(pieces.isEmpty()) return;
 

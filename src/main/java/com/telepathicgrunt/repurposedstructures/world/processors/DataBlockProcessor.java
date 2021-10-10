@@ -4,6 +4,7 @@ import com.mojang.brigadier.StringReader;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.command.arguments.BlockStateParser;
@@ -65,10 +66,19 @@ public class DataBlockProcessor extends StructureProcessor {
                         }
                     }
 
+                    int terrainY = Integer.MIN_VALUE;
+                    if(direction == Direction.DOWN && depth == Integer.MAX_VALUE) {
+                        terrainY = GeneralUtils.getFirstLandYFromPos(worldView, worldPos);
+                        if(terrainY <= 0) {
+                            // Replaces the data block itself
+                            return replacementState == null || replacementState.is(Blocks.STRUCTURE_VOID) ? null : new Template.BlockInfo(worldPos, replacementState, null);
+                        }
+                    }
+
                     // Creates the pillars in the world that replaces air and liquids
                     while(!currentBlock.canOcclude() &&
                             currentPos.getY() <= worldView.dimensionType().logicalHeight() &&
-                            currentPos.getY() >= 0 &&
+                            currentPos.getY() >= terrainY &&
                             currentPos.closerThan(worldPos, depth)
                     ){
                         Template.BlockInfo newPillarState1 = new Template.BlockInfo(structureBlockInfoLocal.pos, replacementState, null);

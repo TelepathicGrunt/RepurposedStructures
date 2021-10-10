@@ -3,6 +3,7 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 import com.google.common.collect.Lists;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.misc.BiomeSourceChecks;
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.MansionPieces;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.SharedSeedRandom;
@@ -106,7 +107,7 @@ public class MansionStructure extends AbstractBaseStructure<NoFeatureConfig> {
                 for(int z = box.z0; z <= box.z1; ++z) {
                     BlockPos blockPos = new BlockPos(x, structureBottomY, z);
                     if(RepurposedStructures.RSMansionsConfig.pillarOnlyToLand.get()) {
-                        terrainY = chunkGenerator.getFirstOccupiedHeight(x, z, Heightmap.Type.OCEAN_FLOOR_WG);
+                        terrainY = GeneralUtils.getFirstLandYFromPos(world, blockPos.below());
                         if(terrainY <= 0) {
                             continue;
                         }
