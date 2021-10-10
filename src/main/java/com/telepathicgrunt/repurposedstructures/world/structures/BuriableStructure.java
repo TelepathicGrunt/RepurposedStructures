@@ -4,7 +4,6 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.Rotation;
 import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
@@ -82,19 +81,16 @@ public class BuriableStructure extends AbstractBaseStructure<NoFeatureConfig> {
                     false);
             GeneralUtils.centerAllPieces(blockpos, this.pieces);
             this.calculateBoundingBox();
-
-            Rotation rotation = this.pieces.get(0).getRotation();
-            BlockPos maxCorner = new BlockPos(this.pieces.get(0).getBoundingBox().getXSpan(), 0, this.pieces.get(0).getBoundingBox().getZSpan()).rotate(rotation);
-
             Heightmap.Type heightMapToUse = onLand ? Heightmap.Type.WORLD_SURFACE_WG : Heightmap.Type.OCEAN_FLOOR_WG;
 
-            int highestLandPos = chunkGenerator.getBaseHeight(blockpos.getX() + maxCorner.getX(), blockpos.getZ() + maxCorner.getZ(), heightMapToUse);
-            highestLandPos = Math.min(highestLandPos, chunkGenerator.getBaseHeight(blockpos.getX(), blockpos.getZ() + maxCorner.getZ(), heightMapToUse));
-            highestLandPos = Math.min(highestLandPos, chunkGenerator.getBaseHeight(blockpos.getX() + maxCorner.getX(), blockpos.getZ(), heightMapToUse));
-            highestLandPos = Math.min(highestLandPos, chunkGenerator.getBaseHeight(blockpos.getX(), blockpos.getZ(), heightMapToUse));
+            MutableBoundingBox box = this.pieces.get(0).getBoundingBox();
+            int highestLandPos = chunkGenerator.getBaseHeight(box.x0, box.z0, heightMapToUse);
+            highestLandPos = Math.min(highestLandPos, chunkGenerator.getBaseHeight(box.x0, box.z1, heightMapToUse));
+            highestLandPos = Math.min(highestLandPos, chunkGenerator.getBaseHeight(box.x1, box.z0, heightMapToUse));
+            highestLandPos = Math.min(highestLandPos, chunkGenerator.getBaseHeight(box.x1, box.z1, heightMapToUse));
 
             if(!onLand){
-                int maxHeightForSubmerging = chunkGenerator.getSeaLevel() - this.pieces.get(0).getBoundingBox().getYSpan();
+                int maxHeightForSubmerging = chunkGenerator.getSeaLevel() - box.getYSpan();
                 highestLandPos = Math.min(highestLandPos, maxHeightForSubmerging);
             }
 
