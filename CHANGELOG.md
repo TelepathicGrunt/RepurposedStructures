@@ -7,6 +7,8 @@ RS Mansions will no longer spawn at world bottom and will not make support pilla
 ##### Pyramids:
 Many pyramids will now no longer make a support pillar to the very bottom of the world in worlds like floating island worldtypes.
 
+Fixed several pyramid's check for terrain to check at correct spot in their spawn chunk.
+
 ##### Fortresses:
 Jungle Fortress will now no longer make a support pillar to the very bottom of the world in worlds like floating island worldtypes.
 

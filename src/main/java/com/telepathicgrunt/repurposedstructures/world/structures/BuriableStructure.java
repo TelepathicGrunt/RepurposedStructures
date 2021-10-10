@@ -45,10 +45,10 @@ public class BuriableStructure extends AbstractBaseStructure<NoneFeatureConfigur
     protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, WorldgenRandom chunkRandom, ChunkPos chunkPos1, Biome biome, ChunkPos chunkPos, NoneFeatureConfiguration defaultFeatureConfig, LevelHeightAccessor heightLimitView) {
 
         if(cannotSpawnInWater){
-            BlockPos centerOfChunk = chunkPos.getMiddleBlockPosition(0);
-            int landHeight = chunkGenerator.getFirstOccupiedHeight(centerOfChunk.getX(), centerOfChunk.getZ(), Heightmap.Types.WORLD_SURFACE_WG, heightLimitView);
-            NoiseColumn columnOfBlocks = chunkGenerator.getBaseColumn(centerOfChunk.getX(), centerOfChunk.getZ(), heightLimitView);
-            BlockState topBlock = columnOfBlocks.getBlockState(centerOfChunk.above(landHeight));
+            BlockPos cornerOfSpawnChunk = chunkPos.getWorldPosition();
+            int landHeight = chunkGenerator.getFirstOccupiedHeight(cornerOfSpawnChunk.getX(), cornerOfSpawnChunk.getZ(), Heightmap.Types.WORLD_SURFACE_WG, heightLimitView);
+            NoiseColumn columnOfBlocks = chunkGenerator.getBaseColumn(cornerOfSpawnChunk.getX(), cornerOfSpawnChunk.getZ(), heightLimitView);
+            BlockState topBlock = columnOfBlocks.getBlockState(cornerOfSpawnChunk.above(landHeight));
             return topBlock.getFluidState().isEmpty();
         }
 
