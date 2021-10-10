@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.google.common.collect.Lists;
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.misc.BiomeSourceChecks;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.MansionPieces;
 import net.minecraft.util.Rotation;
@@ -85,6 +86,9 @@ public class MansionStructure extends AbstractBaseStructure<NoFeatureConfig> {
             int thirdHeight = chunkGenerator.getFirstOccupiedHeight(centerX + xOffset, centerZ, Heightmap.Type.WORLD_SURFACE_WG);
             int forthheight = chunkGenerator.getFirstOccupiedHeight(centerX + xOffset, centerZ + zOffset, Heightmap.Type.WORLD_SURFACE_WG);
             int finalheight = Math.min(Math.min(firstHeight, secondHeight), Math.min(thirdHeight, forthheight));
+            if(finalheight <= 0)
+                return;
+
             BlockPos blockPos = new BlockPos(centerX, finalheight + 1, centerZ);
             List<MansionPieces.MansionTemplate> list = Lists.newLinkedList();
             MansionPieces.generateMansion(structureManager, blockPos, blockRotation, list, this.random, type);
@@ -96,10 +100,18 @@ public class MansionStructure extends AbstractBaseStructure<NoFeatureConfig> {
         public void placeInChunk(ISeedReader world, StructureManager structureAccessor, ChunkGenerator chunkGenerator, Random random, MutableBoundingBox box, ChunkPos chunkPos) {
             super.placeInChunk(world, structureAccessor, chunkGenerator, random, box, chunkPos);
             int structureBottomY = this.getBoundingBox().y0;
+            int terrainY = Integer.MIN_VALUE;
 
             for(int x = box.x0; x <= box.x1; ++x) {
                 for(int z = box.z0; z <= box.z1; ++z) {
                     BlockPos blockPos = new BlockPos(x, structureBottomY, z);
+                    if(RepurposedStructures.RSMansionsConfig.pillarOnlyToLand.get()) {
+                        terrainY = chunkGenerator.getFirstOccupiedHeight(x, z, Heightmap.Type.OCEAN_FLOOR_WG);
+                        if(terrainY <= 0) {
+                            continue;
+                        }
+                    }
+
                     if (!world.isEmptyBlock(blockPos) && this.getBoundingBox().isInside(blockPos)) {
                         boolean bl = false;
                         for (StructurePiece structurePiece : this.pieces) {
@@ -111,6 +123,12 @@ public class MansionStructure extends AbstractBaseStructure<NoFeatureConfig> {
 
                         if (bl) {
                             for(int currentY = structureBottomY - 1; currentY > 1; --currentY) {
+                                if(RepurposedStructures.RSMansionsConfig.pillarOnlyToLand.get()) {
+                                    if(currentY <= terrainY) {
+                                        break;
+                                    }
+                                }
+
                                 BlockPos blockPos2 = new BlockPos(x, currentY, z);
                                 if (!world.isEmptyBlock(blockPos2) && !world.getBlockState(blockPos2).getMaterial().isLiquid()) {
                                     break;

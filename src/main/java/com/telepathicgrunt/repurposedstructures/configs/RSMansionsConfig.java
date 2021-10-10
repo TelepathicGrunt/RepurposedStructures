@@ -8,6 +8,7 @@ public class RSMansionsConfig
 {
 	public static class RSMansionsConfigValues
 	{
+		public ConfigValueListener<Boolean> pillarOnlyToLand;
 		public ConfigValueListener<Integer> mansionJungleMaxChunkDistance;
 		public ConfigValueListener<Integer> mansionBirchMaxChunkDistance;
 		public ConfigValueListener<Integer> mansionOakMaxChunkDistance;
@@ -18,6 +19,12 @@ public class RSMansionsConfig
 
 		public RSMansionsConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
 		{
+			pillarOnlyToLand = subscriber.subscribe(builder
+					.comment("\n Only make supports downward if there is land below.",
+							" (Helps make structure look better in floating island worlds instead of support going down to void at world bottom)")
+					.translation("repurposedstructures.config.mansions.mansionbirchmaxchunkdistance")
+					.define("pillarOnlyToLand", true));
+
 			mansionBirchMaxChunkDistance = subscriber.subscribe(builder
 					.comment("\n Add Birch Mansions to modded Birch biomes.",
 							" 1 for spawning in most chunks and 1001 for none.")
