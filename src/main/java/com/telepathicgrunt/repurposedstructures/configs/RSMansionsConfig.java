@@ -11,6 +11,16 @@ public class RSMansionsConfig implements ConfigData {
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.PrefixText
+        @Comment("""
+
+
+
+                Only make supports downward if there is land below.
+                (Helps make structure look better in floating island worlds instead of support going down to void at world bottom)""")
+        public boolean pillarOnlyToLand = true;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
         @ConfigEntry.Gui.RequiresRestart
         @Comment("""
 

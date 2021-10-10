@@ -3,6 +3,10 @@
 ##### Misc:
 Slightly rebalanced loot tables in all structures to be a bit better.
 
+##### Mansions:
+RS Mansions will no longer spawn at world bottom and will not make support pillars to the very bottom of the world.
+  This makes mansions spawn much better for floating island worlds.
+
 
 ### **(V.2.3.7 Changes) (1.17.1 Minecraft)**
 
