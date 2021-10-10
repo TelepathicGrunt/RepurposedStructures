@@ -17,11 +17,14 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelHeightAccessor;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.NoiseColumn;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
@@ -60,8 +63,8 @@ public class GeneralUtils {
     //////////////////////////////
     private static final Map<BlockState, Boolean> IS_FULLCUBE_MAP = new HashMap<>();
 
-    public static boolean isFullCube(BlockGetter world, BlockPos pos, BlockState state){
-        if(!IS_FULLCUBE_MAP.containsKey(state)){
+    public static boolean isFullCube(BlockGetter world, BlockPos pos, BlockState state) {
+        if(!IS_FULLCUBE_MAP.containsKey(state)) {
             boolean isFullCube = Block.isShapeFullBlock(state.getOcclusionShape(world, pos));
             IS_FULLCUBE_MAP.put(state, isFullCube);
         }
@@ -84,7 +87,7 @@ public class GeneralUtils {
 
                 // Exit early if facing open space opposite of wall
                 mutable.move(facing.getOpposite(), 2);
-                if(!blockView.getBlockState(mutable).getMaterial().isSolid()){
+                if(!blockView.getBlockState(mutable).getMaterial().isSolid()) {
                     break;
                 }
             }
@@ -96,7 +99,7 @@ public class GeneralUtils {
 
     //////////////////////////////////////////////
 
-    public static boolean isBlacklistedForWorld(ServerLevelAccessor currentWorld, ResourceLocation worldgenObjectID){
+    public static boolean isBlacklistedForWorld(ServerLevelAccessor currentWorld, ResourceLocation worldgenObjectID) {
         ResourceLocation worldID = currentWorld.getLevel().dimension().location();
 
         // Apply disallow first. (Default behavior is it adds to all dimensions)
@@ -106,7 +109,7 @@ public class GeneralUtils {
         // Apply allow to override disallow if dimension is targeted in both.
         // Lets disallow to turn off spawn for a group of dimensions while allow can turn it back one for one of them.
         if(!allowInDim && BiomeDimensionAllowDisallow.DIMENSION_ALLOW.getOrDefault(worldgenObjectID, new ArrayList<>())
-                .stream().anyMatch(pattern -> pattern.matcher(worldID.toString()).find())){
+                .stream().anyMatch(pattern -> pattern.matcher(worldID.toString()).find())) {
             allowInDim = true;
         }
 
@@ -125,10 +128,10 @@ public class GeneralUtils {
     //////////////////////////////
 
     public static ItemStack enchantRandomly(Random random, ItemStack itemToEnchant, float chance) {
-        if(random.nextFloat() < chance){
+        if(random.nextFloat() < chance) {
             List<Enchantment> list = Registry.ENCHANTMENT.stream().filter(Enchantment::isDiscoverable)
                     .filter((enchantmentToCheck) -> enchantmentToCheck.canEnchant(itemToEnchant)).collect(Collectors.toList());
-            if(!list.isEmpty()){
+            if(!list.isEmpty()) {
                 Enchantment enchantment = list.get(random.nextInt(list.size()));
                 // bias towards weaker enchantments
                 int enchantmentLevel = random.nextInt(Mth.nextInt(random, enchantment.getMinLevel(), enchantment.getMaxLevel()) + 1);
@@ -161,7 +164,7 @@ public class GeneralUtils {
     }
 
 
-    public static BlockPos getLowestLand(ChunkGenerator chunkGenerator, BoundingBox boundingBox, LevelHeightAccessor heightLimitView, boolean canBeOnLiquid){
+    public static BlockPos getLowestLand(ChunkGenerator chunkGenerator, BoundingBox boundingBox, LevelHeightAccessor heightLimitView, boolean canBeOnLiquid) {
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(boundingBox.getCenter().getX(), chunkGenerator.getSeaLevel() + 1, boundingBox.getCenter().getZ());
         NoiseColumn blockView = chunkGenerator.getBaseColumn(mutable.getX(), mutable.getZ(), heightLimitView);
         BlockState currentBlockstate = blockView.getBlockState(mutable);
@@ -182,17 +185,36 @@ public class GeneralUtils {
         return mutable.set(mutable.getX(), chunkGenerator.getSeaLevel(), mutable.getZ());
     }
 
+    //////////////////////////////////////////////
+
+    public static int getFirstLandYFromPos(LevelReader worldView, BlockPos pos) {
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
+        mutable.set(pos);
+        ChunkAccess currentChunk = worldView.getChunk(mutable);
+        BlockState currentState = currentChunk.getBlockState(mutable);
+
+        while(mutable.getY() >= worldView.getMinBuildHeight() && isReplaceableByStructures(currentState)) {
+            mutable.move(Direction.DOWN);
+            currentState = currentChunk.getBlockState(mutable);
+        }
+
+        return mutable.getY();
+    }
+
+    private static boolean isReplaceableByStructures(BlockState blockState) {
+        return blockState.isAir() || blockState.getMaterial().isLiquid() || blockState.getMaterial().isReplaceable();
+    }
 
     //////////////////////////////////////////////
 
-    public static void centerAllPieces(BlockPos targetPos, List<StructurePiece> pieces){
+    public static void centerAllPieces(BlockPos targetPos, List<StructurePiece> pieces) {
         if(pieces.isEmpty()) return;
 
         Vec3i structureCenter = pieces.get(0).getBoundingBox().getCenter();
         int xOffset = targetPos.getX() - structureCenter.getX();
         int zOffset = targetPos.getZ() - structureCenter.getZ();
 
-        for(StructurePiece structurePiece : pieces){
+        for(StructurePiece structurePiece : pieces) {
             structurePiece.move(xOffset, 0, zOffset);
         }
     }

@@ -4,12 +4,14 @@ import com.mojang.brigadier.StringReader;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.commands.arguments.blocks.BlockStateParser;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
@@ -57,7 +59,7 @@ public class DataBlockProcessor extends StructureProcessor {
                     BlockState currentBlock = worldView.getBlockState(worldPos);
                     BlockPos.MutableBlockPos currentPos = new BlockPos.MutableBlockPos().set(worldPos);
 
-                    int depth = 256;
+                    int depth = Integer.MAX_VALUE;
                     if(splitString.length > 2){
                         String thirdArgument = splitString[2];
                         if(NumberUtils.isParsable(thirdArgument)){
@@ -65,10 +67,19 @@ public class DataBlockProcessor extends StructureProcessor {
                         }
                     }
 
+                    int terrainY = Integer.MIN_VALUE;
+                    if(direction == Direction.DOWN && depth == Integer.MAX_VALUE) {
+                        terrainY = GeneralUtils.getFirstLandYFromPos(worldView, worldPos);
+                        if(terrainY <= worldView.getMinBuildHeight()) {
+                            // Replaces the data block itself
+                            return replacementState == null || replacementState.is(Blocks.STRUCTURE_VOID) ? null : new StructureTemplate.StructureBlockInfo(worldPos, replacementState, null);
+                        }
+                    }
+
                     // Creates the pillars in the world that replaces air and liquids
                     while(!currentBlock.canOcclude() &&
                             currentPos.getY() <= worldView.dimensionType().logicalHeight() &&
-                            currentPos.getY() >= 0 &&
+                            currentPos.getY() >= terrainY &&
                             currentPos.closerThan(worldPos, depth)
                     ){
                         StructureTemplate.StructureBlockInfo newPillarState1 = new StructureTemplate.StructureBlockInfo(structureBlockInfoLocal.pos, replacementState, null);

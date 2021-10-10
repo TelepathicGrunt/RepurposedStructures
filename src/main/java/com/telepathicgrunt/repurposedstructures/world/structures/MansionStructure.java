@@ -2,6 +2,7 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.google.common.collect.Lists;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.MansionPieces;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.RegistryAccess;
@@ -106,7 +107,7 @@ public class MansionStructure extends AbstractBaseStructure<NoneFeatureConfigura
                 for(int z = box.minZ(); z <= box.maxZ(); ++z) {
                     BlockPos blockPos = new BlockPos(x, structureBottomY, z);
                     if(RepurposedStructures.RSAllConfig.RSMansionsConfig.pillarOnlyToLand) {
-                        terrainY = chunkGenerator.getFirstOccupiedHeight(x, z, Heightmap.Types.OCEAN_FLOOR_WG, world);
+                        terrainY = GeneralUtils.getFirstLandYFromPos(world, blockPos.below());
                         if(terrainY <= chunkGenerator.getMinY()) {
                             continue;
                         }
