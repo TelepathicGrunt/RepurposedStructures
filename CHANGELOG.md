@@ -1,3 +1,9 @@
+### **(V.2.3.10 Changes) (1.17.1 Minecraft)**
+
+##### Lang:
+Fixed several zh_cn.json translations.
+
+
 ### **(V.2.3.9 Changes) (1.17.1 Minecraft)**
 
 ##### Mansions:
