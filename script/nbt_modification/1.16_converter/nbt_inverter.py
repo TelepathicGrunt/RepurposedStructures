@@ -24,6 +24,7 @@ conversion_exact_dict = {}
 #-------------------------------------------------------------------------------------------
 
 ySize = 0
+isWall = False
 
 def string_replacer(nbt_string):
     if nbt_string.value not in string_blacklist:
@@ -40,7 +41,8 @@ def property_replacer(nbt_key, nbt_string, property_name, value_to_replace, new_
     if nbt_key == property_name:
         if nbt_string.value == value_to_replace:
             nbt_string.value = new_value
-            return
+            return True
+    return False
 
 
 def traverse_dicts(nbt_list):
@@ -51,30 +53,53 @@ def traverse_dicts(nbt_list):
                 blockPalette.append(entry)
         '''
 
-        for key, entry in nbt_list.items():
-            property_replacer(key, entry, "up", "false", "true")
-            property_replacer(key, entry, "up", "true", "false")
-            property_replacer(key, entry, "down", "false", "true")
-            property_replacer(key, entry, "down", "true", "false")
-            property_replacer(key, entry, "orientation", "up_north", "down_north")
-            property_replacer(key, entry, "orientation", "up_south", "down_south")
-            property_replacer(key, entry, "orientation", "up_west", "down_west")
-            property_replacer(key, entry, "orientation", "up_east", "down_east")
-            property_replacer(key, entry, "orientation", "down_north", "up_north")
-            property_replacer(key, entry, "orientation", "down_south", "up_south")
-            property_replacer(key, entry, "orientation", "down_west", "up_west")
-            property_replacer(key, entry, "orientation", "down_east", "up_east")
-            property_replacer(key, entry, "half", "bottom", "top")
-            property_replacer(key, entry, "half", "top", "bottom")
-            property_replacer(key, entry, "type", "bottom", "top")
-            property_replacer(key, entry, "type", "top", "bottom")
-            property_replacer(key, entry, "facing", "up", "down")
-            property_replacer(key, entry, "facing", "down", "up")
-            property_replacer(key, entry, "face", "ceiling", "floor")
-            property_replacer(key, entry, "face", "floor", "ceiling")
+        if "Name" in nbt_list:
+            isWall = "wall" in nbt_list["Name"].value
 
-            if key == "pos":
+        for key, entry in nbt_list.items():
+            if key == "pos" or key == "blockPos":
                 entry[1].value = ySize.value - entry[1].value - 1
+
+            if property_replacer(key, entry, "up", "false", "true"):
+                continue
+            if not isWall and property_replacer(key, entry, "up", "true", "false"):
+                continue
+            if property_replacer(key, entry, "down", "false", "true"):
+                continue
+            if property_replacer(key, entry, "down", "true", "false"):
+                continue
+            if property_replacer(key, entry, "orientation", "up_north", "down_north"):
+                continue
+            if property_replacer(key, entry, "orientation", "up_south", "down_south"):
+                continue
+            if property_replacer(key, entry, "orientation", "up_west", "down_west"):
+                continue
+            if property_replacer(key, entry, "orientation", "up_east", "down_east"):
+                continue
+            if property_replacer(key, entry, "orientation", "down_north", "up_north"):
+                continue
+            if property_replacer(key, entry, "orientation", "down_south", "up_south"):
+                continue
+            if property_replacer(key, entry, "orientation", "down_west", "up_west"):
+                continue
+            if property_replacer(key, entry, "orientation", "down_east", "up_east"):
+                continue
+            if property_replacer(key, entry, "half", "bottom", "top"):
+                continue
+            if property_replacer(key, entry, "half", "top", "bottom"):
+                continue
+            if property_replacer(key, entry, "type", "bottom", "top"):
+                continue
+            if property_replacer(key, entry, "type", "top", "bottom"):
+                continue
+            if property_replacer(key, entry, "facing", "up", "down"):
+                continue
+            if property_replacer(key, entry, "facing", "down", "up"):
+                continue
+            if property_replacer(key, entry, "face", "ceiling", "floor"):
+                continue
+            if property_replacer(key, entry, "face", "floor", "ceiling"):
+                continue
 
             if isinstance(entry, nbt.NBTTagList) or isinstance(entry, nbt.NBTTagCompound):
                 traverse_dicts(entry)
