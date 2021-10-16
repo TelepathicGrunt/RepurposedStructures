@@ -77,7 +77,6 @@ public class RSStructureTagMap {
 
         addTags(RSStructures.STRONGHOLD_NETHER.get(), Stream.of(STRUCTURE_TAGS.STRONGHOLD).collect(Collectors.toSet()));
         addTags(RSStructures.STRONGHOLD_END.get(), Stream.of(STRUCTURE_TAGS.STRONGHOLD, STRUCTURE_TAGS.END_MINESHAFT_AVOID_STRUCTURE).collect(Collectors.toSet()));
-        // regexpos1
 
         addTags(RSStructures.PYRAMID_BADLANDS.get(), Stream.of(STRUCTURE_TAGS.PYRAMID).collect(Collectors.toSet()));
         addTags(RSStructures.PYRAMID_NETHER.get(), Stream.of(STRUCTURE_TAGS.PYRAMID, STRUCTURE_TAGS.NO_DELTAS).collect(Collectors.toSet()));
@@ -125,6 +124,7 @@ public class RSStructureTagMap {
         addTags(RSStructures.VILLAGE_CRIMSON.get(), Stream.of(STRUCTURE_TAGS.VILLAGE, STRUCTURE_TAGS.OUTPOST_AVOID_STRUCTURE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE, STRUCTURE_TAGS.NO_DELTAS).collect(Collectors.toSet()));
         addTags(RSStructures.VILLAGE_WARPED.get(), Stream.of(STRUCTURE_TAGS.VILLAGE, STRUCTURE_TAGS.OUTPOST_AVOID_STRUCTURE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE, STRUCTURE_TAGS.NO_DELTAS).collect(Collectors.toSet()));
         addTags(RSStructures.VILLAGE_OAK.get(), Stream.of(STRUCTURE_TAGS.VILLAGE, STRUCTURE_TAGS.OUTPOST_AVOID_STRUCTURE, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
+        // regexpos1
 
         addTags(RSStructures.FORTRESS_JUNGLE.get(), Stream.of(STRUCTURE_TAGS.FORTRESS).collect(Collectors.toSet()));
         addTags(RSStructures.RUINED_PORTAL_END.get(), Stream.of(STRUCTURE_TAGS.RUINED_PORTAL).collect(Collectors.toSet()));

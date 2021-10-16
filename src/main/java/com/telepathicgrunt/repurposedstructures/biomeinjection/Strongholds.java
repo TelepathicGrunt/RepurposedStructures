@@ -26,6 +26,5 @@ public class Strongholds {
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.STRONGHOLD_END);
         }
-        // regexpos1
     }
 }

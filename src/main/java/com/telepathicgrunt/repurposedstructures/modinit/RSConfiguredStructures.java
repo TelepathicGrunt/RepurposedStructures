@@ -29,7 +29,6 @@ public class RSConfiguredStructures {
 
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> STRONGHOLD_NETHER = RSStructures.STRONGHOLD_NETHER.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> STRONGHOLD_END = RSStructures.STRONGHOLD_END.get().configured(IFeatureConfig.NONE);
-    // regexpos1
 
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> FORTRESS_JUNGLE = RSStructures.FORTRESS_JUNGLE.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> IGLOO_GRASSY = RSStructures.IGLOO_GRASSY.get().configured(IFeatureConfig.NONE);
@@ -82,6 +81,7 @@ public class RSConfiguredStructures {
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> VILLAGE_OAK = RSStructures.VILLAGE_OAK.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> VILLAGE_CRIMSON = RSStructures.VILLAGE_CRIMSON.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> VILLAGE_WARPED = RSStructures.VILLAGE_WARPED.get().configured(IFeatureConfig.NONE);
+    // regexpos1
 
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> RUINED_PORTAL_END = RSStructures.RUINED_PORTAL_END.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> RUINS_NETHER = RSStructures.RUINS_NETHER.get().configured(IFeatureConfig.NONE);
@@ -126,7 +126,6 @@ public class RSConfiguredStructures {
 
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "nether_stronghold"), STRONGHOLD_NETHER);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "stronghold_end"), STRONGHOLD_END);
-        // regexpos2
 
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "jungle_fortress"), FORTRESS_JUNGLE);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "grassy_igloo"), IGLOO_GRASSY);
@@ -179,6 +178,7 @@ public class RSConfiguredStructures {
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "crimson_village"), VILLAGE_CRIMSON);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "warped_village"), VILLAGE_WARPED);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "village_oak"), VILLAGE_OAK);
+        // regexpos2
 
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "ruined_portal_end"), RUINED_PORTAL_END);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "ruins_nether"), RUINS_NETHER);

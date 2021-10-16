@@ -86,5 +86,7 @@ public class Villages {
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.VILLAGE_WARPED);
         }
+
+        // regexpos1
     }
 }

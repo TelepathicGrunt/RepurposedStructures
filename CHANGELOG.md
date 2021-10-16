@@ -1,3 +1,9 @@
+### **(V.3.3.0 Changes) (1.16.5 Minecraft)**
+
+##### Villages:
+Added Mushroom Villages for Mushroom category biomes!
+
+
 ### **(V.3.2.10 Changes) (1.16.5 Minecraft)**
 
 ##### Lang:

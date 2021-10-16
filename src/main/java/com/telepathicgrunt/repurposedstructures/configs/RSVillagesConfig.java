@@ -18,6 +18,7 @@ public class RSVillagesConfig
 		public ConfigValueListener<Integer> oakVillageMaxChunkDistance;
 		public ConfigValueListener<Integer> crimsonVillageMaxChunkDistance;
 		public ConfigValueListener<Integer> warpedVillageMaxChunkDistance;
+		// regexpos1
 
 		public ConfigValueListener<Integer> badlandsVillageSize;
 		public ConfigValueListener<Integer> birchVillageSize;
@@ -93,6 +94,9 @@ public class RSVillagesConfig
 						 " 1 for spawning in most chunks and 1001 for none.")
 				.translation("repurposedstructures.config.villages.warpedvillagemaxchunkdistance")
 				.defineInRange("warpedVillageMaxChunkDistance", 30, 1, 1001));
+
+
+			// regexpos2
 
 			builder.pop();
 

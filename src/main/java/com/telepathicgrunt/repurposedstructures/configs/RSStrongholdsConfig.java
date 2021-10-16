@@ -18,8 +18,6 @@ public class RSStrongholdsConfig
 		public ConfigValueListener<Integer> strongholdEndMaxHeight;
 		public ConfigValueListener<Integer> strongholdEndSize;
 		public ConfigValueListener<Integer> strongholdEndVerticalRange;
-
-		// regexpos1
 		
 		public RSStrongholdsConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
 		{
