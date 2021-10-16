@@ -1,0 +1,1 @@
+    public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> VILLAGE_MUSHROOM = RSStructures.VILLAGE_MUSHROOM.configured(FeatureConfiguration.NONE);

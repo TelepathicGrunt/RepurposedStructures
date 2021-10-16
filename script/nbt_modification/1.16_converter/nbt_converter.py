@@ -13,9 +13,10 @@ blockPalette = {""}
 originalBiome = ""
 newBiome = ""
 string_blacklist = []
-conversion_partial_dict = {}
+conversion_partial_dict = {
+    "mushroom/trees": "mushroom/big_mushrooms"
+}
 conversion_exact_dict = {
-    "minecraft:dirt": "minecraft:dirt_path"
 }
 
 #-------------------------------------------------------------------------------------------

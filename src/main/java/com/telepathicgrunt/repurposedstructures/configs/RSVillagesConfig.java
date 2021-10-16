@@ -130,6 +130,17 @@ public class RSVillagesConfig implements ConfigData {
         public int warpedVillageAverageChunkDistance = 30;
 
 
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.PrefixText
+        @ConfigEntry.Gui.RequiresRestart
+        @Comment("""
+                
+                
+        
+                How rare are Mushroom Villages.
+                1 for spawning in most chunks and 10001 for none.""")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int villageMushroomAverageChunkDistance = 20;
         // regexpos1
     }
 
@@ -204,6 +215,16 @@ public class RSVillagesConfig implements ConfigData {
 
                 Size of the village. This is how many pieces long a path can be from the start piece.""")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 30)
+        public int mushroomVillageSize = 8;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
+        @Comment("""
+
+
+
+                Size of the village. This is how many pieces long a path can be from the start piece.""")
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 30)
         public int giantTaigaVillageSize = 6;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
@@ -235,6 +256,5 @@ public class RSVillagesConfig implements ConfigData {
                 Size of the village. This is how many pieces long a path can be from the start piece.""")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 30)
         public int warpedVillageSize = 6;
-
     }
 }

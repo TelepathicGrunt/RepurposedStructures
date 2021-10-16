@@ -25,6 +25,9 @@
         },
         {
           "output_state": {
+            "Properties": {
+              "snowy": "false"
+            },
             "Name": "minecraft:mycelium"
           },
           "input_predicate": {
@@ -70,6 +73,9 @@
         },
         {
           "output_state": {
+            "Properties": {
+              "snowy": "false"
+            },
             "Name": "minecraft:mycelium"
           },
           "input_predicate": {

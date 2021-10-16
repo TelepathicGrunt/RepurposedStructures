@@ -83,6 +83,7 @@ public class RSConfiguredStructures {
     public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> VILLAGE_CRIMSON = RSStructures.VILLAGE_CRIMSON.configured(FeatureConfiguration.NONE);
     public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> VILLAGE_WARPED = RSStructures.VILLAGE_WARPED.configured(FeatureConfiguration.NONE);
     public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> VILLAGE_OAK = RSStructures.VILLAGE_OAK.configured(FeatureConfiguration.NONE);
+    public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> VILLAGE_MUSHROOM = RSStructures.VILLAGE_MUSHROOM.configured(FeatureConfiguration.NONE);
     // regexpos1
 
     public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> RUINED_PORTAL_END = RSStructures.RUINED_PORTAL_END.configured(FeatureConfiguration.NONE);
@@ -180,6 +181,7 @@ public class RSConfiguredStructures {
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "crimson_village"), VILLAGE_CRIMSON);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "warped_village"), VILLAGE_WARPED);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "village_oak"), VILLAGE_OAK);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "village_mushroom"), VILLAGE_MUSHROOM);
         // regexpos2
 
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "ruined_portal_end"), RUINED_PORTAL_END);

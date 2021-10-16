@@ -96,6 +96,13 @@ public class Villages {
                         && RepurposedStructures.RSAllConfig.RSVillagesConfig.spawnrate.oakVillageAverageChunkDistance != 1001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.VILLAGE_OAK));
 
+        GeneralUtils.addToBiome("village_mushroom",
+                (context) -> 
+						BiomeSelection.isBiomeAllowed(context, RSStructures.VILLAGE_MUSHROOM,
+                                () -> BiomeSelection.haveCategories(context, BiomeCategory.MUSHROOM))
+						&& RepurposedStructures.RSAllConfig.RSVillagesConfig.spawnrate.villageMushroomAverageChunkDistance != 1001,
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.VILLAGE_MUSHROOM));
+				
         // regexpos1
     }
 }
