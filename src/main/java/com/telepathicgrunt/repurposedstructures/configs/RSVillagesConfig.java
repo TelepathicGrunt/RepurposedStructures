@@ -1,5 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.configs;
 
+import com.telepathicgrunt.repurposedstructures.biomeinjection.Villages;
 import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
 import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper.ConfigValueListener;
 import net.minecraftforge.common.ForgeConfigSpec;
@@ -18,6 +19,7 @@ public class RSVillagesConfig
 		public ConfigValueListener<Integer> oakVillageMaxChunkDistance;
 		public ConfigValueListener<Integer> crimsonVillageMaxChunkDistance;
 		public ConfigValueListener<Integer> warpedVillageMaxChunkDistance;
+		public ConfigValueListener<Integer> villageMushroomAverageChunkDistance;
 		// regexpos1
 
 		public ConfigValueListener<Integer> badlandsVillageSize;
@@ -26,6 +28,7 @@ public class RSVillagesConfig
 		public ConfigValueListener<Integer> jungleVillageSize;
 		public ConfigValueListener<Integer> swampVillageSize;
 		public ConfigValueListener<Integer> mountainsVillageSize;
+		public ConfigValueListener<Integer> mushroomVillageSize;
 		public ConfigValueListener<Integer> giantTaigaVillageSize;
 		public ConfigValueListener<Integer> oakVillageSize;
 		public ConfigValueListener<Integer> crimsonVillageSize;
@@ -71,6 +74,12 @@ public class RSVillagesConfig
 				.translation("repurposedstructures.config.villages.mountainsvillagemaxchunkdistance")
 				.defineInRange("mountainsVillageMaxChunkDistance", 47, 1, 1001));
 
+			villageMushroomAverageChunkDistance = subscriber.subscribe(builder
+					.comment("\n How rare are Mushroom Villages.",
+							" 1 for spawning in most chunks and 10001 for none.")
+                    .translation("repurposedstructures.config.villages.villagemushroomaveragechunkdistance")
+				.defineInRange("villageMushroomAverageChunkDistance", 20, 1, 1001));
+
 			giantTaigaVillageMaxChunkDistance = subscriber.subscribe(builder
 				.comment("\n How rare are Giant Taiga Villages in Giant Taiga biomes.",
 					" 1 for spawning in most chunks and 1001 for no spawn.")
@@ -103,52 +112,57 @@ public class RSVillagesConfig
 			builder.push("Size");
 
 			badlandsVillageSize = subscriber.subscribe(builder
-					.comment("\n Size of the Village. This is how many pieces long a path can be from the start piece.")
+					.comment("\n Size of the village. This is how many pieces long a path can be from the start piece.")
 					.translation("repurposedstructures.config.badlandsvillagesize")
 					.defineInRange("badlandsVillageSize", 10, 1, 30));
 
 			birchVillageSize = subscriber.subscribe(builder
-					.comment("\n Size of the Village. This is how many pieces long a path can be from the start piece.")
+					.comment("\n Size of the village. This is how many pieces long a path can be from the start piece.")
 					.translation("repurposedstructures.config.birchvillagesize")
 					.defineInRange("birchVillageSize", 6, 1, 30));
 
 			darkForestVillageSize = subscriber.subscribe(builder
-					.comment("\n Size of the Village. This is how many pieces long a path can be from the start piece.")
+					.comment("\n Size of the village. This is how many pieces long a path can be from the start piece.")
 					.translation("repurposedstructures.config.darkforestvillagesize")
 					.defineInRange("darkForestVillageSize", 6, 1, 30));
 
 			jungleVillageSize = subscriber.subscribe(builder
-					.comment("\n Size of the Village. This is how many pieces long a path can be from the start piece.")
+					.comment("\n Size of the village. This is how many pieces long a path can be from the start piece.")
 					.translation("repurposedstructures.config.junglevillagesize")
 					.defineInRange("jungleVillageSize", 8, 1, 30));
 
 			swampVillageSize = subscriber.subscribe(builder
-					.comment("\n Size of the Village. This is how many pieces long a path can be from the start piece.")
+					.comment("\n Size of the village. This is how many pieces long a path can be from the start piece.")
 					.translation("repurposedstructures.config.swampvillagesize")
 					.defineInRange("swampVillageSize", 6, 1, 30));
 
 			mountainsVillageSize = subscriber.subscribe(builder
-					.comment("\n Size of the Village. This is how many pieces long a path can be from the start piece.")
+					.comment("\n Size of the village. This is how many pieces long a path can be from the start piece.")
 					.translation("repurposedstructures.config.mountainsvillagesize")
 					.defineInRange("mountainsVillageSize", 6, 1, 30));
 
+			mushroomVillageSize = subscriber.subscribe(builder
+					.comment("\n Size of the village. This is how many pieces long a path can be from the start piece.")
+					.translation("repurposedstructures.config.mushroomvillagesize")
+					.defineInRange("mushroomVillageSize", 8, 1, 30));
+
 			giantTaigaVillageSize = subscriber.subscribe(builder
-					.comment("\n Size of the Village. This is how many pieces long a path can be from the start piece.")
+					.comment("\n Size of the village. This is how many pieces long a path can be from the start piece.")
 					.translation("repurposedstructures.config.gianttaigavillagesize")
 					.defineInRange("giantTaigaVillageSize", 6, 1, 30));
 
 			oakVillageSize = subscriber.subscribe(builder
-					.comment("\n Size of the Village. This is how many pieces long a path can be from the start piece.")
+					.comment("\n Size of the village. This is how many pieces long a path can be from the start piece.")
 					.translation("repurposedstructures.config.oakvillagesize")
 					.defineInRange("oakVillageSize", 6, 1, 30));
 
 			crimsonVillageSize = subscriber.subscribe(builder
-					.comment("\n Size of the Village. This is how many pieces long a path can be from the start piece.")
+					.comment("\n Size of the village. This is how many pieces long a path can be from the start piece.")
 					.translation("repurposedstructures.config.crimsonvillagesize")
 					.defineInRange("crimsonVillageSize", 6, 1, 30));
 
 			warpedVillageSize = subscriber.subscribe(builder
-					.comment("\n Size of the Village. This is how many pieces long a path can be from the start piece.")
+					.comment("\n Size of the village. This is how many pieces long a path can be from the start piece.")
 					.translation("repurposedstructures.config.warpedvillagesize")
 					.defineInRange("warpedVillageSize", 6, 1, 30));
 

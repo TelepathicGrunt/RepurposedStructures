@@ -87,6 +87,12 @@ public class Villages {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.VILLAGE_WARPED);
         }
 
+        if (RepurposedStructures.RSVillagessConfig.maxChunkDistance.get() != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.VILLAGE_MUSHROOM.get(),
+                    () -> ))
+        {
+            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.VILLAGE_MUSHROOM);
+        }
         // regexpos1
     }
 }

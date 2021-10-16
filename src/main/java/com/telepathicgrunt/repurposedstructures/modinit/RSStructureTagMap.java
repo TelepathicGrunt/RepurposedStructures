@@ -124,6 +124,7 @@ public class RSStructureTagMap {
         addTags(RSStructures.VILLAGE_CRIMSON.get(), Stream.of(STRUCTURE_TAGS.VILLAGE, STRUCTURE_TAGS.OUTPOST_AVOID_STRUCTURE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE, STRUCTURE_TAGS.NO_DELTAS).collect(Collectors.toSet()));
         addTags(RSStructures.VILLAGE_WARPED.get(), Stream.of(STRUCTURE_TAGS.VILLAGE, STRUCTURE_TAGS.OUTPOST_AVOID_STRUCTURE, STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE, STRUCTURE_TAGS.NO_DELTAS).collect(Collectors.toSet()));
         addTags(RSStructures.VILLAGE_OAK.get(), Stream.of(STRUCTURE_TAGS.VILLAGE, STRUCTURE_TAGS.OUTPOST_AVOID_STRUCTURE, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
+        addTags(RSStructures.VILLAGE_MUSHROOM.get(), Stream.of(STRUCTURE_TAGS.VILLAGE, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
         // regexpos1
 
         addTags(RSStructures.FORTRESS_JUNGLE.get(), Stream.of(STRUCTURE_TAGS.FORTRESS).collect(Collectors.toSet()));
