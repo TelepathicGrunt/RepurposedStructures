@@ -25,7 +25,6 @@ public class Strongholds {
                                 && !BiomeSelection.isBiome(context, Biomes.SMALL_END_ISLANDS))
 						&& RepurposedStructures.RSAllConfig.RSStrongholdsConfig.end.endStrongholdAverageChunkDistance != 10001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.STRONGHOLD_END));
-				
-        // regexpos1
+
     }
 }

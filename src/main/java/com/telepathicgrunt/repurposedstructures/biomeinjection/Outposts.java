@@ -25,7 +25,7 @@ public class Outposts {
                             && BiomeSelection.hasName(context, "crimson", "red_")
                             && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.NETHER_OUTPOST))
                         && RepurposedStructures.RSAllConfig.RSOutpostsConfig.crimsonOutpostAverageChunkDistance != 1001,
-                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.CRIMSON_OUTPOST));
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.OUTPOST_CRIMSON));
 
         GeneralUtils.addToBiome("warped_outpost",
                 (context) ->
@@ -34,7 +34,7 @@ public class Outposts {
                             && BiomeSelection.hasName(context, "warped", "blue")
                             && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.NETHER_OUTPOST))
                         && RepurposedStructures.RSAllConfig.RSOutpostsConfig.warpedOutpostAverageChunkDistance != 1001,
-                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.WARPED_OUTPOST));
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.OUTPOST_WARPED));
 
         GeneralUtils.addToBiome("nether_brick_outpost",
                 (context) ->
@@ -43,7 +43,7 @@ public class Outposts {
                             && !BiomeSelection.hasName(context, "crimson", "red_", "warped", "blue")
                             && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.NETHER_OUTPOST))
                         && RepurposedStructures.RSAllConfig.RSOutpostsConfig.netherBrickOutpostAverageChunkDistance != 1001,
-                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.NETHER_BRICK_OUTPOST));
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.OUTPOST_NETHER_BRICK));
 
 
         GeneralUtils.addToBiome("outpost_birch",

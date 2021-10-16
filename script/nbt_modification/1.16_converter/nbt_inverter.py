@@ -24,6 +24,7 @@ conversion_exact_dict = {}
 #-------------------------------------------------------------------------------------------
 
 ySize = 0
+global isWall
 isWall = False
 
 def string_replacer(nbt_string):
@@ -54,6 +55,7 @@ def traverse_dicts(nbt_list):
         '''
 
         if "Name" in nbt_list:
+            global isWall
             isWall = "wall" in nbt_list["Name"].value
 
         for key, entry in nbt_list.items():

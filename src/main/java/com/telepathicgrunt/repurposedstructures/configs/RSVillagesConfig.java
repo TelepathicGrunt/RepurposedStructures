@@ -128,6 +128,9 @@ public class RSVillagesConfig implements ConfigData {
                 1 for spawning in most chunks and 1001 for none.""")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
         public int warpedVillageAverageChunkDistance = 30;
+
+
+        // regexpos1
     }
 
 

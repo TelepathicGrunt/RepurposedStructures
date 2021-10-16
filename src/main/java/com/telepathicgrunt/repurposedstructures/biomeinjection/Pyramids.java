@@ -18,14 +18,14 @@ public class Pyramids {
                         BiomeSelection.isBiomeAllowed(context, RSStructures.PYRAMID_NETHER,
                                 () ->BiomeSelection.haveCategories(context, BiomeCategory.NETHER))
                         && RepurposedStructures.RSAllConfig.RSPyramidsConfig.pyramidNetherAverageChunkDistance != 1001,
-                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.NETHER_PYRAMID));
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.PYRAMID_NETHER));
 
         GeneralUtils.addToBiome("badlands_pyramid",
                 (context) ->
                         BiomeSelection.isBiomeAllowed(context, RSStructures.PYRAMID_BADLANDS,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.MESA))
                         && RepurposedStructures.RSAllConfig.RSPyramidsConfig.pyramidBadlandsAverageChunkDistance != 1001,
-                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.BADLANDS_PYRAMID));
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.PYRAMID_BADLANDS));
 
         GeneralUtils.addToBiome("pyramid_snowy",
                 (context) ->

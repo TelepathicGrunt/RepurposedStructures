@@ -5,41 +5,6 @@ import os
 
 # https://pypi.org/project/Python-NBT/
 
-'''
-string_blacklist = ["minecraft:village/taiga/villagers"]
-conversion_partial_dict = {
-}
-conversion_exact_dict = {
-    "minecraft:chests/pillager_outpost":"repurposed_structures:chests/outpost/badlands_chest"
-}
-conversion_exact_dict = {
-    "minecraft:blackstone_slab":"minecraft:cobblestone_slab",
-    "minecraft:polished_blackstone_brick_stairs":"minecraft:cobblestone_stairs",
-    "minecraft:blackstone_stairs":"minecraft:cobblestone_stairs",
-    "minecraft:blackstone_wall":"minecraft:cobblestone_wall",
-    "minecraft:gold_block":"minecraft:emerald_block",
-    "minecraft:blackstone":"minecraft:dark_oak_planks",
-    "minecraft:magma_block":"minecraft:dark_oak_planks",
-    "minecraft:polished_blackstone_bricks":"minecraft:dark_oak_wood",
-    "minecraft:gilded_blackstone":"minecraft:emerald_ore",
-    "minecraft:cracked_polished_blackstone_bricks":"minecraft:dark_oak_wood",
-    "minecraft:basalt":"minecraft:dark_oak_log",
-    "minecraft:glowstone":"minecraft:orange_wool",
-    "minecraft:lava":"minecraft:water",
-    "minecraft:soul_sand":"minecraft:yellow_wool",
-    "minecraft:polished_basalt":"minecraft:stripped_dark_oak_log",
-    "minecraft:chiseled_polished_blackstone":"minecraft:chiseled_stone_bricks",
-    "minecraft:netherrack":"minecraft:coarse_dirt",
-    "minecraft:bastion/mob/hoglin":"repurposed_structures:bastion/pillager/mob/ravager",
-    "minecraft:bastion/mob/piglin":"repurposed_structures:bastion/pillager/mob/pillagers",
-    "minecraft:bastion/mob/piglin_melee":"repurposed_structures:bastion/pillager/mob/deadly_illagers",
-    "minecraft:chests/bastion_other":"repurposed_structures:chests/bastion/pillager/other",
-    "minecraft:chests/bastion_treasure":"repurposed_structures:chests/bastion/pillager/treasure",
-    bastion_hoglin_stable
-    bastion_bridge
-}
-
-'''
 
 #--------------------------------------------------------------------------------------------
 
@@ -50,7 +15,7 @@ newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {}
 conversion_exact_dict = {
-    "minecraft:grass_path":"minecraft:dirt_path"
+    "minecraft:dirt": "minecraft:dirt_path"
 }
 
 #-------------------------------------------------------------------------------------------
@@ -82,21 +47,6 @@ def traverse_dicts(nbt_list):
     '''
     if isinstance(nbt_list, collections.abc.Mapping):
         for key, entry in nbt_list.items():
-
-            #property_replacer(key, entry, "east", "true", "false")
-            #property_replacer(key, entry, "north", "true", "false")
-            #property_replacer(key, entry, "south", "true", "false")
-            #property_replacer(key, entry, "west", "true", "false")
-            #property_replacer(key, entry, "east", "tall", "none")
-            #property_replacer(key, entry, "north", "tall", "none")
-            #property_replacer(key, entry, "south", "tall", "none")
-            #property_replacer(key, entry, "west", "tall", "none")
-            #property_replacer(key, entry, "east", "low", "none")
-            #property_replacer(key, entry, "north", "low", "none")
-            #property_replacer(key, entry, "south", "low", "none")
-            #property_replacer(key, entry, "west", "low", "none")
-            #property_replacer(key, entry, "up", "false", "true")
-
             if isinstance(entry, nbt.NBTTagList) or isinstance(entry, nbt.NBTTagCompound):
                 traverse_dicts(entry)
             elif isinstance(entry, nbt.NBTTagString):
@@ -137,3 +87,51 @@ for x in blockPalette:
 
 print("FINISHED!")
 input()
+
+
+#------------------------------------------------------------------------
+
+'''
+conversion_partial_dict = {
+    "white": "magenta",
+    "lime_bed": "purple_bed",
+    "betterstrongholds:chests/": "betterstrongholds:chests/end/",
+    "betterstrongholds:": "betterstrongholds:end/"
+}
+conversion_exact_dict = {
+    "minecraft:stone_button":"minecraft:air",
+    "minecraft:stone_bricks":"minecraft:obsidian",
+    "minecraft:cobblestone_stairs":"minecraft:purpur_stairs",
+    "minecraft:stone_brick_slab":"minecraft:purpur_slab",
+    "minecraft:stone_brick_stairs":"minecraft:purpur_stairs",
+    "minecraft:cobblestone":"minecraft:obsidian",
+    "minecraft:cobblestone_slab":"minecraft:purpur_slab",
+    "minecraft:cobblestone_bricks":"minecraft:purpur_block",
+    "minecraft:chiseled_stone_bricks":"minecraft:purpur_block",
+    "minecraft:polished_andesite_stairs":"minecraft:purpur_stairs",
+    "minecraft:polished_andesite_slab":"minecraft:purpur_slab",
+    "minecraft:smooth_stone_slab":"minecraft:purpur_slab",
+
+    "minecraft:spruce_wall_sign":"minecraft:crimson_wall_sign",
+    "minecraft:spruce_trapdoor":"minecraft:iron_trapdoor",
+    "minecraft:spruce_planks":"minecraft:purpur_block",
+    "minecraft:spruce_stairs":"minecraft:purpur_stairs",
+    "minecraft:spruce_slab":"minecraft:purpur_slab",
+    "minecraft:oak_stairs":"minecraft:purpur_stairs",
+    "minecraft:oak_slab":"minecraft:purpur_slab",
+    "minecraft:stripped_oak_log":"minecraft:purpur_pillar",
+    "minecraft:bookshelf":"minecraft:amethyst_block",
+
+    "minecraft:white_stained_glass":"minecraft:air",
+    "minecraft:gray_stained_glass":"minecraft:air",
+    "minecraft:yellow_stained_glass":"minecraft:obsidian",
+    "minecraft:purpur_block":"minecraft:diamond_block",
+    "minecraft:cyan_concrete":"minecraft:air",
+    "minecraft:cyan_terracotta":"minecraft:air",
+
+    "minecraft:water":"minecraft:amethyst_block",
+    "minecraft:flowing_water":"minecraft:amethyst_block",
+    "minecraft:lava":"minecraft:amethyst_block",
+    "minecraft:flowing_lava":"minecraft:amethyst_block"
+}
+'''

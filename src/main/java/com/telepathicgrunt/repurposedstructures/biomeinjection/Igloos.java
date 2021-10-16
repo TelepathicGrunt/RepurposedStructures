@@ -16,7 +16,7 @@ public class Igloos {
                         BiomeSelection.isBiomeAllowed(context, RSStructures.IGLOO_GRASSY,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.FOREST, BiomeCategory.PLAINS))
                         && RepurposedStructures.RSAllConfig.RSIgloosConfig.grassyIglooAverageChunkDistance != 1001,
-                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.GRASSY_IGLOO));
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.IGLOO_GRASSY));
 
         GeneralUtils.addToBiome("stone_igloo",
                 (context) ->
@@ -24,6 +24,6 @@ public class Igloos {
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.TAIGA)
                                 && BiomeSelection.hasName(context, "giant", "redwood"))
                         && RepurposedStructures.RSAllConfig.RSIgloosConfig.stoneIglooAverageChunkDistance != 1001,
-                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.STONE_IGLOO));
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.IGLOO_STONE));
     }
 }

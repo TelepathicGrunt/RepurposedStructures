@@ -60,6 +60,12 @@
         "feature": "repurposed_structures:village_mountains"
       }
     },
+    "in_village_warped": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:village_mushroom"
+      }
+    },
     "in_village_oak": {
       "trigger": "minecraft:location",
       "conditions": {
@@ -100,6 +106,9 @@
     ],
     [
       "in_village_mountains"
+    ],
+    [
+      "in_village_mushroom"
     ],
     [
       "in_village_oak"

@@ -1,15 +1,15 @@
-stronghold_end
-12
-strongholds/end/start_pool
-STRONGHOLDS
-RSStrongholdsConfig
-How rare are End Strongholds in End biome's islands. 1 for spawning in most chunks and 10001 for none. 
-200
+village_mushroom
+8
+villages/mushroom/town_center
+VILLAGES
+RSVillagessConfig
+How rare are Mushroom Villages. 1 for spawning in most chunks and 10001 for none. 
+20
 y
-STRONGHOLD
-END_MINESHAFT_AVOID
+VILLAGE
+NO_LAKES
 exit
-strongholds
+villages
 y
 C:\Users\MSI Laptop\Documents\ModdingWorkspace\RepurposedStructures-Fabric\src
 C:\Users\MSI Laptop\Documents\ModdingWorkspace\RepurposedStructures\src

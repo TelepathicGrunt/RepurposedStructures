@@ -19,7 +19,7 @@ public class Shipwrecks {
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.THEEND)
                                 && !BiomeSelection.isBiome(context, Biomes.THE_END, Biomes.SMALL_END_ISLANDS, Biomes.END_BARRENS))
                         && RepurposedStructures.RSAllConfig.RSShipwrecksConfig.endShipwreckAverageChunkDistance != 1001,
-                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.END_SHIPWRECK));
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.SHIPWRECK_END));
 
 
         //Nether based Shipwrecks
@@ -30,7 +30,7 @@ public class Shipwrecks {
                                 && BiomeSelection.hasName(context, "crimson", "red_")
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.NETHER_SHIPWRECK))
                         && RepurposedStructures.RSAllConfig.RSShipwrecksConfig.crimsonShipwreckAverageChunkDistance != 1001,
-                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.CRIMSON_SHIPWRECK));
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.SHIPWRECK_CRIMSON));
 
         GeneralUtils.addToBiome("warped_shipwreck",
                 (context) ->
@@ -39,7 +39,7 @@ public class Shipwrecks {
                                 && BiomeSelection.hasName(context, "warped", "blue")
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.NETHER_SHIPWRECK))
                         && RepurposedStructures.RSAllConfig.RSShipwrecksConfig.warpedShipwreckAverageChunkDistance != 1001,
-                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.WARPED_SHIPWRECK));
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.SHIPWRECK_WARPED));
 
         GeneralUtils.addToBiome("nether_bricks_shipwreck",
                 (context) ->
@@ -49,7 +49,7 @@ public class Shipwrecks {
                                 && !BiomeSelection.hasName(context, "crimson", "red_", "warped", "blue")
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.NETHER_SHIPWRECK))
                         && RepurposedStructures.RSAllConfig.RSShipwrecksConfig.netherBricksShipwreckAverageChunkDistance != 1001,
-                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.NETHER_BRICKS_SHIPWRECK_FLYING));
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.SHIPWRECK_NETHER_BRICKS_FLYING));
 
         GeneralUtils.addToBiome("nether_bricks_shipwreck_flying",
                 (context) ->
@@ -58,7 +58,7 @@ public class Shipwrecks {
                                 && !BiomeSelection.hasName(context, "crimson", "red_", "warped", "blue", "soul")
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.NETHER_SHIPWRECK))
                 && RepurposedStructures.RSAllConfig.RSShipwrecksConfig.netherBricksShipwreckAverageChunkDistance != 1001,
-                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.NETHER_BRICKS_SHIPWRECK));
+                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.SHIPWRECK_NETHER_BRICKS));
 
     }
 }

@@ -123,7 +123,5 @@ public class RSStrongholdsConfig implements ConfigData
                 How far above or below the End Stronghold's pieces can generate away from the center piece.""")
 		@ConfigEntry.BoundedDiscrete(min = 0, max = 255)
 		public int endStrongholdVerticalRange = 45;
-
-		// regexpos1
 	}
 }
