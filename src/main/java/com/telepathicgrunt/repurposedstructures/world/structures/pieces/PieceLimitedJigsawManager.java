@@ -75,7 +75,7 @@ public class PieceLimitedJigsawManager {
 
         // Get starting pool
         StructureTemplatePool startPool = jigsawConfig.startPool().get();
-        if(startPool.size() == 0){
+        if(startPool == null || startPool.size() == 0){
             RepurposedStructures.LOGGER.warn("Repurposed Structures: Empty or nonexistent start pool: {}  Crash is imminent", startPool.getName());
         }
 

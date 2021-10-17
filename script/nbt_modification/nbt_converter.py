@@ -14,7 +14,8 @@ originalBiome = ""
 newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {
-    "mushroom/trees": "mushroom/big_mushrooms"
+    "purple_torch": "torch",
+    "magenta_torch": "torch"
 }
 conversion_exact_dict = {
 }
