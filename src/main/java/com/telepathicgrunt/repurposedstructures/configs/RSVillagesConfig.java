@@ -78,7 +78,7 @@ public class RSVillagesConfig
 					.comment("\n How rare are Mushroom Villages.",
 							" 1 for spawning in most chunks and 10001 for none.")
                     .translation("repurposedstructures.config.villages.villagemushroomaveragechunkdistance")
-				.defineInRange("villageMushroomAverageChunkDistance", 20, 1, 1001));
+				.defineInRange("villageMushroomAverageChunkDistance", 24, 1, 1001));
 
 			giantTaigaVillageMaxChunkDistance = subscriber.subscribe(builder
 				.comment("\n How rare are Giant Taiga Villages in Giant Taiga biomes.",
