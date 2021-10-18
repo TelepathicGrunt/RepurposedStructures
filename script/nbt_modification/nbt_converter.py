@@ -14,9 +14,9 @@ originalBiome = ""
 newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {
+    "repurposed_structures:chests/village/mushroom_house": "repurposed_structures:chests/village/village_mushroom_house"
 }
 conversion_exact_dict = {
-    "minecraft:red_sand": "minecraft:air"
 }
 
 #-------------------------------------------------------------------------------------------
