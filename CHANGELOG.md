@@ -3,4 +3,6 @@
 ##### Villages:
 Mushroom Villages are now added to Mushroom category biomes!
 
-Fixed Mountains Villages sometimes spawning Savanna pieces.
+Fixed Mountains Villages very very rarely spawn Savanna Village pieces.
+
+Fixed Swamp and Giant Tree Taiga Villages very very rarely spawn Plains Village pieces.
