@@ -219,7 +219,7 @@ public class StructurePiecesBehavior {
         PIECES_COUNT.put(new ResourceLocation("immersiveengineering", "village/houses/swamp_engineer"), 1);
 
         PIECES_COUNT.put(new ResourceLocation("iceandfire", "village/workstations/scriber"), 1);
-        PIECES_COUNT.put(new ResourceLocation("iceandfire", "village/badlands/houses/badlands_scriber_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("iceandfire", "village/badlands/houses/scriber_street_badlands"), 1);
         PIECES_COUNT.put(new ResourceLocation("iceandfire", "village/birch/houses/birch_scriber_1"), 1);
         PIECES_COUNT.put(new ResourceLocation("iceandfire", "village/dark_forest/houses/dark_forest_scriber_1"), 1);
         PIECES_COUNT.put(new ResourceLocation("iceandfire", "village/giant_taiga/houses/giant_taiga_scriber_1"), 1);
