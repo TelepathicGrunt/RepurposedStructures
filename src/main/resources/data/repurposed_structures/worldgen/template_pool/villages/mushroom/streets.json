@@ -3,7 +3,7 @@
   "fallback": "repurposed_structures:villages/mushroom/terminators",
   "elements": [
     {
-      "weight": 2,
+      "weight": 1,
       "element": {
         "location": "repurposed_structures:villages/mushroom/streets/corner_01",
         "processors": "repurposed_structures:villages/mushroom/path_randomizer",
@@ -12,7 +12,7 @@
       }
     },
     {
-      "weight": 2,
+      "weight": 1,
       "element": {
         "location": "repurposed_structures:villages/mushroom/streets/corner_02",
         "processors": "repurposed_structures:villages/mushroom/path_randomizer",
@@ -21,7 +21,7 @@
       }
     },
     {
-      "weight": 2,
+      "weight": 1,
       "element": {
         "location": "repurposed_structures:villages/mushroom/streets/corner_03",
         "processors": "repurposed_structures:villages/mushroom/path_randomizer",
@@ -138,7 +138,7 @@
       }
     },
     {
-      "weight": 3,
+      "weight": 1,
       "element": {
         "location": "repurposed_structures:villages/mushroom/streets/turn_01",
         "processors": "repurposed_structures:villages/mushroom/path_randomizer",
