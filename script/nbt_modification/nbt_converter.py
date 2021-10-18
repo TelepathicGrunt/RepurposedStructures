@@ -14,10 +14,9 @@ originalBiome = ""
 newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {
-    "purple_torch": "torch",
-    "magenta_torch": "torch"
 }
 conversion_exact_dict = {
+    "minecraft:red_sand": "minecraft:air"
 }
 
 #-------------------------------------------------------------------------------------------
