@@ -2,3 +2,5 @@
 
 ##### Villages:
 Added Mushroom Villages for Mushroom category biomes!
+
+Fixed Mountains Villages sometimes spawning Savanna pieces.
