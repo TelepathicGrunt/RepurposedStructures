@@ -184,5 +184,98 @@ public class StructurePiecesBehavior {
         PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshafts/warped/spawner_4_middle"), 1);
         PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "fortresses/jungle/balcony"), 3);
         PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "fortresses/jungle/4_way_outside"), 6);
+
+
+        // Add other mod pieces here to limit them too.
+        // (for datapacks and to prevent villages from being overwhelmed in the same injected piece)
+        PIECES_COUNT.put(new ResourceLocation("jellyfishing", "village/streets/krusty_krab_street_badlands"), 1);
+        PIECES_COUNT.put(new ResourceLocation("jellyfishing", "village/streets/krusty_krab_street_birch"), 1);
+        PIECES_COUNT.put(new ResourceLocation("jellyfishing", "village/streets/krusty_krab_street_dark_forest"), 1);
+        PIECES_COUNT.put(new ResourceLocation("jellyfishing", "village/streets/krusty_krab_street_giant_taiga"), 1);
+        PIECES_COUNT.put(new ResourceLocation("jellyfishing", "village/streets/krusty_krab_street_jungle"), 1);
+        PIECES_COUNT.put(new ResourceLocation("jellyfishing", "village/streets/krusty_krab_street_mountains"), 1);
+        PIECES_COUNT.put(new ResourceLocation("jellyfishing", "village/streets/krusty_krab_street_mushroom"), 1);
+        PIECES_COUNT.put(new ResourceLocation("jellyfishing", "village/streets/krusty_krab_street_oak"), 1);
+        PIECES_COUNT.put(new ResourceLocation("jellyfishing", "village/streets/krusty_krab_street_swamp"), 1);
+
+        PIECES_COUNT.put(new ResourceLocation("tardis", "village/streets/observatory_street_badlands"), 1);
+        PIECES_COUNT.put(new ResourceLocation("tardis", "village/streets/observatory_street_birch"), 1);
+        PIECES_COUNT.put(new ResourceLocation("tardis", "village/streets/observatory_street_dark_forest"), 1);
+        PIECES_COUNT.put(new ResourceLocation("tardis", "village/streets/observatory_street_giant_taiga"), 1);
+        PIECES_COUNT.put(new ResourceLocation("tardis", "village/streets/observatory_street_jungle"), 1);
+        PIECES_COUNT.put(new ResourceLocation("tardis", "village/streets/observatory_street_mountains"), 1);
+        PIECES_COUNT.put(new ResourceLocation("tardis", "village/streets/observatory_street_mushroom"), 1);
+        PIECES_COUNT.put(new ResourceLocation("tardis", "village/streets/observatory_street_oak"), 1);
+        PIECES_COUNT.put(new ResourceLocation("tardis", "village/streets/observatory_street_swamp"), 1);
+
+        PIECES_COUNT.put(new ResourceLocation("immersiveengineering", "village/houses/badlands_engineer"), 1);
+        PIECES_COUNT.put(new ResourceLocation("immersiveengineering", "village/houses/birch_engineer"), 1);
+        PIECES_COUNT.put(new ResourceLocation("immersiveengineering", "village/houses/dark_forest_engineer"), 1);
+        PIECES_COUNT.put(new ResourceLocation("immersiveengineering", "village/houses/giant_taiga_engineer"), 1);
+        PIECES_COUNT.put(new ResourceLocation("immersiveengineering", "village/houses/jungle_engineer"), 1);
+        PIECES_COUNT.put(new ResourceLocation("immersiveengineering", "village/houses/mountains_engineer"), 1);
+        PIECES_COUNT.put(new ResourceLocation("immersiveengineering", "village/houses/mushroom_engineer"), 1);
+        PIECES_COUNT.put(new ResourceLocation("immersiveengineering", "village/houses/oak_engineer"), 1);
+        PIECES_COUNT.put(new ResourceLocation("immersiveengineering", "village/houses/swamp_engineer"), 1);
+
+        PIECES_COUNT.put(new ResourceLocation("iceandfire", "village/workstations/scriber"), 1);
+        PIECES_COUNT.put(new ResourceLocation("iceandfire", "village/badlands/houses/badlands_scriber_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("iceandfire", "village/birch/houses/birch_scriber_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("iceandfire", "village/dark_forest/houses/dark_forest_scriber_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("iceandfire", "village/giant_taiga/houses/giant_taiga_scriber_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("iceandfire", "village/jungle/houses/jungle_scriber_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("iceandfire", "village/mountains/houses/mountains_scriber_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("iceandfire", "village/mushroom/houses/mushroom_scriber_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("iceandfire", "village/oak/houses/oak_scriber_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("iceandfire", "village/swamp/houses/swamp_scriber_1"), 1);
+
+        PIECES_COUNT.put(new ResourceLocation("farmersdelight", "village/badlands/houses/compost_pile_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("farmersdelight", "village/birch/houses/compost_pile_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("farmersdelight", "village/dark_forest/houses/compost_pile_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("farmersdelight", "village/giant_taiga/houses/compost_pile_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("farmersdelight", "village/jungle/houses/compost_pile_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("farmersdelight", "village/mountains/houses/compost_pile_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("farmersdelight", "village/mushroom/houses/compost_pile_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("farmersdelight", "village/oak/houses/compost_pile_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("farmersdelight", "village/swamp/houses/compost_pile_1"), 1);
+
+        PIECES_COUNT.put(new ResourceLocation("etched", "village/badlands/badlands_bard_house_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("etched", "village/birch/birch_bard_house_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("etched", "village/dark_forest/dark_forest_bard_house_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("etched", "village/giant_taiga/giant_taiga_bard_house_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("etched", "village/mountains/mountains_bard_house_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("etched", "village/oak/oak_bard_house_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("etched", "village/swamp/swamp_bard_house_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("etched", "village/jungle/jungle_bard_street"), 1);
+        PIECES_COUNT.put(new ResourceLocation("etched", "village/mushroom/mushroom_bard_street"), 1);
+
+        PIECES_COUNT.put(new ResourceLocation("environmental", "village/carpenter_house_badlands_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("environmental", "village/streets/street_birch"), 1);
+        PIECES_COUNT.put(new ResourceLocation("environmental", "village/streets/street_dark_forest"), 1);
+        PIECES_COUNT.put(new ResourceLocation("environmental", "village/carpenter_house_giant_taiga_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("environmental", "village/carpenter_house_jungle_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("environmental", "village/carpenter_house_mountains_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("environmental", "village/streets/street_mushroom"), 1);
+        PIECES_COUNT.put(new ResourceLocation("environmental", "village/streets/street_oak"), 1);
+        PIECES_COUNT.put(new ResourceLocation("environmental", "village/carpenter_house_swamp_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("environmental", "village/ceramist_house_badlands_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("environmental", "village/ceramist_house_birch_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("environmental", "village/ceramist_house_dark_forest_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("environmental", "village/ceramist_house_giant_taiga_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("environmental", "village/ceramist_house_jungle_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("environmental", "village/ceramist_house_mountains_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("environmental", "village/ceramist_house_mushroom_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("environmental", "village/ceramist_house_oak_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("environmental", "village/ceramist_house_swamp_1"), 1);
+
+        PIECES_COUNT.put(new ResourceLocation("buzzier_bees", "village/badlands/houses/apiarist_house_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("buzzier_bees", "village/birch/houses/apiarist_house_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("buzzier_bees", "village/dark_forest/houses/apiarist_house_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("buzzier_bees", "village/giant_taiga/houses/apiarist_house_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("buzzier_bees", "village/jungle/houses/apiarist_house_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("buzzier_bees", "village/mountains/houses/apiarist_house_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("buzzier_bees", "village/mushroom/houses/apiarist_house_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("buzzier_bees", "village/oak/houses/apiarist_house_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("buzzier_bees", "village/swamp/houses/apiarist_house_1"), 1);
     }
 }
