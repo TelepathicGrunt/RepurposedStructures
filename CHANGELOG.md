@@ -6,3 +6,5 @@ Added Mushroom Villages for Mushroom category biomes!
 Fixed Mountains Villages very very rarely spawn Savanna Village pieces.
 
 Fixed Swamp and Giant Tree Taiga Villages very very rarely spawn Plains Village pieces.
+
+Removed a lot of the randomly placed Red Sand blocks from Badlands Villages to make them look a lot cleaner.
