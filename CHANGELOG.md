@@ -5,6 +5,8 @@ Adjusted some zombie terminator pool files so that they are used now for many zo
 
 Adjusted many RS Village's terminator pieces to make absolutely sure they cannot spawn the wrong village's street to prevent other village's buildings from spawning in extremely rare edge cases.
 
+Fixed Zombie Warped Village spawning non-zombified Piglins.
+
 
 ### **(V.3.3.0 Changes) (1.16.5 Minecraft)**
 
