@@ -5,7 +5,7 @@
     {
       "weight": 1,
       "element": {
-        "location": "repurposed_structures:village/plains/zombie/terminators/terminator_01",
+        "location": "repurposed_structures:village/swamp/terminators/terminator_01",
         "processors": "repurposed_structures:village/swamp/path_randomizer",
         "projection": "terrain_matching",
         "element_type": "minecraft:legacy_single_pool_element"
@@ -14,7 +14,7 @@
     {
       "weight": 1,
       "element": {
-        "location": "repurposed_structures:village/plains/zombie/terminators/terminator_02",
+        "location": "repurposed_structures:village/swamp/terminators/terminator_02",
         "processors": "repurposed_structures:village/swamp/path_randomizer",
         "projection": "terrain_matching",
         "element_type": "minecraft:legacy_single_pool_element"
@@ -23,7 +23,7 @@
     {
       "weight": 1,
       "element": {
-        "location": "repurposed_structures:village/plains/zombie/terminators/terminator_03",
+        "location": "repurposed_structures:village/swamp/terminators/terminator_03",
         "processors": "repurposed_structures:village/swamp/path_randomizer",
         "projection": "terrain_matching",
         "element_type": "minecraft:legacy_single_pool_element"
@@ -32,7 +32,7 @@
     {
       "weight": 1,
       "element": {
-        "location": "repurposed_structures:village/plains/zombie/terminators/terminator_04",
+        "location": "repurposed_structures:village/swamp/terminators/terminator_04",
         "processors": "repurposed_structures:village/swamp/path_randomizer",
         "projection": "terrain_matching",
         "element_type": "minecraft:legacy_single_pool_element"

@@ -1,3 +1,11 @@
+### **(V.3.3.1 Changes) (1.16.5 Minecraft)**
+
+##### Villages:
+Adjusted some zombie terminator pool files so that they are used now for many zombie variant RS Villages.
+
+Adjusted many RS Village's terminator pieces to make absolutely sure they cannot spawn the wrong village's street to prevent other village's buildings from spawning in extremely rare edge cases.
+
+
 ### **(V.3.3.0 Changes) (1.16.5 Minecraft)**
 
 ##### Villages:

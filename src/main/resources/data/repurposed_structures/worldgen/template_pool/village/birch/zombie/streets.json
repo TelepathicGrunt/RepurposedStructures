@@ -1,6 +1,6 @@
 {
   "name": "repurposed_structures:village/birch/zombie/streets",
-  "fallback": "repurposed_structures:village/birch/terminators",
+  "fallback": "repurposed_structures:village/birch/zombie/terminators",
   "elements": [
     {
       "weight": 2,

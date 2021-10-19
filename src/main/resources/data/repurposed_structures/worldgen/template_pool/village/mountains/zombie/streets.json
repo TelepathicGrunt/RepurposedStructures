@@ -1,6 +1,6 @@
 {
   "name": "repurposed_structures:village/mountains/zombie/streets",
-  "fallback": "repurposed_structures:village/mountains/terminators",
+  "fallback": "repurposed_structures:village/mountains/zombie/terminators",
   "elements": [
     {
       "weight": 2,

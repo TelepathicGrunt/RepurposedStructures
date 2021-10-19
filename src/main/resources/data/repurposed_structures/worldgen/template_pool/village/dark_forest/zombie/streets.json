@@ -1,6 +1,6 @@
 {
   "name": "repurposed_structures:village/dark_forest/zombie/streets",
-  "fallback": "repurposed_structures:village/dark_forest/terminators",
+  "fallback": "repurposed_structures:village/dark_forest/zombie/terminators",
   "elements": [
     {
       "weight": 2,
