@@ -1,6 +1,6 @@
 {
   "name": "repurposed_structures:villages/oak/zombie/streets",
-  "fallback": "repurposed_structures:villages/oak/terminators",
+  "fallback": "repurposed_structures:villages/oak/zombie/terminators",
   "elements": [
     {
       "weight": 2,

@@ -1,6 +1,6 @@
 {
   "name": "repurposed_structures:villages/jungle/zombie/streets",
-  "fallback": "repurposed_structures:villages/jungle/terminators",
+  "fallback": "repurposed_structures:villages/jungle/zombie/terminators",
   "elements": [
     {
       "weight": 2,

@@ -1,3 +1,13 @@
+### **(V.2.4.1 Changes) (1.17.1 Minecraft)**
+
+##### Villages:
+Fixed a street not spawning in Badlands Villages.
+
+Adjusted some zombie terminator pool files so that they are used now for many zombie variant RS Villages.
+
+Adjusted many RS Village's terminator pieces to make absolutely sure they cannot spawn the wrong village's street to prevent other village's buildings from spawning in extremely rare edge cases.
+
+
 ### **(V.2.4.0 Changes) (1.17.1 Minecraft)**
 
 ##### Villages:

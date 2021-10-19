@@ -1,6 +1,6 @@
 {
   "name": "repurposed_structures:villages/crimson/zombie/streets",
-  "fallback": "repurposed_structures:villages/crimson/terminators",
+  "fallback": "repurposed_structures:villages/crimson/zombie/terminators",
   "elements": [
     {
       "weight": 2,
