@@ -1,3 +1,10 @@
+### **(V.3.3.2 Changes) (1.16.5 Minecraft)**
+
+##### Dungeons:
+Added shulkerBoxInEndDungeons config option to let users make End Dungeons spawn chests instead of SHulker Boxes if set to false.
+ Configuredfeatures are unable to be overridden by datapack due to a bad Forge hook placement. Hence this config option as a workaround.
+
+
 ### **(V.3.3.1 Changes) (1.16.5 Minecraft)**
 
 ##### Villages:

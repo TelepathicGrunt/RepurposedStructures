@@ -8,6 +8,8 @@ public class RSDungeonsConfig
 {
 	public static class RSDungeonsConfigValues
 	{
+		public ConfigValueListener<Boolean> shulkerBoxInEndDungeons;
+
 		public ConfigValueListener<Integer> badlandsDungeonAttemptsPerChunk;
 		public ConfigValueListener<Integer> darkForestDungeonAttemptsPerChunk;
 		public ConfigValueListener<Integer> desertDungeonAttemptsPerChunk;
@@ -46,6 +48,13 @@ public class RSDungeonsConfig
 
 		public RSDungeonsConfigValues(ForgeConfigSpec.Builder builder, ConfigHelper.Subscriber subscriber)
 		{
+
+			shulkerBoxInEndDungeons = subscriber.subscribe(builder
+					.comment("\n Whether End Dungeons spawns Shulker Boxes. if false, spawns regular Chests instead.",
+							"(Configuredfeatures are unable to be overridden by datapack due to bad Forge hook placement. Hence this config option)")
+					.translation("repurposedstructures.config.dungeons.shulkerboxinenddungeons")
+					.define("shulkerBoxInEndDungeons", true));
+
 			builder.push("AttemptsPerChunk");
 
 				badlandsDungeonAttemptsPerChunk = subscriber.subscribe(builder

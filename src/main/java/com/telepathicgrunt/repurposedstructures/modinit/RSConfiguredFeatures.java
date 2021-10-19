@@ -62,7 +62,7 @@ public class RSConfiguredFeatures {
                     RepurposedStructures.RSDungeonsConfig.desertDungeonMaxHeight.get()))
                     .decorated(RSPlacements.RS_UNLIMITED_COUNT.get().configured(new FeatureSpreadConfig(RepurposedStructures.RSDungeonsConfig.desertDungeonAttemptsPerChunk.get()))));
 
-    private static final NbtDungeonConfig END_DUNGEON_CONFIG = new NbtDungeonConfig("end", EMPTY_ID, 20, Blocks.SHULKER_BOX.defaultBlockState());
+    private static final NbtDungeonConfig END_DUNGEON_CONFIG = new NbtDungeonConfig("end", EMPTY_ID, 20, RepurposedStructures.RSDungeonsConfig.shulkerBoxInEndDungeons.get() ? Blocks.SHULKER_BOX.defaultBlockState() : Blocks.CHEST.defaultBlockState());
     public static ConfiguredFeature<?, ?> END_DUNGEONS = RSFeatures.END_DUNGEONS.get().configured(END_DUNGEON_CONFIG)
             .decorated(RSPlacements.RS_DUNGEON_PLACEMENT.get().configured(new TopSolidRangeConfig(
                     RepurposedStructures.RSDungeonsConfig.endDungeonMinHeight.get(), 0,
