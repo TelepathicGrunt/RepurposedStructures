@@ -7,6 +7,10 @@ Adjusted some zombie terminator pool files so that they are used now for many zo
 
 Adjusted many RS Village's terminator pieces to make absolutely sure they cannot spawn the wrong village's street to prevent other village's buildings from spawning in extremely rare edge cases.
 
+Fixed Zombie Giant Taiga Village spawning non-zombie pieces.
+
+Fixed Zombie Warped Village spawning non-zombified Piglins.
+
 
 ### **(V.2.4.0 Changes) (1.17.1 Minecraft)**
 

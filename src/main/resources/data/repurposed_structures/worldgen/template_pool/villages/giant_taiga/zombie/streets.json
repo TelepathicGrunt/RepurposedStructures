@@ -140,7 +140,7 @@
     {
       "weight": 1,
       "element": {
-        "location": "repurposed_structures:villages/giant_taiga/streets/square_01",
+        "location": "repurposed_structures:villages/giant_taiga/zombie/streets/square_01",
         "processors": "repurposed_structures:villages/giant_taiga/path_randomizer",
         "projection": "terrain_matching",
         "element_type": "minecraft:legacy_single_pool_element"
