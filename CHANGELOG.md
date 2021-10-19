@@ -7,6 +7,10 @@ Adjusted many RS Village's terminator pieces to make absolutely sure they cannot
 
 Fixed Zombie Warped Village spawning non-zombified Piglins.
 
+##### Mod Compat:
+Added limit on piece spawning for future mod compat datapacks with Tidbits, Reosurceful Bees, and PneumaticCraft: Repressurized.
+ I'm just future proofing a bit. 
+
 
 ### **(V.3.3.0 Changes) (1.16.5 Minecraft)**
 
