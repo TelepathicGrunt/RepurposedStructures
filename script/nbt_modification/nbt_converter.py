@@ -6,6 +6,57 @@ import os
 # https://pypi.org/project/Python-NBT/
 
 
+'''
+
+conversion_partial_dict = {
+    "spruce": "crimson",
+    "oak": "crimson"
+}
+conversion_exact_dict = {
+    "minecraft:water": "minecraft:lava",
+    "minecraft:white_stained_glass": "minecraft:cave_air",
+    "minecraft:gray_stained_glass": "minecraft:cave_air",
+    "minecraft:cyan_concrete": "minecraft:blackstone",
+    "minecraft:cyan_terracotta": "minecraft:black_terracotta",
+    "minecraft:smooth_stone_slab": "minecraft:red_nether_brick_slab",
+    "minecraft:red_bed": "minecraft:orange_bed",
+    "minecraft:lime_bed": "minecraft:black_bed",
+    "minecraft:gray_bed": "minecraft:red_bed",
+    "minecraft:iron_ore": "minecraft:nether_quartz_ore",
+    "minecraft:stone_pressure_plate": "minecraft:crimson_pressure_plate",
+    "minecraft:skeleton_skull": "minecraft:wither_skeleton_skull",
+    "minecraft:cobblestone_stairs": "minecraft:nether_brick_stairs",
+    "minecraft:stone_brick_stairs": "minecraft:polished_blackstone_brick_stairs",
+    "minecraft:chiseled_stone_bricks": "minecraft:chiseled_nether_bricks",
+    "minecraft:white_stained_glass_pane": "minecraft:gray_stained_glass_pane",
+    "minecraft:andesite_wall": "minecraft:blackstone_wall",
+    "minecraft:polished_andesite": "minecraft:polished_blackstone",
+    "minecraft:polished_andesite_slab": "minecraft:polished_blackstone_slab",
+    "minecraft:polished_andesite_stairs": "minecraft:polished_blackstone_stairs",
+    "minecraft:stone_brick_slab": "minecraft:polished_blackstone_brick_slab",
+    "minecraft:coal_block": "minecraft:quartz_block",
+    "minecraft:cobblestone": "minecraft:nether_bricks",
+    "minecraft:stone_bricks": "minecraft:polished_blackstone_bricks",
+    "minecraft:petrified_oak_slab": "minecraft:red_nether_brick_slab",
+    "minecraft:nether_brick_slab": "minecraft:red_nether_brick_slab",
+    "minecraft:nether_brick_stairs": "minecraft:red_nether_brick_stairs",
+    "minecraft:stripped_oak_wood": "minecraft:stripped_crimson_hyphae",
+    "minecraft:birch_pressure_plate": "minecraft:crimson_pressure_plate",
+    "minecraft:bookshelves": "minecraft:gilded_blackstone",
+    "minecraft:yellow_stained_glass": "minecraft:chiseled_polished_blackstone",
+    "minecraft:stripped_spruce_wood": "minecraft:stripped_crimson_hyphae",
+    "minecraft:stripped_spruce_log": "minecraft:stripped_crimson_hyphae",
+    "minecraft:bookshelf": "minecraft:gilded_blackstone",
+    "minecraft:stone_brick_wall": "minecraft:polished_blackstone_brick_wall",
+    "minecraft:torch": "minecraft:soul_torch",
+    "minecraft:wall_torch": "minecraft:wall_soul_torch",
+    "stone_brick_wall[east=none,north=tall,south=none,up=true,west=none]": "minecraft:polished_blackstone_brick_wall[east=none,north=tall,south=none,up=true,west=none]",
+    "stone_brick_wall[east=tall,north=none,south=none,up=true,west=none]": "minecraft:polished_blackstone_brick_wall[east=tall,north=none,south=none,up=true,west=none]",
+    "stone_brick_wall[east=none,north=none,south=none,up=true,west=tall]": "minecraft:polished_blackstone_brick_wall[east=none,north=none,south=none,up=true,west=tall]",
+    "stone_brick_wall[east=none,north=none,south=tall,up=true,west=none]": "minecraft:polished_blackstone_brick_wall[east=none,north=none,south=tall,up=true,west=none]"
+}
+'''
+
 #--------------------------------------------------------------------------------------------
 
 blockPalette = {""}
@@ -14,9 +65,20 @@ originalBiome = ""
 newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {
-    "repurposed_structures:chests/village/mushroom_house": "repurposed_structures:chests/village/village_mushroom_house"
+    "betterstrongholds:": "betterstrongholds:nether/",
+    "minecraft:lantern": "minecraft:soul_lantern",
+    "andesite_wall": "blackstone_wall"
 }
 conversion_exact_dict = {
+    "stone_brick_wall[east=none,south=none,north=tall,up=true,west=none]": "minecraft:polished_blackstone_brick_wall[east=none,south=none,north=tall,up=true,west=none]",
+    "stone_brick_wall[east=none,south=tall,north=none,up=true,west=none]": "minecraft:polished_blackstone_brick_wall[east=none,south=tall,north=none,up=true,west=none]",
+    "stone_brick_wall[east=tall,south=none,north=none,up=true,west=none]": "minecraft:polished_blackstone_brick_wall[east=tall,south=none,north=none,up=true,west=none]",
+    "stone_brick_wall[east=none,south=none,north=none,up=true,west=tall]": "minecraft:polished_blackstone_brick_wall[east=none,south=none,north=none,up=true,west=tall]",
+
+    "stone_brick_wall[east=none,north=tall,south=none,up=true,west=none]": "minecraft:polished_blackstone_brick_wall[east=none,north=tall,south=none,up=true,west=none]",
+    "stone_brick_wall[east=tall,north=none,south=none,up=true,west=none]": "minecraft:polished_blackstone_brick_wall[east=tall,north=none,south=none,up=true,west=none]",
+    "stone_brick_wall[east=none,south=none,north=none,up=true,west=tall]": "minecraft:polished_blackstone_brick_wall[east=none,north=none,south=none,up=true,west=tall]",
+    "stone_brick_wall[east=none,north=none,south=tall,up=true,west=none]": "minecraft:polished_blackstone_brick_wall[east=none,north=none,south=tall,up=true,west=none]"
 }
 
 #-------------------------------------------------------------------------------------------
@@ -41,17 +103,20 @@ def property_replacer(nbt_key, nbt_string, property_name, value_to_replace, new_
 
 
 def traverse_dicts(nbt_list):
-    '''
-    for entry in nbt_list['palette'].value:
-        blockPalette.add(entry.value['Name'].value)
-
-    '''
     if isinstance(nbt_list, collections.abc.Mapping):
+        '''
+        if 'palette' in nbt_list:
+            for entry in nbt_list['palette'].value:
+                blockPalette.add(entry.value['Name'].value)
+        '''
+
         for key, entry in nbt_list.items():
             if isinstance(entry, nbt.NBTTagList) or isinstance(entry, nbt.NBTTagCompound):
                 traverse_dicts(entry)
             elif isinstance(entry, nbt.NBTTagString):
                 string_replacer(entry)
+
+            # property_replacer(key, entry, "waterlogged", True, False)
 
 
     elif isinstance(nbt_list, nbt.NBTTagList) or isinstance(nbt_list, nbt.NBTTagCompound):
