@@ -4,6 +4,9 @@
 Added shulkerBoxInEndDungeons config option to let users make End Dungeons spawn chests instead of Shulker Boxes if set to false.
  Configuredfeatures are unable to be overridden by datapack due to a bad Forge hook placement. Hence this config option as a workaround.
 
+##### Villages:
+Slightly adjusted look of Church (temple) piece in Mushroom Villages.
+
 ##### Misc:
 RS structures that would've been cut off by world bottom will be offset upward so that they are now longer cut off. 
  (Helps prevents End-themed Better Stronghold from being cut off when using Better Stronghold Compat datapack)
