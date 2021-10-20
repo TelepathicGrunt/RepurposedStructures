@@ -39,7 +39,7 @@ public class RSStrongholdsConfig
 					.comment("\n Minimum Y height that Nether stronghold's starting point can spawn at.",
 							" Note: Strongholds will spawn between min and max y height set in config.")
 					.translation("repurposedstructures.config.stronghold.netherstrongholdminheight")
-					.defineInRange("netherStrongholdMinHeight", 10, 0, 255));
+					.defineInRange("netherStrongholdMinHeight", 5, 0, 255));
 
 			netherStrongholdMaxHeight = subscriber.subscribe(builder
 					.comment("\n Maximum Y height that Nether stronghold's starting point can spawn at.",
