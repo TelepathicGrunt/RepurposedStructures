@@ -1,3 +1,10 @@
+### **(V.2.4.2 Changes) (1.17.1 Minecraft)**
+
+##### Misc:
+RS structures that would've been cut off by world bottom will be offset upward so that they are now longer cut off.
+(Helps prevents End-themed Better Stronghold from being cut off when using Better Stronghold Compat datapack)
+
+
 ### **(V.2.4.1 Changes) (1.17.1 Minecraft)**
 
 ##### Villages:

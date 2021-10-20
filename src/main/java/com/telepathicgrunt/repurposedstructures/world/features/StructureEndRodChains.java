@@ -8,7 +8,9 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.EndRodBlock;
+import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.SlabType;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 
@@ -55,9 +57,13 @@ public class StructureEndRodChains extends Feature<StructureTargetConfig> {
             for (; mutable.getY() < world.getMaxBuildHeight() - 3 && length < context.random().nextInt(context.random().nextInt(context.random().nextInt(8) + 1) + 1) + 1; mutable.move(Direction.UP)) {
                 if (world.isEmptyBlock(mutable)) {
                     belowBlockstate = world.getBlockState(mutable.below());
+                    Block belowBlock = belowBlockstate.getBlock();
 
-                    if (ALLOWED_ATTACHEMENT_BLOCKS.contains(belowBlockstate.getBlock())) {
+                    if (ALLOWED_ATTACHEMENT_BLOCKS.contains(belowBlock)) {
                         world.setBlock(mutable, Blocks.CHAIN.defaultBlockState(), 2);
+                        if(belowBlock instanceof SlabBlock) {
+                            world.setBlock(mutable.below(), belowBlockstate.setValue(SlabBlock.TYPE, SlabType.DOUBLE), 3);
+                        }
                         length++;
                     }
                 }

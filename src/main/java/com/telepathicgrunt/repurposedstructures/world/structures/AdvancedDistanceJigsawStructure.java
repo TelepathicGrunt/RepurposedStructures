@@ -16,7 +16,11 @@ import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
+
+import java.util.Comparator;
+import java.util.Iterator;
 
 
 public class AdvancedDistanceJigsawStructure extends AdvancedJigsawStructure {
@@ -88,6 +92,14 @@ public class AdvancedDistanceJigsawStructure extends AdvancedJigsawStructure {
                     structureID,
                     topClipOff,
                     bottomClipOff);
+
+            int minY = this.getPieces().stream().min(Comparator.comparingInt(p -> p.getBoundingBox().minY())).get().getBoundingBox().minY();
+            if(minY < chunkGenerator.getMinY()) {
+                int newOffset = chunkGenerator.getMinY() - minY;
+                for (StructurePiece piece : this.pieces) {
+                    piece.move(0, newOffset, 0);
+                }
+            }
 
             this.getBoundingBox();
         }
