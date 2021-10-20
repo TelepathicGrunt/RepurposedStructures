@@ -6,6 +6,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.EndRodBlock;
+import net.minecraft.block.SlabBlock;
+import net.minecraft.state.properties.SlabType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
@@ -53,9 +55,13 @@ public class StructureEndRodChains extends Feature<StructureTargetConfig> {
             for (; mutable.getY() < world.getMaxBuildHeight() - 3 && length < random.nextInt(random.nextInt(random.nextInt(8) + 1) + 1) + 1; mutable.move(Direction.UP)) {
                 if (world.isEmptyBlock(mutable)) {
                     belowBlockstate = world.getBlockState(mutable.below());
+                    Block belowBlock = belowBlockstate.getBlock();
 
-                    if (ALLOWED_ATTACHEMENT_BLOCKS.contains(belowBlockstate.getBlock())) {
+                    if (ALLOWED_ATTACHEMENT_BLOCKS.contains(belowBlock)) {
                         world.setBlock(mutable, Blocks.CHAIN.defaultBlockState(), 2);
+                        if(belowBlock instanceof SlabBlock) {
+                            world.setBlock(mutable.below(), belowBlockstate.setValue(SlabBlock.TYPE, SlabType.DOUBLE), 3);
+                        }
                         length++;
                     }
                 }
