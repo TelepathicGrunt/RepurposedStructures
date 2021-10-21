@@ -10,7 +10,10 @@ import os
 
 conversion_partial_dict = {
     "spruce": "crimson",
-    "oak": "crimson"
+    "oak": "crimson",
+    "betterstrongholds:": "betterstrongholds:nether/",
+    "minecraft:lantern": "minecraft:soul_lantern",
+    "andesite_wall": "blackstone_wall"
 }
 conversion_exact_dict = {
     "minecraft:water": "minecraft:lava",
@@ -50,9 +53,13 @@ conversion_exact_dict = {
     "minecraft:stone_brick_wall": "minecraft:polished_blackstone_brick_wall",
     "minecraft:torch": "minecraft:soul_torch",
     "minecraft:wall_torch": "minecraft:wall_soul_torch",
+    "stone_brick_wall[east=none,south=none,north=tall,up=true,west=none]": "minecraft:polished_blackstone_brick_wall[east=none,south=none,north=tall,up=true,west=none]",
+    "stone_brick_wall[east=none,south=tall,north=none,up=true,west=none]": "minecraft:polished_blackstone_brick_wall[east=none,south=tall,north=none,up=true,west=none]",
+    "stone_brick_wall[east=tall,south=none,north=none,up=true,west=none]": "minecraft:polished_blackstone_brick_wall[east=tall,south=none,north=none,up=true,west=none]",
+    "stone_brick_wall[east=none,south=none,north=none,up=true,west=tall]": "minecraft:polished_blackstone_brick_wall[east=none,south=none,north=none,up=true,west=tall]",
     "stone_brick_wall[east=none,north=tall,south=none,up=true,west=none]": "minecraft:polished_blackstone_brick_wall[east=none,north=tall,south=none,up=true,west=none]",
     "stone_brick_wall[east=tall,north=none,south=none,up=true,west=none]": "minecraft:polished_blackstone_brick_wall[east=tall,north=none,south=none,up=true,west=none]",
-    "stone_brick_wall[east=none,north=none,south=none,up=true,west=tall]": "minecraft:polished_blackstone_brick_wall[east=none,north=none,south=none,up=true,west=tall]",
+    "stone_brick_wall[east=none,south=none,north=none,up=true,west=tall]": "minecraft:polished_blackstone_brick_wall[east=none,north=none,south=none,up=true,west=tall]",
     "stone_brick_wall[east=none,north=none,south=tall,up=true,west=none]": "minecraft:polished_blackstone_brick_wall[east=none,north=none,south=tall,up=true,west=none]"
 }
 '''
@@ -65,20 +72,17 @@ originalBiome = ""
 newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {
-    "betterstrongholds:": "betterstrongholds:nether/",
-    "minecraft:lantern": "minecraft:soul_lantern",
-    "andesite_wall": "blackstone_wall"
 }
 conversion_exact_dict = {
-    "stone_brick_wall[east=none,south=none,north=tall,up=true,west=none]": "minecraft:polished_blackstone_brick_wall[east=none,south=none,north=tall,up=true,west=none]",
-    "stone_brick_wall[east=none,south=tall,north=none,up=true,west=none]": "minecraft:polished_blackstone_brick_wall[east=none,south=tall,north=none,up=true,west=none]",
-    "stone_brick_wall[east=tall,south=none,north=none,up=true,west=none]": "minecraft:polished_blackstone_brick_wall[east=tall,south=none,north=none,up=true,west=none]",
-    "stone_brick_wall[east=none,south=none,north=none,up=true,west=tall]": "minecraft:polished_blackstone_brick_wall[east=none,south=none,north=none,up=true,west=tall]",
-
-    "stone_brick_wall[east=none,north=tall,south=none,up=true,west=none]": "minecraft:polished_blackstone_brick_wall[east=none,north=tall,south=none,up=true,west=none]",
-    "stone_brick_wall[east=tall,north=none,south=none,up=true,west=none]": "minecraft:polished_blackstone_brick_wall[east=tall,north=none,south=none,up=true,west=none]",
-    "stone_brick_wall[east=none,south=none,north=none,up=true,west=tall]": "minecraft:polished_blackstone_brick_wall[east=none,north=none,south=none,up=true,west=tall]",
-    "stone_brick_wall[east=none,north=none,south=tall,up=true,west=none]": "minecraft:polished_blackstone_brick_wall[east=none,north=none,south=tall,up=true,west=none]"
+    "minecraft:raw_gold_block": "minecraft:gold_block",
+    "minecraft:raw_iron_block": "minecraft:iron_block",
+    "minecraft:deepslate_diamond_ore": "minecraft:diamond_ore",
+    "minecraft:small_amethyst_bud": "minecraft:cave_air",
+    "minecraft:medium_amethyst_bud": "minecraft:cave_air",
+    "minecraft:large_amethyst_bud": "minecraft:cave_air",
+    "minecraft:amethyst_cluster": "minecraft:cave_air",
+    "minecraft:amethyst_block": "minecraft:lapis_block",
+    "minecraft:budding_amethyst": "minecraft:lapis_block"
 }
 
 #-------------------------------------------------------------------------------------------
