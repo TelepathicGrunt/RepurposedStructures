@@ -190,10 +190,7 @@ public class StructureModdedLootImporter {
                             .orElse(null) // null should be ever returned as otherwise, that would be concerning...
             );
 
-            if(lootTableID != null &&
-                lootTableID.getNamespace().equals(RepurposedStructures.MODID) &&
-                !isInBlacklist(lootTableID))
-            {
+            if(lootTableID != null && !isInBlacklist(lootTableID)) {
                 return StructureModdedLootImporter.modifyLootTables(context, lootTableID, originalLoot);
             }
         }
@@ -232,10 +229,10 @@ public class StructureModdedLootImporter {
     }
 
     private static boolean isInBlacklist(ResourceLocation lootTableID){
-        if(BLACKLISTED_LOOTTABLES == null){
+        if(BLACKLISTED_LOOTTABLES == null) {
             String cleanedBlacklist = RepurposedStructures.RSAllConfig.RSAllowDisallowConfig.blacklistedRSLoottablesFromImportingModdedItems.trim();
 
-            if(cleanedBlacklist.equals("")){
+            if(cleanedBlacklist.equals("")) {
                 BLACKLISTED_LOOTTABLES = new HashSet<>(); // make empty set instead of ["minecraft:"].
             }
             else {
