@@ -142,6 +142,26 @@ public class StructureModdedLootImporter extends LootModifier {
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/village/village_warped_tanner"), new ResourceLocation("minecraft:chests/village/village_tannery"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/village/village_warped_weaponsmith"), new ResourceLocation("minecraft:chests/village/village_weaponsmith"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/village/village_warped_house"), new ResourceLocation("minecraft:chests/village/village_desert_house"));
+
+        // For Better Strongholds compat datapack
+        tableMap.put(new ResourceLocation("betterstrongholds", "chests/end/armoury"), new ResourceLocation("minecraft:chests/end_city_treasure"));
+        tableMap.put(new ResourceLocation("betterstrongholds", "chests/end/common"), new ResourceLocation("minecraft:chests/end_city_treasure"));
+        tableMap.put(new ResourceLocation("betterstrongholds", "chests/end/crypt"), new ResourceLocation("minecraft:chests/end_city_treasure"));
+        tableMap.put(new ResourceLocation("betterstrongholds", "chests/end/grand_library"), new ResourceLocation("minecraft:chests/end_city_treasure"));
+        tableMap.put(new ResourceLocation("betterstrongholds", "chests/end/library_md"), new ResourceLocation("minecraft:chests/end_city_treasure"));
+        tableMap.put(new ResourceLocation("betterstrongholds", "chests/end/mess"), new ResourceLocation("minecraft:chests/end_city_treasure"));
+        tableMap.put(new ResourceLocation("betterstrongholds", "chests/end/prison_lg"), new ResourceLocation("minecraft:chests/end_city_treasure"));
+        tableMap.put(new ResourceLocation("betterstrongholds", "chests/end/trap"), new ResourceLocation("minecraft:chests/end_city_treasure"));
+        tableMap.put(new ResourceLocation("betterstrongholds", "chests/end/treasure"), new ResourceLocation("minecraft:chests/end_city_treasure"));
+        tableMap.put(new ResourceLocation("betterstrongholds", "chests/nether/common"), new ResourceLocation("minecraft:chests/stronghold_crossing"));
+        tableMap.put(new ResourceLocation("betterstrongholds", "chests/nether/mess"), new ResourceLocation("minecraft:chests/stronghold_crossing"));
+        tableMap.put(new ResourceLocation("betterstrongholds", "chests/nether/armoury"), new ResourceLocation("minecraft:chests/stronghold_corridor"));
+        tableMap.put(new ResourceLocation("betterstrongholds", "chests/nether/crypt"), new ResourceLocation("minecraft:chests/stronghold_corridor"));
+        tableMap.put(new ResourceLocation("betterstrongholds", "chests/nether/prison_lg"), new ResourceLocation("minecraft:chests/stronghold_corridor"));
+        tableMap.put(new ResourceLocation("betterstrongholds", "chests/nether/trap"), new ResourceLocation("minecraft:chests/stronghold_corridor"));
+        tableMap.put(new ResourceLocation("betterstrongholds", "chests/nether/treasure"), new ResourceLocation("minecraft:chests/stronghold_corridor"));
+        tableMap.put(new ResourceLocation("betterstrongholds", "chests/nether/grand_library"), new ResourceLocation("minecraft:chests/stronghold_library"));
+        tableMap.put(new ResourceLocation("betterstrongholds", "chests/nether/library_md"), new ResourceLocation("minecraft:chests/stronghold_library"));
         return tableMap;
     }
 

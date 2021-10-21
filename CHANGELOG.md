@@ -1,3 +1,9 @@
+### **(V.3.3.3 Changes) (1.16.5 Minecraft)**
+
+##### Mod Compat:
+Modded loot will be imported into Better Stronghold Compat datapack's loot tables now.
+
+
 ### **(V.3.3.2 Changes) (1.16.5 Minecraft)**
 
 ##### Dungeons:
