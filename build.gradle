@@ -62,7 +62,9 @@ dependencies {
     }
 
     runtimeOnly fg.deobf("com.telepathicgrunt:Blame:1.16.5-3.2.0-forge")
-    //runtimeOnly fg.deobf("patrigan:loadnbtblock:1.0")
+    // runtimeOnly fg.deobf("patrigan:loadnbtblock:1.0")
+    // runtimeOnly fg.deobf("curse.maven:yungs_api-421850:3494919")
+    // runtimeOnly fg.deobf("curse.maven:better_strongholds-465575:3412586")
 
     // runtimeOnly fg.deobf("curse.maven:vampirism-233029:3475085")
     // runtimeOnly fg.deobf("curse.maven:farmers_delight-398521:3418719")
