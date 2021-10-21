@@ -19,12 +19,9 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.MarginedStructureStart;
 import net.minecraft.world.gen.feature.structure.Structure;
-import net.minecraft.world.gen.feature.structure.StructurePiece;
 import net.minecraft.world.gen.feature.structure.VillageConfig;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 import net.minecraftforge.common.util.Lazy;
-
-import java.util.Comparator;
 
 public class AdvancedJigsawStructure extends AbstractBaseStructure<NoFeatureConfig> {
 
@@ -120,14 +117,6 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<NoFeatureConf
                         structureID,
                         topClipOff,
                         bottomClipOff);
-
-            int minY = this.getPieces().stream().min(Comparator.comparingInt(p -> p.getBoundingBox().y0)).get().getBoundingBox().y0;
-            if(minY < 0) {
-                int newOffset = -minY;
-                for (StructurePiece piece : this.pieces) {
-                    piece.move(0, newOffset, 0);
-                }
-            }
 
 //            }
 //            long endTime = System.currentTimeMillis();

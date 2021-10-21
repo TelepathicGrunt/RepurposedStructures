@@ -15,9 +15,12 @@ import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.Structure;
+import net.minecraft.world.gen.feature.structure.StructurePiece;
 import net.minecraft.world.gen.feature.structure.VillageConfig;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 import net.minecraftforge.common.util.Lazy;
+
+import java.util.Comparator;
 
 
 public class AdvancedDistanceJigsawStructure extends AdvancedJigsawStructure {
@@ -88,6 +91,14 @@ public class AdvancedDistanceJigsawStructure extends AdvancedJigsawStructure {
                     structureID,
                     topClipOff,
                     bottomClipOff);
+
+            int minY = this.getPieces().stream().min(Comparator.comparingInt(p -> p.getBoundingBox().y0)).get().getBoundingBox().y0;
+            if(minY < 0) {
+                int newOffset = -minY;
+                for (StructurePiece piece : this.pieces) {
+                    piece.move(0, newOffset, 0);
+                }
+            }
 
             this.calculateBoundingBox();
         }

@@ -3,6 +3,9 @@
 ##### Mod Compat:
 Modded loot will be imported into Better Stronghold Compat datapack's loot tables now.
 
+##### Misc:
+Fixed the structure offsetting to actually work for and only for RS strongholds so they do not get cutoff by world bottom.
+
 
 ### **(V.3.3.2 Changes) (1.16.5 Minecraft)**
 
