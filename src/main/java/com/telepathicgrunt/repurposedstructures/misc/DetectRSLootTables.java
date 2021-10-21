@@ -38,7 +38,7 @@ public class DetectRSLootTables implements ILootCondition
     public boolean test(LootContext lootContext)
     {
         ResourceLocation lootTableID = lootContext.getQueriedLootTableId();
-        return lootTableID.getNamespace().equals(RepurposedStructures.MODID) && !this.blacklistedLootTableIds.contains(lootTableID);
+        return !this.blacklistedLootTableIds.contains(lootTableID);
     }
 
     public static Builder builder(final Set<ResourceLocation> blacklistedLootTableIds)
