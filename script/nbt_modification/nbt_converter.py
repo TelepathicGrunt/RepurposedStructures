@@ -72,17 +72,9 @@ originalBiome = ""
 newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {
+    "betterstrongholds:nether/chests/": "betterstrongholds:chests/nether/"
 }
 conversion_exact_dict = {
-    "minecraft:raw_gold_block": "minecraft:gold_block",
-    "minecraft:raw_iron_block": "minecraft:iron_block",
-    "minecraft:deepslate_diamond_ore": "minecraft:diamond_ore",
-    "minecraft:small_amethyst_bud": "minecraft:cave_air",
-    "minecraft:medium_amethyst_bud": "minecraft:cave_air",
-    "minecraft:large_amethyst_bud": "minecraft:cave_air",
-    "minecraft:amethyst_cluster": "minecraft:cave_air",
-    "minecraft:amethyst_block": "minecraft:lapis_block",
-    "minecraft:budding_amethyst": "minecraft:lapis_block"
 }
 
 #-------------------------------------------------------------------------------------------

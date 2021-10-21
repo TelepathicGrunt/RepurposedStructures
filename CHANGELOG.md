@@ -1,3 +1,9 @@
+### **(V.2.4.3 Changes) (1.17.1 Minecraft)**
+
+##### Mod Compat:
+Modded loot will be imported into Better Stronghold Compat datapack's loot tables now.
+
+
 ### **(V.2.4.2 Changes) (1.17.1 Minecraft)**
 
 ##### Villages:
