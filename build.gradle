@@ -51,7 +51,7 @@ minecraft {
 repositories {
     maven { url "https://nexus.resourcefulbees.com/repository/maven-public/" }
     maven { url "https://www.cursemaven.com" }
-    //flatDir { dirs 'deps' }
+    // flatDir { dirs 'deps' }
     //maven { url = "https://maven.blamejared.com/" }
 }
 
@@ -80,6 +80,7 @@ dependencies {
     // runtimeOnly fg.deobf("curse.maven:abnormalcore-382216:3457851")
     // runtimeOnly fg.deobf("curse.maven:environmental-388992:3416597")
     // runtimeOnly fg.deobf("curse.maven:ice_and_fire-264231:3441117")
+    // runtimeOnly fg.deobf("curse.maven:rat-323596:3319810")
     // runtimeOnly fg.deobf("curse.maven:citadel-331936:3441028")
     // runtimeOnly fg.deobf("curse.maven:savageandravage-381736:3226442")
     // runtimeOnly fg.deobf("curse.maven:dungeonsgear-401247:3377033")
@@ -90,6 +91,7 @@ dependencies {
     // runtimeOnly fg.deobf("com.resourcefulbees:ResourcefulBees:${resourcefulbees_version}")
     // runtimeOnly fg.deobf("curse.maven:caves_and_cliffs_backport-417430:3441420")
     // runtimeOnly fg.deobf("curse.maven:caves_api-441706:3489595")
+    // runtimeOnly fg.deobf("curse.maven:tidbits-514057:3450123")
 }
 
 apply from: 'gradle/processresources.gradle'

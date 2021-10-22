@@ -1,3 +1,9 @@
+### **(V.3.3.4 Changes) (1.16.5 Minecraft)**
+
+##### Mod Compat:
+Adjusted piece spawn limiting for Tidbits compat datapack.
+
+
 ### **(V.3.3.3 Changes) (1.16.5 Minecraft)**
 
 ##### Mod Compat:

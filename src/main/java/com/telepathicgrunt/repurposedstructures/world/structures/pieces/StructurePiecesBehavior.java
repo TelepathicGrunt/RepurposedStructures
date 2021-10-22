@@ -325,7 +325,10 @@ public class StructurePiecesBehavior {
         PIECES_COUNT.put(new ResourceLocation("morevillagers", "village/swamp/swamp_oceanographer"), 1);
         PIECES_COUNT.put(new ResourceLocation("morevillagers", "village/swamp/swamp_woodworker"), 1);
 
-        PIECES_COUNT.put(new ResourceLocation("tidbits", "village/contractor_badlands"), 1);
+        PIECES_COUNT.put(new ResourceLocation("tidbits", "village/streets/big_street_badlands"), 1);
+        PIECES_COUNT.put(new ResourceLocation("tidbits", "village/streets/big_street_giant_taiga"), 1);
+        PIECES_COUNT.put(new ResourceLocation("tidbits", "village/streets/big_street_jungle"), 1);
+        PIECES_COUNT.put(new ResourceLocation("tidbits", "village/streets/big_street_mountains"), 1);
         PIECES_COUNT.put(new ResourceLocation("tidbits", "village/contractor_birch"), 1);
         PIECES_COUNT.put(new ResourceLocation("tidbits", "village/contractor_dark_forest"), 1);
         PIECES_COUNT.put(new ResourceLocation("tidbits", "village/contractor_giant_taiga"), 1);
@@ -337,9 +340,6 @@ public class StructurePiecesBehavior {
         PIECES_COUNT.put(new ResourceLocation("tidbits", "village/dj_stage_badlands"), 1);
         PIECES_COUNT.put(new ResourceLocation("tidbits", "village/dj_stage_birch"), 1);
         PIECES_COUNT.put(new ResourceLocation("tidbits", "village/dj_stage_dark_forest"), 1);
-        PIECES_COUNT.put(new ResourceLocation("tidbits", "village/dj_stage_giant_taiga"), 1);
-        PIECES_COUNT.put(new ResourceLocation("tidbits", "village/dj_stage_jungle"), 1);
-        PIECES_COUNT.put(new ResourceLocation("tidbits", "village/dj_stage_mountains"), 1);
         PIECES_COUNT.put(new ResourceLocation("tidbits", "village/dj_stage_mushroom"), 1);
         PIECES_COUNT.put(new ResourceLocation("tidbits", "village/dj_stage_oak"), 1);
         PIECES_COUNT.put(new ResourceLocation("tidbits", "village/dj_stage_swamp"), 1);
@@ -352,12 +352,8 @@ public class StructurePiecesBehavior {
         PIECES_COUNT.put(new ResourceLocation("tidbits", "village/engineer_mushroom"), 1);
         PIECES_COUNT.put(new ResourceLocation("tidbits", "village/engineer_oak"), 1);
         PIECES_COUNT.put(new ResourceLocation("tidbits", "village/engineer_swamp"), 1);
-        PIECES_COUNT.put(new ResourceLocation("tidbits", "village/lumberjack_badlands"), 1);
         PIECES_COUNT.put(new ResourceLocation("tidbits", "village/lumberjack_birch"), 1);
         PIECES_COUNT.put(new ResourceLocation("tidbits", "village/lumberjack_dark_forest"), 1);
-        PIECES_COUNT.put(new ResourceLocation("tidbits", "village/lumberjack_giant_taiga"), 1);
-        PIECES_COUNT.put(new ResourceLocation("tidbits", "village/lumberjack_jungle"), 1);
-        PIECES_COUNT.put(new ResourceLocation("tidbits", "village/lumberjack_mountains"), 1);
         PIECES_COUNT.put(new ResourceLocation("tidbits", "village/lumberjack_mushroom"), 1);
         PIECES_COUNT.put(new ResourceLocation("tidbits", "village/lumberjack_oak"), 1);
         PIECES_COUNT.put(new ResourceLocation("tidbits", "village/lumberjack_swamp"), 1);
