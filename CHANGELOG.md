@@ -1,3 +1,11 @@
+### **(V.2.4.4 Changes) (1.17.1 Minecraft)**
+
+##### Misc:
+Mixin into Basalt Columns will not crash when a broken mod tries to place basalt columns outside the safe 3x3 chunk area for features.
+ Will instead print into log to go find who is misplacing their basalt columns feature and ask them to fix it.
+ (Note: if you are using Wyther's datapack or mod, update that to the latest so their Shattered Savanna Plateau's basalt columns are placed properly)
+
+
 ### **(V.2.4.3 Changes) (1.17.1 Minecraft)**
 
 ##### Mod Compat:
