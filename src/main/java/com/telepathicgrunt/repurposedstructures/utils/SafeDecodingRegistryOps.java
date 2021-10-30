@@ -67,7 +67,7 @@ public class SafeDecodingRegistryOps<T> extends WorldSettingsImport<T> {
                             "\n Repurposed Structures: Crash is about to occur because an entry in a datapack does not exist in a registry or failed to resolve an entry." +
                             "\n Entry failed to be resolved: {}" +
                             "\n Registry being used: {}",
-                            registryKey, object);
+                            object, registryKey);
                     throw e;
                 }
             }

@@ -156,13 +156,13 @@ public class RSStructures {
     public static final RegistryObject<Structure<NoFeatureConfig>> CITY_NETHER = addToStructureMaps("city_nether", () -> (new CityNetherStructure.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "cities/nether/start_pool")).setStructureSize(5).setStructureBlacklistRange(4).setAvoidStructuresSet(Stream.of(RSStructureTagMap.STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet())).build()));
 
     //Mansions
-    public static final RegistryObject<Structure<NoFeatureConfig>> MANSION_BIRCH = addToStructureMaps("mansion_birch", () -> (new MansionStructure(MansionPieces.MansionTemplate.MANSIONTYPE.BIRCH)));
-    public static final RegistryObject<Structure<NoFeatureConfig>> MANSION_JUNGLE = addToStructureMaps("mansion_jungle", () -> (new MansionStructure(MansionPieces.MansionTemplate.MANSIONTYPE.JUNGLE)));
-    public static final RegistryObject<Structure<NoFeatureConfig>> MANSION_OAK = addToStructureMaps("mansion_oak", () -> (new MansionStructure(MansionPieces.MansionTemplate.MANSIONTYPE.OAK)));
-    public static final RegistryObject<Structure<NoFeatureConfig>> MANSION_SAVANNA = addToStructureMaps("mansion_savanna", () -> (new MansionStructure(MansionPieces.MansionTemplate.MANSIONTYPE.SAVANNA)));
-    public static final RegistryObject<Structure<NoFeatureConfig>> MANSION_TAIGA = addToStructureMaps("mansion_taiga", () -> (new MansionStructure(MansionPieces.MansionTemplate.MANSIONTYPE.TAIGA)));
-    public static final RegistryObject<Structure<NoFeatureConfig>> MANSION_DESERT = addToStructureMaps("mansion_desert", () -> (new MansionStructure(MansionPieces.MansionTemplate.MANSIONTYPE.DESERT)));
-    public static final RegistryObject<Structure<NoFeatureConfig>> MANSION_SNOWY = addToStructureMaps("mansion_snowy", () -> (new MansionStructure(MansionPieces.MansionTemplate.MANSIONTYPE.SNOWY)));
+    public static final RegistryObject<Structure<NoFeatureConfig>> MANSION_BIRCH = addToStructureMaps("mansion_birch", () -> (new MansionStructure(MansionPieces.MANSIONTYPE.BIRCH)));
+    public static final RegistryObject<Structure<NoFeatureConfig>> MANSION_JUNGLE = addToStructureMaps("mansion_jungle", () -> (new MansionStructure(MansionPieces.MANSIONTYPE.JUNGLE)));
+    public static final RegistryObject<Structure<NoFeatureConfig>> MANSION_OAK = addToStructureMaps("mansion_oak", () -> (new MansionStructure(MansionPieces.MANSIONTYPE.OAK)));
+    public static final RegistryObject<Structure<NoFeatureConfig>> MANSION_SAVANNA = addToStructureMaps("mansion_savanna", () -> (new MansionStructure(MansionPieces.MANSIONTYPE.SAVANNA)));
+    public static final RegistryObject<Structure<NoFeatureConfig>> MANSION_TAIGA = addToStructureMaps("mansion_taiga", () -> (new MansionStructure(MansionPieces.MANSIONTYPE.TAIGA)));
+    public static final RegistryObject<Structure<NoFeatureConfig>> MANSION_DESERT = addToStructureMaps("mansion_desert", () -> (new MansionStructure(MansionPieces.MANSIONTYPE.DESERT)));
+    public static final RegistryObject<Structure<NoFeatureConfig>> MANSION_SNOWY = addToStructureMaps("mansion_snowy", () -> (new MansionStructure(MansionPieces.MANSIONTYPE.SNOWY)));
 
     //Witch Huts
     public static final RegistryObject<Structure<NoFeatureConfig>> WITCH_HUTS_OAK = addToStructureMaps("witch_hut_oak", () -> (new GenericJigsawStructure.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "witch_huts/oak_start_pool")).setStructureSize(11).build()));

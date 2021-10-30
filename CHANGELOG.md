@@ -1,3 +1,11 @@
+### **(V.3.3.5 Changes) (1.16.5 Minecraft)**
+
+##### Woodland Mansions:
+
+
+1x1_b5 room now spawns in RS mansions unlike vanilla which is bugged lol. https://bugs.mojang.com/browse/MC-240121
+
+
 ### **(V.3.3.4 Changes) (1.16.5 Minecraft)**
 
 ##### Mod Compat:
