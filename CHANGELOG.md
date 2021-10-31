@@ -13,6 +13,8 @@ Adjusted looks of Savanna mansion to make it look nicer.
 
 Fixed vanilla bug in RS mansions where terrain can be found floating on second and third floor hallways of the mansions.
 
+Fixed vanilla mansion bug for RS mansions where there can be a hole in the second floor's wall to the outside if there's a 3rd floor above.
+
 
 ### **(V.3.3.4 Changes) (1.16.5 Minecraft)**
 
