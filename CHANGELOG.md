@@ -11,6 +11,8 @@ All RS Mansions now spawns pieces by using template pools. This means you can ed
 
 Adjusted looks of Savanna mansion to make it look nicer.
 
+Fixed vanilla bug in RS mansions where terrain can be found floating on second and third floor hallways of the mansions.
+
 
 ### **(V.3.3.4 Changes) (1.16.5 Minecraft)**
 
