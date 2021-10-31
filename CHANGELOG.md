@@ -1,6 +1,6 @@
 ### **(V.2.5.0 Changes) (1.17.1 Minecraft)**
 
-##### Woodland Mansions:
+##### Mansions:
 All RS Mansions now spawns pieces by using template pools. This means you can edit the pool files by datapack to
  remove rooms you do not want to spawn. Or datapack the pools to make structure processors run for mansion pieces to randomize blocks.
  Or even datapack using RS's pool_addition folder to inject new rooms into mansions!
@@ -14,6 +14,10 @@ Adjusted looks of Savanna mansion to make it look nicer.
 Fixed vanilla bug in RS mansions where terrain can be found floating on second and third floor hallways of the mansions.
 
 Fixed vanilla mansion bug for RS mansions where there can be a hole in the second floor's wall to the outside if there's a 3rd floor above.
+
+##### Outposts:
+Crimson, Warped, and Nether Brick Outposts now can have target pieces with either Wither Skeleton Skulls or regular Skeleton Skulls.
+ The Wither Skeleton Skull piece only has a 23% chance of appearing for a single Outpost. Before, Nether Brick Outpost had a 50% chance of spawning one.
 
 
 ### **(V.2.4.4 Changes) (1.17.1 Minecraft)**

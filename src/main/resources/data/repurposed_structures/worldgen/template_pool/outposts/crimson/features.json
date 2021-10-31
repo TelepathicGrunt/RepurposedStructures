@@ -3,7 +3,7 @@
   "fallback": "minecraft:empty",
   "elements": [
     {
-      "weight": 1,
+      "weight": 2,
       "element": {
         "location": "repurposed_structures:outposts/crimson/cage1",
         "processors": "minecraft:empty",
@@ -12,7 +12,7 @@
       }
     },
     {
-      "weight": 1,
+      "weight": 2,
       "element": {
         "location": "repurposed_structures:outposts/crimson/cage2",
         "processors": "minecraft:empty",
@@ -21,7 +21,7 @@
       }
     },
     {
-      "weight": 1,
+      "weight": 2,
       "element": {
         "location": "repurposed_structures:outposts/crimson/logs",
         "processors": "minecraft:empty",
@@ -30,7 +30,7 @@
       }
     },
     {
-      "weight": 1,
+      "weight": 2,
       "element": {
         "location": "repurposed_structures:outposts/crimson/tent1",
         "processors": "minecraft:empty",
@@ -39,7 +39,7 @@
       }
     },
     {
-      "weight": 1,
+      "weight": 2,
       "element": {
         "location": "repurposed_structures:outposts/crimson/tent2",
         "processors": "minecraft:empty",
@@ -48,9 +48,18 @@
       }
     },
     {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:outposts/crimson/targets_1",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
       "weight": 1,
       "element": {
-        "location": "repurposed_structures:outposts/crimson/targets",
+        "location": "repurposed_structures:outposts/crimson/targets_2",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
