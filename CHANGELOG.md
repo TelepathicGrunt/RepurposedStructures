@@ -1,3 +1,9 @@
+### **(V.2.5.0 Changes) (1.17.1 Minecraft)**
+
+##### Woodland Mansions:
+Adjusted looks of Savanna mansion to make it look nicer.
+
+
 ### **(V.2.4.4 Changes) (1.17.1 Minecraft)**
 
 ##### Misc:

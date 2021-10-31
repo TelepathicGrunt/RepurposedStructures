@@ -33,9 +33,37 @@ public class MansionPieces{
         layoutGenerator.generate(pos, rotation, pieces, mansionParameters, type);
     }
 
-    static class ThirdFloorRoomPool extends MansionPieces.SecondFloorRoomPool {
-        private ThirdFloorRoomPool() {
+    static class FirstFloorRoomPool extends MansionPieces.RoomPool {
+        private FirstFloorRoomPool() {
             super();
+        }
+
+        public String getSmallRoom(Random random) {
+            return "1x1_a" + (random.nextInt(5) + 1);
+        }
+
+        public String getSmallSecretRoom(Random random) {
+            return "1x1_as" + (random.nextInt(4) + 1);
+        }
+
+        public String getMediumFunctionalRoom(Random random, boolean staircase) {
+            return "1x2_a" + (random.nextInt(9) + 1);
+        }
+
+        public String getMediumGenericRoom(Random random, boolean staircase) {
+            return "1x2_b" + (random.nextInt(5) + 1);
+        }
+
+        public String getMediumSecretRoom(Random random) {
+            return "1x2_s" + (random.nextInt(2) + 1);
+        }
+
+        public String getBigRoom(Random random) {
+            return "2x2_a" + (random.nextInt(4) + 1);
+        }
+
+        public String getBigSecretRoom(Random random) {
+            return "2x2_s1";
         }
     }
 
@@ -73,37 +101,9 @@ public class MansionPieces{
         }
     }
 
-    static class FirstFloorRoomPool extends MansionPieces.RoomPool {
-        private FirstFloorRoomPool() {
+    static class ThirdFloorRoomPool extends MansionPieces.SecondFloorRoomPool {
+        private ThirdFloorRoomPool() {
             super();
-        }
-
-        public String getSmallRoom(Random random) {
-            return "1x1_a" + (random.nextInt(5) + 1);
-        }
-
-        public String getSmallSecretRoom(Random random) {
-            return "1x1_as" + (random.nextInt(4) + 1);
-        }
-
-        public String getMediumFunctionalRoom(Random random, boolean staircase) {
-            return "1x2_a" + (random.nextInt(9) + 1);
-        }
-
-        public String getMediumGenericRoom(Random random, boolean staircase) {
-            return "1x2_b" + (random.nextInt(5) + 1);
-        }
-
-        public String getMediumSecretRoom(Random random) {
-            return "1x2_s" + (random.nextInt(2) + 1);
-        }
-
-        public String getBigRoom(Random random) {
-            return "2x2_a" + (random.nextInt(4) + 1);
-        }
-
-        public String getBigSecretRoom(Random random) {
-            return "2x2_s1";
         }
     }
 
