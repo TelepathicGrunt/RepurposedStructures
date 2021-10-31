@@ -1,7 +1,10 @@
-### **(V.3.3.5 Changes) (1.16.5 Minecraft)**
+### **(V.3.4.0 Changes) (1.16.5 Minecraft)**
 
 ##### Woodland Mansions:
-
+All RS Mansions now spawns pieces by using template pools. This means you can edit the pool files by datapack to
+ remove rooms you do not want to spawn. Or datapack using RS's pool_addition folder to inject new rooms into mansions!
+ Just make sure your new mansion pieces matches the size of the other pieces in the same pool. 
+ No Jigsaw Block needed since Mansions are not Jigsaw Structures.
 
 1x1_b5 room now spawns in RS mansions unlike vanilla which is bugged lol. https://bugs.mojang.com/browse/MC-240121
 

@@ -8,6 +8,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.mixin.structures.SingleJigsawPieceAccessor;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePieces;
 import net.minecraft.block.Blocks;
+import net.minecraft.util.Direction;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
@@ -85,7 +86,7 @@ public class MirroringSingleJigsawPiece extends SingleJigsawPiece {
     @Override
     public MutableBoundingBox getBoundingBox(TemplateManager templateManager, BlockPos blockPos, Rotation rotation) {
         Template template = this.getTemplate(templateManager);
-        return template.getBoundingBox((new PlacementSettings()).setRotation(rotation), blockPos);
+        return template.getBoundingBox((new PlacementSettings()).setRotation(rotation).setMirror(this.mirror), blockPos);
     }
 
     @Override
