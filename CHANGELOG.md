@@ -11,9 +11,11 @@ All RS Mansions now spawns pieces by using template pools. This means you can ed
 
 Adjusted looks of Savanna mansion to make it look nicer.
 
-Fixed vanilla bug in RS mansions where terrain can be found floating on second and third floor hallways of the mansions.
+Fixed vanilla bug in RS mansions where terrain can be found floating on second and third floor hallways of the mansions. https://bugs.mojang.com/browse/MC-107594
 
-Fixed vanilla mansion bug for RS mansions where there can be a hole in the second floor's wall to the outside if there's a 3rd floor above.
+Fixed vanilla mansion bug for RS mansions where there can be a hole in the second floor's wall to the outside if there's a 3rd floor above. https://bugs.mojang.com/browse/MC-240221
+
+Fixed vanilla mansion bug for RS mansions where there can be a 3 block high hole on outside wall rightside where 2nd floor meets the 3rd floor. https://bugs.mojang.com/browse/MC-110098
 
 ##### Outposts:
 Crimson, Warped, and Nether Brick Outposts now can have target pieces with either Wither Skeleton Skulls or regular Skeleton Skulls.
