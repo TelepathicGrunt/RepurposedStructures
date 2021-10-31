@@ -758,23 +758,24 @@ public class MansionPieces{
                         if (MansionPieces.MansionParameters.method_15047(flagMatrix, l, k) && bl3) {
                             if (!MansionPieces.MansionParameters.method_15047(flagMatrix, l + 1, k)) {
                                 blockPos15 = blockPos7.relative(rotation.rotate(Direction.EAST), 7);
+                                blockPos15 = blockPos15.relative(rotation.rotate(Direction.NORTH), 1);
                                 structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/small_wall", blockPos15, rotation, Mirror.NONE, type));
                             }
 
                             if (!MansionPieces.MansionParameters.method_15047(flagMatrix, l - 1, k)) {
                                 blockPos15 = blockPos7.relative(rotation.rotate(Direction.WEST), 1);
-                                blockPos15 = blockPos15.relative(rotation.rotate(Direction.SOUTH), 6);
+                                blockPos15 = blockPos15.relative(rotation.rotate(Direction.SOUTH), 7);
                                 structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/small_wall", blockPos15, rotation.getRotated(Rotation.CLOCKWISE_180), Mirror.NONE, type));
                             }
 
                             if (!MansionPieces.MansionParameters.method_15047(flagMatrix, l, k - 1)) {
-                                blockPos15 = blockPos7.relative(rotation.rotate(Direction.WEST), 0);
+                                blockPos15 = blockPos7.relative(rotation.rotate(Direction.WEST), 1);
                                 blockPos15 = blockPos15.relative(rotation.rotate(Direction.NORTH), 1);
                                 structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/small_wall", blockPos15, rotation.getRotated(Rotation.COUNTERCLOCKWISE_90), Mirror.NONE, type));
                             }
 
                             if (!MansionPieces.MansionParameters.method_15047(flagMatrix, l, k + 1)) {
-                                blockPos15 = blockPos7.relative(rotation.rotate(Direction.EAST), 6);
+                                blockPos15 = blockPos7.relative(rotation.rotate(Direction.EAST), 7);
                                 blockPos15 = blockPos15.relative(rotation.rotate(Direction.SOUTH), 7);
                                 structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/small_wall", blockPos15, rotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE, type));
                             }
