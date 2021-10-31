@@ -15,6 +15,10 @@ Fixed vanilla bug in RS mansions where terrain can be found floating on second a
 
 Fixed vanilla mansion bug for RS mansions where there can be a hole in the second floor's wall to the outside if there's a 3rd floor above.
 
+##### Outposts:
+Crimson, Warped, and Nether Brick Outposts now can have target pieces with either Wither Skeleton Skulls or regular Skeleton Skulls.
+ The Wither Skeleton Skull piece only has a 23% chance of appearing for a single Outpost. Before, Nether Brick Outpost had a 50% chance of spawning one.
+
 
 ### **(V.3.3.4 Changes) (1.16.5 Minecraft)**
 
