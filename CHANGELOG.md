@@ -9,6 +9,8 @@ All RS Mansions now spawns pieces by using template pools. This means you can ed
 
 1x1_b5 room now spawns in RS mansions unlike vanilla which is bugged lol. https://bugs.mojang.com/browse/MC-240121
 
+Adjusted looks of Savanna mansion to make it look nicer.
+
 
 ### **(V.3.3.4 Changes) (1.16.5 Minecraft)**
 
