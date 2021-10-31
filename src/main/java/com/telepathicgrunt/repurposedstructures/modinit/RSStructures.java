@@ -146,13 +146,13 @@ public class RSStructures {
 
     // MANSIONS
 
-    public static StructureFeature<NoneFeatureConfiguration> MANSION_BIRCH = new MansionStructure(MansionPieces.Piece.MANSIONTYPE.BIRCH);
-    public static StructureFeature<NoneFeatureConfiguration> MANSION_JUNGLE = new MansionStructure(MansionPieces.Piece.MANSIONTYPE.JUNGLE);
-    public static StructureFeature<NoneFeatureConfiguration> MANSION_OAK = new MansionStructure(MansionPieces.Piece.MANSIONTYPE.OAK);
-    public static StructureFeature<NoneFeatureConfiguration> MANSION_SAVANNA = new MansionStructure(MansionPieces.Piece.MANSIONTYPE.SAVANNA);
-    public static StructureFeature<NoneFeatureConfiguration> MANSION_TAIGA = new MansionStructure(MansionPieces.Piece.MANSIONTYPE.TAIGA);
-    public static StructureFeature<NoneFeatureConfiguration> MANSION_DESERT = new MansionStructure(MansionPieces.Piece.MANSIONTYPE.DESERT);
-    public static StructureFeature<NoneFeatureConfiguration> MANSION_SNOWY = new MansionStructure(MansionPieces.Piece.MANSIONTYPE.SNOWY);
+    public static StructureFeature<NoneFeatureConfiguration> MANSION_BIRCH = new MansionStructure(MansionPieces.MANSIONTYPE.BIRCH);
+    public static StructureFeature<NoneFeatureConfiguration> MANSION_JUNGLE = new MansionStructure(MansionPieces.MANSIONTYPE.JUNGLE);
+    public static StructureFeature<NoneFeatureConfiguration> MANSION_OAK = new MansionStructure(MansionPieces.MANSIONTYPE.OAK);
+    public static StructureFeature<NoneFeatureConfiguration> MANSION_SAVANNA = new MansionStructure(MansionPieces.MANSIONTYPE.SAVANNA);
+    public static StructureFeature<NoneFeatureConfiguration> MANSION_TAIGA = new MansionStructure(MansionPieces.MANSIONTYPE.TAIGA);
+    public static StructureFeature<NoneFeatureConfiguration> MANSION_DESERT = new MansionStructure(MansionPieces.MANSIONTYPE.DESERT);
+    public static StructureFeature<NoneFeatureConfiguration> MANSION_SNOWY = new MansionStructure(MansionPieces.MANSIONTYPE.SNOWY);
 
     // WITCH HUTS
 

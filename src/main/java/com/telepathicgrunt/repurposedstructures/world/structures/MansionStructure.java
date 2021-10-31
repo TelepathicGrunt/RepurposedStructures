@@ -30,8 +30,8 @@ import java.util.Random;
 
 public class MansionStructure extends AbstractBaseStructure<NoneFeatureConfiguration> {
 
-    protected final MansionPieces.Piece.MANSIONTYPE type;
-    public MansionStructure(MansionPieces.Piece.MANSIONTYPE type) {
+    protected final MansionPieces.MANSIONTYPE type;
+    public MansionStructure(MansionPieces.MANSIONTYPE type) {
         super(NoneFeatureConfiguration.CODEC);
         this.type = type;
     }
@@ -92,8 +92,8 @@ public class MansionStructure extends AbstractBaseStructure<NoneFeatureConfigura
                 return;
 
             BlockPos blockPos = new BlockPos(chunkPos1.getMiddleBlockX(), finalheight + 1, chunkPos1.getMiddleBlockZ());
-            List<MansionPieces.Piece> list = Lists.newLinkedList();
-            MansionPieces.createMansionLayout(structureManager, blockPos, blockRotation, list, this.random, type);
+            List<StructurePiece> list = Lists.newLinkedList();
+            MansionPieces.createMansionLayout(dynamicRegistryManager, structureManager, blockPos, blockRotation, list, this.random, type);
             this.pieces.addAll(list);
             this.getBoundingBox();
         }

@@ -1,7 +1,19 @@
 ### **(V.2.5.0 Changes) (1.17.1 Minecraft)**
 
 ##### Woodland Mansions:
+All RS Mansions now spawns pieces by using template pools. This means you can edit the pool files by datapack to
+ remove rooms you do not want to spawn. Or datapack the pools to make structure processors run for mansion pieces to randomize blocks.
+ Or even datapack using RS's pool_addition folder to inject new rooms into mansions!
+ Just make sure your new mansion pieces matches the size of the other pieces in the same pool.
+ No Jigsaw Block needed since Mansions are not Jigsaw Structures.
+
+1x1_b5 room now spawns in RS mansions unlike vanilla which is bugged lol. https://bugs.mojang.com/browse/MC-240121
+
 Adjusted looks of Savanna mansion to make it look nicer.
+
+Fixed vanilla bug in RS mansions where terrain can be found floating on second and third floor hallways of the mansions.
+
+Fixed vanilla mansion bug for RS mansions where there can be a hole in the second floor's wall to the outside if there's a 3rd floor above.
 
 
 ### **(V.2.4.4 Changes) (1.17.1 Minecraft)**
