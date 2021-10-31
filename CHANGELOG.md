@@ -2,7 +2,8 @@
 
 ##### Woodland Mansions:
 All RS Mansions now spawns pieces by using template pools. This means you can edit the pool files by datapack to
- remove rooms you do not want to spawn. Or datapack using RS's pool_addition folder to inject new rooms into mansions!
+ remove rooms you do not want to spawn. Or datapack the pools to make structure processors run for mansion pieces to randomize blocks.
+ Or even datapack using RS's pool_addition folder to inject new rooms into mansions!
  Just make sure your new mansion pieces matches the size of the other pieces in the same pool. 
  No Jigsaw Block needed since Mansions are not Jigsaw Structures.
 
