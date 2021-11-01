@@ -24,6 +24,9 @@ Crimson, Warped, and Nether Brick Outposts now can have target pieces with eithe
 ##### Misc:
 Adjusted several loot table files.
 
+##### Compat:
+Added a mixin to undo a Charm's structure processor for non-charm buildings so that Charm does not break several RS structures that uses Data Mode Structure Blocks.
+
 
 ### **(V.2.4.4 Changes) (1.17.1 Minecraft)**
 

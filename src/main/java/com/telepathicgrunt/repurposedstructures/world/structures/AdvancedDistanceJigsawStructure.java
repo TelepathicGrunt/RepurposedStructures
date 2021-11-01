@@ -20,7 +20,6 @@ import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 
 import java.util.Comparator;
-import java.util.Iterator;
 
 
 public class AdvancedDistanceJigsawStructure extends AdvancedJigsawStructure {

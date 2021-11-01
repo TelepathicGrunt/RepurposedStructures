@@ -20,6 +20,7 @@
     "resources.LootTableMixin",
     "resources.NamespaceResourceManagerAccessor",
     "resources.ReloadableResourceManagerImplAccessor",
+    "structures.CharmSinglePoolElementMixin",
     "structures.EnderEyeStrongholdLocatingMixin",
     "structures.ListPoolElementAccessor",
     "structures.SinglePoolElementAccessor",

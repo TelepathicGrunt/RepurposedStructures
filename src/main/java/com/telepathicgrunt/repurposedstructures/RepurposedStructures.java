@@ -69,8 +69,9 @@ public class RepurposedStructures implements ModInitializer, DedicatedServerModI
 	public static RSAllConfig RSAllConfig = null;
     public static final RSAllowDisallowOmegaConfig omegaBiomeDimConfig = OmegaConfig.register(RSAllowDisallowOmegaConfig.class);
     public static final RSNaturalMobSpawningOmegaConfig omegaMobSpawnConfig = OmegaConfig.register(RSNaturalMobSpawningOmegaConfig.class);
-    public static boolean betterMineshafts = false;
-    public static boolean betterDungeons = false;
+    public static boolean isBetterMineshaftsOn = false;
+    public static boolean isBetterDungeonsOn = false;
+    public static boolean isCharmOn = false;
 
 
     @Override
@@ -79,10 +80,13 @@ public class RepurposedStructures implements ModInitializer, DedicatedServerModI
         RSAllConfig = AutoConfig.getConfigHolder(RSAllConfig.class).getConfig();
 
         if (FabricLoader.getInstance().isModLoaded("bettermineshafts")) {
-            betterMineshafts = true;
+            isBetterMineshaftsOn = true;
         }
         if (FabricLoader.getInstance().isModLoaded("betterdungeons")) {
-            betterDungeons = true;
+            isBetterDungeonsOn = true;
+        }
+        if (FabricLoader.getInstance().isModLoaded("charm")) {
+            isCharmOn = true;
         }
 
         RSPlacements.registerPlacements();

@@ -165,7 +165,7 @@ public class Dungeons {
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.OCEAN_WARM_DUNGEONS));
 
 
-        if(!RepurposedStructures.betterDungeons) {
+        if(!RepurposedStructures.isBetterDungeonsOn) {
             //Remove vanilla dungeons from non-ocean/nether/end biomes we added our dungeons to
             BiomeModifications.create(new ResourceLocation(RepurposedStructures.MODID, "remove_vanilla_dungeons")).add(
                     ModificationPhase.REMOVALS,
