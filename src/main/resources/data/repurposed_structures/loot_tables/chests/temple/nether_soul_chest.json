@@ -231,12 +231,12 @@
         },
         {
           "type": "minecraft:empty",
-          "weight": 3
+          "weight": 12
         },
         {
           "name": "minecraft:black_banner",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 4,
           "functions": [
             {
               "function":"set_nbt",
@@ -247,7 +247,7 @@
         {
           "name": "minecraft:comparator",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 4,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -258,7 +258,7 @@
         {
           "name": "minecraft:target",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 4,
           "functions": [
             {
               "function": "minecraft:set_count",

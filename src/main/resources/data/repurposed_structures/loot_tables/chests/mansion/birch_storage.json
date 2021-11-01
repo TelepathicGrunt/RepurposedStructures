@@ -97,12 +97,12 @@
         },
         {
           "type": "minecraft:empty",
-          "weight": 37
+          "weight": 168
         },
         {
           "name": "minecraft:black_banner",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 4,
           "functions": [
             {
               "function":"set_nbt",
@@ -113,7 +113,7 @@
         {
           "name": "minecraft:emerald",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 4,
           "functions": [
             {
               "function": "minecraft:set_count",

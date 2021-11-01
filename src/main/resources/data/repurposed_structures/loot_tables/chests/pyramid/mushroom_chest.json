@@ -256,12 +256,12 @@
         },
         {
           "type": "minecraft:empty",
-          "weight": 6
+          "weight": 24
         },
         {
           "name": "minecraft:light_gray_banner",
           "type": "minecraft:item",
-          "weight": 2,
+          "weight": 8,
           "functions": [
             {
               "function":"set_nbt",
@@ -272,12 +272,12 @@
         {
           "name": "minecraft:diamond_horse_armor",
           "type": "minecraft:item",
-          "weight": 1
+          "weight": 4
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:potion",
-          "weight": 1,
+          "weight": 4,
           "functions": [
             {
               "function": "minecraft:set_nbt",

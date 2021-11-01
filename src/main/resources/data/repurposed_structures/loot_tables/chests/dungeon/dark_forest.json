@@ -425,12 +425,12 @@
         },
         {
           "type": "minecraft:empty",
-          "weight": 90
+          "weight": 360
         },
         {
           "name": "minecraft:black_banner",
           "type": "minecraft:item",
-          "weight": 23,
+          "weight": 92,
           "functions": [
             {
               "function":"set_nbt",
@@ -441,12 +441,12 @@
         {
           "name": "minecraft:music_disc_11",
           "type": "minecraft:item",
-          "weight": 33
+          "weight": 132
         },
         {
           "name": "minecraft:name_tag",
           "type": "minecraft:item",
-          "weight": 44
+          "weight": 176
         }
       ]
     }

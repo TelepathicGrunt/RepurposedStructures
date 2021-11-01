@@ -522,12 +522,12 @@
         },
         {
           "type": "minecraft:empty",
-          "weight": 2
+          "weight": 8
         },
         {
           "name": "minecraft:light_gray_banner",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 4,
           "functions": [
             {
               "function":"set_nbt",
@@ -538,12 +538,12 @@
         {
           "name": "minecraft:compass",
           "type": "minecraft:item",
-          "weight": 2
+          "weight": 8
         },
         {
           "name": "minecraft:lead",
           "type": "minecraft:item",
-          "weight": 1
+          "weight": 4
         }
       ]
     }

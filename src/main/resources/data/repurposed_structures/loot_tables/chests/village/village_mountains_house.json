@@ -161,17 +161,23 @@
         },
         {
           "type": "minecraft:empty",
-          "weight": 1
+          "weight": 4
         },
         {
           "name": "minecraft:light_gray_banner",
           "type": "minecraft:item",
-          "weight": 1
+          "weight": 4,
+          "functions": [
+            {
+              "function":"set_nbt",
+              "tag":"{BlockEntityTag:{Patterns:[{Pattern:gru,Color:5},{Pattern:gru,Color:8},{Pattern:bri,Color:15},{Pattern:bri,Color:8},{Pattern:tts,Color:7},{Pattern:tts,Color:7},{Pattern:bts,Color:7},{Pattern:bts,Color:7},{Pattern:mc,Color:13},{Pattern:flo,Color:15},{Pattern:flo,Color:14},{Pattern:flo,Color:4}]}}"
+            }
+          ]
         },
         {
           "name": "minecraft:emerald",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 4,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -182,7 +188,7 @@
         {
           "name": "minecraft:iron_hoe",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 4,
           "functions": [
             {
               "function": "minecraft:set_damage",

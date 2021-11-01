@@ -160,12 +160,12 @@
         },
         {
           "type": "minecraft:empty",
-          "weight": 1
+          "weight": 4
         },
         {
           "name": "minecraft:orange_banner",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 4,
           "functions": [
             {
               "function":"set_nbt",
@@ -176,7 +176,7 @@
         {
           "name": "minecraft:emerald",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 4,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -187,7 +187,7 @@
         {
           "name": "minecraft:iron_hoe",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 4,
           "functions": [
             {
               "function": "minecraft:set_damage",

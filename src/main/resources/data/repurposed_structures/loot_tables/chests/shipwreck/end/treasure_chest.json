@@ -191,12 +191,12 @@
         },
         {
           "type": "minecraft:empty",
-          "weight": 3
+          "weight": 12
         },
         {
           "name": "minecraft:experience_bottle",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 4,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -207,7 +207,7 @@
         {
           "name": "minecraft:black_banner",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 4,
           "functions": [
             {
               "function":"set_nbt",

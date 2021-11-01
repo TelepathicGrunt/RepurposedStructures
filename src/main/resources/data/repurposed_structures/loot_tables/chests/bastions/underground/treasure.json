@@ -318,12 +318,12 @@
         },
         {
           "type": "minecraft:empty",
-          "weight": 4
+          "weight": 16
         },
         {
           "name": "minecraft:black_banner",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 4,
           "functions": [
             {
               "function":"set_nbt",
@@ -334,7 +334,7 @@
         {
           "name": "minecraft:skeleton_skull",
           "type": "minecraft:item",
-          "weight": 1
+          "weight": 4
         }
       ]
     }
