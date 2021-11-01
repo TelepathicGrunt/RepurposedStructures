@@ -259,12 +259,12 @@
         },
         {
           "type": "minecraft:empty",
-          "weight": 40
+          "weight": 160
         },
         {
           "name": "minecraft:black_banner",
           "type": "minecraft:item",
-          "weight": 35,
+          "weight": 140,
           "functions": [
             {
               "function":"set_nbt",
@@ -275,7 +275,7 @@
         {
           "name": "minecraft:golden_hoe",
           "type": "minecraft:item",
-          "weight": 25,
+          "weight": 100,
           "functions": [
             {
               "function": "minecraft:set_damage",

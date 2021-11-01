@@ -370,12 +370,12 @@
         },
         {
           "type": "minecraft:empty",
-          "weight": 2
+          "weight": 8
         },
         {
           "name": "minecraft:black_banner",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 4,
           "functions": [
             {
               "function":"set_nbt",
@@ -386,7 +386,7 @@
         {
           "name": "minecraft:tnt",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 4,
           "functions": [
             {
               "function": "minecraft:set_count",

@@ -257,12 +257,12 @@
         },
         {
           "type": "minecraft:empty",
-          "weight": 47
+          "weight": 188
         },
         {
           "name": "minecraft:purple_banner",
           "type": "minecraft:item",
-          "weight": 18,
+          "weight": 72,
           "functions": [
             {
               "function":"set_nbt",
@@ -273,7 +273,7 @@
         {
           "name": "minecraft:ender_eye",
           "type": "minecraft:item",
-          "weight": 35
+          "weight": 140
         }
       ]
     }

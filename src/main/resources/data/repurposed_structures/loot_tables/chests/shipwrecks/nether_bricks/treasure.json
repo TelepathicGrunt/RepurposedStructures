@@ -276,12 +276,12 @@
         },
         {
           "type": "minecraft:empty",
-          "weight": 22
+          "weight": 88
         },
         {
           "name": "minecraft:suspicious_stew",
           "type": "minecraft:item",
-          "weight": 19,
+          "weight": 76,
           "functions": [
             {
               "function": "minecraft:set_stew_effect",
@@ -349,7 +349,7 @@
         {
           "name": "minecraft:red_banner",
           "type": "minecraft:item",
-          "weight": 9,
+          "weight": 36,
           "functions": [
             {
               "function":"set_nbt",

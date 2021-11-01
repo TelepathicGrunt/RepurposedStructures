@@ -160,12 +160,12 @@
         },
         {
           "type": "minecraft:empty",
-          "weight": 63
+          "weight": 252
         },
         {
           "name": "minecraft:purple_banner",
           "type": "minecraft:item",
-          "weight": 11,
+          "weight": 44,
           "functions": [
             {
               "function":"set_nbt",
@@ -176,12 +176,12 @@
         {
           "name": "minecraft:ender_eye",
           "type": "minecraft:item",
-          "weight": 15
+          "weight": 60
         },
         {
           "name": "minecraft:book",
           "type": "minecraft:item",
-          "weight": 11,
+          "weight": 44,
           "functions": [
             {
               "function": "minecraft:enchant_with_levels",

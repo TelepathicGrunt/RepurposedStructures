@@ -175,17 +175,17 @@
         },
         {
           "type": "minecraft:empty",
-          "weight": 45
+          "weight": 180
         },
         {
           "name": "minecraft:writable_book",
           "type": "minecraft:item",
-          "weight": 35
+          "weight": 140
         },
         {
           "name": "minecraft:book",
           "type": "minecraft:item",
-          "weight": 20,
+          "weight": 80,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -196,7 +196,7 @@
         {
           "name": "minecraft:black_banner",
           "type": "minecraft:item",
-          "weight": 15,
+          "weight": 60,
           "functions": [
             {
               "function":"set_nbt",

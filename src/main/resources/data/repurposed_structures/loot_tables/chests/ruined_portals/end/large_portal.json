@@ -467,12 +467,12 @@
         },
         {
           "type": "minecraft:empty",
-          "weight": 3
+          "weight": 12
         },
         {
           "name": "minecraft:black_banner",
           "type": "minecraft:item",
-          "weight": 7,
+          "weight": 28,
           "functions": [
             {
               "function":"set_nbt",
@@ -483,7 +483,7 @@
         {
           "name": "minecraft:firework_star",
           "type": "minecraft:item",
-          "weight": 10,
+          "weight": 40,
           "functions": [
             {
               "function": "minecraft:set_count",
