@@ -2,7 +2,6 @@ package com.telepathicgrunt.repurposedstructures.utils;
 
 import com.google.common.base.Suppliers;
 import com.google.common.collect.Maps;
-import com.google.gson.JsonNull;
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;

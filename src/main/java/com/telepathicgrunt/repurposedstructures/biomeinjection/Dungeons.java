@@ -157,7 +157,7 @@ public class Dungeons {
     private static void replaceOrAddDungeon(boolean replacing, BiomeLoadingEvent event, ConfiguredFeature<?, ?> rsDungeon) {
 
         //remove vanilla dungeon
-        if (replacing && RepurposedStructures.yungsBetterDungeonsIsNotOn) {
+        if (replacing && !RepurposedStructures.yungsBetterDungeonsIsOn) {
             event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).removeIf(supplier -> supplier.get().feature.equals(Features.MONSTER_ROOM.feature));
         }
 

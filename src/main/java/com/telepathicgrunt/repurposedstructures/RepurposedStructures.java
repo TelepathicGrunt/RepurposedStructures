@@ -118,8 +118,9 @@ public class RepurposedStructures {
     public static RSPyramidsConfigValues RSPyramidsConfig = null;
     public static MobSpawnerManager mobSpawnerManager = new MobSpawnerManager();
 
-    public static boolean yungsBetterMineshaftIsNotOn = true;
-    public static boolean yungsBetterDungeonsIsNotOn = true;
+    public static boolean yungsBetterMineshaftIsOn = true;
+    public static boolean yungsBetterDungeonsIsOn = true;
+    public static boolean isCharmOn = false;
 
     public RepurposedStructures() {
 
@@ -164,8 +165,9 @@ public class RepurposedStructures {
         RSGlobalLootModifier.GLM.register(modEventBus);
 
         //For mod compat by checking if other mod is on
-        yungsBetterMineshaftIsNotOn = !ModList.get().isLoaded("bettermineshafts");
-        yungsBetterDungeonsIsNotOn = !ModList.get().isLoaded("betterdungeons");
+        yungsBetterMineshaftIsOn = ModList.get().isLoaded("bettermineshafts");
+        yungsBetterDungeonsIsOn = ModList.get().isLoaded("betterdungeons");
+        isCharmOn = ModList.get().isLoaded("charm");
         EndRemasteredDedicatedLoot.isEndRemasteredOn = ModList.get().isLoaded("endrem");
         BiomeSourceChecks.hexlandsiiIsOn = ModList.get().isLoaded("hexlands");
 

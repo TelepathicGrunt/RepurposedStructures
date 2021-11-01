@@ -119,7 +119,7 @@ public class Mineshafts {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.MINESHAFT_END);
         }
 
-        if(RepurposedStructures.yungsBetterMineshaftIsNotOn && BiomeSelection.doesHaveStructureType(event, RSStructureTagMap.STRUCTURE_TAGS.MINESHAFT)){
+        if(!RepurposedStructures.yungsBetterMineshaftIsOn && BiomeSelection.doesHaveStructureType(event, RSStructureTagMap.STRUCTURE_TAGS.MINESHAFT)){
             event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature == Structure.MINESHAFT);
         }
     }
