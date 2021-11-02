@@ -1,3 +1,12 @@
+### **(V.2.5.1 Changes) (1.17.1 Minecraft)**
+
+##### Villages:
+Fixed a Badlands Village street not spawning houses or decor due to typos in the nbt file.
+
+##### Dungeons:
+Fixed Mushroom Dungeons basically never spawning. Oops.
+
+
 ### **(V.2.5.0 Changes) (1.17.1 Minecraft)**
 
 ##### Mansions:
