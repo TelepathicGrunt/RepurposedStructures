@@ -44,7 +44,7 @@ public class MineshaftEndStructure extends MineshaftStructure {
         //cannot be near end strongholds
         int structureCheckRadius = 6;
         for (int curChunkX = chunkX - structureCheckRadius; curChunkX <= chunkZ + structureCheckRadius; curChunkX++) {
-            for (int curChunkZ = chunkX - structureCheckRadius; curChunkZ <= chunkZ + structureCheckRadius; curChunkZ++) {
+            for (int curChunkZ = chunkZ - structureCheckRadius; curChunkZ <= chunkZ + structureCheckRadius; curChunkZ++) {
                 for(Structure<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.END_MINESHAFT_AVOID_STRUCTURE)){
                     if(structureFeature == this) continue;
 

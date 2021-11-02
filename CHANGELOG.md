@@ -1,3 +1,9 @@
+### **(V.3.4.1 Changes) (1.16.5 Minecraft)**
+
+##### Mineshafts:
+Fixed a broken End Mineshaft check so it now properly space itself from End Strongholds and doesn't deadlock /locate command rarely.
+
+
 ### **(V.3.4.0 Changes) (1.16.5 Minecraft)**
 
 ##### Woodland Mansions:
