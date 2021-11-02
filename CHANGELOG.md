@@ -3,6 +3,11 @@
 ##### Mineshafts:
 Fixed a broken End Mineshaft check so it now properly space itself from End Strongholds and doesn't deadlock /locate command rarely.
 
+##### Dungeons:
+Fixed Mushroom Dungeons basically never spawning. Oops.
+
+Fixed a missing block from corner of one Snow Dungeon nbt file. (no user would notice any change so idk why I am listing this fix here lol)
+
 
 ### **(V.3.4.0 Changes) (1.16.5 Minecraft)**
 

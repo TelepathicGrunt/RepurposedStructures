@@ -54,9 +54,9 @@ public class Dungeons {
                 replaceOrAddDungeon(true, event, RSConfiguredFeatures.MUSHROOM_HIGH_DUNGEONS);
             }
 
-            if(BiomeSelection.isBiomeAllowed(event, RSConfiguredFeatures.MUSHROOM_HIGH_DUNGEONS,
+            if(BiomeSelection.isBiomeAllowed(event, RSConfiguredFeatures.MUSHROOM_LOW_DUNGEONS,
                         () -> BiomeSelection.haveCategories(event, Category.MUSHROOM) &&
-                        RepurposedStructures.RSDungeonsConfig.mushroomDungeonMaxHeight.get() <= 62))
+                        RepurposedStructures.RSDungeonsConfig.mushroomDungeonMinHeight.get() <= 62))
             {
                 replaceOrAddDungeon(true, event, RSConfiguredFeatures.MUSHROOM_LOW_DUNGEONS);
             }
