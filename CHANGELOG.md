@@ -6,6 +6,8 @@ Fixed a Badlands Village street not spawning houses or decor due to typos in the
 ##### Dungeons:
 Fixed Mushroom Dungeons basically never spawning. Oops.
 
+Fixed a missing block from corner of one Snow Dungeon nbt file. (no user would notice any change so idk why I am listing this fix here lol)
+
 
 ### **(V.2.5.0 Changes) (1.17.1 Minecraft)**
 
