@@ -1,3 +1,10 @@
+### **(V.2.5.2 Changes) (1.17.1 Minecraft)**
+
+##### Mineshafts:
+Fixed the structure processor for several RS Mineshafts 4 way pieces to place blocks correctly. 
+ Also makes Swamp Mineshaft look a bit better.
+
+
 ### **(V.2.5.1 Changes) (1.17.1 Minecraft)**
 
 ##### Villages:
