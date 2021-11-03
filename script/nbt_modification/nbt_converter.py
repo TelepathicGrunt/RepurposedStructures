@@ -14,8 +14,7 @@ originalBiome = ""
 newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {
-    "minecraft:stone_brick_stairs": "minecraft:polished_deepslate_stairs",
-    "minecraft:stone_brick_slab": "minecraft:deepslate_brick_slab",
+    "minecraft:stone_brick_wall": "minecraft:deepslate_tile_wall"
 }
 conversion_exact_dict = {}
 #-------------------------------------------------------------------------------------------
