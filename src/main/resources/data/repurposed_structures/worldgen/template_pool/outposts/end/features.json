@@ -3,7 +3,7 @@
   "fallback": "minecraft:empty",
   "elements": [
     {
-      "weight": 6,
+      "weight": 18,
       "element": {
         "location": "repurposed_structures:outposts/end/phantom_cage1",
         "processors": "minecraft:empty",
@@ -12,7 +12,7 @@
       }
     },
     {
-      "weight": 6,
+      "weight": 18,
       "element": {
         "location": "repurposed_structures:outposts/end/phantom_cage2",
         "processors": "minecraft:empty",
@@ -21,7 +21,7 @@
       }
     },
     {
-      "weight": 6,
+      "weight": 28,
       "element": {
         "location": "repurposed_structures:outposts/end/pillar_storage",
         "processors": "minecraft:empty",
@@ -30,7 +30,7 @@
       }
     },
     {
-      "weight": 6,
+      "weight": 28,
       "element": {
         "location": "repurposed_structures:outposts/end/chorus_farm1",
         "processors": "minecraft:empty",
@@ -39,7 +39,7 @@
       }
     },
     {
-      "weight": 6,
+      "weight": 28,
       "element": {
         "location": "repurposed_structures:outposts/end/chorus_farm2",
         "processors": "minecraft:empty",
@@ -48,7 +48,7 @@
       }
     },
     {
-      "weight": 3,
+      "weight": 4,
       "element": {
         "location": "repurposed_structures:outposts/end/targets",
         "processors": "minecraft:empty",
@@ -57,7 +57,7 @@
       }
     },
     {
-      "weight": 3,
+      "weight": 4,
       "element": {
         "location": "repurposed_structures:outposts/end/targets_lamp",
         "processors": "minecraft:empty",
@@ -75,7 +75,7 @@
       }
     },
     {
-      "weight": 12,
+      "weight": 50,
       "element": {
         "element_type": "minecraft:empty_pool_element"
       }

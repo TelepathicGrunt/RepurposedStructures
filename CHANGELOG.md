@@ -8,6 +8,10 @@ Fixed Mushroom Dungeons basically never spawning. Oops.
 
 Fixed a missing block from corner of one Snow Dungeon nbt file. (no user would notice any change so idk why I am listing this fix here lol)
 
+##### Outposts:
+Changed all RS Outposts to better match Vanilla Outpost that can spawn a ton of tents and cages and stuff in 1.17.
+ Yeah, Mojang made a change to outposts and no one noticed lol. I don't think it was reported anywhere.
+
 
 ### **(V.2.5.0 Changes) (1.17.1 Minecraft)**
 
