@@ -13,10 +13,11 @@ blockPalette = {""}
 originalBiome = ""
 newBiome = ""
 string_blacklist = []
-conversion_partial_dict = {}
-conversion_exact_dict = {
+conversion_partial_dict = {
+    "minecraft:stone_brick_stairs": "minecraft:polished_deepslate_stairs",
+    "minecraft:stone_brick_slab": "minecraft:deepslate_brick_slab",
 }
-
+conversion_exact_dict = {}
 #-------------------------------------------------------------------------------------------
 
 def string_replacer(nbt_string):
@@ -144,7 +145,7 @@ conversion_exact_dict = {
     "minecraft:deepslate_lapis_ore": "cavesandcliffs:deepslate_lapis_ore",
     "minecraft:deepslate_copper_ore": "cavesandcliffs:deepslate_copper_ore",
     "minecraft:deepslate_tiles": "cavesandcliffs:deepslate_tiles",
-    "minecraft:cracked_deepslate_tiles": "cavesandcliffs:cracked_deepslate_tiles"
+    "minecraft:cracked_deepslate_tiles": "cavesandcliffs:cracked_deepslate_tiles",
     "minecraft:cobbled_deepslate_slab": "cavesandcliffs:cobbled_deepslate_slab",
     "minecraft:polished_deepslate_slab": "cavesandcliffs:polished_deepslate_slab",
     "minecraft:deepslate_brick_slab": "cavesandcliffs:deepslate_brick_slab",

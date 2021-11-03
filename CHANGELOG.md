@@ -1,5 +1,9 @@
 ### **(V.2.5.2 Changes) (1.17.1 Minecraft)**
 
+##### Bastions:
+In Underground Bastions, Polished Andesite Stairs, Stone Brick Stairs, and Stone Brick Slab has 
+ been replaced by Polished Deepslate Stairs and Deepslate Brick Slab.
+
 ##### Mineshafts:
 Fixed the structure processor for several RS Mineshafts 4 way pieces to place blocks correctly. 
  Also makes Swamp Mineshaft look a bit better.
