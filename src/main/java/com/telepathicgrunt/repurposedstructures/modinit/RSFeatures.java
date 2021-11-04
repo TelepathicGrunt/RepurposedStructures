@@ -16,7 +16,9 @@ import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
-public class RSFeatures {
+public final class RSFeatures {
+	private RSFeatures() {}
+
 	public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, RepurposedStructures.MODID);
 
 	public static final RegistryObject<Feature<NbtDungeonConfig>> BADLANDS_DUNGEONS = FEATURES.register("dungeons_badlands", () -> new NbtDungeon(NbtDungeonConfig.CODEC));

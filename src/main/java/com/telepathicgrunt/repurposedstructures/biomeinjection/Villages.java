@@ -8,7 +8,8 @@ import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.biome.Biomes;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 
-public class Villages {
+public final class Villages {
+    private Villages() {}
 
     public static void addVillages(BiomeLoadingEvent event) {
         

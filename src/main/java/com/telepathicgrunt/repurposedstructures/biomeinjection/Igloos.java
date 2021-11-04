@@ -7,7 +7,8 @@ import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 
-public class Igloos {
+public final class Igloos {
+    private Igloos() {}
 
     public static void addIgloos(BiomeLoadingEvent event) {
 

@@ -7,7 +7,8 @@ import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 
-public class Temples {
+public final class Temples {
+    private Temples() {}
 
     public static void addTemples(BiomeLoadingEvent event) {
 

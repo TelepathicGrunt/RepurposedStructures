@@ -9,7 +9,8 @@ import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.biome.Biomes;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 
-public class Pyramids {
+public final class Pyramids {
+    private Pyramids() {}
 
     public static void addPyramids(BiomeLoadingEvent event) {
 

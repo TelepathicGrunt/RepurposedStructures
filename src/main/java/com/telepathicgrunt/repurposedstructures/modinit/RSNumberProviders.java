@@ -5,7 +5,9 @@ import com.telepathicgrunt.repurposedstructures.mixin.resources.RandomRangesAcce
 import com.telepathicgrunt.repurposedstructures.world.numberproviders.ProbabilityValue;
 import net.minecraft.util.ResourceLocation;
 
-public class RSNumberProviders {
+public final class RSNumberProviders {
+    private RSNumberProviders() {}
+
     public static final ResourceLocation PROBABILITY = new ResourceLocation(RepurposedStructures.MODID, "probability");
 
     public static void registerNumberProviders(){

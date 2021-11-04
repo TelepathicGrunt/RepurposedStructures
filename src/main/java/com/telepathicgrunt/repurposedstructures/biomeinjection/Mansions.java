@@ -9,7 +9,8 @@ import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.biome.Biomes;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 
-public class Mansions {
+public final class Mansions {
+    private Mansions() {}
 
     public static void addMansions(BiomeLoadingEvent event) {
         if (RepurposedStructures.RSMansionsConfig.mansionBirchMaxChunkDistance.get() != 1001 &&

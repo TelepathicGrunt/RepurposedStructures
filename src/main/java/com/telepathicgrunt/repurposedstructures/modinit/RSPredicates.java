@@ -8,8 +8,8 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.feature.template.IPosRuleTests;
 import net.minecraft.world.gen.feature.template.IRuleTestType;
 
-public class RSPredicates {
-
+public final class RSPredicates {
+    private RSPredicates() {}
 
     public static IRuleTestType<MatterPhaseRuleTest> MATTER_PHASE_RULE_TEST = () -> MatterPhaseRuleTest.CODEC;
 

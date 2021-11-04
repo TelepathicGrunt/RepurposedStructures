@@ -12,7 +12,8 @@ import net.minecraftforge.event.world.BiomeLoadingEvent;
 
 import java.util.function.Supplier;
 
-public class Dungeons {
+public final class Dungeons {
+    private Dungeons() {}
 
     public static void addDungeons(BiomeLoadingEvent event) {
 

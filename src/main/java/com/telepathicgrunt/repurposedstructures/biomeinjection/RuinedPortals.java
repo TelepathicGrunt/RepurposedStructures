@@ -8,7 +8,8 @@ import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.biome.Biomes;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 
-public class RuinedPortals {
+public final class RuinedPortals {
+    private RuinedPortals() {}
 
     public static void addRuinedPortals(BiomeLoadingEvent event) {
 

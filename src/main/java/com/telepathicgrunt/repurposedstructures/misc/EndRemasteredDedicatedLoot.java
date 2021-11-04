@@ -9,7 +9,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class EndRemasteredDedicatedLoot {
+public final class EndRemasteredDedicatedLoot {
+    private EndRemasteredDedicatedLoot() {}
+
     public static boolean isEndRemasteredOn = false;
     private static final Map<ResourceLocation, ResourceLocation> END_REMASTERED_DEDICATED_TABLE_IMPORTS = createEndRemasteredMap();
     private static Map<ResourceLocation, ResourceLocation> createEndRemasteredMap() {

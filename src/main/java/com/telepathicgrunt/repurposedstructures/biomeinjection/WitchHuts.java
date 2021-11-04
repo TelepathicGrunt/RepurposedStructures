@@ -7,7 +7,8 @@ import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 
-public class WitchHuts {
+public final class WitchHuts {
+    private WitchHuts() {}
 
     public static void addWitchHuts(BiomeLoadingEvent event) {
 

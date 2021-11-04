@@ -7,7 +7,8 @@ import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 
-public class Ruins {
+public final class Ruins {
+    private Ruins() {}
 
     public static void addRuins(BiomeLoadingEvent event) {
 

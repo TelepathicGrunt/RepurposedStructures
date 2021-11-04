@@ -15,7 +15,9 @@ import java.util.Map;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-public class BiomeDimensionAllowDisallow {
+public final class BiomeDimensionAllowDisallow {
+    private BiomeDimensionAllowDisallow() {}
+
     public static final Map<ResourceLocation, List<Pattern>> DIMENSION_DISALLOW = new HashMap<>();
     public static final Map<ResourceLocation, List<Pattern>> DIMENSION_ALLOW = new HashMap<>();
     public static final Map<ResourceLocation, List<Pattern>> BIOME_ALLOW = new HashMap<>();

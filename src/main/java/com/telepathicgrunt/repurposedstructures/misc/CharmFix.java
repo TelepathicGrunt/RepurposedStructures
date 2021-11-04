@@ -8,7 +8,9 @@ import net.minecraft.world.gen.feature.template.JigsawReplacementStructureProces
 import net.minecraft.world.gen.feature.template.PlacementSettings;
 import net.minecraft.world.gen.feature.template.Template;
 
-public class CharmFix {
+public final class CharmFix {
+    private CharmFix() {}
+
     public static void UndoCharmProcessors(Either<ResourceLocation, Template> template, boolean isNotJigsaw, PlacementSettings placementsettings) {
         if(RepurposedStructures.isCharmOn && template.left().isPresent()) {
             ResourceLocation rl = template.left().get();

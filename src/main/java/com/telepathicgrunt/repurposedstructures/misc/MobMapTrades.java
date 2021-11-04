@@ -8,7 +8,8 @@ import net.minecraft.world.storage.MapDecoration;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.event.village.WandererTradesEvent;
 
-public class MobMapTrades {
+public final class MobMapTrades {
+    private MobMapTrades() {}
 
     public static void onVillagerTradesEvent(VillagerTradesEvent event)
     {

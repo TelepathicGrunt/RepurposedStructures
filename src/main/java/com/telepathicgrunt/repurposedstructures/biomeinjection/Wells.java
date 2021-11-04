@@ -10,7 +10,8 @@ import net.minecraftforge.event.world.BiomeLoadingEvent;
 
 import java.util.function.Supplier;
 
-public class Wells {
+public final class Wells {
+    private Wells() {}
 
     public static void addWells(BiomeLoadingEvent event) {
 

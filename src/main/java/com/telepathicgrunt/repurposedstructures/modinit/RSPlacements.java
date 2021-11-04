@@ -17,8 +17,9 @@ import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
-public class RSPlacements
-{
+public final class RSPlacements {
+	private RSPlacements() {}
+
 	public static final DeferredRegister<Placement<?>> DECORATORS = DeferredRegister.create(ForgeRegistries.DECORATORS, RepurposedStructures.MODID);
 	
 	public static final RegistryObject<SimplePlacement<TopSolidRangeConfig>> RS_DUNGEON_PLACEMENT = DECORATORS.register("rs_dungeon_placement", () -> new RSDungeonPlacement(TopSolidRangeConfig.CODEC));

@@ -10,7 +10,8 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.structure.Structure;
 
-public class RSConfiguredStructures {
+public final class RSConfiguredStructures {
+    private RSConfiguredStructures() {}
 
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> MINESHAFT_BIRCH = RSStructures.MINESHAFT_BIRCH.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> MINESHAFT_DARK_FOREST = RSStructures.MINESHAFT_DARK_FOREST.get().configured(IFeatureConfig.NONE);

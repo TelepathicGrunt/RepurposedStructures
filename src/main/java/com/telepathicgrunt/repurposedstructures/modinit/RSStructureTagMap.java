@@ -9,7 +9,9 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class RSStructureTagMap {
+public final class RSStructureTagMap {
+    private RSStructureTagMap() {}
+
     public enum STRUCTURE_TAGS {
 
         // RS Structures

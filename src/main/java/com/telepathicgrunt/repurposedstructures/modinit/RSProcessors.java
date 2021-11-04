@@ -23,7 +23,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.feature.template.IStructureProcessorType;
 
-public class RSProcessors {
+public final class RSProcessors {
+    private RSProcessors() {}
 
     public static IStructureProcessorType<AirProcessor> AIR_PROCESSOR = () -> AirProcessor.CODEC;
     public static IStructureProcessorType<BubbleColumnProcessor> BUBBLE_COLUMN_PROCESSOR = () -> BubbleColumnProcessor.CODEC;

@@ -8,7 +8,8 @@ import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.biome.Biomes;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 
-public class Strongholds {
+public final class Strongholds {
+    private Strongholds() {}
 
     public static void addStrongholds(BiomeLoadingEvent event) {
 

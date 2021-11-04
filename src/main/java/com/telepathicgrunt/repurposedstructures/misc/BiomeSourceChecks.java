@@ -6,7 +6,9 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.biome.provider.CheckerboardBiomeProvider;
 
-public class BiomeSourceChecks {
+public final class BiomeSourceChecks {
+    private BiomeSourceChecks() {}
+
     public static boolean hexlandsiiIsOn = false;
 
     public static boolean isHexlandBiomeSource(BiomeProvider biomeSource){

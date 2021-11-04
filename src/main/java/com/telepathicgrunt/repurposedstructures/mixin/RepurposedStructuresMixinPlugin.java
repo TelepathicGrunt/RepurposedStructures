@@ -1,8 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.mixin;
 
-import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.data.DataGenerators;
-import net.minecraftforge.fml.DatagenModLoader;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;

@@ -41,7 +41,9 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 
-public class RSStructures {
+public final class RSStructures {
+    private RSStructures() {}
+
     /**
      * --------------------------------------------------------------------------
      * |															        	|

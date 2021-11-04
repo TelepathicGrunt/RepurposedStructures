@@ -9,7 +9,8 @@ import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 
-public class Outposts {
+public final class Outposts {
+    private Outposts() {}
 
     public static void addOutposts(BiomeLoadingEvent event) {
 

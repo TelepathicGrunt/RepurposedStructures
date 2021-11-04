@@ -34,7 +34,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class RSConfiguredFeatures {
+public final class RSConfiguredFeatures {
+    private RSConfiguredFeatures() {}
+
     private static final ResourceLocation EMPTY_ID = new ResourceLocation("minecraft:empty");
 
     // Need this field for dimension/biome blacklisting

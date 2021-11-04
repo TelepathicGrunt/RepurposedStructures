@@ -5,10 +5,10 @@ import net.minecraft.world.gen.settings.StructureSpreadSettings;
 
 import java.util.Optional;
 
-public class NoiseSettingsDeepCopier {
+public final class NoiseSettingsDeepCopier {
+    private NoiseSettingsDeepCopier() {}
 
-    public static DimensionStructuresSettings deepCopyDimensionStructuresSettings(DimensionStructuresSettings settings)
-    {
+    public static DimensionStructuresSettings deepCopyDimensionStructuresSettings(DimensionStructuresSettings settings) {
         // Grab old copy of stronghold spacing settings
         StructureSpreadSettings oldStrongholdSettings = settings.stronghold();
 

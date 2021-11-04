@@ -7,7 +7,8 @@ import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 
-public class Bastions {
+public final class Bastions {
+    private Bastions() {}
 
     public static void addBastions(BiomeLoadingEvent event) {
 

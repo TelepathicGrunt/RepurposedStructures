@@ -7,7 +7,8 @@ import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 
-public class Cities {
+public final class Cities {
+    private Cities() {}
 
     public static void addCities(BiomeLoadingEvent event) {
 

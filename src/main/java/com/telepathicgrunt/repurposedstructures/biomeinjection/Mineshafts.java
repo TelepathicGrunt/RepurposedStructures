@@ -12,7 +12,8 @@ import net.minecraftforge.event.world.BiomeLoadingEvent;
 
 import java.util.function.Supplier;
 
-public class Mineshafts {
+public final class Mineshafts {
+    private Mineshafts() {}
 
     public static void addMineshafts(BiomeLoadingEvent event) {
 

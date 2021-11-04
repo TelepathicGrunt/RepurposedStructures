@@ -8,7 +8,8 @@ import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.biome.Biomes;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 
-public class Shipwrecks {
+public final class Shipwrecks {
+    private Shipwrecks() {}
 
     public static void addShipwrecks(BiomeLoadingEvent event) {
 
