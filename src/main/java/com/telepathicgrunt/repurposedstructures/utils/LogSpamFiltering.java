@@ -47,7 +47,8 @@ public class LogSpamFiltering extends AbstractFilter {
             new ResourceLocation("minecraft:stronghold_straight"),
             new ResourceLocation("minecraft:stronghold_stairs"),
             new ResourceLocation("minecraft:stronghold_stairs_straight"),
-            new ResourceLocation("minecraft:stronghold_entrance_stairs")
+            new ResourceLocation("minecraft:stronghold_entrance_stairs"),
+            new ResourceLocation(RepurposedStructures.MODID, "mansion_piece")
     );
 
     @Override

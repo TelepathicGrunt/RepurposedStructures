@@ -12,9 +12,6 @@ public class RSStructurePieces {
     public static IJigsawDeserializer<MirroringSingleJigsawPiece> MIRROR_SINGLE;
 
     public static void registerStructurePieces() {
-        // dummy value
-        Registry.register(Registry.STRUCTURE_PIECE, new ResourceLocation(RepurposedStructures.MODID, "mansion_piece"), WoodlandMansionPieces.MansionTemplate::new);
-
         // needed to make template pool based mansions work
         MIRROR_SINGLE = IJigsawDeserializer.register(RepurposedStructures.MODID + ":mirroring_single_pool_element", MirroringSingleJigsawPiece.CODEC);
     }
