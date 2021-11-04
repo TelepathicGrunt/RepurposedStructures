@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.biomeinjection;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.configs.RSDungeonsConfig;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredFeatures;
 import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
 import net.minecraft.world.biome.Biome.Category;
@@ -17,21 +18,21 @@ public final class Dungeons {
 
     public static void addDungeons(BiomeLoadingEvent event) {
 
-        if (RepurposedStructures.RSDungeonsConfig.jungleDungeonAttemptsPerChunk.get() != 0 &&
+        if (RSDungeonsConfig.jungleDungeonAttemptsPerChunk.get() != 0 &&
             genericDungeonCheck(event, RSConfiguredFeatures.JUNGLE_DUNGEONS,
                 () -> BiomeSelection.haveCategories(event, Category.JUNGLE)))
         {
             replaceOrAddDungeon(true, event, RSConfiguredFeatures.JUNGLE_DUNGEONS);
         }
         
-        if (RepurposedStructures.RSDungeonsConfig.badlandsDungeonAttemptsPerChunk.get() != 0 &&
+        if (RSDungeonsConfig.badlandsDungeonAttemptsPerChunk.get() != 0 &&
             genericDungeonCheck(event, RSConfiguredFeatures.BADLANDS_DUNGEONS,
                 () -> BiomeSelection.haveCategories(event, Category.MESA)))
         {
             replaceOrAddDungeon(true, event, RSConfiguredFeatures.BADLANDS_DUNGEONS);
         }
         
-        if (RepurposedStructures.RSDungeonsConfig.darkForestDungeonAttemptsPerChunk.get() != 0 &&
+        if (RSDungeonsConfig.darkForestDungeonAttemptsPerChunk.get() != 0 &&
             genericDungeonCheck(event, RSConfiguredFeatures.DARK_FOREST_DUNGEONS,
                 () -> BiomeSelection.haveCategories(event, Category.FOREST) &&
                 BiomeSelection.hasName(event, "dark", "spooky", "dead", "haunted")))
@@ -39,38 +40,38 @@ public final class Dungeons {
             replaceOrAddDungeon(true, event, RSConfiguredFeatures.DARK_FOREST_DUNGEONS);
         }
         
-        if (RepurposedStructures.RSDungeonsConfig.desertDungeonAttemptsPerChunk.get() != 0 &&
+        if (RSDungeonsConfig.desertDungeonAttemptsPerChunk.get() != 0 &&
             genericDungeonCheck(event, RSConfiguredFeatures.DESERT_DUNGEONS,
                 () -> BiomeSelection.haveCategories(event, Category.DESERT)))
         {
             replaceOrAddDungeon(true, event, RSConfiguredFeatures.DESERT_DUNGEONS);
         }
         
-        if (RepurposedStructures.RSDungeonsConfig.mushroomDungeonAttemptsPerChunk.get() != 0)
+        if (RSDungeonsConfig.mushroomDungeonAttemptsPerChunk.get() != 0)
         {
             if(BiomeSelection.isBiomeAllowed(event, RSConfiguredFeatures.MUSHROOM_HIGH_DUNGEONS,
                         () -> BiomeSelection.haveCategories(event, Category.MUSHROOM) &&
-                        RepurposedStructures.RSDungeonsConfig.mushroomDungeonMaxHeight.get() > 62))
+                        RSDungeonsConfig.mushroomDungeonMaxHeight.get() > 62))
             {
                 replaceOrAddDungeon(true, event, RSConfiguredFeatures.MUSHROOM_HIGH_DUNGEONS);
             }
 
             if(BiomeSelection.isBiomeAllowed(event, RSConfiguredFeatures.MUSHROOM_LOW_DUNGEONS,
                         () -> BiomeSelection.haveCategories(event, Category.MUSHROOM) &&
-                        RepurposedStructures.RSDungeonsConfig.mushroomDungeonMinHeight.get() <= 62))
+                        RSDungeonsConfig.mushroomDungeonMinHeight.get() <= 62))
             {
                 replaceOrAddDungeon(true, event, RSConfiguredFeatures.MUSHROOM_LOW_DUNGEONS);
             }
         }
         
-        if (RepurposedStructures.RSDungeonsConfig.swampDungeonAttemptsPerChunk.get() != 0 &&
+        if (RSDungeonsConfig.swampDungeonAttemptsPerChunk.get() != 0 &&
             genericDungeonCheck(event, RSConfiguredFeatures.SWAMP_DUNGEONS,
                 () -> BiomeSelection.haveCategories(event, Category.SWAMP)))
         {
             replaceOrAddDungeon(true, event, RSConfiguredFeatures.SWAMP_DUNGEONS);
         }
 
-        if (RepurposedStructures.RSDungeonsConfig.icyDungeonAttemptsPerChunk.get() != 0 &&
+        if (RSDungeonsConfig.icyDungeonAttemptsPerChunk.get() != 0 &&
             genericDungeonCheck(event, RSConfiguredFeatures.ICY_DUNGEONS,
                 () -> BiomeSelection.haveCategories(event, Category.ICY) &&
                 (BiomeSelection.hasName(event, "icy", "ice", "frozen") || (event.getClimate().temperature < 0 && !BiomeSelection.hasName(event, "snow")))))
@@ -78,7 +79,7 @@ public final class Dungeons {
             replaceOrAddDungeon(true, event, RSConfiguredFeatures.ICY_DUNGEONS);
         }
         
-        if (RepurposedStructures.RSDungeonsConfig.snowDungeonAttemptsPerChunk.get() != 0 &&
+        if (RSDungeonsConfig.snowDungeonAttemptsPerChunk.get() != 0 &&
             genericDungeonCheck(event, RSConfiguredFeatures.SNOW_DUNGEONS,
                 () -> BiomeSelection.haveCategories(event, Category.ICY) &&
                 !(BiomeSelection.hasName(event, "icy", "ice", "frozen") || (event.getClimate().temperature < 0 && !BiomeSelection.hasName(event, "snow")))))
@@ -86,7 +87,7 @@ public final class Dungeons {
             replaceOrAddDungeon(true, event, RSConfiguredFeatures.SNOW_DUNGEONS);
         }
         
-        if (RepurposedStructures.RSDungeonsConfig.netherDungeonAttemptsPerChunk.get() != 0 &&
+        if (RSDungeonsConfig.netherDungeonAttemptsPerChunk.get() != 0 &&
             genericDungeonCheck(event, RSConfiguredFeatures.NETHER_DUNGEONS,
                 () -> BiomeSelection.haveCategories(event, Category.NETHER)))
         {
@@ -94,7 +95,7 @@ public final class Dungeons {
             event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> RSConfiguredFeatures.NETHER_DUNGEONS);
         }
         
-        if (RepurposedStructures.RSDungeonsConfig.endDungeonAttemptsPerChunk.get() != 0 &&
+        if (RSDungeonsConfig.endDungeonAttemptsPerChunk.get() != 0 &&
             genericDungeonCheck(event, RSConfiguredFeatures.END_DUNGEONS,
                 () -> BiomeSelection.haveCategories(event, Category.THEEND) &&
                 !BiomeSelection.isBiome(event, Biomes.THE_END, Biomes.SMALL_END_ISLANDS)))
@@ -102,7 +103,7 @@ public final class Dungeons {
             replaceOrAddDungeon(false, event, RSConfiguredFeatures.END_DUNGEONS);
         }
 
-        if (RepurposedStructures.RSDungeonsConfig.oceanDungeonAttemptsPerChunk.get() != 0)
+        if (RSDungeonsConfig.oceanDungeonAttemptsPerChunk.get() != 0)
         {
             // Thanks to vanilla oceans all being same temperature, we have to use the has Namespace to correctly get them.
             if(genericDungeonCheck(event, RSConfiguredFeatures.OCEAN_LUKEWARM_DUNGEONS,

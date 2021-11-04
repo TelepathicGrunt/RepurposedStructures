@@ -1,6 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.biomeinjection;
 
-import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.configs.RSIgloosConfig;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
@@ -12,14 +12,14 @@ public final class Igloos {
 
     public static void addIgloos(BiomeLoadingEvent event) {
 
-        if (RepurposedStructures.RSIgloosConfig.grassyIglooMaxChunkDistance.get() != 1001 &&
+        if (RSIgloosConfig.grassyIglooMaxChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowed(event, RSStructures.IGLOO_GRASSY.get(),
                     () -> BiomeSelection.haveCategories(event, Category.FOREST, Category.PLAINS)))
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.IGLOO_GRASSY);
         }
 
-        if (RepurposedStructures.RSIgloosConfig.stoneIglooMaxChunkDistance.get() != 1001 &&
+        if (RSIgloosConfig.stoneIglooMaxChunkDistance.get() != 1001 &&
                 BiomeSelection.isBiomeAllowed(event, RSStructures.IGLOO_STONE.get(),
                         () -> BiomeSelection.haveCategories(event, Category.TAIGA) &&
                         BiomeSelection.hasName(event, "giant", "redwood")))

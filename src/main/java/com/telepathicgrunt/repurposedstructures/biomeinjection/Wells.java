@@ -1,6 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.biomeinjection;
 
-import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.configs.RSWellsConfig;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredFeatures;
 import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
 import net.minecraft.world.biome.Biome.Category;
@@ -15,7 +15,7 @@ public final class Wells {
 
     public static void addWells(BiomeLoadingEvent event) {
 
-        if (RepurposedStructures.RSWellsConfig.badlandsWellRarityPerChunk.get() != 10000 &&
+        if (RSWellsConfig.badlandsWellRarityPerChunk.get() != 10000 &&
                     genericWellCheck(event, RSConfiguredFeatures.BADLANDS_WELL,
                     () -> BiomeSelection.haveCategories(event, Category.MESA)))
         {
@@ -23,7 +23,7 @@ public final class Wells {
                     .add(() -> RSConfiguredFeatures.BADLANDS_WELL);
         }
         
-        if (RepurposedStructures.RSWellsConfig.netherWellRarityPerChunk.get() != 10000 &&
+        if (RSWellsConfig.netherWellRarityPerChunk.get() != 10000 &&
             genericWellCheck(event, RSConfiguredFeatures.NETHER_WELL,
                     () -> BiomeSelection.haveCategories(event, Category.NETHER)))
         {
@@ -31,7 +31,7 @@ public final class Wells {
                     .add(() -> RSConfiguredFeatures.NETHER_WELL);
         }
 
-        if (RepurposedStructures.RSWellsConfig.snowWellRarityPerChunk.get() != 10000 &&
+        if (RSWellsConfig.snowWellRarityPerChunk.get() != 10000 &&
             genericWellCheck(event, RSConfiguredFeatures.SNOW_WELL,
                     () -> BiomeSelection.haveCategories(event, Category.ICY) ||
                     BiomeSelection.hasName(event, "snow")))
@@ -40,7 +40,7 @@ public final class Wells {
                     .add(() -> RSConfiguredFeatures.SNOW_WELL);
         }
 
-        if (RepurposedStructures.RSWellsConfig.mossyStoneWellRarityPerChunk.get() != 10000 &&
+        if (RSWellsConfig.mossyStoneWellRarityPerChunk.get() != 10000 &&
             genericWellCheck(event, RSConfiguredFeatures.MOSSY_STONE_WELL,
                     () -> BiomeSelection.haveCategories(event, Category.SWAMP, Category.JUNGLE) ||
                     (BiomeSelection.haveCategories(event, Category.FOREST) && BiomeSelection.hasName(event, "dark", "spooky", "dead", "haunted"))))
@@ -49,7 +49,7 @@ public final class Wells {
                     .add(() -> RSConfiguredFeatures.MOSSY_STONE_WELL);
         }
 
-        if (RepurposedStructures.RSWellsConfig.forestWellRarityPerChunk.get() != 10000 &&
+        if (RSWellsConfig.forestWellRarityPerChunk.get() != 10000 &&
             genericWellCheck(event, RSConfiguredFeatures.FOREST_WELL,
                     () -> BiomeSelection.haveCategories(event, Category.FOREST) &&
                     !BiomeSelection.hasName(event, "dark", "spooky", "dead", "haunted")))
@@ -59,7 +59,7 @@ public final class Wells {
                     .add(() -> RSConfiguredFeatures.FOREST_WELL);
         }
 
-        if (RepurposedStructures.RSWellsConfig.mushroomWellRarityPerChunk.get() != 10000 &&
+        if (RSWellsConfig.mushroomWellRarityPerChunk.get() != 10000 &&
             genericWellCheck(event, RSConfiguredFeatures.MUSHROOM_WELL,
                     () -> BiomeSelection.haveCategories(event, Category.MUSHROOM)))
         {

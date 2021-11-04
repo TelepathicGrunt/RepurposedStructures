@@ -1,7 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.google.common.collect.Lists;
-import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.configs.RSMansionsConfig;
 import com.telepathicgrunt.repurposedstructures.misc.BiomeSourceChecks;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.MansionPieces;
@@ -106,7 +106,7 @@ public class MansionStructure extends AbstractBaseStructure<NoFeatureConfig> {
             for(int x = box.x0; x <= box.x1; ++x) {
                 for(int z = box.z0; z <= box.z1; ++z) {
                     BlockPos blockPos = new BlockPos(x, structureBottomY, z);
-                    if(RepurposedStructures.RSMansionsConfig.pillarOnlyToLand.get()) {
+                    if(RSMansionsConfig.pillarOnlyToLand.get()) {
                         terrainY = GeneralUtils.getFirstLandYFromPos(world, blockPos.below());
                         if(terrainY <= 0) {
                             continue;
@@ -124,7 +124,7 @@ public class MansionStructure extends AbstractBaseStructure<NoFeatureConfig> {
 
                         if (bl) {
                             for(int currentY = structureBottomY - 1; currentY > 1; --currentY) {
-                                if(RepurposedStructures.RSMansionsConfig.pillarOnlyToLand.get()) {
+                                if(RSMansionsConfig.pillarOnlyToLand.get()) {
                                     if(currentY <= terrainY) {
                                         break;
                                     }

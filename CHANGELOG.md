@@ -1,3 +1,9 @@
+### **(V.3.4.2 Changes) (1.16.5 Minecraft)**
+
+##### Configs:
+Significantly cleaned up the config system backend for my mod. Let me know if any config no longer works but it should be ok.
+
+
 ### **(V.3.4.1 Changes) (1.16.5 Minecraft)**
 
 ##### Mineshafts:

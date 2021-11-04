@@ -3,7 +3,6 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 import com.telepathicgrunt.repurposedstructures.misc.BiomeSourceChecks;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
-import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PieceLimitedJigsawManager;
 import net.minecraft.block.BlockState;
@@ -25,6 +24,7 @@ import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.VillageConfig;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 import net.minecraft.world.gen.settings.StructureSeparationSettings;
+import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.util.Lazy;
 
 import java.util.HashSet;
@@ -185,8 +185,8 @@ public class GenericJigsawStructure extends AbstractBaseStructure<NoFeatureConfi
             return (T) this;
         }
 
-        public T setStructureSize(ConfigHelper.ConfigValueListener<Integer> structureSize){
-            this.structureSize = Lazy.of(structureSize);
+        public T setStructureSize(ForgeConfigSpec.IntValue structureSize){
+            this.structureSize = Lazy.of(structureSize::get);
             return getThis();
         }
 

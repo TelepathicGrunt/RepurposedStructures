@@ -1,6 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.biomeinjection;
 
-import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.configs.RSBastionsConfig;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
@@ -12,7 +12,7 @@ public final class Bastions {
 
     public static void addBastions(BiomeLoadingEvent event) {
 
-        if (RepurposedStructures.RSBastionsConfig.bastionUndergroundMaxChunkDistance.get() != 10001 &&
+        if (RSBastionsConfig.bastionUndergroundMaxChunkDistance.get() != 10001 &&
             BiomeSelection.isBiomeAllowed(event, RSStructures.BASTION_UNDERGROUND.get(),
                 () -> !BiomeSelection.haveCategories(event, Category.BEACH, Category.OCEAN, Category.NETHER, Category.THEEND, Category.NONE)))
         {

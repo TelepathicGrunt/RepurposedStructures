@@ -3,7 +3,6 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.misc.BiomeSourceChecks;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
-import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PieceLimitedJigsawManager;
 import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
@@ -21,6 +20,7 @@ import net.minecraft.world.gen.feature.structure.MarginedStructureStart;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.VillageConfig;
 import net.minecraft.world.gen.feature.template.TemplateManager;
+import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.util.Lazy;
 
 public class AdvancedJigsawStructure extends AbstractBaseStructure<NoFeatureConfig> {
@@ -145,8 +145,8 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<NoFeatureConf
             return (T) this;
         }
 
-        public T setStructureSize(ConfigHelper.ConfigValueListener<Integer> structureSize){
-            this.structureSize = Lazy.of(structureSize);
+        public T setStructureSize(ForgeConfigSpec.IntValue structureSize){
+            this.structureSize = Lazy.of(structureSize::get);
             return getThis();
         }
 
@@ -155,18 +155,18 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<NoFeatureConf
             return getThis();
         }
 
-        public T setMaxY(ConfigHelper.ConfigValueListener<Integer> maxY){
-            this.maxY = Lazy.of(maxY);
+        public T setMaxY(ForgeConfigSpec.IntValue maxY){
+            this.maxY = Lazy.of(maxY::get);
             return getThis();
         }
 
-        public T setMinY(ConfigHelper.ConfigValueListener<Integer> minY){
-            this.minY = Lazy.of(minY);
+        public T setMinY(ForgeConfigSpec.IntValue minY){
+            this.minY = Lazy.of(minY::get);
             return getThis();
         }
 
-        public T setVerticalRange(ConfigHelper.ConfigValueListener<Integer> verticalRange){
-            this.verticalRange = Lazy.of(verticalRange);
+        public T setVerticalRange(ForgeConfigSpec.IntValue verticalRange){
+            this.verticalRange = Lazy.of(verticalRange::get);
             return getThis();
         }
 

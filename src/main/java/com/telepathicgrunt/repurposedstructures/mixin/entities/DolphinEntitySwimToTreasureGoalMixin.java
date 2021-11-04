@@ -1,6 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.mixin.entities;
 
-import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.configs.RSPyramidsConfig;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import net.minecraft.entity.passive.DolphinEntity;
 import net.minecraft.world.gen.feature.structure.Structure;
@@ -24,7 +24,7 @@ public abstract class DolphinEntitySwimToTreasureGoalMixin {
     @ModifyArg(method = "Lnet/minecraft/entity/passive/DolphinEntity$SwimToTreasureGoal;start()V",
             at = @At(value = "INVOKE", target = "Lnet/minecraft/world/server/ServerWorld;findNearestMapFeature(Lnet/minecraft/world/gen/feature/structure/Structure;Lnet/minecraft/util/math/BlockPos;IZ)Lnet/minecraft/util/math/BlockPos;", ordinal = 0))
     private Structure<?> repurposedstructures_dolphinStructureLocate(Structure<?> structure){
-        if(RepurposedStructures.RSPyramidsConfig.pyramidOceanMaxChunkDistance.get() != 1001 && dolphin.level.random.nextFloat() < 0.24f){
+        if(RSPyramidsConfig.pyramidOceanMaxChunkDistance.get() != 1001 && dolphin.level.random.nextFloat() < 0.24f){
             return RSStructures.PYRAMID_OCEAN.get();
         }
         return structure;

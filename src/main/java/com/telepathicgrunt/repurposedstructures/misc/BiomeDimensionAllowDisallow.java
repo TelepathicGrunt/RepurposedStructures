@@ -47,7 +47,7 @@ public final class BiomeDimensionAllowDisallow {
             BIOME_DISALLOW.put(id, new ArrayList<>());
         });
 
-        // Parse and add all the allow/disallowsRepurposedStructures.RSOmegaBiomeDimConfig.disallowedDimensions = {LinkedTreeMap@14149}  size = 1
+        // Parse and add all the allow/disallowsRSOmegaBiomeDimConfig.disallowedDimensions = {LinkedTreeMap@14149}  size = 1
         setupMap(DIMENSION_DISALLOW, RepurposedStructures.RSOmegaBiomeDimConfig.disallowedDimensions, "dimension disallow");
         setupMap(DIMENSION_ALLOW, RepurposedStructures.RSOmegaBiomeDimConfig.allowedDimensions, "dimension allow");
         setupMap(BIOME_DISALLOW, RepurposedStructures.RSOmegaBiomeDimConfig.disallowedBiomes, "biome disallow");

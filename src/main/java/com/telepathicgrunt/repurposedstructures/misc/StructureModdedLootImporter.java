@@ -2,6 +2,7 @@ package com.telepathicgrunt.repurposedstructures.misc;
 
 import com.google.gson.JsonObject;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.configs.RSModdedLootConfig;
 import com.telepathicgrunt.repurposedstructures.mixin.resources.LootContextAccessor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.loot.LootContext;
@@ -171,7 +172,7 @@ public class StructureModdedLootImporter extends LootModifier {
 
     @Override
     protected List<ItemStack> doApply(List<ItemStack> generatedLoot, LootContext context) {
-        if(!RepurposedStructures.RSModdedLootConfig.importModdedItems.get() || isInBlacklist(context.getQueriedLootTableId()))
+        if(!RSModdedLootConfig.importModdedItems.get() || isInBlacklist(context.getQueriedLootTableId()))
             return generatedLoot; // easier blacklist for users
 
         ResourceLocation tableToImportLoot = TABLE_IMPORTS.get(context.getQueriedLootTableId());
@@ -195,7 +196,7 @@ public class StructureModdedLootImporter extends LootModifier {
 
     private static boolean isInBlacklist(ResourceLocation lootTableID){
         if(BLACKLISTED_LOOTTABLES == null){
-            String cleanedBlacklist = RepurposedStructures.RSModdedLootConfig.blacklistedRSLoottablesFromImportingModdedItems.get().trim();
+            String cleanedBlacklist = RSModdedLootConfig.blacklistedRSLoottablesFromImportingModdedItems.get().trim();
 
             if(cleanedBlacklist.equals("")){
                 BLACKLISTED_LOOTTABLES = new HashSet<>(); // make empty set instead of ["minecraft:"].

@@ -1,6 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
-import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.configs.RSMineshaftsConfig;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PieceLimitedJigsawManager;
 import net.minecraft.block.BlockState;
@@ -59,7 +59,7 @@ public class MineshaftEndStructure extends MineshaftStructure {
             }
         }
 
-        int minThickness = RepurposedStructures.RSMineshaftsConfig.endMineshaftMinIslandThickness.get();
+        int minThickness = RSMineshaftsConfig.endMineshaftMinIslandThickness.get();
         if(minThickness == 0)
             return true;
 
@@ -135,7 +135,7 @@ public class MineshaftEndStructure extends MineshaftStructure {
             BlockPos.Mutable islandTopBottomThickness = new BlockPos.Mutable(Integer.MAX_VALUE, Integer.MIN_VALUE, Integer.MAX_VALUE);
             analyzeLand(chunkGenerator, blockpos.getX(), blockpos.getZ(), islandTopBottomThickness);
 
-            int minThickness = RepurposedStructures.RSMineshaftsConfig.endMineshaftMinIslandThickness.get();
+            int minThickness = RSMineshaftsConfig.endMineshaftMinIslandThickness.get();
             int maxY = 53;
             int minY = 15;
             if(minThickness == 0){

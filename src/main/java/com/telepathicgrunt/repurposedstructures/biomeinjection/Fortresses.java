@@ -1,6 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.biomeinjection;
 
-import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.configs.RSFortressesConfig;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
@@ -15,7 +15,7 @@ public final class Fortresses {
 
     public static void addJungleFortress(BiomeLoadingEvent event) {
 
-        if(RepurposedStructures.RSFortressesConfig.jungleFortressMaxChunkDistance.get() != 1001 &&
+        if(RSFortressesConfig.jungleFortressMaxChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowed(event, RSStructures.FORTRESS_JUNGLE.get(),
                     () -> BiomeSelection.haveCategories(event, Category.JUNGLE)))
         {

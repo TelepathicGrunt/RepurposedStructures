@@ -1,6 +1,5 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
-import com.telepathicgrunt.repurposedstructures.utils.ConfigHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.BlockPos;
@@ -18,6 +17,7 @@ import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.StructureManager;
 import net.minecraft.world.gen.feature.structure.StructureStart;
 import net.minecraft.world.gen.settings.StructureSeparationSettings;
+import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.util.Lazy;
 
 
@@ -104,8 +104,8 @@ public class MineshaftStructure extends AdvancedJigsawStructure {
             super(startPool);
         }
 
-        public T setProbability(ConfigHelper.ConfigValueListener<Double> probability){
-            this.probability = Lazy.of(probability);
+        public T setProbability(ForgeConfigSpec.DoubleValue probability){
+            this.probability = Lazy.of(probability::get);
             return getThis();
         }
 
