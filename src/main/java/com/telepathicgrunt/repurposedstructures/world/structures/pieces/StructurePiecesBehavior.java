@@ -7,10 +7,10 @@ import net.minecraft.resources.ResourceLocation;
 import java.util.HashMap;
 import java.util.Map;
 
-public class StructurePiecesBehavior {
+public final class StructurePiecesBehavior {
+    private StructurePiecesBehavior() {}
 
-    public static void init() {
-    }
+    public static void init() {}
 
     public record RequiredPieceNeeds(int maxLimit, int minDistanceFromCenter) {
 
