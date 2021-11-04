@@ -20,7 +20,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-public class MobSpawningOverTime {
+public final class MobSpawningOverTime {
+    private MobSpawningOverTime() {}
 
     // Needed so that config api can handle reading/writing the entry to and from file.
     public static class PublicMobSpawnEntry {

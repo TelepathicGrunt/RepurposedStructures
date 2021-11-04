@@ -5,10 +5,10 @@ import net.minecraft.world.level.levelgen.feature.configurations.StrongholdConfi
 
 import java.util.Optional;
 
-public class NoiseSettingsDeepCopier {
+public final class NoiseSettingsDeepCopier {
+    private NoiseSettingsDeepCopier() {}
 
-    public static StructureSettings deepCopyDimensionStructuresSettings(StructureSettings settings)
-    {
+    public static StructureSettings deepCopyDimensionStructuresSettings(StructureSettings settings) {
         // Grab old copy of stronghold spacing settings
         StrongholdConfiguration oldStrongholdSettings = settings.stronghold();
 

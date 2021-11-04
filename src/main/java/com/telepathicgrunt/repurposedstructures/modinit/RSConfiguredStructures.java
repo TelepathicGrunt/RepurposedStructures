@@ -12,7 +12,8 @@ import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfigur
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
 
-public class RSConfiguredStructures {
+public final class RSConfiguredStructures {
+    private RSConfiguredStructures() {}
 
     public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> MINESHAFT_BIRCH = RSStructures.MINESHAFT_BIRCH.configured(FeatureConfiguration.NONE);
     public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> MINESHAFT_DARK_FOREST = RSStructures.MINESHAFT_DARK_FOREST.configured(FeatureConfiguration.NONE);

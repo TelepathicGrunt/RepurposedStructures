@@ -7,7 +7,8 @@ import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.level.saveddata.maps.MapDecoration;
 
-public class MobMapTrades {
+public final class MobMapTrades {
+    private MobMapTrades() {}
 
     public static void addMapTrades(){
 

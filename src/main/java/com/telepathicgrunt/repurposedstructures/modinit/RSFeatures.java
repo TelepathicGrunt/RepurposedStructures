@@ -18,7 +18,8 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
 
-public class RSFeatures {
+public final class RSFeatures {
+    private RSFeatures() {}
 
     //Static instance of our structure so we can reference it and add it to biomes easily.
     public static Feature<NbtDungeonConfig> BADLANDS_DUNGEONS = new NbtDungeon(NbtDungeonConfig.CODEC);

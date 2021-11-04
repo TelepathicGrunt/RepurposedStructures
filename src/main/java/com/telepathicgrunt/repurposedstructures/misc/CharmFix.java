@@ -8,7 +8,9 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.JigsawReplace
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
-public class CharmFix {
+public final class CharmFix {
+    private CharmFix() {}
+
     public static void UndoCharmProcessors(Either<ResourceLocation, StructureTemplate> template, boolean isNotJigsaw, StructurePlaceSettings placementsettings) {
         if(RepurposedStructures.isCharmOn && template.left().isPresent()) {
             ResourceLocation rl = template.left().get();

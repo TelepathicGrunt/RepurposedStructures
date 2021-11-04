@@ -15,8 +15,9 @@ import net.minecraft.world.level.levelgen.feature.configurations.RangeDecoratorC
 import net.minecraft.world.level.levelgen.placement.CountDecorator;
 import net.minecraft.world.level.levelgen.placement.FeatureDecorator;
 
-public class RSPlacements
-{
+public final class RSPlacements {
+    private RSPlacements() {}
+
     public static final FeatureDecorator<RangeDecoratorConfiguration> DUNGEON_PLACEMENT = new DungeonPlacement(RangeDecoratorConfiguration.CODEC);
     public static final FeatureDecorator<CountConfiguration> UNLIMITED_COUNT = new CountDecorator(IntProvider.NON_NEGATIVE_CODEC.fieldOf("count").xmap(CountConfiguration::new, CountConfiguration::count).codec());
     public static final FeatureDecorator<NoneDecoratorConfiguration> MINUS_EIGHT_PLACEMENT = new MinusEightPlacement(NoneDecoratorConfiguration.CODEC);

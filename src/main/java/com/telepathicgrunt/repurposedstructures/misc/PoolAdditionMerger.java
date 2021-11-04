@@ -44,7 +44,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-public class PoolAdditionMerger {
+public final class PoolAdditionMerger {
+    private PoolAdditionMerger() {}
 
     // Needed for detecting the correct files, ignoring file extension, and what JSON parser to use for parsing the files
     private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().setLenient().disableHtmlEscaping().create();

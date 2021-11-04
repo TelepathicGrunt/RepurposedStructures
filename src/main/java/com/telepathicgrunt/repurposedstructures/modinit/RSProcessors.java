@@ -24,7 +24,8 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
 
-public class RSProcessors {
+public final class RSProcessors {
+    private RSProcessors() {}
 
     public static StructureProcessorType<AirProcessor> AIR_PROCESSOR = () -> AirProcessor.CODEC;
     public static StructureProcessorType<BubbleColumnProcessor> BUBBLE_COLUMN_PROCESSOR = () -> BubbleColumnProcessor.CODEC;

@@ -35,7 +35,8 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 
-public class RSStructures {
+public final class RSStructures {
+    private RSStructures() {}
 
     public static final Map<StructureFeature<?>, StructureFeatureConfiguration> RS_STRUCTURES = new HashMap<>();
     public static final Set<ResourceLocation> RS_STRUCTURE_START_PIECES = new HashSet<>();

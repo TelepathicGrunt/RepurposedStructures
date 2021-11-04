@@ -7,7 +7,8 @@ import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.world.level.biome.Biome.BiomeCategory;
 
-public class Fortresses {
+public final class Fortresses {
+    private Fortresses() {}
 
     public static void addJungleFortress() {
 

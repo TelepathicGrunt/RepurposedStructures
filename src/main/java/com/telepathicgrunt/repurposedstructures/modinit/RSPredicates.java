@@ -8,7 +8,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.structure.templatesystem.PosRuleTestType;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTestType;
 
-public class RSPredicates {
+public final class RSPredicates {
+    private RSPredicates() {}
 
     public static RuleTestType<MatterPhaseRuleTest> MATTER_PHASE_RULE_TEST = () -> MatterPhaseRuleTest.CODEC;
 

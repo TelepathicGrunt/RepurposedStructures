@@ -22,7 +22,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class StructureModdedLootImporter {
+public final class StructureModdedLootImporter {
+    private StructureModdedLootImporter() {}
 
     // Cache the reverse lookup for what loottable goes with what identifier
     private static final Map<LootTable, ResourceLocation> REVERSED_TABLES = new HashMap<>();

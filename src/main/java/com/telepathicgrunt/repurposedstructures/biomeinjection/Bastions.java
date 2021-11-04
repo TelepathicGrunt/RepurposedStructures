@@ -7,7 +7,8 @@ import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.world.level.biome.Biome.BiomeCategory;
 
-public class Bastions {
+public final class Bastions {
+    private Bastions() {}
 
     public static void addBastions() {
 

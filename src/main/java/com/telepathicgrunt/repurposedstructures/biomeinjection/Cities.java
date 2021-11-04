@@ -7,9 +7,11 @@ import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.world.level.biome.Biome.BiomeCategory;
 
-public class Cities {
+public final class Cities {
+    private Cities() {}
 
     public static void addCities() {
+
         GeneralUtils.addToBiome("city_nether",
                 (context) ->
                         BiomeSelection.isBiomeAllowed(context, RSStructures.CITY_NETHER,

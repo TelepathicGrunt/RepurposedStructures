@@ -11,7 +11,8 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 
 import java.util.function.Supplier;
 
-public class Wells {
+public final class Wells {
+    private Wells() {}
 
     public static void addWells() {
 

@@ -6,7 +6,8 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.storage.loot.providers.number.LootNumberProviderType;
 
-public class RSNumberProviders {
+public final class RSNumberProviders {
+    private RSNumberProviders() {}
 
     public static final LootNumberProviderType PROBABILITY = new LootNumberProviderType(new ProbabilityValue.Serializer());
 

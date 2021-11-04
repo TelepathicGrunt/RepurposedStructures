@@ -8,7 +8,8 @@ import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.world.level.biome.Biome.BiomeCategory;
 
-public class Villages {
+public final class Villages {
+    private Villages() {}
 
     public static void addVillages() {
 

@@ -9,7 +9,8 @@ import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.world.level.biome.Biome.BiomeCategory;
 import net.minecraft.world.level.biome.Biomes;
 
-public class Shipwrecks {
+public final class Shipwrecks {
+    private Shipwrecks() {}
 
     public static void addShipwrecks() {
 

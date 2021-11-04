@@ -9,7 +9,8 @@ import net.minecraft.world.level.levelgen.feature.StructureFeature;
 /**
  * For misc locating of structures like eyes of ender
  */
-public class StructureLocator {
+public final class StructureLocator {
+    private StructureLocator() {}
 
     public static BlockPos returnClosestStronghold(BlockPos blockPos, ServerLevel world, BlockPos playerPos){
         ChunkGenerator chunkGenerator = world.getChunkSource().getGenerator();

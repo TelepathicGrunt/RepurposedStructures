@@ -13,7 +13,8 @@ import net.minecraft.world.level.biome.Biome.BiomeCategory;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.feature.StructureFeature;
 
-public class Outposts {
+public final class Outposts {
+    private Outposts() {}
 
     public static void addOutposts() {
 

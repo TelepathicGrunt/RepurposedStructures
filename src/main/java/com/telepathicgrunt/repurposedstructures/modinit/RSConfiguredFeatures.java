@@ -41,7 +41,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-public class RSConfiguredFeatures {
+public final class RSConfiguredFeatures {
+    private RSConfiguredFeatures() {}
+
     private static final ResourceLocation EMPTY_ID = new ResourceLocation("minecraft:empty");
 
     // Dungeons

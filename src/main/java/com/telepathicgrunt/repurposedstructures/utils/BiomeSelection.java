@@ -19,7 +19,8 @@ import java.util.Locale;
 import java.util.Set;
 import java.util.function.Supplier;
 
-public class BiomeSelection {
+public final class BiomeSelection {
+    private BiomeSelection() {}
 
     public static boolean hasName(BiomeSelectionContext context, String... names){
         return Arrays.stream(names).anyMatch(name -> context.getBiomeKey().location().getPath().contains(name));

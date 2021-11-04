@@ -7,9 +7,11 @@ import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.world.level.biome.Biome.BiomeCategory;
 
-public class Ruins {
+public final class Ruins {
+    private Ruins() {}
 
     public static void addRuins() {
+
         GeneralUtils.addToBiome("ruins_nether",
                 (context) ->
                         BiomeSelection.isBiomeAllowed(context, RSStructures.RUINS_NETHER,

@@ -16,7 +16,8 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 
 import java.util.function.Supplier;
 
-public class Dungeons {
+public final class Dungeons {
+    private Dungeons() {}
 
     public static void addDungeons() {
 

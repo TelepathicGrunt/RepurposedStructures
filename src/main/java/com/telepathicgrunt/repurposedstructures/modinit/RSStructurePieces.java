@@ -8,7 +8,9 @@ import net.minecraft.world.level.levelgen.feature.structures.StructurePoolElemen
 import net.minecraft.world.level.levelgen.structure.WoodlandMansionPieces;
 
 
-public class RSStructurePieces {
+public final class RSStructurePieces {
+    private RSStructurePieces() {}
+
     public static StructurePoolElementType<MirroringSingleJigsawPiece> MIRROR_SINGLE;
 
     public static void registerStructurePieces() {

@@ -7,9 +7,11 @@ import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.world.level.biome.Biome.BiomeCategory;
 
-public class WitchHuts {
+public final class WitchHuts {
+    private WitchHuts() {}
 
     public static void addWitchHuts() {
+
         GeneralUtils.addToBiome("witch_hut_oak",
                 (context) ->
                         BiomeSelection.isBiomeAllowed(context, RSStructures.WITCH_HUTS_OAK,

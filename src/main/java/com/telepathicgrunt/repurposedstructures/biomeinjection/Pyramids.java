@@ -9,7 +9,8 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biome.BiomeCategory;
 import net.minecraft.world.level.biome.Biomes;
 
-public class Pyramids {
+public final class Pyramids {
+    private Pyramids() {}
 
     public static void addPyramids() {
 

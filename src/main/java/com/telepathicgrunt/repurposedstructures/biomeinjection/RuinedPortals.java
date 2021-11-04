@@ -8,9 +8,11 @@ import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.world.level.biome.Biome.BiomeCategory;
 import net.minecraft.world.level.biome.Biomes;
 
-public class RuinedPortals {
+public final class RuinedPortals {
+    private RuinedPortals() {}
 
     public static void addRuinedPortals() {
+
         GeneralUtils.addToBiome("ruined_portal_end",
                 (context) ->
                         BiomeSelection.isBiomeAllowed(context, RSStructures.RUINED_PORTAL_END,

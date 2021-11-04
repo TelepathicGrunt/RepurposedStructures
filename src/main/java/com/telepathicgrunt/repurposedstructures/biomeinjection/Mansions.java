@@ -9,9 +9,11 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biome.BiomeCategory;
 import net.minecraft.world.level.biome.Biomes;
 
-public class Mansions {
+public final class Mansions {
+    private Mansions() {}
 
     public static void addMansions() {
+
         GeneralUtils.addToBiome("mansion_birch",
                 (context) ->
                         BiomeSelection.isBiomeAllowed(context, RSStructures.MANSION_BIRCH,

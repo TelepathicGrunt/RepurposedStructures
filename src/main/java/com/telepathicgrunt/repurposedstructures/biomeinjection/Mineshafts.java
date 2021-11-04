@@ -13,9 +13,11 @@ import net.minecraft.world.level.levelgen.feature.StructureFeature;
 
 import java.util.function.Supplier;
 
-public class Mineshafts {
+public final class Mineshafts {
+    private Mineshafts() {}
 
     public static void addMineshafts() {
+
         GeneralUtils.addToBiome("birch_mineshaft",
                 (context) -> 
                         genericMineshaftCheck(context, RSStructures.MINESHAFT_BIRCH,

@@ -8,7 +8,8 @@ import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.world.level.biome.Biome.BiomeCategory;
 
-public class Temples {
+public final class Temples {
+    private Temples() {}
 
     public static void addTemples() {
 
