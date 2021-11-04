@@ -97,7 +97,6 @@ import java.util.Map;
 public class RepurposedStructures {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MODID = "repurposed_structures";
-    public static boolean datagenLootTableModeOn = false;
 
     public static final RSBiomeDimConfig RSOmegaBiomeDimConfig = OmegaConfig.register(RSBiomeDimConfig.class);
     public static final RSNaturalMobSpawningConfig RSNaturalMobSpawningConfig = OmegaConfig.register(RSNaturalMobSpawningConfig.class);
@@ -161,7 +160,7 @@ public class RepurposedStructures {
         forgeBus.addListener(PoolAdditionMerger::mergeAdditionPools);
         //GeneralUtils.registerStructureDebugging(RSStructures.STONEBRICK_STRONGHOLD);
 
-        if(datagenLootTableModeOn) modEventBus.addListener(DataGenerators::gatherData);
+        if(DataGenerators.datagenLootTableModeOn) modEventBus.addListener(DataGenerators::gatherData);
         modEventBus.addListener(this::setup);
         RSFeatures.FEATURES.register(modEventBus);
         RSStructures.STRUCTURE_FEATURES.register(modEventBus);

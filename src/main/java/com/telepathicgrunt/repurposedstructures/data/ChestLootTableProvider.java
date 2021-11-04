@@ -62,8 +62,8 @@ public class ChestLootTableProvider extends ChestLootTables {
                             .add(ItemLootEntry.lootTableItem(Items.ROTTEN_FLESH).apply(SetCount.setCount(RandomValueRange.between(3, 7))))
             ).withPool(
                     LootPool.lootPool().setRolls(ConstantRange.exactly(0)).bonusRolls(1, 1)
-                            .add(ItemLootEntry.lootTableItem(Items.PINK_BANNER).apply(SetNBT.setTag(getTransBannerNBT())))
                             .add(EmptyLootEntry.emptyItem().setWeight(16))
+                            .add(ItemLootEntry.lootTableItem(Items.PINK_BANNER).apply(SetNBT.setTag(getTransBannerNBT())))
                             .add(ItemLootEntry.lootTableItem(Items.BLACK_BANNER).setWeight(4).apply(SetNBT.setTag(getBannerNBT("{Patterns:[{Pattern:cr,Color:0},{Pattern:cr,Color:15},{Pattern:cbo,Color:0},{Pattern:cbo,Color:15},{Pattern:bo,Color:0},{Pattern:bo,Color:0},{Pattern:mr,Color:8},{Pattern:mr,Color:8},{Pattern:mr,Color:15},{Pattern:bo,Color:15},{Pattern:mc,Color:7},{Pattern:mc,Color:15}]}"))))
                             .add(ItemLootEntry.lootTableItem(Items.SKELETON_SKULL).setWeight(4).apply(SetCount.setCount(RandomValueRange.between(1, 6))))
             )

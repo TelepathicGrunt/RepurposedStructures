@@ -1,6 +1,8 @@
 package com.telepathicgrunt.repurposedstructures.mixin;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.data.DataGenerators;
+import net.minecraftforge.fml.DatagenModLoader;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
@@ -20,7 +22,7 @@ public class RepurposedStructuresMixinPlugin implements IMixinConfigPlugin {
 
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-        if(!RepurposedStructures.datagenLootTableModeOn) {
+        if(!DataGenerators.datagenLootTableModeOn) {
             if(mixinClassName.equals("com.telepathicgrunt.repurposedstructures.mixin.datagen.LootPoolMixin")) return false;
             if(mixinClassName.equals("com.telepathicgrunt.repurposedstructures.mixin.datagen.LootPoolAccessor")) return false;
             if(mixinClassName.equals("com.telepathicgrunt.repurposedstructures.mixin.datagen.ItemLootEntryMixin")) return false;
