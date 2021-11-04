@@ -7,11 +7,11 @@ import net.minecraft.util.ResourceLocation;
 import java.util.HashMap;
 import java.util.Map;
 
-public class StructurePiecesBehavior {
+public final class StructurePiecesBehavior {
+    private StructurePiecesBehavior() {}
 
     // No need for Lazy in this class because it is init in FMLCommonSetupEvent where config values now exists
-    public static void init() {
-    }
+    public static void init() {}
 
     public static class RequiredPieceNeeds {
         private final int maxLimit;
