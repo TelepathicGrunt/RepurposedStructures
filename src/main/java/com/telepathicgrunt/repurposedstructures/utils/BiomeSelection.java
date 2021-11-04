@@ -22,9 +22,10 @@ import java.util.Locale;
 import java.util.Set;
 import java.util.function.Supplier;
 
-public class BiomeSelection {
+public final class BiomeSelection {
+    private BiomeSelection() {}
 
-    private static Set<RegistryKey<Biome>> OVERWORLD_BIOMES = new HashSet<>();
+    private static final Set<RegistryKey<Biome>> OVERWORLD_BIOMES = new HashSet<>();
 
     public static void setupOverworldBiomesSet() {
         // Get all vanilla and modded biomes with overworld tag

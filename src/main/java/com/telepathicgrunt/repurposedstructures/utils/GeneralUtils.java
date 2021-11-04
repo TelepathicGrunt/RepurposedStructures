@@ -51,7 +51,8 @@ import java.util.Optional;
 import java.util.Random;
 import java.util.stream.Collectors;
 
-public class GeneralUtils {
+public final class GeneralUtils {
+    private GeneralUtils() {}
 
     // Weighted Random from: https://stackoverflow.com/a/6737362
     public static <T> T getRandomEntry(List<Pair<T, Integer>> rlList, Random random) {

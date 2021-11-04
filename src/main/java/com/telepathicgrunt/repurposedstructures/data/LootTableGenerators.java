@@ -26,7 +26,7 @@ public class LootTableGenerators extends LootTableProvider implements IDataProvi
 
     @Override
     protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootParameterSet>> getTables() {
-        return ImmutableList.of(Pair.of(ChestLootTableProvider::new, LootParameterSets.CHEST));
+        return ImmutableList.of(Pair.of(UndergroundBastionsLootTableProvider::new, LootParameterSets.CHEST));
     }
 
     @Override

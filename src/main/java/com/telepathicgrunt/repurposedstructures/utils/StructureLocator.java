@@ -9,7 +9,8 @@ import net.minecraft.world.server.ServerWorld;
 /**
  * For misc locating of structures like eyes of ender
  */
-public class StructureLocator {
+public final class StructureLocator {
+    private StructureLocator() {}
 
     public static BlockPos returnClosestStronghold(BlockPos blockPos, ServerWorld world, BlockPos playerPos) {
         //RepurposedStructures.LOGGER.log(Level.INFO, "yip yip finding stronghold now");
