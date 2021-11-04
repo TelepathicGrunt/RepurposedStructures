@@ -126,13 +126,7 @@
         {
           "name": "minecraft:redstone_block",
           "type": "minecraft:item",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 1
-            }
-          ]
+          "weight": 1
         },
         {
           "name": "minecraft:redstone",

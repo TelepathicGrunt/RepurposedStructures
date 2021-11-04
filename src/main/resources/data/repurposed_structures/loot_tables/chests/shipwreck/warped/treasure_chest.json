@@ -73,13 +73,7 @@
         {
           "name": "minecraft:netherite_ingot",
           "type": "minecraft:item",
-          "weight": 13,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 1
-            }
-          ]
+          "weight": 13
         },
         {
           "name": "minecraft:gold_ingot",
@@ -129,24 +123,12 @@
         {
           "name": "minecraft:ancient_debris",
           "type": "minecraft:item",
-          "weight": 9,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 1
-            }
-          ]
+          "weight": 9
         },
         {
           "name": "minecraft:netherite_scrap",
           "type": "minecraft:item",
-          "weight": 5,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 1
-            }
-          ]
+          "weight": 5
         },
         {
           "name": "minecraft:ancient_debris",
