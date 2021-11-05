@@ -380,5 +380,10 @@ public final class StructurePiecesBehavior {
         PIECES_COUNT.put(new ResourceLocation("pneumaticcraft", "villages/mechanic_street_mushroom"), 1);
         PIECES_COUNT.put(new ResourceLocation("pneumaticcraft", "villages/mechanic_street_oak"), 1);
         PIECES_COUNT.put(new ResourceLocation("pneumaticcraft", "villages/mechanic_street_swamp"), 1);
+
+        PIECES_COUNT.put(new ResourceLocation("waystones", "village/common/waystone"), 1);
+        PIECES_COUNT.put(new ResourceLocation("waystones", "village/desert/waystone"), 1);
+
+        PIECES_COUNT.put(new ResourceLocation("bountiful", "village/common/bounty_gazebo"), 1);
     }
 }
