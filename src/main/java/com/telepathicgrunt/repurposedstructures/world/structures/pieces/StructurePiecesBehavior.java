@@ -1,16 +1,19 @@
 package com.telepathicgrunt.repurposedstructures.world.structures.pieces;
 
-import com.google.common.collect.ImmutableMap;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.misc.WaystonesCompat;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.Version;
 import net.fabricmc.loader.api.VersionParsingException;
+import net.fabricmc.loader.api.metadata.ModMetadata;
 import net.fabricmc.loader.impl.util.version.SemanticVersionImpl;
 import net.minecraft.resources.ResourceLocation;
 
+import java.util.AbstractMap;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public final class StructurePiecesBehavior {
     private StructurePiecesBehavior() {}
@@ -28,101 +31,130 @@ public final class StructurePiecesBehavior {
         }
     }
 
+    private static void addRequiredVillagePiece(String structure, ResourceLocation pieceRL, int configSize) {
+        ResourceLocation structureRL = new ResourceLocation(RepurposedStructures.MODID, structure);
+        Map<ResourceLocation, RequiredPieceNeeds> requiredPieceMap = REQUIRED_PIECES_COUNT.get(structureRL);
+
+        // Will not be immutable so we can add more than one entry.
+        // -1 from config because the max size is where terminators are and terminators cannot spawn houses.
+        if(requiredPieceMap != null) {
+            requiredPieceMap.put(pieceRL, new RequiredPieceNeeds(1, Math.min(4, configSize - 1)));
+        }
+        else {
+            REQUIRED_PIECES_COUNT.put(structureRL, Stream.of(new AbstractMap.SimpleImmutableEntry<>(pieceRL, new RequiredPieceNeeds(1, Math.min(4, configSize - 1)))).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue)));
+        }
+    }
+
     public static HashMap<ResourceLocation, Map<ResourceLocation, RequiredPieceNeeds>> REQUIRED_PIECES_COUNT = new HashMap<>();
     static {
-        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "stronghold_nether"), ImmutableMap.of(
+        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "stronghold_nether"), Map.of(
                 new ResourceLocation(RepurposedStructures.MODID, "strongholds/nether/portal_room"), new StructurePiecesBehavior.RequiredPieceNeeds(1, (int) (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdSize * 0.6D))));
 
-        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "stronghold_end"), ImmutableMap.of(
+        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "stronghold_end"), Map.of(
                 new ResourceLocation(RepurposedStructures.MODID, "strongholds/end/portal_room"), new StructurePiecesBehavior.RequiredPieceNeeds(1, (int) (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.end.endStrongholdSize * 0.6D)),
                 new ResourceLocation(RepurposedStructures.MODID, "strongholds/end/empty_crossing"), new StructurePiecesBehavior.RequiredPieceNeeds(2, (int) (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.end.endStrongholdSize * 0.35D))));
 
-        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "fortress_jungle"), ImmutableMap.of(
+        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "fortress_jungle"), Map.of(
                 new ResourceLocation(RepurposedStructures.MODID, "fortresses/jungle/spawner"), new StructurePiecesBehavior.RequiredPieceNeeds(2, (int) (RepurposedStructures.RSAllConfig.RSFortressesConfig.jungleFortress.jungleFortressSize * 0.6D)),
                 new ResourceLocation(RepurposedStructures.MODID, "fortresses/jungle/balcony"), new StructurePiecesBehavior.RequiredPieceNeeds(1, (int) (RepurposedStructures.RSAllConfig.RSFortressesConfig.jungleFortress.jungleFortressSize * 0.2D)),
                 new ResourceLocation(RepurposedStructures.MODID, "fortresses/jungle/turn_inside_chest"), new StructurePiecesBehavior.RequiredPieceNeeds(4, (int) (RepurposedStructures.RSAllConfig.RSFortressesConfig.jungleFortress.jungleFortressSize * 0.6D))));
 
-        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_birch"), ImmutableMap.of(
+        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_birch"), Map.of(
                 new ResourceLocation(RepurposedStructures.MODID, "mineshafts/birch/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.birchMineshaftSize))));
 
-        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_dark_forest"), ImmutableMap.of(
+        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_dark_forest"), Map.of(
                 new ResourceLocation(RepurposedStructures.MODID, "mineshafts/dark_forest/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.darkForestMineshaftSize))));
 
-        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_desert"), ImmutableMap.of(
+        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_desert"), Map.of(
                 new ResourceLocation(RepurposedStructures.MODID, "mineshafts/desert/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.desertMineshaftSize))));
 
-        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_nether"), ImmutableMap.of(
+        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_nether"), Map.of(
                 new ResourceLocation(RepurposedStructures.MODID, "mineshafts/nether/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.netherMineshaftSize))));
 
-        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_crimson"), ImmutableMap.of(
+        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_crimson"), Map.of(
                 new ResourceLocation(RepurposedStructures.MODID, "mineshafts/crimson/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.crimsonMineshaftSize))));
 
-        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_warped"), ImmutableMap.of(
+        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_warped"), Map.of(
                 new ResourceLocation(RepurposedStructures.MODID, "mineshafts/warped/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.warpedMineshaftSize))));
 
-        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_icy"), ImmutableMap.of(
+        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_icy"), Map.of(
                 new ResourceLocation(RepurposedStructures.MODID, "mineshafts/icy/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.icyMineshaftSize))));
 
-        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_jungle"), ImmutableMap.of(
+        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_jungle"), Map.of(
                 new ResourceLocation(RepurposedStructures.MODID, "mineshafts/jungle/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.jungleMineshaftSize))));
 
-        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_ocean"), ImmutableMap.of(
+        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_ocean"), Map.of(
                 new ResourceLocation(RepurposedStructures.MODID, "mineshafts/ocean/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.oceanMineshaftSize))));
 
-        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_savanna"), ImmutableMap.of(
+        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_savanna"), Map.of(
                 new ResourceLocation(RepurposedStructures.MODID, "mineshafts/savanna/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.savannaMineshaftSize))));
 
-        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_stone"), ImmutableMap.of(
+        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_stone"), Map.of(
                 new ResourceLocation(RepurposedStructures.MODID, "mineshafts/stone/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.stoneMineshaftSize))));
 
-        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_swamp"), ImmutableMap.of(
+        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_swamp"), Map.of(
                 new ResourceLocation(RepurposedStructures.MODID, "mineshafts/swamp/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.swampMineshaftSize))));
 
-        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_taiga"), ImmutableMap.of(
+        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_taiga"), Map.of(
                 new ResourceLocation(RepurposedStructures.MODID, "mineshafts/taiga/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.taigaMineshaftSize))));
 
-        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_end"), ImmutableMap.of(
+        REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_end"), Map.of(
                 new ResourceLocation(RepurposedStructures.MODID, "mineshafts/end/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.endMineshaftSize))));
+
+        if(FabricLoader.getInstance().isModLoaded("waystones")) {
+            ModMetadata modMetadata = FabricLoader.getInstance().getModContainer("waystones").get().getMetadata();
+            if(modMetadata.getAuthors().stream().anyMatch(author -> author.getName().equals("LordDeatHunter"))) {
+                addRequiredVillagePiece("village_badlands", new ResourceLocation("waystones", "village_waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.badlandsVillageSize);
+                addRequiredVillagePiece("village_birch", new ResourceLocation("waystones", "village_waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.birchVillageSize);
+                addRequiredVillagePiece("village_crimson", new ResourceLocation("waystones", "village_waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.crimsonVillageSize);
+                addRequiredVillagePiece("village_dark_forest", new ResourceLocation("waystones", "village_waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.darkForestVillageSize);
+                addRequiredVillagePiece("village_giant_taiga", new ResourceLocation("waystones", "village_waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.giantTaigaVillageSize);
+                addRequiredVillagePiece("village_jungle", new ResourceLocation("waystones", "village_waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.jungleVillageSize);
+                addRequiredVillagePiece("village_mountains", new ResourceLocation("waystones", "village_waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.mountainsVillageSize);
+                addRequiredVillagePiece("village_swamp", new ResourceLocation("waystones", "village_waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.swampVillageSize);
+                addRequiredVillagePiece("village_warped", new ResourceLocation("waystones", "village_waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.warpedVillageSize);
+
+                // Waystones 2.1.2 and older does not add waystone to mushroom and oak village. Newer version will.
+                try {
+                    Version modVersion = FabricLoader.getInstance().getModContainer("waystones").get().getMetadata().getVersion();
+                    SemanticVersionImpl thresholdVersion = new SemanticVersionImpl("2.1.2", false);
+                    if (modVersion.compareTo(thresholdVersion) > 0) {
+                        addRequiredVillagePiece("village_mushroom", new ResourceLocation("waystones", "village_waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.mushroomVillageSize);
+                        addRequiredVillagePiece("village_oak", new ResourceLocation("waystones", "village_waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.oakVillageSize);
+                    }
+                } catch (VersionParsingException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
     // Delayed to onInitializeServer/onInitializeClient so it is ran after blay's waystone's config is setup
     public static void addBlaysWaystonesRequiredPieces() {
-        if(FabricLoader.getInstance().isModLoaded("waystones") && WaystonesCompat.waystonesForcedSpawning()) {
-            REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "village_badlands"), ImmutableMap.of(
-                    new ResourceLocation("waystones", "village/desert/waystone"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(4, RepurposedStructures.RSAllConfig.RSVillagesConfig.size.badlandsVillageSize))));
+        if(FabricLoader.getInstance().isModLoaded("waystones")) {
+            ModMetadata modMetadata = FabricLoader.getInstance().getModContainer("waystones").get().getMetadata();
+            if (modMetadata.getAuthors().stream().anyMatch(author -> author.getName().equals("BlayTheNinth")) && WaystonesCompat.waystonesForcedSpawning()) {
+                addRequiredVillagePiece("village_badlands", new ResourceLocation("waystones", "village/desert/waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.badlandsVillageSize);
+                addRequiredVillagePiece("village_birch", new ResourceLocation("waystones", "village/common/waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.birchVillageSize);
+                addRequiredVillagePiece("village_crimson", new ResourceLocation("waystones", "village/common/waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.crimsonVillageSize);
+                addRequiredVillagePiece("village_dark_forest", new ResourceLocation("waystones", "village/common/waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.darkForestVillageSize);
+                addRequiredVillagePiece("village_jungle", new ResourceLocation("waystones", "village/common/waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.jungleVillageSize);
+                addRequiredVillagePiece("village_mountains", new ResourceLocation("waystones", "village/common/waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.mountainsVillageSize);
+                addRequiredVillagePiece("village_oak", new ResourceLocation("waystones", "village/common/waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.oakVillageSize);
+                addRequiredVillagePiece("village_swamp", new ResourceLocation("waystones", "village/common/waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.swampVillageSize);
+                addRequiredVillagePiece("village_warped", new ResourceLocation("waystones", "village/common/waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.warpedVillageSize);
 
-            REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "village_birch"), ImmutableMap.of(
-                    new ResourceLocation("waystones", "village/common/waystone"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(4, RepurposedStructures.RSAllConfig.RSVillagesConfig.size.birchVillageSize))));
-
-            REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "village_dark_oak"), ImmutableMap.of(
-                    new ResourceLocation("waystones", "village/common/waystone"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(4, RepurposedStructures.RSAllConfig.RSVillagesConfig.size.darkForestVillageSize))));
-
-            REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "village_jungle"), ImmutableMap.of(
-                    new ResourceLocation("waystones", "village/common/waystone"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(4, RepurposedStructures.RSAllConfig.RSVillagesConfig.size.jungleVillageSize))));
-
-            REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "village_mountains"), ImmutableMap.of(
-                    new ResourceLocation("waystones", "village/common/waystone"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(4, RepurposedStructures.RSAllConfig.RSVillagesConfig.size.mountainsVillageSize))));
-
-            REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "village_oak"), ImmutableMap.of(
-                    new ResourceLocation("waystones", "village/common/waystone"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(4, RepurposedStructures.RSAllConfig.RSVillagesConfig.size.oakVillageSize))));
-
-            REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "village_swamp"), ImmutableMap.of(
-                    new ResourceLocation("waystones", "village/common/waystone"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(4, RepurposedStructures.RSAllConfig.RSVillagesConfig.size.swampVillageSize))));
-
-            // Waystones 8.1.1+0 and older does not add waystone to giant taiga or mushroom village. Newer version will.
-            try {
-                Version modVersion = FabricLoader.getInstance().getModContainer("waystones").get().getMetadata().getVersion();
-                SemanticVersionImpl thresholdVersion =  new SemanticVersionImpl("8.1.1+0", false);
-                if(modVersion.compareTo(thresholdVersion) > 0) {
-                    REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "village_giant_taiga"), ImmutableMap.of(
-                            new ResourceLocation("waystones", "village/common/waystone"), new RequiredPieceNeeds(1, Math.min(4, RepurposedStructures.RSAllConfig.RSVillagesConfig.size.giantTaigaVillageSize))));
-
-                    REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "village_mushroom"), ImmutableMap.of(
-                            new ResourceLocation("waystones", "village/common/waystone"), new RequiredPieceNeeds(1, Math.min(4, RepurposedStructures.RSAllConfig.RSVillagesConfig.size.mushroomVillageSize))));
+                // Waystones 8.1.1+0 and older does not add waystone to giant taiga or mushroom village. Newer version will.
+                try {
+                    Version modVersion = FabricLoader.getInstance().getModContainer("waystones").get().getMetadata().getVersion();
+                    SemanticVersionImpl thresholdVersion = new SemanticVersionImpl("8.1.1+0", false);
+                    if (modVersion.compareTo(thresholdVersion) > 0) {
+                        addRequiredVillagePiece("village_giant_taiga", new ResourceLocation("waystones", "village/common/waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.giantTaigaVillageSize);
+                        addRequiredVillagePiece("village_mushroom", new ResourceLocation("waystones", "village/common/waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.mushroomVillageSize);
+                    }
+                } catch (VersionParsingException e) {
+                    e.printStackTrace();
                 }
-            }
-            catch (VersionParsingException e) {
-                e.printStackTrace();
             }
         }
     }

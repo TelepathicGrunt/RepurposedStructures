@@ -133,8 +133,11 @@ public class GenericJigsawStructure extends AbstractBaseStructure<NoneFeatureCon
     }
 
     public class MainStart extends NoiseAffectingStructureStart<NoneFeatureConfiguration> {
+        private final ResourceLocation structureID;
+
         public MainStart(StructureFeature<NoneFeatureConfiguration> structureIn, ChunkPos chunkPos1, int referenceIn, long seedIn) {
             super(structureIn, chunkPos1, referenceIn, seedIn);
+            structureID = Registry.STRUCTURE_FEATURE.getKey(structureIn);
         }
 
         public void generatePieces(RegistryAccess dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, ChunkPos chunkPos1, Biome biome, NoneFeatureConfiguration defaultFeatureConfig, LevelHeightAccessor heightLimitView) {
@@ -150,7 +153,7 @@ public class GenericJigsawStructure extends AbstractBaseStructure<NoneFeatureCon
                     useHeightmap,
                     useHeightmap,
                     heightLimitView,
-                    null,
+                    structureID,
                     Integer.MAX_VALUE,
                     Integer.MIN_VALUE);
             GeneralUtils.centerAllPieces(blockpos, this.pieces);

@@ -48,7 +48,6 @@ public class AdvancedDistanceJigsawStructure extends AdvancedJigsawStructure {
     }
 
     public class Start extends MainStart {
-
         private final ResourceLocation structureID;
 
         public Start(StructureFeature<NoneFeatureConfiguration> structureIn, ChunkPos chunkPos1, int referenceIn, long seedIn) {
