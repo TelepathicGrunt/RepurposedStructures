@@ -1,7 +1,8 @@
 package com.telepathicgrunt.repurposedstructures.world.structures.pieces;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.misc.WaystonesCompat;
+import com.telepathicgrunt.repurposedstructures.misc.WaystonesBlaysCompat;
+import com.telepathicgrunt.repurposedstructures.misc.WaystonesFabricCompat;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.Version;
 import net.fabricmc.loader.api.VersionParsingException;
@@ -100,10 +101,42 @@ public final class StructurePiecesBehavior {
 
         REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_end"), Map.of(
                 new ResourceLocation(RepurposedStructures.MODID, "mineshafts/end/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.endMineshaftSize))));
+    }
 
+    // Delayed to onInitializeServer/onInitializeClient so it is ran after the mod's config is setup
+    public static void addDelayedRequiredPieces() {
+        // Blays Waystones
         if(FabricLoader.getInstance().isModLoaded("waystones")) {
             ModMetadata modMetadata = FabricLoader.getInstance().getModContainer("waystones").get().getMetadata();
-            if(modMetadata.getAuthors().stream().anyMatch(author -> author.getName().equals("LordDeatHunter"))) {
+            if (modMetadata.getAuthors().stream().anyMatch(author -> author.getName().equals("BlayTheNinth")) && WaystonesBlaysCompat.waystonesVillageAndForcedSpawning()) {
+                // Waystones 8.1.1+0 and older does not add waystone to any rs village. Newer version will.
+                try {
+                    Version modVersion = FabricLoader.getInstance().getModContainer("waystones").get().getMetadata().getVersion();
+                    SemanticVersionImpl thresholdVersion = new SemanticVersionImpl("8.1.1+0", false);
+                    if (modVersion.compareTo(thresholdVersion) > 0) {
+                        addRequiredVillagePiece("village_badlands", new ResourceLocation("waystones", "village/desert/waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.badlandsVillageSize);
+                        addRequiredVillagePiece("village_birch", new ResourceLocation("waystones", "village/common/waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.birchVillageSize);
+                        addRequiredVillagePiece("village_crimson", new ResourceLocation("waystones", "village/common/waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.crimsonVillageSize);
+                        addRequiredVillagePiece("village_dark_forest", new ResourceLocation("waystones", "village/common/waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.darkForestVillageSize);
+                        addRequiredVillagePiece("village_giant_taiga", new ResourceLocation("waystones", "village/common/waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.giantTaigaVillageSize);
+                        addRequiredVillagePiece("village_jungle", new ResourceLocation("waystones", "village/common/waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.jungleVillageSize);
+                        addRequiredVillagePiece("village_mountains", new ResourceLocation("waystones", "village/common/waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.mountainsVillageSize);
+                        addRequiredVillagePiece("village_mushroom", new ResourceLocation("waystones", "village/common/waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.mushroomVillageSize);
+                        addRequiredVillagePiece("village_oak", new ResourceLocation("waystones", "village/common/waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.oakVillageSize);
+                        addRequiredVillagePiece("village_swamp", new ResourceLocation("waystones", "village/common/waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.swampVillageSize);
+                        addRequiredVillagePiece("village_warped", new ResourceLocation("waystones", "village/common/waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.warpedVillageSize);
+                    }
+                }
+                catch (VersionParsingException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        // Fabric Waystones
+        if(FabricLoader.getInstance().isModLoaded("waystones")) {
+            ModMetadata modMetadata = FabricLoader.getInstance().getModContainer("waystones").get().getMetadata();
+            if(modMetadata.getAuthors().stream().anyMatch(author -> author.getName().equals("LordDeatHunter")) && WaystonesFabricCompat.waystonesVillageSpawning()) {
                 addRequiredVillagePiece("village_badlands", new ResourceLocation("waystones", "village_waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.badlandsVillageSize);
                 addRequiredVillagePiece("village_birch", new ResourceLocation("waystones", "village_waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.birchVillageSize);
                 addRequiredVillagePiece("village_crimson", new ResourceLocation("waystones", "village_waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.crimsonVillageSize);
@@ -122,37 +155,8 @@ public final class StructurePiecesBehavior {
                         addRequiredVillagePiece("village_mushroom", new ResourceLocation("waystones", "village_waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.mushroomVillageSize);
                         addRequiredVillagePiece("village_oak", new ResourceLocation("waystones", "village_waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.oakVillageSize);
                     }
-                } catch (VersionParsingException e) {
-                    e.printStackTrace();
                 }
-            }
-        }
-    }
-
-    // Delayed to onInitializeServer/onInitializeClient so it is ran after blay's waystone's config is setup
-    public static void addBlaysWaystonesRequiredPieces() {
-        if(FabricLoader.getInstance().isModLoaded("waystones")) {
-            ModMetadata modMetadata = FabricLoader.getInstance().getModContainer("waystones").get().getMetadata();
-            if (modMetadata.getAuthors().stream().anyMatch(author -> author.getName().equals("BlayTheNinth")) && WaystonesCompat.waystonesForcedSpawning()) {
-                addRequiredVillagePiece("village_badlands", new ResourceLocation("waystones", "village/desert/waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.badlandsVillageSize);
-                addRequiredVillagePiece("village_birch", new ResourceLocation("waystones", "village/common/waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.birchVillageSize);
-                addRequiredVillagePiece("village_crimson", new ResourceLocation("waystones", "village/common/waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.crimsonVillageSize);
-                addRequiredVillagePiece("village_dark_forest", new ResourceLocation("waystones", "village/common/waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.darkForestVillageSize);
-                addRequiredVillagePiece("village_jungle", new ResourceLocation("waystones", "village/common/waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.jungleVillageSize);
-                addRequiredVillagePiece("village_mountains", new ResourceLocation("waystones", "village/common/waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.mountainsVillageSize);
-                addRequiredVillagePiece("village_oak", new ResourceLocation("waystones", "village/common/waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.oakVillageSize);
-                addRequiredVillagePiece("village_swamp", new ResourceLocation("waystones", "village/common/waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.swampVillageSize);
-                addRequiredVillagePiece("village_warped", new ResourceLocation("waystones", "village/common/waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.warpedVillageSize);
-
-                // Waystones 8.1.1+0 and older does not add waystone to giant taiga or mushroom village. Newer version will.
-                try {
-                    Version modVersion = FabricLoader.getInstance().getModContainer("waystones").get().getMetadata().getVersion();
-                    SemanticVersionImpl thresholdVersion = new SemanticVersionImpl("8.1.1+0", false);
-                    if (modVersion.compareTo(thresholdVersion) > 0) {
-                        addRequiredVillagePiece("village_giant_taiga", new ResourceLocation("waystones", "village/common/waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.giantTaigaVillageSize);
-                        addRequiredVillagePiece("village_mushroom", new ResourceLocation("waystones", "village/common/waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.mushroomVillageSize);
-                    }
-                } catch (VersionParsingException e) {
+                catch (VersionParsingException e) {
                     e.printStackTrace();
                 }
             }
