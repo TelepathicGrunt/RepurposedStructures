@@ -4,10 +4,10 @@
 Significantly cleaned up the config system backend code for my mod. Let me know if any config no longer works but it should be ok!
 
 ##### Mod Compat:
-Blay's Waystone and Bountiful now cannot spawn more than 1 of their injected structure piece in RS villages.
-  I did the restricting on my end. (Note, Bountiful boards does not spawn in RS villages right now. They will fix it next update of their mod)
+Blay's Waystone and Bountiful now cannot spawn more than 1 of their injected structure piece in RS villages. I did the restricting on my end. 
+ (Note, Bountiful boards does not spawn in RS villages right now. They will fix it next update of their mod)
 
-Blay Waystone's forceSpawnInVillages config is now read directly by Repurposed Structures and will force the waystones to spawn in RS villages.
+Blay Waystone's spawnInVillages and forceSpawnInVillages config are now read directly by Repurposed Structures and will control the waystones in RS villages.
 
 
 ### **(V.3.4.1 Changes) (1.16.5 Minecraft)**
