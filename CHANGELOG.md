@@ -1,3 +1,10 @@
+### **(V.2.5.3 Changes) (1.17.1 Minecraft)**
+
+##### Mod Compat:
+Blay's Waystone and Waystones Fabric now cannot spawn more than 1 waystone structure piece in RS villages. 
+ I did the restricting on my end.
+
+
 ### **(V.2.5.2 Changes) (1.17.1 Minecraft)**
 
 ##### Bastions:

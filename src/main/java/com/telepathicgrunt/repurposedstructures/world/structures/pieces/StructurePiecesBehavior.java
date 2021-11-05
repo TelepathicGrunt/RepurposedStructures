@@ -262,5 +262,9 @@ public final class StructurePiecesBehavior {
         PIECES_COUNT.put(new ResourceLocation("morevillagers", "villages/swamp/swamp_hunter"), 1);
         PIECES_COUNT.put(new ResourceLocation("morevillagers", "villages/swamp/swamp_oceanographer"), 1);
         PIECES_COUNT.put(new ResourceLocation("morevillagers", "villages/swamp/swamp_woodworker"), 1);
+
+        PIECES_COUNT.put(new ResourceLocation("waystones", "village/common/waystone"), 1);
+        PIECES_COUNT.put(new ResourceLocation("waystones", "village/desert/waystone"), 1);
+        PIECES_COUNT.put(new ResourceLocation("waystones", "village_waystone"), 1);
     }
 }
