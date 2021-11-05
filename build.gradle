@@ -53,6 +53,7 @@ if (project.use_third_party_mods) {
 		modRuntime "com.telepathicgrunt:LoadNbtBlock:2.0.4+1.17"
 		modRuntime "curse.maven:structure_void_toggle-357304:3488866"
 		modRuntime "com.telepathicgrunt:Blame-Fabric:1.17-4.0.0-fabric"
+
 		//modRuntime "curse.maven:charm-318872:3393290"
 		//modRuntime "curse.maven:more_villagers-486080:3480631"
 		//modRuntime "curse.maven:farmers_delight-482834:3466296"

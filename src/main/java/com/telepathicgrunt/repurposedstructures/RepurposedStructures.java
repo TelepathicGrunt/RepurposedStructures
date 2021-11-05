@@ -112,11 +112,13 @@ public class RepurposedStructures implements ModInitializer, DedicatedServerModI
     @Override
     public void onInitializeServer() {
         RepurposedStructures.allowStructureSpawningPerDimension();
+        StructurePiecesBehavior.addBlaysWaystonesRequiredPieces();
     }
 
     @Override
     public void onInitializeClient() {
         RepurposedStructures.allowStructureSpawningPerDimension();
+        StructurePiecesBehavior.addBlaysWaystonesRequiredPieces();
     }
 
     public static void allowStructureSpawningPerDimension() {

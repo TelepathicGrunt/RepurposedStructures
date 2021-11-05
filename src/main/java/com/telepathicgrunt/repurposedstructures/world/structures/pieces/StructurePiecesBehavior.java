@@ -2,6 +2,11 @@ package com.telepathicgrunt.repurposedstructures.world.structures.pieces;
 
 import com.google.common.collect.ImmutableMap;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.misc.WaystonesCompat;
+import net.fabricmc.loader.api.FabricLoader;
+import net.fabricmc.loader.api.Version;
+import net.fabricmc.loader.api.VersionParsingException;
+import net.fabricmc.loader.impl.util.version.SemanticVersionImpl;
 import net.minecraft.resources.ResourceLocation;
 
 import java.util.HashMap;
@@ -78,6 +83,48 @@ public final class StructurePiecesBehavior {
 
         REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_end"), ImmutableMap.of(
                 new ResourceLocation(RepurposedStructures.MODID, "mineshafts/end/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RepurposedStructures.RSAllConfig.RSMineshaftsConfig.size.endMineshaftSize))));
+    }
+
+    // Delayed to onInitializeServer/onInitializeClient so it is ran after blay's waystone's config is setup
+    public static void addBlaysWaystonesRequiredPieces() {
+        if(FabricLoader.getInstance().isModLoaded("waystones") && WaystonesCompat.waystonesForcedSpawning()) {
+            REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "village_badlands"), ImmutableMap.of(
+                    new ResourceLocation("waystones", "village/desert/waystone"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(4, RepurposedStructures.RSAllConfig.RSVillagesConfig.size.badlandsVillageSize))));
+
+            REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "village_birch"), ImmutableMap.of(
+                    new ResourceLocation("waystones", "village/common/waystone"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(4, RepurposedStructures.RSAllConfig.RSVillagesConfig.size.birchVillageSize))));
+
+            REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "village_dark_oak"), ImmutableMap.of(
+                    new ResourceLocation("waystones", "village/common/waystone"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(4, RepurposedStructures.RSAllConfig.RSVillagesConfig.size.darkForestVillageSize))));
+
+            REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "village_jungle"), ImmutableMap.of(
+                    new ResourceLocation("waystones", "village/common/waystone"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(4, RepurposedStructures.RSAllConfig.RSVillagesConfig.size.jungleVillageSize))));
+
+            REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "village_mountains"), ImmutableMap.of(
+                    new ResourceLocation("waystones", "village/common/waystone"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(4, RepurposedStructures.RSAllConfig.RSVillagesConfig.size.mountainsVillageSize))));
+
+            REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "village_oak"), ImmutableMap.of(
+                    new ResourceLocation("waystones", "village/common/waystone"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(4, RepurposedStructures.RSAllConfig.RSVillagesConfig.size.oakVillageSize))));
+
+            REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "village_swamp"), ImmutableMap.of(
+                    new ResourceLocation("waystones", "village/common/waystone"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(4, RepurposedStructures.RSAllConfig.RSVillagesConfig.size.swampVillageSize))));
+
+            // Waystones 8.1.1+0 and older does not add waystone to giant taiga or mushroom village. Newer version will.
+            try {
+                Version modVersion = FabricLoader.getInstance().getModContainer("waystones").get().getMetadata().getVersion();
+                SemanticVersionImpl thresholdVersion =  new SemanticVersionImpl("8.1.1+0", false);
+                if(modVersion.compareTo(thresholdVersion) > 0) {
+                    REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "village_giant_taiga"), ImmutableMap.of(
+                            new ResourceLocation("waystones", "village/common/waystone"), new RequiredPieceNeeds(1, Math.min(4, RepurposedStructures.RSAllConfig.RSVillagesConfig.size.giantTaigaVillageSize))));
+
+                    REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "village_mushroom"), ImmutableMap.of(
+                            new ResourceLocation("waystones", "village/common/waystone"), new RequiredPieceNeeds(1, Math.min(4, RepurposedStructures.RSAllConfig.RSVillagesConfig.size.mushroomVillageSize))));
+                }
+            }
+            catch (VersionParsingException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public static HashMap<ResourceLocation, Integer> PIECES_COUNT = new HashMap<>();

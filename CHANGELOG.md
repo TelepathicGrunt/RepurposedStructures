@@ -2,7 +2,9 @@
 
 ##### Mod Compat:
 Blay's Waystone and Waystones Fabric now cannot spawn more than 1 waystone structure piece in RS villages. 
- I did the restricting on my end.
+ I did the restricting on my end. (Note, Blay Waystone needs to be newer than v8.1.1+0 to add their waystones to RS villages.)
+
+Blay Waystone's forceSpawnInVillages config is now read directly by Repurposed Structures and will force the waystones to spawn in RS villages.
 
 
 ### **(V.2.5.2 Changes) (1.17.1 Minecraft)**
