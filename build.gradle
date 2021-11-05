@@ -70,11 +70,15 @@ dependencies {
         annotationProcessor 'org.spongepowered:mixin:0.8.2:processor'
     }
 
+    //compileOnly
     runtimeOnly fg.deobf("com.telepathicgrunt:Blame:1.16.5-3.2.0-forge")
     // runtimeOnly fg.deobf("patrigan:loadnbtblock:1.0")
+    compileOnly fg.deobf("curse.maven:waystones-245755:3515707")
+    //runtimeOnly fg.deobf("curse.maven:waystones-245755:3515707")
+
+
     // runtimeOnly fg.deobf("curse.maven:caves_and_cliffs_backport-417430:3512327")
     // runtimeOnly fg.deobf("curse.maven:caves_api-441706:3512246")
-
     // runtimeOnly fg.deobf("curse.maven:better_dungeons-510089:3476138")
     // runtimeOnly fg.deobf("curse.maven:yungs_api-421850:3494919")
     // runtimeOnly fg.deobf("curse.maven:better_strongholds-465575:3412586")

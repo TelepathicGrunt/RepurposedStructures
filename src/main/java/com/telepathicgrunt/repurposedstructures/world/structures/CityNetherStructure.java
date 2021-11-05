@@ -85,8 +85,11 @@ public class CityNetherStructure extends GenericJigsawStructure {
     }
 
     public class MainStart extends MarginedStructureStart<NoFeatureConfig> {
+        private final ResourceLocation structureID;
+
         public MainStart(Structure<NoFeatureConfig> structureIn, int chunkX, int chunkZ, MutableBoundingBox box, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, box, referenceIn, seedIn);
+            structureID = Registry.STRUCTURE_FEATURE.getKey(structureIn);
         }
 
         public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager structureManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig defaultFeatureConfig) {
@@ -101,7 +104,7 @@ public class CityNetherStructure extends GenericJigsawStructure {
                     this.random,
                     false,
                     false,
-                    null,
+                    structureID,
                     Integer.MAX_VALUE,
                     Integer.MIN_VALUE);
 

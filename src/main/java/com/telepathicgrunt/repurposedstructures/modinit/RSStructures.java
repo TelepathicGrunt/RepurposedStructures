@@ -265,7 +265,7 @@ public final class RSStructures {
         addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "village_crimson"), VILLAGE_CRIMSON.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSVillagesConfig.crimsonVillageMaxChunkDistance.get(), 0.5f, 1854750198));
         addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "village_warped"), VILLAGE_WARPED.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSVillagesConfig.warpedVillageMaxChunkDistance.get(), 0.5f, 1298332136));
         addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "village_oak"), VILLAGE_OAK.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSVillagesConfig.oakVillageMaxChunkDistance.get(), 0.5f, 2112891039));
-        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "village_mushroom"), VILLAGE_MUSHROOM.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSVillagesConfig.villageMushroomAverageChunkDistance.get(), 0.5f, 1150624897));
+        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "village_mushroom"), VILLAGE_MUSHROOM.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSVillagesConfig.mushroomVillageAverageChunkDistance.get(), 0.5f, 1150624897));
         // regexpos2
 
         addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "ruined_portal_end"), RUINED_PORTAL_END.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSRuinedPortalsConfig.ruinedPortalEndMaxChunkDistance.get(), 0.5f, 532404086));

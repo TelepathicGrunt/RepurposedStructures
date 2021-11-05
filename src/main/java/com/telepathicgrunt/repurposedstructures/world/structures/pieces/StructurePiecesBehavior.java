@@ -5,7 +5,14 @@ import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.configs.RSFortressesConfig;
 import com.telepathicgrunt.repurposedstructures.configs.RSMineshaftsConfig;
 import com.telepathicgrunt.repurposedstructures.configs.RSStrongholdsConfig;
+import com.telepathicgrunt.repurposedstructures.configs.RSVillagesConfig;
+import com.telepathicgrunt.repurposedstructures.misc.WaystonesCompat;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.ModList;
+import net.minecraftforge.fml.ModLoader;
+import net.minecraftforge.forgespi.language.IModInfo;
+import org.apache.maven.artifact.versioning.ArtifactVersion;
+import org.apache.maven.artifact.versioning.DefaultArtifactVersion;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -88,6 +95,39 @@ public final class StructurePiecesBehavior {
 
         REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_end"), ImmutableMap.of(
                 new ResourceLocation(RepurposedStructures.MODID, "mineshafts/end/spawner_4_end"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(5, RSMineshaftsConfig.endMineshaftSize.get()))));
+
+        if(ModList.get().isLoaded("waystones") && WaystonesCompat.waystonesForcedSpawning()) {
+            REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "village_badlands"), ImmutableMap.of(
+                    new ResourceLocation("waystones", "village/desert/waystone"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(4, RSVillagesConfig.badlandsVillageSize.get()))));
+
+            REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "village_birch"), ImmutableMap.of(
+                    new ResourceLocation("waystones", "village/common/waystone"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(4, RSVillagesConfig.birchVillageSize.get()))));
+
+            REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "village_dark_oak"), ImmutableMap.of(
+                    new ResourceLocation("waystones", "village/common/waystone"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(4, RSVillagesConfig.darkForestVillageSize.get()))));
+
+            // Waystones 7.6.4 and older does not add waystone to giant taiga village. Newer version will.
+            ArtifactVersion modVersion = ModList.get().getModContainerById("waystones").get().getModInfo().getVersion();
+            if(modVersion.compareTo(new DefaultArtifactVersion("7.6.4")) > 0) {
+                REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "village_giant_taiga"), ImmutableMap.of(
+                        new ResourceLocation("waystones", "village/common/waystone"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(4, RSVillagesConfig.giantTaigaVillageSize.get()))));
+            }
+
+            REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "village_jungle"), ImmutableMap.of(
+                    new ResourceLocation("waystones", "village/common/waystone"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(4, RSVillagesConfig.jungleVillageSize.get()))));
+
+            REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "village_mountains"), ImmutableMap.of(
+                    new ResourceLocation("waystones", "village/common/waystone"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(4, RSVillagesConfig.mountainsVillageSize.get()))));
+
+            REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "village_mushroom"), ImmutableMap.of(
+                    new ResourceLocation("waystones", "village/common/waystone"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(4, RSVillagesConfig.mushroomVillageSize.get()))));
+
+            REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "village_oak"), ImmutableMap.of(
+                    new ResourceLocation("waystones", "village/common/waystone"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(4, RSVillagesConfig.oakVillageSize.get()))));
+
+            REQUIRED_PIECES_COUNT.put(new ResourceLocation(RepurposedStructures.MODID, "village_swamp"), ImmutableMap.of(
+                    new ResourceLocation("waystones", "village/common/waystone"), new StructurePiecesBehavior.RequiredPieceNeeds(1, Math.min(4, RSVillagesConfig.swampVillageSize.get()))));
+        }
     }
     
     public static HashMap<ResourceLocation, Integer> PIECES_COUNT = new HashMap<>();

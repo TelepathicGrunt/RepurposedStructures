@@ -15,7 +15,7 @@ public class RSVillagesConfig {
 	public static ForgeConfigSpec.IntValue oakVillageMaxChunkDistance;
 	public static ForgeConfigSpec.IntValue crimsonVillageMaxChunkDistance;
 	public static ForgeConfigSpec.IntValue warpedVillageMaxChunkDistance;
-	public static ForgeConfigSpec.IntValue villageMushroomAverageChunkDistance;
+	public static ForgeConfigSpec.IntValue mushroomVillageAverageChunkDistance;
 	// regexpos1
 
 	public static ForgeConfigSpec.IntValue badlandsVillageSize;
@@ -75,7 +75,7 @@ public class RSVillagesConfig {
 			.translation("repurposedstructures.config.villages.mountainsvillagemaxchunkdistance")
 			.defineInRange("mountainsVillageMaxChunkDistance", 47, 1, 1001);
 
-		villageMushroomAverageChunkDistance = builder
+		mushroomVillageAverageChunkDistance = builder
 				.comment("\n How rare are Mushroom Villages.",
 						" 1 for spawning in most chunks and 10001 for none.")
 				.translation("repurposedstructures.config.villages.villagemushroomaveragechunkdistance")
