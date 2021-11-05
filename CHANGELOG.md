@@ -7,6 +7,8 @@ Blay's Waystone and Waystones Fabric now cannot spawn more than 1 waystone struc
 
 Blay Waystone's forceSpawnInVillages config is now read directly by Repurposed Structures and will force the waystones to spawn in RS villages.
 
+Added code to do better compat with Bountiful once it ports to Fabric.
+
 
 ### **(V.2.5.2 Changes) (1.17.1 Minecraft)**
 
