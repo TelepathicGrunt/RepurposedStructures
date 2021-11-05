@@ -75,6 +75,8 @@ dependencies {
     // runtimeOnly fg.deobf("patrigan:loadnbtblock:1.0")
     compileOnly fg.deobf("curse.maven:waystones-245755:3515707")
     //runtimeOnly fg.deobf("curse.maven:waystones-245755:3515707")
+    //runtimeOnly fg.deobf("curse.maven:bountiful-309516:3239647")
+    //runtimeOnly fg.deobf("curse.maven:kotlin_forge-351264:3452303")
 
 
     // runtimeOnly fg.deobf("curse.maven:caves_and_cliffs_backport-417430:3512327")
