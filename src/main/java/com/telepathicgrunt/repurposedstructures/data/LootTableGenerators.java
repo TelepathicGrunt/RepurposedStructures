@@ -18,7 +18,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-public class LootTableGenerators extends LootTableProvider implements IDataProvider {
+public class LootTableGenerators extends LootTableProvider {
 
     public LootTableGenerators(DataGenerator generator) {
         super(generator);
