@@ -426,5 +426,6 @@ public final class StructurePiecesBehavior {
         PIECES_COUNT.put(new ResourceLocation("waystones", "village/desert/waystone"), 1);
 
         PIECES_COUNT.put(new ResourceLocation("bountiful", "village/common/bounty_gazebo"), 1);
+        PIECES_COUNT.put(new ResourceLocation("bountiful", "village/common/bounty_gazebo_old"), 1);
     }
 }
