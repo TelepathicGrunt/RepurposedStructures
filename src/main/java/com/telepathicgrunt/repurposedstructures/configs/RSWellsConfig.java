@@ -4,8 +4,7 @@ import net.minecraftforge.common.ForgeConfigSpec;
 
 public class RSWellsConfig {
 	public static final ForgeConfigSpec GENERAL_SPEC;
-	
-	public static ForgeConfigSpec.BooleanValue canHaveBells;
+
 	public static ForgeConfigSpec.IntValue badlandsWellRarityPerChunk;
 	public static ForgeConfigSpec.IntValue netherWellRarityPerChunk;
 	public static ForgeConfigSpec.IntValue snowWellRarityPerChunk;

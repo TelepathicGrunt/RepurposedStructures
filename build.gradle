@@ -102,7 +102,7 @@ dependencies {
     // runtimeOnly fg.deobf("curse.maven:rat-323596:3319810")
     // runtimeOnly fg.deobf("curse.maven:citadel-331936:3441028")
     // runtimeOnly fg.deobf("curse.maven:savageandravage-381736:3226442")
-    // runtimeOnly fg.deobf("curse.maven:dungeonsgear-401247:3377033")
+    // runtimeOnly fg.deobf("curse.maven:dungeonsgear-401247:3517064")
     // runtimeOnly fg.deobf("curse.maven:endremastered-404183:3406091")
     // runtimeOnly fg.deobf("vazkii.autoreglib:AutoRegLib:1.6-49.90")
     // runtimeOnly fg.deobf("vazkii.quark:Quark:r2.4-316.1925") { transitive = false }
