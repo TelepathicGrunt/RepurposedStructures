@@ -1,3 +1,10 @@
+### **(V.2.5.4 Changes) (1.17.1 Minecraft)**
+
+##### Misc:
+Updated fabric.mod.json file to say that Repurposed Structures requires fabric Loader 0.12.0 or newer to work.
+ Will cut down on confusion due to crashes with outdated Fabric Loader versions.
+
+
 ### **(V.2.5.3 Changes) (1.17.1 Minecraft)**
 
 ##### Mod Compat:
