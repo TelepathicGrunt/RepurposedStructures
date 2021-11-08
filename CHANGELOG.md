@@ -1,3 +1,10 @@
+### **(V.2.5.5 Changes) (1.17.1 Minecraft)**
+
+##### Mod Compat:
+Removed Fabric Waystones compat code from RS because Fabric Waystones will do the compat code on their end instead.
+ Use this version of RS or newer when using Fabric Waystones v2.1.4 or newer.
+
+
 ### **(V.2.5.4 Changes) (1.17.1 Minecraft)**
 
 ##### Misc:
