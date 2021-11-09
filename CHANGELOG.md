@@ -1,3 +1,10 @@
+### **(V.2.5.6 Changes) (1.17.1 Minecraft)**
+
+##### Misc:
+Updated internal code to use event priorities instead of a hack around Fabric API.
+ As a result, Repurposed Structures requires Fabric API v0.42.0 or newer to work.
+
+
 ### **(V.2.5.5 Changes) (1.17.1 Minecraft)**
 
 ##### Mod Compat:

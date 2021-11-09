@@ -40,13 +40,13 @@ import com.telepathicgrunt.repurposedstructures.world.structures.pieces.Structur
 import draylar.omegaconfig.OmegaConfig;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
-import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.api.DedicatedServerModInitializer;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.event.Event;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerWorldEvents;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.packs.PackType;
@@ -61,7 +61,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class RepurposedStructures implements ModInitializer, DedicatedServerModInitializer, ClientModInitializer {
+public class RepurposedStructures implements ModInitializer {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MODID = "repurposed_structures";
     public static MobSpawnerManager mobSpawnerManager = new MobSpawnerManager();
@@ -102,29 +102,20 @@ public class RepurposedStructures implements ModInitializer, DedicatedServerModI
         BiomeDimensionAllowDisallow.setupAllowDisallowMaps();
         MobSpawningOverTime.setupMobSpawningMaps();
         setupBiomeModifications();
-        MobMapTrades.addMapTrades();
-        StructurePiecesBehavior.init();
+        allowStructureSpawningPerDimension();
         PoolAdditionMerger.mergeAdditionPools();
+        StructurePiecesBehavior.init();
+        MobMapTrades.addMapTrades();
         ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(RepurposedStructures.mobSpawnerManager);
     }
 
-    // These two are for making sure our ServerWorldEvents.LOAD event always fires after Fabric API's so our changes don't get overwritten
-    @Override
-    public void onInitializeServer() {
-        RepurposedStructures.allowStructureSpawningPerDimension();
-        StructurePiecesBehavior.addDelayedRequiredPieces();
-    }
-
-    @Override
-    public void onInitializeClient() {
-        RepurposedStructures.allowStructureSpawningPerDimension();
-        StructurePiecesBehavior.addDelayedRequiredPieces();
-    }
-
     public static void allowStructureSpawningPerDimension() {
-        // Controls the dimension blacklisting
-        ServerWorldEvents.LOAD.register((MinecraftServer minecraftServer, ServerLevel serverWorld) -> {
+        // This is for making sure our ServerWorldEvents.LOAD event always fires after Fabric API's so our changes don't get overwritten
+        ResourceLocation runAfterFabricAPIPhase = new ResourceLocation(RepurposedStructures.MODID, "run_after_fabric_api");
+        ServerWorldEvents.LOAD.addPhaseOrdering(Event.DEFAULT_PHASE, runAfterFabricAPIPhase);
 
+        // Controls the dimension blacklisting
+        ServerWorldEvents.LOAD.register(runAfterFabricAPIPhase, (MinecraftServer minecraftServer, ServerLevel serverWorld) -> {
             //add our structure spacing to all chunkgenerators including modded one and datapack ones.
             // Need temp map as some mods use custom chunk generators with immutable maps in themselves.
             Map<StructureFeature<?>, StructureFeatureConfiguration> tempMap = new HashMap<>(serverWorld.getChunkSource().getGenerator().getSettings().structureConfig());

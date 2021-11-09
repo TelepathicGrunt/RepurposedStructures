@@ -23,12 +23,6 @@
     ],
     "modmenu": [
       "com.telepathicgrunt.repurposedstructures.configs.ModMenuConfig"
-    ],
-    "client": [
-      "com.telepathicgrunt.repurposedstructures.RepurposedStructures"
-    ],
-    "server": [
-      "com.telepathicgrunt.repurposedstructures.RepurposedStructures"
     ]
   },
   "mixins": [
@@ -39,7 +33,7 @@
   "depends": {
     "fabricloader": ">=0.12.0",
     "minecraft": ">=1.17.0",
-    "fabric": ">=0.36.0",
+    "fabric": ">=0.42.0",
     "cloth-config2": ">=5.0.0"
   }
 }
