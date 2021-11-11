@@ -15,7 +15,7 @@ public final class Fortresses {
 
     public static void addJungleFortress(BiomeLoadingEvent event) {
 
-        if(RSFortressesConfig.jungleFortressMaxChunkDistance.get() != 1001 &&
+        if(RSFortressesConfig.jungleFortressAverageChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowed(event, RSStructures.FORTRESS_JUNGLE.get(),
                     () -> BiomeSelection.haveCategories(event, Category.JUNGLE)))
         {

@@ -13,7 +13,7 @@ public final class RuinedPortals {
 
     public static void addRuinedPortals(BiomeLoadingEvent event) {
 
-        if (RSRuinedPortalsConfig.ruinedPortalEndMaxChunkDistance.get() != 1001 &&
+        if (RSRuinedPortalsConfig.ruinedPortalEndAverageChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowed(event, RSStructures.RUINED_PORTAL_END.get(),
                     () -> BiomeSelection.haveCategories(event, Category.THEEND) && !BiomeSelection.isBiome(event, Biomes.THE_END)))
         {

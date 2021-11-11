@@ -12,7 +12,7 @@ public final class Temples {
 
     public static void addTemples(BiomeLoadingEvent event) {
 
-        if (RSTemplesConfig.netherBasaltTempleMaxChunkDistance.get() != 1001 &&
+        if (RSTemplesConfig.netherBasaltTempleAverageChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowed(event, RSStructures.TEMPLE_NETHER_BASALT.get(),
                     () -> BiomeSelection.haveCategories(event, Category.NETHER) &&
                     BiomeSelection.hasName(event, "basalt", "blackstone")))
@@ -20,7 +20,7 @@ public final class Temples {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.TEMPLE_NETHER_BASALT);
         }
 
-        if (RSTemplesConfig.netherCrimsonTempleMaxChunkDistance.get() != 1001 &&
+        if (RSTemplesConfig.netherCrimsonTempleAverageChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowed(event, RSStructures.TEMPLE_NETHER_BASALT.get(),
                     () -> BiomeSelection.haveCategories(event, Category.NETHER) &&
                     BiomeSelection.hasName(event, "crimson", "red_")))
@@ -28,7 +28,7 @@ public final class Temples {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.TEMPLE_NETHER_CRIMSON);
         }
 
-        if (RSTemplesConfig.netherWarpedTempleMaxChunkDistance.get() != 1001 &&
+        if (RSTemplesConfig.netherWarpedTempleAverageChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowed(event, RSStructures.TEMPLE_NETHER_BASALT.get(),
                     () -> BiomeSelection.haveCategories(event, Category.NETHER) &&
                     BiomeSelection.hasName(event, "warped", "blue")))
@@ -36,7 +36,7 @@ public final class Temples {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.TEMPLE_NETHER_WARPED);
         }
 
-        if (RSTemplesConfig.netherSoulTempleMaxChunkDistance.get() != 1001 &&
+        if (RSTemplesConfig.netherSoulTempleAverageChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowed(event, RSStructures.TEMPLE_NETHER_BASALT.get(),
                     () -> BiomeSelection.haveCategories(event, Category.NETHER) &&
                     BiomeSelection.hasName(event, "soul")))
@@ -44,7 +44,7 @@ public final class Temples {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.TEMPLE_NETHER_SOUL);
         }
 
-        if (RSTemplesConfig.netherWastelandTempleMaxChunkDistance.get() != 1001 &&
+        if (RSTemplesConfig.netherWastelandTempleAverageChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowed(event, RSStructures.TEMPLE_NETHER_BASALT.get(),
                     () -> BiomeSelection.haveCategories(event, Category.NETHER) &&
                     !BiomeSelection.hasName(event, "basalt", "blackstone", "crimson", "red_", "warped", "blue", "soul")))

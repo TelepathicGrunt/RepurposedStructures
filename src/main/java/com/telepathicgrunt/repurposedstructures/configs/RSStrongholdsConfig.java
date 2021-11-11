@@ -5,12 +5,12 @@ import net.minecraftforge.common.ForgeConfigSpec;
 public class RSStrongholdsConfig {
 	public static final ForgeConfigSpec GENERAL_SPEC;
 	
-	public static ForgeConfigSpec.IntValue netherStrongholdMaxChunkDistance;
-	public static ForgeConfigSpec.IntValue netherStrongholdMinHeight;
-	public static ForgeConfigSpec.IntValue netherStrongholdMaxHeight;
-	public static ForgeConfigSpec.IntValue netherStrongholdSize;
+	public static ForgeConfigSpec.IntValue strongholdNetherAverageChunkDistance;
+	public static ForgeConfigSpec.IntValue strongholdNetherMinHeight;
+	public static ForgeConfigSpec.IntValue strongholdNetherMaxHeight;
+	public static ForgeConfigSpec.IntValue strongholdNetherSize;
 
-	public static ForgeConfigSpec.IntValue strongholdEndMaxChunkDistance;
+	public static ForgeConfigSpec.IntValue strongholdEndAverageChunkDistance;
 	public static ForgeConfigSpec.IntValue strongholdEndMinHeight;
 	public static ForgeConfigSpec.IntValue strongholdEndMaxHeight;
 	public static ForgeConfigSpec.IntValue strongholdEndSize;
@@ -25,25 +25,25 @@ public class RSStrongholdsConfig {
 	private static void setupConfig(ForgeConfigSpec.Builder builder) {
 		builder.push("Nether");
 
-		netherStrongholdMaxChunkDistance = builder
-				.comment("\n How rare are Nether-styled Strongholds in Nether-category biomes.",
+		strongholdNetherAverageChunkDistance = builder
+				.comment("\n Average distance between spawn attempts for Nether-styled Strongholds in Nether-category biomes.",
 						" 1 for spawning in most chunks and 1001 for no spawn.")
-				.translation("repurposedstructures.config.stronghold.netherstrongholdmaxChunkDistance")
+				.translation("repurposedstructures.config.stronghold.netherstrongholdmaxchunkdistance")
 				.defineInRange("netherStrongholdMaxChunkDistance", 85, 1, 1001);
 
-		netherStrongholdSize = builder
+		strongholdNetherSize = builder
 				.comment("\n Size of Nether Stronghold. This number is how many pieces deep a branch can go from the center piece.",
 						" 1 for supertiny and 30 for supermassive Strongholds.")
 				.translation("repurposedstructures.config.stronghold.netherstrongholdsize")
 				.defineInRange("netherStrongholdSize", 15, 1, 30);
 
-		netherStrongholdMinHeight = builder
+		strongholdNetherMinHeight = builder
 				.comment("\n Minimum Y height that Nether stronghold's starting point can spawn at.",
 						" Note: Strongholds will spawn between min and max y height set in config.")
 				.translation("repurposedstructures.config.stronghold.netherstrongholdminheight")
 				.defineInRange("netherStrongholdMinHeight", 5, 0, 255);
 
-		netherStrongholdMaxHeight = builder
+		strongholdNetherMaxHeight = builder
 				.comment("\n Maximum Y height that Nether stronghold's starting point can spawn at.",
 						" Note: Strongholds will spawn between min and max y height set in config.",
 						" Setting this to below min height config will make strongholds spawn only at min height.")
@@ -54,8 +54,8 @@ public class RSStrongholdsConfig {
 
 		builder.push("End");
 
-		strongholdEndMaxChunkDistance = builder
-				.comment("\nHow rare are End Strongholds in End biome's islands.",
+		strongholdEndAverageChunkDistance = builder
+				.comment("\n Average distance between spawn attempts for End-styped Strongholds in End biome's islands.",
 						" 1 for spawning in most chunks and 10001 for none.")
 				.translation("repurposedstructures.config.stronghold_end.strongholdendaveragechunkdistance")
 				.defineInRange("strongholdEndAverageChunkDistance", 130 , 1, 1001);

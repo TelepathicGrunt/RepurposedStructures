@@ -13,7 +13,7 @@ public final class Shipwrecks {
 
     public static void addShipwrecks(BiomeLoadingEvent event) {
 
-        if (RSShipwrecksConfig.endShipwreckMaxChunkDistance.get() != 1001 &&
+        if (RSShipwrecksConfig.shipwreckEndAverageChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowed(event, RSStructures.SHIPWRECK_END.get(),
                     () -> BiomeSelection.haveCategories(event, Category.THEEND) &&
                     !BiomeSelection.isBiome(event, Biomes.THE_END, Biomes.SMALL_END_ISLANDS, Biomes.END_BARRENS)))
@@ -22,7 +22,7 @@ public final class Shipwrecks {
         }
 
         //Nether based Shipwrecks
-        if (RSShipwrecksConfig.crimsonShipwreckMaxChunkDistance.get() != 1001 &&
+        if (RSShipwrecksConfig.shipwreckCrimsonAverageChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowed(event, RSStructures.SHIPWRECK_CRIMSON.get(),
                     () -> BiomeSelection.haveCategories(event, Category.NETHER) &&
                     BiomeSelection.hasName(event, "crimson", "red_")))
@@ -30,7 +30,7 @@ public final class Shipwrecks {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.SHIPWRECK_CRIMSON);
         }
 
-        if (RSShipwrecksConfig.warpedShipwreckMaxChunkDistance.get() != 1001 &&
+        if (RSShipwrecksConfig.shipwreckWarpedAverageChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowed(event, RSStructures.SHIPWRECK_WARPED.get(),
                     () -> BiomeSelection.haveCategories(event, Category.NETHER) &&
                     BiomeSelection.hasName(event, "warped", "blue")))
@@ -38,7 +38,7 @@ public final class Shipwrecks {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.SHIPWRECK_WARPED);
         }
 
-        if (RSShipwrecksConfig.netherBricksShipwreckMaxChunkDistance.get() != 1001 &&
+        if (RSShipwrecksConfig.shipwreckNetherBricksAverageChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowed(event, RSStructures.SHIPWRECK_NETHER_BRICKS.get(),
                     () -> BiomeSelection.haveCategories(event, Category.NETHER) &&
                     !BiomeSelection.hasName(event, "crimson", "red_", "warped", "blue")))

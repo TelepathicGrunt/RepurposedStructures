@@ -12,7 +12,7 @@ public final class Bastions {
 
     public static void addBastions(BiomeLoadingEvent event) {
 
-        if (RSBastionsConfig.bastionUndergroundMaxChunkDistance.get() != 10001 &&
+        if (RSBastionsConfig.bastionUndergroundAverageChunkDistance.get() != 10001 &&
             BiomeSelection.isBiomeAllowed(event, RSStructures.BASTION_UNDERGROUND.get(),
                 () -> !BiomeSelection.haveCategories(event, Category.BEACH, Category.OCEAN, Category.NETHER, Category.THEEND, Category.NONE)))
         {

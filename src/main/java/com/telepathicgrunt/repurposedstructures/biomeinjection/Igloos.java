@@ -12,14 +12,14 @@ public final class Igloos {
 
     public static void addIgloos(BiomeLoadingEvent event) {
 
-        if (RSIgloosConfig.grassyIglooMaxChunkDistance.get() != 1001 &&
+        if (RSIgloosConfig.grassyIglooAverageChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowed(event, RSStructures.IGLOO_GRASSY.get(),
                     () -> BiomeSelection.haveCategories(event, Category.FOREST, Category.PLAINS)))
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.IGLOO_GRASSY);
         }
 
-        if (RSIgloosConfig.stoneIglooMaxChunkDistance.get() != 1001 &&
+        if (RSIgloosConfig.stoneIglooAverageChunkDistance.get() != 1001 &&
                 BiomeSelection.isBiomeAllowed(event, RSStructures.IGLOO_STONE.get(),
                         () -> BiomeSelection.haveCategories(event, Category.TAIGA) &&
                         BiomeSelection.hasName(event, "giant", "redwood")))

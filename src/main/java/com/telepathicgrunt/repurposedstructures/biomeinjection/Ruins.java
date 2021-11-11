@@ -12,14 +12,14 @@ public final class Ruins {
 
     public static void addRuins(BiomeLoadingEvent event) {
 
-        if (RSRuinsConfig.ruinsNetherMaxChunkDistance.get() != 1001 &&
+        if (RSRuinsConfig.ruinsNetherAverageChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowed(event, RSStructures.RUINS_NETHER.get(),
                     () -> BiomeSelection.haveCategories(event, Category.NETHER)))
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.RUINS_NETHER);
         }
 
-        if (RSRuinsConfig.ruinsLandWarmMaxChunkDistance.get() != 1001 &&
+        if (RSRuinsConfig.ruinsLandWarmAverageChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowed(event, RSStructures.RUINS_LAND_WARM.get(),
                     () -> BiomeSelection.haveCategories(event, Category.PLAINS, Category.FOREST, Category.TAIGA, Category.SWAMP) &&
                     !BiomeSelection.hasName(event, "snow", "ice", "frozen") &&
@@ -28,7 +28,7 @@ public final class Ruins {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.RUINS_LAND_WARM);
         }
 
-        if (RSRuinsConfig.ruinsLandHotMaxChunkDistance.get() != 1001 &&
+        if (RSRuinsConfig.ruinsLandHotAverageChunkDistance.get() != 1001 &&
                 BiomeSelection.isBiomeAllowed(event, RSStructures.RUINS_LAND_HOT.get(),
                         () -> BiomeSelection.haveCategories(event, Category.DESERT)))
         {

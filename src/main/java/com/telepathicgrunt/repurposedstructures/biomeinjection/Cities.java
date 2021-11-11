@@ -12,7 +12,7 @@ public final class Cities {
 
     public static void addCities(BiomeLoadingEvent event) {
 
-        if (RSCitiesConfig.citiesNetherMaxChunkDistance.get() != 1001 &&
+        if (RSCitiesConfig.citiesNetherAverageChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowed(event, RSStructures.CITY_NETHER.get(),
                     () -> BiomeSelection.haveCategories(event, Category.NETHER)))
         {

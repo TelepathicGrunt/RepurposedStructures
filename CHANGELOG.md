@@ -1,3 +1,9 @@
+### **(V.3.4.3 Changes) (1.16.5 Minecraft)**
+
+##### Configs:
+Cleaned up RS configs to not be bloated with redundant comments and fixed a lot of incorrect/typos in some comments.
+
+
 ### **(V.3.4.2 Changes) (1.16.5 Minecraft)**
 
 ##### Configs:

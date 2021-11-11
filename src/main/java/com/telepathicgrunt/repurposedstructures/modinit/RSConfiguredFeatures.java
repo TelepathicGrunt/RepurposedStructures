@@ -178,7 +178,7 @@ public final class RSConfiguredFeatures {
                 ImmutableList.of(Pair.of(new ResourceLocation(RepurposedStructures.MODID, "wells/badlands"), 1)),
                 new ResourceLocation(RepurposedStructures.MODID, "wells/badlands")))
             .decorated(Features.Placements.HEIGHTMAP_SQUARE)
-            .chance(RSWellsConfig.badlandsWellRarityPerChunk.get());
+            .chance(RSWellsConfig.wellBadlandsRarityPerChunk.get());
 
     public static ConfiguredFeature<?, ?> NETHER_WELL = RSFeatures.NETHER_WELL.get().configured(new NbtFeatureConfig(
                 new ResourceLocation(RepurposedStructures.MODID, "well_nether"),
@@ -188,7 +188,7 @@ public final class RSConfiguredFeatures {
                 new ResourceLocation(RepurposedStructures.MODID, "wells/nether")))
             .decorated(RSPlacements.SNAP_TO_LOWER_NON_AIR_PLACEMENT.get().configured(NoPlacementConfig.INSTANCE))
             .decorated(Placement.RANGE.configured(new TopSolidRangeConfig(30, 0, 91)))
-            .chance(RSWellsConfig.netherWellRarityPerChunk.get());
+            .chance(RSWellsConfig.wellNetherRarityPerChunk.get());
 
     public static ConfiguredFeature<?, ?> SNOW_WELL = RSFeatures.SNOW_WELL.get()
             .configured(new NbtFeatureConfig(
@@ -198,7 +198,7 @@ public final class RSConfiguredFeatures {
                     ImmutableList.of(Pair.of(new ResourceLocation(RepurposedStructures.MODID, "wells/snow"), 1)),
                     new ResourceLocation(RepurposedStructures.MODID, "wells/snow")))
             .decorated(Features.Placements.HEIGHTMAP_SQUARE)
-            .chance(RSWellsConfig.snowWellRarityPerChunk.get());
+            .chance(RSWellsConfig.wellSnowRarityPerChunk.get());
 
     public static ConfiguredFeature<?, ?> MOSSY_STONE_WELL = RSFeatures.MOSSY_STONE_WELL.get()
             .configured(new NbtFeatureConfig(
@@ -208,7 +208,7 @@ public final class RSConfiguredFeatures {
                     ImmutableList.of(Pair.of(new ResourceLocation(RepurposedStructures.MODID, "wells/mossy"), 1)),
                     new ResourceLocation(RepurposedStructures.MODID, "wells/mossy")))
             .decorated(Features.Placements.TOP_SOLID_HEIGHTMAP_SQUARE)
-            .chance(RSWellsConfig.mossyStoneWellRarityPerChunk.get());
+            .chance(RSWellsConfig.wellMossyStoneRarityPerChunk.get());
 
     public static ConfiguredFeature<?, ?> FOREST_WELL = RSFeatures.FOREST_WELL.get()
             .configured(new NbtFeatureConfig(
@@ -218,7 +218,7 @@ public final class RSConfiguredFeatures {
                     ImmutableList.of(Pair.of(new ResourceLocation(RepurposedStructures.MODID, "wells/forest"), 1)),
                     new ResourceLocation(RepurposedStructures.MODID, "wells/forest")))
             .decorated(Features.Placements.HEIGHTMAP_SQUARE)
-            .chance(RSWellsConfig.forestWellRarityPerChunk.get());
+            .chance(RSWellsConfig.wellForestRarityPerChunk.get());
 
     public static ConfiguredFeature<?, ?> MUSHROOM_WELL = RSFeatures.MUSHROOM_WELL.get()
             .configured(new NbtFeatureConfig(
@@ -228,7 +228,7 @@ public final class RSConfiguredFeatures {
                     ImmutableList.of(Pair.of(new ResourceLocation(RepurposedStructures.MODID, "wells/mushroom"), 1)),
                     new ResourceLocation(RepurposedStructures.MODID, "wells/mushroom")))
             .decorated(Features.Placements.HEIGHTMAP_SQUARE)
-            .chance(RSWellsConfig.mushroomWellRarityPerChunk.get());
+            .chance(RSWellsConfig.wellMushroomRarityPerChunk.get());
 
     // Misc
 

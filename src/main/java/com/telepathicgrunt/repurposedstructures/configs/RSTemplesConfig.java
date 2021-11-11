@@ -5,11 +5,11 @@ import net.minecraftforge.common.ForgeConfigSpec;
 public class RSTemplesConfig {
 	public static final ForgeConfigSpec GENERAL_SPEC;
 	
-	public static ForgeConfigSpec.IntValue netherWastelandTempleMaxChunkDistance;
-	public static ForgeConfigSpec.IntValue netherBasaltTempleMaxChunkDistance;
-	public static ForgeConfigSpec.IntValue netherCrimsonTempleMaxChunkDistance;
-	public static ForgeConfigSpec.IntValue netherWarpedTempleMaxChunkDistance;
-	public static ForgeConfigSpec.IntValue netherSoulTempleMaxChunkDistance;
+	public static ForgeConfigSpec.IntValue netherWastelandTempleAverageChunkDistance;
+	public static ForgeConfigSpec.IntValue netherBasaltTempleAverageChunkDistance;
+	public static ForgeConfigSpec.IntValue netherCrimsonTempleAverageChunkDistance;
+	public static ForgeConfigSpec.IntValue netherWarpedTempleAverageChunkDistance;
+	public static ForgeConfigSpec.IntValue netherSoulTempleAverageChunkDistance;
 
 	static {
 		ForgeConfigSpec.Builder configBuilder = new ForgeConfigSpec.Builder();
@@ -18,33 +18,31 @@ public class RSTemplesConfig {
 	}
 
 	private static void setupConfig(ForgeConfigSpec.Builder builder) {
-		netherWastelandTempleMaxChunkDistance = builder
-			.comment("\n How rare are Nether Temples in Nether Wastelands.",
-					 " 1 for spawning in most chunks and 1001 for none.")
+
+		builder.comment("",
+				" Average distance between spawn attempts for Repurposed Structures Temples.",
+				" 1 for spawning in most chunks and 1001 for none.");
+
+		// Needs config category but that would break config files made before the update to make this be a category.
+		// RIP. (Category is wanted in case config entries shuffle around due to https://github.com/MinecraftForge/MinecraftForge/issues/7489
+
+		netherWastelandTempleAverageChunkDistance = builder
 			.translation("repurposedstructures.config.temples.netherwastelandtemplemaxchunkdistance")
 			.defineInRange("netherWastelandTempleMaxChunkDistance", 27, 1, 1001);
 
-		netherBasaltTempleMaxChunkDistance = builder
-			.comment("\n How rare are Nether Basalt Temples in Nether Basalt Delta biomes.",
-					 " 1 for spawning in most chunks and 1001 for none.")
+		netherBasaltTempleAverageChunkDistance = builder
 			.translation("repurposedstructures.config.temples.netherbasalttemplemaxchunkdistance")
 			.defineInRange("netherBasaltTempleMaxChunkDistance", 27, 1, 1001);
 
-		netherCrimsonTempleMaxChunkDistance = builder
-			.comment("\n How rare are Nether Crimson Temples in Nether Crimson Forest.",
-					 " 1 for spawning in most chunks and 1001 for none.")
+		netherCrimsonTempleAverageChunkDistance = builder
 			.translation("repurposedstructures.config.temples.nethercrimsontemplemaxchunkdistance")
 			.defineInRange("netherCrimsonTempleMaxChunkDistance", 27, 1, 1001);
 
-		netherWarpedTempleMaxChunkDistance = builder
-			.comment("\n How rare are Nether Crimson Temples in Nether Warped Forest.",
-					 " 1 for spawning in most chunks and 1001 for none.")
+		netherWarpedTempleAverageChunkDistance = builder
 			.translation("repurposedstructures.config.temples.netherwarpedtemplemaxchunkdistance")
 			.defineInRange("netherWarpedTempleMaxChunkDistance", 27, 1, 1001);
 
-		netherSoulTempleMaxChunkDistance = builder
-			.comment("\n How rare are Nether Soul Temples in Nether Soul Sand Valley.",
-					 " 1 for spawning in most chunks and 1001 for none.")
+		netherSoulTempleAverageChunkDistance = builder
 			.translation("repurposedstructures.config.temples.nethersoultemplemaxchunkdistance")
 			.defineInRange("netherSoulTempleMaxChunkDistance", 27, 1, 1001);
 	}

@@ -5,7 +5,7 @@ import net.minecraftforge.common.ForgeConfigSpec;
 public class RSBastionsConfig {
 	public static final ForgeConfigSpec GENERAL_SPEC;
 	
-	public static ForgeConfigSpec.IntValue bastionUndergroundMaxChunkDistance;
+	public static ForgeConfigSpec.IntValue bastionUndergroundAverageChunkDistance;
 
 	static {
 		ForgeConfigSpec.Builder configBuilder = new ForgeConfigSpec.Builder();
@@ -14,9 +14,10 @@ public class RSBastionsConfig {
 	}
 
 	private static void setupConfig(ForgeConfigSpec.Builder builder) {
-		bastionUndergroundMaxChunkDistance = builder
-				.comment("How rare are Underground Bastions in non-ocean and non-beach Overworld biomes.",
-						"1 for spawning in most chunks and 10001 for none.")
+		bastionUndergroundAverageChunkDistance = builder
+				.comment("\n Average distance between spawn attempts for Underground Bastions in",
+						" biomes not tagged as ocean, beach, end, nether, or none category.",
+						" 1 for spawning in most chunks and 10001 for none.")
 				.translation("repurposedstructures.config.pyramids.bastionundergroundmaxchunkdistance")
 				.defineInRange("bastionUndergroundMaxChunkDistance", 500, 1, 10001);
 	}

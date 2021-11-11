@@ -14,21 +14,21 @@ public final class Pyramids {
 
     public static void addPyramids(BiomeLoadingEvent event) {
 
-        if (RSPyramidsConfig.netherPyramidMaxChunkDistance.get() != 1001 &&
+        if (RSPyramidsConfig.pyramidNetherAverageChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowed(event, RSStructures.PYRAMID_NETHER.get(),
                     () -> BiomeSelection.haveCategories(event, Category.NETHER)))
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.PYRAMID_NETHER);
         }
 
-        if (RSPyramidsConfig.badlandsPyramidMaxChunkDistance.get() != 1001 &&
+        if (RSPyramidsConfig.pyramidBadlandsAverageChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowed(event, RSStructures.PYRAMID_BADLANDS.get(),
                     () -> BiomeSelection.haveCategories(event, Category.MESA)))
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.PYRAMID_BADLANDS);
         }
 
-        if (RSPyramidsConfig.pyramidIcyMaxChunkDistance.get() != 1001 &&
+        if (RSPyramidsConfig.pyramidIcyAverageChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowed(event, RSStructures.PYRAMID_ICY.get(),
                     () -> BiomeSelection.haveCategories(event, Category.ICY) &&
                     (BiomeSelection.hasName(event, "icy", "ice", "frozen") || (event.getClimate().temperature < 0 && !BiomeSelection.hasName(event, "snow")))))
@@ -36,7 +36,7 @@ public final class Pyramids {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.PYRAMID_ICY);
         }
 
-        if (RSPyramidsConfig.pyramidSnowyMaxChunkDistance.get() != 1001 &&
+        if (RSPyramidsConfig.pyramidSnowyAverageChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowed(event, RSStructures.PYRAMID_SNOWY.get(),
                     () -> (BiomeSelection.haveCategories(event, Category.ICY) && !(BiomeSelection.hasName(event, "icy", "ice", "frozen") || (event.getClimate().temperature < 0 && !BiomeSelection.hasName(event, "snow")))) ||
                     (BiomeSelection.haveCategories(event, Category.TAIGA) && event.getClimate().precipitation == Biome.RainType.SNOW)))
@@ -44,14 +44,14 @@ public final class Pyramids {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.PYRAMID_SNOWY);
         }
 
-        if (RSPyramidsConfig.pyramidJungleMaxChunkDistance.get() != 1001 &&
+        if (RSPyramidsConfig.pyramidJungleAverageChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowed(event, RSStructures.PYRAMID_JUNGLE.get(),
                     () -> BiomeSelection.haveCategories(event, Category.JUNGLE)))
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.PYRAMID_JUNGLE);
         }
 
-        if (RSPyramidsConfig.pyramidMushroomMaxChunkDistance.get() != 1001 &&
+        if (RSPyramidsConfig.pyramidMushroomAverageChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowed(event, RSStructures.PYRAMID_MUSHROOM.get(),
                     () -> BiomeSelection.haveCategories(event, Category.MUSHROOM) &&
                     !BiomeSelection.isBiome(event, Biomes.MUSHROOM_FIELD_SHORE)))
@@ -59,21 +59,21 @@ public final class Pyramids {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.PYRAMID_MUSHROOM);
         }
 
-        if (RSPyramidsConfig.pyramidOceanMaxChunkDistance.get() != 1001 &&
+        if (RSPyramidsConfig.pyramidOceanAverageChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowed(event, RSStructures.PYRAMID_OCEAN.get(),
                     () -> BiomeSelection.haveCategories(event, Category.OCEAN)))
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.PYRAMID_OCEAN);
         }
 
-        if (RSPyramidsConfig.pyramidGiantTreeTaigaMaxChunkDistance.get() != 1001 &&
+        if (RSPyramidsConfig.pyramidGiantTreeTaigaAverageChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowed(event, RSStructures.PYRAMID_GIANT_TREE_TAIGA.get(),
                     () -> BiomeSelection.haveCategories(event, Category.TAIGA) && BiomeSelection.hasName(event, "giant", "redwood")))
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.PYRAMID_GIANT_TREE_TAIGA);
         }
 
-        if (RSPyramidsConfig.pyramidFlowerForestMaxChunkDistance.get() != 1001 &&
+        if (RSPyramidsConfig.pyramidFlowerForestAverageChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowed(event, RSStructures.PYRAMID_FLOWER_FOREST.get(),
                     () -> BiomeSelection.haveCategories(event, Category.PLAINS, Category.FOREST) && !BiomeSelection.isBiome(event, Biomes.SUNFLOWER_PLAINS) &&
                     BiomeSelection.hasName(event, "flower", "blossom")))
@@ -81,7 +81,7 @@ public final class Pyramids {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.PYRAMID_FLOWER_FOREST);
         }
 
-        if (RSPyramidsConfig.pyramidEndMaxChunkDistance.get() != 1001 &&
+        if (RSPyramidsConfig.pyramidEndAverageChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowed(event, RSStructures.PYRAMID_END.get(),
                     () -> BiomeSelection.haveCategories(event, Category.THEEND) &&
                     !BiomeSelection.isBiome(event, Biomes.THE_END, Biomes.SMALL_END_ISLANDS, Biomes.END_BARRENS)))
