@@ -6,7 +6,7 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.Version;
 import net.fabricmc.loader.api.VersionParsingException;
 import net.fabricmc.loader.api.metadata.ModMetadata;
-import net.fabricmc.loader.impl.util.version.SemanticVersionImpl;
+import net.fabricmc.loader.util.version.SemanticVersionImpl;
 import net.minecraft.resources.ResourceLocation;
 
 import java.util.AbstractMap;
@@ -112,7 +112,7 @@ public final class StructurePiecesBehavior {
                 try {
                     Version modVersion = FabricLoader.getInstance().getModContainer("waystones").get().getMetadata().getVersion();
                     SemanticVersionImpl thresholdVersion = new SemanticVersionImpl("8.1.1+0", false);
-                    if (modVersion.compareTo(thresholdVersion) > 0) {
+                    if (modVersion instanceof Comparable && ((Comparable<Version>) modVersion).compareTo(thresholdVersion) > 0) {
                         addRequiredVillagePiece("village_badlands", new ResourceLocation("waystones", "village/desert/waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.badlandsVillageSize);
                         addRequiredVillagePiece("village_birch", new ResourceLocation("waystones", "village/common/waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.birchVillageSize);
                         addRequiredVillagePiece("village_crimson", new ResourceLocation("waystones", "village/common/waystone"), RepurposedStructures.RSAllConfig.RSVillagesConfig.size.crimsonVillageSize);

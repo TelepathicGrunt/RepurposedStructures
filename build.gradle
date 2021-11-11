@@ -47,12 +47,14 @@ if (project.use_third_party_mods) {
 	repositories {
 		maven {	url "https://nexus.resourcefulbees.com/repository/maven-public/" }
 		maven { url "https://www.cursemaven.com" }
+		//flatDir { dirs 'deps' }
 	}
 
 	dependencies {
 		modRuntime "com.telepathicgrunt:LoadNbtBlock:2.0.4+1.17"
 		modRuntime "curse.maven:structure_void_toggle-357304:3488866"
 		modRuntime "com.telepathicgrunt:Blame-Fabric:1.17-4.0.0-fabric"
+		//runtimeOnly "al:cyanide-fabric:1.17.1-1.2.1-pre.1-dev"
 
 		//modRuntime "curse.maven:fabric_waystones-410902:3479213"
 		//modRuntime "curse.maven:charm-318872:3393290"

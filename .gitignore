@@ -28,3 +28,4 @@ bin/
 # fabric
 
 run/
+deps/

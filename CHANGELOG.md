@@ -4,6 +4,9 @@
 Updated internal code to use event priorities instead of a hack around Fabric API.
  As a result, Repurposed Structures requires Fabric API v0.42.0 or newer to work.
 
+Reverted mod version checking code to use the deprecated SemanticVersionImpl package.
+ This will allow RS to run on Fabric Loader v0.11.0 or newer as some modpacks cannot update to v0.12.0+ Fabric Loader. 
+
 
 ### **(V.2.5.5 Changes) (1.17.1 Minecraft)**
 
