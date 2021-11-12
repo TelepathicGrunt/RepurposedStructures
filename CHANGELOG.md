@@ -6,6 +6,8 @@ Updated internal code to use event priorities instead of a hack around Fabric AP
 
 Reverted mod version checking code to use the deprecated SemanticVersionImpl package.
  This will allow RS to run on Fabric Loader v0.11.0 or newer as some modpacks cannot update to v0.12.0+ Fabric Loader. 
+ However, this means that when Fabric Loader updates in the future, they could remove the old code I am using now and cause my mod to crash.
+ If this happens, PLEASE let me know so I know when it is time for users to be forced to update Fabric Loader and I have to use the new system too.
 
 
 ### **(V.2.5.5 Changes) (1.17.1 Minecraft)**

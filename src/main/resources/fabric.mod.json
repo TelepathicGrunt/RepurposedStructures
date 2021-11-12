@@ -21,6 +21,12 @@
     "main": [
       "com.telepathicgrunt.repurposedstructures.RepurposedStructures"
     ],
+    "client": [
+      "com.telepathicgrunt.repurposedstructures.RepurposedStructures"
+    ],
+    "server": [
+      "com.telepathicgrunt.repurposedstructures.RepurposedStructures"
+    ],
     "modmenu": [
       "com.telepathicgrunt.repurposedstructures.configs.ModMenuConfig"
     ]

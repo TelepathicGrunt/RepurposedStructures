@@ -40,6 +40,8 @@ import com.telepathicgrunt.repurposedstructures.world.structures.pieces.Structur
 import draylar.omegaconfig.OmegaConfig;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
+import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.api.DedicatedServerModInitializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.Event;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerWorldEvents;
@@ -61,7 +63,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class RepurposedStructures implements ModInitializer {
+public class RepurposedStructures implements ModInitializer, DedicatedServerModInitializer, ClientModInitializer {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MODID = "repurposed_structures";
     public static MobSpawnerManager mobSpawnerManager = new MobSpawnerManager();
@@ -107,6 +109,17 @@ public class RepurposedStructures implements ModInitializer {
         StructurePiecesBehavior.init();
         MobMapTrades.addMapTrades();
         ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(RepurposedStructures.mobSpawnerManager);
+    }
+
+    // These are for when we want to add compat with other mods but uses their configs/codes that isn't read in the regular onInitialize method
+    @Override
+    public void onInitializeServer() {
+        StructurePiecesBehavior.addDelayedRequiredPieces();
+    }
+
+    @Override
+    public void onInitializeClient() {
+        StructurePiecesBehavior.addDelayedRequiredPieces();
     }
 
     public static void allowStructureSpawningPerDimension() {
