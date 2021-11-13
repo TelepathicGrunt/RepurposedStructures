@@ -1,3 +1,9 @@
+### **(V.3.4.4 Changes) (1.16.5 Minecraft)**
+
+##### Misc:
+Fixed a swallowed crash with the log spam filter if another mod causes missing structure piece type log spam with their own structures.
+
+
 ### **(V.3.4.3 Changes) (1.16.5 Minecraft)**
 
 ##### Configs:
