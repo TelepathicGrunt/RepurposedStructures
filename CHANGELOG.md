@@ -6,6 +6,9 @@ Auto added vampirism:vampire_forest entries to RS's disallowedBiomes config entr
 ##### Configs:
 Adjusted wording of some config comments to be a bit more clear.
 
+##### Igloos:
+Adjusted code to make sure Grassy Igloos won't put falling blocks like sand as part of the structure's roof.
+
 ##### Misc:
 Fixed a swallowed crash with the log spam filter if another mod causes missing structure piece type log spam with their own structures.
 

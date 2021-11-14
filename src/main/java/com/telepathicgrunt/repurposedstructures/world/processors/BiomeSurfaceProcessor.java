@@ -4,6 +4,7 @@ import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.FallingBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.biome.Biome;
@@ -36,6 +37,9 @@ public class BiomeSurfaceProcessor extends StructureProcessor {
             Biome biome = getCachedBiome(worldView, structurePos);
 
             BlockState topSurfaceBlock = biome.getGenerationSettings().getSurfaceBuilder().get().config.getTopMaterial();
+            if(topSurfaceBlock.getBlock() instanceof FallingBlock)
+                topSurfaceBlock = biome.getGenerationSettings().getSurfaceBuilder().get().config.getUnderMaterial();
+
             if(topSurfaceBlock.isAir() || !topSurfaceBlock.getFluidState().isEmpty()) return structureBlockInfoWorld;
             return new Template.BlockInfo(structurePos, topSurfaceBlock, structureBlockInfoWorld.nbt);
         }
