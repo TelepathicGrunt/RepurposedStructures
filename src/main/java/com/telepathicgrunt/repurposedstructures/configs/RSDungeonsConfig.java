@@ -59,9 +59,9 @@ public class RSDungeonsConfig {
 
 		builder.comment("-----------------------------------------------------------------------------------------",
 				" How many positions Repurposed Structures Dungeons will pick per chunk to check if it can spawn at those positions.",
-				" Will replace vanilla dungeons with Repurposed Structures's themed dungeons. (except for RS's Ocean Dungeon)",
+				" Will replace Vanilla Dungeons with RS's themed dungeons if both would've been in same biome. (except for RS's Ocean Dungeon)",
 				" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.",
-				" Note: Vanilla Dungeons will spawn again when this is set to 0.");
+				" Note: Vanilla Dungeons will spawn again if a RS Dungeon's entry is set to 0 for the biome.");
 		builder.push("AttemptsPerChunk");
 
 			badlandsDungeonAttemptsPerChunk = builder

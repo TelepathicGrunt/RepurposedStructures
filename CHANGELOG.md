@@ -3,6 +3,9 @@
 ##### Mod Compat:
 Auto added vampirism:vampire_forest entries to RS's disallowedBiomes config entry to make oak village, oak witch hut, oak well, and oak outposts no longer spawn in that Vampirism biome.
 
+##### Configs:
+Adjusted wording of some config comments to be a bit more clear.
+
 ##### Misc:
 Fixed a swallowed crash with the log spam filter if another mod causes missing structure piece type log spam with their own structures.
 

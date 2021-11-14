@@ -29,7 +29,9 @@ public class RSOutpostsConfig {
 
         builder.comment("-----------------------------------------------------------------------------------------",
                 " Average distance between spawn attempts for Repurposed Structures Outposts.",
-                " 1 for spawning in most chunks and 1001 for none.");
+                " Will replace Vanilla Outposts with RS's themed Outposts if both would've been in same biome.",
+                " 1 for spawning in most chunks and 1001 for none.",
+                " Note: Vanilla Outposts will spawn again if a RS Outpost's entry is set to 1001 for the biome.");
         builder.push("Outposts");
 
         outpostBirchAverageChunkDistance = builder
