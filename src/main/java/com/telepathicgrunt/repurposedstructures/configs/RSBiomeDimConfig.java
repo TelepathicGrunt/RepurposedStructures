@@ -100,7 +100,14 @@ public class RSBiomeDimConfig implements Config {
             fixKeyEntry(allowedDimensions, "repurposed_structures:warm_land_ruins", "repurposed_structures:ruins_land_warm");
         }
 
-        configVersion = 4;
+        if(configVersion == 4){
+            addEntries(disallowedBiomes, "repurposed_structures:village_oak", "vampirism:vampire_forest");
+            addEntries(disallowedBiomes, "repurposed_structures:witch_hut_oak", "vampirism:vampire_forest");
+            addEntries(disallowedBiomes, "repurposed_structures:outpost_oak", "vampirism:vampire_forest");
+            addEntries(disallowedBiomes, "repurposed_structures:well_forest", "vampirism:vampire_forest");
+        }
+
+        configVersion = 5;
         Config.super.save();
     }
 
@@ -257,7 +264,12 @@ public class RSBiomeDimConfig implements Config {
             "\n// RS's dungeons and wells identifiers can be found here on GitHub:"+
             "\n//  https://github.com/TelepathicGrunt/RepurposedStructures/blob/27c8c23d5b6ee1ba1f894df874d62e5982d39fd5/src/main/java/com/telepathicgrunt/repurposedstructures/modinit/RSConfiguredFeatures.java#L251-L273"
     )
-    public final Map<String, String> disallowedBiomes = new HashMap<>();
+    public final Map<String, String> disallowedBiomes = Stream.of(
+            new AbstractMap.SimpleEntry<>("repurposed_structures:village_oak", "vampirism:vampire_forest"),
+            new AbstractMap.SimpleEntry<>("repurposed_structures:witch_hut_oak", "vampirism:vampire_forest"),
+            new AbstractMap.SimpleEntry<>("repurposed_structures:outpost_oak", "vampirism:vampire_forest"),
+            new AbstractMap.SimpleEntry<>("repurposed_structures:well_forest", "vampirism:vampire_forest")
+    ).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 
     @Comment("\n"+
             "\n"+
@@ -302,5 +314,5 @@ public class RSBiomeDimConfig implements Config {
             "\n"+
             "\n// for internal use only. Do not change this."
     )
-    public int configVersion = 4;
+    public int configVersion = 5;
 }
