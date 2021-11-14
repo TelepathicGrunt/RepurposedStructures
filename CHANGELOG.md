@@ -1,3 +1,9 @@
+### **(V.2.5.7 Changes) (1.17.1 Minecraft)**
+
+##### Igloos:
+Adjusted code to make sure Grassy Igloos won't put falling blocks like sand as part of the structure's roof.
+
+
 ### **(V.2.5.6 Changes) (1.17.1 Minecraft)**
 
 ##### Misc:

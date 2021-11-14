@@ -6,6 +6,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FallingBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor;
@@ -36,6 +37,9 @@ public class BiomeSurfaceProcessor extends StructureProcessor {
             Biome biome = getCachedBiome(worldView, structurePos);
 
             BlockState topSurfaceBlock = biome.getGenerationSettings().getSurfaceBuilder().get().config.getTopMaterial();
+            if(topSurfaceBlock.getBlock() instanceof FallingBlock)
+                topSurfaceBlock = biome.getGenerationSettings().getSurfaceBuilder().get().config.getUnderMaterial();
+
             if(topSurfaceBlock.isAir() || !topSurfaceBlock.getFluidState().isEmpty()) return structureBlockInfoWorld;
             return new StructureTemplate.StructureBlockInfo(structurePos, topSurfaceBlock, structureBlockInfoWorld.nbt);
         }
