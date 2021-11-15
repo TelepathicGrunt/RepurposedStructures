@@ -9,6 +9,10 @@ Adjusted wording of some config comments to be a bit more clear.
 ##### Igloos:
 Adjusted code to make sure Grassy Igloos won't put falling blocks like sand as part of the structure's roof.
 
+##### Villages:
+Trying something new by increasing the bounding box of all RS Overworld Village's roads from 2 to 32. 
+ This should make villages look better on mountains and hills and help reduce village roads or farms eating away the ground under houses. (In theory)
+
 ##### Misc:
 Fixed a swallowed crash with the log spam filter if another mod causes missing structure piece type log spam with their own structures.
 
