@@ -13,9 +13,7 @@ blockPalette = {""}
 originalBiome = ""
 newBiome = ""
 string_blacklist = []
-conversion_partial_dict = {
-    "minecraft:stone_brick_wall": "minecraft:deepslate_tile_wall"
-}
+conversion_partial_dict = {}
 conversion_exact_dict = {}
 #-------------------------------------------------------------------------------------------
 
@@ -40,6 +38,10 @@ def property_replacer(nbt_key, nbt_string, property_name, value_to_replace, new_
 
 def traverse_dicts(nbt_list):
     if isinstance(nbt_list, collections.abc.Mapping):
+        '''
+        if 'size' in nbt_list:
+            nbt_list['size'][1].value = 32
+        '''
         '''
         if 'palette' in nbt_list:
             for entry in nbt_list['palette'].value:
