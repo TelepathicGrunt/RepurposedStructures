@@ -1,3 +1,10 @@
+### **(V.2.5.8 Changes) (1.17.1 Minecraft)**
+
+#### Mod Compat:
+Added support for Notify - https://www.curseforge.com/minecraft/mc-mods/notify
+ Notify will let you know if a new update for this mod is out on the Mod Menu screen.
+
+
 ### **(V.2.5.7 Changes) (1.17.1 Minecraft)**
 
 ##### Igloos:
