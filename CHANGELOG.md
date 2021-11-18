@@ -1,3 +1,9 @@
+### **(V.3.4.5 Changes) (1.16.5 Minecraft)**
+
+##### Configs:
+Fixed a typo in a config comment.
+
+
 ### **(V.3.4.4 Changes) (1.16.5 Minecraft)**
 
 ##### Mod Compat:

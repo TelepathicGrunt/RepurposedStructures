@@ -56,7 +56,7 @@ public class RSStrongholdsConfig {
 
 		strongholdEndAverageChunkDistance = builder
 				.comment("\n Average distance between spawn attempts for End-styped Strongholds in End biome's islands.",
-						" 1 for spawning in most chunks and 10001 for none.")
+						" 1 for spawning in most chunks and 1001 for none.")
 				.translation("repurposedstructures.config.stronghold_end.strongholdendaveragechunkdistance")
 				.defineInRange("strongholdEndAverageChunkDistance", 130 , 1, 1001);
 
