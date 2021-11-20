@@ -32,7 +32,6 @@ public final class RSProcessors {
     public static StructureProcessorType<MineshaftSkyViewProcessor> MINESHAFT_SKY_VIEW_PROCESSOR = () -> MineshaftSkyViewProcessor.CODEC;
     public static StructureProcessorType<DataBlockProcessor> DATA_BLOCK_PROCESSOR = () -> DataBlockProcessor.CODEC;
     public static StructureProcessorType<StructureVoidProcessor> STRUCTURE_VOID_PROCESSOR = () -> StructureVoidProcessor.CODEC;
-    public static StructureProcessorType<BiomeSurfaceProcessor> BIOME_SURFACE_PROCESSOR = () -> BiomeSurfaceProcessor.CODEC;
     public static StructureProcessorType<FloodWithWaterProcessor> FLOOD_WITH_WATER_PROCESSOR = () -> FloodWithWaterProcessor.CODEC;
     public static StructureProcessorType<ReplaceAirOnlyProcessor> REPLACE_AIR_ONLY_PROCESSOR = () -> ReplaceAirOnlyProcessor.CODEC;
     public static StructureProcessorType<ReplaceLiquidOnlyProcessor> REPLACE_LIQUIDS_ONLY_PROCESSOR = () -> ReplaceLiquidOnlyProcessor.CODEC;

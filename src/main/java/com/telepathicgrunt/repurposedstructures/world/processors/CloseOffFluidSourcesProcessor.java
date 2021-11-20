@@ -11,11 +11,13 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.SectionPos;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.LevelChunk;
 import net.minecraft.world.level.chunk.LevelChunkSection;
+import net.minecraft.world.level.levelgen.LegacyRandomSource;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor;
@@ -33,7 +35,7 @@ import java.util.Random;
 public class CloseOffFluidSourcesProcessor extends StructureProcessor {
 
     public static final Codec<CloseOffFluidSourcesProcessor> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
-            Codec.mapPair(Registry.BLOCK.fieldOf("block"), Codec.intRange(1, Integer.MAX_VALUE).fieldOf("weight"))
+            Codec.mapPair(Registry.BLOCK.byNameCodec().fieldOf("block"), Codec.intRange(1, Integer.MAX_VALUE).fieldOf("weight"))
                     .codec().listOf().fieldOf("weighted_list_of_replacement_blocks")
                     .forGetter(processor -> processor.weightedReplacementBlocks),
             Codec.BOOL.fieldOf("ignore_down").orElse(false).forGetter(processor -> processor.ignoreDown),
@@ -79,26 +81,28 @@ public class CloseOffFluidSourcesProcessor extends StructureProcessor {
                 // Copy what vanilla ores do.
                 // This bypasses the PaletteContainer's lock as it was throwing `Accessing PalettedContainer from multiple threads` crash
                 // even though everything seemed to be safe and fine.
-                int sectionYIndex = currentChunk.getSectionIndex(mutable.getY());
-                LevelChunkSection levelChunkSection = currentChunk.getOrCreateSection(sectionYIndex);
-                if (levelChunkSection == LevelChunk.EMPTY_SECTION) continue;
+                if(worldReader instanceof WorldGenLevel && ((WorldGenLevel)worldReader).ensureCanWrite(mutable)) {
+                    int sectionYIndex = currentChunk.getSectionIndex(mutable.getY());
+                    LevelChunkSection levelChunkSection = currentChunk.getSection(sectionYIndex);
+                    if (levelChunkSection == null) continue;
 
-                FluidState fluidState = levelChunkSection.getFluidState(
-                        SectionPos.sectionRelative(mutable.getX()),
-                        SectionPos.sectionRelative(mutable.getY()),
-                        SectionPos.sectionRelative(mutable.getZ()));
-
-                if (fluidState.isSource()) {
-                    Random random = new WorldgenRandom();
-                    random.setSeed(mutable.asLong() * mutable.getY());
-
-                    Block replacementBlock = GeneralUtils.getRandomEntry(weightedReplacementBlocks, random);
-                    levelChunkSection.setBlockState(
+                    FluidState fluidState = levelChunkSection.getFluidState(
                             SectionPos.sectionRelative(mutable.getX()),
                             SectionPos.sectionRelative(mutable.getY()),
-                            SectionPos.sectionRelative(mutable.getZ()),
-                            replacementBlock.defaultBlockState(),
-                            false);
+                            SectionPos.sectionRelative(mutable.getZ()));
+
+                    if (fluidState.isSource()) {
+                        Random random = new WorldgenRandom(new LegacyRandomSource(0L));
+                        random.setSeed(mutable.asLong() * mutable.getY());
+
+                        Block replacementBlock = GeneralUtils.getRandomEntry(weightedReplacementBlocks, random);
+                        levelChunkSection.setBlockState(
+                                SectionPos.sectionRelative(mutable.getX()),
+                                SectionPos.sectionRelative(mutable.getY()),
+                                SectionPos.sectionRelative(mutable.getZ()),
+                                replacementBlock.defaultBlockState(),
+                                false);
+                    }
                 }
             }
         }

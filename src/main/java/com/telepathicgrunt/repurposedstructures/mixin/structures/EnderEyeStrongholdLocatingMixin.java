@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 public class EnderEyeStrongholdLocatingMixin {
 
     @ModifyVariable(
-            method = "use",
+            method = "use(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder;",
             at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/world/level/chunk/ChunkGenerator;findNearestMapFeature(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/level/levelgen/feature/StructureFeature;Lnet/minecraft/core/BlockPos;IZ)Lnet/minecraft/core/BlockPos;")
     )
     private BlockPos repurposedstructures_locateRSStrongholds(BlockPos blockPos, Level world, Player user) {

@@ -29,7 +29,6 @@ import com.telepathicgrunt.repurposedstructures.mixin.structures.StructuresConfi
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredFeatures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSFeatures;
-import com.telepathicgrunt.repurposedstructures.modinit.RSNumberProviders;
 import com.telepathicgrunt.repurposedstructures.modinit.RSPlacements;
 import com.telepathicgrunt.repurposedstructures.modinit.RSPredicates;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
@@ -95,7 +94,6 @@ public class RepurposedStructures implements ModInitializer, DedicatedServerModI
         RSFeatures.registerFeatures();
         RSProcessors.registerProcessors();
         RSPredicates.registerPredicates();
-        RSNumberProviders.registerNumberProviders();
         RSStructures.registerStructures();
         RSStructureTagMap.setupTags();
         RSConfiguredFeatures.registerConfiguredFeatures();
@@ -114,12 +112,12 @@ public class RepurposedStructures implements ModInitializer, DedicatedServerModI
     // These are for when we want to add compat with other mods but uses their configs/codes that isn't read in the regular onInitialize method
     @Override
     public void onInitializeServer() {
-        StructurePiecesBehavior.addDelayedRequiredPieces();
+        //StructurePiecesBehavior.addDelayedRequiredPieces();
     }
 
     @Override
     public void onInitializeClient() {
-        StructurePiecesBehavior.addDelayedRequiredPieces();
+        //StructurePiecesBehavior.addDelayedRequiredPieces();
     }
 
     public static void allowStructureSpawningPerDimension() {

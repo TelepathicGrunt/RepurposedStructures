@@ -31,7 +31,7 @@ public class NoLavaFallsInStructuresMixin {
                 mutable.set(context.origin()).move(face);
                 chunkPos = SectionPos.of(mutable);
                 for (StructureFeature<?> structure : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NO_LAVAFALLS)) {
-                    if (context.level().startsForFeature(chunkPos, structure).findAny().isPresent()) {
+                    if (!context.level().startsForFeature(chunkPos, structure).isEmpty()) {
                         cir.setReturnValue(false);
                     }
                 }

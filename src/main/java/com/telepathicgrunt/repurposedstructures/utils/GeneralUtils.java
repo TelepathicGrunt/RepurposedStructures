@@ -119,7 +119,6 @@ public final class GeneralUtils {
     //////////////////////////////
 
     // Helper method to help reduce amount of code we need to write for adding structures to biomes
-    @SuppressWarnings("deprecation")
     public static void addToBiome(String modificationName, Predicate<BiomeSelectionContext> selectorPredicate, Consumer<BiomeModificationContext> biomeAdditionConsumer) {
         BiomeModifications.create(new ResourceLocation(RepurposedStructures.MODID, modificationName)).add(ModificationPhase.ADDITIONS, selectorPredicate, biomeAdditionConsumer);
     }
@@ -149,12 +148,12 @@ public final class GeneralUtils {
         NoiseColumn blockView = chunkGenerator.getBaseColumn(mutable.getX(), mutable.getZ(), heightLimitView);
         BlockState currentBlockstate;
         while (mutable.getY() > chunkGenerator.getSeaLevel()) {
-            currentBlockstate = blockView.getBlockState(mutable);
+            currentBlockstate = blockView.getBlock(mutable.getY());
             if (!currentBlockstate.canOcclude()) {
                 mutable.move(Direction.DOWN);
                 continue;
             }
-            else if (blockView.getBlockState(mutable.offset(0, 3, 0)).getMaterial() == Material.AIR && (canBeOnLiquid ? !currentBlockstate.isAir() : currentBlockstate.canOcclude())) {
+            else if (blockView.getBlock(mutable.getY() + 3).getMaterial() == Material.AIR && (canBeOnLiquid ? !currentBlockstate.isAir() : currentBlockstate.canOcclude())) {
                 return mutable;
             }
             mutable.move(Direction.DOWN);
@@ -167,19 +166,19 @@ public final class GeneralUtils {
     public static BlockPos getLowestLand(ChunkGenerator chunkGenerator, BoundingBox boundingBox, LevelHeightAccessor heightLimitView, boolean canBeOnLiquid) {
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(boundingBox.getCenter().getX(), chunkGenerator.getSeaLevel() + 1, boundingBox.getCenter().getZ());
         NoiseColumn blockView = chunkGenerator.getBaseColumn(mutable.getX(), mutable.getZ(), heightLimitView);
-        BlockState currentBlockstate = blockView.getBlockState(mutable);
+        BlockState currentBlockstate = blockView.getBlock(mutable.getY());
         while (mutable.getY() <= chunkGenerator.getGenDepth() - 20) {
 
             if((canBeOnLiquid ? !currentBlockstate.isAir() : currentBlockstate.canOcclude()) &&
-                    blockView.getBlockState(mutable.above()).getMaterial() == Material.AIR &&
-                    blockView.getBlockState(mutable.above(5)).getMaterial() == Material.AIR)
+                    blockView.getBlock(mutable.getY() + 1).getMaterial() == Material.AIR &&
+                    blockView.getBlock(mutable.getY() + 5).getMaterial() == Material.AIR)
             {
                 mutable.move(Direction.UP);
                 return mutable;
             }
 
             mutable.move(Direction.UP);
-            currentBlockstate = blockView.getBlockState(mutable);
+            currentBlockstate = blockView.getBlock(mutable.getY());
         }
 
         return mutable.set(mutable.getX(), chunkGenerator.getSeaLevel(), mutable.getZ());

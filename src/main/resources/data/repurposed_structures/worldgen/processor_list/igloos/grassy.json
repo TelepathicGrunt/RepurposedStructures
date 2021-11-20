@@ -1,7 +1,0 @@
-{
-  "processors": [
-    {
-      "processor_type": "repurposed_structures:biome_surface_processor"
-    }
-  ]
-}

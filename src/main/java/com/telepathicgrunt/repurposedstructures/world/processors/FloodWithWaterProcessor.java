@@ -7,6 +7,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BushBlock;
@@ -84,8 +85,7 @@ public class FloodWithWaterProcessor extends StructureProcessor {
     }
 
     private void tickWaterFluid(LevelReader worldView, StructureTemplate.StructureBlockInfo structureBlockInfoWorld) {
-        ChunkAccess currentChunk = worldView.getChunk(structureBlockInfoWorld.pos);
-        currentChunk.getLiquidTicks().scheduleTick(structureBlockInfoWorld.pos, Fluids.WATER, 1);
+        ((LevelAccessor)worldView).scheduleTick(structureBlockInfoWorld.pos, Fluids.WATER, 1);
     }
 
     @Override

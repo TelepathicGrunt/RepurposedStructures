@@ -11,18 +11,18 @@ buildscript {
 }
 
 plugins {
-	id 'fabric-loom' version '0.8-SNAPSHOT'
+	id 'fabric-loom' version '0.10-SNAPSHOT'
 }
 
-sourceCompatibility = JavaVersion.VERSION_16
-targetCompatibility = JavaVersion.VERSION_16
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
 
 archivesBaseName = project.archives_base_name
 version = "${project.mod_version}+${project.mc_version}"
 group = project.maven_group
 
-minecraft {
-	accessWidener "src/main/resources/repurposed_structures.accesswidener"
+loom {
+	accessWidenerPath "src/main/resources/repurposed_structures.accesswidener"
 }
 
 repositories {
@@ -70,12 +70,7 @@ apply from: 'gradle/processresources.gradle'
 
 tasks.withType(JavaCompile).configureEach {
 	it.options.encoding = "UTF-8"
-	it.options.release = 16
-}
-
-task sourcesJar(type: Jar, dependsOn: classes) {
-	classifier = "sources"
-	from sourceSets.main.allSource
+	it.options.release = 17
 }
 
 java {

@@ -18,6 +18,8 @@ import net.minecraft.world.level.block.JigsawBlock;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.levelgen.LegacyRandomSource;
+import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
 import net.minecraft.world.level.levelgen.feature.structures.EmptyPoolElement;
 import net.minecraft.world.level.levelgen.feature.structures.JigsawJunction;
@@ -59,7 +61,6 @@ public class PieceLimitedJigsawManager {
             StructureManager templateManager,
             BlockPos startPos,
             List<? super StructurePiece> components,
-            Random random,
             boolean doBoundaryAdjustments,
             boolean useHeightmap,
             LevelHeightAccessor heightLimitView,
@@ -71,6 +72,7 @@ public class PieceLimitedJigsawManager {
         WritableRegistry<StructureTemplatePool> jigsawPoolRegistry = dynamicRegistryManager.ownedRegistryOrThrow(Registry.TEMPLATE_POOL_REGISTRY);
 
         // Get a random orientation for the starting piece
+        WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0L));
         Rotation rotation = Rotation.getRandom(random);
 
         // Get starting pool

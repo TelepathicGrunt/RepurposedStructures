@@ -15,6 +15,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -33,11 +34,11 @@ public class NoBasaltColumnsInStructuresMixin {
             return;
         }
         for (StructureFeature<?> structure : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NO_DELTAS)) {
-            Optional<? extends StructureStart<?>> structureStart = ((WorldGenLevel)levelAccessor).startsForFeature(sectionPos, structure).findAny();
+            List<? extends StructureStart<?>> structureStarts = ((WorldGenLevel)levelAccessor).startsForFeature(sectionPos, structure);
             boolean checkCenterOnly = RSStructureTagMap.TAGGED_STRUCTURES.get(structure).contains(RSStructureTagMap.STRUCTURE_TAGS.DELTA_CHECK_CENTER_PIECE);
-            if (structureStart.isPresent() && (checkCenterOnly ?
-                    structureStart.get().getPieces().get(0).getBoundingBox().isInside(mutableBlockPos) :
-                    structureStart.get().getPieces().stream().anyMatch(box -> box.getBoundingBox().isInside(mutableBlockPos))))
+            if (!structureStarts.isEmpty() && (checkCenterOnly ?
+                    structureStarts.stream().anyMatch(structureStart -> structureStart.getPieces().get(0).getBoundingBox().isInside(mutableBlockPos)) :
+                    structureStarts.stream().anyMatch(structureStart -> structureStart.getPieces().stream().anyMatch(box -> box.getBoundingBox().isInside(mutableBlockPos)))))
             {
                 cir.setReturnValue(false);
                 break;

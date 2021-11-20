@@ -17,9 +17,7 @@ public class MineshaftSkyViewProcessor extends StructureProcessor {
 
     public static final Codec<MineshaftSkyViewProcessor> CODEC = Codec.unit(MineshaftSkyViewProcessor::new);
 
-    private MineshaftSkyViewProcessor() {
-
-    }
+    private MineshaftSkyViewProcessor() {}
 
     @Override
     public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldView, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {

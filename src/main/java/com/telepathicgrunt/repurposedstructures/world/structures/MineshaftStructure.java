@@ -42,9 +42,9 @@ public class MineshaftStructure extends AdvancedJigsawStructure {
         int chunkPosX = blockPos.getX() >> 4;
         int chunkPosZ = blockPos.getZ() >> 4;
         int currentRadius = 0;
-        WorldgenRandom msRandom = new WorldgenRandom();
+        WorldgenRandom msRandom = new WorldgenRandom(new LegacyRandomSource(0L));
 
-        for(WorldgenRandom chunkRandom = new WorldgenRandom(); currentRadius <= 100000; ++currentRadius) {
+        for(WorldgenRandom chunkRandom = new WorldgenRandom(new LegacyRandomSource(0L)); currentRadius <= 100000; ++currentRadius) {
             for(int xRadius = -currentRadius; xRadius <= currentRadius; ++xRadius) {
                 boolean xEdge = xRadius == -currentRadius || xRadius == currentRadius;
 

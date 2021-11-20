@@ -12,7 +12,7 @@ public class MineshaftSupportConfig implements FeatureConfiguration {
     public static final Codec<MineshaftSupportConfig> CODEC = RecordCodecBuilder.create((configInstance) -> configInstance.group(
             BlockState.CODEC.fieldOf("pillar_state").forGetter(mineshaftSupportConfig -> mineshaftSupportConfig.pillarState),
             BlockState.CODEC.fieldOf("fence_state").forGetter(mineshaftSupportConfig -> mineshaftSupportConfig.fenceState),
-            Registry.BLOCK.fieldOf("target_floor_block").forGetter(mineshaftSupportConfig -> mineshaftSupportConfig.targetFloorState),
+            Registry.BLOCK.byNameCodec().fieldOf("target_floor_block").forGetter(mineshaftSupportConfig -> mineshaftSupportConfig.targetFloorState),
             Codec.BOOL.fieldOf("is_water_based").orElse(false).forGetter(mineshaftSupportConfig -> mineshaftSupportConfig.waterBased)
             ).apply(configInstance, MineshaftSupportConfig::new));
 

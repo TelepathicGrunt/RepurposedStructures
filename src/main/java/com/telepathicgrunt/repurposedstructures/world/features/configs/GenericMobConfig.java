@@ -8,12 +8,12 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 
 public class GenericMobConfig implements FeatureConfiguration {
-    public static final Codec<GenericMobConfig> CODEC = RecordCodecBuilder.<GenericMobConfig>create((configInstance) -> configInstance.group(
-            Registry.ITEM.fieldOf("held_item").forGetter(config -> config.heldItem),
-            Registry.ITEM.fieldOf("helmet").forGetter(config -> config.helmet),
-            Registry.ITEM.fieldOf("chestplate").forGetter(config -> config.chestplate),
-            Registry.ITEM.fieldOf("leggings").forGetter(config -> config.leggings),
-            Registry.ITEM.fieldOf("boots").forGetter(config -> config.boots),
+    public static final Codec<GenericMobConfig> CODEC = RecordCodecBuilder.create((configInstance) -> configInstance.group(
+            Registry.ITEM.byNameCodec().fieldOf("held_item").forGetter(config -> config.heldItem),
+            Registry.ITEM.byNameCodec().fieldOf("helmet").forGetter(config -> config.helmet),
+            Registry.ITEM.byNameCodec().fieldOf("chestplate").forGetter(config -> config.chestplate),
+            Registry.ITEM.byNameCodec().fieldOf("leggings").forGetter(config -> config.leggings),
+            Registry.ITEM.byNameCodec().fieldOf("boots").forGetter(config -> config.boots),
             Codec.floatRange(0, Float.MAX_VALUE).fieldOf("speed_modifier").forGetter(config -> config.speedModifier),
             Codec.intRange(0, Integer.MAX_VALUE).fieldOf("health").forGetter(config -> config.health)
     ).apply(configInstance, GenericMobConfig::new));

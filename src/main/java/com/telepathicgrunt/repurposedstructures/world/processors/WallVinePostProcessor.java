@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.VineBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.levelgen.LegacyRandomSource;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor;
@@ -35,7 +36,7 @@ public class WallVinePostProcessor extends StructureProcessor {
         // Place vines only in air space
         if (structureBlockInfoWorld.state.isAir()) {
 
-            Random random = new WorldgenRandom();
+            Random random = new WorldgenRandom(new LegacyRandomSource(0L));
             random.setSeed(structureBlockInfoWorld.pos.asLong() * structureBlockInfoWorld.pos.getY());
             ChunkAccess centerChunk = worldView.getChunk(structureBlockInfoWorld.pos);
             BlockState centerState = centerChunk.getBlockState(structureBlockInfoWorld.pos);

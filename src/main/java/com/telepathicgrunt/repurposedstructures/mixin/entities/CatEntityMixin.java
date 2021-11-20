@@ -42,7 +42,7 @@ public abstract class CatEntityMixin extends Mob {
 
         if (world2 != null) {
             for(StructureFeature<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.WITCH_HUTS)){
-                if (world2.structureFeatureManager().getStructureAt(pos, true, structureFeature).isValid()) {
+                if (world2.structureFeatureManager().getStructureAt(pos, structureFeature).isValid()) {
                     setCatType(Cat.TYPE_ALL_BLACK);
                     setPersistenceRequired();
                     return;

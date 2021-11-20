@@ -11,6 +11,7 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Property;
+import net.minecraft.world.level.levelgen.LegacyRandomSource;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor;
@@ -27,9 +28,9 @@ import java.util.Random;
 public class RandomReplaceWithPropertiesProcessor extends StructureProcessor {
 
     public static final Codec<RandomReplaceWithPropertiesProcessor> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
-            Registry.BLOCK.fieldOf("input_block").forGetter(config -> config.inputBlock),
-            Registry.BLOCK.optionalFieldOf("output_block").forGetter(config -> config.outputBlock),
-            Registry.BLOCK.listOf().optionalFieldOf("output_blocks", ImmutableList.of()).forGetter(config -> config.outputBlocks),
+            Registry.BLOCK.byNameCodec().fieldOf("input_block").forGetter(config -> config.inputBlock),
+            Registry.BLOCK.byNameCodec().optionalFieldOf("output_block").forGetter(config -> config.outputBlock),
+            Registry.BLOCK.byNameCodec().listOf().optionalFieldOf("output_blocks", ImmutableList.of()).forGetter(config -> config.outputBlocks),
             Codec.floatRange(0, 1).fieldOf("probability").forGetter(config -> config.probability)
     ).apply(instance, instance.stable(RandomReplaceWithPropertiesProcessor::new)));
 
@@ -49,7 +50,7 @@ public class RandomReplaceWithPropertiesProcessor extends StructureProcessor {
     public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldReader, BlockPos pos, BlockPos pos2, StructureTemplate.StructureBlockInfo infoIn1, StructureTemplate.StructureBlockInfo infoIn2, StructurePlaceSettings settings) {
         if(infoIn2.state.getBlock() == inputBlock){
             BlockPos worldPos = infoIn2.pos;
-            Random random = new WorldgenRandom();
+            Random random = new WorldgenRandom(new LegacyRandomSource(0L));
             random.setSeed(worldPos.asLong() * worldPos.getY());
 
             if(random.nextFloat() < probability){

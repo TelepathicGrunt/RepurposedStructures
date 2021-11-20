@@ -22,8 +22,8 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 public class NoiseReplaceWithPropertiesProcessor extends StructureProcessor {
 
     public static final Codec<NoiseReplaceWithPropertiesProcessor> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
-            Registry.BLOCK.fieldOf("input_block").forGetter(config -> config.inputBlock),
-            Registry.BLOCK.fieldOf("output_block").forGetter(config -> config.outputBlock),
+            Registry.BLOCK.byNameCodec().fieldOf("input_block").forGetter(config -> config.inputBlock),
+            Registry.BLOCK.byNameCodec().fieldOf("output_block").forGetter(config -> config.outputBlock),
             Codec.floatRange(0, 1).fieldOf("threshold").forGetter(config -> config.threshold),
             Codec.FLOAT.fieldOf("xz_scale").forGetter(config -> config.xzScale),
             Codec.FLOAT.fieldOf("y_scale").forGetter(config -> config.yScale)

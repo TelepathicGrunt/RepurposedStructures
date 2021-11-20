@@ -28,7 +28,7 @@ public class LessjungleBushInStructuresMixin {
             if(context.random().nextFloat() < 0.9f){
                 SectionPos chunkPos = SectionPos.of(context.origin());
                 for (StructureFeature<?> structure : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.LESS_JUNGLE_BUSH)) {
-                    if (context.level().startsForFeature(chunkPos, structure).findAny().isPresent()) {
+                    if (!context.level().startsForFeature(chunkPos, structure).isEmpty()) {
                         cir.setReturnValue(false);
                     }
                 }

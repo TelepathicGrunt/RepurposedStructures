@@ -6,7 +6,9 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.core.SectionPos;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.LevelChunk;
@@ -25,7 +27,7 @@ import java.util.HashSet;
 public class AirProcessor extends StructureProcessor {
 
     public static final Codec<AirProcessor> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
-            Registry.BLOCK.listOf().fieldOf("ignore_block").orElse(new ArrayList<>()).xmap(HashSet::new, ArrayList::new).forGetter(config -> config.blocksToIgnore)
+            Registry.BLOCK.byNameCodec().listOf().fieldOf("ignore_block").orElse(new ArrayList<>()).xmap(HashSet::new, ArrayList::new).forGetter(config -> config.blocksToIgnore)
     ).apply(instance, instance.stable(AirProcessor::new)));
 
     private final HashSet<Block> blocksToIgnore;
@@ -40,15 +42,14 @@ public class AirProcessor extends StructureProcessor {
             BlockPos currentPos = structureBlockInfoWorld.pos;
             ChunkAccess chunk = worldView.getChunk(currentPos);
             if (currentPos.getY() >= chunk.getMinBuildHeight() && currentPos.getY() < chunk.getMaxBuildHeight()){
-                if(!blocksToIgnore.contains(chunk.getBlockState(currentPos).getBlock())){
+                if(!blocksToIgnore.contains(chunk.getBlockState(currentPos).getBlock()) && (worldView instanceof WorldGenLevel && ((WorldGenLevel)worldView).ensureCanWrite(currentPos))) {
 
                     // Copy what vanilla ores do.
                     // This bypasses the PaletteContainer's lock as it was throwing `Accessing PalettedContainer from multiple threads` crash
                     // even though everything seemed to be safe and fine.
                     int sectionYIndex = chunk.getSectionIndex(currentPos.getY());
-                    LevelChunkSection levelChunkSection = chunk.getOrCreateSection(sectionYIndex);
-                    if (levelChunkSection != LevelChunk.EMPTY_SECTION) {
-
+                    LevelChunkSection levelChunkSection = chunk.getSection(sectionYIndex);
+                    if (levelChunkSection != null) {
                         levelChunkSection.setBlockState(
                                 SectionPos.sectionRelative(currentPos.getX()),
                                 SectionPos.sectionRelative(currentPos.getY()),

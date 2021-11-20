@@ -17,13 +17,13 @@ public class NoLakesInStructuresMixin {
 
     @Inject(
             method = "place(Lnet/minecraft/world/level/levelgen/feature/FeaturePlaceContext;)Z",
-            at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/world/level/WorldGenLevel;startsForFeature(Lnet/minecraft/core/SectionPos;Lnet/minecraft/world/level/levelgen/feature/StructureFeature;)Ljava/util/stream/Stream;"),
+            at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/WorldGenLevel;startsForFeature(Lnet/minecraft/core/SectionPos;Lnet/minecraft/world/level/levelgen/feature/StructureFeature;)Ljava/util/List;"),
             cancellable = true
     )
     private void repurposedstructures_noLakesInStructures(FeaturePlaceContext<BlockStateConfiguration> context, CallbackInfoReturnable<Boolean> cir) {
         SectionPos chunkPos = SectionPos.of(context.origin());
         for (StructureFeature<?> structure : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NO_LAKES)) {
-            if (context.level().startsForFeature(chunkPos, structure).findAny().isPresent()) {
+            if (!context.level().startsForFeature(chunkPos, structure).isEmpty()) {
                 cir.setReturnValue(false);
             }
         }

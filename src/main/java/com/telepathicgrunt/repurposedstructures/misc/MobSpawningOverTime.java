@@ -145,7 +145,7 @@ public final class MobSpawningOverTime {
     public static WeightedRandomList<MobSpawnSettings.SpawnerData> getStructureSpawns(Biome biome, StructureFeatureManager accessor, MobCategory spawnGroup, BlockPos pos){
         // Replace spawns
         for(Map.Entry<StructureFeature<?>, List<MobSpawnSettings.SpawnerData>> structureEntry : MobSpawningOverTime.REPLACE_MOB_SPAWNING.get(spawnGroup).entrySet()){
-            if (!structureEntry.getValue().isEmpty() && accessor.getStructureAt(pos, true, structureEntry.getKey()).isValid()) {
+            if (!structureEntry.getValue().isEmpty() && accessor.getStructureAt(pos, structureEntry.getKey()).isValid()) {
                 return WeightedRandomList.create(structureEntry.getValue());
             }
         }
@@ -153,7 +153,7 @@ public final class MobSpawningOverTime {
         // Appended spawns (combined with other structure appended spawns and to biome spawns)
         List<MobSpawnSettings.SpawnerData> appendedSpawn = null;
         for(Map.Entry<StructureFeature<?>, List<MobSpawnSettings.SpawnerData>> structureEntry : MobSpawningOverTime.APPEND_MOB_SPAWNING.get(spawnGroup).entrySet()){
-            if (!structureEntry.getValue().isEmpty() && accessor.getStructureAt(pos, true, structureEntry.getKey()).isValid()) {
+            if (!structureEntry.getValue().isEmpty() && accessor.getStructureAt(pos, structureEntry.getKey()).isValid()) {
                 if(appendedSpawn == null) appendedSpawn = new ArrayList<>(biome.getMobSettings().getMobs(spawnGroup).unwrap());
                 appendedSpawn.addAll(structureEntry.getValue());
             }
