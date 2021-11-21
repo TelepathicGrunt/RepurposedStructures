@@ -107,7 +107,11 @@ public class RSBiomeDimConfig implements Config {
             addEntries(disallowedBiomes, "repurposed_structures:well_forest", "vampirism:vampire_forest");
         }
 
-        configVersion = 5;
+        if(configVersion == 5){
+            addEntries(disallowedDimensions, "all", "thebeginning:+");
+        }
+
+        configVersion = 6;
         Config.super.save();
     }
 
@@ -183,7 +187,8 @@ public class RSBiomeDimConfig implements Config {
                     "elvenation:elvenia_dimension, " +
                     "futurepack:.+, " +
                     "the_afterlight:.+, " +
-                    "lotr:middle_earth"),
+                    "lotr:middle_earth," +
+                    "thebeginning:+"),
             new AbstractMap.SimpleEntry<>("repurposed_structures:village_badlands", "aoa3:barathos"),
             new AbstractMap.SimpleEntry<>("repurposed_structures:outpost_badlands", "aoa3:barathos"),
             new AbstractMap.SimpleEntry<>("repurposed_structures:well_badlands", "aoa3:barathos"),
@@ -314,5 +319,5 @@ public class RSBiomeDimConfig implements Config {
             "\n"+
             "\n// for internal use only. Do not change this."
     )
-    public int configVersion = 5;
+    public int configVersion = 6;
 }
