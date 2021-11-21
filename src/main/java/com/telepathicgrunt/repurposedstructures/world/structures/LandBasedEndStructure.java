@@ -1,53 +1,49 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
-import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
+import com.telepathicgrunt.repurposedstructures.world.structures.codeconfigs.GenericJigsawStructureCodeConfig;
+import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PieceLimitedJigsawManager;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.RegistryAccess;
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelHeightAccessor;
-import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.BiomeSource;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Heightmap;
-import net.minecraft.world.level.levelgen.WorldgenRandom;
-import net.minecraft.world.level.levelgen.feature.StructureFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
+import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
+import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
+import org.apache.commons.lang3.mutable.Mutable;
+import org.apache.commons.lang3.mutable.MutableObject;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
+import java.util.Optional;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
-public class LandBasedEndStructure extends GenericJigsawStructureMain {
+public class LandBasedEndStructure extends GenericJigsawStructure {
 
-    public LandBasedEndStructure(ResourceLocation poolID, int structureSize, int centerOffset, int biomeRange,
-                                  int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet,
-                                  int allowTerrainHeightRange, int terrainHeightRadius, int minHeightLimit,
-                                 int fixedYSpawn, boolean useHeightmap, boolean cannotSpawnInWater)
-    {
-        super(
-                poolID,
-                structureSize,
-                centerOffset,
-                biomeRange,
-                structureBlacklistRange,
-                avoidStructuresSet,
-                allowTerrainHeightRange,
-                terrainHeightRadius,
-                minHeightLimit,
-                fixedYSpawn,
-                useHeightmap,
-                cannotSpawnInWater
-        );
+    public LandBasedEndStructure(Predicate<PieceGeneratorSupplier.Context> locationCheckPredicate, Function<PieceGeneratorSupplier.Context, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
+        super(locationCheckPredicate, pieceCreationPredicate);
     }
 
-    @Override
-    protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, WorldgenRandom chunkRandom, ChunkPos chunkPos1, Biome biome, ChunkPos chunkPos, NoneFeatureConfiguration defaultFeatureConfig, LevelHeightAccessor heightLimitView) {
-        return getTerrainHeight(chunkPos1, chunkGenerator, heightLimitView) >= Math.min(chunkGenerator.getGenDepth(), 50);
+    // Need this constructor wrapper so we can hackly call `this` in the predicates that Minecraft requires in constructors
+    public static LandBasedEndStructure create(GenericJigsawStructureCodeConfig genericJigsawStructureCodeConfig) {
+        final Mutable<LandBasedEndStructure> box = new MutableObject<>();
+        final LandBasedEndStructure finalInstance = new LandBasedEndStructure(
+                (context) -> box.getValue().isFeatureChunk(context, genericJigsawStructureCodeConfig),
+                (context) -> box.getValue().generatePieces(context, genericJigsawStructureCodeConfig)
+        );
+        box.setValue(finalInstance);
+        return finalInstance;
+    }
+
+    protected boolean isFeatureChunk(PieceGeneratorSupplier.Context context, GenericJigsawStructureCodeConfig config) {
+        return getTerrainHeight(context.chunkPos(), context.chunkGenerator(), context.heightAccessor()) >= Math.min(context.chunkGenerator().getGenDepth(), 50);
     }
 
     // must be on land
@@ -66,62 +62,41 @@ public class LandBasedEndStructure extends GenericJigsawStructureMain {
         return height;
     }
 
-    @Override
-    public StructureStartFactory<NoneFeatureConfiguration> getStartFactory() {
-        return LandBasedEndStructure.Start::new;
-    }
+    public Optional<PieceGenerator<NoneFeatureConfiguration>> generatePieces(PieceGeneratorSupplier.Context context, GenericJigsawStructureCodeConfig config) {
+        BlockPos blockpos = new BlockPos(context.chunkPos().getMinBlockX(), config.fixedYSpawn, context.chunkPos().getMinBlockZ());
 
+        ResourceLocation structureID = Registry.STRUCTURE_FEATURE.getKey(this);
+        return PieceLimitedJigsawManager.assembleJigsawStructure(
+                context,
+                new JigsawConfiguration(() -> context.registryAccess().registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(config.startPool), config.structureSize),
+                structureID,
+                blockpos,
+                config.useHeightmap,
+                config.useHeightmap,
+                Integer.MAX_VALUE,
+                Integer.MIN_VALUE,
+                (pieces) -> {
+                    GeneralUtils.centerAllPieces(blockpos, pieces);
+                    pieces.get(0).move(0, config.centerOffset, 0);
 
-    public class Start extends MainStart {
-        public Start(StructureFeature<NoneFeatureConfiguration> structureIn, ChunkPos chunkPos1, int referenceIn, long seedIn) {
-            super(structureIn, chunkPos1, referenceIn, seedIn);
-        }
+                    BoundingBox box = pieces.get(0).getBoundingBox();
+                    BlockPos centerPos = new BlockPos(box.getCenter());
+                    int radius = (int) Math.sqrt((box.getLength().getX() * box.getLength().getX()) + (box.getLength().getZ() * box.getLength().getZ())) / 2;
 
-        public void generatePieces(RegistryAccess dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, ChunkPos chunkPos1, Biome biome, NoneFeatureConfiguration defaultFeatureConfig, LevelHeightAccessor heightLimitView) {
-            super.generatePieces(dynamicRegistryManager, chunkGenerator, structureManager, chunkPos1, biome, defaultFeatureConfig, heightLimitView);
+                    List<Integer> landHeights = new ArrayList<>();
+                    for(int xOffset = -radius; xOffset <= radius; xOffset += (radius/2)){
+                        for(int zOffset = -radius; zOffset <= radius; zOffset += (radius/2)){
+                            int landHeight = context.chunkGenerator().getFirstOccupiedHeight(centerPos.getX() + xOffset, centerPos.getZ() + zOffset, Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor());
+                            landHeights.add(landHeight);
+                        }
+                    }
 
-            BoundingBox box = this.pieces.get(0).getBoundingBox();
-            BlockPos centerPos = new BlockPos(box.getCenter());
-            int radius = (int) Math.sqrt((box.getLength().getX() * box.getLength().getX()) + (box.getLength().getZ() * box.getLength().getZ())) / 2;
-
-            List<Integer> landHeights = new ArrayList<>();
-            for(int xOffset = -radius; xOffset <= radius; xOffset += (radius/2)){
-                for(int zOffset = -radius; zOffset <= radius; zOffset += (radius/2)){
-                    int landHeight = chunkGenerator.getFirstOccupiedHeight(centerPos.getX() + xOffset, centerPos.getZ() + zOffset, Heightmap.Types.WORLD_SURFACE_WG, heightLimitView);
-                    landHeights.add(landHeight);
-                }
-            }
-
-            // Offset structure to average land around it
-            int avgHeight = (int) Math.max(landHeights.stream().mapToInt(Integer::intValue).average().orElse(0), 50);
-            int parentHeight = this.pieces.get(0).getBoundingBox().minY();
-            int offsetAmount = (avgHeight - parentHeight) + centerOffset;
-            this.pieces.forEach(child -> child.move(0, offsetAmount, 0));
-            GeneralUtils.centerAllPieces(centerPos, this.pieces);
-            this.getBoundingBox();
-        }
-    }
-
-    public static class Builder<T extends GenericJigsawStructureMain.Builder<T>> extends GenericJigsawStructureMain.Builder<T> {
-
-        public Builder(ResourceLocation startPool) {
-            super(startPool);
-        }
-
-        public LandBasedEndStructure build() {
-            return new LandBasedEndStructure(
-                    startPool,
-                    structureSize,
-                    centerOffset,
-                    biomeRange,
-                    structureBlacklistRange,
-                    avoidStructuresSet,
-                    allowTerrainHeightRange,
-                    terrainHeightRadius,
-                    minHeightLimit,
-                    fixedYSpawn,
-                    useHeightmap,
-                    cannotSpawnInWater);
-        }
+                    // Offset structure to average land around it
+                    int avgHeight = (int) Math.max(landHeights.stream().mapToInt(Integer::intValue).average().orElse(0), 50);
+                    int parentHeight = pieces.get(0).getBoundingBox().minY();
+                    int offsetAmount = (avgHeight - parentHeight) + config.centerOffset;
+                    pieces.forEach(child -> child.move(0, offsetAmount, 0));
+                    GeneralUtils.centerAllPieces(centerPos, pieces);
+                });
     }
 }

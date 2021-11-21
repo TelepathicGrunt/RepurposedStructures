@@ -1,47 +1,51 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
-import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
+import com.telepathicgrunt.repurposedstructures.world.structures.codeconfigs.StartPoolOnlyCodeConfig;
+import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PieceLimitedJigsawManager;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
-import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelHeightAccessor;
-import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.BiomeSource;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.levelgen.LegacyRandomSource;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
-import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.structures.JigsawPlacement;
-import net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece;
-import net.minecraft.world.level.levelgen.structure.StructureStart;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
+import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
+import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
+import net.minecraft.world.level.levelgen.structure.pieces.StructurePiecesBuilder;
+import org.apache.commons.lang3.mutable.Mutable;
+import org.apache.commons.lang3.mutable.MutableObject;
+
+import java.util.Optional;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
 
 public class ShipwreckEndStructure extends AbstractBaseStructure<NoneFeatureConfiguration> {
     // Special thanks to cannon_foddr for allowing me to use his End Shipwreck design!
+//new ResourceLocation(RepurposedStructures.MODID, "shipwrecks/end")
 
-    private final ResourceLocation START_POOL;
-
-    public ShipwreckEndStructure() {
-        super(NoneFeatureConfiguration.CODEC);
-        START_POOL = new ResourceLocation(RepurposedStructures.MODID, "shipwrecks/end");
-        RSStructures.RS_STRUCTURE_START_PIECES.add(START_POOL);
+    public ShipwreckEndStructure(Predicate<PieceGeneratorSupplier.Context> locationCheckPredicate, Function<PieceGeneratorSupplier.Context, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
+        super(NoneFeatureConfiguration.CODEC, locationCheckPredicate, pieceCreationPredicate);
     }
 
-    @Override
-    public StructureStartFactory<NoneFeatureConfiguration> getStartFactory() {
-        return ShipwreckEndStructure.Start::new;
+    // Need this constructor wrapper so we can hackly call `this` in the predicates that Minecraft requires in constructors
+    public static ShipwreckEndStructure create(StartPoolOnlyCodeConfig startPoolOnlyCodeConfig) {
+        final Mutable<ShipwreckEndStructure> box = new MutableObject<>();
+        final ShipwreckEndStructure finalInstance = new ShipwreckEndStructure(
+                (context) -> box.getValue().isFeatureChunk(context, startPoolOnlyCodeConfig),
+                (context) -> box.getValue().generatePieces(context, startPoolOnlyCodeConfig)
+        );
+        box.setValue(finalInstance);
+        return finalInstance;
     }
 
-    @Override
-    protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, WorldgenRandom chunkRandom, ChunkPos chunkPos1, Biome biome, ChunkPos chunkPos, NoneFeatureConfiguration defaultFeatureConfig, LevelHeightAccessor heightLimitView) {
-        return getGenerationHeight(chunkPos1, chunkGenerator, heightLimitView) >= Math.min(chunkGenerator.getGenDepth(), 20);
+    protected boolean isFeatureChunk(PieceGeneratorSupplier.Context context, StartPoolOnlyCodeConfig config) {
+        return getGenerationHeight(context.chunkPos(), context.chunkGenerator(), context.heightAccessor()) >= Math.min(context.chunkGenerator().getGenDepth(), 20);
     }
 
     private static int getGenerationHeight(ChunkPos chunkPos1, ChunkGenerator chunkGenerator, LevelHeightAccessor heightLimitView) {
@@ -54,33 +58,30 @@ public class ShipwreckEndStructure extends AbstractBaseStructure<NoneFeatureConf
         return Math.min(Math.min(heightmap1, heightmap2), Math.min(heightmap3, heightmap4));
     }
 
-    public class Start extends StructureStart<NoneFeatureConfiguration> {
-        public Start(StructureFeature<NoneFeatureConfiguration> structureIn, ChunkPos chunkPos1, int referenceIn, long seedIn) {
-            super(structureIn, chunkPos1, referenceIn, seedIn);
-        }
+    public Optional<PieceGenerator<NoneFeatureConfiguration>> generatePieces(PieceGeneratorSupplier.Context context, StartPoolOnlyCodeConfig config) {
+        BlockPos blockpos = new BlockPos(context.chunkPos().getMinBlockX(), 64, context.chunkPos().getMinBlockZ());
 
-        @Override
-        public void generatePieces(RegistryAccess dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, ChunkPos chunkPos1, Biome biome, NoneFeatureConfiguration defaultFeatureConfig, LevelHeightAccessor heightLimitView) {
-            BlockPos blockpos = new BlockPos(chunkPos1.getMinBlockX(), 64, chunkPos1.getMinBlockZ());
-            JigsawPlacement.addPieces(
-                    dynamicRegistryManager,
-                    new JigsawConfiguration(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(START_POOL), 1),
-                    PoolElementStructurePiece::new,
-                    chunkGenerator,
-                    structureManager,
-                    blockpos,
-                    this,
-                    random,
-                    true,
-                    false,
-                    heightLimitView);
-            GeneralUtils.centerAllPieces(blockpos, this.pieces);
-            this.getBoundingBox();
+        ResourceLocation structureID = Registry.STRUCTURE_FEATURE.getKey(this);
+        return PieceLimitedJigsawManager.assembleJigsawStructure(
+                context,
+                new JigsawConfiguration(() -> context.registryAccess().registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(config.startPool), 5),
+                structureID,
+                blockpos,
+                false,
+                false,
+                Integer.MAX_VALUE,
+                Integer.MIN_VALUE,
+                (pieces) -> {
+                    GeneralUtils.centerAllPieces(blockpos, pieces);
+                    WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0L));
+                    random.setLargeFeatureSeed(context.seed(), context.chunkPos().x, context.chunkPos().z);
+                    StructurePiecesBuilder structurePiecesBuilder = new StructurePiecesBuilder();
+                    pieces.forEach(structurePiecesBuilder::addPiece);
 
-            BlockPos blockPos = new BlockPos(this.pieces.get(0).getBoundingBox().getCenter());
-            int highestLandPos = chunkGenerator.getBaseHeight(blockPos.getX(), blockPos.getZ(), Heightmap.Types.WORLD_SURFACE_WG, heightLimitView);
-            highestLandPos = Math.max(30, highestLandPos);
-            this.moveInsideHeights(this.random, highestLandPos-5, highestLandPos-3);
-        }
+                    BlockPos blockPos = new BlockPos(pieces.get(0).getBoundingBox().getCenter());
+                    int highestLandPos = context.chunkGenerator().getBaseHeight(blockPos.getX(), blockPos.getZ(), Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor());
+                    highestLandPos = Math.max(30, highestLandPos);
+                    structurePiecesBuilder.moveInsideHeights(random, highestLandPos - 5, highestLandPos - 3);
+                });
     }
 }

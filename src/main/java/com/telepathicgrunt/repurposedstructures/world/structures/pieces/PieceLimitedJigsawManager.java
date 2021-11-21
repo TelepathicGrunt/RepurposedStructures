@@ -8,8 +8,8 @@ import com.telepathicgrunt.repurposedstructures.mixin.structures.StructurePoolAc
 import com.telepathicgrunt.repurposedstructures.utils.BoxOctree;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.QuartPos;
 import net.minecraft.core.Registry;
-import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.WritableRegistry;
 import net.minecraft.data.worldgen.Pools;
 import net.minecraft.resources.ResourceLocation;
@@ -31,6 +31,7 @@ import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
+import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import net.minecraft.world.phys.AABB;
@@ -45,6 +46,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Random;
+import java.util.function.Consumer;
 
 /**
  * Special thanks to YUNGNICKYOUNG for allowing me to use his piece count limiting jigsaw manager!
@@ -57,23 +59,22 @@ public class PieceLimitedJigsawManager {
     public record Entry(PoolElementStructurePiece piece, MutableObject<BoxOctree> boxOctreeMutableObject, int topYLimit, int depth) { }
 
     public static Optional<PieceGenerator<NoneFeatureConfiguration>> assembleJigsawStructure(
-            RegistryAccess dynamicRegistryManager,
+            PieceGeneratorSupplier.Context context,
             JigsawConfiguration jigsawConfig,
-            ChunkGenerator chunkGenerator,
-            StructureManager templateManager,
+            ResourceLocation structureID,
             BlockPos startPos,
             boolean doBoundaryAdjustments,
             boolean useHeightmap,
-            LevelHeightAccessor heightLimitView,
-            ResourceLocation structureID,
             int maxY,
-            int minY
+            int minY,
+            Consumer<List<PoolElementStructurePiece>> structureBoundsAdjuster
     ) {
         // Get jigsaw pool registry
-        WritableRegistry<StructureTemplatePool> jigsawPoolRegistry = dynamicRegistryManager.ownedRegistryOrThrow(Registry.TEMPLATE_POOL_REGISTRY);
+        WritableRegistry<StructureTemplatePool> jigsawPoolRegistry = context.registryAccess().ownedRegistryOrThrow(Registry.TEMPLATE_POOL_REGISTRY);
 
         // Get a random orientation for the starting piece
         WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0L));
+        random.setLargeFeatureSeed(context.seed(), context.chunkPos().x, context.chunkPos().z);
         Rotation rotation = Rotation.getRandom(random);
 
         // Get starting pool
@@ -85,15 +86,18 @@ public class PieceLimitedJigsawManager {
         // Grab a random starting piece from the start pool. This is just the piece design itself, without rotation or position information.
         // Think of it as a blueprint.
         StructurePoolElement startPieceBlueprint = startPool.getRandomTemplate(random);
+        if (startPieceBlueprint == EmptyPoolElement.INSTANCE) {
+            return Optional.empty();
+        }
 
         // Instantiate a piece using the "blueprint" we just got.
         PoolElementStructurePiece startPiece = new PoolElementStructurePiece(
-                templateManager,
+                context.structureManager(),
                 startPieceBlueprint,
                 startPos,
                 startPieceBlueprint.getGroundLevelDelta(),
                 rotation,
-                startPieceBlueprint.getBoundingBox(templateManager, startPos, rotation)
+                startPieceBlueprint.getBoundingBox(context.structureManager(), startPos, rotation)
         );
 
         // Store center position of starting piece's bounding box
@@ -101,55 +105,62 @@ public class PieceLimitedJigsawManager {
         int pieceCenterX = (pieceBoundingBox.maxX() + pieceBoundingBox.minX()) / 2;
         int pieceCenterZ = (pieceBoundingBox.maxZ() + pieceBoundingBox.minZ()) / 2;
         int pieceCenterY = useHeightmap
-                ? startPos.getY() + chunkGenerator.getFirstFreeHeight(pieceCenterX, pieceCenterZ, Heightmap.Types.WORLD_SURFACE_WG, heightLimitView)
+                ? startPos.getY() + context.chunkGenerator().getFirstFreeHeight(pieceCenterX, pieceCenterZ, Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor())
                 : startPos.getY();
 
         int yAdjustment = pieceBoundingBox.minY() + startPiece.getGroundLevelDelta();
         startPiece.move(0, pieceCenterY - yAdjustment, 0);
-
-
-        Map<ResourceLocation, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces = StructurePiecesBehavior.REQUIRED_PIECES_COUNT.get(structureID);
-        boolean runOnce = requiredPieces == null;
-        for(int attempts = 0; runOnce || doesNotHaveAllRequiredPieces(components, requiredPieces); attempts++){
-            if(attempts == 100){
-                RepurposedStructures.LOGGER.error(
-                        """
-        
-                                -------------------------------------------------------------------
-                                Repurposed Structures: Failed to create valid structure with all required pieces starting from this pool file: {}. Required pieces are: {}
-                                  Make sure the max height and min height for this structure in the config is not too close together.
-                                  If min and max height is super close together, the structure's pieces may not be able to fit in the narrow range and spawn.
-                                  Otherwise, if the min and max height ranges aren't close and this message still appears, please report the issue to Repurposed Structures's dev with latest.log file!
-        
-                                """,
-                        startPool.getName(), Arrays.toString(requiredPieces.keySet().toArray()));
-                break;
-            }
-
-            components.clear();
-            components.add(startPiece); // Add start piece to list of pieces
-
-            if (jigsawConfig.maxDepth() > 0) {
-                AABB axisAlignedBB = new AABB(pieceCenterX - 80, pieceCenterY - 120, pieceCenterZ - 80, pieceCenterX + 80 + 1, pieceCenterY + 180 + 1, pieceCenterZ + 80 + 1);
-                BoxOctree boxOctree = new BoxOctree(axisAlignedBB); // The maximum boundary of the entire structure
-                boxOctree.addBox(AABB.of(pieceBoundingBox));
-                Entry startPieceEntry = new Entry(startPiece, new MutableObject<>(boxOctree), pieceCenterY + 80, 0);
-
-                Assembler assembler = new Assembler(jigsawPoolRegistry, jigsawConfig.maxDepth(), chunkGenerator, templateManager, components, random, requiredPieces, maxY, minY);
-                assembler.availablePieces.addLast(startPieceEntry);
-
-                while (!assembler.availablePieces.isEmpty()) {
-                    Entry entry = assembler.availablePieces.removeFirst();
-                    assembler.generatePiece(entry.piece, entry.boxOctreeMutableObject, entry.topYLimit, entry.depth, doBoundaryAdjustments, heightLimitView);
-                }
-            }
-
-            if(runOnce) break;
+        if (!context.validBiome().test(context.chunkGenerator().getNoiseBiome(QuartPos.fromBlock(pieceCenterX), QuartPos.fromBlock(pieceCenterY), QuartPos.fromBlock(pieceCenterZ)))) {
+            return Optional.empty();
         }
-        return null;
+
+        return Optional.of((structurePiecesBuilder, contextx) -> {
+            List<PoolElementStructurePiece> components = new ArrayList<>();
+            components.add(startPiece);
+            Map<ResourceLocation, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces = StructurePiecesBehavior.REQUIRED_PIECES_COUNT.get(structureID);
+            boolean runOnce = requiredPieces == null;
+            for (int attempts = 0; runOnce || doesNotHaveAllRequiredPieces(components, requiredPieces); attempts++) {
+                if (attempts == 100) {
+                    RepurposedStructures.LOGGER.error(
+                            """
+                                            
+                                    -------------------------------------------------------------------
+                                    Repurposed Structures: Failed to create valid structure with all required pieces starting from this pool file: {}. Required pieces are: {}
+                                      Make sure the max height and min height for this structure in the config is not too close together.
+                                      If min and max height is super close together, the structure's pieces may not be able to fit in the narrow range and spawn.
+                                      Otherwise, if the min and max height ranges aren't close and this message still appears, please report the issue to Repurposed Structures's dev with latest.log file!
+                                            
+                                    """,
+                            startPool.getName(), Arrays.toString(requiredPieces.keySet().toArray()));
+                    break;
+                }
+
+                components.clear();
+                components.add(startPiece); // Add start piece to list of pieces
+
+                if (jigsawConfig.maxDepth() > 0) {
+                    AABB axisAlignedBB = new AABB(pieceCenterX - 80, pieceCenterY - 120, pieceCenterZ - 80, pieceCenterX + 80 + 1, pieceCenterY + 180 + 1, pieceCenterZ + 80 + 1);
+                    BoxOctree boxOctree = new BoxOctree(axisAlignedBB); // The maximum boundary of the entire structure
+                    boxOctree.addBox(AABB.of(pieceBoundingBox));
+                    Entry startPieceEntry = new Entry(startPiece, new MutableObject<>(boxOctree), pieceCenterY + 80, 0);
+
+                    Assembler assembler = new Assembler(jigsawPoolRegistry, jigsawConfig.maxDepth(), context.chunkGenerator(), context.structureManager(), components, random, requiredPieces, maxY, minY);
+                    assembler.availablePieces.addLast(startPieceEntry);
+
+                    while (!assembler.availablePieces.isEmpty()) {
+                        Entry entry = assembler.availablePieces.removeFirst();
+                        assembler.generatePiece(entry.piece, entry.boxOctreeMutableObject, entry.topYLimit, entry.depth, doBoundaryAdjustments, context.heightAccessor());
+                    }
+                }
+
+                if (runOnce) break;
+            }
+
+            structureBoundsAdjuster.accept(components);
+        });
     }
 
-    private static boolean doesNotHaveAllRequiredPieces(List<? super StructurePiece> components, Map<ResourceLocation, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces){
+    private static boolean doesNotHaveAllRequiredPieces(List<? extends StructurePiece> components, Map<ResourceLocation, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces){
         Map<ResourceLocation, Integer> counter = new HashMap<>();
         requiredPieces.forEach((key, value) -> counter.put(key, value.getRequiredAmount()));
         for(Object piece : components){

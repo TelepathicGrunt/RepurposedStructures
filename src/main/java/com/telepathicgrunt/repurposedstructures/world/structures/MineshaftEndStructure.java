@@ -3,53 +3,67 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 import com.mojang.math.Vector3f;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
+import com.telepathicgrunt.repurposedstructures.world.structures.codeconfigs.GenericJigsawStructureCodeConfig;
+import com.telepathicgrunt.repurposedstructures.world.structures.codeconfigs.MineshaftCodeConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PieceLimitedJigsawManager;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
-import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.NoiseColumn;
-import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.BiomeSource;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.LegacyRandomSource;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.StructureFeatureConfiguration;
-import net.minecraft.world.level.levelgen.structure.NoiseAffectingStructureStart;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
+import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
+import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
+import org.apache.commons.lang3.mutable.Mutable;
+import org.apache.commons.lang3.mutable.MutableObject;
+
+import java.util.Optional;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
 
 public class MineshaftEndStructure extends MineshaftStructure {
 
-    public MineshaftEndStructure(ResourceLocation poolID, int structureSize, int biomeRange,
-                                 int maxY, int minY, boolean clipOutOfBoundsPieces,
-                                 Integer verticalRange, double probability)
-    {
-        super(poolID, structureSize, biomeRange, maxY, minY, clipOutOfBoundsPieces, verticalRange, probability);
+    public MineshaftEndStructure(Predicate<PieceGeneratorSupplier.Context> locationCheckPredicate, Function<PieceGeneratorSupplier.Context, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
+        super(locationCheckPredicate, pieceCreationPredicate);
     }
 
-    @Override
-    protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, WorldgenRandom chunkRandom, ChunkPos chunkPos1, Biome biome, ChunkPos chunkPos, NoneFeatureConfiguration featureConfig, LevelHeightAccessor heightLimitView) {
-        boolean superCheck = super.isFeatureChunk(chunkGenerator, biomeSource, seed, chunkRandom, chunkPos1, biome, chunkPos, featureConfig, heightLimitView);
+    // Need this constructor wrapper so we can hackly call `this` in the predicates that Minecraft requires in constructors
+    public static MineshaftEndStructure create(MineshaftCodeConfig mineshaftCodeConfig) {
+        final Mutable<MineshaftEndStructure> box = new MutableObject<>();
+        final MineshaftEndStructure finalInstance = new MineshaftEndStructure(
+                (context) -> box.getValue().isFeatureChunk(context, mineshaftCodeConfig),
+                (context) -> box.getValue().generatePieces(context, mineshaftCodeConfig)
+        );
+        box.setValue(finalInstance);
+        return finalInstance;
+    }
+
+    protected boolean isFeatureChunk(PieceGeneratorSupplier.Context context, MineshaftCodeConfig config) {
+        boolean superCheck = super.isFeatureChunk(context, config);
         if(!superCheck)
             return false;
 
         //cannot be near end strongholds
         int structureCheckRadius = 6;
-        for (int curChunkX = chunkPos1.x - structureCheckRadius; curChunkX <= chunkPos1.x + structureCheckRadius; curChunkX++) {
-            for (int curChunkZ = chunkPos1.z - structureCheckRadius; curChunkZ <= chunkPos1.z + structureCheckRadius; curChunkZ++) {
+        ChunkPos chunkPos = context.chunkPos();
+        for (int curChunkX = chunkPos.x - structureCheckRadius; curChunkX <= chunkPos.x + structureCheckRadius; curChunkX++) {
+            for (int curChunkZ = chunkPos.z - structureCheckRadius; curChunkZ <= chunkPos.z + structureCheckRadius; curChunkZ++) {
                 for(StructureFeature<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.END_MINESHAFT_AVOID_STRUCTURE)){
                     if(structureFeature == this) continue;
 
-                    StructureFeatureConfiguration structureConfig = chunkGenerator.getSettings().getConfig(structureFeature);
+                    StructureFeatureConfiguration structureConfig = context.chunkGenerator().getSettings().getConfig(structureFeature);
                     if(structureConfig != null && structureConfig.spacing() > 10){
-                        ChunkPos chunkPos2 = structureFeature.getPotentialFeatureChunk(structureConfig, seed, chunkRandom, curChunkX, curChunkZ);
+                        ChunkPos chunkPos2 = structureFeature.getPotentialFeatureChunk(structureConfig, context.seed(), curChunkX, curChunkZ);
                         if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
                             return false;
                         }
@@ -63,20 +77,20 @@ public class MineshaftEndStructure extends MineshaftStructure {
             return true;
 
         BlockPos.MutableBlockPos islandTopBottomThickness = new BlockPos.MutableBlockPos(Integer.MAX_VALUE, Integer.MIN_VALUE, Integer.MAX_VALUE);
-        int xPos = chunkPos1.getMinBlockX();
-        int zPos = chunkPos1.getMinBlockZ();
+        int xPos = chunkPos.getMinBlockX();
+        int zPos = chunkPos.getMinBlockZ();
 
         // Surrounding far terrain is more likely to fail the check and exit early.
         for(int i = 2; i >= 1; i--) {
             for (Direction direction : Direction.Plane.HORIZONTAL) {
                 Vector3f offsetPos = new Vector3f(direction.getStepX(), 0, direction.getStepZ());
                 offsetPos = new Vector3f(offsetPos.x() * 30f * i, 0, offsetPos.z() * 30f * i);
-                analyzeLand(chunkGenerator, xPos + (int) offsetPos.x(), zPos + (int) offsetPos.z(), islandTopBottomThickness, heightLimitView);
+                analyzeLand(context.chunkGenerator(), xPos + (int) offsetPos.x(), zPos + (int) offsetPos.z(), islandTopBottomThickness, context.heightAccessor());
                 if (islandTopBottomThickness.getZ() < minThickness) return false;
             }
         }
 
-        analyzeLand(chunkGenerator, xPos, zPos, islandTopBottomThickness, heightLimitView);
+        analyzeLand(context.chunkGenerator(), xPos, zPos, islandTopBottomThickness, context.heightAccessor());
         return islandTopBottomThickness.getZ() >= minThickness;
     }
 
@@ -89,7 +103,7 @@ public class MineshaftEndStructure extends MineshaftStructure {
         boolean isInIsland = false;
 
         while(currentPos.getY() >= minY){
-            BlockState state = columnOfBlocks.getBlockState(currentPos);
+            BlockState state = columnOfBlocks.getBlock(currentPos.getY());
 
             // Detects top of island
             if(!state.isAir() && !isInIsland){
@@ -117,84 +131,39 @@ public class MineshaftEndStructure extends MineshaftStructure {
         islandTopBottomThickness.set(islandTopBottomThickness.getX(), islandTopBottomThickness.getY(), thickness);
     }
 
-    @Override
-    public StructureStartFactory<NoneFeatureConfiguration> getStartFactory() {
-        return MineshaftEndStructure.MainStart::new;
-    }
+    public Optional<PieceGenerator<NoneFeatureConfiguration>> generatePieces(PieceGeneratorSupplier.Context context, GenericJigsawStructureCodeConfig config) {
+        BlockPos.MutableBlockPos blockpos = new BlockPos.MutableBlockPos(context.chunkPos().getMinBlockX(), 0, context.chunkPos().getMinBlockZ());
+        BlockPos.MutableBlockPos islandTopBottomThickness = new BlockPos.MutableBlockPos(Integer.MAX_VALUE, Integer.MIN_VALUE, Integer.MAX_VALUE);
+        analyzeLand(context.chunkGenerator(), blockpos.getX(), blockpos.getZ(), islandTopBottomThickness, context.heightAccessor());
 
-    public class MainStart extends NoiseAffectingStructureStart<NoneFeatureConfiguration> {
-
-        private final ResourceLocation structureID;
-
-        public MainStart(StructureFeature<NoneFeatureConfiguration> structureIn, ChunkPos chunkPos1, int referenceIn, long seedIn) {
-            super(structureIn, chunkPos1, referenceIn, seedIn);
-            structureID = Registry.STRUCTURE_FEATURE.getKey(structureIn);
+        int minThickness = RepurposedStructures.RSAllConfig.RSMineshaftsConfig.misc.endMineshaftMinIslandThickness;
+        int maxY = 53;
+        int minY = 15;
+        if(minThickness == 0){
+            blockpos.move(Direction.UP, 35);
         }
-
-        public void generatePieces(RegistryAccess dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, ChunkPos chunkPos1, Biome biome, NoneFeatureConfiguration defaultFeatureConfig, LevelHeightAccessor heightLimitView) {
-            BlockPos.MutableBlockPos blockpos = new BlockPos.MutableBlockPos(chunkPos1.getMinBlockX(), 0, chunkPos1.getMinBlockZ());
-            BlockPos.MutableBlockPos islandTopBottomThickness = new BlockPos.MutableBlockPos(Integer.MAX_VALUE, Integer.MIN_VALUE, Integer.MAX_VALUE);
-            analyzeLand(chunkGenerator, blockpos.getX(), blockpos.getZ(), islandTopBottomThickness, heightLimitView);
-
-            int minThickness = RepurposedStructures.RSAllConfig.RSMineshaftsConfig.misc.endMineshaftMinIslandThickness;
-            int maxY = 53;
-            int minY = 15;
-            if(minThickness == 0){
-                blockpos.move(Direction.UP, 35);
+        else{
+            WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0L));
+            random.setLargeFeatureSeed(context.seed(), context.chunkPos().x, context.chunkPos().z);
+            int structureStartHeight = random.nextInt(Math.max(islandTopBottomThickness.getZ() - minThickness + 1, 1)) + islandTopBottomThickness.getY() + (minThickness / 2);
+            blockpos.move(Direction.UP, structureStartHeight);
+            maxY = islandTopBottomThickness.getX() - 5;
+            minY = islandTopBottomThickness.getY();
+            if(maxY - minY <= 5){
+                minY = maxY - 5;
             }
-            else{
-                int structureStartHeight = random.nextInt(Math.max(islandTopBottomThickness.getZ() - minThickness + 1, 1)) + islandTopBottomThickness.getY() + (minThickness / 2);
-                blockpos.move(Direction.UP, structureStartHeight);
-                maxY = islandTopBottomThickness.getX() - 5;
-                minY = islandTopBottomThickness.getY();
-                if(maxY - minY <= 5){
-                    minY = maxY - 5;
-                }
-            }
-
-            PieceLimitedJigsawManager.assembleJigsawStructure(
-                    dynamicRegistryManager,
-                    new JigsawConfiguration(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(startPool), structureSize),
-                    chunkGenerator,
-                    structureManager,
-                    blockpos,
-                    this.pieces,
-                    this.random,
-                    false,
-                    false,
-                    heightLimitView,
-                    structureID,
-                    maxY,
-                    minY);
-
-            this.getBoundingBox();
-        }
-    }
-
-
-    public static class Builder<T extends MineshaftEndStructure.Builder<T>> extends AdvancedJigsawStructure.Builder<T> {
-
-        protected double probability = 0.01;
-
-        public Builder(ResourceLocation startPool) {
-            super(startPool);
         }
 
-        public T setProbability(double probability){
-            this.probability = probability;
-            return getThis();
-        }
-
-        public MineshaftEndStructure build() {
-            return new MineshaftEndStructure(
-                    startPool,
-                    structureSize,
-                    biomeRange,
-                    maxY,
-                    minY,
-                    clipOutOfBoundsPieces,
-                    verticalRange,
-                    probability);
-        }
+        ResourceLocation structureID = Registry.STRUCTURE_FEATURE.getKey(this);
+        return PieceLimitedJigsawManager.assembleJigsawStructure(
+                context,
+                new JigsawConfiguration(() -> context.registryAccess().registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(config.startPool), config.structureSize),
+                structureID,
+                blockpos,
+                false,
+                false,
+                maxY,
+                minY,
+                (pieces) -> {});
     }
 }

@@ -1,69 +1,60 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
-import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
+import com.telepathicgrunt.repurposedstructures.world.structures.codeconfigs.GenericJigsawStructureCodeConfig;
+import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PieceLimitedJigsawManager;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
-import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.ChunkPos;
-import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.NoiseColumn;
-import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.BiomeSource;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.chunk.ChunkGenerator;
-import net.minecraft.world.level.levelgen.WorldgenRandom;
-import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.structures.JigsawPlacement;
-import net.minecraft.world.level.levelgen.structure.NoiseAffectingStructureStart;
-import net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
+import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
+import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
+import org.apache.commons.lang3.mutable.Mutable;
+import org.apache.commons.lang3.mutable.MutableObject;
 
-import java.util.Set;
+import java.util.Optional;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
-public class CityNetherStructure extends GenericJigsawStructureMain {
+public class CityNetherStructure extends GenericJigsawStructure {
 
-    public CityNetherStructure(ResourceLocation poolID, int structureSize, int centerOffset, int biomeRange,
-                               int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet,
-                               int allowTerrainHeightRange, int terrainHeightRadius, int minHeightLimit,
-                               int fixedYSpawn, boolean useHeightmap, boolean cannotSpawnInWater)
-    {
-        super(
-                poolID,
-                structureSize,
-                centerOffset,
-                biomeRange,
-                structureBlacklistRange,
-                avoidStructuresSet,
-                allowTerrainHeightRange,
-                terrainHeightRadius,
-                minHeightLimit,
-                fixedYSpawn,
-                useHeightmap,
-                cannotSpawnInWater
-        );
+    public CityNetherStructure(Predicate<PieceGeneratorSupplier.Context> locationCheckPredicate, Function<PieceGeneratorSupplier.Context, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
+        super(locationCheckPredicate, pieceCreationPredicate);
     }
 
-    @Override
-    protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, WorldgenRandom chunkRandom, ChunkPos chunkPos1, Biome biome, ChunkPos chunkPos, NoneFeatureConfiguration defaultFeatureConfig, LevelHeightAccessor heightLimitView) {
+    // Need this constructor wrapper so we can hackly call `this` in the predicates that Minecraft requires in constructors
+    public static CityNetherStructure create(GenericJigsawStructureCodeConfig genericJigsawStructureCodeConfig) {
+        final Mutable<CityNetherStructure> box = new MutableObject<>();
+        final CityNetherStructure finalInstance = new CityNetherStructure(
+                (context) -> box.getValue().isFeatureChunk(context, genericJigsawStructureCodeConfig),
+                (context) -> box.getValue().generatePieces(context, genericJigsawStructureCodeConfig)
+        );
+        box.setValue(finalInstance);
+        return finalInstance;
+    }
+
+
+    protected boolean isFeatureChunk(PieceGeneratorSupplier.Context context, GenericJigsawStructureCodeConfig config) {
+        ChunkPos chunkPos = context.chunkPos();
 
         // do cheaper checks first
-        if(super.isFeatureChunk(chunkGenerator, biomeSource, seed, chunkRandom, chunkPos1, biome, chunkPos, defaultFeatureConfig, heightLimitView)){
+        if(super.isFeatureChunk(context, config)){
 
             // make sure land is open enough for city
             BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
-            for (int curChunkX = chunkPos1.x - 1; curChunkX <= chunkPos1.x + 1; curChunkX++) {
-                for (int curChunkZ = chunkPos1.z - 1; curChunkZ <= chunkPos1.z + 1; curChunkZ++) {
-                    mutable.set(curChunkX << 4, chunkGenerator.getSeaLevel() + 10, curChunkZ << 4);
-                    NoiseColumn blockView = chunkGenerator.getBaseColumn(mutable.getX(), mutable.getZ(), heightLimitView);
+            for (int curChunkX = chunkPos.x - 1; curChunkX <= chunkPos.x + 1; curChunkX++) {
+                for (int curChunkZ = chunkPos.z - 1; curChunkZ <= chunkPos.z + 1; curChunkZ++) {
+                    mutable.set(curChunkX << 4, context.chunkGenerator().getSeaLevel() + 10, curChunkZ << 4);
+                    NoiseColumn blockView = context.chunkGenerator().getBaseColumn(mutable.getX(), mutable.getZ(), context.heightAccessor());
                     int minValidSpace = 65;
-                    int maxHeight = Math.min(chunkGenerator.getGenDepth(), chunkGenerator.getSeaLevel() + minValidSpace);
+                    int maxHeight = Math.min(context.chunkGenerator().getGenDepth(), context.chunkGenerator().getSeaLevel() + minValidSpace);
 
                     while(mutable.getY() < maxHeight){
-                        BlockState state = blockView.getBlockState(mutable);
+                        BlockState state = blockView.getBlock(mutable.getY());
                         if(!state.isAir()){
                             return false;
                         }
@@ -79,57 +70,21 @@ public class CityNetherStructure extends GenericJigsawStructureMain {
         return true;
     }
 
-    @Override
-    public StructureStartFactory<NoneFeatureConfiguration> getStartFactory() {
-        return CityNetherStructure.MainStart::new;
-    }
+    public Optional<PieceGenerator<NoneFeatureConfiguration>> generatePieces(PieceGeneratorSupplier.Context context, GenericJigsawStructureCodeConfig config) {
+        BlockPos blockpos = new BlockPos(context.chunkPos().getMinBlockX(), context.chunkGenerator().getSeaLevel(), context.chunkPos().getMinBlockZ());
 
-    public class MainStart extends NoiseAffectingStructureStart<NoneFeatureConfiguration> {
-        public MainStart(StructureFeature<NoneFeatureConfiguration> structureIn, ChunkPos chunkPos1, int referenceIn, long seedIn) {
-            super(structureIn, chunkPos1, referenceIn, seedIn);
-        }
-
-        public void generatePieces(RegistryAccess dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, ChunkPos chunkPos1, Biome biome, NoneFeatureConfiguration defaultFeatureConfig, LevelHeightAccessor heightLimitView) {
-            BlockPos blockpos = new BlockPos(chunkPos1.getMinBlockX(), chunkGenerator.getSeaLevel(), chunkPos1.getMinBlockZ());
-            JigsawPlacement.addPieces(
-                    dynamicRegistryManager,
-                    new JigsawConfiguration(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(startPool), structureSize),
-                    PoolElementStructurePiece::new,
-                    chunkGenerator,
-                    structureManager,
-                    blockpos,
-                    this,
-                    this.random,
-                    false,
-                    false,
-                    heightLimitView);
-            this.getBoundingBox();
-            this.pieces.get(0).move(0, centerOffset, 0);
-        }
-    }
-
-
-    public static class Builder<T extends GenericJigsawStructureMain.Builder<T>> extends GenericJigsawStructureMain.Builder<T> {
-
-        public Builder(ResourceLocation startPool) {
-            super(startPool);
-        }
-
-        public CityNetherStructure build() {
-            return new CityNetherStructure(
-                    startPool,
-                    structureSize,
-                    centerOffset,
-                    biomeRange,
-                    structureBlacklistRange,
-                    avoidStructuresSet,
-                    allowTerrainHeightRange,
-                    terrainHeightRadius,
-                    minHeightLimit,
-                    fixedYSpawn,
-                    useHeightmap,
-                    cannotSpawnInWater
-            );
-        }
+        ResourceLocation structureID = Registry.STRUCTURE_FEATURE.getKey(this);
+        return PieceLimitedJigsawManager.assembleJigsawStructure(
+                context,
+                new JigsawConfiguration(() -> context.registryAccess().registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(config.startPool), config.structureSize),
+                structureID,
+                blockpos,
+                false,
+                false,
+                Integer.MAX_VALUE,
+                Integer.MIN_VALUE,
+                (pieces) -> {
+                    pieces.get(0).move(0, config.centerOffset, 0);
+                });
     }
 }

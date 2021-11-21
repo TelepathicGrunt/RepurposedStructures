@@ -1,58 +1,54 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
+import com.telepathicgrunt.repurposedstructures.world.structures.codeconfigs.AdvancedJigsawStructureCodeConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PieceLimitedJigsawManager;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
-import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.ChunkPos;
-import net.minecraft.world.level.LevelHeightAccessor;
-import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.BiomeSource;
 import net.minecraft.world.level.biome.CheckerboardColumnBiomeSource;
-import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.LegacyRandomSource;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
-import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.level.levelgen.structure.NoiseAffectingStructureStart;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
+import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
+import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
+import org.apache.commons.lang3.mutable.Mutable;
+import org.apache.commons.lang3.mutable.MutableObject;
+
+import java.util.Optional;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
 public class AdvancedJigsawStructure extends AbstractBaseStructure<NoneFeatureConfiguration> {
 
-    protected final ResourceLocation startPool;
-    protected final int structureSize;
-    protected final int biomeRange;
-    protected final int maxY;
-    protected final int minY;
-    protected final boolean clipOutOfBoundsPieces;
-    protected final Integer verticalRange;
-
-    public AdvancedJigsawStructure(ResourceLocation poolID, int structureSize, int biomeRange,
-                                   int maxY, int minY, boolean clipOutOfBoundsPieces, Integer verticalRange)
-    {
-        super(NoneFeatureConfiguration.CODEC);
-
-        this.startPool = poolID;
-        this.structureSize = structureSize;
-        this.biomeRange = biomeRange;
-        this.maxY = maxY;
-        this.minY = minY;
-        this.clipOutOfBoundsPieces = clipOutOfBoundsPieces;
-        this.verticalRange = verticalRange;
-
-        RSStructures.RS_STRUCTURE_START_PIECES.add(startPool);
+    public AdvancedJigsawStructure(Predicate<PieceGeneratorSupplier.Context> locationCheckPredicate, Function<PieceGeneratorSupplier.Context, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
+        super(NoneFeatureConfiguration.CODEC, locationCheckPredicate, pieceCreationPredicate);
     }
 
-    @Override
-    protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, WorldgenRandom chunkRandom, ChunkPos chunkPos1, Biome biome, ChunkPos chunkPos, NoneFeatureConfiguration defaultFeatureConfig, LevelHeightAccessor heightLimitView) {
-        if(!(biomeSource instanceof CheckerboardColumnBiomeSource)) {
-            for (int curChunkX = chunkPos1.x - biomeRange; curChunkX <= chunkPos1.x + biomeRange; curChunkX++) {
-                for (int curChunkZ = chunkPos1.z - biomeRange; curChunkZ <= chunkPos1.z + biomeRange; curChunkZ++) {
-                    if (!biomeSource.getNoiseBiome(curChunkX << 2, 64, curChunkZ << 2).getGenerationSettings().isValidStart(this)) {
+    // Need this constructor wrapper so we can hackly call `this` in the predicates that Minecraft requires in constructors
+    public static AdvancedJigsawStructure create(AdvancedJigsawStructureCodeConfig advancedJigsawStructureCodeConfig) {
+        final Mutable<AdvancedJigsawStructure> box = new MutableObject<>();
+        final AdvancedJigsawStructure finalInstance = new AdvancedJigsawStructure(
+                (context) -> box.getValue().isFeatureChunk(context, advancedJigsawStructureCodeConfig),
+                (context) -> box.getValue().generatePieces(context, advancedJigsawStructureCodeConfig)
+        );
+        box.setValue(finalInstance);
+        return finalInstance;
+    }
+
+    protected boolean isFeatureChunk(PieceGeneratorSupplier.Context context, AdvancedJigsawStructureCodeConfig config) {
+        ChunkPos chunkPos = context.chunkPos();
+
+        if(!(context.biomeSource() instanceof CheckerboardColumnBiomeSource)) {
+            for (int curChunkX = chunkPos.x - config.biomeRange; curChunkX <= chunkPos.x + config.biomeRange; curChunkX++) {
+                for (int curChunkZ = chunkPos.z - config.biomeRange; curChunkZ <= chunkPos.z + config.biomeRange; curChunkZ++) {
+                    WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0L));
+                    random.setLargeFeatureSeed(context.seed(), context.chunkPos().x, context.chunkPos().z);
+                    int structureStartHeight = random.nextInt(config.maxY - config.minY) + config.minY;
+                    if (!context.validBiome().test(context.biomeSource().getNoiseBiome(curChunkX << 2, structureStartHeight, curChunkZ << 2, context.chunkGenerator().climateSampler()))) {
                         return false;
                     }
                 }
@@ -62,126 +58,48 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<NoneFeatureCo
         return true;
     }
 
-    @Override
-    public StructureStartFactory<NoneFeatureConfiguration> getStartFactory() {
-        return AdvancedJigsawStructure.MainStart::new;
-    }
-
-    public class MainStart extends NoiseAffectingStructureStart<NoneFeatureConfiguration> {
-
-        private final ResourceLocation structureID;
-
-        public MainStart(StructureFeature<NoneFeatureConfiguration> structureIn, ChunkPos chunkPos1, int referenceIn, long seedIn) {
-            super(structureIn, chunkPos1, referenceIn, seedIn);
-            structureID = Registry.STRUCTURE_FEATURE.getKey(structureIn);
+    public Optional<PieceGenerator<NoneFeatureConfiguration>> generatePieces(PieceGeneratorSupplier.Context context, AdvancedJigsawStructureCodeConfig config) {
+        BlockPos.MutableBlockPos blockpos = new BlockPos.MutableBlockPos(context.chunkPos().getMinBlockX(), 0, context.chunkPos().getMinBlockZ());
+        if(config.maxY - config.minY <= 0){
+            RepurposedStructures.LOGGER.error("MinY should always be less than MaxY or else a crash will occur or no pieces will spawn. Problematic structure is:" + Registry.STRUCTURE_FEATURE.getKey(this));
         }
+        WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0L));
+        random.setLargeFeatureSeed(context.seed(), context.chunkPos().x, context.chunkPos().z);
+        int structureStartHeight = random.nextInt(config.maxY - config.minY) + config.minY;
+        blockpos.move(Direction.UP, structureStartHeight);
 
-        public void generatePieces(RegistryAccess dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, ChunkPos chunkPos1, Biome biome, NoneFeatureConfiguration defaultFeatureConfig, LevelHeightAccessor heightLimitView) {
-            BlockPos.MutableBlockPos blockpos = new BlockPos.MutableBlockPos(chunkPos1.getMinBlockX(), 0, chunkPos1.getMinBlockZ());
-            if(maxY - minY <= 0){
-                RepurposedStructures.LOGGER.error("MinY should always be less than MaxY or else a crash will occur or no pieces will spawn. Problematic structure is:" + Registry.STRUCTURE_FEATURE.getKey(this.getFeature()));
-            }
-            int structureStartHeight = random.nextInt(maxY - minY) + minY;
-            blockpos.move(Direction.UP, structureStartHeight);
-
-            int topClipOff;
-            int bottomClipOff;
-            if(verticalRange == null){
-                // Help make sure the Jigsaw Blocks have room to spawn new pieces if structure is right on edge of maxY or topYLimit
-                topClipOff = clipOutOfBoundsPieces ? maxY + 5 : Integer.MAX_VALUE;
-                bottomClipOff = clipOutOfBoundsPieces ? minY - 5 : Integer.MIN_VALUE;
-            }
-            else{
-                topClipOff = structureStartHeight + verticalRange;
-                bottomClipOff = structureStartHeight - verticalRange;
-            }
+        int topClipOff;
+        int bottomClipOff;
+        if(config.verticalRange == null){
+            // Help make sure the Jigsaw Blocks have room to spawn new pieces if structure is right on edge of maxY or topYLimit
+            topClipOff = config.clipOutOfBoundsPieces ? config.maxY + 5 : Integer.MAX_VALUE;
+            bottomClipOff = config.clipOutOfBoundsPieces ? config.minY - 5 : Integer.MIN_VALUE;
+        }
+        else{
+            topClipOff = structureStartHeight + config.verticalRange;
+            bottomClipOff = structureStartHeight - config.verticalRange;
+        }
 
 //            long startTime = System.currentTimeMillis();
 //            for(int i = 0; i < 50; i++){
 //                this.pieces.clear();
 
-            PieceLimitedJigsawManager.assembleJigsawStructure(
-                    dynamicRegistryManager,
-                    new JigsawConfiguration(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(startPool), structureSize),
-                    chunkGenerator,
-                    structureManager,
-                    blockpos,
-                    this.pieces,
-                    this.random,
-                    false,
-                    false,
-                    heightLimitView,
-                    structureID,
-                    topClipOff,
-                    bottomClipOff);
+        ResourceLocation structureID = Registry.STRUCTURE_FEATURE.getKey(this);
+        return PieceLimitedJigsawManager.assembleJigsawStructure(
+                context,
+                new JigsawConfiguration(() -> context.registryAccess().registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(config.startPool), config.structureSize),
+                structureID,
+                blockpos,
+                false,
+                false,
+                topClipOff,
+                bottomClipOff,
+                (pieces) -> {});
 
 //            }
 //            long endTime = System.currentTimeMillis();
 //            long duration = (endTime - startTime);
 //            RepurposedStructures.LOGGER.warn("Time taken {} milliseconds at {}, {} for {}", duration, chunkPos1.x, chunkPos1.z, startPool);
 
-            this.getBoundingBox();
-        }
-    }
-
-    public static class Builder<T extends AdvancedJigsawStructure.Builder<T>> {
-        protected final ResourceLocation startPool;
-        protected int structureSize = 1;
-        protected int biomeRange = 0;
-        protected int maxY = 255;
-        protected int minY = 0;
-        protected boolean clipOutOfBoundsPieces = true;
-        protected Integer verticalRange = null;
-
-        public Builder(ResourceLocation startPool) {
-            this.startPool = startPool;
-        }
-
-        @SuppressWarnings("unchecked")
-        protected T getThis() {
-            return (T) this;
-        }
-
-        public T setStructureSize(int structureSize){
-            this.structureSize = structureSize;
-            return getThis();
-        }
-
-        public T setBiomeRange(int biomeRange){
-            this.biomeRange = biomeRange;
-            return getThis();
-        }
-
-        public T setMaxY(int maxY){
-            this.maxY = maxY;
-            return getThis();
-        }
-
-        public T setMinY(int minY){
-            this.minY = minY;
-            return getThis();
-        }
-
-        public T setVerticalRange(int verticalRange){
-            this.verticalRange = verticalRange;
-            return getThis();
-        }
-
-        public T doNotClipOutOfBoundsPieces(){
-            this.clipOutOfBoundsPieces = false;
-            return getThis();
-        }
-
-        public AdvancedJigsawStructure build() {
-            return new AdvancedJigsawStructure(
-                    startPool,
-                    structureSize,
-                    biomeRange,
-                    maxY,
-                    minY,
-                    clipOutOfBoundsPieces,
-                    verticalRange
-            );
-        }
     }
 }

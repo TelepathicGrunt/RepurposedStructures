@@ -206,7 +206,7 @@ public final class GeneralUtils {
 
     //////////////////////////////////////////////
 
-    public static void centerAllPieces(BlockPos targetPos, List<StructurePiece> pieces) {
+    public static void centerAllPieces(BlockPos targetPos, List<? extends StructurePiece> pieces) {
         if(pieces.isEmpty()) return;
 
         Vec3i structureCenter = pieces.get(0).getBoundingBox().getCenter();

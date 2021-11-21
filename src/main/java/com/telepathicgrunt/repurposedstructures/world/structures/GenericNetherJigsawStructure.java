@@ -1,132 +1,78 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
-import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
+import com.telepathicgrunt.repurposedstructures.world.structures.codeconfigs.GenericNetherJigsawStructureCodeConfig;
+import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PieceLimitedJigsawManager;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.RegistryAccess;
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.ChunkPos;
-import net.minecraft.world.level.LevelHeightAccessor;
-import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.chunk.ChunkGenerator;
-import net.minecraft.world.level.levelgen.feature.StructureFeature;
+import net.minecraft.world.level.levelgen.LegacyRandomSource;
+import net.minecraft.world.level.levelgen.WorldgenRandom;
+import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
+import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
+import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
+import net.minecraft.world.level.levelgen.structure.pieces.StructurePiecesBuilder;
+import org.apache.commons.lang3.mutable.Mutable;
+import org.apache.commons.lang3.mutable.MutableObject;
 
-import java.util.Set;
+import java.util.Optional;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
-public class GenericNetherJigsawStructure extends GenericJigsawStructureMain {
+public class GenericNetherJigsawStructure extends GenericJigsawStructure {
 
-    protected final boolean highestLandSearch;
-    protected final boolean canPlaceOnLiquid;
-    protected final int ledgeSpotOffset;
-    protected final int liquidSpotOffset;
+    public GenericNetherJigsawStructure(Predicate<PieceGeneratorSupplier.Context> locationCheckPredicate, Function<PieceGeneratorSupplier.Context, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
+        super(locationCheckPredicate, pieceCreationPredicate);
+    }
 
-    public GenericNetherJigsawStructure(ResourceLocation poolID, int structureSize, int centerOffset, int biomeRange,
-                                        int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet,
-                                        int allowTerrainHeightRange, int terrainHeightRadius,
-                                        int minHeightLimit, int fixedYSpawn, boolean useHeightmap,
-                                        boolean cannotSpawnInWater, boolean highestLandSearch,
-                                        boolean canPlaceOnLiquid, int ledgeSpotOffset, int liquidSpotOffset)
-    {
-        super(
-                poolID,
-                structureSize,
-                centerOffset,
-                biomeRange,
-                structureBlacklistRange,
-                avoidStructuresSet,
-                allowTerrainHeightRange,
-                terrainHeightRadius,
-                minHeightLimit,
-                fixedYSpawn,
-                useHeightmap,
-                cannotSpawnInWater
+    // Need this constructor wrapper so we can hackly call `this` in the predicates that Minecraft requires in constructors
+    public static GenericNetherJigsawStructure create(GenericNetherJigsawStructureCodeConfig genericNetherJigsawStructureCodeConfig) {
+        final Mutable<GenericNetherJigsawStructure> box = new MutableObject<>();
+        final GenericNetherJigsawStructure finalInstance = new GenericNetherJigsawStructure(
+                (context) -> box.getValue().isFeatureChunk(context, genericNetherJigsawStructureCodeConfig),
+                (context) -> box.getValue().generatePieces(context, genericNetherJigsawStructureCodeConfig)
         );
-        this.highestLandSearch = highestLandSearch;
-        this.canPlaceOnLiquid = canPlaceOnLiquid;
-        this.ledgeSpotOffset = ledgeSpotOffset;
-        this.liquidSpotOffset = liquidSpotOffset;
+        box.setValue(finalInstance);
+        return finalInstance;
     }
 
-    @Override
-    public StructureStartFactory<NoneFeatureConfiguration> getStartFactory() {
-        return GenericNetherJigsawStructure.Start::new;
-    }
+    protected Optional<PieceGenerator<NoneFeatureConfiguration>> generatePieces(PieceGeneratorSupplier.Context context, GenericNetherJigsawStructureCodeConfig config) {
+        BlockPos blockpos = new BlockPos(context.chunkPos().getMinBlockX(), config.fixedYSpawn, context.chunkPos().getMinBlockZ());
 
-    public class Start extends MainStart {
-        public Start(StructureFeature<NoneFeatureConfiguration> structureIn, ChunkPos chunkPos1, int referenceIn, long seedIn) {
-            super(structureIn, chunkPos1, referenceIn, seedIn);
-        }
+        ResourceLocation structureID = Registry.STRUCTURE_FEATURE.getKey(this);
+        return PieceLimitedJigsawManager.assembleJigsawStructure(
+                context,
+                new JigsawConfiguration(() -> context.registryAccess().registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(config.startPool), config.structureSize),
+                structureID,
+                blockpos,
+                config.useHeightmap,
+                config.useHeightmap,
+                Integer.MAX_VALUE,
+                Integer.MIN_VALUE,
+                (pieces) -> {
+                    GeneralUtils.centerAllPieces(blockpos, pieces);
+                    pieces.get(0).move(0, config.centerOffset, 0);
 
-        public void generatePieces(RegistryAccess dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, ChunkPos chunkPos1, Biome biome, NoneFeatureConfiguration defaultFeatureConfig, LevelHeightAccessor heightLimitView) {
-            super.generatePieces(dynamicRegistryManager, chunkGenerator, structureManager, chunkPos1, biome, defaultFeatureConfig, heightLimitView);
+                    WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0L));
+                    random.setLargeFeatureSeed(context.seed(), context.chunkPos().x, context.chunkPos().z);
+                    StructurePiecesBuilder structurePiecesBuilder = new StructurePiecesBuilder();
+                    pieces.forEach(structurePiecesBuilder::addPiece);
+                    BlockPos placementPos;
 
-            BlockPos placementPos;
-            if(highestLandSearch){
-                placementPos = GeneralUtils.getHighestLand(chunkGenerator, this.createBoundingBox(), heightLimitView, canPlaceOnLiquid);
-            }
-            else{
-                placementPos = GeneralUtils.getLowestLand(chunkGenerator, this.createBoundingBox(), heightLimitView, canPlaceOnLiquid);
-            }
+                    if(config.highestLandSearch){
+                        placementPos = GeneralUtils.getHighestLand(context.chunkGenerator(), structurePiecesBuilder.getBoundingBox(), context.heightAccessor(), config.canPlaceOnLiquid);
+                    }
+                    else{
+                        placementPos = GeneralUtils.getLowestLand(context.chunkGenerator(), structurePiecesBuilder.getBoundingBox(), context.heightAccessor(), config.canPlaceOnLiquid);
+                    }
 
-            if (placementPos.getY() >= chunkGenerator.getGenDepth() || placementPos.getY() <= chunkGenerator.getSeaLevel() + 1) {
-                this.moveInsideHeights(this.random, chunkGenerator.getSeaLevel() + ledgeSpotOffset, chunkGenerator.getSeaLevel() + (ledgeSpotOffset + 1));
-            }
-            else {
-                this.moveInsideHeights(this.random, placementPos.getY() + liquidSpotOffset, placementPos.getY() + (liquidSpotOffset + 1));
-            }
-        }
-    }
-
-    public static class Builder<T extends GenericNetherJigsawStructure.Builder<T>> extends GenericJigsawStructureMain.Builder<T> {
-        protected boolean highestLandSearch = false;
-        protected boolean canPlaceOnLiquid = false;
-        protected int ledgeSpotOffset;
-        protected int liquidSpotOffset;
-
-        public Builder(ResourceLocation startPool) {
-            super(startPool);
-        }
-
-        public T searchForHighestLand(){
-            this.highestLandSearch = true;
-            return getThis();
-        }
-
-        public T canSpawnOnLiquid(){
-            this.canPlaceOnLiquid = true;
-            return getThis();
-        }
-
-        public T setLedgeSpotOffset(int ledgeSpotOffset){
-            this.ledgeSpotOffset = ledgeSpotOffset;
-            return getThis();
-        }
-
-        public T setLiquidSpotOffset(int liquidSpotOffset){
-            this.liquidSpotOffset = liquidSpotOffset;
-            return getThis();
-        }
-
-        public GenericNetherJigsawStructure build() {
-            return new GenericNetherJigsawStructure(
-                    startPool,
-                    structureSize,
-                    centerOffset,
-                    biomeRange,
-                    structureBlacklistRange,
-                    avoidStructuresSet,
-                    allowTerrainHeightRange,
-                    terrainHeightRadius,
-                    minHeightLimit,
-                    fixedYSpawn,
-                    useHeightmap,
-                    cannotSpawnInWater,
-                    highestLandSearch,
-                    canPlaceOnLiquid,
-                    ledgeSpotOffset,
-                    liquidSpotOffset);
-        }
+                    if (placementPos.getY() >= context.chunkGenerator().getGenDepth() || placementPos.getY() <= context.chunkGenerator().getSeaLevel() + 1) {
+                        structurePiecesBuilder.moveInsideHeights(random, context.chunkGenerator().getSeaLevel() + config.ledgeSpotOffset, context.chunkGenerator().getSeaLevel() + (config.ledgeSpotOffset + 1));
+                    }
+                    else {
+                        structurePiecesBuilder.moveInsideHeights(random, placementPos.getY() + config.liquidSpotOffset, placementPos.getY() + (config.liquidSpotOffset + 1));
+                    }
+                });
     }
 }
