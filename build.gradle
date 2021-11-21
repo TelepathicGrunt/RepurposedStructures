@@ -12,6 +12,7 @@ buildscript {
 
 plugins {
 	id 'fabric-loom' version '0.10-SNAPSHOT'
+	id 'io.github.juuxel.loom-quiltflower-mini' version '1.1.0'
 }
 
 sourceCompatibility = JavaVersion.VERSION_17
@@ -22,7 +23,7 @@ version = "${project.mod_version}+${project.mc_version}"
 group = project.maven_group
 
 loom {
-	accessWidenerPath "src/main/resources/repurposed_structures.accesswidener"
+	accessWidenerPath = file("src/main/resources/repurposed_structures.accesswidener")
 }
 
 repositories {

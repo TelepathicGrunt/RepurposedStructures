@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-public class LandBasedEndStructure extends GenericJigsawStructure {
+public class LandBasedEndStructure extends GenericJigsawStructureMain {
 
     public LandBasedEndStructure(ResourceLocation poolID, int structureSize, int centerOffset, int biomeRange,
                                   int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet,
@@ -102,7 +102,7 @@ public class LandBasedEndStructure extends GenericJigsawStructure {
         }
     }
 
-    public static class Builder<T extends GenericJigsawStructure.Builder<T>> extends GenericJigsawStructure.Builder<T> {
+    public static class Builder<T extends GenericJigsawStructureMain.Builder<T>> extends GenericJigsawStructureMain.Builder<T> {
 
         public Builder(ResourceLocation startPool) {
             super(startPool);

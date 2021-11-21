@@ -24,7 +24,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureMana
 
 import java.util.Set;
 
-public class CityNetherStructure extends GenericJigsawStructure {
+public class CityNetherStructure extends GenericJigsawStructureMain {
 
     public CityNetherStructure(ResourceLocation poolID, int structureSize, int centerOffset, int biomeRange,
                                int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet,
@@ -109,7 +109,7 @@ public class CityNetherStructure extends GenericJigsawStructure {
     }
 
 
-    public static class Builder<T extends GenericJigsawStructure.Builder<T>> extends GenericJigsawStructure.Builder<T> {
+    public static class Builder<T extends GenericJigsawStructureMain.Builder<T>> extends GenericJigsawStructureMain.Builder<T> {
 
         public Builder(ResourceLocation startPool) {
             super(startPool);

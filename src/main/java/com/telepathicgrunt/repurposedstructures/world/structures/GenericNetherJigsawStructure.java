@@ -15,7 +15,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureMana
 
 import java.util.Set;
 
-public class GenericNetherJigsawStructure extends GenericJigsawStructure {
+public class GenericNetherJigsawStructure extends GenericJigsawStructureMain {
 
     protected final boolean highestLandSearch;
     protected final boolean canPlaceOnLiquid;
@@ -79,7 +79,7 @@ public class GenericNetherJigsawStructure extends GenericJigsawStructure {
         }
     }
 
-    public static class Builder<T extends GenericNetherJigsawStructure.Builder<T>> extends GenericJigsawStructure.Builder<T> {
+    public static class Builder<T extends GenericNetherJigsawStructure.Builder<T>> extends GenericJigsawStructureMain.Builder<T> {
         protected boolean highestLandSearch = false;
         protected boolean canPlaceOnLiquid = false;
         protected int ledgeSpotOffset;

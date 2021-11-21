@@ -21,6 +21,7 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.LegacyRandomSource;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.structures.EmptyPoolElement;
 import net.minecraft.world.level.levelgen.feature.structures.JigsawJunction;
 import net.minecraft.world.level.levelgen.feature.structures.SinglePoolElement;
@@ -29,6 +30,7 @@ import net.minecraft.world.level.levelgen.feature.structures.StructureTemplatePo
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
+import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import net.minecraft.world.phys.AABB;
@@ -54,13 +56,12 @@ public class PieceLimitedJigsawManager {
     // Record for entries
     public record Entry(PoolElementStructurePiece piece, MutableObject<BoxOctree> boxOctreeMutableObject, int topYLimit, int depth) { }
 
-    public static void assembleJigsawStructure(
+    public static Optional<PieceGenerator<NoneFeatureConfiguration>> assembleJigsawStructure(
             RegistryAccess dynamicRegistryManager,
             JigsawConfiguration jigsawConfig,
             ChunkGenerator chunkGenerator,
             StructureManager templateManager,
             BlockPos startPos,
-            List<? super StructurePiece> components,
             boolean doBoundaryAdjustments,
             boolean useHeightmap,
             LevelHeightAccessor heightLimitView,
@@ -145,6 +146,7 @@ public class PieceLimitedJigsawManager {
 
             if(runOnce) break;
         }
+        return null;
     }
 
     private static boolean doesNotHaveAllRequiredPieces(List<? super StructurePiece> components, Map<ResourceLocation, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces){
