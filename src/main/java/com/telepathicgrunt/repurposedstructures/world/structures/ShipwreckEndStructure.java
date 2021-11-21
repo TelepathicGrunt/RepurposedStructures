@@ -27,7 +27,6 @@ import java.util.function.Predicate;
 
 public class ShipwreckEndStructure extends AbstractBaseStructure<NoneFeatureConfiguration> {
     // Special thanks to cannon_foddr for allowing me to use his End Shipwreck design!
-//new ResourceLocation(RepurposedStructures.MODID, "shipwrecks/end")
 
     public ShipwreckEndStructure(Predicate<PieceGeneratorSupplier.Context> locationCheckPredicate, Function<PieceGeneratorSupplier.Context, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
         super(NoneFeatureConfiguration.CODEC, locationCheckPredicate, pieceCreationPredicate);

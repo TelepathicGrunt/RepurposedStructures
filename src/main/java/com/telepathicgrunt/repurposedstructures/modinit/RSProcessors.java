@@ -2,7 +2,6 @@ package com.telepathicgrunt.repurposedstructures.modinit;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.processors.AirProcessor;
-import com.telepathicgrunt.repurposedstructures.world.processors.BiomeSurfaceProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.BubbleColumnProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.CeilingVinePostProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.CloseOffAirSourcesProcessor;
