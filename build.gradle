@@ -54,7 +54,7 @@ if (project.use_third_party_mods) {
 	dependencies {
 		modRuntime "com.telepathicgrunt:LoadNbtBlock:2.0.4+1.17"
 		modRuntime "curse.maven:structure_void_toggle-357304:3488866"
-		modRuntime "com.telepathicgrunt:Blame-Fabric:1.17-4.0.0-fabric"
+		//modRuntime "com.telepathicgrunt:Blame-Fabric:1.17-4.0.0-fabric"
 		//runtimeOnly "al:cyanide-fabric:1.17.1-1.2.1-pre.1-dev"
 
 		//modRuntime "curse.maven:fabric_waystones-410902:3479213"

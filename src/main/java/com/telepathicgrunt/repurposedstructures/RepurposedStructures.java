@@ -97,6 +97,7 @@ public class RepurposedStructures implements ModInitializer, DedicatedServerModI
         RSStructures.registerStructures();
         RSStructureTagMap.setupTags();
         RSConfiguredFeatures.registerConfiguredFeatures();
+        RSConfiguredFeatures.registerPlacedFeatures();
         RSConfiguredStructures.registerConfiguredStructures();
 
         BiomeDimensionAllowDisallow.setupAllowDisallowMaps();

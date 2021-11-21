@@ -62,12 +62,12 @@ public final class Dungeons {
 
         GeneralUtils.addToBiome("low_mushroom_dungeons",
                 (context) -> 
-                        genericDungeonCheck(context, RSConfiguredFeatures.MUSHROOM_LOW_DUNGEONS,
+                        genericDungeonCheck(context, RSConfiguredFeatures.MUSHROOM_DUNGEONS,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.MUSHROOM))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.mushroomDungeonAttemptsPerChunk != 0,
                 context -> {
                     if(RepurposedStructures.RSAllConfig.RSDungeonsConfig.minHeight.mushroomDungeonMinHeight <= 62)
-                        context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.MUSHROOM_LOW_DUNGEONS);
+                        context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.MUSHROOM_DUNGEONS);
                 });
 
         GeneralUtils.addToBiome("swamp_dungeons",
