@@ -108,7 +108,7 @@ public class RSBiomeDimConfig implements Config {
         }
 
         if(configVersion == 5){
-            addEntries(disallowedDimensions, "all", "thebeginning:+");
+            addEntries(disallowedDimensions, "all", "thebeginning:.+");
         }
 
         configVersion = 6;
@@ -188,7 +188,7 @@ public class RSBiomeDimConfig implements Config {
                     "futurepack:.+, " +
                     "the_afterlight:.+, " +
                     "lotr:middle_earth," +
-                    "thebeginning:+"),
+                    "thebeginning:.+"),
             new AbstractMap.SimpleEntry<>("repurposed_structures:village_badlands", "aoa3:barathos"),
             new AbstractMap.SimpleEntry<>("repurposed_structures:outpost_badlands", "aoa3:barathos"),
             new AbstractMap.SimpleEntry<>("repurposed_structures:well_badlands", "aoa3:barathos"),

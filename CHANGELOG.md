@@ -3,7 +3,7 @@
 ##### Configs:
 Fixed a typo in a config comment.
 
-Added thebeginning:+ to the disallowed dimension config entry's default values to keep RS structures from that mod's dimensions by default.
+Added thebeginning:.+ to the disallowed dimension config entry's default values to keep RS structures from that mod's dimensions by default.
 
 
 ### **(V.3.4.4 Changes) (1.16.5 Minecraft)**
