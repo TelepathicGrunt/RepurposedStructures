@@ -21,21 +21,21 @@ public final class Wells {
                         genericWellCheck(context, RSConfiguredFeatures.BADLANDS_WELL,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.MESA))
                         && RepurposedStructures.RSAllConfig.RSWellsConfig.badlandsWellRarityPerChunk != 10000,
-                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, RSConfiguredFeatures.BADLANDS_WELL));
+                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, RSConfiguredFeatures.BADLANDS_WELL_PLACED));
 
         GeneralUtils.addToBiome("nether_well",
                 (context) -> 
                         genericWellCheck(context, RSConfiguredFeatures.NETHER_WELL,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.NETHER))
                         && RepurposedStructures.RSAllConfig.RSWellsConfig.netherWellRarityPerChunk != 10000,
-                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, RSConfiguredFeatures.NETHER_WELL));
+                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, RSConfiguredFeatures.NETHER_WELL_PLACED));
 
         GeneralUtils.addToBiome("snow_well",
                 (context) -> 
                         genericWellCheck(context, RSConfiguredFeatures.SNOW_WELL,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.ICY) || BiomeSelection.hasName(context, "snow"))
                         && RepurposedStructures.RSAllConfig.RSWellsConfig.snowWellRarityPerChunk != 10000,
-                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, RSConfiguredFeatures.SNOW_WELL));
+                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, RSConfiguredFeatures.SNOW_WELL_PLACED));
 
         GeneralUtils.addToBiome("mossy_stone_well",
                 (context) -> 
@@ -43,7 +43,7 @@ public final class Wells {
                                 () ->  BiomeSelection.haveCategories(context, BiomeCategory.SWAMP, BiomeCategory.JUNGLE)
                                 || (BiomeSelection.haveCategories(context, BiomeCategory.FOREST) && BiomeSelection.hasName(context, "dark", "spooky", "dead", "haunted")))
                         && RepurposedStructures.RSAllConfig.RSWellsConfig.mossyStoneWellRarityPerChunk != 10000,
-                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, RSConfiguredFeatures.MOSSY_STONE_WELL));
+                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, RSConfiguredFeatures.MOSSY_STONE_WELL_PLACED));
 
         GeneralUtils.addToBiome("forest_well",
                 (context) -> 
@@ -51,14 +51,14 @@ public final class Wells {
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.FOREST)
                                 && !BiomeSelection.hasName(context, "dark", "spooky", "dead", "haunted"))
                         && RepurposedStructures.RSAllConfig.RSWellsConfig.forestWellRarityPerChunk != 10000,
-                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, RSConfiguredFeatures.FOREST_WELL));
+                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, RSConfiguredFeatures.FOREST_WELL_PLACED));
 
         GeneralUtils.addToBiome("mushroom_well",
                 (context) -> 
                         genericWellCheck(context, RSConfiguredFeatures.MUSHROOM_WELL,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.MUSHROOM))
                         && RepurposedStructures.RSAllConfig.RSWellsConfig.mushroomWellRarityPerChunk != 10000,
-                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, RSConfiguredFeatures.MUSHROOM_WELL));
+                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, RSConfiguredFeatures.MUSHROOM_WELL_PLACED));
     }
 
     private static boolean genericWellCheck(BiomeSelectionContext context, ConfiguredFeature<?,?> configuredFeatures, Supplier<Boolean> condition) {

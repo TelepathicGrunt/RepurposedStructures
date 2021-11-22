@@ -15,7 +15,7 @@ public final class Cities {
         GeneralUtils.addToBiome("city_nether",
                 (context) ->
                         BiomeSelection.isBiomeAllowed(context, RSStructures.CITY_NETHER,
-                            () -> BiomeSelection.haveCategories(context, BiomeCategory.NETHER))
+                                () -> BiomeSelection.haveCategories(context, BiomeCategory.NETHER))
                         && RepurposedStructures.RSAllConfig.RSCitiesConfig.cityNetherAverageChunkDistance != 1001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.CITY_NETHER));
     }

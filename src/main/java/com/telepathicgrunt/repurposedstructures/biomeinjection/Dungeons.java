@@ -7,7 +7,7 @@ import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
 import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
-import net.minecraft.data.worldgen.Features;
+import net.minecraft.data.worldgen.placement.CavePlacements;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome.BiomeCategory;
 import net.minecraft.world.level.biome.Biomes;
@@ -26,14 +26,14 @@ public final class Dungeons {
                         genericDungeonCheck(context, RSConfiguredFeatures.JUNGLE_DUNGEONS,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.JUNGLE))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.jungleDungeonAttemptsPerChunk != 0,
-                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.JUNGLE_DUNGEONS));
+                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.JUNGLE_DUNGEONS_PLACED));
 
         GeneralUtils.addToBiome("badlands_dungeon",
                 (context) ->
                         genericDungeonCheck(context, RSConfiguredFeatures.BADLANDS_DUNGEONS,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.MESA))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.badlandsDungeonAttemptsPerChunk != 0,
-                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.BADLANDS_DUNGEONS));
+                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.BADLANDS_DUNGEONS_PLACED));
 
         GeneralUtils.addToBiome("dark_forest_dungeons",
                 (context) ->
@@ -41,41 +41,28 @@ public final class Dungeons {
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.FOREST)
                                 && BiomeSelection.hasName(context, "dark", "spooky", "dead", "haunted"))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.darkForestDungeonAttemptsPerChunk != 0,
-                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.DARK_FOREST_DUNGEONS));
+                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.DARK_FOREST_DUNGEONS_PLACED));
 
         GeneralUtils.addToBiome("desert_dungeons",
                 (context) ->
                         genericDungeonCheck(context, RSConfiguredFeatures.DESERT_DUNGEONS,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.DESERT))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.desertDungeonAttemptsPerChunk != 0,
-                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.DESERT_DUNGEONS));
+                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.DESERT_DUNGEONS_PLACED));
 
-        GeneralUtils.addToBiome("high_mushroom_dungeons",
-                (context) -> 
-                        genericDungeonCheck(context, RSConfiguredFeatures.MUSHROOM_HIGH_DUNGEONS,
-                                () -> BiomeSelection.haveCategories(context, BiomeCategory.MUSHROOM))
-                        && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.mushroomDungeonAttemptsPerChunk != 0,
-                context -> {
-                    if(RepurposedStructures.RSAllConfig.RSDungeonsConfig.maxHeight.mushroomDungeonMaxHeight > 62)
-                        context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.MUSHROOM_HIGH_DUNGEONS);
-                });
-
-        GeneralUtils.addToBiome("low_mushroom_dungeons",
+        GeneralUtils.addToBiome("mushroom_dungeons",
                 (context) -> 
                         genericDungeonCheck(context, RSConfiguredFeatures.MUSHROOM_DUNGEONS,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.MUSHROOM))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.mushroomDungeonAttemptsPerChunk != 0,
-                context -> {
-                    if(RepurposedStructures.RSAllConfig.RSDungeonsConfig.minHeight.mushroomDungeonMinHeight <= 62)
-                        context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.MUSHROOM_DUNGEONS);
-                });
+                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.MUSHROOM_DUNGEONS_PLACED));
 
         GeneralUtils.addToBiome("swamp_dungeons",
                 (context) -> 
                         genericDungeonCheck(context, RSConfiguredFeatures.SWAMP_DUNGEONS,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.SWAMP))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.swampDungeonAttemptsPerChunk != 0,
-                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.SWAMP_DUNGEONS));
+                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.SWAMP_DUNGEONS_PLACED));
 
         GeneralUtils.addToBiome("snow_dungeons",
                 (context) -> 
@@ -85,7 +72,7 @@ public final class Dungeons {
                                 && !(BiomeSelection.hasName(context, "icy", "ice", "frozen") ||
                                 (context.getBiome().getBaseTemperature() < 0 && !BiomeSelection.hasName(context, "snow"))))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.snowDungeonAttemptsPerChunk != 0,
-                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.SNOW_DUNGEONS));
+                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.SNOW_DUNGEONS_PLACED));
 
         GeneralUtils.addToBiome("icy_dungeons",
                 (context) -> 
@@ -94,7 +81,7 @@ public final class Dungeons {
                                 && (BiomeSelection.hasName(context, "icy", "ice", "frozen") ||
                                 (context.getBiome().getBaseTemperature() < 0 && !BiomeSelection.hasName(context, "snow"))))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.icyDungeonAttemptsPerChunk != 0,
-                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.ICY_DUNGEONS));
+                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.ICY_DUNGEONS_PLACED));
 
         // Vegetal to match Nether Mineshafts
         GeneralUtils.addToBiome("nether_dungeons",
@@ -102,7 +89,7 @@ public final class Dungeons {
                         genericDungeonCheck(context, RSConfiguredFeatures.NETHER_DUNGEONS,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.NETHER))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.netherDungeonAttemptsPerChunk != 0,
-                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RSConfiguredFeatures.NETHER_DUNGEONS));
+                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RSConfiguredFeatures.NETHER_DUNGEONS_PLACED));
 
 
         GeneralUtils.addToBiome("end_dungeons",
@@ -111,7 +98,7 @@ public final class Dungeons {
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.THEEND)
                                 && !BiomeSelection.isBiome(context, Biomes.THE_END, Biomes.SMALL_END_ISLANDS))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.endDungeonAttemptsPerChunk != 0,
-                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.END_DUNGEONS));
+                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.END_DUNGEONS_PLACED));
 
         // Have to do this abomination to get neutral ocean dungeons only in biomes that the other ocean dungeon types won't touch.
         // All due to BiomeModification API being per feature instead of an event like Forge's Biome Modification event.
@@ -123,7 +110,7 @@ public final class Dungeons {
                                 (!BiomeSelection.hasNamespace(context, "minecraft")
                                         && context.getBiome().getBaseTemperature() >= 0.5f && context.getBiome().getBaseTemperature() < 0.9f)))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.oceanDungeonAttemptsPerChunk != 0,
-                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.OCEAN_NEUTRAL_DUNGEONS));
+                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.OCEAN_NEUTRAL_DUNGEONS_PLACED));
 
         GeneralUtils.addToBiome("ocean_cold_dungeons",
                 (context) -> 
@@ -133,7 +120,7 @@ public final class Dungeons {
                                 (!BiomeSelection.hasNamespace(context, "minecraft")
                                         && context.getBiome().getBaseTemperature() >= 0.0f && context.getBiome().getBaseTemperature() < 0.5f)))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.oceanDungeonAttemptsPerChunk != 0,
-                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.OCEAN_COLD_DUNGEONS));
+                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.OCEAN_COLD_DUNGEONS_PLACED));
 
         GeneralUtils.addToBiome("ocean_frozen_dungeons",
                 (context) -> 
@@ -143,7 +130,7 @@ public final class Dungeons {
                                 (!BiomeSelection.hasNamespace(context, "minecraft")
                                         && context.getBiome().getBaseTemperature() < 0f)))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.oceanDungeonAttemptsPerChunk != 0,
-                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.OCEAN_FROZEN_DUNGEONS));
+                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.OCEAN_FROZEN_DUNGEONS_PLACED));
 
         GeneralUtils.addToBiome("ocean_lukewarm_dungeons",
                 (context) -> 
@@ -153,7 +140,7 @@ public final class Dungeons {
                                 (!BiomeSelection.hasNamespace(context, "minecraft")
                                         && context.getBiome().getBaseTemperature() >= 0.9f && context.getBiome().getBaseTemperature() < 1.5f)))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.oceanDungeonAttemptsPerChunk != 0,
-                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.OCEAN_LUKEWARM_DUNGEONS));
+                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.OCEAN_LUKEWARM_DUNGEONS_PLACED));
 
         GeneralUtils.addToBiome("ocean_warm_dungeons",
                 (context) -> 
@@ -163,7 +150,7 @@ public final class Dungeons {
                                 (!BiomeSelection.hasNamespace(context, "minecraft")
                                         && context.getBiome().getBaseTemperature() >= 1.5f)))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.oceanDungeonAttemptsPerChunk != 0,
-                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.OCEAN_WARM_DUNGEONS));
+                context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.OCEAN_WARM_DUNGEONS_PLACED));
 
 
         if(!RepurposedStructures.isBetterDungeonsOn) {
@@ -179,7 +166,7 @@ public final class Dungeons {
                                     dungeon != RSConfiguredFeatures.NETHER_DUNGEONS &&
                                     dungeon != RSConfiguredFeatures.END_DUNGEONS &&
                                     context.hasBuiltInFeature(dungeon)),
-                    context -> context.getGenerationSettings().removeBuiltInFeature(Features.MONSTER_ROOM));
+                    context -> context.getGenerationSettings().removeBuiltInFeature(CavePlacements.MONSTER_ROOM));
         }
     }
 

@@ -23,6 +23,7 @@
     "structures.EnderEyeStrongholdLocatingMixin",
     "structures.ListPoolElementAccessor",
     "structures.SinglePoolElementAccessor",
+    "structures.StructureFeaturesMixin",
     "structures.StructureManagerAccessor",
     "structures.StructureMobSpawningMixin",
     "structures.StructurePoolAccessor",

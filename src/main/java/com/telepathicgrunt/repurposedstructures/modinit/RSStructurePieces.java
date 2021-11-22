@@ -14,9 +14,6 @@ public final class RSStructurePieces {
     public static StructurePoolElementType<MirroringSingleJigsawPiece> MIRROR_SINGLE;
 
     public static void registerStructurePieces() {
-        // dummy value
-        Registry.register(Registry.STRUCTURE_PIECE, new ResourceLocation(RepurposedStructures.MODID, "mansion_piece"), WoodlandMansionPieces.WoodlandMansionPiece::new);
-
         // needed to make template pool based mansions work
         MIRROR_SINGLE = StructurePoolElementType.register(RepurposedStructures.MODID + ":mirroring_single_pool_element", MirroringSingleJigsawPiece.CODEC);
     }

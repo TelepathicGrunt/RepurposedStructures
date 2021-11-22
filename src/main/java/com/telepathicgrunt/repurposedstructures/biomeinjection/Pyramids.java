@@ -73,8 +73,7 @@ public final class Pyramids {
         GeneralUtils.addToBiome("pyramid_ocean",
                 (context) ->
                         BiomeSelection.isBiomeAllowed(context, RSStructures.PYRAMID_OCEAN,
-                                () -> BiomeSelection.haveCategories(context, BiomeCategory.OCEAN)
-                                && !BiomeSelection.isBiome(context, Biomes.MUSHROOM_FIELD_SHORE))
+                                () -> BiomeSelection.haveCategories(context, BiomeCategory.OCEAN))
                         && RepurposedStructures.RSAllConfig.RSPyramidsConfig.pyramidOceanAverageChunkDistance != 1001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.PYRAMID_OCEAN));
 

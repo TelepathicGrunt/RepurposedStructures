@@ -41,15 +41,18 @@ public final class BiomeSelection {
     }
 
     public static boolean hasStructure(BiomeSelectionContext context, StructureFeature<?> structureFeature){
-        return context.getBiome().getGenerationSettings().isValidStart(structureFeature);
+        //return context.getBiome().getGenerationSettings().isValidStart(structureFeature);
+        return false;
     }
 
     public static boolean hasStructureType(BiomeSelectionContext context, RSStructureTagMap.STRUCTURE_TAGS tag){
-        return RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(tag).stream().anyMatch(structure -> context.getBiome().getGenerationSettings().isValidStart(structure));
+        //return RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(tag).stream().anyMatch(structure -> context.getBiome().getGenerationSettings().isValidStart(structure));
+        return false;
     }
 
     public static boolean doesNotHaveStructureType(BiomeSelectionContext context, RSStructureTagMap.STRUCTURE_TAGS tag){
-        return RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(tag).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().isValidStart(structure));
+        //return RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(tag).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().isValidStart(structure));
+        return true;
     }
 
 

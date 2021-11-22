@@ -46,20 +46,9 @@ public final class Shipwrecks {
                 (context) ->
                         BiomeSelection.isBiomeAllowed(context, RSStructures.SHIPWRECK_NETHER_BRICKS,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.NETHER)
-                                && BiomeSelection.hasName(context, "soul")
                                 && !BiomeSelection.hasName(context, "crimson", "red_", "warped", "blue")
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.NETHER_SHIPWRECK))
                         && RepurposedStructures.RSAllConfig.RSShipwrecksConfig.netherBricksShipwreckAverageChunkDistance != 1001,
-                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.SHIPWRECK_NETHER_BRICKS_FLYING));
-
-        GeneralUtils.addToBiome("nether_bricks_shipwreck_flying",
-                (context) ->
-                        BiomeSelection.isBiomeAllowed(context, RSStructures.SHIPWRECK_NETHER_BRICKS,
-                                () -> BiomeSelection.haveCategories(context, BiomeCategory.NETHER)
-                                && !BiomeSelection.hasName(context, "crimson", "red_", "warped", "blue", "soul")
-                                && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.NETHER_SHIPWRECK))
-                && RepurposedStructures.RSAllConfig.RSShipwrecksConfig.netherBricksShipwreckAverageChunkDistance != 1001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.SHIPWRECK_NETHER_BRICKS));
-
     }
 }
