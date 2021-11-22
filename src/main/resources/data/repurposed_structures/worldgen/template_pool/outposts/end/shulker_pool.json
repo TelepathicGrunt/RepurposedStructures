@@ -5,7 +5,7 @@
     {
       "weight": 9,
       "element": {
-        "feature": "repurposed_structures:shulker_mob",
+        "feature": "repurposed_structures:mobs/shulker_mob",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }

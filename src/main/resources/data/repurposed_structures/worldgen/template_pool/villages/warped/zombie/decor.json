@@ -14,7 +14,7 @@
     {
       "weight": 4,
       "element": {
-        "feature": "repurposed_structures:warped_fungi_not_planted",
+        "feature": "repurposed_structures:huge_warped_fungus",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }

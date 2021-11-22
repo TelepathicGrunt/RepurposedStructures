@@ -32,7 +32,7 @@
     {
       "weight": 2,
       "element": {
-        "feature": "minecraft:trees_swamp",
+        "feature": "repurposed_structures:swamp_tree_checked",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }

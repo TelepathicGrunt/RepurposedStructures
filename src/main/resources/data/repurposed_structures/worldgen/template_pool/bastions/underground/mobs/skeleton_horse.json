@@ -5,7 +5,7 @@
     {
       "weight": 3,
       "element": {
-        "feature": "repurposed_structures:skeleton_horseman_sword",
+        "feature": "repurposed_structures:mobs/skeleton_horseman_sword",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }
@@ -13,7 +13,7 @@
     {
       "weight": 5,
       "element": {
-        "feature": "repurposed_structures:skeleton_horseman_bow",
+        "feature": "repurposed_structures:mobs/skeleton_horseman_bow",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }

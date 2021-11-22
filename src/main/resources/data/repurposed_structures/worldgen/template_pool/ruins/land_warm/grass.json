@@ -5,7 +5,7 @@
     {
       "weight": 2,
       "element": {
-        "feature": "repurposed_structures:warm_land_ruins_structure_grass",
+        "feature": "repurposed_structures:dense_tall_grass",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }

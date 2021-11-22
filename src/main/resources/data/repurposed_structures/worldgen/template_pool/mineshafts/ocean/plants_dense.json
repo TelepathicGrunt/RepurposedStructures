@@ -5,7 +5,7 @@
     {
       "weight": 1,
       "element": {
-        "feature": "repurposed_structures:ocean_mineshaft_dense_plants",
+        "feature": "repurposed_structures:decor/ocean_mineshaft_dense_plants",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }

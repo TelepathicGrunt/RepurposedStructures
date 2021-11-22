@@ -5,7 +5,7 @@
     {
       "weight": 4,
       "element": {
-        "feature": "repurposed_structures:hot_land_ruins_structure_dead_bush",
+        "feature": "repurposed_structures:dense_dead_bush",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }

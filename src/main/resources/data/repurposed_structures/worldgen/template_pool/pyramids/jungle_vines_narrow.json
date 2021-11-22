@@ -5,7 +5,7 @@
     {
       "weight": 1,
       "element": {
-        "feature": "repurposed_structures:jungle_pyramid_structure_vines_narrow",
+        "feature": "repurposed_structures:decor/jungle_pyramid_structure_vines_narrow",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }

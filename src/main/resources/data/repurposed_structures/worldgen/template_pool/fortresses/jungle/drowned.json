@@ -11,7 +11,7 @@
     {
       "weight": 2,
       "element": {
-        "feature": "repurposed_structures:drowned_with_armor",
+        "feature": "repurposed_structures:mobs/drowned_with_armor",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }
