@@ -32,7 +32,7 @@
     {
       "weight": 1,
       "element": {
-        "feature": "minecraft:mega_pine",
+        "feature": "minecraft:mega_pine_checked",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }

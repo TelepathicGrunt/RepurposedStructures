@@ -1,0 +1,20 @@
+{
+  "config": {
+	  "pillar_state": {
+        "Name": "minecraft:cracked_nether_bricks"
+	  },
+	  "fence_state": {
+        "Properties": {
+          "north": "false",
+          "south": "false",
+          "east": "false",
+          "west": "false"
+          "waterlogged": "false"
+        },
+        "Name": "minecraft:nether_brick_fence"
+	  },
+	  "target_floor_block": "minecraft:nether_bricks",
+	  "is_water_based": false
+  },
+  "type": "repurposed_structures:mineshaft_supports"
+}

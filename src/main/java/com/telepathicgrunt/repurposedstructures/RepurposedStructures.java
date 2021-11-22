@@ -73,6 +73,7 @@ public class RepurposedStructures implements ModInitializer, DedicatedServerModI
     public static boolean isBetterMineshaftsOn = false;
     public static boolean isBetterDungeonsOn = false;
     public static boolean isCharmOn = false;
+    public static boolean initialized = false;
 
 
     @Override
@@ -108,6 +109,8 @@ public class RepurposedStructures implements ModInitializer, DedicatedServerModI
         StructurePiecesBehavior.init();
         MobMapTrades.addMapTrades();
         ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(RepurposedStructures.mobSpawnerManager);
+
+        initialized = true;
     }
 
     // These are for when we want to add compat with other mods but uses their configs/codes that isn't read in the regular onInitialize method

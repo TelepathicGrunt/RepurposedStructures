@@ -22,7 +22,7 @@
     {
       "weight": 1,
       "element": {
-        "feature": "minecraft:flower_forest",
+        "feature": "minecraft:flower_forest_flowers",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }

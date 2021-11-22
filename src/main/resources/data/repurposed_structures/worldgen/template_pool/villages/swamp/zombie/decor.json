@@ -32,7 +32,7 @@
     {
       "weight": 2,
       "element": {
-        "feature": "minecraft:swamp_oak",
+        "feature": "minecraft:trees_swamp",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }

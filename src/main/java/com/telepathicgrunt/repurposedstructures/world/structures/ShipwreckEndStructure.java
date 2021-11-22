@@ -28,7 +28,7 @@ import java.util.function.Predicate;
 public class ShipwreckEndStructure extends AbstractBaseStructure<NoneFeatureConfiguration> {
     // Special thanks to cannon_foddr for allowing me to use his End Shipwreck design!
 
-    public ShipwreckEndStructure(Predicate<PieceGeneratorSupplier.Context> locationCheckPredicate, Function<PieceGeneratorSupplier.Context, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
+    public ShipwreckEndStructure(Predicate<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>> locationCheckPredicate, Function<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
         super(NoneFeatureConfiguration.CODEC, locationCheckPredicate, pieceCreationPredicate);
     }
 
@@ -43,7 +43,7 @@ public class ShipwreckEndStructure extends AbstractBaseStructure<NoneFeatureConf
         return finalInstance;
     }
 
-    protected boolean isFeatureChunk(PieceGeneratorSupplier.Context context, StartPoolOnlyCodeConfig config) {
+    protected boolean isFeatureChunk(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, StartPoolOnlyCodeConfig config) {
         return getGenerationHeight(context.chunkPos(), context.chunkGenerator(), context.heightAccessor()) >= Math.min(context.chunkGenerator().getGenDepth(), 20);
     }
 
@@ -57,7 +57,7 @@ public class ShipwreckEndStructure extends AbstractBaseStructure<NoneFeatureConf
         return Math.min(Math.min(heightmap1, heightmap2), Math.min(heightmap3, heightmap4));
     }
 
-    public Optional<PieceGenerator<NoneFeatureConfiguration>> generatePieces(PieceGeneratorSupplier.Context context, StartPoolOnlyCodeConfig config) {
+    public Optional<PieceGenerator<NoneFeatureConfiguration>> generatePieces(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, StartPoolOnlyCodeConfig config) {
         BlockPos blockpos = new BlockPos(context.chunkPos().getMinBlockX(), 64, context.chunkPos().getMinBlockZ());
 
         ResourceLocation structureID = Registry.STRUCTURE_FEATURE.getKey(this);
@@ -70,13 +70,10 @@ public class ShipwreckEndStructure extends AbstractBaseStructure<NoneFeatureConf
                 false,
                 Integer.MAX_VALUE,
                 Integer.MIN_VALUE,
-                (pieces) -> {
+                (structurePiecesBuilder, pieces) -> {
                     GeneralUtils.centerAllPieces(blockpos, pieces);
                     WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0L));
                     random.setLargeFeatureSeed(context.seed(), context.chunkPos().x, context.chunkPos().z);
-                    StructurePiecesBuilder structurePiecesBuilder = new StructurePiecesBuilder();
-                    pieces.forEach(structurePiecesBuilder::addPiece);
-
                     BlockPos blockPos = new BlockPos(pieces.get(0).getBoundingBox().getCenter());
                     int highestLandPos = context.chunkGenerator().getBaseHeight(blockPos.getX(), blockPos.getZ(), Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor());
                     highestLandPos = Math.max(30, highestLandPos);

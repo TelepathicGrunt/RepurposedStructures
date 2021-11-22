@@ -20,7 +20,7 @@ import java.util.function.Predicate;
 
 public class StrongholdEndStructure extends AdvancedDistanceJigsawStructure {
 
-    public StrongholdEndStructure(Predicate<PieceGeneratorSupplier.Context> locationCheckPredicate, Function<PieceGeneratorSupplier.Context, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
+    public StrongholdEndStructure(Predicate<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>> locationCheckPredicate, Function<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
         super(locationCheckPredicate, pieceCreationPredicate);
     }
 
@@ -36,7 +36,7 @@ public class StrongholdEndStructure extends AdvancedDistanceJigsawStructure {
     }
 
 
-    protected boolean isFeatureChunk(PieceGeneratorSupplier.Context context, AdvancedDistanceJigsawStructureCodeConfig config) {
+    protected boolean isFeatureChunk(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, AdvancedDistanceJigsawStructureCodeConfig config) {
         boolean superCheck = super.isFeatureChunk(context, config);
         if(!superCheck)
             return false;

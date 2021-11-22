@@ -24,7 +24,7 @@ import java.util.function.Predicate;
 
 public class AdvancedJigsawStructure extends AbstractBaseStructure<NoneFeatureConfiguration> {
 
-    public AdvancedJigsawStructure(Predicate<PieceGeneratorSupplier.Context> locationCheckPredicate, Function<PieceGeneratorSupplier.Context, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
+    public AdvancedJigsawStructure(Predicate<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>> locationCheckPredicate, Function<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
         super(NoneFeatureConfiguration.CODEC, locationCheckPredicate, pieceCreationPredicate);
     }
 
@@ -39,7 +39,7 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<NoneFeatureCo
         return finalInstance;
     }
 
-    protected boolean isFeatureChunk(PieceGeneratorSupplier.Context context, AdvancedJigsawStructureCodeConfig config) {
+    protected boolean isFeatureChunk(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, AdvancedJigsawStructureCodeConfig config) {
         ChunkPos chunkPos = context.chunkPos();
 
         if(!(context.biomeSource() instanceof CheckerboardColumnBiomeSource)) {
@@ -58,7 +58,7 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<NoneFeatureCo
         return true;
     }
 
-    public Optional<PieceGenerator<NoneFeatureConfiguration>> generatePieces(PieceGeneratorSupplier.Context context, AdvancedJigsawStructureCodeConfig config) {
+    public Optional<PieceGenerator<NoneFeatureConfiguration>> generatePieces(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, AdvancedJigsawStructureCodeConfig config) {
         BlockPos.MutableBlockPos blockpos = new BlockPos.MutableBlockPos(context.chunkPos().getMinBlockX(), 0, context.chunkPos().getMinBlockZ());
         if(config.maxY - config.minY <= 0){
             RepurposedStructures.LOGGER.error("MinY should always be less than MaxY or else a crash will occur or no pieces will spawn. Problematic structure is:" + Registry.STRUCTURE_FEATURE.getKey(this));
@@ -94,7 +94,7 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<NoneFeatureCo
                 false,
                 topClipOff,
                 bottomClipOff,
-                (pieces) -> {});
+                (structurePiecesBuilder, pieces) -> {});
 
 //            }
 //            long endTime = System.currentTimeMillis();

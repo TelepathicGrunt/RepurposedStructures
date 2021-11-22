@@ -1,0 +1,21 @@
+{
+  "config": {
+	  "pillar_state": {
+        "Name": "minecraft:mossy_stone_bricks"
+	  },
+	  "fence_state": {
+        "Properties": {
+          "north": "none",
+          "south": "none",
+          "east": "none",
+          "west": "none",
+          "up": "true"
+          "waterlogged": "false"
+        },
+        "Name": "minecraft:mossy_stone_brick_wall"
+	  },
+	  "target_floor_block": "minecraft:moss_block",
+	  "is_water_based": false
+  },
+  "type": "repurposed_structures:mineshaft_supports"
+}

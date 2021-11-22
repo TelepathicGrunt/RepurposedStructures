@@ -71,7 +71,7 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
                 spawnEntityDataTag.putString("id", Registry.ENTITY_TYPE.getKey(entity).toString());
                 CompoundTag spawnPotentialEntryTag = new CompoundTag();
                 spawnPotentialEntryTag.put("Entity", spawnEntityDataTag);
-                spawnPotentialEntryTag.put("Weight", IntTag.valueOf(1));
+                spawnPotentialEntryTag.put("weight", IntTag.valueOf(1));
                 ListTag spawnPotentialDataTag = nbt.getList("SpawnPotentials", spawnPotentialEntryTag.getId());
                 if(spawnPotentialDataTag.isEmpty()){
                     spawnPotentialDataTag = new ListTag();
@@ -100,7 +100,7 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
 
                 CompoundTag listEntry = new CompoundTag();
                 listEntry.put("Entity", entityData);
-                listEntry.putInt("Weight", 1);
+                listEntry.putInt("weight", 1);
 
                 ListTag listnbt = new ListTag();
                 listnbt.add(listEntry);

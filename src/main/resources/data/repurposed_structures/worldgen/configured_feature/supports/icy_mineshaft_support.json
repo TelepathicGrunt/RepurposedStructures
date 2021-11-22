@@ -1,0 +1,21 @@
+{
+  "config": {
+	  "pillar_state": {
+        "Name": "minecraft:packed_ice"
+	  },
+	  "fence_state": {
+        "Properties": {
+          "north": "none",
+          "south": "none",
+          "east": "none",
+          "west": "none",
+          "up": "true"
+          "waterlogged": "false"
+        },
+        "Name": "minecraft:diorite_wall"
+	  },
+	  "target_floor_block": "minecraft:ice",
+	  "is_water_based": false
+  },
+  "type": "repurposed_structures:mineshaft_supports"
+}

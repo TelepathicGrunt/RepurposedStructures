@@ -27,7 +27,7 @@ import java.util.function.Predicate;
 
 public class LandBasedEndStructure extends GenericJigsawStructure {
 
-    public LandBasedEndStructure(Predicate<PieceGeneratorSupplier.Context> locationCheckPredicate, Function<PieceGeneratorSupplier.Context, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
+    public LandBasedEndStructure(Predicate<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>> locationCheckPredicate, Function<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
         super(locationCheckPredicate, pieceCreationPredicate);
     }
 
@@ -42,7 +42,7 @@ public class LandBasedEndStructure extends GenericJigsawStructure {
         return finalInstance;
     }
 
-    protected boolean isFeatureChunk(PieceGeneratorSupplier.Context context, GenericJigsawStructureCodeConfig config) {
+    protected boolean isFeatureChunk(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, GenericJigsawStructureCodeConfig config) {
         return getTerrainHeight(context.chunkPos(), context.chunkGenerator(), context.heightAccessor()) >= Math.min(context.chunkGenerator().getGenDepth(), 50);
     }
 
@@ -62,7 +62,7 @@ public class LandBasedEndStructure extends GenericJigsawStructure {
         return height;
     }
 
-    public Optional<PieceGenerator<NoneFeatureConfiguration>> generatePieces(PieceGeneratorSupplier.Context context, GenericJigsawStructureCodeConfig config) {
+    public Optional<PieceGenerator<NoneFeatureConfiguration>> generatePieces(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, GenericJigsawStructureCodeConfig config) {
         BlockPos blockpos = new BlockPos(context.chunkPos().getMinBlockX(), config.fixedYSpawn, context.chunkPos().getMinBlockZ());
 
         ResourceLocation structureID = Registry.STRUCTURE_FEATURE.getKey(this);
@@ -75,7 +75,7 @@ public class LandBasedEndStructure extends GenericJigsawStructure {
                 config.useHeightmap,
                 Integer.MAX_VALUE,
                 Integer.MIN_VALUE,
-                (pieces) -> {
+                (structurePiecesBuilder, pieces) -> {
                     GeneralUtils.centerAllPieces(blockpos, pieces);
                     pieces.get(0).move(0, config.centerOffset, 0);
 

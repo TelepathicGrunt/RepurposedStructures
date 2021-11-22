@@ -34,7 +34,7 @@ import java.util.function.Predicate;
 
 public class MansionStructure extends AbstractBaseStructure<NoneFeatureConfiguration> {
 
-    public MansionStructure(Predicate<PieceGeneratorSupplier.Context> locationCheckPredicate, Function<PieceGeneratorSupplier.Context, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate, PostPlacementProcessor postPlacementProcessor) {
+    public MansionStructure(Predicate<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>> locationCheckPredicate, Function<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate, PostPlacementProcessor postPlacementProcessor) {
         super(NoneFeatureConfiguration.CODEC, locationCheckPredicate, pieceCreationPredicate, postPlacementProcessor);
     }
 
@@ -55,7 +55,7 @@ public class MansionStructure extends AbstractBaseStructure<NoneFeatureConfigura
         return false;
     }
 
-    protected boolean isFeatureChunk(PieceGeneratorSupplier.Context context, MansionCodeConfig config) {
+    protected boolean isFeatureChunk(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, MansionCodeConfig config) {
         ChunkPos chunkPos = context.chunkPos();
 
         if(!(context.biomeSource() instanceof CheckerboardColumnBiomeSource)) {
@@ -73,7 +73,7 @@ public class MansionStructure extends AbstractBaseStructure<NoneFeatureConfigura
         return true;
     }
 
-    public Optional<PieceGenerator<NoneFeatureConfiguration>> generatePieces(PieceGeneratorSupplier.Context context, MansionCodeConfig config) {
+    public Optional<PieceGenerator<NoneFeatureConfiguration>> generatePieces(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, MansionCodeConfig config) {
 
         ChunkPos chunkPos = context.chunkPos();
         WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0L));

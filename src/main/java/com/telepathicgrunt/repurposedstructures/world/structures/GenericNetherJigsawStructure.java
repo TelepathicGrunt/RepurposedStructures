@@ -22,7 +22,7 @@ import java.util.function.Predicate;
 
 public class GenericNetherJigsawStructure extends GenericJigsawStructure {
 
-    public GenericNetherJigsawStructure(Predicate<PieceGeneratorSupplier.Context> locationCheckPredicate, Function<PieceGeneratorSupplier.Context, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
+    public GenericNetherJigsawStructure(Predicate<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>> locationCheckPredicate, Function<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
         super(locationCheckPredicate, pieceCreationPredicate);
     }
 
@@ -37,7 +37,7 @@ public class GenericNetherJigsawStructure extends GenericJigsawStructure {
         return finalInstance;
     }
 
-    protected Optional<PieceGenerator<NoneFeatureConfiguration>> generatePieces(PieceGeneratorSupplier.Context context, GenericNetherJigsawStructureCodeConfig config) {
+    protected Optional<PieceGenerator<NoneFeatureConfiguration>> generatePieces(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, GenericNetherJigsawStructureCodeConfig config) {
         BlockPos blockpos = new BlockPos(context.chunkPos().getMinBlockX(), config.fixedYSpawn, context.chunkPos().getMinBlockZ());
 
         ResourceLocation structureID = Registry.STRUCTURE_FEATURE.getKey(this);
@@ -50,14 +50,12 @@ public class GenericNetherJigsawStructure extends GenericJigsawStructure {
                 config.useHeightmap,
                 Integer.MAX_VALUE,
                 Integer.MIN_VALUE,
-                (pieces) -> {
+                (structurePiecesBuilder, pieces) -> {
                     GeneralUtils.centerAllPieces(blockpos, pieces);
                     pieces.get(0).move(0, config.centerOffset, 0);
 
                     WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0L));
                     random.setLargeFeatureSeed(context.seed(), context.chunkPos().x, context.chunkPos().z);
-                    StructurePiecesBuilder structurePiecesBuilder = new StructurePiecesBuilder();
-                    pieces.forEach(structurePiecesBuilder::addPiece);
                     BlockPos placementPos;
 
                     if(config.highestLandSearch){

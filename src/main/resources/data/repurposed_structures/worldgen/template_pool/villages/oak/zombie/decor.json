@@ -14,7 +14,7 @@
     {
       "weight": 3,
       "element": {
-        "feature": "minecraft:fancy_oak_bees_005",
+        "feature": "minecraft:fancy_oak_bees_002",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }

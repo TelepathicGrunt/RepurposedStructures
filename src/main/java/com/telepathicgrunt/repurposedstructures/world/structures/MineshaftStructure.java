@@ -17,7 +17,7 @@ import java.util.function.Predicate;
 
 public class MineshaftStructure extends AdvancedJigsawStructure {
 
-    public MineshaftStructure(Predicate<PieceGeneratorSupplier.Context> locationCheckPredicate, Function<PieceGeneratorSupplier.Context, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
+    public MineshaftStructure(Predicate<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>> locationCheckPredicate, Function<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
         super(locationCheckPredicate, pieceCreationPredicate);
     }
 
@@ -32,7 +32,7 @@ public class MineshaftStructure extends AdvancedJigsawStructure {
         return finalInstance;
     }
 
-    protected boolean isFeatureChunk(PieceGeneratorSupplier.Context context, MineshaftCodeConfig config) {
+    protected boolean isFeatureChunk(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, MineshaftCodeConfig config) {
         StructureFeatureConfiguration structureConfig = context.chunkGenerator().getSettings().getConfig(this);
         if(structureConfig != null) {
             WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0L));

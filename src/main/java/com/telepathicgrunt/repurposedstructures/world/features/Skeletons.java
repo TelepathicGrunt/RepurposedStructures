@@ -27,24 +27,15 @@ public class Skeletons extends Feature<GenericMobConfig> {
         // Do this first as this attaches a bow automatically. We may want to override the bow later.
         skeletonEntity.finalizeSpawn(context.level(), context.level().getCurrentDifficultyAt(context.origin()), MobSpawnType.STRUCTURE, null, null);
 
-        if(context.config().heldItem != null){
-            ItemStack heldItem = new ItemStack(context.config().heldItem);
+        context.config().heldItem.ifPresent(item -> {
+            ItemStack heldItem = new ItemStack(item);
             skeletonEntity.setItemInHand(InteractionHand.MAIN_HAND, GeneralUtils.enchantRandomly(context.random(), heldItem, 0.333F));
             skeletonEntity.setLeftHanded(context.random().nextFloat() < 0.05F);
-        }
-
-        if(context.config().helmet != null){
-            skeletonEntity.setItemSlot(EquipmentSlot.HEAD, GeneralUtils.enchantRandomly(context.random(), context.config().helmet.getDefaultInstance(), 0.075F));
-        }
-        if(context.config().chestplate != null){
-            skeletonEntity.setItemSlot(EquipmentSlot.CHEST, GeneralUtils.enchantRandomly(context.random(), context.config().chestplate.getDefaultInstance(), 0.075F));
-        }
-        if(context.config().leggings != null){
-            skeletonEntity.setItemSlot(EquipmentSlot.LEGS, GeneralUtils.enchantRandomly(context.random(), context.config().leggings.getDefaultInstance(), 0.075F));
-        }
-        if(context.config().boots != null){
-            skeletonEntity.setItemSlot(EquipmentSlot.FEET, GeneralUtils.enchantRandomly(context.random(), context.config().boots.getDefaultInstance(), 0.075F));
-        }
+        });
+        context.config().helmet.ifPresent(item -> skeletonEntity.setItemSlot(EquipmentSlot.HEAD, GeneralUtils.enchantRandomly(context.random(), item.getDefaultInstance(), 0.075F)));
+        context.config().chestplate.ifPresent(item -> skeletonEntity.setItemSlot(EquipmentSlot.CHEST, GeneralUtils.enchantRandomly(context.random(), item.getDefaultInstance(), 0.075F)));
+        context.config().leggings.ifPresent(item -> skeletonEntity.setItemSlot(EquipmentSlot.LEGS, GeneralUtils.enchantRandomly(context.random(), item.getDefaultInstance(), 0.075F)));
+        context.config().boots.ifPresent(item -> skeletonEntity.setItemSlot(EquipmentSlot.FEET, GeneralUtils.enchantRandomly(context.random(), item.getDefaultInstance(), 0.075F)));
 
         skeletonEntity.setPersistenceRequired();
         skeletonEntity.moveTo(

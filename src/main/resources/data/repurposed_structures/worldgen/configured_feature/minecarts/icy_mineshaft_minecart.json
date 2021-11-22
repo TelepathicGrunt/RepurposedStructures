@@ -1,0 +1,6 @@
+{
+  "config": {
+    "minecart_nbt_file": "repurposed_structures:mineshafts/icy/minecart"
+  },
+  "type": "repurposed_structures:mineshaft_minecarts"
+}

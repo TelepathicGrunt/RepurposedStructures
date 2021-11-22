@@ -1,0 +1,7 @@
+{
+  "config": {
+	  "attempts": 80,
+	  "length": 3
+  },
+  "type": "repurposed_structures:structure_warped_plants"
+}

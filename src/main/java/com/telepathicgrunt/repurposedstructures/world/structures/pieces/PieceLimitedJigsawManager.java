@@ -32,6 +32,7 @@ import net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
+import net.minecraft.world.level.levelgen.structure.pieces.StructurePiecesBuilder;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import net.minecraft.world.phys.AABB;
@@ -46,6 +47,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Random;
+import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 /**
@@ -59,7 +61,7 @@ public class PieceLimitedJigsawManager {
     public record Entry(PoolElementStructurePiece piece, MutableObject<BoxOctree> boxOctreeMutableObject, int topYLimit, int depth) { }
 
     public static Optional<PieceGenerator<NoneFeatureConfiguration>> assembleJigsawStructure(
-            PieceGeneratorSupplier.Context context,
+            PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context,
             JigsawConfiguration jigsawConfig,
             ResourceLocation structureID,
             BlockPos startPos,
@@ -67,7 +69,7 @@ public class PieceLimitedJigsawManager {
             boolean useHeightmap,
             int maxY,
             int minY,
-            Consumer<List<PoolElementStructurePiece>> structureBoundsAdjuster
+            BiConsumer<StructurePiecesBuilder, List<PoolElementStructurePiece>> structureBoundsAdjuster
     ) {
         // Get jigsaw pool registry
         WritableRegistry<StructureTemplatePool> jigsawPoolRegistry = context.registryAccess().ownedRegistryOrThrow(Registry.TEMPLATE_POOL_REGISTRY);
@@ -156,7 +158,8 @@ public class PieceLimitedJigsawManager {
                 if (runOnce) break;
             }
 
-            structureBoundsAdjuster.accept(components);
+            components.forEach(structurePiecesBuilder::addPiece);
+            structureBoundsAdjuster.accept(structurePiecesBuilder, components);
         });
     }
 

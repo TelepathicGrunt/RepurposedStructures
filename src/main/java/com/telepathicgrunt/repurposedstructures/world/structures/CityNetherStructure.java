@@ -22,7 +22,7 @@ import java.util.function.Predicate;
 
 public class CityNetherStructure extends GenericJigsawStructure {
 
-    public CityNetherStructure(Predicate<PieceGeneratorSupplier.Context> locationCheckPredicate, Function<PieceGeneratorSupplier.Context, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
+    public CityNetherStructure(Predicate<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>> locationCheckPredicate, Function<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
         super(locationCheckPredicate, pieceCreationPredicate);
     }
 
@@ -38,7 +38,7 @@ public class CityNetherStructure extends GenericJigsawStructure {
     }
 
 
-    protected boolean isFeatureChunk(PieceGeneratorSupplier.Context context, GenericJigsawStructureCodeConfig config) {
+    protected boolean isFeatureChunk(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, GenericJigsawStructureCodeConfig config) {
         ChunkPos chunkPos = context.chunkPos();
 
         // do cheaper checks first
@@ -70,7 +70,7 @@ public class CityNetherStructure extends GenericJigsawStructure {
         return true;
     }
 
-    public Optional<PieceGenerator<NoneFeatureConfiguration>> generatePieces(PieceGeneratorSupplier.Context context, GenericJigsawStructureCodeConfig config) {
+    public Optional<PieceGenerator<NoneFeatureConfiguration>> generatePieces(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, GenericJigsawStructureCodeConfig config) {
         BlockPos blockpos = new BlockPos(context.chunkPos().getMinBlockX(), context.chunkGenerator().getSeaLevel(), context.chunkPos().getMinBlockZ());
 
         ResourceLocation structureID = Registry.STRUCTURE_FEATURE.getKey(this);
@@ -83,8 +83,6 @@ public class CityNetherStructure extends GenericJigsawStructure {
                 false,
                 Integer.MAX_VALUE,
                 Integer.MIN_VALUE,
-                (pieces) -> {
-                    pieces.get(0).move(0, config.centerOffset, 0);
-                });
+                (structurePiecesBuilder, pieces) -> pieces.get(0).move(0, config.centerOffset, 0));
     }
 }

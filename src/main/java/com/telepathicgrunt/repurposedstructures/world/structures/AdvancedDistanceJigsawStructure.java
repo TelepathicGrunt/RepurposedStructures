@@ -11,9 +11,11 @@ import net.minecraft.world.level.levelgen.LegacyRandomSource;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
+import net.minecraft.world.level.levelgen.structure.pieces.StructurePiecesBuilder;
 import org.apache.commons.lang3.mutable.Mutable;
 import org.apache.commons.lang3.mutable.MutableObject;
 
@@ -25,7 +27,7 @@ import java.util.function.Predicate;
 
 public class AdvancedDistanceJigsawStructure extends AdvancedJigsawStructure {
 
-    public AdvancedDistanceJigsawStructure(Predicate<PieceGeneratorSupplier.Context> locationCheckPredicate, Function<PieceGeneratorSupplier.Context, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
+    public AdvancedDistanceJigsawStructure(Predicate<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>> locationCheckPredicate, Function<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
         super(locationCheckPredicate, pieceCreationPredicate);
     }
 
@@ -40,14 +42,14 @@ public class AdvancedDistanceJigsawStructure extends AdvancedJigsawStructure {
         return finalInstance;
     }
 
-    protected boolean isFeatureChunk(PieceGeneratorSupplier.Context context, AdvancedDistanceJigsawStructureCodeConfig config) {
+    protected boolean isFeatureChunk(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, AdvancedDistanceJigsawStructureCodeConfig config) {
         int radius = config.distanceFromWorldOrigin;
         int xBlockPos = context.chunkPos().getMinBlockX();
         int zBlockPos = context.chunkPos().getMinBlockZ();
         return (xBlockPos * xBlockPos) + (zBlockPos * zBlockPos) > radius * radius;
     }
 
-    public Optional<PieceGenerator<NoneFeatureConfiguration>> generatePieces(PieceGeneratorSupplier.Context context, AdvancedDistanceJigsawStructureCodeConfig config) {
+    public Optional<PieceGenerator<NoneFeatureConfiguration>> generatePieces(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, AdvancedDistanceJigsawStructureCodeConfig config) {
         BlockPos.MutableBlockPos blockpos = new BlockPos.MutableBlockPos(context.chunkPos().getMinBlockX(), 0, context.chunkPos().getMinBlockZ());
         if(config.maxY - config.minY <= 0){
             RepurposedStructures.LOGGER.error("MinY should always be less than MaxY or else a crash will occur or no pieces will spawn. Problematic structure is:" + Registry.STRUCTURE_FEATURE.getKey(this));
@@ -79,8 +81,9 @@ public class AdvancedDistanceJigsawStructure extends AdvancedJigsawStructure {
                 false,
                 topClipOff,
                 bottomClipOff,
-                (pieces) -> {
-                    int minY = pieces.stream().min(Comparator.comparingInt(p -> p.getBoundingBox().minY())).get().getBoundingBox().minY();
+                (structurePiecesBuilder, pieces) -> {
+                    Optional<PoolElementStructurePiece> lowestPiece = pieces.stream().min(Comparator.comparingInt(p -> p.getBoundingBox().minY()));
+                    int minY = lowestPiece.map(poolElementStructurePiece -> poolElementStructurePiece.getBoundingBox().minY()).orElseGet(blockpos::getY);
                     if(minY < context.chunkGenerator().getMinY()) {
                         int newOffset = context.chunkGenerator().getMinY() - minY;
                         for (StructurePiece piece : pieces) {

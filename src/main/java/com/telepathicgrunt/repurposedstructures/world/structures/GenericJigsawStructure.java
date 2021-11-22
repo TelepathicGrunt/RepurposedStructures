@@ -9,6 +9,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.NoiseColumn;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.CheckerboardColumnBiomeSource;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -27,7 +28,7 @@ import java.util.function.Predicate;
 
 public class GenericJigsawStructure extends AbstractBaseStructure<NoneFeatureConfiguration> {
 
-    public GenericJigsawStructure(Predicate<PieceGeneratorSupplier.Context> locationCheckPredicate, Function<PieceGeneratorSupplier.Context, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
+    public GenericJigsawStructure(Predicate<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>> locationCheckPredicate, Function<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
         super(NoneFeatureConfiguration.CODEC, locationCheckPredicate, pieceCreationPredicate);
     }
 
@@ -42,7 +43,7 @@ public class GenericJigsawStructure extends AbstractBaseStructure<NoneFeatureCon
         return finalInstance;
     }
 
-    protected boolean isFeatureChunk(PieceGeneratorSupplier.Context context, GenericJigsawStructureCodeConfig config) {
+    protected boolean isFeatureChunk(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, GenericJigsawStructureCodeConfig config) {
         ChunkPos chunkPos = context.chunkPos();
 
         if (!(context.biomeSource() instanceof CheckerboardColumnBiomeSource)) {
@@ -51,7 +52,8 @@ public class GenericJigsawStructure extends AbstractBaseStructure<NoneFeatureCon
                     int yValue = config.useHeightmap ?
                             config.fixedYSpawn + context.chunkGenerator().getFirstFreeHeight(curChunkX << 4, curChunkZ << 4, Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor())
                             : config.fixedYSpawn;
-                    if (!context.validBiome().test(context.biomeSource().getNoiseBiome(curChunkX << 2, yValue, curChunkZ << 2, context.chunkGenerator().climateSampler()))) {
+                    Biome biome = context.biomeSource().getNoiseBiome(curChunkX << 2, yValue >> 2, curChunkZ << 2, context.chunkGenerator().climateSampler());
+                    if (!context.validBiome().test(biome)) {
                         return false;
                     }
                 }
@@ -107,7 +109,7 @@ public class GenericJigsawStructure extends AbstractBaseStructure<NoneFeatureCon
         return true;
     }
 
-    public Optional<PieceGenerator<NoneFeatureConfiguration>> generatePieces(PieceGeneratorSupplier.Context context, GenericJigsawStructureCodeConfig config) {
+    public Optional<PieceGenerator<NoneFeatureConfiguration>> generatePieces(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, GenericJigsawStructureCodeConfig config) {
         BlockPos blockpos = new BlockPos(context.chunkPos().getMinBlockX(), config.fixedYSpawn, context.chunkPos().getMinBlockZ());
 
         ResourceLocation structureID = Registry.STRUCTURE_FEATURE.getKey(this);
@@ -120,7 +122,7 @@ public class GenericJigsawStructure extends AbstractBaseStructure<NoneFeatureCon
                 config.useHeightmap,
                 Integer.MAX_VALUE,
                 Integer.MIN_VALUE,
-                (pieces) -> {
+                (structurePiecesBuilder, pieces) -> {
                     GeneralUtils.centerAllPieces(blockpos, pieces);
                     pieces.get(0).move(0, config.centerOffset, 0);
                 });

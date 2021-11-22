@@ -14,7 +14,7 @@
     {
       "weight": 1,
       "element": {
-        "feature": "minecraft:huge_red_mushroom",
+        "feature": "minecraft:mushroom_island_vegetation",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }
@@ -22,7 +22,7 @@
     {
       "weight": 1,
       "element": {
-        "feature": "minecraft:huge_brown_mushroom",
+        "feature": "minecraft:mushroom_island_vegetation",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }
@@ -30,7 +30,7 @@
     {
       "weight": 1,
       "element": {
-        "feature": "minecraft:patch_red_mushroom",
+        "feature": "minecraft:red_mushroom_old_growth",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }
@@ -38,7 +38,7 @@
     {
       "weight": 1,
       "element": {
-        "feature": "minecraft:patch_brown_mushroom",
+        "feature": "minecraft:brown_mushroom_old_growth",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }

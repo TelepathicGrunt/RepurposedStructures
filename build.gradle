@@ -34,7 +34,10 @@ repositories {
 
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings minecraft.officialMojangMappings()
+	mappings loom.layered {
+		officialMojangMappings()
+		signatureFix("net.fabricmc:yarn:1.18-pre5+build.10:v2")
+	}
 	
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
@@ -52,7 +55,7 @@ if (project.use_third_party_mods) {
 	}
 
 	dependencies {
-		modRuntime "com.telepathicgrunt:LoadNbtBlock:2.0.4+1.17"
+		modRuntime "com.telepathicgrunt:LoadNbtBlock:3.0.0+1.18-pre5"
 		modRuntime "curse.maven:structure_void_toggle-357304:3488866"
 		//modRuntime "com.telepathicgrunt:Blame-Fabric:1.17-4.0.0-fabric"
 		//runtimeOnly "al:cyanide-fabric:1.17.1-1.2.1-pre.1-dev"

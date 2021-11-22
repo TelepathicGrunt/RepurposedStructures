@@ -27,7 +27,7 @@ import java.util.function.Predicate;
 
 public class BuriableStructure extends AbstractBaseStructure<NoneFeatureConfiguration> {
 
-    public BuriableStructure(Predicate<PieceGeneratorSupplier.Context> locationCheckPredicate, Function<PieceGeneratorSupplier.Context, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
+    public BuriableStructure(Predicate<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>> locationCheckPredicate, Function<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
         super(NoneFeatureConfiguration.CODEC, locationCheckPredicate, pieceCreationPredicate);
     }
 
@@ -43,7 +43,7 @@ public class BuriableStructure extends AbstractBaseStructure<NoneFeatureConfigur
     }
 
 
-    protected boolean isFeatureChunk(PieceGeneratorSupplier.Context context, BuriableStructureCodeConfig config) {
+    protected boolean isFeatureChunk(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, BuriableStructureCodeConfig config) {
         if(config.cannotSpawnInWater) {
             BlockPos cornerOfSpawnChunk = context.chunkPos().getWorldPosition();
             int landHeight = context.chunkGenerator().getFirstOccupiedHeight(cornerOfSpawnChunk.getX(), cornerOfSpawnChunk.getZ(), Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor());
@@ -55,7 +55,7 @@ public class BuriableStructure extends AbstractBaseStructure<NoneFeatureConfigur
         return true;
     }
 
-    public Optional<PieceGenerator<NoneFeatureConfiguration>> generatePieces(PieceGeneratorSupplier.Context context, BuriableStructureCodeConfig config) {
+    public Optional<PieceGenerator<NoneFeatureConfiguration>> generatePieces(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, BuriableStructureCodeConfig config) {
         BlockPos blockpos = new BlockPos(context.chunkPos().getMinBlockX(), context.chunkGenerator().getSeaLevel(), context.chunkPos().getMinBlockZ());
 
         ResourceLocation structureID = Registry.STRUCTURE_FEATURE.getKey(this);
@@ -68,7 +68,7 @@ public class BuriableStructure extends AbstractBaseStructure<NoneFeatureConfigur
                 false,
                 Integer.MAX_VALUE,
                 Integer.MIN_VALUE,
-                (pieces) -> {
+                (structurePiecesBuilder, pieces) -> {
                     GeneralUtils.centerAllPieces(blockpos, pieces);
                     Heightmap.Types heightMapToUse = config.onLand ? Heightmap.Types.WORLD_SURFACE_WG : Heightmap.Types.OCEAN_FLOOR_WG;
 
@@ -85,8 +85,6 @@ public class BuriableStructure extends AbstractBaseStructure<NoneFeatureConfigur
 
                     WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0L));
                     random.setLargeFeatureSeed(context.seed(), context.chunkPos().x, context.chunkPos().z);
-                    StructurePiecesBuilder structurePiecesBuilder = new StructurePiecesBuilder();
-                    pieces.forEach(structurePiecesBuilder::addPiece);
                     structurePiecesBuilder.moveInsideHeights(random, highestLandPos - (config.offsetAmount + 1), highestLandPos - config.offsetAmount);
                 });
     }

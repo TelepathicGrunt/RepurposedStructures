@@ -1,0 +1,12 @@
+{
+  "config": {
+	  "held_item": "minecraft:iron_sword",
+	  "helmet": "minecraft:iron_helmet",
+	  "chestplate": "minecraft:chainmail_chestplate",
+	  "leggings": "minecraft:chainmail_leggings",
+	  "boots": "minecraft:iron_boots",
+	  "speed_modifier": 0.25,
+	  "health": 24
+  },
+  "type": "repurposed_structures:skeleton_horseman"
+}

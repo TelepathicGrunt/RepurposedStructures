@@ -40,6 +40,7 @@ import net.minecraft.world.level.levelgen.placement.RarityFilter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 public final class RSConfiguredFeatures {
@@ -293,104 +294,6 @@ public final class RSConfiguredFeatures {
             PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
             BiomeFilter.biome());
 
-
-    // Misc
-
-    public static PlacedFeature LILY_OF_THE_VALLEY_FEATURE = Feature.FLOWER.configured((FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.LILY_OF_THE_VALLEY.defaultBlockState()))), List.of(), 64))).placed();
-
-    public static PlacedFeature CRIMSON_FUNGI_NOT_PLANTED = Feature.HUGE_FUNGUS.configured(new HugeFungusConfiguration(Blocks.CRIMSON_NYLIUM.defaultBlockState(), Blocks.CRIMSON_STEM.defaultBlockState(), Blocks.NETHER_WART_BLOCK.defaultBlockState(), Blocks.SHROOMLIGHT.defaultBlockState(), false)).placed();
-    public static PlacedFeature WARPED_FUNGI_NOT_PLANTED = Feature.HUGE_FUNGUS.configured(new HugeFungusConfiguration(Blocks.WARPED_NYLIUM.defaultBlockState(), Blocks.WARPED_STEM.defaultBlockState(), Blocks.WARPED_WART_BLOCK.defaultBlockState(), Blocks.SHROOMLIGHT.defaultBlockState(), false)).placed();
-    public static PlacedFeature COBBLESTONE_PATCH = Feature.BLOCK_PILE.configured(new BlockPileConfiguration(BlockStateProvider.simple(Blocks.COBBLESTONE.defaultBlockState()))).placed();
-    public static PlacedFeature CHORUS_PLANT = Feature.CHORUS_PLANT.configured(FeatureConfiguration.NONE).placed();
-
-    public static PlacedFeature WITHER_SKELETON_WITH_BOW = RSFeatures.WITHER_SKELETON_WITH_BOW.configured(FeatureConfiguration.NONE).placed();
-    public static PlacedFeature SHULKER_MOB = RSFeatures.SHULKER_MOB.configured(FeatureConfiguration.NONE).placed();
-    public static PlacedFeature DROWNED_WITH_ARMOR = RSFeatures.DROWNED_WITH_ARMOR.configured(FeatureConfiguration.NONE).placed();
-    public static PlacedFeature SKELETON_BOW = RSFeatures.SKELETON.configured(new GenericMobConfig(null, null, null, null, null, 0.25f, 14)).placed();
-    public static PlacedFeature SKELETON_BOW_DEADLY = RSFeatures.SKELETON.configured(new GenericMobConfig(null, Items.LEATHER_HELMET, Items.CHAINMAIL_CHESTPLATE, Items.LEATHER_LEGGINGS, null, 0.23f, 18)).placed();
-    public static PlacedFeature SKELETON_BOW_DEADLIEST = RSFeatures.SKELETON.configured(new GenericMobConfig(null, Items.CHAINMAIL_HELMET, Items.CHAINMAIL_CHESTPLATE, Items.CHAINMAIL_LEGGINGS, null, 0.21f, 24)).placed();
-    public static PlacedFeature SKELETON_SWORD = RSFeatures.SKELETON.configured(new GenericMobConfig(Items.STONE_SWORD, null, null, null, null, 0.25f, 14)).placed();
-    public static PlacedFeature SKELETON_SWORD_DEADLY = RSFeatures.SKELETON.configured(new GenericMobConfig(Items.STONE_SWORD, Items.LEATHER_HELMET, Items.CHAINMAIL_CHESTPLATE, Items.LEATHER_LEGGINGS, null, 0.29f, 18)).placed();
-    public static PlacedFeature SKELETON_SWORD_DEADLIEST = RSFeatures.SKELETON.configured(new GenericMobConfig(Items.STONE_SWORD, Items.CHAINMAIL_HELMET, Items.CHAINMAIL_CHESTPLATE, Items.CHAINMAIL_LEGGINGS, null, 0.33f, 24)).placed();
-    public static PlacedFeature SKELETON_HORSEMAN_SWORD = RSFeatures.SKELETON_HORSEMAN.configured(new GenericMobConfig(Items.IRON_SWORD, Items.IRON_HELMET, Items.CHAINMAIL_CHESTPLATE, Items.CHAINMAIL_LEGGINGS, Items.IRON_BOOTS, 0.29f, 28)).placed();
-    public static PlacedFeature SKELETON_HORSEMAN_BOW = RSFeatures.SKELETON_HORSEMAN.configured(new GenericMobConfig(Items.BOW, Items.IRON_HELMET, Items.CHAINMAIL_CHESTPLATE, Items.CHAINMAIL_LEGGINGS, Items.IRON_BOOTS, 0.25f, 24)).placed();
-
-    public static PlacedFeature POST_PROCESS_CONNECTING_BLOCKS = RSFeatures.POST_PROCESS_CONNECTING_BLOCKS.configured(FeatureConfiguration.NONE).placed();
-    public static PlacedFeature JUNGLE_FORTRESS_STRUCTURE_BREAKAGE = RSFeatures.STRUCTURE_BREAKAGE.configured(new StructureTargetChanceConfig(0.366f)).placed();
-    public static PlacedFeature JUNGLE_FORTRESS_STRUCTURE_VINE_BREAKAGE = RSFeatures.STRUCTURE_VINE_BREAKAGE.configured(new StructureTargetAndLengthConfig(15, 4)).placed();
-    public static PlacedFeature JUNGLE_FORTRESS_STRUCTURE_VINES = RSFeatures.STRUCTURE_VINES.configured(new StructureTargetLengthRangeConfig(10, 3, 3)).placed();
-    public static PlacedFeature NETHER_STRONGHOLD_CHAINS = RSFeatures.STRUCTURE_CHAINS.configured(new StructureTargetConfig(7)).placed();
-    public static PlacedFeature END_STRONGHOLD_CHAINS = RSFeatures.STRUCTURE_END_ROD_CHAINS.configured(new StructureTargetConfig(4)).placed();
-    public static PlacedFeature END_MINESHAFT_CHORUS = RSFeatures.STRUCTURE_CHORUS.configured(new StructureTargetConfig(4)).placed();
-    public static PlacedFeature END_MINESHAFT_DENSE_CHORUS = RSFeatures.STRUCTURE_CHORUS.configured(new StructureTargetConfig(60)).placed();
-    public static PlacedFeature CRIMSON_MINESHAFT_PLANTS = RSFeatures.STRUCTURE_CRIMSON_PLANTS.configured(new StructureTargetAndLengthConfig(40, 3)).placed();
-    public static PlacedFeature CRIMSON_MINESHAFT_DENSE_PLANTS = RSFeatures.STRUCTURE_CRIMSON_PLANTS.configured(new StructureTargetAndLengthConfig(100, 3)).placed();
-    public static PlacedFeature CRIMSON_MINESHAFT_PLANTS_LONG = RSFeatures.STRUCTURE_CRIMSON_PLANTS.configured(new StructureTargetAndLengthConfig(85, 7)).placed();
-    public static PlacedFeature NETHER_MINESHAFT_FIRE = RSFeatures.STRUCTURE_FIRE.configured(new StructureTargetConfig(3)).placed();
-    public static PlacedFeature NETHER_MINESHAFT_DENSE_FIRE = RSFeatures.STRUCTURE_FIRE.configured(new StructureTargetConfig(40)).placed();
-    public static PlacedFeature NETHER_MINESHAFT_NETHERWART = RSFeatures.STRUCTURE_NETHERWART.configured(new StructureTargetConfig(40)).placed();
-    public static PlacedFeature OCEAN_MINESHAFT_PLANTS = RSFeatures.STRUCTURE_SEAGRASS.configured(new StructureTargetConfig(40)).placed();
-    public static PlacedFeature OCEAN_MINESHAFT_DENSE_PLANTS = RSFeatures.STRUCTURE_SEAGRASS.configured(new StructureTargetConfig(80)).placed();
-    public static PlacedFeature DARK_FOREST_MINESHAFT_VINES = RSFeatures.STRUCTURE_VINES.configured(new StructureTargetLengthRangeConfig(20, 2, 3)).placed();
-    public static PlacedFeature DARK_FOREST_MINESHAFT_VINES_LONG = RSFeatures.STRUCTURE_VINES.configured(new StructureTargetLengthRangeConfig(23, 8, 1)).placed();
-    public static PlacedFeature SWAMP_MINESHAFT_VINES = RSFeatures.STRUCTURE_VINES.configured(new StructureTargetLengthRangeConfig(10, 1, 3)).placed();
-    public static PlacedFeature SWAMP_MINESHAFT_VINES_LONG = RSFeatures.STRUCTURE_VINES.configured(new StructureTargetLengthRangeConfig(20, 8, 1)).placed();
-    public static PlacedFeature JUNGLE_MINESHAFT_LEAVES_AND_VINES = RSFeatures.STRUCTURE_VINES_AND_LEAVES.configured(new StructureTargetAndLengthConfig(30, 3)).placed();
-    public static PlacedFeature JUNGLE_MINESHAFT_VINES_LONG = RSFeatures.STRUCTURE_VINES.configured(new StructureTargetLengthRangeConfig(25, 8, 1)).placed();
-    public static PlacedFeature WARPED_MINESHAFT_PLANTS = RSFeatures.STRUCTURE_WARPED_PLANTS.configured(new StructureTargetAndLengthConfig(25, 3)).placed();
-    public static PlacedFeature WARPED_MINESHAFT_DENSE_PLANTS = RSFeatures.STRUCTURE_WARPED_PLANTS.configured(new StructureTargetAndLengthConfig(80, 3)).placed();
-    public static PlacedFeature WARPED_MINESHAFT_PLANTS_LONG = RSFeatures.STRUCTURE_WARPED_PLANTS.configured(new StructureTargetAndLengthConfig(60, 7)).placed();
-    public static PlacedFeature JUNGLE_PYRAMID_STRUCTURE_VINES = RSFeatures.STRUCTURE_VINES.configured(new StructureTargetLengthRangeConfig(17, 4, 3)).placed();
-    public static PlacedFeature JUNGLE_PYRAMID_STRUCTURE_VINES_NARROW = RSFeatures.STRUCTURE_VINES.configured(new StructureTargetLengthRangeConfig(17, 2, 1)).placed();
-    public static PlacedFeature OCEAN_PYRAMID_STRUCTURE_PLANTS = RSFeatures.STRUCTURE_SEAGRASS.configured(new StructureTargetConfig(12)).placed();
-    public static PlacedFeature FLOWER_FOREST_PYRAMID_STRUCTURE_GRASS = RSFeatures.STRUCTURE_GRASS.configured(new StructureTargetAndRangeConfig(24, 3)).placed();
-    public static PlacedFeature FLOWER_FOREST_PYRAMID_STRUCTURE_FLOWERS = RSFeatures.STRUCTURE_FLOWERS.configured(new StructureTargetAndRangeConfig(8, 3)).placed();
-    public static PlacedFeature SWAMP_VILLAGE_STRUCTURE_VINES = RSFeatures.STRUCTURE_VINES.configured(new StructureTargetLengthRangeConfig(10, 3, 4, 10)).placed();
-
-    public static PlacedFeature WARM_LAND_RUINS_STRUCTURE_GRASS = Feature.RANDOM_PATCH
-            .configured(FeatureUtils.simpleRandomPatchConfiguration(4, Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.TALL_GRASS))).onlyWhenEmpty())).placed(
-                CountPlacement.of(2),
-                MinusEightPlacement.subtractedEight(),
-                InSquarePlacement.spread(),
-                PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
-                BiomeFilter.biome());
-
-    public static PlacedFeature HOT_LAND_RUINS_STRUCTURE_DEAD_BUSH = Feature.RANDOM_PATCH
-            .configured(FeatureUtils.simpleRandomPatchConfiguration(4, Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.DEAD_BUSH))).onlyWhenEmpty())).placed(
-                CountPlacement.of(8),
-                MinusEightPlacement.subtractedEight(),
-                InSquarePlacement.spread(),
-                PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
-                BiomeFilter.biome());
-
-    public static PlacedFeature BIRCH_MINESHAFT_MINECART = RSFeatures.MINESHAFT_MINECARTS.configured(new MinecartConfig(new ResourceLocation(RepurposedStructures.MODID, "mineshafts/birch/minecart"))).placed();
-    public static PlacedFeature CRIMSON_MINESHAFT_MINECART = RSFeatures.MINESHAFT_MINECARTS.configured(new MinecartConfig(new ResourceLocation(RepurposedStructures.MODID, "mineshafts/crimson/minecart"))).placed();
-    public static PlacedFeature DARK_FOREST_MINESHAFT_MINECART = RSFeatures.MINESHAFT_MINECARTS.configured(new MinecartConfig(new ResourceLocation(RepurposedStructures.MODID, "mineshafts/dark_forest/minecart"))).placed();
-    public static PlacedFeature DESERT_MINESHAFT_MINECART = RSFeatures.MINESHAFT_MINECARTS.configured(new MinecartConfig(new ResourceLocation(RepurposedStructures.MODID, "mineshafts/desert/minecart"))).placed();
-    public static PlacedFeature ICY_MINESHAFT_MINECART = RSFeatures.MINESHAFT_MINECARTS.configured(new MinecartConfig(new ResourceLocation(RepurposedStructures.MODID, "mineshafts/icy/minecart"))).placed();
-    public static PlacedFeature JUNGLE_MINESHAFT_MINECART = RSFeatures.MINESHAFT_MINECARTS.configured(new MinecartConfig(new ResourceLocation(RepurposedStructures.MODID, "mineshafts/jungle/minecart"))).placed();
-    public static PlacedFeature NETHER_MINESHAFT_MINECART = RSFeatures.MINESHAFT_MINECARTS.configured(new MinecartConfig(new ResourceLocation(RepurposedStructures.MODID, "mineshafts/nether/minecart"))).placed();
-    public static PlacedFeature OCEAN_MINESHAFT_MINECART = RSFeatures.MINESHAFT_MINECARTS.configured(new MinecartConfig(new ResourceLocation(RepurposedStructures.MODID, "mineshafts/ocean/minecart"), true)).placed();
-    public static PlacedFeature SAVANNA_MINESHAFT_MINECART = RSFeatures.MINESHAFT_MINECARTS.configured(new MinecartConfig(new ResourceLocation(RepurposedStructures.MODID, "mineshafts/savanna/minecart"))).placed();
-    public static PlacedFeature STONE_MINESHAFT_MINECART = RSFeatures.MINESHAFT_MINECARTS.configured(new MinecartConfig(new ResourceLocation(RepurposedStructures.MODID, "mineshafts/stone/minecart"))).placed();
-    public static PlacedFeature SWAMP_MINESHAFT_MINECART = RSFeatures.MINESHAFT_MINECARTS.configured(new MinecartConfig(new ResourceLocation(RepurposedStructures.MODID, "mineshafts/swamp/minecart"))).placed();
-    public static PlacedFeature TAIGA_MINESHAFT_MINECART = RSFeatures.MINESHAFT_MINECARTS.configured(new MinecartConfig(new ResourceLocation(RepurposedStructures.MODID, "mineshafts/taiga/minecart"))).placed();
-    public static PlacedFeature WARPED_MINESHAFT_MINECART = RSFeatures.MINESHAFT_MINECARTS.configured(new MinecartConfig(new ResourceLocation(RepurposedStructures.MODID, "mineshafts/warped/minecart"))).placed();
-
-    public static PlacedFeature BIRCH_MINESHAFT_SUPPORT = RSFeatures.MINESHAFT_SUPPORTS.configured(new MineshaftSupportConfig(Blocks.BIRCH_LOG.defaultBlockState(), Blocks.BIRCH_FENCE.defaultBlockState(), Blocks.BIRCH_PLANKS, false)).placed();
-    public static PlacedFeature CRIMSON_MINESHAFT_SUPPORT = RSFeatures.MINESHAFT_SUPPORTS.configured(new MineshaftSupportConfig(Blocks.CRIMSON_HYPHAE.defaultBlockState(), Blocks.CRIMSON_FENCE.defaultBlockState(), Blocks.CRIMSON_NYLIUM, false)).placed();
-    public static PlacedFeature DARK_FOREST_MINESHAFT_SUPPORT = RSFeatures.MINESHAFT_SUPPORTS.configured(new MineshaftSupportConfig(Blocks.DARK_OAK_LOG.defaultBlockState(), Blocks.DARK_OAK_FENCE.defaultBlockState(), Blocks.DARK_OAK_PLANKS, false)).placed();
-    public static PlacedFeature DESERT_MINESHAFT_SUPPORT = RSFeatures.MINESHAFT_SUPPORTS.configured(new MineshaftSupportConfig(Blocks.SMOOTH_SANDSTONE.defaultBlockState(), Blocks.SANDSTONE_WALL.defaultBlockState(), Blocks.SMOOTH_SANDSTONE, false)).placed();
-    public static PlacedFeature ICY_MINESHAFT_SUPPORT = RSFeatures.MINESHAFT_SUPPORTS.configured(new MineshaftSupportConfig(Blocks.PACKED_ICE.defaultBlockState(), Blocks.DIORITE_WALL.defaultBlockState(), Blocks.ICE, false)).placed();
-    public static PlacedFeature JUNGLE_MINESHAFT_SUPPORT = RSFeatures.MINESHAFT_SUPPORTS.configured(new MineshaftSupportConfig(Blocks.JUNGLE_LOG.defaultBlockState(), Blocks.JUNGLE_FENCE.defaultBlockState(), Blocks.JUNGLE_PLANKS, false)).placed();
-    public static PlacedFeature NETHER_MINESHAFT_SUPPORT = RSFeatures.MINESHAFT_SUPPORTS.configured(new MineshaftSupportConfig(Blocks.CRACKED_NETHER_BRICKS.defaultBlockState(), Blocks.NETHER_BRICK_FENCE.defaultBlockState(), Blocks.NETHER_BRICKS, false)).placed();
-    public static PlacedFeature OCEAN_MINESHAFT_SUPPORT = RSFeatures.MINESHAFT_SUPPORTS.configured(new MineshaftSupportConfig(Blocks.DARK_PRISMARINE.defaultBlockState(), Blocks.PRISMARINE_WALL.defaultBlockState(), Blocks.PRISMARINE_BRICKS, true)).placed();
-    public static PlacedFeature SAVANNA_MINESHAFT_SUPPORT = RSFeatures.MINESHAFT_SUPPORTS.configured(new MineshaftSupportConfig(Blocks.ACACIA_LOG.defaultBlockState(), Blocks.ACACIA_FENCE.defaultBlockState(), Blocks.ACACIA_PLANKS, false)).placed();
-    public static PlacedFeature STONE_MINESHAFT_SUPPORT = RSFeatures.MINESHAFT_SUPPORTS.configured(new MineshaftSupportConfig(Blocks.ANDESITE.defaultBlockState(), Blocks.COBBLESTONE_WALL.defaultBlockState(), Blocks.ANDESITE, false)).placed();
-    public static PlacedFeature SWAMP_MINESHAFT_SUPPORT = RSFeatures.MINESHAFT_SUPPORTS.configured(new MineshaftSupportConfig(Blocks.MOSSY_STONE_BRICKS.defaultBlockState(), Blocks.MOSSY_STONE_BRICK_WALL.defaultBlockState(), Blocks.MOSS_BLOCK, false)).placed();
-    public static PlacedFeature TAIGA_MINESHAFT_SUPPORT = RSFeatures.MINESHAFT_SUPPORTS.configured(new MineshaftSupportConfig(Blocks.SPRUCE_LOG.defaultBlockState(), Blocks.SPRUCE_FENCE.defaultBlockState(), Blocks.SPRUCE_PLANKS, false)).placed();
-    public static PlacedFeature WARPED_MINESHAFT_SUPPORT = RSFeatures.MINESHAFT_SUPPORTS.configured(new MineshaftSupportConfig(Blocks.WARPED_HYPHAE.defaultBlockState(), Blocks.WARPED_FENCE.defaultBlockState(), Blocks.WARPED_NYLIUM, false)).placed();
-
     public static void registerPlacedFeatures() {
         Registry<PlacedFeature> registry = BuiltinRegistries.PLACED_FEATURE;
 
@@ -416,86 +319,6 @@ public final class RSConfiguredFeatures {
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "well_mossy_stone"), MOSSY_STONE_WELL_PLACED);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "well_forest"), FOREST_WELL_PLACED);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "well_mushroom"), MUSHROOM_WELL_PLACED);
-
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "lily_of_the_valley"), LILY_OF_THE_VALLEY_FEATURE);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "crimson_fungi_not_planted"), CRIMSON_FUNGI_NOT_PLANTED);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "warped_fungi_not_planted"), WARPED_FUNGI_NOT_PLANTED);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "cobblestone_patch"), COBBLESTONE_PATCH);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "chorus_plant"), CHORUS_PLANT);
-
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "wither_skeleton_with_bow"), WITHER_SKELETON_WITH_BOW);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "shulker_mob"), SHULKER_MOB);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "drowned_with_armor"), DROWNED_WITH_ARMOR);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "skeleton_bow"), SKELETON_BOW);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "skeleton_bow_deadly"), SKELETON_BOW_DEADLY);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "skeleton_bow_deadliest"), SKELETON_BOW_DEADLIEST);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "skeleton_sword"), SKELETON_SWORD);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "skeleton_sword_deadly"), SKELETON_SWORD_DEADLY);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "skeleton_sword_deadliest"), SKELETON_SWORD_DEADLIEST);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "skeleton_horseman_sword"), SKELETON_HORSEMAN_SWORD);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "skeleton_horseman_bow"), SKELETON_HORSEMAN_BOW);
-
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "post_process_connecting_blocks"), POST_PROCESS_CONNECTING_BLOCKS);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "jungle_fortress_structure_breakage"), JUNGLE_FORTRESS_STRUCTURE_BREAKAGE);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "jungle_fortress_structure_vine_breakage"), JUNGLE_FORTRESS_STRUCTURE_VINE_BREAKAGE);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "jungle_fortress_structure_vines"), JUNGLE_FORTRESS_STRUCTURE_VINES);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "nether_stronghold_chains"), NETHER_STRONGHOLD_CHAINS);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "end_stronghold_chains"), END_STRONGHOLD_CHAINS);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "end_mineshaft_chorus"), END_MINESHAFT_CHORUS);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "end_mineshaft_dense_chorus"), END_MINESHAFT_DENSE_CHORUS);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "crimson_mineshaft_plants"), CRIMSON_MINESHAFT_PLANTS);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "crimson_mineshaft_dense_plants"), CRIMSON_MINESHAFT_DENSE_PLANTS);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "crimson_mineshaft_plants_long"), CRIMSON_MINESHAFT_PLANTS_LONG);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "nether_mineshaft_fire"), NETHER_MINESHAFT_FIRE);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "nether_mineshaft_dense_fire"), NETHER_MINESHAFT_DENSE_FIRE);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "nether_mineshaft_netherwart"), NETHER_MINESHAFT_NETHERWART);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "ocean_mineshaft_plants"), OCEAN_MINESHAFT_PLANTS);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "ocean_mineshaft_dense_plants"), OCEAN_MINESHAFT_DENSE_PLANTS);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dark_forest_mineshaft_vines"), DARK_FOREST_MINESHAFT_VINES);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dark_forest_mineshaft_vines_long"), DARK_FOREST_MINESHAFT_VINES_LONG);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "swamp_mineshaft_vines"), SWAMP_MINESHAFT_VINES);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "swamp_mineshaft_vines_long"), SWAMP_MINESHAFT_VINES_LONG);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "jungle_mineshaft_leaves_and_vines"), JUNGLE_MINESHAFT_LEAVES_AND_VINES);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "jungle_mineshaft_vines_long"), JUNGLE_MINESHAFT_VINES_LONG);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "warped_mineshaft_plants"), WARPED_MINESHAFT_PLANTS);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "warped_mineshaft_dense_plants"), WARPED_MINESHAFT_DENSE_PLANTS);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "warped_mineshaft_plants_long"), WARPED_MINESHAFT_PLANTS_LONG);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "jungle_pyramid_structure_vines"), JUNGLE_PYRAMID_STRUCTURE_VINES);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "jungle_pyramid_structure_vines_narrow"), JUNGLE_PYRAMID_STRUCTURE_VINES_NARROW);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "ocean_pyramid_structure_plants"), OCEAN_PYRAMID_STRUCTURE_PLANTS);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "flower_forest_pyramid_structure_grass"), FLOWER_FOREST_PYRAMID_STRUCTURE_GRASS);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "flower_forest_pyramid_structure_flowers"), FLOWER_FOREST_PYRAMID_STRUCTURE_FLOWERS);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "swamp_village_structure_vines"), SWAMP_VILLAGE_STRUCTURE_VINES);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "warm_land_ruins_structure_grass"), WARM_LAND_RUINS_STRUCTURE_GRASS);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "hot_land_ruins_structure_dead_bush"), HOT_LAND_RUINS_STRUCTURE_DEAD_BUSH);
-
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "birch_mineshaft_minecart"), BIRCH_MINESHAFT_MINECART);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "crimson_mineshaft_minecart"), CRIMSON_MINESHAFT_MINECART);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dark_forest_mineshaft_minecart"), DARK_FOREST_MINESHAFT_MINECART);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "desert_mineshaft_minecart"), DESERT_MINESHAFT_MINECART);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "icy_mineshaft_minecart"), ICY_MINESHAFT_MINECART);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "jungle_mineshaft_minecart"), JUNGLE_MINESHAFT_MINECART);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "nether_mineshaft_minecart"), NETHER_MINESHAFT_MINECART);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "ocean_mineshaft_minecart"), OCEAN_MINESHAFT_MINECART);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "savanna_mineshaft_minecart"), SAVANNA_MINESHAFT_MINECART);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "stone_mineshaft_minecart"), STONE_MINESHAFT_MINECART);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "swamp_mineshaft_minecart"), SWAMP_MINESHAFT_MINECART);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "taiga_mineshaft_minecart"), TAIGA_MINESHAFT_MINECART);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "warped_mineshaft_minecart"), WARPED_MINESHAFT_MINECART);
-
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "birch_mineshaft_support"), BIRCH_MINESHAFT_SUPPORT);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "crimson_mineshaft_support"), CRIMSON_MINESHAFT_SUPPORT);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dark_forest_mineshaft_support"), DARK_FOREST_MINESHAFT_SUPPORT);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "desert_mineshaft_support"), DESERT_MINESHAFT_SUPPORT);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "icy_mineshaft_support"), ICY_MINESHAFT_SUPPORT);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "jungle_mineshaft_support"), JUNGLE_MINESHAFT_SUPPORT);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "nether_mineshaft_support"), NETHER_MINESHAFT_SUPPORT);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "ocean_mineshaft_support"), OCEAN_MINESHAFT_SUPPORT);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "savanna_mineshaft_support"), SAVANNA_MINESHAFT_SUPPORT);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "stone_mineshaft_support"), STONE_MINESHAFT_SUPPORT);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "swamp_mineshaft_support"), SWAMP_MINESHAFT_SUPPORT);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "taiga_mineshaft_support"), TAIGA_MINESHAFT_SUPPORT);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "warped_mineshaft_support"), WARPED_MINESHAFT_SUPPORT);
     }
 
     public static void registerConfiguredFeatures() {

@@ -1,5 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.mixin.structures;
 
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.misc.MobSpawningOverTime;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredStructures;
 import net.minecraft.core.BlockPos;
@@ -35,6 +36,7 @@ public abstract class StructureFeaturesMixin {
         at = @At(value = "HEAD")
     )
     private static void repurposedstructures_addStructuresToBiomes(BiConsumer<ConfiguredStructureFeature<?, ?>, ResourceKey<Biome>> biConsumer, CallbackInfo ci) {
-        register(biConsumer, RSConfiguredStructures.VILLAGE_SWAMP, Biomes.SWAMP);
+        if(RepurposedStructures.initialized)
+            register(biConsumer, RSConfiguredStructures.VILLAGE_SWAMP, Biomes.SWAMP);
     }
 }

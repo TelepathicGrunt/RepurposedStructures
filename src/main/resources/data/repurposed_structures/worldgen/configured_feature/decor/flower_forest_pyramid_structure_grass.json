@@ -1,0 +1,7 @@
+{
+  "config": {
+	  "attempts": 24,
+	  "range": 3
+  },
+  "type": "repurposed_structures:structure_grass"
+}

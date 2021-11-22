@@ -26,7 +26,7 @@ import java.util.function.Predicate;
 public class ShipwreckNetherStructure extends AbstractBaseStructure<NoneFeatureConfiguration> {
     // Special thanks to cannon_foddr and miguelforge for allowing me to use their nether shipwreck design!
 
-    public ShipwreckNetherStructure(Predicate<PieceGeneratorSupplier.Context> locationCheckPredicate, Function<PieceGeneratorSupplier.Context, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
+    public ShipwreckNetherStructure(Predicate<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>> locationCheckPredicate, Function<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
         super(NoneFeatureConfiguration.CODEC, locationCheckPredicate, pieceCreationPredicate);
     }
 
@@ -41,7 +41,7 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NoneFeatureC
         return finalInstance;
     }
 
-    protected boolean isFeatureChunk(PieceGeneratorSupplier.Context context, ShipwreckNetherCodeConfig config) {
+    protected boolean isFeatureChunk(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, ShipwreckNetherCodeConfig config) {
         // Check to see if there some air where the structure wants to spawn.
         // Doesn't account for rotation of structure.
         ChunkPos chunkPos = context.chunkPos();
@@ -83,7 +83,7 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NoneFeatureC
         return true;
     }
 
-    public Optional<PieceGenerator<NoneFeatureConfiguration>> generatePieces(PieceGeneratorSupplier.Context context, ShipwreckNetherCodeConfig config) {
+    public Optional<PieceGenerator<NoneFeatureConfiguration>> generatePieces(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, ShipwreckNetherCodeConfig config) {
         BlockPos blockpos = new BlockPos(context.chunkPos().getMinBlockX(), context.chunkGenerator().getSeaLevel() + config.sealevelOffset, context.chunkPos().getMinBlockZ());
 
         ResourceLocation structureID = Registry.STRUCTURE_FEATURE.getKey(this);
@@ -96,8 +96,6 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NoneFeatureC
                 false,
                 Integer.MAX_VALUE,
                 Integer.MIN_VALUE,
-                (pieces) -> {
-                    GeneralUtils.centerAllPieces(blockpos, pieces);
-                });
+                (structurePiecesBuilder, pieces) -> GeneralUtils.centerAllPieces(blockpos, pieces));
     }
 }
