@@ -69,6 +69,8 @@ import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.fml.loading.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.maven.artifact.versioning.ArtifactVersion;
+import org.apache.maven.artifact.versioning.DefaultArtifactVersion;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -86,6 +88,7 @@ public class RepurposedStructures {
     public static boolean yungsBetterMineshaftIsOn = true;
     public static boolean yungsBetterDungeonsIsOn = true;
     public static boolean isCharmOn = false;
+    public static boolean isCavesAndCliffsBackportOn = false;
 
     public RepurposedStructures() {
 
@@ -135,6 +138,15 @@ public class RepurposedStructures {
         yungsBetterMineshaftIsOn = ModList.get().isLoaded("bettermineshafts");
         yungsBetterDungeonsIsOn = ModList.get().isLoaded("betterdungeons");
         isCharmOn = ModList.get().isLoaded("charm");
+
+        // CCB added mineshafts that replaces vanilla's. We do not want to remove the vanilla mineshafts ourselves.
+        if(ModList.get().isLoaded("cavesandcliffs")) {
+            ArtifactVersion modVersion = ModList.get().getModContainerById("cavesandcliffs").get().getModInfo().getVersion();
+            if(modVersion.compareTo(new DefaultArtifactVersion("1.16.5-7.1.0")) > 0) {
+                isCavesAndCliffsBackportOn = true;
+            }
+        }
+        
         EndRemasteredDedicatedLoot.isEndRemasteredOn = ModList.get().isLoaded("endrem");
         BiomeSourceChecks.hexlandsiiIsOn = ModList.get().isLoaded("hexlands");
 

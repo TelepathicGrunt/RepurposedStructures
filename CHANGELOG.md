@@ -1,5 +1,9 @@
 ### **(V.3.4.5 Changes) (1.16.5 Minecraft)**
 
+##### Mod Compat:
+Vanilla Mineshafts will not be removed by Repurposed Structures if Caves And Cliffs Backport mod is on.
+ This is because CCB added their own Mineshafts that replaces vanilla's so RS will try to not interfere with that now.
+
 ##### Configs:
 Fixed a typo in a config comment.
 

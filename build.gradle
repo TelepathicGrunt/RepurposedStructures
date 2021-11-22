@@ -79,7 +79,7 @@ dependencies {
     //runtimeOnly fg.deobf("curse.maven:kotlin_forge-351264:3452303")
 
 
-    // runtimeOnly fg.deobf("curse.maven:caves_and_cliffs_backport-417430:3512327")
+    // runtimeOnly fg.deobf("curse.maven:caves_and_cliffs_backport-417430:3523829")
     // runtimeOnly fg.deobf("curse.maven:caves_api-441706:3512246")
     // runtimeOnly fg.deobf("curse.maven:better_dungeons-510089:3476138")
     // runtimeOnly fg.deobf("curse.maven:yungs_api-421850:3494919")
