@@ -40,7 +40,7 @@
     {
       "weight": 2,
       "element": {
-        "feature": "minecraft:flower_swamp",
+        "feature": "repurposed_structures:flower_swamp",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }

@@ -9,7 +9,7 @@
           "south": "none",
           "east": "none",
           "west": "none",
-          "up": "true"
+          "up": "true",
           "waterlogged": "false"
         },
         "Name": "minecraft:cobblestone_wall"

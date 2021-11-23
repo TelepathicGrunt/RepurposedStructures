@@ -8,7 +8,7 @@
           "north": "false",
           "south": "false",
           "east": "false",
-          "west": "false"
+          "west": "false",
           "waterlogged": "false"
         },
         "Name": "minecraft:nether_brick_fence"

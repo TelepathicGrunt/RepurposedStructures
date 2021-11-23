@@ -11,7 +11,7 @@
           "north": "false",
           "south": "false",
           "east": "false",
-          "west": "false"
+          "west": "false",
           "waterlogged": "false"
         },
         "Name": "minecraft:crimson_fence"

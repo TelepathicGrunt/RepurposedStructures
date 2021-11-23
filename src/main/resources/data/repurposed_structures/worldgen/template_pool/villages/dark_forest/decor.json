@@ -22,7 +22,7 @@
     {
       "weight": 1,
       "element": {
-        "feature": "minecraft:red_mushroom_normal",
+        "feature": "repurposed_structures:red_mushroom_normal",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }
@@ -30,7 +30,7 @@
     {
       "weight": 1,
       "element": {
-        "feature": "minecraft:brown_mushroom_normal",
+        "feature": "repurposed_structures:brown_mushroom_normal",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }

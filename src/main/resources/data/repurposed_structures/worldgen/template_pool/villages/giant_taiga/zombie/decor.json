@@ -40,7 +40,7 @@
     {
       "weight": 1,
       "element": {
-        "feature": "minecraft:patch_large_fern",
+        "feature": "repurposed_structures:patch_large_fern",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }
@@ -48,7 +48,7 @@
     {
       "weight": 1,
       "element": {
-        "feature": "minecraft:patch_grass_taiga",
+        "feature": "repurposed_structures:patch_grass_taiga",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }

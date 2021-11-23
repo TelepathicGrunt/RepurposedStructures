@@ -1,7 +1,7 @@
 {
   "config": {
 	  "attempts": 40,
-	  "attempts": 3
+	  "length": 3
   },
   "type": "repurposed_structures:structure_crimson_plants"
 }

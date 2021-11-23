@@ -32,7 +32,7 @@
     {
       "weight": 5,
       "element": {
-        "feature": "minecraft:patch_cactus_decorated",
+        "feature": "repurposed_structures:patch_cactus_decorated",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }
@@ -40,7 +40,7 @@
     {
       "weight": 10,
       "element": {
-        "feature": "minecraft:patch_dead_bush",
+        "feature": "repurposed_structures:patch_dead_bush",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }

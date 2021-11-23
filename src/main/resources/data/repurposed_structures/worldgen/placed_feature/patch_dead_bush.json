@@ -1,0 +1,12 @@
+{
+  "feature": "minecraft:patch_dead_bush",
+  "placement": [
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "heightmap": "WORLD_SURFACE_WG",
+      "type": "minecraft:heightmap"
+    }
+  ]
+}
