@@ -52,18 +52,18 @@ if (project.use_third_party_mods) {
 	}
 
 	dependencies {
-		modRuntime "com.telepathicgrunt:LoadNbtBlock:3.0.0+1.18-pre5"
-		modRuntime "curse.maven:structure_void_toggle-357304:3488866"
-		//modRuntime "com.telepathicgrunt:Blame-Fabric:1.17-4.0.0-fabric"
-		//runtimeOnly "al:cyanide-fabric:1.17.1-1.2.1-pre.1-dev"
+		modRuntimeOnly "com.telepathicgrunt:LoadNbtBlock:3.0.0+1.18-pre5"
+		modRuntimeOnly "curse.maven:structure_void_toggle-357304:3488866"
+		//modRuntimeOnly "com.telepathicgrunt:Blame-Fabric:1.17-4.0.0-fabric"
+		//modRuntimeOnly "al:cyanide-fabric:1.17.1-1.2.1-pre.1-dev"
 
-		//modRuntime "curse.maven:fabric_waystones-410902:3479213"
-		//modRuntime "curse.maven:charm-318872:3393290"
-		//modRuntime "curse.maven:more_villagers-486080:3480631"
-		//modRuntime "curse.maven:farmers_delight-482834:3466296"
-		//modRuntime "curse.maven:better_strongholds-480684:3479839"
-		//modRuntime "curse.maven:better_strongholds-480684:3479839"
-		//modRuntime "curse.maven:yungs_api-421649:3479840"
+		//modRuntimeOnly "curse.maven:fabric_waystones-410902:3479213"
+		//modRuntimeOnly "curse.maven:charm-318872:3393290"
+		//modRuntimeOnly "curse.maven:more_villagers-486080:3480631"
+		//modRuntimeOnly "curse.maven:farmers_delight-482834:3466296"
+		//modRuntimeOnly "curse.maven:better_strongholds-480684:3479839"
+		//modRuntimeOnly "curse.maven:better_strongholds-480684:3479839"
+		//modRuntimeOnly "curse.maven:yungs_api-421649:3479840"
 	}
 }
 
