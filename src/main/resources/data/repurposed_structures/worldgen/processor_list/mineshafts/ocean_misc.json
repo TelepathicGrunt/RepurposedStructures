@@ -37,9 +37,6 @@
       "processor_type": "minecraft:rule"
     },
     {
-      "processor_type": "repurposed_structures:structure_void_processor"
-    },
-    {
       "processor_type": "repurposed_structures:close_off_air_sources_processor",
       "weighted_list_of_replacement_blocks": [
         {
@@ -47,6 +44,9 @@
           "weight": 1
         }
       ]
+    },
+    {
+      "processor_type": "repurposed_structures:structure_void_processor"
     }
   ]
 }

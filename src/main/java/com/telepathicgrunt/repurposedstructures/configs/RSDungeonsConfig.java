@@ -45,7 +45,7 @@ public class RSDungeonsConfig implements ConfigData {
                 0 for no Dungeons at all and 1000 for max spawnrate.
                 Note: When set to 0, Vanilla Dungeons spawns again.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int darkForestDungeonAttemptsPerChunk = 6;
+        public int darkForestDungeonAttemptsPerChunk = 8;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -58,7 +58,7 @@ public class RSDungeonsConfig implements ConfigData {
                 0 for no Dungeons at all and 1000 for max spawnrate.
                 Note: When set to 0, Vanilla Dungeons spawns again.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int desertDungeonAttemptsPerChunk = 6;
+        public int desertDungeonAttemptsPerChunk = 8;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -71,7 +71,7 @@ public class RSDungeonsConfig implements ConfigData {
                 0 for no Dungeons at all and 1000 for max spawnrate.
                 Note: When set to 0, Vanilla Dungeons spawns again.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int jungleDungeonAttemptsPerChunk = 6;
+        public int jungleDungeonAttemptsPerChunk = 8;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -84,7 +84,7 @@ public class RSDungeonsConfig implements ConfigData {
                 0 for no Dungeons at all and 1000 for max spawnrate.
                 Note: When set to 0, Vanilla Dungeons spawns again.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int mushroomDungeonAttemptsPerChunk = 6;
+        public int mushroomDungeonAttemptsPerChunk = 8;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -97,7 +97,7 @@ public class RSDungeonsConfig implements ConfigData {
                 0 for no Dungeons at all and 1000 for max spawnrate.
                 Note: When set to 0, Vanilla Dungeons spawns again.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int snowDungeonAttemptsPerChunk = 6;
+        public int snowDungeonAttemptsPerChunk = 8;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -110,7 +110,7 @@ public class RSDungeonsConfig implements ConfigData {
                 0 for no Dungeons at all and 1000 for max spawnrate.
                 Note: When set to 0, Vanilla Dungeons spawns again.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int icyDungeonAttemptsPerChunk = 6;
+        public int icyDungeonAttemptsPerChunk = 8;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -123,7 +123,7 @@ public class RSDungeonsConfig implements ConfigData {
                 0 for no Dungeons at all and 1000 for max spawnrate.
                 Note: When set to 0, Vanilla Dungeons spawns again.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int swampDungeonAttemptsPerChunk = 6;
+        public int swampDungeonAttemptsPerChunk = 8;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -163,7 +163,7 @@ public class RSDungeonsConfig implements ConfigData {
                 is on which is unlike the other dungeons from this mod
                 as those would normally replace the Vanilla Dungeons.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int oceanDungeonAttemptsPerChunk = 4;
+        public int oceanDungeonAttemptsPerChunk = 3;
 
     }
 

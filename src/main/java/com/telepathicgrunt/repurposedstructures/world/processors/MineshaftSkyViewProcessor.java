@@ -3,8 +3,12 @@ package com.telepathicgrunt.repurposedstructures.world.processors;
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
@@ -27,10 +31,10 @@ public class MineshaftSkyViewProcessor extends StructureProcessor {
             return structureBlockInfoWorld;
         }
 
-        // Mimic Mineshaft air still carving even when visible to sky
-        if (!structureBlockInfoWorld.state.is(Blocks.CAVE_AIR)) {
-            if(worldView.canSeeSkyFromBelowWater(structureBlockInfoWorld.pos)){
-                return new StructureTemplate.StructureBlockInfo(structureBlockInfoWorld.pos, Blocks.CAVE_AIR.defaultBlockState(), null);
+        // Will not place blocks if out in open and visible to sky.
+        if (!structureBlockInfoWorld.state.is(Blocks.CAVE_AIR) || worldView.getBlockState(structureBlockInfoWorld.pos).getFluidState().is(FluidTags.WATER)) {
+            if(structureBlockInfoWorld.pos.getY() > worldView.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, structureBlockInfoWorld.pos.getX(), structureBlockInfoWorld.pos.getZ())) {
+                return null;
             }
         }
 
