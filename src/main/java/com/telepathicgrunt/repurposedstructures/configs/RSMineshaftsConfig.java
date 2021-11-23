@@ -38,7 +38,7 @@ public class RSMineshaftsConfig implements ConfigData {
                 0 for no Mineshafts and 1000 for max spawnrate.
                 Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int birchMineshaftSpawnrate = 40;
+        public int birchMineshaftSpawnrate = 20;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -51,7 +51,7 @@ public class RSMineshaftsConfig implements ConfigData {
                 0 for no Mineshafts and 1000 for max spawnrate.
                 Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int jungleMineshaftSpawnrate = 40;
+        public int jungleMineshaftSpawnrate = 20;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -64,7 +64,7 @@ public class RSMineshaftsConfig implements ConfigData {
                 0 for no Mineshafts and 1000 for max spawnrate.
                 Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int desertMineshaftSpawnrate = 40;
+        public int desertMineshaftSpawnrate = 20;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -77,7 +77,7 @@ public class RSMineshaftsConfig implements ConfigData {
                 0 for no Mineshafts and 1000 for max spawnrate.
                 Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int stoneMineshaftSpawnrate = 40;
+        public int stoneMineshaftSpawnrate = 30;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -90,7 +90,7 @@ public class RSMineshaftsConfig implements ConfigData {
                 0 for no Mineshafts and 1000 for max spawnrate.
                 Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int savannaMineshaftSpawnrate = 40;
+        public int savannaMineshaftSpawnrate = 30;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -104,7 +104,7 @@ public class RSMineshaftsConfig implements ConfigData {
                 0 for no Mineshafts and 1000 for max spawnrate.
                 Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int icyMineshaftSpawnrate = 40;
+        public int icyMineshaftSpawnrate = 30;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -117,7 +117,7 @@ public class RSMineshaftsConfig implements ConfigData {
                 0 for no Mineshafts and 1000 for max spawnrate.
                 Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int oceanMineshaftSpawnrate = 40;
+        public int oceanMineshaftSpawnrate = 30;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -130,7 +130,7 @@ public class RSMineshaftsConfig implements ConfigData {
                 0 for no Mineshafts and 1000 for max spawnrate.
                 Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int taigaMineshaftSpawnrate = 40;
+        public int taigaMineshaftSpawnrate = 20;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -143,7 +143,7 @@ public class RSMineshaftsConfig implements ConfigData {
                 0 for no Mineshafts and 1000 for max spawnrate.
                 Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int swampMineshaftSpawnrate = 40;
+        public int swampMineshaftSpawnrate = 20;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -156,7 +156,7 @@ public class RSMineshaftsConfig implements ConfigData {
                 0 for no Mineshafts and 1000 for max spawnrate.
                 Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int darkForestMineshaftSpawnrate = 40;
+        public int darkForestMineshaftSpawnrate = 20;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -218,7 +218,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
                 Min Y height of Mineshaft""")
-        public int birchMineshaftMinHeight = 8;
+        public int birchMineshaftMinHeight = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -227,7 +227,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
                 Min Y height of Mineshaft""")
-        public int jungleMineshaftMinHeight = 8;
+        public int jungleMineshaftMinHeight = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -236,7 +236,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
                 Min Y height of Mineshaft""")
-        public int desertMineshaftMinHeight = 8;
+        public int desertMineshaftMinHeight = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -245,7 +245,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
                 Min Y height of Mineshaft""")
-        public int stoneMineshaftMinHeight = 8;
+        public int stoneMineshaftMinHeight = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -254,7 +254,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
                 Min Y height of Mineshaft""")
-        public int savannaMineshaftMinHeight = 8;
+        public int savannaMineshaftMinHeight = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -263,7 +263,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
                 Min Y height of Mineshaft""")
-        public int icyMineshaftMinHeight = 8;
+        public int icyMineshaftMinHeight = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -272,7 +272,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
                 Min Y height of Mineshaft""")
-        public int oceanMineshaftMinHeight = 8;
+        public int oceanMineshaftMinHeight = 15;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -281,7 +281,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
                 Min Y height of Mineshaft""")
-        public int taigaMineshaftMinHeight = 8;
+        public int taigaMineshaftMinHeight = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -290,7 +290,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
                 Min Y height of Mineshaft""")
-        public int swampMineshaftMinHeight = 8;
+        public int swampMineshaftMinHeight = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -299,7 +299,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
                 Min Y height of Mineshaft""")
-        public int darkForestMineshaftMinHeight = 8;
+        public int darkForestMineshaftMinHeight = 40;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -341,7 +341,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
                 Max Y height of Mineshaft
                 If below min height, this will be read as min.""")
-        public int birchMineshaftMaxHeight = 45;
+        public int birchMineshaftMaxHeight = 55;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -351,7 +351,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
                 Max Y height of Mineshaft
                 If below min height, this will be read as min.""")
-        public int jungleMineshaftMaxHeight = 45;
+        public int jungleMineshaftMaxHeight = 55;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -361,7 +361,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
                 Max Y height of Mineshaft
                 If below min height, this will be read as min.""")
-        public int desertMineshaftMaxHeight = 45;
+        public int desertMineshaftMaxHeight = 55;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -371,7 +371,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
                 Max Y height of Mineshaft
                 If below min height, this will be read as min.""")
-        public int stoneMineshaftMaxHeight = 45;
+        public int stoneMineshaftMaxHeight = 150;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -381,7 +381,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
                 Max Y height of Mineshaft
                 If below min height, this will be read as min.""")
-        public int savannaMineshaftMaxHeight = 45;
+        public int savannaMineshaftMaxHeight = 120;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -391,7 +391,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
                 Max Y height of Mineshaft
                 If below min height, this will be read as min.""")
-        public int icyMineshaftMaxHeight = 45;
+        public int icyMineshaftMaxHeight = 150;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -401,7 +401,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
                 Max Y height of Mineshaft
                 If below min height, this will be read as min.""")
-        public int oceanMineshaftMaxHeight = 26;
+        public int oceanMineshaftMaxHeight = 30;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -411,7 +411,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
                 Max Y height of Mineshaft
                 If below min height, this will be read as min.""")
-        public int taigaMineshaftMaxHeight = 45;
+        public int taigaMineshaftMaxHeight = 55;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -421,7 +421,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
                 Max Y height of Mineshaft
                 If below min height, this will be read as min.""")
-        public int swampMineshaftMaxHeight = 45;
+        public int swampMineshaftMaxHeight = 55;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -431,7 +431,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
                 Max Y height of Mineshaft
                 If below min height, this will be read as min.""")
-        public int darkForestMineshaftMaxHeight = 45;
+        public int darkForestMineshaftMaxHeight = 55;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart

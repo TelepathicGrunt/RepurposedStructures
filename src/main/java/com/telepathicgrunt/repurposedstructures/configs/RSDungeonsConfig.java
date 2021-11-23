@@ -32,7 +32,7 @@ public class RSDungeonsConfig implements ConfigData {
                 0 for no Dungeons at all and 1000 for max spawnrate.
                 Note: When set to 0, Vanilla Dungeons spawns again.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int badlandsDungeonAttemptsPerChunk = 8;
+        public int badlandsDungeonAttemptsPerChunk = 6;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -45,7 +45,7 @@ public class RSDungeonsConfig implements ConfigData {
                 0 for no Dungeons at all and 1000 for max spawnrate.
                 Note: When set to 0, Vanilla Dungeons spawns again.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int darkForestDungeonAttemptsPerChunk = 8;
+        public int darkForestDungeonAttemptsPerChunk = 6;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -58,7 +58,7 @@ public class RSDungeonsConfig implements ConfigData {
                 0 for no Dungeons at all and 1000 for max spawnrate.
                 Note: When set to 0, Vanilla Dungeons spawns again.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int desertDungeonAttemptsPerChunk = 8;
+        public int desertDungeonAttemptsPerChunk = 6;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -71,7 +71,7 @@ public class RSDungeonsConfig implements ConfigData {
                 0 for no Dungeons at all and 1000 for max spawnrate.
                 Note: When set to 0, Vanilla Dungeons spawns again.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int jungleDungeonAttemptsPerChunk = 8;
+        public int jungleDungeonAttemptsPerChunk = 6;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -84,7 +84,7 @@ public class RSDungeonsConfig implements ConfigData {
                 0 for no Dungeons at all and 1000 for max spawnrate.
                 Note: When set to 0, Vanilla Dungeons spawns again.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int mushroomDungeonAttemptsPerChunk = 8;
+        public int mushroomDungeonAttemptsPerChunk = 6;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -97,7 +97,7 @@ public class RSDungeonsConfig implements ConfigData {
                 0 for no Dungeons at all and 1000 for max spawnrate.
                 Note: When set to 0, Vanilla Dungeons spawns again.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int snowDungeonAttemptsPerChunk = 8;
+        public int snowDungeonAttemptsPerChunk = 6;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -110,7 +110,7 @@ public class RSDungeonsConfig implements ConfigData {
                 0 for no Dungeons at all and 1000 for max spawnrate.
                 Note: When set to 0, Vanilla Dungeons spawns again.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int icyDungeonAttemptsPerChunk = 8;
+        public int icyDungeonAttemptsPerChunk = 6;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -123,7 +123,7 @@ public class RSDungeonsConfig implements ConfigData {
                 0 for no Dungeons at all and 1000 for max spawnrate.
                 Note: When set to 0, Vanilla Dungeons spawns again.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int swampDungeonAttemptsPerChunk = 8;
+        public int swampDungeonAttemptsPerChunk = 6;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -188,7 +188,7 @@ public class RSDungeonsConfig implements ConfigData {
 
                 Minimum Y height that this dungeon can spawn at.
                 Note: The dungeon will spawn between min and max y height set in config.""")
-        public int darkForestDungeonMinHeight = 2;
+        public int darkForestDungeonMinHeight = 35;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -198,7 +198,7 @@ public class RSDungeonsConfig implements ConfigData {
 
                 Minimum Y height that this dungeon can spawn at.
                 Note: The dungeon will spawn between min and max y height set in config.""")
-        public int desertDungeonMinHeight = 2;
+        public int desertDungeonMinHeight = 35;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -208,7 +208,7 @@ public class RSDungeonsConfig implements ConfigData {
 
                 Minimum Y height that this dungeon can spawn at.
                 Note: The dungeon will spawn between min and max y height set in config.""")
-        public int jungleDungeonMinHeight = 2;
+        public int jungleDungeonMinHeight = 35;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -218,7 +218,7 @@ public class RSDungeonsConfig implements ConfigData {
 
                 Minimum Y height that this dungeon can spawn at.
                 Note: The dungeon will spawn between min and max y height set in config.""")
-        public int mushroomDungeonMinHeight = 2;
+        public int mushroomDungeonMinHeight = 35;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -228,7 +228,7 @@ public class RSDungeonsConfig implements ConfigData {
 
                 Minimum Y height that this dungeon can spawn at.
                 Note: The dungeon will spawn between min and max y height set in config.""")
-        public int snowDungeonMinHeight = 2;
+        public int snowDungeonMinHeight = 35;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -238,7 +238,7 @@ public class RSDungeonsConfig implements ConfigData {
 
                 Minimum Y height that this dungeon can spawn at.
                 Note: The dungeon will spawn between min and max y height set in config.""")
-        public int icyDungeonMinHeight = 2;
+        public int icyDungeonMinHeight = 35;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -248,7 +248,7 @@ public class RSDungeonsConfig implements ConfigData {
 
                 Minimum Y height that this dungeon can spawn at.
                 Note: The dungeon will spawn between min and max y height set in config.""")
-        public int swampDungeonMinHeight = 2;
+        public int swampDungeonMinHeight = 35;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -278,7 +278,7 @@ public class RSDungeonsConfig implements ConfigData {
 
                 Minimum Y height that this dungeon can spawn at.
                 Note: The dungeon will spawn between min and max y height set in config.""")
-        public int oceanDungeonMinHeight = 3;
+        public int oceanDungeonMinHeight = 20;
     }
 
 

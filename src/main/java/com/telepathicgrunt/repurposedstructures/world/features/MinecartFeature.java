@@ -27,8 +27,8 @@ public class MinecartFeature extends Feature<MinecartConfig> {
         super(config);
     }
 
-    private final BlockIgnoreProcessor IGNORE_STRUCTURE_VOID = new BlockIgnoreProcessor(ImmutableList.of(Blocks.STRUCTURE_VOID));
-    private final StructurePlaceSettings placementsettings = (new StructurePlaceSettings()).setMirror(Mirror.NONE).addProcessor(IGNORE_STRUCTURE_VOID).setIgnoreEntities(false);
+    private static final BlockIgnoreProcessor IGNORE_STRUCTURE_VOID = new BlockIgnoreProcessor(ImmutableList.of(Blocks.STRUCTURE_VOID));
+    private final StructurePlaceSettings structurePlaceSettings = (new StructurePlaceSettings()).setMirror(Mirror.NONE).addProcessor(IGNORE_STRUCTURE_VOID).setIgnoreEntities(false);
 
     @Override
     public boolean place(FeaturePlaceContext<MinecartConfig> context) {
@@ -41,9 +41,7 @@ public class MinecartFeature extends Feature<MinecartConfig> {
 
         // Check if spot allows for cart (liquid or non-liquid spot)
         BlockState worldBlock = context.level().getBlockState(mutable);
-        if(context.config().waterBased ?
-                worldBlock.isAir() || worldBlock.getFluidState().is(FluidTags.LAVA) :
-                !worldBlock.getFluidState().isEmpty()){
+        if(context.config().waterBased ? !worldBlock.getFluidState().is(FluidTags.WATER) : !worldBlock.getFluidState().isEmpty()) {
             return false;
         }
 
@@ -57,10 +55,10 @@ public class MinecartFeature extends Feature<MinecartConfig> {
         }
 
         BlockPos halfLengths = new BlockPos(template.get().getSize().getX() / 2, 0, template.get().getSize().getZ() / 2);
-        placementsettings.setRotation(Rotation.getRandom(context.random())).setRotationPivot(halfLengths).setIgnoreEntities(false);
+        structurePlaceSettings.setRotation(Rotation.getRandom(context.random())).setRotationPivot(halfLengths).setIgnoreEntities(false);
         blockpos$Mutable.set(context.origin());
         BlockPos offset = new BlockPos(-template.get().getSize().getX() / 2, 0, -template.get().getSize().getZ() / 2);
-        template.get().placeInWorld(context.level(), blockpos$Mutable.offset(offset), blockpos$Mutable.offset(offset), placementsettings, context.random(), Block.UPDATE_INVISIBLE);
+        template.get().placeInWorld(context.level(), blockpos$Mutable.offset(offset), blockpos$Mutable.offset(offset), structurePlaceSettings, context.random(), Block.UPDATE_INVISIBLE);
 
         return true;
     }
