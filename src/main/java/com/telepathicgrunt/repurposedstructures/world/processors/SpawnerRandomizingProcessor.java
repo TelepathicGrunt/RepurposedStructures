@@ -58,8 +58,8 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
      */
     private CompoundTag SetMobSpawnerEntity(Random random, CompoundTag nbt) {
         EntityType<?> entity = RepurposedStructures.mobSpawnerManager.getSpawnerMob(rsSpawnerResourcelocation, random);
-        if(entity != null){
-            if(nbt != null){
+        if(entity != null) {
+            if(nbt != null) {
                 CompoundTag spawnDataTag = nbt.getCompound("SpawnData");
                 if(spawnDataTag.isEmpty()){
                     spawnDataTag = new CompoundTag();
@@ -70,18 +70,12 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
                 CompoundTag spawnEntityDataTag = new CompoundTag();
                 spawnEntityDataTag.putString("id", Registry.ENTITY_TYPE.getKey(entity).toString());
                 CompoundTag spawnPotentialEntryTag = new CompoundTag();
-                spawnPotentialEntryTag.put("Entity", spawnEntityDataTag);
+                spawnPotentialEntryTag.put("entity", spawnEntityDataTag);
                 spawnPotentialEntryTag.put("weight", IntTag.valueOf(1));
-                ListTag spawnPotentialDataTag = nbt.getList("SpawnPotentials", spawnPotentialEntryTag.getId());
-                if(spawnPotentialDataTag.isEmpty()){
-                    spawnPotentialDataTag = new ListTag();
-                    nbt.put("SpawnPotentials", spawnPotentialDataTag);
-                }
-                spawnPotentialDataTag.clear();
-                spawnPotentialDataTag.add(0, spawnPotentialEntryTag);
+                nbt.put("SpawnPotentials", new ListTag());
                 return nbt;
             }
-            else{
+            else {
                 CompoundTag compound = new CompoundTag();
                 compound.putShort("Delay", (short) 20);
                 compound.putShort("MinSpawnDelay", (short) 200);
@@ -99,13 +93,9 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
                 entityData.putString("id", Registry.ENTITY_TYPE.getKey(entity).toString());
 
                 CompoundTag listEntry = new CompoundTag();
-                listEntry.put("Entity", entityData);
+                listEntry.put("entity", entityData);
                 listEntry.putInt("weight", 1);
-
-                ListTag listnbt = new ListTag();
-                listnbt.add(listEntry);
-
-                compound.put("SpawnPotentials", listnbt);
+                compound.put("SpawnPotentials", new ListTag());
 
                 return compound;
             }
