@@ -10,6 +10,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
 import net.minecraft.core.SectionPos;
 import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
@@ -71,7 +72,8 @@ public class CloseOffAirSourcesProcessor extends StructureProcessor {
                 // Copy what vanilla ores do.
                 // This bypasses the PaletteContainer's lock as it was throwing `Accessing PalettedContainer from multiple threads` crash
                 // even though everything seemed to be safe and fine.
-                if(worldReader instanceof WorldGenLevel && ((WorldGenLevel)worldReader).ensureCanWrite(mutable)) {
+                LevelHeightAccessor levelHeightAccessor = currentChunk.getHeightAccessorForGeneration();
+                if(worldReader instanceof WorldGenLevel && mutable.getY() >= levelHeightAccessor.getMinBuildHeight() && mutable.getY() < levelHeightAccessor.getMaxBuildHeight()) {
                     int sectionYIndex = currentChunk.getSectionIndex(mutable.getY());
                     LevelChunkSection levelChunkSection = currentChunk.getSection(sectionYIndex);
                     if (levelChunkSection == null) continue;

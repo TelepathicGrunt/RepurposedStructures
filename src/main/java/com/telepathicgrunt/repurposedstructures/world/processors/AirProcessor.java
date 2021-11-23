@@ -6,6 +6,7 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.core.SectionPos;
+import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
@@ -38,22 +39,25 @@ public class AirProcessor extends StructureProcessor {
     public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldView, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
         if (structureBlockInfoWorld.state.isAir()) {
             BlockPos currentPos = structureBlockInfoWorld.pos;
-            ChunkAccess chunk = worldView.getChunk(currentPos);
-            if (currentPos.getY() >= chunk.getMinBuildHeight() && currentPos.getY() < chunk.getMaxBuildHeight()){
-                if(!blocksToIgnore.contains(chunk.getBlockState(currentPos).getBlock()) && (worldView instanceof WorldGenLevel && ((WorldGenLevel)worldView).ensureCanWrite(currentPos))) {
+            ChunkAccess currentChunk = worldView.getChunk(currentPos);
+            if (currentPos.getY() >= currentChunk.getMinBuildHeight() && currentPos.getY() < currentChunk.getMaxBuildHeight()) {
+                if(!blocksToIgnore.contains(currentChunk.getBlockState(currentPos).getBlock())) {
 
-                    // Copy what vanilla ores do.
-                    // This bypasses the PaletteContainer's lock as it was throwing `Accessing PalettedContainer from multiple threads` crash
-                    // even though everything seemed to be safe and fine.
-                    int sectionYIndex = chunk.getSectionIndex(currentPos.getY());
-                    LevelChunkSection levelChunkSection = chunk.getSection(sectionYIndex);
-                    if (levelChunkSection != null) {
-                        levelChunkSection.setBlockState(
-                                SectionPos.sectionRelative(currentPos.getX()),
-                                SectionPos.sectionRelative(currentPos.getY()),
-                                SectionPos.sectionRelative(currentPos.getZ()),
-                                structureBlockInfoWorld.state,
-                                false);
+                    LevelHeightAccessor levelHeightAccessor = currentChunk.getHeightAccessorForGeneration();
+                    if((worldView instanceof WorldGenLevel && currentPos.getY() >= levelHeightAccessor.getMinBuildHeight() && currentPos.getY() < levelHeightAccessor.getMaxBuildHeight())) {
+                        // Copy what vanilla ores do.
+                        // This bypasses the PaletteContainer's lock as it was throwing `Accessing PalettedContainer from multiple threads` crash
+                        // even though everything seemed to be safe and fine.
+                        int sectionYIndex = currentChunk.getSectionIndex(currentPos.getY());
+                        LevelChunkSection levelChunkSection = currentChunk.getSection(sectionYIndex);
+                        if (levelChunkSection != null) {
+                            levelChunkSection.setBlockState(
+                                    SectionPos.sectionRelative(currentPos.getX()),
+                                    SectionPos.sectionRelative(currentPos.getY()),
+                                    SectionPos.sectionRelative(currentPos.getZ()),
+                                    structureBlockInfoWorld.state,
+                                    false);
+                        }
                     }
                 }
             }
