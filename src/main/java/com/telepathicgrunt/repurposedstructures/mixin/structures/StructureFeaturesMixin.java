@@ -77,7 +77,6 @@ public abstract class StructureFeaturesMixin {
             ImmutableSet<ResourceKey<Biome>> plainsBiomes = ImmutableSet.<ResourceKey<Biome>>builder()
                     .add(Biomes.PLAINS)
                     .add(Biomes.SUNFLOWER_PLAINS)
-                    .add(Biomes.SNOWY_PLAINS)
                     .build();
 
             ImmutableSet<ResourceKey<Biome>> giantTaigaBiomes = ImmutableSet.<ResourceKey<Biome>>builder()
@@ -186,8 +185,9 @@ public abstract class StructureFeaturesMixin {
                     .addAll(forestNotDarkBiomes)
                     .addAll(savannaBiomes)
                     .addAll(smallTaigaBiomes)
-                    .addAll(windsweptAndWarmPeaksBiomes)
+                    .addAll(allMountainsBiomes)
                     .addAll(caveBiomes)
+                    .add(Biomes.SNOWY_PLAINS)
                     .add(Biomes.DARK_FOREST)
                     .add(Biomes.DESERT)
                     .add(Biomes.ICE_SPIKES)

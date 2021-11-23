@@ -77,7 +77,7 @@ public class RSMineshaftsConfig implements ConfigData {
                 0 for no Mineshafts and 1000 for max spawnrate.
                 Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int stoneMineshaftSpawnrate = 25;
+        public int stoneMineshaftSpawnrate = 20;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart

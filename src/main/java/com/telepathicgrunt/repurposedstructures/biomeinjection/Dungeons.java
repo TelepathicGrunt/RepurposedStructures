@@ -67,19 +67,23 @@ public final class Dungeons {
         GeneralUtils.addToBiome("snow_dungeons",
                 (context) -> 
                         genericDungeonCheck(context, RSConfiguredFeatures.SNOW_DUNGEONS,
-                                () -> BiomeSelection.haveCategories(context, BiomeCategory.ICY)
-                                // inverted icy check
-                                && !(BiomeSelection.hasName(context, "icy", "ice", "frozen") ||
-                                (context.getBiome().getBaseTemperature() < 0 && !BiomeSelection.hasName(context, "snow"))))
+                                () -> (BiomeSelection.haveCategories(context, BiomeCategory.ICY)
+                                    // inverted icy check
+                                    && !(BiomeSelection.hasName(context, "icy", "ice", "frozen")
+                                    || (context.getBiome().getBaseTemperature() < 0 && !BiomeSelection.hasName(context, "snow"))))
+                                || (BiomeSelection.haveCategories(context, BiomeCategory.MOUNTAIN)
+                                    && !BiomeSelection.hasName(context, "icy", "ice", "frozen")
+                                    && (BiomeSelection.hasName(context, "snow") || context.getBiome().getBaseTemperature() < 0)))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.snowDungeonAttemptsPerChunk != 0,
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.SNOW_DUNGEONS_PLACED));
 
         GeneralUtils.addToBiome("icy_dungeons",
                 (context) -> 
                         genericDungeonCheck(context, RSConfiguredFeatures.ICY_DUNGEONS,
-                                () -> BiomeSelection.haveCategories(context, BiomeCategory.ICY)
-                                && (BiomeSelection.hasName(context, "icy", "ice", "frozen") ||
-                                (context.getBiome().getBaseTemperature() < 0 && !BiomeSelection.hasName(context, "snow"))))
+                                () -> (BiomeSelection.haveCategories(context, BiomeCategory.ICY)
+                                    || BiomeSelection.haveCategories(context, BiomeCategory.MOUNTAIN))
+                                && (BiomeSelection.hasName(context, "icy", "ice", "frozen")
+                                || (context.getBiome().getBaseTemperature() < 0 && !BiomeSelection.hasName(context, "snow"))))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.icyDungeonAttemptsPerChunk != 0,
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.ICY_DUNGEONS_PLACED));
 

@@ -6,6 +6,7 @@ import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
 import net.minecraft.world.level.biome.Biome.BiomeCategory;
+import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 
@@ -33,7 +34,7 @@ public final class Wells {
         GeneralUtils.addToBiome("snow_well",
                 (context) -> 
                         genericWellCheck(context, RSConfiguredFeatures.SNOW_WELL,
-                                () -> BiomeSelection.haveCategories(context, BiomeCategory.ICY) || BiomeSelection.hasName(context, "snow"))
+                                () -> BiomeSelection.haveCategories(context, BiomeCategory.ICY) || BiomeSelection.hasName(context, "snow") || BiomeSelection.isBiome(context, Biomes.GROVE))
                         && RepurposedStructures.RSAllConfig.RSWellsConfig.snowWellRarityPerChunk != 10000,
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, RSConfiguredFeatures.SNOW_WELL_PLACED));
 
@@ -48,8 +49,9 @@ public final class Wells {
         GeneralUtils.addToBiome("forest_well",
                 (context) -> 
                         genericWellCheck(context, RSConfiguredFeatures.FOREST_WELL,
-                                () -> BiomeSelection.haveCategories(context, BiomeCategory.FOREST)
+                                () -> (BiomeSelection.haveCategories(context, BiomeCategory.FOREST)
                                 && !BiomeSelection.hasName(context, "dark", "spooky", "dead", "haunted"))
+                                || BiomeSelection.isBiome(context, Biomes.MEADOW))
                         && RepurposedStructures.RSAllConfig.RSWellsConfig.forestWellRarityPerChunk != 10000,
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, RSConfiguredFeatures.FOREST_WELL_PLACED));
 

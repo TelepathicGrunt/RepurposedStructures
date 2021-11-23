@@ -21,7 +21,7 @@ public class RSWellsConfig implements ConfigData {
             Chance of a well generating in a chunk is 1/rarityPerChunk.
             1 for spawning in every chunk and 10000 for no wells.""")
     @ConfigEntry.BoundedDiscrete(min = 1, max = 10000)
-    public int badlandsWellRarityPerChunk = 350;
+    public int badlandsWellRarityPerChunk = 450;
 
     @ConfigEntry.Gui.Tooltip(count = 0)
     @ConfigEntry.Gui.RequiresRestart
@@ -47,7 +47,7 @@ public class RSWellsConfig implements ConfigData {
             Chance of a well generating in a chunk is 1/rarityPerChunk.
             1 for spawning in every chunk and 10000 for no wells.""")
     @ConfigEntry.BoundedDiscrete(min = 1, max = 10000)
-    public int snowWellRarityPerChunk = 350;
+    public int snowWellRarityPerChunk = 450;
 
     @ConfigEntry.Gui.Tooltip(count = 0)
     @ConfigEntry.Gui.RequiresRestart
@@ -60,7 +60,7 @@ public class RSWellsConfig implements ConfigData {
             Chance of a well generating in a chunk is 1/rarityPerChunk.
             1 for spawning in every chunk and 10000 for no wells.""")
     @ConfigEntry.BoundedDiscrete(min = 1, max = 10000)
-    public int mossyStoneWellRarityPerChunk = 350;
+    public int mossyStoneWellRarityPerChunk = 450;
 
     @ConfigEntry.Gui.Tooltip(count = 0)
     @ConfigEntry.Gui.RequiresRestart
@@ -73,7 +73,7 @@ public class RSWellsConfig implements ConfigData {
             Chance of a well generating in a chunk is 1/rarityPerChunk.
             1 for spawning in every chunk and 10000 for no wells.""")
     @ConfigEntry.BoundedDiscrete(min = 1, max = 10000)
-    public int forestWellRarityPerChunk = 350;
+    public int forestWellRarityPerChunk = 450;
 
     @ConfigEntry.Gui.Tooltip(count = 0)
     @ConfigEntry.Gui.RequiresRestart
