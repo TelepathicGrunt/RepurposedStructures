@@ -3,36 +3,18 @@ package com.telepathicgrunt.repurposedstructures.modinit;
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.world.features.configs.GenericMobConfig;
-import com.telepathicgrunt.repurposedstructures.world.features.configs.MinecartConfig;
-import com.telepathicgrunt.repurposedstructures.world.features.configs.MineshaftSupportConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.NbtDungeonConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.NbtFeatureConfig;
-import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetAndLengthConfig;
-import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetAndRangeConfig;
-import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetChanceConfig;
-import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetConfig;
-import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetLengthRangeConfig;
-import com.telepathicgrunt.repurposedstructures.world.placements.MinusEightPlacement;
 import com.telepathicgrunt.repurposedstructures.world.placements.SnapToLowerNonAirPlacement;
 import com.telepathicgrunt.repurposedstructures.world.placements.UnlimitedCountPlacement;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
-import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.HugeFungusConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.BlockPileConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
-import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.placement.BiomeFilter;
-import net.minecraft.world.level.levelgen.placement.CountPlacement;
 import net.minecraft.world.level.levelgen.placement.HeightRangePlacement;
 import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
@@ -40,7 +22,6 @@ import net.minecraft.world.level.levelgen.placement.RarityFilter;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 
 public final class RSConfiguredFeatures {

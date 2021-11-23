@@ -1,6 +1,5 @@
 package com.telepathicgrunt.repurposedstructures.modinit;
 
-import com.google.common.base.Suppliers;
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.placements.MinusEightPlacement;

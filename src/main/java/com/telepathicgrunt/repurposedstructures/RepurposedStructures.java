@@ -103,7 +103,7 @@ public class RepurposedStructures implements ModInitializer, DedicatedServerModI
 
         BiomeDimensionAllowDisallow.setupAllowDisallowMaps();
         MobSpawningOverTime.setupMobSpawningMaps();
-        setupBiomeModifications();
+        //setupBiomeModifications(); not working rn
         allowStructureSpawningPerDimension();
         PoolAdditionMerger.mergeAdditionPools();
         StructurePiecesBehavior.init();
