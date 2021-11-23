@@ -8,6 +8,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.StructureFeatureManager;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.CheckerboardColumnBiomeSource;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.chunk.ChunkGenerator;
@@ -63,7 +64,8 @@ public class MansionStructure extends AbstractBaseStructure<NoneFeatureConfigura
             for (int curChunkX = chunkPos.x - biomeRange; curChunkX <= chunkPos.x + biomeRange; curChunkX++) {
                 for (int curChunkZ = chunkPos.z - biomeRange; curChunkZ <= chunkPos.z + biomeRange; curChunkZ++) {
                     int yValue = context.chunkGenerator().getFirstFreeHeight(curChunkX << 4, curChunkZ << 4, Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor());
-                    if (!context.validBiome().test(context.biomeSource().getNoiseBiome(curChunkX << 2, yValue >> 2, curChunkZ << 2, context.chunkGenerator().climateSampler()))) {
+                    Biome biome = context.biomeSource().getNoiseBiome(curChunkX << 2, yValue >> 2, curChunkZ << 2, context.chunkGenerator().climateSampler());
+                    if (!context.validBiome().test(biome)) {
                         return false;
                     }
                 }
@@ -106,6 +108,7 @@ public class MansionStructure extends AbstractBaseStructure<NoneFeatureConfigura
             BlockPos blockPos = new BlockPos(chunkPos.getMiddleBlockX(), finalheight + 1, chunkPos.getMiddleBlockZ());
             List<StructurePiece> list = new ArrayList<>();
             MansionPieces.createMansionLayout(context.registryAccess(), context.structureManager(), blockPos, blockRotation, list, random, config.type);
+            list.forEach(structurePiecesBuilder::addPiece);
         });
     }
 
