@@ -1,7 +1,7 @@
 ### **(V.3.0.0 Changes) (1.18-pre7 Minecraft)**
 
 #### Major:
-Ported to 1.18-pre5
+Ported to 1.18-pre7
 
 NOTE: RS structures will not be added to modded biomes and the biome allow/disallow configs do not work. 
  This is due to Fabric API's BiomeModificationAPI not working for structures at the moment.
