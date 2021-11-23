@@ -48,7 +48,7 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<NoneFeatureCo
                     WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0L));
                     random.setLargeFeatureSeed(context.seed(), context.chunkPos().x, context.chunkPos().z);
                     int structureStartHeight = random.nextInt(config.maxY - config.minY) + config.minY;
-                    if (!context.validBiome().test(context.biomeSource().getNoiseBiome(curChunkX << 2, structureStartHeight, curChunkZ << 2, context.chunkGenerator().climateSampler()))) {
+                    if (!context.validBiome().test(context.biomeSource().getNoiseBiome(curChunkX << 2, structureStartHeight >> 2, curChunkZ << 2, context.chunkGenerator().climateSampler()))) {
                         return false;
                     }
                 }

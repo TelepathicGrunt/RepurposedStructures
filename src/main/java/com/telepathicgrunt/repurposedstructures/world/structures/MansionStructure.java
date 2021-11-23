@@ -63,7 +63,7 @@ public class MansionStructure extends AbstractBaseStructure<NoneFeatureConfigura
             for (int curChunkX = chunkPos.x - biomeRange; curChunkX <= chunkPos.x + biomeRange; curChunkX++) {
                 for (int curChunkZ = chunkPos.z - biomeRange; curChunkZ <= chunkPos.z + biomeRange; curChunkZ++) {
                     int yValue = context.chunkGenerator().getFirstFreeHeight(curChunkX << 4, curChunkZ << 4, Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor());
-                    if (!context.validBiome().test(context.biomeSource().getNoiseBiome(curChunkX << 2, yValue, curChunkZ << 2, context.chunkGenerator().climateSampler()))) {
+                    if (!context.validBiome().test(context.biomeSource().getNoiseBiome(curChunkX << 2, yValue >> 2, curChunkZ << 2, context.chunkGenerator().climateSampler()))) {
                         return false;
                     }
                 }
