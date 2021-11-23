@@ -151,23 +151,6 @@ public final class Dungeons {
                                         && context.getBiome().getBaseTemperature() >= 1.5f)))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.oceanDungeonAttemptsPerChunk != 0,
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.OCEAN_WARM_DUNGEONS_PLACED));
-
-
-        if(!RepurposedStructures.isBetterDungeonsOn) {
-            //Remove vanilla dungeons from non-ocean/nether/end biomes we added our dungeons to
-            BiomeModifications.create(new ResourceLocation(RepurposedStructures.MODID, "remove_vanilla_dungeons")).add(
-                    ModificationPhase.REMOVALS,
-                    context -> RSConfiguredFeatures.RS_DUNGEONS.stream().anyMatch(dungeon ->
-                            dungeon != RSConfiguredFeatures.OCEAN_NEUTRAL_DUNGEONS &&
-                                    dungeon != RSConfiguredFeatures.OCEAN_COLD_DUNGEONS &&
-                                    dungeon != RSConfiguredFeatures.OCEAN_FROZEN_DUNGEONS &&
-                                    dungeon != RSConfiguredFeatures.OCEAN_LUKEWARM_DUNGEONS &&
-                                    dungeon != RSConfiguredFeatures.OCEAN_WARM_DUNGEONS &&
-                                    dungeon != RSConfiguredFeatures.NETHER_DUNGEONS &&
-                                    dungeon != RSConfiguredFeatures.END_DUNGEONS &&
-                                    context.hasBuiltInFeature(dungeon)),
-                    context -> context.getGenerationSettings().removeBuiltInFeature(CavePlacements.MONSTER_ROOM));
-        }
     }
 
     private static boolean genericDungeonCheck(BiomeSelectionContext context, ConfiguredFeature<?,?> configuredFeatures, Supplier<Boolean> condition) {

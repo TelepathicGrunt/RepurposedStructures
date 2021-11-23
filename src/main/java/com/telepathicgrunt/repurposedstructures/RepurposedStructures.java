@@ -1,22 +1,7 @@
 package com.telepathicgrunt.repurposedstructures;
 
-import com.telepathicgrunt.repurposedstructures.biomeinjection.Bastions;
-import com.telepathicgrunt.repurposedstructures.biomeinjection.Cities;
 import com.telepathicgrunt.repurposedstructures.biomeinjection.Dungeons;
-import com.telepathicgrunt.repurposedstructures.biomeinjection.Fortresses;
-import com.telepathicgrunt.repurposedstructures.biomeinjection.Igloos;
-import com.telepathicgrunt.repurposedstructures.biomeinjection.Mansions;
-import com.telepathicgrunt.repurposedstructures.biomeinjection.Mineshafts;
-import com.telepathicgrunt.repurposedstructures.biomeinjection.Outposts;
-import com.telepathicgrunt.repurposedstructures.biomeinjection.Pyramids;
-import com.telepathicgrunt.repurposedstructures.biomeinjection.RuinedPortals;
-import com.telepathicgrunt.repurposedstructures.biomeinjection.Ruins;
-import com.telepathicgrunt.repurposedstructures.biomeinjection.Shipwrecks;
-import com.telepathicgrunt.repurposedstructures.biomeinjection.Strongholds;
-import com.telepathicgrunt.repurposedstructures.biomeinjection.Temples;
-import com.telepathicgrunt.repurposedstructures.biomeinjection.Villages;
 import com.telepathicgrunt.repurposedstructures.biomeinjection.Wells;
-import com.telepathicgrunt.repurposedstructures.biomeinjection.WitchHuts;
 import com.telepathicgrunt.repurposedstructures.configs.RSAllConfig;
 import com.telepathicgrunt.repurposedstructures.configs.RSAllowDisallowOmegaConfig;
 import com.telepathicgrunt.repurposedstructures.configs.RSNaturalMobSpawningOmegaConfig;
@@ -45,7 +30,6 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.Event;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerWorldEvents;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
@@ -70,9 +54,6 @@ public class RepurposedStructures implements ModInitializer, DedicatedServerModI
 	public static RSAllConfig RSAllConfig = null;
     public static final RSAllowDisallowOmegaConfig omegaBiomeDimConfig = OmegaConfig.register(RSAllowDisallowOmegaConfig.class);
     public static final RSNaturalMobSpawningOmegaConfig omegaMobSpawnConfig = OmegaConfig.register(RSNaturalMobSpawningOmegaConfig.class);
-    public static boolean isBetterMineshaftsOn = false;
-    public static boolean isBetterDungeonsOn = false;
-    public static boolean isCharmOn = false;
     public static boolean initialized = false;
 
 
@@ -80,16 +61,6 @@ public class RepurposedStructures implements ModInitializer, DedicatedServerModI
     public void onInitialize() {
         AutoConfig.register(RSAllConfig.class, JanksonConfigSerializer::new);
         RSAllConfig = AutoConfig.getConfigHolder(RSAllConfig.class).getConfig();
-
-        if (FabricLoader.getInstance().isModLoaded("bettermineshafts")) {
-            isBetterMineshaftsOn = true;
-        }
-        if (FabricLoader.getInstance().isModLoaded("betterdungeons")) {
-            isBetterDungeonsOn = true;
-        }
-        if (FabricLoader.getInstance().isModLoaded("charm")) {
-            isCharmOn = true;
-        }
 
         RSPlacements.registerPlacements();
         RSFeatures.registerFeatures();

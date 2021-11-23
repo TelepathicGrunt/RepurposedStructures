@@ -19,7 +19,7 @@ public class RSIgloosConfig implements ConfigData {
             How rare are Grassy Igloos in Plains and Forests.
             1 for spawning in most chunks and 1001 for none.""")
     @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-    public int grassyIglooAverageChunkDistance = 20;
+    public int grassyIglooAverageChunkDistance = 24;
 
     @ConfigEntry.Gui.Tooltip(count = 0)
     @ConfigEntry.Gui.RequiresRestart
@@ -30,5 +30,5 @@ public class RSIgloosConfig implements ConfigData {
             How rare are Stone Igloos in Giant Tree Taiga biomes.
             1 for spawning in most chunks and 1001 for none.""")
     @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-    public int stoneIglooAverageChunkDistance = 20;
+    public int stoneIglooAverageChunkDistance = 24;
 }

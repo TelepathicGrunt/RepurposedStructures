@@ -27,7 +27,7 @@ public class RSVillagesConfig implements ConfigData {
                 How rare are Badlands Villages in Badland biomes.
                 1 for spawning in most chunks and 1001 for no spawn.""")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int badlandsVillageAverageChunkDistance = 34;
+        public int badlandsVillageAverageChunkDistance = 37;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -38,7 +38,7 @@ public class RSVillagesConfig implements ConfigData {
                 How rare are Birch Villages in Birch biomes.
                 1 for spawning in most chunks and 1001 for no spawn.""")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int birchVillageAverageChunkDistance = 47;
+        public int birchVillageAverageChunkDistance = 52;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -60,7 +60,7 @@ public class RSVillagesConfig implements ConfigData {
                 How rare are Jungle Villages in Jungle biomes.
                 1 for spawning in most chunks and 1001 for no spawn.""")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int jungleVillageAverageChunkDistance = 47;
+        public int jungleVillageAverageChunkDistance = 52;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -71,7 +71,7 @@ public class RSVillagesConfig implements ConfigData {
                 How rare are Swamp Villages in Swamp biomes.
                 1 for spawning in most chunks and 1001 for no spawn.""")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int swampVillageAverageChunkDistance = 47;
+        public int swampVillageAverageChunkDistance = 52;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -82,7 +82,7 @@ public class RSVillagesConfig implements ConfigData {
                 How rare are Mountains Villages in Mountains biomes.
                 1 for spawning in most chunks and 1001 for no spawn.""")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int mountainsVillageAverageChunkDistance = 47;
+        public int mountainsVillageAverageChunkDistance = 52;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -104,7 +104,7 @@ public class RSVillagesConfig implements ConfigData {
                 How rare are Oak Villages in forest category biomes that are not birch or dark forest.
                 1 for spawning in most chunks and 1001 for none.""")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int oakVillageAverageChunkDistance = 47;
+        public int oakVillageAverageChunkDistance = 52;
 
 
         @ConfigEntry.Gui.Tooltip(count = 0)
