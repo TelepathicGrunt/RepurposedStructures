@@ -97,7 +97,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:structure_void"
+            "Name": "minecraft:packed_ice"
           },
           "position_predicate": {
             "min_chance": 1,
@@ -113,7 +113,7 @@
           },
           "location_predicate": {
             "phase_to_test_for": "AIR",
-            "invert_condition": true,
+            "invert_condition": false,
             "predicate_type": "repurposed_structures:matter_phase_rule_test"
           }
         }
@@ -141,6 +141,19 @@
             "phase_to_test_for": "AIR_RAIL_OR_CHAIN",
             "invert_condition": false,
             "predicate_type": "repurposed_structures:matter_phase_rule_test"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:structure_void"
+          },
+          "input_predicate": {
+            "block": "minecraft:ice",
+            "probability": 0.8,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
           }
         },
         {

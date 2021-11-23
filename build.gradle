@@ -34,10 +34,7 @@ repositories {
 
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings loom.layered {
-		officialMojangMappings()
-		signatureFix("net.fabricmc:yarn:1.18-pre5+build.10:v2")
-	}
+	mappings minecraft.officialMojangMappings()
 	
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
