@@ -15,17 +15,21 @@ import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.NoiseColumn;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.LegacyRandomSource;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.StructureFeatureConfiguration;
+import net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece;
+import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
 import org.apache.commons.lang3.mutable.Mutable;
 import org.apache.commons.lang3.mutable.MutableObject;
 
+import java.util.Comparator;
 import java.util.Optional;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -80,18 +84,24 @@ public class MineshaftEndStructure extends MineshaftStructure {
         int xPos = chunkPos.getMinBlockX();
         int zPos = chunkPos.getMinBlockZ();
 
+        int landHeight = Integer.MAX_VALUE;
         // Surrounding far terrain is more likely to fail the check and exit early.
-        for(int i = 2; i >= 1; i--) {
-            for (Direction direction : Direction.Plane.HORIZONTAL) {
-                Vector3f offsetPos = new Vector3f(direction.getStepX(), 0, direction.getStepZ());
-                offsetPos = new Vector3f(offsetPos.x() * 30f * i, 0, offsetPos.z() * 30f * i);
-                analyzeLand(context.chunkGenerator(), xPos + (int) offsetPos.x(), zPos + (int) offsetPos.z(), islandTopBottomThickness, context.heightAccessor());
-                if (islandTopBottomThickness.getZ() < minThickness) return false;
+        for(int i = 2; i >= 1; i--){
+            for(Direction direction : Direction.Plane.HORIZONTAL){
+                Vector3f offsetPos = direction.step();
+                offsetPos.mul(30f * i);
+                landHeight = getHeightAt(context.chunkGenerator(), context.heightAccessor(), xPos + (int)offsetPos.x(), zPos + (int)offsetPos.z(), landHeight);
+                if(landHeight - context.chunkGenerator().getMinY() < minThickness) return false;
             }
         }
 
         analyzeLand(context.chunkGenerator(), xPos, zPos, islandTopBottomThickness, context.heightAccessor());
         return islandTopBottomThickness.getZ() >= minThickness;
+    }
+
+    private int getHeightAt(ChunkGenerator chunkGenerator, LevelHeightAccessor heightLimitView, int xPos, int zPos, int landHeight) {
+        landHeight = Math.min(landHeight, chunkGenerator.getFirstOccupiedHeight(xPos, zPos, Heightmap.Types.WORLD_SURFACE_WG, heightLimitView));
+        return landHeight;
     }
 
     private void analyzeLand(ChunkGenerator chunkGenerator, int xPos, int zPos, BlockPos.MutableBlockPos islandTopBottomThickness, LevelHeightAccessor heightLimitView) {
@@ -131,7 +141,7 @@ public class MineshaftEndStructure extends MineshaftStructure {
         islandTopBottomThickness.set(islandTopBottomThickness.getX(), islandTopBottomThickness.getY(), thickness);
     }
 
-    public Optional<PieceGenerator<NoneFeatureConfiguration>> generatePieces(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, GenericJigsawStructureCodeConfig config) {
+    public Optional<PieceGenerator<NoneFeatureConfiguration>> generatePieces(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, MineshaftCodeConfig config) {
         BlockPos.MutableBlockPos blockpos = new BlockPos.MutableBlockPos(context.chunkPos().getMinBlockX(), 0, context.chunkPos().getMinBlockZ());
         BlockPos.MutableBlockPos islandTopBottomThickness = new BlockPos.MutableBlockPos(Integer.MAX_VALUE, Integer.MIN_VALUE, Integer.MAX_VALUE);
         analyzeLand(context.chunkGenerator(), blockpos.getX(), blockpos.getZ(), islandTopBottomThickness, context.heightAccessor());
@@ -155,6 +165,7 @@ public class MineshaftEndStructure extends MineshaftStructure {
         }
 
         ResourceLocation structureID = Registry.STRUCTURE_FEATURE.getKey(this);
+        int finalMaxY = maxY;
         return PieceLimitedJigsawManager.assembleJigsawStructure(
                 context,
                 new JigsawConfiguration(() -> context.registryAccess().registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(config.startPool), config.structureSize),
@@ -164,6 +175,15 @@ public class MineshaftEndStructure extends MineshaftStructure {
                 false,
                 maxY,
                 minY,
-                (structurePiecesBuilder, pieces) -> {});
+                (structurePiecesBuilder, pieces) -> {
+                    Optional<PoolElementStructurePiece> highestPiece = pieces.stream().max(Comparator.comparingInt(p -> p.getBoundingBox().maxY()));
+                    int topY = highestPiece.map(poolElementStructurePiece -> poolElementStructurePiece.getBoundingBox().maxY()).orElseGet(blockpos::getY);
+                    if(topY > finalMaxY) {
+                        int newOffset = finalMaxY - topY;
+                        for (StructurePiece piece : pieces) {
+                            piece.move(0, newOffset, 0);
+                        }
+                    }
+                });
     }
 }
