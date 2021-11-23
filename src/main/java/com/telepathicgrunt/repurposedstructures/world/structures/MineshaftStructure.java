@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.telepathicgrunt.repurposedstructures.world.structures.codeconfigs.MineshaftCodeConfig;
+import net.minecraft.core.QuartPos;
 import net.minecraft.world.level.levelgen.LegacyRandomSource;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
@@ -36,7 +37,6 @@ public class MineshaftStructure extends AdvancedJigsawStructure {
         StructureFeatureConfiguration structureConfig = context.chunkGenerator().getSettings().getConfig(this);
         if(structureConfig != null) {
             WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0L));
-            random.setLargeFeatureSeed(context.seed(), context.chunkPos().x, context.chunkPos().z);
             random.setLargeFeatureSeed(context.seed() + structureConfig.salt(), context.chunkPos().x, context.chunkPos().z);
             double d = (config.probability / 10000D);
             return random.nextDouble() < d;

@@ -38,7 +38,7 @@ public class RSMineshaftsConfig implements ConfigData {
                 0 for no Mineshafts and 1000 for max spawnrate.
                 Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int birchMineshaftSpawnrate = 20;
+        public int birchMineshaftSpawnrate = 10;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -51,7 +51,7 @@ public class RSMineshaftsConfig implements ConfigData {
                 0 for no Mineshafts and 1000 for max spawnrate.
                 Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int jungleMineshaftSpawnrate = 20;
+        public int jungleMineshaftSpawnrate = 10;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -64,7 +64,7 @@ public class RSMineshaftsConfig implements ConfigData {
                 0 for no Mineshafts and 1000 for max spawnrate.
                 Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int desertMineshaftSpawnrate = 20;
+        public int desertMineshaftSpawnrate = 10;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -77,7 +77,7 @@ public class RSMineshaftsConfig implements ConfigData {
                 0 for no Mineshafts and 1000 for max spawnrate.
                 Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int stoneMineshaftSpawnrate = 30;
+        public int stoneMineshaftSpawnrate = 25;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -90,7 +90,7 @@ public class RSMineshaftsConfig implements ConfigData {
                 0 for no Mineshafts and 1000 for max spawnrate.
                 Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int savannaMineshaftSpawnrate = 30;
+        public int savannaMineshaftSpawnrate = 20;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -104,7 +104,7 @@ public class RSMineshaftsConfig implements ConfigData {
                 0 for no Mineshafts and 1000 for max spawnrate.
                 Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int icyMineshaftSpawnrate = 30;
+        public int icyMineshaftSpawnrate = 20;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -117,7 +117,7 @@ public class RSMineshaftsConfig implements ConfigData {
                 0 for no Mineshafts and 1000 for max spawnrate.
                 Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int oceanMineshaftSpawnrate = 30;
+        public int oceanMineshaftSpawnrate = 15;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -130,7 +130,7 @@ public class RSMineshaftsConfig implements ConfigData {
                 0 for no Mineshafts and 1000 for max spawnrate.
                 Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int taigaMineshaftSpawnrate = 20;
+        public int taigaMineshaftSpawnrate = 10;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -143,7 +143,7 @@ public class RSMineshaftsConfig implements ConfigData {
                 0 for no Mineshafts and 1000 for max spawnrate.
                 Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int swampMineshaftSpawnrate = 20;
+        public int swampMineshaftSpawnrate = 10;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -156,7 +156,7 @@ public class RSMineshaftsConfig implements ConfigData {
                 0 for no Mineshafts and 1000 for max spawnrate.
                 Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int darkForestMineshaftSpawnrate = 20;
+        public int darkForestMineshaftSpawnrate = 10;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart

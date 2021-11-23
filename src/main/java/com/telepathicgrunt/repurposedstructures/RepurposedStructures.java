@@ -103,7 +103,7 @@ public class RepurposedStructures implements ModInitializer, DedicatedServerModI
 
         BiomeDimensionAllowDisallow.setupAllowDisallowMaps();
         MobSpawningOverTime.setupMobSpawningMaps();
-        //setupBiomeModifications(); not working rn
+        setupBiomeModifications();
         allowStructureSpawningPerDimension();
         PoolAdditionMerger.mergeAdditionPools();
         StructurePiecesBehavior.init();
@@ -160,22 +160,24 @@ public class RepurposedStructures implements ModInitializer, DedicatedServerModI
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // BIOME MODIFICATION API //
     public static void setupBiomeModifications() {
-        Mineshafts.addMineshafts();
         Dungeons.addDungeons();
         Wells.addWells();
-        Strongholds.addStrongholds();
-        Outposts.addOutposts();
-        Shipwrecks.addShipwrecks();
-        Fortresses.addJungleFortress();
-        Temples.addTemples();
-        Pyramids.addPyramids();
-        Igloos.addIgloos();
-        Villages.addVillages();
-        RuinedPortals.addRuinedPortals();
-        Ruins.addRuins();
-        Cities.addCities();
-        Mansions.addMansions();
-        WitchHuts.addWitchHuts();
-        Bastions.addBastions();
+
+        // Biome Modification API from Fabric API does not work with structures right now.
+//        Mineshafts.addMineshafts();
+//        Strongholds.addStrongholds();
+//        Outposts.addOutposts();
+//        Shipwrecks.addShipwrecks();
+//        Fortresses.addJungleFortress();
+//        Temples.addTemples();
+//        Pyramids.addPyramids();
+//        Igloos.addIgloos();
+//        Villages.addVillages();
+//        RuinedPortals.addRuinedPortals();
+//        Ruins.addRuins();
+//        Cities.addCities();
+//        Mansions.addMansions();
+//        WitchHuts.addWitchHuts();
+//        Bastions.addBastions();
     }
 }
