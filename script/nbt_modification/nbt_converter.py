@@ -13,8 +13,10 @@ blockPalette = {""}
 originalBiome = ""
 newBiome = ""
 string_blacklist = []
-conversion_partial_dict = {}
-conversion_exact_dict = {}
+conversion_partial_dict = {
+}
+conversion_exact_dict = {
+}
 #-------------------------------------------------------------------------------------------
 
 def string_replacer(nbt_string):
@@ -42,10 +44,17 @@ def traverse_dicts(nbt_list):
         if 'size' in nbt_list:
             nbt_list['size'][1].value = 32
         '''
+        
         '''
         if 'palette' in nbt_list:
             for entry in nbt_list['palette'].value:
                 blockPalette.add(entry.value['Name'].value)
+        '''
+        
+        '''
+        for key, entry in nbt_list.items():
+            if key == "pos" or key == "blockPos" or key == "size":
+                entry[1].value = entry[1].value + 2
         '''
 
         for key, entry in nbt_list.items():
