@@ -3,6 +3,8 @@
 ##### Mod Compat:
 Updated mods.toml so if Waystones is on, RS will require a newer version of Waystones if it is too out of date to prevent a crash.
 
+Added piece limiting amount for RS - Simply Cats compat datapack.
+
 
 ### **(V.3.4.5 Changes) (1.16.5 Minecraft)**
 

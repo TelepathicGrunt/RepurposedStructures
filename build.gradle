@@ -74,8 +74,8 @@ dependencies {
     runtimeOnly fg.deobf("com.telepathicgrunt:Blame:1.16.5-3.2.0-forge")
     // runtimeOnly fg.deobf("patrigan:loadnbtblock:1.0")
     compileOnly fg.deobf("curse.maven:waystones-245755:3515707")
+    //runtimeOnly fg.deobf("curse.maven:simply_cats-332910:3498688")
     //runtimeOnly fg.deobf("curse.maven:hexerei-548599:3533703")
-    //runtimeOnly fg.deobf("curse.maven:waystones-245755:3515707")
     //runtimeOnly fg.deobf("curse.maven:bountiful-309516:3239647")
     //runtimeOnly fg.deobf("curse.maven:kotlin_forge-351264:3452303")
 

@@ -427,5 +427,15 @@ public final class StructurePiecesBehavior {
 
         PIECES_COUNT.put(new ResourceLocation("bountiful", "village/common/bounty_gazebo"), 1);
         PIECES_COUNT.put(new ResourceLocation("bountiful", "village/common/bounty_gazebo_old"), 1);
+
+        PIECES_COUNT.put(new ResourceLocation("simplycats", "village/badlands_shelter_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("simplycats", "village/birch_shelter_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("simplycats", "village/dark_forest_shelter_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("simplycats", "village/giant_taiga_shelter_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("simplycats", "village/jungle_shelter_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("simplycats", "village/mountains_shelter_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("simplycats", "village/mushroom_shelter_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("simplycats", "village/oak_shelter_1"), 1);
+        PIECES_COUNT.put(new ResourceLocation("simplycats", "village/swamp_shelter_1"), 1);
     }
 }
