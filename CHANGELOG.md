@@ -1,3 +1,9 @@
+### **(V.3.4.6 Changes) (1.16.5 Minecraft)**
+
+##### Mod Compat:
+Updated mods.toml so if Waystones is on, RS will require a newer version of Waystones if it is too out of date to prevent a crash.
+
+
 ### **(V.3.4.5 Changes) (1.16.5 Minecraft)**
 
 ##### Mod Compat:

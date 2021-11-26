@@ -25,3 +25,8 @@ Taking existing vanilla structures and changing them up for extra variety!
     modId="forge"
     mandatory=true
     versionRange="[36.0.25,)"
+
+[[dependencies.repurposed_structures]]
+    modId="waystones"
+    mandatory=false
+    versionRange="[7.5.0,)"
