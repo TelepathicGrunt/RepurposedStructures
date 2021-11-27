@@ -1,6 +1,9 @@
 package com.telepathicgrunt.repurposedstructures;
 
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableMultimap;
 import com.telepathicgrunt.repurposedstructures.biomeinjection.Dungeons;
+import com.telepathicgrunt.repurposedstructures.biomeinjection.TemporaryBiomeInjection;
 import com.telepathicgrunt.repurposedstructures.biomeinjection.Wells;
 import com.telepathicgrunt.repurposedstructures.configs.RSAllConfig;
 import com.telepathicgrunt.repurposedstructures.configs.RSAllowDisallowOmegaConfig;
@@ -31,12 +34,16 @@ import net.fabricmc.fabric.api.event.Event;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerWorldEvents;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.FlatLevelSource;
+import net.minecraft.world.level.levelgen.StructureSettings;
+import net.minecraft.world.level.levelgen.feature.ConfiguredStructureFeature;
 import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.StructureFeatureConfiguration;
 import org.apache.logging.log4j.LogManager;
@@ -102,9 +109,29 @@ public class RepurposedStructures implements ModInitializer, DedicatedServerModI
 
         // Controls the dimension blacklisting
         ServerWorldEvents.LOAD.register(runAfterFabricAPIPhase, (MinecraftServer minecraftServer, ServerLevel serverWorld) -> {
+            // We will need this a lot lol
+            StructureSettings worldStructureSettings = serverWorld.getChunkSource().getGenerator().getSettings();
+
+            //////////// BIOME BASED STRUCTURE SPAWNING ////////////
+            /*
+             * NOTE: BiomeModifications from Fabric API does not work in 1.18 currently.
+             * Instead, we will use the below to add our structure to overworld biomes.
+             * Remember, this is temporary until Fabric API finds a better solution for adding structures to biomes.
+             */
+
+            // Grab the map that holds what ConfigureStructures a structure has and what biomes it can spawn in.
+            // We will inject our structures into that map/multimap
+            ImmutableMap.Builder<StructureFeature<?>, ImmutableMultimap<ConfiguredStructureFeature<?, ?>, ResourceKey<Biome>>> tempStructureToMultiMap = ImmutableMap.builder();
+            ((StructuresConfigAccessor) worldStructureSettings).getConfiguredStructures().entrySet().forEach(tempStructureToMultiMap::put);
+            TemporaryBiomeInjection.addStructureToBiomes(tempStructureToMultiMap);
+            ((StructuresConfigAccessor) worldStructureSettings).setConfiguredStructures(tempStructureToMultiMap.build());
+
+
+            //////////// DIMENSION BASED STRUCTURE SPAWNING ////////////
+
             //add our structure spacing to all chunkgenerators including modded one and datapack ones.
             // Need temp map as some mods use custom chunk generators with immutable maps in themselves.
-            Map<StructureFeature<?>, StructureFeatureConfiguration> tempMap = new HashMap<>(serverWorld.getChunkSource().getGenerator().getSettings().structureConfig());
+            Map<StructureFeature<?>, StructureFeatureConfiguration> tempMap = new HashMap<>(worldStructureSettings.structureConfig());
 
             // make absolutely sure superflat dimension cannot spawn RS structures
             if (serverWorld.getChunkSource().getGenerator() instanceof FlatLevelSource && serverWorld.dimension().equals(Level.OVERWORLD)) {
@@ -124,7 +151,7 @@ public class RepurposedStructures implements ModInitializer, DedicatedServerModI
                     }
                 }
             }
-            ((StructuresConfigAccessor) serverWorld.getChunkSource().getGenerator().getSettings()).repurposedstructures_setStructureConfig(tempMap);
+            ((StructuresConfigAccessor) worldStructureSettings).repurposedstructures_setStructureConfig(tempMap);
         });
     }
 

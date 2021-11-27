@@ -1,3 +1,9 @@
+### **(V.3.0.1 Changes) (1.18-rc3 Minecraft)**
+
+#### Misc:
+Cleaned up code for injecting structures into biomes. Will pave the way for bringing back mod compat with modded biomes.
+
+
 ### **(V.3.0.0 Changes) (1.18-pre7 Minecraft)**
 
 #### Major:

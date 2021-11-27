@@ -37,10 +37,10 @@
 
   "accessWidener" : "repurposed_structures.accesswidener",
   "depends": {
-    "fabricloader": ">=0.11.0",
-    "minecraft": ">=1.17.0",
-    "fabric": ">=0.42.0",
-    "cloth-config2": ">=5.0.0"
+    "fabricloader": ">=0.12.0",
+    "minecraft": "~1.18-rc.1",
+    "fabric": ">=0.43.1",
+    "cloth-config2": ">=6.0.42"
   },
   "recommends": {
     "no_null_processors": ">=1.0.0"

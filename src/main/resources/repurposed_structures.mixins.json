@@ -24,7 +24,6 @@
     "structures.ListPoolElementAccessor",
     "structures.LocateCommandMixin",
     "structures.SinglePoolElementAccessor",
-    "structures.StructureFeaturesMixin",
     "structures.StructureManagerAccessor",
     "structures.StructureMobSpawningMixin",
     "structures.StructurePoolAccessor",
