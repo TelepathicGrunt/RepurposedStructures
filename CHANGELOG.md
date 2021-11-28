@@ -7,6 +7,8 @@ rs_pieces_spawn_counts folder is now added that lets you control what pieces in 
 
 rs_pieces_spawn_counts_additions folder is created to make it easier for me to create RS datapacks with new pieces and have them not spawn excessively.
 
+Improved error message a tad when a required structure piece fails to generate.
+
 
 ### **(V.3.0.2 Changes) (1.18-rc3 Minecraft)**
 

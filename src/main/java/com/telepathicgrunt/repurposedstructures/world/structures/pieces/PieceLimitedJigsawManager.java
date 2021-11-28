@@ -49,6 +49,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.Random;
 import java.util.function.BiConsumer;
+import java.util.stream.Collectors;
 
 /**
  * Special thanks to YUNGNICKYOUNG for allowing me to use his piece count limiting jigsaw manager!
@@ -121,13 +122,14 @@ public class PieceLimitedJigsawManager {
             components.add(startPiece);
             Map<ResourceLocation, StructurePieceCountsManager.RequiredPieceNeeds> requiredPieces = RepurposedStructures.structurePieceCountsManager.getRequirePieces(structureID);
             boolean runOnce = requiredPieces == null;
-            for (int attempts = 0; runOnce || doesNotHaveAllRequiredPieces(components, requiredPieces); attempts++) {
+            Map<ResourceLocation, Integer> currentPieceCounter = new HashMap<>();
+            for (int attempts = 0; runOnce || doesNotHaveAllRequiredPieces(components, requiredPieces, currentPieceCounter); attempts++) {
                 if (attempts == 100) {
                     RepurposedStructures.LOGGER.error(
                             """
                                             
                                     -------------------------------------------------------------------
-                                    Repurposed Structures: Failed to create valid structure with all required pieces starting from this pool file: {}. Required pieces are: {}
+                                    Repurposed Structures: Failed to create valid structure with all required pieces starting from this pool file: {}. Required pieces failed to generate the required amount are: {}
                                       Make sure this structure's size in the config (if it has one) is not set too low.
                                       Also make sure the max height and min height for this structure in the config (if it has one) is not too close together.
                                       If min and max height is super close together, the structure's pieces may not be able to fit in the narrow range and spawn.
@@ -135,7 +137,7 @@ public class PieceLimitedJigsawManager {
                                       please report the issue to Repurposed Structures's dev with latest.log file!
                                             
                                     """,
-                            startPool.getName(), Arrays.toString(requiredPieces.keySet().toArray()));
+                            startPool.getName(), Arrays.toString(currentPieceCounter.entrySet().stream().filter(entry -> entry.getValue() > 0).toArray()));
                     break;
                 }
 
@@ -165,8 +167,8 @@ public class PieceLimitedJigsawManager {
         });
     }
 
-    private static boolean doesNotHaveAllRequiredPieces(List<? extends StructurePiece> components, Map<ResourceLocation, StructurePieceCountsManager.RequiredPieceNeeds> requiredPieces){
-        Map<ResourceLocation, Integer> counter = new HashMap<>();
+    private static boolean doesNotHaveAllRequiredPieces(List<? extends StructurePiece> components, Map<ResourceLocation, StructurePieceCountsManager.RequiredPieceNeeds> requiredPieces, Map<ResourceLocation, Integer> counter){
+        counter.clear();
         requiredPieces.forEach((key, value) -> counter.put(key, value.getRequiredAmount()));
         for(Object piece : components){
             if(piece instanceof PoolElementStructurePiece){
