@@ -8,7 +8,7 @@ curseforge {
     project {
         apiKey = "$System.env.CURSEFORGEKEY"
         id = "391366"
-        releaseType = "alpha"
+        releaseType = "beta"
         changelogType = 'markdown'
         changelog = fileContents
         addGameVersion("1.18-Snapshot")
