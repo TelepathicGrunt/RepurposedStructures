@@ -1,3 +1,9 @@
+### **(V.3.0.2 Changes) (1.18-rc3 Minecraft)**
+
+#### Major:
+Now works with modded biomes and the biome allow/disallow configs now works again. Enjoy!
+
+
 ### **(V.3.0.1 Changes) (1.18-rc3 Minecraft)**
 
 #### Misc:

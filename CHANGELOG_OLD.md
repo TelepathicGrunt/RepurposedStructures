@@ -1573,7 +1573,7 @@ Will now print out to the logs if a merging pool has a typo in its nbt file entr
 
 * Added config option to blacklist all Repurposed Structures's structures from
   any dimension(s) you specify. Finally figured out how to do it safely!
-  Config is in the Main config category.
+  Config is in the Main config Biome.BiomeCategory.
 
 ##### Major:
 

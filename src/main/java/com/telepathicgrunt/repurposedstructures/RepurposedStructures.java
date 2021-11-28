@@ -1,9 +1,11 @@
 package com.telepathicgrunt.repurposedstructures;
 
+import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.Multimap;
 import com.telepathicgrunt.repurposedstructures.biomeinjection.Dungeons;
-import com.telepathicgrunt.repurposedstructures.biomeinjection.TemporaryBiomeInjection;
+import com.telepathicgrunt.repurposedstructures.biomeinjection.temp.TemporaryBiomeInjection;
 import com.telepathicgrunt.repurposedstructures.biomeinjection.Wells;
 import com.telepathicgrunt.repurposedstructures.configs.RSAllConfig;
 import com.telepathicgrunt.repurposedstructures.configs.RSAllowDisallowOmegaConfig;
@@ -121,10 +123,20 @@ public class RepurposedStructures implements ModInitializer, DedicatedServerModI
 
             // Grab the map that holds what ConfigureStructures a structure has and what biomes it can spawn in.
             // We will inject our structures into that map/multimap
-            ImmutableMap.Builder<StructureFeature<?>, ImmutableMultimap<ConfiguredStructureFeature<?, ?>, ResourceKey<Biome>>> tempStructureToMultiMap = ImmutableMap.builder();
-            ((StructuresConfigAccessor) worldStructureSettings).getConfiguredStructures().entrySet().forEach(tempStructureToMultiMap::put);
-            TemporaryBiomeInjection.addStructureToBiomes(tempStructureToMultiMap);
-            ((StructuresConfigAccessor) worldStructureSettings).setConfiguredStructures(tempStructureToMultiMap.build());
+            Map<StructureFeature<?>, Multimap<ConfiguredStructureFeature<?, ?>, ResourceKey<Biome>>> tempStructureToMultiMap = new HashMap<>();
+            ((StructuresConfigAccessor) worldStructureSettings).getConfiguredStructures().forEach((key, value) -> tempStructureToMultiMap.put(key, HashMultimap.create(value)));
+            TemporaryBiomeInjection.addStructureToBiomes(tempStructureToMultiMap, minecraftServer.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY));
+
+            // Turn the entire map and the inner multimaps to immutable to match the source code's require type
+            ImmutableMap.Builder<StructureFeature<?>, ImmutableMultimap<ConfiguredStructureFeature<?, ?>, ResourceKey<Biome>>> immutableOuterMap = ImmutableMap.builder();
+            tempStructureToMultiMap.forEach((key, value) -> {
+                ImmutableMultimap.Builder<ConfiguredStructureFeature<?, ?>, ResourceKey<Biome>> immutableInnerMultiMap = ImmutableMultimap.builder();
+                immutableInnerMultiMap.putAll(value);
+                immutableOuterMap.put(key, immutableInnerMultiMap.build());
+            });
+
+            // Set it in the field.
+            ((StructuresConfigAccessor) worldStructureSettings).setConfiguredStructures(immutableOuterMap.build());
 
 
             //////////// DIMENSION BASED STRUCTURE SPAWNING ////////////
