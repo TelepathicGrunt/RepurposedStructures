@@ -9,6 +9,9 @@ rs_pieces_spawn_counts_additions folder is created to make it easier for me to c
 
 Improved error message a tad when a required structure piece fails to generate.
 
+#### Dungeons:
+Fixed dungeons spawners not being randomized properly.
+
 #### Fortresses:
 Jungle Fortress mushroom stairs room has slightly reduced amount of mushrooms.
 

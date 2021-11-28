@@ -65,12 +65,19 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
                     spawnDataTag = new CompoundTag();
                     nbt.put("SpawnData", spawnDataTag);
                 }
-                spawnDataTag.putString("id", Registry.ENTITY_TYPE.getKey(entity).toString());
+                CompoundTag entityTag = nbt.getCompound("entity");
+                if(entityTag.isEmpty()) {
+                    entityTag = new CompoundTag();
+                    spawnDataTag.put("entity", entityTag);
+                }
+                entityTag.putString("id", Registry.ENTITY_TYPE.getKey(entity).toString());
 
                 CompoundTag spawnEntityDataTag = new CompoundTag();
                 spawnEntityDataTag.putString("id", Registry.ENTITY_TYPE.getKey(entity).toString());
+                CompoundTag spawnPotentialDataEntryTag = new CompoundTag();
+                spawnPotentialDataEntryTag.put("entity", spawnEntityDataTag);
                 CompoundTag spawnPotentialEntryTag = new CompoundTag();
-                spawnPotentialEntryTag.put("entity", spawnEntityDataTag);
+                spawnPotentialEntryTag.put("data", spawnPotentialDataEntryTag);
                 spawnPotentialEntryTag.put("weight", IntTag.valueOf(1));
                 nbt.put("SpawnPotentials", new ListTag());
                 return nbt;
@@ -85,15 +92,19 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
                 compound.putShort("RequiredPlayerRange", (short) 16);
                 compound.putShort("SpawnRange", (short) 4);
 
+                CompoundTag spawnDataEntity = new CompoundTag();
+                spawnDataEntity.putString("id", Registry.ENTITY_TYPE.getKey(entity).toString());
                 CompoundTag spawnData = new CompoundTag();
-                spawnData.putString("id", Registry.ENTITY_TYPE.getKey(entity).toString());
+                spawnData.put("entity", spawnDataEntity);
                 compound.put("SpawnData", spawnData);
 
                 CompoundTag entityData = new CompoundTag();
                 entityData.putString("id", Registry.ENTITY_TYPE.getKey(entity).toString());
 
+                CompoundTag spawnPotentialData = new CompoundTag();
+                spawnPotentialData.put("entity", entityData);
                 CompoundTag listEntry = new CompoundTag();
-                listEntry.put("entity", entityData);
+                listEntry.put("data", spawnPotentialData);
                 listEntry.putInt("weight", 1);
                 compound.put("SpawnPotentials", new ListTag());
 
